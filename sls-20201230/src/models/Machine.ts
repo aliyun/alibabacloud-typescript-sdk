@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class Machine extends $dara.Model {
   /**
-   * @remarks
-   * The host ID of the machine.
-   * 
    * @example
    * test
    */
@@ -32,7 +29,7 @@ export class Machine extends $dara.Model {
    * The unique identifier of the machine.
    * 
    * @example
-   * 3B70F4F1-80F7-46C4-A6C1-100****EE647
+   * 3B70F4F1-80F7-46C4-A6C1-100***CEE647
    */
   machineUniqueid?: string;
   /**

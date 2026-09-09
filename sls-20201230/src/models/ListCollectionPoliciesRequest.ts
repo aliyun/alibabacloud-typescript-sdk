@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCollectionPoliciesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The destination project for centralized data shipping. Specify this parameter to query the number of rules that are configured to ship data to this project.
-   * 
-   * @example
-   * your-central-project1
-   */
   centralProject?: string;
   /**
    * @remarks
@@ -27,13 +20,6 @@ export class ListCollectionPoliciesRequest extends $dara.Model {
    * your-test-bucket1
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The row from which the query starts. Default value: 0.
-   * 
-   * @example
-   * 0
-   */
   offset?: number;
   /**
    * @remarks
@@ -51,13 +37,6 @@ export class ListCollectionPoliciesRequest extends $dara.Model {
    * oss
    */
   productCode?: string;
-  /**
-   * @remarks
-   * The number of collection rules to return on each page. Default value: 50. Maximum value: 100.
-   * 
-   * @example
-   * 50
-   */
   size?: number;
   static names(): { [key: string]: string } {
     return {

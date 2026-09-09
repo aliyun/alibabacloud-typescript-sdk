@@ -29,7 +29,7 @@ export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The file prefix used when downloading logs to the user\\"s bucket.
+   * The file prefix used when downloading logs to the user\\"s OSS bucket.
    * 
    * @example
    * download/
@@ -109,7 +109,7 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * Specifies whether to enable PowerSQL.
+   * Indicates whether PowerSQL is enabled.
    * 
    * @example
    * false

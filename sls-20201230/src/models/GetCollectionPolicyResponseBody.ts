@@ -63,21 +63,7 @@ export class GetCollectionPolicyResponseBodyCollectionPolicyCentralizeConfig ext
 }
 
 export class GetCollectionPolicyResponseBodyCollectionPolicyDataConfig extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is valid only for global log types, such as when \\`productCode\\` is \\`sls\\`. If this parameter is left empty, logs are collected to the default project of the account in the specified \\`dataRegion\\`.
-   * 
-   * @example
-   * ""
-   */
   dataProject?: string;
-  /**
-   * @remarks
-   * This parameter is supported only for global log types, such as when \\`productCode\\` is \\`sls\\`. This parameter specifies the region to which global logs are collected during the initial configuration.
-   * 
-   * @example
-   * cn-beijing
-   */
   dataRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -166,18 +152,7 @@ export class GetCollectionPolicyResponseBodyCollectionPolicyPolicyConfig extends
 }
 
 export class GetCollectionPolicyResponseBodyCollectionPolicyResourceDirectory extends $dara.Model {
-  /**
-   * @remarks
-   * The mode for selecting accounts in the resource directory. Valid values: \\`all\\` and \\`custom\\`.
-   * 
-   * @example
-   * all,custom
-   */
   accountGroupType?: string;
-  /**
-   * @remarks
-   * The member accounts. This parameter is returned only when \\`accountGroupType\\` is set to \\`custom\\`.
-   */
   members?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -227,10 +202,6 @@ export class GetCollectionPolicyResponseBodyCollectionPolicy extends $dara.Model
    * access_log
    */
   dataCode?: string;
-  /**
-   * @remarks
-   * The configuration that is supported only for global log types, such as when \\`productCode\\` is \\`sls\\`. Otherwise, this parameter is empty.
-   */
   dataConfig?: GetCollectionPolicyResponseBodyCollectionPolicyDataConfig;
   /**
    * @remarks
@@ -240,13 +211,6 @@ export class GetCollectionPolicyResponseBodyCollectionPolicy extends $dara.Model
    * true
    */
   enabled?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the rule is a built-in rule. Built-in rules cannot be modified or deleted.
-   * 
-   * @example
-   * false
-   */
   internalPolicy?: boolean;
   /**
    * @remarks
@@ -261,13 +225,6 @@ export class GetCollectionPolicyResponseBodyCollectionPolicy extends $dara.Model
    * your_log_policy
    */
   policyName?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the rule belongs. If the rule is created by a resource directory administrator or a delegated administrator, this parameter specifies the ID of the administrator\\"s Alibaba Cloud account.
-   * 
-   * @example
-   * 148***********50
-   */
   policyUid?: string;
   /**
    * @remarks
@@ -277,10 +234,6 @@ export class GetCollectionPolicyResponseBodyCollectionPolicy extends $dara.Model
    * oss
    */
   productCode?: string;
-  /**
-   * @remarks
-   * The configuration of the resource directory. This parameter is empty if no configuration is specified.
-   */
   resourceDirectory?: GetCollectionPolicyResponseBodyCollectionPolicyResourceDirectory;
   static names(): { [key: string]: string } {
     return {

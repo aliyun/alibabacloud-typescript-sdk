@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ScheduledSQLConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The data format. Valid values: log2log, log2metric, and metric2metric.
+   * The write mode. Three configurations are supported: log2log, log2metric, and metric2metric.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   dataFormat?: string;
   /**
    * @remarks
-   * The endpoint.
+   * The destination endpoint.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   destEndpoint?: string;
   /**
    * @remarks
-   * The destination Logstore.
+   * The destination logstore.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   destProject?: string;
   /**
    * @remarks
-   * The ARN of the RAM role that is assumed to write data to the destination Logstore.
+   * The ARN of the role used to write data to the destination.
    * 
    * This parameter is required.
    * 
@@ -54,13 +54,16 @@ export class ScheduledSQLConfiguration extends $dara.Model {
    */
   destRoleArn?: string;
   /**
+   * @remarks
+   * Specifies whether to ensure accurate computation results.
+   * 
    * @example
    * true
    */
   forceComplete?: boolean;
   /**
    * @remarks
-   * The start time. For more information, see [Process and store data from a Logstore to a Metricstore](https://help.aliyun.com/document_detail/286459.html).
+   * The start time. For more information, see [From Logstore to MetricStore](https://help.aliyun.com/document_detail/286459.html).
    * 
    * This parameter is required.
    * 
@@ -70,7 +73,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The start time of the SQL time window.
+   * The start of the SQL time window.
    * 
    * This parameter is required.
    * 
@@ -79,13 +82,16 @@ export class ScheduledSQLConfiguration extends $dara.Model {
    */
   fromTimeExpr?: string;
   /**
+   * @remarks
+   * The concurrency.
+   * 
    * @example
    * 1
    */
   maxConcurrency?: number;
   /**
    * @remarks
-   * The maximum number of SQL timeouts allowed. Valid values: 1 to 100.
+   * The maximum number of retries upon SQL timeout. Valid values: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -95,7 +101,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   maxRetries?: number;
   /**
    * @remarks
-   * The maximum timeout period of SQL analysis. Unit: seconds. Valid values: 60 to 1800.
+   * The maximum timeout period for SQL execution. Unit: seconds. Valid values: 60 to 1800.
    * 
    * This parameter is required.
    * 
@@ -105,7 +111,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   maxRunTimeInSeconds?: number;
   /**
    * @remarks
-   * The SQL configurations. For more information, see [Process and store data from a Logstore to a Metricstore](https://help.aliyun.com/document_detail/286459.html).
+   * The SQL configuration. For more information, see [From Logstore to MetricStore](https://help.aliyun.com/document_detail/286459.html).
    * 
    * This parameter is required.
    * 
@@ -122,7 +128,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The type of the resource pool. The value enhanced specifies an enhanced resource pool.
+   * The resource pool type. A value of enhanced indicates the enhanced resource pool.
    * 
    * This parameter is required.
    * 
@@ -132,7 +138,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   resourcePool?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that is assigned to the Scheduled SQL job.
+   * The Alibaba Cloud Resource Name (ARN) of the role used to execute the SQL statement.
    * 
    * This parameter is required.
    * 
@@ -142,7 +148,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The query statement of the Scheduled SQL job.
+   * The analytic statement of the scheduled query.
    * 
    * This parameter is required.
    * 
@@ -152,7 +158,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   script?: string;
   /**
    * @remarks
-   * The source Logstore.
+   * The source logstore.
    * 
    * This parameter is required.
    * 
@@ -162,7 +168,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   sourceLogstore?: string;
   /**
    * @remarks
-   * The type of the query statement.
+   * The SQL type.
    * 
    * This parameter is required.
    * 
@@ -172,7 +178,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
-   * The end time. For more information, see [Process and store data from a Logstore to a Metricstore](https://help.aliyun.com/document_detail/286459.html).
+   * The end time. For more information, see [From Logstore to MetricStore](https://help.aliyun.com/document_detail/286459.html).
    * 
    * This parameter is required.
    * 
@@ -182,7 +188,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   toTime?: number;
   /**
    * @remarks
-   * The end time of the SQL time window.
+   * The end of the SQL time window.
    * 
    * This parameter is required.
    * 
@@ -190,6 +196,11 @@ export class ScheduledSQLConfiguration extends $dara.Model {
    * @m
    */
   toTimeExpr?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the Exactly-Once write protocol.
+   */
+  usingExactlyOnce?: boolean;
   static names(): { [key: string]: string } {
     return {
       dataFormat: 'dataFormat',
@@ -211,6 +222,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
       sqlType: 'sqlType',
       toTime: 'toTime',
       toTimeExpr: 'toTimeExpr',
+      usingExactlyOnce: 'usingExactlyOnce',
     };
   }
 
@@ -235,6 +247,7 @@ export class ScheduledSQLConfiguration extends $dara.Model {
       sqlType: 'string',
       toTime: 'number',
       toTimeExpr: 'string',
+      usingExactlyOnce: 'boolean',
     };
   }
 

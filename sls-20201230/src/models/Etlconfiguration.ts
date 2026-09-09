@@ -29,9 +29,6 @@ export class ETLConfiguration extends $dara.Model {
    */
   fromTime?: number;
   /**
-   * @remarks
-   * The language of the data transformation script.
-   * 
    * @example
    * SPL
    */
@@ -51,7 +48,7 @@ export class ETLConfiguration extends $dara.Model {
    * Advanced parameters.
    * 
    * @example
-   * config.vpc.vpc_id.test1：vpc-uf6mskb0b****n9yj
+   * config.vpc.vpc_id.test1:vpc-uf6mskb0b****n9yj
    */
   parameters?: { [key: string]: any };
   /**
@@ -71,7 +68,7 @@ export class ETLConfiguration extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * * | extend key=\\"value\\"
+   * e_set("key","value")
    */
   script?: string;
   /**

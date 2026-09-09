@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListETLsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The Logstore name.
-   * 
-   * @example
-   * ali-test-logstore
-   */
   logstore?: string;
   /**
    * @remarks

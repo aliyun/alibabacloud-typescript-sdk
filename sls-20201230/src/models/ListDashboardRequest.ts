@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDashboardRequestTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,21 +29,7 @@ export class ListDashboardRequestTags extends $dara.Model {
 }
 
 export class ListDashboardRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The dashboard name.
-   * 
-   * @example
-   * dashboard-1609294922657-434834
-   */
   dashboardName?: string;
-  /**
-   * @remarks
-   * The display name.
-   * 
-   * @example
-   * test
-   */
   displayName?: string;
   /**
    * @remarks
@@ -75,10 +47,6 @@ export class ListDashboardRequest extends $dara.Model {
    * 10
    */
   size?: number;
-  /**
-   * @remarks
-   * The tag information.
-   */
   tags?: ListDashboardRequestTags[];
   static names(): { [key: string]: string } {
     return {

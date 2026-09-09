@@ -10,7 +10,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * my-bucket
+   * test-bucket
    */
   bucket?: string;
   /**
@@ -34,7 +34,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
    * The compression type for the exported files. Valid values: `snappy`, `gzip`, `zstd`, and `none` (no compression).
    * 
    * @example
-   * snappy
+   * snappy/gizp/zstd/none
    */
   compressionType?: string;
   /**
@@ -47,7 +47,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
    * The format of the files stored in OSS. Valid values: `json`, `parquet`, `csv`, and `orc`.
    * 
    * @example
-   * csv
+   * json/parquet/csv/orc
    */
   contentType?: string;
   /**
@@ -79,7 +79,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * https://oss-cn-hangzhou-internal.aliyuncs.com
+   * http://xxxxxxxx
    */
   endpoint?: string;
   /**
@@ -89,7 +89,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * %Y/%m/%d/%H/%M
+   * %Y_%m_%d/good/bad
    */
   pathFormat?: string;
   /**
@@ -99,7 +99,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * time
+   * only support time
    */
   pathFormatType?: string;
   /**
@@ -107,7 +107,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
    * The prefix for files exported to the OSS bucket.
    * 
    * @example
-   * prefix-demo/
+   * prefixxxx/
    */
   prefix?: string;
   /**
@@ -117,7 +117,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * acs:ram::1234567890:role/aliyunlogdefaultrole
+   * acs:ram::xxxxxxx
    */
   roleArn?: string;
   /**
@@ -194,7 +194,7 @@ export class OSSExportConfiguration extends $dara.Model {
    * The start time for the export, specified as a Unix timestamp. Set to 1 to export from the earliest available data in the Logstore.
    * 
    * @example
-   * 1718380800
+   * 123456789
    */
   fromTime?: number;
   /**
@@ -202,7 +202,7 @@ export class OSSExportConfiguration extends $dara.Model {
    * The name of the source Logstore.
    * 
    * @example
-   * my-logstore
+   * logstore-demo
    */
   logstore?: string;
   /**
@@ -210,7 +210,7 @@ export class OSSExportConfiguration extends $dara.Model {
    * The ARN of the Resource Access Management (RAM) role that Log Service assumes to read data from the Logstore. You must specify the ARN of your role.
    * 
    * @example
-   * acs:ram::1234567890:role/aliyunlogdefaultrole
+   * acs:ram::123456789:role/aliyunlogdefaultrole
    */
   roleArn?: string;
   /**
@@ -224,7 +224,7 @@ export class OSSExportConfiguration extends $dara.Model {
    * The end time for the export, specified as a Unix timestamp. Set to 0 to run the task continuously until it is stopped.
    * 
    * @example
-   * 1718380800
+   * 123456789
    */
   toTime?: number;
   static names(): { [key: string]: string } {

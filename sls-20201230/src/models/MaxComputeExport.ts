@@ -56,9 +56,6 @@ export class MaxComputeExport extends $dara.Model {
    */
   name?: string;
   /**
-   * @remarks
-   * The ID of the MaxCompute data shipping job.
-   * 
    * @example
    * c7f01719d9feb105fc9d8df92af62010
    */

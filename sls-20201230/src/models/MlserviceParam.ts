@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MLServiceParamModel extends $dara.Model {
   /**
+   * @remarks
+   * The model resource ID.
+   * 
    * @example
    * xxxx
    */
   modelResourceId?: string;
   /**
+   * @remarks
+   * The model resource type.
+   * 
    * @example
    * xxx_type
    */
@@ -38,21 +44,33 @@ export class MLServiceParamModel extends $dara.Model {
 
 export class MLServiceParamResource extends $dara.Model {
   /**
+   * @remarks
+   * The maximum CPU resource limit.
+   * 
    * @example
    * 2
    */
   cpuLimit?: number;
   /**
+   * @remarks
+   * The required GPU memory size.
+   * 
    * @example
    * 20
    */
   gpu?: number;
   /**
+   * @remarks
+   * The maximum memory resources limit.
+   * 
    * @example
    * 64
    */
   memoryLimit?: number;
   /**
+   * @remarks
+   * The number of microservice replicas.
+   * 
    * @example
    * 2
    */
@@ -86,28 +104,51 @@ export class MLServiceParamResource extends $dara.Model {
 
 export class MLServiceParam extends $dara.Model {
   /**
+   * @remarks
+   * The microservice description.
+   * 
    * @example
-   * 某某服务
+   * SampleService
    */
   description?: string;
+  /**
+   * @remarks
+   * The model configuration that the microservice depends on.
+   */
   model?: MLServiceParamModel;
   /**
+   * @remarks
+   * The microservice name.
+   * 
    * @example
    * service_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The microservice EPS resource configuration.
+   */
   resource?: MLServiceParamResource;
   /**
+   * @remarks
+   * The microservice type.
+   * 
    * @example
    * sls_builtin
    */
   serviceType?: string;
   /**
+   * @remarks
+   * The microservice status.
+   * 
    * @example
    * running
    */
   status?: string;
   /**
+   * @remarks
+   * The microservice update time.
+   * 
    * @example
    * 1695090077
    */

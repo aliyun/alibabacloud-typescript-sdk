@@ -17,10 +17,6 @@ export class ETLConfigurationSink extends $dara.Model {
    * @deprecated
    */
   accessKeySecret?: string;
-  /**
-   * @remarks
-   * The datasets to write to the sink.
-   */
   datasets?: string[];
   /**
    * @remarks

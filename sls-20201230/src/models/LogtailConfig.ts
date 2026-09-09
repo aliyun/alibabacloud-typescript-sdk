@@ -32,9 +32,6 @@ export class LogtailConfigOutputDetail extends $dara.Model {
    */
   region?: string;
   /**
-   * @remarks
-   * The type of observable data in the Logstore.
-   * 
    * @example
    * logs
    */

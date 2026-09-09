@@ -19,13 +19,6 @@ export class GetMLServiceResultsRequest extends $dara.Model {
    * The request struct.
    */
   body?: MLServiceAnalysisParam;
-  /**
-   * @remarks
-   * The version number of the algorithm. Different versions correspond to different algorithms.
-   * 
-   * @example
-   * v1
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {

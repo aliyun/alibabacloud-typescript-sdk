@@ -39,7 +39,7 @@ export class AlertConfiguration extends $dara.Model {
    * The ID of the dashboard to which the alert is attached.
    * 
    * @example
-   * DasnboardExample
+   * dasnboardExample
    */
   dashboard?: string;
   /**

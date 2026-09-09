@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAgentInstanceConfigsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the process-level configuration.
+   * 
    * @example
    * apm_trace
    */
   configType?: string;
   /**
+   * @remarks
+   * The start row of the query. Default value: 0.
+   * 
    * @example
    * 0
    */
   offset?: number;
   /**
+   * @remarks
+   * The number of entries to return. Default value: 500.
+   * 
    * @example
    * 100
    */

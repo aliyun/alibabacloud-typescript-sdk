@@ -55,7 +55,7 @@ export class MachineGroup extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * machineGroup-test
+   * machineGroup-1
    */
   groupName?: string;
   /**

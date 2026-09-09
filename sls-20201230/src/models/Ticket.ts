@@ -4,61 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class Ticket extends $dara.Model {
   /**
+   * @remarks
+   * The UID of the caller when the ticket was created.
+   * 
    * @example
    * 1000000000
    */
   callerUid?: number;
   /**
+   * @remarks
+   * The time when the ticket was created.
+   * 
    * @example
    * 2023-09-06 14:57:07
    */
   createDate?: string;
   /**
+   * @remarks
+   * The expiration time of the ticket, in seconds.
+   * 
    * @example
    * 100
    */
   expirationTime?: number;
   /**
+   * @remarks
+   * The expiration time of the ticket.
+   * 
    * @example
    * 2023-09-06 14:58:07
    */
   expireDate?: string;
   /**
+   * @remarks
+   * The extension field.
+   * 
    * @example
    * {"xx":"yy"}
    */
   extra?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
-   * 测试
+   * Test
    */
   name?: string;
   /**
+   * @remarks
+   * The maximum number of times the ticket can be used.
+   * 
    * @example
    * 1
    */
   number?: number;
   /**
+   * @remarks
+   * The target to which the ticket is shared.
+   * 
    * @example
    * {"type":"aliyun","ids":[1,2]}
    */
   sharingTo?: string;
   /**
+   * @remarks
+   * ticket
+   * 
    * @example
    * xxxxx
    */
   ticket?: string;
   /**
+   * @remarks
+   * The unique ID of the ticket.
+   * 
    * @example
    * xxxxx
    */
   ticketId?: string;
   /**
+   * @remarks
+   * The number of times the ticket has been used.
+   * 
    * @example
    * 1
    */
   usedNumber?: number;
   /**
+   * @remarks
+   * Indicates whether the ticket is disabled.
+   * 
    * @example
    * false
    */

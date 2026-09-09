@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMaterializedViewHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The content type of the response. Simple Log Service supports application/json and application/x-protobuf response types.
+   * 
+   * @example
+   * application/json
+   */
   contentType?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,12 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class MaxComputeExportConfigurationSink extends $dara.Model {
   /**
-   * @remarks
-   * Specifies the minimum time granularity between two data shipping jobs. Unit: seconds. Valid values:
-   * 
-   * *   1800 (default)
-   * *   3600
-   * 
    * @example
    * 1800
    */
@@ -22,12 +16,6 @@ export class MaxComputeExportConfigurationSink extends $dara.Model {
    */
   fields?: string[];
   /**
-   * @remarks
-   * Specifies whether to filter the invalid content.
-   * 
-   * *   true (default)
-   * *   false
-   * 
    * @example
    * true
    */
@@ -122,12 +110,6 @@ export class MaxComputeExportConfigurationSink extends $dara.Model {
    */
   partitionTimeFormat?: string;
   /**
-   * @remarks
-   * The time partition type. Valid values:
-   * 
-   * *   StrfTimeFormat (default)
-   * *   JavaSimpleDateFormat
-   * 
    * @example
    * StrfTimeFormat
    */

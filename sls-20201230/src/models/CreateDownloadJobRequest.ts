@@ -33,7 +33,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The path prefix for downloading data to the user\\"s OSS bucket.
+   * The path prefix in the OSS bucket to which data is downloaded.
    * 
    * @example
    * download/
@@ -41,7 +41,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The ARN of the RAM role used for the download.
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role used for the download.
    * 
    * @example
    * acs:ram::0123456789:role/aliyunlogdefaultrole
@@ -91,7 +91,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
 export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow downloading imprecise results. Valid values: true, false.
+   * Specifies whether to allow downloading inexact results. Valid values: true, false.
    * 
    * This parameter is required.
    * 
@@ -218,7 +218,7 @@ export class CreateDownloadJobRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The job name. The naming rules are as follows:
+   * The job name. The following naming rules apply:
    * 
    * Job names must be unique within the same project.
    * * The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).

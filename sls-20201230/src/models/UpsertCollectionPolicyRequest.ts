@@ -63,13 +63,6 @@ export class UpsertCollectionPolicyRequestCentralizeConfig extends $dara.Model {
 }
 
 export class UpsertCollectionPolicyRequestDataConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The region for storing the global logs that are collected for the first time.
-   * 
-   * @example
-   * cn-beijing
-   */
   dataRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,18 +151,7 @@ export class UpsertCollectionPolicyRequestPolicyConfig extends $dara.Model {
 }
 
 export class UpsertCollectionPolicyRequestResourceDirectory extends $dara.Model {
-  /**
-   * @remarks
-   * The mode of the resource directory. Valid values: all and custom.
-   * 
-   * @example
-   * all,custom
-   */
   accountGroupType?: string;
-  /**
-   * @remarks
-   * The members. If accountGroupType is set to custom, the members are returned.
-   */
   members?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -221,10 +203,6 @@ export class UpsertCollectionPolicyRequest extends $dara.Model {
    * access_log
    */
   dataCode?: string;
-  /**
-   * @remarks
-   * The data configurations. The configuration is returned only for global logs. For example, if productCode is set to sls, the configuration is returned.
-   */
   dataConfig?: UpsertCollectionPolicyRequestDataConfig;
   /**
    * @remarks
@@ -269,10 +247,6 @@ export class UpsertCollectionPolicyRequest extends $dara.Model {
    * oss
    */
   productCode?: string;
-  /**
-   * @remarks
-   * The configurations of the resource directory. The account must have activated the resource directory and be a management account or a delegated administrator of the resource directory.
-   */
   resourceDirectory?: UpsertCollectionPolicyRequestResourceDirectory;
   static names(): { [key: string]: string } {
     return {

@@ -21,7 +21,7 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * none
+   * none,snappy,gzip
    */
   compressionCodec?: string;
   /**

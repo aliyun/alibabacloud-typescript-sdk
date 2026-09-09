@@ -6,14 +6,14 @@ import { ConsumeProcessorConfiguration } from "./ConsumeProcessorConfiguration";
 export class ConsumeProcessor extends $dara.Model {
   /**
    * @remarks
-   * Processor配置
+   * The Processor configuration.
    * 
    * This parameter is required.
    */
   configuration?: ConsumeProcessorConfiguration;
   /**
    * @remarks
-   * 创建时间
+   * The creation time.
    * 
    * @example
    * 1717171200
@@ -21,20 +21,20 @@ export class ConsumeProcessor extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Processor描述
+   * The Processor description.
    * 
    * @example
-   * 过滤content字段
+   * Filter the content field
    */
   description?: string;
   /**
    * @remarks
-   * Processor名称
+   * The Processor name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 字段过滤处理
+   * Field filtering
    */
   displayName?: string;
   /**
@@ -49,7 +49,7 @@ export class ConsumeProcessor extends $dara.Model {
   processorName?: string;
   /**
    * @remarks
-   * 更新时间
+   * The update time.
    * 
    * @example
    * 1717171200

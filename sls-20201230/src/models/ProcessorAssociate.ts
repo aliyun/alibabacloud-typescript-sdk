@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ProcessorAssociate extends $dara.Model {
   /**
    * @remarks
+   * Processor ID
+   * 
    * This parameter is required.
    * 
    * @example

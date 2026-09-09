@@ -11,13 +11,6 @@ export class ListDashboardResponseBodyDashboardItems extends $dara.Model {
    * dashboard-1609294922657-434834
    */
   dashboardName?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * tablet_ai
-   */
   description?: string;
   /**
    * @remarks

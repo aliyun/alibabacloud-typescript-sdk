@@ -7,21 +7,31 @@ import { Schedule } from "./Schedule";
 export class AzureBlobIngestion extends $dara.Model {
   /**
    * @remarks
+   * The Azure Blob file import configuration.
+   * 
    * This parameter is required.
    */
   configuration?: AzureBlobIngestionConfiguration;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1714360481
    */
   createTime?: number;
   /**
+   * @remarks
+   * job description
+   * 
    * @example
    * azure blob ingestion
    */
   description?: string;
   /**
    * @remarks
+   * job displayName
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,12 +39,17 @@ export class AzureBlobIngestion extends $dara.Model {
    */
   displayName?: string;
   /**
+   * @remarks
+   * The last modified time.
+   * 
    * @example
    * 1714360481
    */
   lastModifiedTime?: number;
   /**
    * @remarks
+   * The name of the import task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,21 +57,32 @@ export class AzureBlobIngestion extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The write processor ID.
+   * 
    * @example
    * ingest-processor-1756802123-953901
    */
   processorId?: string;
   /**
    * @remarks
+   * The scheduling configuration.
+   * 
    * This parameter is required.
    */
   schedule?: Schedule;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * c7f01719d9feb105fc9d8df92af62010
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * The import status.
+   * 
    * @example
    * RUNNING
    */

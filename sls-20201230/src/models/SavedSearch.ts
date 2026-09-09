@@ -48,7 +48,7 @@ export class SavedSearch extends $dara.Model {
    * The topic of the log. The default value is an empty string ("").
    * 
    * @example
-   * topic-test
+   * topic
    */
   topic?: string;
   static names(): { [key: string]: string } {

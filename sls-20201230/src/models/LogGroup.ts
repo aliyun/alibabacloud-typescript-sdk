@@ -7,8 +7,6 @@ import { LogTag } from "./LogTag";
 export class LogGroup extends $dara.Model {
   /**
    * @remarks
-   * A list of logs.
-   * 
    * This parameter is required.
    */
   logItems?: LogItem[];

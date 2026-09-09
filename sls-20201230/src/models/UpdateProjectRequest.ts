@@ -13,13 +13,6 @@ export class UpdateProjectRequest extends $dara.Model {
    * Description of my-project-test
    */
   description?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the recycle bin.
-   * 
-   * @example
-   * true
-   */
   recycleBinEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {

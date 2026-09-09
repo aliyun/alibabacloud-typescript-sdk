@@ -43,19 +43,6 @@ export class CreateProjectRequest extends $dara.Model {
    * test-project
    */
   projectName?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the recycle bin feature.
-   * 
-   * Valid values:
-   * 
-   * - true
-   * 
-   * - false
-   * 
-   * @example
-   * true
-   */
   recycleBinEnabled?: boolean;
   /**
    * @remarks

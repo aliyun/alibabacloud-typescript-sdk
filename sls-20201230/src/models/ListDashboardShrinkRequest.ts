@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDashboardShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The dashboard name.
-   * 
-   * @example
-   * dashboard-1609294922657-434834
-   */
   dashboardName?: string;
-  /**
-   * @remarks
-   * The display name.
-   * 
-   * @example
-   * test
-   */
   displayName?: string;
   /**
    * @remarks
@@ -35,10 +21,6 @@ export class ListDashboardShrinkRequest extends $dara.Model {
    * 10
    */
   size?: number;
-  /**
-   * @remarks
-   * The tag information.
-   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {

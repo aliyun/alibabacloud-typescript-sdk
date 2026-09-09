@@ -24,7 +24,7 @@ export class Schedule extends $dara.Model {
    * The fixed interval.
    * 
    * @example
-   * 60s
+   * 1m/1h
    */
   interval?: string;
   /**
@@ -40,7 +40,7 @@ export class Schedule extends $dara.Model {
    * The time zone of the cron expression. If this parameter is left empty, the default time zone UTC+8 is used.
    * 
    * @example
-   * +0800
+   * "+0800"
    */
   timeZone?: string;
   /**
@@ -50,7 +50,7 @@ export class Schedule extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * FixedRate
+   * Cron
    */
   type?: string;
   static names(): { [key: string]: string } {

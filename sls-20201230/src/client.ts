@@ -15,8 +15,9 @@ export default class Client extends OpenApi {
     this._productId = "Sls";
     let gatewayClient = new GatewayClient();
     this._spi = gatewayClient;
-    this._endpointRule = "regional";
+    this._endpointRule = "central";
     this._endpointMap = {
+      'ap-southeast-8': "ap-southeast-8.log.aliyuncs.com",
       'cn-qingdao': "cn-qingdao.log.aliyuncs.com",
       'cn-beijing': "cn-beijing.log.aliyuncs.com",
       'cn-zhangjiakou': "cn-zhangjiakou.log.aliyuncs.com",
@@ -43,6 +44,7 @@ export default class Client extends OpenApi {
       'eu-west-1': "eu-west-1.log.aliyuncs.com",
       'eu-central-1': "eu-central-1.log.aliyuncs.com",
       'us-southeast-1': "us-southeast-1.log.aliyuncs.com",
+      'sa-east-1': "sa-east-1.log.aliyuncs.com",
       'me-east-1': "me-east-1.log.aliyuncs.com",
       'me-central-1': "me-central-1.log.aliyuncs.com",
       'cn-hangzhou-finance': "cn-hangzhou-finance.log.aliyuncs.com",
@@ -596,6 +598,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an ApiKey resource in a specified Project.
+   * 
+   * @remarks
+   * ## Description
+   * - Each Project can have a maximum of 10 ApiKeys.
+   * - The `apiKeyName` must be unique within the Project and cannot be modified after creation.
+   * - The `allowedStores` field cannot be empty and supports wildcard matching.
+   * - The system automatically generates the ApiKey plaintext during creation. You cannot customize it.
+   * 
+   * @param request - CreateApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApiKeyResponse
+   */
+  async createApiKeyWithOptions(project: string, request: $_model.CreateApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApiKeyResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowedStores)) {
+      body["allowedStores"] = request.allowedStores;
+    }
+
+    if (!$dara.isNull(request.apiKeyName)) {
+      body["apiKeyName"] = request.apiKeyName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApiKey",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/apikeys`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateApiKeyResponse>(await this.execute(params, req, runtime), new $_model.CreateApiKeyResponse({}));
+  }
+
+  /**
+   * Creates an ApiKey resource in a specified Project.
+   * 
+   * @remarks
+   * ## Description
+   * - Each Project can have a maximum of 10 ApiKeys.
+   * - The `apiKeyName` must be unique within the Project and cannot be modified after creation.
+   * - The `allowedStores` field cannot be empty and supports wildcard matching.
+   * - The system automatically generates the ApiKey plaintext during creation. You cannot customize it.
+   * 
+   * @param request - CreateApiKeyRequest
+   * @returns CreateApiKeyResponse
+   */
+  async createApiKey(project: string, request: $_model.CreateApiKeyRequest): Promise<$_model.CreateApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createApiKeyWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * Creates an Azure BLOB ingestion task.
    * 
    * @param request - CreateAzureBlobIngestionRequest
@@ -916,7 +988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a log download task in the specified project.
+   * Creates a log download task in a specified project.
    * 
    * @param request - CreateDownloadJobRequest
    * @param headers - map
@@ -964,7 +1036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a log download task in the specified project.
+   * Creates a log download task in a specified project.
    * 
    * @param request - CreateDownloadJobRequest
    * @returns CreateDownloadJobResponse
@@ -1579,6 +1651,10 @@ export default class Client extends OpenApi {
       body["originalSql"] = request.originalSql;
     }
 
+    if (!$dara.isNull(request.shardCount)) {
+      body["shardCount"] = request.shardCount;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       body["startTime"] = request.startTime;
     }
@@ -2068,6 +2144,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a resource record.
+   * 
+   * @param request - CreateResourceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceRecordResponse
+   */
+  async createResourceRecordWithOptions(resourceName: string, request: $_model.CreateResourceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceRecordResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateResourceRecord",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/resources/${resourceName}/records`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateResourceRecordResponse>(await this.execute(params, req, runtime), new $_model.CreateResourceRecordResponse({}));
+  }
+
+  /**
+   * Creates a resource record.
+   * 
+   * @param request - CreateResourceRecordRequest
+   * @returns CreateResourceRecordResponse
+   */
+  async createResourceRecord(resourceName: string, request: $_model.CreateResourceRecordRequest): Promise<$_model.CreateResourceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createResourceRecordWithOptions(resourceName, request, headers, runtime);
+  }
+
+  /**
    * Creates an S3 file import task.
    * 
    * @param request - CreateS3IngestionRequest
@@ -2222,7 +2338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled SQL job in a specified project.
+   * Creates a scheduled query job in the specified project.
    * 
    * @param request - CreateScheduledSQLRequest
    * @param headers - map
@@ -2274,7 +2390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled SQL job in a specified project.
+   * Creates a scheduled query job in the specified project.
    * 
    * @param request - CreateScheduledSQLRequest
    * @returns CreateScheduledSQLResponse
@@ -2661,6 +2777,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a specified ApiKey resource.
+   * 
+   * @remarks
+   * ## Request description
+   * - This API operation deletes an ApiKey with the specified name from a project.
+   * - After deletion, the ApiKey becomes invalid immediately and can no longer be used to write data.
+   * - This operation is idempotent. A `204 No Content` response is returned even if the ApiKey does not exist.
+   * 
+   * @param request - DeleteApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApiKeyResponse
+   */
+  async deleteApiKeyWithOptions(project: string, apiKeyName: string, request: $_model.DeleteApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApiKeyResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApiKey",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/apikeys/${apiKeyName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteApiKeyResponse>(await this.execute(params, req, runtime), new $_model.DeleteApiKeyResponse({}));
+  }
+
+  /**
+   * Deletes a specified ApiKey resource.
+   * 
+   * @remarks
+   * ## Request description
+   * - This API operation deletes an ApiKey with the specified name from a project.
+   * - After deletion, the ApiKey becomes invalid immediately and can no longer be used to write data.
+   * - This operation is idempotent. A `204 No Content` response is returned even if the ApiKey does not exist.
+   * 
+   * @param request - DeleteApiKeyRequest
+   * @returns DeleteApiKeyResponse
+   */
+  async deleteApiKey(project: string, apiKeyName: string, request: $_model.DeleteApiKeyRequest): Promise<$_model.DeleteApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteApiKeyWithOptions(project, apiKeyName, request, headers, runtime);
+  }
+
+  /**
    * Create a file import task from Azure Blob
    * 
    * @param headers - map
@@ -3008,7 +3178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log download task.
+   * Deletes a download task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3036,7 +3206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log download task.
+   * Deletes a download task.
    * @returns DeleteDownloadJobResponse
    */
   async deleteDownloadJob(project: string, downloadJobName: string): Promise<$_model.DeleteDownloadJobResponse> {
@@ -3836,6 +4006,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes resource records in batches.
+   * 
+   * @param request - DeleteResourceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceRecordResponse
+   */
+  async deleteResourceRecordWithOptions(resourceName: string, request: $_model.DeleteResourceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceRecordResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ids)) {
+      query["ids"] = request.ids;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteResourceRecord",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/resources/${resourceName}/records`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteResourceRecordResponse>(await this.execute(params, req, runtime), new $_model.DeleteResourceRecordResponse({}));
+  }
+
+  /**
+   * Deletes resource records in batches.
+   * 
+   * @param request - DeleteResourceRecordRequest
+   * @returns DeleteResourceRecordResponse
+   */
+  async deleteResourceRecord(resourceName: string, request: $_model.DeleteResourceRecordRequest): Promise<$_model.DeleteResourceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteResourceRecordWithOptions(resourceName, request, headers, runtime);
+  }
+
+  /**
    * Deletes an S3 ingestion task.
    * 
    * @param headers - map
@@ -4097,6 +4312,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables a specified API key so that it can no longer be used to write data.
+   * 
+   * @param request - DisableApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableApiKeyResponse
+   */
+  async disableApiKeyWithOptions(project: string, apiKeyName: string, request: $_model.DisableApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableApiKeyResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableApiKey",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/apikeys/${apiKeyName}/disable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DisableApiKeyResponse>(await this.execute(params, req, runtime), new $_model.DisableApiKeyResponse({}));
+  }
+
+  /**
+   * Disables a specified API key so that it can no longer be used to write data.
+   * 
+   * @param request - DisableApiKeyRequest
+   * @returns DisableApiKeyResponse
+   */
+  async disableApiKey(project: string, apiKeyName: string, request: $_model.DisableApiKeyRequest): Promise<$_model.DisableApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableApiKeyWithOptions(project, apiKeyName, request, headers, runtime);
+  }
+
+  /**
    * Disables the Scheduled SQL feature.
    * 
    * @param headers - map
@@ -4170,6 +4427,58 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableAlertWithOptions(project, alertName, headers, runtime);
+  }
+
+  /**
+   * Starts a specified API key so that it can continue to be used for writing data.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation starts a specified API key by changing its status from disabled to enabled.
+   * - After the API key is started, it can continue to be used for writing data.
+   * 
+   * @param request - EnableApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableApiKeyResponse
+   */
+  async enableApiKeyWithOptions(project: string, apiKeyName: string, request: $_model.EnableApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableApiKeyResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableApiKey",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/apikeys/${apiKeyName}/enable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.EnableApiKeyResponse>(await this.execute(params, req, runtime), new $_model.EnableApiKeyResponse({}));
+  }
+
+  /**
+   * Starts a specified API key so that it can continue to be used for writing data.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation starts a specified API key by changing its status from disabled to enabled.
+   * - After the API key is started, it can continue to be used for writing data.
+   * 
+   * @param request - EnableApiKeyRequest
+   * @returns EnableApiKeyResponse
+   */
+  async enableApiKey(project: string, apiKeyName: string, request: $_model.EnableApiKeyRequest): Promise<$_model.EnableApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableApiKeyWithOptions(project, apiKeyName, request, headers, runtime);
   }
 
   /**
@@ -4420,6 +4729,60 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAnnotationLabelWithOptions(labelId, headers, runtime);
+  }
+
+  /**
+   * Retrieves the details of a specified API key by API key name.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation retrieves the details of a specified API key by `apiKeyName`.
+   * - The response includes the name, key, status, description, list of stores that allow writes, creation time, and update time of the API key.
+   * - `log:GetApiKey` is considered a sensitive permission. Exercise caution when calling this operation.
+   * 
+   * @param request - GetApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApiKeyResponse
+   */
+  async getApiKeyWithOptions(project: string, apiKeyName: string, request: $_model.GetApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiKeyResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApiKey",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/apikeys/${apiKeyName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApiKeyResponse>(await this.execute(params, req, runtime), new $_model.GetApiKeyResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a specified API key by API key name.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation retrieves the details of a specified API key by `apiKeyName`.
+   * - The response includes the name, key, status, description, list of stores that allow writes, creation time, and update time of the API key.
+   * - `log:GetApiKey` is considered a sensitive permission. Exercise caution when calling this operation.
+   * 
+   * @param request - GetApiKeyRequest
+   * @returns GetApiKeyResponse
+   */
+  async getApiKey(project: string, apiKeyName: string, request: $_model.GetApiKeyRequest): Promise<$_model.GetApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getApiKeyWithOptions(project, apiKeyName, request, headers, runtime);
   }
 
   /**
@@ -6631,6 +6994,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a specified resource record.
+   * 
+   * @param request - GetResourceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceRecordResponse
+   */
+  async getResourceRecordWithOptions(resourceName: string, recordId: string, request: $_model.GetResourceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceRecordResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.includeSystemRecords)) {
+      query["includeSystemRecords"] = request.includeSystemRecords;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceRecord",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/resources/${resourceName}/records/${recordId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceRecordResponse>(await this.execute(params, req, runtime), new $_model.GetResourceRecordResponse({}));
+  }
+
+  /**
+   * Retrieves a specified resource record.
+   * 
+   * @param request - GetResourceRecordRequest
+   * @returns GetResourceRecordResponse
+   */
+  async getResourceRecord(resourceName: string, recordId: string, request: $_model.GetResourceRecordRequest): Promise<$_model.GetResourceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getResourceRecordWithOptions(resourceName, recordId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves information about an S3 import task.
    * 
    * @param headers - map
@@ -6733,7 +7141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the specified Scheduled SQL job.
+   * Retrieves a specified scheduled query job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6761,7 +7169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the specified Scheduled SQL job.
+   * Retrieves a specified scheduled query job.
    * @returns GetScheduledSQLResponse
    */
   async getScheduledSQL(project: string, scheduledSQLName: string): Promise<$_model.GetScheduledSQLResponse> {
@@ -6928,10 +7336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation lists process-level configurations.
-   * 
-   * @remarks
-   * The process-level configuration list.
+   * Lists process-level configurations.
    * 
    * @param request - ListAgentInstanceConfigsRequest
    * @param headers - map
@@ -6972,10 +7377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation lists process-level configurations.
-   * 
-   * @remarks
-   * The process-level configuration list.
+   * Lists process-level configurations.
    * 
    * @param request - ListAgentInstanceConfigsRequest
    * @returns ListAgentInstanceConfigsResponse
@@ -7246,6 +7648,74 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAnnotationLabelsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries all API keys and their details in a specified project.
+   * 
+   * @remarks
+   * ## Request description
+   * - Use the `allowedStore` parameter to filter the returned API keys. Only API keys that are allowed to write to the specified Logstore or Metricstore are returned.
+   * - If you do not specify the `allowedStore` parameter, all API keys in the project are returned.
+   * - The `log:ListApiKeys` permission is considered a sensitive permission and should be granted with caution.
+   * 
+   * @param request - ListApiKeysRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiKeysResponse
+   */
+  async listApiKeysWithOptions(project: string, request: $_model.ListApiKeysRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiKeysResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowedStore)) {
+      query["allowedStore"] = request.allowedStore;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApiKeys",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/apikeys`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApiKeysResponse>(await this.execute(params, req, runtime), new $_model.ListApiKeysResponse({}));
+  }
+
+  /**
+   * Queries all API keys and their details in a specified project.
+   * 
+   * @remarks
+   * ## Request description
+   * - Use the `allowedStore` parameter to filter the returned API keys. Only API keys that are allowed to write to the specified Logstore or Metricstore are returned.
+   * - If you do not specify the `allowedStore` parameter, all API keys in the project are returned.
+   * - The `log:ListApiKeys` permission is considered a sensitive permission and should be granted with caution.
+   * 
+   * @param request - ListApiKeysRequest
+   * @returns ListApiKeysResponse
+   */
+  async listApiKeys(project: string, request: $_model.ListApiKeysRequest): Promise<$_model.ListApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApiKeysWithOptions(project, request, headers, runtime);
   }
 
   /**
@@ -8560,6 +9030,91 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists resource records using nextToken.
+   * 
+   * @param request - ListNextResourceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNextResourceRecordResponse
+   */
+  async listNextResourceRecordWithOptions(resourceName: string, request: $_model.ListNextResourceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNextResourceRecordResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ids)) {
+      query["ids"] = request.ids;
+    }
+
+    if (!$dara.isNull(request.includeSystemRecords)) {
+      query["includeSystemRecords"] = request.includeSystemRecords;
+    }
+
+    if (!$dara.isNull(request.jsonFilterAcc)) {
+      query["jsonFilterAcc"] = request.jsonFilterAcc;
+    }
+
+    if (!$dara.isNull(request.jsonPath)) {
+      query["jsonPath"] = request.jsonPath;
+    }
+
+    if (!$dara.isNull(request.jsonPathValue)) {
+      query["jsonPathValue"] = request.jsonPathValue;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.reverse)) {
+      query["reverse"] = request.reverse;
+    }
+
+    if (!$dara.isNull(request.search)) {
+      query["search"] = request.search;
+    }
+
+    if (!$dara.isNull(request.sjson)) {
+      query["sjson"] = request.sjson;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNextResourceRecord",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/resources/${resourceName}/next_records`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNextResourceRecordResponse>(await this.execute(params, req, runtime), new $_model.ListNextResourceRecordResponse({}));
+  }
+
+  /**
+   * Lists resource records using nextToken.
+   * 
+   * @param request - ListNextResourceRecordRequest
+   * @returns ListNextResourceRecordResponse
+   */
+  async listNextResourceRecord(resourceName: string, request: $_model.ListNextResourceRecordRequest): Promise<$_model.ListNextResourceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listNextResourceRecordWithOptions(resourceName, request, headers, runtime);
+  }
+
+  /**
    * Queries the OSS shipping jobs in a specified project.
    * 
    * @param request - ListOSSExportsRequest
@@ -8801,6 +9356,87 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists resource records by offset and size.
+   * 
+   * @param request - ListResourceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceRecordResponse
+   */
+  async listResourceRecordWithOptions(resourceName: string, request: $_model.ListResourceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourceRecordResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ids)) {
+      query["ids"] = request.ids;
+    }
+
+    if (!$dara.isNull(request.includeSystemRecords)) {
+      query["includeSystemRecords"] = request.includeSystemRecords;
+    }
+
+    if (!$dara.isNull(request.jsonFilterAcc)) {
+      query["jsonFilterAcc"] = request.jsonFilterAcc;
+    }
+
+    if (!$dara.isNull(request.jsonPath)) {
+      query["jsonPath"] = request.jsonPath;
+    }
+
+    if (!$dara.isNull(request.jsonPathValue)) {
+      query["jsonPathValue"] = request.jsonPathValue;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.search)) {
+      query["search"] = request.search;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.sjson)) {
+      query["sjson"] = request.sjson;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListResourceRecord",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/resources/${resourceName}/records`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListResourceRecordResponse>(await this.execute(params, req, runtime), new $_model.ListResourceRecordResponse({}));
+  }
+
+  /**
+   * Lists resource records by offset and size.
+   * 
+   * @param request - ListResourceRecordRequest
+   * @returns ListResourceRecordResponse
+   */
+  async listResourceRecord(resourceName: string, request: $_model.ListResourceRecordRequest): Promise<$_model.ListResourceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listResourceRecordWithOptions(resourceName, request, headers, runtime);
+  }
+
+  /**
    * Lists S3 import tasks.
    * 
    * @param request - ListS3IngestionsRequest
@@ -8917,7 +9553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the Scheduled SQLs in a specified project.
+   * Lists the scheduled query jobs in a specified project.
    * 
    * @param request - ListScheduledSQLsRequest
    * @param headers - map
@@ -8961,7 +9597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the Scheduled SQLs in a specified project.
+   * Lists the scheduled query jobs in a specified project.
    * 
    * @param request - ListScheduledSQLsRequest
    * @returns ListScheduledSQLsResponse
@@ -11210,6 +11846,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the resource whitelist and description of a specified API key.
+   * 
+   * @remarks
+   * ## Operation description
+   * - The apiKeyName parameter cannot be modified.
+   * - The allowedStores parameter cannot be empty.
+   * - The update takes effect immediately.
+   * - You can update the resources of an API key even if the API key is in the Disabled state.
+   * - This operation is not used to rotate the API key plaintext.
+   * 
+   * @param request - UpdateApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApiKeyResponse
+   */
+  async updateApiKeyWithOptions(project: string, apiKeyName: string, request: $_model.UpdateApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApiKeyResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowedStores)) {
+      body["allowedStores"] = request.allowedStores;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApiKey",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/apikeys/${apiKeyName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.UpdateApiKeyResponse>(await this.execute(params, req, runtime), new $_model.UpdateApiKeyResponse({}));
+  }
+
+  /**
+   * Updates the resource whitelist and description of a specified API key.
+   * 
+   * @remarks
+   * ## Operation description
+   * - The apiKeyName parameter cannot be modified.
+   * - The allowedStores parameter cannot be empty.
+   * - The update takes effect immediately.
+   * - You can update the resources of an API key even if the API key is in the Disabled state.
+   * - This operation is not used to rotate the API key plaintext.
+   * 
+   * @param request - UpdateApiKeyRequest
+   * @returns UpdateApiKeyResponse
+   */
+  async updateApiKey(project: string, apiKeyName: string, request: $_model.UpdateApiKeyRequest): Promise<$_model.UpdateApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateApiKeyWithOptions(project, apiKeyName, request, headers, runtime);
+  }
+
+  /**
    * Updates an Azure Blob ingestion.
    * 
    * @param request - UpdateAzureBlobIngestionRequest
@@ -12915,6 +13619,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a specified resource record.
+   * 
+   * @param request - UpdateResourceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceRecordResponse
+   */
+  async updateResourceRecordWithOptions(resourceName: string, recordId: string, request: $_model.UpdateResourceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateResourceRecordResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateResourceRecord",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/resources/${resourceName}/records/${recordId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.UpdateResourceRecordResponse>(await this.execute(params, req, runtime), new $_model.UpdateResourceRecordResponse({}));
+  }
+
+  /**
+   * Updates a specified resource record.
+   * 
+   * @param request - UpdateResourceRecordRequest
+   * @returns UpdateResourceRecordResponse
+   */
+  async updateResourceRecord(resourceName: string, recordId: string, request: $_model.UpdateResourceRecordRequest): Promise<$_model.UpdateResourceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateResourceRecordWithOptions(resourceName, recordId, request, headers, runtime);
+  }
+
+  /**
    * Updates a saved search.
    * 
    * @remarks
@@ -13255,6 +13999,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.upsertCollectionPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Writes or updates resource records in batches.
+   * 
+   * @param request - UpsertResourceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertResourceRecordResponse
+   */
+  async upsertResourceRecordWithOptions(resourceName: string, request: $_model.UpsertResourceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertResourceRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.records)) {
+      body["records"] = request.records;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertResourceRecord",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/resources/${resourceName}/records`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.UpsertResourceRecordResponse>(await this.execute(params, req, runtime), new $_model.UpsertResourceRecordResponse({}));
+  }
+
+  /**
+   * Writes or updates resource records in batches.
+   * 
+   * @param request - UpsertResourceRecordRequest
+   * @returns UpsertResourceRecordResponse
+   */
+  async upsertResourceRecord(resourceName: string, request: $_model.UpsertResourceRecordRequest): Promise<$_model.UpsertResourceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upsertResourceRecordWithOptions(resourceName, request, headers, runtime);
   }
 
 }

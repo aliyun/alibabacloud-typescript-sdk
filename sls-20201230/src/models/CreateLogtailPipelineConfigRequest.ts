@@ -72,10 +72,6 @@ export class CreateLogtailPipelineConfigRequest extends $dara.Model {
    * >   - After the first processing plugin, you can add only one time parsing processing plugin, one filter plugin, and multiple data masking plugins.
    */
   processors?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * The task configuration.
-   */
   task?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

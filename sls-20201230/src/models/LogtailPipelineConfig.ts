@@ -70,9 +70,6 @@ export class LogtailPipelineConfig extends $dara.Model {
    */
   processors?: { [key: string]: any }[];
   /**
-   * @remarks
-   * 任务配置
-   * 
    * @example
    * {"Type": "task_example"}
    */
