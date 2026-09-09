@@ -49,7 +49,7 @@ export class DescribePriceRequestDataDisk extends $dara.Model {
    * <props="china">
    * - cloud_essd_entry: 10 to 32768.
    * 
-   * - cloud_essd: The valid values depend on the value of `DataDisk.N.PerformanceLevel`.	
+   * - cloud_essd: The valid values vary based on the value of `DataDisk.N.PerformanceLevel`.	
    *     - PL0: 1 to 32768.
    *     - PL1: 20 to 32768.
    *     - PL2: 461 to 32768.
@@ -68,18 +68,27 @@ export class DescribePriceRequestDataDisk extends $dara.Model {
    * 
    * Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
    * 
-   * > This parameter is supported only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disk](https://help.aliyun.com/document_detail/368372.html).
+   * >This parameter is supported only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disk](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 40000
    */
   provisionedIops?: number;
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks, specify this parameter.
+   * 
+   * @example
+   * dbsc-j5e1sf2vaf5he8m2****
+   */
+  storageClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
       performanceLevel: 'PerformanceLevel',
       size: 'Size',
       provisionedIops: 'ProvisionedIops',
+      storageClusterId: 'StorageClusterId',
     };
   }
 
@@ -89,6 +98,7 @@ export class DescribePriceRequestDataDisk extends $dara.Model {
       performanceLevel: 'string',
       size: 'number',
       provisionedIops: 'number',
+      storageClusterId: 'string',
     };
   }
 
@@ -104,7 +114,7 @@ export class DescribePriceRequestDataDisk extends $dara.Model {
 export class DescribePriceRequestSchedulerOptions extends $dara.Model {
   /**
    * @remarks
-   * This parameter takes effect only when the ResourceType parameter is set to instance.
+   * This parameter takes effect only when ResourceType is set to instance.
    * 
    * The ID of the dedicated host. You can call [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) to query the list of dedicated host IDs.
    * 
@@ -116,11 +126,11 @@ export class DescribePriceRequestSchedulerOptions extends $dara.Model {
    * @remarks
    * The deployment set strategy. Valid values:
    * - Availability: high availability strategy.
-   * - AvailabilityGroup: high availability group strategy.
+   * - AvailabilityGroup: deployment set group high availability strategy.
    * - LowLatency: low network latency strategy.
    * - ProximityLooseDispersion: proximity loose dispersion strategy.
    * 
-   * > Only when the strategy is set to ProximityLooseDispersion, the API response includes the price details for "Resource": "deploymentSet". Other deployment set strategies are free of charge, so the API response does not include price information for "Resource": "deploymentSet".
+   * >Only when the strategy is set to ProximityLooseDispersion, the API response includes the price details for "Resource": "deploymentSet". Other deployment set strategies are free of charge, so the API response does not include price information for "Resource": "deploymentSet".
    * 
    * @example
    * ProximityLooseDispersion
@@ -152,7 +162,7 @@ export class DescribePriceRequestSchedulerOptions extends $dara.Model {
 export class DescribePriceRequestSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The category of the system disk. When you query the system disk price, you must also specify `ImageId`. Valid values:
+   * The category of the system disk. When you query the price of a system disk, you must also specify `ImageId`. Valid values:
    * 
    * - cloud: basic disk.
    * - cloud_efficiency: ultra disk.
@@ -164,10 +174,10 @@ export class DescribePriceRequestSystemDisk extends $dara.Model {
    * - cloud_essd_entry: ESSD Entry disk.
    * 
    * 
-   * Default value description:
+   * Description of default values:
    * 
    * - If InstanceType is set to a retired instance type and the `IoOptimized` parameter is set to `none`, the default value is `cloud`.
-   * - In other cases, the default value is `cloud_efficiency`.<props="china">After January 30, 2026, for instance types that support only cloud_essd, the default value is changed from cloud_efficiency to cloud_essd PL0. For more information, see [Change notice](https://www.aliyun.com/notice/117844).
+   * - In other cases, the default value is `cloud_efficiency`.<props="china"> After January 30, 2026, for instance types that support only cloud_essd, the default value is changed from cloud_efficiency to cloud_essd PL0. For more information, see [Change notice](https://www.aliyun.com/notice/117844).
    * 
    * @example
    * cloud_ssd
@@ -175,7 +185,7 @@ export class DescribePriceRequestSystemDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The performance level of the system disk when the system disk type is enterprise SSD. This parameter is valid only when `SystemDiskCategory=cloud_essd`. Valid values:
+   * The performance level of the system disk when the system disk is an enterprise SSD (ESSD). This parameter is valid only when `SystemDiskCategory=cloud_essd`. Valid values:
    * 
    * PL0.
    * PL1 (default).
@@ -191,7 +201,7 @@ export class DescribePriceRequestSystemDisk extends $dara.Model {
    * The size of the system disk. Unit: GiB. Valid values:
    * 
    * - Basic disk: 20 to 500.
-   * - Enterprise SSD:
+   * - Enterprise SSD (ESSD):
    *   - PL0: 1 to 2048.
    *   - PL1: 20 to 2048.
    *   - PL2: 461 to 2048.
@@ -199,17 +209,26 @@ export class DescribePriceRequestSystemDisk extends $dara.Model {
    * - ESSD AutoPL disk: 1 to 2048.
    * - Other disk categories: 20 to 2048.
    * 
-   * Default value: max{20, image size of the specified ImageId parameter}.
+   * Default value: max{20, size of the image specified by the ImageId parameter}.
    * 
    * @example
    * 80
    */
   size?: number;
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster. To use a disk in a dedicated block storage cluster as the system disk, specify this parameter.
+   * 
+   * @example
+   * dbsc-j5e1sf2vaf5he8m2****
+   */
+  storageClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
       performanceLevel: 'PerformanceLevel',
       size: 'Size',
+      storageClusterId: 'StorageClusterId',
     };
   }
 
@@ -218,6 +237,7 @@ export class DescribePriceRequestSystemDisk extends $dara.Model {
       category: 'string',
       performanceLevel: 'string',
       size: 'number',
+      storageClusterId: 'string',
     };
   }
 
@@ -241,7 +261,7 @@ export class DescribePriceRequestRecurrenceRules extends $dara.Model {
   endHour?: number;
   /**
    * @remarks
-   * The type of the recurrence rule. Valid values:
+   * The policy type of the recurrence rule. Valid values:
    * - Daily: repeats daily.
    * - Weekly: repeats weekly.
    * - Monthly: repeats monthly.
@@ -256,9 +276,9 @@ export class DescribePriceRequestRecurrenceRules extends $dara.Model {
    * @remarks
    * The value of the recurrence rule.
    * 
-   * - If `RecurrenceType` is set to `Daily`, you can specify only one value. Valid values: 1 to 31. The value indicates the interval in days between recurrences.
-   * - If `RecurrenceType` is set to `Weekly`, you can specify multiple values separated by commas (,). The values for Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6. For example, `1,2` indicates Monday and Tuesday.
-   * - If `RecurrenceType` is set to `Monthly`, the format is `A-B`. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` indicates the 1st through 5th day of each month.
+   * - If `RecurrenceType` is set to `Daily`, you can specify only one value. Valid values: 1 to 31. The value specifies the interval in days between recurrences.
+   * - If `RecurrenceType` is set to `Weekly`, you can specify multiple values separated by commas (,). The values for Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6. For example, `1,2` specifies Monday and Tuesday.
+   * - If `RecurrenceType` is set to `Monthly`, the format is `A-B`. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` specifies the 1st to 5th day of each month.
    * 
    * > You must specify both `RecurrenceType` and `RecurrenceValue`.
    * 
@@ -268,9 +288,9 @@ export class DescribePriceRequestRecurrenceRules extends $dara.Model {
   recurrenceValue?: string;
   /**
    * @remarks
-   * The effective period start time of the time-sharing assurance. The value must be on the hour.
+   * The effective period of the time-sharing assurance. The value must be on the hour.
    * 
-   * > You must specify both StartHour and EndHour, and the difference between them must be at least 4 hours.
+   * > Specify both StartHour and EndHour. The difference between the two values must be at least 4 hours.
    * 
    * @example
    * 4
@@ -309,7 +329,7 @@ export class DescribePriceRequest extends $dara.Model {
   systemDisk?: DescribePriceRequestSystemDisk;
   /**
    * @remarks
-   * The number of Elastic Compute Service (ECS) instances that you want to purchase. You can use this parameter to query the price of batch purchases. Valid values: 1 to 1000.
+   * The number of Elastic Compute Service (ECS) servers that you want to purchase. You can use this parameter to query the price of purchasing servers in a specific configuration in batches. Valid values: 1 to 1000.
    * 
    * Default value: 1.
    * 
@@ -347,7 +367,7 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * This parameter takes effect only when ResourceType is set to instance.
    * 
-   * The image ID, which specifies the runtime environment to be loaded when the instance starts. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources. If you do not specify this parameter, the price of a Linux image is queried by default.
+   * The image ID, which specifies the runtime environment to load when the instance starts. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources. If you do not specify this parameter, the price of a Linux image is queried by default.
    * 
    * @example
    * centos_7_05_64_20G_alibase_20181212.vhd
@@ -355,7 +375,7 @@ export class DescribePriceRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The total number of instances to reserve within an instance type.
+   * The total number of instances that you want to reserve within an instance type.
    * 
    * Valid values: 1 to 1000.
    * 
@@ -365,9 +385,9 @@ export class DescribePriceRequest extends $dara.Model {
   instanceAmount?: number;
   /**
    * @remarks
-   * The total number of vCPUs supported by the elasticity assurance. When you call the API, the system calculates the number of instances to be covered by the elasticity assurance based on the specified InstanceType (rounded up).
+   * The total number of vCPUs supported by the elasticity assurance. When you call this operation, the system calculates the number of instances that the elasticity assurance needs to support based on the specified InstanceType (rounded up).
    * 
-   * > When you call the API to query the price of an elasticity assurance, you can specify only one of the InstanceCoreCpuCount and InstanceAmount parameters.
+   * > When you call this operation to query the price of an elasticity assurance, you can specify only one of the InstanceCoreCpuCount and InstanceAmount parameters.
    * 
    * @example
    * 1024
@@ -417,7 +437,7 @@ export class DescribePriceRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum outbound public bandwidth. Unit: Mbit/s (Megabit per second). Valid values: 0 to 100.
+   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
    * 
    * Default value: 0.
    * 
@@ -430,11 +450,11 @@ export class DescribePriceRequest extends $dara.Model {
    * Specifies whether the queried instance is an I/O optimized instance. Valid values:
    * 
    * - none: non-I/O optimization.
-   * - optimized: I/O optimization.
+   * - optimized: I/O optimized.
    * 
    * If InstanceType is set to a [Series I](https://help.aliyun.com/document_detail/55263.html) instance type, the default value is none.
    * 
-   * If InstanceType is set to a non-[Series I](https://help.aliyun.com/document_detail/55263.html) instance type, the default value is optimized.
+   * If InstanceType is set to an instance type that is not in [Series I](https://help.aliyun.com/document_detail/55263.html), the default value is optimized.
    * 
    * @example
    * optimized
@@ -442,7 +462,7 @@ export class DescribePriceRequest extends $dara.Model {
   ioOptimized?: string;
   /**
    * @remarks
-   * The Internet Service Provider (ISP). Valid values: 
+   * The Internet Service Provider. Valid values: 
    * - cmcc: China Mobile.
    * - telecom: China Telecom.
    * - unicom: China Unicom.
@@ -468,7 +488,7 @@ export class DescribePriceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The billing duration of Elastic Compute Service (ECS). Valid values:
+   * The billing duration of Elastic Compute Service (ECS) servers. Valid values:
    * 
    * <props="china">
    * - If the PriceUnit parameter is set to Month: 1 to 9.
@@ -503,20 +523,20 @@ export class DescribePriceRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * Queries the prices of Elastic Compute Service (ECS) for different billing cycles. Valid values:
+   * The pricing unit for querying Elastic Compute Service (ECS) server prices across different billing cycles. Valid values:
    * 
    * <props="china">
-   * - Month: the monthly price.
-   * - Year: the yearly price.
-   * - Hour (default): the hourly price.
-   * - Week: the weekly price.
+   * - Month: monthly pricing unit.
+   * - Year: yearly pricing unit.
+   * - Hour (default): hourly pricing unit.
+   * - Week: weekly pricing unit.
    * 
    * 
    * 
    * <props="intl">
-   * - Month: the monthly price.
-   * - Year: the yearly price.
-   * - Hour (default): the hourly price.
+   * - Month: monthly pricing unit.
+   * - Year: yearly pricing unit.
+   * - Hour (default): hourly pricing unit.
    * 
    * @example
    * Year
@@ -585,7 +605,7 @@ export class DescribePriceRequest extends $dara.Model {
    * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After 1 hour, the system automatically compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system automatically compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * 
-   * Alibaba Cloud sends a notification through an ECS system event 5 minutes before the instance is released. Spot instances are billed by second. Select an appropriate protection period based on the expected task execution duration.
+   * Alibaba Cloud sends an ECS system event notification 5 minutes before the instance is released. Spot instances are billed by second. Select an appropriate protection period based on the expected task execution duration.
    * 
    * > This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
    * 
@@ -598,11 +618,11 @@ export class DescribePriceRequest extends $dara.Model {
    * The bidding policy for the pay-as-you-go instance. Valid values:
    * - NoSpot: a regular pay-as-you-go instance.
    * - SpotWithPriceLimit: a spot instance with a maximum price limit.
-   * - SpotAsPriceGo: a spot instance priced at the market price with the pay-as-you-go price as the upper limit.
+   * - SpotAsPriceGo: a spot instance for which the system automatically bids at up to the pay-as-you-go price.
    * 
    * Default value: NoSpot.
    * 
-   * > This parameter takes effect only when `PriceUnit=Hour` and `Period=1`. Because the default value of `PriceUnit` is `Hour` and the default value of `Period` is `1`, you do not need to set the `PriceUnit` and `Period` parameters when you specify this parameter.
+   * > This parameter takes effect only when `PriceUnit=Hour` and `Period=1`. Because the default value of `PriceUnit` is `Hour` and the default value of `Period` is `1`, you do not need to set the `PriceUnit` and `Period` parameters when you set this parameter.
    * 
    * @example
    * NoSpot
@@ -620,7 +640,7 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * > Spot instance prices may vary across zones. When you query spot instance prices, specify ZoneId to query the spot instance price in a specific zone.
+   * > Spot instance prices may vary across zones. When you query spot instance prices, we recommend that you specify ZoneId to query the spot instance price in a specific zone.
    * 
    * @example
    * cn-hagzhou-i

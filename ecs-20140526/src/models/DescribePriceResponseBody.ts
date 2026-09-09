@@ -158,7 +158,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   reservedInstanceHourPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
    * 3712.8
@@ -229,7 +229,7 @@ export class DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice
   originalPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
    * 100

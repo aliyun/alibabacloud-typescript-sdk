@@ -4855,10 +4855,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * You can use image templates to customize image content and build images cross-region and across accounts. Before you create an image template, take note of the following items:
+   * You can use image templates to customize image content and build images cross-region and cross-account. Before you create an image template, take note of the following items:
    * - You can create only custom image templates.
    * - Only public images, custom images, shared images, or image families can be used as source images for building.
-   * - When you build an image by using an image template, multiple intermediate instances are created to assist in building the image. The intermediate instances are pay-as-you-go billing method ECS instances, and fees are incurred. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
+   * - When you build an image by using an image template, multiple intermediate instances are created to assist in the image building process. Intermediate instances are ECS instances that use the pay-as-you-go billing method, and fees are incurred. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
    * Take note of the following items about the build template content `BuildContent`:
    * - The `FROM` command is deprecated. Regardless of whether the `FROM` command is set in the `BuildContent` parameter, the system selects the source image based on the source image type `BaseImageType` and source image `BaseImage`.
    * - The content size of an image template cannot exceed 16 KB. For details about supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
@@ -5017,10 +5017,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * You can use image templates to customize image content and build images cross-region and across accounts. Before you create an image template, take note of the following items:
+   * You can use image templates to customize image content and build images cross-region and cross-account. Before you create an image template, take note of the following items:
    * - You can create only custom image templates.
    * - Only public images, custom images, shared images, or image families can be used as source images for building.
-   * - When you build an image by using an image template, multiple intermediate instances are created to assist in building the image. The intermediate instances are pay-as-you-go billing method ECS instances, and fees are incurred. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
+   * - When you build an image by using an image template, multiple intermediate instances are created to assist in the image building process. Intermediate instances are ECS instances that use the pay-as-you-go billing method, and fees are incurred. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
    * Take note of the following items about the build template content `BuildContent`:
    * - The `FROM` command is deprecated. Regardless of whether the `FROM` command is set in the `BuildContent` parameter, the system selects the source image based on the source image type `BaseImageType` and source image `BaseImage`.
    * - The content size of an image template cannot exceed 16 KB. For details about supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
@@ -10638,7 +10638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete a VPC
+   * Deletes a VPC.
    * 
    * @deprecated OpenAPI DeleteVpc is deprecated, please use Vpc::2016-04-28::DeleteVpc instead.
    * 
@@ -10691,7 +10691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete a VPC
+   * Deletes a VPC.
    * 
    * @deprecated OpenAPI DeleteVpc is deprecated, please use Vpc::2016-04-28::DeleteVpc instead.
    * 
@@ -14758,7 +14758,7 @@ export default class Client extends OpenApi {
    * Queries the details of one or more image templates.
    * 
    * @remarks
-   * You can set `NextToken` to the value of `NextToken` returned by the previous call to `DescribeImagePipelines`, and set `MaxResults` to specify the maximum number of entries per page for the query.
+   * You can set `NextToken` to the value of `NextToken` returned by the previous call to `DescribeImagePipelines`, and use `MaxResults` to specify the maximum number of entries per page.
    * 
    * @param request - DescribeImagePipelinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14840,7 +14840,7 @@ export default class Client extends OpenApi {
    * Queries the details of one or more image templates.
    * 
    * @remarks
-   * You can set `NextToken` to the value of `NextToken` returned by the previous call to `DescribeImagePipelines`, and set `MaxResults` to specify the maximum number of entries per page for the query.
+   * You can set `NextToken` to the value of `NextToken` returned by the previous call to `DescribeImagePipelines`, and use `MaxResults` to specify the maximum number of entries per page.
    * 
    * @param request - DescribeImagePipelinesRequest
    * @returns DescribeImagePipelinesResponse
@@ -18678,7 +18678,7 @@ export default class Client extends OpenApi {
    * @remarks
    * The parameter settings vary based on the type of resource whose price you want to query:
    *   - If `ResourceType=instance`, you must also specify the `InstanceType` parameter.
-   *     By default, the price of the pay-as-you-go (`PostPaid`) billing method (`ChargeType`) is queried. You can specify the `PriceUnit` parameter to perform a parameter query for Elastic Compute Service (ECS) prices across different billing cycles.
+   *     By default, the price of the pay-as-you-go (`PostPaid`) billing method (`ChargeType`) is queried. You can specify the `PriceUnit` parameter to query the prices of Elastic Compute Service (ECS) servers for different billing cycles.
    *  - If `ResourceType=disk`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.Size` parameters. When you query the price of a `disk` resource, only the pay-as-you-go price of the disk is returned. This means that the `PriceUnit` parameter can only be set to `Hour`.
    * - If `ResourceType=diskperformance`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops` parameters.
    *  - If `ResourceType=ddh`, you must also specify the `DedicatedHostType` parameter.
@@ -18848,7 +18848,7 @@ export default class Client extends OpenApi {
    * @remarks
    * The parameter settings vary based on the type of resource whose price you want to query:
    *   - If `ResourceType=instance`, you must also specify the `InstanceType` parameter.
-   *     By default, the price of the pay-as-you-go (`PostPaid`) billing method (`ChargeType`) is queried. You can specify the `PriceUnit` parameter to perform a parameter query for Elastic Compute Service (ECS) prices across different billing cycles.
+   *     By default, the price of the pay-as-you-go (`PostPaid`) billing method (`ChargeType`) is queried. You can specify the `PriceUnit` parameter to query the prices of Elastic Compute Service (ECS) servers for different billing cycles.
    *  - If `ResourceType=disk`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.Size` parameters. When you query the price of a `disk` resource, only the pay-as-you-go price of the disk is returned. This means that the `PriceUnit` parameter can only be set to `Hour`.
    * - If `ResourceType=diskperformance`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops` parameters.
    *  - If `ResourceType=ddh`, you must also specify the `DedicatedHostType` parameter.
@@ -27672,23 +27672,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the billing method of ECS instances. Batch modification is supported.
+   * Modifies the billing methods of ECS instances. Batch modification is supported.
    * 
    * @remarks
    * ### Before you begin
-   * - Make sure that you are familiar with the [subscription](https://help.aliyun.com/document_detail/56220.html) and [pay-as-you-go](https://help.aliyun.com/document_detail/40653.html) billing methods and the <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/product/ecs#pricing) of Elastic Compute Service (ECS).
+   * - Make sure that you fully understand the [subscription](https://help.aliyun.com/document_detail/56220.html), [pay-as-you-go](https://help.aliyun.com/document_detail/40653.html), and other billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/product/ecs#pricing) of Elastic Compute Service (ECS) before you invoke this operation.
    * - Make sure that the target instances are in the **Running** (`Running`) or **Stopped** (`Stopped`) state and that your account has no overdue payments.
-   * - After the billing method is changed, automatic payment is enabled by default. Make sure that your account balance is sufficient. Otherwise, abnormal orders are generated, and you can only cancel the orders. If your account balance is insufficient, set the AutoPay parameter to `false`. In this case, unpaid orders are generated. You can log on to the [ECS console](https://ecs.console.aliyun.com/) to complete the payment.
-   * ### Before you begin
+   * - After the billing method is changed, automatic payment is enabled by default. Make sure that your account balance is sufficient. Otherwise, abnormal orders are generated, and you can only cancel the orders. If your account balance is insufficient, you can set the AutoPay parameter to `false`. In this case, an unpaid order is generated. You can log on to the [ECS console](https://ecs.console.aliyun.com/) to complete the payment.
+   * ### Precautions
    * - **Subscription to pay-as-you-go**:
    * <props="china">
-   *     - When you transform a subscription instance to a pay-as-you-go instance, the new billing method overwrites the entire lifecycle of the instance. You receive a refund for the price difference. The refund is returned to your original payment method. Consumed coupons are not refunded.
+   *     - When you transform the billing method of a subscription instance to pay-as-you-go, the new billing method overwrites the instance\\"s entire lifecycle. The price difference is refunded to your original payment method. Vouchers that have been redeemed are not refundable.
    * <props="intl">
-   *     - When you transform a subscription instance to a pay-as-you-go instance, the new billing method overwrites the entire lifecycle of the instance. You receive a refund for the price difference. The refund is returned to your original payment method. Consumed coupons are not refunded.
-   *     - **Refund rules**: The refund amount that you can claim each month is limited and does not carry over to the next month. After the refund quota is exhausted, you must wait until the next month to switch the billing method. The refund quota consumed by each billing method change is calculated by using the following formula: **vCPUs × (Refund days × 24 ± Floating hours)**. For more information, see [Switch the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/85517.html).
+   *     - When you transform the billing method of a subscription instance to pay-as-you-go, the new billing method overwrites the instance\\"s entire lifecycle. The price difference is refunded to your original payment method. Vouchers that have been redeemed are not refundable.
+   *     - **Refund rules**: The refund amount that you can claim in a month is limited and does not carry over to the next month. After the refund quota is exhausted, you can switch between billing methods only in the next month. The refund quota consumed by a single billing method change is calculated by using the following formula: **vCPUs × (Remaining days × 24 ± Floating hours)**. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/85517.html).
    * - **Pay-as-you-go to subscription**:
-   *     - All pay-as-you-go data disks attached to the instance can be transformed to subscription data disks at the same time.
-   *     - If a release time is set for the pay-as-you-go instance, you cannot call this operation. For more information, see [Switch the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/49884.html).
+   *     - All pay-as-you-go data disks that are attached to the instance can be converted to subscription data disks at the same time.
+   *     - If a release time is set for the pay-as-you-go instance, you cannot invoke this operation. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/49884.html).
    *     - If the instance is in economical mode, start the instance first.
    * 
    * @param request - ModifyInstanceChargeTypeRequest
@@ -27772,23 +27772,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the billing method of ECS instances. Batch modification is supported.
+   * Modifies the billing methods of ECS instances. Batch modification is supported.
    * 
    * @remarks
    * ### Before you begin
-   * - Make sure that you are familiar with the [subscription](https://help.aliyun.com/document_detail/56220.html) and [pay-as-you-go](https://help.aliyun.com/document_detail/40653.html) billing methods and the <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/product/ecs#pricing) of Elastic Compute Service (ECS).
+   * - Make sure that you fully understand the [subscription](https://help.aliyun.com/document_detail/56220.html), [pay-as-you-go](https://help.aliyun.com/document_detail/40653.html), and other billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/product/ecs#pricing) of Elastic Compute Service (ECS) before you invoke this operation.
    * - Make sure that the target instances are in the **Running** (`Running`) or **Stopped** (`Stopped`) state and that your account has no overdue payments.
-   * - After the billing method is changed, automatic payment is enabled by default. Make sure that your account balance is sufficient. Otherwise, abnormal orders are generated, and you can only cancel the orders. If your account balance is insufficient, set the AutoPay parameter to `false`. In this case, unpaid orders are generated. You can log on to the [ECS console](https://ecs.console.aliyun.com/) to complete the payment.
-   * ### Before you begin
+   * - After the billing method is changed, automatic payment is enabled by default. Make sure that your account balance is sufficient. Otherwise, abnormal orders are generated, and you can only cancel the orders. If your account balance is insufficient, you can set the AutoPay parameter to `false`. In this case, an unpaid order is generated. You can log on to the [ECS console](https://ecs.console.aliyun.com/) to complete the payment.
+   * ### Precautions
    * - **Subscription to pay-as-you-go**:
    * <props="china">
-   *     - When you transform a subscription instance to a pay-as-you-go instance, the new billing method overwrites the entire lifecycle of the instance. You receive a refund for the price difference. The refund is returned to your original payment method. Consumed coupons are not refunded.
+   *     - When you transform the billing method of a subscription instance to pay-as-you-go, the new billing method overwrites the instance\\"s entire lifecycle. The price difference is refunded to your original payment method. Vouchers that have been redeemed are not refundable.
    * <props="intl">
-   *     - When you transform a subscription instance to a pay-as-you-go instance, the new billing method overwrites the entire lifecycle of the instance. You receive a refund for the price difference. The refund is returned to your original payment method. Consumed coupons are not refunded.
-   *     - **Refund rules**: The refund amount that you can claim each month is limited and does not carry over to the next month. After the refund quota is exhausted, you must wait until the next month to switch the billing method. The refund quota consumed by each billing method change is calculated by using the following formula: **vCPUs × (Refund days × 24 ± Floating hours)**. For more information, see [Switch the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/85517.html).
+   *     - When you transform the billing method of a subscription instance to pay-as-you-go, the new billing method overwrites the instance\\"s entire lifecycle. The price difference is refunded to your original payment method. Vouchers that have been redeemed are not refundable.
+   *     - **Refund rules**: The refund amount that you can claim in a month is limited and does not carry over to the next month. After the refund quota is exhausted, you can switch between billing methods only in the next month. The refund quota consumed by a single billing method change is calculated by using the following formula: **vCPUs × (Remaining days × 24 ± Floating hours)**. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/85517.html).
    * - **Pay-as-you-go to subscription**:
-   *     - All pay-as-you-go data disks attached to the instance can be transformed to subscription data disks at the same time.
-   *     - If a release time is set for the pay-as-you-go instance, you cannot call this operation. For more information, see [Switch the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/49884.html).
+   *     - All pay-as-you-go data disks that are attached to the instance can be converted to subscription data disks at the same time.
+   *     - If a release time is set for the pay-as-you-go instance, you cannot invoke this operation. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/49884.html).
    *     - If the instance is in economical mode, start the instance first.
    * 
    * @param request - ModifyInstanceChargeTypeRequest
@@ -35193,9 +35193,9 @@ export default class Client extends OpenApi {
    * Executes an image building task by using an image template.
    * 
    * @remarks
-   * - After an image template is created, call this operation to execute an image building task. The system builds, distributes, and creates shared images based on the parameters specified in the image template.
-   * - For the same image template, only one image building task can be executed at a time. You can call CancelImagePipelineExecution multiple times simultaneously, and canceling an image building task does not interfere with other image building tasks.
-   * - When you execute an image template, multiple intermediate instances are created to help build images. The intermediate instances are ECS instances that use the pay-as-you-go billing method, and billing fees are incurred. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
+   * - After an image template is created, call this operation to execute an image building task. The system builds, distributes, and creates shared images based on the parameters configured in the image template settings.
+   * - For the same image template, only one image building task can be executed at a time. You can call CancelImagePipelineExecution multiple times simultaneously. Canceling an image building task does not interfere with other image building tasks.
+   * - When you execute an image building template, multiple intermediate instances are created to help build images. The intermediate instances are ECS instances that use the pay-as-you-go billing method, and billing fees are incurred. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
    * 
    * @param request - StartImagePipelineExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35265,9 +35265,9 @@ export default class Client extends OpenApi {
    * Executes an image building task by using an image template.
    * 
    * @remarks
-   * - After an image template is created, call this operation to execute an image building task. The system builds, distributes, and creates shared images based on the parameters specified in the image template.
-   * - For the same image template, only one image building task can be executed at a time. You can call CancelImagePipelineExecution multiple times simultaneously, and canceling an image building task does not interfere with other image building tasks.
-   * - When you execute an image template, multiple intermediate instances are created to help build images. The intermediate instances are ECS instances that use the pay-as-you-go billing method, and billing fees are incurred. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
+   * - After an image template is created, call this operation to execute an image building task. The system builds, distributes, and creates shared images based on the parameters configured in the image template settings.
+   * - For the same image template, only one image building task can be executed at a time. You can call CancelImagePipelineExecution multiple times simultaneously. Canceling an image building task does not interfere with other image building tasks.
+   * - When you execute an image building template, multiple intermediate instances are created to help build images. The intermediate instances are ECS instances that use the pay-as-you-go billing method, and billing fees are incurred. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
    * 
    * @param request - StartImagePipelineExecutionRequest
    * @returns StartImagePipelineExecutionResponse
