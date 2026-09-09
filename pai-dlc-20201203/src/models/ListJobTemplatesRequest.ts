@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The sort order. Valid values: `asc` for ascending and `desc` for descending. Default value: `desc`.
+   * Filters the list by a fuzzy match of the template description.
+   * 
+   * @example
+   * PyTorch training template
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The sort order.
    * 
    * @example
    * desc
@@ -13,7 +21,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number to retrieve.
+   * The page number.
    * 
    * @example
    * 1
@@ -21,7 +29,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -29,7 +37,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field to sort the results by. Default value: `GmtCreateTime`.
+   * The field by which to sort the results.
    * 
    * @example
    * GmtCreateTime
@@ -37,7 +45,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The job template ID. Use this parameter to filter for an exact match.
+   * Filters the list by an exact match of the template ID.
    * 
    * @example
    * tpl1****6jcq2q
@@ -45,7 +53,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The job template name. Use this parameter to filter for a partial match.
+   * Filters the list by a fuzzy match of the template name.
    * 
    * @example
    * job-template-example-1778047****
@@ -53,7 +61,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The ID of the creator. Use this parameter to filter results by a specific creator.
+   * The user ID.
    * 
    * @example
    * 20**************02
@@ -61,7 +69,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 
@@ -71,6 +79,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -84,6 +93,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',

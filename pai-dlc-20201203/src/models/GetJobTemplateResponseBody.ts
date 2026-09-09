@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobTemplateResponseBodyVersions extends $dara.Model {
   /**
    * @remarks
-   * The field constraint rules. The key is a JSONPath expression and the value is a constraint type.
+   * The field constraint rules. The key is a JSONPath expression, and the value is the constraint type.
    * 
    * @example
    * {\\"JobSpecs[0].Image\\":\\"locked\\",\\"UserCommand\\":\\"locked\\",\\"JobType\\":\\"locked\\"}
@@ -13,7 +13,7 @@ export class GetJobTemplateResponseBodyVersions extends $dara.Model {
   constraints?: { [key: string]: any };
   /**
    * @remarks
-   * The configuration of the version, in JSON format.
+   * The template configuration content of this version in JSON format.
    * 
    * @example
    * {\\"WorkspaceId\\":\\"15****05\\",\\"JobType\\":\\"PyTorchJob\\",\\"UserCommand\\":\\"echo hello\\",\\"JobSpecs\\":[{\\"Type\\":\\"Worker\\",\\"PodCount\\":1,\\"Image\\":\\"dsw-registry-vpc.cn-hangzhou.cr.aliyuncs.com/pai/pytorch:2.8.0-gpu-py313-cu129-ubuntu22.04-3995b779-1764361782\\",\\"EcsSpec\\":\\"ecs.gn7i-c8g1.2xlarge\\"}],\\"ResourceType\\":\\"ECS\\",\\"_ResourcePaymentType\\":\\"PostPaid\\",\\"CredentialConfig\\":{\\"EnableCredentialInject\\":false},\\"Accessibility\\":\\"PRIVATE\\",\\"Settings\\":{\\"JobReservedMinutes\\":0,\\"Tags\\":{}}}
@@ -29,7 +29,7 @@ export class GetJobTemplateResponseBodyVersions extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The time the version was created.
+   * The time when the version was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -80,7 +80,7 @@ export class GetJobTemplateResponseBodyVersions extends $dara.Model {
 export class GetJobTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The default version of the job template.
+   * The default version number currently in use.
    * 
    * @example
    * 2
@@ -88,7 +88,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   defaultVersion?: number;
   /**
    * @remarks
-   * A description of the job template.
+   * The description of the task template.
    * 
    * @example
    * job template description
@@ -96,7 +96,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time the job template was created.
+   * The time when the template was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -106,7 +106,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time the job template was last modified.
+   * The time when the template was last modified.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -116,7 +116,17 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * A collection of user-defined key-value pairs.
+   * The most recent time when a task was successfully created by using this template. This parameter is not returned if the template has not been used.
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2026-09-03T11:30:00Z
+   */
+  lastUsedTime?: string;
+  /**
+   * @remarks
+   * The custom key-value pair metadata defined by the user.
    * 
    * @example
    * {}
@@ -124,7 +134,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the user who last modified the job template.
+   * The ID of the user who last modified the template.
    * 
    * @example
    * 20**************26
@@ -132,7 +142,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   modifiedBy?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the request. This ID is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
@@ -140,7 +150,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the job template.
+   * The unique identifier of the task template.
    * 
    * @example
    * tplmceolmf2****
@@ -148,7 +158,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The name of the job template.
+   * The name of the task template.
    * 
    * @example
    * job-template-example-1778047****
@@ -156,7 +166,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The ID of the tenant that owns the job template.
+   * The ID of the tenant to which the template belongs.
    * 
    * @example
    * 142388383837****
@@ -164,7 +174,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The total number of versions returned. This value is 1 if a specific version is queried, or the total count if all versions are queried.
+   * The total number of versions. If a single version is queried, the value 1 is returned. If all versions are queried, the actual total number is returned.
    * 
    * @example
    * 100
@@ -172,7 +182,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The ID of the user who created the job template.
+   * The ID of the user who created the template.
    * 
    * @example
    * 20**************26
@@ -180,12 +190,12 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * An array of template versions. This array contains only one version if a specific version is requested, or all versions if `all` is specified.
+   * The list of template version details. If a single version is queried, one element is returned. If all versions are queried, all elements are returned.
    */
   versions?: GetJobTemplateResponseBodyVersions[];
   /**
    * @remarks
-   * The ID of the workspace that contains the job template.
+   * The ID of the workspace to which the template belongs.
    * 
    * @example
    * 4***9
@@ -197,6 +207,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
       description: 'Description',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifyTime: 'GmtModifyTime',
+      lastUsedTime: 'LastUsedTime',
       metadata: 'Metadata',
       modifiedBy: 'ModifiedBy',
       requestId: 'RequestId',
@@ -216,6 +227,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
       description: 'string',
       gmtCreateTime: 'string',
       gmtModifyTime: 'string',
+      lastUsedTime: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       modifiedBy: 'string',
       requestId: 'string',

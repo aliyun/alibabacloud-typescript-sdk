@@ -13,7 +13,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   defaultVersion?: number;
   /**
    * @remarks
-   * The description of the job template.
+   * The template description.
    * 
    * @example
    * job description
@@ -21,7 +21,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The creation time of the template, in UTC and ISO 8601 format.
+   * The time when the template was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -31,7 +31,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time of the template, in UTC and ISO 8601 format.
+   * The time when the template was last modified.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -41,7 +41,17 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * Custom metadata, represented as a collection of key-value pairs.
+   * The most recent time when a task was successfully created by using this template.
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2026-09-03T11:30:00Z
+   */
+  lastUsedTime?: string;
+  /**
+   * @remarks
+   * The custom metadata.
    * 
    * @example
    * {}
@@ -49,7 +59,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the modifier.
+   * The ID of the user who last modified the template.
    * 
    * @example
    * 20**************26
@@ -57,7 +67,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   modifiedBy?: string;
   /**
    * @remarks
-   * The ID of the job template.
+   * The template ID.
    * 
    * @example
    * tpl1r5g9ait7****
@@ -65,7 +75,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The name of the job template.
+   * The template name.
    * 
    * @example
    * job-template-1772516653885
@@ -73,7 +83,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 142388383837****
@@ -81,7 +91,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the creator.
+   * The ID of the user who created the template.
    * 
    * @example
    * 20**************26
@@ -89,7 +99,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 88****
@@ -101,6 +111,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
       description: 'Description',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifyTime: 'GmtModifyTime',
+      lastUsedTime: 'LastUsedTime',
       metadata: 'Metadata',
       modifiedBy: 'ModifiedBy',
       templateId: 'TemplateId',
@@ -117,6 +128,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
       description: 'string',
       gmtCreateTime: 'string',
       gmtModifyTime: 'string',
+      lastUsedTime: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       modifiedBy: 'string',
       templateId: 'string',
@@ -142,7 +154,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
 export class ListJobTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of job templates.
+   * The list of templates.
    */
   jobTemplates?: ListJobTemplatesResponseBodyJobTemplates[];
   /**
@@ -155,7 +167,7 @@ export class ListJobTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -163,7 +175,7 @@ export class ListJobTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique ID of the request. Use this ID to troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0D*****
@@ -171,7 +183,7 @@ export class ListJobTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of job templates that match the filter conditions.
+   * The total number of records.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The field constraint rules. The key is a JSONPath expression, and the value is a constraint type: `locked` (cannot be overridden), `overridable` (can be overridden), or `required` (must be specified).
+   * The field constraint rules. The key is a JSONPath expression, and the value is the constraint type: locked (locked and cannot be overridden), overridable (can be overridden), or required (required).
    * 
    * @example
    * {\\"JobSpecs[0].Image\\":\\"locked\\",\\"UserCommand\\":\\"locked\\",\\"JobType\\":\\"locked\\"}
@@ -13,7 +13,7 @@ export class CreateJobTemplateRequest extends $dara.Model {
   constraints?: { [key: string]: any };
   /**
    * @remarks
-   * The configuration of the job template, which must be a JSON string containing the job configuration parameters.
+   * The configuration content of the task template, which contains job configuration parameters. Pass the value in JSON string format.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateJobTemplateRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The description of the job template.
+   * The description of the task template.
    * 
    * @example
    * Template description
@@ -31,7 +31,7 @@ export class CreateJobTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * User-defined key-value metadata.
+   * The custom key-value pair metadata.
    * 
    * @example
    * {}
@@ -39,7 +39,7 @@ export class CreateJobTemplateRequest extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the job template.
+   * The name of the task template.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class CreateJobTemplateRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The ID of the workspace that contains the job template.
+   * The ID of the workspace to which the template belongs.
    * 
    * This parameter is required.
    * 

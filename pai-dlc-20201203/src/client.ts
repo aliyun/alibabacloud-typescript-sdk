@@ -228,7 +228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job template.
+   * Creates a task template.
    * 
    * @param request - CreateJobTemplateRequest
    * @param headers - map
@@ -281,7 +281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job template.
+   * Creates a task template.
    * 
    * @param request - CreateJobTemplateRequest
    * @returns CreateJobTemplateResponse
@@ -983,7 +983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a job template.
+   * Retrieves the details of a task template.
    * 
    * @param request - GetJobTemplateRequest
    * @param headers - map
@@ -1016,7 +1016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a job template.
+   * Retrieves the details of a task template.
    * 
    * @param request - GetJobTemplateRequest
    * @returns GetJobTemplateResponse
@@ -1720,7 +1720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
+   * Lists task templates by workspace with support for pagination and sorting. You can filter results by creator, TemplateId, or TemplateName.
    * 
    * @param request - ListJobTemplatesRequest
    * @param headers - map
@@ -1730,6 +1730,10 @@ export default class Client extends OpenApi {
   async listJobTemplatesWithOptions(request: $_model.ListJobTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobTemplatesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
@@ -1781,7 +1785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
+   * Lists task templates by workspace with support for pagination and sorting. You can filter results by creator, TemplateId, or TemplateName.
    * 
    * @param request - ListJobTemplatesRequest
    * @returns ListJobTemplatesResponse
