@@ -2933,7 +2933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application that is attached to a PolarDB instance.
+   * Creates an application associated with a PolarDB instance.
    * 
    * @param tmpReq - CreateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2943,6 +2943,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateApplicationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agenticDBBranchSpec)) {
+      request.agenticDBBranchSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agenticDBBranchSpec, "AgenticDBBranchSpec", "json");
+    }
+
     if (!$dara.isNull(tmpReq.components)) {
       request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
     }
@@ -2967,9 +2971,17 @@ export default class Client extends OpenApi {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
+    if (!$dara.isNull(tmpReq.storages)) {
+      request.storagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storages, "Storages", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.AIDBClusterId)) {
       query["AIDBClusterId"] = request.AIDBClusterId;
+    }
+
+    if (!$dara.isNull(request.agenticDBBranchSpecShrink)) {
+      query["AgenticDBBranchSpec"] = request.agenticDBBranchSpecShrink;
     }
 
     if (!$dara.isNull(request.applicationType)) {
@@ -3108,6 +3120,10 @@ export default class Client extends OpenApi {
       query["SkillTemplateId"] = request.skillTemplateId;
     }
 
+    if (!$dara.isNull(request.storagesShrink)) {
+      query["Storages"] = request.storagesShrink;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -3154,7 +3170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application that is attached to a PolarDB instance.
+   * Creates an application associated with a PolarDB instance.
    * 
    * @param request - CreateApplicationRequest
    * @returns CreateApplicationResponse
@@ -16453,11 +16469,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the backup sets in a released PolarDB cluster.
+   * Queries the details of backup sets in a released PolarDB cluster.
    * 
    * @remarks
-   * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
-   * >  You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+   * When you invoke this operation, the PolarDB cluster must be in the **Released** state, and one of the following backup retention options must have been selected when the cluster was released: **Long-term Retention (LTR) of All Backups** or **Long-term Retention (LTR) of the Last Backup (Automatic Backup Before Deletion)**. If all retained backup sets of a released cluster have been manually deleted, this operation can no longer query the cluster.
+   * > You can invoke the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
    * 
    * @param request - DescribeDetachedBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16536,11 +16552,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the backup sets in a released PolarDB cluster.
+   * Queries the details of backup sets in a released PolarDB cluster.
    * 
    * @remarks
-   * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
-   * >  You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+   * When you invoke this operation, the PolarDB cluster must be in the **Released** state, and one of the following backup retention options must have been selected when the cluster was released: **Long-term Retention (LTR) of All Backups** or **Long-term Retention (LTR) of the Last Backup (Automatic Backup Before Deletion)**. If all retained backup sets of a released cluster have been manually deleted, this operation can no longer query the cluster.
+   * > You can invoke the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
    * 
    * @param request - DescribeDetachedBackupsRequest
    * @returns DescribeDetachedBackupsResponse
@@ -24615,10 +24631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the automatic backup policy for a PolarDB cluster.
+   * Modifies the automatic backup policy of a PolarDB cluster.
    * 
    * @remarks
-   * > You can also modify the automatic backup policy for a PolarDB cluster in the console. For more information, see [backup settings](https://help.aliyun.com/document_detail/280422.html).
+   * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
    * 
    * @param tmpReq - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24727,10 +24743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the automatic backup policy for a PolarDB cluster.
+   * Modifies the automatic backup policy of a PolarDB cluster.
    * 
    * @remarks
-   * > You can also modify the automatic backup policy for a PolarDB cluster in the console. For more information, see [backup settings](https://help.aliyun.com/document_detail/280422.html).
+   * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse

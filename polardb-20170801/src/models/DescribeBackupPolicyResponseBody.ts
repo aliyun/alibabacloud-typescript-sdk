@@ -101,14 +101,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The advanced backup policy option. Valid values:
-   * 
-   * - **enable**: Advanced backup is enabled.
-   * 
-   * - **disable**: Advanced backup is disabled. You can enable it.
-   * 
-   * - **notSupport**: Advanced backup is not supported.
-   * 
-   * > * This parameter is not supported by PolarDB for PostgreSQL (compatible with Oracle) and PolarDB for PostgreSQL.
+   * * **enable**: Advanced backup is enabled.
+   * * **disable**: Advanced backup is not enabled but can be enabled.
+   * * **notSupport**: Advanced backup is not supported.
+   * > *  This parameter is not supported for PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL.
    * 
    * @example
    * disable
@@ -118,17 +114,13 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
    * @remarks
    * The backup frequency. Valid values:
    * 
-   * - **Normal** (Default): Standard backup. A backup is performed once a day.
+   * - **Normal** (default): regular backup. A backup is performed once a day at a scheduled time.
+   * - **2/24H**: enhanced backup. A backup is performed every 2 hours.
+   * - **3/24H**: enhanced backup. A backup is performed every 3 hours.
+   * - **4/24H**: enhanced backup. A backup is performed every 4 hours.
    * 
-   * - **2/24H**: Enhanced backup. A backup is performed every 2 hours.
-   * 
-   * - **3/24H**: Enhanced backup. A backup is performed every 3 hours.
-   * 
-   * - **4/24H**: Enhanced backup. A backup is performed every 4 hours.
-   * 
-   * > * If you enable enhanced backup, all backups that are completed within 24 hours are retained. For backups that are completed more than 24 hours ago, the system retains only the first backup that is completed after 00:00 every day. Other backups are deleted.
-   * >
-   * > * If you enable enhanced backup, the **PreferredBackupPeriod** parameter is automatically set to all days of the week (Monday to Sunday).
+   * > * After enhanced backup is enabled, all backups completed within 24 hours are retained. For backups older than 24 hours, only the first backup completed after 00:00 each day is retained, and all others are deleted.
+   * >* After enhanced backup is enabled, the backup cycle parameter **PreferredBackupPeriod** is set to all days of the week by default (Monday through Sunday).
    * 
    * @example
    * Normal
@@ -136,13 +128,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   backupFrequency?: string;
   /**
    * @remarks
-   * The level of the backup policy. Valid values:
-   * 
-   * - **Normal**: standard backup
-   * 
-   * - **Advanced**: advanced backup
-   * 
-   * > * This parameter is not supported by PolarDB for PostgreSQL (compatible with Oracle) and PolarDB for PostgreSQL.
+   * The current backup policy level. Valid values:
+   * * **Normal**: regular backup
+   * * **Advanced**: advanced backup
+   * > *  This parameter is not supported for PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL.
    * 
    * @example
    * Normal
@@ -150,13 +139,11 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   backupPolicyLevel?: string;
   /**
    * @remarks
-   * The policy to retain backups when you delete a cluster:
+   * Specifies whether to retain backups when the cluster is deleted. Valid values:
    * 
-   * - **ALL**: Retains all backups permanently.
-   * 
-   * - **LATEST**: Retains the last backup permanently.
-   * 
-   * - **NONE** (Default): Does not retain backup sets.
+   * * **ALL**: All backups are retained with long-term retention (LTR).
+   * * **LATEST**: The last backup is retained with long-term retention (LTR).
+   * * **NONE** (default): No backups are retained.
    * 
    * @example
    * NONE
@@ -166,19 +153,14 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
    * @remarks
    * The backup frequency. Valid values:
    * 
-   * - **Normal** (Default): Standard backup. A backup is performed once a day.
+   * - **Normal** (default): regular backup. A backup is performed once a day at a scheduled time.
+   * - **2/24H**: high-frequency backup. A backup is performed every 2 hours.
+   * - **3/24H**: high-frequency backup. A backup is performed every 3 hours.
+   * - **4/24H**: high-frequency backup. A backup is performed every 4 hours.
    * 
-   * - **2/24H**: High-frequency backup. A backup is performed every 2 hours.
-   * 
-   * - **3/24H**: High-frequency backup. A backup is performed every 3 hours.
-   * 
-   * - **4/24H**: High-frequency backup. A backup is performed every 4 hours.
-   * 
-   * > * * This parameter is not supported by PolarDB for PostgreSQL (compatible with Oracle) and PolarDB for PostgreSQL.
-   * >
-   * > * - This parameter is not supported if the cross-region backup feature is unavailable in the region where your PolarDB for MySQL cluster resides. For more information about the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
-   * >
-   * > * - This parameter is not recommended if the advanced backup feature is enabled. Use the AdvancedDataPolicies parameter instead.
+   * > *  * This parameter is not supported for PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL.
+   * >*  * If the region of your PolarDB for MySQL cluster does not support the cross-region backup feature, this parameter is not supported. For the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+   * >*  * After advanced backup is enabled, use the AdvancedDataPolicies parameter instead of this parameter.
    * 
    * @example
    * Normal
@@ -186,29 +168,19 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   dataLevel1BackupFrequency?: string;
   /**
    * @remarks
-   * The cycle of a level-1 backup. Valid values:
+   * The level-1 backup cycle. Valid values: 
+   * * **Monday**
+   * * **Tuesday**
+   * * **Wednesday**
+   * * **Thursday**
+   * * **Friday**
+   * * **Saturday**
+   * * **Sunday**
    * 
-   * - **Monday**
-   * 
-   * - **Tuesday**
-   * 
-   * - **Wednesday**
-   * 
-   * - **Thursday**
-   * 
-   * - **Friday**
-   * 
-   * - **Saturday**
-   * 
-   * - **Sunday**
-   * 
-   * > * * Select at least two days. Separate multiple values with commas (,).
-   * >
-   * > * - This parameter is not supported by PolarDB for PostgreSQL (compatible with Oracle) and PolarDB for PostgreSQL.
-   * >
-   * > * - This parameter is not supported if the cross-region backup feature is unavailable in the region where your PolarDB for MySQL cluster resides. For more information about the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
-   * >
-   * > * - This parameter is not recommended if the advanced backup feature is enabled. Use the AdvancedDataPolicies parameter instead.
+   * > * * At least two days must be selected. Separate multiple values with commas (,).
+   * >*  * This parameter is not supported for PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL.
+   * >* * If the region of your PolarDB for MySQL cluster does not support the cross-region backup feature, this parameter is not supported. For the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+   * >* * After advanced backup is enabled, use the AdvancedDataPolicies parameter instead of this parameter.
    * 
    * @example
    * Monday,Tuesday
@@ -217,8 +189,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The retention period of level-1 backups. Valid values: 3 to 14. Unit: days.
-   * 
-   * > This parameter is not recommended if the advanced backup feature is enabled. Use the AdvancedDataPolicies parameter instead.
+   * > After advanced backup is enabled, use the AdvancedDataPolicies parameter instead of this parameter.
    * 
    * @example
    * 7
@@ -226,11 +197,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   dataLevel1BackupRetentionPeriod?: string;
   /**
    * @remarks
-   * The time range when an automatic backup is performed. The time is in the `hh:mmZ-hh:mmZ` format and is displayed in UTC. The specified time range must be a 1-hour interval on the hour, such as `14:00Z-15:00Z`.
+   * The time period during which automatic backups are performed. The value is in the `hh:mmZ-hh:mmZ` format (UTC). The start and end times must be on the hour and exactly 1 hour apart. Example: `14:00Z-15:00Z`.
    * 
-   * > - This parameter is not supported by PolarDB for PostgreSQL (compatible with Oracle) and PolarDB for PostgreSQL.
-   * >
-   * > - This parameter is not supported if the cross-region backup feature is unavailable in the region where your PolarDB for MySQL cluster resides. For more information about the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+   * > *  This parameter is not supported for PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL.
+   * >*  If the region of your PolarDB for MySQL cluster does not support the cross-region backup feature, this parameter is not supported. For the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
    * 
    * @example
    * 15:00Z-16:00Z
@@ -238,9 +208,9 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   dataLevel1BackupTime?: string;
   /**
    * @remarks
-   * The destination region of the cross-region level-2 backup. For more information about the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+   * The cross-region backup region for level-2 backups. For the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
    * 
-   * > This parameter is not recommended if the advanced backup feature is enabled. Use the AdvancedDataPolicies parameter instead.
+   * > After advanced backup is enabled, use the AdvancedDataPolicies parameter instead of this parameter.
    * 
    * @example
    * cn-hangzhou
@@ -248,17 +218,17 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   dataLevel2BackupAnotherRegionRegion?: string;
   /**
    * @remarks
-   * The retention period of cross-region level-2 backups. Valid values:
+   * The retention epoch of cross-region backups for level-2 backups. Valid values:
    * 
-   * - **0**: The level-2 backup feature is disabled.
+   * - **0**: The level-2 backup feature is shutdown.
    * 
-   * - **30 to 7300**: The retention period of level-2 backups in days.
+   * - **30 to 7300**: The retention epoch of level-2 backups. Unit: days.
    * 
-   * - **-1**: The level-2 backups are permanently retained.
+   * - **-1**: Level-2 backups are retained with long-term retention (LTR).
    * 
-   * > * * When you create a cluster, the default value is **0**. This means the cross-region backup feature for level-2 backups is disabled.
-   * >
-   * > * - This parameter is not recommended if the advanced backup feature is enabled. Use the AdvancedDataPolicies parameter instead.
+   *  >
+   * >- - When a cluster is created, the default value is **0**, which means the cross-region backup feature for level-2 backups is shutdown.
+   * >- - After advanced backup is enabled, use the AdvancedDataPolicies parameter instead of this parameter.
    * 
    * @example
    * 30
@@ -266,29 +236,19 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   dataLevel2BackupAnotherRegionRetentionPeriod?: string;
   /**
    * @remarks
-   * The cycle of a level-2 backup. Valid values:
+   * The level-2 backup cycle. Valid values: 
+   * * **Monday**
+   * * **Tuesday**
+   * * **Wednesday**
+   * * **Thursday**
+   * * **Friday**
+   * * **Saturday**
+   * * **Sunday**
    * 
-   * - **Monday**
-   * 
-   * - **Tuesday**
-   * 
-   * - **Wednesday**
-   * 
-   * - **Thursday**
-   * 
-   * - **Friday**
-   * 
-   * - **Saturday**
-   * 
-   * - **Sunday**
-   * 
-   * > * * Select at least two days. Separate multiple values with commas (,).
-   * >
-   * > * - This parameter is not supported by PolarDB for PostgreSQL (compatible with Oracle) and PolarDB for PostgreSQL.
-   * >
-   * > * - This parameter is not supported if the cross-region backup feature is unavailable in the region where your PolarDB for MySQL cluster resides. For more information about the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
-   * >
-   * > * - This parameter is not recommended if the advanced backup feature is enabled. Use the AdvancedDataPolicies parameter instead.
+   * > * * At least two days must be selected. Separate multiple values with commas (,).
+   * >*  * This parameter is not supported for PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL.
+   * >* * If the region of your PolarDB for MySQL cluster does not support the cross-region backup feature, this parameter is not supported. For the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+   * >* * After advanced backup is enabled, use the AdvancedDataPolicies parameter instead of this parameter.
    * 
    * @example
    * Monday,Tuesday
@@ -296,17 +256,14 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   dataLevel2BackupPeriod?: string;
   /**
    * @remarks
-   * The retention period of level-2 backups. Valid values:
+   * The retention epoch of level-2 backups. Valid values:
+   *  * 0: The level-2 backup feature is shutdown.
+   *  * 30 to 7300: The retention epoch of level-2 backups. Unit: days.
+   *  * -1: Level-2 backups are retained with long-term retention (LTR).
    * 
-   * - 0: The level-2 backup feature is disabled.
-   * 
-   * - 30 to 7300: The retention period of level-2 backups in days.
-   * 
-   * - -1: The level-2 backups are permanently retained.
-   * 
-   * > * * When you create a cluster, the default value is **0**. This means the level-2 backup feature is disabled.
-   * >
-   * > * - This parameter is not recommended if the advanced backup feature is enabled. Use the AdvancedDataPolicies parameter instead.
+   *  >
+   * >- * When a cluster is created, the default value is **0**, which means the level-2 backup feature is shutdown.
+   * >- * After advanced backup is enabled, use the AdvancedDataPolicies parameter instead of this parameter.
    * 
    * @example
    * 0
@@ -314,23 +271,26 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   dataLevel2BackupRetentionPeriod?: string;
   /**
    * @remarks
-   * The backup cycle. Valid values:
+   * Indicates whether immutable cross-region backup is enabled.
+   */
+  enableCrossRegionImmutableBackup?: boolean;
+  /**
+   * @remarks
+   * Indicates whether immutable backup is enabled.
+   */
+  enableImmutableBackup?: boolean;
+  /**
+   * @remarks
+   * The data backup cycle. Valid values:
    * 
    * - Monday
-   * 
    * - Tuesday
-   * 
    * - Wednesday
-   * 
    * - Thursday
-   * 
    * - Friday
-   * 
    * - Saturday
-   * 
    * - Sunday
-   * 
-   * > This parameter is not recommended if the advanced backup feature is enabled. Use the AdvancedDataPolicies parameter instead.
+   * > After advanced backup is enabled, use the AdvancedDataPolicies parameter instead of this parameter.
    * 
    * @example
    * Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
@@ -338,7 +298,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The time range when an automatic backup is performed. The time is in the `HH:mmZ-HH:mmZ` format. The time is displayed in UTC.
+   * The time period during which automatic backups are performed. The value is in the `HH:mmZ-HH:mmZ` format (UTC).
    * 
    * @example
    * 07:00Z-08:00Z
@@ -346,7 +306,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupTime?: string;
   /**
    * @remarks
-   * The time of the next backup. The time is in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
+   * The time of the next backup. The value is in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * @example
    * 2020-11-16T07:30Z
@@ -375,6 +335,8 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
       dataLevel2BackupAnotherRegionRetentionPeriod: 'DataLevel2BackupAnotherRegionRetentionPeriod',
       dataLevel2BackupPeriod: 'DataLevel2BackupPeriod',
       dataLevel2BackupRetentionPeriod: 'DataLevel2BackupRetentionPeriod',
+      enableCrossRegionImmutableBackup: 'EnableCrossRegionImmutableBackup',
+      enableImmutableBackup: 'EnableImmutableBackup',
       preferredBackupPeriod: 'PreferredBackupPeriod',
       preferredBackupTime: 'PreferredBackupTime',
       preferredNextBackupTime: 'PreferredNextBackupTime',
@@ -397,6 +359,8 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
       dataLevel2BackupAnotherRegionRetentionPeriod: 'string',
       dataLevel2BackupPeriod: 'string',
       dataLevel2BackupRetentionPeriod: 'string',
+      enableCrossRegionImmutableBackup: 'boolean',
+      enableImmutableBackup: 'boolean',
       preferredBackupPeriod: 'string',
       preferredBackupTime: 'string',
       preferredNextBackupTime: 'string',

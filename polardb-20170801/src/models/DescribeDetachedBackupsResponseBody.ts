@@ -99,7 +99,7 @@ export class DescribeDetachedBackupsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 15
@@ -107,7 +107,7 @@ export class DescribeDetachedBackupsResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 717B2382-BB14-4DCB-BBC2-32DBE0******
@@ -115,7 +115,7 @@ export class DescribeDetachedBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 50

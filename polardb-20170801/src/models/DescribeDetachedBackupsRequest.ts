@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDetachedBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup set.
+   * The backup ID.
    * 
    * @example
    * 111111111
@@ -13,10 +13,9 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The backup mode. Valid values:
-   * 
-   * *   **Automated**
-   * *   **Manual**
+   * The backup mode. Valid values: 
+   * * **Automated**: automatic backup.
+   * * **Manual**: manual backup.
    * 
    * @example
    * Manual
@@ -24,9 +23,9 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The region where the cross-region data backup file of the instance is stored.
+   * The destination region for cross-region backups.
    * 
-   * > This parameter is valid only for PolarDB for MySQL clusters.
+   * > Only PolarDB for MySQL supports this parameter.
    * 
    * @example
    * cn-hangzhou
@@ -34,10 +33,9 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   backupRegion?: string;
   /**
    * @remarks
-   * The status of the backup set. Valid values:
-   * 
-   * *   **Success**
-   * *   **Failed**
+   * The backup status. Valid values:
+   * * **Success**: The backup is complete.
+   * * **Failed**: The backup failed.
    * 
    * @example
    * Success
@@ -45,7 +43,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +53,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC. The end time must be later than the start time.
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 
@@ -67,7 +65,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -75,11 +73,10 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * The number of entries per page. Valid values: 
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: **30**.
    * 
@@ -91,7 +88,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 

@@ -6,12 +6,14 @@ export { CheckPolarFsQuotaConsistencyResponseBodyQuotaItem } from './CheckPolarF
 export { CreateAIDBClusterRequestTimeSlices } from './CreateAidbclusterRequest';
 export { CreateAIDBClusterApiKeyResponseBodyApiKey } from './CreateAidbclusterApiKeyResponseBody';
 export { CreateAINodesRequestDBNodes } from './CreateAinodesRequest';
+export { CreateApplicationRequestAgenticDBBranchSpec } from './CreateApplicationRequest';
 export { CreateApplicationRequestComponents } from './CreateApplicationRequest';
 export { CreateApplicationRequestDnatEntries } from './CreateApplicationRequest';
 export { CreateApplicationRequestEndpoints } from './CreateApplicationRequest';
 export { CreateApplicationRequestKnowledgeApplicationSpec } from './CreateApplicationRequest';
 export { CreateApplicationRequestMemApplicationSpec } from './CreateApplicationRequest';
 export { CreateApplicationRequestParameters } from './CreateApplicationRequest';
+export { CreateApplicationRequestStorages } from './CreateApplicationRequest';
 export { CreateApplicationRequestTag } from './CreateApplicationRequest';
 export { CreateApplicationShrinkRequestTag } from './CreateApplicationShrinkRequest';
 export { CreateApplicationResponseBodyComponents } from './CreateApplicationResponseBody';
