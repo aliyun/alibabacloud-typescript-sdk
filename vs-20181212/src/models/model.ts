@@ -36,6 +36,7 @@ export { DelHiveEdgeWorkersResponseBodyFailedInstances } from './DelHiveEdgeWork
 export { DelHiveEdgeWorkersResponseBodySuccessInstances } from './DelHiveEdgeWorkersResponseBody';
 export { DeleteRenderingInstanceConfigurationRequestConfiguration } from './DeleteRenderingInstanceConfigurationRequest';
 export { DescribeComfyProductionsResponseBodyProductions } from './DescribeComfyProductionsResponseBody';
+export { DescribeComfyTaskWaitingQueueResponseBodyTaskWaitingQueue } from './DescribeComfyTaskWaitingQueueResponseBody';
 export { DescribeComfyTasksResponseBodyTasks } from './DescribeComfyTasksResponseBody';
 export { DescribeComfyUserDatasResponseBodyUserDatas } from './DescribeComfyUserDatasResponseBody';
 export { DescribeComfyWorkflowsResponseBodyWorkflows } from './DescribeComfyWorkflowsResponseBody';
@@ -372,6 +373,9 @@ export { DescribeComfyProductionDownloadUrlResponse } from './DescribeComfyProdu
 export { DescribeComfyProductionsRequest } from './DescribeComfyProductionsRequest';
 export { DescribeComfyProductionsResponseBody } from './DescribeComfyProductionsResponseBody';
 export { DescribeComfyProductionsResponse } from './DescribeComfyProductionsResponse';
+export { DescribeComfyTaskWaitingQueueRequest } from './DescribeComfyTaskWaitingQueueRequest';
+export { DescribeComfyTaskWaitingQueueResponseBody } from './DescribeComfyTaskWaitingQueueResponseBody';
+export { DescribeComfyTaskWaitingQueueResponse } from './DescribeComfyTaskWaitingQueueResponse';
 export { DescribeComfyTasksRequest } from './DescribeComfyTasksRequest';
 export { DescribeComfyTasksResponseBody } from './DescribeComfyTasksResponseBody';
 export { DescribeComfyTasksResponse } from './DescribeComfyTasksResponse';

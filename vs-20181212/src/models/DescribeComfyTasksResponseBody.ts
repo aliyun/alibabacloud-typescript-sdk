@@ -134,7 +134,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page size.
-   * > Only applicable to recording queries.
+   * > Only available for recording queries.
    * 
    * @example
    * 20
@@ -155,7 +155,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   tasks?: DescribeComfyTasksResponseBodyTasks[];
   /**
    * @remarks
-   * The number of tasks.
+   * The total number of tasks.
    * 
    * @example
    * 1

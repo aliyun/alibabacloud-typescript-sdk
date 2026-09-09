@@ -12,12 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shenzhen': "vs.cn-shenzhen.aliyuncs.com",
-      'cn-qingdao': "vs.cn-qingdao.aliyuncs.com",
-      'cn-beijing': "vs.cn-beijing.aliyuncs.com",
-      'cn-shanghai': "vs.cn-shanghai.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("vs", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -2764,7 +2758,7 @@ export default class Client extends OpenApi {
    * ## Request description
    * - **HiveId** is a required parameter that specifies the ID of the cluster to operate on.
    * - **InstanceIds** is a required parameter that specifies a list of workload IDs to unbind from the cluster.
-   * - After the unbind operation succeeds, the response returns lists of successful and failed workload instances along with related information.
+   * - After the unbind operation is complete, the response returns lists of successful and failed workload instances along with related information.
    * 
    * @param tmpReq - DelHiveEdgeWorkersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2811,7 +2805,7 @@ export default class Client extends OpenApi {
    * ## Request description
    * - **HiveId** is a required parameter that specifies the ID of the cluster to operate on.
    * - **InstanceIds** is a required parameter that specifies a list of workload IDs to unbind from the cluster.
-   * - After the unbind operation succeeds, the response returns lists of successful and failed workload instances along with related information.
+   * - After the unbind operation is complete, the response returns lists of successful and failed workload instances along with related information.
    * 
    * @param request - DelHiveEdgeWorkersRequest
    * @returns DelHiveEdgeWorkersResponse
@@ -3192,8 +3186,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - Ensure that all application services in the cluster have been removed. Otherwise, the delete operation cannot be performed.
-   * - `HiveId` is a required parameter that identifies the cluster to be deleted.
+   * - Ensure that all workloads in the cluster have been cleared. Otherwise, the delete operation cannot be performed.
+   * - HiveId is a required parameter that identifies the cluster to be deleted.
    * 
    * @param request - DeleteHiveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3228,8 +3222,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - Ensure that all application services in the cluster have been removed. Otherwise, the delete operation cannot be performed.
-   * - `HiveId` is a required parameter that identifies the cluster to be deleted.
+   * - Ensure that all workloads in the cluster have been cleared. Otherwise, the delete operation cannot be performed.
+   * - HiveId is a required parameter that identifies the cluster to be deleted.
    * 
    * @param request - DeleteHiveRequest
    * @returns DeleteHiveResponse
@@ -3876,10 +3870,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the waiting queue information of Comfy tasks. The maximum length of a single Hive waiting queue is 100 by default.
+   * 
+   * @param request - DescribeComfyTaskWaitingQueueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComfyTaskWaitingQueueResponse
+   */
+  async describeComfyTaskWaitingQueueWithOptions(request: $_model.DescribeComfyTaskWaitingQueueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyTaskWaitingQueueResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComfyTaskWaitingQueue",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComfyTaskWaitingQueueResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComfyTaskWaitingQueueResponse({}));
+  }
+
+  /**
+   * Queries the waiting queue information of Comfy tasks. The maximum length of a single Hive waiting queue is 100 by default.
+   * 
+   * @param request - DescribeComfyTaskWaitingQueueRequest
+   * @returns DescribeComfyTaskWaitingQueueResponse
+   */
+  async describeComfyTaskWaitingQueue(request: $_model.DescribeComfyTaskWaitingQueueRequest): Promise<$_model.DescribeComfyTaskWaitingQueueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComfyTaskWaitingQueueWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of Comfy tasks.
    * 
    * @remarks
-   * > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
+   * > Screenshot queries do not support pagination. Only iteration-based queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
    * 
    * @param request - DescribeComfyTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3888,6 +3924,10 @@ export default class Client extends OpenApi {
   async describeComfyTasksWithOptions(request: $_model.DescribeComfyTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyTasksResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -3929,7 +3969,7 @@ export default class Client extends OpenApi {
    * Queries the list of Comfy tasks.
    * 
    * @remarks
-   * > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
+   * > Screenshot queries do not support pagination. Only iteration-based queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
    * 
    * @param request - DescribeComfyTasksRequest
    * @returns DescribeComfyTasksResponse
@@ -7708,14 +7748,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries workload information with pagination.
+   * Queries load information with paged query and paging support.
    * 
    * @remarks
-   * ## Description
-   * - This API operation queries workload information and supports filtering and pagination by using multiple parameters.
+   * ## Operation description
+   * - This API operation queries load information. You can filter results by using various parameters and perform paged query operations.
    * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
-   * - For pagination, use the PageNumber and PageSize parameters to control the amount of returned data. By default, 10 records are returned per page and a maximum of 100 records are supported per page.
-   * - Use the StartTime and EndTime parameters to specify the time range for queries.
+   * - For paged query operations, use the PageNumber and PageSize parameters to control the data volume of returned results. The default page size is 10 records, and the maximum is 100 records. Paging is supported.
+   * - To query by time range, specify the StartTime and EndTime parameters.
    * 
    * @param tmpReq - ListEdgeWorkersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7796,14 +7836,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries workload information with pagination.
+   * Queries load information with paged query and paging support.
    * 
    * @remarks
-   * ## Description
-   * - This API operation queries workload information and supports filtering and pagination by using multiple parameters.
+   * ## Operation description
+   * - This API operation queries load information. You can filter results by using various parameters and perform paged query operations.
    * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
-   * - For pagination, use the PageNumber and PageSize parameters to control the amount of returned data. By default, 10 records are returned per page and a maximum of 100 records are supported per page.
-   * - Use the StartTime and EndTime parameters to specify the time range for queries.
+   * - For paged query operations, use the PageNumber and PageSize parameters to control the data volume of returned results. The default page size is 10 records, and the maximum is 100 records. Paging is supported.
+   * - To query by time range, specify the StartTime and EndTime parameters.
    * 
    * @param request - ListEdgeWorkersRequest
    * @returns ListEdgeWorkersResponse
@@ -7890,14 +7930,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all cluster information by using paging and supports filtering by conditions.
+   * Queries all cluster information by paging and supports filtering by conditions.
    * 
    * @remarks
    * ## Operation description
    * - This API operation queries information about all clusters created by the user.
    * - You can use the `HiveId` and `Name` parameters to filter query results.
-   * - The pagination parameters `PageNumber` and `PageSize` control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
-   * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information, but they are optional.
+   * - The `PageNumber` and `PageSize` pagination parameters control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
+   * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information. These parameters are optional.
    * 
    * @param request - ListHivesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7948,14 +7988,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all cluster information by using paging and supports filtering by conditions.
+   * Queries all cluster information by paging and supports filtering by conditions.
    * 
    * @remarks
    * ## Operation description
    * - This API operation queries information about all clusters created by the user.
    * - You can use the `HiveId` and `Name` parameters to filter query results.
-   * - The pagination parameters `PageNumber` and `PageSize` control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
-   * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information, but they are optional.
+   * - The `PageNumber` and `PageSize` pagination parameters control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
+   * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information. These parameters are optional.
    * 
    * @param request - ListHivesRequest
    * @returns ListHivesResponse
@@ -9033,10 +9073,10 @@ export default class Client extends OpenApi {
    * Updates the name or description of a specified cluster.
    * 
    * @remarks
-   * ## Request
-   * - This API modifies the name and/or description of an existing cluster.
-   * - `HiveId` is a required parameter that identifies the cluster to modify.
-   * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
+   * ## Operation description
+   * - This API operation modifies the basic attributes of an existing cluster, including the name and description.
+   * - HiveId is a required parameter that identifies the cluster to modify.
+   * - The Name and Description parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
    * 
    * @param request - ModifyHiveAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9078,10 +9118,10 @@ export default class Client extends OpenApi {
    * Updates the name or description of a specified cluster.
    * 
    * @remarks
-   * ## Request
-   * - This API modifies the name and/or description of an existing cluster.
-   * - `HiveId` is a required parameter that identifies the cluster to modify.
-   * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
+   * ## Operation description
+   * - This API operation modifies the basic attributes of an existing cluster, including the name and description.
+   * - HiveId is a required parameter that identifies the cluster to modify.
+   * - The Name and Description parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
    * 
    * @param request - ModifyHiveAttributeRequest
    * @returns ModifyHiveAttributeResponse
@@ -9503,11 +9543,11 @@ export default class Client extends OpenApi {
    * Moves specified workloads to a target cluster.
    * 
    * @remarks
-   * ## Request description
-   * - **HiveId**: The target cluster ID. Required.
-   * - **InstanceIds**: The list of workload IDs to move. Required.
+   * ## Operation description
+   * - **HiveId**: The ID of the target cluster. This parameter is required.
+   * - **InstanceIds**: The list of workload IDs to move. This parameter is required.
    * - This operation moves the specified workloads from the current cluster to the target cluster.
-   * - Ensure that the target cluster exists to accept the new workloads.
+   * - Make sure the target cluster exists to accept the new workloads.
    * 
    * @param tmpReq - MoveHiveEdgeWorkersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9551,11 +9591,11 @@ export default class Client extends OpenApi {
    * Moves specified workloads to a target cluster.
    * 
    * @remarks
-   * ## Request description
-   * - **HiveId**: The target cluster ID. Required.
-   * - **InstanceIds**: The list of workload IDs to move. Required.
+   * ## Operation description
+   * - **HiveId**: The ID of the target cluster. This parameter is required.
+   * - **InstanceIds**: The list of workload IDs to move. This parameter is required.
    * - This operation moves the specified workloads from the current cluster to the target cluster.
-   * - Ensure that the target cluster exists to accept the new workloads.
+   * - Make sure the target cluster exists to accept the new workloads.
    * 
    * @param request - MoveHiveEdgeWorkersRequest
    * @returns MoveHiveEdgeWorkersResponse

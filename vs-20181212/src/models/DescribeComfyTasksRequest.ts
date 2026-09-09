@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The HiveId used as a filter condition to query tasks executed under the specified HiveId.
+   * 
+   * @example
+   * hive-26cd567b35c04a0a90f0xxxxx
+   */
+  hiveId?: string;
+  /**
+   * @remarks
    * The page number.
    * 
    * @example
@@ -13,7 +21,7 @@ export class DescribeComfyTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records to display per page.
+   * The number of records per page.
    * 
    * @example
    * 20
@@ -42,6 +50,7 @@ export class DescribeComfyTasksRequest extends $dara.Model {
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
+      hiveId: 'HiveId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       taskId: 'TaskId',
@@ -52,6 +61,7 @@ export class DescribeComfyTasksRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hiveId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       taskId: 'string',

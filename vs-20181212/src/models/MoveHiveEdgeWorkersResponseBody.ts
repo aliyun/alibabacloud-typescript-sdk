@@ -85,7 +85,7 @@ export class MoveHiveEdgeWorkersResponseBodySuccessInstances extends $dara.Model
 export class MoveHiveEdgeWorkersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of failed operations.
+   * The number of workloads that failed to be moved.
    * 
    * @example
    * 0
@@ -106,7 +106,7 @@ export class MoveHiveEdgeWorkersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successful operations.
+   * The number of workloads that were successfully moved.
    * 
    * @example
    * 5

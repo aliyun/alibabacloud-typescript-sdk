@@ -13,7 +13,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The cluster ID list.
+   * The list of cluster IDs.
    * 
    * @example
    * ["hive-4fbf3928d40e43948b98acdb4fb5aaed"]
@@ -21,7 +21,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   hiveIdsShrink?: string;
   /**
    * @remarks
-   * The workload ID list.
+   * The list of load IDs.
    * 
    * @example
    * ew-xxxxxx
@@ -29,7 +29,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The page number of the query list. Minimum value: 1. Default value: 1.
+   * The page number of the query list. The value starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paginated query. Maximum value: 100. Default value: 10.
+   * The number of entries per page in a paged query. Settings for paging. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plan ID list.
+   * The list of plan IDs.
    * 
    * @example
    * ["pk-4fbf3928d40e43948b98acdb4fb5aaed"]
@@ -61,7 +61,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The start time for time range filtering. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time range filter parameter. The value is in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-05-25T06:35:26+08:00
@@ -69,7 +69,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status list.
+   * The list of statuses.
    */
   statusesShrink?: string;
   static names(): { [key: string]: string } {

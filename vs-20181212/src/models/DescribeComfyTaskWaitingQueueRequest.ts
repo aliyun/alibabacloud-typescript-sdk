@@ -2,15 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteHiveRequest extends $dara.Model {
+export class DescribeComfyTaskWaitingQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
+   * The waiting queue information of a specified Hive.
    * 
    * @example
-   * hive-xxxx
+   * hive-26cd567b35c04a0a90f0xxxxx
    */
   hiveId?: string;
   static names(): { [key: string]: string } {
