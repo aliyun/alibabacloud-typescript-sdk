@@ -291,6 +291,10 @@ export default class Client extends OpenApi {
   async copyDefenseTemplateWithOptions(request: $_model.CopyDefenseTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CopyDefenseTemplateResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -776,7 +780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a web core protection rule.
+   * Creates a Web core protection rule.
    * 
    * @param request - CreateDefenseRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -791,6 +795,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.defenseType)) {
       query["DefenseType"] = request.defenseType;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -837,7 +845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a web core protection rule.
+   * Creates a Web core protection rule.
    * 
    * @param request - CreateDefenseRuleRequest
    * @returns CreateDefenseRuleResponse
@@ -867,6 +875,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.detail)) {
+      query["Detail"] = request.detail;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -2079,6 +2095,10 @@ export default class Client extends OpenApi {
       query["DefenseType"] = request.defenseType;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -2190,7 +2210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a protection rule template.
+   * Deletes a protection template.
    * 
    * @param request - DeleteDefenseTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2199,6 +2219,10 @@ export default class Client extends OpenApi {
   async deleteDefenseTemplateWithOptions(request: $_model.DeleteDefenseTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDefenseTemplateResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -2233,7 +2257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a protection rule template.
+   * Deletes a protection template.
    * 
    * @param request - DeleteDefenseTemplateRequest
    * @returns DeleteDefenseTemplateResponse
@@ -5890,7 +5914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protection templates of a protected object or a protected object group.
+   * Queries the protection templates of a protected object or protected object group.
    * 
    * @param request - DescribeDefenseResourceTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5953,7 +5977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protection templates of a protected object or a protected object group.
+   * Queries the protection templates of a protected object or protected object group.
    * 
    * @param request - DescribeDefenseResourceTemplatesRequest
    * @returns DescribeDefenseResourceTemplatesResponse
@@ -6300,7 +6324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific protection template.
+   * Queries a single protection template.
    * 
    * @param request - DescribeDefenseTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6343,7 +6367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific protection template.
+   * Queries a single protection template.
    * 
    * @param request - DescribeDefenseTemplateRequest
    * @returns DescribeDefenseTemplateResponse
@@ -13549,6 +13573,10 @@ export default class Client extends OpenApi {
       query["DefenseType"] = request.defenseType;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -13678,6 +13706,10 @@ export default class Client extends OpenApi {
       query["DefenseType"] = request.defenseType;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -13796,7 +13828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a defense template.
+   * Modifies a protection template.
    * 
    * @param request - ModifyDefenseTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13807,6 +13839,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.detail)) {
+      query["Detail"] = request.detail;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -13847,7 +13887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a defense template.
+   * Modifies a protection template.
    * 
    * @param request - ModifyDefenseTemplateRequest
    * @returns ModifyDefenseTemplateResponse
@@ -13858,7 +13898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a protection rule template.
+   * Modifies the status of a protection template.
    * 
    * @param request - ModifyDefenseTemplateStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13867,6 +13907,10 @@ export default class Client extends OpenApi {
   async modifyDefenseTemplateStatusWithOptions(request: $_model.ModifyDefenseTemplateStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDefenseTemplateStatusResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -13905,7 +13949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a protection rule template.
+   * Modifies the status of a protection template.
    * 
    * @param request - ModifyDefenseTemplateStatusRequest
    * @returns ModifyDefenseTemplateStatusResponse
@@ -15133,6 +15177,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -15190,7 +15238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches protected objects to or detaches protected objects from a protection template.
+   * Associates or disassociates protected resources with or from a protection template.
    * 
    * @param request - ModifyTemplateResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15209,6 +15257,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bindResources)) {
       query["BindResources"] = request.bindResources;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -15257,7 +15309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches protected objects to or detaches protected objects from a protection template.
+   * Associates or disassociates protected resources with or from a protection template.
    * 
    * @param request - ModifyTemplateResourcesRequest
    * @returns ModifyTemplateResourcesResponse

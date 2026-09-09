@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefenseTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the protection template.
+   * The description of the protection template that you want to modify.
    * 
    * @example
    * test
@@ -13,9 +13,27 @@ export class ModifyDefenseTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The details of the template. For more information, see the Detail parameter in [CreateDefenseTemplate](https://help.aliyun.com/document_detail/461613.html).
+   * 
+   * @example
+   * {"trafficFeature":"{\\"global\\":0,\\"excludeStatus\\":1,\\"conditions\\":[{\\"key\\":\\"URL\\",\\"opValue\\":\\"not-contain\\",\\"values\\":\\"test\\"}]}"}
+   */
+  detail?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+   * - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +43,7 @@ export class ModifyDefenseTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -45,7 +63,7 @@ export class ModifyDefenseTemplateRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the protection template to modify.
+   * The ID of the protection template that you want to modify.
    * 
    * This parameter is required.
    * 
@@ -55,9 +73,9 @@ export class ModifyDefenseTemplateRequest extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The name of the protection template. The name must be 1 to 255 characters long and can contain Chinese characters, letters, digits, underscores (_), periods (.), and hyphens (-).
+   * The name of the protection template that you want to modify. The name must be 1 to 255 characters in length and can contain Chinese characters, letters, digits, underscores (_), periods (.), and hyphens (-).
    * 
-   * > Template names must be unique for the same protection scenario (**DefenseScene**).
+   * > Template names within the same protection scenario (**DefenseScene**) must be unique.
    * 
    * This parameter is required.
    * 
@@ -68,6 +86,8 @@ export class ModifyDefenseTemplateRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      detail: 'Detail',
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -79,6 +99,8 @@ export class ModifyDefenseTemplateRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      detail: 'string',
+      dryRun: 'boolean',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

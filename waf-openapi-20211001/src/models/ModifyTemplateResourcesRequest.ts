@@ -5,24 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTemplateResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the protected assets to attach. The value is in the [**"XX1","XX2",...**] format.
+   * The IDs of the protected assets to associate, in the format of ["XX1","XX2",...].
    */
   bindAssets?: string[];
   /**
    * @remarks
-   * The protected object groups to attach. The value is in the [**"group1","group2",...**] format.
+   * The protected object groups to associate, in the format of [**"group1","group2",...**].
    */
   bindResourceGroups?: string[];
   /**
    * @remarks
-   * The protected objects to attach. The value is in the [**"XX1","XX2",...**] format.
+   * The protected objects to associate, in the format of [**"XX1","XX2",...**].
    */
   bindResources?: string[];
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+   * - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * Instance ID of the WAF instance.
+   * 
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -62,17 +72,17 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The IDs of the protected assets to detach. The value is in the [**"XX1","XX2",...**] format.
+   * The IDs of the protected assets to disassociate, in the format of ["XX1","XX2",...].
    */
   unbindAssets?: string[];
   /**
    * @remarks
-   * The protected object groups to detach. The value is in the [**"group1","group2",...**] format.
+   * The protected object groups to disassociate, in the format of [**"group1","group2",...**].
    */
   unbindResourceGroups?: string[];
   /**
    * @remarks
-   * The protected objects to detach. The value is in the [**"XX1","XX2",...**] format.
+   * The protected objects to disassociate, in the format of [**"XX1","XX2",...**].
    */
   unbindResources?: string[];
   static names(): { [key: string]: string } {
@@ -80,6 +90,7 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
       bindAssets: 'BindAssets',
       bindResourceGroups: 'BindResourceGroups',
       bindResources: 'BindResources',
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -95,6 +106,7 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
       bindAssets: { 'type': 'array', 'itemType': 'string' },
       bindResourceGroups: { 'type': 'array', 'itemType': 'string' },
       bindResources: { 'type': 'array', 'itemType': 'string' },
+      dryRun: 'boolean',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

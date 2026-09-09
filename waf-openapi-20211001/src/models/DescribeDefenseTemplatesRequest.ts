@@ -14,10 +14,10 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The sub-scenario of the protection template. Valid values:
-   * - **web**: BOT management web protection scenario template.
-   * - **app**: BOT management app protection scenario template.
-   * - **basic**: BOT management basic protection template.
-   * - **bot_custom_acl**: BOT management advanced custom rule protection template.
+   * - **web**: bot management web protection scenario template.
+   * - **app**: bot management app protection scenario template.
+   * - **basic**: bot management basic protection template.
+   * - **bot_custom_acl**: bot management advanced custom rule protection template.
    * 
    * @example
    * basic
@@ -37,7 +37,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number to return in a paging query request. Default value: **1**.
+   * The page number to return in a paging request. Default value: **1**.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Default value: **20**.
+   * The number of entries per page when paging. Default value: **20**.
    * 
    * @example
    * 10
@@ -65,7 +65,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the protected object, protection group, or the ID of the protected asset.
+   * The name of the protected object, the name of the protected object group, or the ID of the protected asset.
    * 
    * > This parameter is used together with the ResourceType parameter. Both parameters must have values for filtering to take effect.
    * 
@@ -117,8 +117,8 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The templatetype of the protection template. Valid values:
-   * - **user_default**: user default protection.
-   * - **user_custom**: user custom protection.
+   * - **user_default**: default protection.
+   * - **user_custom**: custom protection.
    * 
    * @example
    * user_default

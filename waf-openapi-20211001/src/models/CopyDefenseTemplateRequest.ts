@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CopyDefenseTemplateRequest extends $dara.Model {
+  dryRun?: boolean;
   /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
@@ -47,6 +48,7 @@ export class CopyDefenseTemplateRequest extends $dara.Model {
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -56,6 +58,7 @@ export class CopyDefenseTemplateRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

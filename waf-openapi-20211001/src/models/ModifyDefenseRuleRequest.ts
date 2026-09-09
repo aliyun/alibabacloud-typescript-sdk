@@ -21,6 +21,16 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
   defenseType?: string;
   /**
    * @remarks
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+   * - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * Instance ID of the WAF instance.
    * 
    * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
@@ -62,7 +72,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The details of the protection rule. The value is a string that is converted from a JSON object constructed by a series of parameters. When you configure this parameter, you must specify the rule ID and the protection rule configuration to modify. The following parameters are included:
+   * The details of the protection rule. The value is a string that is converted from a JSON object constructed by a series of parameters. When you configure this parameter, specify the rule ID and the protection rule configuration to modify. The following parameters are included:
    * 
    * - **id**: Long | Required | The rule ID.
    * 
@@ -93,6 +103,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
     return {
       defenseScene: 'DefenseScene',
       defenseType: 'DefenseType',
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resource: 'Resource',
@@ -106,6 +117,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
     return {
       defenseScene: 'string',
       defenseType: 'string',
+      dryRun: 'boolean',
       instanceId: 'string',
       regionId: 'string',
       resource: 'string',

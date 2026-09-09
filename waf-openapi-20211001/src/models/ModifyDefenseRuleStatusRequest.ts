@@ -13,6 +13,18 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   defenseType?: string;
   /**
    * @remarks
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+   * 
+   * - **true**: A dry run request is sent. Only the request conditions are checked, and the specified operation is not performed. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+   * 
+   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * Instance ID of the WAF instance.
    * 
    * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
@@ -25,7 +37,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -57,7 +69,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The status that you want to set for the protection rule. Valid values: 
+   * The status of the protection rule that you want to modify. Valid values: 
    * - **0**: disabled.  
    * - **1**: enabled.
    * 
@@ -78,6 +90,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       defenseType: 'DefenseType',
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -90,6 +103,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       defenseType: 'string',
+      dryRun: 'boolean',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

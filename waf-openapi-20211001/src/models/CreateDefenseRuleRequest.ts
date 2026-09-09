@@ -9,50 +9,50 @@ export class CreateDefenseRuleRequest extends $dara.Model {
    * 
    * When the protection rule type **DefenseType** is set to **template**, valid values:
    * 
-   * - **waf_group**: Basic Web Protection.
-   * - **waf_base**: new version of Web core protection.
+   * - **waf_group**: basic protection.
+   * - **waf_base**: new version of Web Core Protection.
    * 
-   * - **antiscan**: scan protection.
+   * - **antiscan**: Scan Protection.
    * 
-   * - **ip_blacklist**: IP blacklist.
+   * - **ip_blacklist**: IP Blacklist.
    * 
-   * - **custom_acl**: custom rules.
+   * - **custom_acl**: Custom Rule.
    * 
-   * - **whitelist**: whitelist.
+   * - **whitelist**: Whitelist.
    * 
    * - **region_block**: Location Blacklist.
    * 
-   * - **custom_response**: legacy custom response.
+   * - **custom_response**: legacy Custom Response.
    * 
-   * - **cc**: HTTP flood mitigation.
+   * - **cc**: HTTP Flood Protection.
    * 
    * - **tamperproof**: web tamper proofing.
    * 
-   * - **dlp**: information leak prevention.
+   * - **dlp**: Information Leak Prevention.
    * 
    * - **spike_throttle**: peak traffic throttling.
    * 
-   * - **bot_manager**: bot management.
+   * - **bot_manager**: BOT Management.
    * 
    * 
    * When the protection rule type **DefenseType** is set to **resource**, valid values:
    * 
-   * - **account_identifier**: account extraction.
+   * - **account_identifier**: Account Extraction.
    * 
-   * - **custom_response**: new version of custom response.
+   * - **custom_response**: new version of Custom Response.
    * 
-   * - **waf_codec**: decoding.
+   * - **waf_codec**: Decoding.
    * 
-   * - **websdk**: WebSDK integration.
+   * - **websdk**: WebSDK Integration.
    * 
    * When the protection rule type **DefenseType** is set to **global**, valid values:
    * 
-   * - **regular_custom**: custom regular expression.
+   * - **regular_custom**: Custom Regex.
    * 
-   * - **address_book**: address book.
+   * - **address_book**: Address Book.
    * 
-   * - **custom_response**: new version of custom response.
-   * >  The custom response in global configurations can be referenced by protected objects or rules. When custom response rules are referenced at different levels, the effective priority is: rule level > protected object level > default page.
+   * - **custom_response**: new version of Custom Response.
+   * > For the custom response in global configuration, users can reference it at the protected object or rule level. When custom response rules are referenced at different dimensions, the actual effective logic is: rule level > protected object level > default page.
    * 
    * This parameter is required.
    * 
@@ -70,9 +70,19 @@ export class CreateDefenseRuleRequest extends $dara.Model {
   defenseType?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+   * - **true**: A dry run request is sent. The system only checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * Instance ID of the WAF instance.
+   * 
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -84,13 +94,18 @@ export class CreateDefenseRuleRequest extends $dara.Model {
    * @remarks
    * The region where the WAF instance resides. Valid values:
    * 
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * The protection object associated with the rule to create.
+   * The protected object associated with the rule to be created.
+   * > This parameter is required only when **DefenseType** is set to **resource**.
    * 
    * @example
    * sec****-waf
@@ -106,8 +121,8 @@ export class CreateDefenseRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The rule configuration content, which is a JSON string constructed from a series of parameters.
-   * >  The specific parameters vary depending on the **mitigation setting type** (**DefenseScene**) that you specify. For more information, refer to **Protection rule parameter description**.
+   * The rule configuration content, which is a string converted from a JSON-formatted array of parameters.
+   * > The specific parameters vary depending on the specified **protection rule type** (**DefenseScene**). For more information, refer to **Protection rule parameter descriptions**.
    * 
    * This parameter is required.
    * 
@@ -117,9 +132,9 @@ export class CreateDefenseRuleRequest extends $dara.Model {
   rules?: string;
   /**
    * @remarks
-   * The ID of the protection template for which you want to create a protection rule.
+   * The ID of the protection template for the protection rule to be created.
    * > This parameter is required only when **DefenseType** is set to **template**.
-   * > There is an upper limit on the number of rules that can be created in a protection template. For more information, see **Rule quantity limits**. If the number of rules has reached the upper limit, you can call the [CreateDefenseTemplate](https://help.aliyun.com/document_detail/461613.html) operation to create a new protection template. You can also call the [ModifyDefenseRule](https://help.aliyun.com/document_detail/461422.html) operation to modify an existing rule.
+   * > There is an upper limit on the number of rules that can be created within the same protection template. For specific limits, refer to **Rule quantity limits**. When the rule quantity has reached the upper limit, you can call the [CreateDefenseTemplate](https://help.aliyun.com/document_detail/461613.html) operation to create a new protection template. You can also call the [ModifyDefenseRule](https://help.aliyun.com/document_detail/461422.html) operation to modify an existing rule.
    * 
    * @example
    * 1122
@@ -129,6 +144,7 @@ export class CreateDefenseRuleRequest extends $dara.Model {
     return {
       defenseScene: 'DefenseScene',
       defenseType: 'DefenseType',
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resource: 'Resource',
@@ -142,6 +158,7 @@ export class CreateDefenseRuleRequest extends $dara.Model {
     return {
       defenseScene: 'string',
       defenseType: 'string',
+      dryRun: 'boolean',
       instanceId: 'string',
       regionId: 'string',
       resource: 'string',

@@ -17,17 +17,17 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
    * 
    * - **whitelist**: whitelist.
    * 
-   * - **region_block**: Location Blacklist.
+   * - **region_block**: location blacklist.
    * 
    * - **custom_response**: custom response.
    * 
-   * - **cc**: HTTP flood protection.
+   * - **cc**: HTTP flood mitigation.
    * 
    * - **tamperproof**: web tamper proofing.
    * 
    * - **dlp**: data leak prevention.
    * 
-   * - **bot_manager**: new BOT management.
+   * - **bot_manager**: new bot management.
    * 
    * @example
    * whitelist
@@ -36,10 +36,10 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
    * The sub-scenario of the protection template. Valid values:
-   * - **web**: BOT management web protection scenario template.
-   * - **app**: BOT management app protection scenario template.
-   * - **basic**: BOT management basic protection template.
-   * - **bot_custom_acl**: BOT management advanced custom rule protection template.
+   * - **web**: bot management web protection scenario template.
+   * - **app**: bot management app protection scenario template.
+   * - **basic**: bot management basic protection template.
+   * - **bot_custom_acl**: bot management advanced custom rule protection template.
    * 
    * @example
    * basic
@@ -55,7 +55,15 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The creation time of the protection template. The value is a timestamp in milliseconds.
+   * The detailed template information. For more information, see the Detail parameter in [CreateDefenseTemplate](https://help.aliyun.com/document_detail/461613.html).
+   * 
+   * @example
+   * {"trafficFeature":"{\\"global\\":0,\\"excludeStatus\\":1,\\"conditions\\":[{\\"key\\":\\"URL\\",\\"opValue\\":\\"not-contain\\",\\"values\\":\\"test\\"}]}"}
+   */
+  detail?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the protection template was created. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1683776070000
@@ -79,7 +87,7 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The source of the protection template. The value is custom, which indicates user-defined.
+   * The source of the protection template. The value custom indicates that the template is user-defined.
    * 
    * @example
    * custom
@@ -98,8 +106,8 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
    * The templatetype of the protection template. Valid values:
-   * - **user_default**: user default protection.
-   * - **user_custom**: user custom protection.
+   * - **user_default**: default protection.
+   * - **user_custom**: custom protection.
    * 
    * @example
    * user_custom
@@ -110,6 +118,7 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
       defenseScene: 'DefenseScene',
       defenseSubScene: 'DefenseSubScene',
       description: 'Description',
+      detail: 'Detail',
       gmtModified: 'GmtModified',
       templateId: 'TemplateId',
       templateName: 'TemplateName',
@@ -124,6 +133,7 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
       defenseScene: 'string',
       defenseSubScene: 'string',
       description: 'string',
+      detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtModified: 'number',
       templateId: 'number',
       templateName: 'string',
@@ -134,6 +144,9 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   }
 
   validate() {
+    if(this.detail) {
+      $dara.Model.validateMap(this.detail);
+    }
     super.validate();
   }
 

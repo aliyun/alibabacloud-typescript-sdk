@@ -5,9 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyResourceLogStatusShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+   * - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Log.Control.DryRunOperation is returned.
+   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -73,9 +83,9 @@ export class ModifyResourceLogStatusShrinkRequest extends $dara.Model {
    * 
    * - **true**: Enabled.
    * 
-   * - **false**: Disabled.
+   * - **false**: Shutdown.
    * 
-   * > To enable Tracing Analysis, you must first enable the log status **Status** for the protected object.
+   * > To enable Tracing Analysis, you must first enable the log status **Status** of the protected object.
    * 
    * @example
    * true
@@ -83,6 +93,7 @@ export class ModifyResourceLogStatusShrinkRequest extends $dara.Model {
   traceStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resource: 'Resource',
@@ -95,6 +106,7 @@ export class ModifyResourceLogStatusShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       instanceId: 'string',
       regionId: 'string',
       resource: 'string',

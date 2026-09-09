@@ -11,6 +11,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
    * template
    */
   defenseType?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The ID of the WAF instance.
@@ -74,6 +75,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       defenseType: 'DefenseType',
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resource: 'Resource',
@@ -86,6 +88,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       defenseType: 'string',
+      dryRun: 'boolean',
       instanceId: 'string',
       regionId: 'string',
       resource: 'string',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The protection scenario. For more information, refer to the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+   * The protection scenario. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * @example
    * whitelist
@@ -14,9 +14,9 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   /**
    * @remarks
    * The sub-scenario of the protection template. Valid values:
-   * - **web**: the bot management web protection scenario template.
-   * - **app**: the bot management app protection scenario template.
-   * - **basic**: the bot management basic protection template.
+   * - **web**: bot management web protection scenario template.
+   * - **app**: bot management app protection scenario template.
+   * - **basic**: bot management basic protection template.
    * 
    * @example
    * basic
@@ -30,6 +30,14 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
    * testTemplate
    */
   description?: string;
+  /**
+   * @remarks
+   * The detailed template information. For more information, see the Detail parameter in [CreateDefenseTemplate](https://help.aliyun.com/document_detail/461613.html).
+   * 
+   * @example
+   * {"trafficFeature":"{\\"global\\":0,\\"excludeStatus\\":1,\\"conditions\\":[{\\"key\\":\\"URL\\",\\"opValue\\":\\"not-contain\\",\\"values\\":\\"test\\"}]}"}
+   */
+  detail?: { [key: string]: any };
   /**
    * @remarks
    * The time when the protection template was created. The value is a UNIX timestamp. Unit: milliseconds.
@@ -87,6 +95,7 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
       defenseScene: 'DefenseScene',
       defenseSubScene: 'DefenseSubScene',
       description: 'Description',
+      detail: 'Detail',
       gmtModified: 'GmtModified',
       templateId: 'TemplateId',
       templateName: 'TemplateName',
@@ -101,6 +110,7 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
       defenseScene: 'string',
       defenseSubScene: 'string',
       description: 'string',
+      detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtModified: 'number',
       templateId: 'number',
       templateName: 'string',
@@ -111,6 +121,9 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   }
 
   validate() {
+    if(this.detail) {
+      $dara.Model.validateMap(this.detail);
+    }
     super.validate();
   }
 
