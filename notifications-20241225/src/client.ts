@@ -1430,6 +1430,9 @@ export default class Client extends OpenApi {
   /**
    * Retrieves the metadata service.
    * 
+   * @remarks
+   * Retrieves page metadata.
+   * 
    * @param request - ReadMetaConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReadMetaConfigResponse
@@ -1492,6 +1495,9 @@ export default class Client extends OpenApi {
 
   /**
    * Retrieves the metadata service.
+   * 
+   * @remarks
+   * Retrieves page metadata.
    * 
    * @param request - ReadMetaConfigRequest
    * @returns ReadMetaConfigResponse
@@ -2331,6 +2337,140 @@ export default class Client extends OpenApi {
   async updateMessageLanguage(request: $_model.UpdateMessageLanguageRequest): Promise<$_model.UpdateMessageLanguageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMessageLanguageWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a user subscription.
+   * 
+   * @remarks
+   * Updates a user subscription.
+   * 
+   * @param tmpReq - UpdateUserSubscriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserSubscriptionResponse
+   */
+  async updateUserSubscriptionWithOptions(tmpReq: $_model.UpdateUserSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUserSubscriptionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateUserSubscriptionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.categoryCodes)) {
+      request.categoryCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categoryCodes, "CategoryCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.channelConfigs)) {
+      request.channelConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelConfigs, "ChannelConfigs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.commonContacts)) {
+      request.commonContactsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commonContacts, "CommonContacts", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.receiveTimeList)) {
+      request.receiveTimeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.receiveTimeList, "ReceiveTimeList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.webhookContacts)) {
+      request.webhookContactsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.webhookContacts, "WebhookContacts", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      body["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.bizName)) {
+      body["BizName"] = request.bizName;
+    }
+
+    if (!$dara.isNull(request.callerProtocol)) {
+      body["CallerProtocol"] = request.callerProtocol;
+    }
+
+    if (!$dara.isNull(request.categoryCodesShrink)) {
+      body["CategoryCodes"] = request.categoryCodesShrink;
+    }
+
+    if (!$dara.isNull(request.channelConfigsShrink)) {
+      body["ChannelConfigs"] = request.channelConfigsShrink;
+    }
+
+    if (!$dara.isNull(request.channelGroupCode)) {
+      body["ChannelGroupCode"] = request.channelGroupCode;
+    }
+
+    if (!$dara.isNull(request.clientSource)) {
+      body["ClientSource"] = request.clientSource;
+    }
+
+    if (!$dara.isNull(request.commonContactsShrink)) {
+      body["CommonContacts"] = request.commonContactsShrink;
+    }
+
+    if (!$dara.isNull(request.cookies)) {
+      body["Cookies"] = request.cookies;
+    }
+
+    if (!$dara.isNull(request.operationItemCode)) {
+      body["OperationItemCode"] = request.operationItemCode;
+    }
+
+    if (!$dara.isNull(request.receiveTimeListShrink)) {
+      body["ReceiveTimeList"] = request.receiveTimeListShrink;
+    }
+
+    if (!$dara.isNull(request.remarks)) {
+      body["Remarks"] = request.remarks;
+    }
+
+    if (!$dara.isNull(request.srcUrl)) {
+      body["SrcUrl"] = request.srcUrl;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      body["TenantCode"] = request.tenantCode;
+    }
+
+    if (!$dara.isNull(request.uidType)) {
+      body["UidType"] = request.uidType;
+    }
+
+    if (!$dara.isNull(request.webhookContactsShrink)) {
+      body["WebhookContacts"] = request.webhookContactsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUserSubscription",
+      version: "2024-12-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateUserSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUserSubscriptionResponse({}));
+  }
+
+  /**
+   * Updates a user subscription.
+   * 
+   * @remarks
+   * Updates a user subscription.
+   * 
+   * @param request - UpdateUserSubscriptionRequest
+   * @returns UpdateUserSubscriptionResponse
+   */
+  async updateUserSubscription(request: $_model.UpdateUserSubscriptionRequest): Promise<$_model.UpdateUserSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateUserSubscriptionWithOptions(request, runtime);
   }
 
   /**

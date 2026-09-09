@@ -27,6 +27,11 @@ export { ReadUserSubscriptionListResponseBodyDataContact } from './ReadUserSubsc
 export { ReadUserSubscriptionListResponseBodyData } from './ReadUserSubscriptionListResponseBody';
 export { ReadWebhookContactResponseBodyData } from './ReadWebhookContactResponseBody';
 export { ReadWebhookContactSendTemplateListResponseBodyData } from './ReadWebhookContactSendTemplateListResponseBody';
+export { UpdateUserSubscriptionRequestChannelConfigs } from './UpdateUserSubscriptionRequest';
+export { UpdateUserSubscriptionRequestCommonContactsMessageSource } from './UpdateUserSubscriptionRequest';
+export { UpdateUserSubscriptionRequestCommonContacts } from './UpdateUserSubscriptionRequest';
+export { UpdateUserSubscriptionRequestWebhookContactsMessageSource } from './UpdateUserSubscriptionRequest';
+export { UpdateUserSubscriptionRequestWebhookContacts } from './UpdateUserSubscriptionRequest';
 export { CreateWebhookContactRequest } from './CreateWebhookContactRequest';
 export { CreateWebhookContactResponseBody } from './CreateWebhookContactResponseBody';
 export { CreateWebhookContactResponse } from './CreateWebhookContactResponse';
@@ -113,6 +118,10 @@ export { UpdateMarketingPreferenceResponse } from './UpdateMarketingPreferenceRe
 export { UpdateMessageLanguageRequest } from './UpdateMessageLanguageRequest';
 export { UpdateMessageLanguageResponseBody } from './UpdateMessageLanguageResponseBody';
 export { UpdateMessageLanguageResponse } from './UpdateMessageLanguageResponse';
+export { UpdateUserSubscriptionRequest } from './UpdateUserSubscriptionRequest';
+export { UpdateUserSubscriptionShrinkRequest } from './UpdateUserSubscriptionShrinkRequest';
+export { UpdateUserSubscriptionResponseBody } from './UpdateUserSubscriptionResponseBody';
+export { UpdateUserSubscriptionResponse } from './UpdateUserSubscriptionResponse';
 export { UpdateWebhookContactRequest } from './UpdateWebhookContactRequest';
 export { UpdateWebhookContactResponseBody } from './UpdateWebhookContactResponseBody';
 export { UpdateWebhookContactResponse } from './UpdateWebhookContactResponse';

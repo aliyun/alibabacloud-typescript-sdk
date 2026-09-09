@@ -2,33 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ReadMetaConfigResponseBody extends $dara.Model {
+export class UpdateUserSubscriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the call fails. For more information, see error codes.
+   * The error code returned by the system. For more information about error codes, see error codes.
    * 
    * @example
    * SUCCESS
    */
   code?: string;
-  /**
-   * @remarks
-   * The execution result.
-   * 
-   * @example
-   * {
-   *     "isSubNextUser": "YES",
-   *     "IS_INNER_USER": "NO",
-   *     "isXsWhite": "NO",
-   *     "isXs": "NO",
-   *     "SITEID": "cn",
-   *     "webhookSignatures": [
-   *         "Alibaba",
-   *         "阿里云"
-   *     ]
-   * }
-   */
-  data?: any;
   /**
    * @remarks
    * The message returned when the call fails.
@@ -47,7 +29,9 @@ export class ReadMetaConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * true
@@ -56,7 +40,6 @@ export class ReadMetaConfigResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -66,7 +49,6 @@ export class ReadMetaConfigResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'any',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
