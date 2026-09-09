@@ -10,7 +10,7 @@ export class QueryCostCenterShareRuleRequestEcIdAccountIds extends $dara.Model {
   accountIds?: number[];
   /**
    * @remarks
-   * The enterprise entity ID.
+   * The ID of the enterprise entity.
    * 
    * This parameter is required.
    * 
@@ -52,7 +52,7 @@ export class QueryCostCenterShareRuleRequest extends $dara.Model {
   ecIdAccountIds?: QueryCostCenterShareRuleRequestEcIdAccountIds[];
   /**
    * @remarks
-   * Reserved field.
+   * A reserved field.
    * 
    * @example
    * 20
@@ -60,7 +60,7 @@ export class QueryCostCenterShareRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The ID of the primary sales channel. If empty, the sales channel ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -68,7 +68,7 @@ export class QueryCostCenterShareRuleRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * Reserved field.
+   * A reserved field.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nYCisJwqt18pP5E9yb47iu
@@ -76,7 +76,7 @@ export class QueryCostCenterShareRuleRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The owner account ID of the cost center.
+   * The ID of the user to whom the financial unit belongs.
    * 
    * @example
    * 1529600453335198

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetFundAccountCreditAmountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response metadata
+   * The response struct metadata.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class SetFundAccountCreditAmountResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F

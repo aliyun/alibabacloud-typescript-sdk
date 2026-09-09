@@ -5,7 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class SetFundAccountCreditAmountRequest extends $dara.Model {
   /**
    * @remarks
-   * Credit limit
+   * Specifies whether to cancel credit control. Valid values:
+   * - true: Cancel credit control.
+   * - false or empty: Set credit control.
+   * 
+   * When canceling credit control, CreditAmount must be set to 0.
+   * 
+   * @example
+   * false
+   */
+  cancelCredit?: string;
+  /**
+   * @remarks
+   * The credit limit.
    * 
    * This parameter is required.
    * 
@@ -15,7 +27,7 @@ export class SetFundAccountCreditAmountRequest extends $dara.Model {
   creditAmount?: string;
   /**
    * @remarks
-   * Currency for the credit control limit. Currently, only CNY is supported in mainland China, and only USD is supported for international use.
+   * The currency of the credit limit. Currently, only CNY is supported for Chinese mainland accounts, and only USD is supported for international accounts.
    * 
    * This parameter is required.
    * 
@@ -25,7 +37,7 @@ export class SetFundAccountCreditAmountRequest extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * Fund account ID. If not specified, the account owned by the current account (owner) is used by default.
+   * The fund account ID. If this parameter is not specified, the account owned by the current account is used by default.
    * 
    * @example
    * 1232312
@@ -33,6 +45,7 @@ export class SetFundAccountCreditAmountRequest extends $dara.Model {
   fundAccountId?: number;
   static names(): { [key: string]: string } {
     return {
+      cancelCredit: 'CancelCredit',
       creditAmount: 'CreditAmount',
       currency: 'Currency',
       fundAccountId: 'FundAccountId',
@@ -41,6 +54,7 @@ export class SetFundAccountCreditAmountRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cancelCredit: 'string',
       creditAmount: 'string',
       currency: 'string',
       fundAccountId: 'number',

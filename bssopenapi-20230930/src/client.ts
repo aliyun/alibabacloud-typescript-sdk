@@ -3271,10 +3271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query cost center sharing rules
+   * Queries the cost allocation rules of financial units.
    * 
    * @remarks
-   * Queries the sharing rules of user cost centers.
+   * Queries the cost allocation rules of a user\\"s financial units.
    * 
    * @param request - QueryCostCenterShareRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3321,10 +3321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query cost center sharing rules
+   * Queries the cost allocation rules of financial units.
    * 
    * @remarks
-   * Queries the sharing rules of user cost centers.
+   * Queries the cost allocation rules of a user\\"s financial units.
    * 
    * @param request - QueryCostCenterShareRuleRequest
    * @returns QueryCostCenterShareRuleResponse
@@ -3485,7 +3485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the credit control limit for a fund account
+   * Sets the credit limit for a fund account.
    * 
    * @param request - SetFundAccountCreditAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3494,6 +3494,10 @@ export default class Client extends OpenApi {
   async setFundAccountCreditAmountWithOptions(request: $_model.SetFundAccountCreditAmountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetFundAccountCreditAmountResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cancelCredit)) {
+      body["CancelCredit"] = request.cancelCredit;
+    }
+
     if (!$dara.isNull(request.creditAmount)) {
       body["CreditAmount"] = request.creditAmount;
     }
@@ -3524,7 +3528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the credit control limit for a fund account
+   * Sets the credit limit for a fund account.
    * 
    * @param request - SetFundAccountCreditAmountRequest
    * @returns SetFundAccountCreditAmountResponse

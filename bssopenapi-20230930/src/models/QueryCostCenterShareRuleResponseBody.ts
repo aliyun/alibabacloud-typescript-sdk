@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDetails extends $dara.Model {
   /**
    * @remarks
-   * The cost center code.
+   * The code of the financial unit.
    * 
    * @example
    * 970354711219#
@@ -13,7 +13,7 @@ export class QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDeta
   costCenterCode?: string;
   /**
    * @remarks
-   * The cost center ID.
+   * The ID of the financial unit.
    * 
    * @example
    * 637127
@@ -21,10 +21,10 @@ export class QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDeta
   costCenterId?: number;
   /**
    * @remarks
-   * The cost center name.
+   * The name of the financial unit.
    * 
    * @example
-   * 成本计划
+   * Cost Plan
    */
   costCenterName?: string;
   /**
@@ -45,7 +45,7 @@ export class QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDeta
   gmtModified?: string;
   /**
    * @remarks
-   * The owner account ID of the cost center.
+   * The ID of the user to whom the financial unit belongs.
    * 
    * @example
    * 1529600453335198
@@ -53,7 +53,7 @@ export class QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDeta
   ownerAccountId?: number;
   /**
    * @remarks
-   * The parent cost center ID.
+   * The ID of the parent financial unit.
    * 
    * @example
    * 637537
@@ -61,7 +61,7 @@ export class QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDeta
   parentCostCenterId?: number;
   /**
    * @remarks
-   * The previous cost center ID.
+   * The ID of the preceding financial unit.
    * 
    * @example
    * 583059
@@ -69,7 +69,7 @@ export class QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDeta
   prevCostCenterId?: number;
   /**
    * @remarks
-   * The root cost center ID.
+   * The ID of the root financial unit.
    * 
    * @example
    * 583050
@@ -115,7 +115,7 @@ export class QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDeta
 export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetails extends $dara.Model {
   /**
    * @remarks
-   * The cost center code.
+   * The code of the financial unit.
    * 
    * @example
    * 970354711215#
@@ -123,7 +123,7 @@ export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetail
   costCenterCode?: string;
   /**
    * @remarks
-   * The cost center ID.
+   * The ID of the financial unit.
    * 
    * @example
    * 637127
@@ -131,10 +131,10 @@ export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetail
   costCenterId?: number;
   /**
    * @remarks
-   * The cost center name.
+   * The name of the financial unit.
    * 
    * @example
-   * 成本分摊
+   * Cost Allocation
    */
   costCenterName?: string;
   /**
@@ -155,7 +155,7 @@ export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetail
   gmtModified?: string;
   /**
    * @remarks
-   * The owner account ID of the cost center.
+   * The ID of the user to whom the financial unit belongs.
    * 
    * @example
    * 1529600453335198
@@ -163,7 +163,7 @@ export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetail
   ownerAccountId?: number;
   /**
    * @remarks
-   * The parent cost center ID.
+   * The ID of the parent financial unit.
    * 
    * @example
    * 637537
@@ -171,7 +171,7 @@ export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetail
   parentCostCenterId?: number;
   /**
    * @remarks
-   * The previous cost center ID.
+   * The ID of the preceding financial unit.
    * 
    * @example
    * 583055
@@ -179,7 +179,7 @@ export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetail
   prevCostCenterId?: number;
   /**
    * @remarks
-   * The root cost center ID.
+   * The ID of the root financial unit.
    * 
    * @example
    * 583050
@@ -187,7 +187,7 @@ export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetail
   rootCostCenterId?: number;
   /**
    * @remarks
-   * The sharing ratio.
+   * The cost allocation ratio.
    * 
    * @example
    * 0.2
@@ -235,17 +235,20 @@ export class QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetail
 export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The source cost center rule details.
+   * The rule information of the source financial unit.
    */
   fromCostCenterShareRuleDetails?: QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDetails[];
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 2026-01-01 00:00:00
    */
   gmtModified?: string;
   /**
    * @remarks
-   * The owner account ID of the cost center.
+   * The ID of the user to whom the financial unit belongs.
    * 
    * @example
    * 1529600453335198
@@ -253,7 +256,7 @@ export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   ownerAccountId?: number;
   /**
    * @remarks
-   * The sharing rule ID.
+   * The ID of the cost allocation rule.
    * 
    * @example
    * 1826
@@ -261,7 +264,7 @@ export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   shareRuleId?: number;
   /**
    * @remarks
-   * The sharing rule name.
+   * The name of the cost allocation rule.
    * 
    * @example
    * test
@@ -269,7 +272,7 @@ export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   shareRuleName?: string;
   /**
    * @remarks
-   * The sharing rule type.
+   * The type of the cost allocation rule.
    * 
    * @example
    * AVERAGE
@@ -277,7 +280,7 @@ export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   shareRuleType?: string;
   /**
    * @remarks
-   * The target cost center rule details.
+   * The rule information of the destination financial unit.
    */
   toCostCenterShareRuleDetails?: QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetails[];
   static names(): { [key: string]: string } {
@@ -327,7 +330,7 @@ export class QueryCostCenterShareRuleResponseBody extends $dara.Model {
   data?: QueryCostCenterShareRuleResponseBodyData[];
   /**
    * @remarks
-   * Reserved field.
+   * A reserved field.
    * 
    * @example
    * 20
@@ -335,7 +338,7 @@ export class QueryCostCenterShareRuleResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response metadata.
+   * The response struct metadata.
    * 
    * @example
    * {}
@@ -343,7 +346,7 @@ export class QueryCostCenterShareRuleResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Reserved field.
+   * A reserved field.
    * 
    * @example
    * eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6NH0=

@@ -13,7 +13,7 @@ export class DeleteReportDefinitionResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The metadata of the response struct.
+   * The response struct metadata.
    * 
    * @example
    * {}
