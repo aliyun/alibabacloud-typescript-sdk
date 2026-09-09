@@ -13,9 +13,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-beijing': "dianjin.cn-beijing.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dianjin", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -2744,6 +2741,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.previewDocumentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询用量
+   * 
+   * @param request - QueryAmountRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAmountResponse
+   */
+  async queryAmountWithOptions(workspaceId: string, request: $_model.QueryAmountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAmountResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunUidList)) {
+      body["aliyunUidList"] = request.aliyunUidList;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAmount",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/v1/aigcRevenue/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAmountResponse>(await this.callApi(params, req, runtime), new $_model.QueryAmountResponse({}));
+  }
+
+  /**
+   * 查询用量
+   * 
+   * @param request - QueryAmountRequest
+   * @returns QueryAmountResponse
+   */
+  async queryAmount(workspaceId: string, request: $_model.QueryAmountRequest): Promise<$_model.QueryAmountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryAmountWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
