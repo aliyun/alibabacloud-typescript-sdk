@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHoneypotProbeRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Minimum value: **1**. Default value: **1**.
+   * The page number of the page to return. Minimum value: **1**. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListHoneypotProbeRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the probe.
+   * The probe name.
    * 
    * @example
    * probe-test
@@ -23,7 +23,7 @@ export class ListHoneypotProbeRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * en
@@ -31,7 +31,7 @@ export class ListHoneypotProbeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page during paging.
+   * The maximum number of entries per page for a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
    * > Do not leave PageSize empty.
    * 
    * @example
@@ -61,7 +61,7 @@ export class ListHoneypotProbeRequest extends $dara.Model {
    * The probe type. Valid values:
    * 
    * - **host_probe**: host probe
-   * - **vpc_black_hole_probe**: VPC blackhole probe.
+   * - **vpc_black_hole_probe**: VPC blackhole probe
    * 
    * @example
    * host_probe

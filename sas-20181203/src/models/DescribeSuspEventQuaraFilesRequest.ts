@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the file list to view.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The ID of the request source. Set the value to **sas**.
+   * The identifier of the request source. Set the value to **sas**.
    * 
    * @example
    * sas
@@ -31,7 +31,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the server group to which the server belongs. The quarantined file is located on the server.
+   * The ID of the server group where the quarantined file is located.
    * 
    * @example
    * 11472451
@@ -39,7 +39,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   groupingId?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -47,7 +47,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The unique ID of the quarantined file.
+   * The unique identifier of the quarantined file.
    * 
    * @example
    * a31337789f64d39b2219733ec99f9af7
@@ -55,7 +55,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   quaraTag?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 59.82.XX.XX
@@ -63,14 +63,13 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The status of the quarantined file that you want to query. Valid values:
-   * 
-   * *   **quaraFailed**: The file fails to be quarantined.
-   * *   **quaraDone**: The file is quarantined.
-   * *   **quaraing**: The file is being quarantined.
-   * *   **rollbackFailed**: The system fails to cancel quarantining the file.
-   * *   **rollbackDone**: The system cancelled quarantining the file.
-   * *   **rollbacking**: The system is cancelling quarantining the file.
+   * The status of the quarantined files to query. Valid values:  
+   * - **quaraFailed**: Quarantine failed.
+   * - **quaraDone**: Quarantine succeeded.
+   * - **quaraing**: Quarantine in progress.
+   * - **rollbackFailed**: Quarantine rollback failed.
+   * - **rollbackDone**: Quarantine rollback succeeded.
+   * - **rollbacking**: Quarantine rollback in progress.
    * 
    * @example
    * quaraDone

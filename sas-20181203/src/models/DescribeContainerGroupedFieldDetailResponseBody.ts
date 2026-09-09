@@ -13,7 +13,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   alarmCount?: number;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * node-local-dns
@@ -29,7 +29,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   clusterCurrentVersion?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c8ca91e0907d94efaba7fb0827eb9****
@@ -37,7 +37,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * zhhtest
@@ -45,16 +45,15 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   clusterName?: string;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
-   * 
-   * *   STARTING: The cluster is being started.
-   * *   START_FAILED: The cluster fails to be started.
-   * *   BOOTSTRAPPING: The bootstrap action is being performed for the cluster.
-   * *   RUNNING: The cluster is running.
-   * *   TERMINATING: The cluster is being terminated.
-   * *   TERMINATED: The cluster is terminated.
-   * *   TERMINATED_WITH_ERRORS: The cluster is terminated due to an exception.
-   * *   TERMINATE_FAILED: The cluster fails to be terminated.
+   * The cluster status. Valid values:
+   * - STARTING: Starting.
+   * - START_FAILED: Failed to start.
+   * - BOOTSTRAPPING: Initializing bootstrap actions.
+   * - RUNNING: Running.
+   * - TERMINATING: Terminating.
+   * - TERMINATED: Terminated.
+   * - TERMINATED_WITH_ERRORS: Terminated due to an exception.
+   * - TERMINATE_FAILED: Failed to terminate.
    * 
    * @example
    * RUNNING
@@ -62,11 +61,10 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   clusterState?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values:
-   * 
-   * *   **Kubernetes**: dedicated Kubernetes cluster.
-   * *   **ManagedKubernetes**: standard managed cluster (edge cluster).
-   * *   **Ask**: serverless Kubernetes (ASK) cluster.
+   * The cluster type. Valid values:
+   * - **Kubernetes**: dedicated Kubernetes cluster.
+   * - **ManagedKubernetes**: standard managed cluster (edge cluster).
+   * - **Ask**: standard serverless cluster.
    * 
    * @example
    * ManagedKubernetes
@@ -82,7 +80,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   containerCount?: number;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1702433618301
@@ -106,7 +104,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   namespace?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * shangliang-test
@@ -114,7 +112,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   nodeName?: string;
   /**
    * @remarks
-   * The name of the pod.
+   * The POD name.
    * 
    * @example
    * node-local-dns-zwsxl
@@ -122,7 +120,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   pod?: string;
   /**
    * @remarks
-   * The number of pods.
+   * The number of PODs.
    * 
    * @example
    * 1
@@ -130,7 +128,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   podCount?: number;
   /**
    * @remarks
-   * The IP address of the pod.
+   * The IP address of the POD.
    * 
    * @example
    * 192.168.1.1
@@ -138,7 +136,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
   podIp?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -208,7 +206,7 @@ export class DescribeContainerGroupedFieldDetailResponseBodyData extends $dara.M
 export class DescribeContainerGroupedFieldDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeContainerGroupedFieldDetailResponseBodyData;
   /**

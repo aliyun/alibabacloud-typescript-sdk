@@ -18,7 +18,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
    * - **file**: file
    * - **alert**: alert
    * - **ip**: IP address
-   * - **domain**: domain name.
+   * - **domain**: domain name
    * 
    * @example
    * process
@@ -47,7 +47,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
    * - **file**: file
    * - **alert**: alert
    * - **ip**: IP address
-   * - **domain**: domain name.
+   * - **domain**: domain name
    * 
    * @example
    * file
@@ -55,7 +55,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
   startType?: string;
   /**
    * @remarks
-   * The time when the edge was created.
+   * The time when the edge was established. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-07-01 15:25:46
@@ -177,7 +177,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList e
    * @remarks
    * The direction of the edge. Valid values:
    * - **1**: forward
-   * - **0**: reverse.
+   * - **0**: reverse
    * 
    * @example
    * 1
@@ -308,7 +308,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexList extends
   properties?: string;
   /**
    * @remarks
-   * The time.
+   * The time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-07-02 16:14:01
@@ -440,7 +440,7 @@ export class DescribeGraph4InvestigationOnlineResponseBody extends $dara.Model {
   data?: DescribeGraph4InvestigationOnlineResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * successful
@@ -456,9 +456,9 @@ export class DescribeGraph4InvestigationOnlineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: The API call was successful.
+   * - **false**: The API call failed.
    * 
    * @example
    * true

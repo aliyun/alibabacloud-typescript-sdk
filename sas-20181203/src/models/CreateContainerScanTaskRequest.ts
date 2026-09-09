@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContainerScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster to which the container belongs.
-   * 
-   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
+   * The ID of the container cluster.
+   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
    * 
    * @example
    * c22143730ab6e40b09ec7c1c51d4d****
@@ -15,7 +14,7 @@ export class CreateContainerScanTaskRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the container.
+   * The container ID.
    * 
    * @example
    * c927cf190e886696db53cda0efb57145394ccf0bf9f525353fa5c22a26e4****
@@ -24,9 +23,8 @@ export class CreateContainerScanTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh

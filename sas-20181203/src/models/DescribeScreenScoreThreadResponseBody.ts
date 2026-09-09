@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScreenScoreThreadResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The security score trend list.
+   * The list of security score trends.
    */
   socreThread?: string[];
   /**
    * @remarks
-   * The security score trend date list.
+   * The list of dates for security score trends.
    */
   socreThreadDate?: string[];
   static names(): { [key: string]: string } {

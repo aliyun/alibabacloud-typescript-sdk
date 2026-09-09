@@ -7,13 +7,13 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
    * @remarks
    * The alert notification level. Valid values:
    * 
-   * - 0: no alert
+   * - 0: No alert.
    * 
-   * - 1: reminder
+   * - 1: Reminder.
    * 
-   * - 2: suspicious
+   * - 2: Suspicious.
    * 
-   * - 3: high-risk.
+   * - 3: High-risk.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   cmdLine?: string;
   /**
    * @remarks
-   * The file path on which the process operates.
+   * The file path on which the process operated.
    * 
    * @example
    * /etc/pam.d/su
@@ -37,7 +37,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The time when the event was handled.
+   * The time when the event was handled. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1694576692000
@@ -77,7 +77,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The most recent time when the event occurred.
+   * The most recent time when the event occurred. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1694576692000
@@ -95,7 +95,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
    * @remarks
    * The operating system type. Valid values:
    * 
-   * - **windows**: Windows
+   * - **windows**: Windows.
    * - **linux**: Linux.
    * 
    * @example
@@ -221,7 +221,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
 export class ListFileProtectEventResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The number of the page to return in a paged query.
    * 
    * @example
    * 1
@@ -229,7 +229,7 @@ export class ListFileProtectEventResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries returned per page in a paging query.
+   * The maximum number of entries returned per page in a paged query.
    * 
    * @example
    * 20
@@ -281,7 +281,7 @@ export class ListFileProtectEventResponseBody extends $dara.Model {
   pageInfo?: ListFileProtectEventResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 23AD0BD2-8771-5647-819E-6BA51E212F80

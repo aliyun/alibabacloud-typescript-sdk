@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The digest of the image.
+   * The image summary.
    * 
    * @example
    * a8c9f3765684cd8d9053db9523eab58878e99a199217500efd9ae2a860a7****
@@ -13,7 +13,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The time when the image was created.
+   * The image creation time.
    * 
    * @example
    * 1717430400000
@@ -21,7 +21,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   imageCreate?: number;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * b10ef7b245c34a0822055c74fc4a0e8b5baf0279306316b2c517a501ed25****
@@ -29,7 +29,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The size of the image. Unit: bytes.
+   * The image size. Unit: bytes.
    * 
    * @example
    * 6120340
@@ -37,7 +37,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   imageSize?: number;
   /**
    * @remarks
-   * The time when the image was updated.
+   * The image update time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1717430498600
@@ -45,7 +45,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   imageUpdate?: number;
   /**
    * @remarks
-   * The information about the Jenkins environment.
+   * The Jenkins environment context. Leave this parameter empty or set it to the fixed value: **release**.
    * 
    * @example
    * release
@@ -61,7 +61,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The repository name.
    * 
    * @example
    * sdk
@@ -69,7 +69,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The access source IP address.
    * 
    * @example
    * 119.136.XX.XX
@@ -77,7 +77,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The tag of the image.
+   * The image label.
    * 
    * @example
    * 00f597223f-20210831-1
@@ -85,7 +85,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The token that is used to access the Jenkins image repository.
+   * The access token for the Jenkins image repository. Obtain the token from the homepage of the Chinese documentation center > Security Center > User Guide > Container Protection > CI/CD Access Settings. You can also invoke CreateJenkinsImageRegistry to create a CI/CD image repository and obtain the token from the response parameter Data.Token. For an existing repository, invoke PageImageRegistry to query the token.
    * 
    * @example
    * c3de8326-273e-11fc-a0e3-d012435c****

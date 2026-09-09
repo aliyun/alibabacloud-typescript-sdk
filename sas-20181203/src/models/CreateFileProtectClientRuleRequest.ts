@@ -7,10 +7,13 @@ export class CreateFileProtectClientRuleRequest extends $dara.Model {
    * @remarks
    * The alert notification level. Valid values:
    * 
-   * - 0: no alert
-   * - 1: reminder
-   * - 2: suspicious
-   * - 3: high-risk.
+   * - 0: No alert.
+   * 
+   * - 1: Reminder.
+   * 
+   * - 2: Suspicious.
+   * 
+   * - 3: High-risk.
    * 
    * @example
    * 0
@@ -87,12 +90,12 @@ export class CreateFileProtectClientRuleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 规则****
+   * Rule****
    */
   ruleName?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The rule status. Valid values:
    * 
    * - **0**: Disabled.
    * - **1**: Enabled.
@@ -105,7 +108,7 @@ export class CreateFileProtectClientRuleRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The switch ID associated with the rule.
+   * The switch ID that corresponds to the rule.
    * 
    * @example
    * FILE_PROTECT_RULE_SWITCH_TYPE_0000

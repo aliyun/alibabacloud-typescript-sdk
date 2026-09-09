@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportCustomizeReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the security report.
+   * The download URL of the report.
    * 
    * @example
    * https://xxxxxxxx.oss-cn-hangzhou-1.aliyuncs.com/xxxxx/xxxxxxxxxxxxxx?Expires=1671448125&OSSAccessKeyId=xxx
@@ -13,7 +13,7 @@ export class ExportCustomizeReportResponseBody extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The time when the security report was exported.
+   * The time when the report was generated. Format: YYYY-MM-DD.
    * 
    * @example
    * 2023-01-10
@@ -21,7 +21,7 @@ export class ExportCustomizeReportResponseBody extends $dara.Model {
   exportDate?: string;
   /**
    * @remarks
-   * The ID of the export task.
+   * The ID of the export report task.
    * 
    * @example
    * 22
@@ -29,11 +29,10 @@ export class ExportCustomizeReportResponseBody extends $dara.Model {
   exportId?: number;
   /**
    * @remarks
-   * The status of the export task. Valid values:
-   * 
-   * *   **fail**: The export task fails.
-   * *   **exporting**: The export task is being executed.
-   * *   **success**: The export task is successful.
+   * The status of the export node. Valid values:
+   * - **fail**: The export failed.
+   * - **exporting**: The export is in progress.
+   * - **success**: The export succeeded.
    * 
    * @example
    * exporting
@@ -41,7 +40,7 @@ export class ExportCustomizeReportResponseBody extends $dara.Model {
   exportStatus?: string;
   /**
    * @remarks
-   * The name of the report file that is exported.
+   * The name of the exported file.
    * 
    * @example
    * test_xxxx.html
@@ -57,7 +56,7 @@ export class ExportCustomizeReportResponseBody extends $dara.Model {
   reportId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * FFDFCEB3-A5EE-590A-8E70-283EBC5D****
@@ -65,7 +64,7 @@ export class ExportCustomizeReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The timestamp when the download URL expires. Unit: seconds.
+   * The UNIX timestamp when the report download URL expires. Unit: seconds.
    * 
    * @example
    * 1673335497000

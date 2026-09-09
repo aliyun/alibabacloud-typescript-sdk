@@ -13,7 +13,7 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJsonRpmEntit
   fullVersion?: string;
   /**
    * @remarks
-   * The SHA256 value of the container image layer digest.
+   * The SHA256 digest of the container image layer.
    * 
    * @example
    * b1f5b9420803ad0657cf21566e3e20acc08581e7f22991249ef3aa80b8b1c587
@@ -45,7 +45,7 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJsonRpmEntit
   name?: string;
   /**
    * @remarks
-   * The path of the software that contains the vulnerability.
+   * The path of the vulnerable software.
    * 
    * @example
    * /usr/lib64/libssh2.so.1
@@ -116,7 +116,7 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJson extends
   os?: string;
   /**
    * @remarks
-   * The release version of the operating system corresponding to the container image.
+   * The operating system release version corresponding to the container image.
    * 
    * @example
    * 10.9
@@ -124,7 +124,7 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJson extends
   osRelease?: string;
   /**
    * @remarks
-   * The list of software packages that cause the vulnerability.
+   * The list of software packages that caused the vulnerability.
    */
   rpmEntityList?: DescribeImageVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList[];
   static names(): { [key: string]: string } {
@@ -158,6 +158,11 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJson extends
 export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   /**
    * @remarks
+   * Indicates whether the vulnerability supports agentless remediation. true: supported. false: not supported. If this field is not returned, no corresponding remediation capability information is available.
+   */
+  agentlessCanFix?: boolean;
+  /**
+   * @remarks
    * The alias of the vulnerability.
    * 
    * @example
@@ -166,10 +171,10 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * Indicates whether the vulnerability can be fixed from the console. Valid values:
+   * Indicates whether the vulnerability can be fixed in the console. Valid values:
    * 
-   * - **yes**: can be fixed
-   * - **no**: cannot be fixed.
+   * - **yes**: Can be fixed.
+   * - **no**: Cannot be fixed.
    * 
    * @example
    * yes
@@ -177,10 +182,10 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   canFix?: string;
   /**
    * @remarks
-   * Indicates whether the software package that causes the vulnerability can be upgraded through Security Center. Valid values:
+   * Indicates whether the software package that caused the vulnerability can be upgraded through Security Center. Valid values:
    * 
-   * - **true**: Supported.
-   * - **false**: Not supported.
+   * - **true**: Upgrade is supported.
+   * - **false**: Upgrade is not supported.
    * 
    * @example
    * true
@@ -188,7 +193,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   canUpdate?: boolean;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c08d5fc1a329a4b88950a253d082f1****
@@ -217,7 +222,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   extendContentJson?: DescribeImageVulListResponseBodyVulRecordsExtendContentJson;
   /**
    * @remarks
-   * The timestamp of the first scan. Unit: milliseconds.
+   * The timestamp of the first scan, in milliseconds.
    * 
    * @example
    * 1620752053000
@@ -225,7 +230,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   firstTs?: number;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
@@ -265,7 +270,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp of the latest scan. Unit: milliseconds.
+   * The timestamp of the most recent scan, in milliseconds.
    * 
    * @example
    * 1631779996000
@@ -280,9 +285,9 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
    * @remarks
    * The source of the malicious file. Valid values:
    * 
-   * - **agentless**: agentless detection
-   * - **image**: image
-   * - **container**: container.
+   * - **agentless**: Agentless detection.
+   * - **image**: Image.
+   * - **container**: Container.
    * 
    * @example
    * agentless
@@ -290,7 +295,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   maliciousSource?: string;
   /**
    * @remarks
-   * The timestamp when the vulnerability record was last updated. Unit: milliseconds.
+   * The timestamp when the vulnerability record was updated, in milliseconds.
    * 
    * @example
    * 1580808765000
@@ -314,10 +319,10 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The priority level of vulnerability fixing. Valid values:
-   * - **asap**: high-priority vulnerability
-   * - **later**: medium-priority vulnerability
-   * - **nntf**: low-priority vulnerability.
+   * The priority level for fixing the vulnerability. Valid values:
+   * - **asap**: High-priority vulnerability that must be fixed as soon as possible.
+   * - **later**: Medium-priority vulnerability that can be fixed later.
+   * - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
    * 
    * @example
    * asap
@@ -367,7 +372,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
    * @remarks
    * The vulnerability tag. Valid values:
    * 
-   *  - **AI**: vulnerability related to AI components.
+   *  - **AI**: Vulnerability related to AI components.
    * 
    * @example
    * AI
@@ -375,7 +380,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   ruleTag?: string;
   /**
    * @remarks
-   * The timestamp of the scan. Unit: milliseconds.
+   * The timestamp of the scan, in milliseconds.
    * 
    * @example
    * 1649814050000
@@ -384,8 +389,8 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   /**
    * @remarks
    * The fix status of the vulnerability. Valid values:
-   * - **1**: unfixed
-   * - **7**: fixed.
+   * - **1**: Not fixed.
+   * - **7**: Fixed.
    * 
    * @example
    * 1
@@ -419,8 +424,8 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
    * @remarks
    * The object type of the scan target. Valid values:
    * 
-   * - **ECS_IMAGE**: image.
-   * - **ECS_SNAPSHOT**: snapshot.
+   * - **ECS_IMAGE**: Image.
+   * - **ECS_SNAPSHOT**: Snapshot.
    * 
    * @example
    * ECS_IMAGE
@@ -428,7 +433,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The type of vulnerability queried. The value is fixed as cve, which indicates container image vulnerabilities.
+   * The type of the vulnerability queried. The value is fixed as cve, which indicates container image vulnerabilities.
    * 
    * @example
    * cve
@@ -444,6 +449,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      agentlessCanFix: 'AgentlessCanFix',
       aliasName: 'AliasName',
       canFix: 'CanFix',
       canUpdate: 'CanUpdate',
@@ -483,6 +489,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentlessCanFix: 'boolean',
       aliasName: 'string',
       canFix: 'string',
       canUpdate: 'boolean',
@@ -538,7 +545,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
 export class DescribeImageVulListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -546,7 +553,7 @@ export class DescribeImageVulListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of vulnerabilities displayed on each page in a paged query. Default value: **10**.
+   * The number of vulnerabilities displayed per page in a paging query. Default value: **10**, which indicates that 10 vulnerabilities are displayed per page.
    * 
    * @example
    * 10
@@ -554,7 +561,7 @@ export class DescribeImageVulListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * D6B20156-49B0-5CF0-B14D-7ECA4B50DAAB
@@ -562,7 +569,7 @@ export class DescribeImageVulListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of vulnerabilities returned.
+   * The total number of vulnerabilities returned by the query.
    * 
    * @example
    * 1

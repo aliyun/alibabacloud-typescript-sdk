@@ -7,13 +7,13 @@ export class DeleteFileProtectClientRuleRequest extends $dara.Model {
    * @remarks
    * The alert notification level. Valid values:
    * 
-   * - 0: no alert
+   * - 0: No alerts.
    * 
-   * - 1: reminder
+   * - 1: Reminder.
    * 
-   * - 2: suspicious
+   * - 2: Suspicious.
    * 
-   * - 3: high-risk.
+   * - 3: High-risk.
    * 
    * @example
    * 0
@@ -33,7 +33,7 @@ export class DeleteFileProtectClientRuleRequest extends $dara.Model {
    * @remarks
    * The type of the operating system. Valid values:
    * 
-   * - **windows**: Windows
+   * - **windows**: Windows.
    * - **linux**: Linux.
    * 
    * @example
@@ -42,7 +42,7 @@ export class DeleteFileProtectClientRuleRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The action to take when the rule is triggered. Valid values:
+   * The action of the policy. Valid values:
    * 
    * - **monitor**: Alert.
    * - **block**: Block.
@@ -62,7 +62,7 @@ export class DeleteFileProtectClientRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Specifies whether to select all rules.
+   * Specifies whether to select all.
    * 
    * This parameter is required.
    * 

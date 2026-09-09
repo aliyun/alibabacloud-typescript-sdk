@@ -14,6 +14,11 @@ export class GetSuspiciousStatisticsRequest extends $dara.Model {
    * 9997897
    */
   groupIdList?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks

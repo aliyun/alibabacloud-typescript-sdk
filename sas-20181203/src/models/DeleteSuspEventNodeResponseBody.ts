@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSuspEventNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of a failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteSuspEventNodeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The additional message.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class DeleteSuspEventNodeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * A57C711B-AA15-55B2-8F61-4D09CEXXXXX
@@ -30,9 +30,8 @@ export class DeleteSuspEventNodeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

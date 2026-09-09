@@ -13,7 +13,7 @@ export class ExportSuspEventsResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The ID of the export record of the anomalous event.
+   * The export record ID of the anomaly event.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ExportSuspEventsResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EF145C20-6A19-529A-8BDD-0671DXXXXXX

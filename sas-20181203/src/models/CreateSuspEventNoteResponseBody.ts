@@ -37,10 +37,10 @@ export class CreateSuspEventNoteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of processing the alert event. Valid values:
+   * The result of the alert event processing. Valid values:
    * 
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * - **true**: The processing was successful.
+   * - **false**: The processing failed.
    * 
    * @example
    * true

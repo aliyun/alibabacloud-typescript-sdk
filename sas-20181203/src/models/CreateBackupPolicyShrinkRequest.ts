@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the protection policy to create.
+   * The name of the protection policy to create. Set this parameter to the desired policy name.
    * 
    * This parameter is required.
    * 
@@ -20,18 +20,18 @@ export class CreateBackupPolicyShrinkRequest extends $dara.Model {
    *     - **0**: Custom policy.
    * - **Include**: The file types to protect. To protect all file types, set this parameter to [].
    * - **Source**: The server folders to protect. To protect all folders, set this parameter to [].
-   * - **ExcludeSystemPath**: Specifies whether to exclude specified folders. To exclude folders, set this parameter to **true**. If you do not want to exclude folders, you do not need to configure this parameter.
-   * - **Exclude**: The specified protection folder addresses. If you do not want to specify any protection folder addresses, set this parameter to [].
-   * - **Schedule**: The execution time and interval of the data backup task. Specify an off-peak hour that is not on the hour. Examples:
-   *     - Example 1: I|1583216092|P21D indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy execution interval is 3 weeks.
-   *     - Example 2: I|1583216092|PT24H indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy execution interval is 24 hours.
+   * - **ExcludeSystemPath**: Specifies whether to exclude specified folders. Set this parameter to **true** to exclude folders. If you do not want to exclude folders, you do not need to set this parameter.
+   * - **Exclude**: The specified protection folder addresses. If you do not want to specify protection folder addresses, set this parameter to [].
+   * - **Schedule**: The time and interval at which the data backup task is scheduled to run. Specify a non-peak hour that is not on the hour. Examples:
+   *     - Example 1: I|1583216092|P21D indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy runs at an interval of 3 weeks.
+   *     - Example 2: I|1583216092|PT24H indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy runs at an interval of 24 hours.
    * - **Retention**: The retention period of backup data, in days. The value 7 indicates 1 week, 365 indicates 1 year, and -1 indicates permanent retention.
-   * - **SpeedLimiter**: The backup network bandwidth limit. For example, 0:24:30720 indicates that the backup network bandwidth limit from 00:00 to 24:00 is 30 MB/s.
+   * - **SpeedLimiter**: The network bandwidth throttling for backup. For example, 0:24:30720 indicates that the network bandwidth throttling for backup is 30 MB/s from 00:00 to 24:00.
    * - **UseVss**: Specifies whether to enable the Volume Shadow Copy Service (VSS) feature for Windows. Valid values:
    *     - **true**: Enabled.
    *     - **false**: Not enabled.
    * 
-   * > The VSS feature applies only to Windows systems. After this feature is enabled, the issue of individual file backup failures caused by process occupation is effectively reduced. We recommend that you enable this feature. After this feature is enabled, file backup for exFAT and FAT32 disk formats is not supported.
+   * > The VSS (Windows) feature applies only to Windows systems. After this feature is enabled, the issue of individual file backup failures due to process occupation is effectively reduced. We recommend that you enable this feature. After this feature is enabled, file backup for exFAT and FAT32 disk formats is not supported.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateBackupPolicyShrinkRequest extends $dara.Model {
    * @remarks
    * The region ID of the non-Alibaba Cloud server.
    * 
-   * > Call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions supported by the anti-ransomware feature, and then select the supported region closest to your non-Alibaba Cloud server.
+   * > Call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions supported by the anti-ransomware feature, and then select the supported region closest to the region where your non-Alibaba Cloud server resides.
    * 
    * @example
    * ch-hangzhou
@@ -61,9 +61,9 @@ export class CreateBackupPolicyShrinkRequest extends $dara.Model {
   policyVersion?: string;
   /**
    * @remarks
-   * The method used to select assets. Valid values:
+   * The method used to cover assets. Valid values:
    * - **ALL_MACHINE**: All assets.
-   * > To cover all assets of the specified server type, set this parameter to **ALL_MACHINE**. In this case, **UuidList** is invalid. Only one policy that covers all assets can exist for each server type.
+   * > To cover all assets of this type, set this parameter to **ALL_MACHINE**. In this case, **UuidList** is invalid. Only one policy that covers all assets can exist for each server type.
    * 
    * @example
    * ALL_MACHINE

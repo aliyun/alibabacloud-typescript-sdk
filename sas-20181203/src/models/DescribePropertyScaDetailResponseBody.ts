@@ -29,7 +29,7 @@ export class DescribePropertyScaDetailResponseBodyPageInfo extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page in the paged query for Asset Fingerprints information. Default value: **10**, which indicates that 10 entries of Asset Fingerprints information are displayed per page.
+   * The number of entries per page in the paged query. Default value: **10**, which indicates that 10 entries of Asset Fingerprints information are displayed per page.
    * 
    * @example
    * 20
@@ -140,7 +140,7 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $dara.Model 
   containerName?: string;
   /**
    * @remarks
-   * The timestamp of the latest scan, which indicates the most recent time when Security Center collected middleware, database, or web service information. Unit: milliseconds.
+   * The timestamp of the latest scan, which is the most recent time when Security Center collected the middleware, database, or web service information. Unit: milliseconds.
    * 
    * @example
    * 1597987834000
@@ -215,8 +215,8 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $dara.Model 
   /**
    * @remarks
    * The listening status of the process. Valid values:
-   * - **NONE**: not listening
-   * - **LISTEN**: listening
+   * - **NONE**: Not listening.
+   * - **LISTEN**: Listening.
    * 
    * @example
    * NONE
@@ -425,7 +425,7 @@ export class DescribePropertyScaDetailResponseBody extends $dara.Model {
   propertys?: DescribePropertyScaDetailResponseBodyPropertys[];
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
+   * The ID of the request. The China Chinese Cloud generates a unique identifier for the request, which can be used to troubleshoot and locate issues.
    * 
    * @example
    * F9146867-16C8-4AAB-BB4FB8C2A4

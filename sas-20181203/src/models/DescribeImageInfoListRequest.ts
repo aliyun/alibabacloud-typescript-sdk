@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageInfoListRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the server. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the servers. Separate multiple UUIDs with commas (,).
    * > Call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to obtain this parameter.
    * 
    * This parameter is required.

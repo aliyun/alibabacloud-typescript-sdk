@@ -67,7 +67,7 @@ export class FindContainerNetworkConnectResponseBodyConnects extends $dara.Model
    * @remarks
    * The destination container information.
    * 
-   * >Notice: This parameter is not supported..
+   * >Notice: Not supported.</notice>
    */
   dstContainer?: FindContainerNetworkConnectResponseBodyConnectsDstContainer;
   /**
@@ -104,7 +104,7 @@ export class FindContainerNetworkConnectResponseBodyConnects extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * The timestamp when the connection most recently occurred. Unit: milliseconds.
+   * The timestamp when the connection last occurred. Unit: milliseconds.
    * 
    * @example
    * 1636595679174
@@ -113,7 +113,7 @@ export class FindContainerNetworkConnectResponseBodyConnects extends $dara.Model
   /**
    * @remarks
    * The source container information.
-   * >Notice: This parameter is not supported..
+   * >Notice: Not supported.</notice>
    */
   srcContainer?: FindContainerNetworkConnectResponseBodyConnectsSrcContainer;
   /**
@@ -178,7 +178,7 @@ export class FindContainerNetworkConnectResponseBodyConnects extends $dara.Model
 export class FindContainerNetworkConnectResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page in the paging query.
+   * The number of entries returned on the current page in a paged query.
    * 
    * @example
    * 10
@@ -186,7 +186,7 @@ export class FindContainerNetworkConnectResponseBodyPageInfo extends $dara.Model
   count?: number;
   /**
    * @remarks
-   * The current page number in the paging query.
+   * The current page number in a paged query.
    * 
    * @example
    * 1
@@ -194,7 +194,7 @@ export class FindContainerNetworkConnectResponseBodyPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page in the paging query. Default value: **20**, which indicates that 20 network connectivity entries are displayed per page.
+   * The number of container asset entries per page in a paged query. Default value: **20**, which indicates that 20 network connectivity entries are displayed per page.
    * 
    * @example
    * 20
@@ -243,7 +243,7 @@ export class FindContainerNetworkConnectResponseBody extends $dara.Model {
   connects?: FindContainerNetworkConnectResponseBodyConnects[];
   /**
    * @remarks
-   * The paging information for the query.
+   * The pagination information for a paged query.
    */
   pageInfo?: FindContainerNetworkConnectResponseBodyPageInfo;
   /**

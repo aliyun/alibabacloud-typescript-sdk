@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paged query. Paging starts from page 1.
+   * The page number of the current page in a paged query. This parameter implements paging.
    * 
    * @example
    * 1
@@ -40,7 +40,7 @@ export class ListAgentlessTaskRequest extends $dara.Model {
    * The language type. Valid values:  
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -56,7 +56,7 @@ export class ListAgentlessTaskRequest extends $dara.Model {
   machineName?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query. Paging is performed based on this value.
+   * The maximum number of entries per page in a paged query. This parameter implements paging.
    * 
    * @example
    * 20
@@ -115,7 +115,7 @@ export class ListAgentlessTaskRequest extends $dara.Model {
    * The scan object type. Valid values:
    * 
    * - **1**: snapshot 
-   * - **2**: image.
+   * - **2**: image
    * 
    * @example
    * 1

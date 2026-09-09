@@ -16,7 +16,7 @@ export class DescribeCustomizeReportConfigDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The report ID.\\
-   * The ReportId returned by calling the [DescribeCustomizeReportList](https://help.aliyun.com/document_detail/271655.html) operation.
+   * Call the [DescribeCustomizeReportList](https://help.aliyun.com/document_detail/271655.html) operation to obtain the value of ReportId from the response.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,11 @@ export class DescribeCustomizeReportConfigDetailRequest extends $dara.Model {
    * 619031
    */
   reportId?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks

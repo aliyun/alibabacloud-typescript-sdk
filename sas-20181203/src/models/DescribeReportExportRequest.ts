@@ -6,7 +6,7 @@ export class DescribeReportExportRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the export task.
-   * > Call [ExportCustomizeReport](~~ExportCustomizeReport~~) to obtain this parameter.
+   * > You can call [ExportCustomizeReport](~~ExportCustomizeReport~~) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,13 +17,18 @@ export class DescribeReportExportRequest extends $dara.Model {
   /**
    * @remarks
    * The language type for the request and response messages. Default value: **zh**. Valid values:
-   * - **zh**: Chinese
+   * - **zh**: Chinese.
    * - **en**: English.
    * 
    * @example
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory.
+   * > You can call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {

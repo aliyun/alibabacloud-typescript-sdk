@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJenkinsImageScanTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The quota for image scan.
+   * The number of scan authorizations.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class CreateJenkinsImageScanTaskResponseBodyData extends $dara.Model {
   imageScanCapacity?: number;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The repository ID.
    * 
    * @example
    * crr-upze3gcopm9c****
@@ -21,7 +21,7 @@ export class CreateJenkinsImageScanTaskResponseBodyData extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The instance ID of the image repository.
+   * The repository instance ID.
    * 
    * @example
    * cri-0gkaatghnmnt****
@@ -29,7 +29,7 @@ export class CreateJenkinsImageScanTaskResponseBodyData extends $dara.Model {
   repoInstanceId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +37,7 @@ export class CreateJenkinsImageScanTaskResponseBodyData extends $dara.Model {
   repoRegionId?: string;
   /**
    * @remarks
-   * The ID of the scan task.
+   * The scan node ID.
    * 
    * @example
    * fc98d58eb56f699d49bf7ebbd6d7****
@@ -85,7 +85,7 @@ export class CreateJenkinsImageScanTaskResponseBodyData extends $dara.Model {
 export class CreateJenkinsImageScanTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: CreateJenkinsImageScanTaskResponseBodyData;
   /**

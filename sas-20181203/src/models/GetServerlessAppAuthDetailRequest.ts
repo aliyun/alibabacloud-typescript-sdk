@@ -7,7 +7,7 @@ export class GetServerlessAppAuthDetailRequest extends $dara.Model {
    * @remarks
    * The SAE application ID.
    * 
-   * > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain the ID.
+   * > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain this value.
    * 
    * @example
    * 3de9f2ac-f***769226df
@@ -25,7 +25,7 @@ export class GetServerlessAppAuthDetailRequest extends $dara.Model {
    * @remarks
    * The server type. Valid values:
    * - **RunD**
-   * - **ECI**.
+   * - **ECI**
    * 
    * @example
    * RunD
@@ -36,7 +36,7 @@ export class GetServerlessAppAuthDetailRequest extends $dara.Model {
    * The cloud service to which the application belongs. Valid values:
    * - **ASK**
    * - **SAE**
-   * - **ACS**.
+   * - **ACS**
    * 
    * @example
    * SAE

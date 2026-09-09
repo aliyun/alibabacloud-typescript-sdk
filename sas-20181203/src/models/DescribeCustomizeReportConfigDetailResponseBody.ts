@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The report chart configuration IDs, separated by commas.
+   * The IDs of report chart configurations. Multiple IDs are separated by commas (,).
    * 
    * @example
    * BIZ_STAT_QUERY_KEY_ATTACK,CUSTOM_VUL_CVE_LIST,CUSTOM_VUL_SYS_LIST,CUSTOM_VUL_WEBCMS_LIST,CUSTOM_AUTO_BREAKING_PIE,CUSTOM_AK_LEAK_LIST,KEY_HP_TAMPERPROOF,KEY_HP_DEFENCE
@@ -24,8 +24,8 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   /**
    * @remarks
    * Indicates whether the report is a default report. Valid values:
-   * - **0**: Not a default report.
-   * - **1**: A default report.
+   * - **0**: The report is not a default report.
+   * - **1**: The report is a default report.
    * 
    * @example
    * 1
@@ -33,10 +33,10 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   isDefault?: number;
   /**
    * @remarks
-   * Specifies whether newly added accounts are included by default. Valid values:
+   * Indicates whether newly added accounts are included by default. Valid values:
    * 
-   * - **true**: Included.
-   * - **false**: Not included.
+   * - **true**: Yes.
+   * - **false**: No.
    * > Only version 2.0.0 supports this parameter.
    * 
    * @example
@@ -45,7 +45,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   memberAccountSyncFlag?: boolean;
   /**
    * @remarks
-   * The pinned time.
+   * The pinned time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1717430400000
@@ -53,7 +53,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   pinnedTime?: number;
   /**
    * @remarks
-   * The recipient email addresses, separated by commas.
+   * The email addresses of contacts. Multiple email addresses are separated by commas (,).
    * 
    * @example
    * PengZheng@eaton.com,ZhongJi@Eaton.com
@@ -69,7 +69,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportDays?: number;
   /**
    * @remarks
-   * The end date for report delivery.
+   * The end date for report sending. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1720022399999
@@ -95,7 +95,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportLang?: string;
   /**
    * @remarks
-   * The report delivery time range. Valid values:
+   * The report sending type. Valid values:
    * - **1**: 0:00 to 6:00.
    * - **2**: 6:00 to 12:00.
    * - **3**: 12:00 to 18:00.
@@ -107,7 +107,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportSendType?: string;
   /**
    * @remarks
-   * The start date for report delivery.
+   * The start date for report sending. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1717430400000
@@ -146,7 +146,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The delivery end time, in the format of HH:mm:ss.
+   * The end time for sending. Format: HH:mm:ss.
    * 
    * @example
    * 10:00:00
@@ -154,7 +154,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendEndTime?: string;
   /**
    * @remarks
-   * The specific execution dates within the delivery period.
+   * The specific execution dates within the sending period.
    * 
    * @example
    * 12
@@ -162,7 +162,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendPeriodDays?: number;
   /**
    * @remarks
-   * The delivery period type. Valid values:
+   * The sending period type. Valid values:
    * - **DAY**: day.
    * - **WEEK**: week.
    * - **MONTH**: month.
@@ -173,7 +173,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendPeriodType?: string;
   /**
    * @remarks
-   * The delivery start time, in the format of HH:mm:ss.
+   * The start time for sending. Format: HH:mm:ss.
    * 
    * @example
    * 09:00:00
@@ -181,7 +181,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendStartTime?: string;
   /**
    * @remarks
-   * The delivery time, in the format of HH:mm:ss.
+   * The sending time. Format: HH:mm:ss.
    * 
    * @example
    * 09:00:00
@@ -197,7 +197,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   targetGroups?: string;
   /**
    * @remarks
-   * The list of target UIDs, separated by commas.
+   * The list of target UIDs. Multiple UIDs are separated by commas (,).
    * 
    * @example
    * 1457515594445744,1600011353839072,1766185894104675,1674080148055995,1627510829033157

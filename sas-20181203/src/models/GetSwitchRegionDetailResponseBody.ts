@@ -13,7 +13,7 @@ export class GetSwitchRegionDetailResponseBodyDataRegionStatus extends $dara.Mod
   ecsCount?: number;
   /**
    * @remarks
-   * The planned migration time.
+   * The planned migration time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1692858597000
@@ -31,7 +31,7 @@ export class GetSwitchRegionDetailResponseBodyDataRegionStatus extends $dara.Mod
    * @remarks
    * The migration status. Valid values:
    * - **0**: waiting for migration
-   * - **1**: switchover succeeded.
+   * - **1**: switchover succeeded
    * 
    * @example
    * 0
@@ -165,12 +165,12 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
 export class GetSwitchRegionDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: GetSwitchRegionDetailResponseBodyData;
   /**
    * @remarks
-   * The ID of the request. The China Chinese mainland generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 30CBF632-109F-596F-97F2-451C8B2A****

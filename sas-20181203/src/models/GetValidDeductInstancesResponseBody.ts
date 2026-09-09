@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetValidDeductInstancesResponseBodyDataDeductPackageList extends $dara.Model {
   /**
    * @remarks
-   * The number of consumed quotas in the current metering cycle.
+   * The number of consumed authorizations in the current metering cycle.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class GetValidDeductInstancesResponseBodyDataDeductPackageList extends $d
   currentPeriodUsed?: number;
   /**
    * @remarks
-   * The end time.
+   * The end time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1737734400000
@@ -29,7 +29,7 @@ export class GetValidDeductInstancesResponseBodyDataDeductPackageList extends $d
   initCapacity?: number;
   /**
    * @remarks
-   * The resource plan instance ID.
+   * The instance ID of the resource plan.
    * 
    * @example
    * sas_**_dp_cn-2***
@@ -38,9 +38,9 @@ export class GetValidDeductInstancesResponseBodyDataDeductPackageList extends $d
   /**
    * @remarks
    * The module code. Valid values:
-   * - **POST_HOST**: host and container protection
-   * - **CSPM**: cloud product configuration check
-   * - **VUL**: vulnerability scanning
+   * - **POST_HOST**: Host and container protection.
+   * - **CSPM**: Cloud product configuration check.
+   * - **VUL**: Vulnerability scanning.
    * 
    * @example
    * POST_HOST
@@ -48,7 +48,7 @@ export class GetValidDeductInstancesResponseBodyDataDeductPackageList extends $d
   module?: string;
   /**
    * @remarks
-   * The number of consumed quotas up to the previous billing cycle.
+   * The number of consumed authorizations up to the end of the previous billing cycle.
    * 
    * @example
    * 100
@@ -123,6 +123,10 @@ export class GetValidDeductInstancesResponseBodyData extends $dara.Model {
    * The list of resource plan usage details.
    */
   deductPackageList?: GetValidDeductInstancesResponseBodyDataDeductPackageList[];
+  /**
+   * @remarks
+   * The trial version.
+   */
   trialVersion?: number;
   static names(): { [key: string]: string } {
     return {

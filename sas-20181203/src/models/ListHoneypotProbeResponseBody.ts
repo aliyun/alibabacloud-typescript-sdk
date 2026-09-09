@@ -60,7 +60,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   controlNode?: ListHoneypotProbeResponseBodyListControlNode;
   /**
    * @remarks
-   * The deployment time.
+   * The deployment time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1669363825000
@@ -76,7 +76,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The local IP address bound to the probe.
+   * The local address bound to the probe.
    * 
    * @example
    * 33.53.XX.XX
@@ -106,7 +106,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
    * The probe type. Valid values:
    * 
    * - **host_probe**: host probe
-   * - **vpc_black_hole_probe**: VPC blackhole probe.
+   * - **vpc_black_hole_probe**: VPC blackhole probe
    * 
    * @example
    * host_probe
@@ -140,7 +140,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The UUID of the asset instance where the host probe is deployed.
+   * The UUID of the asset instance where the host probe resides.
    * 
    * @example
    * 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
@@ -148,7 +148,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The ID of the VPC-connected instance where the VPC probe is deployed.
+   * The ID of the VPC-connected instance where the VPC probe resides.
    * 
    * @example
    * vpc-5gu8iu68w9b472jbb****
@@ -201,7 +201,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
 export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of honeypot probes displayed on the current page.
+   * The number of honeypot probes on the current page.
    * 
    * @example
    * 20
@@ -209,7 +209,7 @@ export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The current page number returned in the paged query during paging.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -217,7 +217,7 @@ export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of honeypot probes displayed per page in the paged query during paging. Default value: **20**.
+   * The number of honeypot probes per page in a paged query. Default value: **20**, which indicates that 20 honeypot probes are displayed per page.
    * 
    * @example
    * 20
@@ -261,7 +261,7 @@ export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
 export class ListHoneypotProbeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of a failure.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -304,8 +304,8 @@ export class ListHoneypotProbeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

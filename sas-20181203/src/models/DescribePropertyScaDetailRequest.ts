@@ -51,7 +51,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
    * - **sca_database**: database
    * - **sca_web**: web service
    * 
-   * > If you do not settings this parameter, the default value **sca** is used, which indicates that middleware Asset Fingerprints information is queried.
+   * > If you do not set this parameter, the default value **sca** is used, which indicates that the Asset Fingerprints information of the middleware type is queried.
    * 
    * @example
    * sca
@@ -74,7 +74,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The page number of the page to return in the query results. Default value: **1**, which indicates that the results start from page 1.
+   * The page number of the page to return in the query results. Default value: **1**, which indicates that the query results are displayed from page 1.
    * 
    * @example
    * 1
@@ -94,7 +94,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the middleware, database, or web service.
-   * > This parameter is deprecated. You do not need to configure it.
+   * > This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * 1
@@ -102,9 +102,9 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   name?: number;
   /**
    * @remarks
-   * The token that marks the current position from which to start reading. Leave this parameter empty to start from the beginning.
+   * The token that marks the current position from which to start reading. Leave this parameter empty to start reading from the beginning.
    * 
-   * > You do not need to set this parameter for the first call. The response includes the NextToken value for the next call. Each subsequent response contains the NextToken value for the following call.
+   * > You do not need to set this parameter for the first call. The response includes the NextToken value for the second call. Each subsequent response includes the NextToken value for the next call.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6k+AtdhNE3kgQEK36GujZ5on+tWdc+4WoaoMP/kUNxxxx
@@ -112,8 +112,8 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Settings the number of entries per page in a paged query for Asset Fingerprints information. Default value: **10**, which indicates that 10 entries of Asset Fingerprints information are displayed per page.
-   * > Do not leave PageSize empty.
+   * The number of entries per page in a paged query. Default value: **10**, which indicates that 10 entries of Asset Fingerprints information are displayed per page.
+   * > We recommend that you do not leave PageSize empty.
    * 
    * @example
    * 10
@@ -137,7 +137,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The end of the time range to query for process startup timestamps. Unit: seconds.
+   * The end of the time range to query the process start timestamp. Unit: seconds.
    * 
    * @example
    * 1641110965
@@ -145,7 +145,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   processStartedEnd?: number;
   /**
    * @remarks
-   * The start of the time range to query for process startup timestamps. Unit: seconds.
+   * The start of the time range to query the process start timestamp. Unit: seconds.
    * 
    * @example
    * 1641024565
@@ -154,12 +154,17 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The search condition (server name or IP address).
-   * > Fuzzy match is supported.
+   * > Fuzzy search is supported.
    * 
    * @example
    * 192.168
    */
   remark?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
@@ -192,9 +197,9 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   searchCriteriaList?: DescribePropertyScaDetailRequestSearchCriteriaList[];
   /**
    * @remarks
-   * The content to query. The content varies based on the value of **SearchItem**:
-   * - If **SearchItem** is settings to **name**, enter the name of the Asset Fingerprints.
-   * - If **SearchItem** is settings to **type**, select the type of the Asset Fingerprints. Valid values:   
+   * The content to query. You must enter different content based on the value of **SearchItem**:
+   * - If **SearchItem** is set to **name**, enter the name of the Asset Fingerprints.
+   * - If **SearchItem** is set to **type**, select the type of the Asset Fingerprints to query. Valid values:   
    *     - **system_service**: system service
    *     - **software_library**: software library
    *     - **docker_component**: container component
@@ -203,7 +208,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
    *     - **jar**: JAR package
    *     - **web_framework**: web framework  
    * 
-   * > The **SearchItem** and **SearchInfo** parameters must be used together. You must settings both parameters for the query to take effect (settings only one is invalid). This allows you to view all data of the specified Asset Fingerprints by name or type.
+   * > The **SearchItem** and **SearchInfo** parameters are used together. You must set both parameters at the same time (setting only one parameter does not take effect). This allows you to view all data of the specified Asset Fingerprints by name or type.
    * 
    * @example
    * openssl
@@ -211,11 +216,11 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   searchInfo?: string;
   /**
    * @remarks
-   * The content of the sub-query condition. The content varies based on the value of **SearchItemSub**:
-   * - If **SearchItemSub** is set to **port**, enter the port number.
-   * - If **SearchItemSub** is set to **pid**, enter the process ID.
-   * - If **SearchItemSub** is set to **version**, enter the version of the middleware, database, or web service.
-   * - If **SearchItemSub** is set to **user**, enter the username.
+   * The content of the sub-query condition. You must enter different content based on the value of **SearchItemSub**:
+   * - If **SearchItemSub** is set to **port**, enter the port as the sub-query condition.
+   * - If **SearchItemSub** is set to **pid**, enter the process ID as the sub-query condition.
+   * - If **SearchItemSub** is set to **version**, enter the version of the middleware, database, or web service as the sub-query condition.
+   * - If **SearchItemSub** is set to **user**, enter the username as the sub-query condition.
    * 
    * > Sub-query conditions help you search for the data list of a specific middleware, database, or web service.
    * 
@@ -225,11 +230,11 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   searchInfoSub?: string;
   /**
    * @remarks
-   * Settings the type of the conditional query. Valid values:
+   * The type of the search condition. Valid values:
    * - **name**: the name of the middleware, database, or web service.
    * - **type**: the type of the middleware, database, or web service.
    * 
-   * > The **SearchItem** and **SearchInfo** parameters must be used together. You must settings both parameters for the query to take effect (settings only one is invalid). This allows you to view all data of the specified Asset Fingerprints by name or type.
+   * > The **SearchItem** and **SearchInfo** parameters are used together. You must set both parameters at the same time (setting only one parameter does not take effect). This allows you to view all data of the specified Asset Fingerprints by name or type.
    * 
    * @example
    * name

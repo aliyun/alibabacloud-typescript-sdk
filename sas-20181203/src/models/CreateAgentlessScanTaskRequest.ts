@@ -2,6 +2,76 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateAgentlessScanTaskRequestTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the source ECS custom image to be remediated. The image must be located in the region specified by RegionId of this target.
+   * 
+   * @example
+   * m-bp1example123456789
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The name of the source ECS custom image to be remediated.
+   * 
+   * @example
+   * source-image
+   */
+  originImageName?: string;
+  /**
+   * @remarks
+   * The name of the ECS image generated after remediation.
+   * 
+   * @example
+   * patched-image-20260909
+   */
+  outputImageName?: string;
+  /**
+   * @remarks
+   * The region ID of the source image to be remediated, such as cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The list of vulnerability identifiers to be fixed. At least one vulnerability identifier must be specified. Each identifier must be unique and non-empty.
+   */
+  vulnerabilityIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      originImageName: 'OriginImageName',
+      outputImageName: 'OutputImageName',
+      regionId: 'RegionId',
+      vulnerabilityIds: 'VulnerabilityIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      originImageName: 'string',
+      outputImageName: 'string',
+      regionId: 'string',
+      vulnerabilityIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vulnerabilityIds)) {
+      $dara.Model.validateArray(this.vulnerabilityIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAgentlessScanTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -29,7 +99,7 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides. Valid values:
+   * The region ID of the instance to query. Valid values:
    * 
    * - **cn-hangzhou** (default): China.
    * - **ap-southeast-1**: outside China.
@@ -77,6 +147,11 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   targetType?: number;
   /**
    * @remarks
+   * The list of targets for image security remediation. Each target specifies the source image, the region, the name of the remediated image, and the vulnerability identifiers to be fixed.
+   */
+  targets?: CreateAgentlessScanTaskRequestTargets[];
+  /**
+   * @remarks
    * The UUIDs of the assets to be detected.
    * 
    * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUIDs of servers.
@@ -91,6 +166,7 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
       releaseAfterScan: 'ReleaseAfterScan',
       scanDataDisk: 'ScanDataDisk',
       targetType: 'TargetType',
+      targets: 'Targets',
       uuidList: 'UuidList',
     };
   }
@@ -104,11 +180,15 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
       releaseAfterScan: 'boolean',
       scanDataDisk: 'boolean',
       targetType: 'number',
+      targets: { 'type': 'array', 'itemType': CreateAgentlessScanTaskRequestTargets },
       uuidList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.targets)) {
+      $dara.Model.validateArray(this.targets);
+    }
     if(Array.isArray(this.uuidList)) {
       $dara.Model.validateArray(this.uuidList);
     }

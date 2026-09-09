@@ -16,10 +16,10 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   clientStatus?: string;
   /**
    * @remarks
-   * The name of the IDC server room.
+   * The IDC name.
    * 
    * @example
-   * 3K机房广州
+   * 3K IDC Guangzhou
    */
   idcName?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   ipSegment?: string;
   /**
    * @remarks
-   * The timestamp of the latest scan, in milliseconds.
+   * The timestamp of the latest scan. Unit: milliseconds.
    * 
    * @example
    * 1720006818000
@@ -42,7 +42,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
    * @remarks
    * The operating system type of the asset. Valid values:
    * - **windows**
-   * - **linux**.
+   * - **linux**
    * 
    * @example
    * Linux
@@ -158,7 +158,7 @@ export class DescribeIdcProbeScanResultListResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The page number in a paging query.
    * 
    * @example
    * 1

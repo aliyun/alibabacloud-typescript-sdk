@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfoConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the configuration item, which is unique.
+   * The unique name of the corresponding configuration.
    * 
    * @example
    * prot
@@ -13,7 +13,7 @@ export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfoConfig exte
   name?: string;
   /**
    * @remarks
-   * The display name of the configuration item for internationalization.
+   * The internationalized name of the corresponding configuration item.
    * 
    * @example
    * prot
@@ -21,7 +21,7 @@ export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfoConfig exte
   showName?: string;
   /**
    * @remarks
-   * The value of the configuration item specified for the instance.
+   * The value of the corresponding configuration for the current asset.
    * 
    * @example
    * 8080
@@ -55,12 +55,12 @@ export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfoConfig exte
 export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The information about the configuration item whose risks are fixed for the instance.
+   * The current instance information displayed for the corresponding remediation configuration.
    */
   config?: ListCheckInstanceResultResponseBodyBasicDataInstanceInfoConfig[];
   /**
    * @remarks
-   * The time of the first check.
+   * The time of the first check. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1716447535531
@@ -68,7 +68,7 @@ export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfo extends $d
   firstUpdateTime?: number;
   /**
    * @remarks
-   * The time of the last check.
+   * The time of the latest check. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1716447535531
@@ -105,7 +105,7 @@ export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfo extends $d
 export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the check result for the instance.
+   * The check result ID of the instance.
    * 
    * @example
    * 300054
@@ -121,12 +121,12 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The information about the instance on which the check item is used.
+   * The instance information displayed for the corresponding check item.
    */
   instanceInfo?: ListCheckInstanceResultResponseBodyBasicDataInstanceInfo;
   /**
    * @remarks
-   * The instance name of the server.
+   * The name of the server instance.
    * 
    * @example
    * sg-t4nbk2aodzio52xv****
@@ -142,17 +142,14 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The states of check items. Multiple states are separated with commas (,). Valid values:
+   * The status list of the check item. Multiple statuses are separated by commas (,). Valid values:
    * 
-   * - **PASS**: passed
-   * 
-   * - **NOT_PASS**: failed
-   * 
-   * - **CHECKING**: being checked
-   * 
-   * - **NOT_CHECK**: not checked
-   * 
-   * - **WHITELIST**: added to the whitelist
+   * - **PASS**: Passed.
+   * - **NOT_PASS**: Failed.
+   * - **CHECKING**: Being checked.
+   * - **NOT_CHECK**: Not checked.
+   * - **WHITELIST**: Whitelisted.
+   * - **FAILED**: Failed.
    * 
    * @example
    * NOT_PASS
@@ -160,15 +157,15 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The exception message of the check item.
+   * The exception status message of the check item.
    * 
    * @example
-   * 检查任务失败。
+   * Check task failed
    */
   statusMessage?: string;
   /**
    * @remarks
-   * The multi-cloud provider account name.
+   * The multi-cloud vendor account name.
    * 
    * @example
    * test
@@ -215,7 +212,7 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
 export class ListCheckInstanceResultResponseBodyColumnsGrids extends $dara.Model {
   /**
    * @remarks
-   * The search condition.
+   * The search value.
    * 
    * @example
    * RegionIdShow
@@ -223,7 +220,7 @@ export class ListCheckInstanceResultResponseBodyColumnsGrids extends $dara.Model
   key?: string;
   /**
    * @remarks
-   * The display name of the search condition.
+   * The search display name.
    * 
    * @example
    * Region
@@ -231,11 +228,10 @@ export class ListCheckInstanceResultResponseBodyColumnsGrids extends $dara.Model
   showName?: string;
   /**
    * @remarks
-   * The format of the check result for the instance. Valid values:
+   * The type of the check instance result. Valid values:
    * 
-   * - **text**
-   * 
-   * - **link**
+   * - **text**: text
+   * - **link**: link
    * 
    * @example
    * text
@@ -269,12 +265,12 @@ export class ListCheckInstanceResultResponseBodyColumnsGrids extends $dara.Model
 export class ListCheckInstanceResultResponseBodyColumns extends $dara.Model {
   /**
    * @remarks
-   * The metadata information about the details of the instance.
+   * The list of list-type metadata.
    */
   grids?: ListCheckInstanceResultResponseBodyColumnsGrids[];
   /**
    * @remarks
-   * The search condition.
+   * The key of the list property.
    * 
    * @example
    * RegionIdShow
@@ -282,11 +278,9 @@ export class ListCheckInstanceResultResponseBodyColumns extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Indicates whether the search condition is used. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether search is supported. Valid values:
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -294,7 +288,7 @@ export class ListCheckInstanceResultResponseBodyColumns extends $dara.Model {
   search?: boolean;
   /**
    * @remarks
-   * The search key.
+   * The key used for search.
    * 
    * @example
    * InstanceIdKey
@@ -302,7 +296,7 @@ export class ListCheckInstanceResultResponseBodyColumns extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The display name of the search condition.
+   * The display name.
    * 
    * @example
    * Region
@@ -310,11 +304,10 @@ export class ListCheckInstanceResultResponseBodyColumns extends $dara.Model {
   showName?: string;
   /**
    * @remarks
-   * The type of the check result for the instance. Valid values:
+   * The property type of the check instance result. Valid values:
    * 
-   * - **text**
-   * 
-   * - **link**
+   * - **text**: text
+   * - **link**: link
    * 
    * @example
    * text
@@ -365,7 +358,7 @@ export class ListCheckInstanceResultResponseBodyPageInfo extends $dara.Model {
   count?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 1
@@ -373,7 +366,7 @@ export class ListCheckInstanceResultResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 20
@@ -381,7 +374,7 @@ export class ListCheckInstanceResultResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -417,12 +410,12 @@ export class ListCheckInstanceResultResponseBodyPageInfo extends $dara.Model {
 export class ListCheckInstanceResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The basic information about the affected instances.
+   * The list of basic information about affected instances.
    */
   basicData?: ListCheckInstanceResultResponseBodyBasicData[];
   /**
    * @remarks
-   * The extended information about the instances.
+   * The list of extended information about affected instances.
    * 
    * @example
    * [{
@@ -438,17 +431,17 @@ export class ListCheckInstanceResultResponseBody extends $dara.Model {
   checks?: { [key: string]: any }[];
   /**
    * @remarks
-   * The metadata information about the search conditions that can be used to filter instances.
+   * The metadata of the affected instance information display list.
    */
   columns?: ListCheckInstanceResultResponseBodyColumns[];
   /**
    * @remarks
-   * The pagination information.
+   * The paging information displayed on the page in a paged query.
    */
   pageInfo?: ListCheckInstanceResultResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * 3AB18264-8A1B-52A6-A9AF-A886556E0F2E

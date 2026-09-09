@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyProcDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The startup parameter of the process.
+   * The startup parameters of the process.
    * 
    * @example
    * ./8888
@@ -13,7 +13,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   cmdline?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether fuzzy search by process name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+   * Specifies whether fuzzy match is supported for the process name. Set this parameter to 1 to enable fuzzy match. Other values or an empty value indicate that fuzzy match is not supported.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The name of the process.
+   * The process name.
    * 
    * @example
    * 8888
@@ -37,7 +37,9 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The value of NextToken that is returned when the NextToken method is used. You do not need to specify this parameter for the first request.
+   * The token that marks the current position from which to start reading. Leave this parameter empty to start reading from the beginning.
+   * 
+   * > You do not need to specify this parameter for the first call. The NextToken value for the second call is included in the response of the first call. Each subsequent response contains the NextToken value for the next call.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6k+AtdhNE3kgQEK36GujZ5on+tWdc+4WoaoMP/kUNxxxx
@@ -45,7 +47,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**, which indicates that 10 entries of process Asset Fingerprints information are displayed per page.
    * 
    * @example
    * 10
@@ -53,7 +55,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The timestamp when the process ends. Unit: milliseconds.
+   * The end timestamp of the process startup time range. Unit: milliseconds.
    * 
    * @example
    * 1649587453000
@@ -61,7 +63,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   procTimeEnd?: number;
   /**
    * @remarks
-   * The timestamp when the process starts. Unit: milliseconds.
+   * The start timestamp of the process startup time range. Unit: milliseconds.
    * 
    * @example
    * 1648809853000
@@ -69,7 +71,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   procTimeStart?: number;
   /**
    * @remarks
-   * The name or IP address of the server.
+   * The name or IP address of the server that you want to query.
    * 
    * @example
    * 192.168.XX.XX
@@ -77,9 +79,8 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****
@@ -87,10 +88,10 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * Specifies whether to use the NextToken method to retrieve a new page of results. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
+   * Specifies whether to use the NextToken method to retrieve the vulnerability list data. If this parameter is used, TotalCount is no longer returned. Valid values:
    * 
-   * - **true**: The NextToken method is used.
-   * - **false**: The NextToken method is not used.
+   * - **true**: Use the NextToken method.
+   * - **false**: Do not use the NextToken method.
    * 
    * @example
    * false
@@ -98,7 +99,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   useNextToken?: boolean;
   /**
    * @remarks
-   * The user who runs the process.
+   * The information about the user that runs the process.
    * 
    * @example
    * root
@@ -106,7 +107,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
   user?: string;
   /**
    * @remarks
-   * The UUID of the server.
+   * The UUID of the server that you want to query.
    * 
    * @example
    * 50d213b4-3a35-427a-b8a5-04b0c7e1****

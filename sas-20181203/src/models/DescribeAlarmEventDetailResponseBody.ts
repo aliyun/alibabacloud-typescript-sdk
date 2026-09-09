@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlarmEventDetailResponseBodyDataCauseDetailsValue extends $dara.Model {
   /**
    * @remarks
-   * The name of the field that displays the tracing information.
+   * The name of the tracing information field.
    * 
    * @example
    * sshd
@@ -13,10 +13,9 @@ export class DescribeAlarmEventDetailResponseBodyDataCauseDetailsValue extends $
   name?: string;
   /**
    * @remarks
-   * The type of the field that displays the tracing information. Valid values:
-   * 
-   * *   **text**
-   * *   **html**
+   * The display type of the tracing information field. Valid values:
+   * - **text**: plain text.
+   * - **html**: rich text.
    * 
    * @example
    * html
@@ -24,7 +23,7 @@ export class DescribeAlarmEventDetailResponseBodyDataCauseDetailsValue extends $
   type?: string;
   /**
    * @remarks
-   * The value of the field that displays the tracing information.
+   * The value of the tracing information field.
    * 
    * @example
    * <p>under a certain small probability, yundun may mistakenly judge the repeated attempts caused by the administrator forgetting or entering the wrong password as successful blasting. Please check according to the account number and time shown in the alarm details. Once it is confirmed that it is not the initiative of the administrator, it is recommended to immediately block the IP, and you can open it at the same time<a href="https://yundun.console.aliyun.com/?p=pam">PAM</a>, hosting host login password, improving remote connection efficiency and security control ability, and according to<a href="https://click.aliyun.com/m/1000226086/">best practice of ECS account security protection</a>Modify login password and convergence asset.</p>↵
@@ -58,7 +57,7 @@ export class DescribeAlarmEventDetailResponseBodyDataCauseDetailsValue extends $
 export class DescribeAlarmEventDetailResponseBodyDataCauseDetails extends $dara.Model {
   /**
    * @remarks
-   * The key that is used to trace the alert event.
+   * The key of the alert event tracing information.
    * 
    * @example
    * 842e314e69b1a2c45d5c1a2f88a16***
@@ -66,7 +65,7 @@ export class DescribeAlarmEventDetailResponseBodyDataCauseDetails extends $dara.
   key?: string;
   /**
    * @remarks
-   * The value that is used to trace the alert event.
+   * The value of the alert event tracing information.
    */
   value?: DescribeAlarmEventDetailResponseBodyDataCauseDetailsValue[];
   static names(): { [key: string]: string } {
@@ -116,7 +115,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
    * @remarks
    * The unique identifier of the alert event.
    * 
-   * > To query the details of an alert event, you must provide the unique identifier of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the identifier.
+   * > To query the details of an alert event, you must provide the unique identifier of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this identifier.
    * 
    * @example
    * 9f62555666f177aa84ee1eaf465a****
@@ -132,10 +131,11 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Indicates whether the online handling of the alert event is supported. Valid values:
+   * Indicates whether the alert can be handled online. Valid values:  
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The alert can be unmarked as a false positive.
+   * 
+   * - **false**: The alert cannot be unmarked as a false positive.
    * 
    * @example
    * false
@@ -143,10 +143,11 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   canBeDealOnLine?: boolean;
   /**
    * @remarks
-   * Indicates whether you can cancel marking the alert event as a false positive. Valid values:
+   * Indicates whether the alert can be canceled. Valid values:  
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The alert can be unmarked as a false positive.
+   * 
+   * - **false**: The alert cannot be unmarked as a false positive.
    * 
    * @example
    * false
@@ -154,12 +155,12 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   canCancelFault?: boolean;
   /**
    * @remarks
-   * An array consisting of the cause of the alert event, which can be used to trace the alert event.
+   * The cause of the alert event (tracing information).
    */
   causeDetails?: DescribeAlarmEventDetailResponseBodyDataCauseDetails[];
   /**
    * @remarks
-   * Indicates whether the Safeguard Mode For Major Activities mode is enabled.
+   * Indicates whether the important activity protection mode is enabled.
    * 
    * @example
    * true
@@ -175,7 +176,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   containerId?: string;
   /**
    * @remarks
-   * The ID of the image to which the container belongs.
+   * The ID of the container image.
    * 
    * @example
    * cadb7a725641
@@ -183,7 +184,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   containerImageId?: string;
   /**
    * @remarks
-   * The name of the image to which the container belongs.
+   * The name of the container image.
    * 
    * @example
    * jenkins/jenkins:latest
@@ -199,7 +200,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   dataSource?: string;
   /**
    * @remarks
-   * The timestamp when the alert event ends. Unit: milliseconds.
+   * The timestamp when the alert event ended, in milliseconds.
    * 
    * @example
    * 1542366542000
@@ -247,7 +248,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   k8sClusterName?: string;
   /**
    * @remarks
-   * The namespace of the Kubernetes cluster.
+   * The Kubernetes namespace.
    * 
    * @example
    * sit-saic-trip
@@ -255,7 +256,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   k8sNamespace?: string;
   /**
    * @remarks
-   * The ID of the Kubernetes cluster node.
+   * The ID of the Kubernetes node.
    * 
    * @example
    * i-bp14a1ay8e0aa9t0l***
@@ -263,7 +264,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   k8sNodeId?: string;
   /**
    * @remarks
-   * The name of the Kubernetes cluster node.
+   * The name of the Kubernetes node.
    * 
    * @example
    * cn-hangzhou.10.188.139.**
@@ -279,11 +280,10 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   k8sPodName?: string;
   /**
    * @remarks
-   * The severity of the alert event. Valid values:
-   * 
-   * *   **serious**
-   * *   **suspicious**
-   * *   **remind**
+   * The severity level of the alert event. Valid values:
+   * - **serious**: Critical.
+   * - **suspicious**: Suspicious.
+   * - **remind**: Reminder.
    * 
    * @example
    * serious
@@ -291,7 +291,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The solution to the alert event.
+   * The solution for the alert event.
    * 
    * @example
    * An invalid logon source IP has been detected. If you recognize this logon attempt, we recommend that you add the current logon source IP to the valid logon source IP list to avoid future alerts. If you do not recognize this logon attempt, we recommend that you modify the password.
@@ -299,7 +299,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   solution?: string;
   /**
    * @remarks
-   * The timestamp when the alert event starts. Unit: milliseconds.
+   * The timestamp when the alert event started, in milliseconds.
    * 
    * @example
    * 1542378601000
@@ -307,31 +307,53 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The alert type of the alert event. Valid values:
+   * The alerting type. Valid values:
+   * <props="china">
+   * - Suspicious Process
+   * - Web shell
+   * - Unusual Logon
+   * - Unusual Event
+   * - Sensitive File Tampering
+   * - Malicious Process (Cloud Scan)
+   * - Suspicious Network Connectivity
+   * - Other
+   * - Suspicious Account
+   * - Application Intrusion Event
+   * - Cloud Product Threat Detection
+   * - Precision Defense
+   * - Application Whitelist
+   * - Persistence Backdoor
+   * - Web Application Threat Detection
+   * - Malicious Scripts
+   * - Threat Intelligence
+   * - Malicious Network Behavior
+   * - Container Cluster Exception
+   * - Web shell (Local Scan)
+   * - Vulnerability Exploits
+   * - Malicious Process (Local Scan)
+   * - Trusted Exception
    * 
-   * *   Suspicious process
-   * *   Webshell
-   * *   Unusual logon
-   * *   Exception
-   * *   Sensitive file tampering
-   * *   Malicious process (cloud threat detection)
-   * *   Suspicious network connection
-   * *   Other
-   * *   Abnormal account
-   * *   Application intrusion event
-   * *   Cloud threat detection
-   * *   Precise defense
-   * *   Application whitelist
-   * *   Persistent webshell
-   * *   Web application threat detection
-   * *   Malicious script
-   * *   Threat intelligence
-   * *   Malicious network activity
-   * *   Cluster exception
-   * *   Webshell (on-premises threat detection)
-   * *   Vulnerability exploitation
-   * *   Malicious process (on-premises threat detection)
-   * *   Trusted exception
+   * <props="intl">
+   * - Suspicious Process
+   * - Webshell
+   * - Unusual Logon
+   * - Malicious Software
+   * - Sensitive File Tampering
+   * - Unusual Network Connection
+   * - Other
+   * - Suspicious Account
+   * - Cloud threat detection
+   * - Precision defense
+   * - Application Whitelist
+   * - Persistence
+   * - Web Application Threat Detection
+   * - Malicious scripts
+   * - Malicious Network Activity
+   * - K8s Abnormal Behavior
+   * - Website backdoor (local engine)
+   * - Exploit
+   * - Image Scan
+   * - Trusted exception
    * 
    * @example
    * Webshell
@@ -339,7 +361,7 @@ export class DescribeAlarmEventDetailResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The instance UUID of the asset.
+   * The UUID of the asset instance.
    * 
    * @example
    * 6690a46c-0edb-4663-a641-3629d1a9****
@@ -429,7 +451,7 @@ export class DescribeAlarmEventDetailResponseBody extends $dara.Model {
   data?: DescribeAlarmEventDetailResponseBodyData;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 7EA50837-2F0B-5BCC-AB61-4968D88D75AD

@@ -37,6 +37,7 @@ export { ChangeSecurityScoreRuleRequestSecurityScoreCategoryListSecurityRuleList
 export { ChangeSecurityScoreRuleRequestSecurityScoreCategoryList } from './ChangeSecurityScoreRuleRequest';
 export { ChangeSecurityScoreRuleRequestSecurityScoreRuleListSecurityScoreItemList } from './ChangeSecurityScoreRuleRequest';
 export { ChangeSecurityScoreRuleRequestSecurityScoreRuleList } from './ChangeSecurityScoreRuleRequest';
+export { CreateAgentlessScanTaskRequestTargets } from './CreateAgentlessScanTaskRequest';
 export { CreateAntiBruteForceRuleRequestProtocolType } from './CreateAntiBruteForceRuleRequest';
 export { CreateAntiBruteForceRuleResponseBodyCreateAntiBruteForceRule } from './CreateAntiBruteForceRuleResponseBody';
 export { CreateAssetSelectionConfigResponseBodyData } from './CreateAssetSelectionConfigResponseBody';

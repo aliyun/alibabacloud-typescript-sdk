@@ -7,7 +7,7 @@ export class FindContainerNetworkConnectShrinkRequest extends $dara.Model {
    * @remarks
    * The query type of the element to query. Valid values:
    * 
-   * - **EDGE**: connection information.
+   * - **EDGE**: connection information
    * 
    * @example
    * EDGE
@@ -15,7 +15,7 @@ export class FindContainerNetworkConnectShrinkRequest extends $dara.Model {
   criteriaType?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
+   * The page number of the page to return in a paged query. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -28,7 +28,7 @@ export class FindContainerNetworkConnectShrinkRequest extends $dara.Model {
   dstNodeShrink?: string;
   /**
    * @remarks
-   * The end time of the network connectivity.
+   * The end time of the network connectivity. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649260799999
@@ -50,7 +50,7 @@ export class FindContainerNetworkConnectShrinkRequest extends $dara.Model {
   srcNodeShrink?: string;
   /**
    * @remarks
-   * The start time of the network connectivity.
+   * The start time of the network connectivity. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1666886400000

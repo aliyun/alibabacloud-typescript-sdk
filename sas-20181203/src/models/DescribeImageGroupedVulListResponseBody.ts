@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dara.Model {
   /**
    * @remarks
+   * Indicates whether the vulnerability supports agentless fix. true: supported. false: not supported. If this field is not returned, no corresponding fix capability information is available.
+   * 
+   * @example
+   * true
+   */
+  agentlessCanFix?: string;
+  /**
+   * @remarks
    * The alias of the vulnerability.
    * 
    * @example
@@ -13,7 +21,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   aliasName?: string;
   /**
    * @remarks
-   * The number of high-risk vulnerabilities.
+   * The number of high-priority vulnerabilities.
    * 
    * @example
    * 26
@@ -29,6 +37,14 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
    * yes
    */
   canFix?: string;
+  /**
+   * @remarks
+   * The CVSS score of the vulnerability, which measures the vulnerability severity. The value ranges from 0 to 10. A higher score indicates a higher severity.
+   * 
+   * @example
+   * 7.5
+   */
+  cveScore?: string;
   /**
    * @remarks
    * The timestamp of the first scan, in milliseconds.
@@ -47,7 +63,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   lastScanTime?: number;
   /**
    * @remarks
-   * The number of medium-risk vulnerabilities.
+   * The number of medium-priority vulnerabilities.
    * 
    * @example
    * 26
@@ -63,7 +79,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   name?: string;
   /**
    * @remarks
-   * The number of low-risk vulnerabilities.
+   * The number of low-priority vulnerabilities.
    * 
    * @example
    * 29
@@ -71,9 +87,17 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   nntfCount?: number;
   /**
    * @remarks
+   * The associated vulnerability IDs, such as CVE IDs. Multiple IDs are separated by commas (,). Some vulnerabilities return the corresponding vulnerability advisory IDs.
+   * 
+   * @example
+   * CVE-2023-38408
+   */
+  related?: string;
+  /**
+   * @remarks
    * The vulnerability tag. Valid values:
    * 
-   *  - **AI**: vulnerabilities related to AI components.
+   *  - **AI**: vulnerabilities related to AI components
    * 
    * @example
    * AI
@@ -94,14 +118,24 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   status?: number;
   /**
    * @remarks
-   * The label of the vulnerability. Valid values:
+   * The labels of the vulnerability. Valid values:
    * 
+   * <props="china">
    * - Restart required
    * - Remote utilization
    * - EXP exists
-   * - Available
+   * - Exploitable
    * - Privilege escalation
    * - Code execution
+   * 
+   * 
+   * <props="intl">
+   * - Restart required
+   * - Remote utilization
+   * - EXP exists
+   * - Exploitable
+   * - Privilege escalation
+   * - Code Execution
    * 
    * @example
    * EXP exists
@@ -111,7 +145,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
    * @remarks
    * The type of vulnerability to query. Valid values:
    * - **cve**: image system vulnerability
-   * - **sca**: image application vulnerability.
+   * - **sca**: image application vulnerability
    * 
    * @example
    * cve
@@ -119,14 +153,17 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      agentlessCanFix: 'AgentlessCanFix',
       aliasName: 'AliasName',
       asapCount: 'AsapCount',
       canFix: 'CanFix',
+      cveScore: 'CveScore',
       gmtLast: 'GmtLast',
       lastScanTime: 'LastScanTime',
       laterCount: 'LaterCount',
       name: 'Name',
       nntfCount: 'NntfCount',
+      related: 'Related',
       ruleTag: 'RuleTag',
       status: 'Status',
       tags: 'Tags',
@@ -136,14 +173,17 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      agentlessCanFix: 'string',
       aliasName: 'string',
       asapCount: 'number',
       canFix: 'string',
+      cveScore: 'string',
       gmtLast: 'number',
       lastScanTime: 'number',
       laterCount: 'number',
       name: 'string',
       nntfCount: 'number',
+      related: 'string',
       ruleTag: 'string',
       status: 'number',
       tags: 'string',
@@ -163,7 +203,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
 export class DescribeImageGroupedVulListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in the paging query.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 2
@@ -176,7 +216,7 @@ export class DescribeImageGroupedVulListResponseBody extends $dara.Model {
   groupedVulItems?: DescribeImageGroupedVulListResponseBodyGroupedVulItems[];
   /**
    * @remarks
-   * The number of image vulnerabilities returned on each page in the paging query. Default value: **20**, which indicates that 20 image vulnerability records are returned on each page.
+   * The number of image vulnerabilities displayed on each page in a paging query. Default value: **20**, which indicates 20 image vulnerability records per page.
    * 
    * @example
    * 20
@@ -184,7 +224,7 @@ export class DescribeImageGroupedVulListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot issues.
    * 
    * @example
    * 5E244439-UJND-8BF7-26F36E21B9AA

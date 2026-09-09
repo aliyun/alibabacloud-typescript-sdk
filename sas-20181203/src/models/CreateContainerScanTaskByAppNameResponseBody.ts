@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether you can create more scan tasks. Valid values:
+   * Indicates whether more scan tasks can be created. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: More scan tasks can be created.
+   * - **false**: No more scan tasks can be created.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
   canCreate?: boolean;
   /**
    * @remarks
-   * The timestamp generated when the image information was collected. Unit: milliseconds.
+   * The timestamp when image information was collected, in milliseconds.
    * 
    * @example
    * 1644286364150
@@ -24,7 +24,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
   collectTime?: number;
   /**
    * @remarks
-   * The timestamp generated when the scan task started. Unit: milliseconds.
+   * The timestamp when the scan task started running, in milliseconds.
    * 
    * @example
    * 1644286364150
@@ -32,7 +32,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
   execTime?: number;
   /**
    * @remarks
-   * The number of container applications that are scanned.
+   * The number of containers that have been scanned.
    * 
    * @example
    * 5
@@ -40,7 +40,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
   finishCount?: number;
   /**
    * @remarks
-   * The progress of the scan task in percentage.
+   * The progress percentage of the scan task.
    * 
    * @example
    * 100
@@ -48,12 +48,12 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
   progress?: number;
   /**
    * @remarks
-   * The result of the scan task. Valid values:
+   * The execution result of the scan task. Valid values:
    * 
-   * *   **SUCCESS**: The task is successful.
-   * *   **TASK_NOT_SUPPORT_REGION**: The task is not supported in the region where the image is deployed.
+   * - **SUCCESS**: The scan task was executed successfully.
+   * - **TASK_NOT_SUPPORT_REGION**: The image is in a region that does not support scanning.
    * 
-   * >
+   * > For the regions that support image security scanning, refer to the table of supported regions after the response parameters table in this document.
    * 
    * @example
    * SUCCESS
@@ -63,10 +63,10 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
    * @remarks
    * The status of the scan task. Valid values:
    * 
-   * *   **INIT**: The task is being initialized.
-   * *   **PRE_ANALYZER**: The task is being pre-processed.
-   * *   **SUCCESS**: The task succeeds.
-   * *   **FAIL**: The task fails.
+   * - **INIT**: Initializing.
+   * - **PRE_ANALYZER**: Pre-analyzing.
+   * - **SUCCESS**: Execution succeeded.
+   * - **FAIL**: Execution failed.
    * 
    * @example
    * SUCCESS
@@ -82,7 +82,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
   taskId?: string;
   /**
    * @remarks
-   * The total number of container applications that you want to scan.
+   * The total number of containers to scan.
    * 
    * @example
    * 5
@@ -128,7 +128,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
 export class CreateContainerScanTaskByAppNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned if the request was successful.
+   * The data returned when the call is successful.
    */
   data?: CreateContainerScanTaskByAppNameResponseBodyData;
   /**
@@ -141,7 +141,7 @@ export class CreateContainerScanTaskByAppNameResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 1EE7B150-D67E-53FD-A52D-3E8E669A****

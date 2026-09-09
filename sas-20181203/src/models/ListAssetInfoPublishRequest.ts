@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAssetInfoPublishRequest extends $dara.Model {
   /**
    * @remarks
-   * An extended parameter. This parameter is temporarily unavailable.
+   * An extension field. This parameter is currently not used.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListAssetInfoPublishRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The UUIDs of the servers that you want to query.
+   * The list of server UUIDs to query.
    * 
    * This parameter is required.
    */

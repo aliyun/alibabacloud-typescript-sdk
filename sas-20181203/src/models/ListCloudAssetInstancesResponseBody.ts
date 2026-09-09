@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the cloud asset has security alerts. Valid values:
+   * Indicates whether security alerts exist for the cloud asset. Valid values:
    * - **YES**: Security alerts exist.
    * - **NO**: No security alerts exist.
    * 
@@ -15,22 +15,21 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
   alarmStatus?: string;
   /**
    * @remarks
-   * The subtype of the cloud service.
-   * The asset type-subtype. Valid values:
+   * The subtype of the cloud service. The value is in the format of asset type - subtype. Valid values:
    * 
-   * - **0**: Elastic Compute Service (ECS)
+   * - **0**: Elastic Compute Service (ECS) server
    * 
    *     * **0**: Instance
-   *     * **1**: Disk (storage)
+   *     * **1**: Cloud disk (storage)
    *     * **2**: Security group
    * - **1**: Server Load Balancer (SLB)
-   *     * **0**: Server Load Balancer
-   *     * **1**: Application Load Balancer
-   * - **3**: ApsaraDB RDS
+   *     * **0**: Classic Load Balancer (CLB)
+   *     * **1**: Application Load Balancer (ALB)
+   * - **3**: ApsaraDB RDS database
    *     * **0**: Instance
-   * - **4**: ApsaraDB for MongoDB
+   * - **4**: ApsaraDB for MongoDB database
    *     * **0**: Instance
-   * - **5**: ApsaraDB for Tair (compatible with Redis)
+   * - **5**: Tair (Redis® OSS-Compatible) database
    *     * **0**: Instance
    * - **6**: Container Registry
    *     * **1**: Enterprise Edition
@@ -44,7 +43,7 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
    *     * **3**: FLOW_LOG
    * - **11**: ActionTrail
    *     * **0**: Trail
-   * - **12**: Alibaba Cloud CDN
+   * - **12**: CDN
    *     * **0**: Instance
    * - **13**: Certificate Management Service (formerly SSL Certificates Service)
    *     * **0**: Certificate
@@ -56,9 +55,9 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
    *      * **0**: Domain name
    * - **18**: Object Storage Service (OSS)
    *     * **0**: Bucket
-   * - **19**: PolarDB
+   * - **19**: Cloud-native relational database PolarDB
    *     * **0**: Cluster
-   * - **20**: ApsaraDB RDS for PostgreSQL
+   * - **20**: ApsaraDB RDS for PostgreSQL database
    *     * **0**: Instance
    * - **21**: Microservices Engine (MSE)
    *     * **0**: Cluster
@@ -68,7 +67,7 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
    *     * **0**: Instance
    * - **24**: Elastic IP Address (EIP)
    *     * **0**: Anycast EIP
-   * - **25**: Identity as a Service - EIAM
+   * - **25**: Alibaba Cloud IDaaS EIAM
    *     * **0**: Instance
    * - **26**: PolarDB-X
    *     * **0**: Instance
@@ -91,28 +90,28 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
    * @remarks
    * The type of the asset. Valid values:
    * 
-   * - **0**: Elastic Compute Service (ECS)
+   * - **0**: Elastic Compute Service (ECS) server
    * - **1**: Server Load Balancer (SLB)
-   * - **3**: ApsaraDB RDS
-   * - **4**: ApsaraDB for MongoDB
-   * - **5**: ApsaraDB for Tair (compatible with Redis)
+   * - **3**: ApsaraDB RDS database
+   * - **4**: ApsaraDB for MongoDB database
+   * - **5**: Tair (Redis® OSS-Compatible) database
    * - **6**: Container Registry
    * - **8**: Container Service for Kubernetes (ACK)
    * - **9**: Virtual Private Cloud (VPC)
    * - **11**: ActionTrail
-   * - **12**: Alibaba Cloud CDN
+   * - **12**: CDN
    * - **13**: Certificate Management Service (formerly SSL Certificates Service)
    * - **14**: Apsara Devops
    * - **16**: Anti-DDoS
    * - **17**: Web Application Firewall (WAF)
    * - **18**: Object Storage Service (OSS)
-   * - **19**: PolarDB
-   * - **20**: ApsaraDB RDS for PostgreSQL
+   * - **19**: Cloud-native relational database PolarDB
+   * - **20**: ApsaraDB RDS for PostgreSQL database
    * - **21**: Microservices Engine (MSE)
    * - **22**: Apsara File Storage NAS
    * - **23**: Data Security Center (DSC)
    * - **24**: Elastic IP Address (EIP)
-   * - **25**: Identity as a Service - EIAM
+   * - **25**: Alibaba Cloud IDaaS EIAM
    * - **26**: PolarDB-X
    * - **27**: Elasticsearch
    * 
@@ -128,10 +127,14 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
    * ECS
    */
   assetTypeName?: string;
+  /**
+   * @remarks
+   * The UUID of the asset.
+   */
   assetUuid?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1607365213000
@@ -147,7 +150,7 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name of the asset.
+   * The name of the asset instance.
    * 
    * @example
    * yztest-l***
@@ -163,7 +166,7 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The ID of the region to which the asset instance belongs.
+   * The region ID of the asset instance.
    * 
    * @example
    * cn-hanghzou
@@ -171,15 +174,23 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Indicates whether the cloud asset has security risks. Valid values:
-   * - **YES**: Exists.
-   * - **NO**: Does not exist.
+   * Indicates whether security risks exist for the cloud asset. Valid values:
+   * - **YES**: Security risks exist.
+   * - **NO**: No security risks exist.
    * 
    * @example
    * NO
    */
   riskStatus?: string;
+  /**
+   * @remarks
+   * The Cloud Security Posture Management (CSPM) sale identifier.
+   */
   saleCspm?: number;
+  /**
+   * @remarks
+   * The sale type.
+   */
   saleType?: number;
   /**
    * @remarks
@@ -191,17 +202,17 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
   securityInfo?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tags?: string[];
   /**
    * @remarks
-   * The server vendor. Valid values:
+   * The asset vendor. Valid values:
    * 
    * - **0**: Alibaba Cloud asset
-   * - **1**: Off-cloud asset
+   * - **1**: Non-cloud asset
    * - **2**: IDC asset
-   * - **3**, **4**, **5**, **7**: Other cloud assets
+   * - **3**, **4**, **5**, **7**: Third-party cloud asset
    * - **8**: Lightweight asset
    * 
    * @example
@@ -287,7 +298,7 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
 export class ListCloudAssetInstancesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of data entries displayed on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 20
@@ -295,7 +306,7 @@ export class ListCloudAssetInstancesResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the current page in paginated queries.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 2
@@ -303,7 +314,7 @@ export class ListCloudAssetInstancesResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 100
@@ -347,7 +358,7 @@ export class ListCloudAssetInstancesResponseBodyPageInfo extends $dara.Model {
 export class ListCloudAssetInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of detailed cloud asset information.
+   * The list of cloud asset details.
    */
   instances?: ListCloudAssetInstancesResponseBodyInstances[];
   /**
@@ -357,7 +368,7 @@ export class ListCloudAssetInstancesResponseBody extends $dara.Model {
   pageInfo?: ListCloudAssetInstancesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request. It can be used to troubleshoot and locate issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 028CF634-5268-5660-9575-48C9ED6BF880
@@ -365,10 +376,10 @@ export class ListCloudAssetInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - **true**: The API call was successful.
-   * - **false**: The API call failed.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

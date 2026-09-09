@@ -13,6 +13,11 @@ export class OperateVulsRequest extends $dara.Model {
    * vul_fix
    */
   operateType?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory.
+   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
@@ -26,7 +31,7 @@ export class OperateVulsRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUIDs of the servers on which you want to fix the vulnerabilities.
+   * The UUIDs of the servers on which you want to fix vulnerabilities.
    * 
    * This parameter is required.
    */

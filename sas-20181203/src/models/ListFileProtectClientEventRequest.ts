@@ -10,7 +10,7 @@ export class ListFileProtectClientEventRequest extends $dara.Model {
   alertLevels?: number[];
   /**
    * @remarks
-   * The page number of the current page when paging is used in a paged query.
+   * The number of the page to return in a paged query.
    * 
    * @example
    * 1
@@ -68,11 +68,11 @@ export class ListFileProtectClientEventRequest extends $dara.Model {
    * @remarks
    * The type of operation performed on the file. Valid values:
    * 
-   * - **DELETE**: deletes the file.
-   * - **WRITE**: writes to the file.
-   * - **READ**: reads the file.
-   * - **RENAME**: renames the file.
-   * - **CHOWN**: changes the file owner and associated group.
+   * - **DELETE**: File deletion.
+   * - **WRITE**: File write.
+   * - **READ**: File read.
+   * - **RENAME**: File rename.
+   * - **CHOWN**: Setting the file owner and file group.
    * 
    * @example
    * READ
@@ -80,7 +80,7 @@ export class ListFileProtectClientEventRequest extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The maximum number of entries per page when paging is used in a paged query.
+   * The maximum number of entries to return on each page in a paged query.
    * 
    * @example
    * 100
@@ -104,7 +104,7 @@ export class ListFileProtectClientEventRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1650470399999
@@ -124,7 +124,7 @@ export class ListFileProtectClientEventRequest extends $dara.Model {
   /**
    * @remarks
    * The UUID of the server to query.
-   * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
+   * >You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * @example
    * 4fe8e1cd-3c37-4851-b9de-124da32c****

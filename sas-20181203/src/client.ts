@@ -421,7 +421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the configuration information of multi-cloud assets.
+   * Adds multi-cloud asset configuration information.
    * 
    * @param request - AddCloudVendorAccountAKRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -500,7 +500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the configuration information of multi-cloud assets.
+   * Adds multi-cloud asset configuration information.
    * 
    * @param request - AddCloudVendorAccountAKRequest
    * @returns AddCloudVendorAccountAKResponse
@@ -2185,7 +2185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the details of the deduction modules of the security score feature, including custom settings.
+   * Modifies custom security score rules.
    * 
    * @param request - ChangeSecurityScoreRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2232,7 +2232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the details of the deduction modules of the security score feature, including custom settings.
+   * Modifies custom security score rules.
    * 
    * @param request - ChangeSecurityScoreRuleRequest
    * @returns ChangeSecurityScoreRuleResponse
@@ -2601,6 +2601,10 @@ export default class Client extends OpenApi {
       query["TargetType"] = request.targetType;
     }
 
+    if (!$dara.isNull(request.targets)) {
+      query["Targets"] = request.targets;
+    }
+
     if (!$dara.isNull(request.uuidList)) {
       query["UuidList"] = request.uuidList;
     }
@@ -2942,7 +2946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an anti-ransomware policy for server protection.
+   * Creates an anti-ransomware policy for servers.
    * 
    * @param tmpReq - CreateBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3003,7 +3007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an anti-ransomware policy for server protection.
+   * Creates an anti-ransomware policy for servers.
    * 
    * @param request - CreateBackupPolicyRequest
    * @returns CreateBackupPolicyResponse
@@ -3330,7 +3334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scan task for a running container application based on the application name.
+   * Creates a container runtime scan task in the appNames dimension.
    * 
    * @param request - CreateContainerScanTaskByAppNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3369,7 +3373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scan task for a running container application based on the application name.
+   * Creates a container runtime scan task in the appNames dimension.
    * 
    * @param request - CreateContainerScanTaskByAppNameRequest
    * @returns CreateContainerScanTaskByAppNameResponse
@@ -3380,7 +3384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address blocking policy for one or more servers.
+   * Adds custom IP blocking policies for one or more specific servers based on your requirements.
    * 
    * @param request - CreateCustomBlockRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3427,7 +3431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address blocking policy for one or more servers.
+   * Adds custom IP blocking policies for one or more specific servers based on your requirements.
    * 
    * @param request - CreateCustomBlockRecordRequest
    * @returns CreateCustomBlockRecordResponse
@@ -5943,7 +5947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database anti-ransomware restoration task.
+   * Creates a restoration task for anti-ransomware database protection.
    * 
    * @param request - CreateUniRestorePlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5998,7 +6002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database anti-ransomware restoration task.
+   * Creates a restoration task for anti-ransomware database protection.
    * 
    * @param request - CreateUniRestorePlanRequest
    * @returns CreateUniRestorePlanResponse
@@ -7175,7 +7179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file protection rule.
+   * Deletes a web tamper-proofing rule.
    * 
    * @param request - DeleteFileProtectClientRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7230,7 +7234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file protection rule.
+   * Deletes a web tamper-proofing rule.
    * 
    * @param request - DeleteFileProtectClientRuleRequest
    * @returns DeleteFileProtectClientRuleResponse
@@ -7741,7 +7745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an image vulnerability whitelist.
+   * Deletes image vulnerability whitelists.
    * 
    * @param request - DeleteImageVulWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7776,7 +7780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an image vulnerability whitelist.
+   * Deletes image vulnerability whitelists.
    * 
    * @param request - DeleteImageVulWhitelistRequest
    * @returns DeleteImageVulWhitelistResponse
@@ -8371,7 +8375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+   * Deletes alert whitelisting configurations in batches.
    * 
    * @deprecated OpenAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead.
    * 
@@ -8412,7 +8416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+   * Deletes alert whitelisting configurations in batches.
    * 
    * @deprecated OpenAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead.
    * 
@@ -8566,7 +8570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the description of an alert.
+   * Deletes a note from a security alert.
    * 
    * @param request - DeleteSuspEventNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8601,7 +8605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the description of an alert.
+   * Deletes a note from a security alert.
    * 
    * @param request - DeleteSuspEventNodeRequest
    * @returns DeleteSuspEventNodeResponse
@@ -9347,7 +9351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+   * Retrieves the details of a security alert event. Alert events are categorized into alerts and exceptions. An alert event contains multiple exception events.
    * 
    * @param request - DescribeAlarmEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9394,7 +9398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+   * Retrieves the details of a security alert event. Alert events are categorized into alerts and exceptions. An alert event contains multiple exception events.
    * 
    * @param request - DescribeAlarmEventDetailRequest
    * @returns DescribeAlarmEventDetailResponse
@@ -9587,7 +9591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on global security events, including the numbers of unfixed vulnerabilities, baseline risks, and alerts.
+   * Retrieves global security event statistics, including the number of unfixed vulnerabilities, baseline checks, and alerts.
    * 
    * @param request - DescribeAllRegionsStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9634,7 +9638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on global security events, including the numbers of unfixed vulnerabilities, baseline risks, and alerts.
+   * Retrieves global security event statistics, including the number of unfixed vulnerabilities, baseline checks, and alerts.
    * 
    * @param request - DescribeAllRegionsStatisticsRequest
    * @returns DescribeAllRegionsStatisticsResponse
@@ -12650,7 +12654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attribute details of containers.
+   * Queries the details of container properties.
    * 
    * @param request - DescribeContainerGroupedFieldDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12685,7 +12689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attribute details of containers.
+   * Queries the details of container properties.
    * 
    * @param request - DescribeContainerGroupedFieldDetailRequest
    * @returns DescribeContainerGroupedFieldDetailResponse
@@ -13288,7 +13292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a report delivery configuration.
+   * Retrieves the details of a report sending configuration.
    * 
    * @param request - DescribeCustomizeReportConfigDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13331,7 +13335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a report delivery configuration.
+   * Retrieves the details of a report sending configuration.
    * 
    * @param request - DescribeCustomizeReportConfigDetailRequest
    * @returns DescribeCustomizeReportConfigDetailResponse
@@ -14406,7 +14410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of alert events by risk level.
+   * Queries the total number of security alerts by severity level.
    * 
    * @param request - DescribeEventLevelCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14465,7 +14469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of alert events by risk level.
+   * Queries the total number of security alerts by severity level.
    * 
    * @param request - DescribeEventLevelCountRequest
    * @returns DescribeEventLevelCountResponse
@@ -15260,7 +15264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query asset statistics by specified aggregation dimensions.
+   * Queries statistics information of assets based on specified aggregation dimensions.
    * 
    * @param request - DescribeGroupedInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15331,7 +15335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query asset statistics by specified aggregation dimensions.
+   * Queries statistics information of assets based on specified aggregation dimensions.
    * 
    * @param request - DescribeGroupedInstancesRequest
    * @returns DescribeGroupedInstancesResponse
@@ -16847,7 +16851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of image vulnerabilities.
+   * Queries a list of image vulnerabilities.
    * 
    * @param request - DescribeImageGroupedVulListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16856,6 +16860,10 @@ export default class Client extends OpenApi {
   async describeImageGroupedVulListWithOptions(request: $_model.DescribeImageGroupedVulListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeImageGroupedVulListResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentlessCanFix)) {
+      query["AgentlessCanFix"] = request.agentlessCanFix;
+    }
+
     if (!$dara.isNull(request.aliasName)) {
       query["AliasName"] = request.aliasName;
     }
@@ -16970,7 +16978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of image vulnerabilities.
+   * Queries a list of image vulnerabilities.
    * 
    * @param request - DescribeImageGroupedVulListRequest
    * @returns DescribeImageGroupedVulListResponse
@@ -16981,7 +16989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the image list.
+   * Queries the list of images.
    * 
    * @param request - DescribeImageInfoListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17012,7 +17020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the image list.
+   * Queries the list of images.
    * 
    * @param request - DescribeImageInfoListRequest
    * @returns DescribeImageInfoListResponse
@@ -17081,7 +17089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the most recent scan task for an image.
+   * Queries the most recent image scan task.
    * 
    * @param request - DescribeImageLatestScanTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17112,7 +17120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the most recent scan task for an image.
+   * Queries the most recent image scan task.
    * 
    * @param request - DescribeImageLatestScanTaskRequest
    * @returns DescribeImageLatestScanTaskResponse
@@ -17891,7 +17899,7 @@ export default class Client extends OpenApi {
    * Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
    * 
    * @remarks
-   * To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to view the container image vulnerability list.
+   * To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
    * 
    * @param request - DescribeImageVulListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17926,6 +17934,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.digest)) {
       query["Digest"] = request.digest;
+    }
+
+    if (!$dara.isNull(request.groupByAsset)) {
+      query["GroupByAsset"] = request.groupByAsset;
     }
 
     if (!$dara.isNull(request.image)) {
@@ -18041,7 +18053,7 @@ export default class Client extends OpenApi {
    * Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
    * 
    * @remarks
-   * To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to view the container image vulnerability list.
+   * To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
    * 
    * @param request - DescribeImageVulListRequest
    * @returns DescribeImageVulListResponse
@@ -19316,7 +19328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Asset Fingerprint Scheduled Task Details
+   * Queries the details of the scheduled task list in host assets.
    * 
    * @param request - DescribePropertyCronDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19383,7 +19395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Asset Fingerprint Scheduled Task Details
+   * Queries the details of the scheduled task list in host assets.
    * 
    * @param request - DescribePropertyCronDetailRequest
    * @returns DescribePropertyCronDetailResponse
@@ -19584,7 +19596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Details of Asset Fingerprint Collection Process
+   * Queries the Asset Fingerprints information of process assets on a server.
    * 
    * @param request - DescribePropertyProcDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19663,7 +19675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Details of Asset Fingerprint Collection Process
+   * Queries the Asset Fingerprints information of process assets on a server.
    * 
    * @param request - DescribePropertyProcDetailRequest
    * @returns DescribePropertyProcDetailResponse
@@ -21283,7 +21295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security score trend on the security dashboard.
+   * Queries the security score trends on the security dashboard.
    * 
    * @param request - DescribeScreenScoreThreadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21326,7 +21338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security score trend on the security dashboard.
+   * Queries the security score trends on the security dashboard.
    * 
    * @param request - DescribeScreenScoreThreadRequest
    * @returns DescribeScreenScoreThreadResponse
@@ -22808,7 +22820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quarantined files by page.
+   * Queries quarantined files in the file quarantine box by paging.
    * 
    * @param request - DescribeSuspEventQuaraFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22867,7 +22879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quarantined files by page.
+   * Queries quarantined files in the file quarantine box by paging.
    * 
    * @param request - DescribeSuspEventQuaraFilesRequest
    * @returns DescribeSuspEventQuaraFilesResponse
@@ -23697,7 +23709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of database anti-ransomware policies.
+   * Queries the list of anti-ransomware policies for databases.
    * 
    * @param request - DescribeUniBackupPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23736,7 +23748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of database anti-ransomware policies.
+   * Queries the list of anti-ransomware policies for databases.
    * 
    * @param request - DescribeUniBackupPoliciesRequest
    * @returns DescribeUniBackupPoliciesResponse
@@ -24074,7 +24086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
+   * Retrieves the list of servers that support vulnerability fix based on vulnerability names.
    * 
    * @param request - DescribeUuidsByVulNamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24165,7 +24177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
+   * Retrieves the list of servers that support vulnerability fix based on vulnerability names.
    * 
    * @param request - DescribeUuidsByVulNamesRequest
    * @returns DescribeUuidsByVulNamesResponse
@@ -24440,7 +24452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status information about vulnerability scan tasks on a server.
+   * Queries the status of a vulnerability scanning node for a specified server.
    * 
    * @param request - DescribeVulCheckTaskStatusDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24483,7 +24495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status information about vulnerability scan tasks on a server.
+   * Queries the status of a vulnerability scanning node for a specified server.
    * 
    * @param request - DescribeVulCheckTaskStatusDetailRequest
    * @returns DescribeVulCheckTaskStatusDetailResponse
@@ -26791,7 +26803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the information about exceptions to a file.
+   * Exports anomaly alert information.
    * 
    * @param request - ExportSuspEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26914,7 +26926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the information about exceptions to a file.
+   * Exports anomaly alert information.
    * 
    * @param request - ExportSuspEventsRequest
    * @returns ExportSuspEventsResponse
@@ -27446,7 +27458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generate commands for connecting self-built Kubernetes clusters.
+   * Generates an access command for a self-managed Kubernetes cluster.
    * 
    * @param request - GenerateK8sAccessInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27517,7 +27529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generate commands for connecting self-built Kubernetes clusters.
+   * Generates an access command for a self-managed Kubernetes cluster.
    * 
    * @param request - GenerateK8sAccessInfoRequest
    * @returns GenerateK8sAccessInfoResponse
@@ -31310,7 +31322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves runtime information for the latest scan task to check its completion status.
+   * Queries the running information of the latest scan task to determine whether the task is complete.
    * 
    * @param request - GetLastOnceTaskInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31349,7 +31361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves runtime information for the latest scan task to check its completion status.
+   * Queries the running information of the latest scan task to determine whether the task is complete.
    * 
    * @param request - GetLastOnceTaskInfoRequest
    * @returns GetLastOnceTaskInfoResponse
@@ -32428,7 +32440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of custom security scoring rules.
+   * Queries the details of custom security score rules.
    * 
    * @param request - GetSecurityScoreRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32467,7 +32479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of custom security scoring rules.
+   * Queries the details of custom security score rules.
    * 
    * @param request - GetSecurityScoreRuleRequest
    * @returns GetSecurityScoreRuleResponse
@@ -32524,7 +32536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the authorization details of a serverless application.
+   * Retrieves the authorization details of a Serverless application.
    * 
    * @param request - GetServerlessAppAuthDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32567,7 +32579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the authorization details of a serverless application.
+   * Retrieves the authorization details of a Serverless application.
    * 
    * @param request - GetServerlessAppAuthDetailRequest
    * @returns GetServerlessAppAuthDetailResponse
@@ -32804,7 +32816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, this operation retrieves the migration progress and status.
+   * Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, you can retrieve the migration progress and status.
    * 
    * @param request - GetSwitchRegionDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32839,7 +32851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, this operation retrieves the migration progress and status.
+   * Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, you can retrieve the migration progress and status.
    * 
    * @param request - GetSwitchRegionDetailRequest
    * @returns GetSwitchRegionDetailResponse
@@ -34730,7 +34742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the custom upgrade information about assets.
+   * Retrieves the list of custom upgrade information for a specified asset of the user.
    * 
    * @param request - ListAssetInfoPublishRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34765,7 +34777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the custom upgrade information about assets.
+   * Retrieves the list of custom upgrade information for a specified asset of the user.
    * 
    * @param request - ListAssetInfoPublishRequest
    * @returns ListAssetInfoPublishResponse
@@ -35404,7 +35416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the instances that failed a specified check item of configuration assessment.
+   * Retrieves instances that failed a cloud platform configuration check item.
    * 
    * @param request - ListCheckInstanceResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35471,7 +35483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the instances that failed a specified check item of configuration assessment.
+   * Retrieves instances that failed a cloud platform configuration check item.
    * 
    * @param request - ListCheckInstanceResultRequest
    * @returns ListCheckInstanceResultResponse
@@ -35626,7 +35638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the risk statistics of check items by page.
+   * Queries statistics on risks generated by check items by paging.
    * 
    * @param request - ListCheckItemWarningSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35717,7 +35729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the risk statistics of check items by page.
+   * Queries statistics on risks generated by check items by paging.
    * 
    * @param request - ListCheckItemWarningSummaryRequest
    * @returns ListCheckItemWarningSummaryResponse
@@ -36249,7 +36261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cloud service assets.
+   * Retrieves the list of cloud service assets.
    * 
    * @param request - ListCloudAssetInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36312,7 +36324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cloud service assets.
+   * Retrieves the list of cloud service assets.
    * 
    * @param request - ListCloudAssetInstancesRequest
    * @returns ListCloudAssetInstancesResponse
@@ -44211,7 +44223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+   * Adjusts advanced whitelisting rules for security alerts by asset dimension.
    * 
    * @param request - ModifySecurityEventMarkMissIndividuallyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44264,7 +44276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+   * Adjusts advanced whitelisting rules for security alerts by asset dimension.
    * 
    * @param request - ModifySecurityEventMarkMissIndividuallyRequest
    * @returns ModifySecurityEventMarkMissIndividuallyResponse
@@ -44429,7 +44441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts the one-click scan feature on the vulnerability management page of the console.
+   * Enables the one-click scan feature on the vulnerability management page of the console.
    * 
    * @param request - ModifyStartVulScanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44472,7 +44484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts the one-click scan feature on the vulnerability management page of the console.
+   * Enables the one-click scan feature on the vulnerability management page of the console.
    * 
    * @param request - ModifyStartVulScanRequest
    * @returns ModifyStartVulScanResponse
@@ -44812,7 +44824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the vulnerability scanning switch configuration.
+   * Modifies the vulnerability scanning toggle configuration.
    * 
    * @param request - ModifyVulConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44851,7 +44863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the vulnerability scanning switch configuration.
+   * Modifies the vulnerability scanning toggle configuration.
    * 
    * @param request - ModifyVulConfigRequest
    * @returns ModifyVulConfigResponse
@@ -45858,7 +45870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a global switch by type.
+   * Configures a global switch based on the specified type.
    * 
    * @param request - OperateCommonOverallConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45905,7 +45917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a global switch by type.
+   * Configures a global switch based on the specified type.
    * 
    * @param request - OperateCommonOverallConfigRequest
    * @returns OperateCommonOverallConfigResponse
@@ -46348,7 +46360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Fixes a Linux software vulnerability.
+   * Fixes Linux software vulnerabilities.
    * 
    * @param request - OperateVulsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46395,7 +46407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Fixes a Linux software vulnerability.
+   * Fixes Linux software vulnerabilities.
    * 
    * @param request - OperateVulsRequest
    * @returns OperateVulsResponse
@@ -46456,7 +46468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels ignoring alert events.
+   * Unmarks ignored anomaly alert events.
    * 
    * @param request - OperationCancelIgnoreSuspEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46495,7 +46507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels ignoring alert events.
+   * Unmarks ignored anomaly alert events.
    * 
    * @param request - OperationCancelIgnoreSuspEventRequest
    * @returns OperationCancelIgnoreSuspEventResponse
@@ -47291,7 +47303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the task result of a database dry run node.
+   * Queries the node result of a database dry run.
    * 
    * @param request - QueryPreCheckDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47330,7 +47342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the task result of a database dry run node.
+   * Queries the node result of a database dry run.
    * 
    * @param request - QueryPreCheckDatabaseRequest
    * @returns QueryPreCheckDatabaseResponse
@@ -47429,7 +47441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronizes assets.
+   * Synchronizes asset data.
    * 
    * @param request - RefreshAssetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47476,7 +47488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronizes assets.
+   * Synchronizes asset data.
    * 
    * @param request - RefreshAssetsRequest
    * @returns RefreshAssetsResponse
@@ -50298,7 +50310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of file tamper-proofing rules in batches.
+   * Updates the status of file tamper-proofing rules.
    * 
    * @param request - UpdateFileProtectClientRuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50357,7 +50369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of file tamper-proofing rules in batches.
+   * Updates the status of file tamper-proofing rules.
    * 
    * @param request - UpdateFileProtectClientRuleStatusRequest
    * @returns UpdateFileProtectClientRuleStatusResponse
@@ -51822,7 +51834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the key corresponding to a specified type.
+   * Modifies the key that corresponds to a specified type.
    * 
    * @param request - UpdateSelectionKeyByTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51861,7 +51873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the key corresponding to a specified type.
+   * Modifies the key that corresponds to a specified type.
    * 
    * @param request - UpdateSelectionKeyByTypeRequest
    * @returns UpdateSelectionKeyByTypeResponse
@@ -52500,7 +52512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies instances under a check item.
+   * Performs instance-level verification for a check item.
    * 
    * @param request - VerifyCheckInstanceResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52547,7 +52559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies instances under a check item.
+   * Performs instance-level verification for a check item.
    * 
    * @param request - VerifyCheckInstanceResultRequest
    * @returns VerifyCheckInstanceResultResponse

@@ -7,7 +7,7 @@ export class GetSwitchRegionDetailRequest extends $dara.Model {
    * @remarks
    * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * en

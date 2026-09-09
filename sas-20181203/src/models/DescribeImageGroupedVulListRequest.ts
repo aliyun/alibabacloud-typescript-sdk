@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageGroupedVulListRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to filter by agentless fix capability. true: queries only vulnerabilities that support agentless fix. false: queries vulnerabilities that are not marked as supporting agentless fix. If this parameter is not specified, no filtering is applied based on this condition.
+   */
+  agentlessCanFix?: boolean;
+  /**
+   * @remarks
    * The alias of the vulnerability.
    * 
    * @example
@@ -14,7 +19,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the container cluster to query.
-   * > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c60b77fe62093480db6164a3c2fa5****
@@ -22,7 +27,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The page number of the page to return in the query results. Default value: **1**, which indicates that the first page is returned.
+   * The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -70,7 +75,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * Specifies whether to query vulnerabilities of only the latest image. If this parameter is not set, vulnerabilities of all images are queried. Valid values:
+   * Specifies whether to query vulnerabilities only for the latest image. If this parameter is not set, vulnerabilities for all images are queried. Valid values:
    * 
    * - **0**: No.
    * - **1**: Yes.
@@ -83,7 +88,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -100,9 +105,9 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   /**
    * @remarks
    * The priority level for fixing the vulnerability. Valid values:
-   * - **asap**: high-priority vulnerability (typically a high-risk vulnerability)
-   * - **later**: medium-priority vulnerability (typically a medium-risk vulnerability)
-   * - **nntf**: low-priority vulnerability (typically a low-risk vulnerability).
+   * - **asap**: High-priority vulnerability that must be fixed as soon as possible.
+   * - **later**: Medium-priority vulnerability that can be fixed later.
+   * - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
    * 
    * @example
    * asap
@@ -110,7 +115,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The number of image vulnerabilities to display on each page during a paging query. Default value: **20**, which indicates that 20 image vulnerabilities are displayed on each page.
+   * The number of image vulnerabilities to display on each page in a paging query. Default value: **20**, which indicates 20 image vulnerabilities per page.
    * 
    * @example
    * 20
@@ -164,12 +169,17 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
    * cn-hangzhou
    */
   repoRegionId?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The vulnerability tag. Valid values:
    * 
-   *  - **AI**: vulnerabilities related to AI components.
+   *  - **AI**: vulnerabilities related to AI components
    * 
    * @example
    * AI
@@ -184,7 +194,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
    * @remarks
    * The type of vulnerability to query. Valid values:
    * - **cve**: image system vulnerability
-   * - **sca**: image application vulnerability.
+   * - **sca**: image application vulnerability
    * 
    * @example
    * cve
@@ -200,6 +210,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   uuids?: string;
   static names(): { [key: string]: string } {
     return {
+      agentlessCanFix: 'AgentlessCanFix',
       aliasName: 'AliasName',
       clusterId: 'ClusterId',
       currentPage: 'CurrentPage',
@@ -229,6 +240,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentlessCanFix: 'boolean',
       aliasName: 'string',
       clusterId: 'string',
       currentPage: 'number',

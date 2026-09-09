@@ -17,8 +17,8 @@ export class DescribeAccessKeyLeakDetailRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the member account in the resource directory (Alibaba Cloud account).
-   * > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the member accounts in the resource folder (Alibaba Cloud account).
+   * > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****

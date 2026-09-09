@@ -36,7 +36,7 @@ export class FindContainerNetworkConnectRequestDstNode extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * - **app**: application. The node type is application.
+   * - **app**: Application. The node type is application.
    * 
    * @example
    * app
@@ -44,7 +44,7 @@ export class FindContainerNetworkConnectRequestDstNode extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The name of the pod.
+   * The pod name.
    * 
    * @example
    * abc-deployment-yacs-31144-39265-1384966-7f8c8cd578-h6mhb
@@ -118,7 +118,7 @@ export class FindContainerNetworkConnectRequestSrcNode extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * - **app**: application. The node type is application.
+   * - **app**: Application. The node type is application.
    * 
    * @example
    * app
@@ -126,7 +126,7 @@ export class FindContainerNetworkConnectRequestSrcNode extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The name of the pod.
+   * The pod name.
    * 
    * @example
    * abc-deployment-yacs-31144-39265-1384966-7f8c8cd578-h6mhb
@@ -171,7 +171,7 @@ export class FindContainerNetworkConnectRequest extends $dara.Model {
    * @remarks
    * The query type of the element to query. Valid values:
    * 
-   * - **EDGE**: connection information.
+   * - **EDGE**: connection information
    * 
    * @example
    * EDGE
@@ -179,7 +179,7 @@ export class FindContainerNetworkConnectRequest extends $dara.Model {
   criteriaType?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
+   * The page number of the page to return in a paged query. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -192,7 +192,7 @@ export class FindContainerNetworkConnectRequest extends $dara.Model {
   dstNode?: FindContainerNetworkConnectRequestDstNode;
   /**
    * @remarks
-   * The end time of the network connectivity.
+   * The end time of the network connectivity. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649260799999
@@ -214,7 +214,7 @@ export class FindContainerNetworkConnectRequest extends $dara.Model {
   srcNode?: FindContainerNetworkConnectRequestSrcNode;
   /**
    * @remarks
-   * The start time of the network connectivity.
+   * The start time of the network connectivity. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1666886400000

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventLevelCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+   * The ID of the container cluster that you want to query.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c7e3c5b420a7947c2933303144688****
@@ -15,20 +14,20 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The key of the condition that is used to query alert events on containers. Valid values:
+   * The container search field. Valid values:
    * 
-   * *   **instanceId**: the ID of the asset
-   * *   **appName**: the name of the application
-   * *   **clusterId**: the ID of the cluster
-   * *   **regionId**: the ID of the region
-   * *   **nodeName**: the name of the node
-   * *   **namespace**: the namespace
-   * *   **clusterName**: the name of the cluster
-   * *   **image**: the name of the image
-   * *   **imageRepoName**: the name of the image repository
-   * *   **imageRepoNamespace**: the namespace to which the image repository belongs
-   * *   **imageRepoTag**: the tag that is added to the image
-   * *   **imageDigest**: the digest of the image
+   * - **instanceId**: instance ID
+   * - **appName**: application name
+   * - **clusterId**: cluster ID
+   * - **regionId**: region
+   * - **nodeName**: node name
+   * - **namespace**: namespace
+   * - **clusterName**: cluster name
+   * - **image**: image name
+   * - **imageRepoName**: image repository name
+   * - **imageRepoNamespace**: image repository namespace
+   * - **imageRepoTag**: image tag
+   * - **imageDigest**: image digest
    * 
    * @example
    * clusterId
@@ -36,7 +35,7 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
   containerFieldName?: string;
   /**
    * @remarks
-   * The value of the condition that is used to query alert events on containers. If you specify multiple values, separate them with commas (,).
+   * The value of the field that you want to query. Separate multiple values with commas (,).
    * 
    * @example
    * c951761046a9c4afe92be0a7b5bexxxxx
@@ -44,7 +43,7 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The ID of the container.
+   * The container IDs.
    * 
    * @example
    * xxxxxx30389a10c28f6d38f2398f0dcexxxxxxx922b9e8290dc7c3019d4a8,48b87f2c0662e334820f436cb9133f1ae4e053d39b6fad42xxxxxxxxxx
@@ -52,7 +51,7 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
   containerIds?: string;
   /**
    * @remarks
-   * The ID of the request source. Set the value to **sas**.
+   * The source identifier of the request. Set this parameter to **sas**.
    * 
    * @example
    * sas
@@ -60,22 +59,26 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The type of the accounts that you want to query. Default value: **0**. Valid values:
-   * 
-   * *   **0**: the current account.
-   * *   **1**: all accounts.
+   * The multi-account query type. Default value: **0**. Valid values:
+   * - **0**: Query data of the current account.
+   * - **1**: Query data of all accounts.
    * 
    * @example
    * 0
    */
   multiAccountActionType?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The type of the query condition. Valid values:
+   * The query type. Valid values:
    * 
-   * *   **containerId**: the ID of the container
-   * *   **uuid**: the UUID of the asset
+   * - **containerId**: container ID
+   * - **uuid**: asset ID
    * 
    * @example
    * uuid

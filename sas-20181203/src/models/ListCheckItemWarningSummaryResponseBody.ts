@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The suggestion on the check item.
+   * The suggestion for the check item.
    * 
    * @example
    * In the Administrative Tools window, double-click Local Security Policy. In the Local Security Policy window that appears, choose Security Settings\\\\Local Policies\\\\Audit Policy, configure all audit policies as: `Success, Failure`.
@@ -13,17 +13,17 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   advice?: string;
   /**
    * @remarks
-   * The types of the baselines to which the check item belongs.
+   * The list of affiliated baseline categories.
    */
   affiliatedRiskTypes?: string[];
   /**
    * @remarks
-   * The baselines to which the check item belongs.
+   * The list of affiliated baselines.
    */
   affiliatedRisks?: string[];
   /**
    * @remarks
-   * The alias of the baseline type.
+   * The baseline category name.
    * 
    * @example
    * week_pa****
@@ -33,7 +33,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The ID of the check item.
+   * The check item ID.
    * 
    * @example
    * 696
@@ -41,7 +41,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The description of the check item.
+   * The check item description.
    * 
    * @example
    * Config the Event Audit policys
@@ -50,10 +50,9 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   /**
    * @remarks
    * The risk level of the check item. Valid values:
-   * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: High.
+   * - **medium**: Medium.
+   * - **low**: Low.
    * 
    * @example
    * high
@@ -61,7 +60,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   checkLevel?: string;
   /**
    * @remarks
-   * The type of the check item.
+   * The check item category.
    * 
    * @example
    * Security audit
@@ -69,10 +68,9 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   checkType?: string;
   /**
    * @remarks
-   * Indicates whether the check item belongs to the container runtime type. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the check item belongs to the container runtime category. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -80,7 +78,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   containerCheckItem?: boolean;
   /**
    * @remarks
-   * The description of the check item.
+   * The detailed description of the check item.
    * 
    * @example
    * Config the Event Audit policys
@@ -88,12 +86,12 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The baselines in which the check item is enabled.
+   * The list of baselines enabled for the check item.
    */
   enableRisks?: string[];
   /**
    * @remarks
-   * The type of the baseline.
+   * The baseline category.
    * 
    * @example
    * weak_password
@@ -103,12 +101,11 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   riskType?: string;
   /**
    * @remarks
-   * Risk status of check items. Valid values:
-   * 
-   * *   **1**: failed
-   * *   **3**: passed
-   * *   **6**: whitelisted
-   * *   **8**: fixed
+   * The risk status of the check item. Valid values:
+   * - **1**: Failed.
+   * - **3**: Passed.
+   * - **6**: Whitelisted.
+   * - **8**: Fixed.
    * 
    * @example
    * 1
@@ -116,7 +113,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The number of servers that are affected by the check item.
+   * The number of machines affected by the check item risk.
    * 
    * @example
    * 20
@@ -181,7 +178,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
 export class ListCheckItemWarningSummaryResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of check items displayed on the current page.
    * 
    * @example
    * 4
@@ -189,7 +186,7 @@ export class ListCheckItemWarningSummaryResponseBodyPageInfo extends $dara.Model
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page when paging.
    * 
    * @example
    * 1
@@ -197,7 +194,7 @@ export class ListCheckItemWarningSummaryResponseBodyPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page when paging.
    * 
    * @example
    * 20
@@ -205,7 +202,7 @@ export class ListCheckItemWarningSummaryResponseBodyPageInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of check items returned.
    * 
    * @example
    * 149
@@ -241,17 +238,17 @@ export class ListCheckItemWarningSummaryResponseBodyPageInfo extends $dara.Model
 export class ListCheckItemWarningSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of check item risk statistics.
+   * The list of check item risk statistics information.
    */
   list?: ListCheckItemWarningSummaryResponseBodyList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: ListCheckItemWarningSummaryResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * DC97C9EC-4B7D-5EFF-8A5E-A5CCC9ED****

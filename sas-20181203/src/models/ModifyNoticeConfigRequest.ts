@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNoticeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The notification configuration type. By default, notifications are sent through SMS, email, or internal message. Valid values:
+   * The notification configuration type. By default, notifications are sent by SMS, email, or internal message. Valid values:
    * 
    * - **cms**: CloudMonitor push.
    * 
@@ -46,8 +46,8 @@ export class ModifyNoticeConfigRequest extends $dara.Model {
    * #### When the BizType field is empty: valid values
    * - **yundun_security_Weekreport**: Security weekly report (email only)
    * - **sas_healthcheck**: Baseline check
-   * - **yundun_defennce_antiRansomware_overflow**: Anti-ransomware storage exceeded
-   * - **yundun_sas_cloudsiem_log**: Threat analysis log excess notification
+   * - **yundun_defennce_antiRansomware_overflow**: Anti-ransomware storage space exceeded
+   * - **yundun_sas_cloudsiem_log**: Cloud Threat Detection and Response (CTDR) log excess notification
    * - **sas_suspicious**: Security alert
    * - **yundun_aegis_AV_true**: Precise defense
    * - **yundun_sas_ak_leakage AccessKey**: AccessKey leak intelligence
@@ -58,12 +58,12 @@ export class ModifyNoticeConfigRequest extends $dara.Model {
    * - **yundun_sas_cloud_native_firewall_Defense**: Container firewall active defense notification (email only)
    * - **yundun_IP_Blocking**: Malicious IP blocking alerting notification
    * - **yundun_sas_anti_virus_config**: Virus scan notification
-   * - **yundun_sas_log**: Log excess
+   * - **yundun_sas_log**: Log storage exceeded
    * - **yundun_honeypot_alarm**: Cloud honeypot alerting
    * - **aliyun_rasp_alarm**: Application protection alerting
    * - **yundun_soar_incident_generate**: New security incident
    * - **yundun_soar_incident_update**: Updated security incident
-   * > **yundun_security_Weekreport** sends a weekly report to notify about unresolved vulnerabilities.
+   * > **yundun_security_Weekreport** is sent as a weekly report to notify you of unresolved vulnerabilities.
    * 
    * ---
    * 
@@ -115,11 +115,11 @@ export class ModifyNoticeConfigRequest extends $dara.Model {
    * ### Notification time limit
    * 
    * #### When the BizType field is empty: valid values
-   * - **0**: No limit
-   * - **1**: Notifications are sent only during 08:00-22:00
+   * - **0**: No limit.
+   * - **1**: Notifications are sent only between 08:00 and 22:00.
    * 
    * #### When the BizType field is `cms`: description
-   * Specifies the push frequency limit in seconds. The minimum value is **60**.
+   * Specifies the push frequency limit, in seconds. The minimum value is **60**.
    * 
    * @example
    * 1

@@ -13,6 +13,11 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
+   * The extended information of the task. For image security fix subtasks, this field returns the selected vulnerability identifiers and the name of the fixed image. The keys include vulnerabilityIds and outputImageName.
+   */
+  extension?: { [key: string]: string };
+  /**
+   * @remarks
    * The instance ID of the asset.
    * 
    * @example
@@ -45,7 +50,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The amount of detected data, in MB.
+   * The amount of data scanned, in MB.
    * 
    * @example
    * 154.11
@@ -90,7 +95,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   reportStatus?: string;
   /**
    * @remarks
-   * The detection result.
+   * The check result.
    * 
    * @example
    * True
@@ -130,7 +135,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
    * The object type. Valid values:
    * 
    * - **1**: snapshot
-   * - **2**: image.
+   * - **2**: image
    * 
    * @example
    * 2
@@ -163,6 +168,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      extension: 'Extension',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
@@ -186,6 +192,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       instanceId: 'string',
       instanceName: 'string',
       internetIp: 'string',
@@ -207,6 +214,9 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   }
 
   validate() {
+    if(this.extension) {
+      $dara.Model.validateMap(this.extension);
+    }
     super.validate();
   }
 
@@ -218,7 +228,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
 export class ListAgentlessTaskResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paged query. Paging starts from page 1.
+   * The page number of the current page in a paged query. This parameter implements paging.
    * 
    * @example
    * 1
@@ -226,7 +236,7 @@ export class ListAgentlessTaskResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query. Paging is performed based on this value.
+   * The maximum number of entries per page in a paged query. This parameter implements paging.
    * 
    * @example
    * 20

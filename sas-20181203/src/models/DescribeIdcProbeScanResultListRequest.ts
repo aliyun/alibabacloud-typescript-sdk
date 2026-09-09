@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   /**
    * @remarks
-   * The search conditions for assets. This parameter is in JSON format. Parameter names are case-sensitive.
+   * The search conditions for assets. This parameter is in JSON format. The parameter names are case-sensitive.
    * > You can search for assets by instance ID, instance name, VPC ID, region, or public IP address.
    * 
    * @example
@@ -14,7 +14,7 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The page number in a paging query.
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the scan discovery period.
+   * The end time of the scan discovery. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1720006819000
@@ -30,7 +30,7 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   foundEndTime?: number;
   /**
    * @remarks
-   * The start time of the scan discovery period.
+   * The start time of the scan discovery. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1720006818000
@@ -38,7 +38,7 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   foundStartTime?: number;
   /**
    * @remarks
-   * The logical relationship between multiple search conditions. Valid values:
+   * The logical relationship among multiple search conditions. Valid values:
    * 
    * - **OR**: The search conditions are in a logical **OR** relationship.
    * - **AND**: The search conditions are in a logical **AND** relationship.
@@ -49,8 +49,8 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
-   * > Do not leave PageSize empty.
+   * The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Specify a value for PageSize.
    * 
    * @example
    * 20
@@ -63,7 +63,7 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
    * - **1**: ignored
    * - **2**: invalid
    * - **3**: expired
-   * - **4**: probe does not exist.
+   * - **4**: probe does not exist
    * 
    * @example
    * 0,1

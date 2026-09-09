@@ -37,7 +37,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   containerId?: string;
   /**
    * @remarks
-   * The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
+   * The page number of the page to return in the query results. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -46,8 +46,8 @@ export class DescribeImageVulListRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the vulnerability has been handled. Valid values:
-   * - **y**: handled
-   * - **n**: not handled.
+   * - **y**: Handled.
+   * - **n**: Not handled.
    * 
    * @example
    * y
@@ -61,6 +61,11 @@ export class DescribeImageVulListRequest extends $dara.Model {
    * 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d507012
    */
   digest?: string;
+  /**
+   * @remarks
+   * Specifies whether to group results by image asset before pagination. If set to true, one vulnerability record is returned for each asset, and TotalCount indicates the total number of assets. If set to false or not specified, results are paginated by vulnerability record. Asset grouping is not applied when MaxId is specified.
+   */
+  groupByAsset?: boolean;
   /**
    * @remarks
    * The name of the container image.
@@ -79,9 +84,9 @@ export class DescribeImageVulListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language type of the request and response messages. Default value: **zh**. Valid values:
+   * The language type of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -105,10 +110,10 @@ export class DescribeImageVulListRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The priority level of vulnerability fixing. Valid values:
-   * - **asap**: high-priority vulnerability
-   * - **later**: medium-priority vulnerability
-   * - **nntf**: low-priority vulnerability.
+   * The priority level for fixing the vulnerability. Valid values:
+   * - **asap**: High-priority vulnerability that must be fixed as soon as possible.
+   * - **later**: Medium-priority vulnerability that can be fixed later.
+   * - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
    * 
    * @example
    * asap
@@ -116,7 +121,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * Settings for the number of vulnerabilities to display on each page in a paged query. Default value: **10**, which indicates that 10 vulnerabilities are displayed on each page.
+   * The number of entries per page in a paged query. Default value: **10**, which indicates 10 vulnerability entries per page.
    * 
    * @example
    * 10
@@ -178,12 +183,17 @@ export class DescribeImageVulListRequest extends $dara.Model {
    * cn-hangzhou
    */
   repoRegionId?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory.
+   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The vulnerability tag. Valid values:
    * 
-   * - **AI**: vulnerability related to AI components.
+   * - **AI**: vulnerabilities related to AI components
    * 
    * @example
    * AI
@@ -197,9 +207,9 @@ export class DescribeImageVulListRequest extends $dara.Model {
   /**
    * @remarks
    * The fix status of the vulnerability. Valid values:
-   * - **1**: unfixed
-   * - **4**: being fixed
-   * - **7**: fixed.
+   * - **1**: Unfixed.
+   * - **4**: Being fixed.
+   * - **7**: Fixed.
    * 
    * @example
    * 1
@@ -240,6 +250,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
       digest: 'Digest',
+      groupByAsset: 'GroupByAsset',
       image: 'Image',
       instanceId: 'InstanceId',
       lang: 'Lang',
@@ -273,6 +284,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
       currentPage: 'number',
       dealed: 'string',
       digest: 'string',
+      groupByAsset: 'boolean',
       image: 'string',
       instanceId: 'string',
       lang: 'string',

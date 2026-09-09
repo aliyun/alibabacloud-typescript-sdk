@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVulConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
   /**

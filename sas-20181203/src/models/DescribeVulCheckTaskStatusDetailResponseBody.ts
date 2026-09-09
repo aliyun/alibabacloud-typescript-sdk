@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatusesTaskStatusList extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The failure code.
    * 
    * @example
    * push_command_failed
@@ -13,13 +13,13 @@ export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatusesTaskStatusL
   code?: string;
   /**
    * @remarks
-   * The status of the subtask. Valid values:
+   * The completion status of the check. Valid values:
    * 
-   * *   **0**: unhandled
-   * *   **1**: collecting
-   * *   **2**: collected
-   * *   **3**: matching
-   * *   **4**: complete
+   * - **0**: Unprocessed.
+   * - **1**: Collecting.
+   * - **2**: Collection completed.
+   * - **3**: Matching.
+   * - **4**: Completed.
    * 
    * @example
    * 4
@@ -27,12 +27,11 @@ export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatusesTaskStatusL
   status?: string;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
-   * 
-   * *   **cve**: Linux software vulnerability
-   * *   **sys**: Windows system vulnerability
-   * *   **cms**: Web-CMS vulnerability
-   * *   **sca**: vulnerability that is detected based on software component analysis
+   * The vulnerability type. Valid values:
+   * - **cve**: Linux software vulnerability
+   * - **sys**: Windows system vulnerability
+   * - **cms**: Web-CMS vulnerability
+   * - **sca**: sca vulnerability
    * 
    * @example
    * cve
@@ -66,7 +65,7 @@ export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatusesTaskStatusL
 export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatuses extends $dara.Model {
   /**
    * @remarks
-   * The ID of the main task.
+   * The main task ID.
    * 
    * @example
    * 16190385
@@ -74,7 +73,7 @@ export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatuses extends $d
   taskId?: string;
   /**
    * @remarks
-   * An array that consists of status information about the vulnerability scan subtask.
+   * The list of vulnerability detection task statuses.
    */
   taskStatusList?: DescribeVulCheckTaskStatusDetailResponseBodyTaskStatusesTaskStatusList[];
   static names(): { [key: string]: string } {
@@ -106,7 +105,7 @@ export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatuses extends $d
 export class DescribeVulCheckTaskStatusDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BE120DAB-F4E7-4C53-ADC3-A97578ABF384
@@ -114,12 +113,12 @@ export class DescribeVulCheckTaskStatusDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the status information about the vulnerability scan tasks on the server.
+   * The list of vulnerability task statuses for the server.
    */
   taskStatuses?: DescribeVulCheckTaskStatusDetailResponseBodyTaskStatuses[];
   /**
    * @remarks
-   * The total number of vulnerability scan tasks on the server.
+   * The total number of vulnerability subtasks for the server.
    * 
    * @example
    * 1

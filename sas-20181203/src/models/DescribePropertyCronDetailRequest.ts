@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyCronDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether fuzzy search by path to the scheduled task is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+   * Specifies whether fuzzy match is supported for the scheduled task path. Set this parameter to **1** to enable fuzzy match. Other values or an empty value indicate that fuzzy match is not supported.
    * 
    * @example
    * 1
@@ -21,7 +21,9 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The value of NextToken that is returned when the NextToken method is used. You do not need to specify this parameter for the first request.
+   * The pagination token that marks the position from which you want to start reading. Leave this parameter empty to read from the beginning.
+   * 
+   * > You do not need to specify this parameter for the first call. The response includes the NextToken value for the second call. Each subsequent response includes the NextToken value for the next call.
    * 
    * @example
    * 1426C575705AE8545E8360A6EFA3B***
@@ -29,7 +31,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * Settings the number of scheduled task asset fingerprint information entries displayed per page in a paging query. Default value: **10**, which indicates that 10 entries of scheduled task asset fingerprint information are displayed per page.
    * 
    * @example
    * 10
@@ -37,16 +39,21 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name or IP address of the server.
+   * The name or IP address of the server that you want to query.
    * 
    * @example
    * 192.168.XX.XX
    */
   remark?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The path to the scheduled task.
+   * The task path that you want to query.
    * 
    * @example
    * /etc/cron.d/root
@@ -54,10 +61,10 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Specifies whether to use the NextToken method to retrieve a new page of results. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
+   * Specifies whether to use the NextToken method to retrieve the vulnerability list data. If you use this parameter, TotalCount is no longer returned. Valid values:
    * 
-   * - **true**: The NextToken method is used.
-   * - **false**: The NextToken method is not used.
+   * - **true**: Use the NextToken method.
+   * - **false**: Do not use the NextToken method.
    * 
    * @example
    * true
@@ -65,7 +72,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   useNextToken?: boolean;
   /**
    * @remarks
-   * The username of the account that runs the scheduled task.
+   * The account name of the scheduled task that you want to query.
    * 
    * @example
    * root
@@ -73,7 +80,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   user?: string;
   /**
    * @remarks
-   * The UUID of the server.
+   * The UUID of the server that you want to query.
    * 
    * @example
    * 50d213b4-3a35-427a-b8a5-04b0c7e1****

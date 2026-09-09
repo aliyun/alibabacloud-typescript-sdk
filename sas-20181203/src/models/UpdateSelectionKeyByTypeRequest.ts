@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSelectionKeyByTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The business type of the asset selection. Valid values:
+   * The business type of asset selection. Valid values:
    * 
-   * - **VIRUS_SCAN_CYCLE_CONFIG**: virus scan configuration.
-   * - **VIRUS_SCAN_ONCE_TASK**: one-time virus scan task.
+   * - **VIRUS_SCAN_CYCLE_CONFIG**: trojan scan configuration.
+   * - **VIRUS_SCAN_ONCE_TASK**: trojan scan one-time scan.
    * - **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**: agentless detection alert whitelisting rule.
    * - **AGENTLESS_VUL_WHITE_LIST_[ID]**: agentless detection vulnerability whitelisting rule.
    * - **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protection.
@@ -19,7 +19,7 @@ export class UpdateSelectionKeyByTypeRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
   /**

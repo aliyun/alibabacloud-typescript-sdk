@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Model {
   /**
    * @remarks
-   * The name of the event.
+   * The event name.
    * 
    * @example
    * WEBSHELL
@@ -13,7 +13,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   eventName?: string;
   /**
    * @remarks
-   * The type of the event.
+   * The event type.
    * 
    * @example
    * WebshellQuaraEventType
@@ -37,7 +37,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server on which the quarantined file is located.
+   * The name of the server where the quarantined file is located.
    * 
    * @example
    * iZwz98dkiw3vbrtqrt5v****
@@ -45,7 +45,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the server on which the quarantined file is located.
+   * The public IP address of the server where the quarantined file is located.
    * 
    * @example
    * 47.XX.XX.131
@@ -53,7 +53,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the server on which the quarantined file is located.
+   * The private IP address of the server where the quarantined file is located.
    * 
    * @example
    * 192.168.XX.XX
@@ -61,7 +61,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   intranetIp?: string;
   /**
    * @remarks
-   * The public IP address of the server on which the quarantined file is located.
+   * The public IP address of the server where the quarantined file is located.
    * 
    * @example
    * 47.XX.XX.131
@@ -77,7 +77,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   link?: string;
   /**
    * @remarks
-   * The MD5 hash value of the quarantined file.
+   * The MD5 hash of the file.
    * 
    * @example
    * 5ddebe926acc7ed39a664409bfd0ec10
@@ -85,7 +85,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   md5?: string;
   /**
    * @remarks
-   * The time when the quarantined file was last modified.
+   * The update time. The value is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2020-06-11 20:37:08
@@ -93,7 +93,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   modifyTime?: string;
   /**
    * @remarks
-   * The path to the quarantined file on the server.
+   * The storage path of the quarantined file on the server.
    * 
    * @example
    * /var/www/html/webshell-sample-master/others/defc3e21bab59e2a2ab49f7eda99f65f83d4d349.jpg
@@ -101,14 +101,13 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   path?: string;
   /**
    * @remarks
-   * The status of the quarantined file. Valid values:
-   * 
-   * *   **quaraFailed**: The file fails to be quarantined.
-   * *   **quaraDone**: The file is quarantined.
-   * *   **quaraing**: The file is being quarantined.
-   * *   **rollbackFailed**: The system fails to cancel quarantining the file.
-   * *   **rollbackDone**: The system cancelled quarantining the file.
-   * *   **rollbacking**: The system is cancelling quarantining the file.
+   * The quarantine status. Valid values:  
+   * - **quaraFailed**: Quarantine failed.
+   * - **quaraDone**: Quarantine succeeded.
+   * - **quaraing**: Quarantine in progress.
+   * - **rollbackFailed**: Quarantine rollback failed.
+   * - **rollbackDone**: Quarantine rollback succeeded.
+   * - **rollbacking**: Quarantine rollback in progress.
    * 
    * @example
    * rollbackDone
@@ -116,7 +115,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The unique ID of the event.
+   * The unique identifier of the event.
    * 
    * @example
    * 228f890e56eae9eec6a42c7ea801b538
@@ -182,7 +181,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
 export class DescribeSuspEventQuaraFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of quarantined files on the current page.
    * 
    * @example
    * 7
@@ -190,7 +189,7 @@ export class DescribeSuspEventQuaraFilesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number of the returned file list.
    * 
    * @example
    * 1
@@ -198,7 +197,7 @@ export class DescribeSuspEventQuaraFilesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of quarantined files displayed per page.
    * 
    * @example
    * 20
@@ -206,12 +205,12 @@ export class DescribeSuspEventQuaraFilesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * An array that consists of the quarantined files.
+   * The list of quarantined files.
    */
   quaraFiles?: DescribeSuspEventQuaraFilesResponseBodyQuaraFiles[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 32A73759-4C0F-4801-BE98-901223ACEE9A
@@ -219,7 +218,7 @@ export class DescribeSuspEventQuaraFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of quarantined files.
    * 
    * @example
    * 38

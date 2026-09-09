@@ -13,10 +13,15 @@ export class DescribeScreenScoreThreadRequest extends $dara.Model {
    * 1668064495000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory folder.
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The source of the security score. If left empty, the default value is Security Center. Valid values:
+   * The source of the security score. If this parameter is left empty, the default value is Security Center. Valid values:
    * 
    * 0: Security Center.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateK8sAccessInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated and does not need to be specified.
+   * **[Deprecated]** This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayApiName?: string;
   /**
    * @remarks
-   * This parameter is deprecated and does not need to be specified.
+   * **[Deprecated]** This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayPopName?: string;
   /**
    * @remarks
-   * This parameter is deprecated and does not need to be specified.
+   * **[Deprecated]** This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -29,7 +29,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayProjectName?: string;
   /**
    * @remarks
-   * The SLS Logstore of the audit log.
+   * The SLS Logstore for audit logs.
    * 
    * @example
    * audit-cf6baf6afa106eca665296fdf68b65bf
@@ -37,7 +37,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   auditLogStore?: string;
   /**
    * @remarks
-   * The SLS project of the audit log.
+   * The Simple Log Service (SLS) project for audit logs.
    * 
    * @example
    * k8s-log-custom-huxintest1018-2
@@ -63,7 +63,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The CPU architecture, which can be ARM or x86.
+   * The CPU architecture, which can be ARM architecture or x86 architecture.
    * 
    * @example
    * arm
@@ -71,7 +71,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   cpuArch?: string;
   /**
    * @remarks
-   * The expiration time for container access.
+   * The expiration time for container access. This value is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   expireDate?: number;
   /**
    * @remarks
-   * The queried group ID.
+   * The ID of the server group.
    * 
    * This parameter is required.
    * 

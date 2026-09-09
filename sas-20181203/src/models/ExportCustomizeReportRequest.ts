@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ExportCustomizeReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the security report that you want to export. Valid values:
+   * The type of the export. Valid values:
    * 
-   * *   **HTML**
-   * *   **PDF**
+   * - **HTML**
+   * - **PDF**
    * 
-   * >  The default value is HTML. PDF is supported only for security reports in version 2.0.0.
+   * > Default value: HTML. PDF is supported only for security reports of version 2.0.0.
    * 
    * @example
    * HTML
@@ -19,8 +19,7 @@ export class ExportCustomizeReportRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the security report.
-   * 
-   * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+   * > You can call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain this value.
    * 
    * This parameter is required.
    * 
@@ -28,6 +27,11 @@ export class ExportCustomizeReportRequest extends $dara.Model {
    * 1
    */
   reportId?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory.
+   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {

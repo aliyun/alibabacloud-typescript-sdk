@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventLevelCountResponseBodyEventLevels extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts whose Emergency level is Reminder.
+   * The number of security alerts with the Reminder severity level.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeEventLevelCountResponseBodyEventLevels extends $dara.Model 
   remind?: number;
   /**
    * @remarks
-   * The number of alerts whose Emergency level is Urgent.
+   * The number of security alerts with the Urgent severity level.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeEventLevelCountResponseBodyEventLevels extends $dara.Model 
   serious?: number;
   /**
    * @remarks
-   * The number of alerts whose Emergency level is Suspicious.
+   * The number of security alerts with the Suspicious severity level.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeEventLevelCountResponseBodyEventLevels extends $dara.Model 
 export class DescribeEventLevelCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The response code. The value **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -63,12 +63,12 @@ export class DescribeEventLevelCountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The statistics of alerts by risk level.
+   * The statistics of security alerts by severity level.
    */
   eventLevels?: DescribeEventLevelCountResponseBodyEventLevels;
   /**
    * @remarks
-   * The error message returned.
+   * The returned message.
    * 
    * @example
    * successful
@@ -76,7 +76,7 @@ export class DescribeEventLevelCountResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CE8CA5EA-24EF-5D41-B735-53ACE7XXXXX
@@ -85,9 +85,8 @@ export class DescribeEventLevelCountResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

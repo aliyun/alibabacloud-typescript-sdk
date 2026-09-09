@@ -7,13 +7,17 @@ export class UpdatePostPaidBindRelRequestBindAction extends $dara.Model {
    * @remarks
    * Specifies whether to bind all servers. Default value: **false**. Valid values:
    * 
-   * - **true**: yes
-   * - **false**: no
+   * - **true**: Bind all servers.
+   * - **false**: Do not bind all servers.
    * 
    * @example
    * true
    */
   bindAll?: boolean;
+  /**
+   * @remarks
+   * The free quota type.
+   */
   freeType?: string;
   /**
    * @remarks
@@ -66,10 +70,10 @@ export class UpdatePostPaidBindRelRequestBindAction extends $dara.Model {
 export class UpdatePostPaidBindRelRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic binding for new assets. Valid values:
+   * Specifies whether to automatically bind new assets. Valid values:
    * 
-   * - **0**: disabled
-   * - **1**: enabled
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 1
@@ -95,9 +99,14 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
   bindAction?: UpdatePostPaidBindRelRequestBindAction[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The abbreviated name of the cloud service. Valid values:
+   * - **sas**: Security Center
+   */
   productCode?: string;
   /**
    * @remarks

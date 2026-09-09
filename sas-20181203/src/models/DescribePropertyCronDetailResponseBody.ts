@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of fingerprint information entries for scheduled task assets on the current page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * The value of NextToken that is returned when the NextToken method is used.
+   * The NextToken value returned when the NextToken method is used.
    * 
    * @example
    * B604532DEF982B875E8360A6EFA3B***
@@ -29,7 +29,7 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **10**.
+   * The number of scheduled task asset fingerprint information entries displayed per page in a paging query. Default value: **10**, which indicates that 10 entries of scheduled task asset fingerprint information are displayed per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of fingerprint information entries for scheduled task assets.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
 export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model {
   /**
    * @remarks
-   * The command that is used to run the scheduled task.
+   * The execution command of the scheduled task.
    * 
    * @example
    * /usr/lib64/sa/sa1 1 1
@@ -83,7 +83,7 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model
   cmd?: string;
   /**
    * @remarks
-   * The timestamp of the last fingerprint collection. Unit: milliseconds.
+   * The timestamp of the latest Asset Fingerprints scan. Unit: milliseconds.
    * 
    * @example
    * 1649149566000
@@ -91,7 +91,7 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model
   createTimestamp?: number;
   /**
    * @remarks
-   * The ID of the server.
+   * The instance ID of the server.
    * 
    * @example
    * i-hp35tftuh52wbp1g****
@@ -99,7 +99,7 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The name of the server instance.
    * 
    * @example
    * hc-host-****
@@ -123,7 +123,7 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model
   intranetIp?: string;
   /**
    * @remarks
-   * The IP addresses of the server.
+   * The IP address list of the server.
    * 
    * @example
    * 192.168.XX.XX
@@ -131,7 +131,7 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model
   ip?: string;
   /**
    * @remarks
-   * The MD5 hash value of the path to the scheduled task.
+   * The MD5 hash of the scheduled task path.
    * 
    * @example
    * 4cc8f97c2bf9cbabb2c2be2erqw****
@@ -139,12 +139,12 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model
   md5?: string;
   /**
    * @remarks
-   * The interval at which the scheduled task is performed.
+   * The execution cycle of the scheduled task.
    */
   period?: string;
   /**
    * @remarks
-   * The path to the scheduled task.
+   * The path of the scheduled task.
    * 
    * @example
    * /etc/cron.d/root
@@ -152,7 +152,7 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model
   source?: string;
   /**
    * @remarks
-   * The username of the account that runs the scheduled task.
+   * The account name that runs the scheduled task.
    * 
    * @example
    * root
@@ -212,17 +212,17 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model
 export class DescribePropertyCronDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: DescribePropertyCronDetailResponseBodyPageInfo;
   /**
    * @remarks
-   * The details of the scheduled tasks.
+   * The details of the fingerprint information for scheduled task assets.
    */
   propertys?: DescribePropertyCronDetailResponseBodyPropertys[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * B0C4E12E-CCE1-109D-9E62-7B95CBBAEF8C

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Model {
   /**
    * @remarks
-   * The error message of the module.
+   * The module exception information.
    * 
    * @example
    * ak_domain_error
@@ -13,12 +13,11 @@ export class AddCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Mo
   message?: string;
   /**
    * @remarks
-   * The code of the module. Valid values:
-   * 
-   * *   **HOST**: host
-   * *   **CSPM**: configuration assessment
-   * *   **SIEM**: CloudSiem
-   * *   **TRIAL**: log audit
+   * The module code. Valid values:
+   * - **HOST**: Host
+   * - **CSPM**: Cloud product configuration check
+   * - **SIEM**: CloudSiem
+   * - **TRIAL**: Log audit
    * 
    * @example
    * HOST
@@ -26,7 +25,7 @@ export class AddCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Mo
   module?: string;
   /**
    * @remarks
-   * The cloud asset that is associated with the module.
+   * The cloud asset description associated with the module.
    * 
    * @example
    * Cloud server or virtual machine
@@ -42,12 +41,11 @@ export class AddCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Mo
   moduleDisp?: string;
   /**
    * @remarks
-   * The service status of the module. Valid values:
-   * 
-   * *   **0**: being used
-   * *   **1**: exception occurred
-   * *   **2**: being validated
-   * *   **3**: validation timed out
+   * The module status. Valid values:
+   * - **0**: In use.
+   * - **1**: Usage exception.
+   * - **2**: Validity verification in progress.
+   * - **3**: Validity verification timed out.
    * 
    * @example
    * 0
@@ -55,7 +53,7 @@ export class AddCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Mo
   moduleServiceStatus?: number;
   /**
    * @remarks
-   * The permission description of the module.
+   * The description of permissions associated with the module.
    * 
    * @example
    * Read permission of the cloud server or virtual machine
@@ -95,10 +93,10 @@ export class AddCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Mo
 export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the account to which the AccessKey pair belongs. Valid values:
+   * The AK type. Valid values:
    * 
-   * *   **primary**: a primary account
-   * *   **sub**: a sub-account
+   * - **primary**: Primary account.
+   * - **sub**: Sub-account.
    * 
    * @example
    * sub
@@ -106,7 +104,7 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   akType?: string;
   /**
    * @remarks
-   * The unique ID of the AccessKey pair.
+   * The unique ID of the AK.
    * 
    * @example
    * 2158
@@ -114,14 +112,14 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   authId?: number;
   /**
    * @remarks
-   * The modules that are associated with the AccessKey pair.
+   * The list of AK-associated modules.
    */
   authModules?: AddCloudVendorAccountAKResponseBodyDataAuthModules[];
   /**
    * @remarks
-   * Account ID. 
+   * The account ID.
    * 
-   * > The account ID of the cloud provider being integrated.
+   * > The account ID of the connected cloud vendor.
    * 
    * @example
    * azure_demo_1
@@ -129,7 +127,7 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   ctdrCloudUserId?: string;
   /**
    * @remarks
-   * The error message of the AccessKey pair.
+   * The AK exception information.
    * 
    * @example
    * The IAM user is forbidden in the currently selected region
@@ -137,7 +135,7 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The AccessKey ID.
+   * The AK parameter ID.
    * 
    * @example
    * AE6SLd****
@@ -145,12 +143,11 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   secretId?: string;
   /**
    * @remarks
-   * The service status of the AccessKey pair. Valid values:
-   * 
-   * *   **0**: being used
-   * *   **1**: exception occurred
-   * *   **2**: being validated
-   * *   **3**: validation timed out
+   * The AK usage status. Valid values:
+   * - **0**: In use.
+   * - **1**: Usage exception.
+   * - **2**: Validity verification in progress.
+   * - **3**: Validity verification timed out.
    * 
    * @example
    * 0
@@ -158,10 +155,9 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   serviceStatus?: number;
   /**
    * @remarks
-   * The status of the AccessKey pair. Valid values:
-   * 
-   * *   **0**: enabled
-   * *   **1**: disabled
+   * The AK status. Valid values:
+   * - **0**: Enabled.
+   * - **1**: Not enabled.
    * 
    * @example
    * 0
@@ -169,12 +165,16 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The cloud service provider. Valid values:
-   * 
-   * *   **Tencent**: Tencent Cloud
-   * *   **HUAWEICLOUD**: Huawei Cloud
-   * *   **Azure**: Microsoft Azure
-   * *   **AWS**: AWS
+   * The cloud asset vendor. Valid values:
+   * - **Tencent**: Tencent Cloud
+   * - **HUAWEICLOUD**: Huawei Cloud
+   * - **Azure**: Azure
+   * - **AWS**: AWS
+   * - **VOLCENGINE**: Volcengine
+   * - **google**: Google Cloud
+   * - **CHAITIN**: Chaitin Technology
+   * - **FORTINET**: Fortinet
+   * - **THREATBOOK**: ThreatBook
    * 
    * @example
    * Tencent
@@ -182,9 +182,8 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
   vendor?: string;
   /**
    * @remarks
-   * The name of the AccessKey pair.
-   * 
-   * >  The account information of the third-party cloud servers.
+   * The AK account name.
+   * >Used to identify the account to which third-party host assets belong.
    * 
    * @example
    * test
@@ -235,7 +234,7 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
 export class AddCloudVendorAccountAKResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the AccessKey pair that is added.
+   * The information about the added AK.
    */
   data?: AddCloudVendorAccountAKResponseBodyData;
   /**

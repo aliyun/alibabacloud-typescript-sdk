@@ -10,7 +10,7 @@ export class ListFileProtectEventRequest extends $dara.Model {
   alertLevels?: number[];
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The number of the page to return in a paged query.
    * 
    * @example
    * 1
@@ -60,11 +60,11 @@ export class ListFileProtectEventRequest extends $dara.Model {
    * @remarks
    * The type of operation performed on the file. Valid values:
    * 
-   * - **DELETE**: deletes the file.
-   * - **WRITE**: writes to the file.
-   * - **READ**: reads the file.
-   * - **RENAME**: renames the file.
-   * - **CHOWN**: changes the file owner and associated group.
+   * - **DELETE**: Delete the file.
+   * - **WRITE**: Write to the file.
+   * - **READ**: Read the file.
+   * - **RENAME**: Rename the file.
+   * - **CHOWN**: Change the file owner and associated group.
    * 
    * @example
    * READ
@@ -72,7 +72,7 @@ export class ListFileProtectEventRequest extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paging query.
+   * The maximum number of entries to return on each page in a paged query.
    * 
    * @example
    * 20

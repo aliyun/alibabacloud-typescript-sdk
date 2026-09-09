@@ -25,7 +25,7 @@ export class GetValidDeductInstancesRequest extends $dara.Model {
   modules?: string;
   /**
    * @remarks
-   * The status of the resource plan. The default value is valid. This parameter does not support modification.
+   * The status of the resource plan. Default value: valid. This parameter does not support modification.
    * 
    * @example
    * Available

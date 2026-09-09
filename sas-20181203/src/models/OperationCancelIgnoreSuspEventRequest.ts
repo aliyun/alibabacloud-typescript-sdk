@@ -11,10 +11,15 @@ export class OperationCancelIgnoreSuspEventRequest extends $dara.Model {
    * remark text
    */
   remark?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The IDs of alert events.
+   * The list of alert IDs.
    * 
    * This parameter is required.
    */

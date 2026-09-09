@@ -81,7 +81,7 @@ export class ListAgentlessMaliciousFilesResponseBodyListNotes extends $dara.Mode
   noteId?: string;
   /**
    * @remarks
-   * The time of the remark record.
+   * The time of the remark record. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-04-27 14:49:21
@@ -136,7 +136,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   filePath?: number;
   /**
    * @remarks
-   * The timestamp of the first scan, in milliseconds.
+   * The timestamp of the first scan. Unit: milliseconds.
    * 
    * @example
    * 168257753****
@@ -184,7 +184,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp of the latest scan, in milliseconds.
+   * The timestamp of the latest scan. Unit: milliseconds.
    * 
    * @example
    * 168257753****
@@ -196,7 +196,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
    * 
    * - serious: urgent
    * - suspicious: suspicious
-   * - remind: reminder.
+   * - remind: reminder
    * 
    * @example
    * serious
@@ -241,7 +241,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   operateResult?: string;
   /**
    * @remarks
-   * The timestamp when the alert was handled, in milliseconds.
+   * The timestamp when the alert was handled. Unit: milliseconds.
    * 
    * @example
    * 168257753****
@@ -275,7 +275,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
    * @remarks
    * The object type of the scan target. Valid values:
    * 
-   * - 2: image.
+   * - 2: image
    * 
    * @example
    * 2
@@ -361,7 +361,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
 export class ListAgentlessMaliciousFilesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of malicious file entries displayed on the current page in a paging query.
+   * The number of malicious files displayed on the current page in a paged query.
    * 
    * @example
    * 20
@@ -377,7 +377,7 @@ export class ListAgentlessMaliciousFilesResponseBodyPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries returned per page in a paging query.
+   * The maximum number of entries to return per page in a paged query.
    * 
    * @example
    * 20

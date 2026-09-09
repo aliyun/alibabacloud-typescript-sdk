@@ -59,7 +59,7 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The list of statuses.
+   * The status list.
    */
   statusList?: string[];
   /**
@@ -73,7 +73,7 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * - **IMAGE_SCAN**: image scanning
+   * - **IMAGE_SCAN**: image scanning.
    * - **IMAGE_REGISTRY_PULL**: image asset synchronization.
    * 
    * This parameter is required.

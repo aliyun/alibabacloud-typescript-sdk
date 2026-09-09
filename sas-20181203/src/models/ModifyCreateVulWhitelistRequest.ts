@@ -5,27 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCreateVulWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
   /**
    * @remarks
-   * The reason for adding the vulnerability to the whitelist.
+   * The reason for adding the vulnerability whitelist.
    * 
    * @example
    * This vulnerability is not harmful
    */
   reason?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The scope in which the whitelist takes effect. The value is a JSON string that contains the following fields:
-   * - **type**: The scope type. Valid values:
+   * - **type**: The type of the scope. Valid values:
    *     - **GroupId**: server group
    *     - **Uuid**: host asset
    * - **uuids**: The collection of host asset UUIDs. The field type is String.
    * - **groupIds**: The collection of server group IDs. The field type is Long.
-   * > If this parameter is left empty, the whitelist takes effect on all hosts. If **type** is set to **GroupId**, **groupIds** cannot be empty. If **type** is set to **Uuid**, **uuids** cannot be empty.
+   * > If this value is empty, the whitelist applies to all hosts. If **type** is set to **GroupId**, **groupIds** cannot be empty. If **type** is set to **Uuid**, **uuids** cannot be empty.
    * 
    * @example
    * {"type":"Uuid","uuids":["b31a708f-5fea-426e-bebe-a7b0893****","1f749687-3b5d-4e11-8140-d964673****"],"groupIds":[]}

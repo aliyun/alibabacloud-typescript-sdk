@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContainerScanTaskByAppNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the container application.
+   * The container application name.
    * 
    * @example
    * app-centos-01
@@ -21,10 +21,9 @@ export class CreateContainerScanTaskByAppNameRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response.
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response.
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh

@@ -21,7 +21,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   finish?: number;
   /**
    * @remarks
-   * The time when the task ended. This parameter is returned only when the task status is Finished. Otherwise, an empty value is returned.
+   * The time when the task ended. This parameter is returned only when the task status is Finished. Otherwise, an empty value is returned. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1669693430977
@@ -53,10 +53,10 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The creation method. Valid values:
+   * The creation method. The task can be created from the console or by calling an API operation. Valid values:
    * 
    * - **console_batch**: console
-   * - **openapi**: API.
+   * - **openapi**: API
    * 
    * @example
    * console_batch
@@ -64,7 +64,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time when the task started.
+   * The time when the task started. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1668614400000
@@ -98,7 +98,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
    * @remarks
    * The scan target type. Valid values:
    * 
-   * - **IMAGE**: image.
+   * - **IMAGE**: image
    * 
    * @example
    * IMAGE
@@ -115,7 +115,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * - **IMAGE_SCAN**: image scan.
+   * - **IMAGE_SCAN**: image scan
    * 
    * @example
    * IMAGE_SCAN

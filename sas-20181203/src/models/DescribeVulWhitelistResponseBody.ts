@@ -113,7 +113,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $dara.Model {
 export class DescribeVulWhitelistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page in paging.
+   * The number of entries on the current page when paging.
    * 
    * @example
    * 2
@@ -121,7 +121,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the current page in paging.
+   * The current page number when paging.
    * 
    * @example
    * 1
@@ -129,7 +129,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page in paging.
+   * The number of entries per page when paging.
    * 
    * @example
    * 10
@@ -153,7 +153,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of whitelisted vulnerabilities.
+   * The list of vulnerability whitelist entries.
    */
   vulWhitelists?: DescribeVulWhitelistResponseBodyVulWhitelists[];
   static names(): { [key: string]: string } {

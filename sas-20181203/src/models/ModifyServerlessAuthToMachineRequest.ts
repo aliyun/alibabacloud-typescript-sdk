@@ -51,7 +51,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   bindAppList?: string[];
   /**
    * @remarks
-   * The Asset Type for the operation. Valid values:
+   * The Asset Type. Valid values:
    * - **INSTANCE**: Instance.
    * - **APP**: Application.
    * 
@@ -71,7 +71,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
+   * The search conditions for assets. This parameter is in JSON format. Pay attention to the letter case when you enter the parameter.
    * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
    * 
    * @example
@@ -81,8 +81,8 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
    * The logical relationship among multiple search conditions. Valid values:
-   * - **OR**: The search conditions are evaluated with a logical OR.
-   * - **AND**: The search conditions are evaluated with a logical AND.
+   * - **OR**: Multiple conditions are evaluated using a logical OR.
+   * - **AND**: Multiple conditions are evaluated using a logical AND.
    * 
    * @example
    * OR
@@ -98,13 +98,13 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   ntmVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable pre-binding. Valid values:
+   * Specifies whether to perform a pre-binding operation. Valid values:
    * 
    * - **0**: No.
    * - **1**: Yes.
    * 
    * 
-   * > After pre-binding is enabled, the corresponding authorization quota is automatically bound to the specified servers after the purchase is completed.
+   * > After pre-binding is enabled, the corresponding number of authorization licenses are automatically bound to the specified servers after the purchase is completed.
    * 
    * @example
    * 1

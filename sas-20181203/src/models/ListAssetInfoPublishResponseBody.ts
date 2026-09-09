@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAssetInfoPublishResponseBodyAssetList extends $dara.Model {
   /**
    * @remarks
-   * The version of the Security Center agent.
+   * The current client version.
    * 
    * @example
    * 0.0.8
@@ -13,7 +13,7 @@ export class ListAssetInfoPublishResponseBodyAssetList extends $dara.Model {
   curVersion?: string;
   /**
    * @remarks
-   * The time when the Security Center agent was last upgraded.
+   * The time of the last upgrade. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1724522400000
@@ -21,13 +21,13 @@ export class ListAssetInfoPublishResponseBodyAssetList extends $dara.Model {
   lastUpgradeTime?: number;
   /**
    * @remarks
-   * The publish status of the Security Center agent. Valid values:
+   * The client release status. Valid values:
    * 
-   * *   **0**: not started.
-   * *   **1**: publishing.
-   * *   **2**: published.
-   * *   **3**: publish suspended.
-   * *   **4**: forcibly upgrading.
+   * - **0**: Not started.
+   * - **1**: Publishing.
+   * - **2**: Publishing completed.
+   * - **3**: Publishing paused.
+   * - **4**: Force upgrading.
    * 
    * @example
    * 2
@@ -35,10 +35,9 @@ export class ListAssetInfoPublishResponseBodyAssetList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Indicates whether automatic upgrade is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the upgrade is enabled. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Not enabled.
    * 
    * @example
    * true
@@ -46,7 +45,7 @@ export class ListAssetInfoPublishResponseBodyAssetList extends $dara.Model {
   upgradeEnable?: boolean;
   /**
    * @remarks
-   * The UUID of the asset.
+   * The UUID of the Security Center asset.
    * 
    * @example
    * 2a98f149-0256-414c-a29a-a69f8a75****
@@ -84,12 +83,12 @@ export class ListAssetInfoPublishResponseBodyAssetList extends $dara.Model {
 export class ListAssetInfoPublishResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The servers.
+   * The server list information.
    */
   assetList?: ListAssetInfoPublishResponseBodyAssetList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 3956048F-9D73-5EDB-834B-4827BB483977

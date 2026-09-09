@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCheckInstanceResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the check item.
+   * The check item ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListCheckInstanceResultRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListCheckInstanceResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID of the check item.
    * 
    * @example
    * i-uf64w4q6p9jti5gl****
@@ -31,12 +31,12 @@ export class ListCheckInstanceResultRequest extends $dara.Model {
   instanceIdKey?: string;
   /**
    * @remarks
-   * The instance IDs of cloud services.
+   * The collection of cloud service instance IDs to query.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name of the check item.
    * 
    * @example
    * i-uf64w4q6p9jti5gl****
@@ -44,10 +44,8 @@ export class ListCheckInstanceResultRequest extends $dara.Model {
   instanceNameKey?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -56,7 +54,7 @@ export class ListCheckInstanceResultRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The maximum number of entries per page in a paged query. Maximum value: 100. This parameter is used for paging.
    * 
    * @example
    * 20
@@ -72,12 +70,12 @@ export class ListCheckInstanceResultRequest extends $dara.Model {
   regionIdKey?: string;
   /**
    * @remarks
-   * The types of the conditions based on which the check items are sorted.
+   * The list of sort types for the check item.
    */
   sortTypes?: string[];
   /**
    * @remarks
-   * The statuses of check items.
+   * The collection of check item statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

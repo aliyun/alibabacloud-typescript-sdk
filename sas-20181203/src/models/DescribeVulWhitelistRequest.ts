@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number in paging. Pages start from page 1. Default value: 1.
+   * The page number when paging. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -13,9 +13,9 @@ export class DescribeVulWhitelistRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -23,12 +23,17 @@ export class DescribeVulWhitelistRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page in paging. Default value: 10.
+   * The number of entries per page when paging. Default value: 10.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory.
+   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {

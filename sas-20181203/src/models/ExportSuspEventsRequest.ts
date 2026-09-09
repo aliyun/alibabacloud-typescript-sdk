@@ -5,14 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ExportSuspEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The types of assets.
+   * The collection of asset types.
    */
   assetsTypeList?: string[];
   /**
    * @remarks
-   * The ID of the cluster that you want to query.
-   * 
-   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+   * The ID of the cluster to query.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c4af4fdf38a98496a9b63c2be5dae****
@@ -20,20 +19,20 @@ export class ExportSuspEventsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The key of the condition that is used to query alert events on containers. Valid values:
+   * The container search field. Valid values:
    * 
-   * *   **instanceId**: the ID of the asset
-   * *   **appName**: the name of the application
-   * *   **clusterId**: the ID of the cluster
-   * *   **regionId**: the ID of the region
-   * *   **nodeName**: the name of the node
-   * *   **namespace**: the namespace
-   * *   **clusterName**: the name of the cluster
-   * *   **image**: the name of the image
-   * *   **imageRepoName**: the name of the image repository
-   * *   **imageRepoNamespace**: the namespace to which the image repository belongs
-   * *   **imageRepoTag**: the tag that is added to the image
-   * *   **imageDigest**: the digest of the image
+   * - **instanceId**: instance ID
+   * - **appName**: application name
+   * - **clusterId**: cluster ID
+   * - **regionId**: region
+   * - **nodeName**: node name
+   * - **namespace**: namespace
+   * - **clusterName**: cluster name
+   * - **image**: image name
+   * - **imageRepoName**: image repository name
+   * - **imageRepoNamespace**: image repository namespace
+   * - **imageRepoTag**: image tag
+   * - **imageDigest**: image digest
    * 
    * @example
    * clusterId
@@ -41,7 +40,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   containerFieldName?: string;
   /**
    * @remarks
-   * The value of the condition that is used to query alert events on containers.
+   * The value of the container search field.
    * 
    * @example
    * c819391d2d520485fa3e81e2dc2ea****
@@ -49,7 +48,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -57,10 +56,9 @@ export class ExportSuspEventsRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The status of the alert event. Valid values:
-   * 
-   * *   **N**: unhandled
-   * *   **Y**: handled
+   * Specifies whether the alert event is handled. Valid values:
+   * - **N**: Unhandled.
+   * - **Y**: Handled.
    * 
    * @example
    * Y
@@ -68,7 +66,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The data source of the exception. Set the value to sas.
+   * The data source identifier of the anomaly event. Set the value to sas.
    * 
    * @example
    * sas
@@ -84,7 +82,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The unique ID of the alert event.
+   * The unique ID of the alert event record.
    * 
    * @example
    * 17821
@@ -92,10 +90,10 @@ export class ExportSuspEventsRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -103,11 +101,10 @@ export class ExportSuspEventsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The severity of the alert event. Separate multiple severities with commas (,). Valid values:
-   * 
-   * *   **serious**
-   * *   **suspicious**
-   * *   **remind**
+   * The severity levels of the alert events to query. Separate multiple severity levels with commas (,). The severity levels are listed in descending order. Valid values:
+   * - **serious**: Urgent.
+   * - **suspicious**: Suspicious.
+   * - **remind**: Reminder.
    * 
    * @example
    * serious,suspicious,remind
@@ -115,7 +112,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   levels?: string;
   /**
    * @remarks
-   * The complete name of the exception.
+   * The full name of the anomaly event.
    * 
    * @example
    * WEBSHELL
@@ -123,12 +120,12 @@ export class ExportSuspEventsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status codes of alert events.
+   * The collection of alert event handling result codes.
    */
   operateErrorCodeList?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The maximum number of entries per page in a paged query. Default value: **20**.
    * 
    * @example
    * 20
@@ -136,31 +133,31 @@ export class ExportSuspEventsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The alert type of the alert event. Valid values:
+   * The Alarm Metric of the alerting events to query. Valid values:
    * 
-   * *   **Suspicious process**
-   * *   **Webshell**
-   * *   **Unusual logon**
-   * *   **Exception**
-   * *   **Sensitive file tampering**
-   * *   **Malicious process (cloud threat detection)**
-   * *   **Suspicious network connection**
-   * *   **Suspicious account**
-   * *   **Application intrusion event**
-   * *   **Cloud threat detection**
-   * *   **Precise defense**
-   * *   **Application whitelist**
-   * *   **Persistent webshell**
-   * *   **Web application threat detection**
-   * *   **Malicious script**
-   * *   **Threat intelligence**
-   * *   **Malicious network activity**
-   * *   **Cluster exception**
-   * *   **Webshell (on-premises threat detection)**
-   * *   **Vulnerability exploitation**
-   * *   **Malicious process (on-premises threat detection)**
-   * *   **Trusted exception**
-   * *   **Others**
+   * - **Abnormal process behavior**
+   * - **Web shell**
+   * - **Unusual logon**
+   * - **Anomaly event**
+   * - **Sensitive file tampering**
+   * - **Malicious process (cloud scan)**
+   * - **Suspicious network connection**
+   * - **Abnormal account**
+   * - **Application intrusion event**
+   * - **Cloud service threat detection**
+   * - **Precise defense**
+   * - **Application whitelist**
+   * - **Persistent backdoor**
+   * - **Web application threat detection**
+   * - **Malicious script**
+   * - **Threat intelligence**
+   * - **Malicious network connectivity behavior**
+   * - **Container cluster exception**
+   * - **Web shell (local scan)**
+   * - **Vulnerability exploits**
+   * - **Malicious process (local scan)**
+   * - **Trusted exception**
+   * - **Other**
    * 
    * @example
    * WEBSHELL
@@ -174,10 +171,15 @@ export class ExportSuspEventsRequest extends $dara.Model {
    * remark
    */
   remark?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account of the member accounts in the resource directory.
+   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The source IP address of the request. The value of this parameter is specified by the system.
+   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains this value.
    * 
    * @example
    * 127.0.XX.XX
@@ -185,17 +187,16 @@ export class ExportSuspEventsRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The handling status of the exception. Valid values:
-   * 
-   * *   **0**: all status
-   * *   **1**: pending handling
-   * *   **2**: ignored
-   * *   **4**: confirmed
-   * *   **8**: marked as false positive
-   * *   **16**: handling
-   * *   **32**: handled
-   * *   **64**: expired
-   * *   **128**: deleted
+   * The handling status of the anomaly event. Valid values:
+   * - **0**: All.
+   * - **1**: Unhandled.
+   * - **2**: Ignored.
+   * - **4**: Confirmed.
+   * - **8**: Marked as false positive.
+   * - **16**: Handling.
+   * - **32**: Handled.
+   * - **64**: Expired.
+   * - **128**: Deleted.
    * 
    * @example
    * 0
@@ -203,11 +204,11 @@ export class ExportSuspEventsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The dimension from which you want to configure the feature. Valid values:
+   * The dimension of the target switch configuration. Valid values:
    * 
-   * *   **uuid**: the UUID of the asset
-   * *   **image_repo**: the ID of the image repository
-   * *   **Cluster**: the ID of the cluster
+   * - **uuid**: asset UUID
+   * - **image_repo**: image repository ID
+   * - **Cluster**: cluster ID
    * 
    * @example
    * uuid
@@ -215,7 +216,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The end of the time range during which the exception is detected.
+   * The end time of the anomaly event. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-12-05 00:00:00
@@ -223,7 +224,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   timeEnd?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the exception is detected.
+   * The start time of the anomaly event occurrence. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-10-01 00:00:00
@@ -231,7 +232,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   timeStart?: string;
   /**
    * @remarks
-   * The unique key of the alert event.
+   * The unique key of the security alert.
    * 
    * @example
    * 1fbe8d16727f61d1478a674d6fa0****
@@ -239,7 +240,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
   uniqueInfo?: string;
   /**
    * @remarks
-   * The unique ID of the associated instance.
+   * The unique identifier of the associated instance.
    * 
    * @example
    * 18b7336e-d469-473b-af83-8e5420f9****

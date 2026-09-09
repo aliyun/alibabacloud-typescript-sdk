@@ -12,8 +12,8 @@ export class VerifyCheckInstanceResultResponseBodyData extends $dara.Model {
    * @remarks
    * The operation code of the cloud service configuration check task. Valid values:
    * 
-   * - **Throttling**: rate limit.
-   * - **ActionTrialUnauthorized**: unauthorized error.
+   * - **Throttling**: Rate limited.
+   * - **ActionTrialUnauthorized**: Unauthorized error.
    * 
    * @example
    * ActionTrialUnauthorized
@@ -63,7 +63,7 @@ export class VerifyCheckInstanceResultResponseBody extends $dara.Model {
   data?: VerifyCheckInstanceResultResponseBodyData;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * B869E3A0-1147-539D-9920-47580700****

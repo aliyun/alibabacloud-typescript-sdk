@@ -7,17 +7,22 @@ export class DescribeDomainSecureScoreRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * - **zh**: Chinese.
-   * - **en**: English.
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the request.
    * 
    * @example
    * 123.113.*.*

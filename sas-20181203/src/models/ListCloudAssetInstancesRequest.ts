@@ -47,7 +47,7 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
    * @remarks
    * The subtype of the cloud service.
    * 
-   * > For details, refer to AssetSubType in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
+   * > For specific meanings, refer to the AssetSubType parameter in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
    * 
    * @example
    * 0
@@ -57,7 +57,7 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
    * @remarks
    * The type of the cloud asset.
    * 
-   * > For details, refer to AssetType in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
+   * > For specific meanings, refer to the AssetType parameter in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
    * 
    * @example
    * 18
@@ -68,9 +68,9 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
    * The server vendor. Valid values:
    * 
    * - **0**: Alibaba Cloud asset
-   * - **1**: Off-cloud asset
+   * - **1**: Non-cloud asset
    * - **2**: IDC asset
-   * - **3**, **4**, **5**, **7**: Other cloud assets
+   * - **3**, **4**, **5**, **7**: Third-party cloud asset
    * - **8**: Lightweight asset
    * 
    * @example
@@ -110,17 +110,17 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   cloudAssetQueryData?: ListCloudAssetInstancesRequestCloudAssetQueryData[];
   /**
    * @remarks
-   * The list of assets of the cloud asset instance.
+   * The list of cloud asset instance types.
    */
   cloudAssetTypes?: ListCloudAssetInstancesRequestCloudAssetTypes[];
   /**
    * @remarks
-   * The conditions used to search for assets. This parameter is in JSON format and contains the following fields:
-   * - **name**: the search item.
-   * - **value**: the value of the search item.
-   * - **logicalExp**: the logical relationship between multiple search item values. Valid values:
-   *     - **OR**: indicates that multiple search item values have an **OR** relationship.
-   *     - **AND**: indicates that multiple search item values have an **AND** relationship.
+   * The search conditions for assets. This parameter is in JSON format and contains the following fields:
+   * - **name**: The search item.
+   * - **value**: The value of the search item.
+   * - **logicalExp**: The logical relationship between multiple search item values. Valid values:
+   *     - **OR**: The search item values are evaluated using the OR operator.
+   *     - **AND**: The search item values are evaluated using the AND operator.
    * > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported search conditions.
    * 
    * @example
@@ -129,19 +129,25 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The number of the current page to return in paginated queries.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 2
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Specifies whether to return sale-related data. Valid values:
+   * - **true**: Returns sale-related data.
+   * - **false**: Does not return sale-related data.
+   */
   isSaleData?: boolean;
   /**
    * @remarks
    * The logical relationship between multiple search conditions. Valid values:
    * 
-   * - **OR**: indicates that multiple search conditions have an **OR** relationship.
-   * - **AND**: indicates that multiple search conditions have an **AND** relationship.
+   * - **OR**: The search conditions are evaluated using the OR operator.
+   * - **AND**: The search conditions are evaluated using the AND operator.
    * 
    * @example
    * OR
@@ -149,7 +155,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The maximum number of rows that can be displayed per page. Maximum value: 100. Default value: 20.
+   * The maximum number of entries per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -157,12 +163,17 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account of the resource folder member accounts.
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {

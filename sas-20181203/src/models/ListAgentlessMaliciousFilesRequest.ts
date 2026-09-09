@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The page number of the current page in a paged query.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
    * Specifies whether the alert has been handled. Valid values:
    * 
    * - Y: handled
-   * - N: not handled.
+   * - N: not handled
    * 
    * @example
    * Y
@@ -45,7 +45,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
    * @remarks
    * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -57,7 +57,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
    * 
    * - serious: urgent
    * - suspicious: suspicious
-   * - remind: reminder.
+   * - remind: reminder
    * 
    * @example
    * remind,suspicious
@@ -73,7 +73,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   maliciousMd5?: string;
   /**
    * @remarks
-   * The Alarm Metric.
+   * The alerting type.
    * 
    * If Lang is set to zh, valid values:
    * 
@@ -85,7 +85,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
    * 
    * - WebShell: WebShell
    * - Malicious Software: malware
-   * - Malicious Script: malicious script.
+   * - Malicious Script: malicious script
    * 
    * @example
    * WebShell
@@ -93,7 +93,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   maliciousType?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query.
+   * The maximum number of entries to return per page in a paged query.
    * 
    * This parameter is required.
    * 
@@ -111,7 +111,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The file source.
+   * The file sources.
    */
   scanRange?: string[];
   /**

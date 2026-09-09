@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyProcDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of process Asset Fingerprints entries displayed on the current page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePropertyProcDetailResponseBodyPageInfo extends $dara.Model 
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyProcDetailResponseBodyPageInfo extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * The value of NextToken that is returned when the NextToken method is used.
+   * The NextToken value returned when the NextToken method is used.
    * 
    * @example
    * B604532DEF982B875E8360A6EFA3B***
@@ -29,7 +29,7 @@ export class DescribePropertyProcDetailResponseBodyPageInfo extends $dara.Model 
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**, which indicates that 10 entries of process Asset Fingerprints information are displayed per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribePropertyProcDetailResponseBodyPageInfo extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of process Asset Fingerprints entries returned.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribePropertyProcDetailResponseBodyPageInfo extends $dara.Model 
 export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model {
   /**
    * @remarks
-   * The startup parameter of the process.
+   * The startup parameters of the process.
    * 
    * @example
    * ./8888
@@ -83,7 +83,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   cmdline?: string;
   /**
    * @remarks
-   * The timestamp of last data collection. Unit: milliseconds.
+   * The timestamp of the most recent data collection. Unit: milliseconds.
    * 
    * @example
    * 1565686951000
@@ -91,7 +91,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   createTimestamp?: number;
   /**
    * @remarks
-   * The permission that is required to run the process.
+   * The running permission of the process.
    * 
    * @example
    * root
@@ -99,7 +99,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   euidName?: string;
   /**
    * @remarks
-   * Process file hash information.
+   * The file hash of the process.
    * 
    * @example
    * 935c1861df1f4018d698e8b65abfa02d7e9037d8f68ca3c2065b6ca165d4****
@@ -107,7 +107,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   fileHash?: string;
   /**
    * @remarks
-   * The ID of the server that is associated with the process.
+   * The instance ID of the server associated with the process.
    * 
    * @example
    * i-hp35tftuh52wbp1g****
@@ -115,7 +115,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server that is associated with the process.
+   * The name of the server associated with the process.
    * 
    * @example
    * hc-host-****
@@ -131,7 +131,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the server.
+   * The private IP address of the asset.
    * 
    * @example
    * 192.168.XX.XX
@@ -139,10 +139,10 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   intranetIp?: string;
   /**
    * @remarks
-   * Indicates whether the process is a package installation process. Valid values:
+   * Indicates whether the process is an installation package process. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Yes.
+   * - **0**: No.
    * 
    * @example
    * 1
@@ -150,7 +150,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   isPackage?: number;
   /**
    * @remarks
-   * The MD5 hash value of the process file.
+   * The MD5 hash of the process file.
    * 
    * @example
    * 842644ea3d88bd7f7e14c1c089ef****
@@ -171,7 +171,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   path?: string;
   /**
    * @remarks
-   * The ID of the process.
+   * The process ID.
    * 
    * @example
    * 12826
@@ -179,7 +179,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   pid?: string;
   /**
    * @remarks
-   * The name of the parent process to which the process belongs.
+   * The name of the parent process.
    * 
    * @example
    * start***.s
@@ -187,7 +187,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   pname?: string;
   /**
    * @remarks
-   * The time when the process starts.
+   * The time when the process started. The value is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2019-08-07 10:09:05
@@ -195,7 +195,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   startTime?: string;
   /**
    * @remarks
-   * The timestamp when the process starts. Unit: milliseconds.
+   * The timestamp when the process started. Unit: milliseconds.
    * 
    * @example
    * 1648783107000
@@ -203,7 +203,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   startTimeDt?: number;
   /**
    * @remarks
-   * The status of the process.
+   * The running state of the process.
    * 
    * @example
    * sleeping
@@ -211,7 +211,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   state?: string;
   /**
    * @remarks
-   * The user who runs the process.
+   * The user that runs the process.
    * 
    * @example
    * root
@@ -219,7 +219,7 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
   user?: string;
   /**
    * @remarks
-   * The UUID of the server that is associated with the process.
+   * The UUID of the server associated with the process.
    * 
    * @example
    * 162eb349-c2d9-4f8b-805c-75b43d4c****
@@ -285,17 +285,17 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
 export class DescribePropertyProcDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: DescribePropertyProcDetailResponseBodyPageInfo;
   /**
    * @remarks
-   * An array that consists of the fingerprints of the processes.
+   * The details of the process Asset Fingerprints information returned.
    */
   propertys?: DescribePropertyProcDetailResponseBodyPropertys[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AA47D46F-10DE-138C-BBB4-8A0003F75CD7

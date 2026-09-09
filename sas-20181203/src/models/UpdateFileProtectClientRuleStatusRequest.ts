@@ -7,13 +7,13 @@ export class UpdateFileProtectClientRuleStatusRequest extends $dara.Model {
    * @remarks
    * The alert notification level. Valid values:
    * 
-   * - 0: no alert
+   * - 0: No alert.
    * 
-   * - 1: reminder
+   * - 1: Reminder.
    * 
-   * - 2: suspicious
+   * - 2: Suspicious.
    * 
-   * - 3: high-risk.
+   * - 3: High-risk.
    * 
    * @example
    * 0
@@ -33,7 +33,7 @@ export class UpdateFileProtectClientRuleStatusRequest extends $dara.Model {
    * @remarks
    * The operating system type. Valid values:
    * 
-   * - **windows**: Windows
+   * - **windows**: Windows.
    * - **linux**: Linux.
    * 
    * @example
@@ -75,8 +75,8 @@ export class UpdateFileProtectClientRuleStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The policy status. Valid values:
-   * - **0**: disabled.
-   * - **1**: enabled.
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * This parameter is required.
    * 

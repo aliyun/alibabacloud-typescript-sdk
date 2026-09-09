@@ -6,12 +6,17 @@ export class DeleteVulWhitelistRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the vulnerability whitelist.
-   * > To delete a vulnerability whitelist, provide the vulnerability whitelist ID. You can obtain this ID by calling the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation.
+   * > To delete a vulnerability whitelist, provide the vulnerability whitelist ID. You can call the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation to obtain this ID.
    * 
    * @example
    * 131231
    */
   id?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
