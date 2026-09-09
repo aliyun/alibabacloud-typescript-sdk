@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/marketing_event20210101",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

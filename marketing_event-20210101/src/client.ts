@@ -30,6 +30,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 上报论坛议程汇总数据
+   * 
+   * @param request - AddAgendaSumRecordFlowPopRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAgendaSumRecordFlowPopResponse
+   */
+  async addAgendaSumRecordFlowPopWithOptions(request: $_model.AddAgendaSumRecordFlowPopRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAgendaSumRecordFlowPopResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.activeNum)) {
+      query["ActiveNum"] = request.activeNum;
+    }
+
+    if (!$dara.isNull(request.agendaId)) {
+      query["AgendaId"] = request.agendaId;
+    }
+
+    if (!$dara.isNull(request.attendancePercent)) {
+      query["AttendancePercent"] = request.attendancePercent;
+    }
+
+    if (!$dara.isNull(request.flowTime)) {
+      query["FlowTime"] = request.flowTime;
+    }
+
+    if (!$dara.isNull(request.sessionName)) {
+      query["SessionName"] = request.sessionName;
+    }
+
+    if (!$dara.isNull(request.totalPv)) {
+      query["TotalPv"] = request.totalPv;
+    }
+
+    if (!$dara.isNull(request.totalUv)) {
+      query["TotalUv"] = request.totalUv;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAgendaSumRecordFlowPop",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAgendaSumRecordFlowPopResponse>(await this.callApi(params, req, runtime), new $_model.AddAgendaSumRecordFlowPopResponse({}));
+  }
+
+  /**
+   * 上报论坛议程汇总数据
+   * 
+   * @param request - AddAgendaSumRecordFlowPopRequest
+   * @returns AddAgendaSumRecordFlowPopResponse
+   */
+  async addAgendaSumRecordFlowPop(request: $_model.AddAgendaSumRecordFlowPopRequest): Promise<$_model.AddAgendaSumRecordFlowPopResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAgendaSumRecordFlowPopWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - AddSumRecordFlowPopRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddSumRecordFlowPopResponse

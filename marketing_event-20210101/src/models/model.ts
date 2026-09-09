@@ -17,6 +17,9 @@ export { QuerySessionByActivityIdPopResponseBodyData } from './QuerySessionByAct
 export { QuerySessionListPopResponseBodyData } from './QuerySessionListPopResponseBody';
 export { QuerySignInRecordPopResponseBodyData } from './QuerySignInRecordPopResponseBody';
 export { QuerySingleActivityInfoResponseBodyData } from './QuerySingleActivityInfoResponseBody';
+export { AddAgendaSumRecordFlowPopRequest } from './AddAgendaSumRecordFlowPopRequest';
+export { AddAgendaSumRecordFlowPopResponseBody } from './AddAgendaSumRecordFlowPopResponseBody';
+export { AddAgendaSumRecordFlowPopResponse } from './AddAgendaSumRecordFlowPopResponse';
 export { AddSumRecordFlowPopRequest } from './AddSumRecordFlowPopRequest';
 export { AddSumRecordFlowPopResponseBody } from './AddSumRecordFlowPopResponseBody';
 export { AddSumRecordFlowPopResponse } from './AddSumRecordFlowPopResponse';
