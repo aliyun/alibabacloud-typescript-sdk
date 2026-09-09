@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTunnelMetricResponseBodyDataMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata of the metric.
+   */
   metric?: { [key: string]: string };
+  /**
+   * @remarks
+   * A list of metric values.
+   */
   values?: number[][];
   static names(): { [key: string]: string } {
     return {
@@ -36,17 +44,30 @@ export class QueryTunnelMetricResponseBodyDataMetrics extends $dara.Model {
 
 export class QueryTunnelMetricResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The category of the metric.
+   * 
    * @example
    * tunnel
    */
   category?: string;
+  /**
+   * @remarks
+   * The metric values.
+   */
   metrics?: QueryTunnelMetricResponseBodyDataMetrics[];
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * slot_usage
    */
   name?: string;
   /**
+   * @remarks
+   * The step size of the monitoring data.
+   * 
    * @example
    * 60
    */
@@ -82,23 +103,39 @@ export class QueryTunnelMetricResponseBodyData extends $dara.Model {
 }
 
 export class QueryTunnelMetricResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: QueryTunnelMetricResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 0A3B1E82006A23A918C70905BF08AEC7
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. If this parameter is not empty and the value is not 200, the operation failed.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc3b4b016674434996033675e71ee
    */

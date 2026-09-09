@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMmsTimerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * timer id
+   * The ID of the timer.
    * 
    * @example
    * 1
@@ -33,8 +33,15 @@ export class CreateMmsTimerResponseBodyData extends $dara.Model {
 }
 
 export class CreateMmsTimerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreateMmsTimerResponseBodyData;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0be3e0b716671885050924814e3623
    */

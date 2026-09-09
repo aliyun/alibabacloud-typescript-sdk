@@ -3,31 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SumDailyBillsByItemRequest extends $dara.Model {
-  /**
-   * @example
-   * 1718590596556
-   */
   endDate?: number;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
   projectNames?: string[];
-  /**
-   * @example
-   * 1715393576201
-   */
   startDate?: number;
-  /**
-   * @example
-   * PROJECT
-   */
   statsType?: string;
   types?: string[];
   static names(): { [key: string]: string } {

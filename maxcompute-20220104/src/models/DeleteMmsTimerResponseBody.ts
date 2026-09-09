@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteMmsTimerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the deleted timer.
+   * 
    * @example
    * success
    */
   data?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0a06dd4516687375802853481ec9fd
    */

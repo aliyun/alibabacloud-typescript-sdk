@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMmsTimerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result of the operation.
+   * 
    * @example
    * success
    */
   data?: number;
   /**
+   * @remarks
+   * The unique identifier for the request.
+   * 
    * @example
    * EA1320AB-7766-5EC7-B0F6-8B20E2298567
    */

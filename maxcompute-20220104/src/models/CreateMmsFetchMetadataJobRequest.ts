@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMmsFetchMetadataJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * Updates metadata for the specified source database, schema, or dataset.
+   * 
    * @example
    * default
    */
   dbName?: string;
+  /**
+   * @remarks
+   * Updates metadata for the specified source tables.
+   */
   tableNames?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsTimerLogsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

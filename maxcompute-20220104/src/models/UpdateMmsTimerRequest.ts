@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMmsTimerRequest extends $dara.Model {
   /**
+   * @remarks
+   * The scheduling type of the task. Valid values: `Daily` and `Hourly`.
+   * 
    * @example
    * Daily
    */
   scheduleType?: string;
+  /**
+   * @remarks
+   * Specifies whether the scheduled task is stopped.
+   */
   stopped?: boolean;
   /**
+   * @remarks
+   * The execution time of the scheduled task. If `scheduleType` is set to `Daily`, specify the time in the HH:mm format. If `scheduleType` is set to `Hourly`, specify the minute in the mm format.
+   * 
    * @example
    * 2025-09-20
    */

@@ -130,8 +130,9 @@ export class GetQuotaScheduleResponseBody extends $dara.Model {
   data?: GetQuotaScheduleResponseBodyData[];
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error code was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * success
@@ -142,7 +143,7 @@ export class GetQuotaScheduleResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * errorMsg
+   * Exception information
    */
   errorMsg?: string;
   /**

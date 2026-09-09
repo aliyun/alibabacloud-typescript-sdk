@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMmsDbRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the destination schema in MaxCompute.
+   * 
    * @example
    * default
    */
   dstName?: string;
   /**
+   * @remarks
+   * The name of the destination MaxCompute project.
+   * 
    * @example
    * dst_project_name
    */
   dstProjectName?: string;
   /**
+   * @remarks
+   * The migration status.
+   * 
    * @example
    * INIT
    */

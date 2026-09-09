@@ -24,7 +24,7 @@ export class ListTablesResponseBodyDataTables extends $dara.Model {
    * The name of the table.
    * 
    * @example
-   * dim_odps
+   * sale_detail
    */
   name?: string;
   /**
@@ -32,7 +32,7 @@ export class ListTablesResponseBodyDataTables extends $dara.Model {
    * The owner of the table.
    * 
    * @example
-   * 1887853961230110
+   * 188785396123****
    */
   owner?: string;
   /**

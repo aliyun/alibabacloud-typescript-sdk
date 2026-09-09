@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMmsTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the table.
+   * 
    * @example
    * 1
    */
   data?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * EA1320AB-7766-5EC7-B0F6-8B20E2298567
    */

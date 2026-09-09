@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerMmsTimerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * timer id
+   * The ID of the timer.
    * 
    * @example
    * 1
    */
   data?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0be3e0b716671885050924814e3623
    */

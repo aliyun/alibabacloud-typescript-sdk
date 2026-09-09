@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsTimersResponseBodyDataObjectList extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-12-17 09:29:58
    */
   createTime?: string;
   /**
+   * @remarks
+   * The source database ID.
+   * 
    * @example
    * 196
    */
   dbId?: number;
   /**
+   * @remarks
+   * The timer ID.
+   * 
    * @example
    * 18
    */
   id?: number;
   /**
+   * @remarks
+   * The timer name.
+   * 
    * @example
    * migrate_db_1
    */
   name?: string;
   /**
+   * @remarks
+   * The schedule type.
+   * 
    * @example
    * Daily
    */
   scheduleType?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 2000015
    */
   sourceId?: number;
   /**
+   * @remarks
+   * The source database name.
+   * 
    * @example
    * db_1
    */
   srcDbName?: string;
   /**
+   * @remarks
+   * Indicates whether the timer is stopped.
+   * 
    * @example
    * false
    */
   stopped?: boolean;
   /**
+   * @remarks
+   * The job type.
+   * 
    * @example
    * TABLES
    */
   type?: string;
   /**
+   * @remarks
+   * The schedule time.
+   * 
    * @example
    * 00:00
    */
@@ -93,18 +123,31 @@ export class ListMmsTimersResponseBodyDataObjectList extends $dara.Model {
 }
 
 export class ListMmsTimersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of timers.
+   */
   objectList?: ListMmsTimersResponseBodyDataObjectList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 13
    */
@@ -140,8 +183,15 @@ export class ListMmsTimersResponseBodyData extends $dara.Model {
 }
 
 export class ListMmsTimersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListMmsTimersResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0b87b7e716665825896565060e87a4
    */

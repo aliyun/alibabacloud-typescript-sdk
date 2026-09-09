@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsTasksRequestSorter extends $dara.Model {
   /**
+   * @remarks
+   * Sorts results by the start time.
+   * 
    * @example
    * desc
    */
   startTime?: string;
   /**
+   * @remarks
+   * Sorts results by status.
+   * 
    * @example
    * asc
    */
@@ -39,51 +45,81 @@ export class ListMmsTasksRequestSorter extends $dara.Model {
 export class ListMmsTasksRequest extends $dara.Model {
   sorter?: ListMmsTasksRequestSorter;
   /**
+   * @remarks
+   * The destination MaxCompute project.
+   * 
    * @example
    * mms_test
    */
   dstDbName?: string;
   /**
+   * @remarks
+   * The destination MaxCompute table.
+   * 
    * @example
    * test_table_1
    */
   dstTableName?: string;
   /**
+   * @remarks
+   * The migration job ID.
+   * 
    * @example
    * 10
    */
   jobId?: number;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * test1
    */
   jobName?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The partition value. Use this parameter to filter migration tasks that migrated a specific partition value.
+   * 
    * @example
    * p1=1/p2=abc
    */
   partition?: string;
   /**
+   * @remarks
+   * The source database name.
+   * 
    * @example
    * test_db_1
    */
   srcDbName?: string;
   /**
+   * @remarks
+   * The source table name.
+   * 
    * @example
    * test_table_1
    */
   srcTableName?: string;
   /**
+   * @remarks
+   * The migration task status.
+   * 
    * @example
    * DATA_DOING
    */

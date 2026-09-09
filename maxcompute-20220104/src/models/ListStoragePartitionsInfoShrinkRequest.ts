@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStoragePartitionsInfoShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort data in ascending order.
+   * Specifies whether to sort the results in ascending order.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class ListStoragePartitionsInfoShrinkRequest extends $dara.Model {
   ascOrder?: boolean;
   /**
    * @remarks
-   * The date on which the statistics are collected, in days. Set this parameter to a value in the YYYYMMdd format.
+   * The date for which to retrieve statistics. The date must be in `YYYYMMdd` format.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListStoragePartitionsInfoShrinkRequest extends $dara.Model {
   date?: string;
   /**
    * @remarks
-   * The sorting column.
+   * The column to sort by.
    * 
    * @example
    * totalFrequency
@@ -39,7 +39,7 @@ export class ListStoragePartitionsInfoShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page. Default value: 10.
    * 
    * @example
    * 10
@@ -47,10 +47,10 @@ export class ListStoragePartitionsInfoShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the partition that you want to use for fuzzy match.
+   * The partition name. This parameter supports fuzzy matching.
    * 
    * @example
-   * ds=20241201
+   * 20241201
    */
   partitionPrefix?: string;
   /**
@@ -63,7 +63,7 @@ export class ListStoragePartitionsInfoShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The name of the schema.
+   * The schema that contains the table.
    * 
    * @example
    * schema
@@ -71,7 +71,7 @@ export class ListStoragePartitionsInfoShrinkRequest extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The ID of the tenant. You can log on to the MaxCompute console, and choose **Tenants** > **Tenant Property** from the left-side navigation pane to view the tenant ID.
+   * The tenant ID. You can find this ID in the MaxCompute console by navigating to **Tenant Management** > **Tenant Properties**.
    * 
    * @example
    * 40713753659****

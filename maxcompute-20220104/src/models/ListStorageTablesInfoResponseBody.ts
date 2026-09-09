@@ -23,7 +23,7 @@ export class ListStorageTablesInfoResponseBodyDataStorageTableInfoList extends $
    * @remarks
    * The time when the table was last accessed. This value is returned when the table is a non-partitioned table.
    * 
-   * >  The data collection method is upgraded from July 2023. If the data is not accessed after the upgrade or is accessed by using ALGO jobs or the direct read method of Hologres, the last access time cannot be collected.
+   * > The data collection method is upgraded from July 2023. If the data is not accessed after the upgrade or is accessed by using ALGO jobs or the direct read method of Hologres, the last access time cannot be collected.
    * 
    * @example
    * 1694589365
@@ -129,10 +129,13 @@ export class ListStorageTablesInfoResponseBodyDataStorageTableInfoList extends $
    * @remarks
    * The table storage type.
    * 
-   * *   standard
-   * *   lowfrequency
-   * *   longterm
-   * *   unknown: This value is returned when the table is a partitioned table. You can call the ListStoragePartitionsInfo operation to query the storage type of each partition.
+   * - standard
+   * 
+   * - lowfrequency
+   * 
+   * - longterm
+   * 
+   * - unknown: This value is returned when the table is a partitioned table. You can call the ListStoragePartitionsInfo operation to query the storage type of each partition.
    * 
    * @example
    * standard
@@ -150,15 +153,17 @@ export class ListStorageTablesInfoResponseBodyDataStorageTableInfoList extends $
    * @remarks
    * The access frequency.
    * 
-   * > 
+   * >
    * 
-   * *   Access behaviors include:
+   * - Access behaviors include:
    * 
-   * *   The table is used as the input table of an SQL task.
-   * *   The table is downloaded by Tunnel.
-   * *   The table is read by calling the Storage API. The partition granularity of the partitioned table is not available. Each time an access operation is performed, the access frequency is incremented by 1.
+   * - The table is used as the input table of an SQL task.
    * 
-   * *   The data collection method is upgraded from July 2023. If the data is not accessed after the upgrade or is accessed by using ALGO jobs or the direct read method of Hologres, the access frequency cannot be collected.
+   * - The table is downloaded by Tunnel.
+   * 
+   * - The table is read by calling the Storage API. The partition granularity of the partitioned table is not available. Each time an access operation is performed, the access frequency is incremented by 1.
+   * 
+   * - The data collection method is upgraded from July 2023. If the data is not accessed after the upgrade or is accessed by using ALGO jobs or the direct read method of Hologres, the access frequency cannot be collected.
    * 
    * @example
    * 10
@@ -168,7 +173,7 @@ export class ListStorageTablesInfoResponseBodyDataStorageTableInfoList extends $
    * @remarks
    * The total amount of accessed data.
    * 
-   * >  The amount of data that is read by all access behaviors.
+   * > The amount of data that is read by all access behaviors.
    * 
    * @example
    * 1
@@ -367,11 +372,15 @@ export class ListStorageTablesInfoResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * *   1xx: informational response. The request is received and is being processed.
-   * *   2xx: success. The request is successfully received, understood, and accepted by the server.
-   * *   3xx: redirection. The request is redirected, and further actions are required to complete the request.
-   * *   4xx: client error. The request contains invalid request parameters and syntaxes, or specific request conditions cannot be met.
-   * *   5xx: server error. The server cannot meet requirements due to other reasons.
+   * - 1xx: informational response. The request is received and is being processed.
+   * 
+   * - 2xx: success. The request is successfully received, understood, and accepted by the server.
+   * 
+   * - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+   * 
+   * - 4xx: client error. The request contains invalid request parameters and syntaxes, or specific request conditions cannot be met.
+   * 
+   * - 5xx: server error. The server cannot meet requirements due to other reasons.
    * 
    * @example
    * 200

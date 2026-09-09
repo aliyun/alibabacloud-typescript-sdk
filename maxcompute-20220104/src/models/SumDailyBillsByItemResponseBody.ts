@@ -4,23 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class SumDailyBillsByItemResponseBodyDataItemSummaryBillsDailySumBillsItemBills extends $dara.Model {
   /**
-   * @example
-   * 433
+   * @remarks
+   * The cost of the item.
    */
   cost?: string;
   /**
-   * @example
-   * RMB
+   * @remarks
+   * The currency of the cost.
    */
   currency?: string;
   /**
-   * @example
-   * empty
+   * @remarks
+   * The name of the billable item.
    */
   itemName?: string;
   /**
-   * @example
-   * 60
+   * @remarks
+   * The item\\"s percentage of the daily total cost.
    */
   percentage?: number;
   static names(): { [key: string]: string } {
@@ -52,20 +52,24 @@ export class SumDailyBillsByItemResponseBodyDataItemSummaryBillsDailySumBillsIte
 
 export class SumDailyBillsByItemResponseBodyDataItemSummaryBillsDailySumBills extends $dara.Model {
   /**
-   * @example
-   * 31
+   * @remarks
+   * The cost for the day.
    */
   cost?: string;
   /**
-   * @example
-   * RMB
+   * @remarks
+   * The currency of the cost.
    */
   currency?: string;
   /**
-   * @example
-   * 20260409
+   * @remarks
+   * The date. Format: YYYYMMDD.
    */
   dateTime?: string;
+  /**
+   * @remarks
+   * An array of detailed bills for the item on the specified day.
+   */
   itemBills?: SumDailyBillsByItemResponseBodyDataItemSummaryBillsDailySumBillsItemBills[];
   static names(): { [key: string]: string } {
     return {
@@ -99,29 +103,33 @@ export class SumDailyBillsByItemResponseBodyDataItemSummaryBillsDailySumBills ex
 
 export class SumDailyBillsByItemResponseBodyDataItemSummaryBills extends $dara.Model {
   /**
-   * @example
-   * RMB
+   * @remarks
+   * The currency of the cost.
    */
   currency?: string;
+  /**
+   * @remarks
+   * An array of daily cost summaries for the item.
+   */
   dailySumBills?: SumDailyBillsByItemResponseBodyDataItemSummaryBillsDailySumBills[];
   /**
-   * @example
-   * DRStorage
+   * @remarks
+   * The name of the billable item.
    */
   itemName?: string;
   /**
-   * @example
-   * 50
+   * @remarks
+   * The item\\"s percentage of the total cost.
    */
   percentage?: number;
   /**
-   * @example
-   * OdpsStandard
+   * @remarks
+   * The specification code of the item.
    */
   specCode?: string;
   /**
-   * @example
-   * 10000
+   * @remarks
+   * The total cost of the item.
    */
   totalCost?: string;
   static names(): { [key: string]: string } {
@@ -159,20 +167,24 @@ export class SumDailyBillsByItemResponseBodyDataItemSummaryBills extends $dara.M
 }
 
 export class SumDailyBillsByItemResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * An array of item-level cost summaries.
+   */
   itemSummaryBills?: SumDailyBillsByItemResponseBodyDataItemSummaryBills[];
   /**
-   * @example
-   * 2
+   * @remarks
+   * The current page number.
    */
   pageNumber?: number;
   /**
-   * @example
-   * 10
+   * @remarks
+   * The number of entries per page.
    */
   pageSize?: number;
   /**
-   * @example
-   * 60
+   * @remarks
+   * The total number of entries returned.
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -206,15 +218,19 @@ export class SumDailyBillsByItemResponseBodyData extends $dara.Model {
 }
 
 export class SumDailyBillsByItemResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: SumDailyBillsByItemResponseBodyData;
   /**
-   * @example
-   * 200
+   * @remarks
+   * The HTTP status code.
    */
   httpCode?: number;
   /**
-   * @example
-   * 0bc3b4ab17217876841756121e1349
+   * @remarks
+   * The unique identifier for the request.
    */
   requestId?: string;
   static names(): { [key: string]: string } {

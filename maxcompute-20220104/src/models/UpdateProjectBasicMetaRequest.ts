@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProjectBasicMetaRequestPropertiesEncryption extends $dara.Model {
   /**
    * @remarks
-   * The data encryption algorithm that is supported by the key. Valid values: AES256, AESCTR, and RC4.
+   * The data encryption algorithm. The supported encryption algorithms include AES256, AESCTR, and RC4.
    * 
    * @example
    * AES256
@@ -13,7 +13,7 @@ export class UpdateProjectBasicMetaRequestPropertiesEncryption extends $dara.Mod
   algorithm?: string;
   /**
    * @remarks
-   * Indicates whether the data encryption feature needs to be enabled for the project. For more information about data encryption, see
+   * Specifies whether to enable data encryption for the project. For more information about data encryption, see
    * <props="china">[Storage Encryption](https://help.aliyun.com/zh/maxcompute/security-and-compliance/storage-encryption)
    * <props="intl">[Storage Encryption](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/storage-encryption).
    * 
@@ -23,7 +23,7 @@ export class UpdateProjectBasicMetaRequestPropertiesEncryption extends $dara.Mod
   enable?: boolean;
   /**
    * @remarks
-   * The type of key that is used for data encryption. You can select MaxCompute Default Key or Bring Your Own Key (BYOK) as the key type. If you select MaxCompute Default Key, the default key that is created by MaxCompute is used.
+   * The type of key used for data encryption, including the default key (MaxCompute Default Key) and Bring Your Own Key (BYOK). The default key (MaxCompute Default Key) is a default key created internally by MaxCompute.
    * 
    * @example
    * default
@@ -58,9 +58,9 @@ export class UpdateProjectBasicMetaRequestPropertiesTableLifecycle extends $dara
   /**
    * @remarks
    * The lifecycle type. Valid values:
-   * - *mandatory*: The lifecycle clause is required in a table creation statement.
-   * - *optional*: The lifecycle clause is optional in a table creation statement. If you do not configure a lifecycle for a table, the table does not expire.
-   * - *inherit*: If you do not configure a lifecycle for a table when you create the table, the value of the odps.table.lifecycle.value parameter is used as the table lifecycle by default.
+   * - **mandatory**: The Lifecycle clause is required. You must configure the lifecycle of a table.
+   * - **optional**: The Lifecycle clause is optional when you create a table. If the lifecycle of a table is not configured, the table is permanently valid.
+   * - **inherit**: If the lifecycle of a table is not configured when you create a table, the lifecycle of the table is set to the value of odps.table.lifecycle.value.
    * 
    * @example
    * optional
@@ -68,7 +68,7 @@ export class UpdateProjectBasicMetaRequestPropertiesTableLifecycle extends $dara
   type?: string;
   /**
    * @remarks
-   * The table lifecycle. Unit: days. Valid values: 1 to 37231. Default value: 37231.
+   * The lifecycle of a table. Unit: days. Valid values: 1 to 37231. Default value: 37231.
    * 
    * @example
    * 37231
@@ -100,15 +100,16 @@ export class UpdateProjectBasicMetaRequestPropertiesTableLifecycle extends $dara
 export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a full table scan is allowed in the project. A full table scan occupies a large number of resources, which reduces data processing efficiency. By default, the full table scan feature is disabled.
+   * Specifies whether to allow full table scans in the project. Full table scans consume a large amount of resources. To improve processing efficiency, this feature is disabled by default.
    * 
    * @example
    * false
    */
   allowFullScan?: boolean;
+  enableDataMasking?: boolean;
   /**
    * @remarks
-   * Indicates whether the DECIMAL type of the MaxCompute V2.0 data type edition is enabled.
+   * Specifies whether to enable the Decimal data type of MaxCompute 2.0 for the project.
    * 
    * @example
    * true
@@ -117,10 +118,9 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   enableDr?: boolean;
   /**
    * @remarks
-   * Indicates whether the routing of the Tunnel resource group is enabled.
-   * 
-   * - true: The data transfer tasks that are submitted by the project by default use the Tunnel resource group that is bound to the project.
-   * - false: The data transfer tasks that are submitted by the project by default use the Tunnel shared resource group.
+   * Specifies whether to enable resource group routing for the data transfer service.
+   * - true: The data transfer tasks submitted by this project use the bound data transfer service resource group by default.
+   * - false: The data transfer tasks submitted by this project use the shared data transfer service resource group by default.
    * 
    * @example
    * true
@@ -133,7 +133,8 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   encryption?: UpdateProjectBasicMetaRequestPropertiesEncryption;
   /**
    * @remarks
-   * The retention period for backup data. Unit: days. During the retention period, you can restore data of the version in use to the backup data of any version. Valid values: [0,30]. Default value: 1. The value 0 indicates that the backup feature is disabled.
+   * The number of days to retain backup data. During this period, you can restore the current version to any backed-up data version.
+   * Valid values: [0, 30]. Default value: 1. A value of 0 indicates that the backup feature is disabled.
    * 
    * @example
    * 1
@@ -141,7 +142,8 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   retentionDays?: number;
   /**
    * @remarks
-   * The maximum consumption threshold of a single SQL statement. Formula: Amount of scanned data (GB) × Complexity.
+   * The maximum threshold for a single SQL statement consumption.
+   * Unit: scan volume (GB) × complexity.
    * 
    * @example
    * 1500
@@ -149,12 +151,12 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   sqlMeteringMax?: string;
   /**
    * @remarks
-   * The table lifecycle properties.
+   * The lifecycle properties of tables.
    */
   tableLifecycle?: UpdateProjectBasicMetaRequestPropertiesTableLifecycle;
   /**
    * @remarks
-   * The time zone that is used by your project. The time zone is the same as the time zone specified by `odps.sql.timezone` .
+   * The time zone of the project, which is the `odps.sql.timezone` property.
    * 
    * @example
    * Asia/Shanghai
@@ -162,11 +164,12 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The <props="china">[Data Transmission Service](https://help.aliyun.com/zh/maxcompute/user-guide/overview-of-dts)
-   * <props="intl">[Data Transmission Service](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) resource group that is bound to the project.
+   * The <props="china">[Data Transfer Service](https://help.aliyun.com/zh/maxcompute/user-guide/overview-of-dts)
+   * <props="intl">[Data Transfer Service](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) resource group bound to the project.
    * 
-   * - Default resource group: The Tunnel shared resource group is used. You cannot use the subscription-based Tunnel resource group for the project. The default resource group is automatically used by the Tunnel service of your project, regardless of the parameter setting.
-   * - Subscription-based Tunnel resource group: You can use the subscription-based Tunnel resource group for the project.
+   * - Default (shared data transfer service resource group): The project is not allowed to use subscription-based data transfer service resource groups. Regardless of the default data transfer service resource group setting, data transfer tasks submitted by this project automatically use the Default resource group.
+   * 
+   * - Subscription-based data transfer service resource group: The project is allowed to use subscription-based data transfer service resource groups.
    * 
    * @example
    * Default
@@ -175,12 +178,12 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   /**
    * @remarks
    * The data type edition. Valid values:
+   * - **1**: Edition 1.0
+   * - **2**: Edition 2.0
+   * - **hive**: Hive-compatible type
    * 
-   * - *1*: MaxCompute V1.0 data type edition
-   * - *2*: MaxCompute V2.0 data type edition
-   * - *hive*: Hive-compatible data type edition
-   * For more information about the differences among the three data type editions, see <props="china">[Data Type Versions](https://help.aliyun.com/zh/maxcompute/user-guide/data-type-editions)
-   * <props="intl">[Data Type Versions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
+   * For more information about the differences among the three data type editions, see <props="china">[Data Type Editions](https://help.aliyun.com/zh/maxcompute/user-guide/data-type-editions)
+   * <props="intl">[Data Type Editions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
    * 
    * @example
    * 2.0
@@ -189,6 +192,7 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allowFullScan: 'allowFullScan',
+      enableDataMasking: 'enableDataMasking',
       enableDecimal2: 'enableDecimal2',
       enableDr: 'enableDr',
       enableTunnelQuotaRoute: 'enableTunnelQuotaRoute',
@@ -205,6 +209,7 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allowFullScan: 'boolean',
+      enableDataMasking: 'boolean',
       enableDecimal2: 'boolean',
       enableDr: 'boolean',
       enableTunnelQuotaRoute: 'boolean',

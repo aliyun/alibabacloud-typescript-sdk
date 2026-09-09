@@ -22,6 +22,7 @@ export class UpdateComputeSubQuotaRequestSubQuotaInfoListParameter extends $dara
   /**
    * @remarks
    * The value of minCU in Reserved CUs.
+   * 
    * > The value of maxCU must be less than or equal to the value of maxCU in the level-1 quota that you purchased.
    * 
    * This parameter is required.
@@ -33,9 +34,10 @@ export class UpdateComputeSubQuotaRequestSubQuotaInfoListParameter extends $dara
   /**
    * @remarks
    * The value of maxCU in Reserved CUs.
-   * > 
-   * >- The total value of minCU in all the level-2 quotas is equal to the value of minCU in the level-1 quota.
-   * >- The value of minCU must be less than or equal to the value of maxCU in the level-2 quota and less than or equal to the value of minCU in the level-1 quota that you purchased.
+   * 
+   * > - The total value of minCU in all the level-2 quotas is equal to the value of minCU in the level-1 quota.
+   * >
+   * > - The value of minCU must be less than or equal to the value of maxCU in the level-2 quota and less than or equal to the value of minCU in the level-1 quota that you purchased.
    * 
    * This parameter is required.
    * 
@@ -110,7 +112,6 @@ export class UpdateComputeSubQuotaRequestSubQuotaInfoList extends $dara.Model {
    * @remarks
    * The type of quota.
    * 
-   * > 
    * > - FUXI_OFFLINE(default) : Quotas of this type are used to run batch jobs.
    * 
    * @example

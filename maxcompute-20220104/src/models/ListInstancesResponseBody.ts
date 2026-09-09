@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstancesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * projectAbc
    */
@@ -30,13 +33,23 @@ export class ListInstancesResponseBodyData extends $dara.Model {
 }
 
 export class ListInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListInstancesResponseBodyData[];
   /**
+   * @remarks
+   * Indicates whether the request was successful. If the value of this parameter is not 200, the request failed.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0FC8BA40-C712-5FFD-9AA5-24C8F47F86E9
    */

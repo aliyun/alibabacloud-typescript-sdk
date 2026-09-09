@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class SumComputeMetricsByUsageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end timestamp for the query, in milliseconds.
+   * 
    * @example
    * 1718590596556
    */
   endDate?: number;
+  /**
+   * @remarks
+   * The project names.
+   */
   projectNames?: string[];
   /**
+   * @remarks
+   * The start timestamp for the query, in milliseconds.
+   * 
    * @example
    * 1715393576201
    */
   startDate?: number;
   /**
+   * @remarks
+   * The usage type. Valid values: `CU` (CU usage) and `SCAN` (scanned data volume).
+   * 
    * @example
    * SCAN
    */

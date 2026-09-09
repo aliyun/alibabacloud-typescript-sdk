@@ -8,7 +8,7 @@ export class ListResourcesResponseBodyDataResources extends $dara.Model {
    * The remarks.
    * 
    * @example
-   * file
+   * Filr type resource
    */
   comment?: string;
   /**
@@ -89,45 +89,45 @@ export class ListResourcesResponseBodyDataResources extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   file
+   * - file
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   py
+   * - py
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   jar
+   * - jar
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   volumefile
+   * - volumefile
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   table
+   * - table
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * file

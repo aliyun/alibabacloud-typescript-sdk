@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics extends $dara.Model {
   /**
    * @remarks
-   * The end time of the job execution.
+   * The job completion time, as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710432000000
@@ -13,7 +13,7 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   endTime?: number;
   /**
    * @remarks
-   * The job(instance) ID.
+   * The instance ID.
    * 
    * @example
    * 20240730****ddlr
@@ -45,10 +45,11 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   signature?: string;
   /**
    * @remarks
-   * Specifications Type, specifies the resource package that you select when you purchase the MaxCompute service.
-   * - OdpsStandard: the pay-as-you-go resource package.
+   * The specification type.
    * 
-   * - OdpsSpot: the pay-as-you-go spot resource package.
+   * - `OdpsStandard`: Standard pay-as-you-go specification.
+   * 
+   * - `OdpsSpot`: Spot pay-as-you-go specification.
    * 
    * @example
    * OdpsStandard
@@ -56,7 +57,7 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   specCode?: string;
   /**
    * @remarks
-   * The submission time of the job.
+   * The job submission time, as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1610432000000
@@ -64,18 +65,19 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   submitTime?: number;
   /**
    * @remarks
-   * Metering types.
-   * - ComputationSql: the metering data of SQL jobs that involve internal tables.
+   * The metering type.
    * 
-   * - ComputationSqlOTS: the metering data of SQL jobs that involve Tablestore external tables.
+   * - `ComputationSql`: Metrics for SQL jobs on internal tables.
    * 
-   * - ComputationSqlOSS: the metering data of SQL jobs that involve OSS external tables.
+   * - `ComputationSqlOTS`: Metrics for SQL jobs on Tablestore external tables.
    * 
-   * - MapReduce: the metering data of MapReduce jobs.
+   * - `ComputationSqlOSS`: Metrics for SQL jobs on OSS external tables.
    * 
-   * - spark: the metering data of Spark jobs.
+   * - `MapReduce`: Metrics for MapReduce jobs.
    * 
-   * - mars: the metering data of Mars jobs.
+   * - `spark`: Metrics for Spark jobs.
+   * 
+   * - `mars`: Metrics for Mars jobs.
    * 
    * @example
    * ComputationSql
@@ -83,7 +85,7 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   type?: string;
   /**
    * @remarks
-   * The unit of computing resource usage
+   * The unit of compute usage.
    * 
    * @example
    * GB
@@ -91,11 +93,11 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   unit?: string;
   /**
    * @remarks
-   * The computing resource usage is calculated based on the following items:
+   * The compute usage.
    * 
-   * - Amount of scanned data in the unit of GB. For the jobs whose metering types are ComputationSql, ComputationSqlOTS, or ComputationSqlOSS, they are billed based on the amount of scanned data. The computing resource usage of such a job is calculated by using the following formula: Amount of scanned data × Complexity. The complexity is fixed at 1 for the jobs whose metering types are ComputationSqlOTS or ComputationSqlOSS.
+   * - For jobs billed by the amount of data scanned, such as `ComputationSql`, `ComputationSqlOTS`, and `ComputationSqlOSS` jobs, the unit is GB. The usage is calculated as: Amount of scanned data × Complexity. The complexity factor for `ComputationSqlOTS` and `ComputationSqlOSS` jobs is 1.
    * 
-   * - CU-hours. For the jobs whose metering types are MapReduce, spark, or mars, they are billed based on CU-hours.
+   * - For jobs billed by CU-hours (such as `MapReduce`, `spark`, and `mars` jobs), the unit is CU-hour.
    * 
    * @example
    * 1024
@@ -143,12 +145,12 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
 export class ListComputeMetricsByInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of pay-as-you-go job compute usage.
+   * Usage metrics for pay-as-you-go jobs.
    */
   instanceComputeMetrics?: ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics[];
   /**
    * @remarks
-   * The current page number.
+   * The returned page number.
    * 
    * @example
    * 1
@@ -164,7 +166,7 @@ export class ListComputeMetricsByInstanceResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of results returned.
+   * The total number of entries returned.
    * 
    * @example
    * 64
@@ -210,11 +212,15 @@ export class ListComputeMetricsByInstanceResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * - 1xx: informational response. The request is received and is being processed.
-   * - 2xx: success. The request is successfully received, understood, and accepted by the server.
-   * - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
-   * - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
-   * - 5xx: server error. The server cannot meet requirements due to other reasons.
+   * - 1xx: Informational - The request has been received and is being processed.
+   * 
+   * - 2xx: Success - The request was successfully received, understood, and accepted.
+   * 
+   * - 3xx: Redirection - Further action is required to complete the request.
+   * 
+   * - 4xx: Client Error - The request contains invalid syntax or cannot be fulfilled.
+   * 
+   * - 5xx: Server Error - The server failed to fulfill a valid request.
    * 
    * @example
    * 200
@@ -222,7 +228,7 @@ export class ListComputeMetricsByInstanceResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bc059b717363029839908920ea631

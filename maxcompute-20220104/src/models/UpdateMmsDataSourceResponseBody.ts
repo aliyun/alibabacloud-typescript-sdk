@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateMmsDataSourceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task. When you test the data source configuration, this ID is used to obtain the test result.
+   * 
+   * @example
+   * 100
+   */
   asyncTaskId?: number;
+  /**
+   * @remarks
+   * The ID of the data source.
+   * 
+   * @example
+   * 2000017
+   */
   sourceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +43,15 @@ export class UpdateMmsDataSourceResponseBodyData extends $dara.Model {
 }
 
 export class UpdateMmsDataSourceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the request.
+   */
   data?: UpdateMmsDataSourceResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 76CE80C8-7392-5591-BCC8-610AFBF78ADF
    */

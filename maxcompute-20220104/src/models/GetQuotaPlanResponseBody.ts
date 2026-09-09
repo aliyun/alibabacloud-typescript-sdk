@@ -7,8 +7,9 @@ export class GetQuotaPlanResponseBodyDataQuotaBillingPolicy extends $dara.Model 
    * @remarks
    * The billing method of the quota. Valid values:
    * 
-   * *   subscription: a subscription quota.
-   * *   payasyougo: a pay-as-you-go quota.
+   * - subscription: a subscription quota.
+   * 
+   * - payasyougo: a pay-as-you-go quota.
    * 
    * @example
    * subscription
@@ -150,8 +151,9 @@ export class GetQuotaPlanResponseBodyDataQuotaSubQuotaInfoListBillingPolicy exte
    * @remarks
    * The billing method of the quota. Valid values:
    * 
-   * *   subscription: a subscription quota.
-   * *   payasyougo: a pay-as-you-go quota.
+   * - subscription: a subscription quota.
+   * 
+   * - payasyougo: a pay-as-you-go quota.
    * 
    * @example
    * subscription

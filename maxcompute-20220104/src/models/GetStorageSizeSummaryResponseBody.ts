@@ -4,16 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStorageSizeSummaryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The date of statistics.
+   * 
    * @example
    * 20241205
    */
   date?: string;
   /**
+   * @remarks
+   * The timestamp of the last data update.
+   * 
    * @example
    * 1749090705919
    */
   timestamp?: number;
+  /**
+   * @remarks
+   * The unit of the storage metric usage. It includes:
+   * 
+   * - lowFreqStorage
+   * 
+   * - standardStorage
+   * 
+   * - longTermStorage
+   * 
+   * - totalStorage
+   */
   unit?: { [key: string]: string };
+  /**
+   * @remarks
+   * The storage metrics. It includes:
+   * 
+   * - lowFreqStorage
+   * 
+   * - standardStorage
+   * 
+   * - longTermStorage
+   * 
+   * - totalStorage
+   */
   value?: { [key: string]: number };
   static names(): { [key: string]: string } {
     return {
@@ -49,23 +79,43 @@ export class GetStorageSizeSummaryResponseBodyData extends $dara.Model {
 }
 
 export class GetStorageSizeSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetStorageSizeSummaryResponseBodyData;
   /**
+   * @remarks
+   * The business error code or an empty value.
+   * 
+   * - If success is false, a business error code is returned.
+   * 
+   * - If success is true, an empty value is returned.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The description of the error.
+   * 
    * @example
    * this quota is not exist.
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether the business is successful. If this parameter is not empty and the value is not 200, the business fails.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0be3e0aa16667684362147582e038f
    */

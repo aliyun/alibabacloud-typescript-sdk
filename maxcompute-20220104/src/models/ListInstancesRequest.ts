@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the time range for cost analysis.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListInstancesRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
+   * The start time of the time range for cost analysis.
+   * 
    * This parameter is required.
    * 
    * @example

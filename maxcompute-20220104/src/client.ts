@@ -186,7 +186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
+   * Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
    * 
    * @param request - CreateMmsDataSourceRequest
    * @param headers - map
@@ -231,7 +231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
+   * Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
    * 
    * @param request - CreateMmsDataSourceRequest
    * @returns CreateMmsDataSourceResponse
@@ -243,7 +243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
+   * Creates a job to pull metadata from a data source.
    * 
    * @param request - CreateMmsFetchMetadataJobRequest
    * @param headers - map
@@ -280,7 +280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
+   * Creates a job to pull metadata from a data source.
    * 
    * @param request - CreateMmsFetchMetadataJobRequest
    * @returns CreateMmsFetchMetadataJobResponse
@@ -423,6 +423,9 @@ export default class Client extends OpenApi {
   /**
    * CreateMmsTimer
    * 
+   * @remarks
+   * Before you call this API, make sure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources in the Data Transmission Service.
+   * 
    * @param request - CreateMmsTimerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -515,6 +518,9 @@ export default class Client extends OpenApi {
 
   /**
    * CreateMmsTimer
+   * 
+   * @remarks
+   * Before you call this API, make sure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources in the Data Transmission Service.
    * 
    * @param request - CreateMmsTimerRequest
    * @returns CreateMmsTimerResponse
@@ -612,7 +618,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateQuota
+   * Creates a quota. When you activate MaxCompute for the first time, you must first create a pay-as-you-go quota. If you create a subscription quota, automatic payment is deducted.
+   * 
+   * @remarks
+   * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0) of MaxCompute.**
    * 
    * @param request - CreateQuotaRequest
    * @param headers - map
@@ -657,7 +666,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateQuota
+   * Creates a quota. When you activate MaxCompute for the first time, you must first create a pay-as-you-go quota. If you create a subscription quota, automatic payment is deducted.
+   * 
+   * @remarks
+   * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0) of MaxCompute.**
    * 
    * @param request - CreateQuotaRequest
    * @returns CreateQuotaResponse
@@ -794,7 +806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
+   * Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -819,7 +831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
+   * Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
    * @returns DeleteMmsDataSourceResponse
    */
   async deleteMmsDataSource(sourceId: string): Promise<$_model.DeleteMmsDataSourceResponse> {
@@ -829,7 +841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a MaxCompute Migration Assist (MMA) migration job.
+   * Deletes a MaxCompute Migration Assist (MMA) data migration plan.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -854,7 +866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a MaxCompute Migration Assist (MMA) migration job.
+   * Deletes a MaxCompute Migration Assist (MMA) data migration plan.
    * @returns DeleteMmsJobResponse
    */
   async deleteMmsJob(sourceId: string, jobId: string): Promise<$_model.DeleteMmsJobResponse> {
@@ -864,7 +876,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteMmsTimer
+   * Deletes a timer from a specified data source.
+   * 
+   * @remarks
+   * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources of the Data Transfer Service.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -889,7 +905,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteMmsTimer
+   * Deletes a timer from a specified data source.
+   * 
+   * @remarks
+   * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources of the Data Transfer Service.
    * @returns DeleteMmsTimerResponse
    */
   async deleteMmsTimer(sourceId: string, timerId: string): Promise<$_model.DeleteMmsTimerResponse> {
@@ -899,7 +919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a MaxCompute project.
+   * Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
    * 
    * @param request - DeleteProjectRequest
    * @param headers - map
@@ -932,7 +952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a MaxCompute project.
+   * Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
    * 
    * @param request - DeleteProjectRequest
    * @returns DeleteProjectResponse
@@ -993,6 +1013,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a project-level role in MaxCompute.
+   * 
    * @param request - DeleteRoleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1018,6 +1040,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a project-level role in MaxCompute.
+   * 
    * @param request - DeleteRoleRequest
    * @returns DeleteRoleResponse
    */
@@ -1143,7 +1167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about a job.
+   * Queries basic information about a job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1168,7 +1192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about a job.
+   * Queries basic information about a job.
    * @returns GetJobInfoResponse
    */
   async getJobInfo(instanceId: string): Promise<$_model.GetJobInfoResponse> {
@@ -1249,7 +1273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a MaxCompute Migration Assist (MMA) asynchronous task.
+   * Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1274,7 +1298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a MaxCompute Migration Assist (MMA) asynchronous task.
+   * Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
    * @returns GetMmsAsyncTaskResponse
    */
   async getMmsAsyncTask(sourceId: string, asyncTaskId: string): Promise<$_model.GetMmsAsyncTaskResponse> {
@@ -1284,7 +1308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a MaxCompute Migration Assist (MMA) data source.
+   * Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
    * 
    * @param request - GetMmsDataSourceRequest
    * @param headers - map
@@ -1321,7 +1345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a MaxCompute Migration Assist (MMA) data source.
+   * Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
    * 
    * @param request - GetMmsDataSourceRequest
    * @returns GetMmsDataSourceResponse
@@ -1333,7 +1357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a database in a MaxCompute Migration Assist (MMA) data source.
+   * Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1358,7 +1382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a database in a MaxCompute Migration Assist (MMA) data source.
+   * Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
    * @returns GetMmsDbResponse
    */
   async getMmsDb(sourceId: string, dbId: string): Promise<$_model.GetMmsDbResponse> {
@@ -1368,7 +1392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
+   * Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1393,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
+   * Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
    * @returns GetMmsFetchMetadataJobResponse
    */
   async getMmsFetchMetadataJob(sourceId: string, scanId: string): Promise<$_model.GetMmsFetchMetadataJobResponse> {
@@ -1403,7 +1427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a MaxCompute Migration Assist (MMA) migration job.
+   * Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1428,7 +1452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a MaxCompute Migration Assist (MMA) migration job.
+   * Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
    * @returns GetMmsJobResponse
    */
   async getMmsJob(sourceId: string, jobId: string): Promise<$_model.GetMmsJobResponse> {
@@ -1438,7 +1462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a partition from a MaxCompute Migration Assist (MMA) data source.
+   * Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1463,7 +1487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a partition from a MaxCompute Migration Assist (MMA) data source.
+   * Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
    * @returns GetMmsPartitionResponse
    */
   async getMmsPartition(sourceId: string, partitionId: string): Promise<$_model.GetMmsPartitionResponse> {
@@ -1473,7 +1497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a table in a MaxCompute Migration Assist (MMA) data source.
+   * Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1498,7 +1522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a table in a MaxCompute Migration Assist (MMA) data source.
+   * Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
    * @returns GetMmsTableResponse
    */
   async getMmsTable(sourceId: string, tableId: string): Promise<$_model.GetMmsTableResponse> {
@@ -1508,7 +1532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a migration task.
+   * Retrieves the details of a specific migration task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1533,7 +1557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a migration task.
+   * Retrieves the details of a specific migration task.
    * @returns GetMmsTaskResponse
    */
   async getMmsTask(sourceId: string, taskId: string): Promise<$_model.GetMmsTaskResponse> {
@@ -1544,6 +1568,9 @@ export default class Client extends OpenApi {
 
   /**
    * GetMmsTimer
+   * 
+   * @remarks
+   * Before using this API, review the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources used for data transfer.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1569,6 +1596,9 @@ export default class Client extends OpenApi {
 
   /**
    * GetMmsTimer
+   * 
+   * @remarks
+   * Before using this API, review the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources used for data transfer.
    * @returns GetMmsTimerResponse
    */
   async getMmsTimer(sourceId: string, timerId: string): Promise<$_model.GetMmsTimerResponse> {
@@ -1623,7 +1653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a MaxCompute project.
+   * Queries the basic information of a MaxCompute project.
    * 
    * @param request - GetProjectRequest
    * @param headers - map
@@ -1664,7 +1694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a MaxCompute project.
+   * Queries the basic information of a MaxCompute project.
    * 
    * @param request - GetProjectRequest
    * @returns GetProjectResponse
@@ -1676,7 +1706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about a specified level-1 quota.
+   * Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
    * 
    * @param request - GetQuotaRequest
    * @param headers - map
@@ -1721,7 +1751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about a specified level-1 quota.
+   * Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
    * 
    * @param request - GetQuotaRequest
    * @returns GetQuotaResponse
@@ -2116,6 +2146,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a summary of the total storage amount.
+   * 
    * @param request - GetStorageAmountSummaryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2155,6 +2187,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a summary of the total storage amount.
+   * 
    * @param request - GetStorageAmountSummaryRequest
    * @returns GetStorageAmountSummaryResponse
    */
@@ -2165,6 +2199,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a summary of storage usage.
+   * 
    * @param request - GetStorageSizeSummaryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2204,6 +2240,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a summary of storage usage.
+   * 
    * @param request - GetStorageSizeSummaryRequest
    * @returns GetStorageSizeSummaryResponse
    */
@@ -2214,6 +2252,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the year-on-year (YoY) change in storage usage.
+   * 
    * @param tmpReq - GetStorageSummaryComparedRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2267,6 +2307,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the year-on-year (YoY) change in storage usage.
+   * 
    * @param request - GetStorageSummaryComparedRequest
    * @returns GetStorageSummaryComparedResponse
    */
@@ -2411,7 +2453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of computing resources used by a pay-as-you-go job.
+   * Lists the compute usage for jobs per instance.
    * 
    * @param request - ListComputeMetricsByInstanceRequest
    * @param headers - map
@@ -2480,7 +2522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of computing resources used by a pay-as-you-go job.
+   * Lists the compute usage for jobs per instance.
    * 
    * @param request - ListComputeMetricsByInstanceRequest
    * @returns ListComputeMetricsByInstanceResponse
@@ -2492,7 +2534,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按Signature查看作业计算使用量明细
+   * View detailed compute usage for jobs by Signature.
+   * 
+   * @remarks
+   * Gets job details by signature.
    * 
    * @param request - ListComputeMetricsBySignatureRequest
    * @param headers - map
@@ -2557,7 +2602,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按Signature查看作业计算使用量明细
+   * View detailed compute usage for jobs by Signature.
+   * 
+   * @remarks
+   * Gets job details by signature.
    * 
    * @param request - ListComputeMetricsBySignatureRequest
    * @returns ListComputeMetricsBySignatureResponse
@@ -2569,7 +2617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get computeQuotaPlan list.
+   * Lists compute quota plans.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2594,7 +2642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get computeQuotaPlan list.
+   * Lists compute quota plans.
    * @returns ListComputeQuotaPlanResponse
    */
   async listComputeQuotaPlan(nickname: string): Promise<$_model.ListComputeQuotaPlanResponse> {
@@ -2661,7 +2709,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取需要进行成本分析的项目或者实例
+   * Retrieves a list of projects for cost analysis over a specified time period.
+   * 
+   * @remarks
+   * Retrieves the projects for which cost analysis is required.
    * 
    * @param request - ListInstancesRequest
    * @param headers - map
@@ -2698,7 +2749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取需要进行成本分析的项目或者实例
+   * Retrieves a list of projects for cost analysis over a specified time period.
+   * 
+   * @remarks
+   * Retrieves the projects for which cost analysis is required.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -2710,7 +2764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views a list of jobs.
+   * Queries the list of jobs.
    * 
    * @param request - ListJobInfosRequest
    * @param headers - map
@@ -2829,7 +2883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views a list of jobs.
+   * Queries the list of jobs.
    * 
    * @param request - ListJobInfosRequest
    * @returns ListJobInfosResponse
@@ -2916,7 +2970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views a list of job snapshot data at a specific point in time.
+   * Retrieves job snapshot data at a specific point in time.
    * 
    * @param request - ListJobSnapshotInfosRequest
    * @param headers - map
@@ -3023,7 +3077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views a list of job snapshot data at a specific point in time.
+   * Retrieves job snapshot data at a specific point in time.
    * 
    * @param request - ListJobSnapshotInfosRequest
    * @returns ListJobSnapshotInfosResponse
@@ -3035,7 +3089,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListMmsDataSourceConfigItems
+   * Lists the configuration items for a specified data source type.
+   * 
+   * @remarks
+   * Before calling this operation, ensure you understand the <props="china">[billing methods and price](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+   * <props="intl">[billing methods and price](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) for MaxCompute Reserved CUs.
    * 
    * @param request - ListMmsDataSourceConfigItemsRequest
    * @param headers - map
@@ -3072,7 +3130,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListMmsDataSourceConfigItems
+   * Lists the configuration items for a specified data source type.
+   * 
+   * @remarks
+   * Before calling this operation, ensure you understand the <props="china">[billing methods and price](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+   * <props="intl">[billing methods and price](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) for MaxCompute Reserved CUs.
    * 
    * @param request - ListMmsDataSourceConfigItemsRequest
    * @returns ListMmsDataSourceConfigItemsResponse
@@ -3084,7 +3146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of MaxCompute Migration Assist (MMA) data sources.
+   * MaxCompute Migration Assist (MMA) data sources
    * 
    * @param request - ListMmsDataSourcesRequest
    * @param headers - map
@@ -3133,7 +3195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of MaxCompute Migration Assist (MMA) data sources.
+   * MaxCompute Migration Assist (MMA) data sources
    * 
    * @param request - ListMmsDataSourcesRequest
    * @returns ListMmsDataSourcesResponse
@@ -3145,7 +3207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
+   * List databases in the MMA data source.
    * 
    * @param tmpReq - ListMmsDbsRequest
    * @param headers - map
@@ -3200,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
+   * List databases in the MMA data source.
    * 
    * @param request - ListMmsDbsRequest
    * @returns ListMmsDbsResponse
@@ -3212,7 +3274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of migration jobs.
+   * Lists migration jobs.
    * 
    * @param request - ListMmsJobsRequest
    * @param headers - map
@@ -3285,7 +3347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of migration jobs.
+   * Lists migration jobs.
    * 
    * @param request - ListMmsJobsRequest
    * @returns ListMmsJobsResponse
@@ -3297,7 +3359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
+   * Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param tmpReq - ListMmsPartitionsRequest
    * @param headers - map
@@ -3380,7 +3442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
+   * Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param request - ListMmsPartitionsRequest
    * @returns ListMmsPartitionsResponse
@@ -3392,7 +3454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
+   * Lists the tables in a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param tmpReq - ListMmsTablesRequest
    * @param headers - map
@@ -3487,7 +3549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
+   * Lists the tables in a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param request - ListMmsTablesRequest
    * @returns ListMmsTablesResponse
@@ -3499,7 +3561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of the execution logs of a single migration task.
+   * Lists the execution logs for a specific migration task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3524,7 +3586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of the execution logs of a single migration task.
+   * Lists the execution logs for a specific migration task.
    * @returns ListMmsTaskLogsResponse
    */
   async listMmsTaskLogs(sourceId: string, taskId: string): Promise<$_model.ListMmsTaskLogsResponse> {
@@ -3534,7 +3596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of migration tasks.
+   * Retrieves a list of data migration tasks.
    * 
    * @param request - ListMmsTasksRequest
    * @param headers - map
@@ -3607,7 +3669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of migration tasks.
+   * Retrieves a list of data migration tasks.
    * 
    * @param request - ListMmsTasksRequest
    * @returns ListMmsTasksResponse
@@ -3619,7 +3681,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListMmsTimerLogs
+   * Lists the logs of a scheduled task for a specific data source.
+   * 
+   * @remarks
+   * Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, exclusive resource groups, and elastic reserved computing resources.
    * 
    * @param request - ListMmsTimerLogsRequest
    * @param headers - map
@@ -3656,7 +3722,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListMmsTimerLogs
+   * Lists the logs of a scheduled task for a specific data source.
+   * 
+   * @remarks
+   * Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, exclusive resource groups, and elastic reserved computing resources.
    * 
    * @param request - ListMmsTimerLogsRequest
    * @returns ListMmsTimerLogsResponse
@@ -3668,7 +3738,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListMmsTimers
+   * Lists the timers for a specified data source.
+   * 
+   * @remarks
+   * Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
    * 
    * @param request - ListMmsTimersRequest
    * @param headers - map
@@ -3721,7 +3795,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListMmsTimers
+   * Lists the timers for a specified data source.
+   * 
+   * @remarks
+   * Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
    * 
    * @param request - ListMmsTimersRequest
    * @returns ListMmsTimersResponse
@@ -3803,7 +3881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of MaxCompute projects.
+   * Retrieves a list of MaxCompute projects.
    * 
    * @param request - ListProjectsRequest
    * @param headers - map
@@ -3845,6 +3923,14 @@ export default class Client extends OpenApi {
       query["saleTags"] = request.saleTags;
     }
 
+    if (!$dara.isNull(request.sortBy)) {
+      query["sortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["sortOrder"] = request.sortOrder;
+    }
+
     if (!$dara.isNull(request.tenantId)) {
       query["tenantId"] = request.tenantId;
     }
@@ -3872,7 +3958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of MaxCompute projects.
+   * Retrieves a list of MaxCompute projects.
    * 
    * @param request - ListProjectsRequest
    * @returns ListProjectsResponse
@@ -3884,7 +3970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quotas.
+   * Retrieves a list of quotas.
    * 
    * @param request - ListQuotasRequest
    * @param headers - map
@@ -3941,7 +4027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quotas.
+   * Retrieves a list of quotas.
    * 
    * @param request - ListQuotasRequest
    * @returns ListQuotasResponse
@@ -4094,7 +4180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+   * Retrieves storage details for the partitions of a partitioned table in a MaxCompute project.
    * 
    * @param tmpReq - ListStoragePartitionsInfoRequest
    * @param headers - map
@@ -4169,7 +4255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+   * Retrieves storage details for the partitions of a partitioned table in a MaxCompute project.
    * 
    * @param request - ListStoragePartitionsInfoRequest
    * @returns ListStoragePartitionsInfoResponse
@@ -4181,6 +4267,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the storage details of projects.
+   * 
    * @param request - ListStorageProjectsInfoRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4244,6 +4332,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the storage details of projects.
+   * 
    * @param request - ListStorageProjectsInfoRequest
    * @returns ListStorageProjectsInfoResponse
    */
@@ -4582,7 +4672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询quota的资源使用信息
+   * Queries the time series data of resource consumption for a quota.
    * 
    * @param request - QueryQuotaMetricRequest
    * @param headers - map
@@ -4641,7 +4731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询quota的资源使用信息
+   * Queries the time series data of resource consumption for a quota.
    * 
    * @param request - QueryQuotaMetricRequest
    * @returns QueryQuotaMetricResponse
@@ -4653,7 +4743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries time series metrics of stored data.
+   * Queries time-series metrics of data storage.
    * 
    * @param request - QueryStorageMetricRequest
    * @param headers - map
@@ -4700,7 +4790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries time series metrics of stored data.
+   * Queries time-series metrics of data storage.
    * 
    * @param request - QueryStorageMetricRequest
    * @returns QueryStorageMetricResponse
@@ -4712,7 +4802,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metrics of the Tunnel service within a specified time range.
+   * Queries metric data for the Tunnel Data Transmission Service within a specified time range.
+   * 
+   * @remarks
+   * - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
+   * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
+   * - The `metric` parameter is also required. It specifies the type of metric to query.
+   * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
+   * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
+   * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
+   * - Ensure all parameters meet the requirements in this document to prevent request failures.
    * 
    * @param request - QueryTunnelMetricRequest
    * @param headers - map
@@ -4783,7 +4882,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metrics of the Tunnel service within a specified time range.
+   * Queries metric data for the Tunnel Data Transmission Service within a specified time range.
+   * 
+   * @remarks
+   * - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
+   * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
+   * - The `metric` parameter is also required. It specifies the type of metric to query.
+   * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
+   * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
+   * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
+   * - Ensure all parameters meet the requirements in this document to prevent request failures.
    * 
    * @param request - QueryTunnelMetricRequest
    * @returns QueryTunnelMetricResponse
@@ -4795,7 +4903,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metrics of the Tunnel service within a specified time range.
+   * Queries details about the Tunnel Data Transmission Service for a specified time range.
+   * 
+   * @remarks
+   * ## Usage notes
+   * - You can use this API to query Tunnel metrics, including slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
+   * - The `quotaNickname` and `project` parameters cannot both be empty.
+   * - If the `groupList` parameter includes `table` or `ip`, the `project` parameter is required. If groupList includes `ip`, the `tableList` parameter is also required.
+   * - The `orderColumn` parameter supports `maxValue`, `minValue`, `avgValue`, and `sumValue` (only for `throughput_summary`). If this parameter is omitted, the results are not sorted.
+   * - The `ascOrder` parameter defaults to `false` (descending order).
+   * - The `limit` parameter specifies the number of results to return, with a default of 10 and a maximum of 100.
    * 
    * @param request - QueryTunnelMetricDetailRequest
    * @param headers - map
@@ -4870,7 +4987,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metrics of the Tunnel service within a specified time range.
+   * Queries details about the Tunnel Data Transmission Service for a specified time range.
+   * 
+   * @remarks
+   * ## Usage notes
+   * - You can use this API to query Tunnel metrics, including slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
+   * - The `quotaNickname` and `project` parameters cannot both be empty.
+   * - If the `groupList` parameter includes `table` or `ip`, the `project` parameter is required. If groupList includes `ip`, the `tableList` parameter is also required.
+   * - The `orderColumn` parameter supports `maxValue`, `minValue`, `avgValue`, and `sumValue` (only for `throughput_summary`). If this parameter is omitted, the results are not sorted.
+   * - The `ascOrder` parameter defaults to `false` (descending order).
+   * - The `limit` parameter specifies the number of results to return, with a default of 10 and a maximum of 100.
    * 
    * @param request - QueryTunnelMetricDetailRequest
    * @returns QueryTunnelMetricDetailResponse
@@ -4882,7 +5008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a migration job.
+   * Retries a data migration job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4907,7 +5033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a migration job.
+   * Retries a data migration job.
    * @returns RetryMmsJobResponse
    */
   async retryMmsJob(sourceId: string, jobId: string): Promise<$_model.RetryMmsJobResponse> {
@@ -4917,7 +5043,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * RetryMmsTask
+   * Retries a migration task.
+   * 
+   * @remarks
+   * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, dedicated resource groups, and elastic reserved compute resources.
    * 
    * @param request - RetryMmsTaskRequest
    * @param headers - map
@@ -4944,7 +5074,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * RetryMmsTask
+   * Retries a migration task.
+   * 
+   * @remarks
+   * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, dedicated resource groups, and elastic reserved compute resources.
    * 
    * @param request - RetryMmsTaskRequest
    * @returns RetryMmsTaskResponse
@@ -4956,7 +5090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a migration job.
+   * Starts a data migration job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4981,7 +5115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a migration job.
+   * Starts a data migration job.
    * @returns StartMmsJobResponse
    */
   async startMmsJob(sourceId: string, jobId: string): Promise<$_model.StartMmsJobResponse> {
@@ -4991,7 +5125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a migration job.
+   * Stops a data migration job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5016,7 +5150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a migration job.
+   * Stops a data migration job.
    * @returns StopMmsJobResponse
    */
   async stopMmsJob(sourceId: string, jobId: string): Promise<$_model.StopMmsJobResponse> {
@@ -5026,7 +5160,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按实例统计或者按计费项统计费用信息
+   * Summarizes cost information by instance or billable item.
+   * 
+   * @remarks
+   * Summarizes cost information by instance or billable item.
    * 
    * @param request - SumBillsRequest
    * @param headers - map
@@ -5075,7 +5212,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按实例统计或者按计费项统计费用信息
+   * Summarizes cost information by instance or billable item.
+   * 
+   * @remarks
+   * Summarizes cost information by instance or billable item.
    * 
    * @param request - SumBillsRequest
    * @returns SumBillsResponse
@@ -5087,7 +5227,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按实例统计或者按计费项逐日进行费用统计
+   * Retrieves a daily summary of costs, grouped by instance or billable item.
+   * 
+   * @remarks
+   * Retrieves a daily summary of costs, grouped by instance or billable item.
    * 
    * @param request - SumBillsByDateRequest
    * @param headers - map
@@ -5136,7 +5279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按实例统计或者按计费项逐日进行费用统计
+   * Retrieves a daily summary of costs, grouped by instance or billable item.
+   * 
+   * @remarks
+   * Retrieves a daily summary of costs, grouped by instance or billable item.
    * 
    * @param request - SumBillsByDateRequest
    * @returns SumBillsByDateResponse
@@ -5148,7 +5294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按项目或者实例统计计算用量
+   * Calculates the total number of usage records.
+   * 
+   * @remarks
+   * Calculates the total number of usage records over a specified time range.
    * 
    * @param request - SumComputeMetricsByRecordRequest
    * @param headers - map
@@ -5189,7 +5338,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按项目或者实例统计计算用量
+   * Calculates the total number of usage records.
+   * 
+   * @remarks
+   * Calculates the total number of usage records over a specified time range.
    * 
    * @param request - SumComputeMetricsByRecordRequest
    * @returns SumComputeMetricsByRecordResponse
@@ -5201,7 +5353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 统计扫描量计算类的使用量或者CU时计算类使用量
+   * Aggregates compute usage by scanned data volume or CU usage.
+   * 
+   * @remarks
+   * Aggregates compute usage by scanned data volume or CU usage.
    * 
    * @param request - SumComputeMetricsByUsageRequest
    * @param headers - map
@@ -5246,7 +5401,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 统计扫描量计算类的使用量或者CU时计算类使用量
+   * Aggregates compute usage by scanned data volume or CU usage.
+   * 
+   * @remarks
+   * Aggregates compute usage by scanned data volume or CU usage.
    * 
    * @param request - SumComputeMetricsByUsageRequest
    * @returns SumComputeMetricsByUsageResponse
@@ -5258,7 +5416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按实例统或者按计费项统计的明细信息
+   * View a daily breakdown of costs by instance or billable item.
    * 
    * @param request - SumDailyBillsByItemRequest
    * @param headers - map
@@ -5315,7 +5473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按实例统或者按计费项统计的明细信息
+   * View a daily breakdown of costs by instance or billable item.
    * 
    * @param request - SumDailyBillsByItemRequest
    * @returns SumDailyBillsByItemResponse
@@ -5327,7 +5485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按照project或者存储类型按天统计存储用量
+   * Retrieves aggregated storage metrics over a specified date range, grouped by project or storage class.
    * 
    * @param request - SumStorageMetricsByDateRequest
    * @param headers - map
@@ -5372,7 +5530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按照project或者存储类型按天统计存储用量
+   * Retrieves aggregated storage metrics over a specified date range, grouped by project or storage class.
    * 
    * @param request - SumStorageMetricsByDateRequest
    * @returns SumStorageMetricsByDateResponse
@@ -5384,7 +5542,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按项目统计各种类型存储使用量统计
+   * Aggregates storage usage by storage type.
+   * 
+   * @remarks
+   * Aggregates storage usage by storage type.
    * 
    * @param request - SumStorageMetricsByTypeRequest
    * @param headers - map
@@ -5429,7 +5590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按项目统计各种类型存储使用量统计
+   * Aggregates storage usage by storage type.
+   * 
+   * @remarks
+   * Aggregates storage usage by storage type.
    * 
    * @param request - SumStorageMetricsByTypeRequest
    * @returns SumStorageMetricsByTypeResponse
@@ -5441,7 +5605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * TriggerMmsTimer
+   * Triggers a timer for a specific datasource.
    * 
    * @param request - TriggerMmsTimerRequest
    * @param headers - map
@@ -5468,7 +5632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * TriggerMmsTimer
+   * Triggers a timer for a specific datasource.
    * 
    * @param request - TriggerMmsTimerRequest
    * @returns TriggerMmsTimerResponse
@@ -5537,11 +5701,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the time-based plan for computing quota.
+   * Updates the time-based schedule for a computing quota.
    * 
    * @remarks
-   * Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
-   * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+   * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
    * 
    * @param request - UpdateComputeQuotaScheduleRequest
    * @param headers - map
@@ -5575,11 +5738,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the time-based plan for computing quota.
+   * Updates the time-based schedule for a computing quota.
    * 
    * @remarks
-   * Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
-   * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+   * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
    * 
    * @param request - UpdateComputeQuotaScheduleRequest
    * @returns UpdateComputeQuotaScheduleResponse
@@ -5591,7 +5753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+   * Updates the basic configuration of a MaxCompute quota, including adding or deleting level-2 quotas, defining the basic attributes of a level-2 quota, and configuring compute units (CUs) for a quota plan that is in effect.
    * 
    * @param request - UpdateComputeSubQuotaRequest
    * @param headers - map
@@ -5624,7 +5786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+   * Updates the basic configuration of a MaxCompute quota, including adding or deleting level-2 quotas, defining the basic attributes of a level-2 quota, and configuring compute units (CUs) for a quota plan that is in effect.
    * 
    * @param request - UpdateComputeSubQuotaRequest
    * @returns UpdateComputeSubQuotaResponse
@@ -5636,7 +5798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
+   * Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param request - UpdateMmsDataSourceRequest
    * @param headers - map
@@ -5681,7 +5843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
+   * Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
    * 
    * @param request - UpdateMmsDataSourceRequest
    * @returns UpdateMmsDataSourceResponse
@@ -5693,7 +5855,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 功能：
+   * Updates the metadata of a specified database.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Data Transmission Service dedicated resource groups and elastic reserved computing resources.
    * 
    * @param request - UpdateMmsDbRequest
    * @param headers - map
@@ -5734,7 +5899,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 功能：
+   * Updates the metadata of a specified database.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Data Transmission Service dedicated resource groups and elastic reserved computing resources.
    * 
    * @param request - UpdateMmsDbRequest
    * @returns UpdateMmsDbResponse
@@ -5746,7 +5914,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新表元数据
+   * Updates table metadata.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups for data transmission and elastic reserved computing resources.
    * 
    * @param request - UpdateMmsTableRequest
    * @param headers - map
@@ -5791,7 +5963,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新表元数据
+   * Updates table metadata.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups for data transmission and elastic reserved computing resources.
    * 
    * @param request - UpdateMmsTableRequest
    * @returns UpdateMmsTableResponse
@@ -5803,7 +5979,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新表元数据
+   * Updates table metadata.
+   * 
+   * @remarks
+   * Before you call this API, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for Data Transmission Service exclusive resource groups and elastic reserved computing resources.
    * 
    * @param request - UpdateMmsTablesRequest
    * @param headers - map
@@ -5856,7 +6036,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新表元数据
+   * Updates table metadata.
+   * 
+   * @remarks
+   * Before you call this API, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for Data Transmission Service exclusive resource groups and elastic reserved computing resources.
    * 
    * @param request - UpdateMmsTablesRequest
    * @returns UpdateMmsTablesResponse
@@ -5868,7 +6052,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateMmsTimer
+   * Updates the settings of a scheduled task.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the <props="china">[billing method and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing method and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
    * 
    * @param request - UpdateMmsTimerRequest
    * @param headers - map
@@ -5909,7 +6097,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateMmsTimer
+   * Updates the settings of a scheduled task.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the <props="china">[billing method and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+   * <props="intl">[billing method and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
    * 
    * @param request - UpdateMmsTimerRequest
    * @returns UpdateMmsTimerResponse
@@ -5961,7 +6153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Project Basic Information
+   * Modifies the basic information of a project.
    * 
    * @param request - UpdateProjectBasicMetaRequest
    * @param headers - map
@@ -5998,7 +6190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Project Basic Information
+   * Modifies the basic information of a project.
    * 
    * @param request - UpdateProjectBasicMetaRequest
    * @returns UpdateProjectBasicMetaResponse
@@ -6095,7 +6287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将project的二层模型升级为三层模型
+   * Upgrades a project\\"s Layer 2 model to a Layer 3 model.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6120,7 +6312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将project的二层模型升级为三层模型
+   * Upgrades a project\\"s Layer 2 model to a Layer 3 model.
    * @returns UpdateProjectModelTierResponse
    */
   async updateProjectModelTier(projectName: string): Promise<$_model.UpdateProjectModelTierResponse> {
@@ -6230,10 +6422,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+   * Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
+   * Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
    * 
    * @param request - UpdateTunnelQuotaTimerRequest
    * @param headers - map
@@ -6267,10 +6459,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+   * Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
+   * Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
    * 
    * @param request - UpdateTunnelQuotaTimerRequest
    * @returns UpdateTunnelQuotaTimerResponse
@@ -6282,7 +6474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add or remove users from a project role.
+   * Adds or removes users from a project role.
    * 
    * @param request - UpdateUsersToRoleRequest
    * @param headers - map
@@ -6319,7 +6511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add or remove users from a project role.
+   * Adds or removes users from a project role.
    * 
    * @param request - UpdateUsersToRoleRequest
    * @returns UpdateUsersToRoleResponse

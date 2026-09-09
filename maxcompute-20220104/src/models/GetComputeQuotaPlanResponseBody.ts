@@ -444,7 +444,7 @@ export class GetComputeQuotaPlanResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Whether it is currently effective.
-   * > 
+   * 
    * > - A Quota plan that has taken effect cannot be deleted, i.e., isEffective=true
    * 
    * @example
@@ -521,9 +521,13 @@ export class GetComputeQuotaPlanResponseBody extends $dara.Model {
    * The HTTP status code.
    * 
    * - 1xx: informational response. The request is received and is being processed.
+   * 
    * - 2xx: success. The request is successfully received, understood, and accepted by the server.
+   * 
    * - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+   * 
    * - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+   * 
    * - 5xx: server error. The server cannot meet requirements due to other reasons.
    * 
    * @example

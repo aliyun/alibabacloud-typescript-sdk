@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteRoleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data. A value of `success` indicates that the operation succeeded.
+   * 
    * @example
    * success
    */
   data?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0adb901117579891946416405d0409
    */

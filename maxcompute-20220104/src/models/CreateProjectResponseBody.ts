@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class CreateProjectResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0b87b7a316654730544735643e9200

@@ -110,7 +110,7 @@ export class GetTableInfoResponseBodyDataNativeColumns extends $dara.Model {
    * The column comments.
    * 
    * @example
-   * The name of shop.
+   * Store name
    */
   comment?: string;
   /**
@@ -170,7 +170,7 @@ export class GetTableInfoResponseBodyDataPartitionColumns extends $dara.Model {
    * The comments of the partition key column.
    * 
    * @example
-   * Sale date.
+   * Sales date
    */
   comment?: string;
   /**
@@ -186,7 +186,7 @@ export class GetTableInfoResponseBodyDataPartitionColumns extends $dara.Model {
    * The partition name.
    * 
    * @example
-   * sale_date
+   * ds=\\"20190130\\"
    */
   name?: string;
   /**
@@ -267,7 +267,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
    * The display name.
    * 
    * @example
-   * project_name.schema_name.table_name
+   * odps_project.default.sale_detail
    */
   displayName?: string;
   /**
@@ -384,7 +384,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
    * The account information of the table or view owner.
    * 
    * @example
-   * 188785396123****
+   * ALIYUN$odps****@aliyunid.com
    */
   owner?: string;
   /**
@@ -405,7 +405,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
    * The name of the project to which the table or view belongs.
    * 
    * @example
-   * projectA
+   * odps_project
    */
   projectName?: string;
   /**
@@ -461,17 +461,20 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
    * The columns of the Tablestore table to be accessed, including the primary key column and attribute column. This response parameter is returned when type is set to external.
    * 
    * @example
-   * :o_orderkey,:o_orderdate,o_custkey,o_orderstatus,o_totalprice
+   * o_orderkey,o_orderdate,o_custkey,o_orderstatus,o_totalprice
    */
   tablestoreColumnsMapping?: string;
   /**
    * @remarks
    * The type of the table or view. Valid values:
    * 
-   * *   **internal**: internal table
-   * *   **external**: external table
-   * *   **view**: view
-   * *   **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
+   * - **internal**: internal table
+   * 
+   * - **external**: external table
+   * 
+   * - **view**: view
+   * 
+   * - **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
    * 
    * @example
    * internal

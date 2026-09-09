@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsTimersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The timer name.
+   * 
    * @example
    * demo
    */
   name?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The source database name.
+   * 
    * @example
    * test_db_1
    */
   srcDbName?: string;
   /**
+   * @remarks
+   * The source table name.
+   * 
    * @example
    * test_table_1
    */
   srcTableName?: string;
   /**
+   * @remarks
+   * Filters timers by their stopped state.
+   * 
    * @example
    * false
    */

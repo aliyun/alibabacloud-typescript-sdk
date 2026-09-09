@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsDataSourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * demo
    */
   name?: string;
   /**
+   * @remarks
+   * The page number. If pagination is not used, all data sources are returned.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page. If pagination is not used, all data sources are returned.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The type of the data source.
+   * 
    * @example
    * BIGQUERY
    */

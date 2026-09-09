@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for the period.
+   * The end of the query time range, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1718590596556
@@ -13,7 +13,7 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * The job(instance) ID.
+   * The instance ID.
    * 
    * @example
    * 20240730****ddlr
@@ -21,7 +21,7 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that is used to run the MaxCompute job.
+   * The job owner.
    * 
    * @example
    * ALIYUN$7632***@aliyun.com
@@ -37,7 +37,7 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page. The default value is 10.
    * 
    * @example
    * 10
@@ -45,12 +45,12 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of MaxCompute project.
+   * The names of the projects.
    */
   projectNames?: string[];
   /**
    * @remarks
-   * The signature of the SQL job.
+   * The SQL job signature.
    * 
    * @example
    * ghijkl789012
@@ -58,12 +58,12 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   signature?: string;
   /**
    * @remarks
-   * Specification types.
+   * The specification types.
    */
   specCodes?: string[];
   /**
    * @remarks
-   * The start time for the period.
+   * The start of the query time range, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1715393576201
@@ -71,7 +71,7 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   startDate?: number;
   /**
    * @remarks
-   * Metering types.
+   * The metering types.
    */
   types?: string[];
   static names(): { [key: string]: string } {

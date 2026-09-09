@@ -180,8 +180,9 @@ export class GetRunningJobsResponseBody extends $dara.Model {
   data?: GetRunningJobsResponseBodyData;
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error code was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * success

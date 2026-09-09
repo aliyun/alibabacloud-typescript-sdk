@@ -8,7 +8,8 @@ export class UpdateProjectIpWhiteListRequest extends $dara.Model {
    * The request body parameters.
    * 
    * @example
-   * json {"ipWhiteList":{"ipList": "", // The IP address whitelists are of the STRING data type. Separate multiple IP address whitelists with commas (,). "vpcIpList": "", //} }
+   * {"ipWhiteList":{"ipList": "", //string, separate multiple values with commas
+   *                 "vpcIpList": ""}}
    */
   body?: string;
   static names(): { [key: string]: string } {

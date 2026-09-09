@@ -6,6 +6,23 @@ export class CreateProjectRequest extends $dara.Model {
   /**
    * @remarks
    * The request body parameters.
+   * 
+   * @example
+   * {
+   *     "name":"project_name",
+   *     "comment":"",
+   *     "productType":"payasyougo/subscription/dev",
+   *     "defaultQuota":"quota_nick_name",
+   *     "properties":{
+   *         "sqlMeteringMax":"",
+   *         "typeSystem":"",
+   *         "encryption":{
+   *             "enable":true,
+   *             "algorithm":"",
+   *             "key":""
+   *         }
+   *     }
+   * }
    */
   body?: string;
   static names(): { [key: string]: string } {

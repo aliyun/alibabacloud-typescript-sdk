@@ -401,7 +401,7 @@ export class GetRoleAclResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * error message
+   * Exception information
    */
   errorMsg?: string;
   /**

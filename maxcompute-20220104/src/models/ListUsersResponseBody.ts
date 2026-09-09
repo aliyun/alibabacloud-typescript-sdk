@@ -8,7 +8,7 @@ export class ListUsersResponseBodyDataUsers extends $dara.Model {
    * The ID of the Alibaba Cloud account.
    * 
    * @example
-   * 167835629082
+   * 16783562****
    */
   accountId?: string;
   /**

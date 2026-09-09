@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class DeleteProjectResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0be3e0aa16667684362147582e038f

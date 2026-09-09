@@ -301,7 +301,7 @@ export class GetPackageResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * error message.
+   * Exception information
    */
   errorMsg?: string;
   /**

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMmsJobResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task that is created for the migration job.
+   * 
+   * @example
+   * 100
+   */
   asyncTaskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26,7 +33,18 @@ export class CreateMmsJobResponseBodyData extends $dara.Model {
 }
 
 export class CreateMmsJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateMmsJobResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 73207140-0FD5-588A-B11A-3CE093924196
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

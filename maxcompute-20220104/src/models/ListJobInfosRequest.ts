@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort query results in ascending or descending order.
+   * Specifies whether to sort in ascending or descending order.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListJobInfosRequest extends $dara.Model {
   ascOrder?: boolean;
   /**
    * @remarks
-   * The ancestor node IDs.
+   * The list of upstream node IDs.
    */
   extNodeIdList?: string[];
   extNodeNameList?: string[];
@@ -29,22 +29,22 @@ export class ListJobInfosRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The job instance IDs.
+   * The list of job instance IDs.
    */
   instanceIdList?: string[];
   /**
    * @remarks
-   * The job owners.
+   * The list of job owners.
    */
   jobOwnerList?: string[];
   /**
    * @remarks
-   * The job priorities.
+   * The list of job priorities.
    */
   priorityList?: number[];
   /**
    * @remarks
-   * The project names.
+   * The list of project names.
    */
   projectList?: string[];
   /**
@@ -57,27 +57,27 @@ export class ListJobInfosRequest extends $dara.Model {
   quotaNickname?: string;
   /**
    * @remarks
-   * The intelligent diagnostics tags.
+   * The list of intelligent diagnostics tags.
    */
   sceneTagList?: string[];
   /**
    * @remarks
-   * The job signatures.
+   * The list of job signatures.
    */
   signatureList?: string[];
   /**
    * @remarks
-   * The sorting columns.
+   * The list of columns for multi-column sorting.
    */
   sortByList?: string[];
   /**
    * @remarks
-   * The orders for the sorting columns.
+   * The list of sort orders for multi-column sorting.
    */
   sortOrderList?: string[];
   /**
    * @remarks
-   * The job states.
+   * The list of job statuses.
    */
   statusList?: string[];
   taskNameList?: string[];
@@ -93,12 +93,12 @@ export class ListJobInfosRequest extends $dara.Model {
   to?: number;
   /**
    * @remarks
-   * The job types.
+   * The list of job types.
    */
   typeList?: string[];
   /**
    * @remarks
-   * The column based on which you want to sort query results.
+   * The column used for sorting.
    * 
    * @example
    * cuUsage

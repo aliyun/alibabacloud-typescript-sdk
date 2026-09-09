@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to list the built-in **SYSTEM_CATALOG** projects that are used to provide data such as project metadata and historical usage data. For more information, see [Tenant-level Information Schema](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tenant-level-information-schema).
-   * 
-   * Valid values:
-   * 
-   * *   true: The built-in SYSTEM_CATALOG projects are listed.
-   * *   false: The built-in SYSTEM_CATALOG projects are not listed.
+   * Specifies whether to list the built-in **SYSTEM_CATALOG** project. This project provides information such as project metadata and usage history. For more information, see <props="intl">[Information Schema](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tenant-level-information-schema).
    * 
    * @example
    * true
@@ -18,7 +13,7 @@ export class ListProjectsRequest extends $dara.Model {
   listSystemCatalog?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The token that specifies the starting point of the query. The results are returned in alphabetical order, starting from the entry that immediately follows the marker.
    * 
    * @example
    * cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
@@ -26,7 +21,7 @@ export class ListProjectsRequest extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Default value: 10.
+   * The maximum number of entries to return on each page. Default value: 10.
    * 
    * @example
    * 10
@@ -34,7 +29,7 @@ export class ListProjectsRequest extends $dara.Model {
   maxItem?: number;
   /**
    * @remarks
-   * Specifies the marker after which the returned list begins.
+   * The prefix of the resource names to query. For example, if you specify `a` for this parameter, only resources whose names start with "a" are returned.
    * 
    * @example
    * a
@@ -42,18 +37,18 @@ export class ListProjectsRequest extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The quota name that is automatically generated. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), choose **Workspace** > **Quotas** from the left-side navigation pane, and then view the quota name on the **Quotas** page.
+   * The quota name. The system automatically generates this name. To obtain the quota name, log in to the [MaxCompute console](https://maxcompute.console.aliyun.com) and select **Workspace** > **Quota** **Management** from the navigation pane on the left.
    * 
    * @example
-   * "hsajkdgbkaubh"
+   * aliyun_5495***3697
    */
   quotaName?: string;
   /**
    * @remarks
-   * The quota nickname. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), choose **Workspace** > **Quotas** from the left-side navigation pane, and then view the quota nickname on the **Quotas** page.
+   * The quota nickname. To obtain the quota nickname, log in to the [MaxCompute console](https://maxcompute.console.aliyun.com) and select **Workspace** > **Quota** **Management** from the navigation pane on the left.
    * 
    * @example
-   * quotaA
+   * os_PayAsYouGoQuota
    */
   quotaNickName?: string;
   /**
@@ -66,29 +61,49 @@ export class ListProjectsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The instance ID and billing method of the default computing quota.
+   * The instance ID and billing method of the default compute quota.
    * 
    * @example
-   * "aaaa-bbbb"
+   * {
+   *       "resourceId": "b7afb7d1-****-****-****-c393669c307b",
+   *       "resourceType": "PayAsYouGo"
+   *     }
    */
   saleTags?: string;
   /**
    * @remarks
-   * The tenant ID. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), and choose **Tenants** > **Tenant Property** from the left-side navigation pane to view the tenant ID.
+   * The sort field. The only supported value is `createdTime`.
    * 
    * @example
-   * 549532154333697
+   * createdTime
+   */
+  sortBy?: string;
+  /**
+   * @remarks
+   * The sort order. This parameter takes effect only when `sortBy` is specified. Valid values are `ASC` and `DESC`. The values are case-insensitive.
+   * 
+   * @example
+   * DESC
+   */
+  sortOrder?: string;
+  /**
+   * @remarks
+   * The tenant ID. To obtain the ID, log in to the [MaxCompute console](https://maxcompute.console.aliyun.com) and select **Tenant Management** > **Tenant Properties** from the navigation pane on the left.
+   * 
+   * @example
+   * 5495****3697
    */
   tenantId?: string;
   /**
    * @remarks
    * The project type. Valid values:
    * 
-   * *   **managed**: internal project
-   * *   **external**: external project
+   * - **managed**: a managed project.
+   * 
+   * - **external**: an external project.
    * 
    * @example
-   * "managed"
+   * managed
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -101,6 +116,8 @@ export class ListProjectsRequest extends $dara.Model {
       quotaNickName: 'quotaNickName',
       region: 'region',
       saleTags: 'saleTags',
+      sortBy: 'sortBy',
+      sortOrder: 'sortOrder',
       tenantId: 'tenantId',
       type: 'type',
     };
@@ -116,6 +133,8 @@ export class ListProjectsRequest extends $dara.Model {
       quotaNickName: 'string',
       region: 'string',
       saleTags: 'string',
+      sortBy: 'string',
+      sortOrder: 'string',
       tenantId: 'string',
       type: 'string',
     };

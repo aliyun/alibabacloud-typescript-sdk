@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUsersToRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotasRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the quota.
+   * The billing method.
    * 
    * @example
    * subscription
@@ -13,7 +13,7 @@ export class ListQuotasRequest extends $dara.Model {
   billingType?: string;
   /**
    * @remarks
-   * Specifies the marker after which the returned list begins.
+   * The token that specifies the position from which to start returning results. The results are sorted in alphabetical order.
    * 
    * @example
    * cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
@@ -28,40 +28,22 @@ export class ListQuotasRequest extends $dara.Model {
    */
   maxItem?: number;
   /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * ODPS
-   * 
    * @deprecated
    */
   productId?: string;
   /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-beijing
-   * 
    * @deprecated
    */
   region?: string;
   /**
    * @remarks
-   * The cost tag. You can filter out quota objects based on the cost tag. The cost tag is created when you tag a service.
+   * The cost allocation tags that are used to filter quotas. You can create cost allocation tags in the Tag service.
    * 
    * @example
    * {"tag":"this_is_tag_demo"}
    */
   saleTags?: string;
   /**
-   * @remarks
-   * The ID of the tenant.
-   * 
-   * @example
-   * 280747109771520
-   * 
    * @deprecated
    */
   tenantId?: string;

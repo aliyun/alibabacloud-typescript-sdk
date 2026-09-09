@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class SumComputeMetricsByRecordRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end of the time range to query, specified as a required Unix timestamp in milliseconds.
+   * 
    * @example
    * 1718590596556
    */
   endDate?: number;
+  /**
+   * @remarks
+   * The list of project names.
+   */
   projectNames?: string[];
   /**
+   * @remarks
+   * The start of the time range to query, specified as a required Unix timestamp in milliseconds.
+   * 
    * @example
    * 1715393576201
    */
