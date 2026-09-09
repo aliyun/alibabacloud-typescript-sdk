@@ -5,36 +5,57 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceInfoRequest extends $dara.Model {
   xDebugId?: string;
   /**
+   * @remarks
+   * The information type.
+   * 
    * @example
    * instance_tag
    */
   infoType?: string;
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * ecs
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The managed type.
+   * 
    * @example
    * managed
    */
   managedType?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * xiF/wDgaeitjjhVJYYzLwJ4dD+2BRJj42DLT6GrZysw=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The plugin ID.
+   * 
    * @example
    * 01fc4a0b-f199-4885-9861-b4054a310fe7
    */
   pluginId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

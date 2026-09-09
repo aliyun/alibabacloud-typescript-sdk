@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstanceInfoResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The information key.
+   * 
    * @example
    * sysom
    */
   infoKey?: string;
   /**
+   * @remarks
+   * The information type.
+   * 
    * @example
    * instance_tag
    */
   infoType?: string;
   /**
+   * @remarks
+   * The information value.
+   * 
    * @example
    * diagnosis
    */
@@ -45,22 +54,40 @@ export class ListInstanceInfoResponseBodyData extends $dara.Model {
 
 export class ListInstanceInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListInstanceInfoResponseBodyData[];
   /**
+   * @remarks
+   * The maximum number of entries returned per request.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The pagination token for the next request.
+   * 
    * @example
    * U+w1wv2R4ZWR5oZLXD0+Dp4dD+2BRJj42DLT6GrZysw=
    */

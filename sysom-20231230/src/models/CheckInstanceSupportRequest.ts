@@ -14,7 +14,7 @@ export class CheckInstanceSupportRequest extends $dara.Model {
   instances?: string[];
   /**
    * @remarks
-   * The region to which the instances belong. All instance IDs specified in instances must belong to the same region.
+   * The region to which the instances belong. Ensure that all instance IDs passed in instances belong to the same region.
    * 
    * @example
    * cn-hangzhou

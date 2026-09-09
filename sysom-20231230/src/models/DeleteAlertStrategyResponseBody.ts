@@ -6,8 +6,8 @@ export class DeleteAlertStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failed. Check the `message` field for the detailed error message.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -23,7 +23,7 @@ export class DeleteAlertStrategyResponseBody extends $dara.Model {
    *     "name": "test",
    *     "strategy": {
    *       "items": [
-   *         "节点CPU使用率检测"
+   *         "Node CPU usage detection"
    *       ],
    *       "clusters": [
    *         "1"
@@ -40,7 +40,7 @@ export class DeleteAlertStrategyResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the error information of the request.
    * 
    * @example
    * success

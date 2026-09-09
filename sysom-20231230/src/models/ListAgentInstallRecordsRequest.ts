@@ -14,7 +14,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * The ID of the instance. If you specify this parameter, only the Agent installation records for the specified instance are returned.
+   * Specifies the instance ID. If this parameter is specified, only the Agent installation records for the specified instance are returned.
    * 
    * @example
    * i-bp118piqcio9tiwgh84b
@@ -30,7 +30,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the Agent. If you specify this parameter, only the installation records for the specified Agent are returned. You can use this parameter together with the plugin_version parameter.
+   * Specifies the Agent ID. If this parameter is specified, only the installation records for the specified Agent are returned. You can use this parameter together with the plugin_version parameter.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -38,7 +38,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The version of the Agent. This parameter cannot be used alone. Use this parameter together with the plugin_id parameter to filter installation records for a specific version of the specified Agent.
+   * Specifies the Agent version. This parameter cannot be used alone and must be used together with the plugin_id parameter to filter the installation records for a specific version of the specified Agent.
    * 
    * @example
    * 3.4.0-1

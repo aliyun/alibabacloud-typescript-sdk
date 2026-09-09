@@ -13,7 +13,7 @@ export class CheckInstanceSupportResponseBodyData extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * The reason why the instance cannot be managed. This field is not empty when success is false.
+   * The reason why the instance cannot be managed. This value is not empty when success is false.
    * 
    * @example
    * instance not found in ecs
@@ -69,7 +69,7 @@ export class CheckInstanceSupportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CheckInstanceSupportResponseBodyData[];
   /**

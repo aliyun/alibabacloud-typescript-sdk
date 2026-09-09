@@ -85,7 +85,7 @@ export class ListAgentInstallRecordsResponseBodyData extends $dara.Model {
 export class ListAgentInstallRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is active for end-to-end diagnostics.
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * E8CDFBA1-0564-5897-B070-D3C85002AF2F
@@ -94,8 +94,8 @@ export class ListAgentInstallRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -110,7 +110,7 @@ export class ListAgentInstallRecordsResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error message for the request.
+   * - Otherwise, this field contains the error information of the request.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
