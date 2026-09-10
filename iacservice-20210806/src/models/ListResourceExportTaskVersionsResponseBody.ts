@@ -28,7 +28,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule
   sourcePath?: string;
   /**
    * @remarks
-   * The path of the State file corresponding to the module.
+   * The path of the State file that corresponds to the module.
    * 
    * @example
    * /
@@ -70,7 +70,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksIncludeRules e
    * - ResourceGroupId: the resource group ID. Example: rg-1234.
    * - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
    * 
-   * Multiple filter conditions have an AND relationship by default. A resource must meet all filter conditions to be considered a match.
+   * By default, multiple filter conditions are evaluated with an AND operator. A resource must match all filter conditions to be considered a match.
    * 
    * @example
    * RegionId
@@ -118,11 +118,11 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksModules extend
   source?: string;
   /**
    * @remarks
-   * The download address of the exported template within the module.
+   * The download address of the exported template in the module.
    * 
-   * - If Source is CloudRegistry, the format is: "cloudregistry::iacservice//"
+   * - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
    * 
-   * - If Source is OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
+   * - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
    * 
    * @example
    * oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip
@@ -164,7 +164,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksModules extend
 export class ListResourceExportTaskVersionsResponseBodyExportTasksVariables extends $dara.Model {
   /**
    * @remarks
-   * The list of Terraform resource properties corresponding to the resource type.
+   * The list of Terraform resource properties that correspond to the resource type.
    */
   properties?: string[];
   /**
@@ -204,7 +204,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksVariables exte
 export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
+   * The creation time in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2025-05-11T02:18:50Z
@@ -236,7 +236,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
   exportTaskId?: string;
   /**
    * @remarks
-   * The module to which the exported template is saved. If this parameter is not set, the template is automatically saved in the Registry.
+   * The module to which the exported template is saved. If this parameter is not specified, the template is automatically saved in the Registry.
    */
   exportToModule?: ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule;
   /**
@@ -263,7 +263,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
   managedTaskId?: string;
   /**
    * @remarks
-   * The module configuration of the exported resources.
+   * The module configurations of the exported resources.
    */
   modules?: ListResourceExportTaskVersionsResponseBodyExportTasksModules[];
   /**
@@ -289,6 +289,14 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
   status?: string;
   /**
    * @remarks
+   * The Terraform Provider version.
+   * 
+   * @example
+   * 1.206.0
+   */
+  terraformProviderVersion?: string;
+  /**
+   * @remarks
    * The list of variables. Parameters of exported resources are set as variables.
    */
   variables?: ListResourceExportTaskVersionsResponseBodyExportTasksVariables[];
@@ -306,6 +314,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
       modules: 'modules',
       name: 'name',
       status: 'status',
+      terraformProviderVersion: 'terraformProviderVersion',
       variables: 'variables',
     };
   }
@@ -324,6 +333,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
       modules: { 'type': 'array', 'itemType': ListResourceExportTaskVersionsResponseBodyExportTasksModules },
       name: 'string',
       status: 'string',
+      terraformProviderVersion: 'string',
       variables: { 'type': 'array', 'itemType': ListResourceExportTaskVersionsResponseBodyExportTasksVariables },
     };
   }

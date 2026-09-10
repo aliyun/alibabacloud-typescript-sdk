@@ -7,7 +7,7 @@ export class GetResourceExportTaskResponseBodyTaskExportToModule extends $dara.M
    * @remarks
    * The module type in which the exported template is saved. Valid values:
    * 
-   * - OSS: OSS
+   * - OSS: OSS.
    * - Registry: Terraform Registry.
    * 
    * @example
@@ -20,7 +20,7 @@ export class GetResourceExportTaskResponseBodyTaskExportToModule extends $dara.M
    * 
    * - If Source is set to Registry, the format is: "cloudregistry::iacservice//"
    * 
-   * - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
+   * - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
    * 
    * @example
    * oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip
@@ -65,12 +65,12 @@ export class GetResourceExportTaskResponseBodyTaskIncludeRules extends $dara.Mod
    * The name of the include rule for resource export. Valid values:
    * 
    * - ResourceType: required. The resource type. Example: ALIYUN::VPC::VPC.
-   * - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: ap-southeast-1.
+   * - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: cn-chengdu.
    * - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
    * - ResourceGroupId: the resource group ID. Example: rg-1234.
-   * - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: ap-southeast-1a.
+   * - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
    * 
-   * By default, the relationship between multiple filter conditions is AND. A resource is considered matched only if all filter conditions are met.
+   * By default, the relationship between multiple filter conditions is AND, which means a resource must match all filter conditions to be considered a match.
    * 
    * @example
    * RegionId
@@ -110,7 +110,7 @@ export class GetResourceExportTaskResponseBodyTaskIncludeRules extends $dara.Mod
 export class GetResourceExportTaskResponseBodyTaskModules extends $dara.Model {
   /**
    * @remarks
-   * The module type where the exported template is stored. Two formats are supported: CloudRegistry and OSS. If the ExportToModule parameter is specified, both formats are returned. Otherwise, only CloudRegistry is returned.
+   * The module type where the exported template is located. Two formats are supported: CloudRegistry and OSS. If you specify the ExportToModule parameter, both formats are returned. Otherwise, only CloudRegistry is returned.
    * 
    * @example
    * OSS
@@ -118,11 +118,11 @@ export class GetResourceExportTaskResponseBodyTaskModules extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The download URL of the module where the exported template is stored.
+   * The download address of the exported template in the module.
    * 
    * - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
    * 
-   * - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
+   * - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
    * 
    * @example
    * oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip
@@ -130,7 +130,7 @@ export class GetResourceExportTaskResponseBodyTaskModules extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The version of the module where the exported template is stored.
+   * The version of the module where the exported template is located.
    * 
    * @example
    * v3
@@ -204,7 +204,7 @@ export class GetResourceExportTaskResponseBodyTaskVariables extends $dara.Model 
 export class GetResourceExportTaskResponseBodyTask extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the task was created, in UTC in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2022-06-15T02:44:37Z
@@ -236,7 +236,7 @@ export class GetResourceExportTaskResponseBodyTask extends $dara.Model {
   exportTaskId?: string;
   /**
    * @remarks
-   * Saves the exported template as a module. If this parameter is not set, the template is automatically saved in the registry.
+   * Saves the exported template as a module. If this parameter is not set, the template is automatically saved in the Registry.
    */
   exportToModule?: GetResourceExportTaskResponseBodyTaskExportToModule;
   /**
@@ -262,7 +262,17 @@ export class GetResourceExportTaskResponseBodyTask extends $dara.Model {
   includeRules?: GetResourceExportTaskResponseBodyTaskIncludeRules[];
   /**
    * @remarks
-   * The module configuration for the exported resources.
+   * The modification time.
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2023-06-07T09:19:11Z
+   */
+  modifyTime?: string;
+  /**
+   * @remarks
+   * The module configurations after resource export.
    */
   modules?: GetResourceExportTaskResponseBodyTaskModules[];
   /**
@@ -327,8 +337,8 @@ export class GetResourceExportTaskResponseBodyTask extends $dara.Model {
   /**
    * @remarks
    * The trigger strategy. Valid values:
-   * - Auto: triggered automatically when rules are modified or the trigger strategy is changed to Auto.
-   * - Manual: triggered manually.
+   * - Auto: triggered when rules are modified or the trigger strategy is changed to Auto.
+   * - Manual: manually triggered.
    * 
    * Default value: Manual.
    * 
@@ -338,7 +348,7 @@ export class GetResourceExportTaskResponseBodyTask extends $dara.Model {
   triggerStrategy?: string;
   /**
    * @remarks
-   * The list of variables. Parameters in the exported resources are set as variables.
+   * The list of variables. The parameters of the exported resources are set as variables.
    */
   variables?: GetResourceExportTaskResponseBodyTaskVariables[];
   static names(): { [key: string]: string } {
@@ -351,6 +361,7 @@ export class GetResourceExportTaskResponseBodyTask extends $dara.Model {
       exportVersion: 'exportVersion',
       failedReason: 'failedReason',
       includeRules: 'includeRules',
+      modifyTime: 'modifyTime',
       modules: 'modules',
       name: 'name',
       ramRole: 'ramRole',
@@ -374,6 +385,7 @@ export class GetResourceExportTaskResponseBodyTask extends $dara.Model {
       exportVersion: 'string',
       failedReason: 'string',
       includeRules: { 'type': 'array', 'itemType': GetResourceExportTaskResponseBodyTaskIncludeRules },
+      modifyTime: 'string',
       modules: { 'type': 'array', 'itemType': GetResourceExportTaskResponseBodyTaskModules },
       name: 'string',
       ramRole: 'string',
