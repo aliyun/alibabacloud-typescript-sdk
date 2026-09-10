@@ -2,7 +2,87 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class RetrievalKnowledgeBaseResponseBodyResultsImageResources extends $dara.Model {
+  /**
+   * @remarks
+   * The index of the source document that the image belongs to, starting from 0.
+   * 
+   * @example
+   * 0
+   */
+  documentIndex?: number;
+  /**
+   * @remarks
+   * The unique ID of the image resource.
+   * 
+   * @example
+   * document-0/pictures/1
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The element reference of the image in the Docling source document structure.
+   * 
+   * @example
+   * #/pictures/1
+   */
+  itemRef?: string;
+  /**
+   * @remarks
+   * The media type of the image resource.
+   * 
+   * @example
+   * image/png
+   */
+  mimeType?: string;
+  /**
+   * @remarks
+   * The OSS URI of the image resource.
+   * 
+   * @example
+   * oss://my-bucket/results/my-space/doc-001/artifacts/image-1.png
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentIndex: 'DocumentIndex',
+      id: 'Id',
+      itemRef: 'ItemRef',
+      mimeType: 'MimeType',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentIndex: 'number',
+      id: 'string',
+      itemRef: 'string',
+      mimeType: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
+  /**
+   * @remarks
+   * The list of figure or table captions associated with the chunk.
+   */
+  captions?: string[];
+  /**
+   * @remarks
+   * The list of Docling source document structured element references associated with the chunk. You can use these references to precisely locate original elements.
+   */
+  docItems?: string[];
   /**
    * @remarks
    * The unique ID of the file.
@@ -13,7 +93,7 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * 2024FinancialReport.pdf
@@ -21,9 +101,14 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The chain of section headings to which the shard belongs.
+   * The chain of section headings that the chunk belongs to.
    */
   headings?: string[];
+  /**
+   * @remarks
+   * The list of image resources referenced by the chunk.
+   */
+  imageResources?: RetrievalKnowledgeBaseResponseBodyResultsImageResources[];
   /**
    * @remarks
    * The metadata.
@@ -34,12 +119,12 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The list of page numbers to which the shard belongs.
+   * The list of page numbers that the chunk belongs to.
    */
   pageNumbers?: number[];
   /**
    * @remarks
-   * The text content of the shard.
+   * The text content of the chunk.
    * 
    * @example
    * Financial report
@@ -47,7 +132,7 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   shardContent?: string;
   /**
    * @remarks
-   * The shard index.
+   * The index of the chunk.
    * 
    * @example
    * 1
@@ -63,9 +148,12 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   similarityScore?: number;
   static names(): { [key: string]: string } {
     return {
+      captions: 'Captions',
+      docItems: 'DocItems',
       fileId: 'FileId',
       fileName: 'FileName',
       headings: 'Headings',
+      imageResources: 'ImageResources',
       metadata: 'Metadata',
       pageNumbers: 'PageNumbers',
       shardContent: 'ShardContent',
@@ -76,9 +164,12 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      captions: { 'type': 'array', 'itemType': 'string' },
+      docItems: { 'type': 'array', 'itemType': 'string' },
       fileId: 'string',
       fileName: 'string',
       headings: { 'type': 'array', 'itemType': 'string' },
+      imageResources: { 'type': 'array', 'itemType': RetrievalKnowledgeBaseResponseBodyResultsImageResources },
       metadata: 'string',
       pageNumbers: { 'type': 'array', 'itemType': 'number' },
       shardContent: 'string',
@@ -88,8 +179,17 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.captions)) {
+      $dara.Model.validateArray(this.captions);
+    }
+    if(Array.isArray(this.docItems)) {
+      $dara.Model.validateArray(this.docItems);
+    }
     if(Array.isArray(this.headings)) {
       $dara.Model.validateArray(this.headings);
+    }
+    if(Array.isArray(this.imageResources)) {
+      $dara.Model.validateArray(this.imageResources);
     }
     if(Array.isArray(this.pageNumbers)) {
       $dara.Model.validateArray(this.pageNumbers);

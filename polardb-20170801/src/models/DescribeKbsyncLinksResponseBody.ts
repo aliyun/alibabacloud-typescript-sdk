@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The client identifier.
+   * The client ID.
    * 
    * @example
    * cli_xxxxxxbe8
@@ -124,23 +124,53 @@ export class DescribeKBSyncLinksResponseBody extends $dara.Model {
   items?: DescribeKBSyncLinksResponseBodyItems[];
   /**
    * @remarks
+   * The page number of the current results.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of records per page in the current results.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
    * Id of the request
    * 
    * @example
    * EB07CFF0-D8A4-5C76-AED7-D00E26FC2***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of synchronization links that match the query conditions.
+   * 
+   * @example
+   * 1
+   */
+  totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
       items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       items: { 'type': 'array', 'itemType': DescribeKBSyncLinksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
+      totalRecordCount: 'number',
     };
   }
 

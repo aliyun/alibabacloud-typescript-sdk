@@ -17661,7 +17661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the synchronization list of a knowledge base.
+   * Queries the list of knowledge base synchronization links.
    * 
    * @param request - DescribeKBSyncLinksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17676,6 +17676,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.knowledgeBaseId)) {
       query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -17700,7 +17708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the synchronization list of a knowledge base.
+   * Queries the list of knowledge base synchronization links.
    * 
    * @param request - DescribeKBSyncLinksRequest
    * @returns DescribeKBSyncLinksResponse
@@ -29385,6 +29393,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Registers an OSS file in a knowledge base.
+   * 
+   * @param request - RegisterKnowledgeBaseFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterKnowledgeBaseFileResponse
+   */
+  async registerKnowledgeBaseFileWithOptions(request: $_model.RegisterKnowledgeBaseFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterKnowledgeBaseFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RegisterKnowledgeBaseFile",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RegisterKnowledgeBaseFileResponse>(await this.callApi(params, req, runtime), new $_model.RegisterKnowledgeBaseFileResponse({}));
+  }
+
+  /**
+   * Registers an OSS file in a knowledge base.
+   * 
+   * @param request - RegisterKnowledgeBaseFileRequest
+   * @returns RegisterKnowledgeBaseFileResponse
+   */
+  async registerKnowledgeBaseFile(request: $_model.RegisterKnowledgeBaseFileRequest): Promise<$_model.RegisterKnowledgeBaseFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.registerKnowledgeBaseFileWithOptions(request, runtime);
+  }
+
+  /**
    * Rejects a PolarClaw device pairing request.
    * 
    * @param request - RejectPolarClawDevicePairRequest
@@ -30409,7 +30467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information from a knowledge base.
+   * Retrieves knowledge base search results.
    * 
    * @param request - RetrievalKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30460,7 +30518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information from a knowledge base.
+   * Retrieves knowledge base search results.
    * 
    * @param request - RetrievalKnowledgeBaseRequest
    * @returns RetrievalKnowledgeBaseResponse

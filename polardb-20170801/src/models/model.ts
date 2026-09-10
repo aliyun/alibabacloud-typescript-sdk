@@ -411,6 +411,7 @@ export { ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup } from
 export { ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel } from './ModifyGlobalSecurityIpgroupRelationResponseBody';
 export { ModifyLogBackupPolicyRequestAdvancedLogPolicies } from './ModifyLogBackupPolicyRequest';
 export { MovePolarFsObjectsRequestObjectsToMove } from './MovePolarFsObjectsRequest';
+export { RetrievalKnowledgeBaseResponseBodyResultsImageResources } from './RetrievalKnowledgeBaseResponseBody';
 export { RetrievalKnowledgeBaseResponseBodyResults } from './RetrievalKnowledgeBaseResponseBody';
 export { RetryKnowledgeBaseFilesResponseBodyItems } from './RetryKnowledgeBaseFilesResponseBody';
 export { SearchMemoriesResponseBodyResults } from './SearchMemoriesResponseBody';
@@ -1727,6 +1728,9 @@ export { ReactivateDBClusterBackupResponse } from './ReactivateDbclusterBackupRe
 export { RefreshDBClusterStorageUsageRequest } from './RefreshDbclusterStorageUsageRequest';
 export { RefreshDBClusterStorageUsageResponseBody } from './RefreshDbclusterStorageUsageResponseBody';
 export { RefreshDBClusterStorageUsageResponse } from './RefreshDbclusterStorageUsageResponse';
+export { RegisterKnowledgeBaseFileRequest } from './RegisterKnowledgeBaseFileRequest';
+export { RegisterKnowledgeBaseFileResponseBody } from './RegisterKnowledgeBaseFileResponseBody';
+export { RegisterKnowledgeBaseFileResponse } from './RegisterKnowledgeBaseFileResponse';
 export { RejectPolarClawDevicePairRequest } from './RejectPolarClawDevicePairRequest';
 export { RejectPolarClawDevicePairResponseBody } from './RejectPolarClawDevicePairResponseBody';
 export { RejectPolarClawDevicePairResponse } from './RejectPolarClawDevicePairResponse';
