@@ -5,6 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodeNumberRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
+   * - true: Automatic payment.
+   * - false: No automatic payment.
+   * 
+   * @example
+   * true
+   * 
+   * **if can be null:**
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
    * The instance ID.
    * 
    * This parameter is required.
@@ -25,7 +38,7 @@ export class ModifyNodeNumberRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The decommission concurrency for BE scale-in scenarios in compute-storage decoupled architecture. Default value: 1.
+   * The decommission concurrency for BE scale-in scenarios in compute-storage coupled mode. Default value: 1.
    * 
    * @example
    * 1
@@ -51,7 +64,7 @@ export class ModifyNodeNumberRequest extends $dara.Model {
   target?: number;
   /**
    * @remarks
-   * The duration to wait for running tasks to complete before dropping nodes during CN scale-in scenarios in storage-compute disaggregation architecture.
+   * The wait time for running tasks to complete before dropping nodes during CN scale-in scenarios in compute-storage decoupled mode.
    * 
    * @example
    * 60
@@ -59,6 +72,7 @@ export class ModifyNodeNumberRequest extends $dara.Model {
   terminationGracePeriodSeconds?: number;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
       parallelism: 'Parallelism',
@@ -70,6 +84,7 @@ export class ModifyNodeNumberRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       instanceId: 'string',
       nodeGroupId: 'string',
       parallelism: 'number',

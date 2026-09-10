@@ -61,51 +61,31 @@ export class DescribeInstancesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance status to filter by. You can specify multiple statuses, separated by commas. Valid values:
-   * 
-   * - unpaid
-   * 
-   * - paid
-   * 
-   * - creating
-   * 
-   * - running
-   * 
-   * - updating
-   * 
-   * - disable
-   * 
-   * - deleting
-   * 
-   * - scaling_out
-   * 
-   * - scaling_in
-   * 
-   * - scaling_up
-   * 
-   * - scaling_down
-   * 
-   * - upgrading
-   * 
-   * - modifying_config
-   * 
-   * - enable_public_network
-   * 
-   * - disable_public_network
-   * 
-   * - convert_from_trial_to_official
-   * 
-   * - restarting
-   * 
-   * - migration_cluster_to_serverless
-   * 
-   * - actively_disabled
-   * 
-   * - enabling
-   * 
-   * - agent_creating
-   * 
-   * - agent_scaling_up
+   * Retrieves instances by instance status. Separate multiple instance statuses with commas. Valid values:
+   * <ul>
+   * <li>unpaid: Pending payment.</li>
+   * <li>paid: Paid.</li>
+   * <li>creating: Being created.</li>
+   * <li>running: Running.</li>
+   * <li>updating: Being upgraded.</li>
+   * <li>disable: Unavailable.</li>
+   * <li>deleting: Being deleted.</li>
+   * <li>scaling_out: Scaling out.</li>
+   * <li>scaling_in: Scaling in.</li>
+   * <li>scaling_up: Specifications are being upgraded.</li>
+   * <li>scaling_down: Specifications are being used to decrease the quota.</li>
+   * <li>upgrading: Version is being upgraded.</li>
+   * <li>modifying_config: Configuration is being updated.</li>
+   * <li>enable_public_network: Public network access is being enabled.</li>
+   * <li>disable_public_network: Public network access is being shutdown.</li>
+   * <li>convert_from_trial_to_official: The instance edition is being upgraded.</li>
+   * <li>restarting: The cluster is restarting.</li>
+   * <li>migration_cluster_to_serverless: The cluster is being migrated.</li>
+   * <li>actively_disabled: The instance is stopped.</li>
+   * <li>enabling: The instance is being recovered.</li>
+   * <li>agent_creating: The agent is being created.</li>
+   * <li>agent_scaling_up: The agent specifications are being upgraded.</li>
+   * </ul>
    * 
    * @example
    * running,creating
@@ -121,7 +101,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -145,7 +125,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeInstancesRequestTag[];
   static names(): { [key: string]: string } {

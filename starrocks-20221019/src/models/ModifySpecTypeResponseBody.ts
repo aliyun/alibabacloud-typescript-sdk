@@ -13,7 +13,7 @@ export class ModifySpecTypeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Order ID.
+   * The order ID.
    * 
    * @example
    * 24151320976****
@@ -21,7 +21,7 @@ export class ModifySpecTypeResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * InvalidParams
@@ -29,7 +29,7 @@ export class ModifySpecTypeResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Invalid params: [instance not exists].
@@ -37,7 +37,7 @@ export class ModifySpecTypeResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * HTTP request status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class ModifySpecTypeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****

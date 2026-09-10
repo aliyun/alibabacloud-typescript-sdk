@@ -33,7 +33,21 @@ export class DescribeNodeGroupsResponseBodyDataNodeInfo extends $dara.Model {
 }
 
 export class DescribeNodeGroupsResponseBodyDataTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,8 +88,8 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
    * @remarks
    * The compute group architecture. Valid values:
    * 
-   * - onEci: Deployed on Elastic Container Instance (ECI).
-   * - onECS: Deployed on Elastic Compute Service (ECS).
+   * - onEci: Deployed on ECI.
+   * - onECS: Deployed on ECS.
    * - onBareMetal: Deployed on a bare metal resource pool.
    * 
    * @example
@@ -92,7 +106,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The instance ID associated with the bill. For default compute groups (FE compute group and default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
+   * The instance ID associated with the bill. For default compute groups (FE compute group and the default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
    * 
    * @example
    * c-96f3bc7f04b2****
@@ -275,7 +289,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   residentNodeNumber?: number;
   /**
    * @remarks
-   * The duration that the compute group has been running. Unit: seconds.
+   * The running time of the compute group. Unit: seconds.
    * 
    * @example
    * 10000
@@ -311,8 +325,8 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
    * - SCALING_OUT: Scale-out in progress.
    * - RESTARTING: Restarting.
    * - SCALING_IN: Scale-in in progress.
-   * - SCALING_UP: Upgrading specifications.
-   * - SCALING_DOWN: Downgrading specifications.
+   * - SCALING_UP: Scaling up.
+   * - SCALING_DOWN: Scaling down.
    * - UPGRADING: Upgrading.
    * - ENABLE_PUBLIC_NETWORK: Enabling public network access.
    * - DISABLE_PUBLIC_NETWORK: Disabling public network access.
@@ -346,6 +360,10 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
    * 100
    */
   storageSize?: number;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: DescribeNodeGroupsResponseBodyDataTags[];
   /**
    * @remarks

@@ -5,7 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
+   * - true: Automatic payment is enabled.
+   * - false: Automatic payment is disabled.
+   * 
+   * @example
+   * true
+   * 
+   * **if can be null:**
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +28,7 @@ export class ModifyDiskTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the compute group.
+   * The compute group ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +38,7 @@ export class ModifyDiskTypeRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The ID of the coupon.
+   * The coupon ID.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -53,6 +66,7 @@ export class ModifyDiskTypeRequest extends $dara.Model {
   targetPerformanceLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
       promotionOptionNo: 'PromotionOptionNo',
@@ -63,6 +77,7 @@ export class ModifyDiskTypeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       instanceId: 'string',
       nodeGroupId: 'string',
       promotionOptionNo: 'string',

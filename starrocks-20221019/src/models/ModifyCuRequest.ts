@@ -5,11 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCuRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to restart the instance in fast restart mode. The default value is false.
+   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
+   * - true: Automatic payment.
+   * - false: No automatic payment.
    * 
-   * - true: Restarts the compute nodes in fast restart mode. The compute nodes are restarted in batches. Nodes within a batch are restarted in parallel, and batches are processed sequentially.
+   * @example
+   * true
    * 
-   * - false: Restarts the compute nodes in rolling restart mode.
+   * **if can be null:**
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the fast restart mode. Default value: false.
+   * 
+   * - true: Restarts compute nodes in the fast restart mode. Compute nodes are restarted in multiple batches. Nodes within a batch are restarted in parallel, and batches execute sequentially.
+   * - false: Restarts compute nodes in the rolling restart mode.
    * 
    * @example
    * true
@@ -35,6 +47,13 @@ export class ModifyCuRequest extends $dara.Model {
    * ng-3d5ce6454354****
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   promotionOptionNo?: string;
   /**
    * @remarks
@@ -48,6 +67,7 @@ export class ModifyCuRequest extends $dara.Model {
   target?: number;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       fastMode: 'FastMode',
       instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
@@ -58,6 +78,7 @@ export class ModifyCuRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       fastMode: 'boolean',
       instanceId: 'string',
       nodeGroupId: 'string',

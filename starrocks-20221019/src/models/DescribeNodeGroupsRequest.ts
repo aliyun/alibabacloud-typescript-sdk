@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNodeGroupsRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -104,8 +118,8 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
    * - SCALING_OUT: Scale-out in progress.
    * - RESTARTING: Restarting.
    * - SCALING_IN: Scale-in in progress.
-   * - SCALING_UP: Upgrading specifications.
-   * - SCALING_DOWN: Downgrading specifications.
+   * - SCALING_UP: Scaling up.
+   * - SCALING_DOWN: Scaling down.
    * - UPGRADING: Upgrading.
    * - ENABLE_PUBLIC_NETWORK: Enabling public network access.
    * - DISABLE_PUBLIC_NETWORK: Disabling public network access.
@@ -118,6 +132,10 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: DescribeNodeGroupsRequestTags[];
   static names(): { [key: string]: string } {
     return {

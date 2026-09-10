@@ -45,7 +45,7 @@ export class ModifyCuPreCheckResponseBodyData extends $dara.Model {
 export class ModifyCuPreCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed information about the failed permission verification.
+   * The details of the permission verification failure.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateInstanceV1RequestAgentNodeGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
+   * 
+   * @example
+   * 2
+   */
   cu?: number;
   static names(): { [key: string]: string } {
     return {
@@ -71,12 +78,7 @@ export class CreateInstanceV1RequestBackendNodeGroups extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The performance level of the cloud disk. Valid values:
-   * 
-   * - pl0: A single disk delivers up to 10,000 random read/write IOPS.
-   * - pl1: A single disk delivers up to 50,000 random read/write IOPS.
-   * - pl2: A single disk delivers up to 100,000 random read/write IOPS.
-   * - pl3: A single disk delivers up to 1,000,000 random read/write IOPS.
+   * The performance level (PL) of the cloud disk. Valid values:
    * 
    * @example
    * pl1
@@ -426,7 +428,22 @@ export class CreateInstanceV1Request extends $dara.Model {
    * password_example
    */
   adminPassword?: string;
+  /**
+   * @remarks
+   * The agent compute group.
+   */
   agentNodeGroup?: CreateInstanceV1RequestAgentNodeGroup;
+  /**
+   * @remarks
+   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
+   * 
+   * Valid values:
+   * - true: Automatic payment.
+   * - false: No automatic payment.
+   * 
+   * @example
+   * false
+   */
   autoPay?: boolean;
   /**
    * @remarks
@@ -473,6 +490,10 @@ export class CreateInstanceV1Request extends $dara.Model {
    * 1
    */
   duration?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the AI Center. Default value: false.
+   */
   enableAiFunction?: boolean;
   /**
    * @remarks
@@ -492,6 +513,13 @@ export class CreateInstanceV1Request extends $dara.Model {
    * The FE node group information.
    */
   frontendNodeGroups?: CreateInstanceV1RequestFrontendNodeGroups[];
+  /**
+   * @remarks
+   * The gateway type. Valid values: Slb and Privatezone.
+   * 
+   * @example
+   * Traditional\\"\\"
+   */
   gatewayType?: string;
   /**
    * @remarks
@@ -521,12 +549,12 @@ export class CreateInstanceV1Request extends $dara.Model {
   linkedRamUserName?: string;
   /**
    * @remarks
-   * The Observer node group information. Specify this parameter only when you need to enable cross-zone disaster recovery. The Observer node group specifications must be the same as those of the FE node group.
+   * The Observer node group information. Specify this parameter only when you need to enable multi-zone disaster recovery. The Observer node group specifications must be the same as those of the FE node group.
    */
   observerNodeGroups?: CreateInstanceV1RequestObserverNodeGroups[];
   /**
    * @remarks
-   * The name of the role used for password-free access to Object Storage Service (OSS).
+   * The name of the role used for password-free access to OSS.
    * 
    * @example
    * AliyunEMRStarRocksAccessingOSSRole
@@ -534,10 +562,10 @@ export class CreateInstanceV1Request extends $dara.Model {
   ossAccessingRoleName?: string;
   /**
    * @remarks
-   * The instance edition. Valid values:
+   * The instance edition:
    * <ul>
-   * <li>trial: Trial Edition.</li>
-   * <li>official: Standard Edition.</li>
+   * <li>  Entry edition (trial).</li>
+   * <li> Standard edition (official).</li>
    * </ul>
    * 
    * This parameter is required.
@@ -622,7 +650,7 @@ export class CreateInstanceV1Request extends $dara.Model {
    * The running mode of the cluster. Valid values:
    * 
    * - shared_nothing: compute-storage coupled.
-   * - shared_data: storage-compute disaggregation.
+   * - shared_data: compute-storage decoupled.
    * 
    * This parameter is required.
    * 

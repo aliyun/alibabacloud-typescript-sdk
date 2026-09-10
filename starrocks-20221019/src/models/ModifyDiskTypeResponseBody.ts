@@ -37,7 +37,7 @@ export class ModifyDiskTypeResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code of the request.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class ModifyDiskTypeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
@@ -53,7 +53,7 @@ export class ModifyDiskTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

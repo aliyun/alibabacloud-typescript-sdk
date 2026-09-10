@@ -5,6 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskPerformanceLevelRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
+   * - true: Automatic payment.
+   * - false: No automatic payment.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
    * The instance ID.
    * 
    * This parameter is required.
@@ -23,10 +36,17 @@ export class ModifyDiskPerformanceLevelRequest extends $dara.Model {
    * ng-3d5ce6454354****
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The target disk performance level.
+   * The target disk performance level (PL).
    * 
    * This parameter is required.
    * 
@@ -36,6 +56,7 @@ export class ModifyDiskPerformanceLevelRequest extends $dara.Model {
   target?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
       promotionOptionNo: 'PromotionOptionNo',
@@ -45,6 +66,7 @@ export class ModifyDiskPerformanceLevelRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       instanceId: 'string',
       nodeGroupId: 'string',
       promotionOptionNo: 'string',

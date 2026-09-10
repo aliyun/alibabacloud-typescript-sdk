@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryModifyCuPriceResponseBodyDataComponentPrices extends $dara.Model {
   /**
    * @remarks
-   * The name of the component.
+   * The component name.
    * 
    * @example
    * cu_num
@@ -65,7 +65,7 @@ export class QueryModifyCuPriceResponseBodyDataComponentPrices extends $dara.Mod
 export class QueryModifyCuPriceResponseBodyDataDepreciateInfo extends $dara.Model {
   /**
    * @remarks
-   * The price reduction ratio.
+   * The price reduction information.
    * 
    * @example
    * 0
@@ -81,7 +81,7 @@ export class QueryModifyCuPriceResponseBodyDataDepreciateInfo extends $dara.Mode
   cheapStandAmount?: number;
   /**
    * @remarks
-   * Indicates whether to show the price reduction information.
+   * Indicates whether to display the price reduction.
    * 
    * @example
    * true
@@ -125,7 +125,7 @@ export class QueryModifyCuPriceResponseBodyDataDepreciateInfo extends $dara.Mode
 export class QueryModifyCuPriceResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
    * @remarks
-   * The description of the coupon.
+   * The coupon description.
    * 
    * @example
    * youhuiquan_desc
@@ -133,7 +133,7 @@ export class QueryModifyCuPriceResponseBodyDataOptionalPromotions extends $dara.
   promotionDesc?: string;
   /**
    * @remarks
-   * The name of the coupon.
+   * The coupon name.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -141,7 +141,7 @@ export class QueryModifyCuPriceResponseBodyDataOptionalPromotions extends $dara.
   promotionName?: string;
   /**
    * @remarks
-   * The ID of the coupon.
+   * The coupon ID.
    * 
    * @example
    * youhuiquan_12378dfj6
@@ -175,7 +175,7 @@ export class QueryModifyCuPriceResponseBodyDataOptionalPromotions extends $dara.
 export class QueryModifyCuPriceResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The number of instances to purchase in a batch. You can use this parameter to query the price of purchasing multiple Elastic Compute Service (ECS) instances with a specific configuration. Valid values: 1 to 1000.
+   * The price for purchasing Elastic Computing Service (ECS) servers of a specific configuration in bulk. Valid values: 1 to 1000.
    * 
    * Default value: 1.
    * 
@@ -185,7 +185,7 @@ export class QueryModifyCuPriceResponseBodyDataRules extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * rule_123123
@@ -193,7 +193,7 @@ export class QueryModifyCuPriceResponseBodyDataRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * ak72hajsd
@@ -227,7 +227,7 @@ export class QueryModifyCuPriceResponseBodyDataRules extends $dara.Model {
 export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The prices of the components.
+   * The component prices.
    */
   componentPrices?: QueryModifyCuPriceResponseBodyDataComponentPrices[];
   /**
@@ -240,7 +240,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The depreciation rate.
+   * The price reduction information.
    * 
    * @example
    * 0
@@ -248,7 +248,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   depreciateInfo?: QueryModifyCuPriceResponseBodyDataDepreciateInfo;
   /**
    * @remarks
-   * The discount amount. Discount amount = Original amount - Billable amount. The billable amount includes coupon deductions.
+   * The discount amount, which is the original amount minus the payable amount (including coupon deductions).
    * 
    * @example
    * 0
@@ -261,7 +261,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   optionalPromotions?: QueryModifyCuPriceResponseBodyDataOptionalPromotions[];
   /**
    * @remarks
-   * The original price. Original price = List price × Billing usage.
+   * The original amount, which is the catalog price multiplied by the billable usage.
    * 
    * @example
    * 7986
@@ -269,12 +269,12 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   originalAmount?: number;
   /**
    * @remarks
-   * The data structure returned in the response.
+   * The returned data structure.
    */
   rules?: QueryModifyCuPriceResponseBodyDataRules[];
   /**
    * @remarks
-   * The price after the standard discount is applied.
+   * The discounted price based on the list price discount.
    * 
    * @example
    * 7986
@@ -282,7 +282,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   standDiscountPrice?: number;
   /**
    * @remarks
-   * The discounted price on the official website.
+   * The list discount price.
    * 
    * @example
    * 7986
@@ -350,7 +350,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
 export class QueryModifyCuPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * AccessDeniedDetail
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -387,7 +387,7 @@ export class QueryModifyCuPriceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B67D142D-D54E-184F-A306-22BDC01B2XXX

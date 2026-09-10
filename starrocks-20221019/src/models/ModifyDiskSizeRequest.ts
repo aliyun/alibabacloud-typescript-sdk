@@ -3,10 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDiskSizeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
+   * - true: Automatic payment.
+   * - false: No automatic payment.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the fast restart mode for restart. Default value: false.
+   * 
+   * - true: Restarts compute nodes in fast restart mode. Compute nodes are restarted in multiple batches. Nodes within a batch are restarted in parallel, and batches execute sequentially.
+   * - false: Restarts compute nodes in rolling restart mode.
+   * 
+   * @example
+   * false
+   */
   fastMode?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +39,7 @@ export class ModifyDiskSizeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the compute group.
+   * The compute group ID.
    * 
    * This parameter is required.
    * 
@@ -24,6 +47,13 @@ export class ModifyDiskSizeRequest extends $dara.Model {
    * ng-3d5ce6454354****
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * 2345
+   */
   promotionOptionNo?: string;
   /**
    * @remarks
@@ -37,6 +67,7 @@ export class ModifyDiskSizeRequest extends $dara.Model {
   target?: number;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       fastMode: 'FastMode',
       instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
@@ -47,6 +78,7 @@ export class ModifyDiskSizeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       fastMode: 'boolean',
       instanceId: 'string',
       nodeGroupId: 'string',

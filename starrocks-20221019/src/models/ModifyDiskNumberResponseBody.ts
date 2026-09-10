@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details of the permission verification failure.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }

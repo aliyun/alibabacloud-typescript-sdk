@@ -5,10 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySpecTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Restart in fast restart mode. Default is false.
+   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
+   * - true: Automatic payment.
+   * - false: No automatic payment.
    * 
-   * - true: Restarts compute nodes in fast restart mode. Nodes restart in parallel within a batch, and batches execute sequentially.
+   * @example
+   * true
    * 
+   * **if can be null:**
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the fast restart mode. Default value: false.
+   * 
+   * - true: Restarts compute nodes in fast restart mode. Compute nodes are restarted in multiple batches. Nodes within a batch are restarted in parallel, and batches execute sequentially.
    * - false: Restarts compute nodes in rolling restart mode.
    * 
    * @example
@@ -17,7 +29,7 @@ export class ModifySpecTypeRequest extends $dara.Model {
   fastMode?: boolean;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +39,7 @@ export class ModifySpecTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Compute group ID.
+   * The compute group ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +49,7 @@ export class ModifySpecTypeRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * Coupon ID.
+   * The coupon ID.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -45,7 +57,7 @@ export class ModifySpecTypeRequest extends $dara.Model {
   promotionOptionNo?: string;
   /**
    * @remarks
-   * Target specifications type.
+   * The target specification type.
    * 
    * This parameter is required.
    * 
@@ -55,6 +67,7 @@ export class ModifySpecTypeRequest extends $dara.Model {
   targetSpecType?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       fastMode: 'FastMode',
       instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
@@ -65,6 +78,7 @@ export class ModifySpecTypeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       fastMode: 'boolean',
       instanceId: 'string',
       nodeGroupId: 'string',
