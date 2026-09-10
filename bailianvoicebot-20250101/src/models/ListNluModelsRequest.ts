@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNluModelsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Bailian workspace ID.
+   * 
    * @example
    * llm-3pptowd2olrctsvc
    */

@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVoiceEnginesResponseBodyDataVoiceEngines extends $dara.Model {
   /**
+   * @remarks
+   * The engine configuration schema, provided as a JSON string.
+   * 
    * @example
    * [{\\"displayName\\":\\"AppKey\\",\\"maxLength\\":64,\\"name\\":\\"AppKey\\",\\"order\\":1,\\"required\\":true},{\\"displayName\\":\\"AccessKey\\",\\"maxLength\\":64,\\"name\\":\\"AccessKey\\",\\"order\\":2,\\"required\\":true}]
    */
   configSchema?: string;
   /**
+   * @remarks
+   * The identifier for the voice engine.
+   * 
    * @example
    * VOLC
    */
   nlsEngine?: string;
+  /**
+   * @remarks
+   * The display name of the voice engine.
+   * 
+   * @example
+   * 豆包
+   */
   nlsEngineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,20 +54,33 @@ export class ListVoiceEnginesResponseBodyDataVoiceEngines extends $dara.Model {
 
 export class ListVoiceEnginesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of voice engines.
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * A list of voice engine objects.
+   */
   voiceEngines?: ListVoiceEnginesResponseBodyDataVoiceEngines[];
   static names(): { [key: string]: string } {
     return {
@@ -88,25 +114,42 @@ export class ListVoiceEnginesResponseBodyData extends $dara.Model {
 
 export class ListVoiceEnginesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of `OK` indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The pagination data, which includes the list of voice engines.
+   */
   data?: ListVoiceEnginesResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Instance llm-rj6aqmctjcit4acy does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of dynamic error parameters.
+   */
   params?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D771A1B6-3D5F-174A-BEE1-98CE1000D337

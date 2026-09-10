@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVoiceEnginesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Pages start from 1. The default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. The default is 10.
+   * 
    * @example
    * 10
    */

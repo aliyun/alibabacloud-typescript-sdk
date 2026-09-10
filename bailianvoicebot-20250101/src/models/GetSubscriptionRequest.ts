@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSubscriptionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Bailian business workspace ID.
+   * 
    * @example
    * llm-3pptowd2olrctsvc
    */

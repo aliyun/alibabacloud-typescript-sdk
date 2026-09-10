@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListBackgroundMusicsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Bailian business workspace ID.
+   * 
    * @example
    * llm-zzu528i29ecnprcl
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

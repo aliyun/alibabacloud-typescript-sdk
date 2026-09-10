@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateApplicationRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The Model Studio workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,14 +24,29 @@ export class UpdateApplicationRequest extends $dara.Model {
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The concurrency setting.
+   * 
    * @example
    * 10
    */
   concurrency?: number;
+  /**
+   * @remarks
+   * The application\\"s new description.
+   * 
+   * @example
+   * 描述一下这个应用
+   */
   description?: string;
   /**
    * @remarks
+   * The new name for the application.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 测试001
    */
   name?: string;
   static names(): { [key: string]: string } {

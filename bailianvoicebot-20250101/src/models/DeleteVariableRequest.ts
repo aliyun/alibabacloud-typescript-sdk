@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVariableRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Bailian business workspace.
+   * 
    * @example
    * llm-rj6aqmctjcit4acy
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The variable ID.
+   * 
    * @example
    * 82ea16d1-425c-4c03-9be5-cc91de9779ed
    */

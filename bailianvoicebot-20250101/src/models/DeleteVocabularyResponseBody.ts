@@ -4,25 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVocabularyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The hot word ID.
+   * 
    * @example
    * a395011f-a247-400f-bc69-28796749fd52
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance llm-baployoyopf22m2r does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
    * @remarks

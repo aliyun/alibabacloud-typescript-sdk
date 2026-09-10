@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportVocabularyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Bailian business workspace.
+   * 
    * @example
    * llm-c11iig67g863rih8
    */
   businessUnitId?: string;
+  /**
+   * @remarks
+   * The list of hot word IDs.
+   */
   vocabularyIds?: string[];
   static names(): { [key: string]: string } {
     return {

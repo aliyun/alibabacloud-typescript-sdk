@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCloneVoiceModelsResponseBodyDataCloneVoiceModels extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * High accent restoration similarity with fluent prosody
+   */
   description?: string;
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * CosyVoice
    */
   displayName?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * CosyVoice
    */
@@ -40,18 +53,31 @@ export class ListCloneVoiceModelsResponseBodyDataCloneVoiceModels extends $dara.
 }
 
 export class ListCloneVoiceModelsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of voice cloning models.
+   */
   cloneVoiceModels?: ListCloneVoiceModelsResponseBodyDataCloneVoiceModels[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
@@ -88,21 +114,38 @@ export class ListCloneVoiceModelsResponseBodyData extends $dara.Model {
 
 export class ListCloneVoiceModelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated data of voice cloning models.
+   */
   data?: ListCloneVoiceModelsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance llm-zzu528i29ecnprcl does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
    * @remarks

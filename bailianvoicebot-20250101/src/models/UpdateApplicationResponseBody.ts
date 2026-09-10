@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateApplicationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the updated application.
+   * 
    * @example
    * a395011f-a247-400f-bc69-28796749fd52
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique request ID used for troubleshooting.
+   * 
    * @example
    * CF6D3484-19A1-5C77-863B-AC8B5754D37C
    */

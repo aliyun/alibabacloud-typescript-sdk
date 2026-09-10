@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateFileUploadParamsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * CloneVoice
    */
   businessType?: string;
   /**
+   * @remarks
+   * The ID of the Bailian business workspace.
+   * 
    * @example
    * llm-c11iig67g863rih8
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * test.wav
    */

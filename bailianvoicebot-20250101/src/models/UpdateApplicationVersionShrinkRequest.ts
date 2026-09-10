@@ -6,20 +6,15 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * a395011f-a247-400f-bc69-28796749fd52
    */
   applicationId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-c11iig67g863rih8
    */
   businessUnitId?: string;
   interactionConfigShrink?: string;
+  labelConfigShrink?: string;
   ragConfigShrink?: string;
   /**
    * @remarks
@@ -40,9 +35,6 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 20904943-f711-494f-9f1f-e7f340f37707
    */
   versionId?: string;
   static names(): { [key: string]: string } {
@@ -50,6 +42,7 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       businessUnitId: 'BusinessUnitId',
       interactionConfigShrink: 'InteractionConfig',
+      labelConfigShrink: 'LabelConfig',
       ragConfigShrink: 'RagConfig',
       scriptProfileShrink: 'ScriptProfile',
       synthesizerConfigShrink: 'SynthesizerConfig',
@@ -64,6 +57,7 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
       applicationId: 'string',
       businessUnitId: 'string',
       interactionConfigShrink: 'string',
+      labelConfigShrink: 'string',
       ragConfigShrink: 'string',
       scriptProfileShrink: 'string',
       synthesizerConfigShrink: 'string',

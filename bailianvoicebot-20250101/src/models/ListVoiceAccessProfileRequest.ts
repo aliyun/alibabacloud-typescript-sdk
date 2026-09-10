@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVoiceAccessProfileRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Bailian business unit ID.
+   * 
    * @example
    * llm-c11iig67g863rih8
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

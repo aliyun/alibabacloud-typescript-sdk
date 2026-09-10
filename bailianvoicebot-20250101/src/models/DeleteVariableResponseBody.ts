@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVariableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The variable ID.
+   * 
    * @example
    * 82ea16d1-425c-4c03-9be5-cc91de9779ed
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance llm-rj6aqmctjcit4acy does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D771A1B6-3D5F-174A-BEE1-98CE1000D337
    */

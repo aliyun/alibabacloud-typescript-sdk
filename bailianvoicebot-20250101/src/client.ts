@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("bailianvoicebot", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建软电话测试通话
+   * Creates a softphone test call.
    * 
    * @param request - BridgeWebCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93,7 +93,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建软电话测试通话
+   * Creates a softphone test call.
    * 
    * @param request - BridgeWebCallRequest
    * @returns BridgeWebCallResponse
@@ -104,7 +104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用
+   * Creates a voice chatbot application.
    * 
    * @param request - CreateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -151,7 +151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用
+   * Creates a voice chatbot application.
    * 
    * @param request - CreateApplicationRequest
    * @returns CreateApplicationResponse
@@ -174,6 +174,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.interactionConfig)) {
       request.interactionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interactionConfig, "InteractionConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.labelConfig)) {
+      request.labelConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelConfig, "LabelConfig", "json");
     }
 
     if (!$dara.isNull(tmpReq.ragConfig)) {
@@ -207,6 +211,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.interactionConfigShrink)) {
       query["InteractionConfig"] = request.interactionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.labelConfigShrink)) {
+      query["LabelConfig"] = request.labelConfigShrink;
     }
 
     if (!$dara.isNull(request.ragConfigShrink)) {
@@ -262,7 +270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建克隆音
+   * Creates a cloned voice.
    * 
    * @param request - CreateCloneVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -301,7 +309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建克隆音
+   * Creates a cloned voice.
    * 
    * @param request - CreateCloneVoiceRequest
    * @returns CreateCloneVoiceResponse
@@ -312,7 +320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建变量
+   * Creates a variable.
    * 
    * @param request - CreateVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -355,7 +363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建变量
+   * Creates a variable.
    * 
    * @param request - CreateVariableRequest
    * @returns CreateVariableResponse
@@ -366,7 +374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例
+   * Creates an instance.
    * 
    * @param tmpReq - CreateVocabularyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -415,7 +423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例
+   * Creates an instance.
    * 
    * @param request - CreateVocabularyRequest
    * @returns CreateVocabularyResponse
@@ -426,7 +434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例
+   * Creates an instance.
    * 
    * @param tmpReq - CreateVoiceAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -471,7 +479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例
+   * Creates an instance.
    * 
    * @param request - CreateVoiceAccessProfileRequest
    * @returns CreateVoiceAccessProfileResponse
@@ -482,7 +490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用
+   * Deletes an application.
    * 
    * @param request - DeleteApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -517,7 +525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用
+   * Deletes an application.
    * 
    * @param request - DeleteApplicationRequest
    * @returns DeleteApplicationResponse
@@ -528,7 +536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除场景
+   * Deletes a cloned voice.
    * 
    * @param request - DeleteCloneVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -563,7 +571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除场景
+   * Deletes a cloned voice.
    * 
    * @param request - DeleteCloneVoiceRequest
    * @returns DeleteCloneVoiceResponse
@@ -574,7 +582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除变量
+   * Deletes a variable.
    * 
    * @param request - DeleteVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -609,7 +617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除变量
+   * Deletes a variable.
    * 
    * @param request - DeleteVariableRequest
    * @returns DeleteVariableResponse
@@ -620,7 +628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除场景
+   * Deletes a scenario.
    * 
    * @param request - DeleteVocabularyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -655,7 +663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除场景
+   * Deletes a scenario.
    * 
    * @param request - DeleteVocabularyRequest
    * @returns DeleteVocabularyResponse
@@ -666,7 +674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除三方语音配置
+   * Deletes a third-party voice configuration.
    * 
    * @param request - DeleteVoiceAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -701,7 +709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除三方语音配置
+   * Deletes a third-party voice configuration.
    * 
    * @param request - DeleteVoiceAccessProfileRequest
    * @returns DeleteVoiceAccessProfileResponse
@@ -712,7 +720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用消息订阅
+   * Disables message subscription.
    * 
    * @param request - DisableSubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -743,7 +751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用消息订阅
+   * Disables message subscription.
    * 
    * @param request - DisableSubscriptionRequest
    * @returns DisableSubscriptionResponse
@@ -754,7 +762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出热词
+   * Exports hot words.
    * 
    * @param tmpReq - ExportVocabularyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -795,7 +803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出热词
+   * Exports hot words.
    * 
    * @param request - ExportVocabularyRequest
    * @returns ExportVocabularyResponse
@@ -806,7 +814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件上传信息
+   * Retrieves file upload information.
    * 
    * @param request - GenerateFileUploadParamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -845,7 +853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件上传信息
+   * Retrieves file upload information.
    * 
    * @param request - GenerateFileUploadParamsRequest
    * @returns GenerateFileUploadParamsResponse
@@ -856,7 +864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get应用
+   * Retrieves a voice chatbot application.
    * 
    * @param request - GetApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -891,7 +899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get应用
+   * Retrieves a voice chatbot application.
    * 
    * @param request - GetApplicationRequest
    * @returns GetApplicationResponse
@@ -902,7 +910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据通道凭证
+   * Retrieves data channel credentials.
    * 
    * @param request - GetDataChannelCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -937,7 +945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据通道凭证
+   * Retrieves data channel credentials.
    * 
    * @param request - GetDataChannelCredentialRequest
    * @returns GetDataChannelCredentialResponse
@@ -948,7 +956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MQ配置
+   * Retrieves the MQ configuration.
    * 
    * @param request - GetSubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -979,7 +987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MQ配置
+   * Retrieves the MQ configuration.
    * 
    * @param request - GetSubscriptionRequest
    * @returns GetSubscriptionResponse
@@ -990,7 +998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Retrieves the details of a hot word vocabulary.
    * 
    * @param request - GetVocabularyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1025,7 +1033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Retrieves the details of a hot word vocabulary.
    * 
    * @param request - GetVocabularyRequest
    * @returns GetVocabularyResponse
@@ -1036,7 +1044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入热词
+   * Imports hot words.
    * 
    * @param request - ImportVocabularyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1071,7 +1079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入热词
+   * Imports hot words.
    * 
    * @param request - ImportVocabularyRequest
    * @returns ImportVocabularyResponse
@@ -1082,7 +1090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用
+   * Queries the list of voice robot applications.
    * 
    * @param request - ListApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1125,7 +1133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用
+   * Queries the list of voice robot applications.
    * 
    * @param request - ListApplicationsRequest
    * @returns ListApplicationsResponse
@@ -1136,7 +1144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取背景音列表
+   * Retrieves the list of background music.
    * 
    * @param request - ListBackgroundMusicsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1175,7 +1183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取背景音列表
+   * Retrieves the list of background music.
    * 
    * @param request - ListBackgroundMusicsRequest
    * @returns ListBackgroundMusicsResponse
@@ -1186,7 +1194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Retrieves the details of an instance.
    * 
    * @param request - ListCloneVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1229,7 +1237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Retrieves the details of an instance.
    * 
    * @param request - ListCloneVoiceRequest
    * @returns ListCloneVoiceResponse
@@ -1240,7 +1248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取克隆音色可用模型列表
+   * Retrieves the list of available models for voice cloning.
    * 
    * @param request - ListCloneVoiceModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1275,7 +1283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取克隆音色可用模型列表
+   * Retrieves the list of available models for voice cloning.
    * 
    * @param request - ListCloneVoiceModelsRequest
    * @returns ListCloneVoiceModelsResponse
@@ -1286,7 +1294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取对话模型列表
+   * Retrieves the list of conversation models.
    * 
    * @param request - ListNluModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1317,7 +1325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取对话模型列表
+   * Retrieves the list of conversation models.
    * 
    * @param request - ListNluModelsRequest
    * @returns ListNluModelsResponse
@@ -1328,7 +1336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取变量列表
+   * Retrieves a list of variables.
    * 
    * @param request - ListVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1371,7 +1379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取变量列表
+   * Retrieves a list of variables.
    * 
    * @param request - ListVariableRequest
    * @returns ListVariableResponse
@@ -1382,7 +1390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Retrieves the details of an instance.
    * 
    * @param request - ListVocabularyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1425,7 +1433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Retrieves the details of an instance.
    * 
    * @param request - ListVocabularyRequest
    * @returns ListVocabularyResponse
@@ -1436,7 +1444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取三方语音配置列表
+   * Retrieves the list of third-party voice configurations.
    * 
    * @param request - ListVoiceAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1475,7 +1483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取三方语音配置列表
+   * Retrieves the list of third-party voice configurations.
    * 
    * @param request - ListVoiceAccessProfileRequest
    * @returns ListVoiceAccessProfileResponse
@@ -1486,7 +1494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取引擎列表
+   * Retrieves a paginated list of available voice engines.
    * 
    * @param request - ListVoiceEnginesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1521,7 +1529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取引擎列表
+   * Retrieves a paginated list of available voice engines.
    * 
    * @param request - ListVoiceEnginesRequest
    * @returns ListVoiceEnginesResponse
@@ -1532,7 +1540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取音色列表
+   * Retrieves the list of voice timbres.
    * 
    * @param request - ListVoicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1579,7 +1587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取音色列表
+   * Retrieves the list of voice timbres.
    * 
    * @param request - ListVoicesRequest
    * @returns ListVoicesResponse
@@ -1590,7 +1598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 试听
+   * Generates a preview of a synthesized voice.
    * 
    * @param tmpReq - PreviewVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1651,7 +1659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 试听
+   * Generates a preview of a synthesized voice.
    * 
    * @param request - PreviewVoiceRequest
    * @returns PreviewVoiceResponse
@@ -1662,7 +1670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布版本
+   * Publishes a voice robot version.
    * 
    * @param request - PublishApplicationVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1701,7 +1709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布版本
+   * Publishes a voice robot version.
    * 
    * @param request - PublishApplicationVersionRequest
    * @returns PublishApplicationVersionResponse
@@ -1712,7 +1720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用
+   * Updates a voice bot application.
    * 
    * @param request - UpdateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1759,7 +1767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用
+   * Updates a voice bot application.
    * 
    * @param request - UpdateApplicationRequest
    * @returns UpdateApplicationResponse
@@ -1782,6 +1790,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.interactionConfig)) {
       request.interactionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interactionConfig, "InteractionConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.labelConfig)) {
+      request.labelConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelConfig, "LabelConfig", "json");
     }
 
     if (!$dara.isNull(tmpReq.ragConfig)) {
@@ -1815,6 +1827,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.interactionConfigShrink)) {
       query["InteractionConfig"] = request.interactionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.labelConfigShrink)) {
+      query["LabelConfig"] = request.labelConfigShrink;
     }
 
     if (!$dara.isNull(request.ragConfigShrink)) {
@@ -1870,7 +1886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例
+   * Updates an instance.
    * 
    * @param request - UpdateCloneVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1909,7 +1925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例
+   * Updates an instance.
    * 
    * @param request - UpdateCloneVoiceRequest
    * @returns UpdateCloneVoiceResponse
@@ -1920,7 +1936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或更新MQ配置
+   * Creates or updates a message queue (MQ) subscription.
    * 
    * @param tmpReq - UpdateSubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1989,7 +2005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或更新MQ配置
+   * Creates or updates a message queue (MQ) subscription.
    * 
    * @param request - UpdateSubscriptionRequest
    * @returns UpdateSubscriptionResponse
@@ -2000,7 +2016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新变量
+   * Updates a variable.
    * 
    * @param request - UpdateVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2043,7 +2059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新变量
+   * Updates a variable.
    * 
    * @param request - UpdateVariableRequest
    * @returns UpdateVariableResponse
@@ -2054,7 +2070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例
+   * Updates a vocabulary.
    * 
    * @param tmpReq - UpdateVocabularyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2107,7 +2123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例
+   * Updates a vocabulary.
    * 
    * @param request - UpdateVocabularyRequest
    * @returns UpdateVocabularyResponse
@@ -2118,7 +2134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新三方语音配置
+   * Updates the third-party voice configuration.
    * 
    * @param tmpReq - UpdateVoiceAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2167,7 +2183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新三方语音配置
+   * Updates the third-party voice configuration.
    * 
    * @param request - UpdateVoiceAccessProfileRequest
    * @returns UpdateVoiceAccessProfileResponse

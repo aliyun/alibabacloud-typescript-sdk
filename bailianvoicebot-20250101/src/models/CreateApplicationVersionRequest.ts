@@ -2,20 +2,91 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateApplicationVersionRequestInteractionConfigSilenceDetectionConfig extends $dara.Model {
+export class CreateApplicationVersionRequestInteractionConfigEndConversationConfigTriggers extends $dara.Model {
   /**
    * @example
-   * 5
+   * 感谢您的接听，祝您生活愉快，再见!
    */
+  closingStatement?: string;
+  keyWords?: string[];
+  triggerType?: string;
+  /**
+   * @example
+   * 20
+   */
+  turnLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      closingStatement: 'ClosingStatement',
+      keyWords: 'KeyWords',
+      triggerType: 'TriggerType',
+      turnLimit: 'TurnLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      closingStatement: 'string',
+      keyWords: { 'type': 'array', 'itemType': 'string' },
+      triggerType: 'string',
+      turnLimit: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keyWords)) {
+      $dara.Model.validateArray(this.keyWords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationVersionRequestInteractionConfigEndConversationConfig extends $dara.Model {
+  delay?: number;
+  triggers?: CreateApplicationVersionRequestInteractionConfigEndConversationConfigTriggers[];
+  static names(): { [key: string]: string } {
+    return {
+      delay: 'Delay',
+      triggers: 'Triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delay: 'number',
+      triggers: { 'type': 'array', 'itemType': CreateApplicationVersionRequestInteractionConfigEndConversationConfigTriggers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.triggers)) {
+      $dara.Model.validateArray(this.triggers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationVersionRequestInteractionConfigSilenceDetectionConfig extends $dara.Model {
+  maxRepeats?: number;
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      maxRepeats: 'MaxRepeats',
       timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxRepeats: 'number',
       timeout: 'number',
     };
   }
@@ -30,22 +101,66 @@ export class CreateApplicationVersionRequestInteractionConfigSilenceDetectionCon
 }
 
 export class CreateApplicationVersionRequestInteractionConfig extends $dara.Model {
+  backgroundMusicId?: string;
+  endConversationConfig?: CreateApplicationVersionRequestInteractionConfigEndConversationConfig;
+  initialGreetingDelayMilliseconds?: number;
   silenceDetectionConfig?: CreateApplicationVersionRequestInteractionConfigSilenceDetectionConfig;
   static names(): { [key: string]: string } {
     return {
+      backgroundMusicId: 'BackgroundMusicId',
+      endConversationConfig: 'EndConversationConfig',
+      initialGreetingDelayMilliseconds: 'InitialGreetingDelayMilliseconds',
       silenceDetectionConfig: 'SilenceDetectionConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backgroundMusicId: 'string',
+      endConversationConfig: CreateApplicationVersionRequestInteractionConfigEndConversationConfig,
+      initialGreetingDelayMilliseconds: 'number',
       silenceDetectionConfig: CreateApplicationVersionRequestInteractionConfigSilenceDetectionConfig,
     };
   }
 
   validate() {
+    if(this.endConversationConfig && typeof (this.endConversationConfig as any).validate === 'function') {
+      (this.endConversationConfig as any).validate();
+    }
     if(this.silenceDetectionConfig && typeof (this.silenceDetectionConfig as any).validate === 'function') {
       (this.silenceDetectionConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationVersionRequestLabelConfig extends $dara.Model {
+  candidateValues?: string[];
+  description?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateValues: 'CandidateValues',
+      description: 'Description',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateValues: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.candidateValues)) {
+      $dara.Model.validateArray(this.candidateValues);
     }
     super.validate();
   }
@@ -97,10 +212,6 @@ export class CreateApplicationVersionRequestScriptProfileAgentProfile extends $d
   description?: string;
   name?: string;
   promptsJson?: string;
-  /**
-   * @example
-   * SFM_PROMPTS_DEFAULT
-   */
   scriptProfileTemplateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,30 +240,128 @@ export class CreateApplicationVersionRequestScriptProfileAgentProfile extends $d
   }
 }
 
-export class CreateApplicationVersionRequestScriptProfile extends $dara.Model {
-  agentProfile?: CreateApplicationVersionRequestScriptProfileAgentProfile;
+export class CreateApplicationVersionRequestScriptProfileFunctionMeta extends $dara.Model {
   /**
    * @example
-   * qwen-plus
+   * 9b752bbb-805a-4d3e-9013-eab5555c3fef
    */
-  model?: string;
+  functionId?: string;
+  functionName?: string;
+  httpTriggerName?: string;
+  /**
+   * @example
+   * http://chat-xxxxx-v-yewiundukb.cn-hangzhou-xxx.run
+   */
+  httpTriggerUrl?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      agentProfile: 'AgentProfile',
-      model: 'Model',
+      functionId: 'FunctionId',
+      functionName: 'FunctionName',
+      httpTriggerName: 'HttpTriggerName',
+      httpTriggerUrl: 'HttpTriggerUrl',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      functionId: 'string',
+      functionName: 'string',
+      httpTriggerName: 'string',
+      httpTriggerUrl: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationVersionRequestScriptProfileNluAccessProfile extends $dara.Model {
+  accessProfileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessProfileId: 'AccessProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessProfileId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationVersionRequestScriptProfile extends $dara.Model {
+  /**
+   * @example
+   * 6f444ecf21d94238b516735916c98666
+   */
+  agentKey?: string;
+  agentProfile?: CreateApplicationVersionRequestScriptProfileAgentProfile;
+  /**
+   * @example
+   * chatbot-cn-MQuyjjb666
+   */
+  chatbotId?: string;
+  functionMeta?: CreateApplicationVersionRequestScriptProfileFunctionMeta;
+  model?: string;
+  nluAccessProfile?: CreateApplicationVersionRequestScriptProfileNluAccessProfile;
+  nluAccessType?: string;
+  omniModel?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      agentProfile: 'AgentProfile',
+      chatbotId: 'ChatbotId',
+      functionMeta: 'FunctionMeta',
+      model: 'Model',
+      nluAccessProfile: 'NluAccessProfile',
+      nluAccessType: 'NluAccessType',
+      omniModel: 'OmniModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
       agentProfile: CreateApplicationVersionRequestScriptProfileAgentProfile,
+      chatbotId: 'string',
+      functionMeta: CreateApplicationVersionRequestScriptProfileFunctionMeta,
       model: 'string',
+      nluAccessProfile: CreateApplicationVersionRequestScriptProfileNluAccessProfile,
+      nluAccessType: 'string',
+      omniModel: 'boolean',
     };
   }
 
   validate() {
     if(this.agentProfile && typeof (this.agentProfile as any).validate === 'function') {
       (this.agentProfile as any).validate();
+    }
+    if(this.functionMeta && typeof (this.functionMeta as any).validate === 'function') {
+      (this.functionMeta as any).validate();
+    }
+    if(this.nluAccessProfile && typeof (this.nluAccessProfile as any).validate === 'function') {
+      (this.nluAccessProfile as any).validate();
     }
     super.validate();
   }
@@ -214,36 +423,12 @@ export class CreateApplicationVersionRequestSynthesizerConfigPronRules extends $
 export class CreateApplicationVersionRequestSynthesizerConfig extends $dara.Model {
   model?: string;
   nlsAccessProfile?: CreateApplicationVersionRequestSynthesizerConfigNlsAccessProfile;
-  /**
-   * @example
-   * MANAGED
-   */
   nlsAccessType?: string;
-  /**
-   * @example
-   * ALIYUN
-   */
   nlsEngine?: string;
-  /**
-   * @example
-   * 50
-   */
   pitchRate?: number;
   pronRules?: CreateApplicationVersionRequestSynthesizerConfigPronRules[];
-  /**
-   * @example
-   * -156
-   */
   speechRate?: number;
-  /**
-   * @example
-   * aiqi
-   */
   voice?: string;
-  /**
-   * @example
-   * 50
-   */
   volume?: number;
   static names(): { [key: string]: string } {
     return {
@@ -398,15 +583,7 @@ export class CreateApplicationVersionRequestTranscriberConfig extends $dara.Mode
   endSilenceTimeout?: number;
   model?: string;
   nlsAccessProfile?: CreateApplicationVersionRequestTranscriberConfigNlsAccessProfile;
-  /**
-   * @example
-   * MANAGED
-   */
   nlsAccessType?: string;
-  /**
-   * @example
-   * ALIYUN
-   */
   nlsEngine?: string;
   speechNoiseThreshold?: number;
   vocabularyId?: string;
@@ -457,26 +634,17 @@ export class CreateApplicationVersionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * a395011f-a247-400f-bc69-28796749fd52
    */
   applicationId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-c11iig67g863rih8
    */
   businessUnitId?: string;
   interactionConfig?: CreateApplicationVersionRequestInteractionConfig;
+  labelConfig?: CreateApplicationVersionRequestLabelConfig[];
   ragConfig?: CreateApplicationVersionRequestRagConfig;
   scriptProfile?: CreateApplicationVersionRequestScriptProfile;
-  /**
-   * @example
-   * 20904943-f711-494f-9f1f-e7f340f37707
-   */
   sourceVersionId?: string;
   synthesizerConfig?: CreateApplicationVersionRequestSynthesizerConfig;
   toolConfig?: CreateApplicationVersionRequestToolConfig;
@@ -486,6 +654,7 @@ export class CreateApplicationVersionRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       businessUnitId: 'BusinessUnitId',
       interactionConfig: 'InteractionConfig',
+      labelConfig: 'LabelConfig',
       ragConfig: 'RagConfig',
       scriptProfile: 'ScriptProfile',
       sourceVersionId: 'SourceVersionId',
@@ -500,6 +669,7 @@ export class CreateApplicationVersionRequest extends $dara.Model {
       applicationId: 'string',
       businessUnitId: 'string',
       interactionConfig: CreateApplicationVersionRequestInteractionConfig,
+      labelConfig: { 'type': 'array', 'itemType': CreateApplicationVersionRequestLabelConfig },
       ragConfig: CreateApplicationVersionRequestRagConfig,
       scriptProfile: CreateApplicationVersionRequestScriptProfile,
       sourceVersionId: 'string',
@@ -512,6 +682,9 @@ export class CreateApplicationVersionRequest extends $dara.Model {
   validate() {
     if(this.interactionConfig && typeof (this.interactionConfig as any).validate === 'function') {
       (this.interactionConfig as any).validate();
+    }
+    if(Array.isArray(this.labelConfig)) {
+      $dara.Model.validateArray(this.labelConfig);
     }
     if(this.ragConfig && typeof (this.ragConfig as any).validate === 'function') {
       (this.ragConfig as any).validate();

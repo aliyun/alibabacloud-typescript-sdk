@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsRequest extends $dara.Model {
   /**
    * @remarks
+   * The Bailian business workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListApplicationsRequest extends $dara.Model {
   businessUnitId?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,12 +25,21 @@ export class ListApplicationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The template name for fuzzy match.
+   * 
+   * @example
+   * General
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {

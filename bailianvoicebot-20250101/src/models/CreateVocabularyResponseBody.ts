@@ -4,28 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVocabularyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The hot word list ID.
+   * 
    * @example
    * a395011f-a247-400f-bc69-28796749fd52
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance llm-zzu528i29ecnprcl
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CF6D3484-19A1-5C77-863B-AC8B5754D37C
    */

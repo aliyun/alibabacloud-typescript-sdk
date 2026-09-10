@@ -4,16 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class PreviewVoiceRequestParams extends $dara.Model {
   /**
+   * @remarks
+   * The pitch rate.
+   * 
+   * > Valid values: -500 to 500.
+   * 
    * @example
    * 0
    */
   pitchRate?: number;
   /**
+   * @remarks
+   * The speech rate.
+   * 
+   * > Valid values: -500 to 500.
+   * 
    * @example
    * 0
    */
   speechRate?: number;
   /**
+   * @remarks
+   * The volume.
+   * 
+   * > Valid values: 0 to 100.
+   * 
    * @example
    * 50
    */
@@ -45,28 +60,54 @@ export class PreviewVoiceRequestParams extends $dara.Model {
 
 export class PreviewVoiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Model Studio business unit.
+   * 
    * @example
    * llm-c11iig67g863rih8
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The TTS model.
+   * 
    * @example
    * Qwen
    */
   model?: string;
   /**
+   * @remarks
+   * The TTS access type.
+   * 
    * @example
    * MANAGED
    */
   nlsAccessType?: string;
   /**
+   * @remarks
+   * The TTS engine.
+   * 
    * @example
    * BAILIAN
    */
   nlsEngine?: string;
+  /**
+   * @remarks
+   * The synthesis parameters.
+   */
   params?: PreviewVoiceRequestParams;
+  /**
+   * @remarks
+   * The text to synthesize for the preview.
+   * 
+   * @example
+   * 你好，很高兴认识你
+   */
   text?: string;
   /**
+   * @remarks
+   * The voice for synthesis.
+   * 
    * @example
    * Cherry
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataChannelCredentialRequest extends $dara.Model {
   /**
    * @remarks
+   * The Bailian business workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetDataChannelCredentialRequest extends $dara.Model {
   businessUnitId?: string;
   /**
    * @remarks
+   * The device ID.
+   * 
    * This parameter is required.
    * 
    * @example

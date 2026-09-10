@@ -4,29 +4,45 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSubscriptionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request status code. A value of `OK` indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data, which is the application ID for this operation.
+   * 
    * @example
    * a395011f-a247-400f-bc69-28796749fd52
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message. If the request fails, this parameter contains the error message.
+   * 
    * @example
    * Instance llm-rj6aqmctjcit4acy does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of dynamic parameters used in the error message.
+   */
   params?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D771A1B6-3D5F-174A-BEE1-98CE1000D337

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVocabularyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Bailian workspace ID.
+   * 
    * @example
    * llm-c11iig67g863rih8
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The hot word ID.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */

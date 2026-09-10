@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCloneVoiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Bailian business workspace.
+   * 
    * @example
    * llm-zzu528i29ecnprcl
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The ID of the cloned voice.
+   * 
    * @example
    * 8ee1160a-6999-478f-8df6-f33ef21f27d5
    */

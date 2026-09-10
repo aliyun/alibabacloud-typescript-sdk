@@ -4,28 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCloneVoiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the cloned voice.
+   * 
    * @example
    * 8ee1160a-6999-478f-8df6-f33ef21f27d5
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance llm-xdne77rxe14ziszr
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D771A1B6-3D5F-174A-BEE1-98CE1000D337
    */

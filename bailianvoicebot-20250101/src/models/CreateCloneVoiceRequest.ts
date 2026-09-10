@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCloneVoiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Bailian workspace ID.
+   * 
    * @example
    * llm-xdne77rxe14ziszr
    */
   businessUnitId?: string;
+  /**
+   * @remarks
+   * The path of the uploaded file.
+   * 
+   * @example
+   * voice_clone/voice_clone_unit_test.wav
+   */
   fileKey?: string;
   /**
+   * @remarks
+   * The clone model.
+   * 
    * @example
    * CosyVoice
    */

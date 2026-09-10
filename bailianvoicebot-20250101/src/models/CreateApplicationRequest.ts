@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Bailian business workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,37 @@ export class CreateApplicationRequest extends $dara.Model {
    */
   businessUnitId?: string;
   /**
+   * @remarks
+   * The number of concurrent connections.
+   * 
    * @example
    * 10
    */
   concurrency?: number;
+  /**
+   * @remarks
+   * The application description.
+   * 
+   * @example
+   * Describe this application
+   */
   description?: string;
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Test001
    */
   name?: string;
   /**
+   * @remarks
+   * The NLU access method.
+   * 
+   * - Managed
+   * 
    * @example
    * MANAGED
    */

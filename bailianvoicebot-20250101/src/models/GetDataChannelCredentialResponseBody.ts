@@ -4,26 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataChannelCredentialResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The client ID.
+   * 
    * @example
    * 26c2f022-b6c0-4ab0-9019-6e1a42dc5582
    */
   clientId?: string;
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * device-3i5x4234f2j4w55e
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The endpoint.
+   * 
    * @example
    * mqtt-cn-ux146hgtt04.mqtt.aliyuncs.com
    */
   endpoint?: string;
   /**
+   * @remarks
+   * The validity period of the connection.
+   * 
+   * > The value is in timestamp format.
+   * 
    * @example
    * 1745004535507
    */
   expirationTime?: number;
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * ***
    */
@@ -37,6 +54,9 @@ export class GetDataChannelCredentialResponseBodyData extends $dara.Model {
    */
   topic?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * Token|LTAI5tRYzHUYYi4XstgMCsL4|mqtt-cn-ux146hgtt04
    */
@@ -76,23 +96,43 @@ export class GetDataChannelCredentialResponseBodyData extends $dara.Model {
 
 export class GetDataChannelCredentialResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API status or POP error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetDataChannelCredentialResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D771A1B6-3D5F-174A-BEE1-98CE1000D337
    */

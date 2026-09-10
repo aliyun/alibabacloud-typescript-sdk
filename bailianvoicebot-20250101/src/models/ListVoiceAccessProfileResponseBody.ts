@@ -4,31 +4,60 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVoiceAccessProfileResponseBodyDataVoiceAccessProfilesProfile extends $dara.Model {
   /**
+   * @remarks
+   * The AccessKey for Doubao calls.
+   * 
    * @example
    * HwRnTXgwnQOlsj68URDS5_VMm4Wtapq9
    */
   accessKey?: string;
   /**
+   * @remarks
+   * The ApiKey for Bailian or iFLYTEK calls.
+   * 
    * @example
    * sk-12341e259b1049e8872b47981e545f78
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The ApiSecret for iFLYTEK calls.
+   * 
    * @example
    * c0358c6e51c1013b446fdeb21a3a1234
    */
   apiSecret?: string;
   /**
+   * @remarks
+   * The AppId for iFLYTEK calls.
+   * 
    * @example
    * 5b123bfb
    */
   appId?: string;
   /**
+   * @remarks
+   * The AppKey for Doubao calls.
+   * 
    * @example
    * 2541370123
    */
   appKey?: string;
+  /**
+   * @remarks
+   * Not currently in use.
+   * 
+   * @example
+   * 暂无使用
+   */
   asrAppKey?: string;
+  /**
+   * @remarks
+   * Not currently in use.
+   * 
+   * @example
+   * 暂无使用
+   */
   ttsApiKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65,29 +94,59 @@ export class ListVoiceAccessProfileResponseBodyDataVoiceAccessProfilesProfile ex
 
 export class ListVoiceAccessProfileResponseBodyDataVoiceAccessProfiles extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */
   accessProfileId?: string;
+  /**
+   * @remarks
+   * The list of voice engine capabilities.
+   */
   capabilities?: string[];
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1747620752000
    */
   createdTime?: number;
   /**
+   * @remarks
+   * The Bailian business unit ID.
+   * 
    * @example
    * llm-c11iig67g863rih8
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The voice engine.
+   * 
    * @example
    * VOLC
    */
   nlsEngine?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 豆包
+   */
   nlsEngineName?: string;
+  /**
+   * @remarks
+   * The parameter settings.
+   */
   profile?: ListVoiceAccessProfileResponseBodyDataVoiceAccessProfilesProfile;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1747620752000
    */
@@ -135,20 +194,33 @@ export class ListVoiceAccessProfileResponseBodyDataVoiceAccessProfiles extends $
 
 export class ListVoiceAccessProfileResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of third-party voice configurations.
+   */
   voiceAccessProfiles?: ListVoiceAccessProfileResponseBodyDataVoiceAccessProfiles[];
   static names(): { [key: string]: string } {
     return {
@@ -182,21 +254,38 @@ export class ListVoiceAccessProfileResponseBodyData extends $dara.Model {
 
 export class ListVoiceAccessProfileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated results of third-party voice configurations.
+   */
   data?: ListVoiceAccessProfileResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance llm-xdne77rxe14ziszr does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
    * @remarks
