@@ -43,15 +43,15 @@ export class CreateInstanceRequestPrivatePoolOptions extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The private pool option for launching the instance. A private pool is generated when an elasticity assurance or a capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
+   * The private pool option for launching the instance. A private pool is generated after an elasticity assurance or capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
    * 
-   * - Open: open mode. The system automatically matches an open private pool. If no matching private pools are available, the public pool resources are used. You do not need to specify `PrivatePoolOptions.Id`.
-   * - Target: specified mode. The instance is started by using the capacity of the specified private pool. If the specified private pool is unavailable, the instance fails to start. In this mode, you must specify the private pool ID. Set `PrivatePoolOptions.Id` to the ID of the private pool.
-   * - None: no private pool is used. The instance does not use the capacity of a private pool.
+   * - Open: open mode. The system automatically matches an open private pool. If no matching private pool is available, the public pool is used to launch the instance. You do not need to specify `PrivatePoolOptions.Id`.
+   * - Target: specified mode. The instance is launched by using the capacity of the specified private pool. If the specified private pool is unavailable, the instance fails to be launched. In this mode, you must specify the private pool ID. Set `PrivatePoolOptions.Id` to the ID of the private pool.
+   * - None: no private pool is used. The instance is not launched by using the capacity of a private pool.
    * 
    * Default value: None.
    * 
-   * In the following scenarios, the private pool option for launching the instance can only be set to `None` or left empty:
+   * In the following scenarios, the private pool option can only be set to `None` or left empty:
    * - Creating a spot instance.
    * - Creating an ECS instance on a dedicated host.
    * 
@@ -113,7 +113,7 @@ export class CreateInstanceRequestSystemDisk extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the system disk. The name must be 2 to 128 characters in length and can contain letters in the Unicode letter category (including English and Chinese characters and digits). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the system disk. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * Default value: empty.
    * 
@@ -125,10 +125,10 @@ export class CreateInstanceRequestSystemDisk extends $dara.Model {
    * @remarks
    * The performance level of the ESSD used as the system disk. Valid values:
    * 
-   * - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * - PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * - PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1 (default): a single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
    * For information about how to select an ESSD performance level, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
@@ -256,7 +256,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
    * - elastic_ephemeral_disk_standard: elastic ephemeral disk - standard.
    * - elastic_ephemeral_disk_premium: elastic ephemeral disk - premium.
    * 
-   * The default value for I/O optimized instances is cloud_efficiency. The default value for non-I/O optimized instances is cloud.
+   * Default value for I/O optimized instances: cloud_efficiency. Default value for non-I/O optimized instances: cloud.
    * 
    * @example
    * cloud_ssd
@@ -264,10 +264,10 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether the data disk is released when the instance is released.
+   * Specifies whether to release data disk N when the instance is released.
    * 
-   * - true: The data disk is released when the instance is released.
-   * - false: The data disk is not released when the instance is released.
+   * - true: releases the data disk.
+   * - false: does not release the data disk.
    * 
    * Default value: true.
    * 
@@ -287,7 +287,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
    * @remarks
    * The mount point of the data disk.
    * 
-   * > This parameter is applicable only to full image (system image) scenarios. You can set this parameter to the mount point of the data disk in the full image and modify the corresponding `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of the data disk in the full image.
+   * > This parameter is applicable only to full image (whole-machine image) scenarios. You can set this parameter to the mount point of the data disk in the full image and modify the corresponding `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of the data disk in the full image.
    * 
    * @example
    * /dev/xvdb
@@ -295,7 +295,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters in the Unicode letter category (including English and Chinese characters and digits). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * DataDiskName
@@ -311,11 +311,11 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   encryptAlgorithm?: string;
   /**
    * @remarks
-   * Specifies whether data disk N is encrypted.
+   * Specifies whether to encrypt data disk N.
    * 
-   * - true: The data disk is encrypted.
+   * - true: encrypts the data disk.
    * 
-   * - false: The data disk is not encrypted.
+   * - false: does not encrypt the data disk.
    * 
    * Default value: false.
    * 
@@ -333,12 +333,12 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * The performance level of the ESSD used as the Nth data disk. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
+   * The performance level of the ESSD used as data disk N. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
    * 
-   * - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * - PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * - PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1 (default): a single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
    * For information about how to select an ESSD performance level, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
@@ -348,7 +348,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The size of the Nth data disk. Valid values of N: 1 to 16. Unit: GiB. Valid values:
+   * The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
    * 
    * - cloud_efficiency: 20 to 32768.
    * - cloud_ssd: 20 to 32768.
@@ -379,7 +379,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks when you create an ECS instance, set this parameter.
+   * The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks when you create the ECS instance, specify this parameter.
    * 
    * @example
    * dbsc-j5e1sf2vaf5he8m2****
@@ -476,9 +476,9 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether the instance on a dedicated host is associated with the dedicated host. Valid values:
    * 
-   * - default: The instance is not associated with the dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance is deployed to another dedicated host in the automatic deployment resource pool if the resources of the original dedicated host are insufficient.
+   * - default: The instance is not associated with the dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance is deployed on another dedicated host in the automatic deployment resource pool if the resources of the original dedicated host are insufficient.
    * 
-   * - host: The instance is associated with the dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance remains on the original dedicated host. If the resources of the original dedicated host are insufficient, the instance fails to restart.
+   * - host: The instance is associated with the dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance is still deployed on the original dedicated host. If the resources of the original dedicated host are insufficient, the instance fails to restart.
    * 
    * Default value: default.
    * 
@@ -526,7 +526,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the cluster in which to create the instance.
    * 
-   * > This parameter will be deprecated soon. To ensure future compatibility, use other parameters instead.
+   * > This parameter will be deprecated. To improve compatibility, use other parameters instead.
    * 
    * @example
    * c-bp67acfmxazb4p****
@@ -536,8 +536,8 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The performance mode of the burstable instance. Valid values:
    * 
-   * - Standard: the standard mode. For more information, see the performance constrained mode section in [What are burstable instances](https://help.aliyun.com/document_detail/59977.html).
-   * - Unlimited: the unlimited mode. For more information, see the unlimited mode section in [What are burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * - Standard: the standard mode. For more information, see the performance constrained mode section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * - Unlimited: the unlimited mode. For more information, see the unlimited mode section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * 
    * @example
    * Standard
@@ -568,7 +568,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * - true: enables release protection.
    * - false (default): disables release protection.
    * 
-   * > This attribute is applicable only to pay-as-you-go instances. It can only restrict manual release operations, not system-initiated release operations.
+   * > This attribute is applicable only to pay-as-you-go instances. It can only prevent manual release, not system-initiated release.
    * 
    * @example
    * false
@@ -604,7 +604,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run. Valid values:
    * 
-   * - true: performs only a dry run. The system checks whether the required parameters are specified, whether the request format is valid, whether the business restrictions are met, and whether the ECS inventory is sufficient. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - true: performs only a dry run. The system checks whether the required parameters are specified, whether the request format is valid, whether the service limits are not exceeded, and whether the specified ECS resources are available. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
    * - false (default): performs a dry run and sends the request. If the check succeeds, the instance is created.
    * 
    * @example
@@ -615,8 +615,8 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The hostname of the server.
    * 
-   * - A period (.) or a hyphen (-) cannot be used as the first or last character, or used consecutively.
-   * - Windows instances: The hostname must be 2 to 15 characters in length and cannot contain periods (.). It cannot consist of only digits. The hostname can contain letters, digits, and hyphens (-).
+   * - The hostname cannot start or end with a period (.) or hyphen (-), and cannot contain consecutive periods or hyphens.
+   * - Windows instances: The hostname must be 2 to 15 characters in length and cannot contain periods (.) or consist entirely of digits. It can contain letters, digits, and hyphens (-).
    * - Instances that run other operating systems such as Linux: The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment separated by a period can contain letters, digits, and hyphens (-).
    * 
    * @example
@@ -695,7 +695,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - PrePaid: subscription. If you set this parameter to PrePaid, make sure that your account supports credit payment. Otherwise, an `InvalidPayMethod` error is returned.
+   * - PrePaid: subscription. If you set this parameter to PrePaid, make sure that your account supports credit payment or balance payment. Otherwise, an `InvalidPayMethod` error is returned.
    * - PostPaid (default): pay-as-you-go.
    * 
    * @example
@@ -704,7 +704,7 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 128 characters in length and can contain letters in the Unicode letter category (including English and Chinese characters) and digits. The name can contain colons (:), underscores (_), periods (.), or hyphens (-). If this parameter is not specified, the default value is the instance ID.
+   * The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-). If this parameter is not specified, the default value is the instance ID.
    * 
    * @example
    * k8s-node-[1,4]-alibabacloud
@@ -730,7 +730,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * - PayByBandwidth: pay-by-bandwidth.
    * - PayByTraffic (default): pay-by-traffic.
    * 
-   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as bandwidth upper limits instead of guaranteed service metrics. When resource contention occurs, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are both upper limits and are not guaranteed. When resource contention occurs, the peak bandwidth may be throttled. If your workloads require guaranteed bandwidth, use **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -774,7 +774,7 @@ export class CreateInstanceRequest extends $dara.Model {
   ioOptimized?: string;
   /**
    * @remarks
-   * The name of the key pair.
+   * The name of the SSH key pair.
    * 
    * > For Windows instances, this parameter is ignored. The default value is empty. Even if you specify this parameter, only the `Password` content is used.
    * 
@@ -782,6 +782,14 @@ export class CreateInstanceRequest extends $dara.Model {
    * KeyPairTestName
    */
   keyPairName?: string;
+  /**
+   * @remarks
+   * The unique ID of the platform-managed host, such as mh-f2d3647ca21****.
+   * 
+   * @example
+   * mh-f2d3647ca21****
+   */
+  managedHostId?: string;
   /**
    * @remarks
    * > This parameter is in invitational preview and is not publicly available.
@@ -802,7 +810,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * 
    * Note the following items:
    * 
-   * - For security reasons, we recommend that you use HTTPS to send requests if the Password parameter is specified.
+   * - For security reasons, use HTTPS to send requests if the Password parameter is specified.
    * - For Windows instances, the password cannot start with a forward slash (/).
    * - For instances that run certain operating systems, passwords are not supported. Only key pairs are supported. Examples: Others Linux and Fedora CoreOS.
    * 
@@ -812,7 +820,7 @@ export class CreateInstanceRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether to use the preset password of the image. When you use this parameter, the Password parameter must be empty. Make sure that the image you use has a preset password.
+   * Specifies whether to use the preset password of the image. If you use this parameter, leave Password empty and make sure that the image has a preset password.
    * 
    * @example
    * false
@@ -820,7 +828,7 @@ export class CreateInstanceRequest extends $dara.Model {
   passwordInherit?: boolean;
   /**
    * @remarks
-   * The subscription period of the resource. The unit is specified by `PeriodUnit`. This parameter is required and takes effect only when `InstanceChargeType` is set to `PrePaid`. If `DedicatedHostId` is specified, the value of this parameter cannot exceed the subscription period of the dedicated host. Valid values:
+   * The subscription period of the instance. The unit is specified by `PeriodUnit`. This parameter is required and takes effect only when `InstanceChargeType` is set to `PrePaid`. If `DedicatedHostId` is specified, the value of this parameter cannot exceed the subscription period of the dedicated host. Valid values:
    * 
    * <props="china">
    * - If PeriodUnit is set to Week, valid values of Period are 1, 2, 3, and 4.
@@ -896,8 +904,8 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable security hardening. Valid values:
    * 
-   * - Active: Enables security hardening. This value is applicable only to public images.
-   * - Deactive: Disables security hardening. This value is applicable to all image types.
+   * - Active: enables security hardening. This value is applicable only to public images.
+   * - Deactive: disables security hardening. This value is applicable to all image types.
    * 
    * @example
    * Active
@@ -915,7 +923,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The protection period of the spot instance, in hours. Default value: 1. Valid values:
    * 
-   * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
+   * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * 
    * > 
@@ -931,7 +939,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The interruption pattern of the spot instance. Valid values:
    * 
-   * - Terminate: The instance is directly released.
+   * - Terminate: The instance is released.
    * 
    * - Stop: The instance enters economical mode.
    * 
@@ -973,7 +981,7 @@ export class CreateInstanceRequest extends $dara.Model {
   storageSetId?: string;
   /**
    * @remarks
-   * The maximum number of partitions in the storage set. Valid values: greater than or equal to 2.
+   * The maximum number of partitions in the storage set. Valid values: 2 and greater.
    * 
    * @example
    * 2
@@ -1008,7 +1016,7 @@ export class CreateInstanceRequest extends $dara.Model {
   useAdditionalService?: boolean;
   /**
    * @remarks
-   * Instance user data of the instance. Instance user data must be encoded in Base64. The raw data can be up to 32 KB in size.
+   * The instance user data. The data must be encoded in Base64. The raw data can be up to 32 KB in size.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
@@ -1016,9 +1024,9 @@ export class CreateInstanceRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The ID of the vSwitch. This parameter is required if you are creating a VPC-connected instance. You can invoke [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query active vSwitches.
+   * The ID of the vSwitch. This parameter is required if you are creating a VPC-type instance. You can invoke [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query active vSwitches.
    * 
-   * > If you specify `VSwitchId`, the specified `ZoneId` must be the same as the zone of the vSwitch. You can also leave `ZoneId` empty. The system then automatically selects the zone of the specified vSwitch.
+   * > If you specify `VSwitchId`, the specified `ZoneId` must be in the same zone as the vSwitch. You can also leave `ZoneId` empty, and the system automatically selects the zone of the specified vSwitch.
    * 
    * @example
    * vsw-bp1s5fnvk4gn2tws0****
@@ -1036,7 +1044,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the zone in which to create the instance. For more information, call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the zone list.
    * 
-   * > If you specify `VSwitchId`, the specified `ZoneId` must be the same as the zone of the vSwitch. You can also leave `ZoneId` empty. The system then automatically selects the zone of the specified vSwitch.
+   * > If you specify `VSwitchId`, the specified `ZoneId` must be in the same zone as the vSwitch. You can also leave `ZoneId` empty, and the system automatically selects the zone of the specified vSwitch.
    * 
    * Default value: empty. The system automatically selects a zone.
    * 
@@ -1079,6 +1087,7 @@ export class CreateInstanceRequest extends $dara.Model {
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       ioOptimized: 'IoOptimized',
       keyPairName: 'KeyPairName',
+      managedHostId: 'ManagedHostId',
       nodeControllerId: 'NodeControllerId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -1145,6 +1154,7 @@ export class CreateInstanceRequest extends $dara.Model {
       internetMaxBandwidthOut: 'number',
       ioOptimized: 'string',
       keyPairName: 'string',
+      managedHostId: 'string',
       nodeControllerId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

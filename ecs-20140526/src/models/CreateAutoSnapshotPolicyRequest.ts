@@ -62,8 +62,8 @@ export class CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration extends 
    * @remarks
    * Specifies whether to enable encryption for cross-region snapshot backup. Valid values:
    * 
-   * - true: enables encryption.
-   * - false: disables encryption.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * Default value: false.
    * 
@@ -73,7 +73,7 @@ export class CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration extends 
   encrypted?: boolean;
   /**
    * @remarks
-   * The key ID of the Key Management Service (KMS) key used for cross-region encrypted snapshot backup.
+   * The key ID of the KMS key used for cross-region encrypted snapshot backup.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40826X
@@ -151,15 +151,21 @@ export class CreateAutoSnapshotPolicyRequestTargetTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
-   * Valid values of N: 1 to 10.
+   * 
+   * Valid values of N: 1 to 5.
+   * 
    * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
    */
   key?: string;
   /**
    * @remarks
    * The tag value.
-   * Valid values of N: 1 to 10. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
-   * Note: If you pass in an empty or empty string value, it indicates any value.
+   * 
+   * Valid values of N: 1 to 5.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * > If you pass in an empty value or an empty string, the tag value matches any value.
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -188,9 +194,10 @@ export class CreateAutoSnapshotPolicyRequestTargetTags extends $dara.Model {
 export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The association type between the automatic snapshot policy and target resources. Valid values:
-   * ● AssociatedWithDisk: associated with disks.
-   * ● AssociatedWithInstanceTag: associated with instance tags.
+   * The association type between the automatic snapshot policy and the target resource. Valid values:
+   * - AssociatedWithDisk: associated with disks
+   * - AssociatedWithInstanceTag: associated with instance tags
+   * 
    * Default value: AssociatedWithDisk.
    * 
    * @example
@@ -212,15 +219,15 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   copiedSnapshotsRetentionDays?: number;
   /**
    * @remarks
-   * The backup encryption parameters for snapshot geo-redundancy.
+   * The backup encryption parameter object for snapshot geo-redundancy.
    */
   copyEncryptionConfiguration?: CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration;
   /**
    * @remarks
-   * Specifies whether to enable automatic cross-region replication.
+   * Specifies whether to allow automatic cross-region replication.
    * 
-   * - true: enables automatic cross-region replication.
-   * - false: disables automatic cross-region replication.
+   * - true: Allowed.
+   * - false: Not allowed.
    * 
    * @example
    * false
@@ -261,7 +268,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The list of target resource tags. The automatic snapshot policy matches target resources based on tags.
-   * This parameter is required when AssociationType is set to AssociatedWithInstanceTag.
+   * This parameter is required when `AssociationType=AssociatedWithInstanceTag`.
    */
   targetTags?: CreateAutoSnapshotPolicyRequestTargetTags[];
   /**
@@ -314,12 +321,12 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   retentionDays?: number;
   /**
    * @remarks
-   * The points in time at which automatic snapshots are created. The time is in UTC+8. Unit: hours. Valid values: 0 to 23, which represent 00:00 to 23:00 (a total of 24 points in time). For example, 1 indicates 01:00. Format description:
+   * The points in time at which automatic snapshots are created. The time is in UTC+8. Unit: hours. Valid values: 0 to 23, which represent the 24 points in time from 00:00 to 23:00. For example, 1 indicates 01:00. Format description:
    * 
    * - The parameter value must be a JSON array. For example, ["1"\\] indicates that automatic snapshots are created at 01:00.
    * - To create multiple automatic snapshots within a day, specify multiple points in time separated by commas (,). You can specify up to 24 points in time. For example, ["1","3","5"\\] indicates that automatic snapshots are created at 01:00, 03:00, and 05:00.
    * 
-   * >If a disk contains a large amount of data and the time required to create a single automatic snapshot exceeds the interval between two consecutive points in time, the next point in time is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as the points in time for automatic snapshot creation. The snapshot creation starts at 09:00 and is completed at 10:20, which takes 80 minutes. The system skips the 10:00 point in time and creates the next automatic snapshot at 11:00.
+   * > If a disk contains a large amount of data and the time required to create a single automatic snapshot exceeds the interval between two consecutive points in time, the next point in time is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as the points in time for automatic snapshot creation. Because the disk contains a large amount of data, the snapshot creation starts at 09:00 and is completed at 10:20, which takes 80 minutes. The system skips the 10:00 point in time and creates the next automatic snapshot at 11:00.
    * 
    * This parameter is required.
    * 

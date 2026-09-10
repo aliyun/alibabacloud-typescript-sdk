@@ -8,7 +8,7 @@ export class ReplaceSystemDiskRequestSystemDisk extends $dara.Model {
    * The capacity of the new system disk. Unit: GiB. Valid values:
    * 
    * - Basic disk: Max{20, size of the image specified by the ImageId parameter} to 500.
-   * - Enterprise SSD (ESSD):
+   * - Enterprise SSD:
    *   - PL0: Max{1, size of the image specified by the ImageId parameter} to 2048.
    *   - PL1: Max{20, size of the image specified by the ImageId parameter} to 2048.
    *   - PL2: Max{461, size of the image specified by the ImageId parameter} to 2048.
@@ -48,7 +48,7 @@ export class ReplaceSystemDiskRequestSystemDisk extends $dara.Model {
 export class ReplaceSystemDiskRequestArn extends $dara.Model {
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 0
@@ -56,7 +56,7 @@ export class ReplaceSystemDiskRequestArn extends $dara.Model {
   assumeRoleFor?: number;
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -64,7 +64,7 @@ export class ReplaceSystemDiskRequestArn extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -128,7 +128,7 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * hide
@@ -163,7 +163,7 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
    * @remarks
    * The ID of target instance.
    * 
-   * >Before you send the request, make sure that the instance status of the target instance is `Stopped`.
+   * > Before you send the request, make sure that the instance status of the target instance is `Stopped`.
    * 
    * This parameter is required.
    * 
@@ -183,7 +183,7 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
    * @remarks
    * The name of the key pair. 
    * 
-   * > This parameter takes effect only for Linux instances. You can bind an SSH key pair to the ECS instance as a logon credential. After you bind an SSH key pair, the username and password logon method is disabled.
+   * > This parameter takes effect only for Linux instances. You can bind an SSH key pair to the ECS instance as a logon credential. After an SSH key pair is used, the username and password logon method is disabled.
    * 
    * @example
    * testKeyPairName
@@ -211,11 +211,11 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether to use the preset password of the image.
+   * Specifies whether to use the password preset in the image.
    * 
    * Default value: false.
    * 
-   * > If you use this parameter, the Password parameter must be empty. Make sure that the image has a preset password.
+   * > If you use this parameter, the Password parameter must be empty. Make sure that the image you use has a password preset.
    * 
    * @example
    * false
@@ -235,9 +235,9 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to use the free Security Center service after the system disk is replaced. Valid values: 
    * 
-   * - Active: The Security Center service is used. This value is supported only for public images.
+   * - Active: Security Center is used. This value is applicable only to public images.
    * 
-   * - Deactive: The Security Center service is not used. This value is supported for all images.
+   * - Deactive: Security Center is not used. This value is applicable to all images.
    * 
    * Default value: Deactive.
    * 

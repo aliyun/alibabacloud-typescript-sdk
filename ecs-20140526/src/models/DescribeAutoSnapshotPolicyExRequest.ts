@@ -53,7 +53,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The name of the automatic snapshot policy. The name must be 2 to 128 characters in length and can contain characters that are classified as letter in Unicode, including Chinese characters, English letters, and digits. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the automatic snapshot policy. The name must be 2 to 128 characters in length and can contain characters that are classified as letter in Unicode, including Chinese characters, English letters, and digits. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * TestName
@@ -63,7 +63,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the automatic snapshot policy list. The results are displayed on multiple pages.
+   * The page number of the page to return for the automatic snapshot policy list.
    * 
    * Minimum value: 1.
    * 
@@ -75,7 +75,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when the automatic snapshot policies are displayed by page.
+   * The number of entries per page for the automatic snapshot policy list.
    * 
    * Maximum value: 100.
    * 
@@ -97,9 +97,9 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. If you use this parameter to filter resources, the resource count cannot exceed 1,000.
+   * The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
-   * >Filtering by the default resource group is not supported.
+   * > Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-aek2kkmhmhs****
@@ -109,7 +109,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeAutoSnapshotPolicyExRequestTag[];
   static names(): { [key: string]: string } {

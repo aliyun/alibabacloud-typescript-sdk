@@ -62,8 +62,8 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
    * @remarks
    * Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
    * 
-   * - true: Encryption is enabled. 
-   * - false: Encryption is not enabled. 
+   * - true: enabled. 
+   * - false: disabled. 
    * 
    * Default value: false.
    * 
@@ -111,15 +111,21 @@ export class ModifyAutoSnapshotPolicyExRequestTargetTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
-   * Valid values of N: 1 to 10.
+   * 
+   * Valid values of N: 1 to 5.
+   * 
    * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
    */
   key?: string;
   /**
    * @remarks
    * The tag value.
-   * Valid values of N: 1 to 10. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
-   * Note: If you pass in an empty value or an empty string, it indicates any value.
+   * 
+   * Valid values of N: 1 to 5.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * > If you pass in an empty value or an empty string, the tag value matches any value.
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -188,8 +194,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   targetCopyRegions?: string;
   /**
    * @remarks
-   * The list of target resource tags. The automatic snapshot policy matches target resources based on tags.
-   * This parameter is required when AssociationType is set to AssociatedWithInstanceTag.
+   * The list of target resource tags. The automatic snapshot policy matches target resources by tag.
    */
   targetTags?: ModifyAutoSnapshotPolicyExRequestTargetTags[];
   /**

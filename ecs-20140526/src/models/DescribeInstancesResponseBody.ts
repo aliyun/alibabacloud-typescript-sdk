@@ -4,10 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstancesResponseBodyInstancesInstanceAdditionalInfo extends $dara.Model {
   enableHighDensityMode?: boolean;
+  /**
+   * @example
+   * mh-f2d3647ca21****
+   */
+  managedHostId?: string;
   nodeSerialNumber?: string;
   static names(): { [key: string]: string } {
     return {
       enableHighDensityMode: 'EnableHighDensityMode',
+      managedHostId: 'ManagedHostId',
       nodeSerialNumber: 'NodeSerialNumber',
     };
   }
@@ -15,6 +21,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAdditionalInfo extend
   static types(): { [key: string]: any } {
     return {
       enableHighDensityMode: 'boolean',
+      managedHostId: 'string',
       nodeSerialNumber: 'string',
     };
   }
@@ -1231,7 +1238,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   instances?: DescribeInstancesResponseBodyInstances;
   /**
    * @remarks
-   * The query token returned in this call.
+   * The pagination token returned in this call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -1247,7 +1254,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page as specified in the request.
+   * The number of entries per page that was specified in the request.
    * 
    * @example
    * 10
