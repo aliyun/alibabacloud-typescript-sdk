@@ -581,6 +581,11 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
    */
   authorizeCallbackDomain?: string;
   /**
+   * @example
+   * mPLLiWv-_9witxxxEJCpk1xkF5hOgBzpRt4kBkxxx
+   */
+  contactSecret?: string;
+  /**
    * @remarks
    * The CorpSecret of the WeCom self-built application.
    * 
@@ -600,6 +605,7 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
     return {
       agentId: 'AgentId',
       authorizeCallbackDomain: 'AuthorizeCallbackDomain',
+      contactSecret: 'ContactSecret',
       corpSecret: 'CorpSecret',
       trustableDomain: 'TrustableDomain',
     };
@@ -609,6 +615,7 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
     return {
       agentId: 'string',
       authorizeCallbackDomain: 'string',
+      contactSecret: 'string',
       corpSecret: 'string',
       trustableDomain: 'string',
     };

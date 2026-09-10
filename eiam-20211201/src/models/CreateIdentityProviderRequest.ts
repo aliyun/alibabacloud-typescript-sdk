@@ -138,7 +138,7 @@ export class CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpre
   expressionMappingType?: string;
   /**
    * @remarks
-   * The expression for the mapped attribute value.
+   * The expression for the mapping attribute value.
    * 
    * @example
    * idpUser.phoneNumber
@@ -146,7 +146,7 @@ export class CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpre
   sourceValueExpression?: string;
   /**
    * @remarks
-   * The name of the target attribute for mapping.
+   * The name of the mapping target attribute.
    * 
    * @example
    * user.username
@@ -154,7 +154,7 @@ export class CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpre
   targetField?: string;
   /**
    * @remarks
-   * The name of the target attribute for mapping.
+   * The name of the mapping target attribute.
    * 
    * @example
    * username
@@ -272,9 +272,9 @@ export class CreateIdentityProviderRequestDingtalkAppConfig extends $dara.Model 
    * @remarks
    * The DingTalk version. Valid values:
    * 
-   * - public_dingtalk: Standard DingTalk.
+   * - public_dingtalk: standard DingTalk
    * 
-   * - private_dingtalk: Exclusive DingTalk.
+   * - private_dingtalk: exclusive DingTalk
    * 
    * @example
    * public_dingtalk
@@ -497,7 +497,7 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
   organizationalUnitRdn?: string;
   /**
    * @remarks
-   * Specifies whether password synchronization is enabled.
+   * The password synchronization switch.
    * 
    * @example
    * enabled
@@ -856,7 +856,7 @@ export class CreateIdentityProviderRequestSamlConfig extends $dara.Model {
   bindingMethod?: string;
   /**
    * @remarks
-   * The certificate list of the IdP.
+   * The list of IdP certificates.
    */
   certificates?: CreateIdentityProviderRequestSamlConfigCertificates[];
   /**
@@ -893,12 +893,12 @@ export class CreateIdentityProviderRequestSamlConfig extends $dara.Model {
   requireRequestSigned?: boolean;
   /**
    * @remarks
-   * Specifies whether the external IdP must sign the Assertion.
+   * Specifies whether the external IdP must sign assertions.
    */
   wantAssertionsSigned?: boolean;
   /**
    * @remarks
-   * Specifies whether the external IdP must sign the Response.
+   * Specifies whether the external IdP must sign responses.
    */
   wantResponseSigned?: boolean;
   static names(): { [key: string]: string } {
@@ -1043,10 +1043,10 @@ export class CreateIdentityProviderRequestUdPullConfig extends $dara.Model {
   groupSyncStatus?: string;
   /**
    * @remarks
-   * The incremental callback status. Specifies whether to process incremental callback data from the IdP. Valid values:
+   * Specifies whether to process incremental callback data from the IdP. Valid values:
    * 
-   * - disabled
-   * - enabled
+   * - disabled: Disabled.
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -1201,7 +1201,7 @@ export class CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs extends
 export class CreateIdentityProviderRequestUdPushConfig extends $dara.Model {
   /**
    * @remarks
-   * The incremental callback status. This field is not yet enabled. Ignore this field.
+   * The incremental callback status. This field is not yet available. Ignore this field.
    * 
    * @example
    * disabled
@@ -1214,7 +1214,7 @@ export class CreateIdentityProviderRequestUdPushConfig extends $dara.Model {
   periodicSyncConfig?: CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig;
   /**
    * @remarks
-   * The periodic verification status. This field is not yet enabled. Ignore this field.
+   * The periodic verification status. This field is not yet available. Ignore this field.
    * 
    * @example
    * disabled
@@ -1277,6 +1277,14 @@ export class CreateIdentityProviderRequestWeComConfig extends $dara.Model {
   authorizeCallbackDomain?: string;
   /**
    * @remarks
+   * The WeCom address book secret.
+   * 
+   * @example
+   * mPLLiWv-_9wittxxxEJCpk1xkF5hOgBzpRt4kBkxxx
+   */
+  contactSecret?: string;
+  /**
+   * @remarks
    * The corpId of the WeCom self-built application.
    * 
    * @example
@@ -1303,6 +1311,7 @@ export class CreateIdentityProviderRequestWeComConfig extends $dara.Model {
     return {
       agentId: 'AgentId',
       authorizeCallbackDomain: 'AuthorizeCallbackDomain',
+      contactSecret: 'ContactSecret',
       corpId: 'CorpId',
       corpSecret: 'CorpSecret',
       trustableDomain: 'TrustableDomain',
@@ -1313,6 +1322,7 @@ export class CreateIdentityProviderRequestWeComConfig extends $dara.Model {
     return {
       agentId: 'string',
       authorizeCallbackDomain: 'string',
+      contactSecret: 'string',
       corpId: 'string',
       corpSecret: 'string',
       trustableDomain: 'string',
