@@ -12,11 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-beijing': "kvcachestore.cn-beijing.aliyuncs.com",
-      'cn-shanghai': "kvcachestore.cn-shanghai.aliyuncs.com",
-      'ap-southeast-1': "kvcachestore.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("kvcachestore", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -35,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Mounts KVCacheInstance resources to the virtualization side in batches.
+   * Mounts KVCacheInstance resources to the virtualization stack in batches.
    * 
    * @remarks
    * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
@@ -82,7 +77,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Mounts KVCacheInstance resources to the virtualization side in batches.
+   * Mounts KVCacheInstance resources to the virtualization stack in batches.
    * 
    * @remarks
    * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
@@ -383,7 +378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 KvCacheStore 实例详情
+   * Queries the details of a KvCacheStore instance.
    * 
    * @param request - GetKVCacheStoreRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -418,7 +413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 KvCacheStore 实例详情
+   * Queries the details of a KvCacheStore instance.
    * 
    * @param request - GetKVCacheStoreRequest
    * @returns GetKVCacheStoreResponse
@@ -429,7 +424,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mount information of KVCacheInstance resources in batches.
+   * Queries mount information of KVCacheInstances in batches.
+   * 
+   * @remarks
+   * This operation has no KVCacheStore status restrictions. If a KVCacheStore is in the Creating state, an empty list is returned.
+   * * A KVCacheStore can be mounted to multiple VSCs, so each KVCacheStore may return multiple mount records.
+   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
+   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
    * 
    * @param request - ListKVCacheStoreAttachInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -480,7 +481,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mount information of KVCacheInstance resources in batches.
+   * Queries mount information of KVCacheInstances in batches.
+   * 
+   * @remarks
+   * This operation has no KVCacheStore status restrictions. If a KVCacheStore is in the Creating state, an empty list is returned.
+   * * A KVCacheStore can be mounted to multiple VSCs, so each KVCacheStore may return multiple mount records.
+   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
+   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
    * 
    * @param request - ListKVCacheStoreAttachInfoRequest
    * @returns ListKVCacheStoreAttachInfoResponse
@@ -491,7 +498,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定 KVCacheStore 实例可用的 HpnZone 列表
+   * Queries the list of available HpnZones for a specified KVCacheStore instance.
+   * 
+   * @remarks
+   * This operation queries available HpnZones by KVCacheStore. Use this operation to query available HPN cluster IDs before scaling or migrating a KVCacheStore.
    * 
    * @param request - ListKVCacheStoreAvailableHpnZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -526,7 +536,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定 KVCacheStore 实例可用的 HpnZone 列表
+   * Queries the list of available HpnZones for a specified KVCacheStore instance.
+   * 
+   * @remarks
+   * This operation queries available HpnZones by KVCacheStore. Use this operation to query available HPN cluster IDs before scaling or migrating a KVCacheStore.
    * 
    * @param request - ListKVCacheStoreAvailableHpnZonesRequest
    * @returns ListKVCacheStoreAvailableHpnZonesResponse
@@ -534,6 +547,64 @@ export default class Client extends OpenApi {
   async listKVCacheStoreAvailableHpnZones(request: $_model.ListKVCacheStoreAvailableHpnZonesRequest): Promise<$_model.ListKVCacheStoreAvailableHpnZonesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listKVCacheStoreAvailableHpnZonesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of available VSC resources associated with a specified KVCacheStore instance.
+   * 
+   * @param request - ListKVCacheStoreAvailableVscsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKVCacheStoreAvailableVscsResponse
+   */
+  async listKVCacheStoreAvailableVscsWithOptions(request: $_model.ListKVCacheStoreAvailableVscsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKVCacheStoreAvailableVscsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.arns)) {
+      query["Arns"] = request.arns;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.kvcsId)) {
+      query["KvcsId"] = request.kvcsId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKVCacheStoreAvailableVscs",
+      version: "2026-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKVCacheStoreAvailableVscsResponse>(await this.callApi(params, req, runtime), new $_model.ListKVCacheStoreAvailableVscsResponse({}));
+  }
+
+  /**
+   * Queries the list of available VSC resources associated with a specified KVCacheStore instance.
+   * 
+   * @param request - ListKVCacheStoreAvailableVscsRequest
+   * @returns ListKVCacheStoreAvailableVscsResponse
+   */
+  async listKVCacheStoreAvailableVscs(request: $_model.ListKVCacheStoreAvailableVscsRequest): Promise<$_model.ListKVCacheStoreAvailableVscsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKVCacheStoreAvailableVscsWithOptions(request, runtime);
   }
 
   /**

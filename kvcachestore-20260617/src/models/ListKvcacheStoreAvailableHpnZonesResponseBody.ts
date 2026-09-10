@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZonesAvailableHpnZones extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID, such as default.
+   * 
    * @example
    * default
    */
@@ -30,13 +33,23 @@ export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZonesAvaila
 }
 
 export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones extends $dara.Model {
+  /**
+   * @remarks
+   * The list of available HpnZones for the instance.
+   */
   availableHpnZones?: ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZonesAvailableHpnZones[];
   /**
+   * @remarks
+   * The KVCacheStore instance ID.
+   * 
    * @example
    * kvcs-xxxxx
    */
   kvcsId?: string;
   /**
+   * @remarks
+   * The zone ID of the instance.
+   * 
    * @example
    * cn-hangzhou-a
    */
@@ -70,8 +83,15 @@ export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones exten
 }
 
 export class ListKVCacheStoreAvailableHpnZonesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of available HpnZone information for instances.
+   */
   instanceHpnZones?: ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones[];
   /**
+   * @remarks
+   * The request ID. A request ID is returned regardless of whether the call is successful.
+   * 
    * @example
    * 019FB5E9-F9E8-52F5-9C56-2CDF479CBEB2
    */

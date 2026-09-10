@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListKVCacheStoreAvailableHpnZonesRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of KVCacheStore instance IDs, separated by commas. You can specify a minimum of 1 and a maximum of 100 instance IDs.
+   * 
    * This parameter is required.
    */
   kvcsIds?: string[];
   /**
    * @remarks
+   * The region ID, such as cn-hangzhou.
+   * 
    * This parameter is required.
    * 
    * @example

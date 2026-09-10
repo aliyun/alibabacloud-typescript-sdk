@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Model {
   /**
    * @remarks
-   * The time of the most recent attach operation, in ISO 8601 format. The value is null if the instance has not been attached.
+   * The time of the most recent attach operation, in ISO 8601 format. This value is null if the instance has not been attached.
    * 
    * @example
    * 2026-06-20T08:30:00Z
@@ -29,7 +29,7 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   kvcsId?: string;
   /**
    * @remarks
-   * The mount point ID at the file system level.
+   * The file system-level mount point ID.
    * 
    * @example
    * mp-xxxxx
@@ -46,7 +46,6 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   /**
    * @remarks
    * The attach status. Valid values:
-   * 
    * - Attaching: The instance is being mounted.
    * - Attached: The instance is mounted.
    * - Detaching: The instance is being unmounted.
@@ -59,9 +58,7 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The instance type. Valid values:
-   * 
-   * - kvcs: KVCacheStore (CPFS).
+   * The instance type. Valid values: kvcs (KVCacheStore, CPFS).
    * 
    * @example
    * preview
@@ -128,7 +125,7 @@ export class ListKVCacheStoreAttachInfoResponseBody extends $dara.Model {
   attachInfos?: ListKVCacheStoreAttachInfoResponseBodyAttachInfos[];
   /**
    * @remarks
-   * The pagination token used to query the next batch of data.
+   * The pagination token. Used to query the next batch of data.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3NUkN7qf+fcWj7joK8M6tU

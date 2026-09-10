@@ -11,6 +11,8 @@ export { GetKVCacheStoreResponseBodyKvCacheStore } from './GetKvcacheStoreRespon
 export { ListKVCacheStoreAttachInfoResponseBodyAttachInfos } from './ListKvcacheStoreAttachInfoResponseBody';
 export { ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZonesAvailableHpnZones } from './ListKvcacheStoreAvailableHpnZonesResponseBody';
 export { ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones } from './ListKvcacheStoreAvailableHpnZonesResponseBody';
+export { ListKVCacheStoreAvailableVscsRequestArns } from './ListKvcacheStoreAvailableVscsRequest';
+export { ListKVCacheStoreAvailableVscsResponseBodyVscs } from './ListKvcacheStoreAvailableVscsResponseBody';
 export { ListKVCacheStoresResponseBodyKVCacheStoresTags } from './ListKvcacheStoresResponseBody';
 export { ListKVCacheStoresResponseBodyKVCacheStores } from './ListKvcacheStoresResponseBody';
 export { UpdateKVCacheStoreRequestTag } from './UpdateKvcacheStoreRequest';
@@ -41,6 +43,9 @@ export { ListKVCacheStoreAttachInfoResponse } from './ListKvcacheStoreAttachInfo
 export { ListKVCacheStoreAvailableHpnZonesRequest } from './ListKvcacheStoreAvailableHpnZonesRequest';
 export { ListKVCacheStoreAvailableHpnZonesResponseBody } from './ListKvcacheStoreAvailableHpnZonesResponseBody';
 export { ListKVCacheStoreAvailableHpnZonesResponse } from './ListKvcacheStoreAvailableHpnZonesResponse';
+export { ListKVCacheStoreAvailableVscsRequest } from './ListKvcacheStoreAvailableVscsRequest';
+export { ListKVCacheStoreAvailableVscsResponseBody } from './ListKvcacheStoreAvailableVscsResponseBody';
+export { ListKVCacheStoreAvailableVscsResponse } from './ListKvcacheStoreAvailableVscsResponse';
 export { ListKVCacheStoresRequest } from './ListKvcacheStoresRequest';
 export { ListKVCacheStoresResponseBody } from './ListKvcacheStoresResponseBody';
 export { ListKVCacheStoresResponse } from './ListKvcacheStoresResponse';

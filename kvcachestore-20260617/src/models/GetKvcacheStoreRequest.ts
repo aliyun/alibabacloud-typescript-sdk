@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetKVCacheStoreRequest extends $dara.Model {
   /**
    * @remarks
+   * The KvCacheStore instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetKVCacheStoreRequest extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
+   * The region ID, such as cn-hangzhou.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetKVCacheStoreResponseBodyKvCacheStoreTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key of the resource.
+   * 
    * @example
    * ac-cus-tag-6
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value of the resource.
+   * 
    * @example
    * advanced
    */
@@ -38,72 +44,130 @@ export class GetKVCacheStoreResponseBodyKvCacheStoreTags extends $dara.Model {
 
 export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   /**
+   * @remarks
+   * The storage capacity, in GiB.
+   * 
    * @example
    * 100
    */
   capacity?: number;
   /**
+   * @remarks
+   * The creation time in ISO 8601 format.
+   * 
    * @example
    * 2026-06-18T10:00:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The instance description.
+   * 
    * @example
    * production kvcachestore
    */
   description?: string;
   /**
+   * @remarks
+   * The extra status information. Valid values:
+   * - CapacityExpanding
+   * - CapacityExpandSuccess
+   * - CapacityExpandFail
+   * 
    * @example
    * CapacityExpanding
    */
   extraStatus?: string;
   /**
+   * @remarks
+   * The cluster number.
+   * 
    * @example
    * default
    */
   hpnZone?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * kvcs-xxxxx
    */
   kvcsId?: string;
   /**
+   * @remarks
+   * The file system-level mount point ID. Instances under the same file system share this mount point. For more information, use ListKVCacheInstanceAttachInfo.
+   * 
    * @example
    * mp-xxxxx
    */
   mountPointId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * production-instance
    */
   name?: string;
   /**
+   * @remarks
+   * The payment type. Valid values:
+   * - PREPAY
+   * - POSTPAY
+   * 
    * @example
    * POSTPAY
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-aekzrwkxbdvkctq
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The instance status. Valid values:
+   * - Creating
+   * - Available
+   * - InUse
+   * - Stopping
+   * - Stopped
+   * - Deleting
+   * 
    * @example
    * AVAILABLE
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of resource tags.
+   */
   tags?: GetKVCacheStoreResponseBodyKvCacheStoreTags[];
   /**
+   * @remarks
+   * The instance type. Valid values:
+   * - kvcs: KVCacheStore (CPFS).
+   * 
    * @example
    * kvcs
    */
   type?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-a
    */
@@ -161,8 +225,15 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
 }
 
 export class GetKVCacheStoreResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the KvCacheStore instance.
+   */
   kvCacheStore?: GetKVCacheStoreResponseBodyKvCacheStore;
   /**
+   * @remarks
+   * The request ID. A request ID is returned regardless of whether the call is successful.
+   * 
    * @example
    * 019FB5E9-F9E8-52F5-9C56-2CDF479CBEB2
    */

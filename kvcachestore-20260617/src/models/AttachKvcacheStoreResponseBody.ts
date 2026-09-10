@@ -84,7 +84,7 @@ export class AttachKVCacheStoreResponseBody extends $dara.Model {
   attachResults?: AttachKVCacheStoreResponseBodyAttachResults[];
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the operation is successful.
+   * The request ID. A request ID is returned regardless of whether the API call succeeds.
    * 
    * @example
    * F7BEF1E2-7E56-5BF1-8E36-77A51C5812F1
