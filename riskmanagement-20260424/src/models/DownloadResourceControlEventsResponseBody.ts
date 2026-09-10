@@ -2,10 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryGuideSubStatusResponseBody extends $dara.Model {
+export class DownloadResourceControlEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the API call.
+   * The status code.
+   * 
+   * > 200 indicates success. Other values (such as 500 or 400) indicate error codes.
    * 
    * @example
    * 200
@@ -13,13 +15,10 @@ export class QueryGuideSubStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The subscription status. Valid values:
-   * 
-   * - **SUBSCRIBED**: Subscribed.
-   * - **UNSUBSCRIBED**: Not subscribed.
+   * The metadata response information.
    * 
    * @example
-   * SUBSCRIBED
+   * 5
    */
   data?: string;
   /**
@@ -32,17 +31,17 @@ export class QueryGuideSubStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * 3C107939-59BD-5EB9-B250-39559C830A85
+   * 855FCC89-0B13-5FC0-AAD2-120878081C1C
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call was successful.
    * 
-   * - **true**: The call was successful.              
+   * - **true**: The call was successful.                                
    * - **false**: The call failed.
    * 
    * @example

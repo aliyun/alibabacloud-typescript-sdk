@@ -2,12 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryAccountSafetyIncidentRequest extends $dara.Model {
+export class QueryAccountSafetyIncidentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of control action codes.
    */
-  actionCodes?: string[];
+  actionCodesShrink?: string;
   /**
    * @remarks
    * The internationalization language. Default value: zh. Valid values:
@@ -32,7 +32,7 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
    * @remarks
    * The list of event name codes.
    */
-  caseCodes?: string[];
+  caseCodesShrink?: string;
   /**
    * @remarks
    * The current page number. The value must be greater than 0.
@@ -54,7 +54,7 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
    * @remarks
    * The list of event IDs.
    */
-  eventIds?: string[];
+  eventIdsShrink?: string;
   /**
    * @remarks
    * The number of records per page. Valid values: 1 to 100.
@@ -110,56 +110,44 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
    * @remarks
    * The list of event statuses.
    */
-  statuses?: string[];
+  statusesShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      actionCodes: 'ActionCodes',
+      actionCodesShrink: 'ActionCodes',
       aliyunLang: 'AliyunLang',
       caseCode: 'CaseCode',
-      caseCodes: 'CaseCodes',
+      caseCodesShrink: 'CaseCodes',
       current: 'Current',
       eventId: 'EventId',
-      eventIds: 'EventIds',
+      eventIdsShrink: 'EventIds',
       pageSize: 'PageSize',
       punishEndTime: 'PunishEndTime',
       punishStartTime: 'PunishStartTime',
       resourceId: 'ResourceId',
       status: 'Status',
-      statuses: 'Statuses',
+      statusesShrink: 'Statuses',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      actionCodes: { 'type': 'array', 'itemType': 'string' },
+      actionCodesShrink: 'string',
       aliyunLang: 'string',
       caseCode: 'string',
-      caseCodes: { 'type': 'array', 'itemType': 'string' },
+      caseCodesShrink: 'string',
       current: 'string',
       eventId: 'string',
-      eventIds: { 'type': 'array', 'itemType': 'string' },
+      eventIdsShrink: 'string',
       pageSize: 'string',
       punishEndTime: 'string',
       punishStartTime: 'string',
       resourceId: 'string',
       status: 'string',
-      statuses: { 'type': 'array', 'itemType': 'string' },
+      statusesShrink: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.actionCodes)) {
-      $dara.Model.validateArray(this.actionCodes);
-    }
-    if(Array.isArray(this.caseCodes)) {
-      $dara.Model.validateArray(this.caseCodes);
-    }
-    if(Array.isArray(this.eventIds)) {
-      $dara.Model.validateArray(this.eventIds);
-    }
-    if(Array.isArray(this.statuses)) {
-      $dara.Model.validateArray(this.statuses);
-    }
     super.validate();
   }
 

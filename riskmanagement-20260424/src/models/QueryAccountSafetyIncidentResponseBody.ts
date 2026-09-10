@@ -58,7 +58,7 @@ export class QueryAccountSafetyIncidentResponseBodyDataListDateExtras extends $d
 export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The control action name code.
+   * The control action code.
    * 
    * @example
    * success_service
@@ -69,7 +69,7 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
    * The control action name.
    * 
    * @example
-   * Penalty executed successfully.
+   * Penalty directly succeeded
    */
   actionName?: string;
   /**
@@ -82,10 +82,17 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
    * 2026-03-16 15:15:00
    */
   antiPunishTime?: string;
+  /**
+   * @remarks
+   * The called API operation.
+   * 
+   * @example
+   * AddDomainRecord
+   */
   callApi?: string;
   /**
    * @remarks
-   * The control action time information.
+   * The control time information.
    */
   dateExtras?: QueryAccountSafetyIncidentResponseBodyDataListDateExtras;
   /**
@@ -120,8 +127,30 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
    * ak leak.
    */
   eventReason?: string;
+  /**
+   * @remarks
+   * The event subtype name.
+   * 
+   * @example
+   * Suspicious identity calling sensitive API
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The time of the abnormal call.
+   * > Format: yyyy-MM-dd HH:mm:ss
+   * 
+   * @example
+   * 2026-03-16 15:15:00
+   */
   exceptionCallTime?: string;
+  /**
+   * @remarks
+   * The abnormal IP address.
+   * 
+   * @example
+   * 39.1X4.63.XX9
+   */
   exceptionIp?: string;
   /**
    * @remarks
@@ -151,7 +180,7 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
   resourceId?: string;
   /**
    * @remarks
-   * The control object type.
+   * The controlled object type.
    * 
    * @example
    * customer
@@ -267,7 +296,7 @@ export class QueryAccountSafetyIncidentResponseBodyDataPageInfo extends $dara.Mo
   current?: string;
   /**
    * @remarks
-   * The number of assets displayed per page when you perform a paging query.
+   * The number of assets displayed on each page in a paged query.
    * 
    * @example
    * 10
@@ -314,7 +343,7 @@ export class QueryAccountSafetyIncidentResponseBodyData extends $dara.Model {
   list?: QueryAccountSafetyIncidentResponseBodyDataList[];
   /**
    * @remarks
-   * The pagination information.
+   * The total number of records.
    */
   pageInfo?: QueryAccountSafetyIncidentResponseBodyDataPageInfo;
   static names(): { [key: string]: string } {
@@ -351,7 +380,7 @@ export class QueryAccountSafetyIncidentResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > 200: The request was successful. Other values (such as 500 or 400): An error occurred.
+   * >  200: The request was successful. Other codes (500, 400, etc.): An error occurred.
    * 
    * @example
    * 200
@@ -364,7 +393,7 @@ export class QueryAccountSafetyIncidentResponseBody extends $dara.Model {
   data?: QueryAccountSafetyIncidentResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The prompt message.
    * 
    * @example
    * successful‌

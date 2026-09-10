@@ -7,9 +7,10 @@ export class GetServiceLinkedRoleStatusRequest extends $dara.Model {
    * @remarks
    * The authorization type. Valid values:
    * 
-   * - **SecuritySense**: security check authorization
-   * - **DisposalTool**: threat removal tool authorization
-   * - **SensePosture**: security posture authorization
+   * - **SecuritySense**: Security check authorization.
+   * - **DisposalTool**: Threat removal tool authorization.
+   * - **SensePosture**: Security posture authorization.
+   * - **CreateServiceRole**: Service role creation authorization.
    * 
    * This parameter is required.
    * 

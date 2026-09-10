@@ -7,8 +7,8 @@ export class GetServiceLinkedRoleStatusResponseBodyData extends $dara.Model {
    * @remarks
    * The authorization status. Valid values:
    * 
-   * - **true**: authorized
-   * - **false**: not authorized
+   * - **true**: Authorized.
+   * - **false**: Not authorized.
    * 
    * @example
    * true
@@ -41,7 +41,7 @@ export class GetServiceLinkedRoleStatusResponseBody extends $dara.Model {
    * The status code. Valid values:
    * 
    * - **200**: Succeeded.
-   * - **Other (400, 500)**: Failed.
+   * - **Other values (400, 500)**: Failed.
    * 
    * @example
    * 200

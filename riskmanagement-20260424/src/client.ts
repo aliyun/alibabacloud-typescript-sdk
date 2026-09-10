@@ -447,6 +447,178 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Downloads cloud resource control events.
+   * 
+   * @param tmpReq - DownloadResourceControlEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadResourceControlEventsResponse
+   */
+  async downloadResourceControlEventsWithOptions(tmpReq: $_model.DownloadResourceControlEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadResourceControlEventsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DownloadResourceControlEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.actionCodes)) {
+      request.actionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionCodes, "ActionCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.caseCodesPrefix)) {
+      request.caseCodesPrefixShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.caseCodesPrefix, "CaseCodesPrefix", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.eventCodes)) {
+      request.eventCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventCodes, "EventCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.excludeActionCodes)) {
+      request.excludeActionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeActionCodes, "ExcludeActionCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.excludeEventCodes)) {
+      request.excludeEventCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeEventCodes, "ExcludeEventCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.excludeReasons)) {
+      request.excludeReasonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeReasons, "ExcludeReasons", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.includeReasons)) {
+      request.includeReasonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.includeReasons, "IncludeReasons", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sourceCodes)) {
+      request.sourceCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceCodes, "SourceCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.actionCode)) {
+      query["ActionCode"] = request.actionCode;
+    }
+
+    if (!$dara.isNull(request.actionCodesShrink)) {
+      query["ActionCodes"] = request.actionCodesShrink;
+    }
+
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.businessCode)) {
+      query["BusinessCode"] = request.businessCode;
+    }
+
+    if (!$dara.isNull(request.caseCodesPrefixShrink)) {
+      query["CaseCodesPrefix"] = request.caseCodesPrefixShrink;
+    }
+
+    if (!$dara.isNull(request.current)) {
+      query["Current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.eventCode)) {
+      query["EventCode"] = request.eventCode;
+    }
+
+    if (!$dara.isNull(request.eventCodesShrink)) {
+      query["EventCodes"] = request.eventCodesShrink;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.excludeActionCodesShrink)) {
+      query["ExcludeActionCodes"] = request.excludeActionCodesShrink;
+    }
+
+    if (!$dara.isNull(request.excludeEventCodesShrink)) {
+      query["ExcludeEventCodes"] = request.excludeEventCodesShrink;
+    }
+
+    if (!$dara.isNull(request.excludeReasonsShrink)) {
+      query["ExcludeReasons"] = request.excludeReasonsShrink;
+    }
+
+    if (!$dara.isNull(request.includeReasonsShrink)) {
+      query["IncludeReasons"] = request.includeReasonsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.punishEndTime)) {
+      query["PunishEndTime"] = request.punishEndTime;
+    }
+
+    if (!$dara.isNull(request.punishStartTime)) {
+      query["PunishStartTime"] = request.punishStartTime;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!$dara.isNull(request.sourceCodesShrink)) {
+      query["SourceCodes"] = request.sourceCodesShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.statusListShrink)) {
+      query["StatusList"] = request.statusListShrink;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadResourceControlEvents",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadResourceControlEventsResponse>(await this.callApi(params, req, runtime), new $_model.DownloadResourceControlEventsResponse({}));
+  }
+
+  /**
+   * Downloads cloud resource control events.
+   * 
+   * @param request - DownloadResourceControlEventsRequest
+   * @returns DownloadResourceControlEventsResponse
+   */
+  async downloadResourceControlEvents(request: $_model.DownloadResourceControlEventsRequest): Promise<$_model.DownloadResourceControlEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadResourceControlEventsWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the analysis results of alert records.
    * 
    * @param tmpReq - GetAlertRecordAnalysisResultRequest
@@ -1330,13 +1502,35 @@ export default class Client extends OpenApi {
   /**
    * Queries account security events.
    * 
-   * @param request - QueryAccountSafetyIncidentRequest
+   * @param tmpReq - QueryAccountSafetyIncidentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryAccountSafetyIncidentResponse
    */
-  async queryAccountSafetyIncidentWithOptions(request: $_model.QueryAccountSafetyIncidentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAccountSafetyIncidentResponse> {
-    request.validate();
+  async queryAccountSafetyIncidentWithOptions(tmpReq: $_model.QueryAccountSafetyIncidentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAccountSafetyIncidentResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryAccountSafetyIncidentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.actionCodes)) {
+      request.actionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionCodes, "ActionCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.caseCodes)) {
+      request.caseCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.caseCodes, "CaseCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.eventIds)) {
+      request.eventIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventIds, "EventIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.actionCodesShrink)) {
+      query["ActionCodes"] = request.actionCodesShrink;
+    }
+
     if (!$dara.isNull(request.aliyunLang)) {
       query["AliyunLang"] = request.aliyunLang;
     }
@@ -1345,12 +1539,20 @@ export default class Client extends OpenApi {
       query["CaseCode"] = request.caseCode;
     }
 
+    if (!$dara.isNull(request.caseCodesShrink)) {
+      query["CaseCodes"] = request.caseCodesShrink;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["Current"] = request.current;
     }
 
     if (!$dara.isNull(request.eventId)) {
       query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventIdsShrink)) {
+      query["EventIds"] = request.eventIdsShrink;
     }
 
     if (!$dara.isNull(request.pageSize)) {
@@ -1371,6 +1573,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.statusesShrink)) {
+      query["Statuses"] = request.statusesShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
