@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AgenticBucketVolumeConfig } from "./AgenticBucketVolumeConfig";
 import { AgenticFSVolumeConfig } from "./AgenticFsvolumeConfig";
 import { OSSVolumeConfig } from "./OssvolumeConfig";
 
@@ -95,6 +96,7 @@ export class E2BVolumeMountConfig extends $dara.Model {
 }
 
 export class E2BVolume extends $dara.Model {
+  agenticBucketVolumeConfig?: AgenticBucketVolumeConfig;
   /**
    * @remarks
    * The AgenticFS configuration.
@@ -198,6 +200,7 @@ export class E2BVolume extends $dara.Model {
   volumeName?: string;
   static names(): { [key: string]: string } {
     return {
+      agenticBucketVolumeConfig: 'agenticBucketVolumeConfig',
       agenticFSVolumeConfig: 'agenticFSVolumeConfig',
       createdAt: 'createdAt',
       mountConfig: 'mountConfig',
@@ -216,6 +219,7 @@ export class E2BVolume extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agenticBucketVolumeConfig: AgenticBucketVolumeConfig,
       agenticFSVolumeConfig: AgenticFSVolumeConfig,
       createdAt: 'string',
       mountConfig: E2BVolumeMountConfig,
@@ -233,6 +237,9 @@ export class E2BVolume extends $dara.Model {
   }
 
   validate() {
+    if(this.agenticBucketVolumeConfig && typeof (this.agenticBucketVolumeConfig as any).validate === 'function') {
+      (this.agenticBucketVolumeConfig as any).validate();
+    }
     if(this.agenticFSVolumeConfig && typeof (this.agenticFSVolumeConfig as any).validate === 'function') {
       (this.agenticFSVolumeConfig as any).validate();
     }

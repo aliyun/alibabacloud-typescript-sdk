@@ -70,7 +70,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Team.
+   * Creates a team.
    * 
    * @param request - CreateTeamRequest
    * @param headers - map
@@ -98,7 +98,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Team.
+   * Creates a team.
    * 
    * @param request - CreateTeamRequest
    * @returns CreateTeamResponse

@@ -5,6 +5,7 @@ export { E2BVolumeMountConfigVpcConfig } from './E2bvolume';
 export { E2BVolumeMountConfig } from './E2bvolume';
 export { PermissionPolicyAllow } from './PermissionPolicy';
 export { PermissionPolicyDeny } from './PermissionPolicy';
+export { AgenticBucketVolumeConfig } from './AgenticBucketVolumeConfig';
 export { AgenticFSVolumeConfig } from './AgenticFsvolumeConfig';
 export { ApiKey } from './ApiKey';
 export { CertConfig } from './CertConfig';

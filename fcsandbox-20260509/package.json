@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/fcsandbox20260509",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

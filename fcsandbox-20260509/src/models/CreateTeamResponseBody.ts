@@ -30,7 +30,7 @@ export class CreateTeamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Team information.
+   * The team information.
    */
   team?: E2BTeam;
   static names(): { [key: string]: string } {
