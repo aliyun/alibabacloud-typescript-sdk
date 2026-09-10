@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. If a cloud service supports idempotence, the parameter takes effect.
+   * A client token to ensure idempotence. This parameter works only if the cloud product supports idempotence.
    * 
    * @example
    * 1e810dfe1468721d0664a49b9d9f74f4
@@ -14,7 +14,7 @@ export class DeleteResourceShrinkRequest extends $dara.Model {
   filterShrink?: string;
   /**
    * @remarks
-   * The region. This parameter is required if a cloud service is a regionalized.
+   * The region ID. This parameter is required if the cloud product is region-specific.
    * 
    * @example
    * cn-beijing

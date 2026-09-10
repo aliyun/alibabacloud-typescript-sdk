@@ -6,11 +6,11 @@ export class GetResourceTypeHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The language selected for the returned product.
+   * The language in which the product information is returned. Valid values:
    * 
    * zh_CH: Chinese (default)
    * 
-   * en_US: English
+   * en_US: English.
    * 
    * @example
    * zh_CH

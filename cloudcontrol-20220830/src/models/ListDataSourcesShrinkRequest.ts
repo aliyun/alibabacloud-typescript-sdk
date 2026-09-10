@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the property. RegionId is supported.
+   * The name of the attribute. Only `RegionId` is supported.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListDataSourcesShrinkRequest extends $dara.Model {
   attributeName?: string;
   /**
    * @remarks
-   * The filter conditions. JSON format:{"key1":"value1"}.
+   * The filter condition. The value must be a JSON string in the {"key1":"value1"} format.
    */
   filterShrink?: string;
   static names(): { [key: string]: string } {

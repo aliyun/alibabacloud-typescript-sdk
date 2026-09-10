@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data.
+   * The data ID.
    * 
    * @example
    * cn-beijing
@@ -35,12 +35,12 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
 export class ListDataSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried data.
+   * The list of data.
    */
   dataSources?: ListDataSourcesResponseBodyDataSources[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

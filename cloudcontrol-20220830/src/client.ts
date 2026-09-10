@@ -11,7 +11,37 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'ap-northeast-1': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-2': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-5': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-6': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-7': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'cn-beijing': "cloudcontrol.aliyuncs.com",
+      'cn-chengdu': "cloudcontrol.aliyuncs.com",
+      'cn-fuzhou': "cloudcontrol.aliyuncs.com",
+      'cn-guangzhou': "cloudcontrol.aliyuncs.com",
+      'cn-hangzhou': "cloudcontrol.aliyuncs.com",
+      'cn-heyuan': "cloudcontrol.aliyuncs.com",
+      'cn-hongkong': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'cn-huhehaote': "cloudcontrol.aliyuncs.com",
+      'cn-nanjing': "cloudcontrol.aliyuncs.com",
+      'cn-qingdao': "cloudcontrol.aliyuncs.com",
+      'cn-shanghai': "cloudcontrol.aliyuncs.com",
+      'cn-shenzhen': "cloudcontrol.aliyuncs.com",
+      'cn-wulanchabu': "cloudcontrol.aliyuncs.com",
+      'cn-zhangjiakou': "cloudcontrol.aliyuncs.com",
+      'us-west-1': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'us-east-1': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'eu-west-1': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'eu-central-1': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'me-east-1': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'me-central-1': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "cloudcontrol.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloudcontrol", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -131,10 +161,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls this operation to delete resources.
+   * Deletes a resource.
    * 
    * @remarks
-   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view resource documentation and try Cloud Control API.
    * 
    * @param requestPath - the whole path of resource string
    * @param tmpReq - DeleteResourceRequest
@@ -182,10 +212,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls this operation to delete resources.
+   * Deletes a resource.
    * 
    * @remarks
-   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view resource documentation and try Cloud Control API.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - DeleteResourceRequest
@@ -195,6 +225,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceWithOptions(requestPath, request, headers, runtime);
+  }
+
+  /**
+   * Queries pricing based on an OpenAPI triplet and input parameters.
+   * 
+   * @param request - GetApiPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApiPriceResponse
+   */
+  async getApiPriceWithOptions(request: $_model.GetApiPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiPriceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApiPrice",
+      version: "2022-08-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/price/quote`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApiPriceResponse>(await this.callApi(params, req, runtime), new $_model.GetApiPriceResponse({}));
+  }
+
+  /**
+   * Queries pricing based on an OpenAPI triplet and input parameters.
+   * 
+   * @param request - GetApiPriceRequest
+   * @returns GetApiPriceResponse
+   */
+  async getApiPrice(request: $_model.GetApiPriceRequest): Promise<$_model.GetApiPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getApiPriceWithOptions(request, headers, runtime);
   }
 
   /**
@@ -255,7 +325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the operation to obtain resource metadata.
+   * Retrieves resource metadata.
    * 
    * @param requestPath - the whole path of resource string
    * @param headers - GetResourceTypeHeaders
@@ -290,7 +360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the operation to obtain resource metadata.
+   * Retrieves resource metadata.
    * 
    * @param requestPath - the whole path of resource string
    * @returns GetResourceTypeResponse
@@ -302,11 +372,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the operation to query resources.
+   * Query resources.
    * 
    * @remarks
-   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
-   * You can call this operation to query resources List and Get based on different request paths.
+   * You can go to the [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the resource documentation and test the Cloud Control API.
+   * This API provides Get and List operations for resources that you can invoke using different request URIs.
    * 
    * @param requestPath - the whole path of resource string
    * @param tmpReq - GetResourcesRequest
@@ -358,11 +428,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the operation to query resources.
+   * Query resources.
    * 
    * @remarks
-   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
-   * You can call this operation to query resources List and Get based on different request paths.
+   * You can go to the [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the resource documentation and test the Cloud Control API.
+   * This API provides Get and List operations for resources that you can invoke using different request URIs.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - GetResourcesRequest
@@ -416,7 +486,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
+   * Retrieves pricing mapping catalogs in batches by Terraform resource type for cost estimation during the RunIaC plan phase.
+   * 
+   * @remarks
+   * Retrieves the mappings between schema properties in the Terraform alicloud provider and OpenAPI parameters.
+   * 
+   * @param request - GetTerraformPricingMappingsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTerraformPricingMappingsResponse
+   */
+  async getTerraformPricingMappingsWithOptions(request: $_model.GetTerraformPricingMappingsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTerraformPricingMappingsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTerraformPricingMappings",
+      version: "2022-08-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/price/terraform-mappings`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTerraformPricingMappingsResponse>(await this.callApi(params, req, runtime), new $_model.GetTerraformPricingMappingsResponse({}));
+  }
+
+  /**
+   * Retrieves pricing mapping catalogs in batches by Terraform resource type for cost estimation during the RunIaC plan phase.
+   * 
+   * @remarks
+   * Retrieves the mappings between schema properties in the Terraform alicloud provider and OpenAPI parameters.
+   * 
+   * @param request - GetTerraformPricingMappingsRequest
+   * @returns GetTerraformPricingMappingsResponse
+   */
+  async getTerraformPricingMappings(request: $_model.GetTerraformPricingMappingsRequest): Promise<$_model.GetTerraformPricingMappingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTerraformPricingMappingsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the valid values of resource attributes, such as RegionID and ZoneId.
    * 
    * @param requestPath - the whole path of resource string
    * @param tmpReq - ListDataSourcesRequest
@@ -460,7 +576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
+   * Queries the valid values of resource attributes, such as RegionID and ZoneId.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - ListDataSourcesRequest
@@ -608,6 +724,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.ListResourceTypesHeaders({ });
     return await this.listResourceTypesWithOptions(provider, product, request, headers, runtime);
+  }
+
+  /**
+   * Lists the OpenAPI triplets that currently support price inquiry.
+   * 
+   * @param request - ListSupportedPricingApisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSupportedPricingApisResponse
+   */
+  async listSupportedPricingApisWithOptions(request: $_model.ListSupportedPricingApisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSupportedPricingApisResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSupportedPricingApis",
+      version: "2022-08-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/price/supported-apis`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSupportedPricingApisResponse>(await this.callApi(params, req, runtime), new $_model.ListSupportedPricingApisResponse({}));
+  }
+
+  /**
+   * Lists the OpenAPI triplets that currently support price inquiry.
+   * 
+   * @param request - ListSupportedPricingApisRequest
+   * @returns ListSupportedPricingApisResponse
+   */
+  async listSupportedPricingApis(request: $_model.ListSupportedPricingApisRequest): Promise<$_model.ListSupportedPricingApisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSupportedPricingApisWithOptions(request, headers, runtime);
   }
 
   /**

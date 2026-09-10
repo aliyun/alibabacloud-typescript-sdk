@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class GetPriceResponseBodyPriceModuleDetails extends $dara.Model {
   /**
    * @remarks
@@ -96,11 +94,17 @@ export class GetPriceResponseBodyPricePromotionDetails extends $dara.Model {
   /**
    * @remarks
    * The ID of the promotion.
+   * 
+   * @example
+   * 数据盘享8.5折
    */
   promotionId?: number;
   /**
    * @remarks
    * The name of the promotion.
+   * 
+   * @example
+   * 数据盘享8.5折
    */
   promotionName?: string;
   static names(): { [key: string]: string } {

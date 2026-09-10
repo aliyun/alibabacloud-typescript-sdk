@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceTypeResponseBodyResourceTypeHandlersCreate extends $dara.Model {
   /**
    * @remarks
-   * The information about the required RAM permissions.
+   * The required RAM permissions.
    */
   permissions?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class GetResourceTypeResponseBodyResourceTypeHandlersCreate extends $dara
 export class GetResourceTypeResponseBodyResourceTypeHandlersDelete extends $dara.Model {
   /**
    * @remarks
-   * The information about the required RAM permissions.
+   * The required RAM permissions.
    */
   permissions?: string[];
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class GetResourceTypeResponseBodyResourceTypeHandlersDelete extends $dara
 export class GetResourceTypeResponseBodyResourceTypeHandlersGet extends $dara.Model {
   /**
    * @remarks
-   * The information about the required RAM permissions.
+   * The required RAM permissions.
    */
   permissions?: string[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class GetResourceTypeResponseBodyResourceTypeHandlersGet extends $dara.Mo
 export class GetResourceTypeResponseBodyResourceTypeHandlersList extends $dara.Model {
   /**
    * @remarks
-   * The information about the required RAM permissions.
+   * The required RAM permissions.
    */
   permissions?: string[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class GetResourceTypeResponseBodyResourceTypeHandlersList extends $dara.M
 export class GetResourceTypeResponseBodyResourceTypeHandlersUpdate extends $dara.Model {
   /**
    * @remarks
-   * The information about the required RAM permissions.
+   * The required RAM permissions.
    */
   permissions?: string[];
   static names(): { [key: string]: string } {
@@ -155,27 +155,27 @@ export class GetResourceTypeResponseBodyResourceTypeHandlersUpdate extends $dara
 export class GetResourceTypeResponseBodyResourceTypeHandlers extends $dara.Model {
   /**
    * @remarks
-   * The information about the create operation.
+   * The information associated with the create operation.
    */
   create?: GetResourceTypeResponseBodyResourceTypeHandlersCreate;
   /**
    * @remarks
-   * The information about the delete operation.
+   * The information associated with the delete operation.
    */
   delete?: GetResourceTypeResponseBodyResourceTypeHandlersDelete;
   /**
    * @remarks
-   * The information about the query operation.
+   * The information associated with the get operation.
    */
   get?: GetResourceTypeResponseBodyResourceTypeHandlersGet;
   /**
    * @remarks
-   * The information about the list operation.
+   * The information associated with the list operation.
    */
   list?: GetResourceTypeResponseBodyResourceTypeHandlersList;
   /**
    * @remarks
-   * The information about the update operation.
+   * The information associated with the update operation.
    */
   update?: GetResourceTypeResponseBodyResourceTypeHandlersUpdate;
   static names(): { [key: string]: string } {
@@ -225,9 +225,11 @@ export class GetResourceTypeResponseBodyResourceTypeHandlers extends $dara.Model
 export class GetResourceTypeResponseBodyResourceTypeInfo extends $dara.Model {
   /**
    * @remarks
-   * The payment form. Valid values:
+   * The billing method. Valid values:
    * 
-   * paid free
+   * paid: paid.
+   * 
+   * free: free.
    * 
    * @example
    * paid
@@ -235,13 +237,13 @@ export class GetResourceTypeResponseBodyResourceTypeInfo extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The delivery level. Valid values:
+   * The delivery scope. Valid values: 
    * 
-   * center
+   * center: centralized deployment.
    * 
-   * region
+   * region: region-level deployment.
    * 
-   * zone
+   * zone: zone-level deployment.
    * 
    * @example
    * region
@@ -293,32 +295,32 @@ export class GetResourceTypeResponseBodyResourceTypeInfo extends $dara.Model {
 export class GetResourceTypeResponseBodyResourceType extends $dara.Model {
   /**
    * @remarks
-   * The properties that are specific to the create operation. You need to specify these properties when you create the resource. These properties are not returned when you query the resource.
+   * The properties exclusive to the create operation. These properties are not returned in resource query operations but are required as input parameters for the create operation.
    */
   createOnlyProperties?: string[];
   /**
    * @remarks
-   * The properties that are specific to the delete operation. You need to specify these properties when you delete the resource. These properties are not returned when you query the resource.
+   * The properties exclusive to the delete operation. These properties are not returned in resource query operations but are required as input parameters for the delete operation.
    */
   deleteOnlyProperties?: string[];
   /**
    * @remarks
-   * The properties that can be used to filter the resource when you list the resource.
+   * The properties that can be used as filter parameters in the list operation.
    */
   filterProperties?: string[];
   /**
    * @remarks
-   * The properties that are specific to the query operation. You need to specify these properties when you query the resource. These properties are not returned in the query result.
+   * The properties exclusive to the get operation. These properties are not returned in resource query operations but are required as input parameters for the get operation.
    */
   getOnlyProperties?: string[];
   /**
    * @remarks
-   * The properties that are returned when you query the resource.
+   * The properties returned by the get operation.
    */
   getResponseProperties?: string[];
   /**
    * @remarks
-   * The information about the operation, including the required Resource Access Management (RAM) permissions.
+   * The supported resource operations, including RAM permissions.
    */
   handlers?: GetResourceTypeResponseBodyResourceTypeHandlers;
   /**
@@ -328,17 +330,17 @@ export class GetResourceTypeResponseBodyResourceType extends $dara.Model {
   info?: GetResourceTypeResponseBodyResourceTypeInfo;
   /**
    * @remarks
-   * The properties that are specific to the list operation. You need to specify these properties when you list the resource. These properties are not returned when you query the resource.
+   * The properties exclusive to the list operation. These properties are not returned in resource query operations but are required as input parameters for the list operation.
    */
   listOnlyProperties?: string[];
   /**
    * @remarks
-   * The properties that are returned when you list the resource.
+   * The properties returned by the list operation.
    */
   listResponseProperties?: string[];
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * /properties/InstanceId
@@ -346,7 +348,7 @@ export class GetResourceTypeResponseBodyResourceType extends $dara.Model {
   primaryIdentifier?: string;
   /**
    * @remarks
-   * The code of the service.
+   * The product code.
    * 
    * @example
    * ECS
@@ -354,40 +356,43 @@ export class GetResourceTypeResponseBodyResourceType extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The resource properties. The key specifies the property name and the value specifies the details of the property.
+   * The resource property definitions. The key is the property name, and the value is the detailed property information.
    */
   properties?: { [key: string]: any };
   /**
    * @remarks
-   * The common properties of the resource. The common properties are not operation-specific.
+   * The common properties that represent basic resource attributes. These are not operation-specific properties.
    */
   publicProperties?: string[];
   /**
    * @remarks
-   * The read-only properties. These properties are returned only when you perform the List or Get operation. You do not need to specify these properties when you create or update the resource.
+   * The read-only properties. These properties are returned only in list or get operations and cannot be used as input parameters for create or update operations.
    */
   readOnlyProperties?: string[];
   /**
    * @remarks
-   * The properties that must be specified when you create the resource.
+   * The required parameters for resource creation.
    */
   required?: string[];
   /**
    * @remarks
-   * The type of the resource. If the resource belongs to a parent resource, the return format is {parent resource type code /resource type code}.
+   * The resource type. If the resource has a parent resource, the format is {parentResourceTypeCode/resourceTypeCode}.
    * 
    * @example
+   * 无父资源：
    * Instance
+   * 有父资源：
+   * DBInstance/Account
    */
   resourceType?: string;
   /**
    * @remarks
-   * The sensitive properties, such as the password.
+   * The sensitive properties, such as passwords.
    */
   sensitiveInfoProperties?: string[];
   /**
    * @remarks
-   * The properties that are specific to the update operation. You need to specify these properties when you update the resource. These properties are not returned when you query the resource.
+   * The properties exclusive to the update operation. These properties are not returned in resource query operations but are required as input parameters for the update operation.
    */
   updateOnlyProperties?: string[];
   /**
@@ -503,7 +508,7 @@ export class GetResourceTypeResponseBodyResourceType extends $dara.Model {
 export class GetResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
@@ -511,7 +516,13 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The resource type.
+   * 
+   * @example
+   * No parent resource:
+   * Instance
+   * Has parent resource:
+   * DBInstance/Account
    */
   resourceType?: GetResourceTypeResponseBodyResourceType;
   static names(): { [key: string]: string } {

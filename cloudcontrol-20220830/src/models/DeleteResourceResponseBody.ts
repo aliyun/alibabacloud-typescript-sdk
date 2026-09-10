@@ -13,7 +13,7 @@ export class DeleteResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the asynchronous task. If the operation is asynchronous, this field is returned. In this case, the HTTP status code 202 is returned.
+   * The ID of the asynchronous task. The system returns this parameter for asynchronous operations. For these operations, the HTTP status code is 202.
    * 
    * @example
    * task-433aead756057fff8189a7ce5****

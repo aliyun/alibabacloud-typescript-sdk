@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourcesResponseBodyResource extends $dara.Model {
   /**
    * @remarks
-   * The resource properties in the JSON format.
+   * The resource properties in JSON format.
    * 
    * @example
-   * {"Status":"Available","Description":"","AccountPrivilege":"RoleReadWrite","InstanceId":"r-8vbf5abe31c9c4d4","RegionId":"cn-zhangjiakou","AccountType":"Normal","TypeInfo":{},"AccountName":"cctest"}
+   * {"Status":"Available","Description":"","AccountPrivilege":"RoleReadWrite","InstanceId":"r-2ze8v41uei31lo****","RegionId":"cn-zhangjiakou","AccountType":"Normal","TypeInfo":{},"AccountName":"cctest"}
    */
   resourceAttributes?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * cctest
@@ -48,15 +48,15 @@ export class GetResourcesResponseBodyResource extends $dara.Model {
 export class GetResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The resource properties in the JSON format.
+   * The resource properties in JSON format.
    * 
    * @example
-   * {"Status":"Available","Description":"","AccountPrivilege":"RoleReadWrite","InstanceId":"r-8vbf5abe31c9c4d4","RegionId":"cn-zhangjiakou","AccountType":"Normal","TypeInfo":{},"AccountName":"cctest"}
+   * {"Status":"Available","Description":"","AccountPrivilege":"RoleReadWrite","InstanceId":"r-2ze8v41uei31lo****","RegionId":"cn-zhangjiakou","AccountType":"Normal","TypeInfo":{},"AccountName":"cctest"}
    */
   resourceAttributes?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * cctest
@@ -91,7 +91,7 @@ export class GetResourcesResponseBodyResources extends $dara.Model {
 export class GetResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned. Return result of the List operation.
+   * The maximum number of records returned for the current request. This parameter is returned by the List operation.
    * 
    * @example
    * 10
@@ -99,7 +99,7 @@ export class GetResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. Return result of the List operation.
+   * The position where the current call finished reading. An empty value indicates that all data has been read. This parameter is returned by the List operation.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -115,17 +115,17 @@ export class GetResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The specified resource. Return result of the Get operation.
+   * The specified resource. This parameter is returned by the Get operation.
    */
   resource?: GetResourcesResponseBodyResource;
   /**
    * @remarks
-   * The resource list. Return result of the List operation.
+   * A list of resources. This parameter is returned by the List operation.
    */
   resources?: GetResourcesResponseBodyResources[];
   /**
    * @remarks
-   * The total number of entries returned. Return result of the List operation.
+   * The total number of entries that match the query conditions. This parameter is returned by the List operation.
    * 
    * @example
    * 20
