@@ -3,15 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MeasureList extends $dara.Model {
+  /**
+   * @remarks
+   * The grouping dimension.
+   */
   groupBy?: string[];
   /**
    * @remarks
+   * The metric code.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cpu_usage
    */
   measureCode?: string;
   /**
    * @remarks
+   * The query time window, in seconds.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 60
    */
   windowSecs?: number;
   static names(): { [key: string]: string } {

@@ -6,7 +6,7 @@ import { EntityDiscoverRule } from "./EntityDiscoverRule";
 export class UpdateAddonReleaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The version of the add-on.
+   * The version of the addon.
    * 
    * @example
    * 0.0.2
@@ -14,10 +14,14 @@ export class UpdateAddonReleaseRequest extends $dara.Model {
   addonVersion?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for the request.
+   * Specifies whether to perform a dry run. Valid values:
+   * - true: Performs a dry run.
+   * - false: Does not perform a dry run.
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   dryRun?: boolean;
   /**

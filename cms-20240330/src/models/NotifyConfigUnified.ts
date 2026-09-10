@@ -5,19 +5,75 @@ import { SeverityNotifyConfig } from "./SeverityNotifyConfig";
 
 
 export class NotifyConfigUnified extends $dara.Model {
+  /**
+   * @remarks
+   * The days of the week on which notifications are sent, 1-7.
+   */
   activeDays?: number[];
+  /**
+   * @remarks
+   * The daily notification effective end time.
+   * 
+   * @example
+   * 20:00
+   */
   activeEndTime?: string;
+  /**
+   * @remarks
+   * The daily notification effective start time.
+   * 
+   * @example
+   * 08:00
+   */
   activeStartTime?: string;
+  /**
+   * @remarks
+   * The list of notification channels.
+   */
   channels?: DirectNotifyChannel[];
+  /**
+   * @remarks
+   * The list of notification policy IDs (type=NOTIFY_POLICY, currently a maximum of 1 is supported. Mutually exclusive with the DIRECT_NOTIFY fields channels/silenceTimeSecs/activeDays/activeStartTime/activeEndTime/utcOffset).
+   */
   notifyStrategies?: string[];
+  /**
+   * @remarks
+   * Specifies whether to send recovery notifications (type=DIRECT_NOTIFY). Default value: true. Each severity level in severityChannels can independently override this setting.
+   * 
+   * @example
+   * true
+   */
   sendRecoverNotification?: boolean;
+  /**
+   * @remarks
+   * The Notification Recipients and channels configured by severity level (type=DIRECT_NOTIFY, new mode, mutually exclusive with channels). The key is the severity level: CRITICAL/ERROR/WARNING/INFO.
+   */
   severityChannels?: { [key: string]: SeverityNotifyConfig };
+  /**
+   * @remarks
+   * The mute for epoch in seconds.
+   * 
+   * @example
+   * 60
+   */
   silenceTimeSecs?: number;
   /**
    * @remarks
+   * The notification configuration type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * DIRECT_NOTIFY
    */
   type?: string;
+  /**
+   * @remarks
+   * The UTC time zone offset.
+   * 
+   * @example
+   * +08:00
+   */
   utcOffset?: string;
   static names(): { [key: string]: string } {
     return {

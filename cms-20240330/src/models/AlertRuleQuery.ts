@@ -62,7 +62,7 @@ export class AlertRuleQueryEntityFilterFilters extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The matched value.
+   * The matching value.
    * 
    * @example
    * wait_throw
@@ -194,7 +194,21 @@ export class AlertRuleQueryLabelFilters extends $dara.Model {
 }
 
 export class AlertRuleQueryMarkTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * region
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -231,10 +245,10 @@ export class AlertRuleQueryQueriesApmFilters extends $dara.Model {
   /**
    * @remarks
    * The filter operation type. Valid values:
-   * - eq: equal to
-   * - neq: not equal to
-   * - match: regex match
-   * - nmatch: regex not match
+   * * eq: Equal to.
+   * * neq: Not equal to.
+   * * match: Regex match.
+   * * nmatch: Regex not match.
    * 
    * @example
    * eq
@@ -274,8 +288,29 @@ export class AlertRuleQueryQueriesApmFilters extends $dara.Model {
 }
 
 export class AlertRuleQueryQueriesLabelFilters extends $dara.Model {
+  /**
+   * @remarks
+   * The key (label name) for the label filter.
+   * 
+   * @example
+   * host
+   */
   name?: string;
+  /**
+   * @remarks
+   * The label filter operator, such as =, !=, =~, or !~.
+   * 
+   * @example
+   * =
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The value for the label filter.
+   * 
+   * @example
+   * web-01
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -317,14 +352,14 @@ export class AlertRuleQueryQueries extends $dara.Model {
    * @remarks
    * Applicable query type: ARMS_MULTI_QUERY.
    * 
-   * The dimension filter configuration for the APM metric. Must be used together with apmAlertMetricId.
+   * The dimension filter configuration for APM metrics. Must be used together with apmAlertMetricId.
    */
   apmFilters?: AlertRuleQueryQueriesApmFilters[];
   /**
    * @remarks
    * Applicable query type: ARMS_MULTI_QUERY.
    * 
-   * The list of aggregation dimensions for the query, specifying which metric dimensions to aggregate by.
+   * The list of aggregation dimensions for the query, specifying which dimensions of the metric to aggregate by.
    */
   apmGroupBy?: string[];
   /**
@@ -362,16 +397,48 @@ export class AlertRuleQueryQueries extends $dara.Model {
    * sum by (rpc,acs_arms_service_id,pid,rpcType) (sum_over_time_lorc(arms_app_requests_count_ign_destid_endpoint_parent_ppid_prpc{callKind=~\\"http|rpc|custom_entry|server|consumer\\",pid=\\"gaddp9ap8q@cb005ffdf44b8ac\\",source=\\"apm\\"}[1m]))
    */
   expr?: string;
+  /**
+   * @remarks
+   * Valid only for METRIC_SET_MULTI_QUERY. The label filter conditions (optional, independent for each query).
+   */
   labelFilters?: AlertRuleQueryQueriesLabelFilters[];
+  /**
+   * @remarks
+   * Valid only for METRIC_SET_MULTI_QUERY. The metric name.
+   * 
+   * @example
+   * cpuUsage
+   */
   metric?: string;
+  /**
+   * @remarks
+   * Valid only for METRIC_SET_MULTI_QUERY. The metric set name.
+   * 
+   * @example
+   * ecs_metrics
+   */
   metricSet?: string;
+  /**
+   * @remarks
+   * The subquery name. Uniquely identifies the query within the same alert rule and can be referenced by the expression conditions in triggers.
+   * 
+   * @example
+   * cpuUsageQuery
+   */
   name?: string;
+  /**
+   * @remarks
+   * The PromQL query statement. Used when type=APM_MULTI_QUERY.
+   * 
+   * @example
+   * avg(rate(http_requests_total[5m]))
+   */
   promQl?: string;
   /**
    * @remarks
    * Applicable query type: SLS_MULTI_QUERY.
    * 
-   * The relative time offset start time for the SLS query.
+   * The relative time offset start time for SLS queries.
    * 
    * If start and end are specified, do not specify window. Example: start=15, timeUnit=minute indicates 15 minutes ago.
    * 
@@ -456,12 +523,19 @@ export class AlertRuleQueryQueries extends $dara.Model {
 }
 
 export class AlertRuleQuery extends $dara.Model {
+  /**
+   * @remarks
+   * Specified when type=METRIC_SET_QUERY or LOG_SET_QUERY. The aggregation function: AVG, MAX, MIN, SUM, or LAST.
+   * 
+   * @example
+   * AVG
+   */
   aggregate?: string;
   /**
    * @remarks
    * Applicable query type: PROMQL_QUERY.
    * 
-   * Specifies whether to perform alert detection only after data is complete.
+   * Specifies whether to perform alert detection after data is complete.
    * 
    * @example
    * true
@@ -471,7 +545,7 @@ export class AlertRuleQuery extends $dara.Model {
    * @remarks
    * Applicable query type: CMS_BASIC_QUERY.  
    * 
-   * The list of filter dimensions for the resource.
+   * The list of resource filter dimensions.
    */
   dimensions?: { [key: string]: string }[];
   /**
@@ -486,7 +560,7 @@ export class AlertRuleQuery extends $dara.Model {
    * @remarks
    * Applicable query type: PROMQL_QUERY.
    * 
-   * The duration for which alert data persists. Unit: seconds.
+   * The alert data duration, in seconds.
    * 
    * @example
    * 60
@@ -530,7 +604,7 @@ export class AlertRuleQuery extends $dara.Model {
    * @remarks
    * Applicable query type: CMS_BASIC_QUERY.
    * 
-   * The ID of the associated application group. This parameter takes effect only when relationType is set to GROUP.
+   * The associated application group ID. Valid only when relationType=GROUP.
    * 
    * @example
    * 23423
@@ -540,10 +614,10 @@ export class AlertRuleQuery extends $dara.Model {
    * @remarks
    * Applicable query type: SLS_MULTI_QUERY.
    * 
-   * The group type. Valid values:
-   * - none: no grouping.
-   * - label: automatic label-based grouping.
-   * - custom: custom label-based grouping.
+   * The grouping type. Valid values:
+   * - none: no grouping
+   * - label: automatic label-based grouping
+   * - custom: custom label-based grouping
    * 
    * @example
    * label
@@ -554,7 +628,18 @@ export class AlertRuleQuery extends $dara.Model {
    * The array of label filters.
    */
   labelFilters?: AlertRuleQueryLabelFilters[];
+  /**
+   * @remarks
+   * Specified when type=LOG_SET_QUERY. The log set name.
+   * 
+   * @example
+   * china-log-set
+   */
   logSet?: string;
+  /**
+   * @remarks
+   * The list of mark tags for the alert rule, used for categorization and retrieval.
+   */
   markTags?: AlertRuleQueryMarkTags[];
   /**
    * @remarks
@@ -566,7 +651,7 @@ export class AlertRuleQuery extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * The collection of monitoring metrics.
+   * The monitoring metrics set.
    * 
    * @example
    * cpu_usage
@@ -582,24 +667,31 @@ export class AlertRuleQuery extends $dara.Model {
    * acs_ecs_dashboard
    */
   namespace?: string;
+  /**
+   * @remarks
+   * Specified when type=METRIC_SET_QUERY or LOG_SET_QUERY. The query time offset in seconds. Used together with windowSecs to implement an offset query of [T - windowSecs - offsetSecs, T - offsetSecs]. Valid range: 0 to 86400.
+   * 
+   * @example
+   * 0
+   */
   offsetSecs?: number;
   /**
    * @remarks
-   * Applicable query types: SLS_MULTI_QUERY and APM_MULTI_QUERY.
+   * Applicable query types: SLS_MULTI_QUERY, APM_MULTI_QUERY.
    * 
    * The list of subqueries.
    * 
-   * For the SLS_MULTI_QUERY query type, a maximum of three subqueries are supported. The number and order of subqueries must match the sub-datasource config in datasource.dsList.
+   * For the SLS_MULTI_QUERY query type, a maximum of three subqueries are supported. The number and order of subqueries must match the sub-datasource configurations in datasource.dsList.
    */
   queries?: AlertRuleQueryQueries[];
   /**
    * @remarks
    * Applicable query type: CMS_BASIC_QUERY.
    * 
-   * The resource scope of the rule query. Valid values:
-   * - USER: all resources under the user UID.
-   * - GROUP: application group.
-   * - INSTANCE: specified instance list.
+   * The resource scope for the rule query. Valid values:
+   * - USER: All resources under the user UID.
+   * - GROUP: Application group.
+   * - INSTANCE: Specified instance list.
    * 
    * @example
    * USER
@@ -619,21 +711,21 @@ export class AlertRuleQuery extends $dara.Model {
   serviceIds?: string[];
   /**
    * @remarks
-   * The query type. 
+   * The query type.
    * 
    * Valid values:
    * - PROMQL_QUERY: PromQL query.
    * - SLS_MULTI_QUERY: SLS query.
    * - APM_MULTI_QUERY: APM query.
-   * - CMS_BASIC_QUERY: basic cloud service monitoring query.
+   * - CMS_BASIC_QUERY: CloudMonitor Basic monitoring query.
    * 
-   * Different query types use different valid fields in the query object. For more information, see the "Applicable query type" description of each field.
+   * Different query types have different valid fields in the query object. Refer to the "Applicable query type" description in each field for details.
    * 
-   * The query type must match the data source type. The mappings are as follows:
-   * - Prometheus data source (PROMETHEUS_DS): PROMQL_QUERY
-   * - APM data source (APM_DS): APM_MULTI_QUERY
-   * - SLS data source (SLS_MULTI_DS): SLS_MULTI_QUERY
-   * - Basic cloud service monitoring data source (CMS_BASIC_DS): CMS_BASIC_QUERY
+   * The query type must match the datasource type. The mapping is as follows:
+   * - Prometheus datasource (PROMETHEUS_DS): PROMQL_QUERY
+   * - APM datasource (APM_DS): APM_MULTI_QUERY
+   * - SLS datasource (SLS_MULTI_DS): SLS_MULTI_QUERY
+   * - CloudMonitor Basic monitoring data datasource (CMS_BASIC_DS): CMS_BASIC_QUERY
    * 
    * This parameter is required.
    * 
@@ -641,6 +733,13 @@ export class AlertRuleQuery extends $dara.Model {
    * PROMQL_QUERY
    */
   type?: string;
+  /**
+   * @remarks
+   * Specified when type=METRIC_SET_QUERY or LOG_SET_QUERY. The aggregation time window in seconds. Valid range: 60 to 86400.
+   * 
+   * @example
+   * 300
+   */
   windowSecs?: number;
   static names(): { [key: string]: string } {
     return {

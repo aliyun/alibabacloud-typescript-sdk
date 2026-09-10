@@ -37,15 +37,27 @@ export class AlertRuleNotification extends $dara.Model {
   groups?: string[];
   /**
    * @remarks
-   * The notification time period. Notifications are sent only during this time period.
+   * The notification time window. Notifications are sent only within this time window.
    */
   notifyTime?: AlertRuleTimeSpan;
+  /**
+   * @remarks
+   * The Qwen (Qwencloud) Notification Recipient configuration. Both the outer key and inner key are custom identity values. The inner Boolean value specifies whether the Notification Recipient is enabled.
+   */
   qwencloudContacts?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * Specifies whether to send recovery notifications. Each severity level in severityNotifications can independently override this setting.
+   */
   sendOk?: boolean;
+  /**
+   * @remarks
+   * The Notification Recipients and channels configured by severity level. This parameter is mutually exclusive with the top-level contacts, groups, and similar parameters. The key is the severity level: CRITICAL, ERROR, WARNING, or INFO.
+   */
   severityNotifications?: { [key: string]: SeverityNotifyConfig };
   /**
    * @remarks
-   * The notification mute duration, in seconds.
+   * The notification mute duration. Unit: seconds.
    * 
    * @example
    * 86400

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAlertRulesEntityDomainFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The exact match.
+   * 
+   * @example
+   * cloud_monitor
+   */
   eq?: string;
   static names(): { [key: string]: string } {
     return {

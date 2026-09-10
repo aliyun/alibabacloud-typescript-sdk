@@ -5,28 +5,119 @@ import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 
 
 export class SubscriptionForSNSView extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the subscription was created.
+   * 
+   * @example
+   * 1700000000
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the subscription is enabled.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The filter configuration.
+   */
   filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * The lifecycle mode.
+   * 
+   * @example
+   * Sample value
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The subscription name.
+   * 
+   * @example
+   * Sample name
+   */
   name?: string;
   /**
    * @remarks
-   * The reverse association to SNS (= snsUuid).
+   * The reverse association to the SNS (= snsUuid).
+   * 
+   * @example
+   * example-id-001
    */
   notifyStrategyUuid?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * example-id-001
+   */
   regionId?: string;
   /**
    * @remarks
-   * Indicates whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: subscribed. false or null: not subscribed.
+   * Indicates whether the subscription includes legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values: true: Subscribed. false or null: Not subscribed.
+   * 
+   * @example
+   * true
    */
   subscribeLegacyEvent?: boolean;
+  /**
+   * @remarks
+   * The subscription type.
+   * 
+   * @example
+   * default
+   */
   subscriptionType?: string;
+  /**
+   * @remarks
+   * The sync source type.
+   * 
+   * @example
+   * default
+   */
   syncFromType?: string;
+  /**
+   * @remarks
+   * The time when the subscription was last updated.
+   * 
+   * @example
+   * 1700000000
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The user ID of the owner.
+   * 
+   * @example
+   * example-id-001
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The subscription UUID.
+   * 
+   * @example
+   * example-id-001
+   */
   uuid?: string;
+  /**
+   * @remarks
+   * The workspace.
+   * 
+   * @example
+   * Sample value
+   */
   workspace?: string;
+  /**
+   * @remarks
+   * The workspace filter configuration.
+   */
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {

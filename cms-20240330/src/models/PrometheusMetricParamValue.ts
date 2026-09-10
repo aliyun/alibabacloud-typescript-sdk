@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PrometheusMetricParamValue extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * threshold
+   */
   name?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * 80
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

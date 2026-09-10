@@ -261,10 +261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs an add-on.
+   * Installs an access component, which represents a single access operation.
    * 
    * @remarks
-   * Creates a release for an add-on.
+   * Creates a site monitoring task.
    * 
    * @param request - CreateAddonReleaseRequest
    * @param headers - map
@@ -333,10 +333,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs an add-on.
+   * Installs an access component, which represents a single access operation.
    * 
    * @remarks
-   * Creates a release for an add-on.
+   * Creates a site monitoring task.
    * 
    * @param request - CreateAddonReleaseRequest
    * @returns CreateAddonReleaseResponse
@@ -459,10 +459,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a webhook
+   * Creates a webhook.
    * 
    * @remarks
-   * Creates an alert webhook to use as a notification recipient.
+   * Creates a webhook notification recipient.
    * 
    * @param request - CreateAlertWebhookRequest
    * @param headers - map
@@ -523,10 +523,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a webhook
+   * Creates a webhook.
    * 
    * @remarks
-   * Creates an alert webhook to use as a notification recipient.
+   * Creates a webhook notification recipient.
    * 
    * @param request - CreateAlertWebhookRequest
    * @returns CreateAlertWebhookResponse
@@ -1052,6 +1052,52 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIntegrationPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建订阅
+   * 
+   * @param request - CreateMaintainWindowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMaintainWindowResponse
+   */
+  async createMaintainWindowWithOptions(request: $_model.CreateMaintainWindowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMaintainWindowResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMaintainWindow",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/maintainWindows`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMaintainWindowResponse>(await this.callApi(params, req, runtime), new $_model.CreateMaintainWindowResponse({}));
+  }
+
+  /**
+   * 创建订阅
+   * 
+   * @param request - CreateMaintainWindowRequest
+   * @returns CreateMaintainWindowResponse
+   */
+  async createMaintainWindow(request: $_model.CreateMaintainWindowRequest): Promise<$_model.CreateMaintainWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMaintainWindowWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1812,7 +1858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes add-on release information.
+   * Deletes addon release information.
    * 
    * @param request - DeleteAddonReleaseRequest
    * @param headers - map
@@ -1853,7 +1899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes add-on release information.
+   * Deletes addon release information.
    * 
    * @param request - DeleteAddonReleaseRequest
    * @returns DeleteAddonReleaseResponse
@@ -2399,6 +2445,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIntegrationPolicyWithOptions(policyId, request, headers, runtime);
+  }
+
+  /**
+   * 删除转换器
+   * 
+   * @remarks
+   * 删除指定的静默策略。删除成功后，服务通过异步消息刷新运行时缓存，因此短时间内仍可能按删除前的策略处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - DeleteMaintainWindowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMaintainWindowResponse
+   */
+  async deleteMaintainWindowWithOptions(maintainWindowId: string, request: $_model.DeleteMaintainWindowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMaintainWindowResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMaintainWindow",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/maintainWindows/${$dara.URL.percentEncode(maintainWindowId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMaintainWindowResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMaintainWindowResponse({}));
+  }
+
+  /**
+   * 删除转换器
+   * 
+   * @remarks
+   * 删除指定的静默策略。删除成功后，服务通过异步消息刷新运行时缓存，因此短时间内仍可能按删除前的策略处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - DeleteMaintainWindowRequest
+   * @returns DeleteMaintainWindowResponse
+   */
+  async deleteMaintainWindow(maintainWindowId: string, request: $_model.DeleteMaintainWindowRequest): Promise<$_model.DeleteMaintainWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
   }
 
   /**
@@ -3227,6 +3324,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停转换器
+   * 
+   * @remarks
+   * 暂停指定的静默策略。暂停成功后，服务通过异步消息刷新运行时缓存；刷新完成后该策略不再参与事件静默判断，短时间内仍可能按暂停前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - DisableMaintainWindowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableMaintainWindowResponse
+   */
+  async disableMaintainWindowWithOptions(maintainWindowId: string, request: $_model.DisableMaintainWindowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableMaintainWindowResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableMaintainWindow",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/maintainWindows/${$dara.URL.percentEncode(maintainWindowId)}/disable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableMaintainWindowResponse>(await this.callApi(params, req, runtime), new $_model.DisableMaintainWindowResponse({}));
+  }
+
+  /**
+   * 暂停转换器
+   * 
+   * @remarks
+   * 暂停指定的静默策略。暂停成功后，服务通过异步消息刷新运行时缓存；刷新完成后该策略不再参与事件静默判断，短时间内仍可能按暂停前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - DisableMaintainWindowRequest
+   * @returns DisableMaintainWindowResponse
+   */
+  async disableMaintainWindow(maintainWindowId: string, request: $_model.DisableMaintainWindowRequest): Promise<$_model.DisableMaintainWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
+  }
+
+  /**
    * Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
    * 
    * @remarks
@@ -3275,6 +3423,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableNotifyPolicyWithOptions(uuid, request, headers, runtime);
+  }
+
+  /**
+   * 启动转换器
+   * 
+   * @remarks
+   * 启用指定的静默策略。启用成功后，服务通过异步消息刷新运行时缓存；刷新完成后，命中该策略过滤条件且处于生效时间内的事件不会触发通知，短时间内仍可能按启用前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - EnableMaintainWindowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableMaintainWindowResponse
+   */
+  async enableMaintainWindowWithOptions(maintainWindowId: string, request: $_model.EnableMaintainWindowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableMaintainWindowResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableMaintainWindow",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/maintainWindows/${$dara.URL.percentEncode(maintainWindowId)}/enable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableMaintainWindowResponse>(await this.callApi(params, req, runtime), new $_model.EnableMaintainWindowResponse({}));
+  }
+
+  /**
+   * 启动转换器
+   * 
+   * @remarks
+   * 启用指定的静默策略。启用成功后，服务通过异步消息刷新运行时缓存；刷新完成后，命中该策略过滤条件且处于生效时间内的事件不会触发通知，短时间内仍可能按启用前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - EnableMaintainWindowRequest
+   * @returns EnableMaintainWindowResponse
+   */
+  async enableMaintainWindow(maintainWindowId: string, request: $_model.EnableMaintainWindowRequest): Promise<$_model.EnableMaintainWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
   }
 
   /**
@@ -4232,6 +4431,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIntegrationVersionForCSWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取订阅
+   * 
+   * @remarks
+   * 查询指定静默策略的详细配置，包括策略名称、描述、启用状态、过滤条件、生效时间配置以及创建时间和更新时间。当前查询结果不返回 workspaceFilterSetting。指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - GetMaintainWindowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMaintainWindowResponse
+   */
+  async getMaintainWindowWithOptions(maintainWindowId: string, request: $_model.GetMaintainWindowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMaintainWindowResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMaintainWindow",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/maintainWindows/${$dara.URL.percentEncode(maintainWindowId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMaintainWindowResponse>(await this.callApi(params, req, runtime), new $_model.GetMaintainWindowResponse({}));
+  }
+
+  /**
+   * 获取订阅
+   * 
+   * @remarks
+   * 查询指定静默策略的详细配置，包括策略名称、描述、启用状态、过滤条件、生效时间配置以及创建时间和更新时间。当前查询结果不返回 workspaceFilterSetting。指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - GetMaintainWindowRequest
+   * @returns GetMaintainWindowResponse
+   */
+  async getMaintainWindow(maintainWindowId: string, request: $_model.GetMaintainWindowRequest): Promise<$_model.GetMaintainWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
   }
 
   /**
@@ -5314,7 +5564,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert chatbots.
+   * Queries alert robots.
+   * 
+   * @remarks
+   * This operation can only query alert history from the last year.
+   * This topic provides an example of querying the alert history of Elastic Computing Service from the cloud service `product` dimension.
    * 
    * @param tmpReq - ListAlertRobotsRequest
    * @param headers - map
@@ -5377,7 +5631,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert chatbots.
+   * Queries alert robots.
+   * 
+   * @remarks
+   * This operation can only query alert history from the last year.
+   * This topic provides an example of querying the alert history of Elastic Computing Service from the cloud service `product` dimension.
    * 
    * @param request - ListAlertRobotsRequest
    * @returns ListAlertRobotsResponse
@@ -5389,7 +5647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query webhooks
+   * Queries webhooks.
    * 
    * @param tmpReq - ListAlertWebhooksRequest
    * @param headers - map
@@ -5444,7 +5702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query webhooks
+   * Queries webhooks.
    * 
    * @param request - ListAlertWebhooksRequest
    * @returns ListAlertWebhooksResponse
@@ -5511,6 +5769,9 @@ export default class Client extends OpenApi {
   /**
    * Queries contact groups.
    * 
+   * @remarks
+   * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+   * 
    * @param tmpReq - ListContactGroupsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5566,6 +5827,9 @@ export default class Client extends OpenApi {
   /**
    * Queries contact groups.
    * 
+   * @remarks
+   * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+   * 
    * @param request - ListContactGroupsRequest
    * @returns ListContactGroupsResponse
    */
@@ -5576,7 +5840,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query contacts
+   * Queries contacts.
+   * 
+   * @remarks
+   * This topic provides an example of how to create an alert contact group named `ECS_Group`.
    * 
    * @param tmpReq - ListContactsRequest
    * @param headers - map
@@ -5647,7 +5914,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query contacts
+   * Queries contacts.
+   * 
+   * @remarks
+   * This topic provides an example of how to create an alert contact group named `ECS_Group`.
    * 
    * @param request - ListContactsRequest
    * @returns ListContactsResponse
@@ -6441,6 +6711,87 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIntegrationPolicyStorageRequirementsWithOptions(policyId, request, headers, runtime);
+  }
+
+  /**
+   * 查询维护窗口列表
+   * 
+   * @remarks
+   * 分页查询指定工作空间下的静默策略列表，支持按策略名称模糊匹配、按策略 ID 精确匹配、按启用状态过滤，并支持按创建时间、更新时间或启用状态排序。没有匹配项时正常返回空列表；列表项不返回 workspaceFilterSetting。
+   * 当本次返回条数达到 maxResults 时，响应可能包含非空 nextToken；非空 nextToken 仅表示可以继续查询，不保证下一页一定包含数据。nextToken 为空表示分页结束。
+   * 
+   * @param request - ListMaintainWindowsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMaintainWindowsResponse
+   */
+  async listMaintainWindowsWithOptions(request: $_model.ListMaintainWindowsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMaintainWindowsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.direction)) {
+      query["direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.maintainWindowId)) {
+      query["maintainWindowId"] = request.maintainWindowId;
+    }
+
+    if (!$dara.isNull(request.maintainWindowName)) {
+      query["maintainWindowName"] = request.maintainWindowName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMaintainWindows",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/maintainWindows`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMaintainWindowsResponse>(await this.callApi(params, req, runtime), new $_model.ListMaintainWindowsResponse({}));
+  }
+
+  /**
+   * 查询维护窗口列表
+   * 
+   * @remarks
+   * 分页查询指定工作空间下的静默策略列表，支持按策略名称模糊匹配、按策略 ID 精确匹配、按启用状态过滤，并支持按创建时间、更新时间或启用状态排序。没有匹配项时正常返回空列表；列表项不返回 workspaceFilterSetting。
+   * 当本次返回条数达到 maxResults 时，响应可能包含非空 nextToken；非空 nextToken 仅表示可以继续查询，不保证下一页一定包含数据。nextToken 为空表示分页结束。
+   * 
+   * @param request - ListMaintainWindowsRequest
+   * @returns ListMaintainWindowsResponse
+   */
+  async listMaintainWindows(request: $_model.ListMaintainWindowsRequest): Promise<$_model.ListMaintainWindowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMaintainWindowsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7517,7 +7868,7 @@ export default class Client extends OpenApi {
    * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param tmpReq - QueryAlertRulesRequest
    * @param headers - map
@@ -7577,7 +7928,7 @@ export default class Client extends OpenApi {
    * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - QueryAlertRulesRequest
    * @returns QueryAlertRulesResponse
@@ -7867,7 +8218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades an add-on component.
+   * Upgrades an access component.
    * 
    * @param request - UpdateAddonReleaseRequest
    * @param headers - map
@@ -7912,7 +8263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades an add-on component.
+   * Upgrades an access component.
    * 
    * @param request - UpdateAddonReleaseRequest
    * @returns UpdateAddonReleaseResponse
@@ -8573,6 +8924,60 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateIntegrationPolicyWithOptions(integrationPolicyId, request, headers, runtime);
+  }
+
+  /**
+   * 修改已存在的维护窗口配置。
+   * 
+   * @remarks
+   * 更新指定静默策略的配置。maintainWindowName 为空时保留原名称；description、filterSetting、effective、effectTimeRange、startTime、endTime 按请求体中的值更新，未提供时写为空。建议先通过 GetMaintainWindow 获取当前配置后再提交修改。
+   * 本接口不修改策略的启用状态，启用或暂停请使用 EnableMaintainWindow、DisableMaintainWindow。时间配置校验与 CreateMaintainWindow 一致；同一工作空间下策略名称重复时返回 InvalidParameterValue；指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - UpdateMaintainWindowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMaintainWindowResponse
+   */
+  async updateMaintainWindowWithOptions(maintainWindowId: string, request: $_model.UpdateMaintainWindowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMaintainWindowResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMaintainWindow",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/maintainWindows/${$dara.URL.percentEncode(maintainWindowId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMaintainWindowResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMaintainWindowResponse({}));
+  }
+
+  /**
+   * 修改已存在的维护窗口配置。
+   * 
+   * @remarks
+   * 更新指定静默策略的配置。maintainWindowName 为空时保留原名称；description、filterSetting、effective、effectTimeRange、startTime、endTime 按请求体中的值更新，未提供时写为空。建议先通过 GetMaintainWindow 获取当前配置后再提交修改。
+   * 本接口不修改策略的启用状态，启用或暂停请使用 EnableMaintainWindow、DisableMaintainWindow。时间配置校验与 CreateMaintainWindow 一致；同一工作空间下策略名称重复时返回 InvalidParameterValue；指定的静默策略不存在时返回 ResourceNotFound。
+   * 
+   * @param request - UpdateMaintainWindowRequest
+   * @returns UpdateMaintainWindowResponse
+   */
+  async updateMaintainWindow(maintainWindowId: string, request: $_model.UpdateMaintainWindowRequest): Promise<$_model.UpdateMaintainWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
   }
 
   /**

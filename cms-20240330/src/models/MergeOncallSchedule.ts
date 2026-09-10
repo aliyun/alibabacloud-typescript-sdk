@@ -5,37 +5,55 @@ import * as $dara from '@darabonba/typescript';
 export class MergeOncallSchedule extends $dara.Model {
   /**
    * @remarks
-   * Details of the on-call schedule.
+   * The extension details.
    */
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * The UTC time when the on-call schedule was created.
+   * The creation time.
+   * 
+   * @example
+   * 1700000000
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * The UTC time when the on-call schedule was last modified.
+   * The last modified time.
+   * 
+   * @example
+   * 1700000000
    */
   gmtModified?: string;
   /**
    * @remarks
-   * The unique identifier of the on-call schedule.
+   * The unique identifier.
+   * 
+   * @example
+   * SampleValue
    */
   identifier?: string;
   /**
    * @remarks
-   * The name of the on-call schedule.
+   * The schedule name.
+   * 
+   * @example
+   * SampleName
    */
   name?: string;
   /**
    * @remarks
-   * The creation source of the on-call schedule.
+   * The source.
+   * 
+   * @example
+   * SampleValue
    */
   source?: string;
   /**
    * @remarks
-   * The workspace that the on-call schedule belongs to.
+   * The workspace.
+   * 
+   * @example
+   * SampleValue
    */
   workspace?: string;
   static names(): { [key: string]: string } {

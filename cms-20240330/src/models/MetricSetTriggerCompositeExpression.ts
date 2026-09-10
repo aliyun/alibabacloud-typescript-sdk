@@ -4,8 +4,29 @@ import { MetricSetTriggerSimpleExpression } from "./MetricSetTriggerSimpleExpres
 
 
 export class MetricSetTriggerCompositeExpression extends $dara.Model {
+  /**
+   * @remarks
+   * The list of sub-conditions. Each item is a simple comparison expression.
+   */
   conditions?: MetricSetTriggerSimpleExpression[];
+  /**
+   * @remarks
+   * The expression type, fixed as COMPOSITE.
+   * 
+   * @example
+   * COMPOSITE
+   */
   expressionType?: string;
+  /**
+   * @remarks
+   * The logical operator. Valid values:
+   * - AND: All conditions are met.
+   * - OR: Any condition is met.
+   * - UNLESS: The first condition is met and none of the remaining conditions are met.
+   * 
+   * @example
+   * AND
+   */
   logicOperator?: string;
   static names(): { [key: string]: string } {
     return {

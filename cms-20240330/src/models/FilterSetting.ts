@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class FilterSettingConditions extends $dara.Model {
   /**
    * @remarks
-   * The field.
+   * The JSON path of the event field. Dot-notation nesting is supported.
    * 
    * @example
-   * severity
+   * labels.alertname
    */
   field?: string;
   /**
@@ -21,7 +21,7 @@ export class FilterSettingConditions extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The value.
+   * The matching value. Separate multiple values with commas when using IN or NOT_IN.
    * 
    * @example
    * CRITICAL
@@ -60,7 +60,7 @@ export class FilterSetting extends $dara.Model {
   conditions?: FilterSettingConditions[];
   /**
    * @remarks
-   * The expression.
+   * Use either expression or relation. If expression is not empty, it takes precedence and relation is ignored. If expression is empty or not specified, relation (AND or OR) is used to perform a simple AND/OR operation on all conditions. Condition numbers correspond to the indexes of the conditions array (starting from 1). Each condition evaluates whether a single event field matches by using field (the event field path, which supports dot-notation nesting such as resource.tags.pod), op (the operator, such as CONTAIN, EQ, or IN), and value (the matching value).
    * 
    * @example
    * 1 and 2 or 3
@@ -68,7 +68,7 @@ export class FilterSetting extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The relationship between conditions.
+   * The logical relationship between conditions. This parameter takes effect when expression is empty.
    * 
    * @example
    * AND

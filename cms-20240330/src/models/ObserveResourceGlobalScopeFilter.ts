@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ObserveResourceGlobalScopeFilter extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to retrieve only resources that are exclusive to the global scope.
+   * The exact match.
+   * 
+   * @example
+   * true
    */
   eq?: boolean;
   static names(): { [key: string]: string } {

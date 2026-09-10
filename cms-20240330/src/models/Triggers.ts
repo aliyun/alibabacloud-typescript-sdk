@@ -6,127 +6,190 @@ import { TriggerConditions } from "./TriggerConditions";
 export class Triggers extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator. This parameter applies to CLOUD_MONITORING_CONDITION.
+   * The comparison operator for CLOUD_MONITORING_CONDITION.
+   * 
+   * @example
+   * SampleValue
    */
   comparisonOperator?: string;
   /**
    * @remarks
-   * The match expression for SLS_MULTI_CONDITION. This corresponds to the V1 condition parameter and is preserved as-is without parsing.
+   * The match expression for SLS_MULTI_CONDITION. Corresponds to the V1 condition field and is preserved as-is without parsing.
+   * 
+   * @example
+   * SampleValue
    */
   condition?: string;
   /**
    * @remarks
-   * The list of sub-conditions. This parameter applies to UMODEL_METRICSET_MULTI and PROMETHEUS_MULTI with expressionType=COMPOSITE. Each item contains queryName, operator, and threshold.
+   * The list of sub-conditions for UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI with expressionType=COMPOSITE. Each item contains queryName, operator, and threshold.
    */
   conditions?: TriggerConditions[];
   /**
    * @remarks
-   * The count match expression for SLS_MULTI_CONDITION. This corresponds to the V1 countCondition parameter and is preserved as-is without parsing.
+   * The count match expression for SLS_MULTI_CONDITION. Corresponds to the V1 countCondition field and is preserved as-is without parsing.
+   * 
+   * @example
+   * SampleValue
    */
   countCondition?: string;
   /**
    * @remarks
-   * **[Deprecated]** The SLS_MULTI_CONDITION write path is disabled. Use the countCondition parameter instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION countOperator is disabled. Use countCondition instead.
+   * 
+   * @example
+   * GTE
    * 
    * @deprecated
    */
   countOperator?: string;
   /**
    * @remarks
-   * **[Deprecated]** The SLS_MULTI_CONDITION write path is disabled. Use the countCondition parameter instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION countOperator is disabled. Use countCondition instead.
+   * 
+   * @example
+   * 100
    * 
    * @deprecated
    */
   countThreshold?: number;
   /**
    * @remarks
-   * The duration in seconds for which data must continuously meet the condition to trigger an alert. If not specified, the value is inherited from conditionConfig.durationSecs. This parameter is used by UMODEL_METRICSET_MULTI_CONDITION and PROMETHEUS_MULTI_CONDITION.
+   * The duration in seconds for which data must continuously meet the condition to fire an alert. If not specified, the value is inherited from conditionConfig.durationSecs. Used by UMODEL_METRICSET_MULTI_CONDITION / PROMETHEUS_MULTI_CONDITION.
+   * 
+   * @example
+   * 1
    */
   durationSecs?: number;
   /**
    * @remarks
-   * The expression type. Valid values: SIMPLE and COMPOSITE. This parameter applies to UMODEL_METRICSET_MULTI_CONDITION and PROMETHEUS_MULTI_CONDITION.
+   * The expression type. For UMODEL_METRICSET_MULTI_CONDITION / PROMETHEUS_MULTI_CONDITION, valid values are SIMPLE and COMPOSITE.
+   * 
+   * @example
+   * default
    */
   expressionType?: string;
   /**
    * @remarks
-   * The logical operator. This parameter applies to UMODEL_METRICSET_MULTI and PROMETHEUS_MULTI with expressionType=COMPOSITE. Valid values: AND, OR, and UNLESS.
+   * The logic operator for UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI with expressionType=COMPOSITE. Valid values: AND, OR, and UNLESS.
+   * 
+   * @example
+   * AND
    */
   logicOperator?: string;
   /**
    * @remarks
-   * **[Deprecated]** The SLS_MULTI_CONDITION write path is disabled. Use the condition parameter instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION matchField is disabled. Use condition instead.
+   * 
+   * @example
+   * SampleValue
    * 
    * @deprecated
    */
   matchField?: string;
   /**
    * @remarks
-   * **[Deprecated]** The SLS_MULTI_CONDITION write path is disabled. Use the condition parameter instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION matchField is disabled. Use condition instead.
+   * 
+   * @example
+   * PRESENT
    * 
    * @deprecated
    */
   matchOperator?: string;
   /**
    * @remarks
-   * **[Deprecated]** The SLS_MULTI_CONDITION write path is disabled. Use the condition parameter instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION matchField is disabled. Use condition instead.
+   * 
+   * @example
+   * SampleValue
    * 
    * @deprecated
    */
   matchValue?: string;
   /**
    * @remarks
-   * The upper bound of the range. This parameter applies to UMODEL_METRICSET_MULTI with expressionType=SIMPLE. This parameter is required when operator is set to IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
+   * The upper bound of the range for UMODEL_METRICSET_MULTI with expressionType=SIMPLE. Required when operator is IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
+   * 
+   * @example
+   * 1.0
    */
   max?: number;
   /**
    * @remarks
-   * The metric name. This parameter applies to CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE, the metric name is specified at the conditionConfig level by the metricName parameter.
+   * The metric name for CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE, the metric name is specified at the conditionConfig level.
+   * 
+   * @example
+   * SampleMetricName
    */
   metricName?: string;
   /**
    * @remarks
-   * The lower bound of the range. This parameter applies to UMODEL_METRICSET_MULTI with expressionType=SIMPLE. This parameter is required when operator is set to IN_RANGE or OUT_OF_RANGE.
+   * The lower bound of the range for UMODEL_METRICSET_MULTI with expressionType=SIMPLE. Required when operator is IN_RANGE or OUT_OF_RANGE.
+   * 
+   * @example
+   * 1.0
    */
   min?: number;
   /**
    * @remarks
-   * The operator. For UMODEL_METRICSET_MULTI and PROMETHEUS_MULTI with expressionType=SIMPLE, this is a comparison operator. Valid values: GT, GE, LT, LE, EQ, NE, IN_RANGE, OUT_OF_RANGE, PRESENT, and NOT_PRESENT. For SLS_MULTI_CONDITION, this is aligned with V1 caseList.type. Valid values: HAS_DATA, HAS_DATA_COUNT, HAS_DATA_MATCH, and HAS_DATA_MATCH_COUNT.
+   * The operator. For UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI with expressionType=SIMPLE, this is a comparison operator. Valid values: GT, GE, LT, LE, EQ, NE, IN_RANGE, OUT_OF_RANGE, PRESENT, NOT_PRESENT, ABOVE_UPPER, BELOW_LOWER, and OUT_OF_BAND. For SLS_MULTI_CONDITION, this aligns with the V1 caseList.type. Valid values: HAS_DATA, HAS_DATA_COUNT, HAS_DATA_MATCH, and HAS_DATA_MATCH_COUNT.
+   * 
+   * @example
+   * GT
    */
   operator?: string;
   /**
    * @remarks
-   * The aggregation period in seconds. This parameter applies to CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE, the period is specified at the conditionConfig level by the period parameter.
+   * The collection period in seconds for CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE, the period is specified at the conditionConfig level.
+   * 
+   * @example
+   * 1
    */
   period?: number;
   /**
    * @remarks
-   * The precondition. This parameter applies to CLOUD_MONITORING_CONDITION.
+   * The precondition for CLOUD_MONITORING_CONDITION.
+   * 
+   * @example
+   * SampleValue
    */
   preCondition?: string;
   /**
    * @remarks
-   * The referenced query name. This parameter applies to UMODEL_METRICSET_MULTI and PROMETHEUS_MULTI with expressionType=SIMPLE. The value corresponds to QueryConfigUnified.queries[].name.
+   * The referenced query name for UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI with expressionType=SIMPLE. Corresponds to QueryConfigUnified.queries[].name.
+   * 
+   * @example
+   * SampleMetricName
    */
   queryName?: string;
   /**
    * @remarks
-   * The severity level. Priority order: CRITICAL > ERROR > WARN / WARNING > INFO. Multiple triggers are sorted by this priority, and the first match triggers the alert. This parameter takes effect when the type is SLS_MULTI_CONDITION or CLOUD_MONITORING_CONDITION with expressionType=SIMPLE.
+   * The severity level. Priority order: CRITICAL > ERROR > WARN / WARNING > INFO. When multiple triggers exist, they are sorted by this priority, and the first match fires. This takes effect for SLS_MULTI_CONDITION and CLOUD_MONITORING_CONDITION with expressionType=SIMPLE.
+   * 
+   * @example
+   * INFO
    */
   severity?: string;
   /**
    * @remarks
-   * The statistical method. This parameter applies to CLOUD_MONITORING_CONDITION.
+   * The statistics method for CLOUD_MONITORING_CONDITION.
+   * 
+   * @example
+   * SampleValue
    */
   statistics?: string;
   /**
    * @remarks
-   * The threshold value. For CLOUD_MONITORING_CONDITION, this is a string. For UMODEL_METRICSET_MULTI and PROMETHEUS_MULTI, this is a numeric value.
+   * The threshold. For CLOUD_MONITORING_CONDITION, this is a string. For UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI, this is a numeric value.
    */
   threshold?: any;
   /**
    * @remarks
-   * The number of consecutive times the condition must be met to trigger the alert. Each entry has its own setting. This parameter applies to CLOUD_MONITORING_CONDITION with expressionType=SIMPLE.
+   * The number of consecutive triggers for CLOUD_MONITORING_CONDITION with expressionType=SIMPLE. Each entry is configured independently.
+   * 
+   * @example
+   * 1
    */
   times?: number;
   static names(): { [key: string]: string } {

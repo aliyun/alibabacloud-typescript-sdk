@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class EnabledFilter extends $dara.Model {
   /**
    * @remarks
-   * The value to filter by. Set to `true` to return only enabled resources. Set to `false` to return only disabled resources.
+   * The exact match.
+   * 
+   * @example
+   * true
    */
   eq?: boolean;
   static names(): { [key: string]: string } {

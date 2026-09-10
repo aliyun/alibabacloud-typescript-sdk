@@ -14,35 +14,149 @@ import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
+   * The action type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * CREATE
    */
   action?: string;
+  /**
+   * @remarks
+   * The action integration configuration.
+   */
   actionIntegrationConfig?: ActionIntegrationConfig;
+  /**
+   * @remarks
+   * The annotations.
+   */
   annotations?: { [key: string]: string };
+  /**
+   * @remarks
+   * The ARMS integration configuration.
+   */
   armsIntegrationConfig?: ArmsIntegrationConfig;
+  /**
+   * @remarks
+   * The business source (optional). Examples: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, sls. Provide as needed for CREATE/UPDATE/PATCH.
+   * 
+   * @example
+   * Sample value
+   */
   bizSource?: string;
+  /**
+   * @remarks
+   * The aggregated condition configuration.
+   */
   conditionConfig?: ConditionConfigUnified;
+  /**
+   * @remarks
+   * The content template.
+   * 
+   * @example
+   * Instance {{instance}} CPU usage exceeds {{threshold}}%
+   */
   contentTemplate?: string;
+  /**
+   * @remarks
+   * The aggregated data source configuration.
+   */
   datasourceConfig?: DatasourceConfigUnified;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * test
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * Specifies whether the rule is enabled.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The labels.
+   */
   labels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The aggregated notification configuration.
+   */
   notifyConfig?: NotifyConfigUnified;
+  /**
+   * @remarks
+   * The observable resource configuration.
+   */
   observeResourceConfig?: ObserveResourceConfig;
   /**
+   * @remarks
+   * **[Deprecated]** The monitored object instance ID. Use observeResourceConfig.resources instead. Retained only for backward compatibility with legacy SDKs.
+   * 
+   * @example
+   * example-id-001
+   * 
    * @deprecated
    */
   observeResourceInstanceId?: string;
   /**
+   * @remarks
+   * **[Deprecated]** The monitored object resource type. Use observeResourceConfig.entityType instead. Retained only for backward compatibility with legacy SDKs.
+   * 
+   * @example
+   * default
+   * 
    * @deprecated
    */
   observeResourceType?: string;
+  /**
+   * @remarks
+   * The aggregated query configuration.
+   */
   queryConfig?: QueryConfigUnified;
+  /**
+   * @remarks
+   * The root cause analysis (RCA) configuration (optional). Provide as needed for CREATE/UPDATE/PATCH.
+   */
   rcaConfig?: AlertRuleRcaConfig;
+  /**
+   * @remarks
+   * The region ID. Aligned with V1 AlertRule.regionId. If not provided, the gateway callerRegionId is used.
+   * 
+   * @example
+   * example-id-001
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The aggregated schedule configuration.
+   */
   scheduleConfig?: ScheduleConfigUnified;
+  /**
+   * @remarks
+   * The UUID of the rule. Required for UPDATE/PATCH.
+   * 
+   * @example
+   * xxx-xxx-xxx
+   */
   uuid?: string;
+  /**
+   * @remarks
+   * The list of rule UUIDs to delete (BATCH_DELETE).
+   */
   uuidList?: string[];
+  /**
+   * @remarks
+   * The workspace. Required for CREATE/UPDATE and other actions.
+   * 
+   * @example
+   * workspace-test
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

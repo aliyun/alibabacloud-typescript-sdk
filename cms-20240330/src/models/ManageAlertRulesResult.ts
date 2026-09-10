@@ -6,27 +6,33 @@ import { AlertRuleV2 } from "./AlertRuleV2";
 export class ManageAlertRulesResult extends $dara.Model {
   /**
    * @remarks
-   * The details of the created or updated alert rule.
+   * The alert rule V2.
    */
   alertRule?: AlertRuleV2;
   /**
    * @remarks
-   * The number of deleted alert rules.
+   * The number of rules that were successfully deleted.
+   * 
+   * @example
+   * 1
    */
   deletedCount?: number;
   /**
    * @remarks
-   * A list of UUIDs of deleted alert rules.
+   * The list of UUIDs of rules that were successfully deleted.
    */
   deletedUuidList?: string[];
   /**
    * @remarks
-   * The number of updated alert rules.
+   * The number of rules that were successfully enabled or disabled.
+   * 
+   * @example
+   * 1
    */
   updatedCount?: number;
   /**
    * @remarks
-   * A list of UUIDs of updated alert rules.
+   * The list of UUIDs of rules that were successfully enabled or disabled.
    */
   updatedUuidList?: string[];
   static names(): { [key: string]: string } {

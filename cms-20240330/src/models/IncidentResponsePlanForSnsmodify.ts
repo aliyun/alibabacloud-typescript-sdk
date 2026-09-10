@@ -5,17 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentResponsePlanForSNSModifyPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the alert actions.
+   * The list of action IDs to execute when an event is triggered. Actions must be created in advance by calling CreateAlertAction.
    */
   alertActionIds?: string[];
   /**
    * @remarks
-   * The IDs of the restore actions.
+   * The list of action IDs to execute when an event is recovered.
    */
   restoreActionIds?: string[];
   /**
    * @remarks
-   * The UUID of the notification template.
+   * Deprecated. This parameter does not take effect even if a value is passed in.
+   * 
+   * @example
+   * uuid
    */
   templateUuid?: string;
   static names(): { [key: string]: string } {
@@ -52,12 +55,18 @@ export class IncidentResponsePlanForSNSModifyPushingSetting extends $dara.Model 
 export class IncidentResponsePlanForSNSModifyRepeatNotifySetting extends $dara.Model {
   /**
    * @remarks
-   * The incident state that stops repeat notifications.
+   * The incident status at which repeat notifications stop. Repeat notifications are no longer sent after the incident reaches this status.
+   * 
+   * @example
+   * resolved
    */
   endIncidentState?: string;
   /**
    * @remarks
-   * The repeat interval for notifications, in seconds.
+   * The repeat notification interval. Unit: seconds.
+   * 
+   * @example
+   * 300
    */
   repeatInterval?: number;
   static names(): { [key: string]: string } {
@@ -86,22 +95,25 @@ export class IncidentResponsePlanForSNSModifyRepeatNotifySetting extends $dara.M
 export class IncidentResponsePlanForSNSModify extends $dara.Model {
   /**
    * @remarks
-   * The auto recovery time, in seconds. After this period, the incident is automatically resolved.
+   * The auto-recovery time. Unit: seconds. After this is configured, if no new events are generated for the incident within this period, the incident is automatically marked as resolved.
+   * 
+   * @example
+   * 3600
    */
   autoRecoverSeconds?: number;
   /**
    * @remarks
-   * The IDs of the escalation policies.
+   * The list of escalation policy IDs. Associates with IncidentEscalationPolicy to define step-by-step escalation rules when an incident is not handled as expected, such as notifying a supervisor if the incident is not acknowledged within 30 minutes.
    */
   escalationId?: string[];
   /**
    * @remarks
-   * The push setting for notifications.
+   * The action integration execution configuration that defines automated actions to trigger when an incident occurs and when it is recovered.
    */
   pushingSetting?: IncidentResponsePlanForSNSModifyPushingSetting;
   /**
    * @remarks
-   * The repeat notification setting.
+   * The repeat notification settings. When an incident remains unresolved, notifications are sent repeatedly at a fixed interval.
    */
   repeatNotifySetting?: IncidentResponsePlanForSNSModifyRepeatNotifySetting;
   static names(): { [key: string]: string } {

@@ -6,12 +6,12 @@ import { FilterSetting } from "./FilterSetting";
 export class WorkspaceFilterSetting extends $dara.Model {
   /**
    * @remarks
-   * The tag filter.
+   * The label filter. This parameter is not supported and does not take effect if specified.
    */
   tagSelector?: FilterSetting;
   /**
    * @remarks
-   * A list of workspace UUIDs.
+   * The list of workspace UUIDs.
    */
   workspaceUuids?: string[];
   static names(): { [key: string]: string } {

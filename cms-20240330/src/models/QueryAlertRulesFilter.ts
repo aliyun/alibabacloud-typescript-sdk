@@ -19,27 +19,59 @@ import { UuidFilter } from "./UuidFilter";
 
 
 export class QueryAlertRulesFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The filter condition for the business source.
+   */
   bizSource?: BizSourceFilter;
+  /**
+   * @remarks
+   * The filter condition for the data source type.
+   */
   datasourceType?: DatasourceTypeFilter;
+  /**
+   * @remarks
+   * The filter for alert rule names.
+   */
   displayName?: DisplayNameFilter;
+  /**
+   * @remarks
+   * The filter for whether the alert rule is enabled.
+   */
   enabled?: EnabledFilter;
+  /**
+   * @remarks
+   * The filter for labels.
+   */
   labels?: LabelsFilter;
   /**
    * @remarks
-   * Filters by migration status. isMigrated=true queries migrated rules (migration_status is not 0 or NULL). isMigrated=false queries native rules (migration_status=0).
+   * The migration status filter. Set isMigrated to true to query migrated rules (migration_status is not 0 or NULL). Set isMigrated to false to query native rules (migration_status=0).
    */
   migrationStatus?: MigrationStatusFilter;
+  /**
+   * @remarks
+   * The filter condition for notification channels.
+   */
   notificationChannels?: NotificationChannelsFilter;
+  /**
+   * @remarks
+   * The filter condition for the notification policy ID.
+   */
   notifyStrategyId?: NotifyStrategyIdFilter;
   /**
    * @remarks
-   * Filters by the observeResourceConfig structure. This takes priority over the standalone observeResourceType / observeResourceGlobalScope / observeResourceList fields below. If both are specified and their semantics conflict, the request is rejected.
+   * The composite filter based on the observeResourceConfig structure. This filter takes priority over the standalone observeResourceType, observeResourceGlobalScope, and observeResourceList fields. If both are specified and their semantics conflict, the request is rejected.
    */
   observeResourceConfig?: ObserveResourceConfigFilter;
+  /**
+   * @remarks
+   * The filter condition for the global scope of observable resources.
+   */
   observeResourceGlobalScope?: ObserveResourceGlobalScopeFilter;
   /**
    * @remarks
-   * **[Deprecated]** Filters by a single resource entity ID. This field is retained only for backward compatibility with legacy SDKs. For new integrations, use observeResourceList.contains instead. If this field is not empty and observeResourceList is not specified, it is equivalent to observeResourceList.contains=[observeResourceInstanceId].
+   * **[Deprecated]** The single-value filter for the resource instance ID. This field is retained only for compatibility with legacy SDKs. Use observeResourceList.contains instead for new integrations. If this field is not empty and observeResourceList is not specified, it is equivalent to observeResourceList.contains=[observeResourceInstanceId].
    * 
    * @example
    * i-bp1abcxxxxxxxx
@@ -47,17 +79,37 @@ export class QueryAlertRulesFilter extends $dara.Model {
    * @deprecated
    */
   observeResourceInstanceId?: string;
+  /**
+   * @remarks
+   * The filter condition for the list of observable resources.
+   */
   observeResourceList?: ObserveResourceListFilter;
   /**
    * @remarks
-   * **[Deprecated]** Filters by observable resource type. For new integrations, use observeResourceConfig.entityType instead.
+   * **[Deprecated]** The filter for the observable resource type. Use observeResourceConfig.entityType instead for new integrations.
    * 
    * @deprecated
    */
   observeResourceType?: ObserveResourceTypeFilter;
+  /**
+   * @remarks
+   * The filter condition for the partition key.
+   */
   partitionKey?: PartitionKeyFilter;
+  /**
+   * @remarks
+   * The filter condition for alert severity levels.
+   */
   severityLevels?: SeverityLevelsFilter;
+  /**
+   * @remarks
+   * The filter for statuses.
+   */
   status?: StatusFilter;
+  /**
+   * @remarks
+   * The filter for alert rule UUIDs.
+   */
   uuid?: UuidFilter;
   static names(): { [key: string]: string } {
     return {

@@ -6,7 +6,7 @@ import { EntityDiscoverRule } from "./EntityDiscoverRule";
 export class CreateAddonReleaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on to integrate.
+   * The name of the addon component to be connected to monitoring.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * The language of the add-on.
+   * The language type of the component.
    * 
    * @example
    * zh
@@ -24,20 +24,22 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. The default value is false.
+   * Specifies whether to perform a dry run. Default value: false.
    * 
    * @example
    * false
+   * 
+   * @deprecated
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * The entity discovery rules.
+   * The field rules.
    */
   entityRules?: EntityDiscoverRule;
   /**
    * @remarks
-   * The environment type. Set this parameter to CS for container environments or ECS for ECS environments. For all other environment types, set this parameter to Cloud.
+   * The environment type. If the policy type is CS or ECS, the corresponding value is used. For other types, the value is Cloud.
    * 
    * @example
    * CS
@@ -45,7 +47,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The ID of the parent AddonRelease.
+   * The parent AddonReleaseId.
    * 
    * @example
    * policy-xxxxxxxxxxx
@@ -53,7 +55,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   parentAddonReleaseId?: string;
   /**
    * @remarks
-   * The name of the release after the integration. If you do not specify this parameter, a default name is generated.
+   * The name of the plugin after access. If this parameter is not specified, a default rule name is generated.
    * 
    * @example
    * test-gpu-integration-name
@@ -61,7 +63,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   releaseName?: string;
   /**
    * @remarks
-   * The metadata.
+   * The input metadata.
    * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}
@@ -69,7 +71,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   values?: string;
   /**
    * @remarks
-   * The version of the add-on to integrate.
+   * The version of the addon component to be connected to monitoring.
    * 
    * This parameter is required.
    * 
@@ -79,7 +81,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The name of the workspace where the add-on is installed.
+   * The name of the workspace where the component resources are installed.
    * 
    * @example
    * default

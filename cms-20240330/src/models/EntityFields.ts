@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EntityFields extends $dara.Model {
+  /**
+   * @remarks
+   * The entity field name.
+   * 
+   * @example
+   * region
+   */
   field?: string;
+  /**
+   * @remarks
+   * The field alias or display value.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

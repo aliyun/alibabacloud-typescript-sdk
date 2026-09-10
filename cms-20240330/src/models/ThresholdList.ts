@@ -3,13 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ThresholdList extends $dara.Model {
+  /**
+   * @remarks
+   * The upper bound of the interval.
+   * 
+   * @example
+   * 100
+   */
   max?: number;
+  /**
+   * @remarks
+   * The lower bound of the interval.
+   * 
+   * @example
+   * 0
+   */
   min?: number;
   /**
    * @remarks
+   * The warning level.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * CRITICAL
    */
   severity?: string;
+  /**
+   * @remarks
+   * The threshold.
+   * 
+   * @example
+   * 80
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {

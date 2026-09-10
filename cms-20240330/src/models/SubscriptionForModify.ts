@@ -6,7 +6,18 @@ import { NotifyRouteForSubscription } from "./NotifyRouteForSubscription";
 
 
 export class SubscriptionForModifyAgentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the agent.
+   * 
+   * @example
+   * agent-uuid-001
+   */
   agentUuid?: string;
+  /**
+   * @remarks
+   * The list of agent routing configurations.
+   */
   routes?: NotifyRouteForSubscription[];
   static names(): { [key: string]: string } {
     return {
@@ -37,7 +48,7 @@ export class SubscriptionForModifyAgentConfig extends $dara.Model {
 export class SubscriptionForModifyPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * The list of action plan IDs for alert pushing.
+   * The list of action plan IDs for alert push.
    */
   alertActionIds?: string[];
   /**
@@ -50,7 +61,7 @@ export class SubscriptionForModifyPushingSetting extends $dara.Model {
   responsePlanId?: string;
   /**
    * @remarks
-   * The list of action integration plan IDs for recovery pushing.
+   * The list of action integration plan IDs for recovery push.
    */
   restoreActionIds?: string[];
   /**
@@ -95,6 +106,10 @@ export class SubscriptionForModifyPushingSetting extends $dara.Model {
 }
 
 export class SubscriptionForModify extends $dara.Model {
+  /**
+   * @remarks
+   * The agent configuration information.
+   */
   agentConfig?: SubscriptionForModifyAgentConfig;
   /**
    * @remarks
@@ -127,6 +142,9 @@ export class SubscriptionForModify extends $dara.Model {
    * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
    * - true: Subscribe.
    * - false or null: Do not subscribe.
+   * 
+   * @example
+   * false
    */
   subscribeLegacyEvent?: boolean;
   /**
@@ -136,9 +154,13 @@ export class SubscriptionForModify extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Test subscription.
+   * TestSubscription
    */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The workspace filter settings.
+   */
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {

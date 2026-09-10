@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactGroupsResponseBodyContactGroups extends $dara.Model {
   /**
    * @remarks
-   * The contact group ID.
+   * The unique identifier of the contact group.
    * 
    * @example
    * test
@@ -13,20 +13,24 @@ export class ListContactGroupsResponseBodyContactGroups extends $dara.Model {
   contactGroupId?: string;
   /**
    * @remarks
-   * The contact IDs in the group.
-   * 
-   * @example
-   * ["Demo meeting"]
+   * The contact IDs.
    */
   contactIds?: string[];
   /**
    * @remarks
-   * The name of the contact group.
+   * The contact name.
    * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The workspace.
+   * 
+   * @example
+   * default-cms-1641973317055299-cn-hangzhou
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,12 +65,12 @@ export class ListContactGroupsResponseBodyContactGroups extends $dara.Model {
 export class ListContactGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of contact groups.
+   * The contact groups.
    */
   contactGroups?: ListContactGroupsResponseBodyContactGroups[];
   /**
    * @remarks
-   * The returned page number.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -74,7 +78,7 @@ export class ListContactGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page. Default value: 100.
    * 
    * @example
    * 10
@@ -82,7 +86,7 @@ export class ListContactGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

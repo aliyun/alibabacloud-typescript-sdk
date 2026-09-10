@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class PartitionKeyFilter extends $dara.Model {
   /**
    * @remarks
-   * Returns only items whose partition key value equals this string.
+   * The exact match value.
+   * 
+   * @example
+   * workspace
    */
   eq?: string;
   static names(): { [key: string]: string } {

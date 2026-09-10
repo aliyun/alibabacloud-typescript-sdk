@@ -12,16 +12,25 @@ export class CloudMonitoringCompositeEscalation extends $dara.Model {
   /**
    * @remarks
    * The logical relationship between conditions (AND/OR).
+   * 
+   * @example
+   * AND
    */
   relation?: string;
   /**
    * @remarks
    * The severity level.
+   * 
+   * @example
+   * CRITICAL
    */
   severity?: string;
   /**
    * @remarks
-   * The number of consecutive times the conditions are met before the alert is triggered.
+   * The number of consecutive times the condition is triggered.
+   * 
+   * @example
+   * 3
    */
   times?: number;
   static names(): { [key: string]: string } {

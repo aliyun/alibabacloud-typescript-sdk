@@ -31,13 +31,13 @@ export class AlertRuleConditionCaseList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The match type: has data, has a specific number of data entries, has data match, or has a specific number of data matches.
+   * The match type: has data, has specific count of data, has data match, or has specific count of data match.
    * 
    * Valid values:
    * - HasData: has data
-   * - HasDataCount: has a specific number of data entries
+   * - HasDataCount: has specific count of data
    * - HasDataMatch: has data match
-   * - HasDataMatchCount: has a specific number of data matches
+   * - HasDataMatchCount: has specific count of data match
    * 
    * @example
    * HasData
@@ -113,7 +113,7 @@ export class AlertRuleConditionCompareListValueLevelList extends $dara.Model {
 export class AlertRuleConditionCompareList extends $dara.Model {
   /**
    * @remarks
-   * The aggregate functions applied after time series aggregation.
+   * The aggregation function applied after time series.
    * 
    * - count
    * - sum
@@ -176,7 +176,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   valueLevelList?: AlertRuleConditionCompareListValueLevelList[];
   /**
    * @remarks
-   * The time unit for year-over-year comparison. Valid only when oper is set to YOY_UP or YOY_DOWN.
+   * The year-over-year time unit. Valid only when oper is set to YOY_UP or YOY_DOWN.
    * Valid values: minute, hour, day, week, month.
    * 
    * @example
@@ -185,7 +185,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   yoyTimeUnit?: string;
   /**
    * @remarks
-   * The value of the year-over-year time period. Used together with yoyTimeUnit.
+   * The year-over-year time value. Used together with yoyTimeUnit.
    * 
    * @example
    * 1
@@ -271,10 +271,10 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
    * @remarks
    * The statistical method. The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified cloud service. Example values for the statistical method of a metric:
    * 
-   * - $Maximum: Maximum value.
-   * - $Minimum: Minimum value.
-   * - $Average: Average value.
-   * - $Availability: Availability rate (typically used for site monitoring).
+   * - $Maximum: maximum value.
+   * - $Minimum: minimum value.
+   * - $Average: average value.
+   * - $Availability: availability rate (typically used for site monitoring).
    * 
    * Note: $ is the unified prefix symbol for metrics.
    * 
@@ -394,7 +394,7 @@ export class AlertRuleConditionExpressEscalation extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The alert condition expression.
+   * The alert conditional expression.
    * 
    * @example
    * @cpu_total[60].$Average > 60
@@ -469,7 +469,7 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The statistical method. The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified cloud service. Examples: Maximum, Minimum, and Average.
+   * The statistical method. The valid values of this parameter are determined by the Statistics column corresponding to the MetricName of the specified cloud service. Examples: Maximum, Minimum, and Average.
    * 
    * @example
    * Average
@@ -523,7 +523,7 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
 export class AlertRuleConditionSimpleEscalation extends $dara.Model {
   /**
    * @remarks
-   * The list of conditions. When an alert rule corresponds to multiple levels, each level has a condition object.
+   * The list of conditions. If an alert rule corresponds to multiple levels, each level has a condition object.
    */
   escalations?: AlertRuleConditionSimpleEscalationEscalations[];
   /**
@@ -538,7 +538,7 @@ export class AlertRuleConditionSimpleEscalation extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The time window of the metric. Unit: seconds.
+   * The time window of the metric, in seconds.
    * 
    * @example
    * 60
@@ -573,9 +573,37 @@ export class AlertRuleConditionSimpleEscalation extends $dara.Model {
 }
 
 export class AlertRuleConditionThresholdList extends $dara.Model {
+  /**
+   * @remarks
+   * The upper bound of the range (required when operator=IN_RANGE/OUT_OF_RANGE).
+   * 
+   * @example
+   * 100
+   */
   max?: number;
+  /**
+   * @remarks
+   * The lower bound of the range (required when operator=IN_RANGE/OUT_OF_RANGE).
+   * 
+   * @example
+   * 0
+   */
   min?: number;
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * @example
+   * CRITICAL
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The threshold (required when the operator is not a range operator).
+   * 
+   * @example
+   * 80
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -605,9 +633,37 @@ export class AlertRuleConditionThresholdList extends $dara.Model {
 }
 
 export class AlertRuleConditionTriggersExpressionConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The conditional expression type of the sub-condition, typically SIMPLE.
+   * 
+   * @example
+   * SIMPLE
+   */
   expressionType?: string;
+  /**
+   * @remarks
+   * The comparison operator of the sub-condition, used to compare the query result with the threshold.
+   * 
+   * @example
+   * GT
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The query name referenced by the sub-condition, corresponding to the name in queries.
+   * 
+   * @example
+   * cpuUsageQuery
+   */
   queryName?: string;
+  /**
+   * @remarks
+   * The threshold value of the sub-condition.
+   * 
+   * @example
+   * 80
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -637,8 +693,26 @@ export class AlertRuleConditionTriggersExpressionConditions extends $dara.Model 
 }
 
 export class AlertRuleConditionTriggersExpression extends $dara.Model {
+  /**
+   * @remarks
+   * The list of sub-conditions for the trigger condition. Multiple sub-conditions are evaluated based on the logicOperator of the parent expression.
+   */
   conditions?: AlertRuleConditionTriggersExpressionConditions[];
+  /**
+   * @remarks
+   * The expression type. SIMPLE indicates a single-metric condition. COMPOSITE indicates a multi-metric composite condition.
+   * 
+   * @example
+   * SIMPLE
+   */
   expressionType?: string;
+  /**
+   * @remarks
+   * The multi-metric composite operator. Valid only when expressionType=COMPOSITE.
+   * 
+   * @example
+   * AND
+   */
   logicOperator?: string;
   static names(): { [key: string]: string } {
     return {
@@ -669,8 +743,26 @@ export class AlertRuleConditionTriggersExpression extends $dara.Model {
 }
 
 export class AlertRuleConditionTriggers extends $dara.Model {
+  /**
+   * @remarks
+   * The duration in seconds that the condition must be continuously met before an alert is triggered.
+   * 
+   * @example
+   * 60
+   */
   durationSecs?: number;
+  /**
+   * @remarks
+   * The expression of the trigger condition. Supports two forms: SIMPLE (single-metric) and COMPOSITE (multi-metric AND/OR/UNLESS combination).
+   */
   expression?: AlertRuleConditionTriggersExpression;
+  /**
+   * @remarks
+   * The alert severity level that corresponds to this trigger condition when it is met.
+   * 
+   * @example
+   * CRITICAL
+   */
   severity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -715,7 +807,7 @@ export class AlertRuleCondition extends $dara.Model {
    * @remarks
    * Applicable condition type: SLS_CONDITION.
    * 
-   * The list of Simple Log Service alert conditions.
+   * The list of Simple Log Service (SLS) alert conditions.
    */
   caseList?: AlertRuleConditionCaseList[];
   /**
@@ -729,11 +821,29 @@ export class AlertRuleCondition extends $dara.Model {
    * @remarks
    * Applicable condition type: CMS_BASIC_CONDITION.
    * 
-   * This parameter takes effect only when escalationType is set to composite. The composite metric alert condition.
+   * Valid when escalationType is set to composite. The composite metric alert condition.
    */
   compositeEscalation?: AlertRuleConditionCompositeEscalation;
+  /**
+   * @remarks
+   * The count comparison operator, specified when type=LOG_SET_CONDITION. Valid values: GTE / GT / EQ / LTE / LT.
+   * 
+   * @example
+   * GTE
+   */
   countOperator?: string;
+  /**
+   * @remarks
+   * The count threshold, specified when type=LOG_SET_CONDITION.
+   * 
+   * @example
+   * 3
+   */
   countThreshold?: number;
+  /**
+   * @remarks
+   * Used when type=UMODEL_METRICSET_MULTI_CONDITION. Specifies whether to enable severity suppression to the highest level. Default value: true. Only the highest severity level is reported for the same entity.
+   */
   enableSeveritySuppression?: boolean;
   /**
    * @remarks
@@ -741,9 +851,9 @@ export class AlertRuleCondition extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - simple: simple metric condition.
-   * - composite: composite metric condition.
-   * - express: expression condition.
+   * - simple: simple metric condition
+   * - composite: composite metric condition
+   * - express: expression condition
    * 
    * @example
    * simple
@@ -753,19 +863,54 @@ export class AlertRuleCondition extends $dara.Model {
    * @remarks
    * Applicable condition type: CMS_BASIC_CONDITION.
    * 
-   * This parameter takes effect only when escalationType is set to composite. The multi-metric composite alert condition.
+   * Valid when escalationType=composite. Specifies the multi-metric composite alert conditions.
    */
   expressEscalation?: AlertRuleConditionExpressEscalation;
+  /**
+   * @remarks
+   * The log field name, specified when type=LOG_SET_CONDITION and matchOperator=CONTAINS/EQUALS/REGEX.
+   * 
+   * @example
+   * logLevel
+   */
   matchField?: string;
+  /**
+   * @remarks
+   * The match operator, specified when type=LOG_SET_CONDITION. Valid values: PRESENT / NOT_PRESENT / CONTAINS / EQUALS / REGEX.
+   * 
+   * @example
+   * CONTAINS
+   */
   matchOperator?: string;
+  /**
+   * @remarks
+   * The match value, specified when type=LOG_SET_CONDITION and matchOperator=CONTAINS/EQUALS/REGEX.
+   * 
+   * @example
+   * error
+   */
   matchValue?: string;
+  /**
+   * @remarks
+   * The upper bound of the range specified when type=BASIC_CONDITION and oper=IN_RANGE/OUT_OF_RANGE.
+   * 
+   * @example
+   * 100
+   */
   max?: number;
+  /**
+   * @remarks
+   * The lower bound of the range specified when type=BASIC_CONDITION and oper=IN_RANGE/OUT_OF_RANGE.
+   * 
+   * @example
+   * 0
+   */
   min?: number;
   /**
    * @remarks
    * Applicable condition type: APM_CONDITION.
    * 
-   * The alert level when no data is available. If this parameter is not specified, no alert is triggered when no data is available.
+   * The alert level when no data is available. If not specified, no alert is triggered for no-data scenarios.
    * 
    * @example
    * INFO
@@ -775,7 +920,7 @@ export class AlertRuleCondition extends $dara.Model {
    * @remarks
    * Applicable condition type: APM_CONDITION.
    * 
-   * The compensation value when no data is available.
+   * The value to use as compensation when no data is available.
    * 
    * @example
    * 1
@@ -785,10 +930,11 @@ export class AlertRuleCondition extends $dara.Model {
    * @remarks
    * Applicable condition type: CMS_BASIC_CONDITION.
    * 
-   * The method used to handle alerts when no monitoring data is available. Valid values:
+   * 
+   * Specifies how to handle alerts when no monitoring data is available. Valid values:
    * 
    * - KEEP_LAST_STATE (default): No action is taken.
-   * - INSUFFICIENT_DATA: The alert content indicates that no data is available.
+   * - INSUFFICIENT_DATA: The alert content indicates no data.
    * - OK: Normal.
    * 
    * @example
@@ -797,16 +943,16 @@ export class AlertRuleCondition extends $dara.Model {
   noDataPolicy?: string;
   /**
    * @remarks
-   * The comparison operator. Specifies whether to use year-over-year or period-over-period comparison. Valid values:
+   * The comparison operator. Determines whether year-over-year or period-over-period comparison is used.
    * 
-   * - GT: greater than.
-   * - GTE: greater than or equal to.
-   * - LT: less than.
-   * - LTE: less than or equal to.
-   * - EQ: equal to.
-   * - NE: not equal to.
-   * - YOY_UP: year-over-year increase.
-   * - YOY_DOWN: year-over-year decrease.
+   * - Greater than: GT
+   * - Greater than or equal to: GTE
+   * - Less than: LT
+   * - Less than or equal to: LTE
+   * - Equal to: EQ
+   * - Not equal to: NE
+   * - Year-over-year increase: YOY_UP
+   * - Year-over-year decrease: YOY_DOWN
    * 
    * @example
    * LT
@@ -828,17 +974,25 @@ export class AlertRuleCondition extends $dara.Model {
    * @remarks
    * Applicable condition type: CMS_BASIC_CONDITION.
    * 
-   * This parameter takes effect only when escalationType is set to simple. The alert condition configured for a single metric.
+   * Valid only when escalationType is set to simple. The alert condition for a single metric.
    */
   simpleEscalation?: AlertRuleConditionSimpleEscalation;
+  /**
+   * @remarks
+   * The list of multi-level thresholds and severity levels, used to map different thresholds to corresponding alert levels.
+   */
   thresholdList?: AlertRuleConditionThresholdList[];
+  /**
+   * @remarks
+   * Specified when type=UMODEL_METRICSET_MULTI_CONDITION. The list of trigger conditions. Each item contains severity, durationSecs, and an expression (SIMPLE for single-metric or COMPOSITE for multi-metric AND/OR/UNLESS).
+   */
   triggers?: AlertRuleConditionTriggers[];
   /**
    * @remarks
    * The rule condition type. Valid values:
-   * - SLS_CONDITION: Simple Log Service alert condition.
+   * - SLS_CONDITION: SLS alert condition.
    * - APM_CONDITION: APM alert condition.
-   * - CMS_BASIC_CONDITION: CloudMonitor Basic monitoring alert condition.
+   * - CMS_BASIC_CONDITION: CloudMonitor Basic CloudMonitor alerts condition.
    * 
    * This parameter is required.
    * 
@@ -848,7 +1002,7 @@ export class AlertRuleCondition extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The threshold that triggers the alert.
+   * The threshold for triggering an alert.
    * 
    * @example
    * 60

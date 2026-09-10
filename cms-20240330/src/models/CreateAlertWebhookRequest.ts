@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAlertWebhookRequest extends $dara.Model {
   /**
    * @remarks
-   * The content type. Valid values:
-   * 
+   * The content type of the data. Valid values:
    * - JSON (default)
-   * 
    * - FORM
    * 
    * @example
@@ -17,15 +15,13 @@ export class CreateAlertWebhookRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The headers.
+   * The collection of HTTP request headers.
    */
   headers?: { [key: string]: string };
   /**
    * @remarks
    * The language. Valid values:
-   * 
    * - zh_CN
-   * 
    * - en_US
    * 
    * @example
@@ -35,9 +31,7 @@ export class CreateAlertWebhookRequest extends $dara.Model {
   /**
    * @remarks
    * The request method. Valid values:
-   * 
    * - GET
-   * 
    * - POST
    * 
    * @example
@@ -46,7 +40,7 @@ export class CreateAlertWebhookRequest extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The name of the webhook.
+   * The webhook name.
    * 
    * This parameter is required.
    * 
@@ -56,7 +50,7 @@ export class CreateAlertWebhookRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The URL for the alert callback.
+   * The alert callback URL.
    * 
    * This parameter is required.
    * 
@@ -66,13 +60,16 @@ export class CreateAlertWebhookRequest extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * The unique ID of the webhook.
+   * The unique identifier of the webhook.
    * 
    * @example
    * test
    */
   webhookId?: string;
   /**
+   * @remarks
+   * The workspace identifier.
+   * 
    * @example
    * my-workspace
    */

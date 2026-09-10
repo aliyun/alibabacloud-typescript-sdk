@@ -6,7 +6,7 @@ import { EntityGroupBase } from "./EntityGroupBase";
 export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
   /**
    * @remarks
-   * The time when the phase first transitioned.
+   * The first transition time.
    * 
    * @example
    * 2024-11-04T16:10:22+08:00
@@ -14,7 +14,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
   firstTransitionTime?: string;
   /**
    * @remarks
-   * The time when the phase last transitioned.
+   * The last transition time.
    * 
    * @example
    * 2024-11-04T16:10:22+08:00
@@ -22,7 +22,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
   lastTransitionTime?: string;
   /**
    * @remarks
-   * The details of the phase.
+   * The detailed information.
    * 
    * @example
    * The addon loaded successfully
@@ -30,7 +30,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The status of the phase.
+   * The phase status.
    * 
    * @example
    * {\\"phase\\": \\"Created\\", \\"executionDetails\\": [], \\"invocations\\": [], \\"latestExecError\\": {\\"message\\": \\"\\", \\"code\\": \\"\\", \\"requestId\\": \\"\\", \\"extraInfo\\": \\"\\", \\"title\\": \\"\\"}}
@@ -38,7 +38,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The type of the phase.
+   * The phase type.
    * 
    * @example
    * Loaded
@@ -76,7 +76,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
 export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   /**
    * @remarks
-   * The name of the integrated add-on.
+   * The addon name of the component integrated with monitoring.
    * 
    * @example
    * cs-gpu
@@ -84,7 +84,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * The number of alert rules.
+   * The number of alert rule groups.
    * 
    * @example
    * 6
@@ -92,12 +92,12 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   alertRuleCount?: number;
   /**
    * @remarks
-   * The information about the add-on installation phases.
+   * The component installation phase information.
    */
   conditions?: CreateAddonReleaseResponseBodyReleaseConditions[];
   /**
    * @remarks
-   * The configuration of the add-on.
+   * The component configuration.
    * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}
@@ -105,7 +105,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The time when the add-on was integrated.
+   * The time when the component was integrated.
    * 
    * @example
    * 2024-11-05T15:21:30+08:00
@@ -121,7 +121,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   dashboardCount?: number;
   /**
    * @remarks
-   * The details of the entity.
+   * The entity details.
    */
   entityRules?: EntityGroupBase;
   /**
@@ -150,7 +150,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   exporterCount?: number;
   /**
    * @remarks
-   * Indicates whether a configuration is available.
+   * Indicates whether the component has a configuration.
    * 
    * @example
    * true
@@ -158,7 +158,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   haveConfig?: boolean;
   /**
    * @remarks
-   * The ID of the user who installed the add-on.
+   * The ID of the user who installed the component.
    * 
    * @example
    * 1654218965xxxxxx
@@ -174,7 +174,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Indicates whether the add-on is a managed add-on.
+   * Indicates whether the component is a managed component.
    * 
    * @example
    * true
@@ -182,7 +182,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   managed?: boolean;
   /**
    * @remarks
-   * The ID of the parent AddonRelease.
+   * The parent AddonReleaseId.
    * 
    * @example
    * policy-xxxxxxxxxxx
@@ -190,7 +190,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   parentAddonReleaseId?: string;
   /**
    * @remarks
-   * The ID of the environment policy.
+   * The policy environment ID.
    * 
    * @example
    * policy-xxxxxxxxxx
@@ -206,7 +206,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the release.
+   * The release ID after installation.
    * 
    * @example
    * 2e898e60-5e6a-46d1-a994-xxxxxxxxxx
@@ -222,7 +222,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   releaseName?: string;
   /**
    * @remarks
-   * The scenario of the add-on.
+   * The component scenario.
    * 
    * @example
    * 1
@@ -230,7 +230,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The status of the add-on.
+   * The component status.
    * 
    * @example
    * 200
@@ -238,7 +238,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the add-on was last updated.
+   * The update time.
    * 
    * @example
    * 2024-09-13T02:21:02Z
@@ -246,7 +246,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user to whom the component belongs.
    * 
    * @example
    * 165421896xxxxxx
@@ -254,7 +254,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The version of the add-on.
+   * The component version.
    * 
    * @example
    * 1.0.0
@@ -346,7 +346,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
 export class CreateAddonReleaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the integrated add-on.
+   * The component integration information.
    */
   release?: CreateAddonReleaseResponseBodyRelease;
   /**

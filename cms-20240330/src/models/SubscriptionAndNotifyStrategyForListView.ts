@@ -4,19 +4,114 @@ import { NotifyStrategyForSNSView } from "./NotifyStrategyForSnsview";
 
 
 export class SubscriptionAndNotifyStrategyForListView extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1700000000
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Sample description
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the policy is enabled.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The migration batch ID. This field is empty for user-created entries and has a value for migration artifacts.
+   * 
+   * @example
+   * example-id-001
+   */
   migrationBatchId?: string;
+  /**
+   * @remarks
+   * The migration metadata JSON string.
+   * 
+   * @example
+   * Sample value
+   */
   migrationMeta?: string;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * Sample name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The notification policy snapshot.
+   */
   notifyStrategy?: NotifyStrategyForSNSView;
+  /**
+   * @remarks
+   * The UUID of the associated notifyStrategy, which is shared with the responsePlan UUID.
+   * 
+   * @example
+   * example-id-001
+   */
   notifyStrategyUuid?: string;
+  /**
+   * @remarks
+   * The UUID of the directly bound primary subscription, which has a 1:1 association in the NOTIFY mode.
+   * 
+   * @example
+   * example-id-001
+   */
   subscriptionUuid?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 1700000000
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The user ID of the owner.
+   * 
+   * @example
+   * example-id-001
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The UUID of the aggregate entity.
+   * 
+   * @example
+   * example-id-001
+   */
   uuid?: string;
+  /**
+   * @remarks
+   * The optimistic lock version number.
+   * 
+   * @example
+   * 1
+   */
   version?: number;
+  /**
+   * @remarks
+   * The workspace identifier.
+   * 
+   * @example
+   * Sample value
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

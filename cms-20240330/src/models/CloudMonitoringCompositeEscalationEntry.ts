@@ -6,31 +6,49 @@ export class CloudMonitoringCompositeEscalationEntry extends $dara.Model {
   /**
    * @remarks
    * The comparison operator.
+   * 
+   * @example
+   * GT
    */
   comparisonOperator?: string;
   /**
    * @remarks
    * The metric name.
+   * 
+   * @example
+   * cpuUsage
    */
   metricName?: string;
   /**
    * @remarks
    * The collection period, in seconds.
+   * 
+   * @example
+   * 60
    */
   period?: number;
   /**
    * @remarks
    * The precondition.
+   * 
+   * @example
+   * 3 consecutive times
    */
   preCondition?: string;
   /**
    * @remarks
    * The statistical method.
+   * 
+   * @example
+   * Average
    */
   statistics?: string;
   /**
    * @remarks
    * The threshold.
+   * 
+   * @example
+   * 80
    */
   threshold?: string;
   static names(): { [key: string]: string } {

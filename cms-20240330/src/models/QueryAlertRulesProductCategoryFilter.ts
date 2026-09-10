@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAlertRulesProductCategoryFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The exact match.
+   * 
+   * @example
+   * ecs
+   */
   eq?: string;
   static names(): { [key: string]: string } {
     return {

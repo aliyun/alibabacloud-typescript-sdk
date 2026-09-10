@@ -6,6 +6,9 @@ export class AlertRuleRcaConfig extends $dara.Model {
   /**
    * @remarks
    * The digital employee name.
+   * 
+   * @example
+   * O&M Assistant
    */
   digitalEmployeeName?: string;
   /**

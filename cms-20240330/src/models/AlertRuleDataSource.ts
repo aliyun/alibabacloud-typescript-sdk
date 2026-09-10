@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleDataSourceDsList extends $dara.Model {
   /**
    * @remarks
-   * The SLS project.
+   * The name of the Simple Log Service (SLS) project. Specifies the project where the logs or metrics reside.
    * 
    * @example
    * mySlsProject
@@ -13,7 +13,7 @@ export class AlertRuleDataSourceDsList extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The region where the SLS project is located.
+   * The region where the SLS project resides.
    * 
    * @example
    * cn-hangzhou
@@ -30,10 +30,8 @@ export class AlertRuleDataSourceDsList extends $dara.Model {
   /**
    * @remarks
    * The type of the SLS sub-data source. Valid values:
-   * 
-   * - SLS_LOG_DS: A LogStore data source.
-   * 
-   * - SLS_METRIC_DS: A MetricStore data source.
+   * - SLS_LOG_DS: LogStore data source.
+   * - SLS_METRIC_DS: MetricStore data source.
    * 
    * @example
    * SLS_LOG_DS
@@ -69,10 +67,9 @@ export class AlertRuleDataSourceDsList extends $dara.Model {
 export class AlertRuleDataSource extends $dara.Model {
   /**
    * @remarks
-   * Applies to the APM_DS data source type.
+   * Applicable data source type: APM_DS.
    * 
-   * The type of the application. Valid value:
-   * 
+   * The application type. Valid values:
    * - apm
    * 
    * @example
@@ -81,16 +78,16 @@ export class AlertRuleDataSource extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * Applies to the SLS_MULTI_DS data source type.
+   * Applicable data source type: SLS_MULTI_DS.
    * 
-   * A list of sub-data sources.
+   * The list of sub-data sources.
    */
   dsList?: AlertRuleDataSourceDsList[];
   /**
    * @remarks
-   * Applies to the PROMETHEUS_DS data source type.
+   * Applicable data source type: PROMETHEUS_DS.
    * 
-   * The ID of the Prometheus instance.
+   * The Prometheus instance ID.
    * 
    * @example
    * rw-bbe8961b4a59be0
@@ -98,7 +95,7 @@ export class AlertRuleDataSource extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Applies to the ENTERPRISE_DS data source type.
+   * Applicable data source type: ENTERPRISE_DS.
    * 
    * The name of the Hybrid Cloud Monitoring metric repository.
    * 
@@ -108,30 +105,34 @@ export class AlertRuleDataSource extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Applies to the APM_DS and PROMETHEUS_DS data source types.
+   * Applicable data source types: APM_DS and PROMETHEUS_DS.
    * 
-   * The ID of the region where the data source is located.
+   * The region ID of the data source.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Applicable data source type: ENTERPRISE_DS.
+   * 
+   * The tenant ID of the Hybrid Cloud Monitoring data source. Identifies the tenant in the Hybrid Cloud Monitoring environment.
+   * 
+   * @example
+   * 1234567890
+   */
   tenantId?: string;
   /**
    * @remarks
    * The data source type.
    * 
    * Valid values:
-   * 
-   * - PROMETHEUS_DS: A Prometheus data source.
-   * 
-   * - SLS_MULTI_DS: An SLS data source.
-   * 
-   * - APM_DS: An Application Monitoring data source.
-   * 
-   * - CMS_BASIC_DS: A basic Cloud Monitor data source.
-   * 
-   * - ENTERPRISE_DS: A Hybrid Cloud Monitoring data source.
+   * - PROMETHEUS_DS: Prometheus data source.
+   * - SLS_MULTI_DS: SLS data source.
+   * - APM_DS: Application monitoring data source.
+   * - CMS_BASIC_DS: CloudMonitor Basic data source.
+   * - ENTERPRISE_DS: Hybrid Cloud Monitoring data source.
    * 
    * This parameter is required.
    * 

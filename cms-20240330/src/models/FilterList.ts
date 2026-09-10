@@ -5,14 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class FilterList extends $dara.Model {
   /**
    * @remarks
+   * The dimension key.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * env
    */
   key?: string;
   /**
    * @remarks
+   * The filter type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ALL
    */
   type?: string;
+  /**
+   * @remarks
+   * The filter value. This parameter can be left empty when type is set to ALL or DISABLED.
+   * 
+   * @example
+   * prod
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

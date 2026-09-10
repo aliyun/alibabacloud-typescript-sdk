@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JoinConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The left field in the format $<query_idx>.<field>, such as $0.hostIp.
+   * 
+   * @example
+   * request_id
+   */
   lhsField?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values: == / != / < / > / <= / >=.
+   * 
+   * @example
+   * =
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The right field in the format $<query_idx>.<field>, such as $1.hostIp.
+   * 
+   * @example
+   * trace_id
+   */
   rhsField?: string;
   static names(): { [key: string]: string } {
     return {

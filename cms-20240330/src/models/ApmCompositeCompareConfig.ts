@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ApmCompositeCompareConfig extends $dara.Model {
   /**
    * @remarks
-   * The aggregate functions used for aggregation.
+   * The aggregate functions.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * AVG
    */
   aggregate?: string;
   /**
    * @remarks
-   * The comparison operator. GTE/LTE indicates greater than or equal to/less than or equal to. YOY_UP/YOY_DOWN indicates year-over-year increase/decrease, which requires yoyTimeUnit and yoyTimeValue to be specified.
+   * The comparison operator.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * GT
    */
   operator?: string;
   /**
@@ -22,16 +28,25 @@ export class ApmCompositeCompareConfig extends $dara.Model {
    * The threshold.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   threshold?: number;
   /**
    * @remarks
    * The year-over-year time unit. This parameter takes effect only when operator is set to YOY_UP or YOY_DOWN.
+   * 
+   * @example
+   * day
    */
   yoyTimeUnit?: string;
   /**
    * @remarks
    * The year-over-year time value. This parameter takes effect only when operator is set to YOY_UP or YOY_DOWN.
+   * 
+   * @example
+   * 1
    */
   yoyTimeValue?: number;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactsResponseBodyContacts extends $dara.Model {
   /**
    * @remarks
-   * The ID of the contact.
+   * The contact ID.
    * 
    * @example
    * test
@@ -29,17 +29,17 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   emailVerify?: boolean;
   /**
    * @remarks
-   * A list of contact group IDs to which the contact belongs.
+   * The contact groups to which the contact belongs.
    */
   groupList?: string[];
   /**
    * @remarks
-   * A map of user IDs for various instant messaging (IM) tools.
+   * The instant messaging user ID mappings. Multiple instant messaging tools are supported.
    */
   imUserIds?: { [key: string]: string };
   /**
    * @remarks
-   * The language preference for notifications. Valid values: zh-CN and en-US.
+   * The language.
    * 
    * @example
    * zh_CN
@@ -47,7 +47,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the contact.
+   * The contact name.
    * 
    * @example
    * test
@@ -63,7 +63,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Indicates whether the phone number is verified.
+   * Indicates whether the phone number of the contact is verified.
    * 
    * @example
    * true
@@ -71,12 +71,19 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   phoneVerify?: boolean;
   /**
    * @remarks
-   * The last time the contact was updated.
+   * The update time.
    * 
    * @example
    * 2024-10-22 02:21:51
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The workspace name.
+   * 
+   * @example
+   * default-cms-5884500827389836-cn-hangzhou
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,7 +156,7 @@ export class ListContactsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -157,7 +164,7 @@ export class ListContactsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 56

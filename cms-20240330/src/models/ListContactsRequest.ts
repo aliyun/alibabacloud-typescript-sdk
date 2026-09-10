@@ -18,7 +18,7 @@ export class ListContactsRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The ID of the contact group.
+   * The ID of the contact group to which the contact belongs.
    * 
    * @example
    * group-id-123
@@ -42,7 +42,7 @@ export class ListContactsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 100.
+   * The number of entries per page. Default value: 100.
    * 
    * @example
    * 100
@@ -50,7 +50,7 @@ export class ListContactsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The mobile number of the contact.
+   * The phone number of the contact.
    * 
    * @example
    * 15012345678
@@ -66,7 +66,10 @@ export class ListContactsRequest extends $dara.Model {
   queryUngroupedContacts?: boolean;
   /**
    * @remarks
-   * The workspace ID.
+   * The workspace name.
+   * 
+   * @example
+   * default-cms-1744108686100472-cn-hangzhou
    */
   workspace?: string;
   static names(): { [key: string]: string } {

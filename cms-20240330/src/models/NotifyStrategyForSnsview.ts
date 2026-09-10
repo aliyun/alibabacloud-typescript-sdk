@@ -4,7 +4,21 @@ import { FilterSetting } from "./FilterSetting";
 
 
 export class NotifyStrategyForSNSViewCustomTemplateEntries extends $dara.Model {
+  /**
+   * @remarks
+   * The notification type.
+   * 
+   * @example
+   * default
+   */
   targetType?: string;
+  /**
+   * @remarks
+   * The template UUID.
+   * 
+   * @example
+   * example-id-001
+   */
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,9 +44,34 @@ export class NotifyStrategyForSNSViewCustomTemplateEntries extends $dara.Model {
 }
 
 export class NotifyStrategyForSNSViewGroupingSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The grouping keys.
+   */
   groupingKeys?: string[];
+  /**
+   * @remarks
+   * The check period in minutes.
+   * 
+   * @example
+   * 1
+   */
   periodMin?: number;
+  /**
+   * @remarks
+   * The silence duration in seconds.
+   * 
+   * @example
+   * 1
+   */
   silenceSec?: number;
+  /**
+   * @remarks
+   * The number of times the condition is triggered.
+   * 
+   * @example
+   * 1
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -65,8 +104,23 @@ export class NotifyStrategyForSNSViewGroupingSetting extends $dara.Model {
 }
 
 export class NotifyStrategyForSNSViewRoutesChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The channel type.
+   * 
+   * @example
+   * DING
+   */
   channelType?: string;
+  /**
+   * @remarks
+   * The enabled notification types.
+   */
   enabledSubChannels?: string[];
+  /**
+   * @remarks
+   * The channel receivers.
+   */
   receivers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -100,9 +154,34 @@ export class NotifyStrategyForSNSViewRoutesChannels extends $dara.Model {
 }
 
 export class NotifyStrategyForSNSViewRoutesEffectTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * The effective days, from Monday to Sunday.
+   */
   dayInWeek?: number[];
+  /**
+   * @remarks
+   * The start time in minutes.
+   * 
+   * @example
+   * 1
+   */
   endTimeInMinute?: number;
+  /**
+   * @remarks
+   * The start time in minutes.
+   * 
+   * @example
+   * 1
+   */
   startTimeInMinute?: number;
+  /**
+   * @remarks
+   * The time zone.
+   * 
+   * @example
+   * 1700000000
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,11 +214,41 @@ export class NotifyStrategyForSNSViewRoutesEffectTimeRange extends $dara.Model {
 }
 
 export class NotifyStrategyForSNSViewRoutes extends $dara.Model {
+  /**
+   * @remarks
+   * The notification channels.
+   */
   channels?: NotifyStrategyForSNSViewRoutesChannels[];
+  /**
+   * @remarks
+   * The digital employee name.
+   * 
+   * @example
+   * Sample name
+   */
   digitalEmployeeName?: string;
+  /**
+   * @remarks
+   * The effective time range.
+   */
   effectTimeRange?: NotifyStrategyForSNSViewRoutesEffectTimeRange;
+  /**
+   * @remarks
+   * Indicates whether root cause analysis (RCA) is enabled.
+   * 
+   * @example
+   * true
+   */
   enableRca?: boolean;
+  /**
+   * @remarks
+   * The route-level filter.
+   */
   filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * The severity filter.
+   */
   severities?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -185,21 +294,124 @@ export class NotifyStrategyForSNSViewRoutes extends $dara.Model {
 }
 
 export class NotifyStrategyForSNSView extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1700000000
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The notification channel templates.
+   */
   customTemplateEntries?: NotifyStrategyForSNSViewCustomTemplateEntries[];
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Sample description
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the notification policy is enabled.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether incident management is enabled.
+   * 
+   * @example
+   * true
+   */
   enableIncidentManagement?: boolean;
+  /**
+   * @remarks
+   * The grouping settings.
+   */
   groupingSetting?: NotifyStrategyForSNSViewGroupingSetting;
+  /**
+   * @remarks
+   * Indicates whether recovery notifications are sent.
+   * 
+   * @example
+   * true
+   */
   ignoreRestoredNotification?: boolean;
+  /**
+   * @remarks
+   * The UUID of the associated response plan, which equals notifyStrategyId.
+   * 
+   * @example
+   * example-id-001
+   */
   incidentResponsePlanId?: string;
+  /**
+   * @remarks
+   * The lifecycle mode. Within SNS, this value is always BundleStrategy.
+   * 
+   * @example
+   * Sample value
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The notification policy ID.
+   * 
+   * @example
+   * example-id-001
+   */
   notifyStrategyId?: string;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * Sample name
+   */
   notifyStrategyName?: string;
+  /**
+   * @remarks
+   * The notification channel routing settings.
+   */
   routes?: NotifyStrategyForSNSViewRoutes[];
+  /**
+   * @remarks
+   * The synchronization source. For SNS creation, this value is always OBS.
+   * 
+   * @example
+   * default
+   */
   syncFromType?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 1700000000
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * example-id-001
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The workspace identifier.
+   * 
+   * @example
+   * Sample value
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,8 +4,26 @@ import { TagCondition } from "./TagCondition";
 
 
 export class TagSelector extends $dara.Model {
+  /**
+   * @remarks
+   * The list of label filter conditions.
+   */
   conditions?: TagCondition[];
+  /**
+   * @remarks
+   * The custom expression in advanced mode, which overwrites conditions and relation.
+   * 
+   * @example
+   * env=prod AND region=cn-hangzhou
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The condition relationship.
+   * 
+   * @example
+   * AND
+   */
   relation?: string;
   static names(): { [key: string]: string } {
     return {

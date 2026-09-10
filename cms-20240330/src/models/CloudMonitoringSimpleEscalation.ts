@@ -6,17 +6,23 @@ import { CloudMonitoringSimpleEscalationEntry } from "./CloudMonitoringSimpleEsc
 export class CloudMonitoringSimpleEscalation extends $dara.Model {
   /**
    * @remarks
-   * An object that defines a single escalation rule.
+   * The multi-level trigger list.
    */
   escalations?: CloudMonitoringSimpleEscalationEntry[];
   /**
    * @remarks
-   * The name of the metric.
+   * The metric name.
+   * 
+   * @example
+   * cpuUsage
    */
   metricName?: string;
   /**
    * @remarks
-   * The evaluation period for the metric, in seconds.
+   * The collection period, in seconds.
+   * 
+   * @example
+   * 60
    */
   period?: number;
   static names(): { [key: string]: string } {

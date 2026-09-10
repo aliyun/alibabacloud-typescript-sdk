@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ArmsIntegrationConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether ARMS integration is enabled.
+   * Indicates whether ARMS integration is enabled.
+   * 
+   * @example
+   * true
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {

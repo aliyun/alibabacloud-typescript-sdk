@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ActionIntegrationConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of action integration IDs.
+   * The list of action integration configurations. An action integration is an automated action that is executed after an alert rule is triggered, such as sending a notification or invoking a webhook. Each action integration is referenced by its action integration ID.
    */
   actions?: string[];
   /**
    * @remarks
-   * Indicates whether action integration is started.
+   * Indicates whether action integration is enabled.
+   * 
+   * @example
+   * false
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {

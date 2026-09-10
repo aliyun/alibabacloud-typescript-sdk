@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class BizSourceFilter extends $dara.Model {
   /**
    * @remarks
-   * The exact match value.
+   * The exact match.
+   * 
+   * @example
+   * managed_service_for_prometheus
    */
   eq?: string;
   static names(): { [key: string]: string } {

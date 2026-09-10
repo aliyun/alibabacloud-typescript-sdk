@@ -4,7 +4,18 @@ import { JoinConditions } from "./JoinConditions";
 
 
 export class Joinings extends $dara.Model {
+  /**
+   * @remarks
+   * The list of join conditions.
+   */
   conditions?: JoinConditions[];
+  /**
+   * @remarks
+   * The set operation type. Valid values: InnerJoin, LeftJoin, RightJoin, FullJoin, LeftExclude, RightExclude, CrossJoin, NoJoin, and Concat.
+   * 
+   * @example
+   * INNER
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

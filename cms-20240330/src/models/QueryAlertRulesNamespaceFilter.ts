@@ -6,6 +6,9 @@ export class QueryAlertRulesNamespaceFilter extends $dara.Model {
   /**
    * @remarks
    * The exact match.
+   * 
+   * @example
+   * acs_ecs_dashboard
    */
   eq?: string;
   static names(): { [key: string]: string } {

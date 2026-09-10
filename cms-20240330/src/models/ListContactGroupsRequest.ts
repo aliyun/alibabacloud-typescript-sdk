@@ -10,7 +10,7 @@ export class ListContactGroupsRequest extends $dara.Model {
   contactGroupIds?: string[];
   /**
    * @remarks
-   * The name of the contact group.
+   * The contact name.
    * 
    * @example
    * test
@@ -18,7 +18,7 @@ export class ListContactGroupsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number. The default is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -26,12 +26,19 @@ export class ListContactGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. The default is 100.
+   * The number of entries per page. Default value: 100.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The workspace name.
+   * 
+   * @example
+   * default-cms-xxxxxx-cn-beijing
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

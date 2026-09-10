@@ -12,43 +12,77 @@ import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 
 
 export class AlertRuleV2 extends $dara.Model {
+  /**
+   * @remarks
+   * The action integration configuration.
+   */
   actionIntegrationConfig?: ActionIntegrationConfig;
   /**
    * @remarks
    * The annotations.
    */
   annotations?: { [key: string]: string };
+  /**
+   * @remarks
+   * The ARMS integration configuration.
+   */
   armsIntegrationConfig?: ArmsIntegrationConfig;
   /**
    * @remarks
-   * The business source. This field is read-only. Example values: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls.
+   * The business source. This value is read-only. Example values: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls.
+   * 
+   * @example
+   * Sample value
    */
   bizSource?: string;
+  /**
+   * @remarks
+   * The detection condition configuration. Supported types: Prometheus simple, UModel, APM simple, and APM composite.
+   */
   conditionConfig?: ConditionConfigUnified;
   /**
    * @remarks
    * The content template.
+   * 
+   * @example
+   * Alert triggered: ${metricName} current value ${currentValue} exceeds threshold ${threshold}
    */
   contentTemplate?: string;
   /**
    * @remarks
-   * The creation time in ISO 8601 format. This field is read-only.
+   * The creation time in ISO 8601 format. This value is read-only.
+   * 
+   * @example
+   * 1751595283143
    */
   createdAt?: string;
+  /**
+   * @remarks
+   * The datasource configuration. This is a unified object shared by PROMETHEUS, UMODEL, and APM. Fields are selected based on the type.
+   */
   datasourceConfig?: DatasourceConfigUnified;
   /**
    * @remarks
-   * The data source type. This field is read-only and derived.
+   * The datasource type. This value is read-only and derived.
+   * 
+   * @example
+   * default
    */
   datasourceType?: string;
   /**
    * @remarks
    * The display name.
+   * 
+   * @example
+   * CPU usage alert 95%
    */
   displayName?: string;
   /**
    * @remarks
    * Specifies whether the alert rule is enabled.
+   * 
+   * @example
+   * true
    */
   enabled?: boolean;
   /**
@@ -56,10 +90,17 @@ export class AlertRuleV2 extends $dara.Model {
    * The labels.
    */
   labels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The notification configuration. Currently, only DIRECT_NOTIFY is supported, which corresponds to DirectNotifyConfig.
+   */
   notifyConfig?: NotifyConfigUnified;
   /**
    * @remarks
-   * The notification strategy ID. This field is read-only and derived from the first item in the notification strategy list.
+   * The notification policy ID. This value is read-only and derived from the first entry in the notification policy list.
+   * 
+   * @example
+   * example-id-001
    */
   notifyStrategyId?: string;
   /**
@@ -69,28 +110,41 @@ export class AlertRuleV2 extends $dara.Model {
   observeResourceConfig?: ObserveResourceConfig;
   /**
    * @remarks
-   * **[Deprecated]** Indicates whether the rule applies to all resources of this type. This field is read-only and derived. Use observeResourceConfig.relationType set to ALL for equivalent semantics in new integrations.
+   * **[Deprecated]** Indicates whether the rule applies to all resources of this type. This value is read-only and derived. For new integrations, use observeResourceConfig.relationType and check whether it is set to ALL for equivalent semantics.
+   * 
+   * @example
+   * true
    * 
    * @deprecated
    */
   observeResourceGlobalScope?: boolean;
   /**
    * @remarks
-   * The list of observable resource IDs. This field is read-only and derived.
+   * The list of observable resource IDs. This value is read-only and derived.
    */
   observeResourceList?: string[];
   /**
    * @remarks
-   * **[Deprecated]** The observable resource type. This field is read-only and derived. Use observeResourceConfig.entityType instead for new integrations.
+   * **[Deprecated]** The observable resource type. This value is read-only and derived. Use observeResourceConfig.entityType instead for new integrations.
+   * 
+   * @example
+   * default
    * 
    * @deprecated
    */
   observeResourceType?: string;
   /**
    * @remarks
-   * The partition key. This field is read-only and maintained by the system for rule routing and sharding.
+   * The partition key. This value is read-only and maintained by the system for rule routing and sharding.
+   * 
+   * @example
+   * Sample value
    */
   partitionKey?: string;
+  /**
+   * @remarks
+   * The query configuration. Valid types: PROMETHEUS_SINGLE_QUERY, UMODEL_METRICSET_QUERY, and APM_MULTI_QUERY.
+   */
   queryConfig?: QueryConfigUnified;
   /**
    * @remarks
@@ -99,33 +153,55 @@ export class AlertRuleV2 extends $dara.Model {
   rcaConfig?: AlertRuleRcaConfig;
   /**
    * @remarks
-   * The region ID. This field is aligned with V1 AlertRule.regionId. Priority: request body regionId > gateway callerRegionId.
+   * The region ID, aligned with V1 AlertRule.regionId. Priority: the regionId in the request body takes precedence over the gateway callerRegionId.
+   * 
+   * @example
+   * example-id-001
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The scheduling configuration. Currently, only the FIXED type is supported.
+   */
   scheduleConfig?: ScheduleConfigUnified;
   /**
    * @remarks
-   * The severity levels covered by this rule, separated by commas. This field is read-only and derived. The format is the same as the filter.severityLevels query parameter.
+   * The severity levels covered by this rule, in comma-separated format. This value is read-only and derived. The format is consistent with the filter.severityLevels query parameter.
+   * 
+   * @example
+   * 1
    */
   severityLevels?: string;
   /**
    * @remarks
-   * The alert status. This field is read-only.
+   * The alert status. This value is read-only.
+   * 
+   * @example
+   * Alarm
    */
   status?: string;
   /**
    * @remarks
-   * The update time in ISO 8601 format. This field is read-only.
+   * The update time in ISO 8601 format. This value is read-only.
+   * 
+   * @example
+   * 1764556086388
    */
   updatedAt?: string;
   /**
    * @remarks
-   * The rule UUID. This field is system-generated and read-only.
+   * The rule UUID. This value is system-generated and read-only.
+   * 
+   * @example
+   * xxxxx-xxxx-xxxx
    */
   uuid?: string;
   /**
    * @remarks
    * The workspace.
+   * 
+   * @example
+   * workspace-test
    */
   workspace?: string;
   static names(): { [key: string]: string } {

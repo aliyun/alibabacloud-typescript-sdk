@@ -5,17 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentResponsePlanForSNSViewPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * The IDs of actions to run when an alert is triggered.
+   * The list of response action IDs triggered by alerts.
    */
   alertActionIds?: string[];
   /**
    * @remarks
-   * The IDs of actions to run when the incident is resolved.
+   * The list of response action IDs triggered by alert recovery.
    */
   restoreActionIds?: string[];
   /**
    * @remarks
-   * The ID of the notification template.
+   * The UUID of the template used for pushing.
+   * 
+   * @example
+   * tpl-001
    */
   templateUuid?: string;
   static names(): { [key: string]: string } {
@@ -52,12 +55,18 @@ export class IncidentResponsePlanForSNSViewPushingSetting extends $dara.Model {
 export class IncidentResponsePlanForSNSViewRepeatNotifySetting extends $dara.Model {
   /**
    * @remarks
-   * The incident state at which repeated notifications stop. For example, `resolved`.
+   * The setting that specifies whether to send repeat notifications when an incident ends.
+   * 
+   * @example
+   * false
    */
   endIncidentState?: string;
   /**
    * @remarks
-   * The interval, in seconds, for repeated notifications.
+   * The repeat notification interval, in seconds.
+   * 
+   * @example
+   * 300
    */
   repeatInterval?: number;
   static names(): { [key: string]: string } {
@@ -86,67 +95,97 @@ export class IncidentResponsePlanForSNSViewRepeatNotifySetting extends $dara.Mod
 export class IncidentResponsePlanForSNSView extends $dara.Model {
   /**
    * @remarks
-   * The duration, in seconds, after which an incident without new alerts is automatically resolved.
+   * The auto-recovery time when no incidents occur, in seconds.
+   * 
+   * @example
+   * 600
    */
   autoRecoverSeconds?: number;
   /**
    * @remarks
-   * The time when the incident response plan was created, in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format.
+   * The creation time.
+   * 
+   * @example
+   * 1700000000000
    */
   createTime?: string;
   /**
    * @remarks
-   * Indicates if the incident response plan is enabled. Valid values: `true` and `false`.
+   * Indicates whether the response plan is enabled.
+   * 
+   * @example
+   * true
    */
   enable?: boolean;
   /**
    * @remarks
-   * The IDs of the escalation policies.
+   * The list of escalation plan IDs.
    */
   escalationId?: string[];
   /**
    * @remarks
-   * The mode of the incident response plan. Valid values: `AUTO` and `MANUAL`.
+   * The lifecycle mode.
+   * 
+   * @example
+   * NOTIFY_STRATEGY_DEFINED
    */
   mode?: string;
   /**
    * @remarks
-   * The name of the incident response plan.
+   * The name.
+   * 
+   * @example
+   * Sample response plan
    */
   name?: string;
   /**
    * @remarks
-   * The settings for sending notifications.
+   * The push settings.
    */
   pushingSetting?: IncidentResponsePlanForSNSViewPushingSetting;
   /**
    * @remarks
-   * The settings for repeated notifications.
+   * The repeat notification configuration.
    */
   repeatNotifySetting?: IncidentResponsePlanForSNSViewRepeatNotifySetting;
   /**
    * @remarks
-   * The source of the incident.
+   * The source. The value must be CUSTOM within SNS.
+   * 
+   * @example
+   * CUSTOM
    */
   source?: string;
   /**
    * @remarks
    * The synchronization source type.
+   * 
+   * @example
+   * CUSTOM
    */
   syncFromType?: string;
   /**
    * @remarks
-   * The type of the incident response plan.
+   * The response plan type. The value must be NOTIFY_STRATEGY_DEFINED within SNS.
+   * 
+   * @example
+   * NOTIFY_STRATEGY_DEFINED
    */
   type?: string;
   /**
    * @remarks
-   * The time when the incident response plan was last updated, in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format.
+   * The update time.
+   * 
+   * @example
+   * 1700000000000
    */
   updateTime?: string;
   /**
    * @remarks
-   * The unique ID of the incident response plan.
+   * The unique identifier of the response plan.
+   * 
+   * @example
+   * abc-def-12345
    */
   uuid?: string;
   static names(): { [key: string]: string } {

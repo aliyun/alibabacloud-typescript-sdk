@@ -26,7 +26,7 @@ export class QueryAlertRulesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start reading. If this parameter is left empty, data is read from the beginning.
+   * The pagination token that marks the position from which to start reading. Leave this parameter empty to read from the beginning.
    * 
    * @example
    * 123456

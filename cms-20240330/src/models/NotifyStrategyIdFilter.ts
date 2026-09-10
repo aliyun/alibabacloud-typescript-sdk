@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class NotifyStrategyIdFilter extends $dara.Model {
   /**
    * @remarks
-   * The exact ID of the notification strategy to retrieve.
+   * The exact match.
+   * 
+   * @example
+   * ns_1234567890
    */
   eq?: string;
   static names(): { [key: string]: string } {

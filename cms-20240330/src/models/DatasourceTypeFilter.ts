@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DatasourceTypeFilter extends $dara.Model {
   /**
    * @remarks
-   * Specifies the data source type for an exact match.
+   * The exact match value.
+   * 
+   * @example
+   * APM_DS
    */
   eq?: string;
   static names(): { [key: string]: string } {

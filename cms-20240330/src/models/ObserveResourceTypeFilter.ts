@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ObserveResourceTypeFilter extends $dara.Model {
   /**
    * @remarks
-   * The exact resource type to query. Returns only resources of this type.
+   * The exact match.
+   * 
+   * @example
+   * ACS::ECS::Instance
    */
   eq?: string;
   static names(): { [key: string]: string } {

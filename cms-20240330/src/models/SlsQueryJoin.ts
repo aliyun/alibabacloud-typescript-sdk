@@ -12,6 +12,9 @@ export class SlsQueryJoin extends $dara.Model {
   /**
    * @remarks
    * The set operation type. Valid values: InnerJoin, LeftJoin, RightJoin, FullJoin, LeftExclude, RightExclude, CrossJoin, NoJoin, and Concat.
+   * 
+   * @example
+   * LEFT
    */
   type?: string;
   static names(): { [key: string]: string } {

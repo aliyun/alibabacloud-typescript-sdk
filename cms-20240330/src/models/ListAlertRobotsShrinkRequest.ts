@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertRobotsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The chatbot name. Prefix fuzzy match is supported.
+   * The robot name. Prefix fuzzy match is supported.
    * 
    * @example
    * test
@@ -29,14 +29,21 @@ export class ListAlertRobotsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The chatbot ID.
+   * The robot IDs.
    */
   robotIdsShrink?: string;
   /**
    * @remarks
-   * The chatbot type.
+   * The robot type.
    */
   typesShrink?: string;
+  /**
+   * @remarks
+   * The workspace name.
+   * 
+   * @example
+   * default-cms-1423134313712421-cn-shanghai
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

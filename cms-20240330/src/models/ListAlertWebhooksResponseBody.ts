@@ -6,9 +6,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
   /**
    * @remarks
    * The content type of the data. Valid values:
-   * 
    * - JSON
-   * 
    * - FORM
    * 
    * @example
@@ -17,7 +15,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The headers.
+   * The collection of HTTP request headers.
    * 
    * @example
    * key
@@ -26,9 +24,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
   /**
    * @remarks
    * The language. Valid values:
-   * 
    * - zh_CN
-   * 
    * - en_US
    * 
    * @example
@@ -38,9 +34,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
   /**
    * @remarks
    * The request method. Valid values:
-   * 
    * - GET
-   * 
    * - POST
    * 
    * @example
@@ -113,7 +107,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
 export class ListAlertWebhooksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -121,7 +115,7 @@ export class ListAlertWebhooksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -145,7 +139,7 @@ export class ListAlertWebhooksResponseBody extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * The webhooks.
+   * The list of webhooks.
    */
   webhooks?: ListAlertWebhooksResponseBodyWebhooks[];
   static names(): { [key: string]: string } {

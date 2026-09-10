@@ -6,23 +6,35 @@ export class ApmThresholdConfig extends $dara.Model {
   /**
    * @remarks
    * The upper bound of the range.
+   * 
+   * @example
+   * 100
    */
   max?: number;
   /**
    * @remarks
    * The lower bound of the range.
+   * 
+   * @example
+   * 0
    */
   min?: number;
   /**
    * @remarks
-   * The alert level.
+   * The warning level.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * INFO
    */
   severity?: string;
   /**
    * @remarks
-   * The threshold. This parameter is required for APM_SIMPLE_CONDITION.
+   * The threshold.
+   * 
+   * @example
+   * 30
    */
   threshold?: number;
   static names(): { [key: string]: string } {

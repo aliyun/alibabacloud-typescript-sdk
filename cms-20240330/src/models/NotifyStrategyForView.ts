@@ -51,7 +51,7 @@ export class NotifyStrategyForViewCustomTemplateEntries extends $dara.Model {
 export class NotifyStrategyForViewGroupingSetting extends $dara.Model {
   /**
    * @remarks
-   * The merge keys.
+   * The grouping keys.
    */
   groupingKeys?: string[];
   /**
@@ -64,7 +64,7 @@ export class NotifyStrategyForViewGroupingSetting extends $dara.Model {
   periodMin?: number;
   /**
    * @remarks
-   * The silence period in seconds.
+   * The silence duration in seconds.
    * 
    * @example
    * 300
@@ -72,7 +72,7 @@ export class NotifyStrategyForViewGroupingSetting extends $dara.Model {
   silenceSec?: number;
   /**
    * @remarks
-   * The number of triggers.
+   * The number of times the alert is triggered.
    * 
    * @example
    * 3
@@ -161,7 +161,7 @@ export class NotifyStrategyForViewPushingSetting extends $dara.Model {
 export class NotifyStrategyForViewRepeatNotifySetting extends $dara.Model {
   /**
    * @remarks
-   * The event state at which to stop.
+   * The end incident state.
    * 
    * @example
    * "Resolved"
@@ -169,7 +169,7 @@ export class NotifyStrategyForViewRepeatNotifySetting extends $dara.Model {
   endIncidentState?: string;
   /**
    * @remarks
-   * The interval for repeated notifications.
+   * The time interval for repeat notifications.
    * 
    * @example
    * 5
@@ -255,7 +255,7 @@ export class NotifyStrategyForViewRoutesChannels extends $dara.Model {
 export class NotifyStrategyForViewRoutesEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the policy is effective (Monday to Sunday).
+   * The effective days (Monday to Sunday).
    */
   dayInWeek?: number[];
   /**
@@ -318,12 +318,26 @@ export class NotifyStrategyForViewRoutes extends $dara.Model {
    * The notification channels.
    */
   channels?: NotifyStrategyForViewRoutesChannels[];
+  /**
+   * @remarks
+   * The name of the digital employee.
+   * 
+   * @example
+   * OnCallAssistant
+   */
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * The field.
+   * The effective time range.
    */
   effectTimeRange?: NotifyStrategyForViewRoutesEffectTimeRange;
+  /**
+   * @remarks
+   * Indicates whether root cause analysis is enabled.
+   * 
+   * @example
+   * true
+   */
   enableRca?: boolean;
   /**
    * @remarks
@@ -381,7 +395,7 @@ export class NotifyStrategyForViewRoutes extends $dara.Model {
 export class NotifyStrategyForView extends $dara.Model {
   /**
    * @remarks
-   * The automatic recovery time.
+   * The automatic recovery time in seconds.
    * 
    * @example
    * 300
@@ -410,7 +424,7 @@ export class NotifyStrategyForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the policy is enabled.
+   * Indicates whether the notification strategy is enabled.
    * 
    * @example
    * false
@@ -423,14 +437,14 @@ export class NotifyStrategyForView extends $dara.Model {
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * The merge settings.
+   * The grouping settings.
    * 
    * This parameter is required.
    */
   groupingSetting?: NotifyStrategyForViewGroupingSetting;
   /**
    * @remarks
-   * Indicates whether to send a notification upon recovery.
+   * Indicates whether recovery notifications are sent.
    * 
    * @example
    * true
@@ -443,7 +457,7 @@ export class NotifyStrategyForView extends $dara.Model {
   incidentEscalationPolicies?: any[];
   /**
    * @remarks
-   * The UUID.
+   * The unique identifier of the notification strategy.
    * 
    * @example
    * 12312-31-23-123-1-23123
@@ -451,12 +465,12 @@ export class NotifyStrategyForView extends $dara.Model {
   notifyStrategyId?: string;
   /**
    * @remarks
-   * The name.
+   * The name of the notification strategy.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test policy.
+   * TestStrategy
    */
   notifyStrategyName?: string;
   /**
@@ -466,17 +480,17 @@ export class NotifyStrategyForView extends $dara.Model {
   pushingSetting?: NotifyStrategyForViewPushingSetting;
   /**
    * @remarks
-   * The list of receiver names.
+   * The list of recipient names.
    */
   receiverNames?: string[];
   /**
    * @remarks
-   * The settings for repeated notifications.
+   * The repeat notification settings.
    */
   repeatNotifySetting?: NotifyStrategyForViewRepeatNotifySetting;
   /**
    * @remarks
-   * The routing settings for notification channels.
+   * The notification channel routing settings.
    * 
    * This parameter is required.
    */

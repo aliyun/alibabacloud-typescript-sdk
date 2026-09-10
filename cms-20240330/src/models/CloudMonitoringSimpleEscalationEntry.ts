@@ -6,31 +6,49 @@ export class CloudMonitoringSimpleEscalationEntry extends $dara.Model {
   /**
    * @remarks
    * The comparison operator.
+   * 
+   * @example
+   * GT
    */
   comparisonOperator?: string;
   /**
    * @remarks
    * The precondition.
+   * 
+   * @example
+   * 3 consecutive times
    */
   preCondition?: string;
   /**
    * @remarks
    * The severity level.
+   * 
+   * @example
+   * CRITICAL
    */
   severity?: string;
   /**
    * @remarks
-   * The statistics method.
+   * The statistical method.
+   * 
+   * @example
+   * Average
    */
   statistics?: string;
   /**
    * @remarks
    * The threshold.
+   * 
+   * @example
+   * 80
    */
   threshold?: string;
   /**
    * @remarks
-   * The number of consecutive times the condition is triggered.
+   * The number of consecutive times the condition must be met to trigger an alert.
+   * 
+   * @example
+   * 3
    */
   times?: number;
   static names(): { [key: string]: string } {

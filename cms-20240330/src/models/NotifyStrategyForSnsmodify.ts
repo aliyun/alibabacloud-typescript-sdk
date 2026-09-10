@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class NotifyStrategyForSNSModifyCustomTemplateEntries extends $dara.Model {
+  /**
+   * @remarks
+   * **[Deprecated]** This parameter is deprecated and does not take effect. The actual purpose of the template is determined by the type field of the template object referenced by templateUuid.
+   * 
+   * @example
+   * DING
+   */
   targetType?: string;
+  /**
+   * @remarks
+   * The UUID of the template.
+   * 
+   * @example
+   * adef12efca3f-8728-1928-eeaac12ef9ad92
+   */
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +43,34 @@ export class NotifyStrategyForSNSModifyCustomTemplateEntries extends $dara.Model
 }
 
 export class NotifyStrategyForSNSModifyGroupingSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The grouping keys.
+   */
   groupingKeys?: string[];
+  /**
+   * @remarks
+   * The check period in minutes.
+   * 
+   * @example
+   * 1
+   */
   periodMin?: number;
+  /**
+   * @remarks
+   * The silence duration in seconds.
+   * 
+   * @example
+   * 300
+   */
   silenceSec?: number;
+  /**
+   * @remarks
+   * The number of times the condition is triggered.
+   * 
+   * @example
+   * 10
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -66,17 +105,17 @@ export class NotifyStrategyForSNSModifyGroupingSetting extends $dara.Model {
 export class NotifyStrategyForSNSModifyRoutesChannels extends $dara.Model {
   /**
    * @remarks
-   * The notification channel type. The value must be one of the following uppercase enum values: DING (DingTalk chatbot), WEIXIN (WeCom chatbot), FEISHU (Lark chatbot), SLACK, TEAMS, WEBHOOK (custom webhook), CONTACT (contact, requires enabledSubChannels to specify sub-channels), GROUP (contact group), DUTY (on-call schedule), or DING_COOL_APP (DingTalk Cool App). Note: Lowercase values such as EMAIL or SMS are not supported. To send email, text message, or voice notifications, set channelType to CONTACT and specify EMAIL, SMS, or VOICE in enabledSubChannels.
+   * The channel type.
    * 
    * This parameter is required.
    * 
    * @example
-   * WEBHOOK
+   * DING
    */
   channelType?: string;
   /**
    * @remarks
-   * Required only when channelType is CONTACT, GROUP, or DUTY. Valid values: EMAIL (email), SMS (text message), VOICE (voice call), DING (DingTalk work notification), WEIXIN (WeCom message), FEISHU (Lark message), and WEBHOOK. For example, to notify a contact by email and text message, set channelType to CONTACT and enabledSubChannels to ["EMAIL","SMS"]. This field is not required for other channelType values such as WEBHOOK or DING.
+   * The enabled notification types.
    * 
    * @example
    * ["EMAIL","SMS"]
@@ -84,7 +123,7 @@ export class NotifyStrategyForSNSModifyRoutesChannels extends $dara.Model {
   enabledSubChannels?: string[];
   /**
    * @remarks
-   * The list of receiver identifiers. For the WEBHOOK type, specify the webhook UUID. For DING, WEIXIN, or FEISHU, specify the chatbot UUID. For CONTACT, specify the contact ID. For GROUP, specify the contact group ID. For DUTY, specify the on-call schedule UUID. At least one element is required.
+   * The channel receivers.
    * 
    * This parameter is required.
    * 
@@ -126,7 +165,7 @@ export class NotifyStrategyForSNSModifyRoutesChannels extends $dara.Model {
 export class NotifyStrategyForSNSModifyRoutesEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * The days of the week on which the setting takes effect. Array element values range from 0 to 6 (0 = Sunday, 1 = Monday, 2 = Tuesday, ... 6 = Saturday). Note: The value 7 is not supported. The maximum value is 6. Example for all days: [0,1,2,3,4,5,6]. Example for weekdays only: [1,2,3,4,5].
+   * The effective days of the week (Monday through Sunday).
    * 
    * @example
    * [0,1,2,3,4,5,6]
@@ -134,23 +173,23 @@ export class NotifyStrategyForSNSModifyRoutesEffectTimeRange extends $dara.Model
   dayInWeek?: number[];
   /**
    * @remarks
-   * The end time of the day, expressed as the number of minutes from 00:00. Valid values: 0 to 1439 (23 × 60 + 59 = 1439, which represents 23:59).
+   * The end time in minutes.
    * 
    * @example
-   * 1439
+   * 1
    */
   endTimeInMinute?: number;
   /**
    * @remarks
-   * The start time of the day, expressed as the number of minutes from 00:00. Valid values: 0 to 1439 (0 represents 00:00).
+   * The start time in minutes.
    * 
    * @example
-   * 0
+   * 59
    */
   startTimeInMinute?: number;
   /**
    * @remarks
-   * The IANA time zone identifier, such as Asia/Shanghai or America/Los_Angeles.
+   * The time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -187,8 +226,29 @@ export class NotifyStrategyForSNSModifyRoutesEffectTimeRange extends $dara.Model
 }
 
 export class NotifyStrategyForSNSModifyRoutesFilterSettingConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON path of the field, such as labels._cms_rule_name.
+   * 
+   * @example
+   * subject
+   */
   field?: string;
+  /**
+   * @remarks
+   * The comparison operator.
+   * 
+   * @example
+   * EQ
+   */
   op?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * Pod OOM
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -216,8 +276,26 @@ export class NotifyStrategyForSNSModifyRoutesFilterSettingConditions extends $da
 }
 
 export class NotifyStrategyForSNSModifyRoutesFilterSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The subscription conditions.
+   */
   conditions?: NotifyStrategyForSNSModifyRoutesFilterSettingConditions[];
+  /**
+   * @remarks
+   * If expression is not empty, it takes precedence and relation is ignored. If expression is empty or not specified, the system uses relation (AND or OR) to perform a simple AND/OR operation on all conditions. Condition numbers correspond to the indexes of the conditions array (starting from 1). Each condition evaluates whether a single event field matches by using field (the event field path, which supports dot-separated nesting such as resource.tags.pod), op (the operator, such as CONTAIN, EQ, or IN), and value (the match value).
+   * 
+   * @example
+   * (1 AND 2 )OR 3
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The relationship between conditions. If an expression is configured, the expression takes higher precedence.
+   * 
+   * @example
+   * AND
+   */
   relation?: string;
   static names(): { [key: string]: string } {
     return {
@@ -248,15 +326,35 @@ export class NotifyStrategyForSNSModifyRoutesFilterSetting extends $dara.Model {
 }
 
 export class NotifyStrategyForSNSModifyRoutes extends $dara.Model {
+  /**
+   * @remarks
+   * The notification channels.
+   */
   channels?: NotifyStrategyForSNSModifyRoutesChannels[];
+  /**
+   * @remarks
+   * The digital employee name.
+   */
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * The effective period settings for notifications. Defines on which days and during which time range the system sends notifications.
+   * The effective time range.
    */
   effectTimeRange?: NotifyStrategyForSNSModifyRoutesEffectTimeRange;
+  /**
+   * @remarks
+   * Specifies whether to enable root cause analysis (RCA).
+   */
   enableRca?: boolean;
+  /**
+   * @remarks
+   * The route-level filter. This is different from the top-level subscription.filterSetting.
+   */
   filterSetting?: NotifyStrategyForSNSModifyRoutesFilterSetting;
+  /**
+   * @remarks
+   * **[Deprecated]** This parameter is deprecated and does not take effect. Route matching only checks filterSetting and effectTimeRange.
+   */
   severities?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -302,17 +400,46 @@ export class NotifyStrategyForSNSModifyRoutes extends $dara.Model {
 }
 
 export class NotifyStrategyForSNSModify extends $dara.Model {
+  /**
+   * @remarks
+   * The notification channel templates.
+   */
   customTemplateEntries?: NotifyStrategyForSNSModifyCustomTemplateEntries[];
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable incident management.
+   * 
+   * @example
+   * true
+   */
   enableIncidentManagement?: boolean;
   /**
    * @remarks
+   * The grouping settings.
+   * 
    * This parameter is required.
    */
   groupingSetting?: NotifyStrategyForSNSModifyGroupingSetting;
+  /**
+   * @remarks
+   * Specifies whether to send a notification when the alert is recovered.
+   * 
+   * @example
+   * true
+   */
   ignoreRestoredNotification?: boolean;
   /**
    * @remarks
+   * The notification channel routing settings.
+   * 
    * This parameter is required.
    */
   routes?: NotifyStrategyForSNSModifyRoutes[];

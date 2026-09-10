@@ -6,7 +6,18 @@ import { NotifyRouteForSubscription } from "./NotifyRouteForSubscription";
 
 
 export class SubscriptionForViewAgentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the Agent.
+   * 
+   * @example
+   * agent-uuid-001
+   */
   agentUuid?: string;
+  /**
+   * @remarks
+   * The list of Agent routing configurations.
+   */
   routes?: NotifyRouteForSubscription[];
   static names(): { [key: string]: string } {
     return {
@@ -95,6 +106,10 @@ export class SubscriptionForViewPushingSetting extends $dara.Model {
 }
 
 export class SubscriptionForView extends $dara.Model {
+  /**
+   * @remarks
+   * The Agent configuration information.
+   */
   agentConfig?: SubscriptionForViewAgentConfig;
   /**
    * @remarks
@@ -140,14 +155,15 @@ export class SubscriptionForView extends $dara.Model {
   pushingSetting?: SubscriptionForViewPushingSetting;
   /**
    * @remarks
-   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
-   * - true: Subscribe.
-   * - false or null: Do not subscribe.
+   * Indicates whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: Subscribed. false or null: Not subscribed.
+   * 
+   * @example
+   * false
    */
   subscribeLegacyEvent?: boolean;
   /**
    * @remarks
-   * UUID
+   * The unique identifier of the subscription.
    * 
    * @example
    * 123123123123
@@ -160,10 +176,13 @@ export class SubscriptionForView extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Subscription test.
+   * SubscriptionTest
    */
   subscriptionName?: string;
   /**
+   * @remarks
+   * The subscription type.
+   * 
    * @example
    * NORMAL
    */
@@ -194,12 +213,16 @@ export class SubscriptionForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * workspace
+   * The workspace identifier.
    * 
    * @example
    * workspace-test
    */
   workspace?: string;
+  /**
+   * @remarks
+   * The workspace filter settings.
+   */
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {

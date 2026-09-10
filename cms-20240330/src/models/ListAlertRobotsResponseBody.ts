@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
+  /**
+   * @remarks
+   * The digital employee name.
+   * 
+   * @example
+   * apsara-ops
+   */
   digitalEmployeeName?: string;
   /**
    * @remarks
@@ -14,7 +21,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The chatbot name.
+   * The robot name.
    * 
    * @example
    * test
@@ -22,7 +29,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The unique ID of the chatbot.
+   * The unique ID of the robot.
    * 
    * @example
    * test
@@ -31,7 +38,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   robotSignKey?: string;
   /**
    * @remarks
-   * The chatbot type.
+   * The robot type.
    * 
    * @example
    * DING
@@ -39,12 +46,19 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The webhook URL of the chatbot.
+   * The webhook URL of the robot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=*******
    */
   url?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * default-cms-5551847274244273-cn-hangzhou
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,7 +106,7 @@ export class ListAlertRobotsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -108,7 +122,7 @@ export class ListAlertRobotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The chatbot ID.
+   * The robot IDs.
    */
   robots?: ListAlertRobotsResponseBodyRobots[];
   /**
