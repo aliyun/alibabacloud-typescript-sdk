@@ -85,6 +85,7 @@ export { BatchRevokePermissionsRequest } from './BatchRevokePermissionsRequest';
 export { BatchRevokePermissionsResponseBody } from './BatchRevokePermissionsResponseBody';
 export { BatchRevokePermissionsResponse } from './BatchRevokePermissionsResponse';
 export { CreateCatalogRequest } from './CreateCatalogRequest';
+export { CreateCatalogResponseBody } from './CreateCatalogResponseBody';
 export { CreateCatalogResponse } from './CreateCatalogResponse';
 export { CreateDatabaseRequest } from './CreateDatabaseRequest';
 export { CreateDatabaseResponse } from './CreateDatabaseResponse';

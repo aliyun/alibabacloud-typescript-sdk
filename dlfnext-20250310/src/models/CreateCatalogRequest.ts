@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCatalogRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to share the catalog.
+   * Specifies whether the catalog is a shared data catalog.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class CreateCatalogRequest extends $dara.Model {
   isShared?: boolean;
   /**
    * @remarks
-   * The catalog name.
+   * The name of the data catalog.
    * 
    * @example
    * catalog_demo
@@ -21,7 +21,7 @@ export class CreateCatalogRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The configuration options for the catalog.
+   * The configuration parameter struct.
    */
   options?: { [key: string]: string };
   /**
@@ -34,7 +34,7 @@ export class CreateCatalogRequest extends $dara.Model {
   shareId?: string;
   /**
    * @remarks
-   * The catalog type.
+   * The type of the data catalog.
    * 
    * @example
    * PAIMON

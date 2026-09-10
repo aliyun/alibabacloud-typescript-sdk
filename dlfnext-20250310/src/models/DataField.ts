@@ -17,7 +17,7 @@ export class DataField extends $dara.Model {
    * The column ID.
    * 
    * @example
-   * 1
+   * 0
    */
   id?: number;
   /**

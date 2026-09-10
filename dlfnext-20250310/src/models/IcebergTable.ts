@@ -17,7 +17,7 @@ export class IcebergTable extends $dara.Model {
    * The table creator.
    * 
    * @example
-   * acs:ram::[accountId]:root
+   * acs:ram::1045689747920334:root
    */
   createdBy?: string;
   /**
@@ -30,7 +30,7 @@ export class IcebergTable extends $dara.Model {
    * The table UUID.
    * 
    * @example
-   * tbl-xxxx
+   * tbl-424fc31c-4876-4df5-97a5-c78f3046e739
    */
   id?: string;
   /**
@@ -46,7 +46,7 @@ export class IcebergTable extends $dara.Model {
    * The owner of the table.
    * 
    * @example
-   * acs:ram::[accountId]:root
+   * acs:ram::1045689747920334:root
    */
   owner?: string;
   /**
@@ -54,7 +54,7 @@ export class IcebergTable extends $dara.Model {
    * The table URI.
    * 
    * @example
-   * oss://clg-iceberg-xxxx/ns-xxxx/table-xxxx
+   * oss://clg-iceberg-bcc387be9d24490da5f194bbaf990906/ns-b314a3c3-dff5-4e30-8ba2-0493a60566c7.db/iceberg-tbl-56539259-1879-4d6d-bd6e-d1ddb3364cc9
    */
   path?: string;
   /**
@@ -70,7 +70,7 @@ export class IcebergTable extends $dara.Model {
    * The user who last updated the table.
    * 
    * @example
-   * acs:ram::[accountId]:root
+   * acs:ram::1045689747920334:root
    */
   updatedBy?: string;
   /**

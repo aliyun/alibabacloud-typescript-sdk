@@ -12,20 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'us-west-1': "dlfnext.us-west-1.aliyuncs.com",
-      'us-east-1': "dlfnext.us-east-1.aliyuncs.com",
-      'eu-central-1': "dlfnext.eu-central-1.aliyuncs.com",
-      'cn-wulanchabu': "dlfnext.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "dlfnext.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "dlfnext.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "dlfnext.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "dlfnext.cn-hangzhou.aliyuncs.com",
-      'cn-beijing': "dlfnext.cn-beijing.aliyuncs.com",
-      'ap-southeast-5': "dlfnext.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-1': "dlfnext.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-1': "dlfnext.ap-northeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dlfnext", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -522,7 +508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a catalog.
+   * Creates a data catalog.
    * 
    * @param request - CreateCatalogRequest
    * @param headers - map
@@ -565,13 +551,13 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $dara.cast<$_model.CreateCatalogResponse>(await this.callApi(params, req, runtime), new $_model.CreateCatalogResponse({}));
   }
 
   /**
-   * Creates a catalog.
+   * Creates a data catalog.
    * 
    * @param request - CreateCatalogRequest
    * @returns CreateCatalogResponse
