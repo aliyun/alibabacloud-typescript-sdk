@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The architecture type.
+   * The processor architecture. Valid values: X86 and ARM.
    * 
    * @example
    * X86
@@ -21,7 +21,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Specifies whether mixed billing is used.
+   * Specifies whether hybrid billing is used.
    * 
    * @example
    * true
@@ -77,6 +77,13 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
    * cn-shenzhen
    */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-aek2e55emewbqgy
+   */
   resourceGroupId?: string;
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceResponseBodyOrderInfo extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the order.
+   * The order instance ID.
    * 
    * @example
    * f-cn-zvp2q0zik06

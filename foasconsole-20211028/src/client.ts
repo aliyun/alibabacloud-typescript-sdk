@@ -11,11 +11,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "regional";
+    this._endpointRule = "central";
     this._endpointMap = {
-      'cn-qingdao': "foasconsole.cn-qingdao.aliyuncs.com",
       'cn-wulanchabu': "foasconsole.cn-wulanchabu.aliyuncs.com",
       'cn-beijing': "foasconsole.cn-beijing.aliyuncs.com",
+      'cn-qingdao': "foasconsole.cn-qingdao.aliyuncs.com",
       'cn-shanghai': "foasconsole.cn-shanghai.aliyuncs.com",
       'cn-hongkong': "foasconsole.cn-hongkong.aliyuncs.com",
       'cn-zhangjiakou': "foasconsole.cn-zhangjiakou.aliyuncs.com",
@@ -31,7 +31,6 @@ export default class Client extends OpenApi {
       'eu-central-1': "foasconsole.eu-central-1.aliyuncs.com",
       'cn-shenzhen-finance-1': "foasconsole.cn-shenzhen-finance-1.aliyuncs.com",
       'cn-shanghai-finance-1': "foasconsole.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-north-2-gov-1': "foasconsole.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("foasconsole", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -292,7 +291,7 @@ export default class Client extends OpenApi {
    * Creates a subscription or pay-as-you-go fully managed Flink workspace.
    * 
    * @remarks
-   * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink.**
    * 
    * @param tmpReq - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -302,6 +301,14 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.defaultHaNamespaceResourceSpec)) {
+      request.defaultHaNamespaceResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultHaNamespaceResourceSpec, "DefaultHaNamespaceResourceSpec", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.defaultNamespaceResourceSpec)) {
+      request.defaultNamespaceResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultNamespaceResourceSpec, "DefaultNamespaceResourceSpec", "json");
+    }
+
     if (!$dara.isNull(tmpReq.haResourceSpec)) {
       request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
     }
@@ -337,6 +344,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.defaultHaNamespaceResourceSpecShrink)) {
+      body["DefaultHaNamespaceResourceSpec"] = request.defaultHaNamespaceResourceSpecShrink;
+    }
+
+    if (!$dara.isNull(request.defaultNamespaceResourceSpecShrink)) {
+      body["DefaultNamespaceResourceSpec"] = request.defaultNamespaceResourceSpecShrink;
     }
 
     if (!$dara.isNull(request.duration)) {
@@ -428,7 +443,7 @@ export default class Client extends OpenApi {
    * Creates a subscription or pay-as-you-go fully managed Flink workspace.
    * 
    * @remarks
-   * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink.**
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -607,6 +622,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of one or more fully managed Flink workspaces.
    * 
+   * @remarks
+   * > In the following cases, you cannot release a workspace:- In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state.- If the billing method is subscription, unsubscribe from the resource on the Unsubscription Management page in User Center.
+   * 
    * @param tmpReq - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstancesResponse
@@ -639,6 +657,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details of one or more fully managed Flink workspaces.
+   * 
+   * @remarks
+   * > In the following cases, you cannot release a workspace:- In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state.- If the billing method is subscription, unsubscribe from the resource on the Unsubscription Management page in User Center.
    * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse

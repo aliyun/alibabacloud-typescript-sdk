@@ -2,6 +2,8 @@ export { ConvertHybridInstanceRequestResourceSpec } from './ConvertHybridInstanc
 export { ConvertHybridInstanceResponseBodyOrderInfo } from './ConvertHybridInstanceResponseBody';
 export { ConvertInstanceRequestNamespaceResourceSpecsResourceSpec } from './ConvertInstanceRequest';
 export { ConvertInstanceRequestNamespaceResourceSpecs } from './ConvertInstanceRequest';
+export { CreateInstanceRequestDefaultHaNamespaceResourceSpec } from './CreateInstanceRequest';
+export { CreateInstanceRequestDefaultNamespaceResourceSpec } from './CreateInstanceRequest';
 export { CreateInstanceRequestHaResourceSpec } from './CreateInstanceRequest';
 export { CreateInstanceRequestResourceSpec } from './CreateInstanceRequest';
 export { CreateInstanceRequestStorageOss } from './CreateInstanceRequest';

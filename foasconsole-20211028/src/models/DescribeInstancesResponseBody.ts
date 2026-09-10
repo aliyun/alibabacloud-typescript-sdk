@@ -32,9 +32,26 @@ export class DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotal
 }
 
 export class DescribeInstancesResponseBodyInstancesClusterStateClusterStage extends $dara.Model {
+  /**
+   * @example
+   * f0957e82de6e47
+   */
   clusterId?: string;
   currentStage?: number;
+  /**
+   * @remarks
+   * The error message.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The status of the project space. Valid values:
+   * - CREATING: Being created.
+   * - DELETING: Being deleted.
+   * - MODIFYING: Resource specifications are being modified.
+   * - SUCCESS: The previous operation was successful.
+   * - FAILED: The previous operation failed.
+   */
   status?: string;
   totalStageWithWeight?: DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight[];
   static names(): { [key: string]: string } {
@@ -134,10 +151,45 @@ export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDto extend
 }
 
 export class DescribeInstancesResponseBodyInstancesClusterState extends $dara.Model {
+  /**
+   * @example
+   * a6f35c0ff73448
+   */
   clusterId?: string;
   clusterStage?: DescribeInstancesResponseBodyInstancesClusterStateClusterStage;
   createTimeout?: boolean;
+  /**
+   * @remarks
+   * The cluster status. Valid values:
+   * 
+   * - CREATING: Being created.
+   * 
+   * - RUNNING: Running.
+   * 
+   * - DISABLE: Invalid.
+   * 
+   * - DELETING: Being deleted.
+   * 
+   * - DELETED: Deleted.
+   * 
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @remarks
+   * The cluster status. Valid values:
+   * 
+   * - CREATING: Being created.
+   * 
+   * - RUNNING: Running.
+   * 
+   * - DISABLE: Invalid.
+   * 
+   * - DELETING: Being deleted.
+   * 
+   * - DELETED: Deleted.
+   */
   subStatus?: string;
   url?: string;
   userSlbDto?: DescribeInstancesResponseBodyInstancesClusterStateUserSlbDto;
@@ -184,6 +236,10 @@ export class DescribeInstancesResponseBodyInstancesClusterState extends $dara.Mo
 }
 
 export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends $dara.Model {
+  /**
+   * @example
+   * ea2e9545fdc942
+   */
   clusterId?: string;
   elasticUsedCpu?: number;
   elasticUsedMemory?: number;
@@ -191,6 +247,13 @@ export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends 
   guaranteedUsedCpu?: number;
   guaranteedUsedMemory?: number;
   guaranteedUsedResource?: number;
+  /**
+   * @remarks
+   * Indicates whether zone-disaster recovery resources are selected.
+   * 
+   * @example
+   * true
+   */
   ha?: boolean;
   haUsedCpu?: number;
   haUsedMemory?: number;
@@ -246,6 +309,10 @@ export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends 
 }
 
 export class DescribeInstancesResponseBodyInstancesClusterUsedStorage extends $dara.Model {
+  /**
+   * @example
+   * f0957e82de6e47
+   */
   clusterId?: string;
   usedStorage?: number;
   static names(): { [key: string]: string } {
@@ -272,7 +339,21 @@ export class DescribeInstancesResponseBodyInstancesClusterUsedStorage extends $d
 }
 
 export class DescribeInstancesResponseBodyInstancesElasticResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPUs.
+   * 
+   * @example
+   * 5
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The amount of memory used.
+   * 
+   * @example
+   * 280
+   */
   memoryGB?: number;
   static names(): { [key: string]: string } {
     return {
@@ -298,7 +379,21 @@ export class DescribeInstancesResponseBodyInstancesElasticResourceSpec extends $
 }
 
 export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPUs for zone-disaster recovery.
+   * 
+   * @example
+   * 12
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The memory size of zone-disaster recovery resources.
+   * 
+   * @example
+   * 48
+   */
   memoryGB?: number;
   static names(): { [key: string]: string } {
     return {
@@ -324,13 +419,69 @@ export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $dara.
 }
 
 export class DescribeInstancesResponseBodyInstancesHaVSwitchInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The number of available IP addresses in the vSwitch.
+   * 
+   * @example
+   * 64
+   */
   availableIpAddressCount?: number;
+  /**
+   * @remarks
+   * The description of the VPC.
+   * 
+   * @example
+   * “”
+   */
   description?: string;
+  /**
+   * @remarks
+   * The region.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The vSwitch CIDR block information.
+   * 
+   * @example
+   * 192.168.16.0/24
+   */
   vSwitchCidr?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-wz9e9zt38b9f3l6*****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The vSwitch name.
+   * 
+   * @example
+   * Test vSwitch
+   */
   vSwitchName?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-uf6d0akr6lzd75v****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID of the workspace.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -407,6 +558,13 @@ export class DescribeInstancesResponseBodyInstancesHostAliases extends $dara.Mod
 export class DescribeInstancesResponseBodyInstancesOssInfo extends $dara.Model {
   accessId?: string;
   accessKey?: string;
+  /**
+   * @remarks
+   * The name of the bound OSS bucket.
+   * 
+   * @example
+   * flink-log-john
+   */
   bucket?: string;
   bucketVersioningStatus?: string;
   endpoint?: string;
@@ -482,7 +640,7 @@ export class DescribeInstancesResponseBodyInstancesResourceSpec extends $dara.Mo
 export class DescribeInstancesResponseBodyInstancesStorageOss extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The name of the bound OSS bucket.
    * 
    * @example
    * oss_flink
@@ -510,7 +668,31 @@ export class DescribeInstancesResponseBodyInstancesStorageOss extends $dara.Mode
 }
 
 export class DescribeInstancesResponseBodyInstancesStorage extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether fully managed storage is selected. Valid values:
+   * - true: Used.
+   * - false: Not used.
+   * 
+   * @example
+   * true
+   */
   fullyManaged?: boolean;
+  /**
+   * @remarks
+   * The order status of fully managed storage. Valid values:
+   * 
+   * - NOT_INIT: The order is placed but components are not yet deployed.
+   * 
+   * - NORMAL: Normal.
+   * 
+   * - CEASE: Expired.
+   * 
+   * - RELEASE: Overdue.
+   * 
+   * @example
+   * NORMAL
+   */
   orderState?: string;
   /**
    * @remarks
@@ -592,13 +774,69 @@ export class DescribeInstancesResponseBodyInstancesTags extends $dara.Model {
 }
 
 export class DescribeInstancesResponseBodyInstancesVSwitchInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The number of available IP addresses in the vSwitch.
+   * 
+   * @example
+   * 256
+   */
   availableIpAddressCount?: string;
+  /**
+   * @remarks
+   * The description of the vSwitch group.
+   * 
+   * @example
+   * “”
+   */
   description?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The vSwitch CIDR block.
+   * 
+   * @example
+   * 192.168.16.0/24
+   */
   vSwitchCidr?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-8vb6jk75wfcwnuq****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The name of the vSwitch.
+   * 
+   * @example
+   * “”
+   */
   vSwitchName?: string;
+  /**
+   * @remarks
+   * VPC ID。
+   * 
+   * @example
+   * vpc-bp16h9ru9gvz2tygo*****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID of the workspace.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -636,11 +874,57 @@ export class DescribeInstancesResponseBodyInstancesVSwitchInfo extends $dara.Mod
 }
 
 export class DescribeInstancesResponseBodyInstancesVpcInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The VPC CIDR block.
+   * 
+   * @example
+   * 172.16.5.0/24
+   */
   cidrBlock?: string;
+  /**
+   * @remarks
+   * The VPC description.
+   * 
+   * @example
+   * “”
+   */
   description?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The VPC status. Valid values:
+   * 
+   * - Pending: Being configured.
+   * 
+   * - Available: Available.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-gw8c6nhjta3eq12y****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The VPC name.
+   * 
+   * @example
+   * flink集群vpc
+   */
   vpcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -675,7 +959,21 @@ export class DescribeInstancesResponseBodyInstancesVpcInfo extends $dara.Model {
 
 export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   ansm?: boolean;
+  /**
+   * @remarks
+   * The processor architecture.
+   * 
+   * @example
+   * X86
+   */
   architectureType?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * c20c******404
+   */
   askClusterId?: string;
   /**
    * @remarks
@@ -687,6 +985,10 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
    * PRE
    */
   chargeType?: string;
+  /**
+   * @remarks
+   * The cluster state.
+   */
   clusterState?: DescribeInstancesResponseBodyInstancesClusterState;
   /**
    * @remarks
@@ -701,8 +1003,20 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
    * RUNNING
    */
   clusterStatus?: string;
+  /**
+   * @remarks
+   * The overall resource usage of the Flink service.
+   */
   clusterUsedResources?: DescribeInstancesResponseBodyInstancesClusterUsedResources;
   clusterUsedStorage?: DescribeInstancesResponseBodyInstancesClusterUsedStorage;
+  /**
+   * @remarks
+   * Indicates whether deletion protection is enabled.
+   * 
+   * @example
+   * false
+   */
+  deletionProtection?: boolean;
   elastic?: boolean;
   /**
    * @remarks
@@ -714,13 +1028,41 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   elasticInstanceId?: string;
   elasticOrderState?: string;
   elasticResourceSpec?: DescribeInstancesResponseBodyInstancesElasticResourceSpec;
+  /**
+   * @remarks
+   * Indicates whether zone-disaster recovery resources are selected.
+   * 
+   * @example
+   * true
+   */
   ha?: boolean;
+  /**
+   * @remarks
+   * The zone-disaster recovery resource description.
+   */
   haResourceSpec?: DescribeInstancesResponseBodyInstancesHaResourceSpec;
+  /**
+   * @remarks
+   * The vSwitch group in the secondary zone for zone-disaster recovery.
+   */
   haVSwitchIds?: string[];
+  /**
+   * @remarks
+   * The vSwitch group information for the secondary zone of zone-disaster recovery.
+   */
   haVSwitchInfo?: DescribeInstancesResponseBodyInstancesHaVSwitchInfo[];
+  /**
+   * @remarks
+   * The secondary zone ID for zone-disaster recovery.
+   * 
+   * @example
+   * cn-hongkong-b
+   */
   haZoneId?: string;
   /**
    * @remarks
+   * The domain name information added by the user.
+   * 
    * This parameter is required.
    */
   hostAliases?: DescribeInstancesResponseBodyInstancesHostAliases[];
@@ -740,11 +1082,18 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
    * vvp1
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The type of the monitoring and alerting service. You can select ARMS or CloudMonitor.
+   * 
+   * @example
+   * TAIHAO
+   */
   monitorType?: string;
   /**
    * @remarks
-   * The order status. Valid values:
-   * - NOT_INIT: The order is placed but components are not deployed.
+   * The order status of the Flink compute service. Valid values:
+   * - NOT_INIT: The order is placed but components are not yet deployed.
    * - NORMAL: Normal.
    * - CEASE: Expired.
    * - RELEASE: Overdue.
@@ -756,7 +1105,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   ossInfo?: DescribeInstancesResponseBodyInstancesOssInfo;
   /**
    * @remarks
-   * The region of the instance.
+   * The region to which the instance belongs.
    * 
    * @example
    * cn-beijing
@@ -772,12 +1121,19 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   resourceCreateTime?: number;
   /**
    * @remarks
-   * The expiration time.
+   * The overdue time.
    * 
    * @example
    * 1637337600000
    */
   resourceExpiredTime?: number;
+  /**
+   * @remarks
+   * The resource group.
+   * 
+   * @example
+   * rg-***
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -800,7 +1156,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   supportDisasterRecoveryDrill?: boolean;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: DescribeInstancesResponseBodyInstancesTags[];
   /**
@@ -813,9 +1169,13 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * The vSwitch IDs.
+   * The vSwitch ID group.
    */
   vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The information about the primary vSwitch group.
+   */
   vSwitchInfo?: DescribeInstancesResponseBodyInstancesVSwitchInfo[];
   /**
    * @remarks
@@ -825,6 +1185,10 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
    * vpc-2ze9*******nxfmfcdi
    */
   vpcId?: string;
+  /**
+   * @remarks
+   * The VPC information.
+   */
   vpcInfo?: DescribeInstancesResponseBodyInstancesVpcInfo;
   /**
    * @remarks
@@ -844,6 +1208,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
       clusterStatus: 'ClusterStatus',
       clusterUsedResources: 'ClusterUsedResources',
       clusterUsedStorage: 'ClusterUsedStorage',
+      deletionProtection: 'DeletionProtection',
       elastic: 'Elastic',
       elasticInstanceId: 'ElasticInstanceId',
       elasticOrderState: 'ElasticOrderState',
@@ -887,6 +1252,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
       clusterStatus: 'string',
       clusterUsedResources: DescribeInstancesResponseBodyInstancesClusterUsedResources,
       clusterUsedStorage: DescribeInstancesResponseBodyInstancesClusterUsedStorage,
+      deletionProtection: 'boolean',
       elastic: 'boolean',
       elasticInstanceId: 'string',
       elasticOrderState: 'string',
@@ -1007,8 +1373,8 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * - true: The request was successful.
-   * - false: The request failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

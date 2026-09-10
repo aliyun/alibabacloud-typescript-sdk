@@ -2,6 +2,90 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateInstanceRequestDefaultHaNamespaceResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPUs.
+   * 
+   * @example
+   * 4
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
+   * @example
+   * 16
+   */
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestDefaultNamespaceResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPUs.
+   * 
+   * @example
+   * 4
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
+   * @example
+   * 16
+   */
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestHaResourceSpec extends $dara.Model {
   /**
    * @remarks
@@ -13,7 +97,7 @@ export class CreateInstanceRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The memory size for zone-disaster recovery.
+   * The memory size for zone-disaster recovery. The value is active memory allocated for high availability (HA).
    * 
    * @example
    * 40
@@ -233,6 +317,16 @@ export class CreateInstanceRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
+   * The default high-availability namespace resource configuration.
+   */
+  defaultHaNamespaceResourceSpec?: CreateInstanceRequestDefaultHaNamespaceResourceSpec;
+  /**
+   * @remarks
+   * The default namespace resource configuration.
+   */
+  defaultNamespaceResourceSpec?: CreateInstanceRequestDefaultNamespaceResourceSpec;
+  /**
+   * @remarks
    * The subscription duration.
    * 
    * > This parameter is required when ChargeType is set to PRE.
@@ -251,7 +345,7 @@ export class CreateInstanceRequest extends $dara.Model {
   extra?: string;
   /**
    * @remarks
-   * Specifies whether to use zone-disaster recovery resources.
+   * Specifies whether to enable zone-disaster recovery resources.
    * 
    * @example
    * true
@@ -288,7 +382,7 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The type of monitoring and alerting service. You can select ARMS or CloudMonitor.
+   * The type of monitoring and alerting service. You can select Application Real-Time Monitoring Service (ARMS) or CloudMonitor.
    * 
    * @example
    * TAIHAO
@@ -296,10 +390,10 @@ export class CreateInstanceRequest extends $dara.Model {
   monitorType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
+   * The billing cycle of the subscription instance. Valid values:
    * 
-   * - **year**: year.
-   * - **month**: month.
+   * - **year**: yearly.
+   * - **month**: monthly.
    * 
    * > This parameter is required when ChargeType is set to PRE.
    * 
@@ -317,7 +411,7 @@ export class CreateInstanceRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * This parameter is required.
    * 
@@ -384,6 +478,8 @@ export class CreateInstanceRequest extends $dara.Model {
       architectureType: 'ArchitectureType',
       autoRenew: 'AutoRenew',
       chargeType: 'ChargeType',
+      defaultHaNamespaceResourceSpec: 'DefaultHaNamespaceResourceSpec',
+      defaultNamespaceResourceSpec: 'DefaultNamespaceResourceSpec',
       duration: 'Duration',
       extra: 'Extra',
       ha: 'Ha',
@@ -409,6 +505,8 @@ export class CreateInstanceRequest extends $dara.Model {
       architectureType: 'string',
       autoRenew: 'boolean',
       chargeType: 'string',
+      defaultHaNamespaceResourceSpec: CreateInstanceRequestDefaultHaNamespaceResourceSpec,
+      defaultNamespaceResourceSpec: CreateInstanceRequestDefaultNamespaceResourceSpec,
       duration: 'number',
       extra: 'string',
       ha: 'boolean',
@@ -430,6 +528,12 @@ export class CreateInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.defaultHaNamespaceResourceSpec && typeof (this.defaultHaNamespaceResourceSpec as any).validate === 'function') {
+      (this.defaultHaNamespaceResourceSpec as any).validate();
+    }
+    if(this.defaultNamespaceResourceSpec && typeof (this.defaultNamespaceResourceSpec as any).validate === 'function') {
+      (this.defaultNamespaceResourceSpec as any).validate();
+    }
     if(this.haResourceSpec && typeof (this.haResourceSpec as any).validate === 'function') {
       (this.haResourceSpec as any).validate();
     }

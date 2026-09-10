@@ -38,6 +38,16 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
+   * The default high-availability namespace resource configuration.
+   */
+  defaultHaNamespaceResourceSpecShrink?: string;
+  /**
+   * @remarks
+   * The default namespace resource configuration.
+   */
+  defaultNamespaceResourceSpecShrink?: string;
+  /**
+   * @remarks
    * The subscription duration.
    * 
    * > This parameter is required when ChargeType is set to PRE.
@@ -56,7 +66,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   extra?: string;
   /**
    * @remarks
-   * Specifies whether to use zone-disaster recovery resources.
+   * Specifies whether to enable zone-disaster recovery resources.
    * 
    * @example
    * true
@@ -93,7 +103,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The type of monitoring and alerting service. You can select ARMS or CloudMonitor.
+   * The type of monitoring and alerting service. You can select Application Real-Time Monitoring Service (ARMS) or CloudMonitor.
    * 
    * @example
    * TAIHAO
@@ -101,10 +111,10 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   monitorType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
+   * The billing cycle of the subscription instance. Valid values:
    * 
-   * - **year**: year.
-   * - **month**: month.
+   * - **year**: yearly.
+   * - **month**: monthly.
    * 
    * > This parameter is required when ChargeType is set to PRE.
    * 
@@ -122,7 +132,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * This parameter is required.
    * 
@@ -189,6 +199,8 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
       architectureType: 'ArchitectureType',
       autoRenew: 'AutoRenew',
       chargeType: 'ChargeType',
+      defaultHaNamespaceResourceSpecShrink: 'DefaultHaNamespaceResourceSpec',
+      defaultNamespaceResourceSpecShrink: 'DefaultNamespaceResourceSpec',
       duration: 'Duration',
       extra: 'Extra',
       ha: 'Ha',
@@ -214,6 +226,8 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
       architectureType: 'string',
       autoRenew: 'boolean',
       chargeType: 'string',
+      defaultHaNamespaceResourceSpecShrink: 'string',
+      defaultNamespaceResourceSpecShrink: 'string',
       duration: 'number',
       extra: 'string',
       ha: 'boolean',
