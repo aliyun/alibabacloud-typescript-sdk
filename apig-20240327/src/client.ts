@@ -2773,6 +2773,10 @@ export default class Client extends OpenApi {
   async deleteHttpApiWithOptions(httpApiId: string, request: $_model.DeleteHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHttpApiResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["dryRun"] = request.dryRun;
     }
