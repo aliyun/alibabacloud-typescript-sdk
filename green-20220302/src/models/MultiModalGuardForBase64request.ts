@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MultiModalGuardForBase64Request extends $dara.Model {
+  /**
+   * @remarks
+   * The base64-encoded string of the document.
+   * 
+   * @example
+   * {base64}
+   */
   fileBase64Str?: string;
   /**
    * @remarks

@@ -13,7 +13,8 @@ export class DescribeFileModerationResultRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The set of parameters required by the moderation service, in JSON string format.
+   * The set of parameters required by the moderation service, in JSON character string format.
+   * - taskId: Required. The URL of the object to be moderated. Make sure that the URL is accessible through public network access.
    * 
    * @example
    * {\\"taskId\\":\\"vi_f_hPgx9PFIQISdlfA888hOFG-1yJq8v\\"}

@@ -24,10 +24,10 @@ export class MultiModalAgentResponseBodyDataResult extends $dara.Model {
    * The result description when the session is terminated.
    * - **SESSION_KILLED**: The session is terminated.
    * - **SESSION_EXPIRED**: The session has expired.
-   * - **SESSION_NO_PERMISSION**: Operations account used to terminate the session has insufficient permissions.
-   * - **SESSION_ACCOUNT_ERROR**: Operations account or password used to terminate the session is incorrect.
-   * - **SESSION_IGNORED_USER**: The session of an account that does not need to be terminated.
-   * - **SESSION_INTERNAL_USER_OR_COMMAND**: The session or command of an Alibaba Cloud O&M account.
+   * - **SESSION_NO_PERMISSION**: The account used to terminate the session has insufficient permissions.
+   * - **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is incorrect.
+   * - **SESSION_IGNORED_USER**: The session belongs to an account that does not need to be terminated.
+   * - **SESSION_INTERNAL_USER_OR_COMMAND**: The session or command belongs to an Alibaba Cloud operations account.
    * - **SESSION_KILL_TASK_TIMEOUT**: The session termination timed out.
    * - **SESSION_OTHER_ERROR**: Other errors.
    * 
@@ -74,6 +74,13 @@ export class MultiModalAgentResponseBodyDataUsage extends $dara.Model {
    * 10
    */
   contentLength?: number;
+  /**
+   * @remarks
+   * The credits consumed.
+   * 
+   * @example
+   * 1.23
+   */
   credits?: number;
   /**
    * @remarks

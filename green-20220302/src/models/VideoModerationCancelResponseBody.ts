@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VideoModerationCancelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class VideoModerationCancelResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message.
+   * The response message.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class VideoModerationCancelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 6CF2815C-****-****-B52E-FF6E2****492

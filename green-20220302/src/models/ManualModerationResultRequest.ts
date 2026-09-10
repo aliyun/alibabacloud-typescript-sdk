@@ -6,10 +6,10 @@ export class ManualModerationResultRequest extends $dara.Model {
   /**
    * @remarks
    * The set of parameters required by the service, in JSON string format.
-   * - TaskId: The task ID returned when the task was submitted.
+   * - taskId: The task ID returned when the task was submitted.
    * 
    * @example
-   * {\\"TaskId\\":\\"e5f2d886-4c23-440d-999c-bd98acde11b6\\"}
+   * \\"taskId\\":\\"m_tx_8oaprwnGUKuuLYNwV21JRf-VQjzQX3\\"
    */
   serviceParameters?: string;
   static names(): { [key: string]: string } {

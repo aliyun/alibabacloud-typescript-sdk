@@ -16,7 +16,7 @@ export class MultiModalGuardForBase64ResponseBodyDataDetailResult extends $dara.
    * The description.
    * 
    * @example
-   * No risk detected.
+   * No risk detected
    */
   description?: string;
   /**
@@ -24,7 +24,7 @@ export class MultiModalGuardForBase64ResponseBodyDataDetailResult extends $dara.
    * The extension information.
    * 
    * @example
-   * JSON format data.
+   * JSON-formatted data
    */
   ext?: any;
   /**

@@ -1,6 +1,9 @@
 export { DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageResultImageResult } from './DescribeFileModerationResultResponseBody';
+export { DescribeFileModerationResultResponseBodyDataPageResultTextResultResultCustomizedHit } from './DescribeFileModerationResultResponseBody';
+export { DescribeFileModerationResultResponseBodyDataPageResultTextResultResultRiskPositions } from './DescribeFileModerationResultResponseBody';
+export { DescribeFileModerationResultResponseBodyDataPageResultTextResultResult } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageResultTextResult } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageResult } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels } from './DescribeFileModerationResultResponseBody';

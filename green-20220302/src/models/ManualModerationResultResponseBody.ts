@@ -8,7 +8,7 @@ export class ManualModerationResultResponseBodyDataResult extends $dara.Model {
    * The label description.
    * 
    * @example
-   * No risk detected.
+   * No risk detected
    */
   description?: string;
   /**
