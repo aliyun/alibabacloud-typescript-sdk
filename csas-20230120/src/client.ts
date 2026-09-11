@@ -10066,12 +10066,18 @@ export default class Client extends OpenApi {
   /**
    * Updates a device label.
    * 
-   * @param request - UpdateDeviceGroupRequest
+   * @param tmpReq - UpdateDeviceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDeviceGroupResponse
    */
-  async updateDeviceGroupWithOptions(request: $_model.UpdateDeviceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeviceGroupResponse> {
-    request.validate();
+  async updateDeviceGroupWithOptions(tmpReq: $_model.UpdateDeviceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeviceGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDeviceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dynamicRule)) {
+      request.dynamicRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dynamicRule, "DynamicRule", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
@@ -10083,6 +10089,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dynamicOperator)) {
       body["DynamicOperator"] = request.dynamicOperator;
+    }
+
+    if (!$dara.isNull(request.dynamicRuleShrink)) {
+      body["DynamicRule"] = request.dynamicRuleShrink;
     }
 
     if (!$dara.isNull(request.name)) {

@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { Rule } from "./Rule";
 
 
-export class UpdateDeviceGroupRequest extends $dara.Model {
+export class UpdateDeviceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the device label. Set this parameter to an empty string to clear the description. The description can contain letters, digits, Chinese characters, spaces, periods (.), underscores (_), and hyphens (-).
@@ -34,7 +33,7 @@ export class UpdateDeviceGroupRequest extends $dara.Model {
    * @remarks
    * The matching rule of the dynamic device label.
    */
-  dynamicRule?: Rule;
+  dynamicRuleShrink?: string;
   /**
    * @remarks
    * The name of the device label. The name must be 1 to 128 characters in length and can contain letters, digits, Chinese characters, periods (.), underscores (_), and hyphens (-). Spaces are not supported.
@@ -48,7 +47,7 @@ export class UpdateDeviceGroupRequest extends $dara.Model {
       description: 'Description',
       deviceGroupId: 'DeviceGroupId',
       dynamicOperator: 'DynamicOperator',
-      dynamicRule: 'DynamicRule',
+      dynamicRuleShrink: 'DynamicRule',
       name: 'Name',
     };
   }
@@ -58,15 +57,12 @@ export class UpdateDeviceGroupRequest extends $dara.Model {
       description: 'string',
       deviceGroupId: 'string',
       dynamicOperator: 'string',
-      dynamicRule: Rule,
+      dynamicRuleShrink: 'string',
       name: 'string',
     };
   }
 
   validate() {
-    if(this.dynamicRule && typeof (this.dynamicRule as any).validate === 'function') {
-      (this.dynamicRule as any).validate();
-    }
     super.validate();
   }
 

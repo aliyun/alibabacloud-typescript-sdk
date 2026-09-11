@@ -1056,6 +1056,7 @@ export { UpdateConnectorClientRequest } from './UpdateConnectorClientRequest';
 export { UpdateConnectorClientResponseBody } from './UpdateConnectorClientResponseBody';
 export { UpdateConnectorClientResponse } from './UpdateConnectorClientResponse';
 export { UpdateDeviceGroupRequest } from './UpdateDeviceGroupRequest';
+export { UpdateDeviceGroupShrinkRequest } from './UpdateDeviceGroupShrinkRequest';
 export { UpdateDeviceGroupResponseBody } from './UpdateDeviceGroupResponseBody';
 export { UpdateDeviceGroupResponse } from './UpdateDeviceGroupResponse';
 export { UpdateDomainMetaRequest } from './UpdateDomainMetaRequest';
