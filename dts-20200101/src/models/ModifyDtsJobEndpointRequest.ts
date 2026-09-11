@@ -27,8 +27,8 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run. Valid values:
    * 
-   * - **true**: performs only a dry run. If the dry run succeeds, the instance is not modified.
-   * - **false** (default): performs a dry run and then modifies the database instance of the DTS task if the dry run succeeds.
+   * - **true**: Yes. After the dry run succeeds, the instance is not modified.
+   * - **false** (default): No. After the dry run succeeds, the database instance of the DTS task is modified and the task runs.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The DTS task ID. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
+   * The ID of the DTS task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
    * 
    * > If you do not specify this parameter, you must specify **DtsInstanceId**.
    * 
@@ -55,7 +55,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The database instance to modify. Valid values:
+   * The database instance to be modified. Valid values:
    * 
    * - **src**: source instance.
    * - **dest**: destination instance.
@@ -87,13 +87,13 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
    * 
    * - **greenplum**: cloud-native data warehouse AnalyticDB for PostgreSQL.
    * - **kafka**: ApsaraMQ for Kafka.
-   * - **ecs**: a self-managed database hosted on an ECS instance (only supported database types).
-   * - **express**: a database connected over Express Connect (only supported database types).
-   * - **other**: a database connected over the Internet (only supported database types).
+   * - **ecs**: self-managed database on an ECS instance (only supported database types).
+   * - **express**: database connected over Express Connect (only supported database types).
+   * - **other**: database connected over the Internet (only supported database types).
    * 
    * > - Currently supported database types include **MySQL**, **PolarDB for MySQL**, **PostgreSQL**, **PolarDB for PostgreSQL**, **MongoDB**, **Kafka**, and **AnalyticDB PostgreSQL**.
    * - If the database is MongoDB (sharded cluster), the number of shards in the new database must be the same as that in the original MongoDB (sharded cluster).
-   * - If you want to modify the source instance and the database type is **PostgreSQL**, make sure that the latency of the DTS instance is less than 30 seconds and stop writing data to the source. Otherwise, data inconsistency may occur.
+   * - If the source instance is to be modified and the database type is **PostgreSQL**, make sure that the latency of the DTS instance is less than 30 seconds and stop writing data to the source. Otherwise, inconsistent data may occur.
    * - The parameter values are case-insensitive.
    * 
    * This parameter is required.
@@ -120,6 +120,14 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   endpointPort?: string;
   /**
    * @remarks
+   * The primary vSwitch for Express Connect access.
+   * 
+   * @example
+   * vsw-bp1w7gscw7pky*******
+   */
+  endpointPrimaryVswId?: string;
+  /**
+   * @remarks
    * The region to which the database instance belongs.
    * 
    * @example
@@ -128,10 +136,26 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   endpointRegionId?: string;
   /**
    * @remarks
+   * The secondary vSwitch for Express Connect access.
+   * 
+   * @example
+   * vsw-bp1ud8e2mhw*****
+   */
+  endpointSecondaryVswId?: string;
+  /**
+   * @remarks
+   * The VPC ID for Express Connect access.
+   * 
+   * @example
+   * vpc-bp1q00qitocaem****
+   */
+  endpointVpcId?: string;
+  /**
+   * @remarks
    * Specifies whether to modify the account and password. Valid values:
    * 
-   * - **true**: yes.
-   * - **false** (default): no.
+   * - **true**: Yes.
+   * - **false** (default): No.
    * 
    * @example
    * false
@@ -167,7 +191,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
    * @remarks
    * The name of the RAM role for cross-account access.
    * 
-   * > This parameter is required when you perform cross-account data synchronization. For the permissions required by this role and how to grant them, see [Configure RAM authorization for cross-account data migration or synchronization](https://help.aliyun.com/document_detail/48468.html).
+   * > Specify this parameter when performing cross-account data synchronization. For the required permissions and authorization method of this role, see [Configure RAM authorization for cross-account data migration or synchronization](https://help.aliyun.com/document_detail/48468.html).
    * 
    * @example
    * ram-for-dts
@@ -216,6 +240,15 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
    * dtstest
    */
   username?: string;
+  /**
+   * @remarks
+   * Specifies whether this is a seamless integration (zero-ETL) node. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
+   * @example
+   * true
+   */
   zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -229,7 +262,10 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
       endpointInstanceType: 'EndpointInstanceType',
       endpointIp: 'EndpointIp',
       endpointPort: 'EndpointPort',
+      endpointPrimaryVswId: 'EndpointPrimaryVswId',
       endpointRegionId: 'EndpointRegionId',
+      endpointSecondaryVswId: 'EndpointSecondaryVswId',
+      endpointVpcId: 'EndpointVpcId',
       modifyAccount: 'ModifyAccount',
       password: 'Password',
       regionId: 'RegionId',
@@ -255,7 +291,10 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
       endpointInstanceType: 'string',
       endpointIp: 'string',
       endpointPort: 'string',
+      endpointPrimaryVswId: 'string',
       endpointRegionId: 'string',
+      endpointSecondaryVswId: 'string',
+      endpointVpcId: 'string',
       modifyAccount: 'boolean',
       password: 'string',
       regionId: 'string',

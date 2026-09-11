@@ -68,15 +68,6 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "dts.aliyuncs.com",
       'eu-west-1-oxs': "dts.aliyuncs.com",
       'rus-west-1-pop': "dts.aliyuncs.com",
-      'ap-northeast-1': "dts.ap-northeast-1.aliyuncs.com",
-      'ap-northeast-2': "dts.ap-northeast-2.aliyuncs.com",
-      'ap-southeast-6': "dts.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-7': "dts.ap-southeast-7.aliyuncs.com",
-      'cn-guangzhou': "dts.cn-guangzhou.aliyuncs.com",
-      'cn-heyuan': "dts.cn-heyuan.aliyuncs.com",
-      'cn-wuhan-lr': "dts.cn-wuhan-lr.aliyuncs.com",
-      'cn-zhengzhou-jva': "dts.cn-zhengzhou-jva.aliyuncs.com",
-      'me-central-1': "dts.me-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dts", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -7061,7 +7052,7 @@ export default class Client extends OpenApi {
    * Modifies the source or destination instance of a DTS synchronization or migration task.
    * 
    * @remarks
-   * > After the database instance is modified, the DTS incremental write module rolls back writes by 10 seconds. If the synchronized or migrated data does not have a primary key, stop writing data to the source instance during the database instance replacement. Otherwise, duplicate data may occur.
+   * > After the database instance is modified, the DTS incremental write module rolls back writes by 10 seconds. If the data being synchronized or migrated does not have a primary key, stop writing data to the business associated with the source instance during the database instance replacement. Otherwise, duplicate data may occur.
    * 
    * @param request - ModifyDtsJobEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7110,8 +7101,20 @@ export default class Client extends OpenApi {
       query["EndpointPort"] = request.endpointPort;
     }
 
+    if (!$dara.isNull(request.endpointPrimaryVswId)) {
+      query["EndpointPrimaryVswId"] = request.endpointPrimaryVswId;
+    }
+
     if (!$dara.isNull(request.endpointRegionId)) {
       query["EndpointRegionId"] = request.endpointRegionId;
+    }
+
+    if (!$dara.isNull(request.endpointSecondaryVswId)) {
+      query["EndpointSecondaryVswId"] = request.endpointSecondaryVswId;
+    }
+
+    if (!$dara.isNull(request.endpointVpcId)) {
+      query["EndpointVpcId"] = request.endpointVpcId;
     }
 
     if (!$dara.isNull(request.modifyAccount)) {
@@ -7175,7 +7178,7 @@ export default class Client extends OpenApi {
    * Modifies the source or destination instance of a DTS synchronization or migration task.
    * 
    * @remarks
-   * > After the database instance is modified, the DTS incremental write module rolls back writes by 10 seconds. If the synchronized or migrated data does not have a primary key, stop writing data to the source instance during the database instance replacement. Otherwise, duplicate data may occur.
+   * > After the database instance is modified, the DTS incremental write module rolls back writes by 10 seconds. If the data being synchronized or migrated does not have a primary key, stop writing data to the business associated with the source instance during the database instance replacement. Otherwise, duplicate data may occur.
    * 
    * @param request - ModifyDtsJobEndpointRequest
    * @returns ModifyDtsJobEndpointResponse

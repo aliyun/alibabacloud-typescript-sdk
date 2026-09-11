@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * DTS.Msg.InvalidEndpoint
@@ -13,7 +13,7 @@ export class ModifyDtsJobEndpointResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The endpoint is invalid.
