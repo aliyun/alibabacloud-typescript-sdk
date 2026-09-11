@@ -13,7 +13,7 @@ export class DetachVscFromFilesystemsRequestResourceIds extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The virtual storage channel ID.
+   * The Virtual Storage Channel (VSC) ID. You can call the ListVscs operation of Lingjun eflo-controller/2022-12-15 to query VSC IDs. If no VSC has been created, call the CreateVsc operation to create one.
    * 
    * @example
    * vsc-8vb864o3ppwfvh****
@@ -99,7 +99,7 @@ export class DetachVscFromFilesystemsRequest extends $dara.Model {
    * 
    * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -107,7 +107,7 @@ export class DetachVscFromFilesystemsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID information of the file system and virtual storage channel. A maximum of 10 entries can be specified per batch.
+   * The ID information of file systems and Virtual Storage Channels (VSCs). A maximum of 10 entries can be specified per batch.
    * 
    * This parameter is required.
    */
@@ -115,7 +115,7 @@ export class DetachVscFromFilesystemsRequest extends $dara.Model {
   /**
    * @remarks
    * The role chain.
-   * > This parameter is required only for cross-account scenarios.
+   * >This parameter is required only for cross-account scenarios.
    */
   roleChain?: DetachVscFromFilesystemsRequestRoleChain[];
   static names(): { [key: string]: string } {

@@ -5,6 +5,7 @@ export { CreateAccessPointRequestTag } from './CreateAccessPointRequest';
 export { CreateAccessPointResponseBodyAccessPoint } from './CreateAccessPointResponseBody';
 export { CreateAgenticSpaceRequestQuota } from './CreateAgenticSpaceRequest';
 export { CreateCpfsAccessPointRequestRootDirectory } from './CreateCpfsAccessPointRequest';
+export { CreateCpfsAccessPointRequestTag } from './CreateCpfsAccessPointRequest';
 export { CreateDataFlowRequestAutoRefreshs } from './CreateDataFlowRequest';
 export { CreateDataFlowSubTaskRequestCondition } from './CreateDataFlowSubTaskRequest';
 export { CreateFileSystemRequestTag } from './CreateFileSystemRequest';
@@ -35,7 +36,9 @@ export { DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPolicies } from './
 export { DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasksAutoSnapshotTask } from './DescribeAutoSnapshotTasksResponseBody';
 export { DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks } from './DescribeAutoSnapshotTasksResponseBody';
 export { DescribeCpfsAccessPointMountedClientsResponseBodyMountedClient } from './DescribeCpfsAccessPointMountedClientsResponseBody';
+export { DescribeCpfsAccessPointsRequestTag } from './DescribeCpfsAccessPointsRequest';
 export { DescribeCpfsAccessPointsResponseBodyAccessPointsRootDirectory } from './DescribeCpfsAccessPointsResponseBody';
+export { DescribeCpfsAccessPointsResponseBodyAccessPointsTags } from './DescribeCpfsAccessPointsResponseBody';
 export { DescribeCpfsAccessPointsResponseBodyAccessPoints } from './DescribeCpfsAccessPointsResponseBody';
 export { DescribeDataFlowSubTasksRequestFilters } from './DescribeDataFlowSubTasksRequest';
 export { DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskFileDetail } from './DescribeDataFlowSubTasksResponseBody';

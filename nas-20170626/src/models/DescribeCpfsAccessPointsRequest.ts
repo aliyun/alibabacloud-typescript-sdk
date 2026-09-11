@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeCpfsAccessPointsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the CPFS access point tag.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the CPFS access point tag.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCpfsAccessPointsRequest extends $dara.Model {
   /**
    * @remarks
@@ -53,6 +93,11 @@ export class DescribeCpfsAccessPointsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of CPFS access point tags.
+   */
+  tag?: DescribeCpfsAccessPointsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       accessPointId: 'AccessPointId',
@@ -60,6 +105,7 @@ export class DescribeCpfsAccessPointsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      tag: 'Tag',
     };
   }
 
@@ -70,10 +116,14 @@ export class DescribeCpfsAccessPointsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeCpfsAccessPointsRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

@@ -9,7 +9,7 @@ export class CreateFileSystemRequestTag extends $dara.Model {
    * 
    * Limits:
    * 
-   * - The tag key cannot be empty.
+   * - The tag key cannot be empty or an empty string.
    * - The tag key can be up to 128 characters in length.
    * - The tag key cannot start with `aliyun` or `acs:`.
    * - The tag key cannot contain `http://` or `https://`.
@@ -26,7 +26,7 @@ export class CreateFileSystemRequestTag extends $dara.Model {
    * The tag value.
    * 
    * Limits:
-   * - The tag value cannot be empty.
+   * - The tag value cannot be empty or an empty string.
    * - The tag value can be up to 128 characters in length.
    * - The tag value cannot contain `http://` or `https://`.
    * 
@@ -86,7 +86,7 @@ export class CreateFileSystemRequest extends $dara.Model {
   /**
    * @remarks
    * The capacity of the file system. Unit: GiB.
-   * This parameter is required and valid only when FileSystemType is set to extreme, cpfs, or cpfsse.
+   * This parameter is required and takes effect only when FileSystemType is set to extreme, cpfs, or cpfsse.
    * 
    * For available values, refer to the actual specifications on the purchase page:
    * 
@@ -113,8 +113,8 @@ export class CreateFileSystemRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - PayAsYouGo (default): pay-as-you-go.
-   * - Subscription: subscription.
+   * - PayAsYouGo (default): Pay-as-you-go.
+   * - Subscription: Subscription.
    * 
    * @example
    * PayAsYouGo
@@ -122,8 +122,8 @@ export class CreateFileSystemRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Ensures the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The value of ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
+   * Ensures the idempotence of the request. Generate a unique parameter value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   *  
    * > If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
    * 
    * @example
@@ -141,18 +141,18 @@ export class CreateFileSystemRequest extends $dara.Model {
    * - The description can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * Description of this file system
+   * The description of this file system
    */
   description?: string;
   /**
    * @remarks
    * Specifies whether to perform a dry run for this request.
    * 
-   * A dry run checks parameter validity, verifies inventory, and performs other validations without actually creating the instance or incurring charges.
+   * A dry run checks parameter validity and resource availability without actually creating the instance or incurring charges.
    * 
    * Valid values:  
-   * - true: Sends a dry run request without creating the instance. The check items include required parameters, request format, service limits, and NAS inventory. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned, but FileSystemId is empty.  
-   * - false (default): Sends a normal request. After the check passes, the instance is directly created.
+   * - true: Sends a dry run request without creating the instance. The check items include required parameters, request format, service limits, and NAS inventory. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned, but FileSystemId is empty.  
+   * - false (default): Sends a normal request. After the check succeeds, the instance is created.
    * 
    * @example
    * true
@@ -162,9 +162,9 @@ export class CreateFileSystemRequest extends $dara.Model {
    * @remarks
    * The subscription duration.
    * 
-   * Unit: months. This parameter is required and valid only when ChargeType is set to Subscription.
+   * Unit: months. This parameter is required and takes effect only when ChargeType is set to Subscription.
    * 
-   * If a subscription instance is not renewed upon instance expiration, the instance expires and is automatically released.
+   * If a subscription instance is not renewed before the instance expires, the instance is automatically released upon expiration. For more information about renewal, see the renewal documentation.
    * 
    * @example
    * 1
@@ -174,15 +174,15 @@ export class CreateFileSystemRequest extends $dara.Model {
    * @remarks
    * Specifies whether to encrypt the file system.
    * 
-   * Uses keys managed by Key Management Service (KMS) to encrypt data stored on the file system. Decryption is not required when reading or writing encrypted data.
+   * Uses keys managed by Key Management Service (KMS) to encrypt data stored on the file system. Decryption is not required when you read or write encrypted data.
    * 
    * Valid values:
    * 
    * - 0 (default): Not encrypted.
    * - 1: NAS-managed key. Supported when FileSystemType is set to standard or extreme.
-   * - 2: Custom key encryption. Supported when FileSystemType is set to standard or extreme.
+   * - 2: Custom Key (KMS). Supported when FileSystemType is set to standard or extreme.
    * 
-   * > - Extreme NAS: Custom Key (KMS) is supported in all regions except China (Hangzhou) Finance Cloud.
+   * > - Extreme NAS: Custom Key (KMS) is supported in all regions except China East 1 Finance.
    * > - General-purpose NAS: Custom Key (KMS) is supported in all regions.
    * 
    * @example
@@ -191,13 +191,13 @@ export class CreateFileSystemRequest extends $dara.Model {
   encryptType?: number;
   /**
    * @remarks
-   * The file system type.
+   * The type of the file system.
    * 
    * Valid values:
    * - standard (default): General-purpose NAS.
    * - extreme: Extreme NAS.
-   * - cpfs: Cloud Parallel File Storage (locally redundant).
-   * - cpfsse: Cloud Parallel File Storage SE (zone-redundant).
+   * - cpfs: Cloud Parallel File Storage (CPFS) (locally redundant).
+   * - cpfsse: CPFS SE (zone-redundant).
    * 
    * @example
    * standard
@@ -243,7 +243,7 @@ export class CreateFileSystemRequest extends $dara.Model {
   /**
    * @remarks
    * The list of zone-redundant vSwitch IDs.
-   * When RedundancyType is set to ZRS, this parameter is required. You must specify three vSwitch IDs from three different zones.
+   * If RedundancyType is set to ZRS, this parameter is required. You must specify three vSwitch IDs from three different zones.
    * 
    * **if can be null:**
    * true
@@ -264,7 +264,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * The snapshot ID.
    * 
    * This parameter is supported only for Extreme NAS file systems with the advanced storage type.
-   * > A file system created from a snapshot has the same version as the source file system of the snapshot. For example, if the source file system version is 1 and you want to create a version 2 file system, first create file system A from the snapshot, then create file system B that meets version 2 configurations, copy data from file system A to file system B, and migrate your workloads to file system B after the copy is complete.
+   * > A file system created from a snapshot has the same version as the source file system of the snapshot. For example, if the source file system version is 1 and you want to create a version 2 file system, first create file system A from the snapshot, then create file system B that meets the version 2 configuration, copy the data from file system A to file system B, and migrate your workloads to file system B after the copy is complete.
    * 
    * @example
    * s-extreme-snapsho****
@@ -297,7 +297,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * The vSwitch ID.
    * 
    * - If FileSystemType is set to cpfs, this parameter is required.
-   * - If FileSystemType is not set to cpfs, this parameter is reserved for future use and does not take effect. You do not need to configure it.
+   * - If FileSystemType is not set to cpfs, this parameter is reserved and does not take effect. You do not need to configure it.
    * 
    * @example
    * vsw-bp131dkqilvw5pnlt****
@@ -308,7 +308,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * The VPC ID.
    * 
    * - If FileSystemType is set to cpfs or cpfsse, this parameter is required.
-   * - If FileSystemType is set to standard or extreme, this parameter is reserved for future use and does not take effect. You do not need to configure it.
+   * - If FileSystemType is set to standard or extreme, this parameter is reserved and does not take effect. You do not need to configure it.
    * 
    * @example
    * vpc-bp18cx9a7zoh0h9b4****
@@ -318,14 +318,14 @@ export class CreateFileSystemRequest extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * A zone is an independent physical area within a region that has its own power supply and network.
+   * A zone is a physical area with independent power grids and networks within a region.
    * 
-   * If FileSystemType is set to standard, this parameter is optional. By default, an active zone that meets the conditional requirements is randomly selected based on ProtocolType and StorageType.
+   * If FileSystemType is set to standard, this parameter is optional. By default, an active zone that meets the conditional ProtocolType and StorageType configurations is randomly selected.
    * 
    * If FileSystemType is set to extreme or cpfs, this parameter is required.
    * 
-   * >  - File systems and Elastic Compute Service (ECS) instances in different zones within the same region can communicate with each other.
-   * >  - The file system and the ECS instance should reside in the same zone to avoid cross-zone latency.
+   * > - File systems and Elastic Computing Service (ECS) servers in different zones within the same region can communicate with each other.
+   * > - Place the file system and the Elastic Computing Service (ECS) server in the same zone to avoid cross-zone latency.
    * 
    * @example
    * cn-hangzhou-b

@@ -13,7 +13,7 @@ export class ListRecentlyRecycledDirectoriesResponseBodyEntries extends $dara.Mo
   fileId?: string;
   /**
    * @remarks
-   * The most recent time when a delete operation was performed on the directory. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the most recent delete operation was performed on the directory. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2021-05-30T10:08:08Z
@@ -72,7 +72,7 @@ export class ListRecentlyRecycledDirectoriesResponseBody extends $dara.Model {
    * @remarks
    * The pagination token for the next page.
    * 
-   * If the query results are not completely returned, the NextToken parameter is returned with a value. You can specify the NextToken value in the next request to continue the query.
+   * If a single query does not return all directories, the NextToken parameter is returned with a value. You can specify a valid NextToken value in subsequent requests to continue the query.
    * 
    * @example
    * 1256****25

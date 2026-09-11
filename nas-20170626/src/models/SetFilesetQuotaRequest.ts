@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetFilesetQuotaRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
    * 
    * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
@@ -17,12 +17,11 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for this request.
-   * A dry run checks parameter validity and dependencies without actually deleting the instance or incurring charges.
+   * Specifies whether to perform a dry run for this request. A dry run checks parameter validity and dependencies without actually deleting the instance or incurring fees.
    * 
    * Valid values:
    * 
-   * - true: Sends a check request without deleting the export directory. The check items include whether required parameters are specified, the request format, and business limit dependencies. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned.
+   * - true: Sends a dry run request without deleting the export directory. The check items include required parameters, request format, and business limit dependencies. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned.
    * 
    * - false (default): Sends a normal request. After the check passes, the instance is directly deleted.
    * 
@@ -32,7 +31,7 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The file count limit of the quota. Valid values:
+   * The file count limit for the quota. Valid values:
    * 
    * - Minimum value: 10,000.
    * 
@@ -47,6 +46,8 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the CPFS for Lingjun file system. The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****. You can call [DescribeFileSystems](https://www.alibabacloud.com/help/en/nas/developer-reference/api-nas-2017-06-26-describefilesystems) (FileSystemType=bmcpfs) to query existing file systems.
+   * 
+   * > CPFS for Lingjun file systems with the bmcpfs- prefix cannot be created by calling the CreateFileSystem operation. You must create them in the console.
    * 
    * This parameter is required.
    * 
@@ -66,7 +67,7 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   fsetId?: string;
   /**
    * @remarks
-   * The total capacity limit of the quota. Unit: bytes.
+   * The total capacity limit for the quota. Unit: bytes.
    * 
    * Valid values:
    * 

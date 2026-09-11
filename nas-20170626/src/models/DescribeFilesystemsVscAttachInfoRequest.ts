@@ -45,7 +45,7 @@ export class DescribeFilesystemsVscAttachInfoRequestResourceIds extends $dara.Mo
 export class DescribeFilesystemsVscAttachInfoRequestRoleChain extends $dara.Model {
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account, which specifies the account on whose behalf the service assumes the role.
+   * The UID of the Alibaba Cloud account (primary account), which specifies the account on whose behalf the service assumes the role.
    * 
    * @example
    * 101522855006****
@@ -95,7 +95,7 @@ export class DescribeFilesystemsVscAttachInfoRequestRoleChain extends $dara.Mode
 export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of results for each query.
+   * The number of results returned per query.
    * 
    * Valid values: 10 to 100.
    * Default value: 10.
@@ -106,7 +106,7 @@ export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned in the previous API call.
+   * The query token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=

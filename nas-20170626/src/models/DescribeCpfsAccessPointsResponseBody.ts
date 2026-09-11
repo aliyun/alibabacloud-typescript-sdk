@@ -17,9 +17,9 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPointsRootDirectory exten
    * 
    * Valid values:
    * 
-   * - Unknown: The root path status is unknown.
-   * - NotExist: The root path does not exist. It may have been deleted by the user.
-   * - Ready: The root path status is normal.
+   * - Unknown: the root path status is unknown.
+   * - NotExist: the root path does not exist. It may have been deleted by the user.
+   * - Ready: the root path status is normal.
    * 
    * @example
    * Ready
@@ -36,6 +36,46 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPointsRootDirectory exten
     return {
       rootPath: 'string',
       rootPathStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCpfsAccessPointsResponseBodyAccessPointsTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the CPFS access point tag.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the CPFS access point tag.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -116,17 +156,22 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Mode
    * 
    * Valid values:
    * 
-   * - Active: available
-   * - Inactive: unavailable
-   * - Pending: being created
-   * - Deleting: being deleted
+   * - Active: available.
+   * - Inactive: unavailable.
+   * - Pending: being created.
+   * - Deleting: being deleted.
    * 
-   * > The file system can be mounted only when the status is Active.
+   * > You can mount the file system only when the status is Active.
    * 
    * @example
    * Active
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of CPFS access point tags.
+   */
+  tags?: DescribeCpfsAccessPointsResponseBodyAccessPointsTags[];
   static names(): { [key: string]: string } {
     return {
       ARN: 'ARN',
@@ -138,6 +183,7 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Mode
       regionId: 'RegionId',
       rootDirectory: 'RootDirectory',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -152,12 +198,16 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Mode
       regionId: 'string',
       rootDirectory: DescribeCpfsAccessPointsResponseBodyAccessPointsRootDirectory,
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeCpfsAccessPointsResponseBodyAccessPointsTags },
     };
   }
 
   validate() {
     if(this.rootDirectory && typeof (this.rootDirectory as any).validate === 'function') {
       (this.rootDirectory as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

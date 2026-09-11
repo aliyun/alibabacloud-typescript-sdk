@@ -8,7 +8,7 @@ export class CreateLifecyclePolicyRequestDeleteRules extends $dara.Model {
    * The rule attribute.
    * 
    * Valid values:
-   * - Atime: the access time of the file.
+   * - Atime: the last access time of the file.
    * 
    * @example
    * Atime
@@ -19,7 +19,7 @@ export class CreateLifecyclePolicyRequestDeleteRules extends $dara.Model {
    * The rule threshold.
    * 
    * Valid values:
-   * - When Attribute is set to Atime, this parameter specifies the number of days that the file has not been accessed. Valid values: 1 to 365.
+   * - When Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 1 to 365.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class CreateLifecyclePolicyRequestTransitRules extends $dara.Model {
    * The rule attribute.
    * 
    * Valid values:
-   * - Atime: the access time of the file.
+   * - Atime: the last access time of the file.
    * 
    * @example
    * Atime
@@ -109,7 +109,7 @@ export class CreateLifecyclePolicyRequestTransitRules extends $dara.Model {
    * The rule threshold.
    * 
    * Valid values:
-   * - When Attribute is set to Atime, this parameter specifies the number of days that the file has not been accessed. Valid values: 0 to 365.
+   * - When Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 0 to 365.
    * 
    * @example
    * 3
@@ -170,7 +170,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * @remarks
    * The lifecycle management policy name. The name must be 3 to 64 characters in length, start with an uppercase letter or lowercase letter, and can contain letters, digits, underscores (_), or hyphens (-).
    * 
-   * >This parameter is required for General-purpose NAS but not required for CPFS for Lingjun.
+   * >Required for General-purpose NAS. Not required for CPFS for Lingjun.
    * 
    * @example
    * lifecyclepolicy_01
@@ -210,7 +210,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * 
    * - General-purpose NAS supports associating only a single directory. The path must start with a forward slash (/) and must be an existing path in the mount target.
    * 
-   * > Only General-purpose NAS is supported. For General-purpose NAS, use Paths.N to associate multiple directories at the same time.
+   * > Only General-purpose NAS is supported. For General-purpose NAS, use Paths.N instead to associate multiple directories at the same time.
    * >- Only one of Path and Paths can be specified.
    * 
    * @example
@@ -237,7 +237,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * @remarks
    * The storage tiering type.
    * - InfrequentAccess: IA storage class.
-   * - Archive: Archive storage.
+   * - Archive: Archive storage class.
    * 
    * >General-purpose NAS supports InfrequentAccess and Archive. CPFS for Lingjun supports only InfrequentAccess.
    * 
@@ -251,7 +251,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * @remarks
    * The file data transit rules. You can configure up to one rule.
    * 
-   * >This parameter is supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
+   * >Supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
    */
   transitRules?: CreateLifecyclePolicyRequestTransitRules[];
   static names(): { [key: string]: string } {

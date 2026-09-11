@@ -7,7 +7,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
    * @remarks
    * The time when the task was created.
    * 
-   * The time follows the ISO 8601 standard in the format of `yyyy-MM-ddTHH:mm:ssZ`.
+   * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
    * 2021-02-30T10:08:08Z
@@ -44,7 +44,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   paths?: string[];
   /**
    * @remarks
-   * The number of files successfully retrieved by the data retrieval task.
+   * The number of files that are successfully retrieved by the data retrieval task.
    * 
    * @example
    * 80
@@ -53,10 +53,10 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   /**
    * @remarks
    * The status of the data retrieval task. Valid values:
-   * - active: running.
-   * - canceled: canceled.
-   * - completed: completed.
-   * - failed: failed.
+   * - active: Running.
+   * - canceled: Canceled.
+   * - completed: Completed.
+   * - failed: Failed.
    * 
    * @example
    * completed
@@ -66,7 +66,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
    * @remarks
    * The storage class. Valid values:
    * - InfrequentAccess: IA storage class.
-   * - Archive: Archive storage class.
+   * - Archive: Archive storage.
    * 
    * @example
    * InfrequentAccess
@@ -76,7 +76,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
    * @remarks
    * The time when the task was last updated.
    * 
-   * The time follows the ISO 8601 standard in the format of `yyyy-MM-ddTHH:mm:ssZ`.
+   * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
    * 2021-02-30T11:08:08Z

@@ -32,6 +32,46 @@ export class CreateCpfsAccessPointRequestRootDirectory extends $dara.Model {
   }
 }
 
+export class CreateCpfsAccessPointRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * testKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * testValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCpfsAccessPointRequest extends $dara.Model {
   /**
    * @remarks
@@ -39,7 +79,8 @@ export class CreateCpfsAccessPointRequest extends $dara.Model {
    * 
    * Limits:
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter.It cannot start with http:// or https://.
+   * - The description must start with a letter.
+   * - The description cannot start with http:// or https://.
    * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
@@ -50,9 +91,9 @@ export class CreateCpfsAccessPointRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+   * - Cloud Parallel File Storage (CPFS): must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
    * 
-   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+   * - CPFS for Lingjun: must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
    * 
    * This parameter is required.
    * 
@@ -75,12 +116,18 @@ export class CreateCpfsAccessPointRequest extends $dara.Model {
    * The root directory of the access point. Default value: "/".
    */
   rootDirectory?: CreateCpfsAccessPointRequestRootDirectory;
+  /**
+   * @remarks
+   * The list of tags for the CPFS access point.
+   */
+  tag?: CreateCpfsAccessPointRequestTag[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       fileSystemId: 'FileSystemId',
       regionId: 'RegionId',
       rootDirectory: 'RootDirectory',
+      tag: 'Tag',
     };
   }
 
@@ -90,12 +137,16 @@ export class CreateCpfsAccessPointRequest extends $dara.Model {
       fileSystemId: 'string',
       regionId: 'string',
       rootDirectory: CreateCpfsAccessPointRequestRootDirectory,
+      tag: { 'type': 'array', 'itemType': CreateCpfsAccessPointRequestTag },
     };
   }
 
   validate() {
     if(this.rootDirectory && typeof (this.rootDirectory as any).validate === 'function') {
       (this.rootDirectory as any).validate();
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }

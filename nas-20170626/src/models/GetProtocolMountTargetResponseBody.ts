@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission group.
+   * The permission group name.
    * 
-   * Default permission group: DEFAULT\_VPC\_GROUP\_NAME
+   * Default permission group: DEFAULT_VPC_GROUP_NAME.
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -15,7 +15,8 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   accessGroupName?: string;
   /**
    * @remarks
-   * The time when the export directory was created. Return format: yyyy-MM-dd HH:mm:ss
+   * The creation time.
+   * Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
    * 2025-12-22 17:49:25
@@ -23,15 +24,15 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   createTime?: string;
   /**
    * @remarks
-   * The description of the export directory.
+   * The description of the protocol service export.
    * 
    * @example
-   * 此协议服务导出的描述。
+   * Description of this protocol service export
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the export directory.
+   * The export directory ID.
    * 
    * @example
    * exp-19abf5beab8d****
@@ -39,7 +40,7 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   exportId?: string;
   /**
    * @remarks
-   * The fileset ID.
+   * Fileset ID。
    * 
    * @example
    * fset-299b4ca04de8****
@@ -47,13 +48,12 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   fsetId?: string;
   /**
    * @remarks
-   * The path of the CPFS directory that was queried.
+   * The path of the queried CPFS directory.
    * 
    * Format:
-   * 
-   * *   Must be 1 to 1,024 characters in length.
-   * *   Must be encoded in UTF-8.
-   * *   Must start and end with a forward slash (/). The root directory is `/`.
+   * - The path is 1 to 1,024 characters in length.
+   * - The path is encoded in UTF-8.
+   * - The path must start and end with a forward slash (/). The root directory is `/`.
    * 
    * @example
    * /
@@ -61,7 +61,7 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   path?: string;
   /**
    * @remarks
-   * The domain name of the export directory for the protocol service.
+   * The domain name of the protocol service export directory.
    * 
    * @example
    * cpfs-0229cb80bcc0****-x******.cn-*****.cpfs.aliyuncs.com
@@ -73,9 +73,9 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
    * 
    * Valid values:
    * 
-   * *   NFS: Network File System (NFS)
-   * *   SMB: Server Message Block (SMB)
-   * *   cpfs: The protocol type supported by the CPFS file system.
+   * - NFS: NFS protocol
+   * - SMB: SMB protocol
+   * - cpfs: the protocol type supported by CPFS file systems
    * 
    * @example
    * NFS
@@ -83,13 +83,12 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   protocolType?: string;
   /**
    * @remarks
-   * The status of the export directory. Valid values:
-   * 
-   * *   CREATING: The export directory is being created.
-   * *   AVAILABLE : The export directory is available.
-   * *   MODIFYING: The export directory is being modified.
-   * *   DELETING: The export directory is being deleted.
-   * *   STOPPING: The export directory is being stopped.
+   * The status of the protocol service export directory. Valid values:
+   * - CREATING: Being created.
+   * - AVAILABLE: Available.
+   * - MODIFYING: Being modified.
+   * - DELETING: Being deleted.
+   * - STOPPING: Being stopped.
    * 
    * @example
    * AVAILABLE
@@ -97,7 +96,7 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID of the export directory.
+   * The vSwitch ID of the protocol service export.
    * 
    * @example
    * vsw-8vb2qjnxs6hiobzve****
@@ -105,12 +104,12 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   vSwitchId?: string;
   /**
    * @remarks
-   * The vSwitch ID list of the export directory.
+   * The list of vSwitch IDs of the protocol service export.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID of the export directory.
+   * The virtual private cloud (VPC) ID of the protocol service export.
    * 
    * @example
    * vpc-bp1h5mxoqfuo3xurf****
@@ -165,7 +164,7 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
 export class GetProtocolMountTargetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * If the response is truncated, you can use NextToken to send a subsequent request to retrieve the content after the current truncation point.
    * 
    * @example
    * M18xMA==
@@ -173,7 +172,7 @@ export class GetProtocolMountTargetResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Information of the export directory for the protocol service
+   * The export directory information of the protocol service.
    */
   protocolMountTarget?: GetProtocolMountTargetResponseBodyProtocolMountTarget;
   /**

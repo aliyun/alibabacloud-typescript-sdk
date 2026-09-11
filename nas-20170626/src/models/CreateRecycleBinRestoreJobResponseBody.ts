@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecycleBinRestoreJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * rb-10****491ff-r-162****165400

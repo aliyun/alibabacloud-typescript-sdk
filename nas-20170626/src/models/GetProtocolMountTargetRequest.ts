@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetProtocolMountTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-generated, case-sensitive token that you can use to ensure the idempotency of the request. The token must be unique for each request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
    * 
-   * It must be an ASCII string with a maximum length of 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -17,7 +17,11 @@ export class GetProtocolMountTargetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the export directory for the protocol service.
+   * The export directory ID of the protocol service. **Required**.
+   * 
+   * **How to obtain**:
+   * - Call [CreateProtocolMountTarget](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-createprotocolmounttarget-cpfs) to create an export directory and obtain the ExportId from the response.
+   * - Or call [DescribeProtocolMountTarget](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describeprotocolmounttarget-cpfs) to query the list of export directories and obtain the ExportId from the response.
    * 
    * This parameter is required.
    * 
@@ -27,11 +31,12 @@ export class GetProtocolMountTargetRequest extends $dara.Model {
   exportId?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
-   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
-   * *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
-   * *   The IDs of CPFS SE file systems must start with `cpfsse-`. Example: cpfsse-022c71b134\\*\\*\\*\\*.
+   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+   * 
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+   * - CPFS SE: The ID must start with `cpfsse-`, such as cpfsse-022c71b134\\*\\*\\*\\*.
    * 
    * This parameter is required.
    * 
@@ -41,7 +46,7 @@ export class GetProtocolMountTargetRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The number of results for each query.
+   * The maximum number of results to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -51,7 +56,7 @@ export class GetProtocolMountTargetRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * If the response is truncated, you can use NextToken to send a subsequent request to retrieve the content after the current truncation point.
    * 
    * @example
    * M18xMA==
@@ -59,7 +64,9 @@ export class GetProtocolMountTargetRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the protocol service.
+   * The protocol service ID. **Required**.
+   * 
+   * **How to obtain**: Call the [DescribeProtocolService](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describeprotocolservice-cpfs) operation to query the list of protocol services and obtain the ProtocolServiceId from the response.
    * 
    * This parameter is required.
    * 

@@ -63,7 +63,7 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
    * @remarks
    * The file size. Unit: bytes.
    * 
-   * If Type is set to Directory, the value 0 is returned.
+   * When Type is set to Directory, the value 0 is returned.
    * 
    * @example
    * 1073741824
@@ -120,14 +120,14 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
 export class ListRecycledDirectoriesAndFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about files or directories in the recycle bin.
+   * The collection of files or directories in the recycle bin.
    */
   entries?: ListRecycledDirectoriesAndFilesResponseBodyEntries[];
   /**
    * @remarks
    * The pagination token for the next page.
    * 
-   * If a single query does not return all files and directories, a non-empty NextToken is returned. You can specify the correct NextToken in subsequent queries to continue listing.
+   * If a single query does not return all files and directories, a non-empty NextToken is returned. You can pass the correct NextToken in subsequent queries to continue retrieving results.
    * 
    * @example
    * None

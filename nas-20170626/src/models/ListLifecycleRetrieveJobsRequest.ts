@@ -36,10 +36,10 @@ export class ListLifecycleRetrieveJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the data retrieval task. Valid values:
-   * - active: running.
-   * - canceled: canceled.
-   * - completed: completed.
-   * - failed: failed.
+   * - active: Running.
+   * - canceled: Canceled.
+   * - completed: Completed.
+   * - failed: Failed.
    * 
    * @example
    * completed
@@ -49,7 +49,7 @@ export class ListLifecycleRetrieveJobsRequest extends $dara.Model {
    * @remarks
    * The storage class. Valid values:
    * - InfrequentAccess: IA storage class.
-   * - Archive: Archive storage class.
+   * - Archive: Archive storage.
    * > If StorageType is not specified, data retrieval tasks of all storage classes are returned.
    * 
    * @example

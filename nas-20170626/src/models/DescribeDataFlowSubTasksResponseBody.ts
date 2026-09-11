@@ -161,7 +161,7 @@ export class DescribeDataFlowSubTasksResponseBody extends $dara.Model {
   dataFlowSubTask?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTask;
   /**
    * @remarks
-   * If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation point.
+   * If the response is truncated, you can use NextToken to send a subsequent request to retrieve the remaining content from the point of truncation.
    * 
    * @example
    * pUJaUwAAAABhdGUyNTk1MQ==
