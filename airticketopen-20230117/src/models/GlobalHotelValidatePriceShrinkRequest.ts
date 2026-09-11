@@ -15,7 +15,7 @@ export class GlobalHotelValidatePriceShrinkRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
-   * The number of adults per room.
+   * The total number of adults.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GlobalHotelValidatePriceShrinkRequest extends $dara.Model {
   adults?: number;
   /**
    * @remarks
-   * The number of children per room.
+   * The total number of children.
    * 
    * @example
    * 0
@@ -33,7 +33,7 @@ export class GlobalHotelValidatePriceShrinkRequest extends $dara.Model {
   children?: number;
   /**
    * @remarks
-   * The list of children ages.
+   * The list of children\\"s ages.
    * 
    * @example
    * [8]

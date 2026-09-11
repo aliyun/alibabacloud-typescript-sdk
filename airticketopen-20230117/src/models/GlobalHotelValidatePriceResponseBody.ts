@@ -21,7 +21,7 @@ export class GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalti
   end?: string;
   /**
    * @remarks
-   * The penalty type (PERCENT/NIGHTS/NON_CANCELLABLE).
+   * The penalty type.
    * 
    * @example
    * PERCENTAGE
@@ -29,7 +29,7 @@ export class GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalti
   penaltyType?: string;
   /**
    * @remarks
-   * The penalty value (percentage, amount, or number of nights). This field is not present when PenaltyType is NON_CANCELLABLE.
+   * The penalty value, which represents a percentage, amount, or number of nights.
    * 
    * @example
    * 50
@@ -90,7 +90,7 @@ export class GlobalHotelValidatePriceResponseBodyDataCancellationPolicies extend
   penalties?: GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalties[];
   /**
    * @remarks
-   * The cancellation policy type (FREE_CANCEL/CONDITIONAL/NON_REFUNDABLE).
+   * The cancellation policy type.
    * 
    * @example
    * FREE_CANCELLATION
@@ -143,7 +143,7 @@ export class GlobalHotelValidatePriceResponseBodyDataDailyPricesPrice extends $d
   amount?: string;
   /**
    * @remarks
-   * The currency code (ISO 4217).
+   * The currency code in ISO 4217 format.
    * 
    * @example
    * USD
@@ -185,7 +185,7 @@ export class GlobalHotelValidatePriceResponseBodyDataDailyPricesPrice extends $d
 export class GlobalHotelValidatePriceResponseBodyDataDailyPrices extends $dara.Model {
   /**
    * @remarks
-   * The date in yyyy-MM-dd format, in the local time zone of the hotel.
+   * The date in yyyy-MM-dd format, based on the hotel\\"s local time zone.
    * 
    * @example
    * 2026-08-16
@@ -243,7 +243,7 @@ export class GlobalHotelValidatePriceResponseBodyDataTotalPrice extends $dara.Mo
   amount?: string;
   /**
    * @remarks
-   * The currency code (ISO 4217).
+   * The currency code in ISO 4217 format.
    * 
    * @example
    * USD
@@ -295,7 +295,7 @@ export class GlobalHotelValidatePriceResponseBodyData extends $dara.Model {
   dailyPrices?: GlobalHotelValidatePriceResponseBodyDataDailyPrices[];
   /**
    * @remarks
-   * The price validation result ID, used for subsequent order creation.
+   * The price validation result ID, which is used for subsequent order creation.
    * 
    * @example
    * itemOffer_123
@@ -384,7 +384,7 @@ export class GlobalHotelValidatePriceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -269,6 +269,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
    * 32Q
    */
   equipType?: string;
+  fareBasis?: string;
   /**
    * @remarks
    * The flight duration in minutes.
@@ -356,6 +357,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
       departureTerminal: 'departure_terminal',
       departureTime: 'departure_time',
       equipType: 'equip_type',
+      fareBasis: 'fare_basis',
       flightDuration: 'flight_duration',
       marketingAirline: 'marketing_airline',
       marketingFlightNo: 'marketing_flight_no',
@@ -383,6 +385,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
       departureTerminal: 'string',
       departureTime: 'string',
       equipType: 'string',
+      fareBasis: 'string',
       flightDuration: 'number',
       marketingAirline: 'string',
       marketingFlightNo: 'string',
