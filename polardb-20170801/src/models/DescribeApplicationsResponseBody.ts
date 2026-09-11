@@ -120,6 +120,11 @@ export class DescribeApplicationsResponseBodyItemsApplicationsTags extends $dara
 export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Model {
   applicationId?: string;
   applicationType?: string;
+  /**
+   * @example
+   * br-1db52a73dc8545f19a47a3f1d8
+   */
+  branchId?: string;
   creationTime?: string;
   /**
    * @example
@@ -141,6 +146,7 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
     return {
       applicationId: 'ApplicationId',
       applicationType: 'ApplicationType',
+      branchId: 'BranchId',
       creationTime: 'CreationTime',
       DBClusterId: 'DBClusterId',
       description: 'Description',
@@ -161,6 +167,7 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
     return {
       applicationId: 'string',
       applicationType: 'string',
+      branchId: 'string',
       creationTime: 'string',
       DBClusterId: 'string',
       description: 'string',
@@ -219,14 +226,10 @@ export class DescribeApplicationsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeApplicationsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Contains the returned applications.
-   */
   items?: DescribeApplicationsResponseBodyItems;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -234,7 +237,7 @@ export class DescribeApplicationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 1
@@ -250,7 +253,7 @@ export class DescribeApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total record count.
+   * The total number of entries.
    * 
    * @example
    * 1

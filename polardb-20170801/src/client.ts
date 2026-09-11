@@ -12453,7 +12453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the list of applications for all PolarDB instances in a specified region.
+   * Retrieves the list of applications for all PolarDB instances in a specified region.
    * 
    * @param request - DescribeApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12508,7 +12508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the list of applications for all PolarDB instances in a specified region.
+   * Retrieves the list of applications for all PolarDB instances in a specified region.
    * 
    * @param request - DescribeApplicationsRequest
    * @returns DescribeApplicationsResponse
@@ -25743,7 +25743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation modifies the properties of a PolarDB cluster endpoint. You can configure settings such as the read/write mode, automatic node addition, consistency level, transaction splitting, the connection pool, and whether the primary node accepts read requests.
+   * Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
    * 
    * @param request - ModifyDBClusterEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25826,7 +25826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation modifies the properties of a PolarDB cluster endpoint. You can configure settings such as the read/write mode, automatic node addition, consistency level, transaction splitting, the connection pool, and whether the primary node accepts read requests.
+   * Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
    * 
    * @param request - ModifyDBClusterEndpointRequest
    * @returns ModifyDBClusterEndpointResponse
@@ -30467,7 +30467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves knowledge base search results.
+   * Retrieves information from a knowledge base.
    * 
    * @param request - RetrievalKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30518,7 +30518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves knowledge base search results.
+   * Retrieves information from a knowledge base.
    * 
    * @param request - RetrievalKnowledgeBaseRequest
    * @returns RetrievalKnowledgeBaseResponse

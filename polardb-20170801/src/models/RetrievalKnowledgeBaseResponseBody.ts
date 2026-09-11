@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetrievalKnowledgeBaseResponseBodyResultsImageResources extends $dara.Model {
   /**
    * @remarks
-   * The index of the source document that the image belongs to, starting from 0.
+   * The index of the source document to which the image belongs, starting from 0.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class RetrievalKnowledgeBaseResponseBodyResultsImageResources extends $da
   documentIndex?: number;
   /**
    * @remarks
-   * The unique ID of the image resource.
+   * The unique identifier of the image resource.
    * 
    * @example
    * document-0/pictures/1
@@ -80,12 +80,12 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   captions?: string[];
   /**
    * @remarks
-   * The list of Docling source document structured element references associated with the chunk. You can use these references to precisely locate original elements.
+   * The list of Docling source document structured element references associated with the chunk. You can use these references to precisely locate elements in the original document.
    */
   docItems?: string[];
   /**
    * @remarks
-   * The unique ID of the file.
+   * The unique identifier of the file.
    * 
    * @example
    * 91b97b71-xxxx-xxxx-xxxx-33c6a6341cdc
@@ -101,7 +101,7 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The chain of section headings that the chunk belongs to.
+   * The chain of section headings to which the chunk belongs.
    */
   headings?: string[];
   /**
@@ -119,7 +119,7 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The list of page numbers that the chunk belongs to.
+   * The list of page numbers to which the chunk belongs.
    */
   pageNumbers?: number[];
   /**

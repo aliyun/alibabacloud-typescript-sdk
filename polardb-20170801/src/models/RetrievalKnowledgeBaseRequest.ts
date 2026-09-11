@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class RetrievalKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The unique identifier of the knowledge base. You can specify multiple knowledge bases separated by commas. A maximum of 50 knowledge bases can be specified.
    * 
    * This parameter is required.
    * 
    * @example
-   * pkb-xxxxx
+   * pkb-1xxxxx,pkb-2xxxxx
    */
   knowledgeBaseId?: string;
   /**

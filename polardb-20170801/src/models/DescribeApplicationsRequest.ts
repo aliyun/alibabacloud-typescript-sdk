@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * testKey
@@ -13,7 +13,7 @@ export class DescribeApplicationsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * testValue
@@ -45,16 +45,20 @@ export class DescribeApplicationsRequestTag extends $dara.Model {
 export class DescribeApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of application IDs. If specified, this operation returns information only about the specified applications.
+   * The list of application IDs. If specified, only information about these applications is returned.
    * 
    * @example
    * pa-**************
    */
   applicationIds?: string;
+  /**
+   * @remarks
+   * The application engine filter.
+   */
   applicationTypes?: string;
   /**
    * @remarks
-   * The ID of the PolarDB instance. If specified, this operation returns information only about applications associated with this instance.
+   * The PolarDB instance ID. If specified, only application information related to this PolarDB instance is returned.
    * 
    * @example
    * pc-**************
@@ -70,13 +74,10 @@ export class DescribeApplicationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * The number of entries per page. Valid values:
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: **30**.
    * 
@@ -86,7 +87,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -96,7 +97,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A list of tags. A tag is a key-value pair.
+   * The tags.
    */
   tag?: DescribeApplicationsRequestTag[];
   static names(): { [key: string]: string } {
