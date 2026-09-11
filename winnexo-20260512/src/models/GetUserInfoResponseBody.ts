@@ -100,7 +100,7 @@ export class GetUserInfoResponseBody extends $dara.Model {
   isAdmin?: boolean;
   /**
    * @remarks
-   * Indicates whether the current logon tenant is the system tenant (tenantId=10000).
+   * Indicates whether the current logon tenant is a system tenant (tenantId=10000).
    * 
    * @example
    * true
@@ -132,7 +132,7 @@ export class GetUserInfoResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The user service description. Maximum length: 1000 characters.
+   * The user service description. The value can be up to 1000 characters in length.
    * 
    * @example
    * string_value
@@ -140,7 +140,7 @@ export class GetUserInfoResponseBody extends $dara.Model {
   offering?: string;
   /**
    * @remarks
-   * The parsed result of the user service (JSON format).
+   * The parsed result of the user service description in JSON format.
    * 
    * @example
    * string_value
@@ -172,7 +172,7 @@ export class GetUserInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The user self-introduction. Maximum length: 1000 characters.
+   * The user self-introduction. The value can be up to 1000 characters in length.
    * 
    * @example
    * string_value

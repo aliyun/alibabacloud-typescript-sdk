@@ -81,6 +81,14 @@ export class CreatePersonalFileRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
+   * 资源标签 JSON 字符串列表
+   * 
+   * @example
+   * ["重点","文件"]
+   */
+  sourceTags?: string;
+  /**
+   * @remarks
    * The tenant ID.
    * 
    * @example
@@ -98,6 +106,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
       fileRecordId: 'fileRecordId',
       name: 'name',
       operatingObjectName: 'operatingObjectName',
+      sourceTags: 'sourceTags',
       tenantId: 'tenantId',
     };
   }
@@ -113,6 +122,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
       fileRecordId: 'string',
       name: 'string',
       operatingObjectName: 'string',
+      sourceTags: 'string',
       tenantId: 'string',
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of resources to return. If not specified, the default value is 20. The maximum value is 100. The actual number of returned results may be less than the specified value but will not exceed it.
+   * The maximum number of resources to return. If not specified, the default value is 20. The maximum value is 100. The number of returned results may be less than the specified value but will not exceed it.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class GetChatSessionRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The session ID to filter by. If specified, all Active/Expired status information associated with this session is returned.
+   * The SessionId value to filter by. If specified, all Active/Expired status information associated with this session is returned.
    * 
    * This parameter is required.
    * 

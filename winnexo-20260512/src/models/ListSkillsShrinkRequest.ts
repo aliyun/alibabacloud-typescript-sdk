@@ -32,7 +32,7 @@ export class ListSkillsShrinkRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The digital employee name. Used to calculate the CodeAgent allowedSkills whitelist based on binding relationships.
+   * The name of the digital employee. Used to calculate the CodeAgent allowedSkills whitelist based on binding relationships.
    * 
    * @example
    * 11111

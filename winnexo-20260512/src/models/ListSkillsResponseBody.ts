@@ -53,7 +53,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The actual skill code for execution.
+   * The skill code that is actually executed.
    * 
    * @example
    * string_value
@@ -85,7 +85,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The key.
+   * The keys.
    * 
    * @example
    * string_value

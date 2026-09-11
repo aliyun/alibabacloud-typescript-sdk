@@ -63,7 +63,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The enterprise knowledge base directory ID.
+   * The ID of the enterprise knowledge base directory.
    * 
    * @example
    * exampleDirectoryId
@@ -71,7 +71,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The number of resources successfully enqueued for retry.
+   * The number of data sources successfully enqueued for retry.
    * 
    * @example
    * 1
@@ -116,7 +116,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of resources skipped (not in FAILED status).
+   * The number of data sources skipped because they are not in FAILED status.
    * 
    * @example
    * 1

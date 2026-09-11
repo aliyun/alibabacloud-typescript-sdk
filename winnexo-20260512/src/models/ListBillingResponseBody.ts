@@ -69,7 +69,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   entryObjectType?: string;
   /**
    * @remarks
-   * Indicates whether this is a shadow bill.
+   * Indicates whether the bill is a shadow bill.
    * 
    * @example
    * true
@@ -101,7 +101,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task status. The status is returned as Running upon submission.
+   * The node status. Running is returned upon submission.
    * 
    * @example
    * READY
@@ -209,7 +209,7 @@ export class ListBillingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the bill list.
+   * The details of the bills.
    */
   list?: ListBillingResponseBodyList[];
   /**
@@ -246,7 +246,7 @@ export class ListBillingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of bills.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * The semantic graph name to which the object belongs. The object_id is unique within this graph.
+   * The name of the semantic graph to which the object belongs. The object_id is unique within this graph.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
   graphName?: string;
   /**
    * @remarks
-   * The ID of the recommended item, which can be a feedId or a micro-application ID.
+   * The ID of the recommended item, which can be a **feedId** or a micro-application ID.
    * 
    * @example
    * exampleObjectId
@@ -29,7 +29,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
   objectName?: string;
   /**
    * @remarks
-   * The object type, such as customer. This field has a value only when type is mention.
+   * The object type, such as customer. This field has a value when type is set to mention.
    * 
    * @example
    * string_value
@@ -144,7 +144,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   objectBindings?: ListAdminKnowledgeBasesResponseBodyItemsObjectBindings[];
   /**
    * @remarks
-   * The number of resources with FAILED status. This field is returned only for the top-level knowledge base directory list.
+   * The number of resources with the FAILED status. This field is returned only in the top-level knowledge base directory list.
    * 
    * @example
    * 1
@@ -152,7 +152,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceFailedCount?: number;
   /**
    * @remarks
-   * The knowledge base ownership type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
+   * The knowledge base source type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
    * 
    * @example
    * string_value
@@ -160,7 +160,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceKind?: string;
   /**
    * @remarks
-   * The number of resources with READY status. This field is returned only for the top-level knowledge base directory list.
+   * The number of resources with the READY status. This field is returned only in the top-level knowledge base directory list.
    * 
    * @example
    * 1
@@ -168,7 +168,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceReadyCount?: number;
   /**
    * @remarks
-   * The resource status. This field has a value only when itemType is resource.
+   * The resource status. This field has a value when itemType is set to resource.
    * 
    * @example
    * string_value
@@ -176,7 +176,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceStatus?: string;
   /**
    * @remarks
-   * The total number of resources in the directory and its subdirectories. This field is returned only for the top-level knowledge base directory list.
+   * The total number of resources in the directory and its subdirectories. This field is returned only in the top-level knowledge base directory list.
    * 
    * @example
    * 1
@@ -258,7 +258,7 @@ export class ListAdminKnowledgeBasesResponseBody extends $dara.Model {
   items?: ListAdminKnowledgeBasesResponseBodyItems[];
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * ok
@@ -290,7 +290,7 @@ export class ListAdminKnowledgeBasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of entries returned in this request.
    * 
    * @example
    * 1

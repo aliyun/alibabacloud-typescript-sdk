@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The user ID of the creator.
+   * The user ID of the task creator.
    * 
    * @example
    * 1
@@ -13,18 +13,18 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   creatorId?: number;
   /**
    * @remarks
-   * The name of the creator.
+   * The creator name.
    * 
    * @example
-   * John
+   * John Doe
    */
   creatorName?: string;
   /**
    * @remarks
-   * The description of the knowledge base.
+   * The description of the to-do card type.
    * 
    * @example
-   * Product materials and usage instructions
+   * Product materials and user guides
    */
   description?: string;
   /**
@@ -72,7 +72,7 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
    * The file name.
    * 
    * @example
-   * Product Knowledge Base
+   * ProductKnowledgeBase
    */
   name?: string;
   static names(): { [key: string]: string } {

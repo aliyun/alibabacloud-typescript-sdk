@@ -39,6 +39,14 @@ export class CreatePersonalTextRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
+   * 资源标签 JSON 字符串列表
+   * 
+   * @example
+   * ["重点","文本"]
+   */
+  sourceTags?: string;
+  /**
+   * @remarks
    * The tenant ID.
    * 
    * @example
@@ -61,6 +69,7 @@ export class CreatePersonalTextRequest extends $dara.Model {
       directoryId: 'directoryId',
       name: 'name',
       operatingObjectName: 'operatingObjectName',
+      sourceTags: 'sourceTags',
       tenantId: 'tenantId',
       textContent: 'textContent',
     };
@@ -72,6 +81,7 @@ export class CreatePersonalTextRequest extends $dara.Model {
       directoryId: 'string',
       name: 'string',
       operatingObjectName: 'string',
+      sourceTags: 'string',
       tenantId: 'string',
       textContent: 'string',
     };

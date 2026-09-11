@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalDingtalkMinutesRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the pipeline.
+   * The pipeline description.
    * 
    * @example
    * Sample description
@@ -47,7 +47,7 @@ export class CreatePersonalDingtalkMinutesRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The original Shanji link (required).
+   * The original Shanji note link (required).
    * 
    * This parameter is required.
    * 
@@ -55,6 +55,14 @@ export class CreatePersonalDingtalkMinutesRequest extends $dara.Model {
    * https://example.com/winnexo/resource
    */
   shanjiUrl?: string;
+  /**
+   * @remarks
+   * A list of resource tag JSON strings.
+   * 
+   * @example
+   * ["Important","Shanji"]
+   */
+  sourceTags?: string;
   /**
    * @remarks
    * The tenant ID.
@@ -71,6 +79,7 @@ export class CreatePersonalDingtalkMinutesRequest extends $dara.Model {
       notes: 'notes',
       operatingObjectName: 'operatingObjectName',
       shanjiUrl: 'shanjiUrl',
+      sourceTags: 'sourceTags',
       tenantId: 'tenantId',
     };
   }
@@ -83,6 +92,7 @@ export class CreatePersonalDingtalkMinutesRequest extends $dara.Model {
       notes: 'string',
       operatingObjectName: 'string',
       shanjiUrl: 'string',
+      sourceTags: 'string',
       tenantId: 'string',
     };
   }

@@ -70,7 +70,6 @@ export class CreatePersonalAliDingMeetingResponseBody extends $dara.Model {
   /**
    * @remarks
    * The signing status. Valid values:
-   * 
    * - CREATED: Created but not signed.
    * - SUCCESS: Signed.
    * - STOP: Terminated.

@@ -37,7 +37,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The task end time in ISO 8601 format. This parameter has a value only in desired states (Succeeded, Failed, or Cancelled).
+   * The task end time in ISO 8601 format. This parameter has a value only when the task is in a desired state (Succeeded, Failed, or Cancelled).
    * 
    * @example
    * string_value
@@ -50,7 +50,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   logs?: { [key: string]: any }[];
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * successful

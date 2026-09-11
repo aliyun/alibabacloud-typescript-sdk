@@ -13,7 +13,7 @@ export class UpdateUserInfoRequest extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * The language preference: zh-CN, en-US.
+   * The language preference: zh-CN or en-US.
    * 
    * @example
    * string_value
@@ -37,7 +37,7 @@ export class UpdateUserInfoRequest extends $dara.Model {
   offering?: string;
   /**
    * @remarks
-   * The user role description (used when profileRole is set to Others). Maximum length: 100 characters.
+   * The user role description. This parameter is used when profileRole is set to Others. Maximum length: 100 characters.
    * 
    * @example
    * string_value
@@ -53,7 +53,7 @@ export class UpdateUserInfoRequest extends $dara.Model {
   selfIntroduction?: string;
   /**
    * @remarks
-   * The effective tenant ID.
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

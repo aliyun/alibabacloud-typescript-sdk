@@ -29,7 +29,7 @@ export class ListPersonalDirectoryContentsResponseBodyItemsObjectBindings extend
   objectType?: string;
   /**
    * @remarks
-   * The display name of the object type, such as "Customer". This value is resolved from the graph schema. The value is null when the cache is missed.
+   * The display name of the object type, such as "Customer", resolved from the graph schema. The value is null when there is a cache miss.
    * 
    * @example
    * string_value
@@ -134,7 +134,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   objectBindings?: ListPersonalDirectoryContentsResponseBodyItemsObjectBindings[];
   /**
    * @remarks
-   * The number of resources in the FAILED state. This field is returned only when the top-level KB directory list is queried.
+   * The number of resources with the FAILED status. This parameter is returned only when the top-level KB directory is listed.
    * 
    * @example
    * 1
@@ -142,7 +142,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceFailedCount?: number;
   /**
    * @remarks
-   * The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document), normal (common knowledge).
+   * The knowledge base (KB) ownership type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
    * 
    * @example
    * string_value
@@ -150,7 +150,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceKind?: string;
   /**
    * @remarks
-   * The number of resources in the READY state. This field is returned only when the top-level KB directory list is queried.
+   * The number of resources with the READY status. This parameter is returned only when the top-level KB directory is listed.
    * 
    * @example
    * 1
@@ -158,7 +158,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceReadyCount?: number;
   /**
    * @remarks
-   * The resource status. This field has a value only when itemType is resource.
+   * The resource status. This parameter has a value only when itemType is resource.
    * 
    * @example
    * string_value
@@ -166,7 +166,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceStatus?: string;
   /**
    * @remarks
-   * The total number of resources under the directory and its subdirectories. This field is returned only when the top-level KB directory list is queried.
+   * The total number of resources under the directory and its subdirectories. This parameter is returned only when the top-level KB directory is listed.
    * 
    * @example
    * 1

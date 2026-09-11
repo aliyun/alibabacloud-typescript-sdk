@@ -45,7 +45,7 @@ export class UpdateUserInfoResponseBodyUserTenantList extends $dara.Model {
 export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * The user profile picture URL.
+   * The profile picture URL of the user.
    * 
    * @example
    * https://example.com/avatar.png
@@ -69,7 +69,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   isSystemTenant?: boolean;
   /**
    * @remarks
-   * The user language preference.
+   * The language preference of the user.
    * 
    * @example
    * string_value
@@ -77,7 +77,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   languagePreference?: string;
   /**
    * @remarks
-   * The username.
+   * The name of the user.
    * 
    * @example
    * SampleName.pdf
@@ -85,7 +85,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The user service description.
+   * The service description of the user.
    * 
    * @example
    * string_value
@@ -93,7 +93,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   offering?: string;
   /**
    * @remarks
-   * The parsed user service result in JSON format.
+   * The parsed result of the user service in JSON format.
    * 
    * @example
    * string_value
@@ -101,7 +101,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   parsedOffering?: string;
   /**
    * @remarks
-   * The user role.
+   * The role of the user.
    * 
    * @example
    * string_value
@@ -109,7 +109,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   profileRole?: string;
   /**
    * @remarks
-   * The user role description.
+   * The role description of the user.
    * 
    * @example
    * string_value
@@ -117,7 +117,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   profileRoleInfo?: string;
   /**
    * @remarks
-   * The user self-introduction.
+   * The self-introduction of the user.
    * 
    * @example
    * string_value
@@ -125,7 +125,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   selfIntroduction?: string;
   /**
    * @remarks
-   * The current tenant ID.
+   * The ID of the current tenant.
    * 
    * @example
    * 10000
@@ -138,7 +138,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   tenantList?: UpdateUserInfoResponseBodyUserTenantList[];
   /**
    * @remarks
-   * The current tenant name.
+   * The name of the current tenant.
    * 
    * @example
    * string_value

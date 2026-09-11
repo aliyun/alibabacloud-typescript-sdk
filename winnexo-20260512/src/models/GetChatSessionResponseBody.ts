@@ -13,7 +13,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Indicates whether the LLM context has been cleared after this message.
+   * Indicates whether the LLM context was cleared after this message.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   contextCleared?: boolean;
   /**
    * @remarks
-   * Indicates whether the message is copied from a shared conversation.
+   * Indicates whether the message was copied from a shared conversation.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The username of the user who shared the message. This parameter has a value only when from_share is set to True.
+   * The username of the sharing source. This field has a value only when from_share is set to True.
    * 
    * @example
    * string_value
@@ -93,7 +93,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   updateAt?: number;
   /**
    * @remarks
-   * The user feedback type: LIKE | DISLIKE | CANCEL.
+   * The user feedback type. Valid values: LIKE, DISLIKE, and CANCEL.
    * 
    * @example
    * string_value
@@ -164,7 +164,7 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether the creation time is older than 30 days.
+   * Indicates whether the creation time exceeds 30 days.
    * 
    * @example
    * true
@@ -180,7 +180,7 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The abstract model name used by the session (quick/standard/flagship).
+   * The abstract model name used by the session. Valid values: quick, standard, and flagship.
    * 
    * @example
    * string_value
@@ -290,7 +290,7 @@ export class GetChatSessionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The message data detail structure.
+   * The message data details structure.
    */
   messages?: GetChatSessionResponseBodyMessages[];
   /**
@@ -303,7 +303,7 @@ export class GetChatSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The session information.
+   * The session ID.
    */
   session?: GetChatSessionResponseBodySession;
   static names(): { [key: string]: string } {

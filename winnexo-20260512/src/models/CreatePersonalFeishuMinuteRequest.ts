@@ -15,7 +15,7 @@ export class CreatePersonalFeishuMinuteRequest extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The resource description.
+   * The schedule description.
    * 
    * @example
    * created by eventbridge
@@ -41,7 +41,7 @@ export class CreatePersonalFeishuMinuteRequest extends $dara.Model {
   minuteToken?: string;
   /**
    * @remarks
-   * The resource name.
+   * The image name.
    * 
    * This parameter is required.
    * 
@@ -59,6 +59,14 @@ export class CreatePersonalFeishuMinuteRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
+   * The list of resource tag JSON strings.
+   * 
+   * @example
+   * ["Important","Minutes"]
+   */
+  sourceTags?: string;
+  /**
+   * @remarks
    * The tenant ID.
    * 
    * @example
@@ -73,6 +81,7 @@ export class CreatePersonalFeishuMinuteRequest extends $dara.Model {
       minuteToken: 'minuteToken',
       name: 'name',
       operatingObjectName: 'operatingObjectName',
+      sourceTags: 'sourceTags',
       tenantId: 'tenantId',
     };
   }
@@ -85,6 +94,7 @@ export class CreatePersonalFeishuMinuteRequest extends $dara.Model {
       minuteToken: 'string',
       name: 'string',
       operatingObjectName: 'string',
+      sourceTags: 'string',
       tenantId: 'string',
     };
   }

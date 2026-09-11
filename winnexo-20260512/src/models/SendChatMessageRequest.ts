@@ -208,7 +208,15 @@ export class SendChatMessageRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
-   * The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
+   * Specifies whether to enable web search. Default value: False. In task execution scenarios (when taskExecution is passed), the task configuration takes precedence.
+   * 
+   * @example
+   * false
+   */
+  enableWebSearch?: boolean;
+  /**
+   * @remarks
+   * The list of file references. Each item is an object, and fileId is required (returned by uploadChatFile).
    */
   files?: SendChatMessageRequestFiles[];
   /**
@@ -221,7 +229,7 @@ export class SendChatMessageRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Specifies whether to reuse the most recent session of the digital employee when sessionId is not provided (CLI scenario). Default value: false, which creates a new session.
+   * Specifies whether to reuse the most recent session of the digital employee when sessionId is not passed (CLI scenario). Default value: false, which creates a new session.
    * 
    * @example
    * false
@@ -237,7 +245,7 @@ export class SendChatMessageRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Specifies whether to use streaming output.
+   * Specifies whether to enable streaming output.
    * 
    * @example
    * true
@@ -262,6 +270,7 @@ export class SendChatMessageRequest extends $dara.Model {
       contentType: 'contentType',
       digitalEmployeeName: 'digitalEmployeeName',
       directChat: 'directChat',
+      enableWebSearch: 'enableWebSearch',
       files: 'files',
       model: 'model',
       reuseLastSession: 'reuseLastSession',
@@ -278,6 +287,7 @@ export class SendChatMessageRequest extends $dara.Model {
       contentType: 'string',
       digitalEmployeeName: { 'type': 'array', 'itemType': 'string' },
       directChat: 'boolean',
+      enableWebSearch: 'boolean',
       files: { 'type': 'array', 'itemType': SendChatMessageRequestFiles },
       model: 'string',
       reuseLastSession: 'boolean',

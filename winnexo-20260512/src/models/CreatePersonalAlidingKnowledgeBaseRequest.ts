@@ -45,7 +45,7 @@ export class CreatePersonalAlidingKnowledgeBaseRequestObjectBindings extends $da
 export class CreatePersonalAlidingKnowledgeBaseRequestSyncConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for timed scheduling.
+   * The cron expression for the timed scheduling node.
    * 
    * @example
    * string_value
@@ -124,6 +124,14 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
+   * The list of resource tag JSON strings applied to all child sources created during knowledge base synchronization.
+   * 
+   * @example
+   * ["Key","KnowledgeBase"]
+   */
+  sourceTags?: string;
+  /**
+   * @remarks
    * The synchronization settings.
    */
   syncConfig?: CreatePersonalAlidingKnowledgeBaseRequestSyncConfig;
@@ -142,6 +150,7 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
       kbUrl: 'kbUrl',
       objectBindings: 'objectBindings',
       operatingObjectName: 'operatingObjectName',
+      sourceTags: 'sourceTags',
       syncConfig: 'syncConfig',
       tenantId: 'tenantId',
     };
@@ -154,6 +163,7 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
       kbUrl: 'string',
       objectBindings: { 'type': 'array', 'itemType': CreatePersonalAlidingKnowledgeBaseRequestObjectBindings },
       operatingObjectName: 'string',
+      sourceTags: 'string',
       syncConfig: CreatePersonalAlidingKnowledgeBaseRequestSyncConfig,
       tenantId: 'string',
     };

@@ -208,6 +208,14 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
+   * 是否启用联网搜索，默认 False；任务执行场景（传 taskExecution）下以任务配置为准
+   * 
+   * @example
+   * false
+   */
+  enableWebSearch?: boolean;
+  /**
+   * @remarks
    * The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
    */
   files?: SendAsyncChatMessageRequestFiles[];
@@ -262,6 +270,7 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
       contentType: 'contentType',
       digitalEmployeeName: 'digitalEmployeeName',
       directChat: 'directChat',
+      enableWebSearch: 'enableWebSearch',
       files: 'files',
       model: 'model',
       reuseLastSession: 'reuseLastSession',
@@ -278,6 +287,7 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
       contentType: 'string',
       digitalEmployeeName: { 'type': 'array', 'itemType': 'string' },
       directChat: 'boolean',
+      enableWebSearch: 'boolean',
       files: { 'type': 'array', 'itemType': SendAsyncChatMessageRequestFiles },
       model: 'string',
       reuseLastSession: 'boolean',

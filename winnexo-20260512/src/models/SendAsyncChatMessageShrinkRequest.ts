@@ -39,6 +39,14 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
+   * 是否启用联网搜索，默认 False；任务执行场景（传 taskExecution）下以任务配置为准
+   * 
+   * @example
+   * false
+   */
+  enableWebSearch?: boolean;
+  /**
+   * @remarks
    * The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
    */
   filesShrink?: string;
@@ -93,6 +101,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
       contentType: 'contentType',
       digitalEmployeeNameShrink: 'digitalEmployeeName',
       directChat: 'directChat',
+      enableWebSearch: 'enableWebSearch',
       filesShrink: 'files',
       model: 'model',
       reuseLastSession: 'reuseLastSession',
@@ -109,6 +118,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
       contentType: 'string',
       digitalEmployeeNameShrink: 'string',
       directChat: 'boolean',
+      enableWebSearch: 'boolean',
       filesShrink: 'string',
       model: 'string',
       reuseLastSession: 'boolean',

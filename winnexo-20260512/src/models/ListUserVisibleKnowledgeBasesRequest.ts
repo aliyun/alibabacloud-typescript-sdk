@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserVisibleKnowledgeBasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword for fuzzy match on knowledge base name or description.
+   * The keyword for fuzzy match on form component data.
    * 
    * @example
-   * Product knowledge
+   * ProductKnowledge
    */
   keyword?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
+   * The tenant ID. This is a common parameter. Pass it explicitly in winnexo-cli by using --tenant-id.
    * 
    * @example
    * 10000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $dara.Model {
   /**
    * @remarks
-   * The actual working hours, in hours.
+   * The actual hours spent, in hours.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -105,7 +105,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
 export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group to which the task belongs. If empty, the task is a personal task.
+   * The ID of the collaboration group to which the task belongs. An empty value indicates a personal task.
    * 
    * @example
    * exampleCollaborationGroupId
@@ -138,9 +138,9 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
   /**
    * @remarks
    * The execution model tier. Valid values:
-   * - flagship: flagship.
-   * - standard: standard.
-   * - quick: lightweight.
+   * - flagship: Flagship.
+   * - standard: Standard.
+   * - quick: Lightweight.
    * 
    * @example
    * standard
@@ -180,8 +180,8 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
   /**
    * @remarks
    * The trigger type. Valid values:
-   * - Manual: manually executed.
-   * - Cron: triggered by a schedule.
+   * - Manual: Manual execution.
+   * - Cron: Timed scheduling.
    * 
    * @example
    * string_value

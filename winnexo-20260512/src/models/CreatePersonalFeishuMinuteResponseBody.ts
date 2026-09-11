@@ -37,7 +37,7 @@ export class CreatePersonalFeishuMinuteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The resource name.
+   * The image name.
    * 
    * @example
    * issue_research

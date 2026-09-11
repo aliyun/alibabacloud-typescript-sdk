@@ -57,6 +57,14 @@ export class CreatePersonalAliDingMeetingRequest extends $dara.Model {
   shanjiUrl?: string;
   /**
    * @remarks
+   * A list of resource tag JSON strings.
+   * 
+   * @example
+   * ["Important","Meeting"]
+   */
+  sourceTags?: string;
+  /**
+   * @remarks
    * The tenant ID.
    * 
    * @example
@@ -71,6 +79,7 @@ export class CreatePersonalAliDingMeetingRequest extends $dara.Model {
       notes: 'notes',
       operatingObjectName: 'operatingObjectName',
       shanjiUrl: 'shanjiUrl',
+      sourceTags: 'sourceTags',
       tenantId: 'tenantId',
     };
   }
@@ -83,6 +92,7 @@ export class CreatePersonalAliDingMeetingRequest extends $dara.Model {
       notes: 'string',
       operatingObjectName: 'string',
       shanjiUrl: 'string',
+      sourceTags: 'string',
       tenantId: 'string',
     };
   }

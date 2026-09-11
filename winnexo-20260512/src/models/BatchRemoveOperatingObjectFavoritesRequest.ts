@@ -45,7 +45,7 @@ export class BatchRemoveOperatingObjectFavoritesRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. Pass it explicitly in winnexo-cli by using --tenant-id.
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
    * 
    * @example
    * 10000

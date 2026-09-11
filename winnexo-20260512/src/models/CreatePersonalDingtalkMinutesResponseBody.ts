@@ -61,7 +61,7 @@ export class CreatePersonalDingtalkMinutesResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The unique identifier on the business system side, which is the business ID.
+   * The unique ID on the business system side, that is, the business ID.
    * 
    * @example
    * exampleSourceId

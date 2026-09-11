@@ -21,7 +21,7 @@ export class RecommendNextActionsRequest extends $dara.Model {
   outputType?: string;
   /**
    * @remarks
-   * The number of recent messages used to assemble contextual information.
+   * The number of recent messages used to assemble the contextual information.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class RecommendNextActionsRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. Pass it explicitly through winnexo-cli using --tenant-id.
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
    * 
    * @example
    * 10000

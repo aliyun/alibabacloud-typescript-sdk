@@ -69,7 +69,7 @@ export class CreatePersonalAlidingDocResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The unique identifier on the business system side, that is, the business ID.
+   * The unique ID on the business system side, which is the business ID.
    * 
    * @example
    * 2000413
@@ -78,8 +78,9 @@ export class CreatePersonalAlidingDocResponseBody extends $dara.Model {
   /**
    * @remarks
    * The call status. Valid values:
-   * - **PENDING**: Waiting for receipt.
-   * - **SUCCESS**: Succeeded.
+   * 
+   * - **PENDING**: Waiting for a receipt.
+   * - **SUCCESS**: Successful.
    * - **FAILED**: Failed.
    * - **TIMEOUT**: Timed out.
    * 

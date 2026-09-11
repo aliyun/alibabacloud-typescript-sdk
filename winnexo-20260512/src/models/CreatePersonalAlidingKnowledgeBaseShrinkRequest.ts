@@ -44,6 +44,14 @@ export class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends $dara.Model
   operatingObjectName?: string;
   /**
    * @remarks
+   * The list of resource tag JSON strings applied to all child sources created during knowledge base synchronization.
+   * 
+   * @example
+   * ["Key","KnowledgeBase"]
+   */
+  sourceTags?: string;
+  /**
+   * @remarks
    * The synchronization settings.
    */
   syncConfigShrink?: string;
@@ -62,6 +70,7 @@ export class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends $dara.Model
       kbUrl: 'kbUrl',
       objectBindingsShrink: 'objectBindings',
       operatingObjectName: 'operatingObjectName',
+      sourceTags: 'sourceTags',
       syncConfigShrink: 'syncConfig',
       tenantId: 'tenantId',
     };
@@ -74,6 +83,7 @@ export class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends $dara.Model
       kbUrl: 'string',
       objectBindingsShrink: 'string',
       operatingObjectName: 'string',
+      sourceTags: 'string',
       syncConfigShrink: 'string',
       tenantId: 'string',
     };

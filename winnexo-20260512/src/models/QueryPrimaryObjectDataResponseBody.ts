@@ -13,7 +13,7 @@ export class QueryPrimaryObjectDataResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The incremental information list.
+   * The list of incremental information.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class QueryPrimaryObjectDataResponseBody extends $dara.Model {
   items?: { [key: string]: string }[];
   /**
    * @remarks
-   * The error description. This parameter is empty when the request succeeds.
+   * The error description. This parameter is empty if the request is successful.
    * 
    * @example
    * ok

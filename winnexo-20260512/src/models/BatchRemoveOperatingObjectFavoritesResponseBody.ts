@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchRemoveOperatingObjectFavoritesResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the object is favorited after the operation.
+   * Indicates whether the object is subscribed after the operation.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBodyResults extends $dar
   objectId?: string;
   /**
    * @remarks
-   * Indicates whether the request has been processed.
+   * Indicates whether the request is processed.
    * 
    * @example
    * true
@@ -97,7 +97,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBody extends $dara.Model
   operatingObjectName?: string;
   /**
    * @remarks
-   * The number of remaining favorited objects within the specified scope.
+   * The number of remaining subscribed objects within the precise scope.
    * 
    * @example
    * 0
@@ -105,7 +105,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBody extends $dara.Model
   remainingCount?: number;
   /**
    * @remarks
-   * The number of physical favorite records that are actually deleted.
+   * The number of physical subscription records that are actually deleted.
    * 
    * @example
    * 2

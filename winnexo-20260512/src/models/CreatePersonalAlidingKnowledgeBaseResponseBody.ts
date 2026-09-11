@@ -29,7 +29,7 @@ export class CreatePersonalAlidingKnowledgeBaseResponseBody extends $dara.Model 
   gmtCreate?: string;
   /**
    * @remarks
-   * The knowledge base URL (echoed from the request parameter for caller alignment).
+   * The knowledge base URL. This echoes the input parameter for the caller to verify alignment.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -71,8 +71,8 @@ export class CreatePersonalAlidingKnowledgeBaseResponseBody extends $dara.Model 
    * @remarks
    * The status. Valid values:
    * 
-   * - 200: Success.
-   * - 500: Failure.
+   * - 200: Succeeded.
+   * - 500: Failed.
    * 
    * @example
    * 200

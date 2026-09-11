@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBillingRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique business identifier. When bizType is LibraryChat, bizId refers to the document library ID.
+   * The unique business identifier. When bizType is set to LibraryChat, bizId specifies the document library ID.
    * 
    * @example
    * exampleBizId
@@ -39,10 +39,10 @@ export class ListBillingRequest extends $dara.Model {
    * @remarks
    * The operation type. Valid values:
    * 
-   * - start: indicates task creation. This is the default value and does not need to be explicitly set in most cases.
-   * - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting. After the meeting ends, set this to stop to trigger the call. This is used in real-time meeting scenarios.
+   * - start: indicates node creation. This is the default value. In most cases, you do not need to explicitly set this value.
+   * - stop: stops a real-time meeting node. This value corresponds to the creation of a real-time meeting. After the meeting ends, set this value to stop and trigger the call. This value is used in real-time meeting scenarios.
    * 
-   * Note: When ending a real-time recording, you must set this parameter to stop.
+   * > Note: When ending a real-time recording, make sure to set this parameter to stop.
    * 
    * @example
    * string_value
@@ -74,7 +74,7 @@ export class ListBillingRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task status. The status is returned as Running upon submission.
+   * The node status. Running is returned upon submission.
    * 
    * @example
    * READY
@@ -82,7 +82,7 @@ export class ListBillingRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this parameter explicitly by using --tenant-id.
    * 
    * @example
    * 10000

@@ -39,7 +39,15 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
-   * The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
+   * Specifies whether to enable web search. Default value: False. In task execution scenarios (when taskExecution is passed), the task configuration takes precedence.
+   * 
+   * @example
+   * false
+   */
+  enableWebSearch?: boolean;
+  /**
+   * @remarks
+   * The list of file references. Each item is an object, and fileId is required (returned by uploadChatFile).
    */
   filesShrink?: string;
   /**
@@ -52,7 +60,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Specifies whether to reuse the most recent session of the digital employee when sessionId is not provided (CLI scenario). Default value: false, which creates a new session.
+   * Specifies whether to reuse the most recent session of the digital employee when sessionId is not passed (CLI scenario). Default value: false, which creates a new session.
    * 
    * @example
    * false
@@ -68,7 +76,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Specifies whether to use streaming output.
+   * Specifies whether to enable streaming output.
    * 
    * @example
    * true
@@ -93,6 +101,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
       contentType: 'contentType',
       digitalEmployeeNameShrink: 'digitalEmployeeName',
       directChat: 'directChat',
+      enableWebSearch: 'enableWebSearch',
       filesShrink: 'files',
       model: 'model',
       reuseLastSession: 'reuseLastSession',
@@ -109,6 +118,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
       contentType: 'string',
       digitalEmployeeNameShrink: 'string',
       directChat: 'boolean',
+      enableWebSearch: 'boolean',
       filesShrink: 'string',
       model: 'string',
       reuseLastSession: 'boolean',

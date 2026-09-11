@@ -49,6 +49,14 @@ export class CreatePersonalAlidingDocRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
+   * The list of resource tag JSON strings.
+   * 
+   * @example
+   * ["Key","Document"]
+   */
+  sourceTags?: string;
+  /**
+   * @remarks
    * The tenant ID.
    * 
    * @example
@@ -62,6 +70,7 @@ export class CreatePersonalAlidingDocRequest extends $dara.Model {
       filePublicUrl: 'filePublicUrl',
       name: 'name',
       operatingObjectName: 'operatingObjectName',
+      sourceTags: 'sourceTags',
       tenantId: 'tenantId',
     };
   }
@@ -73,6 +82,7 @@ export class CreatePersonalAlidingDocRequest extends $dara.Model {
       filePublicUrl: 'string',
       name: 'string',
       operatingObjectName: 'string',
+      sourceTags: 'string',
       tenantId: 'string',
     };
   }

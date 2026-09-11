@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPrimaryObjectDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword for searching. The keyword is matched against the name field by default. If the schema defines a description field, the keyword is also matched against the description field.
+   * The keyword for search. The keyword is matched against the name field. If the schema defines a description field, the keyword is also matched against the description field.
    * 
    * @example
    * SampleKeyword
@@ -31,7 +31,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1.
+   * The page number. Pages start from page 1.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. You can explicitly pass it in winnexo-cli by using --tenant-id.
+   * The tenant ID. This is a common parameter. You can explicitly pass this parameter by using --tenant-id in winnexo-cli.
    * 
    * @example
    * 10000

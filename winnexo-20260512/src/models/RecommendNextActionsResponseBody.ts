@@ -24,7 +24,7 @@ export class RecommendNextActionsResponseBodyNextActions extends $dara.Model {
    * The skill name.
    * 
    * @example
-   * Sample skill
+   * SampleSkill
    */
   skillName?: string;
   /**
@@ -94,7 +94,7 @@ export class RecommendNextActionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The meeting reservation title.
+   * The scheduled meeting title.
    * 
    * @example
    * Sample session title
