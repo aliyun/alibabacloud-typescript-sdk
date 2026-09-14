@@ -13,7 +13,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The plugin mount point type. This parameter is not yet enabled.
+   * The plug-in mount point type. Not enabled yet.
    * 
    * @example
    * GatewayRoute
@@ -21,7 +21,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The mount point types. Separate multiple types with commas.
+   * The mount point types. Separate multiple values with commas.
    * 
    * @example
    * GatewayRoute
@@ -61,7 +61,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plugin ID.
+   * The plug-in ID.
    * 
    * @example
    * pl-ct8181um1hkiqns9f6e0
@@ -69,7 +69,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Specifies whether to return parent resource mounts.
+   * Specifies whether to return the parent resource mount.
    * 
    * @example
    * false

@@ -9,7 +9,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureComponents extends $d
    * The error message.
    * 
    * @example
-   * Invalid data structure definition
+   * The data structure definition is invalid
    */
   errorMessage?: string;
   /**
@@ -136,7 +136,9 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $dara.Model {
   /**
    * @remarks
-   * The action to be performed after the dry run.
+   * The action to be performed after the dry run. Valid values:
+   * - Create: create.
+   * - Update: update.
    * 
    * @example
    * Create
@@ -176,7 +178,9 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $dara.Model {
   /**
    * @remarks
-   * The action to be performed after the dry run.
+   * The action to be performed after the dry run. Valid values:
+   * - Create: create.
+   * - Update: update.
    * 
    * @example
    * Create
@@ -236,7 +240,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.Model {
   /**
    * @remarks
-   * The operation type.
+   * The action type.
    * 
    * @example
    * Create
@@ -276,12 +280,12 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   /**
    * @remarks
-   * The error messages. If the error messages are not empty, the API cannot be imported successfully.
+   * The error messages. If the error messages are not empty, the API cannot be imported.
    */
   errorMessages?: string[];
   /**
    * @remarks
-   * The information about the existing API. If this field is not empty, the import action updates the existing API.
+   * The information about the existing API. If this field is not empty, the import action will update this API.
    */
   existHttpApiInfo?: HttpApiApiInfo;
   /**
@@ -296,7 +300,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   failureOperations?: ImportHttpApiResponseBodyDataDryRunInfoFailureOperations[];
   /**
    * @remarks
-   * The list of routes that failed to be imported.
+   * The list of routes that failed.
    */
   failureRoutes?: ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes[];
   /**
@@ -319,7 +323,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   successOperations?: ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations[];
   /**
    * @remarks
-   * The list of routes that were successfully imported.
+   * The list of routes that were imported.
    */
   successRoutes?: ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes[];
   /**

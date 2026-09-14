@@ -24,7 +24,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The Ingress Class to listen on.
+   * The Ingress class to listen on.
    * 
    * @example
    * mse
@@ -32,7 +32,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the address in the Ingress Status.
+   * Specifies whether to update the address in the Ingress status.
    * 
    * @example
    * false
@@ -90,22 +90,22 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
 export class CreateHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of protocols supported by the agent. Required when type is Agent. Not required for other types.
+   * The list of protocols supported by the agent. Required when type is Agent. This field is not required for other types.
    */
   agentProtocols?: string[];
   /**
    * @remarks
-   * The list of AI API protocols. Required when type is LLM, and only one protocol can be specified. Required when type is Ai, and multiple protocols can be specified. Not required for other types. Example protocol entry: OpenAI/v1.
+   * The list of AI API protocols. Required when type is LLM (only one protocol allowed) or Ai (multiple protocols allowed). Not required for other types. Example protocol: OpenAI/v1.
    */
   aiProtocols?: string[];
   /**
    * @remarks
-   * The authentication configuration. Required when enableAuth=true.
+   * The authentication configuration. Required when enableAuth is set to true.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The API base path. Must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. Required when type=Rest. Optional when type=LLM, Ai, or Agent. Default value: /
+   * The base path of the API. Must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. Required when type is Rest. Optional when type is LLM, Ai, or Agent. Defaults to /.
    * 
    * @example
    * /v1
@@ -121,7 +121,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   belongGatewayId?: string;
   /**
    * @remarks
-   * The list of deployment configurations for the HTTP API. Required when type is LLM or Ai, and only one deployment configuration can be specified. Not validated at the request level for other types.
+   * The list of deployment configurations for the HTTP API. Required when type is LLM or Ai (only one deployment configuration allowed). Not validated at the request level for other types.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
@@ -134,7 +134,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run without executing the operation.
+   * Specifies whether to preview only without executing.
    * 
    * @example
    * true
@@ -152,7 +152,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The timeout period for waiting for the first byte from the backend.
+   * The timeout period for waiting for the backend to return the first byte.
    * 
    * @example
    * 30
@@ -160,12 +160,20 @@ export class CreateHttpApiRequest extends $dara.Model {
   firstByteTimeout?: number;
   /**
    * @remarks
-   * The HTTP Ingress API configuration. Required when type is HttpIngress and cannot be nil. Not required for other types.
+   * The HTTP Ingress API configuration. Required when type is HttpIngress and cannot be null. Not required for other types.
    */
   ingressConfig?: CreateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * The AI model category. Optional when type is LLM or Ai. Not required for other types. Valid values: Text (text generation), Image (image generation), Audio (audio processing), Video (AI video generation), MultiModal (multi-modal), Embedding (text embedding), Rerank (reranking), Others (other).
+   * The AI model category. Optional when type is LLM or Ai. Not required for other types. Valid values:
+   * - Text: text generation.
+   * - Image: image generation.
+   * - Audio: audio processing.
+   * - Video: video generation.
+   * - MultiModal: multimodal.
+   * - Embedding: vector embedding.
+   * - Rerank: reranking.
+   * - Others: others.
    * 
    * @example
    * Text
@@ -173,7 +181,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The name of the HTTP API, used to identify the current API resource. Example: test-api.
+   * The name of the HTTP API, used to identify the current API resource. For example, test-api.
    * 
    * This parameter is required.
    * 
@@ -204,7 +212,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The conflict merge strategy for import.
+   * The conflict resolution strategy for imports.
    * 
    * @example
    * ExistFirst
@@ -212,7 +220,13 @@ export class CreateHttpApiRequest extends $dara.Model {
   strategy?: string;
   /**
    * @remarks
-   * The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), Agent (Agent proxy API).
+   * The HTTP API type. Valid values:
+   * - Http: a standard HTTP API.
+   * - Rest: a RESTful API.
+   * - WebSocket: a WebSocket API.
+   * - HttpIngress: an HTTP API accessed through Ingress.
+   * - LLM: a large language model API.
+   * - Agent: an Agent proxy API.
    * 
    * This parameter is required.
    * 

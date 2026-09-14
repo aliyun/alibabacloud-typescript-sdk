@@ -160,6 +160,14 @@ export class HttpApiDeployConfigServiceConfigsObservabilityRouteConfig extends $
 export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   /**
    * @remarks
+   * The capability tier of the intelligent routing candidate. Specify this parameter only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium.
+   * 
+   * @example
+   * standard
+   */
+  capabilityTier?: string;
+  /**
+   * @remarks
    * The gateway service ID.
    * 
    * @example
@@ -205,7 +213,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   multiServiceRouteStrategy?: string;
   /**
    * @remarks
-   * The service display name.
+   * The display name of the service.
    * 
    * @example
    * Qwen-Max-Service
@@ -213,7 +221,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The observability metric routing configuration.
+   * The observability metric-based routing configuration.
    * 
    * **if can be null:**
    * true
@@ -261,6 +269,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      capabilityTier: 'capabilityTier',
       gatewayServiceId: 'gatewayServiceId',
       intentCode: 'intentCode',
       match: 'match',
@@ -279,6 +288,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      capabilityTier: 'string',
       gatewayServiceId: 'string',
       intentCode: 'string',
       match: HttpApiBackendMatchConditions,
@@ -373,7 +383,7 @@ export class HttpApiDeployConfigSubDomains extends $dara.Model {
 export class HttpApiDeployConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically deploy.
+   * Specifies whether to automatically deploy the API.
    * 
    * @example
    * true
@@ -381,7 +391,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   autoDeploy?: boolean;
   /**
    * @remarks
-   * The deployment scenario.
+   * The publishing scenario.
    * 
    * @example
    * SingleService
@@ -399,12 +409,12 @@ export class HttpApiDeployConfig extends $dara.Model {
   customDomainIds?: string[];
   /**
    * @remarks
-   * The list of custom domain name details.
+   * The list of custom domain name information.
    */
   customDomainInfos?: HttpApiDeployConfigCustomDomainInfos[];
   /**
    * @remarks
-   * Specifies whether to enable gateway system models. This parameter takes effect only when the deployment scenario is AiAutoRouter. Default value: false. If enabled, built-in Qwen candidates from the platform are merged with the user\\"s own candidates.
+   * Specifies whether to enable gateway system models. This parameter takes effect only when the publishing scenario is AiAutoRouter. Default value: false. This field is used for backward compatibility with older clients. If systemModelTiers is not submitted, true indicates that all three tiers of system models are enabled, and false indicates that all are disabled.
    * 
    * @example
    * true
@@ -417,7 +427,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   envDomainIds?: string[];
   /**
    * @remarks
-   * The list of environment domain name details.
+   * The list of environment domain name information.
    */
   envDomainInfos?: HttpApiDeployConfigEnvDomainInfos[];
   /**
@@ -467,7 +477,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   policyConfigs?: HttpApiPolicyConfigs[];
   /**
    * @remarks
-   * The current online routing mode of the REST API. ordinary indicates per-Operation routing. compressed indicates single-prefix routing for the API. This field is not returned for non-REST APIs.
+   * The current online routing mode of the REST API. ordinary indicates per-operation routing, and compressed indicates single-prefix routing for the API. This field is not returned for non-REST APIs.
    * 
    * @example
    * ordinary
@@ -488,9 +498,17 @@ export class HttpApiDeployConfig extends $dara.Model {
   serviceConfigs?: HttpApiDeployConfigServiceConfigs[];
   /**
    * @remarks
-   * The list of subdomain contents.
+   * The list of subdomain content.
    */
   subDomains?: HttpApiDeployConfigSubDomains[];
+  /**
+   * @remarks
+   * The set of explicitly enabled gateway system model capability tiers. Takes effect only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, premium. An explicit empty array indicates that no system model is enabled.
+   * 
+   * @example
+   * ["economy","standard","premium"]
+   */
+  systemModelTiers?: string[];
   static names(): { [key: string]: string } {
     return {
       autoDeploy: 'autoDeploy',
@@ -511,6 +529,7 @@ export class HttpApiDeployConfig extends $dara.Model {
       routeBackend: 'routeBackend',
       serviceConfigs: 'serviceConfigs',
       subDomains: 'subDomains',
+      systemModelTiers: 'systemModelTiers',
     };
   }
 
@@ -534,6 +553,7 @@ export class HttpApiDeployConfig extends $dara.Model {
       routeBackend: Backend,
       serviceConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfigServiceConfigs },
       subDomains: { 'type': 'array', 'itemType': HttpApiDeployConfigSubDomains },
+      systemModelTiers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -570,6 +590,9 @@ export class HttpApiDeployConfig extends $dara.Model {
     }
     if(Array.isArray(this.subDomains)) {
       $dara.Model.validateArray(this.subDomains);
+    }
+    if(Array.isArray(this.systemModelTiers)) {
+      $dara.Model.validateArray(this.systemModelTiers);
     }
     super.validate();
   }

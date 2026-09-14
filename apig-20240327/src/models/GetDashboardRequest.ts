@@ -35,9 +35,9 @@ export class GetDashboardRequestFilter extends $dara.Model {
 export class GetDashboardRequest extends $dara.Model {
   /**
    * @remarks
-   * The language. Valid values:
-   * - zh: Chinese
-   * - en: English
+   * The response language. Valid values:
+   * zh: Chinese
+   * en: English
    * 
    * @example
    * zh
@@ -60,7 +60,7 @@ export class GetDashboardRequest extends $dara.Model {
    * @remarks
    * The dashboard name. Valid values:
    * - LOG: access log
-   * - PLUGIN: plugin log
+   * - PLUGIN: plug-in log
    * 
    * @example
    * PLUGIN
@@ -68,7 +68,7 @@ export class GetDashboardRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The plugin type ID.
+   * The plug-in type ID.
    * 
    * @example
    * pls-dn82a9djd8z****
@@ -76,7 +76,7 @@ export class GetDashboardRequest extends $dara.Model {
   pluginClassId?: string;
   /**
    * @remarks
-   * The plugin ID.
+   * The plug-in ID.
    * 
    * @example
    * inner-ai-search-cvd3mcum1hks660icn10

@@ -9,7 +9,7 @@ import { HttpDubboTranscoder } from "./HttpDubboTranscoder";
 export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The service group. Used in the HTTP-to-Dubbo conversion scenario.
+   * The service group. Used in HTTP-to-Dubbo transcoding scenarios.
    * 
    * @example
    * DEFAULT_GROUP
@@ -17,7 +17,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   groupName?: string;
   /**
    * @remarks
-   * The HTTP-to-Dubbo protocol conversion configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+   * The HTTP-to-Dubbo protocol transcoding configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
    * 
    * @example
    * {"dubboServiceName":"com.alibaba.nacos.example.dubbo.service.DemoService","dubboServiceVersion":"1.0.0","dubboServiceGroup":"DEV","methodMapList":[{"dubboMethodName":"sayName","httpMethod":"ALL_GET","methodPath":"/dubbo/sayName","passThroughAllHeaders":"PASS_ALL"}]}
@@ -25,7 +25,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   httpDubboTranscoder?: HttpDubboTranscoder;
   /**
    * @remarks
-   * The target model name. This field is shared by multiple model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
+   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not specified for the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
@@ -33,7 +33,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   modelName?: string;
   /**
    * @remarks
-   * The service namespace. Used in the HTTP-to-Dubbo conversion scenario.
+   * The service namespace. Used in HTTP-to-Dubbo transcoding scenarios.
    * 
    * @example
    * public
@@ -67,7 +67,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   serviceId?: string;
   /**
    * @remarks
-   * The service source type. Used in the HTTP-to-Dubbo conversion scenario.
+   * The service source type. Used in HTTP-to-Dubbo transcoding scenarios.
    * 
    * @example
    * MSE_NACOS
@@ -75,7 +75,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   sourceType?: string;
   /**
    * @remarks
-   * The service version. This parameter is valid only in the tag-based scenario.
+   * The service version. This parameter takes effect only in the tag-based scenario.
    * 
    * @example
    * v1
@@ -83,7 +83,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   version?: string;
   /**
    * @remarks
-   * The traffic ratio percentage value.
+   * The percentage value of the traffic ratio.
    * 
    * @example
    * 49
@@ -264,7 +264,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The route match rule.
+   * The route match rules.
    */
   match?: HttpRouteMatch;
   /**

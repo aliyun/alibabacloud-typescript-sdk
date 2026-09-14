@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumer subject. Valid values:
-   * - day: The existing conflicting rule has a daily period.
-   * - week: The existing conflicting rule has a weekly period.
-   * - month: The existing conflicting rule has a monthly period.
+   * The period type of the existing conflicting rule on the consumer subject. A value of day, week, or month indicates that the period of the existing conflicting rule is day, week, or month respectively.
    * 
    * @example
    * week
@@ -16,9 +13,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumer subject. Valid values:
-   * - calendar: The existing conflicting rule uses a calendar period.
-   * - epoch: The existing conflicting rule uses a custom period.
+   * The type of the existing conflicting rule on the consumer subject. A value of calendar indicates that the existing conflicting rule uses a calendar period. A value of epoch indicates that the existing conflicting rule uses a custom period.
    * 
    * @example
    * calendar
@@ -26,7 +21,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   conflictType?: string;
   /**
    * @remarks
-   * The conflicting consumer ID. You can use subjectId instead.
+   * The conflicting consumer ID. Use subjectId instead.
    * 
    * @example
    * cs-xxxxxx
@@ -34,7 +29,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   consumerId?: string;
   /**
    * @remarks
-   * The conflicting consumer name. You can use subjectName instead.
+   * The conflicting consumer name. Use subjectName instead.
    * 
    * @example
    * consumer-a
@@ -100,7 +95,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
    * @remarks
-   * The conflict snapshot hash.
+   * The conflict hash.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -226,7 +221,7 @@ export class AddGatewayQuotaRuleResponseBody extends $dara.Model {
   data?: AddGatewayQuotaRuleResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message content.
    * 
    * @example
    * success

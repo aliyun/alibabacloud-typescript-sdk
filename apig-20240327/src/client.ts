@@ -38,8 +38,8 @@ export default class Client extends OpenApi {
    * >  Recommended call sequence:
    * > - Step 1: Perform a dry run to check for rule conflicts.
    * > - - Set dryRun to true.
-   * > - - The response returns a conflict preview that contains the conflictHash value.
-   * > - Step 2: Submit the request after confirmation.
+   * > - - The response returns a conflict preview that contains conflictHash.
+   * > - Step 2: Submit the rule after confirmation.
    * > - - No conflicts: Set dryRun to false and overwrite to false.
    * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
@@ -130,8 +130,8 @@ export default class Client extends OpenApi {
    * >  Recommended call sequence:
    * > - Step 1: Perform a dry run to check for rule conflicts.
    * > - - Set dryRun to true.
-   * > - - The response returns a conflict preview that contains the conflictHash value.
-   * > - Step 2: Submit the request after confirmation.
+   * > - - The response returns a conflict preview that contains conflictHash.
+   * > - Step 2: Submit the rule after confirmation.
    * > - - No conflicts: Set dryRun to false and overwrite to false.
    * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
@@ -807,6 +807,15 @@ export default class Client extends OpenApi {
    */
   async createConsumerWithOptions(request: $_model.CreateConsumerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConsumerResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.akSkIdentityConfigs)) {
       body["akSkIdentityConfigs"] = request.akSkIdentityConfigs;
@@ -838,6 +847,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1425,7 +1435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates operations for an HTTP API.
+   * Creates an operation for an HTTP API.
    * 
    * @param request - CreateHttpApiOperationRequest
    * @param headers - map
@@ -1458,7 +1468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates operations for an HTTP API.
+   * Creates an operation for an HTTP API.
    * 
    * @param request - CreateHttpApiOperationRequest
    * @returns CreateHttpApiOperationResponse
@@ -2032,7 +2042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy attachment to a resource.
+   * Creates a policy resource mount.
    * 
    * @param request - CreatePolicyAttachmentRequest
    * @param headers - map
@@ -2081,7 +2091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy attachment to a resource.
+   * Creates a policy resource mount.
    * 
    * @param request - CreatePolicyAttachmentRequest
    * @returns CreatePolicyAttachmentResponse
@@ -2673,10 +2683,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a quota throttling rule from a gateway.
+   * Deletes a quota throttling rule for a gateway.
    * 
    * @remarks
-   * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+   * Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @param headers - map
@@ -2703,10 +2713,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a quota throttling rule from a gateway.
+   * Deletes a quota throttling rule for a gateway.
    * 
    * @remarks
-   * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+   * Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @returns DeleteGatewayQuotaRuleResponse
@@ -4134,7 +4144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves HTTP API information.
+   * Retrieves the information of an HTTP API.
    * 
    * @param request - GetHttpApiRequest
    * @param headers - map
@@ -4167,7 +4177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves HTTP API information.
+   * Retrieves the information of an HTTP API.
    * 
    * @param request - GetHttpApiRequest
    * @returns GetHttpApiResponse
@@ -4179,7 +4189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves operation information.
+   * Retrieves the API operation information.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4204,7 +4214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves operation information.
+   * Retrieves the API operation information.
    * @returns GetHttpApiOperationResponse
    */
   async getHttpApiOperation(httpApiId: string, operationId: string): Promise<$_model.GetHttpApiOperationResponse> {
@@ -4838,7 +4848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+   * Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
    * 
    * @param request - ImportHttpApiRequest
    * @param headers - map
@@ -4923,7 +4933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+   * Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
    * 
    * @param request - ImportHttpApiRequest
    * @returns ImportHttpApiResponse
@@ -5295,7 +5305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of consumer authorization rules.
+   * Retrieves a list of consumer authorization rules.
    * 
    * @param request - ListConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -5336,7 +5346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of consumer authorization rules.
+   * Retrieves a list of consumer authorization rules.
    * 
    * @param request - ListConsumerAuthorizationRulesRequest
    * @returns ListConsumerAuthorizationRulesResponse
@@ -6909,7 +6919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plugin mounts.
+   * Retrieves the plug-in mount list.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @param headers - map
@@ -6974,7 +6984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plugin mounts.
+   * Retrieves the plug-in mount list.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @returns ListPluginAttachmentsResponse
@@ -8849,7 +8859,7 @@ export default class Client extends OpenApi {
    * Updates a consumer authorization rule.
    * 
    * @remarks
-   * 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+   * This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
    * 
    * @param request - UpdateConsumerAuthorizationRuleRequest
    * @param headers - map
@@ -8893,7 +8903,7 @@ export default class Client extends OpenApi {
    * Updates a consumer authorization rule.
    * 
    * @remarks
-   * 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+   * This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
    * 
    * @param request - UpdateConsumerAuthorizationRuleRequest
    * @returns UpdateConsumerAuthorizationRuleResponse

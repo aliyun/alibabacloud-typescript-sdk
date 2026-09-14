@@ -21,7 +21,7 @@ export class DeleteGatewayQuotaRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * 1234567890
