@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   /**
    * @remarks
-   * End time of the query, in milliseconds.
+   * The end time of the query, in milliseconds.
    * 
    * @example
    * 1577808000000
@@ -13,11 +13,9 @@ export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Region where the Data Management Center for threat analysis is located. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Assets are in the Chinese mainland or Hong Kong (China).
-   * 
-   * - ap-southeast-1: Assets are outside China.
+   * The region where the threat analysis data management center resides. Select the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets belong to the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: Your assets belong to regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -25,7 +23,7 @@ export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource directory member account ID.
+   * The ID of the member account in the resource directory.
    * 
    * @example
    * 113091674488****
@@ -33,11 +31,10 @@ export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * View type.
+   * The view type. Valid values:
    * 
-   * - 0: View for the current Alibaba Cloud account.
-   * 
-   * - 1: View for all accounts in your enterprise.
+   * - 0: the view of the current Alibaba Cloud account.
+   * - 1: the view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -45,7 +42,7 @@ export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * Start time of the query, in milliseconds.
+   * The start time of the query, in milliseconds.
    * 
    * @example
    * 1577808000000

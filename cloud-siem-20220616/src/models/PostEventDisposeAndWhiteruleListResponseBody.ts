@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PostEventDisposeAndWhiteruleListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class PostEventDisposeAndWhiteruleListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response value.
+   * The response data.
    * 
    * @example
    * 123456
@@ -29,7 +29,7 @@ export class PostEventDisposeAndWhiteruleListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -37,10 +37,8 @@ export class PostEventDisposeAndWhiteruleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * 
-   * - true: succeeded
-   * 
+   * Indicates whether the request was successful. Valid values:
+   * - true: successful
    * - false: failed
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   /**
    * @remarks
-   * 幂等令牌。
+   * The idempotency token.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426614174000
@@ -13,7 +13,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * A comma-separated list of response strategy IDs.
+   * The list of handling policy IDs.
    * 
    * @example
    * 12,13,14
@@ -21,7 +21,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   disposeStrategyIds?: string;
   /**
    * @remarks
-   * A JSON object that defines the incident response configuration.
+   * The incident handling configuration as a JSON object.
    * 
    * @example
    * [
@@ -61,7 +61,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The UID of the incident owner.
+   * The account UID of the incident owner.
    * 
    * @example
    * 1234567890xxxxxx
@@ -69,7 +69,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * A JSON object that defines the alert recipient configuration.
+   * The alert recipient configuration as a JSON object.
    * 
    * @example
    * {
@@ -81,11 +81,9 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   receiverInfo?: string;
   /**
    * @remarks
-   * The region where the Data Management service for threat analysis is deployed. Select a region based on where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: Assets in the Chinese mainland or Hong Kong (China)
-   * 
-   * - ap-southeast-1: Assets outside China
+   * The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets reside in regions in the Chinese mainland or China (Hong Kong).
+   * - ap-southeast-1: Your assets reside in regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -93,7 +91,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A note about the incident.
+   * The remarks for the incident.
    * 
    * @example
    * dealed
@@ -101,7 +99,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The source of the response policy.
+   * The source of the handling policy.
    * 
    * @example
    * system
@@ -109,7 +107,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   responseSource?: string;
   /**
    * @remarks
-   * The UID of the member whose perspective an administrator switches to.
+   * The ID of the user for whom the administrator switches to a member view.
    * 
    * @example
    * 113091674488****
@@ -119,9 +117,8 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
    * @remarks
    * The view type. Valid values:
    * 
-   * - 0: Current Alibaba Cloud account view
-   * 
-   * - 1: View for all accounts in your enterprise
+   * - 0: the China account view.
+   * - 1: the view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -131,13 +128,10 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
    * @remarks
    * The incident status. Valid values:
    * 
-   * - 0: Not handled
-   * 
-   * - 1: Handling
-   * 
-   * - 5: Failed
-   * 
-   * - 10: Handled
+   * - 0: unhandled  
+   * - 1: handling 
+   * - 5: handling failed 
+   * - 10: handled
    * 
    * @example
    * 0
@@ -145,13 +139,15 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
+   * Specifies whether to restore associated handled alerts to unhandled status when reopening the incident.
+   */
+  syncAlertStatus?: boolean;
+  /**
+   * @remarks
    * The threat level. Valid values:
-   * 
-   * - serious: Important
-   * 
-   * - suspicious: Medium
-   * 
-   * - remind: Low
+   * - serious: high
+   * - suspicious: medium
+   * - remind: low
    * 
    * @example
    * remind
@@ -171,6 +167,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
       roleFor: 'RoleFor',
       roleType: 'RoleType',
       status: 'Status',
+      syncAlertStatus: 'SyncAlertStatus',
       threatLevel: 'ThreatLevel',
     };
   }
@@ -189,6 +186,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
       roleFor: 'number',
       roleType: 'number',
       status: 'number',
+      syncAlertStatus: 'boolean',
       threatLevel: 'string',
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum extends $dara.Model {
   /**
    * @remarks
-   * Date.
+   * The date in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-10-06
@@ -13,7 +13,7 @@ export class DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum extend
   date?: string;
   /**
    * @remarks
-   * Total number of security events.
+   * The total number of security events.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum extend
   eventNum?: number;
   /**
    * @remarks
-   * Number of unhandled security events.
+   * The number of unhandled security events.
    * 
    * @example
    * 34
@@ -55,12 +55,12 @@ export class DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum extend
 export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Daily event statistics.
+   * The daily event statistics.
    */
   eventDailyNum?: DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum[];
   /**
    * @remarks
-   * Total number of events.
+   * The total number of events.
    * 
    * @example
    * 100
@@ -68,7 +68,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   eventNum?: number;
   /**
    * @remarks
-   * Number of high-risk events.
+   * The number of high-risk events.
    * 
    * @example
    * 20
@@ -76,7 +76,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   highLevelEventNum?: number;
   /**
    * @remarks
-   * Number of informational events.
+   * The number of informational-level events.
    * 
    * @example
    * 0
@@ -84,7 +84,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   infoLevelEventNum?: number;
   /**
    * @remarks
-   * Number of low-risk events.
+   * The number of low-risk events.
    * 
    * @example
    * 52
@@ -92,7 +92,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   lowLevelEventNum?: number;
   /**
    * @remarks
-   * Number of medium-risk events.
+   * The number of medium-risk events.
    * 
    * @example
    * 3
@@ -100,7 +100,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   mediumLevelEventNum?: number;
   /**
    * @remarks
-   * Number of critical events.
+   * The number of critical-level events.
    * 
    * @example
    * 0
@@ -108,7 +108,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   seriousLevelEventNum?: number;
   /**
    * @remarks
-   * Number of unhandled events.
+   * The number of unhandled events.
    * 
    * @example
    * 75
@@ -155,7 +155,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
 export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * HTTP status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -163,7 +163,7 @@ export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response data.
+   * The response data.
    * 
    * @example
    * 123456
@@ -171,7 +171,7 @@ export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   data?: DescribeEventCountByThreatLevelResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -179,7 +179,7 @@ export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -187,11 +187,9 @@ export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * 
-   * - true: The request succeeded.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request was successful. Valid values:
+   * - true: successful.
+   * - false: failed.
    * 
    * @example
    * true

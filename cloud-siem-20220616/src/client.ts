@@ -12,10 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shanghai': "cloud-siem.cn-shanghai.aliyuncs.com",
-      'ap-southeast-1': "cloud-siem.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloud-siem", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1282,7 +1278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves alerts associated with a specific event.
+   * Retrieves the list of alerts associated with an incident.
    * 
    * @param request - DescribeAlertsWithEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1385,7 +1381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves alerts associated with a specific event.
+   * Retrieves the list of alerts associated with an incident.
    * 
    * @param request - DescribeAlertsWithEventRequest
    * @returns DescribeAlertsWithEventResponse
@@ -2288,7 +2284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can obtain the count for each event type.
+   * Retrieves the count of events by type.
    * 
    * @param request - DescribeEventCountByThreatLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2335,7 +2331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can obtain the count for each event type.
+   * Retrieves the count of events by type.
    * 
    * @param request - DescribeEventCountByThreatLevelRequest
    * @returns DescribeEventCountByThreatLevelResponse
@@ -2912,6 +2908,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the purchase status of a user\\"s SIEM.
+   * 
+   * @param request - DescribeUserSiemOrderStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserSiemOrderStatusResponse
+   */
+  async describeUserSiemOrderStatusWithOptions(request: $_model.DescribeUserSiemOrderStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserSiemOrderStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserSiemOrderStatus",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserSiemOrderStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserSiemOrderStatusResponse({}));
+  }
+
+  /**
+   * Queries the purchase status of a user\\"s SIEM.
+   * 
+   * @param request - DescribeUserSiemOrderStatusRequest
+   * @returns DescribeUserSiemOrderStatusResponse
+   */
+  async describeUserSiemOrderStatus(request: $_model.DescribeUserSiemOrderStatusRequest): Promise<$_model.DescribeUserSiemOrderStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserSiemOrderStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
    * 
    * @param request - DescribeWafScopeRequest
@@ -3189,7 +3235,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of user data storage on the Log Management page.
    * 
    * @remarks
-   * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
    * 
    * @param request - GetDataStorageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3231,7 +3277,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of user data storage on the Log Management page.
    * 
    * @remarks
-   * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
    * 
    * @param request - GetDataStorageRequest
    * @returns GetDataStorageResponse
@@ -5112,7 +5158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submit incident response information to update the incident status and severity level.
+   * Submits incident handling information, updates the incident status, and updates the incident severity level.
    * 
    * @param request - PostEventDisposeAndWhiteruleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5169,6 +5215,10 @@ export default class Client extends OpenApi {
       body["Status"] = request.status;
     }
 
+    if (!$dara.isNull(request.syncAlertStatus)) {
+      body["SyncAlertStatus"] = request.syncAlertStatus;
+    }
+
     if (!$dara.isNull(request.threatLevel)) {
       body["ThreatLevel"] = request.threatLevel;
     }
@@ -5191,7 +5241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submit incident response information to update the incident status and severity level.
+   * Submits incident handling information, updates the incident status, and updates the incident severity level.
    * 
    * @param request - PostEventDisposeAndWhiteruleListRequest
    * @returns PostEventDisposeAndWhiteruleListResponse

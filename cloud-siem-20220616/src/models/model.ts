@@ -67,6 +67,7 @@ export { DescribeOperatorsResponseBodyData } from './DescribeOperatorsResponseBo
 export { DescribeProdCountResponseBodyData } from './DescribeProdCountResponseBody';
 export { DescribeScopeUsersResponseBodyData } from './DescribeScopeUsersResponseBody';
 export { DescribeUserBuyStatusResponseBodyData } from './DescribeUserBuyStatusResponseBody';
+export { DescribeUserSiemOrderStatusResponseBodyData } from './DescribeUserSiemOrderStatusResponseBody';
 export { DescribeWafScopeResponseBodyData } from './DescribeWafScopeResponseBody';
 export { DescribeWhiteRuleListResponseBodyDataPageInfo } from './DescribeWhiteRuleListResponseBody';
 export { DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsLeft } from './DescribeWhiteRuleListResponseBody';
@@ -270,6 +271,9 @@ export { DescribeStorageResponse } from './DescribeStorageResponse';
 export { DescribeUserBuyStatusRequest } from './DescribeUserBuyStatusRequest';
 export { DescribeUserBuyStatusResponseBody } from './DescribeUserBuyStatusResponseBody';
 export { DescribeUserBuyStatusResponse } from './DescribeUserBuyStatusResponse';
+export { DescribeUserSiemOrderStatusRequest } from './DescribeUserSiemOrderStatusRequest';
+export { DescribeUserSiemOrderStatusResponseBody } from './DescribeUserSiemOrderStatusResponseBody';
+export { DescribeUserSiemOrderStatusResponse } from './DescribeUserSiemOrderStatusResponse';
 export { DescribeWafScopeRequest } from './DescribeWafScopeRequest';
 export { DescribeWafScopeResponseBody } from './DescribeWafScopeResponseBody';
 export { DescribeWafScopeResponse } from './DescribeWafScopeResponse';
