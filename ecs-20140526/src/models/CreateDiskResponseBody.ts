@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the disk.
+   * The disk ID.
    * 
    * @example
    * d-bp131n0q38u3a4zi****
@@ -13,9 +13,9 @@ export class CreateDiskResponseBody extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The generated order ID.
    * 
-   * > An order ID is returned only when you create a subscription disk.
+   * > An order ID is returned only when a subscription disk is created.
    * 
    * @example
    * 20413515388****

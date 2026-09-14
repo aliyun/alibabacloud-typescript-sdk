@@ -66,7 +66,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
    * The number of instances to which the key pair failed to be attached.
    * 
    * @example
-   * 0
+   * 1
    */
   failCount?: string;
   /**
@@ -82,7 +82,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   * 473469C7-AA6F-4DC5-B3DB-A3*****83E
    */
   requestId?: string;
   results?: AttachKeyPairResponseBodyResults;
