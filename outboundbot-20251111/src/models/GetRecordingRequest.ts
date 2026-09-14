@@ -2,38 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitCampaignRequest extends $dara.Model {
+export class GetRecordingRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the campaign.
-   * 
-   * This parameter is required.
+   * The instance ID.
    * 
    * @example
-   * f295a472-35ee-442a-9013-b13862505a1a
-   */
-  campaignId?: string;
-  /**
-   * @remarks
-   * The outbound call instance ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * b3dbfb82-1ae6-4e73-b717-f494727d2af3
+   * 1dcb09c5-d5db-4397-bf65-db854463beea
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The session ID.
+   * 
+   * @example
+   * job-b4c0d17b-e871-498f-b6c7-5219bc22b87a
+   */
+  sessionId?: string;
   static names(): { [key: string]: string } {
     return {
-      campaignId: 'CampaignId',
       instanceId: 'InstanceId',
+      sessionId: 'SessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      campaignId: 'string',
       instanceId: 'string',
+      sessionId: 'string',
     };
   }
 

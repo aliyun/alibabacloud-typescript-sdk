@@ -15,7 +15,7 @@ export class PauseCampaignRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The instance ID of the outbound call instance.
+   * The outbound robot instance ID.
    * 
    * This parameter is required.
    * 

@@ -101,7 +101,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   minAttemptInterval?: number;
   /**
    * @remarks
-   * The campaign name.
+   * The name of the campaign.
    * 
    * @example
    * Satisfaction Survey
@@ -146,7 +146,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The campaign state.
+   * The state of the campaign.
    * 
    * @example
    * Completed
@@ -170,7 +170,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   updatedTime?: number;
   /**
    * @remarks
-   * The campaign weight.
+   * The weight of the campaign.
    * 
    * @example
    * 1

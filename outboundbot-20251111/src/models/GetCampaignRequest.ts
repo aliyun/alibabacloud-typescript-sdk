@@ -15,7 +15,7 @@ export class GetCampaignRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The outbound instance ID.
+   * The instance ID of the outbound robot.
    * 
    * This parameter is required.
    * 

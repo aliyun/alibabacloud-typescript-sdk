@@ -6,8 +6,8 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The call execution order. Default value: MIN_ATTEMPT_FIRST. Valid values:
-   * - PRIORITY_FIRST: priority first.
-   * - MIN_ATTEMPT_FIRST: minimum attempt count first.
+   * - PRIORITY_FIRST: prioritize by priority.
+   * - MIN_ATTEMPT_FIRST: prioritize by minimum attempt count.
    * 
    * @example
    * MIN_ATTEMPT_FIRST
@@ -58,7 +58,7 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
    * @remarks
    * The minimum concurrency for the task. A value of 0 indicates no guaranteed minimum, and resources are allocated by weight.
    * 
-   * If multiple tasks have a minimum concurrency configured:
+   * If multiple campaigns have a minimum concurrency configured:
    * 
    * - If the total concurrency is less than the instance total concurrency, the minimum concurrency of each task is satisfied first, and the remaining resources are allocated proportionally by weight.
    * 
@@ -78,7 +78,7 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   flashSmsParameters?: string;
   /**
    * @remarks
-   * Specifies whether to prohibit outbound calls on holidays.
+   * Specifies whether to restrict outbound calls on holidays.
    * 
    * @example
    * false
@@ -121,17 +121,17 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Updated_task_group
+   * Updated job group
    */
   name?: string;
   /**
    * @remarks
-   * The list of caller numbers for the outbound task.
+   * The list of caller numbers for the outbound call task.
    */
   numbersShrink?: string;
   /**
    * @remarks
-   * The list of redial restriction conditions. If this parameter is not specified, no restrictions are applied. Valid values:
+   * The list of redial restriction conditions. If not specified, no restrictions are applied. Valid values:
    * - CALLEE_NOT_EXISTS: Do not call nonexistent numbers.
    * - OUT_OF_SERVICE: Do not call numbers that are out of service.
    * 
@@ -141,7 +141,7 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   redialRestrictions?: string;
   /**
    * @remarks
-   * Specifies whether to keep the scheduling state until the task end time after all contacts are called. Default value: false. Valid values:
+   * Specifies whether to keep the scheduling state until the campaign end time after all contacts are called. Default value: false. Valid values:
    * - true: The task remains in the scheduling state, and you can continue to append contacts.
    * - false: The task changes to completed, and you cannot append contacts.
    * 

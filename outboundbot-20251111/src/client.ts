@@ -12,9 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shanghai': "outboundbot.cn-shanghai.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("outboundbot", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -33,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an outbound call campaign.
+   * Terminates an outbound call campaign.
    * 
    * @remarks
    * ***
@@ -71,7 +68,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an outbound call campaign.
+   * Terminates an outbound call campaign.
    * 
    * @remarks
    * ***
@@ -211,7 +208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an outbound call task.
+   * Creates an outbound call campaign.
    * 
    * @remarks
    * ***
@@ -329,7 +326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an outbound call task.
+   * Creates an outbound call campaign.
    * 
    * @remarks
    * ***
@@ -1278,6 +1275,52 @@ export default class Client extends OpenApi {
   async getInstance(request: $_model.GetInstanceRequest): Promise<$_model.GetInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a call recording.
+   * 
+   * @param request - GetRecordingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecordingResponse
+   */
+  async getRecordingWithOptions(request: $_model.GetRecordingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecordingResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRecording",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRecordingResponse>(await this.callApi(params, req, runtime), new $_model.GetRecordingResponse({}));
+  }
+
+  /**
+   * Retrieves a call recording.
+   * 
+   * @param request - GetRecordingRequest
+   * @returns GetRecordingResponse
+   */
+  async getRecording(request: $_model.GetRecordingRequest): Promise<$_model.GetRecordingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRecordingWithOptions(request, runtime);
   }
 
   /**

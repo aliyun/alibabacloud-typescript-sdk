@@ -33,6 +33,7 @@ export { GetCaseDetailResponseBodyDataCaseLabels } from './GetCaseDetailResponse
 export { GetCaseDetailResponseBodyDataCase } from './GetCaseDetailResponseBody';
 export { GetCaseDetailResponseBodyData } from './GetCaseDetailResponseBody';
 export { GetInstanceResponseBodyData } from './GetInstanceResponseBody';
+export { GetRecordingResponseBodyData } from './GetRecordingResponseBody';
 export { GetScriptProfileTemplateResponseBodyData } from './GetScriptProfileTemplateResponseBody';
 export { GetSubscriptionResponseBodyDataEventList } from './GetSubscriptionResponseBody';
 export { GetSubscriptionResponseBodyData } from './GetSubscriptionResponseBody';
@@ -158,6 +159,9 @@ export { GetCaseDetailResponse } from './GetCaseDetailResponse';
 export { GetInstanceRequest } from './GetInstanceRequest';
 export { GetInstanceResponseBody } from './GetInstanceResponseBody';
 export { GetInstanceResponse } from './GetInstanceResponse';
+export { GetRecordingRequest } from './GetRecordingRequest';
+export { GetRecordingResponseBody } from './GetRecordingResponseBody';
+export { GetRecordingResponse } from './GetRecordingResponse';
 export { GetScriptProfileTemplateRequest } from './GetScriptProfileTemplateRequest';
 export { GetScriptProfileTemplateResponseBody } from './GetScriptProfileTemplateResponseBody';
 export { GetScriptProfileTemplateResponse } from './GetScriptProfileTemplateResponse';
