@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiskReplicaGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the replication pair-consistent group.
+   * The key of the tag of the replication pair-consistent group.
    * 
    * @example
    * tag-key
@@ -13,7 +13,7 @@ export class DescribeDiskReplicaGroupsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the replication pair-consistent group.
+   * The value of the tag of the replication pair-consistent group.
    * 
    * @example
    * tag-value
@@ -45,9 +45,9 @@ export class DescribeDiskReplicaGroupsRequestTag extends $dara.Model {
 export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the replication pair-consistent groups. You can specify the IDs of one or more replication pair-consistent groups. Separate the IDs with commas (,).
+   * The IDs of the replication pair-consistent groups. You can specify one or more group IDs. Separate multiple IDs with a comma (,).
    * 
-   * This parameter is empty by default, which indicates that all replication pair-consistent groups in the specified region are queried. You can specify up to the IDs of 100 replication pair-consistent groups.
+   * If you do not specify this parameter, all replication pair-consistent groups in the current region are queried. You can specify up to 100 group IDs.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -55,7 +55,7 @@ export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   groupIds?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. You can use this parameter together with NextToken.
+   * The maximum number of entries to return on a single page. You can use this parameter with NextToken.
    * 
    * Valid values: 1 to 500.
    * 
@@ -67,7 +67,7 @@ export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the replication pair-consistent group. You can perform a fuzzy search.
+   * The name of the replication group. Fuzzy search is supported.
    * 
    * @example
    * pg-name***
@@ -75,7 +75,7 @@ export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
+   * The query token. Set this parameter to the NextToken value returned from the previous call to this operation. You do not need to set this parameter for the first call. If you set NextToken, the PageSize and PageNumber parameters are ignored, and the TotalCount in the response is invalid.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -83,7 +83,7 @@ export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 5
@@ -91,7 +91,8 @@ export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100.
+   * The number of entries per page.
+   * Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -99,7 +100,7 @@ export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region to which the replication pair-consistent group belongs.
+   * The region ID of the replication pair-consistent group.
    * 
    * This parameter is required.
    * 
@@ -117,14 +118,15 @@ export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of the site from which the information of replication pair-consistent groups is retrieved. This parameter is used for scenarios where data is replicated across zones in replication pairs.
+   * The site to query. This parameter is used when replication pairs are deployed across zones.
    * 
-   * *   If this parameter is not specified, information such as the status of replication pair-consistent groups at the primary site is queried and returned.
+   * - If you do not specify this parameter, the records and status information of replication pairs at the production site are returned.
    * 
-   * *   Otherwise, information such as the state of replication pairs at the site specified by the Site parameter is queried and returned. Valid values:
+   * - If you specify this parameter, only the records and status information of replication pairs at the specified site are returned. Valid values:
    * 
-   *     *   production: primary site
-   *     *   backup: secondary site
+   *   - production: The production site.
+   * 
+   *   - backup: The disaster recovery site.
    * 
    * @example
    * production
@@ -132,7 +134,7 @@ export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
   site?: string;
   /**
    * @remarks
-   * The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
+   * The tags. The list can contain up to 20 tags.
    */
   tag?: DescribeDiskReplicaGroupsRequestTag[];
   static names(): { [key: string]: string } {

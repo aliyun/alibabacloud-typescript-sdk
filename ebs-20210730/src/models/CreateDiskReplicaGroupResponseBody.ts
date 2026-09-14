@@ -13,7 +13,7 @@ export class CreateDiskReplicaGroupResponseBody extends $dara.Model {
   replicaGroupId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C123F94F-4E38-19AE-942A-A8D6F44F****

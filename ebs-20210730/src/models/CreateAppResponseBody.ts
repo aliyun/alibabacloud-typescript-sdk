@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why access was denied.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The app ID.
+   * 
    * @example
    * app-bd5e3533
    */
   appId?: string;
   /**
+   * @remarks
+   * The app name.
+   * 
    * @example
    * TestApp_g5t
    */
   appName?: string;
   /**
+   * @remarks
+   * The status code. A value of 200 indicates success.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * 200
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/j6if7e3w217z31q/j6if7e3w217z31q.sql.zip?Expires=1753331032&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=vOXj4E1%2FCqncWcDtu3UxxuOcyh0%3D
+   * -
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The error code description.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The additional information. If the request is successful, "success" is returned. If the request fails, a specific error code is returned.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E604ABBF-FD0F-5080-BE2B-BCF674A9E941
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the app was created successfully. Valid values: true: The app was created successfully. false: The app failed to be created.
+   * 
    * @example
    * True
    */
   success?: boolean;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */

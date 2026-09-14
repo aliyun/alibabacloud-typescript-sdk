@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnterpriseSnapshotPolicyShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key of the resource.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,7 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequestTag extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * The tag value.
-   * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
-   * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * The tag value of the resource.
    * 
    * This parameter is required.
    * 
@@ -53,7 +49,7 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequestTag extends $dara.Model 
 export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * Ensures the idempotence of the request. Generate a parameter value from your client that is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -61,12 +57,12 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Snapshot replication destination information.
+   * The snapshot replication information.
    */
   crossRegionCopyInfoShrink?: string;
   /**
    * @remarks
-   * The description of the policy.
+   * The description.
    * 
    * @example
    * xxx
@@ -74,7 +70,7 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The Policy Name.
    * 
    * This parameter is required.
    * 
@@ -84,7 +80,7 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * The region ID. You can call DescribeRegions to query the regions that support asynchronous replication.
    * 
    * This parameter is required.
    * 
@@ -94,7 +90,7 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which to assign the snapshot policy.
+   * The resource group ID.
    * 
    * @example
    * xxx
@@ -102,30 +98,29 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The snapshot retention rule.
+   * The retention rule.
    * 
    * This parameter is required.
    */
   retainRuleShrink?: string;
   /**
    * @remarks
-   * The rule for scheduling.
+   * The schedule rule.
    * 
    * This parameter is required.
    */
   scheduleShrink?: string;
   /**
    * @remarks
-   * The special snapshot retention rules.
+   * The special retention rules.
    */
   specialRetainRulesShrink?: string;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The status. Valid values:
    * 
-   * - ENABLED: Enable snapshot policy execution.
-   * 
-   * - DISABLED: Disable snapshot policy execution.
+   * - DISABLED
+   * - ENABLED
    * 
    * @example
    * ENABLED
@@ -133,17 +128,17 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Advanced snapshot features.
+   * The advanced snapshot feature.
    */
   storageRuleShrink?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tag key-value pairs. Valid values of n: 1 to 20.
    */
   tag?: CreateEnterpriseSnapshotPolicyShrinkRequestTag[];
   /**
    * @remarks
-   * Binding target type, valid value:
+   * The type. Valid values:
    * 
    * - DISK
    * 

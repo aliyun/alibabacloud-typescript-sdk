@@ -45,7 +45,7 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfosTags extends $dara.Mod
 export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   /**
    * @remarks
-   * The BPS.
+   * The maximum data throughput for read/write (I/O) operations per second. Unit: MB/s.
    * 
    * @example
    * 300
@@ -53,12 +53,12 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   bps?: number;
   /**
    * @remarks
-   * Indicates whether the performance burst feature is enabled. Valid values:
+   * Indicates whether burst (performance bursting) is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * - false: Disabled.
    * 
-   * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL cloud disk](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * true
@@ -66,13 +66,14 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * The type of the disk. Valid values:
-   * - cloud
-   * - cloud_efficiency
-   * - cloud_ssd
-   * - cloud_essd
-   * - cloud_auto
-   * - cloud_essd_entry
+   * The cloud disk type. Valid values:
+   * 
+   * - cloud: basic cloud disk.
+   * - cloud_efficiency: ultra cloud disk.
+   * - cloud_ssd: standard SSD.
+   * - cloud_essd: Enterprise SSD (ESSD).
+   * - cloud_auto: ESSD AutoPL cloud disk.
+   * - cloud_essd_entry: ESSD Entry disk.
    * 
    * @example
    * cloud_essd
@@ -80,7 +81,7 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * The ID of the disk.
+   * The cloud disk ID.
    * 
    * @example
    * d-cd401****
@@ -88,7 +89,7 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The name of the disk.
+   * The cloud disk name.
    * 
    * @example
    * disk-28c6b****
@@ -96,10 +97,9 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * The disk status. Valid values:
-   * 
-   * - Available
-   * - Deleted
+   * The cloud disk status. Valid values:
+   * - Available: in use.
+   * - Deleted: deleted.
    * 
    * @example
    * Available
@@ -107,9 +107,10 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   diskStatus?: string;
   /**
    * @remarks
-   * The disk type. Valid values:
-   * *   system: system disk
-   * *   data: data disk
+   * The cloud disk type. Valid values:
+   * 
+   * - system: system cloud disk.
+   * - data: data cloud disk.
    * 
    * @example
    * system
@@ -117,7 +118,7 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The IOPS.
+   * The maximum number of read/write (I/O) operations per second. Unit: operations/s.
    * 
    * @example
    * 4000
@@ -125,17 +126,17 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   iops?: number;
   /**
    * @remarks
-   * Event tags of the disk.
+   * The collection of event tags for the cloud disk. Event tags display events that occurred on the cloud disk within the last 24 hours, with a delay of up to 1 hour compared to the actual events.
    */
   lensTags?: string[];
   /**
    * @remarks
-   * The new performance level of the ESSD. Valid values:
+   * The performance level (PL) of the ESSD cloud disk. Valid values:
    * 
-   * *   PL0: An ESSD can deliver up to 10,000 random read/write IOPS.
-   * *   PL1: An ESSD can deliver up to 50,000 random read/write IOPS.
-   * *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
-   * *   PL3: An ESSD delivers up to 1,000,000 random read/write IOPS.
+   * - PL0: maximum random read/write IOPS of 10,000 per standard SSD.
+   * - PL1: maximum random read/write IOPS of 50,000 per standard SSD.
+   * - PL2: maximum random read/write IOPS of 100,000 per standard SSD.
+   * - PL3: maximum random read/write IOPS of 1,000,000 per standard SSD.
    * 
    * @example
    * PL0
@@ -143,11 +144,11 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline performance}.
    * 
-   * Baseline performance = min{1,800 + 50 × Capacity, 50,000}
+   * Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
    * 
-   * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL cloud disk](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 4000
@@ -155,16 +156,23 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   provisionedIops?: number;
   /**
    * @remarks
-   * The region ID of the disk.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Indicates whether the cloud disk is a shared cloud disk.
+   * 
+   * @example
+   * true
+   */
   sharingEnabled?: string;
   /**
    * @remarks
-   * The size of the disk. Unit: GiB.
+   * The cloud disk size. Unit: GiB.
    * 
    * @example
    * 64
@@ -172,12 +180,12 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Tags of the disk.
+   * The collection of tags for the cloud disk.
    */
   tags?: DescribeLensMonitorDisksResponseBodyDiskInfosTags[];
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID of the cloud disk.
    * 
    * @example
    * cn-hangzhou-j
@@ -243,12 +251,12 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
 export class DescribeLensMonitorDisksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the disks.
+   * The list of cloud disk information.
    */
   diskInfos?: DescribeLensMonitorDisksResponseBodyDiskInfos[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -256,7 +264,7 @@ export class DescribeLensMonitorDisksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. A request ID is returned regardless of whether the API call succeeds.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

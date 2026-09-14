@@ -5,13 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLensMonitorDisksRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the disk. Valid values:
-   * - cloud
-   * - cloud_efficiency
-   * - cloud_ssd
-   * - cloud_essd
-   * - cloud_auto
-   * - cloud_essd_entry
+   * The cloud disk type. Valid values:
+   * 
+   * - cloud: basic cloud disk.
+   * - cloud_efficiency: ultra cloud disk.
+   * - cloud_ssd: standard SSD.
+   * - cloud_essd: Enterprise SSD (ESSD).
+   * - cloud_auto: ESSD AutoPL cloud disk.
+   * - cloud_essd_entry: ESSD Entry disk.
    * 
    * @example
    * cloud_auto
@@ -19,15 +20,15 @@ export class DescribeLensMonitorDisksRequest extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * Regular matching fuzzy query to filter cloud disk IDs.
+   * The regular expression pattern used for fuzzy match filtering of cloud disk IDs.
    * 
    * @example
-   * d-cd40hxfu0v**
+   * d-cd40hxfu0v*
    */
   diskIdPattern?: string;
   /**
    * @remarks
-   * The list of disks.
+   * The list of cloud disk IDs.
    * 
    * @example
    * [\\"d-1\\", \\"d-2\\"]
@@ -35,25 +36,37 @@ export class DescribeLensMonitorDisksRequest extends $dara.Model {
   diskIds?: string[];
   /**
    * @remarks
-   * Event tags of the disk, which are used to filter the disks on which the events associated with the specified tags occurred in the previous 24 hours. Valid values:
+   * The ECS instance ID.
    * 
-   * *   NoSnapshot: specifies the event that is triggered because no snapshot is created for the disk to protect data on the disk.
-   * *   BurstIOTriggered: specifies the event that is triggered when a burst I/O operation is performed on the disk.
-   * *   CostOptimizationNeeded: specifies the event that is triggered when cost optimization is required.
-   * *   DiskSpecNotMatchedWithInstance: specifies the event that is triggered if the disk specifications do not match the instance to which the disk is attached.
-   * *   DiskIONo4kAligned: specifies the event that is triggered if the physical and logical sectors involved in a read or write operation are not 4K aligned.
-   * *   DiskIOHang: specifies the event that is triggered when an I/O hang occurs on the disk.
-   * *   InstanceIOPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of IOPS on the instance reaches the upper limit.
-   * *   InstanceBPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of BPS on the instance reaches the upper limit.
-   * *   DiskIOPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of IOPS on the disk reaches the upper limit of the instance.
-   * *   DiskBPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of BPS on the disk reaches the upper limit of the instance.
-   * *   DiskIOPSExceedDiskMaxLimit: specifies the event that is triggered when the number of IOPS on the disk reaches the upper limit of the disk.
-   * *   DiskBPSExceedDiskMaxLimit: specifies the event that is triggered when the number of BPS on the disk reaches the upper limit of the disk.
+   * @example
+   * i-2zedroc0yv8z19ubnyos
+   */
+  ecsInstanceId?: string;
+  /**
+   * @remarks
+   * The list of cloud disk event tags, used to filter cloud disks that have experienced these event types within the last 24 hours. Valid values:
+   * - NoSnapshot: data protection
+   * - BurstIOTriggered: burst I/O
+   * - CostOptimizationNeeded: cost optimization
+   * - DiskSpecNotMatchedWithInstance: instance and cloud disk specifications do not match
+   * - DiskIONo4kAligned: non-4K aligned read/write
+   * - DiskIOHang: I/O hang occurred on the cloud disk
+   * - InstanceIOPSExceedInstanceMaxLimit: instance IOPS reached the upper limit
+   * - InstanceBPSExceedInstanceMaxLimit: instance BPS reached the upper limit
+   * - DiskIOPSExceedInstanceMaxLimit: cloud disk IOPS reached the instance upper limit
+   * - DiskBPSExceedInstanceMaxLimit: cloud disk BPS reached the instance upper limit
+   * - DiskIOPSExceedDiskMaxLimit: cloud disk IOPS reached the disk upper limit
+   * - DiskBPSExceedDiskMaxLimit: cloud disk BPS reached the disk upper limit
    */
   lensTags?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries per page for a paged query. Maximum value: 100.
+   * Default value:
+   * 
+   * - The default value is 10.
+   * 
+   * - If the specified value is greater than 100, the default value of 100 is used.
    * 
    * @example
    * 10
@@ -61,9 +74,7 @@ export class DescribeLensMonitorDisksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query to retrieve more results.
-   * 
-   * >The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -71,7 +82,7 @@ export class DescribeLensMonitorDisksRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. You can call DescribeRegions to query the list of regions supported by EBS Lens.
    * 
    * This parameter is required.
    * 
@@ -84,6 +95,7 @@ export class DescribeLensMonitorDisksRequest extends $dara.Model {
       diskCategory: 'DiskCategory',
       diskIdPattern: 'DiskIdPattern',
       diskIds: 'DiskIds',
+      ecsInstanceId: 'EcsInstanceId',
       lensTags: 'LensTags',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -96,6 +108,7 @@ export class DescribeLensMonitorDisksRequest extends $dara.Model {
       diskCategory: 'string',
       diskIdPattern: 'string',
       diskIds: { 'type': 'array', 'itemType': 'string' },
+      ecsInstanceId: 'string',
       lensTags: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',

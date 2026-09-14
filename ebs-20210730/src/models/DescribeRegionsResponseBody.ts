@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegionsZones extends $dara.Model {
   /**
    * @remarks
-   * The name of the zone.
+   * The zone name.
    * 
    * @example
    * Hangzhou Zone H
@@ -13,12 +13,12 @@ export class DescribeRegionsResponseBodyRegionsZones extends $dara.Model {
   localName?: string;
   /**
    * @remarks
-   * The type of resource list.
+   * The list of resource types.
    */
   resourceTypes?: string[];
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-h
@@ -55,7 +55,7 @@ export class DescribeRegionsResponseBodyRegionsZones extends $dara.Model {
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * China (Hangzhou)
@@ -71,7 +71,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   regionEndpoint?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -79,7 +79,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Details about the zones.
+   * The collection of zone information.
    */
   zones?: DescribeRegionsResponseBodyRegionsZones[];
   static names(): { [key: string]: string } {
@@ -115,12 +115,12 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the regions.
+   * The collection of region and zone information.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 17EE62D8-064E-5404-8B0D-72122478****

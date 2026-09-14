@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfoRegions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination region.
+   * The snapshot copy destination region.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopy
   regionId?: string;
   /**
    * @remarks
-   * The retention period of snapshot copies in the destination region. Unit: day.
+   * The number of days to retain snapshots at the destination region.
    * 
    * @example
    * 7
@@ -45,7 +45,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopy
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the cross-region replication feature is enabled.
+   * Indicates whether cross-region copy is enabled.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopy
   enabled?: boolean;
   /**
    * @remarks
-   * The destination regions that store snapshot copies.
+   * The destination region information.
    */
   regions?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfoRegions[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopy
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of snapshots that can be retained.
+   * The retention count.
    * 
    * @example
    * 10
@@ -93,7 +93,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule exte
   number?: number;
   /**
    * @remarks
-   * The value of the retention period of snapshots.
+   * The time interval of the retention rule. The unit is specified by the TimeUnit parameter. The value must be greater than 1.
    * 
    * @example
    * 14
@@ -101,7 +101,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule exte
   timeInterval?: number;
   /**
    * @remarks
-   * The unit of the retention period of snapshots.
+   * The retention time unit.
    * 
    * @example
    * DAYS
@@ -135,7 +135,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule exte
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule extends $dara.Model {
   /**
    * @remarks
-   * The cron expression of the enterprise-level snapshot policy.
+   * The cron expression.
    */
   cronExpression?: string;
   static names(): { [key: string]: string } {
@@ -162,7 +162,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule extend
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRulesRules extends $dara.Model {
   /**
    * @remarks
-   * The unit of the special retention period.
+   * The special period unit.
    * 
    * @example
    * WEEKS
@@ -170,7 +170,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRu
   specialPeriodUnit?: string;
   /**
    * @remarks
-   * The value of the retention period.
+   * The time interval of the retention rule. The unit is specified by the TimeUnit parameter. The value must be greater than 1.
    * 
    * @example
    * 1
@@ -178,7 +178,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRu
   timeInterval?: number;
   /**
    * @remarks
-   * The unit of the retention period.
+   * The retention time unit.
    * 
    * @example
    * WEEKS
@@ -212,7 +212,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRu
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the special retention period is enabled.
+   * Indicates whether special retention is enabled.
    * 
    * @example
    * true
@@ -252,7 +252,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRu
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instant access feature is enabled.
+   * Indicates whether instant access is enabled for snapshots.
    * 
    * @example
    * false
@@ -282,7 +282,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule ext
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag of the enterprise-level snapshot policy.
+   * The tag key of the resource.
    * 
    * @example
    * key
@@ -290,7 +290,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags extends $d
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag of the enterprise-level snapshot policy.
+   * The tag value of the resource.
    * 
    * @example
    * value
@@ -322,7 +322,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags extends $d
 export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The time when the enterprise-level snapshot policy was created.
+   * The creation time in UTC ISO 8601 format.
    * 
    * @example
    * 2023-06-24T06:03:35Z
@@ -330,12 +330,12 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The replication rule of snapshots in the enterprise-level snapshot policy.
+   * The snapshot cross-region copy information.
    */
   crossRegionCopyInfo?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo;
   /**
    * @remarks
-   * The description of the enterprise-level snapshot policy.
+   * The snapshot policy description.
    * 
    * @example
    * xxx
@@ -343,12 +343,12 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
   desc?: string;
   /**
    * @remarks
-   * The disks that are associated with the snapshot policy.
+   * The list of bound cloud disk IDs.
    */
   diskIds?: string[];
   /**
    * @remarks
-   * Indicates whether snapshots are managed.
+   * The snapshot managed status.
    * 
    * @example
    * false
@@ -356,7 +356,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
   managedForEcs?: boolean;
   /**
    * @remarks
-   * The name of the enterprise-level snapshot policy.
+   * The snapshot policy name.
    * 
    * @example
    * xxx
@@ -364,7 +364,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
   name?: string;
   /**
    * @remarks
-   * The ID of the enterprise-level snapshot policy.
+   * The snapshot policy ID.
    * 
    * @example
    * esp-xxx
@@ -380,22 +380,25 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
   resourceGroupId?: string;
   /**
    * @remarks
-   * The retention rule of the enterprise-level snapshot policy.
+   * The snapshot policy retention rule.
    */
   retainRule?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule;
   /**
    * @remarks
-   * The scheduling rule of the enterprise-level snapshot policy.
+   * The snapshot policy schedule rule.
    */
   schedule?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule;
   /**
    * @remarks
-   * The special retention rules of the enterprise-level snapshot policy.
+   * The special retention rules for the snapshot policy.
    */
   specialRetainRules?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRules;
   /**
    * @remarks
-   * The status of the enterprise-level snapshot policy.
+   * The status. Valid values:
+   * 
+   * - DISABLED
+   * - ENABLED
    * 
    * @example
    * DISABLED
@@ -403,7 +406,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
   state?: string;
   /**
    * @remarks
-   * The storage rule of snapshots in the enterprise-level snapshot policy.
+   * The snapshot policy storage rule.
    */
   storageRule?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule;
   /**
@@ -413,7 +416,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
   tags?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags[];
   /**
    * @remarks
-   * The number of objects that are associated with the enterprise-level snapshot policy.
+   * The number of bound targets.
    * 
    * @example
    * 10
@@ -421,7 +424,9 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
   targetCount?: number;
   /**
    * @remarks
-   * The type of the enterprise-level snapshot policy.
+   * The type. Valid values:
+   * 
+   * - DISK
    * 
    * @example
    * DISK
@@ -502,15 +507,15 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.
 export class DescribeEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token (Token) returned for the next query.
    * 
    * @example
-   * AAAAAdDWBF2
+   * AAAAAdDWBF2****
    */
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number for paged queries.
    * 
    * @example
    * 1
@@ -518,7 +523,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paged queries.
    * 
    * @example
    * 10
@@ -526,7 +531,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The returned snapshot policies.
+   * The list of policies.
    */
   policies?: DescribeEnterpriseSnapshotPolicyResponseBodyPolicies[];
   /**
@@ -534,12 +539,12 @@ export class DescribeEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 5CA35A83-8D8A-5B67-BAA0-2E124F194DA4
+   * 549BB71F-6778-53CE-AA73-E94ACE802AB4
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

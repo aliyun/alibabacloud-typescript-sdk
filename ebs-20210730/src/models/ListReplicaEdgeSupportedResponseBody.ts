@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListReplicaEdgeSupportedResponseBodySupportedRegionsZones extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether replication time control is supported.
+   * 
+   * @example
+   * false
+   */
   supportRtc?: boolean;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-i
    */
@@ -34,10 +44,17 @@ export class ListReplicaEdgeSupportedResponseBodySupportedRegionsZones extends $
 
 export class ListReplicaEdgeSupportedResponseBodySupportedRegions extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The set of zone information.
+   */
   zones?: ListReplicaEdgeSupportedResponseBodySupportedRegionsZones[];
   static names(): { [key: string]: string } {
     return {
@@ -67,20 +84,37 @@ export class ListReplicaEdgeSupportedResponseBodySupportedRegions extends $dara.
 
 export class ListReplicaEdgeSupportedResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * Valid values: 1 to 500.
+   * 
+   * Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to start the next query. If NextToken is empty, no more results are available.
+   * 
    * @example
    * e71d8a535bd9c****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 17EE62D8-064E-5404-8B0D-72122478****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The set of region information.
+   */
   supportedRegions?: ListReplicaEdgeSupportedResponseBodySupportedRegions[];
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetReportResponseBodyDatasData extends $dara.Model {
   /**
    * @remarks
-   * Data Points.
+   * The data points.
    * 
    * @example
    * {
@@ -22,7 +22,7 @@ export class GetReportResponseBodyDatasData extends $dara.Model {
   dataPoints?: { [key: string]: any };
   /**
    * @remarks
-   * Data Labels.
+   * The data labels.
    * 
    * @example
    * {
@@ -62,12 +62,12 @@ export class GetReportResponseBodyDatasData extends $dara.Model {
 export class GetReportResponseBodyDatas extends $dara.Model {
   /**
    * @remarks
-   * Data.
+   * The data.
    */
   data?: GetReportResponseBodyDatasData[];
   /**
    * @remarks
-   * Data Title.
+   * The data title.
    * 
    * @example
    * disk_count_percent_by_category
@@ -102,12 +102,12 @@ export class GetReportResponseBodyDatas extends $dara.Model {
 export class GetReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Data Details.
+   * The data details.
    */
   datas?: GetReportResponseBodyDatas[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * C123F94F-4E38-19AE-942A-A8D6F44F****

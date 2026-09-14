@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListReportsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-xxx
@@ -13,7 +13,7 @@ export class ListReportsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Maximum number of items for Token-based pagination.
+   * The maximum number of entries to return when using token-based pagination.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListReportsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Query token (Token), the value is the NextToken parameter value returned from the previous API call.
+   * The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
    * 
    * @example
    * a6792e832ff0XXXXX
@@ -29,7 +29,7 @@ export class ListReportsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page number for paginated queries.
+   * The page number in paged queries.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListReportsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of rows per page when performing paginated queries.
+   * The number of entries per page set in Settings for a paged query during paging.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class ListReportsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) to query the list of regions supported by Block Storage Data Insights.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) to query the regions supported by EBS Lens.
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetReportRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional, AppName only takes effect when ReportType=present.
+   * Optional. This parameter takes effect only when ReportType is set to present.
    * 
    * @example
    * App1
@@ -13,7 +13,7 @@ export class GetReportRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Region name.
+   * The region ID. This parameter is required.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class GetReportRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * When ReportType=history, ReportId is required to query historical reports based on ReportId.
+   * When ReportType is set to history, this parameter is required. The system queries the historical report based on the specified ReportId.
    * 
    * @example
    * report-74fbea80e802xxxx
@@ -29,7 +29,10 @@ export class GetReportRequest extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * Optional values: history/present.
+   * Valid values:
+   * 
+   * - history
+   * - present
    * 
    * @example
    * history

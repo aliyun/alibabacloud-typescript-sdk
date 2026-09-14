@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the destination. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the destination region for snapshot replication. You can invoke [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) to query the region information of existing asynchronous replication relationships.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions ext
   regionId?: string;
   /**
    * @remarks
-   * Number of days to retain the destination snapshot. The range of values is greater than 1.
+   * The number of days to retain snapshots in the destination region. The value must be greater than 1.
    * 
    * @example
    * 7
@@ -45,10 +45,9 @@ export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions ext
 export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $dara.Model {
   /**
    * @remarks
-   * Whether cross-region replication is enabled. The range of values:
+   * Specifies whether to enable cross-region replication. Valid values:
    * 
    * - true
-   * 
    * - false
    * 
    * @example
@@ -57,7 +56,7 @@ export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $d
   enabled?: boolean;
   /**
    * @remarks
-   * The list of destination regions.
+   * The destination region information.
    */
   regions?: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions[];
   static names(): { [key: string]: string } {
@@ -89,7 +88,7 @@ export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $d
 export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $dara.Model {
   /**
    * @remarks
-   * Maximum number of retained snapshots.
+   * The number of snapshots to retain. Valid values: 1 to 256.
    * 
    * @example
    * 10
@@ -97,7 +96,7 @@ export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $dara.Model
   number?: number;
   /**
    * @remarks
-   * The time interval , valid value greater than 1.
+   * The time interval of the retention rule. The unit is specified by the TimeUnit parameter. The value must be greater than 1.
    * 
    * @example
    * 14
@@ -105,10 +104,9 @@ export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $dara.Model
   timeInterval?: number;
   /**
    * @remarks
-   * The unit of time, valid values:
+   * The unit of the retention time. Valid values:
    * 
    * - DAYS
-   * 
    * - WEEKS
    * 
    * @example
@@ -143,9 +141,9 @@ export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $dara.Model
 export class CreateEnterpriseSnapshotPolicyRequestSchedule extends $dara.Model {
   /**
    * @remarks
-   * The time when the policy will to be scheduled. Valid values: Set the parameter in a cron expression.
+   * The cycle and time at which the policy is executed. Specify the value in a cron expression.
    * 
-   * For example, you can use 0 0 4 1/1 * ? to specify 04:00:00 (UTC+8) on the first day of each month.
+   * For example, `0 0 4 1/1 * ?` specifies that the snapshot operation is performed at 4:00 AM every day, starting from the first day of each month.
    * 
    * This parameter is required.
    */
@@ -174,7 +172,8 @@ export class CreateEnterpriseSnapshotPolicyRequestSchedule extends $dara.Model {
 export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extends $dara.Model {
   /**
    * @remarks
-   * The periodic unit for specially retained snapshots. If configured to WEEKS, it provides special retention for the first snapshot of each week. The retention period is determined by TimeUnit and TimeInterval. The range of values are:
+   * The period unit for specially retained snapshots. For example, if this parameter is set to WEEKS, the first snapshot of each week is specially retained. The retention duration is determined by TimeUnit and TimeInterval. Valid values:
+   * 
    * - WEEKS
    * - MONTHS
    * - YEARS
@@ -185,7 +184,7 @@ export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extend
   specialPeriodUnit?: string;
   /**
    * @remarks
-   * Retention Time Value. The range of values is greater than 1.
+   * The time interval of the retention rule. The unit is specified by the TimeUnit parameter. The value must be greater than 1.
    * 
    * @example
    * 14
@@ -193,10 +192,9 @@ export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extend
   timeInterval?: number;
   /**
    * @remarks
-   * Retention time unit for special snapshots. The range of values:
+   * The unit of the retention time for special snapshots. Valid values:
    * 
    * - DAYS
-   * 
    * - WEEKS
    * 
    * @example
@@ -231,10 +229,10 @@ export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extend
 export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the special retention is enabled.
+   * Specifies whether to enable special retention. Valid values:
    * 
-   * *   true: enable
-   * *   false: disable
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -242,7 +240,7 @@ export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $da
   enabled?: boolean;
   /**
    * @remarks
-   * The special retention rules.
+   * The list of special retention rules.
    */
   rules?: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules[];
   static names(): { [key: string]: string } {
@@ -274,10 +272,9 @@ export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $da
 export class CreateEnterpriseSnapshotPolicyRequestStorageRule extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable the rapid availability of snapshots. The range of values:
+   * Specifies whether to enable instant access for snapshots. Valid values:
    * 
    * - true
-   * 
    * - false
    * 
    * @example
@@ -308,7 +305,7 @@ export class CreateEnterpriseSnapshotPolicyRequestStorageRule extends $dara.Mode
 export class CreateEnterpriseSnapshotPolicyRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key of the resource.
    * 
    * This parameter is required.
    * 
@@ -318,11 +315,7 @@ export class CreateEnterpriseSnapshotPolicyRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
-   * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
-   * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * The tag value of the resource.
    * 
    * This parameter is required.
    * 
@@ -356,7 +349,7 @@ export class CreateEnterpriseSnapshotPolicyRequestTag extends $dara.Model {
 export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * Ensures the idempotence of the request. Generate a parameter value from your client that is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -364,12 +357,12 @@ export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Snapshot replication destination information.
+   * The snapshot replication information.
    */
   crossRegionCopyInfo?: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo;
   /**
    * @remarks
-   * The description of the policy.
+   * The description.
    * 
    * @example
    * xxx
@@ -377,7 +370,7 @@ export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The Policy Name.
    * 
    * This parameter is required.
    * 
@@ -387,7 +380,7 @@ export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * The region ID. You can call DescribeRegions to query the regions that support asynchronous replication.
    * 
    * This parameter is required.
    * 
@@ -397,7 +390,7 @@ export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which to assign the snapshot policy.
+   * The resource group ID.
    * 
    * @example
    * xxx
@@ -405,30 +398,29 @@ export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The snapshot retention rule.
+   * The retention rule.
    * 
    * This parameter is required.
    */
   retainRule?: CreateEnterpriseSnapshotPolicyRequestRetainRule;
   /**
    * @remarks
-   * The rule for scheduling.
+   * The schedule rule.
    * 
    * This parameter is required.
    */
   schedule?: CreateEnterpriseSnapshotPolicyRequestSchedule;
   /**
    * @remarks
-   * The special snapshot retention rules.
+   * The special retention rules.
    */
   specialRetainRules?: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The status. Valid values:
    * 
-   * - ENABLED: Enable snapshot policy execution.
-   * 
-   * - DISABLED: Disable snapshot policy execution.
+   * - DISABLED
+   * - ENABLED
    * 
    * @example
    * ENABLED
@@ -436,17 +428,17 @@ export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Advanced snapshot features.
+   * The advanced snapshot feature.
    */
   storageRule?: CreateEnterpriseSnapshotPolicyRequestStorageRule;
   /**
    * @remarks
-   * The list of tags.
+   * The tag key-value pairs. Valid values of n: 1 to 20.
    */
   tag?: CreateEnterpriseSnapshotPolicyRequestTag[];
   /**
    * @remarks
-   * Binding target type, valid value:
+   * The type. Valid values:
    * 
    * - DISK
    * 

@@ -13,11 +13,13 @@ export class DescribeLensServiceStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of CloudLens for EBS. Valid values:
+   * The status of EBS Lens. Valid values:
    * 
-   * *   Applying
-   * *   UnAvailable
-   * *   Available
+   * - Applying: The service is being applied for.
+   * 
+   * - UnAvailable: The service is unavailable.
+   * 
+   * - Available: The service is available.
    * 
    * @example
    * Available

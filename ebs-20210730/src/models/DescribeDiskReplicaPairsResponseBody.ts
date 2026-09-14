@@ -45,7 +45,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairsTags extends $dara.
 export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth used to asynchronously replicate data from the primary disk to the secondary disk. Unit: Kbit/s.
+   * The bandwidth used for asynchronous replication. Unit: Kbit/s.
    * 
    * @example
    * 10240
@@ -53,10 +53,12 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   bandwidth?: number;
   /**
    * @remarks
-   * The billing method of the replication pair. Valid values:
+   * The billing method of the replication pair.
+   * Valid values:
    * 
-   * *   PREPAY: subscription
-   * *   POSTPAY: pay-as-you-go
+   * - PREPAY: subscription.
+   * 
+   * - POSTPAY: pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -64,7 +66,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   chargeType?: string;
   /**
    * @remarks
-   * The time when the replication pair was created. The value of this parameter is a timestamp. Unit: seconds.
+   * The creation time. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1649750977
@@ -88,7 +90,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   destinationDiskId?: string;
   /**
    * @remarks
-   * The region ID of the secondary disk.
+   * The region of the secondary disk.
    * 
    * @example
    * cn-shanghai
@@ -96,7 +98,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   destinationRegion?: string;
   /**
    * @remarks
-   * The zone ID of the secondary disk.
+   * The zone of the secondary disk.
    * 
    * @example
    * cn-shanghai-b
@@ -104,15 +106,18 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   destinationZoneId?: string;
   /**
    * @remarks
-   * Whether the replication time control is enabled. If the replication pair has been added to a replication group, it is consistent with the attributes of the replication group.
+   * Specifies whether real-time control (RTC) is enabled. Valid values:
    * 
-   * @example
-   * false
+   * - false: Disabled.
+   * 
+   * - true: Enabled.
+   * 
+   * > If the replication pair is in a replication pair-consistent group, the value of this parameter is the same as that of the group.
    */
   enableRtc?: boolean;
   /**
    * @remarks
-   * The time when the replication pair expires. The value of this parameter is a timestamp. Unit: seconds.
+   * The expiration time of the replication pair. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1649750977
@@ -120,7 +125,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   expiredTime?: number;
   /**
    * @remarks
-   * The time when data was last replicated from the primary disk to the secondary disk in the replication pair. The value of this parameter is a timestamp. Unit: seconds. 86,400 seconds is equivalent to 24 hours.
+   * The time when the last asynchronous replication was completed. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1649751977
@@ -136,7 +141,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   pairName?: string;
   /**
    * @remarks
-   * The initial source region (primary region) of the replication pair.
+   * The initial source region of the replication pair.
    * 
    * @example
    * cn-beijing
@@ -144,7 +149,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   primaryRegion?: string;
   /**
    * @remarks
-   * The initial source zone (primary zone) of the replication pair.
+   * The initial source zone of the replication pair.
    * 
    * @example
    * cn-beijing-a
@@ -192,10 +197,11 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of the site from which the information about the replication pairs and replication pair-consistent group was obtained. Valid values:
+   * The site type of the replication pair or replication pair-consistent group. Valid values:
    * 
-   * *   production: primary site
-   * *   backup: secondary site
+   * - production: the production site.
+   * 
+   * - backup: the disaster recovery site.
    * 
    * @example
    * production
@@ -211,7 +217,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   sourceDiskId?: string;
   /**
    * @remarks
-   * The region ID of the primary disk.
+   * The region of the primary disk.
    * 
    * @example
    * cn-beijing
@@ -219,7 +225,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   sourceRegion?: string;
   /**
    * @remarks
-   * The zone ID of the primary disk.
+   * The zone of the primary disk.
    * 
    * @example
    * cn-beijing-a
@@ -227,7 +233,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   sourceZoneId?: string;
   /**
    * @remarks
-   * The initial destination region (secondary region) of the replication pair.
+   * The initial destination region of the replication pair.
    * 
    * @example
    * cn-shanghai
@@ -235,7 +241,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   standbyRegion?: string;
   /**
    * @remarks
-   * The initial destination zone (secondary zone) of the replication pair.
+   * The initial destination zone of the replication pair.
    * 
    * @example
    * cn-shanghai-b
@@ -245,25 +251,43 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
    * @remarks
    * The status of the replication pair. Valid values:
    * 
-   * *   invalid: The replication pair was invalid. When a replication pair becomes abnormal, it enters this state.
-   * *   creating: The replication pair was being created.
-   * *   created: The replication pair was created.
-   * *   create_failed: The replication pair failed to be created.
-   * *   initial_syncing: Data was synchronized from the primary disk to the secondary disk for the first time. After a replication pair is created and activated, the replication pair is in this state the first time data is synchronized from the primary disk to the secondary disk.
-   * *   manual_syncing: Data was being manually synchronized from the primary disk to the secondary disk. After data is manually synchronized from the primary disk to the secondary disk, the replication pair returns to the stopped state. The first time data is manually synchronized from the primary disk to the secondary disk, the replication pair is in the manual_syncing state during the synchronization.
-   * *   syncing: Data was being synchronized from the primary disk to the secondary disk. When data is being asynchronously replicated from the primary disk to the secondary disk again in subsequent operations, the replication pair is in this state.
-   * *   normal: The replication pair was working as expected. When the system finishes replicating data from the primary disk to the secondary disk within the current replication cycle, the replication pair enters this state.
-   * *   stopping: The replication pair was being stopped.
-   * *   stopped: The replication pair was stopped.
-   * *   stop_failed: The replication pair failed to be stopped.
-   * *   failovering: A failover was being performed.
-   * *   failovered: A failover was performed.
-   * *   failover_failed: A failover failed to be performed.
-   * *   reprotecting: A reverse replication was being performed.
-   * *   reprotect_failed: A reverse replication failed to be performed.
-   * *   deleting: The replication pair was being deleted.
-   * *   delete_failed: The replication pair failed to be deleted.
-   * *   deleted: The replication pair was deleted.
+   * - invalid: The replication pair is invalid. This status indicates that the replication pair is not working correctly.
+   * 
+   * - creating: The replication pair is being created.
+   * 
+   * - created: The replication pair is created.
+   * 
+   * - create_failed: The replication pair failed to be created.
+   * 
+   * - initial_syncing: The replication pair is in the initial synchronization state. After a replication pair is created and started, it enters this state during the first asynchronous replication of data from the primary disk to the secondary disk.
+   * 
+   * - manual_syncing: The replication pair is being manually synchronized. After the manual synchronization is complete, the replication pair returns to the stopped state. If it is the first one-time synchronization, the status is also manual_syncing.
+   * 
+   * - syncing: The replication pair is synchronizing data. The replication pair is in this state when data is asynchronously replicated from the primary disk to the secondary disk for a second or subsequent time.
+   * 
+   * - normal: The replication pair is in the normal state. The replication pair enters this state when data replication is complete in the current replication cycle.
+   * 
+   * - stopping: The replication pair is being stopped.
+   * 
+   * - stopped: The replication pair is stopped.
+   * 
+   * - stop_failed: The replication pair failed to be stopped.
+   * 
+   * - failovering: A failover is in progress.
+   * 
+   * - failovered: The failover is complete.
+   * 
+   * - failover_failed: The failover failed.
+   * 
+   * - reprotecting: A reverse replication is in progress.
+   * 
+   * - reprotect_failed: The reverse replication failed.
+   * 
+   * - deleting: The replication pair is being deleted.
+   * 
+   * - delete_failed: The replication pair failed to be deleted.
+   * 
+   * - deleted: The replication pair is deleted.
    * 
    * @example
    * created
@@ -271,14 +295,19 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The message that describes the state of the replication pair. This parameter has a value when `Status` has a value of invalid or `create_failed`. Valid values:
+   * The status message of the replication pair. This parameter is returned when the Status is `invalid` or `create_failed`. Valid values:
    * 
-   * *   PrePayOrderExpired: The replication pair has expired.
-   * *   PostPayOrderCeaseService: The pay-as-you-go replication pair has been stopped due to an overdue payment.
-   * *   DeviceRemoved: The primary or secondary disk has been deleted.
-   * *   DeviceKeyChanged: The `DeviceKey` mapping of the primary or secondary disk has changed.
-   * *   DeviceSizeChanged: The `DeviceSize` value of the primary or secondary disk has changed.
-   * *   OperationDenied.QuotaExceed: The maximum number of replication pairs that can be created has been reached.
+   * - PrePayOrderExpired: The subscription replication pair has expired.
+   * 
+   * - PostPayOrderCeaseService: The service for the pay-as-you-go replication pair is suspended, usually due to an overdue payment.
+   * 
+   * - DeviceRemoved: The primary or secondary disk is deleted.
+   * 
+   * - DeviceKeyChanged: The `DeviceKey` mapping of the primary or secondary disk has changed.
+   * 
+   * - DeviceSizeChanged: The `DeviceSize` of the primary or secondary disk has changed.
+   * 
+   * - OperationDenied.QuotaExceed: The number of created replication pairs exceeds the quota.
    * 
    * @example
    * PrePayOrderExpired
@@ -368,7 +397,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
 export class DescribeDiskReplicaPairsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The query token returned from this call.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -392,12 +421,12 @@ export class DescribeDiskReplicaPairsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Details of the replication pairs.
+   * The replication pairs.
    */
   replicaPairs?: DescribeDiskReplicaPairsResponseBodyReplicaPairs[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
@@ -405,7 +434,7 @@ export class DescribeDiskReplicaPairsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 60

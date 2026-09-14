@@ -8,7 +8,7 @@ export class UpdateEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * BA903E56-48CE-5B81-9611-ED7962EED3DF
+   * FED145A8-7D5F-5C60-B054-4EB2899A5996
    */
   requestId?: string;
   static names(): { [key: string]: string } {
