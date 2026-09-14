@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartProcessInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code from the backend.
+   * The return code of the API request backend.
    * 
    * @example
    * 1400009
@@ -37,7 +37,7 @@ export class StartProcessInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The detailed description of the return code.
+   * The detailed description corresponding to the request code.
    * 
    * @example
    * No permission for resource action

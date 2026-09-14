@@ -13,7 +13,15 @@ export class SubmitRayJobRequestHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic worker scaling.
+   * The Ray DPI engine version.
+   * 
+   * @example
+   * err-1.3.0 (Ray 2.55.1, Python 3.12)
+   */
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable automatic scaling for workers.
    * 
    * @example
    * true
@@ -37,7 +45,7 @@ export class SubmitRayJobRequestHeadSpec extends $dara.Model {
   idleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The memory size. Unit: Gi.
+   * The memory size. Unit: GiB.
    * 
    * @example
    * 8Gi
@@ -54,6 +62,7 @@ export class SubmitRayJobRequestHeadSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      displayReleaseVersion: 'displayReleaseVersion',
       enableAutoScaling: 'enableAutoScaling',
       gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
@@ -65,6 +74,7 @@ export class SubmitRayJobRequestHeadSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      displayReleaseVersion: 'string',
       enableAutoScaling: 'boolean',
       gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
@@ -133,6 +143,14 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
+   * The database engine version.
+   * 
+   * @example
+   * ray-1.2.0 (Ray 2.55.1, Python 3.12)
+   */
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
    * The GPU instance type.
    * 
    * @example
@@ -157,7 +175,7 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
   maxReplica?: number;
   /**
    * @remarks
-   * The memory size. Unit: Gi.
+   * The memory size. Unit: GiB.
    * 
    * @example
    * 16Gi
@@ -198,6 +216,7 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      displayReleaseVersion: 'displayReleaseVersion',
       gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
@@ -212,6 +231,7 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      displayReleaseVersion: 'string',
       gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
@@ -241,6 +261,14 @@ export class SubmitRayJobRequest extends $dara.Model {
    * 3600
    */
   activeDeadlineSeconds?: number;
+  /**
+   * @remarks
+   * The ID of an existing Ray cluster to which the job is submitted.
+   * 
+   * @example
+   * ray-xxxxxxxxx
+   */
+  clusterId?: string;
   /**
    * @remarks
    * The Ray DPI engine version number.
@@ -291,7 +319,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   entrypointResources?: string;
   /**
    * @remarks
-   * The extra parameter JSON string.
+   * The extra parameters in a JSON string.
    * 
    * @example
    * {"userDefinedFiles": "oss://mybucket/artifact/config.json,oss://mybucket/artifact/config2.json", "userRequirementsFile": "oss://mybucket/requirements.txt"}
@@ -336,7 +364,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   runtimeEnvJson?: string;
   /**
    * @remarks
-   * Specifies whether to automatically destroy the temporary cluster after the job is completed. Default value: true.
+   * Specifies whether to automatically destroy the temporary cluster after the job finishes. Default value: true.
    * 
    * @example
    * true
@@ -365,12 +393,12 @@ export class SubmitRayJobRequest extends $dara.Model {
   ttlSecondsAfterFinished?: number;
   /**
    * @remarks
-   * The list of mount volume IDs.
+   * The list of mounted volume IDs.
    */
   volumeIds?: string[];
   /**
    * @remarks
-   * The Ray cluster worker node parameters.
+   * The parameters of the worker nodes in the Ray cluster.
    */
   workerSpec?: SubmitRayJobRequestWorkerSpec[];
   /**
@@ -384,6 +412,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       activeDeadlineSeconds: 'activeDeadlineSeconds',
+      clusterId: 'clusterId',
       displayReleaseVersion: 'displayReleaseVersion',
       entrypoint: 'entrypoint',
       entrypointMemory: 'entrypointMemory',
@@ -409,6 +438,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       activeDeadlineSeconds: 'number',
+      clusterId: 'string',
       displayReleaseVersion: 'string',
       entrypoint: 'string',
       entrypointMemory: 'string',

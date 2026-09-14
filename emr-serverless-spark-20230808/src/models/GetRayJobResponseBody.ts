@@ -54,7 +54,15 @@ export class GetRayJobResponseBodyHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * Indicates whether auto scaling is enabled for worker nodes.
+   * The Ray DPI engine version.
+   * 
+   * @example
+   * err-1.3.0 (Ray 2.55.1, Python 3.12)
+   */
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether automatic scaling is enabled for worker nodes.
    * 
    * @example
    * true
@@ -70,7 +78,7 @@ export class GetRayJobResponseBodyHeadSpec extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The idle timeout in seconds for worker nodes when auto scaling is enabled.
+   * The idle timeout for worker nodes when automatic scaling is enabled.
    * 
    * @example
    * 60
@@ -103,6 +111,7 @@ export class GetRayJobResponseBodyHeadSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      displayReleaseVersion: 'displayReleaseVersion',
       enableAutoScaling: 'enableAutoScaling',
       gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
@@ -115,6 +124,7 @@ export class GetRayJobResponseBodyHeadSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      displayReleaseVersion: 'string',
       enableAutoScaling: 'boolean',
       gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
@@ -142,6 +152,14 @@ export class GetRayJobResponseBodyWorkerSpecs extends $dara.Model {
    * 2
    */
   cpu?: string;
+  /**
+   * @remarks
+   * The DPI engine version.
+   * 
+   * @example
+   * ray-1.2.0 (Ray 2.55.1, Python 3.12)
+   */
+  displayReleaseVersion?: string;
   /**
    * @remarks
    * The GPU type.
@@ -201,6 +219,7 @@ export class GetRayJobResponseBodyWorkerSpecs extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      displayReleaseVersion: 'displayReleaseVersion',
       gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
@@ -214,6 +233,7 @@ export class GetRayJobResponseBodyWorkerSpecs extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      displayReleaseVersion: 'string',
       gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
@@ -254,7 +274,7 @@ export class GetRayJobResponseBody extends $dara.Model {
    * @remarks
    * The status of the corresponding Ray cluster. Valid values:
    * - Deleted: Deleted.
-   * - Submitted: Submitted but not yet created.
+   * - Submitted: Submitted but creation has not started.
    * - Pending: Being created.
    * - Running: Running.
    * 
@@ -280,7 +300,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   cuHours?: number;
   /**
    * @remarks
-   * The Ray cluster dashboard URL. When the Ray cluster is in Running state, this is the Runtime UI. After the cluster is deleted, this is the History UI. History UI is supported only in err-1.2.0 and later versions.
+   * The dashboard URL of the Ray cluster. When the Ray cluster is in the Running state, this is the Runtime UI. After the cluster enters the Deleted state, this is the History UI. History UI is supported only in err-1.2.0 and later versions.
    * 
    * @example
    * https://emr-ray-gateway-cn-hangzhou.aliyuncs.com/workspace/w-xxxxxxxx/raycluster/ray-xxxxxx/dashboard?token=xxxxxx
@@ -288,7 +308,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   dashboardUrl?: string;
   /**
    * @remarks
-   * The extra dashboard UI URLs. Currently empty.
+   * The extra dashboard UI URLs. This field is currently empty.
    */
   dashboardUrlExtra?: string[];
   /**
@@ -301,7 +321,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The job duration, in seconds.
+   * The task duration, in seconds.
    * 
    * @example
    * 2459764
@@ -309,7 +329,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The job end time. This value is a UNIX timestamp in milliseconds.
+   * The task end time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1762949372000
@@ -365,12 +385,12 @@ export class GetRayJobResponseBody extends $dara.Model {
   extraParam?: string;
   /**
    * @remarks
-   * The consumed GPU hours. Currently empty.
+   * The consumed GPU hours. This field is currently empty.
    */
   guHours?: GetRayJobResponseBodyGuHours;
   /**
    * @remarks
-   * The Ray cluster head node parameters.
+   * The parameters of the Ray cluster head node.
    */
   headSpec?: GetRayJobResponseBodyHeadSpec;
   /**
@@ -391,7 +411,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   logPath?: string;
   /**
    * @remarks
-   * The execution message.
+   * The execution information.
    * 
    * @example
    * Job finished successfully.
@@ -399,7 +419,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The job metadata JSON string.
+   * The task metadata JSON string.
    * 
    * @example
    * {"owner": "alice"}
@@ -407,7 +427,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   metadataJson?: string;
   /**
    * @remarks
-   * The Ray cluster name.
+   * The name of the Ray cluster.
    * 
    * @example
    * myRayCluster
@@ -439,7 +459,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   runtimeEnvJson?: string;
   /**
    * @remarks
-   * Specifies whether to automatically destroy the temporary cluster after the job finishes. Default value: true.
+   * Specifies whether to automatically destroy the temporary cluster after the task is completed. Default value: true.
    * 
    * @example
    * true
@@ -455,15 +475,15 @@ export class GetRayJobResponseBody extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The job status. Valid values:
-   * - Submitted: Submitted.
+   * The task status. Valid values:
+   * - Submitted: The task is submitted.
    * - Pending: The cluster is being created.
-   * - Running: The job is running.
-   * - Succeeded: The job succeeded.
-   * - Failed: The job failed.
-   * - Cancelling: Cancelling.
-   * - Cancelled: Cancelled.
-   * - Timeout: Timed out and cancelled.
+   * - Running: The task is running.
+   * - Succeeded: The task succeeded.
+   * - Failed: The task failed.
+   * - Cancelling: The task is being canceled.
+   * - Cancelled: The task is canceled.
+   * - Timeout: The task timed out and was canceled.
    * 
    * @example
    * Running
@@ -487,7 +507,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   submissionMode?: string;
   /**
    * @remarks
-   * The job submission time. This value is a UNIX timestamp in milliseconds.
+   * The task submission time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1750327082303
@@ -500,7 +520,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   tags?: Tag[];
   /**
    * @remarks
-   * The data development task ID.
+   * The ID of the data development node.
    * 
    * @example
    * TSK-682e0112f6f24d9f9305b92174846985
@@ -526,7 +546,7 @@ export class GetRayJobResponseBody extends $dara.Model {
   workerSpecs?: GetRayJobResponseBodyWorkerSpecs[];
   /**
    * @remarks
-   * The URL of the job code working directory.
+   * The URL of the task code working directory.
    * 
    * @example
    * oss://mybucket/hello.zip

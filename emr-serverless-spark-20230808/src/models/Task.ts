@@ -82,19 +82,46 @@ export class TaskCredential extends $dara.Model {
 export class TaskRayHeadSpec extends $dara.Model {
   cpu?: string;
   enableAutoScaling?: boolean;
+  /**
+   * @remarks
+   * The environment variables of the Ray node.
+   * 
+   * @example
+   * MY_ENV=123456
+   */
+  env?: string;
   gpuSpec?: string;
   idleTimeoutSeconds?: number;
   memory?: string;
   queueName?: string;
+  /**
+   * @remarks
+   * The startup parameters of Ray.
+   * 
+   * @example
+   * --num-cpus=0
+   */
+  rayStartParams?: string;
+  /**
+   * @remarks
+   * The DPI engine version of Ray.
+   * 
+   * @example
+   * err-1.3.0 (Ray 2.55.1, Python 3.12)
+   */
+  rayVersion?: string;
   replica?: number;
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
       enableAutoScaling: 'enableAutoScaling',
+      env: 'env',
       gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
       memory: 'memory',
       queueName: 'queueName',
+      rayStartParams: 'rayStartParams',
+      rayVersion: 'rayVersion',
       replica: 'replica',
     };
   }
@@ -103,10 +130,13 @@ export class TaskRayHeadSpec extends $dara.Model {
     return {
       cpu: 'string',
       enableAutoScaling: 'boolean',
+      env: 'string',
       gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
       memory: 'string',
       queueName: 'string',
+      rayStartParams: 'string',
+      rayVersion: 'string',
       replica: 'number',
     };
   }
@@ -122,22 +152,49 @@ export class TaskRayHeadSpec extends $dara.Model {
 
 export class TaskRayWorkerSpec extends $dara.Model {
   cpu?: string;
+  /**
+   * @remarks
+   * The environment variables of Ray.
+   * 
+   * @example
+   * MY_ENV=123456
+   */
+  env?: string;
   gpuSpec?: string;
   groupName?: string;
   maxReplica?: number;
   memory?: string;
   minReplica?: number;
   queueName?: string;
+  /**
+   * @remarks
+   * The startup parameters of Ray.
+   * 
+   * @example
+   * --num-cpus=0
+   */
+  rayStartParams?: string;
+  /**
+   * @remarks
+   * The DPI engine version of Ray.
+   * 
+   * @example
+   * err-1.3.0 (Ray 2.55.1, Python 3.12)
+   */
+  rayVersion?: string;
   replica?: number;
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      env: 'env',
       gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
       memory: 'memory',
       minReplica: 'minReplica',
       queueName: 'queueName',
+      rayStartParams: 'rayStartParams',
+      rayVersion: 'rayVersion',
       replica: 'replica',
     };
   }
@@ -145,12 +202,15 @@ export class TaskRayWorkerSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      env: 'string',
       gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
       memory: 'string',
       minReplica: 'number',
       queueName: 'string',
+      rayStartParams: 'string',
+      rayVersion: 'string',
       replica: 'number',
     };
   }
@@ -184,7 +244,7 @@ export class Task extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The folder business ID.
+   * The business ID of the folder.
    */
   categoryBizId?: string;
   /**
@@ -201,7 +261,7 @@ export class Task extends $dara.Model {
   creator?: number;
   /**
    * @remarks
-   * The OSS direct upload credentials.
+   * The credential for direct OSS upload.
    */
   credential?: TaskCredential;
   /**
@@ -216,7 +276,7 @@ export class Task extends $dara.Model {
   defaultDatabase?: string;
   /**
    * @remarks
-   * The default queue ID of the task.
+   * The ID of the default task queue.
    */
   defaultResourceQueueId?: string;
   /**
@@ -236,12 +296,12 @@ export class Task extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The IDs of extra Spark resources.
+   * The IDs of extra Spark artifacts.
    */
   extraArtifactIds?: string[];
   /**
    * @remarks
-   * The custom Spark submit configuration parameters.
+   * The custom spark-submit configuration parameters.
    */
   extraSparkSubmitParams?: string;
   /**
@@ -251,7 +311,7 @@ export class Task extends $dara.Model {
   files?: string[];
   /**
    * @remarks
-   * Indicates whether the fusion switch is enabled.
+   * Indicates whether the fusion feature is enabled.
    */
   fusion?: boolean;
   /**
@@ -263,14 +323,14 @@ export class Task extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last modified time.
    * 
    * This parameter is required.
    */
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the task has been changed since the last submission.
+   * Indicates whether the task has been changed after the last commit.
    */
   hasChanged?: boolean;
   /**
@@ -313,7 +373,7 @@ export class Task extends $dara.Model {
   params?: { [key: string]: string };
   /**
    * @remarks
-   * The Spark PySpark dependency pyfiles.
+   * The PySpark dependency pyfiles for the Spark task.
    */
   pyFiles?: string[];
   rayActiveDeadlineSeconds?: number;
@@ -338,7 +398,7 @@ export class Task extends $dara.Model {
   sessionClusterId?: string;
   /**
    * @remarks
-   * The Spark parameters.
+   * The Spark arguments.
    * 
    * @example
    * 100
@@ -365,7 +425,7 @@ export class Task extends $dara.Model {
   sparkDriverMemory?: number;
   /**
    * @remarks
-   * The Spark main class entry point.
+   * The Spark main class entrypoint.
    */
   sparkEntrypoint?: string;
   /**
@@ -398,7 +458,7 @@ export class Task extends $dara.Model {
   sparkLogPath?: string;
   /**
    * @remarks
-   * The Spark submit task submission statement.
+   * The spark-submit task submission clause.
    */
   sparkSubmitClause?: string;
   /**

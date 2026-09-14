@@ -9,7 +9,7 @@ import { Configuration } from "./Configuration";
 export class GetJobRunResponseBodyJobRunConfigurationOverrides extends $dara.Model {
   /**
    * @remarks
-   * The configurations.
+   * The list of configurations.
    */
   configurations?: Configuration[];
   static names(): { [key: string]: string } {
@@ -93,12 +93,12 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The Spark configurations of the job.
+   * The Spark job configuration.
    */
   configurationOverrides?: GetJobRunResponseBodyJobRunConfigurationOverrides;
   /**
    * @remarks
-   * The version that is displayed in the console.
+   * The version displayed in the console.
    * 
    * @example
    * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
@@ -122,7 +122,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The timeout period for the job execution.
+   * The execution timeout period, in seconds.
    * 
    * @example
    * 3600
@@ -130,7 +130,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   executionTimeoutSeconds?: number;
   /**
    * @remarks
-   * Indicates whether to enable the Fusion engine to accelerate the job execution.
+   * Indicates whether the Fusion engine acceleration is enabled.
    * 
    * @example
    * false
@@ -138,7 +138,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   fusion?: boolean;
   /**
    * @remarks
-   * The Spark driver information.
+   * The Spark Driver information.
    */
   jobDriver?: JobDriver;
   /**
@@ -156,7 +156,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   log?: RunLog;
   /**
    * @remarks
-   * The name of the job.
+   * The job run name.
    * 
    * @example
    * jobName
@@ -164,7 +164,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The access URL for the notebook of the job run.
+   * The download URL of the NOTEBOOK file. This parameter is returned only when the job type is NOTEBOOK.
    * 
    * @example
    * http://workflow-ide-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/spark-notebook-output/w-xxxxxxxxx/xxxxxxx
@@ -172,7 +172,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   notebookAccessUrl?: string;
   /**
    * @remarks
-   * The priority of the job run.
+   * The job priority.
    * 
    * @example
    * 5
@@ -180,7 +180,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The Spark engine version.
+   * The Spark DPI engine version used to run the job.
    * 
    * @example
    * esr-3.3.1
@@ -188,7 +188,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The UID of the user who creates the job.
+   * The UID of the user who created the job.
    * 
    * @example
    * 150978934701****
@@ -196,7 +196,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   resourceOwnerId?: string;
   /**
    * @remarks
-   * The name of the queue on which the job runs.
+   * The name of the queue used to run the job.
    * 
    * @example
    * root_queue
@@ -204,7 +204,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   resourceQueueId?: string;
   /**
    * @remarks
-   * The state of the job.
+   * The job run state.
    * 
    * @example
    * Running
@@ -225,9 +225,17 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   submitTime?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: Tag[];
+  /**
+   * @remarks
+   * The total number of tokens consumed.
+   * 
+   * @example
+   * 10000
+   */
+  totalTokens?: number;
   /**
    * @remarks
    * The web UI of the job.
@@ -266,6 +274,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
       stateChangeReason: 'stateChangeReason',
       submitTime: 'submitTime',
       tags: 'tags',
+      totalTokens: 'totalTokens',
       webUI: 'webUI',
       workspaceId: 'workspaceId',
     };
@@ -293,6 +302,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
       stateChangeReason: GetJobRunResponseBodyJobRunStateChangeReason,
       submitTime: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
+      totalTokens: 'number',
       webUI: 'string',
       workspaceId: 'string',
     };
@@ -325,7 +335,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
 export class GetJobRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the job.
+   * The job run details.
    */
   jobRun?: GetJobRunResponseBodyJobRun;
   /**

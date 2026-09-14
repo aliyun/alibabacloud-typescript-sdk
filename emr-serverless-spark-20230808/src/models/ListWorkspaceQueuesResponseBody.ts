@@ -40,7 +40,7 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
    * The display name of the permission.
    * 
    * @example
-   * 文件目录遍历、文件浏览
+   * File directory traversal, file browsing
    */
   displayName?: string;
   static names(): { [key: string]: string } {
@@ -99,10 +99,22 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   creator?: string;
   /**
    * @remarks
+   * The description.
+   * 
+   * @example
+   * test queue
+   */
+  description?: string;
+  /**
+   * @remarks
    * The list of queue environment types.
    */
   environments?: string[];
   gpuMachineNum?: number;
+  /**
+   * @remarks
+   * The list of GPU models.
+   */
   gpuSpec?: string[];
   instanceId?: string;
   /**
@@ -123,15 +135,19 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   minResource?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing type. Valid values:
    * 
-   * - PayAsYouGo: pay-as-you-go
-   * - Pre: subscription
+   * - PayAsYouGo: pay-as-you-go.
+   * - Pre: subscription.
    * 
    * @example
    * PayAsYouGo
    */
   paymentType?: string;
+  /**
+   * @remarks
+   * Indicates whether resource prefetch is enabled.
+   */
   preheat?: boolean;
   /**
    * @remarks
@@ -142,6 +158,9 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
    */
   properties?: string;
   /**
+   * @remarks
+   * The queue category, CPU or GPU.
+   * 
    * @example
    * CPU
    */
@@ -156,7 +175,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The queue scope.
+   * The queue architecture.
    * 
    * @example
    * {"arch": "x86"}
@@ -210,6 +229,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
       allowActions: 'allowActions',
       createTime: 'createTime',
       creator: 'creator',
+      description: 'description',
       environments: 'environments',
       gpuMachineNum: 'gpuMachineNum',
       gpuSpec: 'gpuSpec',
@@ -235,6 +255,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
       allowActions: { 'type': 'array', 'itemType': ListWorkspaceQueuesResponseBodyQueuesAllowActions },
       createTime: 'number',
       creator: 'string',
+      description: 'string',
       environments: { 'type': 'array', 'itemType': 'string' },
       gpuMachineNum: 'number',
       gpuSpec: { 'type': 'array', 'itemType': 'string' },
@@ -276,7 +297,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
 export class ListWorkspaceQueuesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned at a time.
+   * The maximum number of records returned per request.
    * 
    * @example
    * 20

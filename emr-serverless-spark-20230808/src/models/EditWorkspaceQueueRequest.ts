@@ -12,12 +12,22 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
    */
   cu?: number;
   /**
+   * @remarks
+   * The number of GPU cards.
+   * 
    * @example
    * 100
    */
   gpu?: number;
+  /**
+   * @remarks
+   * The number of GPU machines.
+   */
   gpuMachineNum?: number;
   /**
+   * @remarks
+   * The maximum number of CUs.
+   * 
    * @example
    * 0.5
    */
@@ -52,14 +62,26 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
 export class EditWorkspaceQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The queue environment type.
+   * The description.
+   * 
+   * @example
+   * test queue
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The environment type of the queue.
    */
   environments?: string[];
+  /**
+   * @remarks
+   * The list of GPU models.
+   */
   gpuSpec?: string[];
   instanceId?: string;
   /**
    * @remarks
-   * The resource specifications.
+   * The resource quota.
    */
   resourceSpec?: EditWorkspaceQueueRequestResourceSpec;
   /**
@@ -72,7 +94,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The workspace queue name.
+   * The name of the workspace queue.
    * 
    * @example
    * dev_queue
@@ -88,6 +110,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'description',
       environments: 'environments',
       gpuSpec: 'gpuSpec',
       instanceId: 'instanceId',
@@ -100,6 +123,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       environments: { 'type': 'array', 'itemType': 'string' },
       gpuSpec: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',

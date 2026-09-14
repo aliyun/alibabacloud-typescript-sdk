@@ -2,6 +2,56 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateRayClusterRequestHeadSpecGftConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The Redis password.
+   * 
+   * @example
+   * 123456
+   */
+  redisPassword?: string;
+  /**
+   * @remarks
+   * The Redis address.
+   * 
+   * @example
+   * 10.4.5.6:6379
+   */
+  redisUrl?: string;
+  /**
+   * @remarks
+   * The Redis username.
+   * 
+   * @example
+   * default
+   */
+  redisUsername?: string;
+  static names(): { [key: string]: string } {
+    return {
+      redisPassword: 'redisPassword',
+      redisUrl: 'redisUrl',
+      redisUsername: 'redisUsername',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      redisPassword: 'string',
+      redisUrl: 'string',
+      redisUsername: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   /**
    * @remarks
@@ -13,6 +63,14 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
+   * The Ray DPI engine version.
+   * 
+   * @example
+   * ray-1.2.0 (Ray 2.55.1, Python 3.12)
+   */
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
    * Specifies whether to enable automatic scaling.
    * 
    * @example
@@ -20,13 +78,37 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
    */
   enableAutoScaling?: boolean;
   /**
+   * @remarks
+   * The environment variables.
+   * 
+   * @example
+   * MY_ENV=123456
+   */
+  env?: string;
+  /**
+   * @remarks
+   * The GCS Fault Tolerance configuration.
+   */
+  gftConfig?: UpdateRayClusterRequestHeadSpecGftConfig;
+  /**
+   * @remarks
+   * Specifies whether to enable GCS Fault Tolerance.
+   * 
+   * **if can be null:**
+   * true
+   */
+  gftEnabled?: boolean;
+  /**
+   * @remarks
+   * The GPU instance type.
+   * 
    * @example
    * ecs.gn6i-c4g1.xlarge
    */
   gpuSpec?: string;
   /**
    * @remarks
-   * The idle timeout in seconds for workers. This parameter is effective only when automatic scaling is enabled.
+   * The idle timeout period of workers after automatic scaling is enabled.
    * 
    * @example
    * 60
@@ -34,7 +116,7 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   idleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The memory size. Unit: Gi.
+   * The memory size. Unit: GiB.
    * 
    * @example
    * 8Gi
@@ -42,35 +124,56 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * root_queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The Ray startup parameters.
+   * 
+   * @example
+   * --num-cpus=0
+   */
+  rayStartParams?: string;
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      displayReleaseVersion: 'displayReleaseVersion',
       enableAutoScaling: 'enableAutoScaling',
+      env: 'env',
+      gftConfig: 'gftConfig',
+      gftEnabled: 'gftEnabled',
       gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
       memory: 'memory',
       queueName: 'queueName',
+      rayStartParams: 'rayStartParams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      displayReleaseVersion: 'string',
       enableAutoScaling: 'boolean',
+      env: 'string',
+      gftConfig: UpdateRayClusterRequestHeadSpecGftConfig,
+      gftEnabled: 'boolean',
       gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
       memory: 'string',
       queueName: 'string',
+      rayStartParams: 'string',
     };
   }
 
   validate() {
+    if(this.gftConfig && typeof (this.gftConfig as any).validate === 'function') {
+      (this.gftConfig as any).validate();
+    }
     super.validate();
   }
 
@@ -89,13 +192,32 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
    */
   cpu?: string;
   /**
+   * @remarks
+   * The DPI engine version.
+   * 
+   * @example
+   * ray-1.2.0 (Ray 2.55.1, Python 3.12)
+   */
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * The Ray environment variables.
+   * 
+   * @example
+   * MY_ENV=123456
+   */
+  env?: string;
+  /**
+   * @remarks
+   * The GPU instance type.
+   * 
    * @example
    * ecs.gn6i-c4g1.xlarge
    */
   gpuSpec?: string;
   /**
    * @remarks
-   * The name of the worker group.
+   * The worker group name.
    * 
    * @example
    * WorkerGroup1
@@ -103,7 +225,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The maximum number of workers. The minimum value is 1.
+   * The maximum number of workers. Minimum value: 1.
    * 
    * @example
    * 10
@@ -111,7 +233,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   maxReplica?: number;
   /**
    * @remarks
-   * The memory size. Unit: Gi.
+   * The memory size. Unit: GiB.
    * 
    * @example
    * 8Gi
@@ -119,7 +241,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The minimum number of workers. The minimum value is 1. This value must be less than or equal to maxReplica.
+   * The minimum number of workers. Minimum value: 1. The value must be less than or equal to maxReplica.
    * 
    * @example
    * 1
@@ -127,7 +249,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   minReplica?: number;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * root_queue
@@ -135,7 +257,15 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The number of workers. The minimum value is 1.
+   * The Ray startup parameters.
+   * 
+   * @example
+   * --num-cpus=0
+   */
+  rayStartParams?: string;
+  /**
+   * @remarks
+   * The number of workers. Minimum value: 1.
    * 
    * @example
    * 2
@@ -143,7 +273,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   replica?: number;
   /**
    * @remarks
-   * The type of worker.
+   * The worker type.
    * 
    * @example
    * CPU
@@ -152,12 +282,15 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      displayReleaseVersion: 'displayReleaseVersion',
+      env: 'env',
       gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
       memory: 'memory',
       minReplica: 'minReplica',
       queueName: 'queueName',
+      rayStartParams: 'rayStartParams',
       replica: 'replica',
       workerType: 'workerType',
     };
@@ -166,12 +299,15 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      displayReleaseVersion: 'string',
+      env: 'string',
       gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
       memory: 'string',
       minReplica: 'number',
       queueName: 'string',
+      rayStartParams: 'string',
       replica: 'number',
       workerType: 'string',
     };
@@ -189,7 +325,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
 export class UpdateRayClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * Description of the cluster.
+   * The description.
    * 
    * @example
    * Ray Cluster for dev.
@@ -197,7 +333,7 @@ export class UpdateRayClusterRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Ray engine version.
+   * The Ray DPI engine version.
    * 
    * @example
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
@@ -205,7 +341,7 @@ export class UpdateRayClusterRequest extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The extra parameters. This must be in JSON format.
+   * The extra parameters. The value must be in JSON format.
    * 
    * @example
    * {}
@@ -213,12 +349,12 @@ export class UpdateRayClusterRequest extends $dara.Model {
   extraParam?: string;
   /**
    * @remarks
-   * The information about the head node of the Ray cluster.
+   * The Ray cluster head node information.
    */
   headSpec?: UpdateRayClusterRequestHeadSpec;
   /**
    * @remarks
-   * The name of the Ray cluster. The name must be 1 to 64 characters in length.
+   * The Ray cluster name. The name must be 1 to 64 characters in length.
    * 
    * @example
    * myRayCluster
@@ -226,16 +362,20 @@ export class UpdateRayClusterRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the network service.
+   * The network connectivity name.
    * 
    * @example
    * vpc
    */
   networkServiceName?: string;
+  /**
+   * @remarks
+   * The list of managed folder IDs to mount.
+   */
   volumeIds?: string[];
   /**
    * @remarks
-   * The information about the worker nodes of the Ray cluster. You can specify up to 50 groups.
+   * The Ray cluster worker node information. A maximum of 50 groups are supported.
    */
   workerSpec?: UpdateRayClusterRequestWorkerSpec[];
   static names(): { [key: string]: string } {

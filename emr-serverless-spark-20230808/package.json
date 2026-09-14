@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/emr-serverless-spark20230808",
-  "version": "1.26.0",
+  "version": "2.0.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -2,6 +2,56 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetRayClusterResponseBodyHeadSpecGftConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The Redis password.
+   * 
+   * @example
+   * 123456
+   */
+  redisPassword?: string;
+  /**
+   * @remarks
+   * The Redis URL.
+   * 
+   * @example
+   * 10.4.5.6:6789
+   */
+  redisUrl?: string;
+  /**
+   * @remarks
+   * The Redis username.
+   * 
+   * @example
+   * default
+   */
+  redisUsername?: string;
+  static names(): { [key: string]: string } {
+    return {
+      redisPassword: 'redisPassword',
+      redisUrl: 'redisUrl',
+      redisUsername: 'redisUsername',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      redisPassword: 'string',
+      redisUrl: 'string',
+      redisUsername: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
   /**
    * @remarks
@@ -13,20 +63,52 @@ export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * Specifies whether auto scaling is enabled for worker nodes.
+   * The Ray DPI engine version.
+   * 
+   * @example
+   * err-1.3.0 (Ray 2.55.1, Python 3.12)
+   */
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether automatic scaling is enabled for worker nodes.
    * 
    * @example
    * false
    */
   enableAutoScaling?: boolean;
   /**
+   * @remarks
+   * The environment variables.
+   * 
+   * @example
+   * MY_ENV=123456
+   */
+  env?: string;
+  /**
+   * @remarks
+   * The GCS Fault Tolerance configuration.
+   */
+  gftConfig?: GetRayClusterResponseBodyHeadSpecGftConfig;
+  /**
+   * @remarks
+   * Indicates whether GCS Fault Tolerance is enabled.
+   * 
+   * **if can be null:**
+   * true
+   */
+  gftEnabled?: boolean;
+  /**
+   * @remarks
+   * The GPU instance type.
+   * 
    * @example
    * ecs.gn6i-c4g1.xlarge
    */
   gpuSpec?: string;
   /**
    * @remarks
-   * The idle timeout period for worker nodes, in seconds. Applies only when auto scaling is enabled.
+   * The idle timeout period of worker nodes after automatic scaling is enabled.
    * 
    * @example
    * 60
@@ -42,12 +124,20 @@ export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * root_queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The Ray startup parameters.
+   * 
+   * @example
+   * --num-cpus=0
+   */
+  rayStartParams?: string;
   /**
    * @remarks
    * The number of nodes.
@@ -59,11 +149,16 @@ export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      displayReleaseVersion: 'displayReleaseVersion',
       enableAutoScaling: 'enableAutoScaling',
+      env: 'env',
+      gftConfig: 'gftConfig',
+      gftEnabled: 'gftEnabled',
       gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
       memory: 'memory',
       queueName: 'queueName',
+      rayStartParams: 'rayStartParams',
       replica: 'replica',
     };
   }
@@ -71,16 +166,24 @@ export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      displayReleaseVersion: 'string',
       enableAutoScaling: 'boolean',
+      env: 'string',
+      gftConfig: GetRayClusterResponseBodyHeadSpecGftConfig,
+      gftEnabled: 'boolean',
       gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
       memory: 'string',
       queueName: 'string',
+      rayStartParams: 'string',
       replica: 'number',
     };
   }
 
   validate() {
+    if(this.gftConfig && typeof (this.gftConfig as any).validate === 'function') {
+      (this.gftConfig as any).validate();
+    }
     super.validate();
   }
 
@@ -92,7 +195,7 @@ export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
 export class GetRayClusterResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The exit code of the main container.
+   * The exit code of the primary container.
    * 
    * @example
    * 137
@@ -100,7 +203,7 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
   containerExitCode?: number;
   /**
    * @remarks
-   * The state of the main container.
+   * The status of the primary container.
    * 
    * @example
    * Running
@@ -108,7 +211,7 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
   containerState?: string;
   /**
    * @remarks
-   * The status message of the main container.
+   * The primary container status message.
    * 
    * @example
    * ContainerExit
@@ -116,7 +219,7 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
   containerStateMessage?: string;
   /**
    * @remarks
-   * Additional information about the main container state.
+   * The primary container information.
    * 
    * @example
    * ok
@@ -124,7 +227,7 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
   containerStateReason?: string;
   /**
    * @remarks
-   * The time when the node was created. This is a UNIX timestamp in milliseconds.
+   * The creation time.
    * 
    * @example
    * 1735870116167
@@ -140,7 +243,7 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The status message of the node pod.
+   * The node pod status message.
    * 
    * @example
    * ok
@@ -148,7 +251,7 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The phase of the node pod.
+   * The node pod status.
    * 
    * @example
    * Running
@@ -156,7 +259,7 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Additional information about the node.
+   * The node information.
    * 
    * @example
    * OOMKilled
@@ -164,7 +267,7 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The time when the node started. This is a UNIX timestamp in milliseconds.
+   * The start time.
    * 
    * @example
    * 1762946698000
@@ -222,13 +325,32 @@ export class GetRayClusterResponseBodyInstances extends $dara.Model {
 export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   /**
    * @remarks
-   * The number of CPU cores per worker node.
+   * The number of CPU cores.
    * 
    * @example
    * 2
    */
   cpu?: string;
   /**
+   * @remarks
+   * The database engine version.
+   * 
+   * @example
+   * ray-1.2.0 (Ray 2.55.1, Python 3.12)
+   */
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * The Ray environment variables.
+   * 
+   * @example
+   * MY_ENV=12456
+   */
+  env?: string;
+  /**
+   * @remarks
+   * The GPU instance type.
+   * 
    * @example
    * ecs.gn6i-c4g1.xlarge
    */
@@ -243,7 +365,7 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The maximum number of worker nodes in the group.
+   * The maximum number of workers.
    * 
    * @example
    * 10
@@ -251,7 +373,7 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   maxReplica?: number;
   /**
    * @remarks
-   * The memory size per worker node. Unit: Gi.
+   * The memory size. Unit: Gi.
    * 
    * @example
    * 8Gi
@@ -259,7 +381,7 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The minimum number of worker nodes in the group.
+   * The minimum number of workers.
    * 
    * @example
    * 1
@@ -267,12 +389,20 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   minReplica?: number;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * root_queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The Ray startup parameters.
+   * 
+   * @example
+   * --num-cpus=0
+   */
+  rayStartParams?: string;
   /**
    * @remarks
    * The number of worker nodes.
@@ -292,12 +422,15 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      displayReleaseVersion: 'displayReleaseVersion',
+      env: 'env',
       gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
       memory: 'memory',
       minReplica: 'minReplica',
       queueName: 'queueName',
+      rayStartParams: 'rayStartParams',
       replica: 'replica',
       workerType: 'workerType',
     };
@@ -306,12 +439,15 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      displayReleaseVersion: 'string',
+      env: 'string',
       gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
       memory: 'string',
       minReplica: 'number',
       queueName: 'string',
+      rayStartParams: 'string',
       replica: 'number',
       workerType: 'string',
     };
@@ -329,7 +465,7 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
 export class GetRayClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Ray cluster.
+   * The Ray cluster ID.
    * 
    * @example
    * ray-k7nm8ahl5te4tg91
@@ -337,7 +473,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The time when the cluster was created. This is a UNIX timestamp in milliseconds.
+   * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1750327083303
@@ -361,7 +497,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The URL of the Ray Dashboard for this cluster.
+   * The URL of the Ray cluster dashboard.
    * 
    * @example
    * https://emr-ray-gateway-cn-hangzhou.aliyuncs.com/workspace/w-xxxxxxxx/raycluster/ray-xxxxxx/dashboard?token=xxxxxx
@@ -369,7 +505,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   dashboardUrl?: string;
   /**
    * @remarks
-   * The description of the Ray cluster.
+   * The description.
    * 
    * @example
    * Ray Cluster for dev.
@@ -377,7 +513,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The version of the Ray engine.
+   * The Ray DPI engine version.
    * 
    * @example
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
@@ -385,7 +521,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * Additional parameters in JSON format.
+   * The extra parameters in JSON format.
    * 
    * @example
    * {}
@@ -393,7 +529,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   extraParam?: string;
   /**
    * @remarks
-   * The gRPC endpoint for the internal network. You can also use the domain name in this endpoint to submit Ray jobs.
+   * The gRPC endpoint (internal network). The domain name in this endpoint can also be used to submit Ray jobs.
    * 
    * @example
    * ray://emr-spark-ray-gateway-cn-hangzhou-internal.emr.aliyuncs.com:80
@@ -401,12 +537,12 @@ export class GetRayClusterResponseBody extends $dara.Model {
   grpcEndpoint?: string;
   /**
    * @remarks
-   * The configuration of the head node.
+   * The parameters of the Ray cluster head node.
    */
   headSpec?: GetRayClusterResponseBodyHeadSpec;
   /**
    * @remarks
-   * The ID of the Ray cluster node.
+   * The Ray cluster node IDs.
    * 
    * @example
    * ray-k7nm8ahl5te4tg93-xxxxxxx
@@ -414,25 +550,28 @@ export class GetRayClusterResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of nodes in the Ray cluster.
+   * The Ray cluster node IDs.
    */
   instances?: GetRayClusterResponseBodyInstances[];
   /**
    * @remarks
-   * The public endpoint for submitting Ray jobs.
+   * The public URL for submitting Ray Jobs.
    * 
    * @example
    * https://emr-spark-ray-gateway-cn-hangzhou.aliyuncs.com
    */
   jobUrl?: string;
   /**
+   * @remarks
+   * The internal network URL for submitting Ray jobs.
+   * 
    * @example
    * http://emr-spark-ray-gateway-cn-hangzhou-internal.emr.aliyuncs.com
    */
   jobUrlInner?: string;
   /**
    * @remarks
-   * The error message. Returned when `state` is `Error`.
+   * The error message returned when the status is Error.
    * 
    * @example
    * ok
@@ -440,7 +579,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the configuration was modified.
+   * Indicates whether the configuration has been modified.
    * 
    * @example
    * false
@@ -448,7 +587,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   modified?: boolean;
   /**
    * @remarks
-   * The time when the cluster was last updated. This is a UNIX timestamp in milliseconds.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754274541693
@@ -456,7 +595,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The UID of the user who last updated the cluster.
+   * The UID of the user who last modified the cluster.
    * 
    * @example
    * 202077646755523991
@@ -472,7 +611,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   modifierName?: string;
   /**
    * @remarks
-   * The name of the Ray cluster.
+   * The Ray cluster name.
    * 
    * @example
    * myRayCluster
@@ -480,7 +619,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the network connection.
+   * The network connectivity name.
    * 
    * @example
    * vpc
@@ -496,7 +635,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the cluster started. This is a UNIX timestamp in milliseconds.
+   * The start time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1750327083303
@@ -504,17 +643,12 @@ export class GetRayClusterResponseBody extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The session state. Valid values:
-   * 
-   * - Starting: The session is starting.
-   * 
-   * - Running: The session is running.
-   * 
-   * - Stopping: The session is being stopped.
-   * 
-   * - Stopped: The session is stopped.
-   * 
-   * - Error: The session has failed.
+   * The session status. Valid values:
+   * - Starting: Starting.
+   * - Running: Running.
+   * - Stopping: Stopping.
+   * - Stopped: Stopped.
+   * - Error: Failed.
    * 
    * @example
    * Running
@@ -522,7 +656,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The authentication token for submitting Ray jobs. Add this token to the request header in the format `"ray-token": "token"`.
+   * The authentication token for submitting Ray Jobs. Include this token in the request header as "ray-token": "token".
    * 
    * @example
    * 1d06484d3b424f7fa4ab7082a4076da2
@@ -530,16 +664,20 @@ export class GetRayClusterResponseBody extends $dara.Model {
   submitToken?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that created the cluster.
+   * The Alibaba Cloud account ID of the creator.
    * 
    * @example
    * 123456789012
    */
   userId?: string;
+  /**
+   * @remarks
+   * The list of managed file IDs.
+   */
   volumeIds?: string[];
   /**
    * @remarks
-   * The list of worker node group configurations.
+   * The Ray cluster worker node information.
    */
   workerSpec?: GetRayClusterResponseBodyWorkerSpec[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the Kyuubi server.
+   * The KyuubiServer instance type.
    * 
    * @example
    * 4C16G
@@ -13,7 +13,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   computeInstance?: string;
   /**
    * @remarks
-   * The time when the server was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -21,7 +21,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * The UID of the user who created the server.
+   * The UID of the user who created the KyuubiServer.
    * 
    * @example
    * 103*******
@@ -29,7 +29,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   creator?: string;
   /**
    * @remarks
-   * The internal endpoint.
+   * The internal network endpoint.
    * 
    * @example
    * kyuubi-cn-hangzhou-internal.spark.emr.aliyuncs.com
@@ -37,7 +37,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   innerEndpoint?: string;
   /**
    * @remarks
-   * The Kyuubi server configurations.
+   * The KyuubiServer configurations.
    * 
    * @example
    * kyuubi.conf.key=value1
@@ -46,7 +46,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   kyuubiConfigs?: string;
   /**
    * @remarks
-   * The version of the Kyuubi server.
+   * The KyuubiServer version.
    * 
    * @example
    * 1.9.2-0.0.1
@@ -54,7 +54,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   kyuubiReleaseVersion?: string;
   /**
    * @remarks
-   * The Kyuubi server ID.
+   * KyuubiServer ID。
    * 
    * @example
    * kb-070104e7631242448d12a1377c309f30
@@ -62,7 +62,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   kyuubiServiceId?: string;
   /**
    * @remarks
-   * The name of the Kyuubi server.
+   * The KyuubiServer name.
    * 
    * @example
    * test
@@ -70,7 +70,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The public endpoint.
+   * The public domain name.
    * 
    * @example
    * emr-spark-kyuubi-gateway-cn-hangzhou.aliyuncs.com
@@ -86,7 +86,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   queue?: string;
   /**
    * @remarks
-   * The version number of the Spark engine.
+   * The Spark DPI engine database engine version number.
    * 
    * @example
    * esr-4.2.0 (Spark 3.5.2, Scala 2.12)
@@ -94,7 +94,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   releaseVersion?: string;
   /**
    * @remarks
-   * The number of replicas for the Kyuubi server.
+   * The number of KyuubiServer replicas.
    * 
    * @example
    * 3
@@ -102,7 +102,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   replica?: number;
   /**
    * @remarks
-   * The default configurations for Spark applications launched by the Kyuubi server.
+   * The default configurations for Spark applications started by KyuubiServer.
    * 
    * @example
    * spark.conf.key=value1
@@ -111,7 +111,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   sparkConfigs?: string;
   /**
    * @remarks
-   * The time when the Kyuubi server was last started.
+   * The most recent start time of KyuubiServer.
    * 
    * @example
    * 2024-11-23 09:22:00
@@ -119,12 +119,20 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
   startTime?: string;
   /**
    * @remarks
-   * The status of the Kyuubi server.
+   * The KyuubiServer status.
    * 
    * @example
    * Running
    */
   state?: string;
+  /**
+   * @remarks
+   * The WebUI of the Kyuubi Gateway.
+   * 
+   * @example
+   * http://pre-1-emr-spark-kyuubi-gateway-cn-hangzhou.data.aliyun.com/ui/?token=NkVTWG1LSWRYSExiZ1VrTTQreVZ0aFhmYW1BWEJHTW8vN3VEY0MrZzVrQUdXWWY1Rm41Zi9mUkNMRzhPL3o1dDJNbXkrd3cvUmRqck9OMmFlQ21JL002bFhQK1lSa29hZ2tvT0hhNVk3WU9tWHhINFAxL3BscURkUUpFd2E2QTdCUWpDSkVvcERUUlhhaGhlOXdxdWFYaEpwSU9STXVRaGJ6ZUg0d0dDeWhIVVRsRW9ucStZbkt0U3BrbmdsNys1N3ZNRU1qaTZ2aktvN1M1K1d0YU5TemkwRmwvNkdCOHR2LzVWZWNLNkJPND
+   */
+  webUi?: string;
   static names(): { [key: string]: string } {
     return {
       computeInstance: 'computeInstance',
@@ -142,6 +150,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
       sparkConfigs: 'sparkConfigs',
       startTime: 'startTime',
       state: 'state',
+      webUi: 'webUi',
     };
   }
 
@@ -162,6 +171,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
       sparkConfigs: 'string',
       startTime: 'string',
       state: 'string',
+      webUi: 'string',
     };
   }
 
@@ -177,7 +187,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
 export class ListKyuubiServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of Kyuubi servers.
+   * The list of KyuubiServer instances.
    */
   kyuubiServices?: ListKyuubiServicesResponseBodyDataKyuubiServices[];
   static names(): { [key: string]: string } {
@@ -207,7 +217,7 @@ export class ListKyuubiServicesResponseBodyData extends $dara.Model {
 export class ListKyuubiServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListKyuubiServicesResponseBodyData;
   /**

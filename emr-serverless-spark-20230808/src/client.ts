@@ -12,23 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shenzhen': "emr-serverless-spark.cn-shenzhen.aliyuncs.com",
-      'cn-wulanchabu': "emr-serverless-spark.cn-wulanchabu.aliyuncs.com",
-      'cn-beijing': "emr-serverless-spark.cn-beijing.aliyuncs.com",
-      'ap-northeast-1': "emr-serverless-spark.ap-northeast-1.aliyuncs.com",
-      'cn-chengdu': "emr-serverless-spark.cn-chengdu.aliyuncs.com",
-      'cn-shanghai': "emr-serverless-spark.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "emr-serverless-spark.cn-hongkong.aliyuncs.com",
-      'ap-southeast-1': "emr-serverless-spark.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-5': "emr-serverless-spark.ap-southeast-5.aliyuncs.com",
-      'cn-zhangjiakou': "emr-serverless-spark.cn-zhangjiakou.aliyuncs.com",
-      'cn-hangzhou': "emr-serverless-spark.cn-hangzhou.aliyuncs.com",
-      'us-west-1': "emr-serverless-spark.us-west-1.aliyuncs.com",
-      'us-east-1': "emr-serverless-spark.us-east-1.aliyuncs.com",
-      'eu-central-1': "emr-serverless-spark.eu-central-1.aliyuncs.com",
-      'na-south-1': "emr-serverless-spark.na-south-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("emr-serverless-spark", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1447,7 +1430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a workspace queue.
+   * Edits a workspace queue.
    * 
    * @param request - EditWorkspaceQueueRequest
    * @param headers - map
@@ -1462,6 +1445,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
     if (!$dara.isNull(request.environments)) {
       body["environments"] = request.environments;
     }
@@ -1506,7 +1493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a workspace queue.
+   * Edits a workspace queue.
    * 
    * @param request - EditWorkspaceQueueRequest
    * @returns EditWorkspaceQueueResponse
@@ -1757,7 +1744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the details of a job.
+   * Retrieves the details of a job run by calling GetJobRun.
    * 
    * @param request - GetJobRunRequest
    * @param headers - map
@@ -1790,7 +1777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the details of a job.
+   * Retrieves the details of a job run by calling GetJobRun.
    * 
    * @param request - GetJobRunRequest
    * @returns GetJobRunResponse
@@ -1972,7 +1959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
+   * Retrieves a Ray cluster.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1997,7 +1984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
+   * Retrieves a Ray cluster.
    * @returns GetRayClusterResponse
    */
   async getRayCluster(workspaceId: string, clusterId: string): Promise<$_model.GetRayClusterResponse> {
@@ -2634,13 +2621,21 @@ export default class Client extends OpenApi {
   /**
    * Lists Kyuubi Gateways.
    * 
+   * @param request - ListKyuubiServicesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListKyuubiServicesResponse
    */
-  async listKyuubiServicesWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListKyuubiServicesResponse> {
+  async listKyuubiServicesWithOptions(workspaceId: string, request: $_model.ListKyuubiServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListKyuubiServicesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.token)) {
+      query["token"] = request.token;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ListKyuubiServices",
@@ -2658,12 +2653,14 @@ export default class Client extends OpenApi {
 
   /**
    * Lists Kyuubi Gateways.
+   * 
+   * @param request - ListKyuubiServicesRequest
    * @returns ListKyuubiServicesResponse
    */
-  async listKyuubiServices(workspaceId: string): Promise<$_model.ListKyuubiServicesResponse> {
+  async listKyuubiServices(workspaceId: string, request: $_model.ListKyuubiServicesRequest): Promise<$_model.ListKyuubiServicesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listKyuubiServicesWithOptions(workspaceId, headers, runtime);
+    return await this.listKyuubiServicesWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -3650,6 +3647,105 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries APM Grafana panel data for Serverless Spark.
+   * 
+   * @param tmpReq - QueryApmGrafanaDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryApmGrafanaDataResponse
+   */
+  async queryApmGrafanaDataWithOptions(tmpReq: $_model.QueryApmGrafanaDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryApmGrafanaDataResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryApmGrafanaDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queryParams)) {
+      request.queryParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryParams, "queryParams", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.componentName)) {
+      query["componentName"] = request.componentName;
+    }
+
+    if (!$dara.isNull(request.dashboardId)) {
+      query["dashboardId"] = request.dashboardId;
+    }
+
+    if (!$dara.isNull(request.end)) {
+      query["end"] = request.end;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.queryParamsShrink)) {
+      query["queryParams"] = request.queryParamsShrink;
+    }
+
+    if (!$dara.isNull(request.queryUrl)) {
+      query["queryUrl"] = request.queryUrl;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.step)) {
+      query["step"] = request.step;
+    }
+
+    if (!$dara.isNull(request.time)) {
+      query["time"] = request.time;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      query["variables"] = request.variables;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryApmGrafanaData",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/apm/action/queryApmGrafanaData`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryApmGrafanaDataResponse>(await this.callApi(params, req, runtime), new $_model.QueryApmGrafanaDataResponse({}));
+  }
+
+  /**
+   * Queries APM Grafana panel data for Serverless Spark.
+   * 
+   * @param request - QueryApmGrafanaDataRequest
+   * @returns QueryApmGrafanaDataResponse
+   */
+  async queryApmGrafanaData(request: $_model.QueryApmGrafanaDataRequest): Promise<$_model.QueryApmGrafanaDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryApmGrafanaDataWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Refreshes the token for a Livy Gateway.
    * 
    * @param request - RefreshLivyComputeTokenRequest
@@ -3929,7 +4025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a workflow manually.
+   * Manually runs a workflow.
    * 
    * @param request - StartProcessInstanceRequest
    * @param headers - map
@@ -3951,6 +4047,10 @@ export default class Client extends OpenApi {
       query["email"] = request.email;
     }
 
+    if (!$dara.isNull(request.expectedParallelismNumber)) {
+      query["expectedParallelismNumber"] = request.expectedParallelismNumber;
+    }
+
     if (!$dara.isNull(request.interval)) {
       query["interval"] = request.interval;
     }
@@ -3969,6 +4069,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.runMode)) {
+      query["runMode"] = request.runMode;
     }
 
     if (!$dara.isNull(request.runtimeQueue)) {
@@ -4002,7 +4106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a workflow manually.
+   * Manually runs a workflow.
    * 
    * @param request - StartProcessInstanceRequest
    * @returns StartProcessInstanceResponse
@@ -4351,6 +4455,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.activeDeadlineSeconds)) {
       body["activeDeadlineSeconds"] = request.activeDeadlineSeconds;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["clusterId"] = request.clusterId;
     }
 
     if (!$dara.isNull(request.displayReleaseVersion)) {

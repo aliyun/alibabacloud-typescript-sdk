@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRayClusterResponseBody extends $dara.Model {
+export class ListKyuubiServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The Ray cluster ID.
+   * The token of the Kyuubi Gateway.
    * 
    * @example
-   * ray-k7nm8ahl5te4tg91
+   * 6w3s2e7y7t9fxnvtai9sv1uebw8b7bvc
    */
-  clusterId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C8944
-   */
-  requestId?: string;
+  token?: string;
   static names(): { [key: string]: string } {
     return {
-      clusterId: 'clusterId',
-      requestId: 'requestId',
+      token: 'token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterId: 'string',
-      requestId: 'string',
+      token: 'string',
     };
   }
 

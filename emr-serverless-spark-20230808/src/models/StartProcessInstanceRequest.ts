@@ -6,10 +6,18 @@ export class StartProcessInstanceRequest extends $dara.Model {
   action?: string;
   comments?: string;
   email?: string;
+  /**
+   * @remarks
+   * The expected concurrency.
+   * 
+   * @example
+   * 2
+   */
+  expectedParallelismNumber?: number;
   interval?: string;
   /**
    * @remarks
-   * Specifies whether the workflow runs in a production environment.
+   * Specifies whether the workflow runs in the production environment.
    * 
    * @example
    * false
@@ -45,6 +53,14 @@ export class StartProcessInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The execution policy.
+   * 
+   * @example
+   * RUN_MODE_PARALLEL
+   */
+  runMode?: string;
+  /**
+   * @remarks
    * The runtime queue.
    * 
    * @example
@@ -53,7 +69,7 @@ export class StartProcessInstanceRequest extends $dara.Model {
   runtimeQueue?: string;
   /**
    * @remarks
-   * The hash code of the version.
+   * The version hash code.
    * 
    * @example
    * dh*********
@@ -61,7 +77,7 @@ export class StartProcessInstanceRequest extends $dara.Model {
   versionHashCode?: string;
   /**
    * @remarks
-   * The version number of the workflow definition.
+   * The workflow definition version number.
    * 
    * @example
    * 1
@@ -72,11 +88,13 @@ export class StartProcessInstanceRequest extends $dara.Model {
       action: 'action',
       comments: 'comments',
       email: 'email',
+      expectedParallelismNumber: 'expectedParallelismNumber',
       interval: 'interval',
       isProd: 'isProd',
       processDefinitionCode: 'processDefinitionCode',
       productNamespace: 'productNamespace',
       regionId: 'regionId',
+      runMode: 'runMode',
       runtimeQueue: 'runtimeQueue',
       versionHashCode: 'versionHashCode',
       versionNumber: 'versionNumber',
@@ -88,11 +106,13 @@ export class StartProcessInstanceRequest extends $dara.Model {
       action: 'string',
       comments: 'string',
       email: 'string',
+      expectedParallelismNumber: 'number',
       interval: 'string',
       isProd: 'boolean',
       processDefinitionCode: 'number',
       productNamespace: 'string',
       regionId: 'string',
+      runMode: 'string',
       runtimeQueue: 'string',
       versionHashCode: 'string',
       versionNumber: 'number',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model {
   /**
    * @remarks
-   * The community version number of Spark.
+   * The community Spark version number.
    * 
    * @example
    * Spark 3.3.1
@@ -26,7 +26,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * Indicates whether the Fusion engine is enabled for acceleration.
+   * Indicates whether Fusion engine acceleration is enabled.
    * 
    * @example
    * true
@@ -34,7 +34,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   fusion?: boolean;
   /**
    * @remarks
-   * The time when the version was created.
+   * The creation time.
    * 
    * @example
    * 1716215854101
@@ -42,12 +42,17 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   gmtCreate?: number;
   /**
    * @remarks
-   * The type of the IaaS layer.
+   * The IaaS layer type.
    * 
    * @example
    * ASI
    */
   iaasType?: string;
+  /**
+   * @remarks
+   * Indicates whether the version is a custom image.
+   */
+  isCustom?: boolean;
   /**
    * @remarks
    * The version number.
@@ -66,7 +71,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   scalaVersion?: string;
   /**
    * @remarks
-   * The status of the version.
+   * The version status.
    * 
    * @example
    * ONLINE
@@ -74,7 +79,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   state?: string;
   /**
    * @remarks
-   * The type of the version.
+   * The version type.
    * 
    * @example
    * stable
@@ -88,6 +93,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
       fusion: 'fusion',
       gmtCreate: 'gmtCreate',
       iaasType: 'iaasType',
+      isCustom: 'isCustom',
       releaseVersion: 'releaseVersion',
       scalaVersion: 'scalaVersion',
       state: 'state',
@@ -103,6 +109,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
       fusion: 'boolean',
       gmtCreate: 'number',
       iaasType: 'string',
+      isCustom: 'boolean',
       releaseVersion: 'string',
       scalaVersion: 'string',
       state: 'string',
@@ -125,7 +132,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
 export class ListReleaseVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return on a single page.
+   * The maximum number of records returned per request.
    * 
    * @example
    * 20
@@ -133,7 +140,7 @@ export class ListReleaseVersionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The token for the next page.
    * 
    * @example
    * 1
