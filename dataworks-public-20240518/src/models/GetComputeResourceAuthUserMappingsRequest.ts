@@ -2,37 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetCrossProjectPipelineRunRequest extends $dara.Model {
+export class GetComputeResourceAuthUserMappingsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cross-workspace deployment flow ID.
+   * The ID of the compute resource.
    * 
    * This parameter is required.
    * 
    * @example
-   * fcfd4160-e2ff-4603-9719-09128fe733df
+   * 100000
    */
-  pipelineRunId?: string;
+  computeResourceId?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The DataWorks workspace to which the data source belongs.
    * 
    * This parameter is required.
    * 
    * @example
-   * 10
+   * 1
    */
   projectId?: number;
   static names(): { [key: string]: string } {
     return {
-      pipelineRunId: 'PipelineRunId',
+      computeResourceId: 'ComputeResourceId',
       projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pipelineRunId: 'string',
+      computeResourceId: 'number',
       projectId: 'number',
     };
   }

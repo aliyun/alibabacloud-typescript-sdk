@@ -8345,7 +8345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行跨空间发布流程
+   * Executes a cross-workspace publish flow.
    * 
    * @param request - ExecCrossProjectPipelineRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8380,7 +8380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行跨空间发布流程
+   * Executes a cross-workspace publish flow.
    * 
    * @param request - ExecCrossProjectPipelineRunRequest
    * @returns ExecCrossProjectPipelineRunResponse
@@ -9193,6 +9193,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the user mappings of a compute resource. Supports EMR and Serverless Spark resource types.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. You must have at least one of the following roles in the DataWorks workspace:
+   * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+   * 
+   * @param request - GetComputeResourceAuthUserMappingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetComputeResourceAuthUserMappingsResponse
+   */
+  async getComputeResourceAuthUserMappingsWithOptions(request: $_model.GetComputeResourceAuthUserMappingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetComputeResourceAuthUserMappingsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.computeResourceId)) {
+      query["ComputeResourceId"] = request.computeResourceId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetComputeResourceAuthUserMappings",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetComputeResourceAuthUserMappingsResponse>(await this.callApi(params, req, runtime), new $_model.GetComputeResourceAuthUserMappingsResponse({}));
+  }
+
+  /**
+   * Queries the user mappings of a compute resource. Supports EMR and Serverless Spark resource types.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. You must have at least one of the following roles in the DataWorks workspace:
+   * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+   * 
+   * @param request - GetComputeResourceAuthUserMappingsRequest
+   * @returns GetComputeResourceAuthUserMappingsResponse
+   */
+  async getComputeResourceAuthUserMappings(request: $_model.GetComputeResourceAuthUserMappingsRequest): Promise<$_model.GetComputeResourceAuthUserMappingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getComputeResourceAuthUserMappingsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the configuration, status, and latest run information of a specified metadata crawler.
    * 
    * @remarks
@@ -9360,7 +9416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询跨空间发布流程详情
+   * Queries the details of a cross-workspace deployment flow.
    * 
    * @param request - GetCrossProjectPipelineRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9395,7 +9451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询跨空间发布流程详情
+   * Queries the details of a cross-workspace deployment flow.
    * 
    * @param request - GetCrossProjectPipelineRunRequest
    * @returns GetCrossProjectPipelineRunResponse
@@ -21552,6 +21608,80 @@ export default class Client extends OpenApi {
   async updateComputeResource(request: $_model.UpdateComputeResourceRequest): Promise<$_model.UpdateComputeResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateComputeResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the account mapping of a compute resource. Currently supports EMR and Serverless Spark resource types.
+   * 
+   * @remarks
+   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 2. You must have at least one of the following roles in the DataWorks workspace:
+   * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+   * 
+   * @param tmpReq - UpdateComputeResourceAuthUserMappingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateComputeResourceAuthUserMappingsResponse
+   */
+  async updateComputeResourceAuthUserMappingsWithOptions(tmpReq: $_model.UpdateComputeResourceAuthUserMappingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateComputeResourceAuthUserMappingsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateComputeResourceAuthUserMappingsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.removeUserIds)) {
+      request.removeUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.removeUserIds, "RemoveUserIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.upserts)) {
+      request.upsertsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.upserts, "Upserts", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.computeResourceId)) {
+      body["ComputeResourceId"] = request.computeResourceId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.removeUserIdsShrink)) {
+      body["RemoveUserIds"] = request.removeUserIdsShrink;
+    }
+
+    if (!$dara.isNull(request.upsertsShrink)) {
+      body["Upserts"] = request.upsertsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateComputeResourceAuthUserMappings",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateComputeResourceAuthUserMappingsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateComputeResourceAuthUserMappingsResponse({}));
+  }
+
+  /**
+   * Updates the account mapping of a compute resource. Currently supports EMR and Serverless Spark resource types.
+   * 
+   * @remarks
+   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 2. You must have at least one of the following roles in the DataWorks workspace:
+   * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+   * 
+   * @param request - UpdateComputeResourceAuthUserMappingsRequest
+   * @returns UpdateComputeResourceAuthUserMappingsResponse
+   */
+  async updateComputeResourceAuthUserMappings(request: $_model.UpdateComputeResourceAuthUserMappingsRequest): Promise<$_model.UpdateComputeResourceAuthUserMappingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateComputeResourceAuthUserMappingsWithOptions(request, runtime);
   }
 
   /**

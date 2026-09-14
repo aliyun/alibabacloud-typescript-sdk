@@ -2,17 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetCrossProjectPipelineRunRequest extends $dara.Model {
+export class UpdateComputeResourceAuthUserMappingsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The cross-workspace deployment flow ID.
+   * The compute resource ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * fcfd4160-e2ff-4603-9719-09128fe733df
+   * 123455
    */
-  pipelineRunId?: string;
+  computeResourceId?: number;
   /**
    * @remarks
    * The workspace ID.
@@ -20,20 +20,34 @@ export class GetCrossProjectPipelineRunRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10
+   * 10000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The list of user mappings to remove.
+   */
+  removeUserIdsShrink?: string;
+  /**
+   * @remarks
+   * The list of objects to update.
+   */
+  upsertsShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      pipelineRunId: 'PipelineRunId',
+      computeResourceId: 'ComputeResourceId',
       projectId: 'ProjectId',
+      removeUserIdsShrink: 'RemoveUserIds',
+      upsertsShrink: 'Upserts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pipelineRunId: 'string',
+      computeResourceId: 'number',
       projectId: 'number',
+      removeUserIdsShrink: 'string',
+      upsertsShrink: 'string',
     };
   }
 

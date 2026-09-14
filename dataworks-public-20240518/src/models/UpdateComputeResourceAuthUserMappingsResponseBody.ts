@@ -2,24 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ExecCrossProjectPipelineRunResponseBodyData extends $dara.Model {
+export class UpdateComputeResourceAuthUserMappingsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The change record ID.
    * 
    * @example
-   * 735894D1-D5E5-50B8-8A6D-041C90A98B23
+   * 123xx
    */
-  requestId?: string;
+  changeRecordId?: number;
+  /**
+   * @remarks
+   * Indicates whether the operation succeeded. Valid values:
+   * - success: The update succeeded.
+   * - fail: The update failed.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      changeRecordId: 'ChangeRecordId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      changeRecordId: 'number',
+      status: 'string',
     };
   }
 
@@ -32,21 +44,18 @@ export class ExecCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   }
 }
 
-export class ExecCrossProjectPipelineRunResponseBody extends $dara.Model {
+export class UpdateComputeResourceAuthUserMappingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business response.
-   * 
-   * @example
-   * {"RequestId":"735894D1-D5E5-50B8-8A6D-041C90A98B23"}
+   * The data object.
    */
-  data?: ExecCrossProjectPipelineRunResponseBodyData;
+  data?: UpdateComputeResourceAuthUserMappingsResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot this API call.
+   * Id of the request
    * 
    * @example
-   * 735894D1-D5E5-50B8-8A6D-041C90A98B23
+   * 10000001
    */
   requestId?: string;
   /**
@@ -67,7 +76,7 @@ export class ExecCrossProjectPipelineRunResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: ExecCrossProjectPipelineRunResponseBodyData,
+      data: UpdateComputeResourceAuthUserMappingsResponseBodyData,
       requestId: 'string',
       success: 'boolean',
     };
