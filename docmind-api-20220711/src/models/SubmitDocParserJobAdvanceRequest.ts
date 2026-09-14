@@ -78,24 +78,71 @@ export class SubmitDocParserJobAdvanceRequestLLMParam extends $dara.Model {
   }
 }
 
+export class SubmitDocParserJobAdvanceRequestMultimediaParametersFrameExtraction extends $dara.Model {
+  frameRate?: number;
+  mode?: string;
+  outputImageHeight?: number;
+  outputImageWidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      frameRate: 'FrameRate',
+      mode: 'Mode',
+      outputImageHeight: 'OutputImageHeight',
+      outputImageWidth: 'OutputImageWidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frameRate: 'number',
+      mode: 'string',
+      outputImageHeight: 'number',
+      outputImageWidth: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitDocParserJobAdvanceRequestMultimediaParameters extends $dara.Model {
+  enableDiarization?: boolean;
   enableSynopsisParse?: boolean;
+  enableSynopsisSegments?: boolean;
+  enableSynopsisSummary?: boolean;
+  frameExtraction?: SubmitDocParserJobAdvanceRequestMultimediaParametersFrameExtraction;
   vlParsePrompt?: string;
   static names(): { [key: string]: string } {
     return {
+      enableDiarization: 'EnableDiarization',
       enableSynopsisParse: 'EnableSynopsisParse',
+      enableSynopsisSegments: 'EnableSynopsisSegments',
+      enableSynopsisSummary: 'EnableSynopsisSummary',
+      frameExtraction: 'FrameExtraction',
       vlParsePrompt: 'VlParsePrompt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enableDiarization: 'boolean',
       enableSynopsisParse: 'boolean',
+      enableSynopsisSegments: 'boolean',
+      enableSynopsisSummary: 'boolean',
+      frameExtraction: SubmitDocParserJobAdvanceRequestMultimediaParametersFrameExtraction,
       vlParsePrompt: 'string',
     };
   }
 
   validate() {
+    if(this.frameExtraction && typeof (this.frameExtraction as any).validate === 'function') {
+      (this.frameExtraction as any).validate();
+    }
     super.validate();
   }
 

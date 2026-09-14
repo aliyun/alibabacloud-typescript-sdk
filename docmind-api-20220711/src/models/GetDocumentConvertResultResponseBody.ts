@@ -22,7 +22,7 @@ export class GetDocumentConvertResultResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @example
-   * http://example.png
+   * http://docmind-api-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/convert/docmind-20220816-15bc7965/0.pdf?Expires=1660722412&OSSAccessKeyId=LTAI5tFEK2uEApeeYzxNMEci&Signature=f%2FKluINWMuuVyA5w22Z1wkoRjEg%3D
    */
   url?: string;
   static names(): { [key: string]: string } {

@@ -13,9 +13,11 @@ export { SubmitConvertPdfToMarkdownJobResponseBodyData } from './SubmitConvertPd
 export { SubmitConvertPdfToWordJobResponseBodyData } from './SubmitConvertPdfToWordJobResponseBody';
 export { SubmitDocParserJobRequestCustomOssConfig } from './SubmitDocParserJobRequest';
 export { SubmitDocParserJobRequestLLMParam } from './SubmitDocParserJobRequest';
+export { SubmitDocParserJobRequestMultimediaParametersFrameExtraction } from './SubmitDocParserJobRequest';
 export { SubmitDocParserJobRequestMultimediaParameters } from './SubmitDocParserJobRequest';
 export { SubmitDocParserJobAdvanceRequestCustomOssConfig } from './SubmitDocParserJobAdvanceRequest';
 export { SubmitDocParserJobAdvanceRequestLLMParam } from './SubmitDocParserJobAdvanceRequest';
+export { SubmitDocParserJobAdvanceRequestMultimediaParametersFrameExtraction } from './SubmitDocParserJobAdvanceRequest';
 export { SubmitDocParserJobAdvanceRequestMultimediaParameters } from './SubmitDocParserJobAdvanceRequest';
 export { SubmitDocParserJobResponseBodyData } from './SubmitDocParserJobResponseBody';
 export { SubmitDocStructureJobResponseBodyData } from './SubmitDocStructureJobResponseBody';

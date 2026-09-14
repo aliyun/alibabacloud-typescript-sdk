@@ -6,7 +6,7 @@ export class SubmitConvertImageToPdfJobRequest extends $dara.Model {
   enableEventCallback?: boolean;
   /**
    * @example
-   * JPG
+   * jpg
    */
   imageNameExtension?: string;
   imageNames?: string[];

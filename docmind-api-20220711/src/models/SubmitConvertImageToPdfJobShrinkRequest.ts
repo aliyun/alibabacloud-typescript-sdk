@@ -6,7 +6,7 @@ export class SubmitConvertImageToPdfJobShrinkRequest extends $dara.Model {
   enableEventCallback?: boolean;
   /**
    * @example
-   * JPG
+   * jpg
    */
   imageNameExtension?: string;
   imageNamesShrink?: string;
