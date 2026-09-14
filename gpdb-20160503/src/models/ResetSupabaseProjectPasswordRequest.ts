@@ -6,10 +6,9 @@ export class ResetSupabaseProjectPasswordRequest extends $dara.Model {
   /**
    * @remarks
    * The password of the database account.
-   * 
-   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
-   * *   The password must be 8 to 32 characters in length.
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - The following special characters are supported: `!@#$%^&*()_+-=`
+   * - The password must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,10 @@ export class ResetSupabaseProjectPasswordRequest extends $dara.Model {
    * Pw123456
    */
   accountPassword?: string;
+  dashboardPassword?: string;
   /**
    * @remarks
-   * Supabase Instance ID
+   * The Supabase instance ID.
    * 
    * This parameter is required.
    * 
@@ -38,6 +38,7 @@ export class ResetSupabaseProjectPasswordRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountPassword: 'AccountPassword',
+      dashboardPassword: 'DashboardPassword',
       projectId: 'ProjectId',
       regionId: 'RegionId',
     };
@@ -46,6 +47,7 @@ export class ResetSupabaseProjectPasswordRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountPassword: 'string',
+      dashboardPassword: 'string',
       projectId: 'string',
       regionId: 'string',
     };

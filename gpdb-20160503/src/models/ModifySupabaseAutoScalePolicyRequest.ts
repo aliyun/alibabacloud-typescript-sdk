@@ -15,6 +15,7 @@ export class ModifySupabaseAutoScalePolicyRequest extends $dara.Model {
    * false
    */
   autoScale?: boolean;
+  idleTimeHours?: string;
   /**
    * @remarks
    * The ID of the Supabase project. You can obtain the workspace ID from the Supabase page in the console.
@@ -36,6 +37,7 @@ export class ModifySupabaseAutoScalePolicyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoScale: 'AutoScale',
+      idleTimeHours: 'IdleTimeHours',
       projectId: 'ProjectId',
       regionId: 'RegionId',
     };
@@ -44,6 +46,7 @@ export class ModifySupabaseAutoScalePolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoScale: 'boolean',
+      idleTimeHours: 'string',
       projectId: 'string',
       regionId: 'string',
     };

@@ -4,10 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSupabaseProjectResponseBody extends $dara.Model {
   /**
+   * @example
+   * 0.5
+   */
+  appliedIdleTimeHours?: string;
+  /**
    * @remarks
-   * Indicates whether **auto start/stop** is enabled. Valid values:
-   * - true: Enabled. When enabled, Supabase automatically pauses and resumes based on traffic conditions.
-   * - false: Disabled. When disabled, the auto start/stop feature of Supabase is turned off.
+   * Indicates whether **auto start and stop** is enabled. Valid values:
+   * - true: Enabled. After this feature is enabled, Supabase automatically pauses and resumes based on traffic conditions.
+   * - false: Disabled. After this feature is disabled, the auto start and stop feature of Supabase is turned off.
    * 
    * @example
    * false
@@ -31,7 +36,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   DBSecurityIpList?: string;
   /**
    * @remarks
-   * The Supabase Dashboard password (not currently in use).
+   * The Supabase Dashboard password. This parameter is not in use.
    * 
    * @example
    * xxpassword
@@ -39,7 +44,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   dashboardPassword?: string;
   /**
    * @remarks
-   * The Supabase Dashboard username (not currently in use).
+   * The Supabase Dashboard username. This parameter is not in use.
    * 
    * @example
    * username
@@ -47,7 +52,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   dashboardUserName?: string;
   /**
    * @remarks
-   * The cloud disk performance level. Valid values:
+   * The performance level of the cloud disk. Valid values:
    * - PL0
    * - PL1
    * 
@@ -65,7 +70,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The DPI engine version.
+   * The database engine version.
    * 
    * @example
    * 15
@@ -73,7 +78,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The elastic network interfaces (ENIs) ID, which identifies the network interface controller (NIC).
+   * The elastic network interface (ENI) ID. The network interface controller (NIC) ID of the instance.
    * 
    * @example
    * eni-xxxxxx
@@ -87,14 +92,21 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * v1.0.3
    */
   instanceVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether the project is a lightweight edition.
+   * 
+   * @example
+   * false
+   */
   lightweight?: string;
   /**
    * @remarks
    * The billing type. Valid values:
    * 
-   * - POSTPAY: Pay-as-you-go.
+   * - POSTPAY: pay-as-you-go.
    * 
-   * - PREPAY: Subscription.
+   * - PREPAY: subscription.
    * 
    * @example
    * POSTPAY
@@ -232,6 +244,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      appliedIdleTimeHours: 'AppliedIdleTimeHours',
       autoScale: 'AutoScale',
       createTime: 'CreateTime',
       DBSecurityIpList: 'DBSecurityIpList',
@@ -264,6 +277,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appliedIdleTimeHours: 'string',
       autoScale: 'string',
       createTime: 'string',
       DBSecurityIpList: 'string',

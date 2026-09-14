@@ -49,30 +49,6 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "gpdb.aliyuncs.com",
       'eu-west-1-oxs': "gpdb.aliyuncs.com",
       'rus-west-1-pop': "gpdb.aliyuncs.com",
-      'cn-wulanchabu': "gpdb.cn-wulanchabu.aliyuncs.com",
-      'cn-beijing': "gpdb.cn-beijing.aliyuncs.com",
-      'cn-qingdao': "gpdb.cn-qingdao.aliyuncs.com",
-      'cn-shanghai': "gpdb.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "gpdb.cn-hongkong.aliyuncs.com",
-      'cn-zhangjiakou': "gpdb.cn-zhangjiakou.aliyuncs.com",
-      'cn-shenzhen': "gpdb.cn-shenzhen.aliyuncs.com",
-      'ap-northeast-2': "gpdb.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "gpdb.ap-northeast-1.aliyuncs.com",
-      'cn-chengdu': "gpdb.cn-chengdu.aliyuncs.com",
-      'ap-southeast-1': "gpdb.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "gpdb.ap-southeast-3.aliyuncs.com",
-      'cn-huhehaote': "gpdb.cn-huhehaote.aliyuncs.com",
-      'ap-southeast-5': "gpdb.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-7': "gpdb.ap-southeast-7.aliyuncs.com",
-      'us-east-1': "gpdb.us-east-1.aliyuncs.com",
-      'eu-west-1': "gpdb.eu-west-1.aliyuncs.com",
-      'us-west-1': "gpdb.us-west-1.aliyuncs.com",
-      'eu-central-1': "gpdb.eu-central-1.aliyuncs.com",
-      'me-east-1': "gpdb.me-east-1.aliyuncs.com",
-      'me-central-1': "gpdb.me-central-1.aliyuncs.com",
-      'cn-shenzhen-finance-1': "gpdb.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "gpdb.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-north-2-gov-1': "gpdb.cn-north-2-gov-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("gpdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -15874,6 +15850,10 @@ export default class Client extends OpenApi {
       query["AutoScale"] = request.autoScale;
     }
 
+    if (!$dara.isNull(request.idleTimeHours)) {
+      query["IdleTimeHours"] = request.idleTimeHours;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -17174,10 +17154,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reset the password of a Supabase database
+   * Resets the password of a Supabase database.
    * 
    * @remarks
-   * Call this API to reset the password of the Supabase database.
+   * Resets the password of a Supabase database.
    * 
    * @param request - ResetSupabaseProjectPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17188,6 +17168,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.accountPassword)) {
       query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!$dara.isNull(request.dashboardPassword)) {
+      query["DashboardPassword"] = request.dashboardPassword;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -17216,10 +17200,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reset the password of a Supabase database
+   * Resets the password of a Supabase database.
    * 
    * @remarks
-   * Call this API to reset the password of the Supabase database.
+   * Resets the password of a Supabase database.
    * 
    * @param request - ResetSupabaseProjectPasswordRequest
    * @returns ResetSupabaseProjectPasswordResponse
