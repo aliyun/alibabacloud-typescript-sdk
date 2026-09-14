@@ -28,6 +28,11 @@ export class ListPipelinesRequest extends $dara.Model {
    * RunOnce
    */
   scheduleType?: string;
+  /**
+   * @example
+   * my-dataset
+   */
+  sinkName?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'maxResults',
@@ -35,6 +40,7 @@ export class ListPipelinesRequest extends $dara.Model {
       pipelineName: 'pipelineName',
       scheduleStatus: 'scheduleStatus',
       scheduleType: 'scheduleType',
+      sinkName: 'sinkName',
     };
   }
 
@@ -45,6 +51,7 @@ export class ListPipelinesRequest extends $dara.Model {
       pipelineName: 'string',
       scheduleStatus: 'string',
       scheduleType: 'string',
+      sinkName: 'string',
     };
   }
 

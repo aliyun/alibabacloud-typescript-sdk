@@ -27,6 +27,13 @@ export class ListAgentSpacesRequest extends $dara.Model {
    * pEL20OGYeZQez8NdW7ve
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

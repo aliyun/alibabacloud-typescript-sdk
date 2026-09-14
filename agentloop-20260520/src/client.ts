@@ -2014,7 +2014,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of AgentSpaces.
+   * Queries a list of AgentSpaces.
+   * 
+   * @remarks
+   * Supports filtering by region.
    * 
    * @param request - ListAgentSpacesRequest
    * @param headers - map
@@ -2059,7 +2062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of AgentSpaces.
+   * Queries a list of AgentSpaces.
+   * 
+   * @remarks
+   * Supports filtering by region.
    * 
    * @param request - ListAgentSpacesRequest
    * @returns ListAgentSpacesResponse
@@ -2731,6 +2737,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scheduleType)) {
       query["scheduleType"] = request.scheduleType;
+    }
+
+    if (!$dara.isNull(request.sinkName)) {
+      query["sinkName"] = request.sinkName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
