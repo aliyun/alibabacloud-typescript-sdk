@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableMaintainWindowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the enabled silence policy.
+   * 
    * @example
-   * 123-12-312-31-23123
+   * 3ff3fbd0-8a0b-4b31-9b1c-8e3f0a2c5d71
    */
   maintainWindowId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request. You can use this ID for troubleshooting and ticket diagnostics.
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertActionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique IDs of the alert action integrations.
+   * The unique IDs of the action integrations.
    */
   alertActionIdsShrink?: string;
   /**
    * @remarks
-   * The name of the alert action integration.
+   * The name of the action integration.
    * 
    * @example
    * testName
@@ -34,7 +34,7 @@ export class ListAlertActionsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the alert action integration.
+   * The type of the action integration.
    * 
    * @example
    * FC

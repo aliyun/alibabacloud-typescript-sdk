@@ -33,6 +33,13 @@ export class QueryAlertRulesRequest extends $dara.Model {
    * 123456
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The query filter condition. The value is a JSON string whose fields have the same semantics as the request body. Supported fields include filter (uuid, displayName, labels, status, enabled, and more. Fields at the same level have an AND relationship), pagination (pageNumber and pageSize), and workspace. Specify either this parameter or the request body. If both are specified, the request body takes precedence.
+   * 
+   * @example
+   * {"filter":{"displayName":{"contains":"my-rule"}},"pagination":{"pageNumber":1,"pageSize":20}}
+   */
   queryJson?: string;
   static names(): { [key: string]: string } {
     return {

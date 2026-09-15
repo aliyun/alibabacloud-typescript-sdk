@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The contact IDs.
+   * The IDs of the alert contacts.
    */
   contactIdsShrink?: string;
   /**
    * @remarks
-   * The email address of the contact.
+   * The email address of the alert contact.
    * 
    * @example
    * test@aliyun.com
@@ -18,7 +18,7 @@ export class ListContactsShrinkRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The ID of the contact group to which the contact belongs.
+   * The ID of the contact group to which the alert contact belongs.
    * 
    * @example
    * group-id-123
@@ -26,7 +26,7 @@ export class ListContactsShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The contact name.
+   * The name of the alert contact.
    * 
    * @example
    * test
@@ -50,7 +50,7 @@ export class ListContactsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The phone number of the contact.
+   * The phone number of the alert contact.
    * 
    * @example
    * 15012345678
@@ -58,7 +58,7 @@ export class ListContactsShrinkRequest extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Specifies whether to query only ungrouped contacts.
+   * Specifies whether to query only ungrouped alert contacts.
    * 
    * @example
    * true

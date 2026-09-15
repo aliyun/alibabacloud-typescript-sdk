@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMaintainWindowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the created silence policy.
+   * 
+   * @example
+   * 3ff3fbd0-8a0b-4b31-9b1c-8e3f0a2c5d71
+   */
   maintainWindowId?: string;
+  /**
+   * @remarks
+   * The unique ID of the request. You can use this ID for troubleshooting and ticket tracking.
+   * 
+   * @example
+   * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

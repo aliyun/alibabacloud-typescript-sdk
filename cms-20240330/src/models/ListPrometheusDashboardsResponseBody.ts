@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $dara.Model {
   /**
    * @remarks
+   * The UID of the dashboard folder.
+   * 
+   * @example
+   * abc
+   */
+  folderUid?: string;
+  /**
+   * @remarks
    * The dashboard ID.
    * 
    * @example
@@ -42,7 +50,7 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
   uid?: string;
   /**
    * @remarks
-   * The URL of the dashboard.
+   * The dashboard URL.
    * 
    * @example
    * https://gnew.console.aliyun.com/d/xxx-17460385-807-7-6/cs-cost-application
@@ -50,6 +58,7 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      folderUid: 'folderUid',
       id: 'id',
       name: 'name',
       tags: 'tags',
@@ -61,6 +70,7 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
 
   static types(): { [key: string]: any } {
     return {
+      folderUid: 'string',
       id: 'string',
       name: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
@@ -85,12 +95,12 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
 export class ListPrometheusDashboardsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of dashboards for the Prometheus instance.
+   * The list of dashboards for the Managed Service for Prometheus instance.
    */
   prometheusDashboards?: ListPrometheusDashboardsResponseBodyPrometheusDashboards[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

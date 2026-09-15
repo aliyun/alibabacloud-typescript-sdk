@@ -6,7 +6,7 @@ import { TriggerConditions } from "./TriggerConditions";
 export class Triggers extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator for CLOUD_MONITORING_CONDITION.
+   * The comparison operator when the condition type is CLOUD_MONITORING_CONDITION.
    * 
    * @example
    * SampleValue
@@ -14,7 +14,7 @@ export class Triggers extends $dara.Model {
   comparisonOperator?: string;
   /**
    * @remarks
-   * The match expression for SLS_MULTI_CONDITION. Corresponds to the V1 condition field and is preserved as-is without parsing.
+   * The match expression when the condition type is SLS_MULTI_CONDITION. This corresponds to the V1 condition and is preserved as-is without parsing.
    * 
    * @example
    * SampleValue
@@ -22,12 +22,12 @@ export class Triggers extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The list of sub-conditions for UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI with expressionType=COMPOSITE. Each item contains queryName, operator, and threshold.
+   * The list of sub-conditions when the condition type is UMODEL_METRICSET_MULTI or PROMETHEUS_MULTI with expressionType=COMPOSITE. Each item contains queryName, operator, and threshold.
    */
   conditions?: TriggerConditions[];
   /**
    * @remarks
-   * The count match expression for SLS_MULTI_CONDITION. Corresponds to the V1 countCondition field and is preserved as-is without parsing.
+   * The count match expression when the condition type is SLS_MULTI_CONDITION. This corresponds to the V1 countCondition and is preserved as-is without parsing.
    * 
    * @example
    * SampleValue
@@ -35,7 +35,7 @@ export class Triggers extends $dara.Model {
   countCondition?: string;
   /**
    * @remarks
-   * **[Deprecated]** The write path for SLS_MULTI_CONDITION countOperator is disabled. Use countCondition instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION has been disabled. Use countCondition instead.
    * 
    * @example
    * GTE
@@ -45,7 +45,7 @@ export class Triggers extends $dara.Model {
   countOperator?: string;
   /**
    * @remarks
-   * **[Deprecated]** The write path for SLS_MULTI_CONDITION countOperator is disabled. Use countCondition instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION has been disabled. Use countCondition instead.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class Triggers extends $dara.Model {
   countThreshold?: number;
   /**
    * @remarks
-   * The duration in seconds for which data must continuously meet the condition to fire an alert. If not specified, the value is inherited from conditionConfig.durationSecs. Used by UMODEL_METRICSET_MULTI_CONDITION / PROMETHEUS_MULTI_CONDITION.
+   * The duration in seconds during which data must continuously meet the condition before an alert is triggered. If not specified, the value is inherited from conditionConfig.durationSecs. This parameter is used by UMODEL_METRICSET_MULTI_CONDITION and PROMETHEUS_MULTI_CONDITION.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class Triggers extends $dara.Model {
   durationSecs?: number;
   /**
    * @remarks
-   * The expression type. For UMODEL_METRICSET_MULTI_CONDITION / PROMETHEUS_MULTI_CONDITION, valid values are SIMPLE and COMPOSITE.
+   * The expression type. Set to SIMPLE or COMPOSITE when the condition type is UMODEL_METRICSET_MULTI_CONDITION or PROMETHEUS_MULTI_CONDITION.
    * 
    * @example
    * default
@@ -71,7 +71,7 @@ export class Triggers extends $dara.Model {
   expressionType?: string;
   /**
    * @remarks
-   * The logic operator for UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI with expressionType=COMPOSITE. Valid values: AND, OR, and UNLESS.
+   * The logical operator when the condition type is UMODEL_METRICSET_MULTI or PROMETHEUS_MULTI with expressionType=COMPOSITE. Valid values: AND, OR, and UNLESS.
    * 
    * @example
    * AND
@@ -79,7 +79,7 @@ export class Triggers extends $dara.Model {
   logicOperator?: string;
   /**
    * @remarks
-   * **[Deprecated]** The write path for SLS_MULTI_CONDITION matchField is disabled. Use condition instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION has been disabled. Use condition instead.
    * 
    * @example
    * SampleValue
@@ -89,7 +89,7 @@ export class Triggers extends $dara.Model {
   matchField?: string;
   /**
    * @remarks
-   * **[Deprecated]** The write path for SLS_MULTI_CONDITION matchField is disabled. Use condition instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION has been disabled. Use condition instead.
    * 
    * @example
    * PRESENT
@@ -99,7 +99,7 @@ export class Triggers extends $dara.Model {
   matchOperator?: string;
   /**
    * @remarks
-   * **[Deprecated]** The write path for SLS_MULTI_CONDITION matchField is disabled. Use condition instead.
+   * **[Deprecated]** The write path for SLS_MULTI_CONDITION has been disabled. Use condition instead.
    * 
    * @example
    * SampleValue
@@ -109,7 +109,7 @@ export class Triggers extends $dara.Model {
   matchValue?: string;
   /**
    * @remarks
-   * The upper bound of the range for UMODEL_METRICSET_MULTI with expressionType=SIMPLE. Required when operator is IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
+   * The upper bound of the range when the condition type is UMODEL_METRICSET_MULTI with expressionType=SIMPLE. This parameter is required when operator is set to IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
    * 
    * @example
    * 1.0
@@ -117,7 +117,7 @@ export class Triggers extends $dara.Model {
   max?: number;
   /**
    * @remarks
-   * The metric name for CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE, the metric name is specified at the conditionConfig level.
+   * The metric name when the condition type is CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE expression type, the metric name is specified at the conditionConfig level by the metricName parameter.
    * 
    * @example
    * SampleMetricName
@@ -125,7 +125,7 @@ export class Triggers extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The lower bound of the range for UMODEL_METRICSET_MULTI with expressionType=SIMPLE. Required when operator is IN_RANGE or OUT_OF_RANGE.
+   * The lower bound of the range when the condition type is UMODEL_METRICSET_MULTI with expressionType=SIMPLE. This parameter is required when operator is set to IN_RANGE or OUT_OF_RANGE.
    * 
    * @example
    * 1.0
@@ -133,7 +133,7 @@ export class Triggers extends $dara.Model {
   min?: number;
   /**
    * @remarks
-   * The operator. For UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI with expressionType=SIMPLE, this is a comparison operator. Valid values: GT, GE, LT, LE, EQ, NE, IN_RANGE, OUT_OF_RANGE, PRESENT, NOT_PRESENT, ABOVE_UPPER, BELOW_LOWER, and OUT_OF_BAND. For SLS_MULTI_CONDITION, this aligns with the V1 caseList.type. Valid values: HAS_DATA, HAS_DATA_COUNT, HAS_DATA_MATCH, and HAS_DATA_MATCH_COUNT.
+   * The operator. For UMODEL_METRICSET_MULTI or PROMETHEUS_MULTI with expressionType=SIMPLE, this is a comparison operator (GT/GE/LT/LE/EQ/NE/IN_RANGE/OUT_OF_RANGE/PRESENT/NOT_PRESENT/ABOVE_UPPER/BELOW_LOWER/OUT_OF_BAND). For SLS_MULTI_CONDITION, this is aligned with the V1 caseList.type (HAS_DATA/HAS_DATA_COUNT/HAS_DATA_MATCH/HAS_DATA_MATCH_COUNT).
    * 
    * @example
    * GT
@@ -141,7 +141,7 @@ export class Triggers extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The collection period in seconds for CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE, the period is specified at the conditionConfig level.
+   * The collection period in seconds when the condition type is CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE expression type, the period is specified at the conditionConfig level by the period parameter.
    * 
    * @example
    * 1
@@ -149,7 +149,7 @@ export class Triggers extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The precondition for CLOUD_MONITORING_CONDITION.
+   * The precondition when the condition type is CLOUD_MONITORING_CONDITION.
    * 
    * @example
    * SampleValue
@@ -157,7 +157,7 @@ export class Triggers extends $dara.Model {
   preCondition?: string;
   /**
    * @remarks
-   * The referenced query name for UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI with expressionType=SIMPLE. Corresponds to QueryConfigUnified.queries[].name.
+   * The referenced query name when the condition type is UMODEL_METRICSET_MULTI or PROMETHEUS_MULTI with expressionType=SIMPLE. This corresponds to QueryConfigUnified.queries[].name.
    * 
    * @example
    * SampleMetricName
@@ -165,7 +165,7 @@ export class Triggers extends $dara.Model {
   queryName?: string;
   /**
    * @remarks
-   * The severity level. Priority order: CRITICAL > ERROR > WARN / WARNING > INFO. When multiple triggers exist, they are sorted by this priority, and the first match fires. This takes effect for SLS_MULTI_CONDITION and CLOUD_MONITORING_CONDITION with expressionType=SIMPLE.
+   * The severity level. The priority order is CRITICAL > ERROR > WARN / WARNING > INFO. When multiple triggers exist, they are sorted by this priority, and the first match triggers the alert. This parameter takes effect when the condition type is SLS_MULTI_CONDITION or CLOUD_MONITORING_CONDITION with expressionType=SIMPLE.
    * 
    * @example
    * INFO
@@ -173,7 +173,7 @@ export class Triggers extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * The statistics method for CLOUD_MONITORING_CONDITION.
+   * The statistical method when the condition type is CLOUD_MONITORING_CONDITION.
    * 
    * @example
    * SampleValue
@@ -181,12 +181,15 @@ export class Triggers extends $dara.Model {
   statistics?: string;
   /**
    * @remarks
-   * The threshold. For CLOUD_MONITORING_CONDITION, this is a string. For UMODEL_METRICSET_MULTI / PROMETHEUS_MULTI, this is a numeric value.
+   * The threshold value. For CLOUD_MONITORING_CONDITION, this is a string. For UMODEL_METRICSET_MULTI and PROMETHEUS_MULTI, this is a numeric value.
+   * 
+   * @example
+   * 90
    */
   threshold?: any;
   /**
    * @remarks
-   * The number of consecutive triggers for CLOUD_MONITORING_CONDITION with expressionType=SIMPLE. Each entry is configured independently.
+   * The number of consecutive times the condition must be met before an alert is triggered when the condition type is CLOUD_MONITORING_CONDITION with expressionType=SIMPLE. Each entry has its own independent setting.
    * 
    * @example
    * 1

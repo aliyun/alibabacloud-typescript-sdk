@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactsResponseBodyContacts extends $dara.Model {
   /**
    * @remarks
-   * The contact ID.
+   * The ID of the on-duty contact.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * The email address of the contact.
+   * The email address of the alert contact.
    * 
    * @example
    * test@aliyun.com
@@ -29,12 +29,12 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   emailVerify?: boolean;
   /**
    * @remarks
-   * The contact groups to which the contact belongs.
+   * The contact groups to which the alert contact belongs.
    */
   groupList?: string[];
   /**
    * @remarks
-   * The instant messaging user ID mappings. Multiple instant messaging tools are supported.
+   * The mapping of instant messaging user IDs. Multiple instant messaging tools are supported.
    */
   imUserIds?: { [key: string]: string };
   /**
@@ -47,7 +47,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The contact name.
+   * The name of the alert contact.
    * 
    * @example
    * test
@@ -55,7 +55,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The phone number of the contact.
+   * The phone number of the alert contact.
    * 
    * @example
    * 130123456789
@@ -63,7 +63,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Indicates whether the phone number of the contact is verified.
+   * Indicates whether the phone number of the alert contact is verified.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   phoneVerify?: boolean;
   /**
    * @remarks
-   * The update time.
+   * The time when the alert contact was last updated. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-10-22 02:21:51
@@ -135,7 +135,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
 export class ListContactsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of contacts.
+   * The list of alert contacts.
    */
   contacts?: ListContactsResponseBodyContacts[];
   /**
@@ -156,7 +156,7 @@ export class ListContactsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

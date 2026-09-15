@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertActionsResponseBodyAlertActionsEbParam extends $dara.Model {
   /**
    * @remarks
-   * The event provider.
+   * The event source.
    * 
    * @example
    * test
@@ -65,7 +65,7 @@ export class ListAlertActionsResponseBodyAlertActionsEbParam extends $dara.Model
 export class ListAlertActionsResponseBodyAlertActionsEssParam extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Auto Scaling group.
+   * The ID of the elastic scaling group.
    * 
    * @example
    * testId
@@ -73,7 +73,7 @@ export class ListAlertActionsResponseBodyAlertActionsEssParam extends $dara.Mode
   essGroupId?: string;
   /**
    * @remarks
-   * The ID of the scaling rule.
+   * The ID of the elastic scaling rule.
    * 
    * @example
    * testId
@@ -223,11 +223,10 @@ export class ListAlertActionsResponseBodyAlertActionsMnsParam extends $dara.Mode
   mnsType?: string;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
-   * - If the resource type is \\`queue\\`, this parameter specifies the queue name.
-   * 
-   * - If the resource type is \\`topic\\`, this parameter specifies the topic name.
+   * - If the resource type is queue, the resource name is the queue name.
+   * - If the resource type is topic, the resource name is the topic name.
    * 
    * @example
    * test
@@ -277,7 +276,7 @@ export class ListAlertActionsResponseBodyAlertActionsPagerDutyParam extends $dar
   key?: string;
   /**
    * @remarks
-   * The integration webhook of PagerDuty. Versions 1 and 2 are supported.
+   * The integration webhook of PagerDuty. V1 and V2 versions are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -359,7 +358,7 @@ export class ListAlertActionsResponseBodyAlertActionsSlsParam extends $dara.Mode
 export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.Model {
   /**
    * @remarks
-   * The data format. This parameter is valid only when the request method is POST.
+   * The data format. This parameter takes effect only when the request method is POST.
    * 
    * @example
    * JSON
@@ -372,7 +371,7 @@ export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The request method of the webhook.
+   * The webhook request method.
    * 
    * @example
    * GET
@@ -380,7 +379,7 @@ export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.
   method?: string;
   /**
    * @remarks
-   * The callback URL for alerts.
+   * The alert callback URL.
    * 
    * @example
    * http://www.test.com
@@ -419,7 +418,7 @@ export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.
 export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the alert action integration.
+   * The unique IDs of the action integrations.
    * 
    * @example
    * test
@@ -427,7 +426,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   alertActionId?: string;
   /**
    * @remarks
-   * The name of the alert action integration.
+   * The name of the action integration.
    * 
    * @example
    * testName
@@ -435,27 +434,27 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   alertActionName?: string;
   /**
    * @remarks
-   * Specifies the event bus.
+   * The EventBridge parameters.
    */
   ebParam?: ListAlertActionsResponseBodyAlertActionsEbParam;
   /**
    * @remarks
-   * The parameters of Auto Scaling.
+   * The elastic scaling parameters.
    */
   essParam?: ListAlertActionsResponseBodyAlertActionsEssParam;
   /**
    * @remarks
-   * The parameters of Function Compute 3.0.
+   * The Function Compute 3.0 parameters.
    */
   fc3Param?: ListAlertActionsResponseBodyAlertActionsFc3Param;
   /**
    * @remarks
-   * The parameters of Function Compute.
+   * The Function Compute parameters.
    */
   fcParam?: ListAlertActionsResponseBodyAlertActionsFcParam;
   /**
    * @remarks
-   * The parameters of Simple Message Queue (formerly MNS).
+   * The Simple Message Queue (formerly MNS) parameters.
    */
   mnsParam?: ListAlertActionsResponseBodyAlertActionsMnsParam;
   /**
@@ -465,12 +464,12 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   pagerDutyParam?: ListAlertActionsResponseBodyAlertActionsPagerDutyParam;
   /**
    * @remarks
-   * The parameters of Simple Log Service.
+   * The Simple Log Service parameters.
    */
   slsParam?: ListAlertActionsResponseBodyAlertActionsSlsParam;
   /**
    * @remarks
-   * The type of the alert action integration.
+   * The type of the action integration.
    * 
    * @example
    * FC
@@ -549,7 +548,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
 export class ListAlertActionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of alert action integration configurations.
+   * The list of action integration configurations.
    */
   alertActions?: ListAlertActionsResponseBodyAlertActions[];
   /**

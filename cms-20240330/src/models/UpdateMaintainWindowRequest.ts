@@ -4,10 +4,17 @@ import { MaintainWindowForModify } from "./MaintainWindowForModify";
 
 
 export class UpdateMaintainWindowRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body. This parameter is required by the backend. Pass in the complete MaintainWindowForModify configuration object.
+   */
   body?: MaintainWindowForModify;
   /**
+   * @remarks
+   * The workspace name. This parameter is required by the backend and is used to isolate silence policy resources across different business spaces.
+   * 
    * @example
-   * workspace-test
+   * default-cms-xxxx-cn-hangzhou
    */
   workspace?: string;
   static names(): { [key: string]: string } {

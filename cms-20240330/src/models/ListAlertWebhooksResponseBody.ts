@@ -65,6 +65,13 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
    * test
    */
   webhookId?: string;
+  /**
+   * @remarks
+   * The workspace name.
+   * 
+   * @example
+   * default-cms-0000000000000000-cn-hangzhou
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

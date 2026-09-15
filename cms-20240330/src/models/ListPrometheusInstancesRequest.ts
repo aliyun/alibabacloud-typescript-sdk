@@ -45,13 +45,15 @@ export class ListPrometheusInstancesRequestTag extends $dara.Model {
 export class ListPrometheusInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region IDs for filtering, separated by commas.
+   * The region IDs for filtering, separated by commas. Currently, only a single region ID is supported.
    * 
    * @example
    * cn-shenzhen
    * 
    * **if can be null:**
    * true
+   * 
+   * @deprecated
    */
   filterRegionIds?: string;
   /**
@@ -115,6 +117,8 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
    * 
    * **if can be null:**
    * true
+   * 
+   * @deprecated
    */
   resourceType?: string;
   /**
@@ -124,9 +128,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   tag?: ListPrometheusInstancesRequestTag[];
   /**
    * @remarks
-   * The instance version. Valid values:
-   * - V1: V1 version.
-   * - V2: V2 version.
+   * The instance version. Valid values: V1 and V2.
    * 
    * @example
    * V2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   /**
    * @remarks
-   * The digital employee name.
+   * The name of the digital employee.
    * 
    * @example
    * apsara-ops
@@ -35,6 +35,13 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
    * test
    */
   robotId?: string;
+  /**
+   * @remarks
+   * The signature key of the robot.
+   * 
+   * @example
+   * abc123
+   */
   robotSignKey?: string;
   /**
    * @remarks
@@ -106,7 +113,7 @@ export class ListAlertRobotsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -122,7 +129,7 @@ export class ListAlertRobotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The robot IDs.
+   * The robot ID.
    */
   robots?: ListAlertRobotsResponseBodyRobots[];
   /**

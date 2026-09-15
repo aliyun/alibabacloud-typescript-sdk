@@ -32,11 +32,11 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
-   * - POSTPAY: pay-as-you-go by metric volume.
-   * - POSTPAY_GB: pay-as-you-go by write volume.
-   * - PREPAY: subscription.
-   * - FREE: free.
+   * The payment type. Valid values:
+   * - POSTPAY: Pay-as-you-go by metric volume.
+   * - POSTPAY_GB: Pay-as-you-go by write volume.
+   * - PREPAY: Subscription.
+   * - FREE: Free.
    * 
    * @example
    * POSTPAY_GB

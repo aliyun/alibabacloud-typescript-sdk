@@ -6,7 +6,7 @@ import { MetricSetTriggerSimpleExpression } from "./MetricSetTriggerSimpleExpres
 export class MetricSetMultiTrigger extends $dara.Model {
   /**
    * @remarks
-   * The minimum deviation or absolute deviation dead zone for the dynamic baseline. Takes effect only with baseline operators. The unit is the same as the metric. The value must be greater than or equal to 0. A value of 0 means no restriction.
+   * The dynamic baseline minimum deviation or absolute deviation dead zone. Effective only for baseline operators. The unit is the same as the metric. The value must be greater than or equal to 0. A value of 0 means no restriction.
    * 
    * @example
    * 0.0
@@ -14,7 +14,7 @@ export class MetricSetMultiTrigger extends $dara.Model {
   absDeviation?: number;
   /**
    * @remarks
-   * The baseline period. Takes effect only with baseline operators. Valid values: AUTO (automatic detection), DAILY (daily), WEEKLY (weekly), and NONE (no period). When set to WEEKLY, the backend automatically expands the historical training window to at least 14 days.
+   * The baseline period. Effective only for baseline operators. Valid values: AUTO (automatic detection), DAILY (daily), WEEKLY (weekly), and NONE (no period). When set to WEEKLY, the backend automatically expands the historical training window to at least 14 days.
    * 
    * @example
    * AUTO
@@ -51,7 +51,7 @@ export class MetricSetMultiTrigger extends $dara.Model {
   logicOperator?: string;
   /**
    * @remarks
-   * The upper bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
+   * The upper bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE/OUT_OF_RANGE. The value must be greater than or equal to min.
    * 
    * @example
    * 1.0
@@ -59,7 +59,7 @@ export class MetricSetMultiTrigger extends $dara.Model {
   max?: number;
   /**
    * @remarks
-   * The lower bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE or OUT_OF_RANGE.
+   * The lower bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE/OUT_OF_RANGE.
    * 
    * @example
    * 1.0
@@ -83,7 +83,7 @@ export class MetricSetMultiTrigger extends $dara.Model {
   queryName?: string;
   /**
    * @remarks
-   * The dynamic baseline sensitivity. Takes effect when expressionType is SIMPLE and a baseline operator is used. Valid values: HIGH (narrowest and most sensitive band), MEDIUM, and LOW (widest and least sensitive band).
+   * The dynamic baseline sensitivity. Effective when expressionType is SIMPLE and a baseline operator is used. Valid values: HIGH (narrowest band, most sensitive), MEDIUM, and LOW (widest band, least sensitive).
    * 
    * @example
    * MEDIUM

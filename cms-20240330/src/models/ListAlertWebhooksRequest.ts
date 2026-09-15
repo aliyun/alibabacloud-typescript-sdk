@@ -32,6 +32,13 @@ export class ListAlertWebhooksRequest extends $dara.Model {
    * The unique ID of the webhook.
    */
   webhookIds?: string[];
+  /**
+   * @remarks
+   * The workspace name.
+   * 
+   * @example
+   * default-cms-0000000000000000-cn-hangzhou
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
