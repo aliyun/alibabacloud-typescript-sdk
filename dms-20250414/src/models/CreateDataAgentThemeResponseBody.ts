@@ -47,7 +47,7 @@ export class CreateDataAgentThemeResponseBody extends $dara.Model {
   data?: CreateDataAgentThemeResponseBodyData;
   /**
    * @remarks
-   * The error code returned when the request is abnormal.
+   * The error code returned when the request fails.
    * 
    * @example
    * UnknownError
@@ -55,7 +55,7 @@ export class CreateDataAgentThemeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned when the request fails.
    * 
    * @example
    * UnknownError

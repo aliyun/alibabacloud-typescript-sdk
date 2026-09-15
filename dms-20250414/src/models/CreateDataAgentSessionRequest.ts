@@ -13,10 +13,8 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The custom agent stage. Valid values:
-   * 
-   * - **debug**: Test stage.
-   * 
+   * The stage of the custom agent. Valid values:
+   * - **debug**: Debug stage.
    * - **prod**: Production stage.
    * 
    * @example
@@ -31,16 +29,32 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
    * false
    */
   enableSearch?: boolean;
+  /**
+   * @remarks
+   * The encryption key.
+   * 
+   * @example
+   * null
+   */
   encryptKey?: string;
+  /**
+   * @remarks
+   * The encryption type.
+   * 
+   * @example
+   * null
+   */
   encryptType?: string;
+  /**
+   * @remarks
+   * The list of knowledge base IDs.
+   */
   kbUuidList?: string[];
   /**
    * @remarks
    * The language. Valid values:
-   * 
-   * - **CHINESE**: Chinese
-   * 
-   * - **ENGLISH**: English
+   * - **CHINESE**: Chinese.
+   * - **ENGLISH**: English.
    * 
    * @example
    * CHINESE
@@ -48,30 +62,40 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * A list of MCP server IDs.
+   * The list of MCP server IDs in the session configuration.
    */
   mcpServerIds?: string[];
   /**
    * @remarks
    * The mode. Valid values:
-   * 
-   * - **ASK_DATA**: Quick inquiry mode.
-   * 
+   * - **ASK_DATA**: Ask data mode.
    * - **ANALYSIS**: Analysis mode.
-   * 
    * - **INSIGHT**: Insight mode.
    * 
    * @example
    * ANALYSIS
    */
   mode?: string;
+  /**
+   * @remarks
+   * The report page width.
+   * 
+   * @example
+   * 0
+   */
   reportPageWidth?: number;
+  /**
+   * @remarks
+   * The report watermark.
+   * 
+   * @example
+   * null
+   */
   reportWaterMark?: string;
   /**
    * @remarks
-   * The OSS bucket name.
-   * 
-   * - This bucket stores intermediate files and report artifacts from the analysis.
+   * The name of the user OSS bucket.
+   * - Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -150,10 +174,10 @@ export class CreateDataAgentSessionRequest extends $dara.Model {
   sessionConfig?: CreateDataAgentSessionRequestSessionConfig;
   /**
    * @remarks
-   * The session title. Supports Chinese and English. Maximum length: 128 characters.
+   * The title. Chinese and English characters are supported. Maximum length: 128 characters.
    * 
    * @example
-   * 帮我分析一下这份数据，给出报告。
+   * Help me analyze this data and generate a report
    */
   title?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentThemeRequest extends $dara.Model {
   /**
    * @remarks
-   * The common scenarios. Valid values: report, infographic, and others.
+   * The common scenario of the theme. Valid values: report, infographic, and others.
    * 
    * @example
    * report
@@ -13,7 +13,7 @@ export class ListDataAgentThemeRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * **[Not supported]** The page size. Maximum value: 100.
+   * **[Not currently supported]** The maximum number of entries per page. Maximum value: 100.
    * 
    * @example
    * 20
@@ -21,10 +21,10 @@ export class ListDataAgentThemeRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * **[Not supported]** The pagination token for the next query. Valid values:
+   * **[Not currently supported]** The pagination token for the next query. Valid values:
    * 
    * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** has a return value, the value indicates the token for the next query.
+   * - If **NextToken** has a return value, the value is the token for the next query.
    * 
    * @example
    * f056501ada12****
@@ -40,7 +40,7 @@ export class ListDataAgentThemeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The current page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -62,13 +62,21 @@ export class ListDataAgentThemeRequest extends $dara.Model {
    * @remarks
    * The theme stage. Valid values:
    * 
-   * - design: contains only design.md.
-   * - template: complete and renderable.
+   * - design: The theme contains only design.md.
+   * - template: The theme is complete and renderable.
    * 
    * @example
    * template
    */
   themeType?: string;
+  /**
+   * @remarks
+   * The workspace context. If this parameter is left empty or set to personal, the personal workspace is used. To query themes in a collaborative workspace, specify the workspace ID.
+   * 
+   * @example
+   * 99fad*******6c0l4nlacu
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -78,6 +86,7 @@ export class ListDataAgentThemeRequest extends $dara.Model {
       pageSize: 'PageSize',
       themeFrom: 'ThemeFrom',
       themeType: 'ThemeType',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -90,6 +99,7 @@ export class ListDataAgentThemeRequest extends $dara.Model {
       pageSize: 'number',
       themeFrom: 'string',
       themeType: 'string',
+      workspaceId: 'string',
     };
   }
 

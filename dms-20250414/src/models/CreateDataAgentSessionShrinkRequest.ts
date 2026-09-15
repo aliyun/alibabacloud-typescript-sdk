@@ -26,10 +26,10 @@ export class CreateDataAgentSessionShrinkRequest extends $dara.Model {
   sessionConfigShrink?: string;
   /**
    * @remarks
-   * The session title. Supports Chinese and English. Maximum length: 128 characters.
+   * The title. Chinese and English characters are supported. Maximum length: 128 characters.
    * 
    * @example
-   * 帮我分析一下这份数据，给出报告。
+   * Help me analyze this data and generate a report
    */
   title?: string;
   /**

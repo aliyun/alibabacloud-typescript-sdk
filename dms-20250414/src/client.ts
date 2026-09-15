@@ -514,6 +514,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建 Agent
+   * 
+   * @param request - CreateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentResponse
+   */
+  async createAgentWithOptions(request: $_model.CreateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expireAfterSeconds)) {
+      query["ExpireAfterSeconds"] = request.expireAfterSeconds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentResponse({}));
+  }
+
+  /**
+   * 创建 Agent
+   * 
+   * @param request - CreateAgentRequest
+   * @returns CreateAgentResponse
+   */
+  async createAgent(request: $_model.CreateAgentRequest): Promise<$_model.CreateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgentWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an Airflow instance in a workspace.
    * 
    * @remarks
@@ -1040,7 +1094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a DataAgent session
+   * Creates a DataAgent session.
    * 
    * @param tmpReq - CreateDataAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1093,7 +1147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a DataAgent session
+   * Creates a DataAgent session.
    * 
    * @param request - CreateDataAgentSessionRequest
    * @returns CreateDataAgentSessionResponse
@@ -1189,6 +1243,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.themeType)) {
       query["ThemeType"] = request.themeType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2752,7 +2810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+   * Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
    * 
    * @param request - DescribeDataAgentThemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2783,7 +2841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+   * Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
    * 
    * @param request - DescribeDataAgentThemeRequest
    * @returns DescribeDataAgentThemeResponse
@@ -5236,7 +5294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+   * Calls the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter results by theme stage, source, and common scenario.
    * 
    * @param request - ListDataAgentThemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5273,6 +5331,10 @@ export default class Client extends OpenApi {
       query["ThemeType"] = request.themeType;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5291,7 +5353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+   * Calls the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter results by theme stage, source, and common scenario.
    * 
    * @param request - ListDataAgentThemeRequest
    * @returns ListDataAgentThemeResponse

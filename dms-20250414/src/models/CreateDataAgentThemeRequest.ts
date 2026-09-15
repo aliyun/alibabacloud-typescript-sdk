@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentThemeRequest extends $dara.Model {
   /**
    * @remarks
-   * The application scenario, which affects filtering when viewing the theme list in the console. Valid values:
+   * The scenario, which affects the filtering when you view the theme list in the console. Valid values:
    * 
-   * - (Recommended) custom: a user-uploaded custom theme with no preset style or information organization structure.
-   * - report: a web report that conforms to the DataAgent information organization structure.
-   * - (Not supported) infographic: an infographic that conforms to the DataAgent information organization structure.
+   * - (Recommended) custom: A user-uploaded custom theme with no preset style or information organization structure.
+   * - report: A web report that conforms to the DataAgent information organization structure.
+   * - (Not supported) infographic: An infographic that conforms to the DataAgent information organization structure.
    * 
    * @example
    * custom
@@ -27,9 +27,9 @@ export class CreateDataAgentThemeRequest extends $dara.Model {
    * @remarks
    * The file source, which affects the backend logic for determining whether the theme is valid. Valid values:
    * 
-   * - upload: uploaded through OSS.
-   * - (Not supported) public_url: provided through an OSS URL that allows public network access.
-   * - (Not supported) user_oss: provided through a user OSS URL.
+   * - upload: The file is uploaded through OSS.
+   * - (Not supported) public_url: The file is provided through a public network access OSS URL.
+   * - (Not supported) user_oss: The file is provided through a user OSS URL.
    * 
    * @example
    * upload
@@ -45,7 +45,7 @@ export class CreateDataAgentThemeRequest extends $dara.Model {
   themeId?: string;
   /**
    * @remarks
-   * The display name of the theme. The value can be up to 64 characters in length. This parameter is required during creation.
+   * The display name of the theme. The value can be up to 64 characters in length. This parameter is required when you create a theme.
    * 
    * @example
    * weekly report
@@ -62,6 +62,14 @@ export class CreateDataAgentThemeRequest extends $dara.Model {
    * template
    */
   themeType?: string;
+  /**
+   * @remarks
+   * The workspace to which the theme belongs. If this parameter is not specified or is set to personal, the personal workspace is used. You can also specify a collaboration workspace ID.
+   * 
+   * @example
+   * 99fad******qg6c0l4nlacu
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -70,6 +78,7 @@ export class CreateDataAgentThemeRequest extends $dara.Model {
       themeId: 'ThemeId',
       themeName: 'ThemeName',
       themeType: 'ThemeType',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -81,6 +90,7 @@ export class CreateDataAgentThemeRequest extends $dara.Model {
       themeId: 'string',
       themeName: 'string',
       themeType: 'string',
+      workspaceId: 'string',
     };
   }
 

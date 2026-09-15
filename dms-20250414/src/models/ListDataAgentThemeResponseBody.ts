@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentThemeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The common scenarios. Valid values: report, infographic, and others.
+   * The common scenario of the theme. Valid values: report, infographic, and others.
    * 
    * @example
    * report
@@ -37,7 +37,7 @@ export class ListDataAgentThemeResponseBodyData extends $dara.Model {
   modifiedAt?: string;
   /**
    * @remarks
-   * The tracing reference that points to the UUID of the source theme.
+   * The traceability reference that points to the UUID of the source theme.
    * 
    * @example
    * 6d1e3f9a-****-****-****-2b8c4e6f0a1d
@@ -75,8 +75,8 @@ export class ListDataAgentThemeResponseBodyData extends $dara.Model {
    * @remarks
    * The theme stage. Valid values:
    * 
-   * - design: contains only design.md.
-   * - template: complete and renderable.
+   * - design: The theme contains only design.md.
+   * - template: The theme is complete and renderable.
    * 
    * @example
    * template
@@ -127,7 +127,7 @@ export class ListDataAgentThemeResponseBody extends $dara.Model {
   data?: ListDataAgentThemeResponseBodyData[];
   /**
    * @remarks
-   * The error code returned when the request failed.
+   * The error code returned if the request failed.
    * 
    * @example
    * UnknownError
@@ -135,7 +135,7 @@ export class ListDataAgentThemeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the request failed.
+   * The error message returned if the request failed.
    * 
    * @example
    * UnknownError
@@ -143,7 +143,7 @@ export class ListDataAgentThemeResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -167,7 +167,7 @@ export class ListDataAgentThemeResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The current page size.
+   * The number of entries per page.
    * 
    * @example
    * 10

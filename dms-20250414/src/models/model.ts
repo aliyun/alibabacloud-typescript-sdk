@@ -5,6 +5,8 @@ export { AddUserToDataAgentWorkspaceResponseBodyData } from './AddUserToDataAgen
 export { CheckDataAgentMemoryConfigResponseBodyData } from './CheckDataAgentMemoryConfigResponseBody';
 export { ConfigAirflowResponseBodyRoot } from './ConfigAirflowResponseBody';
 export { ConfigDataAgentMemoryResponseBodyData } from './ConfigDataAgentMemoryResponseBody';
+export { CreateAgentResponseBodyDataApiKey } from './CreateAgentResponseBody';
+export { CreateAgentResponseBodyData } from './CreateAgentResponseBody';
 export { CreateAirflowResponseBodyRoot } from './CreateAirflowResponseBody';
 export { CreateAirflowLoginTokenResponseBodyData } from './CreateAirflowLoginTokenResponseBody';
 export { CreateCustomAgentRequestCallbackConfig } from './CreateCustomAgentRequest';
@@ -219,6 +221,9 @@ export { ConfigAirflowResponse } from './ConfigAirflowResponse';
 export { ConfigDataAgentMemoryRequest } from './ConfigDataAgentMemoryRequest';
 export { ConfigDataAgentMemoryResponseBody } from './ConfigDataAgentMemoryResponseBody';
 export { ConfigDataAgentMemoryResponse } from './ConfigDataAgentMemoryResponse';
+export { CreateAgentRequest } from './CreateAgentRequest';
+export { CreateAgentResponseBody } from './CreateAgentResponseBody';
+export { CreateAgentResponse } from './CreateAgentResponse';
 export { CreateAirflowRequest } from './CreateAirflowRequest';
 export { CreateAirflowShrinkRequest } from './CreateAirflowShrinkRequest';
 export { CreateAirflowResponseBody } from './CreateAirflowResponseBody';

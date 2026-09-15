@@ -14,10 +14,8 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   /**
    * @remarks
    * The stage of the custom agent. Valid values:
-   * 
-   * - **debug**: Debug stage
-   * 
-   * - **prod**: Production stage
+   * - **debug**: Debug stage.
+   * - **prod**: Production stage.
    * 
    * @example
    * debug
@@ -25,22 +23,38 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   customAgentStage?: string;
   /**
    * @remarks
-   * Indicates whether web search is enabled.
+   * Specifies whether to enable web search.
    * 
    * @example
    * true
    */
   enableSearch?: boolean;
+  /**
+   * @remarks
+   * The encryption key.
+   * 
+   * @example
+   * null
+   */
   encryptKey?: string;
+  /**
+   * @remarks
+   * The encryption type.
+   * 
+   * @example
+   * null
+   */
   encryptType?: string;
+  /**
+   * @remarks
+   * The list of knowledge base IDs.
+   */
   kbUuidList?: string[];
   /**
    * @remarks
    * The language. Valid values:
-   * 
-   * - **CHINESE**: Chinese
-   * 
-   * - **ENGLISH**: English
+   * - **CHINESE**: Chinese.
+   * - **ENGLISH**: English.
    * 
    * @example
    * CHINESE
@@ -48,30 +62,40 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   language?: string;
   /**
    * @remarks
-   * A list of MCP server IDs.
+   * The list of MCP server IDs in the session configuration.
    */
   mcpServerIds?: string[];
   /**
    * @remarks
    * The mode. Valid values:
-   * 
-   * - **ASK_DATA**: Quick Inquiry Mode
-   * 
-   * - **ANALYSIS**: Analysis Mode
-   * 
-   * - **INSIGHT**: Insight Mode
+   * - **ASK_DATA**: Ask data mode.
+   * - **ANALYSIS**: Analysis mode.
+   * - **INSIGHT**: Insight mode.
    * 
    * @example
    * ANALYSIS
    */
   mode?: string;
+  /**
+   * @remarks
+   * The report page width.
+   * 
+   * @example
+   * 0
+   */
   reportPageWidth?: number;
+  /**
+   * @remarks
+   * The report watermark.
+   * 
+   * @example
+   * null
+   */
   reportWaterMark?: string;
   /**
    * @remarks
-   * The name of the user\\"s OSS bucket.
-   * 
-   * - Analysis files and report artifacts can be uploaded to this OSS bucket.
+   * The name of the user OSS bucket.
+   * - Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -129,7 +153,7 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
 export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * Agent Id
    * 
    * @example
    * cu0cs*******mf
@@ -145,7 +169,7 @@ export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
   agentStatus?: string;
   /**
    * @remarks
-   * The time when the session was created, in Unix milliseconds.
+   * The time when the session was created.
    * 
    * @example
    * 1765262307992
@@ -153,7 +177,7 @@ export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the associated file.
+   * The basic information about the file.
    * 
    * @example
    * f-8*******01m
@@ -161,7 +185,7 @@ export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
   file?: string;
   /**
    * @remarks
-   * Indicates whether the current user has favorited the session.
+   * Indicates whether the session is saved to the favorites of the current user.
    * 
    * @example
    * false
@@ -190,10 +214,10 @@ export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The session title.
+   * The title.
    * 
    * @example
-   * 帮我分析一下这份数据，给出报告。
+   * Help me analyze this data and generate a report
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -239,7 +263,7 @@ export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
 export class CreateDataAgentSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response structure.
+   * The response struct.
    */
   data?: CreateDataAgentSessionResponseBodyData;
   /**
@@ -252,7 +276,7 @@ export class CreateDataAgentSessionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned when the request failed.
    * 
    * @example
    * UnknownError
@@ -260,7 +284,7 @@ export class CreateDataAgentSessionResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 1CB***********3F1A
@@ -271,7 +295,6 @@ export class CreateDataAgentSessionResponseBody extends $dara.Model {
    * Indicates whether the request was successful. Valid values:
    * 
    * - **true**: The request was successful.
-   * 
    * - **false**: The request failed.
    * 
    * @example

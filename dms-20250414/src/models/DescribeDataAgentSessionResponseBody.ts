@@ -13,7 +13,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The time when the backend completed the artifact task. This is a UNIX timestamp accurate to the second.
+   * The time when the backend completed the artifact task. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1778743587
@@ -21,7 +21,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
   finishTime?: string;
   /**
    * @remarks
-   * The globally unique artifact ID. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId in the response of the SendChatMessage operation.
+   * The artifact ID, which is globally unique. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId in the response of the SendChatMessage operation.
    * 
    * @example
    * bab******33e1
@@ -29,7 +29,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
   id?: string;
   /**
    * @remarks
-   * The artifact name. This is typically a string concatenated by the system and is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
+   * The artifact name, which is typically a string concatenated by the system. This name is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
    * 
    * @example
    * report_****_2026****
@@ -37,7 +37,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The time when the backend received the artifact request. This is a UNIX timestamp accurate to the second.
+   * The time when the backend received the artifact request. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1778743587
@@ -45,7 +45,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
   receiveTime?: string;
   /**
    * @remarks
-   * The time when the backend actually started running the artifact task. This is a UNIX timestamp accurate to the second.
+   * The time when the backend actually started running the artifact task. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1778743587
@@ -113,7 +113,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
 export class DescribeDataAgentSessionResponseBodyDataChatHistoryLocations extends $dara.Model {
   /**
    * @remarks
-   * The key of the chat replay history.
+   * The key of the chat history replay record.
    * 
    * @example
    * testKey1
@@ -121,7 +121,7 @@ export class DescribeDataAgentSessionResponseBodyDataChatHistoryLocations extend
   key?: string;
   /**
    * @remarks
-   * The OSS download URL of the chat replay history.
+   * The OSS download URL of the chat history replay record.
    * 
    * @example
    * ****
@@ -155,9 +155,9 @@ export class DescribeDataAgentSessionResponseBodyDataDataSources extends $dara.M
    * @remarks
    * The data source category. Valid values:
    * 
-   * - **CHAT**: specified through the CreateDataAgentSession or SendChatMessage operation during a conversation.
+   * - **CHAT**: Specified through the CreateDataAgentSession or SendChatMessage operation during a conversation.
    * 
-   * - **CUSTOM_AGENT**: from the preset analysis data scope in a custom agent.
+   * - **CUSTOM_AGENT**: From the preset analysis data scope in a custom agent.
    * 
    * @example
    * CHAT
@@ -207,7 +207,7 @@ export class DescribeDataAgentSessionResponseBodyDataRecallResults extends $dara
   content?: string;
   /**
    * @remarks
-   * The similarity score of this data entry. The scoring algorithm is related to the algorithm (l2/ip/cosine) specified when the index was created.
+   * The similarity score of this record. The scoring algorithm is related to the algorithm (l2/ip/cosine) specified when the index was created.
    * 
    * @example
    * 0.65
@@ -258,8 +258,8 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The stage of the custom agent. Valid values:
-   * - **debug**: test stage.
-   * - **prod**: production stage.
+   * - **debug**: The debug stage.
+   * - **prod**: The production stage.
    * 
    * @example
    * debug
@@ -312,9 +312,9 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The mode. Valid values:
-   *  - **ASK_DATA**: ask data mode.
-   *  - **ANALYSIS**: analysis mode.
-   *  - **INSIGHT**: insight mode.
+   * - **ASK_DATA**: The ask-data mode.
+   * - **ANALYSIS**: The analysis mode.
+   * - **INSIGHT**: The insight mode.
    * 
    * @example
    * ANALYSIS
@@ -338,8 +338,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   reportWaterMark?: string;
   /**
    * @remarks
-   * The name of the user OSS bucket.
-   * - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+   * The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -418,7 +417,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   artifacts?: DescribeDataAgentSessionResponseBodyDataArtifacts[];
   /**
    * @remarks
-   * The chat replay history.
+   * The chat history replay records.
    */
   chatHistoryLocations?: DescribeDataAgentSessionResponseBodyDataChatHistoryLocations[];
   /**
@@ -489,7 +488,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
    * The title.
    * 
    * @example
-   * 分析一下这份文件，给出报告。
+   * Analyze this file and generate a report
    */
   title?: string;
   /**
@@ -598,7 +597,7 @@ export class DescribeDataAgentSessionResponseBody extends $dara.Model {
    * @remarks
    * The return value. Valid values:
    * 
-   * - **true**: Succeeded.
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

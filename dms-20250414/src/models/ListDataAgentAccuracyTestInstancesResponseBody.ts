@@ -27,6 +27,13 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
    * 20282*****7591
    */
   creator?: string;
+  /**
+   * @remarks
+   * The data source.
+   * 
+   * @example
+   * null
+   */
   datasource?: string;
   /**
    * @remarks
@@ -81,12 +88,12 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
    * The custom agent name.
    * 
    * @example
-   * Agent测试名称
+   * AgentTestName
    */
   name?: string;
   /**
    * @remarks
-   * Specifies whether sessions are displayed after analysis. This parameter is not supported.
+   * Specifies whether sessions are displayed after analysis. This feature is not supported.
    * 
    * @example
    * true

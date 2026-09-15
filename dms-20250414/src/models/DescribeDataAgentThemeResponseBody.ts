@@ -37,7 +37,7 @@ export class DescribeDataAgentThemeResponseBodyData extends $dara.Model {
   modifiedAt?: string;
   /**
    * @remarks
-   * The theme tracing information. This field is currently not enabled.
+   * The tracing information of the theme. This field is currently not enabled.
    * 
    * @example
    * 6d1e3f9a-****-****-****-2b8c4e6f0a1d
@@ -45,10 +45,7 @@ export class DescribeDataAgentThemeResponseBodyData extends $dara.Model {
   referTo?: string;
   /**
    * @remarks
-   * The source of the theme. Valid values:
-   * 
-   * - system
-   * - custom
+   * The source of the theme. Valid values: system, custom.
    * 
    * @example
    * custom
@@ -72,10 +69,9 @@ export class DescribeDataAgentThemeResponseBodyData extends $dara.Model {
   themeName?: string;
   /**
    * @remarks
-   * The theme stage. Valid values:
-   * 
-   * - design: design.md only.
-   * - template: complete and renderable.
+   * The stage of the theme. Valid values:
+   * - design: The theme contains only design.md.
+   * - template: The theme is complete and renderable.
    * 
    * @example
    * template
@@ -126,7 +122,7 @@ export class DescribeDataAgentThemeResponseBody extends $dara.Model {
   data?: DescribeDataAgentThemeResponseBodyData;
   /**
    * @remarks
-   * The error code returned when the request is abnormal.
+   * The error code returned when the request fails.
    * 
    * @example
    * UnknownError
@@ -150,10 +146,10 @@ export class DescribeDataAgentThemeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
