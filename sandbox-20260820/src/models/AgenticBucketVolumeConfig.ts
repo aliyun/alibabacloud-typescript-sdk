@@ -1,0 +1,39 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class AgenticBucketVolumeConfig extends $dara.Model {
+  agenticBucket?: string;
+  bucketName?: string;
+  bucketPath?: string;
+  endpoint?: string;
+  readOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      agenticBucket: 'agenticBucket',
+      bucketName: 'bucketName',
+      bucketPath: 'bucketPath',
+      endpoint: 'endpoint',
+      readOnly: 'readOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agenticBucket: 'string',
+      bucketName: 'string',
+      bucketPath: 'string',
+      endpoint: 'string',
+      readOnly: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
