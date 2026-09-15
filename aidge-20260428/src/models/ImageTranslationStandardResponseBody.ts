@@ -388,7 +388,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   font?: string[];
   /**
    * @remarks
-   * The product area rectangle.
+   * The product area rectangles.
    */
   goodsRects?: ImageTranslationStandardResponseBodyDataEditInfoGoodsRects;
   /**
@@ -409,7 +409,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   languages?: string[];
   /**
    * @remarks
-   * The URL of the original image.
+   * The original image URL.
    * 
    * @example
    * https://xiuxiu-pro.meitudata.com/posters/34d78f9157e5560a4d612949ca6f6485.jpg
@@ -417,7 +417,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   pictUrl?: string;
   /**
    * @remarks
-   * The URL of the repaired image.
+   * The repaired image URL.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.png
@@ -520,7 +520,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   editInfo?: ImageTranslationStandardResponseBodyDataEditInfo;
   /**
    * @remarks
-   * The URL of the image generated from the image translation result.
+   * The URL of the image generated after image translation.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -568,7 +568,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
 export class ImageTranslationStandardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. 200 indicates success. For other response codes, refer to the error code information.
+   * The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
    * 
    * @example
    * 200
@@ -589,7 +589,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, used to uniquely identify a request.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * 1CEC4D94-905A-1ED1-A7B4-1BFEFFB3D850
@@ -597,7 +597,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. true indicates success. false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

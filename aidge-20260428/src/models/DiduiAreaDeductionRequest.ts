@@ -73,7 +73,7 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
 export class DiduiAreaDeductionRequestProducts extends $dara.Model {
   /**
    * @remarks
-   * The detection boxes for the current SKU. Coordinate values range from 0 to 1000.
+   * The instance boxes for the current SKU. The coordinate range is 0 to 1000.
    * 
    * This parameter is required.
    */
@@ -124,7 +124,7 @@ export class DiduiAreaDeductionRequest extends $dara.Model {
   products?: DiduiAreaDeductionRequestProducts[];
   /**
    * @remarks
-   * The ID of the customer-specific SKU vector store that determines which store is used for retrieval. The store must be created in advance through the store creation process.
+   * The ID of the customer-specific SKU vector database that determines which database is used for recall. The database must be created in advance through the database creation process.
    * 
    * @example
    * rag_xxx

@@ -2,41 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SizeChartDetectResponseBodyData extends $dara.Model {
+export class SubmitProductMatchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the image is a size chart.
+   * The task acceptance time in ISO 8601 UTC format.
    * 
    * @example
-   * false
+   * 2026-08-20T09:30:00Z
    */
-  isSizeChart?: boolean;
+  submittedAt?: string;
   /**
    * @remarks
-   * The usage information. The key is the usage name and the value is the count.
+   * The asynchronous task ID used for QueryAsyncTaskResult queries.
    * 
    * @example
-   * {"ProcessedImageCount":1}
+   * b7ea15cb609f47b7999d2d68dfbf3c90
    */
-  usageMap?: { [key: string]: number };
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      isSizeChart: 'IsSizeChart',
-      usageMap: 'UsageMap',
+      submittedAt: 'SubmittedAt',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSizeChart: 'boolean',
-      usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      submittedAt: 'string',
+      taskId: 'string',
     };
   }
 
   validate() {
-    if(this.usageMap) {
-      $dara.Model.validateMap(this.usageMap);
-    }
     super.validate();
   }
 
@@ -45,7 +42,7 @@ export class SizeChartDetectResponseBodyData extends $dara.Model {
   }
 }
 
-export class SizeChartDetectResponseBody extends $dara.Model {
+export class SubmitProductMatchResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code. This parameter is not returned if the call is successful.
@@ -56,9 +53,9 @@ export class SizeChartDetectResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The size chart detection result.
+   * The submit result of the matching product identification asynchronous task.
    */
-  data?: SizeChartDetectResponseBodyData;
+  data?: SubmitProductMatchResponseBodyData;
   /**
    * @remarks
    * The error message. This parameter is not returned if the call is successful.
@@ -77,8 +74,8 @@ export class SizeChartDetectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
    * - false: The call failed.
    * 
    * @example
@@ -98,7 +95,7 @@ export class SizeChartDetectResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: SizeChartDetectResponseBodyData,
+      data: SubmitProductMatchResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

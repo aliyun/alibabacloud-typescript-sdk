@@ -30,7 +30,7 @@ export class VideoTranslationRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * The video URL (MP4/MOV, ≤ 200 MB).
+   * The URL of the video (MP4/MOV, ≤ 200 MB).
    * 
    * This parameter is required.
    * 

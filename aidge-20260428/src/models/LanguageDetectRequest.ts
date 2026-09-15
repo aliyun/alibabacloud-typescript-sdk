@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LanguageDetectRequest extends $dara.Model {
   /**
    * @remarks
-   * The detection scenario. Default value: common. If you are using a search phrase scenario, set this parameter to query. If an incorrect value is passed or the parameter is not specified, the common general identification is used. Note: pass query in lowercase.
+   * The detection scenario. Default value: common. If you are identifying search phrases, set this parameter to query. If an incorrect value is specified or this parameter is left empty, the common general identification mode is used. Note: pass query in lowercase.
    * 
    * @example
    * query
@@ -13,7 +13,7 @@ export class LanguageDetectRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The source text to be identified. This parameter is required.
+   * The source text to identify. This parameter is required.
    * 
    * This parameter is required.
    * 

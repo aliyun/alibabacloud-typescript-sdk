@@ -8,7 +8,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
    * The custom glossary for term intervention.
    * 
    * @example
-   * test
+   * Test
    */
   glossary?: string;
   /**
@@ -21,7 +21,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   includingProductArea?: boolean;
   /**
    * @remarks
-   * Specifies whether translation is needed.
+   * Specifies whether translation is required.
    * 
    * This parameter is required.
    * 

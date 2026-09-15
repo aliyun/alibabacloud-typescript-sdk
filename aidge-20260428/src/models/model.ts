@@ -54,6 +54,7 @@ export { ProductHotspotDetectionResponseBodyData } from './ProductHotspotDetecti
 export { QueryAsyncTaskResultResponseBodyData } from './QueryAsyncTaskResultResponseBody';
 export { SizeChartDetectResponseBodyData } from './SizeChartDetectResponseBody';
 export { SizeChartExtractResponseBodyData } from './SizeChartExtractResponseBody';
+export { SubmitProductMatchResponseBodyData } from './SubmitProductMatchResponseBody';
 export { TextCorrectResponseBodyData } from './TextCorrectResponseBody';
 export { TextTranslateResponseBodyDataTranslations } from './TextTranslateResponseBody';
 export { TextTranslateResponseBodyData } from './TextTranslateResponseBody';
@@ -146,6 +147,9 @@ export { SizeChartExtractRequest } from './SizeChartExtractRequest';
 export { SizeChartExtractShrinkRequest } from './SizeChartExtractShrinkRequest';
 export { SizeChartExtractResponseBody } from './SizeChartExtractResponseBody';
 export { SizeChartExtractResponse } from './SizeChartExtractResponse';
+export { SubmitProductMatchRequest } from './SubmitProductMatchRequest';
+export { SubmitProductMatchResponseBody } from './SubmitProductMatchResponseBody';
+export { SubmitProductMatchResponse } from './SubmitProductMatchResponse';
 export { TextCorrectRequest } from './TextCorrectRequest';
 export { TextCorrectResponseBody } from './TextCorrectResponseBody';
 export { TextCorrectResponse } from './TextCorrectResponse';

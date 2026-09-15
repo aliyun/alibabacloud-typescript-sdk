@@ -6,8 +6,8 @@ export class ImageRemovalProRequest extends $dara.Model {
   /**
    * @remarks
    * The call type. Valid values:
-   * - true: asynchronous.
-   * - false: synchronous.
+   * - true: Asynchronous.
+   * - false: Synchronous.
    * 
    * Default value: false.
    * 

@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
   /**
    * @remarks
-   * The determination result of the step. Valid values:
-   * - PASS: The step is compliant.
-   * - FAIL: The step is non-compliant.
-   * - UNABLE_TO_JUDGE: The system cannot determine the result.
+   * The determination result of the step. Valid values: PASS, FAIL, and UNABLE_TO_JUDGE.
    * 
    * @example
    * PASS
@@ -48,17 +45,15 @@ export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
 export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The natural language summary of the inspection result, such as "1 rule: 1 PASS, all inspection items are compliant."
+   * The natural language summary, such as "1 rule: 1 PASS, all inspection items are compliant."
    * 
    * @example
-   * 1项规则：1 PASS，所有检测项合规
+   * 1 rule: 1 PASS, all inspection items are compliant
    */
   evidence?: string;
   /**
    * @remarks
-   * The overall determination result. Valid values:
-   * - PASS: All inspection items are compliant.
-   * - FAIL: One or more inspection items are non-compliant.
+   * The overall determination result. Valid values: PASS and FAIL.
    * 
    * @example
    * PASS
@@ -66,7 +61,7 @@ export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   overallResult?: string;
   /**
    * @remarks
-   * The request ID returned as-is from the input.
+   * The request ID returned as-is from the request.
    * 
    * @example
    * req-001
@@ -79,7 +74,7 @@ export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   steps?: MaterialInspectionResponseBodyDataResultSteps[];
   /**
    * @remarks
-   * The detection type that indicates the identified material category.
+   * The detection type.
    * 
    * @example
    * Stamp

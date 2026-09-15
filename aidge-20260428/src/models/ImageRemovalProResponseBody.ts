@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemovalProResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL of the result image. This parameter is returned in synchronous mode.
+   * The URL of the erasure result image. This parameter is returned in synchronous mode.
    * 
    * @example
    * https://aib-image.oss-ap-southeast-1.aliyuncs.com/ai_desc%2F250cc947-9cd5-4df0-9c23-44eba5d0dfc30.jpg?OSSAccessKeyId=LTAI5tSEGjGp5wixZgHLc3bV&Expires=4999655814&Signature=shvGNDmkyv9MLTw4%2BOxYglJCpAE%3D
@@ -13,7 +13,7 @@ export class ImageRemovalProResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The asynchronous task ID. This parameter is returned in asynchronous mode and is used to query the task result.
+   * The asynchronous task ID. This parameter is returned in asynchronous mode and is used to query task results.
    * 
    * @example
    * ed9d8504-6141-9fbb-8345-4fa36433483f
@@ -63,7 +63,7 @@ export class ImageRemovalProResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The intelligent removal Pro result.
+   * The Intelligent Eraser Pro result.
    */
   data?: ImageRemovalProResponseBodyData;
   /**

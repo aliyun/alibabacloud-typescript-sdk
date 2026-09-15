@@ -111,7 +111,7 @@ export class TextTranslateResponseBody extends $dara.Model {
   data?: TextTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message. The value "Success" is returned for successful calls. For exceptions, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
+   * The error message. The value "Success" is returned for successful calls. For failed calls, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
    * 
    * @example
    * Success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationPlusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID. Use the queryTaskResult API to poll for results.
+   * The asynchronous task ID. Use this ID to poll for results through the queryTaskResult API operation.
    * 
    * @example
    * task-abc123
@@ -35,7 +35,7 @@ export class ImageTranslationPlusResponseBodyData extends $dara.Model {
 export class ImageTranslationPlusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for successful calls.
+   * The error code. This parameter is not returned if the call is successful.
    * 
    * @example
    * 200
@@ -48,7 +48,7 @@ export class ImageTranslationPlusResponseBody extends $dara.Model {
   data?: ImageTranslationPlusResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned if the call is successful.
    * 
    * @example
    * OK

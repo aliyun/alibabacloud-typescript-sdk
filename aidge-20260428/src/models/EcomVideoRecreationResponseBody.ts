@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EcomVideoRecreationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID for QueryAsyncTaskResult queries.
+   * The asynchronous task ID used to query results with QueryAsyncTaskResult.
    * 
    * @example
    * task_778fa8bd21804828a5d147050e30edac
@@ -35,7 +35,7 @@ export class EcomVideoRecreationResponseBodyData extends $dara.Model {
 export class EcomVideoRecreationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. `success` indicates success. An error code is returned upon failure.
+   * The result code. A value of `success` indicates success. An error code is returned upon failure.
    * 
    * @example
    * success

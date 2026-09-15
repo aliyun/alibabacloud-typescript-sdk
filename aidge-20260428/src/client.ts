@@ -30,19 +30,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a source platform product URL and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially pre-built minimum-cost workflow that primarily filters and applies lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
+   * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a product link from a source platform and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially preset minimum-cost workflow that focuses on filtering and lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
    * 
    * @remarks
    * ## Product Introduction
-   * A one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a source platform product URL and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially pre-built minimum-cost workflow that primarily filters and applies lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
+   * A one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a product link from a source platform and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially preset minimum-cost workflow that focuses on filtering and lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
    * ## Scenarios
-   * Suitable for cost-sensitive cross-platform listing scenarios where "fast, high-volume, and cheap" is the priority. Examples include bulk listing from 1688 to TEMU, batch uploading of high-SKU inventory, entry-level AI processing for top sellers and ERP/SaaS platforms, and merchants with high daily processing volumes but low requirements for marketing performance.
-   * By filtering images that contain watermarks or non-compliant elements and prioritizing clean original images, the service reduces AI generation steps and helps merchants complete cross-platform listings at minimal cost.
+   * Suitable for cost-sensitive cross-platform listing scenarios where speed, volume, and low cost are the top priorities. Examples include bulk listing from 1688 to TEMU, batch uploading of high-SKU inventory, entry-level AI processing for top sellers and ERP/SaaS platforms, and merchants with high daily processing volumes but low requirements for marketing performance.
+   * By filtering images that contain watermarks or non-compliant elements and prioritizing clean original images, this service reduces AI generation steps and helps merchants complete cross-platform listings at minimal call cost.
    * ## Features
-   * This service uses an officially pre-built "minimum cost" product optimization workflow that covers the entire pipeline from asset retrieval, compliance filtering, and text optimization to image processing:
-   * 1. Automatically parses 1688 product URLs and extracts multiple asset types including titles, SKUs, main images, detail images, and attributes.
-   * 2. Performs text filtering and SEO optimization based on the TEMU platform blacklist and compliance rules.
-   * 3. Intelligently identifies watermarks, logos, and Chinese text in images, prioritizing clean original images through filtering. SKU images and a small number of main images are processed using image translation capabilities to comply with platform standards (high-conversion images with marketing text may be filtered out).
+   * This service uses an officially preset minimum-cost product optimization workflow that covers the entire pipeline from asset retrieval, compliance filtering, and text optimization to image processing:
+   * 1. Automatically parses 1688 product links and extracts multiple asset types such as titles, SKUs, main images, detail images, and attributes.
+   * 2. Performs text filtering and SEO optimization based on the TEMU platform blocklist and compliance rules.
+   * 3. Intelligently identifies watermarks, logos, and Chinese text in images, prioritizing filtering and selecting clean original images. SKU images and a small number of main images are processed with image translation capabilities to meet platform standards (high-conversion images with marketing text may be filtered out).
    * 4. Completes category matching, attribute filling, and localized rewriting based on target platform requirements.
    * 
    * @param request - AssetOptimizeLiteRequest
@@ -106,19 +106,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a source platform product URL and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially pre-built minimum-cost workflow that primarily filters and applies lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
+   * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a product link from a source platform and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially preset minimum-cost workflow that focuses on filtering and lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
    * 
    * @remarks
    * ## Product Introduction
-   * A one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a source platform product URL and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially pre-built minimum-cost workflow that primarily filters and applies lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
+   * A one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a product link from a source platform and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially preset minimum-cost workflow that focuses on filtering and lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
    * ## Scenarios
-   * Suitable for cost-sensitive cross-platform listing scenarios where "fast, high-volume, and cheap" is the priority. Examples include bulk listing from 1688 to TEMU, batch uploading of high-SKU inventory, entry-level AI processing for top sellers and ERP/SaaS platforms, and merchants with high daily processing volumes but low requirements for marketing performance.
-   * By filtering images that contain watermarks or non-compliant elements and prioritizing clean original images, the service reduces AI generation steps and helps merchants complete cross-platform listings at minimal cost.
+   * Suitable for cost-sensitive cross-platform listing scenarios where speed, volume, and low cost are the top priorities. Examples include bulk listing from 1688 to TEMU, batch uploading of high-SKU inventory, entry-level AI processing for top sellers and ERP/SaaS platforms, and merchants with high daily processing volumes but low requirements for marketing performance.
+   * By filtering images that contain watermarks or non-compliant elements and prioritizing clean original images, this service reduces AI generation steps and helps merchants complete cross-platform listings at minimal call cost.
    * ## Features
-   * This service uses an officially pre-built "minimum cost" product optimization workflow that covers the entire pipeline from asset retrieval, compliance filtering, and text optimization to image processing:
-   * 1. Automatically parses 1688 product URLs and extracts multiple asset types including titles, SKUs, main images, detail images, and attributes.
-   * 2. Performs text filtering and SEO optimization based on the TEMU platform blacklist and compliance rules.
-   * 3. Intelligently identifies watermarks, logos, and Chinese text in images, prioritizing clean original images through filtering. SKU images and a small number of main images are processed using image translation capabilities to comply with platform standards (high-conversion images with marketing text may be filtered out).
+   * This service uses an officially preset minimum-cost product optimization workflow that covers the entire pipeline from asset retrieval, compliance filtering, and text optimization to image processing:
+   * 1. Automatically parses 1688 product links and extracts multiple asset types such as titles, SKUs, main images, detail images, and attributes.
+   * 2. Performs text filtering and SEO optimization based on the TEMU platform blocklist and compliance rules.
+   * 3. Intelligently identifies watermarks, logos, and Chinese text in images, prioritizing filtering and selecting clean original images. SKU images and a small number of main images are processed with image translation capabilities to meet platform standards (high-conversion images with marketing text may be filtered out).
    * 4. Completes category matching, attribute filling, and localized rewriting based on target platform requirements.
    * 
    * @param request - AssetOptimizeLiteRequest
@@ -130,20 +130,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (best performance edition). Accepts a 1688 product link as input and outputs a complete set of assets adapted to TEMU platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses the officially pre-built best-performance workflow to maximize AI capabilities, retains and localizes brand marketing assets, and outputs category-specific assets such as size charts for apparel categories. (Asynchronous)
+   * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (best performance edition). Accepts a 1688 product link as input and outputs a complete set of assets adapted to TEMU platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially pre-built best-performance workflow that maximizes AI capabilities, preserves and localizes brand marketing assets, and generates category-specific assets such as size charts for apparel categories. (Asynchronous)
    * 
    * @remarks
    * ## Product Introduction
    * A one-click cross-platform product listing optimization service for cross-border e-commerce sellers (best performance edition). Accepts a 1688 product link as input and outputs a complete set of assets adapted to TEMU platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting.
-   * ## Scenarios
-   * Suitable for scenarios that require high-quality cross-platform product listing assets and strong conversion performance. Examples include categories with high dependency on marketing assets such as apparel, accessories, beauty, and home goods. Also suitable for brand merchants and high-value products that need to retain marketing images with copywriting. Ideal for top sellers and ERP/SaaS platforms conducting localized operations across multiple languages and markets, as well as scenarios that require category-specific assets (such as size charts and package weight/dimensions) to improve listing quality and conversion rates.
-   * ## Features
-   * This service uses the officially pre-built "Best Performance" product optimization workflow, covering the entire pipeline from asset acquisition, diagnosis, filtering, and optimization to output:
+   * ## Common scenarios
+   * Suitable for scenarios that demand high-quality cross-platform product listing assets and strong conversion performance. Examples include categories with high dependency on marketing assets such as apparel, accessories, beauty, and home goods. Also ideal for brand merchants and high-value products that need to preserve the tone of marketing images with embedded copywriting. Designed for top sellers and ERP/SaaS platforms conducting localized operations across multiple languages and markets, as well as scenarios that require category-specific assets (such as size charts and weight/dimension tables) to improve listing quality and conversion rates.
+   * ## Functions and features
+   * This service uses an officially pre-built "Best Performance" product optimization workflow that covers the entire pipeline from asset retrieval, diagnosis, filtering, and optimization to output:
    * 1. Automatically parses 1688 product links to extract all assets including titles, SKUs, main images, detail images, and attributes. Intelligently diagnoses missing assets and optimization opportunities.
-   * 2. Uses LLM for text compliance filtering, SEO keyword optimization, five-point description generation, and multilingual localization rewriting.
+   * 2. Uses LLM-based text compliance filtering, SEO keyword optimization, five-point description generation, and multilingual localization rewriting.
    * 3. Invokes multiple image processing capabilities including intelligent recognition, intelligent background removal, intelligent erasure, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling.
-   * 4. Outputs category-specific assets such as size charts and package weight/dimensions for apparel categories.
-   * 5. Outputs a standardized product asset package ready for direct listing.
+   * 4. Outputs category-specific assets such as size charts and weight/dimension tables for apparel categories.
+   * 5. Delivers a standardized product asset package ready for direct listing.
    * 
    * @param tmpReq - AssetOptimizeProRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -224,20 +224,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (best performance edition). Accepts a 1688 product link as input and outputs a complete set of assets adapted to TEMU platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses the officially pre-built best-performance workflow to maximize AI capabilities, retains and localizes brand marketing assets, and outputs category-specific assets such as size charts for apparel categories. (Asynchronous)
+   * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (best performance edition). Accepts a 1688 product link as input and outputs a complete set of assets adapted to TEMU platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially pre-built best-performance workflow that maximizes AI capabilities, preserves and localizes brand marketing assets, and generates category-specific assets such as size charts for apparel categories. (Asynchronous)
    * 
    * @remarks
    * ## Product Introduction
    * A one-click cross-platform product listing optimization service for cross-border e-commerce sellers (best performance edition). Accepts a 1688 product link as input and outputs a complete set of assets adapted to TEMU platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting.
-   * ## Scenarios
-   * Suitable for scenarios that require high-quality cross-platform product listing assets and strong conversion performance. Examples include categories with high dependency on marketing assets such as apparel, accessories, beauty, and home goods. Also suitable for brand merchants and high-value products that need to retain marketing images with copywriting. Ideal for top sellers and ERP/SaaS platforms conducting localized operations across multiple languages and markets, as well as scenarios that require category-specific assets (such as size charts and package weight/dimensions) to improve listing quality and conversion rates.
-   * ## Features
-   * This service uses the officially pre-built "Best Performance" product optimization workflow, covering the entire pipeline from asset acquisition, diagnosis, filtering, and optimization to output:
+   * ## Common scenarios
+   * Suitable for scenarios that demand high-quality cross-platform product listing assets and strong conversion performance. Examples include categories with high dependency on marketing assets such as apparel, accessories, beauty, and home goods. Also ideal for brand merchants and high-value products that need to preserve the tone of marketing images with embedded copywriting. Designed for top sellers and ERP/SaaS platforms conducting localized operations across multiple languages and markets, as well as scenarios that require category-specific assets (such as size charts and weight/dimension tables) to improve listing quality and conversion rates.
+   * ## Functions and features
+   * This service uses an officially pre-built "Best Performance" product optimization workflow that covers the entire pipeline from asset retrieval, diagnosis, filtering, and optimization to output:
    * 1. Automatically parses 1688 product links to extract all assets including titles, SKUs, main images, detail images, and attributes. Intelligently diagnoses missing assets and optimization opportunities.
-   * 2. Uses LLM for text compliance filtering, SEO keyword optimization, five-point description generation, and multilingual localization rewriting.
+   * 2. Uses LLM-based text compliance filtering, SEO keyword optimization, five-point description generation, and multilingual localization rewriting.
    * 3. Invokes multiple image processing capabilities including intelligent recognition, intelligent background removal, intelligent erasure, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling.
-   * 4. Outputs category-specific assets such as size charts and package weight/dimensions for apparel categories.
-   * 5. Outputs a standardized product asset package ready for direct listing.
+   * 4. Outputs category-specific assets such as size charts and weight/dimension tables for apparel categories.
+   * 5. Delivers a standardized product asset package ready for direct listing.
    * 
    * @param request - AssetOptimizeProRequest
    * @returns AssetOptimizeProResponse
@@ -248,13 +248,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a cross-platform product category and attribute intelligent filling service based on multimodal large models. Takes product information from a source platform, automatically matches the category on the target listing platform, and intelligently fills in all required attribute fields under that category, offering a one-stop solution for category selection and attribute filling during product listing. (Synchronous)
+   * Provides a cross-platform product category and attribute intelligent filling service based on multimodal foundation models. Takes product information from a source platform, automatically matches the category on the target listing platform, and intelligently fills in all required attribute fields under that category, offering a one-stop solution for category selection and attribute filling during product listing. (Synchronous)
    * 
    * @remarks
    * # Applicable scenarios
-   * Cross-platform product listing attribute filling: When merchants list products across platforms, the attribute fields required by different platforms (source platform, TEMU platform) vary significantly, with complex hierarchical options (such as material → wood type → density). Manual filling is time-consuming and error-prone. This service automatically understands product information and intelligently fills in attributes. It is suitable for scenarios such as automated bulk listing for top sellers, ERP/SaaS platform integration, and quick product listing for SMB merchants.
+   * Cross-platform product listing attribute filling: When merchants list products across platforms, the attribute fields required by different platforms (such as the source platform and the TEMU platform) vary significantly, and complex hierarchical option dependencies exist (such as Material → Wood Type → Density). Manual filling is time-consuming and error-prone. This service automatically understands product information and intelligently fills in various attributes. It is applicable to scenarios such as automated bulk listing for top sellers, ERP/SaaS platform integration, and quick product listing for SMB merchants.
    * # Feature overview
-   * Users input the product title, source category, product details, SKU, product attributes, and product images (up to 10). The system uses multimodal AI to understand product semantics and visual features, completing two core tasks: ① Matching the precise category path for the product on the TEMU platform. ② Automatically filling in the required attributes under that category (such as material, battery properties, size, connectivity), and returning the confidence level and reasoning for each attribute. The API operates in synchronous mode and returns results immediately upon invocation.
+   * Users input the product title, source category, product details, SKU, product attributes, and product images (up to 10). The system uses multimodal AI to understand the product semantics and visual features, and completes two core tasks: ① Matches the precise category path for the product on the TEMU platform. ② Automatically fills in the required attributes under that category (such as material, battery properties, size, and connectivity), and returns the confidence score and reasoning for each attribute. The API uses synchronous mode and returns results immediately after the call.
    * # Comparison
    * The following example shows the attributes of a USB fan:
    * | **1688 Attribute** | **1688 Attribute Value** | **TEMU Attribute** | **TEMU Attribute Value** | **Existing in 1688** |
@@ -264,13 +264,13 @@ export default class Client extends OpenApi {
    * | Additional Features | Digital Display | Battery Capacity (mAh) | 4000 | Yes |
    * | Built-in Battery Capacity | 2000mAh-4000mAh (inclusive) | Fan Features | High Speed | No |
    * | Item Number | X699 | Control Method | Button | Yes |
-   * | Main Downstream Platforms | eBay, Amazon, Wish, AliExpress, Independent Sites, LAZADA, Other | Finish Type | Painted | Yes |
+   * | Main Downstream Platforms | ebay, Amazon, wish, AliExpress, Independent Site, LAZADA, Other | Finish Type | Painted | Yes |
    * | Has Licensable Own Brand | No | Recommended Use | Cooling | No |
    * | Dimensions | 65\\*60\\*171 | Fan Design | Wearable Fan | No |
-   * | Applicable Gift Occasions | Personal Gifts | Included Components | None | No |
+   * | Applicable Gift Occasion | Personal Gift | Included Components | None | No |
    * | Shell Process | Spray Coating (UV Paint, Rubber Paint, Metallic Paint, Piano Lacquer, Pearl Powder) | Material | Plastic | No |
    * | Package Volume | 65\\*60\\*171 | Special Features | Portable | No |
-   * | Appearance Dimensions | 51\\*36\\*34 | Indoor/Outdoor Use | Both Indoor and Outdoor | No |
+   * | Appearance Dimensions | 51\\*36\\*34 | Indoor/Outdoor Use | Indoor and Outdoor | No |
    * | Wind Speed Levels | 3 Levels | Brand Name | None | No |
    * | Operation Method | Standard Button |  |  |  |
    * | Blade Material | ABS |  |  |  |
@@ -278,14 +278,14 @@ export default class Client extends OpenApi {
    * | Built-in Battery | Yes |  |  |  |
    * | Patented Source | No |  |  |  |
    * | Color | X699 Fan-Yellow, X699 Fan-Light Purple, X699 Fan-Sky Blue, X699 Fan-Orange, X699 Fan-Light Green, Standard Small Fan |  |  |  |
-   * | Main Sales Regions | Japan/Korea, Africa, Korea, Japan, Europe, South America, Southeast Asia, North America, Northeast Asia, Middle East, Latin America, Europe/America, Other |  |  |  |
+   * | Main Sales Regions | Japan & Korea, Africa, Korea, Japan, Europe, South America, Southeast Asia, North America, Northeast Asia, Middle East, Latin America, Europe & America, Other |  |  |  |
    * | Cross-border Export Exclusive | Yes |  |  |  |
    * | Style | Fresh |  |  |  |
    * | Motor Type | Brushless Motor |  |  |  |
    * | Noise | 36dB(A)-45dB(A) (inclusive) |  |  |  |
    * | Net Weight | 125g |  |  |  |
-   * | Number of Blades | 6 or more |  |  |  |
-   * | Fan Category | Handheld Fan |  |  |  |
+   * | Number of Blades | 6 or More |  |  |  |
+   * | Fan Type | Handheld Fan |  |  |  |
    * 
    * @param tmpReq - CategoryAttributeMatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -350,13 +350,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a cross-platform product category and attribute intelligent filling service based on multimodal large models. Takes product information from a source platform, automatically matches the category on the target listing platform, and intelligently fills in all required attribute fields under that category, offering a one-stop solution for category selection and attribute filling during product listing. (Synchronous)
+   * Provides a cross-platform product category and attribute intelligent filling service based on multimodal foundation models. Takes product information from a source platform, automatically matches the category on the target listing platform, and intelligently fills in all required attribute fields under that category, offering a one-stop solution for category selection and attribute filling during product listing. (Synchronous)
    * 
    * @remarks
    * # Applicable scenarios
-   * Cross-platform product listing attribute filling: When merchants list products across platforms, the attribute fields required by different platforms (source platform, TEMU platform) vary significantly, with complex hierarchical options (such as material → wood type → density). Manual filling is time-consuming and error-prone. This service automatically understands product information and intelligently fills in attributes. It is suitable for scenarios such as automated bulk listing for top sellers, ERP/SaaS platform integration, and quick product listing for SMB merchants.
+   * Cross-platform product listing attribute filling: When merchants list products across platforms, the attribute fields required by different platforms (such as the source platform and the TEMU platform) vary significantly, and complex hierarchical option dependencies exist (such as Material → Wood Type → Density). Manual filling is time-consuming and error-prone. This service automatically understands product information and intelligently fills in various attributes. It is applicable to scenarios such as automated bulk listing for top sellers, ERP/SaaS platform integration, and quick product listing for SMB merchants.
    * # Feature overview
-   * Users input the product title, source category, product details, SKU, product attributes, and product images (up to 10). The system uses multimodal AI to understand product semantics and visual features, completing two core tasks: ① Matching the precise category path for the product on the TEMU platform. ② Automatically filling in the required attributes under that category (such as material, battery properties, size, connectivity), and returning the confidence level and reasoning for each attribute. The API operates in synchronous mode and returns results immediately upon invocation.
+   * Users input the product title, source category, product details, SKU, product attributes, and product images (up to 10). The system uses multimodal AI to understand the product semantics and visual features, and completes two core tasks: ① Matches the precise category path for the product on the TEMU platform. ② Automatically fills in the required attributes under that category (such as material, battery properties, size, and connectivity), and returns the confidence score and reasoning for each attribute. The API uses synchronous mode and returns results immediately after the call.
    * # Comparison
    * The following example shows the attributes of a USB fan:
    * | **1688 Attribute** | **1688 Attribute Value** | **TEMU Attribute** | **TEMU Attribute Value** | **Existing in 1688** |
@@ -366,13 +366,13 @@ export default class Client extends OpenApi {
    * | Additional Features | Digital Display | Battery Capacity (mAh) | 4000 | Yes |
    * | Built-in Battery Capacity | 2000mAh-4000mAh (inclusive) | Fan Features | High Speed | No |
    * | Item Number | X699 | Control Method | Button | Yes |
-   * | Main Downstream Platforms | eBay, Amazon, Wish, AliExpress, Independent Sites, LAZADA, Other | Finish Type | Painted | Yes |
+   * | Main Downstream Platforms | ebay, Amazon, wish, AliExpress, Independent Site, LAZADA, Other | Finish Type | Painted | Yes |
    * | Has Licensable Own Brand | No | Recommended Use | Cooling | No |
    * | Dimensions | 65\\*60\\*171 | Fan Design | Wearable Fan | No |
-   * | Applicable Gift Occasions | Personal Gifts | Included Components | None | No |
+   * | Applicable Gift Occasion | Personal Gift | Included Components | None | No |
    * | Shell Process | Spray Coating (UV Paint, Rubber Paint, Metallic Paint, Piano Lacquer, Pearl Powder) | Material | Plastic | No |
    * | Package Volume | 65\\*60\\*171 | Special Features | Portable | No |
-   * | Appearance Dimensions | 51\\*36\\*34 | Indoor/Outdoor Use | Both Indoor and Outdoor | No |
+   * | Appearance Dimensions | 51\\*36\\*34 | Indoor/Outdoor Use | Indoor and Outdoor | No |
    * | Wind Speed Levels | 3 Levels | Brand Name | None | No |
    * | Operation Method | Standard Button |  |  |  |
    * | Blade Material | ABS |  |  |  |
@@ -380,14 +380,14 @@ export default class Client extends OpenApi {
    * | Built-in Battery | Yes |  |  |  |
    * | Patented Source | No |  |  |  |
    * | Color | X699 Fan-Yellow, X699 Fan-Light Purple, X699 Fan-Sky Blue, X699 Fan-Orange, X699 Fan-Light Green, Standard Small Fan |  |  |  |
-   * | Main Sales Regions | Japan/Korea, Africa, Korea, Japan, Europe, South America, Southeast Asia, North America, Northeast Asia, Middle East, Latin America, Europe/America, Other |  |  |  |
+   * | Main Sales Regions | Japan & Korea, Africa, Korea, Japan, Europe, South America, Southeast Asia, North America, Northeast Asia, Middle East, Latin America, Europe & America, Other |  |  |  |
    * | Cross-border Export Exclusive | Yes |  |  |  |
    * | Style | Fresh |  |  |  |
    * | Motor Type | Brushless Motor |  |  |  |
    * | Noise | 36dB(A)-45dB(A) (inclusive) |  |  |  |
    * | Net Weight | 125g |  |  |  |
-   * | Number of Blades | 6 or more |  |  |  |
-   * | Fan Category | Handheld Fan |  |  |  |
+   * | Number of Blades | 6 or More |  |  |  |
+   * | Fan Type | Handheld Fan |  |  |  |
    * 
    * @param request - CategoryAttributeMatchRequest
    * @returns CategoryAttributeMatchResponse
@@ -398,27 +398,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a large language model-based intelligent cross-platform product category matching service. Accepts product information from a source platform, automatically matches the best category on the target listing platform, and returns a confidence level score with matching reasons to help merchants quickly select categories during cross-platform product listing. (Synchronization)
+   * Provides an intelligent cross-platform product category matching service based on a large language model. Accepts product information from a source platform, automatically matches the best category on the target listing platform, and returns a confidence score with matching reasons to help sellers quickly select categories for cross-platform product listing. (Synchronous)
    * 
    * @remarks
    * ## Product Introduction
-   * A large language model-based intelligent cross-platform product category matching service. Accepts product information from a source platform, automatically matches the best category on the target listing platform, and returns a confidence level score with matching reasons to help merchants quickly select categories during cross-platform product listing. (Synchronization)
+   * An intelligent cross-platform product category matching service based on a large language model. Accepts product information from a source platform, automatically matches the best category on the target listing platform, and returns a confidence score with matching reasons to help sellers quickly select categories for cross-platform product listing. (Synchronous)
    * ## Common scenarios
-   * Cross-platform product listing: After sourcing products, merchants list them on a target platform and need to match products to the correct category in the target platform\\"s category tree. Manually selecting categories requires familiarity with the target platform\\"s complete category system, which is time-consuming, labor-intensive, and error-prone. Incorrect category matching can cause product delisting and other issues.
-   * This service automates category mapping and is suitable for bulk API calls from top sellers\\" self-built systems, ERP/SaaS platform integration for automated listing workflows, and quick single-product listing for SMB merchants.
-   * The current version only supports TEMU as the target listing platform. Currently, automatic product information retrieval from source platforms is not supported and users must manually provide input parameters. This capability will be added in future versions, along with support for more source and target platforms.
-   * ## Functions and features
-   * Users input fields such as product title, source category, product description, SKU information, and product attributes. The system uses an AI model to understand product semantics and matches the most appropriate category path from the TEMU platform\\"s full category tree. The response includes the complete category path (CategoryPath), category name (CategoryName), confidence score (0-100), and matching reason. The API uses synchronous mode and returns results immediately after invocation, making it suitable for embedding in real-time business workflows.
+   * Cross-platform product listing: After sourcing products, sellers list them on a target platform and must map each product to the correct category in the target platform\\"s category tree. Manually selecting categories requires familiarity with the entire category structure of the target platform, which is time-consuming, labor-intensive, and error-prone. Incorrect category mapping can cause products to be delisted.
+   * This service automates category mapping and is suitable for bulk API calls from large sellers\\" proprietary systems, integration into ERP/SaaS platforms for automated listing workflows, and quick single-product listing for SMB sellers.
+   * The current version supports only TEMU as the target listing platform. Automatic retrieval of product information from source platforms is not yet supported — users must provide product details manually. Support for this capability and additional source and target platforms will be added in future releases.
+   * ## Features
+   * Users provide fields such as product title, source category, product description, SKU information, and product attributes. The system uses an AI model to understand product semantics and matches the most appropriate category path from the full TEMU platform category tree. The response includes the complete category path (CategoryPath), category name (CategoryName), confidence score (0–100), and matching reason. The API operates in synchronous mode and returns results immediately, making it suitable for embedding in real-time business workflows.
    * ## Demo
    * | **Source platform** | **Image** | **Source platform category** | **Target platform** | **Target platform category** |
    * | --- | --- | --- | --- | --- |
-   * | 1688 | ![done-image-245c58c8-a9fc-4e32-b959-8b4bcd52b264.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/jP2lRYjv7234mO8g/img/69a226e8-aff1-4891-bb0a-c47c1ea397ae.png) | USB fan, mini fan | TEMU | Home Appliances
+   * | 1688 | ![done-image-245c58c8-a9fc-4e32-b959-8b4bcd52b264.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/jP2lRYjv7234mO8g/img/69a226e8-aff1-4891-bb0a-c47c1ea397ae.png) | USB Fans, Mini Fans | TEMU | Home Appliances
    * \\>Heating, Cooling & Air Quality Appliances
    * \\>Electric Fans
    * \\>USB Fans |
-   * | 1688 | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/jP2lRYjv7234mO8g/img/8a546f7d-826e-43d6-b5f3-12d1edef8897.png) | Bracelet | TEMU | Clothing, Shoes & Jewelry
+   * | 1688 | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/jP2lRYjv7234mO8g/img/8a546f7d-826e-43d6-b5f3-12d1edef8897.png) | Bracelets | TEMU | Clothing, Shoes & Jewelry
    * \\>Women\\"s Fashion
-   * \\>Women\\"s Jewelry
+   * \\>Women\\"s Accessories
    * \\>Women\\"s Fashion Bracelets & Bangles
    * \\>Women\\"s Fashion Charms & Charm Bracelets
    * \\>Women\\"s Fashion Charm Bracelets
@@ -477,27 +477,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a large language model-based intelligent cross-platform product category matching service. Accepts product information from a source platform, automatically matches the best category on the target listing platform, and returns a confidence level score with matching reasons to help merchants quickly select categories during cross-platform product listing. (Synchronization)
+   * Provides an intelligent cross-platform product category matching service based on a large language model. Accepts product information from a source platform, automatically matches the best category on the target listing platform, and returns a confidence score with matching reasons to help sellers quickly select categories for cross-platform product listing. (Synchronous)
    * 
    * @remarks
    * ## Product Introduction
-   * A large language model-based intelligent cross-platform product category matching service. Accepts product information from a source platform, automatically matches the best category on the target listing platform, and returns a confidence level score with matching reasons to help merchants quickly select categories during cross-platform product listing. (Synchronization)
+   * An intelligent cross-platform product category matching service based on a large language model. Accepts product information from a source platform, automatically matches the best category on the target listing platform, and returns a confidence score with matching reasons to help sellers quickly select categories for cross-platform product listing. (Synchronous)
    * ## Common scenarios
-   * Cross-platform product listing: After sourcing products, merchants list them on a target platform and need to match products to the correct category in the target platform\\"s category tree. Manually selecting categories requires familiarity with the target platform\\"s complete category system, which is time-consuming, labor-intensive, and error-prone. Incorrect category matching can cause product delisting and other issues.
-   * This service automates category mapping and is suitable for bulk API calls from top sellers\\" self-built systems, ERP/SaaS platform integration for automated listing workflows, and quick single-product listing for SMB merchants.
-   * The current version only supports TEMU as the target listing platform. Currently, automatic product information retrieval from source platforms is not supported and users must manually provide input parameters. This capability will be added in future versions, along with support for more source and target platforms.
-   * ## Functions and features
-   * Users input fields such as product title, source category, product description, SKU information, and product attributes. The system uses an AI model to understand product semantics and matches the most appropriate category path from the TEMU platform\\"s full category tree. The response includes the complete category path (CategoryPath), category name (CategoryName), confidence score (0-100), and matching reason. The API uses synchronous mode and returns results immediately after invocation, making it suitable for embedding in real-time business workflows.
+   * Cross-platform product listing: After sourcing products, sellers list them on a target platform and must map each product to the correct category in the target platform\\"s category tree. Manually selecting categories requires familiarity with the entire category structure of the target platform, which is time-consuming, labor-intensive, and error-prone. Incorrect category mapping can cause products to be delisted.
+   * This service automates category mapping and is suitable for bulk API calls from large sellers\\" proprietary systems, integration into ERP/SaaS platforms for automated listing workflows, and quick single-product listing for SMB sellers.
+   * The current version supports only TEMU as the target listing platform. Automatic retrieval of product information from source platforms is not yet supported — users must provide product details manually. Support for this capability and additional source and target platforms will be added in future releases.
+   * ## Features
+   * Users provide fields such as product title, source category, product description, SKU information, and product attributes. The system uses an AI model to understand product semantics and matches the most appropriate category path from the full TEMU platform category tree. The response includes the complete category path (CategoryPath), category name (CategoryName), confidence score (0–100), and matching reason. The API operates in synchronous mode and returns results immediately, making it suitable for embedding in real-time business workflows.
    * ## Demo
    * | **Source platform** | **Image** | **Source platform category** | **Target platform** | **Target platform category** |
    * | --- | --- | --- | --- | --- |
-   * | 1688 | ![done-image-245c58c8-a9fc-4e32-b959-8b4bcd52b264.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/jP2lRYjv7234mO8g/img/69a226e8-aff1-4891-bb0a-c47c1ea397ae.png) | USB fan, mini fan | TEMU | Home Appliances
+   * | 1688 | ![done-image-245c58c8-a9fc-4e32-b959-8b4bcd52b264.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/jP2lRYjv7234mO8g/img/69a226e8-aff1-4891-bb0a-c47c1ea397ae.png) | USB Fans, Mini Fans | TEMU | Home Appliances
    * \\>Heating, Cooling & Air Quality Appliances
    * \\>Electric Fans
    * \\>USB Fans |
-   * | 1688 | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/jP2lRYjv7234mO8g/img/8a546f7d-826e-43d6-b5f3-12d1edef8897.png) | Bracelet | TEMU | Clothing, Shoes & Jewelry
+   * | 1688 | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/jP2lRYjv7234mO8g/img/8a546f7d-826e-43d6-b5f3-12d1edef8897.png) | Bracelets | TEMU | Clothing, Shoes & Jewelry
    * \\>Women\\"s Fashion
-   * \\>Women\\"s Jewelry
+   * \\>Women\\"s Accessories
    * \\>Women\\"s Fashion Bracelets & Bangles
    * \\>Women\\"s Fashion Charms & Charm Bracelets
    * \\>Women\\"s Fashion Charm Bracelets
@@ -512,17 +512,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calculates the edge lengths and floor area of a floor display based on the display image and product detection boxes.
+   * Calculates the edge lengths and floor area of a floor display based on the floor display image and product detection boxes.
    * 
    * @remarks
-   * ## Description
-   * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the floor display area inference service.**
-   * - This operation infers the actual dimensions (lengths of two edges) and floor area of a floor display based on the provided overall display image, SKU knowledge base, and product location information in the image.
-   * - Make sure that the knowledge base corresponding to the specified `RagId` belongs to the caller and is in the available (`AVAILABLE`) state.
+   * ## Usage notes
+   * **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the floor display area inference service.**
+   * - This operation infers the actual dimensions (lengths of two edges) and floor area of a floor display based on the provided overall floor display image, SKU knowledge base, and product location information in the image.
+   * - Make sure that the knowledge base corresponding to the specified `RagId` belongs to the caller and is in the active (`AVAILABLE`) state.
    * - The `Products` array must contain at least one product item, and each product item must have at least one bounding box defined in `Boxes`.
    * - All coordinate values are represented in a normalized coordinate system ranging from 0 to 1000. Make sure that the input satisfies the relationships `Left < Right` and `Top < Bottom`.
-   * - Set a reasonable timeout period when calling this operation (no more than 300 seconds recommended) to avoid failures caused by network latency or high processing complexity.
-   * - For production environments, use the POP Action method for access. The internal REST address is primarily used for integration testing during the development phase.
+   * - Set a reasonable timeout period when you call this operation (300 seconds or less recommended) to avoid failures caused by network latency or high processing complexity.
+   * - For calls in a production environment, use the POP Action method. The internal REST address is intended for integration testing during the development phase.
    * 
    * @param tmpReq - DiduiAreaDeductionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -571,17 +571,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calculates the edge lengths and floor area of a floor display based on the display image and product detection boxes.
+   * Calculates the edge lengths and floor area of a floor display based on the floor display image and product detection boxes.
    * 
    * @remarks
-   * ## Description
-   * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the floor display area inference service.**
-   * - This operation infers the actual dimensions (lengths of two edges) and floor area of a floor display based on the provided overall display image, SKU knowledge base, and product location information in the image.
-   * - Make sure that the knowledge base corresponding to the specified `RagId` belongs to the caller and is in the available (`AVAILABLE`) state.
+   * ## Usage notes
+   * **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the floor display area inference service.**
+   * - This operation infers the actual dimensions (lengths of two edges) and floor area of a floor display based on the provided overall floor display image, SKU knowledge base, and product location information in the image.
+   * - Make sure that the knowledge base corresponding to the specified `RagId` belongs to the caller and is in the active (`AVAILABLE`) state.
    * - The `Products` array must contain at least one product item, and each product item must have at least one bounding box defined in `Boxes`.
    * - All coordinate values are represented in a normalized coordinate system ranging from 0 to 1000. Make sure that the input satisfies the relationships `Left < Right` and `Top < Bottom`.
-   * - Set a reasonable timeout period when calling this operation (no more than 300 seconds recommended) to avoid failures caused by network latency or high processing complexity.
-   * - For production environments, use the POP Action method for access. The internal REST address is primarily used for integration testing during the development phase.
+   * - Set a reasonable timeout period when you call this operation (300 seconds or less recommended) to avoid failures caused by network latency or high processing complexity.
+   * - For calls in a production environment, use the POP Action method. The internal REST address is intended for integration testing during the development phase.
    * 
    * @param request - DiduiAreaDeductionRequest
    * @returns DiduiAreaDeductionResponse
@@ -605,7 +605,7 @@ export default class Client extends OpenApi {
    * - Structural integrity: overall layout continuity, page margin and layout restoration
    * ## Common scenarios
    * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and many other scenarios.
-   * ## Functions and features
+   * ## Features
    * - Supports PDF and Word formats. Supports source documents that contain multiple languages. For a detailed language list, see section 4.5.
    * - Supports translation of text within images in documents, as well as complex translation scenarios such as charts and special symbols.
    * - Supports high-fidelity layout restoration after translation.
@@ -666,7 +666,7 @@ export default class Client extends OpenApi {
    * - Structural integrity: overall layout continuity, page margin and layout restoration
    * ## Common scenarios
    * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and many other scenarios.
-   * ## Functions and features
+   * ## Features
    * - Supports PDF and Word formats. Supports source documents that contain multiple languages. For a detailed language list, see section 4.5.
    * - Supports translation of text within images in documents, as well as complex translation scenarios such as charts and special symbols.
    * - Supports high-fidelity layout restoration after translation.
@@ -682,29 +682,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * E-commerce Video Remix is an AI video service designed for product content production. It covers video understanding, element replacement, quality verification, and result delivery. The service focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to rapidly generate multi-version content and reduce shooting, editing, and adaptation costs.
+   * E-commerce Video Multiplication is an AI video service designed for product content production, covering video understanding, element replacement, quality verification, and result delivery. The product focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to quickly generate multi-version content and reduce shooting, editing, and adaptation costs.
    * 
    * @remarks
    * ## **Product Introduction**
-   * E-commerce Video Remix is an AI video service designed for product content production. It covers video understanding, element replacement, quality verification, and result delivery. The service focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to rapidly generate multi-version content and reduce shooting, editing, and adaptation costs.
+   * E-commerce Video Multiplication is an AI video service designed for product content production, covering video understanding, element replacement, quality verification, and result delivery. The product focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to quickly generate multi-version content and reduce shooting, editing, and adaptation costs.
    * ## **Scenarios**
-   * - **Video asset remix:** Use an existing e-commerce video as a template and replace only the specified product or person while preserving the original shots, rhythm, and marketing expression. This is suitable for multi-SKU, multi-model, multi-region, and multi-version asset production.
-   * - **New product launch with rapid asset generation:** For products launched in batches, reduce the need for live shooting, studio time, post-production editing, and repetitive production. Quickly generate video assets for new products and help merchants shorten the cycle from discovering a hit video to scripting and publishing new content.
-   * - **Product presentation and selling point expression:** Suitable for apparel, beauty and personal care, food and beverages, home and daily essentials, 3C electronics, and small appliances. Based on the selling point structure, display actions, and shot rhythm of the original video, generate presentation videos optimized for new product conversion.
-   * - **Multi-selling-point and multi-version testing:** Rapidly generate multiple versions based on different product selling points, target audiences, scripts, shots, and visual styles to support content testing and ad creative iteration.
-   * ## **Capabilities**
+   * - **Video asset multiplication:** Use an existing e-commerce video as a template and replace only the specified product or person while preserving the original shots, rhythm, and marketing expression. This is applicable to multi-SKU, multi-model, multi-region, and multi-version asset production.
+   * - **New product launch with rapid asset generation:** For products launched in batches, reduce the need for live shooting, studio time, post-production editing, and repetitive production. Quickly generate new product video assets to help merchants shorten the cycle from discovering a hit video to scripting and publishing new content.
+   * - **Product presentation and selling point expression:** Applicable to apparel, beauty and personal care, food and beverages, home and daily essentials, 3C electronics, small appliances, and other products. Based on the selling point planning, presentation actions, and shot rhythm of the original video, generate presentation videos optimized for new product conversion.
+   * - **Multi-selling-point and multi-version testing:** Quickly generate multiple versions based on different product selling points, target audiences, scripts, shots, and visual styles to support merchants in content testing and ad creative iteration.
+   * ## **Product Capabilities**
    * ### **Core capabilities**
    * Two replacement modes are supported:
-   * - **Product replacement (product_replacement):** Preserves the original video host identity, actions, scene, and selling structure while replacing the original product with the target product.
-   * - **Person replacement (person_replacement):** Preserves the original video product, actions, scene, and selling structure while replacing the on-screen person with the target person from a reference image or description.
-   * - **Fully automated end-to-end generation with zero prompt requirements:** Simply provide a reference video and a target product image or person image. The system automatically completes the entire pipeline including video understanding, script planning, storyboard design, first-frame generation, and video synthesis.
+   * - **Product replacement (product_replacement):** Retains the original video host identity, actions, scene, and selling structure while replacing the original product with the target product.
+   * - **Person replacement (person_replacement):** Retains the original video product, actions, scene, and selling structure while replacing the on-screen person with the target person from a reference image or description.
+   * - **Fully automated end-to-end generation with zero prompt threshold:** Simply provide a reference video and target product image or person image. The system automatically completes the entire pipeline including video understanding, script planning, storyboard design, first-frame generation, and video synthesis.
    * - **Product understanding and information structuring:** Identifies product category, appearance, material, color, structure, and key components, and combines merchant-provided titles, attributes, and selling points to generate usable video expression information.
    * - **Template video element replacement:** Supports replacing products or persons within the authorized scope, with configurable replacement and protection ranges to minimize changes in non-target areas.
    * - **Product subject consistency:** Maintains stable product shape, color, texture, pattern, packaging, and logo across different shots, angles, actions, and scenes.
    * - **Product fidelity:** Multi-round VL quality inspection locks product state (color, texture, structure, and print) throughout the process to prevent product feature drift.
-   * - **Strength category — Apparel:** Faithfully restores apparel details with attention to silhouette, wrinkles, drape, fabric texture, buttons, zippers, prints, and accessories, reducing clipping, deformation, texture loss, and detail artifacts.
-   * - **Selling point script and storyboard replication:** Replicates the selling point structure, video composition, shot sequence, display actions, voiceover content, and closing style of the original video.
-   * - **Commercial model matching:** Supports matching model appearance and display style based on product style, silhouette, target audience, and market requirements.
+   * - **Strength category — Apparel:** Faithfully restores apparel details, focusing on silhouette, wrinkles, drape, fabric texture, buttons, zippers, prints, and accessories to reduce clipping, deformation, texture loss, and detail anomalies.
+   * - **Selling point script and storyboard replication:** Replicates the selling point planning, video structure, shot sequence, presentation actions, voiceover content, and closing style of the original video.
+   * - **Commercial model adaptation:** Supports matching model appearance and presentation style based on product style, silhouette, target audience, and market demand.
    * - **Quality verification and result feedback:** Performs multi-dimensional checks on product subject, person, apparel, text, frame completeness, audio, and overall usability, and outputs result information for manual review.
    * 
    * @param tmpReq - EcomVideoRecreationRequest
@@ -750,29 +750,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * E-commerce Video Remix is an AI video service designed for product content production. It covers video understanding, element replacement, quality verification, and result delivery. The service focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to rapidly generate multi-version content and reduce shooting, editing, and adaptation costs.
+   * E-commerce Video Multiplication is an AI video service designed for product content production, covering video understanding, element replacement, quality verification, and result delivery. The product focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to quickly generate multi-version content and reduce shooting, editing, and adaptation costs.
    * 
    * @remarks
    * ## **Product Introduction**
-   * E-commerce Video Remix is an AI video service designed for product content production. It covers video understanding, element replacement, quality verification, and result delivery. The service focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to rapidly generate multi-version content and reduce shooting, editing, and adaptation costs.
+   * E-commerce Video Multiplication is an AI video service designed for product content production, covering video understanding, element replacement, quality verification, and result delivery. The product focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to quickly generate multi-version content and reduce shooting, editing, and adaptation costs.
    * ## **Scenarios**
-   * - **Video asset remix:** Use an existing e-commerce video as a template and replace only the specified product or person while preserving the original shots, rhythm, and marketing expression. This is suitable for multi-SKU, multi-model, multi-region, and multi-version asset production.
-   * - **New product launch with rapid asset generation:** For products launched in batches, reduce the need for live shooting, studio time, post-production editing, and repetitive production. Quickly generate video assets for new products and help merchants shorten the cycle from discovering a hit video to scripting and publishing new content.
-   * - **Product presentation and selling point expression:** Suitable for apparel, beauty and personal care, food and beverages, home and daily essentials, 3C electronics, and small appliances. Based on the selling point structure, display actions, and shot rhythm of the original video, generate presentation videos optimized for new product conversion.
-   * - **Multi-selling-point and multi-version testing:** Rapidly generate multiple versions based on different product selling points, target audiences, scripts, shots, and visual styles to support content testing and ad creative iteration.
-   * ## **Capabilities**
+   * - **Video asset multiplication:** Use an existing e-commerce video as a template and replace only the specified product or person while preserving the original shots, rhythm, and marketing expression. This is applicable to multi-SKU, multi-model, multi-region, and multi-version asset production.
+   * - **New product launch with rapid asset generation:** For products launched in batches, reduce the need for live shooting, studio time, post-production editing, and repetitive production. Quickly generate new product video assets to help merchants shorten the cycle from discovering a hit video to scripting and publishing new content.
+   * - **Product presentation and selling point expression:** Applicable to apparel, beauty and personal care, food and beverages, home and daily essentials, 3C electronics, small appliances, and other products. Based on the selling point planning, presentation actions, and shot rhythm of the original video, generate presentation videos optimized for new product conversion.
+   * - **Multi-selling-point and multi-version testing:** Quickly generate multiple versions based on different product selling points, target audiences, scripts, shots, and visual styles to support merchants in content testing and ad creative iteration.
+   * ## **Product Capabilities**
    * ### **Core capabilities**
    * Two replacement modes are supported:
-   * - **Product replacement (product_replacement):** Preserves the original video host identity, actions, scene, and selling structure while replacing the original product with the target product.
-   * - **Person replacement (person_replacement):** Preserves the original video product, actions, scene, and selling structure while replacing the on-screen person with the target person from a reference image or description.
-   * - **Fully automated end-to-end generation with zero prompt requirements:** Simply provide a reference video and a target product image or person image. The system automatically completes the entire pipeline including video understanding, script planning, storyboard design, first-frame generation, and video synthesis.
+   * - **Product replacement (product_replacement):** Retains the original video host identity, actions, scene, and selling structure while replacing the original product with the target product.
+   * - **Person replacement (person_replacement):** Retains the original video product, actions, scene, and selling structure while replacing the on-screen person with the target person from a reference image or description.
+   * - **Fully automated end-to-end generation with zero prompt threshold:** Simply provide a reference video and target product image or person image. The system automatically completes the entire pipeline including video understanding, script planning, storyboard design, first-frame generation, and video synthesis.
    * - **Product understanding and information structuring:** Identifies product category, appearance, material, color, structure, and key components, and combines merchant-provided titles, attributes, and selling points to generate usable video expression information.
    * - **Template video element replacement:** Supports replacing products or persons within the authorized scope, with configurable replacement and protection ranges to minimize changes in non-target areas.
    * - **Product subject consistency:** Maintains stable product shape, color, texture, pattern, packaging, and logo across different shots, angles, actions, and scenes.
    * - **Product fidelity:** Multi-round VL quality inspection locks product state (color, texture, structure, and print) throughout the process to prevent product feature drift.
-   * - **Strength category — Apparel:** Faithfully restores apparel details with attention to silhouette, wrinkles, drape, fabric texture, buttons, zippers, prints, and accessories, reducing clipping, deformation, texture loss, and detail artifacts.
-   * - **Selling point script and storyboard replication:** Replicates the selling point structure, video composition, shot sequence, display actions, voiceover content, and closing style of the original video.
-   * - **Commercial model matching:** Supports matching model appearance and display style based on product style, silhouette, target audience, and market requirements.
+   * - **Strength category — Apparel:** Faithfully restores apparel details, focusing on silhouette, wrinkles, drape, fabric texture, buttons, zippers, prints, and accessories to reduce clipping, deformation, texture loss, and detail anomalies.
+   * - **Selling point script and storyboard replication:** Replicates the selling point planning, video structure, shot sequence, presentation actions, voiceover content, and closing style of the original video.
+   * - **Commercial model adaptation:** Supports matching model appearance and presentation style based on product style, silhouette, target audience, and market demand.
    * - **Quality verification and result feedback:** Performs multi-dimensional checks on product subject, person, apparel, text, frame completeness, audio, and overall usability, and outputs result information for manual review.
    * 
    * @param request - EcomVideoRecreationRequest
@@ -792,12 +792,12 @@ export default class Client extends OpenApi {
    * ## Common scenarios
    * - **Multi-platform content distribution**: Automatically generates content in multiple sizes to meet the different image size requirements of various platforms and scenarios.
    *     
-   * -   **Content placement**: Automatically adjusts sizes for different ad slots across platforms, highlights the main subject, reduces whitespace, and emphasizes product features.
+   * - **Content placement**: Automatically adjusts sizes for different ad slots across platforms, highlights the main subject, reduces whitespace, and emphasizes product features.
    * ## Features
    * *   Automatically identifies the main subject area of an image for precise cropping.
    *     
    * *   Supports custom cropping dimensions to adapt to different platforms and devices.
-   * ## Effect comparison
+   * ## Comparison
    * | **Original image** | **Cropped to 1000×1000** | **Cropped to 3000×2000** |
    * | --- | --- | --- |
    * | ![done-image-5e6abdf1-3c64-48db-9301-a5a9db1f8cb1.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/eYVOL5jBbQ7QJlpz/img/b356e8a7-cc18-41f7-8da5-dd25f48c6338.png) | ![a715a30a-b594-40db-9f7a-d620add9081c.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/eYVOL5jBbQ7QJlpz/img/969e0fb6-435c-47f9-aeb6-1624b5a43f3c.png) | ![1e6569f3-a494-4e7c-94c8-439748992deb.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/eYVOL5jBbQ7QJlpz/img/cd6bbde6-e923-4fd1-b252-e5f299377fb8.png) |
@@ -849,12 +849,12 @@ export default class Client extends OpenApi {
    * ## Common scenarios
    * - **Multi-platform content distribution**: Automatically generates content in multiple sizes to meet the different image size requirements of various platforms and scenarios.
    *     
-   * -   **Content placement**: Automatically adjusts sizes for different ad slots across platforms, highlights the main subject, reduces whitespace, and emphasizes product features.
+   * - **Content placement**: Automatically adjusts sizes for different ad slots across platforms, highlights the main subject, reduces whitespace, and emphasizes product features.
    * ## Features
    * *   Automatically identifies the main subject area of an image for precise cropping.
    *     
    * *   Supports custom cropping dimensions to adapt to different platforms and devices.
-   * ## Effect comparison
+   * ## Comparison
    * | **Original image** | **Cropped to 1000×1000** | **Cropped to 3000×2000** |
    * | --- | --- | --- |
    * | ![done-image-5e6abdf1-3c64-48db-9301-a5a9db1f8cb1.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/eYVOL5jBbQ7QJlpz/img/b356e8a7-cc18-41f7-8da5-dd25f48c6338.png) | ![a715a30a-b594-40db-9f7a-d620add9081c.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/eYVOL5jBbQ7QJlpz/img/969e0fb6-435c-47f9-aeb6-1624b5a43f3c.png) | ![1e6569f3-a494-4e7c-94c8-439748992deb.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/eYVOL5jBbQ7QJlpz/img/cd6bbde6-e923-4fd1-b252-e5f299377fb8.png) |
@@ -875,17 +875,17 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Product Introduction
    * The intelligent image matting product automatically identifies the salient subject in an image, separates the subject from the background, and returns the subject image with the background removed. This product also provides multiple background options and custom size selections to optimize product display. (Synchronous)
-   * ## Common scenarios
-   * *   **Secondary editing of materials**: After separating the image subject from the background, users can further edit the image.
+   * ## Scenarios
+   * *   **Secondary editing of materials**: After separating the image subject from the background, you can further edit the image.
    *     
-   * *   **Improved material processing efficiency**: Quickly extracts the subject from various material images for easy background replacement, improving the production efficiency of advertising visuals and marketing posters.
-   * ## Functions and features.
+   * *   **Improved material processing efficiency**: Quickly extract the subject from various material images for easy background replacement, improving the production efficiency of advertising visuals and marketing posters.
+   * ## Features.
    * #### 1. One-click precise subject recognition
    * *   **AI automatic recognition**: Based on deep learning models, intelligently distinguishes foreground subjects (portraits, products, objects, etc.) from backgrounds without manual tracing.
    *     
-   * *   **Multi-scenario adaptation**: Supports precise segmentation in complex scenarios (such as hair strands, transparent objects, and fur edges) with accuracy exceeding 95%.
+   * *   **Multi-scenario adaptation**: Supports precise segmentation in complex scenarios (such as hair strands, transparent objects, and fur edges) with an accuracy rate exceeding 95%.
    * #### 2. Intelligent edge optimization
-   * *   **Detail-level processing**: Performs automatic optimization of edge aliasing and semi-transparent areas (such as smoke and glass), preserving natural transition effects.
+   * *   **Detail-level processing**: Performs automatic optimization on edge aliasing and semi-transparent areas (such as smoke and glass) to preserve natural transition effects.
    * #### 3. Multi-format output and background operations
    * *   **Transparent background export**: Directly generates PNG images with transparent backgrounds and white backgrounds, suitable for e-commerce, design, and other scenarios.
    *     
@@ -947,17 +947,17 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Product Introduction
    * The intelligent image matting product automatically identifies the salient subject in an image, separates the subject from the background, and returns the subject image with the background removed. This product also provides multiple background options and custom size selections to optimize product display. (Synchronous)
-   * ## Common scenarios
-   * *   **Secondary editing of materials**: After separating the image subject from the background, users can further edit the image.
+   * ## Scenarios
+   * *   **Secondary editing of materials**: After separating the image subject from the background, you can further edit the image.
    *     
-   * *   **Improved material processing efficiency**: Quickly extracts the subject from various material images for easy background replacement, improving the production efficiency of advertising visuals and marketing posters.
-   * ## Functions and features.
+   * *   **Improved material processing efficiency**: Quickly extract the subject from various material images for easy background replacement, improving the production efficiency of advertising visuals and marketing posters.
+   * ## Features.
    * #### 1. One-click precise subject recognition
    * *   **AI automatic recognition**: Based on deep learning models, intelligently distinguishes foreground subjects (portraits, products, objects, etc.) from backgrounds without manual tracing.
    *     
-   * *   **Multi-scenario adaptation**: Supports precise segmentation in complex scenarios (such as hair strands, transparent objects, and fur edges) with accuracy exceeding 95%.
+   * *   **Multi-scenario adaptation**: Supports precise segmentation in complex scenarios (such as hair strands, transparent objects, and fur edges) with an accuracy rate exceeding 95%.
    * #### 2. Intelligent edge optimization
-   * *   **Detail-level processing**: Performs automatic optimization of edge aliasing and semi-transparent areas (such as smoke and glass), preserving natural transition effects.
+   * *   **Detail-level processing**: Performs automatic optimization on edge aliasing and semi-transparent areas (such as smoke and glass) to preserve natural transition effects.
    * #### 3. Multi-format output and background operations
    * *   **Transparent background export**: Directly generates PNG images with transparent backgrounds and white backgrounds, suitable for e-commerce, design, and other scenarios.
    *     
@@ -978,38 +978,38 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies intelligent elements in e-commerce images.
+   * Identifies intelligent elements in images.
    * 
    * @remarks
    * ## Product Introduction
-   * The Intelligent Element Recognition API is designed specifically for identifying specific elements in e-commerce images. It can deeply analyze image details, helping users quickly identify elements such as text, logos, watermarks, and text-containing color blocks in both the subject and background of images. This greatly improves the efficiency and accuracy of image screening. (Synchronous)
+   * The Intelligent Element Recognition API is designed specifically for identifying specific elements in e-commerce images. It can deeply analyze image details and help users quickly identify elements such as text, logos, watermarks, and text-containing color blocks in both the subject and background of images. This greatly improves the efficiency and accuracy of image screening. (Synchronous)
    * ## Scenarios
    * **1. Intelligent image screening and optimization:**
-   * Merchants and platforms can use the Intelligent Element Recognition API for image screening to automatically identify images containing specific elements (such as watermarks and logos). After screening, you can call the Intelligent Removal API to optimize these images, improve image quality, and shorten the product release cycle.
+   * Merchants and platforms can use the Intelligent Element Recognition API for image screening to automatically identify images that contain specific elements such as watermarks and logos. After screening, you can call the Intelligent Removal API to optimize these images, improve image quality, and shorten the product release cycle.
    * **2. Automated image processing and efficiency improvement:**
-   * With the Intelligent Element Recognition API, merchants and platforms can automate the image processing workflow by automatically identifying and marking image elements that need optimization. This process reduces manual intervention and improves image processing efficiency.
+   * By using the Intelligent Element Recognition API, merchants and platforms can automate the image processing workflow to automatically identify and mark image elements that need optimization. This process reduces manual intervention and improves image processing efficiency.
    * ## Features
-   * **1. Definitions of image subject, image background, text, logo, watermark, and text-containing color block: For details, refer to the related examples in the removal documentation (reserved text link)**
-   * *   Image subject: The core product area in the image
+   * **1. Definitions of image subject, image background, text, logo, watermark, and text-containing color block: For details, see the related examples in the removal documentation (reserved text link)**
+   * *   Image subject: The core product area in the image.
    *     
-   * *   Image background: The remaining part of the image other than the product subject
+   * *   Image background: The remaining part of the image other than the product subject.
    *     
-   * *   Text: Horizontal/vertical/diagonal English/Chinese text
+   * *   Text: Horizontal, vertical, or diagonal English or Chinese text.
    *     
-   * *   Logo: An emblem or trademark
+   * *   Logo: An emblem or trademark.
    *     
-   * *   Watermark: Monochrome transparent text, emblems, images, URLs, or store names
+   * *   Watermark: Monochrome transparent text, emblems, images, URLs, or store names.
    *     
-   * *   Text-containing color block: A color block containing text outside the subject area
+   * *   Text-containing color block: A color block outside the subject that contains text.
    *     
    * **2. The main features of the Intelligent Element Recognition API include:**
-   * *   Element recognition: Identifies whether text, logos, watermarks, and text-containing color blocks exist in the image subject and background.
+   * *   Element recognition: Identifies whether elements such as text, logos, watermarks, and text-containing color blocks exist in the image subject and background.
    *     
-   * *   Workflow coordination: Used in combination with the Intelligent Removal API. First, the Intelligent Element Recognition API identifies elements that need to be removed, and then the Intelligent Removal API effectively removes them, ensuring the accuracy and efficiency of image processing.
+   * *   Workflow coordination: Used in combination with the Intelligent Removal API. First, use the Intelligent Element Recognition API to identify elements that need to be removed, and then use the Intelligent Removal API to effectively remove them, ensuring the accuracy and efficiency of image processing.
    * ## Technical advantages
-   * *   Synchronous batch processing: As a synchronous API, the Intelligent Element Recognition API can process large volumes of images while maintaining fast response times, adapting to business needs of different scales.
+   * *   Synchronous batch processing: As a synchronous API, the Intelligent Element Recognition API can process a large number of images while maintaining fast response times, adapting to business requirements of different scales.
    *     
-   * *   Flexibility: Users can select the element types to identify as needed, including elements in both subject and non-subject areas such as watermarks, logos, and text, meeting personalized recognition requirements.
+   * *   Flexibility: Users can select the types of elements to identify as needed, including elements in the subject and non-subject areas such as watermarks, logos, and text, to meet personalized recognition requirements.
    * ## Effect comparison
    * | **Original image** | **Recognition result** |
    * | --- | --- |
@@ -1115,38 +1115,38 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies intelligent elements in e-commerce images.
+   * Identifies intelligent elements in images.
    * 
    * @remarks
    * ## Product Introduction
-   * The Intelligent Element Recognition API is designed specifically for identifying specific elements in e-commerce images. It can deeply analyze image details, helping users quickly identify elements such as text, logos, watermarks, and text-containing color blocks in both the subject and background of images. This greatly improves the efficiency and accuracy of image screening. (Synchronous)
+   * The Intelligent Element Recognition API is designed specifically for identifying specific elements in e-commerce images. It can deeply analyze image details and help users quickly identify elements such as text, logos, watermarks, and text-containing color blocks in both the subject and background of images. This greatly improves the efficiency and accuracy of image screening. (Synchronous)
    * ## Scenarios
    * **1. Intelligent image screening and optimization:**
-   * Merchants and platforms can use the Intelligent Element Recognition API for image screening to automatically identify images containing specific elements (such as watermarks and logos). After screening, you can call the Intelligent Removal API to optimize these images, improve image quality, and shorten the product release cycle.
+   * Merchants and platforms can use the Intelligent Element Recognition API for image screening to automatically identify images that contain specific elements such as watermarks and logos. After screening, you can call the Intelligent Removal API to optimize these images, improve image quality, and shorten the product release cycle.
    * **2. Automated image processing and efficiency improvement:**
-   * With the Intelligent Element Recognition API, merchants and platforms can automate the image processing workflow by automatically identifying and marking image elements that need optimization. This process reduces manual intervention and improves image processing efficiency.
+   * By using the Intelligent Element Recognition API, merchants and platforms can automate the image processing workflow to automatically identify and mark image elements that need optimization. This process reduces manual intervention and improves image processing efficiency.
    * ## Features
-   * **1. Definitions of image subject, image background, text, logo, watermark, and text-containing color block: For details, refer to the related examples in the removal documentation (reserved text link)**
-   * *   Image subject: The core product area in the image
+   * **1. Definitions of image subject, image background, text, logo, watermark, and text-containing color block: For details, see the related examples in the removal documentation (reserved text link)**
+   * *   Image subject: The core product area in the image.
    *     
-   * *   Image background: The remaining part of the image other than the product subject
+   * *   Image background: The remaining part of the image other than the product subject.
    *     
-   * *   Text: Horizontal/vertical/diagonal English/Chinese text
+   * *   Text: Horizontal, vertical, or diagonal English or Chinese text.
    *     
-   * *   Logo: An emblem or trademark
+   * *   Logo: An emblem or trademark.
    *     
-   * *   Watermark: Monochrome transparent text, emblems, images, URLs, or store names
+   * *   Watermark: Monochrome transparent text, emblems, images, URLs, or store names.
    *     
-   * *   Text-containing color block: A color block containing text outside the subject area
+   * *   Text-containing color block: A color block outside the subject that contains text.
    *     
    * **2. The main features of the Intelligent Element Recognition API include:**
-   * *   Element recognition: Identifies whether text, logos, watermarks, and text-containing color blocks exist in the image subject and background.
+   * *   Element recognition: Identifies whether elements such as text, logos, watermarks, and text-containing color blocks exist in the image subject and background.
    *     
-   * *   Workflow coordination: Used in combination with the Intelligent Removal API. First, the Intelligent Element Recognition API identifies elements that need to be removed, and then the Intelligent Removal API effectively removes them, ensuring the accuracy and efficiency of image processing.
+   * *   Workflow coordination: Used in combination with the Intelligent Removal API. First, use the Intelligent Element Recognition API to identify elements that need to be removed, and then use the Intelligent Removal API to effectively remove them, ensuring the accuracy and efficiency of image processing.
    * ## Technical advantages
-   * *   Synchronous batch processing: As a synchronous API, the Intelligent Element Recognition API can process large volumes of images while maintaining fast response times, adapting to business needs of different scales.
+   * *   Synchronous batch processing: As a synchronous API, the Intelligent Element Recognition API can process a large number of images while maintaining fast response times, adapting to business requirements of different scales.
    *     
-   * *   Flexibility: Users can select the element types to identify as needed, including elements in both subject and non-subject areas such as watermarks, logos, and text, meeting personalized recognition requirements.
+   * *   Flexibility: Users can select the types of elements to identify as needed, including elements in the subject and non-subject areas such as watermarks, logos, and text, to meet personalized recognition requirements.
    * ## Effect comparison
    * | **Original image** | **Recognition result** |
    * | --- | --- |
@@ -1194,31 +1194,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Intelligently identifies and removes text, specific names, transparent text blocks, and watermarks from e-commerce images, supports specifying objects to remove as needed, enables efficient and precise batch processing of images, and simplifies image editing workflows (synchronous/asynchronous).
+   * Intelligently erases unwanted elements from e-commerce images, automatically identifying and removing text, specific names, transparent text blocks, and watermarks. Supports specifying objects to erase as needed, enabling efficient and precise batch processing of images to simplify image editing workflows (synchronous/asynchronous).
    * 
    * @remarks
-   * ## Product introduction
-   * The intelligent image removal product is designed specifically for e-commerce images. It automatically identifies and removes text, specific names, transparent text blocks, and watermarks from e-commerce images. You can specify objects to remove as needed, enabling efficient and precise batch processing of images and simplifying image editing workflows. (Synchronous/Asynchronous)
+   * ## Product Introduction
+   * The Intelligent Image Eraser product is designed specifically for e-commerce images. It automatically identifies and removes text, specific names, transparent text blocks, and watermarks from e-commerce images. You can specify objects to erase as needed, enabling efficient and precise batch processing of images to simplify image editing workflows. (Synchronous/Asynchronous)
    * ## Common scenarios
    * *   **Efficient e-commerce image processing:**
    *     
    * Remove irrelevant visual elements to provide clearer, more focused product displays and enhance the shopping experience.
    * *   **Multi-platform product information synchronization:**
    *     
-   * When merchants list products across different e-commerce platforms, they can quickly remove specific text and watermarks to comply with image specifications of different platforms.
-   * ## Features
-   * 1.  First, clarify the definitions of image subject and image background. When specifying objects to remove, you can choose whether the removal scope is the image subject or the image background area. Both API and editor access methods are supported to meet different types of requirements.
+   * When listing products across different e-commerce platforms, quickly remove specific text and watermarks to comply with image specifications of different platforms.
+   * ## Functions and features
+   * 1.  First, understand the definitions of image subject and image background. When specifying objects to erase, you can choose whether the erasure scope is the image subject or the image background area. Both API and editor access methods are supported to meet different types of requirements.
    *     
    *     1.  Image subject: the core product area in the image.
    *         
    *     2.  Image background: the remaining part of the image other than the product subject.
    *         
-   * 2.  Second, the following four types of objects can be removed: text, specific names, transparent text blocks, and watermarks. Refer to the following examples to clarify your requirements and perform targeted operations:
+   * 2.  The following four types of objects can be erased: text, specific names, transparent text blocks, and watermarks. Refer to the following examples to clarify your requirements and perform targeted operations:
    * ## Effect comparison
-   * | **Original image** | **Image after removal** |
+   * | **Original image** | **Image after erasure** |
    * | --- | --- |
-   * | ![Main image 1 - Leopard print large capacity millennium crossbody canvas bag.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65AyryVZyOke/img/4bd2c812-ed3c-45da-8a86-ebd29102f4b1.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/eff0eb1b-36df-431d-a010-3bb3b7348ff9.png) |
-   * | ![Main image 1 - Short round-tip French false nails with handle.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/c44ac17b-3fa4-4a6f-b411-90f1062b183b.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/af779684-4aa5-49b0-8668-34ab8bd4bcc1.png) |
+   * | ![主图1-豹纹大容量千禧单肩斜跨帆布包.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65AyryVZyOke/img/4bd2c812-ed3c-45da-8a86-ebd29102f4b1.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/eff0eb1b-36df-431d-a010-3bb3b7348ff9.png) |
+   * | ![主图1-带柄超短半贴圆头法式假指甲.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/c44ac17b-3fa4-4a6f-b411-90f1062b183b.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/af779684-4aa5-49b0-8668-34ab8bd4bcc1.png) |
    * 
    * @param request - ImageRemovalProRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1253,31 +1253,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Intelligently identifies and removes text, specific names, transparent text blocks, and watermarks from e-commerce images, supports specifying objects to remove as needed, enables efficient and precise batch processing of images, and simplifies image editing workflows (synchronous/asynchronous).
+   * Intelligently erases unwanted elements from e-commerce images, automatically identifying and removing text, specific names, transparent text blocks, and watermarks. Supports specifying objects to erase as needed, enabling efficient and precise batch processing of images to simplify image editing workflows (synchronous/asynchronous).
    * 
    * @remarks
-   * ## Product introduction
-   * The intelligent image removal product is designed specifically for e-commerce images. It automatically identifies and removes text, specific names, transparent text blocks, and watermarks from e-commerce images. You can specify objects to remove as needed, enabling efficient and precise batch processing of images and simplifying image editing workflows. (Synchronous/Asynchronous)
+   * ## Product Introduction
+   * The Intelligent Image Eraser product is designed specifically for e-commerce images. It automatically identifies and removes text, specific names, transparent text blocks, and watermarks from e-commerce images. You can specify objects to erase as needed, enabling efficient and precise batch processing of images to simplify image editing workflows. (Synchronous/Asynchronous)
    * ## Common scenarios
    * *   **Efficient e-commerce image processing:**
    *     
    * Remove irrelevant visual elements to provide clearer, more focused product displays and enhance the shopping experience.
    * *   **Multi-platform product information synchronization:**
    *     
-   * When merchants list products across different e-commerce platforms, they can quickly remove specific text and watermarks to comply with image specifications of different platforms.
-   * ## Features
-   * 1.  First, clarify the definitions of image subject and image background. When specifying objects to remove, you can choose whether the removal scope is the image subject or the image background area. Both API and editor access methods are supported to meet different types of requirements.
+   * When listing products across different e-commerce platforms, quickly remove specific text and watermarks to comply with image specifications of different platforms.
+   * ## Functions and features
+   * 1.  First, understand the definitions of image subject and image background. When specifying objects to erase, you can choose whether the erasure scope is the image subject or the image background area. Both API and editor access methods are supported to meet different types of requirements.
    *     
    *     1.  Image subject: the core product area in the image.
    *         
    *     2.  Image background: the remaining part of the image other than the product subject.
    *         
-   * 2.  Second, the following four types of objects can be removed: text, specific names, transparent text blocks, and watermarks. Refer to the following examples to clarify your requirements and perform targeted operations:
+   * 2.  The following four types of objects can be erased: text, specific names, transparent text blocks, and watermarks. Refer to the following examples to clarify your requirements and perform targeted operations:
    * ## Effect comparison
-   * | **Original image** | **Image after removal** |
+   * | **Original image** | **Image after erasure** |
    * | --- | --- |
-   * | ![Main image 1 - Leopard print large capacity millennium crossbody canvas bag.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65AyryVZyOke/img/4bd2c812-ed3c-45da-8a86-ebd29102f4b1.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/eff0eb1b-36df-431d-a010-3bb3b7348ff9.png) |
-   * | ![Main image 1 - Short round-tip French false nails with handle.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/c44ac17b-3fa4-4a6f-b411-90f1062b183b.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/af779684-4aa5-49b0-8668-34ab8bd4bcc1.png) |
+   * | ![主图1-豹纹大容量千禧单肩斜跨帆布包.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65AyryVZyOke/img/4bd2c812-ed3c-45da-8a86-ebd29102f4b1.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/eff0eb1b-36df-431d-a010-3bb3b7348ff9.png) |
+   * | ![主图1-带柄超短半贴圆头法式假指甲.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/c44ac17b-3fa4-4a6f-b411-90f1062b183b.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/5VLqXLbGJZd3VqX1/img/af779684-4aa5-49b0-8668-34ab8bd4bcc1.png) |
    * 
    * @param request - ImageRemovalProRequest
    * @returns ImageRemovalProResponse
@@ -1288,87 +1288,87 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Intelligently removes unwanted elements from e-commerce images, automatically detecting and erasing text, specific names, transparent text blocks, and visual clutter. Supports specifying objects to remove on demand, enabling efficient and precise batch processing of large volumes of images to simplify image editing workflows. (Synchronous)
+   * Intelligently removes unwanted elements from e-commerce images. This product automatically identifies and removes text, specific names, transparent text blocks, and image blemishes from e-commerce images. You can specify objects to remove as needed, enabling efficient and precise batch processing of large volumes of images and simplifying image editing workflows. (Synchronous)
    * 
    * @remarks
    * # Product Introduction
-   * The intelligent image removal product is designed specifically for e-commerce images. It automatically detects and removes text, specific names, transparent text blocks, and visual clutter from e-commerce images. You can specify objects to remove on demand, enabling efficient and precise batch processing of large volumes of images to simplify image editing workflows. (Synchronous)
+   * The intelligent image removal product is designed specifically for e-commerce images. It automatically identifies and removes text, specific names, transparent text blocks, and image blemishes from e-commerce images. You can specify objects to remove as needed, enabling efficient and precise batch processing of large volumes of images and simplifying image editing workflows. (Synchronous)
    * # Common scenarios
    * *   **Efficient e-commerce image processing:**
    *     
    * Remove irrelevant visual elements to provide clearer, more focused product displays and enhance the shopping experience.
    * *   **Multi-platform product information synchronization:**
    *     
-   * When listing products across different e-commerce platforms, quickly remove specific text and visual clutter to comply with image specifications of different platforms.
+   * When listing products across different e-commerce platforms, quickly remove specific text and image blemishes to comply with the image standards of each platform.
    * *   **Marketing material preparation:**
    *     
    * Easily remove existing promotional information and quickly update images with the latest campaign details.
-   * > Note: Merchants or platforms can batch-remove impurities from images to optimize image quality. We recommend using this in combination with the "Intelligent Recognition API" (coming soon). First, filter out images containing text, specific names, transparent text blocks, and visual clutter, then use the "Intelligent Removal API" for batch removal. The Intelligent Recognition API focuses on "recognition," while the Intelligent Removal API focuses on "removal." By calling them sequentially, you can maximize removal effectiveness and reduce false removals and false identifications.
+   * > Note: Merchants or platforms can batch-remove impurities from images to optimize image quality. Use this product together with the Intelligent Recognition API (coming soon). First, filter out images that contain text, specific names, transparent text blocks, and image blemishes, and then use the Intelligent Removal API for batch removal. The Intelligent Recognition API focuses on "recognition", while the Intelligent Removal API focuses on "removal". By calling them in sequence, you can maximize removal effectiveness and reduce false removals and false identifications.
    * # Features
-   * 1.  First, understand the definitions of image subject and image background. When specifying removal targets, you can choose whether the removal scope is the image subject or the image background area. Both API and editor access methods are supported to meet different requirements.
+   * 1.  First, understand the definitions of image subject and image background. When specifying objects to remove, you can choose whether the removal scope is the image subject or the image background area. Both API and editor access methods are supported to meet different requirements.
    *     
    *     1.  Image subject: The core product area in the image.
    *         
-   *     2.  Image background: The remaining portion of the image excluding the product subject.
+   *     2.  Image background: The remaining part of the image other than the product subject.
    *         
-   * 2.  The following three removal target options are supported:
+   * 2.  The following three types of removal targets are supported:
    *     
-   *     1.  Select by type only. Supported types include text, specific names, transparent text blocks, and visual clutter. Refer to the following examples to clarify your requirements and perform targeted operations.
+   *     1.  Select by type only. You can select text, specific names, transparent text blocks, and image blemishes. Refer to the following examples to clarify your requirements and perform targeted operations.
    *         
    *     2.  (Upgrade) Specify images to remove. You can specify multiple images at a time.
    *         
    *     3.  (Upgrade) Specify text to remove. You can specify multiple text strings at a time.
    *         
-   * Processing workflow: User submits original image URL → OCR+VLM model detects text or image positions → Determines coordinates of areas to repair → AI repairs and generates a clean image → Returns the result image URL.
+   * Processing flow: User submits the original image URL → OCR + VLM model detects text or image positions → Determines the coordinates of areas to repair → AI repairs and generates a clean image → Returns the result image URL.
    * # 4. Effect comparison
    * | **Removable objects in images** | **Original image** | **Image after removal** |
    * | --- | --- | --- |
-   * | Text | *   Involving the image subject area
+   * | Text | *   Involves the image subject area
    *     
    *     ![done-image-4a2a96c2-9ac6-4b35-b76b-a6eac303740f (1).png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/d72a7982-e761-4b45-af1e-f8f90b3f1fc3.png)
    *     
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
-   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/47428227-7523-432e-89ce-eba263e5ebda.png) | *   Involving the image subject area
+   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/47428227-7523-432e-89ce-eba263e5ebda.png) | *   Involves the image subject area
    *     
    * ![359ddfcf-a2b1-4e59-ae54-5e76705d0adf.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/d69e38e4-5657-471d-aff6-1e6a4c269455.png)
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
    * ![c35611f8-dab4-4df2-8942-36d7375ed55f.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/365024b4-4863-46d4-9013-bdd9408ea6b9.png) |
-   * | Specific names | *   Involving the image subject area
+   * | Specific names | *   Involves the image subject area
    *     
    *     ![done-image-aca80515-aca6-4f4e-9429-47c5dd6b811f.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/ac35f8bc-d527-49de-8fba-cdeb71e3b058.png)
    *     
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
-   * ![done-image-29a89f03-964a-455e-968c-7c8d5282ebbb.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/2db445c8-6bdd-424e-b6a7-2ddb46e6786d.png) | *   Involving the image subject area
+   * ![done-image-29a89f03-964a-455e-968c-7c8d5282ebbb.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/2db445c8-6bdd-424e-b6a7-2ddb46e6786d.png) | *   Involves the image subject area
    *     
    * ![fd2db0ab-1b89-4085-b91d-99f40a1aea77.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/36ace8aa-3b3b-4b1c-81e6-b691104262f0.png)
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
    * ![8726b148-ab74-4409-a6c1-4c50fcac3887.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/a7653a0c-d14e-4f97-9c2f-83327b43203f.png) |
-   * | Transparent text blocks | *   Involving the image subject area
+   * | Transparent text blocks | *   Involves the image subject area
    *     
    *     ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/0f6068f0-168a-47bd-9fcd-c38b9e520506.png)
    *     
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
-   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/c9ac2a4c-0aa3-40ee-8855-62a262364dbe.png) | *   Involving the image subject area
+   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/c9ac2a4c-0aa3-40ee-8855-62a262364dbe.png) | *   Involves the image subject area
    *     
    * ![8e84a5d6-da8c-4e3e-a705-71a66d0c78a2.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/06ac537f-875a-48e2-8934-a84a79dfd8ff.jpeg)
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
    * ![b05173e7-2ae5-494e-99d2-7111fc966fd5.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/05759aef-1720-41cd-8800-f7d0801e4d95.jpeg) |
-   * | Visual clutter | *   Involving the image subject area
+   * | Image blemishes | *   Involves the image subject area
    *     
    *     ![2.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/bf1442f8-a9fa-40d3-bcb0-7a8a41b49b5d.jpeg)
    *     
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
-   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/0d68612e-845d-466f-8a4a-b85facea095b.png) | *   Involving the image subject area
+   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/0d68612e-845d-466f-8a4a-b85facea095b.png) | *   Involves the image subject area
    *     
    * ![b6ef803f-743f-4e61-b901-d1f68167186f.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/621daadc-454f-41b4-9ac4-752d457034b6.jpeg)
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
    * ![dee0c7cf-8b0d-4d6d-9677-d5f2e6099834.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/caa6994b-2f97-484d-a807-671a0dc75947.jpeg) |
    * | Specified image element removal (supports multiple image links) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/9297951f-53c1-4476-8c69-5c31df3fce21.png) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/ef3f35aa-609f-454c-bba0-dd1710c83945.png) |
@@ -1445,87 +1445,87 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Intelligently removes unwanted elements from e-commerce images, automatically detecting and erasing text, specific names, transparent text blocks, and visual clutter. Supports specifying objects to remove on demand, enabling efficient and precise batch processing of large volumes of images to simplify image editing workflows. (Synchronous)
+   * Intelligently removes unwanted elements from e-commerce images. This product automatically identifies and removes text, specific names, transparent text blocks, and image blemishes from e-commerce images. You can specify objects to remove as needed, enabling efficient and precise batch processing of large volumes of images and simplifying image editing workflows. (Synchronous)
    * 
    * @remarks
    * # Product Introduction
-   * The intelligent image removal product is designed specifically for e-commerce images. It automatically detects and removes text, specific names, transparent text blocks, and visual clutter from e-commerce images. You can specify objects to remove on demand, enabling efficient and precise batch processing of large volumes of images to simplify image editing workflows. (Synchronous)
+   * The intelligent image removal product is designed specifically for e-commerce images. It automatically identifies and removes text, specific names, transparent text blocks, and image blemishes from e-commerce images. You can specify objects to remove as needed, enabling efficient and precise batch processing of large volumes of images and simplifying image editing workflows. (Synchronous)
    * # Common scenarios
    * *   **Efficient e-commerce image processing:**
    *     
    * Remove irrelevant visual elements to provide clearer, more focused product displays and enhance the shopping experience.
    * *   **Multi-platform product information synchronization:**
    *     
-   * When listing products across different e-commerce platforms, quickly remove specific text and visual clutter to comply with image specifications of different platforms.
+   * When listing products across different e-commerce platforms, quickly remove specific text and image blemishes to comply with the image standards of each platform.
    * *   **Marketing material preparation:**
    *     
    * Easily remove existing promotional information and quickly update images with the latest campaign details.
-   * > Note: Merchants or platforms can batch-remove impurities from images to optimize image quality. We recommend using this in combination with the "Intelligent Recognition API" (coming soon). First, filter out images containing text, specific names, transparent text blocks, and visual clutter, then use the "Intelligent Removal API" for batch removal. The Intelligent Recognition API focuses on "recognition," while the Intelligent Removal API focuses on "removal." By calling them sequentially, you can maximize removal effectiveness and reduce false removals and false identifications.
+   * > Note: Merchants or platforms can batch-remove impurities from images to optimize image quality. Use this product together with the Intelligent Recognition API (coming soon). First, filter out images that contain text, specific names, transparent text blocks, and image blemishes, and then use the Intelligent Removal API for batch removal. The Intelligent Recognition API focuses on "recognition", while the Intelligent Removal API focuses on "removal". By calling them in sequence, you can maximize removal effectiveness and reduce false removals and false identifications.
    * # Features
-   * 1.  First, understand the definitions of image subject and image background. When specifying removal targets, you can choose whether the removal scope is the image subject or the image background area. Both API and editor access methods are supported to meet different requirements.
+   * 1.  First, understand the definitions of image subject and image background. When specifying objects to remove, you can choose whether the removal scope is the image subject or the image background area. Both API and editor access methods are supported to meet different requirements.
    *     
    *     1.  Image subject: The core product area in the image.
    *         
-   *     2.  Image background: The remaining portion of the image excluding the product subject.
+   *     2.  Image background: The remaining part of the image other than the product subject.
    *         
-   * 2.  The following three removal target options are supported:
+   * 2.  The following three types of removal targets are supported:
    *     
-   *     1.  Select by type only. Supported types include text, specific names, transparent text blocks, and visual clutter. Refer to the following examples to clarify your requirements and perform targeted operations.
+   *     1.  Select by type only. You can select text, specific names, transparent text blocks, and image blemishes. Refer to the following examples to clarify your requirements and perform targeted operations.
    *         
    *     2.  (Upgrade) Specify images to remove. You can specify multiple images at a time.
    *         
    *     3.  (Upgrade) Specify text to remove. You can specify multiple text strings at a time.
    *         
-   * Processing workflow: User submits original image URL → OCR+VLM model detects text or image positions → Determines coordinates of areas to repair → AI repairs and generates a clean image → Returns the result image URL.
+   * Processing flow: User submits the original image URL → OCR + VLM model detects text or image positions → Determines the coordinates of areas to repair → AI repairs and generates a clean image → Returns the result image URL.
    * # 4. Effect comparison
    * | **Removable objects in images** | **Original image** | **Image after removal** |
    * | --- | --- | --- |
-   * | Text | *   Involving the image subject area
+   * | Text | *   Involves the image subject area
    *     
    *     ![done-image-4a2a96c2-9ac6-4b35-b76b-a6eac303740f (1).png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/d72a7982-e761-4b45-af1e-f8f90b3f1fc3.png)
    *     
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
-   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/47428227-7523-432e-89ce-eba263e5ebda.png) | *   Involving the image subject area
+   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/47428227-7523-432e-89ce-eba263e5ebda.png) | *   Involves the image subject area
    *     
    * ![359ddfcf-a2b1-4e59-ae54-5e76705d0adf.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/d69e38e4-5657-471d-aff6-1e6a4c269455.png)
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
    * ![c35611f8-dab4-4df2-8942-36d7375ed55f.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/365024b4-4863-46d4-9013-bdd9408ea6b9.png) |
-   * | Specific names | *   Involving the image subject area
+   * | Specific names | *   Involves the image subject area
    *     
    *     ![done-image-aca80515-aca6-4f4e-9429-47c5dd6b811f.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/ac35f8bc-d527-49de-8fba-cdeb71e3b058.png)
    *     
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
-   * ![done-image-29a89f03-964a-455e-968c-7c8d5282ebbb.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/2db445c8-6bdd-424e-b6a7-2ddb46e6786d.png) | *   Involving the image subject area
+   * ![done-image-29a89f03-964a-455e-968c-7c8d5282ebbb.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/2db445c8-6bdd-424e-b6a7-2ddb46e6786d.png) | *   Involves the image subject area
    *     
    * ![fd2db0ab-1b89-4085-b91d-99f40a1aea77.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/36ace8aa-3b3b-4b1c-81e6-b691104262f0.png)
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
    * ![8726b148-ab74-4409-a6c1-4c50fcac3887.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/a7653a0c-d14e-4f97-9c2f-83327b43203f.png) |
-   * | Transparent text blocks | *   Involving the image subject area
+   * | Transparent text blocks | *   Involves the image subject area
    *     
    *     ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/0f6068f0-168a-47bd-9fcd-c38b9e520506.png)
    *     
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
-   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/c9ac2a4c-0aa3-40ee-8855-62a262364dbe.png) | *   Involving the image subject area
+   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/c9ac2a4c-0aa3-40ee-8855-62a262364dbe.png) | *   Involves the image subject area
    *     
    * ![8e84a5d6-da8c-4e3e-a705-71a66d0c78a2.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/06ac537f-875a-48e2-8934-a84a79dfd8ff.jpeg)
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
    * ![b05173e7-2ae5-494e-99d2-7111fc966fd5.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/05759aef-1720-41cd-8800-f7d0801e4d95.jpeg) |
-   * | Visual clutter | *   Involving the image subject area
+   * | Image blemishes | *   Involves the image subject area
    *     
    *     ![2.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/bf1442f8-a9fa-40d3-bcb0-7a8a41b49b5d.jpeg)
    *     
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
-   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/0d68612e-845d-466f-8a4a-b85facea095b.png) | *   Involving the image subject area
+   * ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/0d68612e-845d-466f-8a4a-b85facea095b.png) | *   Involves the image subject area
    *     
    * ![b6ef803f-743f-4e61-b901-d1f68167186f.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/621daadc-454f-41b4-9ac4-752d457034b6.jpeg)
-   * *   Not involving the image subject area
+   * *   Does not involve the image subject area
    *     
    * ![dee0c7cf-8b0d-4d6d-9677-d5f2e6099834.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/caa6994b-2f97-484d-a807-671a0dc75947.jpeg) |
    * | Specified image element removal (supports multiple image links) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/9297951f-53c1-4476-8c69-5c31df3fce21.png) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/Mp7ld7bZAb2VAOBQ/img/ef3f35aa-609f-454c-bba0-dd1710c83945.png) |
@@ -1540,13 +1540,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates text in images using the PLUS edition, which is designed specifically for e-commerce images and adopts a Mixture of Experts (MOE) architecture. Compared to the Lite and Pro editions of image translation, this edition delivers superior translation accuracy for multiple minority languages. We recommend using it for the following 8 language directions, with more language directions to be supported in the future.
+   * The Image Translation PLUS edition is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Image Translation Lite and Pro editions. Use this edition for the following 8 language directions. More language directions will be supported in the future.
    * 
    * @remarks
    * ## Product Introduction
-   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following language pairs, with more to be supported in the future.
+   * Image Translation PLUS is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Image Translation Lite and Pro editions. We recommend using it for the following 8 language pairs, with more language pairs to be supported in the future.
    * Supported language pairs:
-   * | **No.** | **Source language** |  | **Target language** |  |
+   * | **Ordinal number** | **Source language** |  | **Target language** |  |
    * | --- | --- | --- | --- | --- |
    * |  | Language code | Language name | Language code | Language name |
    * | 1 | en | English | ar | Arabic |
@@ -1561,14 +1561,14 @@ export default class Client extends OpenApi {
    * | 10 | en | English | fr | French |
    * | 11 | en | English | de | German |
    * | 12 | en | English | pl | Polish |
-   * ## Common scenarios
+   * ## Scenarios
    * Main product images and detail images for cross-border e-commerce.
-   * ## Functions and features
-   * *   **Product body information protection**: Allows you to choose whether to translate text on the product body, helping you protect body information such as embedded product names from being translated.
+   * ## Features
+   * *   **Product body information protection**: Allows you to choose whether to translate text on the product body. This helps protect body information such as embedded product names from being translated.
    *     
-   * *   **Brand name protection**: Allows you to choose whether to translate brand names on images, helping you protect brand name information from being translated.
+   * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
    *     
-   * *   **Translation intervention support**: Allows you to customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and removal (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying a translation (ABC-DEF), or removing text (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * 
    * @param request - ImageTranslationPlusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1623,13 +1623,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates text in images using the PLUS edition, which is designed specifically for e-commerce images and adopts a Mixture of Experts (MOE) architecture. Compared to the Lite and Pro editions of image translation, this edition delivers superior translation accuracy for multiple minority languages. We recommend using it for the following 8 language directions, with more language directions to be supported in the future.
+   * The Image Translation PLUS edition is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Image Translation Lite and Pro editions. Use this edition for the following 8 language directions. More language directions will be supported in the future.
    * 
    * @remarks
    * ## Product Introduction
-   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following language pairs, with more to be supported in the future.
+   * Image Translation PLUS is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Image Translation Lite and Pro editions. We recommend using it for the following 8 language pairs, with more language pairs to be supported in the future.
    * Supported language pairs:
-   * | **No.** | **Source language** |  | **Target language** |  |
+   * | **Ordinal number** | **Source language** |  | **Target language** |  |
    * | --- | --- | --- | --- | --- |
    * |  | Language code | Language name | Language code | Language name |
    * | 1 | en | English | ar | Arabic |
@@ -1644,14 +1644,14 @@ export default class Client extends OpenApi {
    * | 10 | en | English | fr | French |
    * | 11 | en | English | de | German |
    * | 12 | en | English | pl | Polish |
-   * ## Common scenarios
+   * ## Scenarios
    * Main product images and detail images for cross-border e-commerce.
-   * ## Functions and features
-   * *   **Product body information protection**: Allows you to choose whether to translate text on the product body, helping you protect body information such as embedded product names from being translated.
+   * ## Features
+   * *   **Product body information protection**: Allows you to choose whether to translate text on the product body. This helps protect body information such as embedded product names from being translated.
    *     
-   * *   **Brand name protection**: Allows you to choose whether to translate brand names on images, helping you protect brand name information from being translated.
+   * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
    *     
-   * *   **Translation intervention support**: Allows you to customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and removal (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying a translation (ABC-DEF), or removing text (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * 
    * @param request - ImageTranslationPlusRequest
    * @returns ImageTranslationPlusResponse
@@ -1662,18 +1662,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions, including bridged translations.
+   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
    * 
    * @remarks
    * ## Product Introduction
-   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions, including bridged translations.
+   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
    * ## Scenarios
    * E-commerce product images, marketing images, and images for various other scenarios.
    * ## Features
    * - **Product subject protection**: Specify whether to translate text on the product subject. This helps protect subject information such as embedded product names from being translated.
    * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This information can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
    * - **Brand name protection**: Specify whether to translate brand names on images. This helps protect brand name information from being translated.
-   * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need a higher limit.  
+   * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet translation requirements across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need a higher limit.  
    * - **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
    * 
    * @param request - ImageTranslationProRequest
@@ -1733,18 +1733,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions, including bridged translations.
+   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
    * 
    * @remarks
    * ## Product Introduction
-   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions, including bridged translations.
+   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
    * ## Scenarios
    * E-commerce product images, marketing images, and images for various other scenarios.
    * ## Features
    * - **Product subject protection**: Specify whether to translate text on the product subject. This helps protect subject information such as embedded product names from being translated.
    * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This information can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
    * - **Brand name protection**: Specify whether to translate brand names on images. This helps protect brand name information from being translated.
-   * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need a higher limit.  
+   * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet translation requirements across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need a higher limit.  
    * - **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
    * 
    * @param request - ImageTranslationProRequest
@@ -1764,14 +1764,14 @@ export default class Client extends OpenApi {
    * # 2. Applicable scenarios
    * E-commerce product images, marketing images, and images for various other scenarios.
    * # 3. Features
-   * *   **Product subject information protection**: You can choose whether to translate text on the product subject. This helps protect subject information from being translated, avoiding translation of embedded information such as product names.
+   * *   **Product area protection**: Allows you to choose whether to translate text on the product area of an image. This helps protect product area information from being translated, avoiding translation of embedded information such as product names.
    *     
-   * *   **Brand name protection**: You can choose whether to translate brand names on images. This helps protect brand name information from being translated.
+   * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
    *     
-   * *   **Secondary editing after translation (layer information)**: You can choose whether to return layer information such as text position, font, and color. This information can be used to integrate with image editors for secondary editing of translation results. For the release progress of the editor SDK package, follow platform notifications.
+   * *   **Secondary editing after translation (layer information)**: Allows you to choose whether to return layer information such as text position, font, and color. This information can be used to integrate with image editors for secondary editing of translation results. For the availability of the editor SDK package, follow platform notifications.
    *     
-   * *   **Translation intervention support**: You can customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand term protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
-   * *   **Image editor integration support**: For more information, see [Image Translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
+   * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying translations (ABC-DEF), or removing text (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+   * *   **Image editor integration**: For more information, see [Image Translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
    * 
    * @param request - ImageTranslationStandardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1834,14 +1834,14 @@ export default class Client extends OpenApi {
    * # 2. Applicable scenarios
    * E-commerce product images, marketing images, and images for various other scenarios.
    * # 3. Features
-   * *   **Product subject information protection**: You can choose whether to translate text on the product subject. This helps protect subject information from being translated, avoiding translation of embedded information such as product names.
+   * *   **Product area protection**: Allows you to choose whether to translate text on the product area of an image. This helps protect product area information from being translated, avoiding translation of embedded information such as product names.
    *     
-   * *   **Brand name protection**: You can choose whether to translate brand names on images. This helps protect brand name information from being translated.
+   * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
    *     
-   * *   **Secondary editing after translation (layer information)**: You can choose whether to return layer information such as text position, font, and color. This information can be used to integrate with image editors for secondary editing of translation results. For the release progress of the editor SDK package, follow platform notifications.
+   * *   **Secondary editing after translation (layer information)**: Allows you to choose whether to return layer information such as text position, font, and color. This information can be used to integrate with image editors for secondary editing of translation results. For the availability of the editor SDK package, follow platform notifications.
    *     
-   * *   **Translation intervention support**: You can customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand term protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
-   * *   **Image editor integration support**: For more information, see [Image Translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
+   * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying translations (ABC-DEF), or removing text (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+   * *   **Image editor integration**: For more information, see [Image Translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
    * 
    * @param request - ImageTranslationStandardRequest
    * @returns ImageTranslationStandardResponse
@@ -1852,11 +1852,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Supports automatic language identification for 31 languages in query scenarios and 35 languages in general scenarios. Applicable to short text language identification such as search terms, titles, and conversations.
+   * Supports automatic language identification for 31 languages in query scenarios and 35 languages in general scenarios. Applicable to short text such as search terms, titles, and conversations.
    * 
    * @remarks
    * ## Product Introduction
-   * Supports automatic language identification for 31 languages in query phrase scenarios and 35 languages in general scenarios. Applicable to short text language identification such as search terms, titles, and conversations. For supported language directions, refer to the [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * Supports automatic language identification for 31 languages in query phrase scenarios and 35 languages in general scenarios. Applicable to short text such as search terms, titles, and conversations. For supported language directions, refer to the [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
    * 
    * @param request - LanguageDetectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1891,11 +1891,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Supports automatic language identification for 31 languages in query scenarios and 35 languages in general scenarios. Applicable to short text language identification such as search terms, titles, and conversations.
+   * Supports automatic language identification for 31 languages in query scenarios and 35 languages in general scenarios. Applicable to short text such as search terms, titles, and conversations.
    * 
    * @remarks
    * ## Product Introduction
-   * Supports automatic language identification for 31 languages in query phrase scenarios and 35 languages in general scenarios. Applicable to short text language identification such as search terms, titles, and conversations. For supported language directions, refer to the [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * Supports automatic language identification for 31 languages in query phrase scenarios and 35 languages in general scenarios. Applicable to short text such as search terms, titles, and conversations. For supported language directions, refer to the [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
    * 
    * @param request - LanguageDetectRequest
    * @returns LanguageDetectResponse
@@ -1906,29 +1906,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects the compliance of marketing material displays in retail stores based on a multimodal large language model (MLLM). This API targets in-store marketing material inspection scenarios for offline retail and channel stores. It performs natural-language-level compliance checks on standard materials such as functional display cards, posters, and door-shaped display stands, as well as long-tail materials such as light cloth banners, KT boards, floor stickers, and light boxes in store photos, according to inspection rules. It outputs structured conclusions and Chinese-language evidence descriptions that can be directly integrated with business systems. This is a **synchronous** call that returns results in a single request.
+   * Material display detection is an intelligent compliance detection capability for in-store marketing materials built on a Multimodal Large Language Model (MLLM), designed for marketing material inspection scenarios in offline retail and channel stores. For standard materials such as functional card stands, posters, and door-shaped display stands, as well as long-tail materials such as light cloth banners, KT boards, floor stickers, and light boxes captured in store photos, the service performs natural-language-level compliance checks based on inspection rules and outputs structured conclusions and evidence descriptions that can be directly integrated with business systems. This is a **synchronous** call that returns results in a single request.
    * 
    * @remarks
    * ## **Scenarios**
-   * -   **In-store marketing material compliance inspection**: Automatically determines whether marketing materials (functional display cards, posters, door-shaped display stands, etc.) are placed or posted according to the standard display guidelines issued by headquarters. Identifies typical issues such as "not placed," "placed incorrectly," or "content mismatch."
+   * -   **In-store marketing material compliance inspection**: Automatically determines whether marketing materials (functional card stands, posters, door-shaped display stands, etc.) are placed or posted in the store according to the standard display guidelines issued by headquarters. Identifies typical issues such as "not placed," "incorrectly placed," or "content mismatch."
    *     
-   * -   **New product/campaign material deployment verification**: During new product launches or sales promotions, automatically verifies in batch whether campaign materials in store photos have been deployed as required for listing, replacing manual spot checks.
+   * -   **New product / campaign material deployment verification**: During new product launches or sales promotions, automatically verifies in batch whether campaign materials have been listed as required based on store photos, replacing manual spot checks.
    *     
-   * -   **Adaptive dual-image comparison and single-image detection**: The same API supports both "reference image + target image" dual-image comparison (Mode A) and "target image only" single-image detection (Mode B). The mode switches automatically based on whether `ImageRefer` is provided. Callers do not need to differentiate between invocation methods.
+   * -   **Adaptive dual-image comparison and single-image detection**: A single API supports both "reference image + target image" dual-image comparison (Mode A) and "target image only" single-image detection (Mode B). The mode switches automatically based on whether `ImageRefer` is provided, so callers do not need to differentiate between invocation methods.
    * ## **Features**
-   * -   **Multi-mode intelligent routing**: Built-in material type parsing capability that automatically identifies the target material type based on `Rules` natural language text and routes to the corresponding material detection pipeline. Callers only need to provide image URLs and rule text. Currently, four detection routing pipelines are supported: "functional display card," "poster," "door-shaped display stand," and "other materials." Additional detection pipelines for specific marketing material types will be added over time.
+   * -   **Multi-mode intelligent routing**: Built-in material type parsing capability that automatically identifies the target material type based on `Rules` natural language text and routes to the corresponding detection pipeline. Callers only need to provide image URLs and rule text. Currently, four detection routing pipelines are supported: "functional card stand," "poster," "door-shaped display stand," and "other materials." More detection pipelines for specific marketing material types will be added over time.
    *     
-   * -   **MLLM semantic-level understanding + rule structuring collaboration**: Uses a multimodal large model for material recognition, content comparison, text OCR, and other semantic-level understanding tasks. Combined with rule cleaning and structuring models, natural language rules are decomposed into individually assessable steps (S1/S2...), ensuring accuracy while maintaining rule flexibility and traceability.
+   * -   **MLLM semantic-level understanding + structured rule coordination**: Uses a multimodal large language model for material recognition, content comparison, text OCR, and other semantic-level understanding tasks. Combined with rule cleaning and structured models, natural language rules are decomposed into individually evaluable steps (S1 / S2…), ensuring accuracy while maintaining rule flexibility and traceability.
    *     
-   * -   **Structured audit conclusion output**: Output is unified into the `Result.OverallResult` + `Result.Steps[]` + `Result.Evidence` structure. The overall conclusion is derived from the logical AND of all steps. Each step is independently visible, facilitating direct integration with downstream business systems and supporting case-level manual review traceability.
+   * -   **Structured inspection conclusion output**: Output follows a unified structure of `Result.OverallResult` + `Result.Steps[]` + `Result.Evidence`. The overall conclusion is derived by logical AND of all steps. Each step is independently visible, making it easy to drive downstream business systems and support case-level manual review traceability.
    *     
    * -   **Supported input formats**: Currently supports publicly accessible image URLs. Both single-image (Mode B) and dual-image (Mode A) calling modes are supported, with identical output structures.
    * ## **Invocation method**
-   * -   **Synchronous call**: A single request returns the detection result without polling. The response uses the unified envelope of `Code` / `Message` / `RequestId` / `Success` / `Data`.
+   * -   **Synchronous call**: A single request returns the detection result without polling. The response follows a unified envelope of `Code` / `Message` / `RequestId` / `Success` / `Data`.
    *     
-   * -   **Authentication and signing**: Invoked through the Aidge gateway. Authentication, signing, and common parameters follow the platform\\"s unified access method. Refer to the officially published API reference for the specific request path.
+   * -   **Authentication and signing**: Invoked through the Aidge gateway. Authentication, signing, and common parameters follow the platform\\"s unified access method. Refer to the officially published API reference for the exact request path.
    *     
-   * -   **Timeout settings**: Set the request timeout to no less than the maximum response time of the API (refer to the official publication for the specific value).
+   * -   **Timeout settings**: Set the request timeout to no less than the maximum response time of the API (refer to the official release for the specific value).
    * 
    * @param request - MaterialInspectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1975,29 +1975,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects the compliance of marketing material displays in retail stores based on a multimodal large language model (MLLM). This API targets in-store marketing material inspection scenarios for offline retail and channel stores. It performs natural-language-level compliance checks on standard materials such as functional display cards, posters, and door-shaped display stands, as well as long-tail materials such as light cloth banners, KT boards, floor stickers, and light boxes in store photos, according to inspection rules. It outputs structured conclusions and Chinese-language evidence descriptions that can be directly integrated with business systems. This is a **synchronous** call that returns results in a single request.
+   * Material display detection is an intelligent compliance detection capability for in-store marketing materials built on a Multimodal Large Language Model (MLLM), designed for marketing material inspection scenarios in offline retail and channel stores. For standard materials such as functional card stands, posters, and door-shaped display stands, as well as long-tail materials such as light cloth banners, KT boards, floor stickers, and light boxes captured in store photos, the service performs natural-language-level compliance checks based on inspection rules and outputs structured conclusions and evidence descriptions that can be directly integrated with business systems. This is a **synchronous** call that returns results in a single request.
    * 
    * @remarks
    * ## **Scenarios**
-   * -   **In-store marketing material compliance inspection**: Automatically determines whether marketing materials (functional display cards, posters, door-shaped display stands, etc.) are placed or posted according to the standard display guidelines issued by headquarters. Identifies typical issues such as "not placed," "placed incorrectly," or "content mismatch."
+   * -   **In-store marketing material compliance inspection**: Automatically determines whether marketing materials (functional card stands, posters, door-shaped display stands, etc.) are placed or posted in the store according to the standard display guidelines issued by headquarters. Identifies typical issues such as "not placed," "incorrectly placed," or "content mismatch."
    *     
-   * -   **New product/campaign material deployment verification**: During new product launches or sales promotions, automatically verifies in batch whether campaign materials in store photos have been deployed as required for listing, replacing manual spot checks.
+   * -   **New product / campaign material deployment verification**: During new product launches or sales promotions, automatically verifies in batch whether campaign materials have been listed as required based on store photos, replacing manual spot checks.
    *     
-   * -   **Adaptive dual-image comparison and single-image detection**: The same API supports both "reference image + target image" dual-image comparison (Mode A) and "target image only" single-image detection (Mode B). The mode switches automatically based on whether `ImageRefer` is provided. Callers do not need to differentiate between invocation methods.
+   * -   **Adaptive dual-image comparison and single-image detection**: A single API supports both "reference image + target image" dual-image comparison (Mode A) and "target image only" single-image detection (Mode B). The mode switches automatically based on whether `ImageRefer` is provided, so callers do not need to differentiate between invocation methods.
    * ## **Features**
-   * -   **Multi-mode intelligent routing**: Built-in material type parsing capability that automatically identifies the target material type based on `Rules` natural language text and routes to the corresponding material detection pipeline. Callers only need to provide image URLs and rule text. Currently, four detection routing pipelines are supported: "functional display card," "poster," "door-shaped display stand," and "other materials." Additional detection pipelines for specific marketing material types will be added over time.
+   * -   **Multi-mode intelligent routing**: Built-in material type parsing capability that automatically identifies the target material type based on `Rules` natural language text and routes to the corresponding detection pipeline. Callers only need to provide image URLs and rule text. Currently, four detection routing pipelines are supported: "functional card stand," "poster," "door-shaped display stand," and "other materials." More detection pipelines for specific marketing material types will be added over time.
    *     
-   * -   **MLLM semantic-level understanding + rule structuring collaboration**: Uses a multimodal large model for material recognition, content comparison, text OCR, and other semantic-level understanding tasks. Combined with rule cleaning and structuring models, natural language rules are decomposed into individually assessable steps (S1/S2...), ensuring accuracy while maintaining rule flexibility and traceability.
+   * -   **MLLM semantic-level understanding + structured rule coordination**: Uses a multimodal large language model for material recognition, content comparison, text OCR, and other semantic-level understanding tasks. Combined with rule cleaning and structured models, natural language rules are decomposed into individually evaluable steps (S1 / S2…), ensuring accuracy while maintaining rule flexibility and traceability.
    *     
-   * -   **Structured audit conclusion output**: Output is unified into the `Result.OverallResult` + `Result.Steps[]` + `Result.Evidence` structure. The overall conclusion is derived from the logical AND of all steps. Each step is independently visible, facilitating direct integration with downstream business systems and supporting case-level manual review traceability.
+   * -   **Structured inspection conclusion output**: Output follows a unified structure of `Result.OverallResult` + `Result.Steps[]` + `Result.Evidence`. The overall conclusion is derived by logical AND of all steps. Each step is independently visible, making it easy to drive downstream business systems and support case-level manual review traceability.
    *     
    * -   **Supported input formats**: Currently supports publicly accessible image URLs. Both single-image (Mode B) and dual-image (Mode A) calling modes are supported, with identical output structures.
    * ## **Invocation method**
-   * -   **Synchronous call**: A single request returns the detection result without polling. The response uses the unified envelope of `Code` / `Message` / `RequestId` / `Success` / `Data`.
+   * -   **Synchronous call**: A single request returns the detection result without polling. The response follows a unified envelope of `Code` / `Message` / `RequestId` / `Success` / `Data`.
    *     
-   * -   **Authentication and signing**: Invoked through the Aidge gateway. Authentication, signing, and common parameters follow the platform\\"s unified access method. Refer to the officially published API reference for the specific request path.
+   * -   **Authentication and signing**: Invoked through the Aidge gateway. Authentication, signing, and common parameters follow the platform\\"s unified access method. Refer to the officially published API reference for the exact request path.
    *     
-   * -   **Timeout settings**: Set the request timeout to no less than the maximum response time of the API (refer to the official publication for the specific value).
+   * -   **Timeout settings**: Set the request timeout to no less than the maximum response time of the API (refer to the official release for the specific value).
    * 
    * @param request - MaterialInspectionRequest
    * @returns MaterialInspectionResponse
@@ -2008,25 +2008,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects and identifies products displayed on store shelves or floor stacks by combining a multimodal large language model (MLLM) with visual vector recall, targeting shelf and floor-stack inspection scenarios in offline retail and channel stores. For photos of shelves or floor stacks taken in stores, the product first uses a multimodal large model to detect the bounding box and preliminary name of each product, then performs similarity recall against the customer\\"s dedicated SKU vector library to exactly match each product to the customer\\"s own SKUs. The output is per-product structured results that can be directly integrated with business systems. It is suitable for large-scale, high-concurrent visual recognition pipelines such as remote auditing of in-store displays by headquarters, SKU distribution verification, and display compliance inspection.
+   * Detects and identifies products displayed on store shelves or floor stacks by combining a multimodal large language model (MLLM) with visual vector recall, targeting shelf and floor-stack inspection scenarios in offline retail and channel stores. The service first uses an MLLM to detect the bounding box and preliminary name of each product in a store photo, then performs similarity recall against a customer-specific SKU vector library to exact match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This is applicable to large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
    * 
    * @remarks
    * ## **Product Introduction**
-   * Display detection is an intelligent product display recognition capability built on a multimodal large language model (MLLM) combined with visual vector recall. It targets shelf and floor-stack inspection scenarios in offline retail and channel stores. For photos of shelves or floor stacks taken in stores, the product first uses a multimodal large model to detect the bounding box and preliminary name of each product, then performs similarity recall against the customer\\"s dedicated SKU vector library to exactly match each product to the customer\\"s own SKUs. The output is per-product structured results that can be directly integrated with business systems. It is suitable for large-scale, high-concurrent visual recognition pipelines such as remote auditing of in-store displays by headquarters, SKU distribution verification, and display compliance inspection.
-   * ## **Common scenarios**
-   * -   **Shelf/floor-stack display recognition and inventory**: Identifies each product in a shelf or floor-stack image and matches it to the customer\\"s SKU library, outputting a per-product list (product name + position + similarity score) to replace manual counting.
+   * Display detection is an intelligent store product display recognition capability built on a multimodal large language model (MLLM) combined with visual vector recall. It targets shelf and floor-stack display inspection scenarios in offline retail and channel stores. For store photos of shelves and floor stacks, the service first uses an MLLM to detect the bounding box and preliminary name of each product, then performs similarity recall against a customer-specific SKU vector library to exact match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This is applicable to large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
+   * ## **Scenarios**
+   * -   **Shelf/floor-stack display recognition and inventory**: Identifies each product in a shelf or floor-stack image, matches it to the customer\\"s SKU library, and outputs a per-product list (product name + position + similarity score), replacing manual counting.
    *     
-   * -   **Distribution verification/SKU compliance**: Verifies whether stores display specified SKUs as required by headquarters and whether out-of-stock or misplaced items exist, supporting batch automated verification during promotions or new product launches.
+   * -   **Distribution verification/SKU compliance**: Verifies whether a store displays the specified SKUs as required by headquarters and whether any out-of-stock or misplaced items exist, supporting batch automated verification during sales promotions or new product launches.
    *     
-   * -   **Customer-dedicated SKU library**: Customers upload their own SKU reference images to build a dedicated vector library (isolated by `RagId`). During recognition, retrieval is performed only within that customer\\"s library, ensuring name accuracy and data isolation between customers.
-   * ## **Functions and features**
-   * -   **Two-stage detection + retrieval collaboration**: The multimodal large model detects each product bounding box and preliminary name on the full image (semantic-level understanding, adapted for dense displays and partial occlusion). Then visual embedding vectors perform similarity retrieval within the customer\\"s SKU library, overriding the preliminary name with the top-1 precise SKU name to balance recall rate and name accuracy.
+   * -   **Customer-specific SKU library**: Customers can upload their own standard SKU images to build a dedicated vector library (isolated by `RagId`). During recognition, recall is performed only within the corresponding customer library, ensuring name accuracy and data isolation between customers.
+   * ## **Features**
+   * -   **Two-stage detection + recall pipeline**: The MLLM detects each product box and preliminary name across the entire image (semantic-level understanding, adapted for dense displays and partial occlusion). Then, visual embedding vectors perform similarity retrieval within the customer\\"s SKU library, and the top-1 precise SKU name overrides the preliminary name, balancing recall rate and name accuracy.
    *     
-   * -   **Dedicated vector library with isolated retrieval**: A dedicated SKU vector library is maintained for each customer by `RagId`. Recognition retrieves only within the corresponding library with strict isolation between customers. Newly added or updated SKUs take effect in real time.
+   * -   **Dedicated vector library with isolated recall**: A dedicated SKU vector library is maintained for each customer by `RagId`. Recognition retrieves only within the corresponding library, ensuring strict isolation between customers. Newly added or updated SKUs take effect in real time.
    *     
    * -   **Per-product structured output**: Output is unified as `Result.Items[]`, with each product independently providing a bounding box, recalled SKU name, SKU code, and similarity score. This facilitates direct integration with downstream inventory/verification systems and supports case-level manual review and traceability.
    *     
-   * -   **Supported input formats**: Currently supports image URLs accessible over the public network or from OSS. A single shelf or floor-stack image is sufficient for recognition, and the output structure is consistent.
+   * -   **Supported input formats**: Currently supports image URLs accessible over the Internet or from OSS. A single shelf or floor-stack image is sufficient for recognition, and the output structure is consistent.
    * 
    * @param request - MerchandisePlacementDetectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2069,25 +2069,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects and identifies products displayed on store shelves or floor stacks by combining a multimodal large language model (MLLM) with visual vector recall, targeting shelf and floor-stack inspection scenarios in offline retail and channel stores. For photos of shelves or floor stacks taken in stores, the product first uses a multimodal large model to detect the bounding box and preliminary name of each product, then performs similarity recall against the customer\\"s dedicated SKU vector library to exactly match each product to the customer\\"s own SKUs. The output is per-product structured results that can be directly integrated with business systems. It is suitable for large-scale, high-concurrent visual recognition pipelines such as remote auditing of in-store displays by headquarters, SKU distribution verification, and display compliance inspection.
+   * Detects and identifies products displayed on store shelves or floor stacks by combining a multimodal large language model (MLLM) with visual vector recall, targeting shelf and floor-stack inspection scenarios in offline retail and channel stores. The service first uses an MLLM to detect the bounding box and preliminary name of each product in a store photo, then performs similarity recall against a customer-specific SKU vector library to exact match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This is applicable to large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
    * 
    * @remarks
    * ## **Product Introduction**
-   * Display detection is an intelligent product display recognition capability built on a multimodal large language model (MLLM) combined with visual vector recall. It targets shelf and floor-stack inspection scenarios in offline retail and channel stores. For photos of shelves or floor stacks taken in stores, the product first uses a multimodal large model to detect the bounding box and preliminary name of each product, then performs similarity recall against the customer\\"s dedicated SKU vector library to exactly match each product to the customer\\"s own SKUs. The output is per-product structured results that can be directly integrated with business systems. It is suitable for large-scale, high-concurrent visual recognition pipelines such as remote auditing of in-store displays by headquarters, SKU distribution verification, and display compliance inspection.
-   * ## **Common scenarios**
-   * -   **Shelf/floor-stack display recognition and inventory**: Identifies each product in a shelf or floor-stack image and matches it to the customer\\"s SKU library, outputting a per-product list (product name + position + similarity score) to replace manual counting.
+   * Display detection is an intelligent store product display recognition capability built on a multimodal large language model (MLLM) combined with visual vector recall. It targets shelf and floor-stack display inspection scenarios in offline retail and channel stores. For store photos of shelves and floor stacks, the service first uses an MLLM to detect the bounding box and preliminary name of each product, then performs similarity recall against a customer-specific SKU vector library to exact match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This is applicable to large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
+   * ## **Scenarios**
+   * -   **Shelf/floor-stack display recognition and inventory**: Identifies each product in a shelf or floor-stack image, matches it to the customer\\"s SKU library, and outputs a per-product list (product name + position + similarity score), replacing manual counting.
    *     
-   * -   **Distribution verification/SKU compliance**: Verifies whether stores display specified SKUs as required by headquarters and whether out-of-stock or misplaced items exist, supporting batch automated verification during promotions or new product launches.
+   * -   **Distribution verification/SKU compliance**: Verifies whether a store displays the specified SKUs as required by headquarters and whether any out-of-stock or misplaced items exist, supporting batch automated verification during sales promotions or new product launches.
    *     
-   * -   **Customer-dedicated SKU library**: Customers upload their own SKU reference images to build a dedicated vector library (isolated by `RagId`). During recognition, retrieval is performed only within that customer\\"s library, ensuring name accuracy and data isolation between customers.
-   * ## **Functions and features**
-   * -   **Two-stage detection + retrieval collaboration**: The multimodal large model detects each product bounding box and preliminary name on the full image (semantic-level understanding, adapted for dense displays and partial occlusion). Then visual embedding vectors perform similarity retrieval within the customer\\"s SKU library, overriding the preliminary name with the top-1 precise SKU name to balance recall rate and name accuracy.
+   * -   **Customer-specific SKU library**: Customers can upload their own standard SKU images to build a dedicated vector library (isolated by `RagId`). During recognition, recall is performed only within the corresponding customer library, ensuring name accuracy and data isolation between customers.
+   * ## **Features**
+   * -   **Two-stage detection + recall pipeline**: The MLLM detects each product box and preliminary name across the entire image (semantic-level understanding, adapted for dense displays and partial occlusion). Then, visual embedding vectors perform similarity retrieval within the customer\\"s SKU library, and the top-1 precise SKU name overrides the preliminary name, balancing recall rate and name accuracy.
    *     
-   * -   **Dedicated vector library with isolated retrieval**: A dedicated SKU vector library is maintained for each customer by `RagId`. Recognition retrieves only within the corresponding library with strict isolation between customers. Newly added or updated SKUs take effect in real time.
+   * -   **Dedicated vector library with isolated recall**: A dedicated SKU vector library is maintained for each customer by `RagId`. Recognition retrieves only within the corresponding library, ensuring strict isolation between customers. Newly added or updated SKUs take effect in real time.
    *     
    * -   **Per-product structured output**: Output is unified as `Result.Items[]`, with each product independently providing a bounding box, recalled SKU name, SKU code, and similarity score. This facilitates direct integration with downstream inventory/verification systems and supports case-level manual review and traceability.
    *     
-   * -   **Supported input formats**: Currently supports image URLs accessible over the public network or from OSS. A single shelf or floor-stack image is sufficient for recognition, and the output structure is consistent.
+   * -   **Supported input formats**: Currently supports image URLs accessible over the Internet or from OSS. A single shelf or floor-stack image is sufficient for recognition, and the output structure is consistent.
    * 
    * @param request - MerchandisePlacementDetectionRequest
    * @returns MerchandisePlacementDetectionResponse
@@ -2098,21 +2098,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms, designed for automated compliance review in the "piece-weight-dimension" stage of e-commerce logistics. The product performs structured review across multiple dimensions including bounding box validity, bounding box fit accuracy, and foreign object interference for parcels on scanning platforms. It adapts to different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese reason descriptions that can directly interface with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
+   * An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms. It targets automated compliance review for the "piece-weight-dimension" stage in e-commerce logistics. The product performs structured review across multiple dimensions, including bounding box validity, bounding box fit, and foreign object interference for parcels on scanning platforms. It supports different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese-language reason descriptions that can be directly integrated with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
    * 
    * @remarks
    * ## Product Introduction
-   * An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms, designed for automated compliance review in the "piece-weight-dimension" stage of e-commerce logistics. The product performs structured review across multiple dimensions including **bounding box validity, bounding box fit accuracy, and foreign object interference** for parcels on scanning platforms. It adapts to different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese reason descriptions that can directly interface with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
+   * An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms. It targets automated compliance review for the "piece-weight-dimension" stage in e-commerce logistics. The product performs structured review across multiple dimensions, including **bounding box validity, bounding box fit, and foreign object interference** for parcels on scanning platforms. It supports different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese-language reason descriptions that can be directly integrated with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
    * ## Scenarios
-   * 1. **Parcel bounding box review**: Automatically determines whether the operator\\"s manual bounding box constitutes the "minimum effective border rectangle" for the parcel, identifying typical issues such as oversized or undersized bounding boxes.
-   * 2. **Foreign object interference detection**: Automatically identifies whether non-target objects such as fingers, keyboards, or supporting tools are present in the scanning area.
-   * 3. **Multi-capture environment adaptation**: A single API handles both white background board (blue frame) and green background board (blue frame + red frame) capture patterns without requiring the caller to distinguish between scenarios.
-   * 4. **Inbound quality inspection pipeline**: Used for automated compliance review in the piece-weight-dimension stage of the logistics warehouse new product inbound SOP, as a replacement for or supplement to manual outsourced review.
-   * The product is also applicable to general image "frame-subject" relationship review scenarios, such as product photography material review and document scanning quality verification.
+   * 1. **Parcel bounding box review**: Automatically determines whether the operator\\"s manual bounding box constitutes the "minimum effective border rectangle" for the parcel, and identifies typical issues such as oversized or undersized bounding boxes.
+   * 2. **Foreign object interference detection**: Automatically detects whether non-target objects such as fingers, keyboards, or supporting tools are present in the scanning area.
+   * 3. **Multi-capture environment adaptation**: A single API can handle two common capture patterns — white background board (blue box) and green background board (blue box \\+ red box) — without requiring the caller to distinguish between scenarios.
+   * 4. **Inbound quality inspection pipeline**: Used for automated compliance review in the piece-weight-dimension stage of the logistics warehouse new product inbound SOP, as a replacement for or supplement to outsourced manual review.
+   * The product is also applicable to general image "box-subject" relationship review scenarios, such as product photo material review and document scan quality verification.
    * ## Features
-   * 1. **Multi-scenario intelligent routing**: The product has built-in scenario classification capabilities that automatically identify the background type (white/green) and bounding box type (none/single frame/double frame) in images, and route requests to the corresponding review sub-process. Callers only need to pass in the image URL without manually specifying the scenario.
-   * 2. **MLLM + dedicated CV model collaboration**: Uses a multimodal large language model for semantic-level scene understanding and foreign object recognition, and uses dedicated parcel segmentation and IoU evaluation models for pixel-level bounding box fit quantification, ensuring accuracy while controlling inference latency and cost.
-   * 3. **Structured review conclusions**: Output is unified as `result` (Boolean) + `info` (Chinese reason) structure. Supported reason types include "Review passed", "Review failed: bounding box too large", "Review failed: bounding box too small", "Review failed: foreign object detected", and others, enabling direct integration with downstream business systems.
+   * 1. **Multi-scenario intelligent routing**: The product has built-in scenario classification capabilities. It automatically identifies the background type (white/green) and bounding box type (none/single box/double box) in the image, and routes the request to the corresponding review sub-process. The caller only needs to pass in the image URL without manually specifying the scenario.
+   * 2. **MLLM + dedicated CV model collaboration**: A multimodal large language model performs semantic-level scenario understanding and foreign object recognition, while a dedicated parcel segmentation and IoU evaluation model performs pixel-level bounding box fit quantification. This ensures accuracy while controlling inference latency and cost.
+   * 3. **Structured review conclusions**: The output is unified as a `result` (Boolean) \\+ `info` (Chinese-language reason) structure. Supported reason types include "审核通过" (review passed), "审核不通过:框选过大" (review failed: bounding box too large), "审核不通过:框选过小" (review failed: bounding box too small), and "审核不通过:存在异物" (review failed: foreign object detected), enabling direct integration with downstream business systems.
    * 4. **Supported input formats**: Currently supports publicly accessible image URLs.
    * 
    * @param request - PackageWeightSizeCheckRequest
@@ -2148,21 +2148,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms, designed for automated compliance review in the "piece-weight-dimension" stage of e-commerce logistics. The product performs structured review across multiple dimensions including bounding box validity, bounding box fit accuracy, and foreign object interference for parcels on scanning platforms. It adapts to different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese reason descriptions that can directly interface with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
+   * An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms. It targets automated compliance review for the "piece-weight-dimension" stage in e-commerce logistics. The product performs structured review across multiple dimensions, including bounding box validity, bounding box fit, and foreign object interference for parcels on scanning platforms. It supports different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese-language reason descriptions that can be directly integrated with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
    * 
    * @remarks
    * ## Product Introduction
-   * An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms, designed for automated compliance review in the "piece-weight-dimension" stage of e-commerce logistics. The product performs structured review across multiple dimensions including **bounding box validity, bounding box fit accuracy, and foreign object interference** for parcels on scanning platforms. It adapts to different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese reason descriptions that can directly interface with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
+   * An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms. It targets automated compliance review for the "piece-weight-dimension" stage in e-commerce logistics. The product performs structured review across multiple dimensions, including **bounding box validity, bounding box fit, and foreign object interference** for parcels on scanning platforms. It supports different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese-language reason descriptions that can be directly integrated with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
    * ## Scenarios
-   * 1. **Parcel bounding box review**: Automatically determines whether the operator\\"s manual bounding box constitutes the "minimum effective border rectangle" for the parcel, identifying typical issues such as oversized or undersized bounding boxes.
-   * 2. **Foreign object interference detection**: Automatically identifies whether non-target objects such as fingers, keyboards, or supporting tools are present in the scanning area.
-   * 3. **Multi-capture environment adaptation**: A single API handles both white background board (blue frame) and green background board (blue frame + red frame) capture patterns without requiring the caller to distinguish between scenarios.
-   * 4. **Inbound quality inspection pipeline**: Used for automated compliance review in the piece-weight-dimension stage of the logistics warehouse new product inbound SOP, as a replacement for or supplement to manual outsourced review.
-   * The product is also applicable to general image "frame-subject" relationship review scenarios, such as product photography material review and document scanning quality verification.
+   * 1. **Parcel bounding box review**: Automatically determines whether the operator\\"s manual bounding box constitutes the "minimum effective border rectangle" for the parcel, and identifies typical issues such as oversized or undersized bounding boxes.
+   * 2. **Foreign object interference detection**: Automatically detects whether non-target objects such as fingers, keyboards, or supporting tools are present in the scanning area.
+   * 3. **Multi-capture environment adaptation**: A single API can handle two common capture patterns — white background board (blue box) and green background board (blue box \\+ red box) — without requiring the caller to distinguish between scenarios.
+   * 4. **Inbound quality inspection pipeline**: Used for automated compliance review in the piece-weight-dimension stage of the logistics warehouse new product inbound SOP, as a replacement for or supplement to outsourced manual review.
+   * The product is also applicable to general image "box-subject" relationship review scenarios, such as product photo material review and document scan quality verification.
    * ## Features
-   * 1. **Multi-scenario intelligent routing**: The product has built-in scenario classification capabilities that automatically identify the background type (white/green) and bounding box type (none/single frame/double frame) in images, and route requests to the corresponding review sub-process. Callers only need to pass in the image URL without manually specifying the scenario.
-   * 2. **MLLM + dedicated CV model collaboration**: Uses a multimodal large language model for semantic-level scene understanding and foreign object recognition, and uses dedicated parcel segmentation and IoU evaluation models for pixel-level bounding box fit quantification, ensuring accuracy while controlling inference latency and cost.
-   * 3. **Structured review conclusions**: Output is unified as `result` (Boolean) + `info` (Chinese reason) structure. Supported reason types include "Review passed", "Review failed: bounding box too large", "Review failed: bounding box too small", "Review failed: foreign object detected", and others, enabling direct integration with downstream business systems.
+   * 1. **Multi-scenario intelligent routing**: The product has built-in scenario classification capabilities. It automatically identifies the background type (white/green) and bounding box type (none/single box/double box) in the image, and routes the request to the corresponding review sub-process. The caller only needs to pass in the image URL without manually specifying the scenario.
+   * 2. **MLLM + dedicated CV model collaboration**: A multimodal large language model performs semantic-level scenario understanding and foreign object recognition, while a dedicated parcel segmentation and IoU evaluation model performs pixel-level bounding box fit quantification. This ensures accuracy while controlling inference latency and cost.
+   * 3. **Structured review conclusions**: The output is unified as a `result` (Boolean) \\+ `info` (Chinese-language reason) structure. Supported reason types include "审核通过" (review passed), "审核不通过:框选过大" (review failed: bounding box too large), "审核不通过:框选过小" (review failed: bounding box too small), and "审核不通过:存在异物" (review failed: foreign object detected), enabling direct integration with downstream business systems.
    * 4. **Supported input formats**: Currently supports publicly accessible image URLs.
    * 
    * @param request - PackageWeightSizeCheckRequest
@@ -2174,22 +2174,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify the source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * 
    * @remarks
    * ## Product Introduction
-   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify the source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * ## Common scenarios
-   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending words in product titles into the target language, improving product visibility on e-commerce platforms.
+   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
    * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML format, delivering excellent translation quality and format preservation.
    * - Product attributes: Product attribute terms are short and may contain e-commerce-specific terms such as model numbers and parameters.
    * - Customer service conversations: In customer service scenarios, the model optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
-   * Marco MT large model translation can also be used for general-purpose translation scenarios such as office work, meetings, and daily conversations.
+   * Marco MT large model translation can also be used for general-purpose translation scenarios, such as office work, meetings, and daily conversations.
    * ## Features
    * - **Supported language directions** Marco MT large model translation supports translation between more than 100 languages and language detection for 23 languages. For specific language directions, refer to the language mapping table in Section 5.6.
-   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it offers faster translation inference speed and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
    * - **Supported text format types** Currently supports text and html text types.
-   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand term protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * ## Translation quality comparison
    * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
    * |----------|---------------|-----------------------|-----------------------|---------------------|
@@ -2256,22 +2256,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify the source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * 
    * @remarks
    * ## Product Introduction
-   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify the source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * ## Common scenarios
-   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending words in product titles into the target language, improving product visibility on e-commerce platforms.
+   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
    * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML format, delivering excellent translation quality and format preservation.
    * - Product attributes: Product attribute terms are short and may contain e-commerce-specific terms such as model numbers and parameters.
    * - Customer service conversations: In customer service scenarios, the model optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
-   * Marco MT large model translation can also be used for general-purpose translation scenarios such as office work, meetings, and daily conversations.
+   * Marco MT large model translation can also be used for general-purpose translation scenarios, such as office work, meetings, and daily conversations.
    * ## Features
    * - **Supported language directions** Marco MT large model translation supports translation between more than 100 languages and language detection for 23 languages. For specific language directions, refer to the language mapping table in Section 5.6.
-   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it offers faster translation inference speed and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
    * - **Supported text format types** Currently supports text and html text types.
-   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand term protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * ## Translation quality comparison
    * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
    * |----------|---------------|-----------------------|-----------------------|---------------------|
@@ -2292,14 +2292,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the product hotzone recognition service.**
-   * This API automatically identifies and locates specified products in a target scene image based on the provided target scene image and product reference images, and outputs the product name and normalized bounding box. Each request takes one target scene image and a set of product reference images. If the same case has multiple target images, call the operation separately for each target image.
+   * **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the product hotzone recognition feature.**
+   * This operation automatically identifies and locates specified products in a target scene image based on the provided target scene image and product reference images, and returns the product names and normalized bounding boxes. Each request accepts one target scene image and a set of product reference images. If the same case contains multiple target images, call this operation separately for each target image.
    * ### Precautions
-   * - Image URLs must use HTTPS and be accessible by the server.
+   * - Image URLs must use HTTPS and must be accessible by the server.
    * - Common image formats such as JPEG, PNG, and WebP are supported.
    * - Each image should not exceed 2 MB.
    * - When using signed URLs, set the validity period to at least 30 minutes.
-   * - If the same case has multiple target scene images, call the operation separately for each target image. The reference image list can be reused.
+   * - If the same case contains multiple target scene images, call this operation separately for each target image. The reference image list can be reused.
    * 
    * @param tmpReq - ProductHotspotDetectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2348,14 +2348,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the product hotzone recognition service.**
-   * This API automatically identifies and locates specified products in a target scene image based on the provided target scene image and product reference images, and outputs the product name and normalized bounding box. Each request takes one target scene image and a set of product reference images. If the same case has multiple target images, call the operation separately for each target image.
+   * **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the product hotzone recognition feature.**
+   * This operation automatically identifies and locates specified products in a target scene image based on the provided target scene image and product reference images, and returns the product names and normalized bounding boxes. Each request accepts one target scene image and a set of product reference images. If the same case contains multiple target images, call this operation separately for each target image.
    * ### Precautions
-   * - Image URLs must use HTTPS and be accessible by the server.
+   * - Image URLs must use HTTPS and must be accessible by the server.
    * - Common image formats such as JPEG, PNG, and WebP are supported.
    * - Each image should not exceed 2 MB.
    * - When using signed URLs, set the validity period to at least 30 minutes.
-   * - If the same case has multiple target scene images, call the operation separately for each target image. The reference image list can be reused.
+   * - If the same case contains multiple target scene images, call this operation separately for each target image. The reference image list can be reused.
    * 
    * @param request - ProductHotspotDetectionRequest
    * @returns ProductHotspotDetectionResponse
@@ -2366,10 +2366,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of an asynchronous task. The API name on the POP gateway is QueryAsyncTaskResult.
+   * API name on the POP gateway: QueryAsyncTaskResult.
    * 
    * @remarks
-   * The API name on the POP gateway is QueryAsyncTaskResult.
+   * API name on the POP gateway: QueryAsyncTaskResult.
    * 
    * @param request - QueryAsyncTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2400,10 +2400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of an asynchronous task. The API name on the POP gateway is QueryAsyncTaskResult.
+   * API name on the POP gateway: QueryAsyncTaskResult.
    * 
    * @remarks
-   * The API name on the POP gateway is QueryAsyncTaskResult.
+   * API name on the POP gateway: QueryAsyncTaskResult.
    * 
    * @param request - QueryAsyncTaskResultRequest
    * @returns QueryAsyncTaskResultResponse
@@ -2420,10 +2420,10 @@ export default class Client extends OpenApi {
    * # 1. Product Introduction
    * Detects whether an image contains a size chart. (Synchronous)
    * # 2. Common scenarios
-   * **Batch processing scenario:** Detect images containing size charts from a batch of images for further image translation or extraction. The size chart detection service helps reduce costs.
+   * **Batch processing scenario:** Detect images that contain size charts from a batch of images for further image translation or extraction. The size chart detection service helps reduce costs.
    * # 3. Features
    * The size chart detection service uses image recognition technology to automatically determine whether an input image contains size chart content. You provide an image URL, and the system returns a detection result (True/False) indicating whether the image is a size chart.
-   * You can customize the confidence threshold (default: 0.4) and flexibly adjust the detection sensitivity based on your business accuracy requirements. A lower threshold results in more lenient detection, while a higher threshold results in stricter detection. The API processes a single image per request and is suitable for integration into automated batch workflows for sequential invocation.
+   * You can customize the confidence threshold (default: 0.4) and flexibly adjust the detection sensitivity based on your business precision requirements. A lower threshold results in more lenient detection, while a higher threshold results in stricter detection. The API processes a single image per request, making it suitable for integration into automated batch workflows for sequential invocation.
    * # 4. Effect comparison
    * | **Input image** | **Confidence** | **Output result** |
    * | --- | --- | --- |
@@ -2469,10 +2469,10 @@ export default class Client extends OpenApi {
    * # 1. Product Introduction
    * Detects whether an image contains a size chart. (Synchronous)
    * # 2. Common scenarios
-   * **Batch processing scenario:** Detect images containing size charts from a batch of images for further image translation or extraction. The size chart detection service helps reduce costs.
+   * **Batch processing scenario:** Detect images that contain size charts from a batch of images for further image translation or extraction. The size chart detection service helps reduce costs.
    * # 3. Features
    * The size chart detection service uses image recognition technology to automatically determine whether an input image contains size chart content. You provide an image URL, and the system returns a detection result (True/False) indicating whether the image is a size chart.
-   * You can customize the confidence threshold (default: 0.4) and flexibly adjust the detection sensitivity based on your business accuracy requirements. A lower threshold results in more lenient detection, while a higher threshold results in stricter detection. The API processes a single image per request and is suitable for integration into automated batch workflows for sequential invocation.
+   * You can customize the confidence threshold (default: 0.4) and flexibly adjust the detection sensitivity based on your business precision requirements. A lower threshold results in more lenient detection, while a higher threshold results in stricter detection. The API processes a single image per request, making it suitable for integration into automated batch workflows for sequential invocation.
    * # 4. Effect comparison
    * | **Input image** | **Confidence** | **Output result** |
    * | --- | --- | --- |
@@ -2784,6 +2784,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Generates product detail page assets automatically based on a multimodal large language model (MLLM) and structured image-text extraction, designed for product detail page asset completion scenarios on e-commerce platforms and for brand merchants. The caller pushes product information to be queried (product ID, title, brand, main image, and shop name). The service automatically locates matching products and performs consistency verification, then extracts size information and product attributes from the matching product details, and renders them into size charts and attribute charts (SVG) that can be directly used on detail pages. The service also returns structured detail copy classifications and processing notes.
+   * 
+   * @param request - SubmitProductMatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitProductMatchResponse
+   */
+  async submitProductMatchWithOptions(request: $_model.SubmitProductMatchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitProductMatchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandName)) {
+      query["BrandName"] = request.brandName;
+    }
+
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!$dara.isNull(request.itemId)) {
+      query["ItemId"] = request.itemId;
+    }
+
+    if (!$dara.isNull(request.productUrl)) {
+      query["ProductUrl"] = request.productUrl;
+    }
+
+    if (!$dara.isNull(request.shopName)) {
+      query["ShopName"] = request.shopName;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitProductMatch",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitProductMatchResponse>(await this.callApi(params, req, runtime), new $_model.SubmitProductMatchResponse({}));
+  }
+
+  /**
+   * Generates product detail page assets automatically based on a multimodal large language model (MLLM) and structured image-text extraction, designed for product detail page asset completion scenarios on e-commerce platforms and for brand merchants. The caller pushes product information to be queried (product ID, title, brand, main image, and shop name). The service automatically locates matching products and performs consistency verification, then extracts size information and product attributes from the matching product details, and renders them into size charts and attribute charts (SVG) that can be directly used on detail pages. The service also returns structured detail copy classifications and processing notes.
+   * 
+   * @param request - SubmitProductMatchRequest
+   * @returns SubmitProductMatchResponse
+   */
+  async submitProductMatch(request: $_model.SubmitProductMatchRequest): Promise<$_model.SubmitProductMatchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitProductMatchWithOptions(request, runtime);
+  }
+
+  /**
    * Corrects errors in search terms and titles.
    * 
    * @remarks
@@ -2870,32 +2936,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language pairs (including bridged pairs), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * 
    * @remarks
    * ## Product Introduction
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language pairs (including bridged pairs), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * ## Common scenarios
-   * - Product titles: Marco MT can accurately translate phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
-   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco MT supports long text translation and HTML format, delivering excellent translation quality and format preservation.
+   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
+   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML formatting, delivering excellent translation quality and format preservation.
    * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and parameters.
-   * - Customer service conversations: In customer service scenarios, Marco MT can handle issues such as missing context and typos, and supports polite expressions for certain language pairs.
-   * Marco MT can also be used for general translation scenarios, such as office work, meetings, and daily conversations.
-   * ## Functions and features
-   * - **Supported language pairs**   
-   * Marco MT supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * - Customer service conversations: In customer service scenarios, Marco MT optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
+   * Marco MT large model translation can also be used for general-purpose translation scenarios, such as office work, meetings, and daily conversations.
+   * ## Features
+   * - **Supported language directions**   
+   * Marco MT large model translation supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
    * - **Ultra-low hallucination rate and high-speed inference**   
-   * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
    * - **Supported text format types**   
    * Currently, text and html text types are supported.
    * - **Translation intervention support**   
-   * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for brand term protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * ## Translation quality comparison
    * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
    * |----------|---------------|-----------------------|-----------------------|---------------------|
    * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
    * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
-   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression. The translation correctly identifies "key bag" rather than "keychain", avoiding ambiguity about the product type in other translations |
+   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression, correctly identifying "key bag" rather than "keychain", avoiding ambiguity about the product subject in other translations |
    * 
    * @param tmpReq - TextTranslateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2956,32 +3022,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language pairs (including bridged pairs), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * 
    * @remarks
    * ## Product Introduction
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language pairs (including bridged pairs), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * ## Common scenarios
-   * - Product titles: Marco MT can accurately translate phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
-   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco MT supports long text translation and HTML format, delivering excellent translation quality and format preservation.
+   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
+   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML formatting, delivering excellent translation quality and format preservation.
    * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and parameters.
-   * - Customer service conversations: In customer service scenarios, Marco MT can handle issues such as missing context and typos, and supports polite expressions for certain language pairs.
-   * Marco MT can also be used for general translation scenarios, such as office work, meetings, and daily conversations.
-   * ## Functions and features
-   * - **Supported language pairs**   
-   * Marco MT supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * - Customer service conversations: In customer service scenarios, Marco MT optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
+   * Marco MT large model translation can also be used for general-purpose translation scenarios, such as office work, meetings, and daily conversations.
+   * ## Features
+   * - **Supported language directions**   
+   * Marco MT large model translation supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
    * - **Ultra-low hallucination rate and high-speed inference**   
-   * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
    * - **Supported text format types**   
    * Currently, text and html text types are supported.
    * - **Translation intervention support**   
-   * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for brand term protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * ## Translation quality comparison
    * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
    * |----------|---------------|-----------------------|-----------------------|---------------------|
    * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
    * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
-   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression. The translation correctly identifies "key bag" rather than "keychain", avoiding ambiguity about the product type in other translations |
+   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression, correctly identifying "key bag" rather than "keychain", avoiding ambiguity about the product subject in other translations |
    * 
    * @param request - TextTranslateRequest
    * @returns TextTranslateResponse
@@ -3092,24 +3158,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text.
+   * The video translation API translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text.
    * 
    * @remarks
    * ## 1. Product Introduction
-   * The Video Translation API translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text. This API is applicable to scenarios such as multilingual distribution of e-commerce videos, international social media marketing, and global brand advertising.
-   * The API uses an asynchronous call mode: after submitting a translation task, you receive a `task_id`, then poll the query endpoint for the task status until the task is completed and results are available.
-   * ## 2. Common scenarios
-   * *   **Cross-border e-commerce video localization**: Translates promotional text in product introduction videos into the target market language to facilitate overseas platform promotion.
+   * The video translation API translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text. This API is applicable to scenarios such as multilingual distribution of e-commerce videos, international social media marketing, and global brand advertising.
+   * The API uses an asynchronous call mode: after you submit a translation task, you receive a `task_id`. Poll the query endpoint for the task status until the task is complete, and then retrieve the result.
+   * ## 2. Scenarios
+   * *   **Cross-border e-commerce video localization**: Translates promotional text in product introduction videos into the language of the target market to facilitate overseas platform promotion.
    *     
-   * *   **International social media marketing**: Localizes text content in video frames with one click for platforms such as TikTok, Instagram, and YouTube, improving comprehension and conversion rates among overseas users.
+   * *   **International social media marketing**: Localizes text content in video frames with one click for platforms such as TikTok, Instagram, and YouTube to improve comprehension and conversion rates among overseas users.
    *     
-   * *   **Global brand advertising**: Automatically generates video versions in the language of the target region, reducing manual production costs.
+   * *   **Global brand advertising**: Automatically generates video versions in the language of the target region to reduce manual production costs.
    *     
    * *   **Training and product documentation**: Translates on-screen text in training courses or product demonstration videos into multiple languages for use by global teams.
    * ## 3. Features
    * | Capability | Identifier | Description |
    * | --- | --- | --- |
-   * | Visual translation | `visual` | Translates embedded text (subtitles, promotional text, etc.) in video frames into the target language and erases the original text |
+   * | Visual translation | `visual` | Translates embedded text (subtitles, promotional text, etc.) in video frames into the target language and erases the original text. |
    * ## 4. Developer guide.
    * ### 4.1 Submit a translation task.
    * #### Request
@@ -3162,24 +3228,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text.
+   * The video translation API translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text.
    * 
    * @remarks
    * ## 1. Product Introduction
-   * The Video Translation API translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text. This API is applicable to scenarios such as multilingual distribution of e-commerce videos, international social media marketing, and global brand advertising.
-   * The API uses an asynchronous call mode: after submitting a translation task, you receive a `task_id`, then poll the query endpoint for the task status until the task is completed and results are available.
-   * ## 2. Common scenarios
-   * *   **Cross-border e-commerce video localization**: Translates promotional text in product introduction videos into the target market language to facilitate overseas platform promotion.
+   * The video translation API translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text. This API is applicable to scenarios such as multilingual distribution of e-commerce videos, international social media marketing, and global brand advertising.
+   * The API uses an asynchronous call mode: after you submit a translation task, you receive a `task_id`. Poll the query endpoint for the task status until the task is complete, and then retrieve the result.
+   * ## 2. Scenarios
+   * *   **Cross-border e-commerce video localization**: Translates promotional text in product introduction videos into the language of the target market to facilitate overseas platform promotion.
    *     
-   * *   **International social media marketing**: Localizes text content in video frames with one click for platforms such as TikTok, Instagram, and YouTube, improving comprehension and conversion rates among overseas users.
+   * *   **International social media marketing**: Localizes text content in video frames with one click for platforms such as TikTok, Instagram, and YouTube to improve comprehension and conversion rates among overseas users.
    *     
-   * *   **Global brand advertising**: Automatically generates video versions in the language of the target region, reducing manual production costs.
+   * *   **Global brand advertising**: Automatically generates video versions in the language of the target region to reduce manual production costs.
    *     
    * *   **Training and product documentation**: Translates on-screen text in training courses or product demonstration videos into multiple languages for use by global teams.
    * ## 3. Features
    * | Capability | Identifier | Description |
    * | --- | --- | --- |
-   * | Visual translation | `visual` | Translates embedded text (subtitles, promotional text, etc.) in video frames into the target language and erases the original text |
+   * | Visual translation | `visual` | Translates embedded text (subtitles, promotional text, etc.) in video frames into the target language and erases the original text. |
    * ## 4. Developer guide.
    * ### 4.1 Submit a translation task.
    * #### Request
@@ -3310,16 +3376,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Users upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
+   * Provides a one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
    * 
    * @remarks
    * # 1. Product Introduction
-   * A one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Users upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
-   * # 2. Applicable scenarios
+   * A one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
+   * # 2. Common scenarios
    * Applicable to batch optimization of product images in cross-platform listing scenarios. Adapts source product images into main images, SKU images, and detail images required by listing platforms. Supported capabilities include:
-   * *   Detecting low-quality images that contain text, watermarks, logos, or ad patches, allowing users to filter images that need processing
+   * *   Detecting low-quality images that contain text, watermarks, logos, or overlay patches, allowing users to filter images that need processing
    *     
-   * *   Removing non-compliant elements such as watermarks, logos, ad patches, and Chinese text from original images
+   * *   Removing non-compliant elements such as watermarks, logos, overlay patches, and Chinese text from original images
    *     
    * *   Removing the background around the product subject edges
    *     
@@ -3329,24 +3395,24 @@ export default class Client extends OpenApi {
    *     
    * *   Cropping images to specified dimensions
    *     
-   * *   Upscaling image pixels by a specified factor
-   * # 3. Feature overview
-   * Users provide a product image URL and select the desired AI capability combination through the Ability parameter (1=Intelligent Element Detection, 2=Intelligent Matting, 3=Intelligent Removal, 4=Image Translation Pro, 5=Image Expansion, 6=Intelligent Cropping, 7=HD Upscaling). The system executes the selected capabilities sequentially in a preset order. Because Intelligent Element Detection helps users determine whether an image contains certain specified elements, and the presence of elements affects subsequent AI capability selection, an additional input is provided that allows users to choose whether to filter images out of or retain images in the subsequent AI processing pipeline.
+   * *   Upscaling image resolution by a specified factor
+   * # 3. Features
+   * Provide a product image URL and use the Ability parameter to select the desired combination of AI capabilities (1 = Intelligent Element Detection, 2 = Intelligent Matting, 3 = Intelligent Removal, 4 = Image Translation Pro, 5 = Image Expansion, 6 = Intelligent Cropping, 7 = HD Upscaling). The system executes the selected capabilities sequentially in a preset order. Because Intelligent Element Detection helps determine whether an image contains certain specified elements, and the presence of those elements affects the selection of subsequent AI capabilities, an additional input is provided that allows users to choose whether to filter images out of or retain images in the subsequent AI processing pipeline.
    * ![ai-pipeline-flowchart.svg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/bddb522a-0795-4b5c-b25d-10e933426367.svg)
    * Each AI capability is described as follows:
-   * 1.  **Intelligent Element Detection:** An element detection capability designed specifically for e-commerce images. Detects text, logos, watermarks, and text-bearing color blocks in both the image subject and background, and returns Boolean detection results. Supports filtering images based on detection results (for example, processing only images with watermarks). Works in conjunction with subsequent capabilities — first identifies the types of elements that need optimization, then precisely executes removal and other operations.
+   * 1.  **Intelligent Element Detection:** An element detection capability designed specifically for e-commerce images. Detects elements such as text, logos, watermarks, and text-bearing color blocks in both the image subject and background, and returns Boolean detection results. Supports filtering images based on detection results (for example, processing only images that contain watermarks). Works in conjunction with subsequent capabilities — first identifies the types of elements that need optimization, then precisely executes removal and other operations.
    *     
-   * 2.  **Intelligent Matting:** Automatically identifies the product subject in an image and precisely separates it from the background. Based on deep learning models, supports accurate segmentation of complex edges such as hair strands and transparent objects. Outputs images with transparent or white backgrounds, supports custom background colors and target size cropping, and directly generates product display images that comply with e-commerce platform specifications.
+   * 2.  **Intelligent Matting:** Automatically identifies the product subject in an image and precisely separates the subject from the background. Based on deep learning models, supports accurate segmentation of complex edges such as hair strands and transparent objects. Outputs images with a transparent or white background, supports custom background colors and target size cropping, and directly generates product display images that comply with e-commerce platform specifications.
    *     
-   * 3.  **Intelligent Removal:** Automatically identifies and removes non-compliant elements from e-commerce images, including text, specific names (brand/store names), transparent text blocks, and ad patches. Supports specifying removal of elements in the subject area or non-subject area separately, and also supports precise removal area specification through the Mask parameter for efficient batch compliance cleanup.
+   * 3.  **Intelligent Removal:** Automatically detects and removes non-compliant elements from e-commerce images, including text, specific names (brand/store names), transparent text blocks, and overlay patches. Supports specifying removal of elements in the subject area or non-subject area separately. Also supports specifying exact removal regions through the Mask parameter for efficient compliance cleanup of large batches of images.
    *     
-   * 4.  **Image Translation Pro:** Leverages multimodal large model technology to translate text in images into the target language and render it directly at the corresponding position in the original image. Supports over 100 language pairs. Provides product subject text protection, brand name protection, and translation intervention glossaries to prevent mistranslation of embedded product information. After translation, returns layout information such as text position, font, and color to support secondary editing.
+   * 4.  **Image Translation Pro:** Leverages multimodal foundation model technology to translate text in images into a target language and render it directly at the corresponding position in the original image. Supports more than 100 language pairs. Provides product subject text protection, brand name protection, and translation intervention glossaries to prevent mistranslation of embedded product information. After translation, returns layout information such as text position, font, and color to support secondary editing.
    *     
-   * 5.  **Intelligent Image Expansion:** Expands the image canvas using AI generation technology to broaden the image field of view without cropping the subject. Supports multiple expansion methods: by aspect ratio (1:1, 3:4, 4:3, 9:16, 16:9), by horizontal/vertical scaling ratio (1.0–3.0×), and by pixel offset in up/down/left/right directions. AI automatically fills in naturally transitioning background content.
+   * 5.  **Intelligent Image Expansion:** Expands the image canvas using AI generation technology to broaden the image view without cropping the subject. Supports multiple expansion methods: by aspect ratio (1:1, 3:4, 4:3, 9:16, 16:9), by horizontal/vertical scaling ratio (1.0× to 3.0×), or by pixel offset in the up, down, left, and right directions. AI automatically fills in naturally transitioning background content.
    *     
-   * 6.  **Intelligent Cropping:** Intelligently crops images to specified dimensions, automatically identifies the image subject area, and precisely preserves core content. Supports custom output width and height (100–5000 pixels) to meet the image dimension requirements of different e-commerce platforms and ad placements, ensuring the subject remains prominent and the composition stays balanced after cropping.
+   * 6.  **Intelligent Cropping:** Intelligently crops images to specified dimensions, automatically identifies the subject area, and precisely preserves core content. Supports custom output width and height (100–5000 pixels) to meet the image dimension requirements of different e-commerce platforms and ad placements, ensuring the subject remains prominent and the composition stays balanced after cropping.
    *     
-   * 7.  **HD Upscaling:** Enhances details and reduces noise while upscaling images, supporting 2–4× magnification. Suitable for improving the clarity of low-resolution product images and optimizing visual presentation. Supports output in PNG, JPG, BMP, and other formats.
+   * 7.  **HD Upscaling:** Enhances details and reduces noise while upscaling images. Supports 2× to 4× upscaling. Suitable for improving the clarity of low-resolution product images and optimizing visual presentation. Supports output in PNG, JPG, BMP, and other formats.
    * # 4. Before and after comparison 
    * | **Original image** | **Capabilities used** | **Output image** |
    * | --- | --- | --- |
@@ -3481,16 +3547,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Users upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
+   * Provides a one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
    * 
    * @remarks
    * # 1. Product Introduction
-   * A one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Users upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
-   * # 2. Applicable scenarios
+   * A one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
+   * # 2. Common scenarios
    * Applicable to batch optimization of product images in cross-platform listing scenarios. Adapts source product images into main images, SKU images, and detail images required by listing platforms. Supported capabilities include:
-   * *   Detecting low-quality images that contain text, watermarks, logos, or ad patches, allowing users to filter images that need processing
+   * *   Detecting low-quality images that contain text, watermarks, logos, or overlay patches, allowing users to filter images that need processing
    *     
-   * *   Removing non-compliant elements such as watermarks, logos, ad patches, and Chinese text from original images
+   * *   Removing non-compliant elements such as watermarks, logos, overlay patches, and Chinese text from original images
    *     
    * *   Removing the background around the product subject edges
    *     
@@ -3500,24 +3566,24 @@ export default class Client extends OpenApi {
    *     
    * *   Cropping images to specified dimensions
    *     
-   * *   Upscaling image pixels by a specified factor
-   * # 3. Feature overview
-   * Users provide a product image URL and select the desired AI capability combination through the Ability parameter (1=Intelligent Element Detection, 2=Intelligent Matting, 3=Intelligent Removal, 4=Image Translation Pro, 5=Image Expansion, 6=Intelligent Cropping, 7=HD Upscaling). The system executes the selected capabilities sequentially in a preset order. Because Intelligent Element Detection helps users determine whether an image contains certain specified elements, and the presence of elements affects subsequent AI capability selection, an additional input is provided that allows users to choose whether to filter images out of or retain images in the subsequent AI processing pipeline.
+   * *   Upscaling image resolution by a specified factor
+   * # 3. Features
+   * Provide a product image URL and use the Ability parameter to select the desired combination of AI capabilities (1 = Intelligent Element Detection, 2 = Intelligent Matting, 3 = Intelligent Removal, 4 = Image Translation Pro, 5 = Image Expansion, 6 = Intelligent Cropping, 7 = HD Upscaling). The system executes the selected capabilities sequentially in a preset order. Because Intelligent Element Detection helps determine whether an image contains certain specified elements, and the presence of those elements affects the selection of subsequent AI capabilities, an additional input is provided that allows users to choose whether to filter images out of or retain images in the subsequent AI processing pipeline.
    * ![ai-pipeline-flowchart.svg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/bddb522a-0795-4b5c-b25d-10e933426367.svg)
    * Each AI capability is described as follows:
-   * 1.  **Intelligent Element Detection:** An element detection capability designed specifically for e-commerce images. Detects text, logos, watermarks, and text-bearing color blocks in both the image subject and background, and returns Boolean detection results. Supports filtering images based on detection results (for example, processing only images with watermarks). Works in conjunction with subsequent capabilities — first identifies the types of elements that need optimization, then precisely executes removal and other operations.
+   * 1.  **Intelligent Element Detection:** An element detection capability designed specifically for e-commerce images. Detects elements such as text, logos, watermarks, and text-bearing color blocks in both the image subject and background, and returns Boolean detection results. Supports filtering images based on detection results (for example, processing only images that contain watermarks). Works in conjunction with subsequent capabilities — first identifies the types of elements that need optimization, then precisely executes removal and other operations.
    *     
-   * 2.  **Intelligent Matting:** Automatically identifies the product subject in an image and precisely separates it from the background. Based on deep learning models, supports accurate segmentation of complex edges such as hair strands and transparent objects. Outputs images with transparent or white backgrounds, supports custom background colors and target size cropping, and directly generates product display images that comply with e-commerce platform specifications.
+   * 2.  **Intelligent Matting:** Automatically identifies the product subject in an image and precisely separates the subject from the background. Based on deep learning models, supports accurate segmentation of complex edges such as hair strands and transparent objects. Outputs images with a transparent or white background, supports custom background colors and target size cropping, and directly generates product display images that comply with e-commerce platform specifications.
    *     
-   * 3.  **Intelligent Removal:** Automatically identifies and removes non-compliant elements from e-commerce images, including text, specific names (brand/store names), transparent text blocks, and ad patches. Supports specifying removal of elements in the subject area or non-subject area separately, and also supports precise removal area specification through the Mask parameter for efficient batch compliance cleanup.
+   * 3.  **Intelligent Removal:** Automatically detects and removes non-compliant elements from e-commerce images, including text, specific names (brand/store names), transparent text blocks, and overlay patches. Supports specifying removal of elements in the subject area or non-subject area separately. Also supports specifying exact removal regions through the Mask parameter for efficient compliance cleanup of large batches of images.
    *     
-   * 4.  **Image Translation Pro:** Leverages multimodal large model technology to translate text in images into the target language and render it directly at the corresponding position in the original image. Supports over 100 language pairs. Provides product subject text protection, brand name protection, and translation intervention glossaries to prevent mistranslation of embedded product information. After translation, returns layout information such as text position, font, and color to support secondary editing.
+   * 4.  **Image Translation Pro:** Leverages multimodal foundation model technology to translate text in images into a target language and render it directly at the corresponding position in the original image. Supports more than 100 language pairs. Provides product subject text protection, brand name protection, and translation intervention glossaries to prevent mistranslation of embedded product information. After translation, returns layout information such as text position, font, and color to support secondary editing.
    *     
-   * 5.  **Intelligent Image Expansion:** Expands the image canvas using AI generation technology to broaden the image field of view without cropping the subject. Supports multiple expansion methods: by aspect ratio (1:1, 3:4, 4:3, 9:16, 16:9), by horizontal/vertical scaling ratio (1.0–3.0×), and by pixel offset in up/down/left/right directions. AI automatically fills in naturally transitioning background content.
+   * 5.  **Intelligent Image Expansion:** Expands the image canvas using AI generation technology to broaden the image view without cropping the subject. Supports multiple expansion methods: by aspect ratio (1:1, 3:4, 4:3, 9:16, 16:9), by horizontal/vertical scaling ratio (1.0× to 3.0×), or by pixel offset in the up, down, left, and right directions. AI automatically fills in naturally transitioning background content.
    *     
-   * 6.  **Intelligent Cropping:** Intelligently crops images to specified dimensions, automatically identifies the image subject area, and precisely preserves core content. Supports custom output width and height (100–5000 pixels) to meet the image dimension requirements of different e-commerce platforms and ad placements, ensuring the subject remains prominent and the composition stays balanced after cropping.
+   * 6.  **Intelligent Cropping:** Intelligently crops images to specified dimensions, automatically identifies the subject area, and precisely preserves core content. Supports custom output width and height (100–5000 pixels) to meet the image dimension requirements of different e-commerce platforms and ad placements, ensuring the subject remains prominent and the composition stays balanced after cropping.
    *     
-   * 7.  **HD Upscaling:** Enhances details and reduces noise while upscaling images, supporting 2–4× magnification. Suitable for improving the clarity of low-resolution product images and optimizing visual presentation. Supports output in PNG, JPG, BMP, and other formats.
+   * 7.  **HD Upscaling:** Enhances details and reduces noise while upscaling images. Supports 2× to 4× upscaling. Suitable for improving the clarity of low-resolution product images and optimizing visual presentation. Supports output in PNG, JPG, BMP, and other formats.
    * # 4. Before and after comparison 
    * | **Original image** | **Capabilities used** | **Output image** |
    * | --- | --- | --- |

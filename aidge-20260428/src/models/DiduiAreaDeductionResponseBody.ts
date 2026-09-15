@@ -85,7 +85,7 @@ export class DiduiAreaDeductionResponseBodyDataResult extends $dara.Model {
 export class DiduiAreaDeductionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of downstream call attempts.
+   * The number of downstream calls.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class DiduiAreaDeductionResponseBodyData extends $dara.Model {
   latencyMs?: number;
   /**
    * @remarks
-   * The workflow description message.
+   * The workflow description.
    * 
    * @example
    * Success
@@ -154,7 +154,7 @@ export class DiduiAreaDeductionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The workflow business status.
+   * Indicates whether the workflow execution is successful.
    * 
    * @example
    * True
@@ -247,7 +247,7 @@ export class DiduiAreaDeductionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * True

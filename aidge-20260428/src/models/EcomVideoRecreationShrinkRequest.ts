@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EcomVideoRecreationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The input parameters for video remix.
+   * The input parameters for video multiplication.
    * 
    * This parameter is required.
    */

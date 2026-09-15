@@ -215,7 +215,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTe
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts extends $dara.Model {
   /**
    * @remarks
-   * The color of the translated text.
+   * The text color after translation.
    * 
    * @example
    * #515151
@@ -231,7 +231,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   fontsize?: number;
   /**
    * @remarks
-   * The horizontal layout. Valid values: center, left, right.
+   * The horizontal layout mode. Valid values: center, left, right.
    * 
    * @example
    * center
@@ -239,7 +239,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   horizontalLayout?: string;
   /**
    * @remarks
-   * The coordinates of the image inpainting area.
+   * The coordinates of the image repair area.
    */
   imageRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsImageRect;
   /**
@@ -265,7 +265,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   textRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect;
   /**
    * @remarks
-   * Indicates whether the TextItem is valid. The item is invalid if this value does not exist or is set to false.
+   * Indicates whether the TextItem is valid. The TextItem is invalid if this value does not exist or is set to false.
    * 
    * @example
    * true
@@ -281,7 +281,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   value?: string;
   /**
    * @remarks
-   * The vertical layout. Valid values: center, top, down.
+   * The vertical layout mode. Valid values: center, top, and down.
    * 
    * @example
    * center
@@ -346,7 +346,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
    * The original text before translation.
    * 
    * @example
-   * Cute Design · Crisp Bell
+   * 萌趣造型·清脆响铃
    */
   content?: string;
   /**
@@ -359,7 +359,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   fontsize?: number;
   /**
    * @remarks
-   * The horizontal layout. Valid values: center, left, right.
+   * The horizontal layout mode. Valid values: center, left, right.
    * 
    * @example
    * left
@@ -380,7 +380,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   texts?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts[];
   /**
    * @remarks
-   * The vertical layout. Valid values: center, top, down.
+   * The vertical layout mode. Valid values: center, top, and down.
    * 
    * @example
    * center
@@ -448,7 +448,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   repairedUrl?: string;
   /**
    * @remarks
-   * The collection of global IDs of translated images.
+   * The collection of global IDs for the translated images.
    */
   resultImageIds?: string[];
   /**
@@ -595,7 +595,7 @@ export class ImageTranslationProResponseBodyDataGenFiles extends $dara.Model {
 export class ImageTranslationProResponseBodyDataResultList extends $dara.Model {
   /**
    * @remarks
-   * The URL of the image translation result image.
+   * The URL of the translated result image.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -653,7 +653,7 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The usage information, including the number of processed images.
+   * The usage information, such as the number of processed images.
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -703,12 +703,12 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The translation result data. ResultList contains the URL of the translation result. EditInfo in GenFiles contains the recognized text information.
+   * The translation result data. ResultList contains the URLs of the translation results. GenFiles contains EditInfo, which includes the recognized text information.
    */
   data?: ImageTranslationProResponseBodyData;
   /**
    * @remarks
-   * The error message. Returns "Success" for a successful call. Returns a specific error message for an exception, such as "The content contains sensitive data. Try other input."
+   * The error message. "Success" is returned for successful calls. A specific error message is returned for failed calls, such as "The content contains sensitive data. Try other input."
    * 
    * @example
    * Success
@@ -716,7 +716,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. Used to uniquely identify a request.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * 61785C32-80C2-19A3-9E55-2C3702C84B40

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PackageWeightSizeCheckResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID, which is used to query the review result by calling QueryAsyncTaskResult.
+   * The asynchronous task ID used to query the review result later by calling QueryAsyncTaskResult.
    * 
    * @example
    * a8323ada-a196-9061-976f-90e38b27323a
@@ -48,7 +48,7 @@ export class PackageWeightSizeCheckResponseBody extends $dara.Model {
   data?: PackageWeightSizeCheckResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call.
+   * The error message. "Success" is returned for successful calls. A specific error message is returned for failed calls.
    * 
    * @example
    * Success
@@ -56,7 +56,7 @@ export class PackageWeightSizeCheckResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the API call.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * F93D82E4-D0B6-1043-AC58-282597BC3C10
@@ -64,7 +64,7 @@ export class PackageWeightSizeCheckResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful. Valid values: true and false.
    * 
    * @example
    * true

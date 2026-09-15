@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CategoryMatchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The matched category ID.
+   * The ID of the matched category.
    * 
    * @example
    * 1522
@@ -13,7 +13,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The matched category name.
+   * The name of the matched category.
    * 
    * @example
    * 位置和活动跟踪器
@@ -21,7 +21,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The full path of the category, separated by "/".
+   * The full path of the category, separated by forward slashes (/).
    * 
    * @example
    * 宠物用品/猫用品/猫挂饰、项圈、牵引带/位置和活动跟踪器
@@ -29,7 +29,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   categoryPath?: string;
   /**
    * @remarks
-   * The matching confidence score, ranging from 0 to 100.
+   * The match confidence score. Valid values: 0 to 100.
    * 
    * @example
    * 96
@@ -37,7 +37,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   confidence?: number;
   /**
    * @remarks
-   * Indicates whether the matching is successful.
+   * Indicates whether the category matching is successful.
    * 
    * @example
    * true
@@ -45,10 +45,10 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   matchSuccessful?: boolean;
   /**
    * @remarks
-   * The explanation of the matching reason.
+   * The reason for the category match.
    * 
    * @example
-   * The product core is a cat collar with AirTag positioning function, belonging to the \\"Location and Activity Trackers\\" category, with leaf node semantics precisely matching its tracking function and cat-use attributes
+   * The core product is a cat collar with AirTag positioning functionality, belonging to the \\"Location and Activity Trackers\\" category. The leaf node semantically matches its tracking functionality and cat-use attributes precisely
    */
   reason?: string;
   /**
@@ -116,7 +116,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the API call.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * 2157065A-D6C8-1F3E-A4D0-B1234567890

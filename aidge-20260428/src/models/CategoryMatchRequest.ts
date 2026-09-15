@@ -10,7 +10,7 @@ export class CategoryMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Silk, new spring style
+   * Silk, Spring New Arrival
    */
   description?: string;
   /**
@@ -18,15 +18,15 @@ export class CategoryMatchRequest extends $dara.Model {
    * The product attributes that describe the characteristics of the product, such as material. Provide the attribute names and values.
    * 
    * @example
-   * 材质:涤纶,适用对象:通用,品牌:艾马逊AMASON PET
+   * Material:Polyester,Target Audience:General,Brand:AMASON PET
    */
   itemSpec?: string;
   /**
    * @remarks
-   * The product SKU title.
+   * The SKU title of the product.
    * 
    * @example
-   * 0:0:颜色:黑(不含定位器);0:1:颜色:智能定位(不含项圈);0:2:颜色:范围定位(不含项圈);0:3:颜色:蓝(不含定位器);0:4:颜色:橙(不含定位器);0:5:颜色:粉(不含定位器);0:6:颜色:红(不含定位器);0:7:颜色:黄(不含定位器);0:8:颜色:紫(不含定位器)
+   * 0:0:Color:Black(without locator);0:1:Color:Smart Locator(without collar);0:2:Color:Range Locator(without collar);0:3:Color:Blue(without locator);0:4:Color:Orange(without locator);0:5:Color:Pink(without locator);0:6:Color:Red(without locator);0:7:Color:Yellow(without locator);0:8:Color:Purple(without locator)
    */
   sku?: string;
   /**
@@ -41,7 +41,7 @@ export class CategoryMatchRequest extends $dara.Model {
   sourceCategory?: string;
   /**
    * @remarks
-   * The source platform where products are sourced from.
+   * The source platform from which products are sourced.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CategoryMatchRequest extends $dara.Model {
   sourcePlatform?: string;
   /**
    * @remarks
-   * The target listing platform. Currently only temu is supported.
+   * The target listing platform. Currently, only temu is supported.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class CategoryMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Women\\"s new spring clothing
+   * Women\\"s Spring New Arrival Clothing
    */
   title?: string;
   static names(): { [key: string]: string } {

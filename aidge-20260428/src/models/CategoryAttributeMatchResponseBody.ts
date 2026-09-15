@@ -24,7 +24,7 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
    * The attribute input type.
    * 
    * @example
-   * 单选下拉
+   * Single-select dropdown
    */
   inputType?: string;
   /**
@@ -161,7 +161,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
    * The category name.
    * 
    * @example
-   * 猫项圈
+   * Cat Collars
    */
   categoryName?: string;
   /**
@@ -169,7 +169,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
    * The full path of the category, separated by "/".
    * 
    * @example
-   * 宠物用品/猫用品/猫挂饰、项圈、牵引带/猫项圈
+   * Pet Supplies/Cat Supplies/Cat Charms, Collars & Leashes/Cat Collars
    */
   categoryPath?: string;
   /**
@@ -198,7 +198,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
   totalAttributes?: number;
   /**
    * @remarks
-   * The usage information.
+   * The usage fields.
    */
   usageMap?: CategoryAttributeMatchResponseBodyDataUsageMap;
   static names(): { [key: string]: string } {
@@ -253,7 +253,7 @@ export class CategoryAttributeMatchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: CategoryAttributeMatchResponseBodyData;
   /**

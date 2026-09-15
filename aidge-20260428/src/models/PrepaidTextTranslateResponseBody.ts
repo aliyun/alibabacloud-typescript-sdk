@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PrepaidTextTranslateResponseBodyDataTranslations extends $dara.Model {
   /**
    * @remarks
-   * The character count of the source text.
+   * The number of characters in the source text.
    * 
    * @example
    * 11
@@ -60,7 +60,7 @@ export class PrepaidTextTranslateResponseBodyData extends $dara.Model {
   translations?: PrepaidTextTranslateResponseBodyDataTranslations[];
   /**
    * @remarks
-   * The usage information, including the input character count.
+   * The usage information, including the number of input characters.
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class PrepaidTextTranslateResponseBodyData extends $dara.Model {
 export class PrepaidTextTranslateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Returns "success" for normal calls.
+   * The response code. The value "success" is returned for successful calls.
    * 
    * @example
    * success
@@ -108,7 +108,7 @@ export class PrepaidTextTranslateResponseBody extends $dara.Model {
   data?: PrepaidTextTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message. Returns "Success" for normal calls. Returns specific error information for exceptions, such as "The parameters contain sensitive information. Try other input."
+   * The error message. The value "Success" is returned for successful calls. For exceptions, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
    * 
    * @example
    * Success
@@ -116,7 +116,7 @@ export class PrepaidTextTranslateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, used to identify a unique request call.
+   * The request ID, used to uniquely identify a request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -124,7 +124,7 @@ export class PrepaidTextTranslateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. true indicates success. false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * True

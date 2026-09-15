@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemoveResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The height of the result image in pixels.
+   * The height of the result image, in pixels.
    * 
    * @example
    * 800
@@ -30,7 +30,7 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
   usageMap?: { [key: string]: number };
   /**
    * @remarks
-   * The width of the result image in pixels.
+   * The width of the result image, in pixels.
    * 
    * @example
    * 800

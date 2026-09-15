@@ -77,7 +77,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
   objWatermark?: boolean;
   /**
    * @remarks
-   * The product count.
+   * The number of products.
    * 
    * @example
    * 2
@@ -85,7 +85,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
   pdNum?: number;
   /**
    * @remarks
-   * The product proportion.
+   * The proportion of the product area in the image.
    * 
    * @example
    * 74.15%
@@ -98,7 +98,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
   recText?: string[];
   /**
    * @remarks
-   * The text proportion.
+   * The proportion of the text area in the image.
    * 
    * @example
    * 7.52%
@@ -168,7 +168,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
 export class ImageRecognitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for successful calls.
+   * The error code. This parameter is not returned if the call is successful.
    * 
    * @example
    * 200
@@ -181,7 +181,7 @@ export class ImageRecognitionResponseBody extends $dara.Model {
   data?: ImageRecognitionResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned if the call is successful.
    * 
    * @example
    * OK

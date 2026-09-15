@@ -65,7 +65,7 @@ export class ProductHotspotDetectionResponseBodyDataProductsBoxes extends $dara.
 export class ProductHotspotDetectionResponseBodyDataProducts extends $dara.Model {
   /**
    * @remarks
-   * The bounding boxes of the product instances.
+   * The bounding boxes of the detected product instances.
    */
   boxes?: ProductHotspotDetectionResponseBodyDataProductsBoxes[];
   /**
@@ -115,7 +115,7 @@ export class ProductHotspotDetectionResponseBodyDataProducts extends $dara.Model
 export class ProductHotspotDetectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of recognized products and their bounding boxes.
+   * The list of detected products and their bounding boxes.
    */
   products?: ProductHotspotDetectionResponseBodyDataProducts[];
   /**

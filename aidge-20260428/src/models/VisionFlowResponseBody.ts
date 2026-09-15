@@ -56,7 +56,7 @@ export class VisionFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, used to uniquely identify a single API call.
+   * The request ID, used to uniquely identify a single request.
    * 
    * @example
    * F3E65785-0180-1227-91B0-2F5F52F679FB

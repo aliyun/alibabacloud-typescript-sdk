@@ -13,7 +13,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The URL of the matting result image.
+   * The URL of the image matting result.
    * 
    * @example
    * http://dashscope-7c2c.oss-cn-shanghai.aliyuncs.com/xxx.jpg
@@ -21,7 +21,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The matting quality score.
+   * The quality score of the image matting result.
    * 
    * @example
    * 0.11
@@ -108,7 +108,6 @@ export class ImageMattingResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
-   * 
    * - true: Successful.
    * - false: Failed.
    * 
