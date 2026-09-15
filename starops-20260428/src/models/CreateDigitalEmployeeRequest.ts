@@ -156,7 +156,7 @@ export class CreateDigitalEmployeeRequestSandboxNetworkPolicy extends $dara.Mode
 export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dara.Model {
   /**
    * @remarks
-   * The list of Aliyun OpenAPI actions. Format: product:ApiName, product:Prefix*, or product:*.
+   * The list of Aliyun OpenAPI actions in the format of product:ApiName, product:Prefix*, or product:*.
    * 
    * @example
    * ["log:GetProject","log:CreateDashboard"]
@@ -174,7 +174,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   apiVersion?: string;
   /**
    * @remarks
-   * The execution policy when the API is matched.
+   * The execution policy when this API is matched.
    * 
    * @example
    * user_ack
@@ -221,7 +221,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
 export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * The auto-pass policy. Entries are RAM Action strings in the format of product:ApiName, product:Prefix*, or product:*. Matched requests are automatically passed without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically passed. Unmatched requests require human-in-the-loop (HIL) confirmation.
+   * The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically approved without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically approved. Unmatched actions require human-in-the-loop (HIL) confirmation.
    * 
    * @example
    * ["log:Get*","log:List*"]
@@ -229,7 +229,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   autoPassPolicy?: string[];
   /**
    * @remarks
-   * The explicit deny policy with the highest priority. Entries are RAM Action strings in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. When matched by STAROps, the request is directly denied. Pop performs a secondary fallback check.
+   * The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no actions are actively denied. STAROps directly denies matched actions. The Pop side performs secondary fallback enforcement.
    * 
    * @example
    * ["ecs:RunCommand","ecs:Delete*"]

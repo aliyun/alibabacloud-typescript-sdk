@@ -69,7 +69,7 @@ export class ConnectorInfo extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the Connector is enabled.
+   * Specifies whether the Connector is enabled.
    * 
    * This parameter is required.
    */

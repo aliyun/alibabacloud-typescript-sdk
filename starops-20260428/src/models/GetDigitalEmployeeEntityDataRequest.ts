@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDigitalEmployeeEntityDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The UNIX timestamp. Unit: seconds.
+   * The UNIX timestamp, in seconds.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetDigitalEmployeeEntityDataRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The UNIX timestamp. Unit: seconds. The value must be greater than the value of from.
+   * The UNIX timestamp, in seconds. The value must be greater than the value of from.
    * 
    * This parameter is required.
    * 

@@ -14,7 +14,7 @@ export class ConnectorCreateInput extends $dara.Model {
   authentication?: ConnectorAuthenticationInput;
   /**
    * @remarks
-   * The list of capabilities granted to the Connector.
+   * The list of capabilities granted to the connector.
    * 
    * This parameter is required.
    */
@@ -69,12 +69,12 @@ export class ConnectorCreateInput extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Connector after creation.
+   * Specifies whether the connector is enabled after creation.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The execution policy of the Connector.
+   * The execution policy of the connector.
    * 
    * This parameter is required.
    */
@@ -91,7 +91,7 @@ export class ConnectorCreateInput extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The runtime configuration of the Connector.
+   * The runtime configuration of the connector.
    * 
    * This parameter is required.
    */

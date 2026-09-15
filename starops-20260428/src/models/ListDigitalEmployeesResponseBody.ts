@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian extends $dara.Model {
   /**
    * @remarks
-   * The attributes of the knowledge base.
+   * The knowledge base attributes.
    * 
    * @example
    * test
@@ -104,7 +104,19 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends 
 }
 
 export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes.
+   */
   attributes?: { [key: string]: string };
+  /**
+   * @remarks
+   * The channel type of the digital employee.
+   * 
+   * @example
+   * default
+   */
+  channel?: string;
   /**
    * @remarks
    * The creation time.
@@ -183,7 +195,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   tags?: Tag[];
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -194,6 +206,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
+      channel: 'channel',
       createTime: 'createTime',
       defaultRule: 'defaultRule',
       description: 'description',
@@ -211,6 +224,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      channel: 'string',
       createTime: 'string',
       defaultRule: 'string',
       description: 'string',

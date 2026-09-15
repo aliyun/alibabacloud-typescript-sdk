@@ -223,7 +223,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
 export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched requests are automatically approved without human confirmation. If empty or not configured, built-in read-only operations (Get*, List*, Describe*) are automatically approved. Unmatched requests require human-in-the-loop (HIL) confirmation.
+   * The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically approved without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically approved. Unmatched actions require human-in-the-loop (HIL) confirmation.
    * 
    * @example
    * ["log:Get*","log:List*"]
@@ -231,7 +231,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   autoPassPolicy?: string[];
   /**
    * @remarks
-   * The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If empty or not configured, no operations are actively denied. STAROps directly rejects matched requests. The Pop side performs a secondary fallback check.
+   * The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no actions are actively denied. STAROps directly denies matched actions. The Pop side performs secondary fallback enforcement.
    * 
    * @example
    * ["ecs:RunCommand","ecs:Delete*"]
@@ -247,7 +247,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   enable?: boolean;
   /**
    * @remarks
-   * The list of Aliyun CLI tool policy statements.
+   * The list of Alibaba Cloud CLI tool policy statements.
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
@@ -294,7 +294,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
 export class GetDigitalEmployeeResponseBodyToolPolicy extends $dara.Model {
   /**
    * @remarks
-   * The security policy configuration for Aliyun CLI tool calling.
+   * The security policy configuration for Alibaba Cloud CLI tool calling invokes.
    * 
    * @example
    * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
@@ -330,6 +330,14 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
    * The attributes.
    */
   attributes?: { [key: string]: string };
+  /**
+   * @remarks
+   * The channel type.
+   * 
+   * @example
+   * default
+   */
+  channel?: string;
   /**
    * @remarks
    * The creation time.
@@ -419,7 +427,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The sandbox network ACL policy configuration for the digital employee.
+   * The sandbox network ACL policy configuration of the digital employee.
    * 
    * @example
    * {"allowFqdns":["api.example.com"],"allowCidrs":["1.2.3.0/24","8.8.8.8"],"enableAcl":false}
@@ -440,7 +448,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   toolPolicy?: GetDigitalEmployeeResponseBodyToolPolicy;
   /**
    * @remarks
-   * The update time.
+   * The modification time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -451,6 +459,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
+      channel: 'channel',
       createTime: 'createTime',
       defaultRule: 'defaultRule',
       description: 'description',
@@ -472,6 +481,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      channel: 'string',
       createTime: 'string',
       defaultRule: 'string',
       description: 'string',

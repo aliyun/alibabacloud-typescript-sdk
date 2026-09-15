@@ -666,7 +666,7 @@ export default class Client extends OpenApi {
       action: "DeleteDigitalEmployeeUmodelCommonSchemaRef",
       version: "2026-04-28",
       protocol: "HTTPS",
-      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/umodel/common-schema-refs/${$dara.URL.percentEncode(group)}`,
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/umodel/commonSchemaRefs/${$dara.URL.percentEncode(group)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -1016,7 +1016,7 @@ export default class Client extends OpenApi {
       action: "GetDigitalEmployeeEntityData",
       version: "2026-04-28",
       protocol: "HTTPS",
-      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/entities/query`,
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/entities/query`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -1106,7 +1106,7 @@ export default class Client extends OpenApi {
       action: "GetDigitalEmployeeUmodel",
       version: "2026-04-28",
       protocol: "HTTPS",
-      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/umodel`,
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/umodel`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -1450,6 +1450,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channel)) {
+      query["channel"] = request.channel;
+    }
+
     if (!$dara.isNull(request.displayName)) {
       query["displayName"] = request.displayName;
     }
@@ -1806,7 +1810,7 @@ export default class Client extends OpenApi {
       action: "UpdateDigitalEmployeeUmodel",
       version: "2026-04-28",
       protocol: "HTTPS",
-      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/umodel`,
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/umodel`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -1975,7 +1979,7 @@ export default class Client extends OpenApi {
       action: "UpsertDigitalEmployeeUmodelCommonSchemaRef",
       version: "2026-04-28",
       protocol: "HTTPS",
-      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/umodel/common-schema-refs/${$dara.URL.percentEncode(group)}`,
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/umodel/commonSchemaRefs/${$dara.URL.percentEncode(group)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",

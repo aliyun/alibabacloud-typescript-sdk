@@ -61,6 +61,10 @@ export class CreateMcpServiceRequestConnection extends $dara.Model {
    * https://example.com/mcp
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The custom headers.
+   */
   headers?: { [key: string]: string };
   /**
    * @remarks
@@ -261,7 +265,7 @@ export class CreateMcpServiceRequestTools extends $dara.Model {
    * The description of the MCP tool.
    * 
    * @example
-   * 查询指定日志库中的日志。
+   * Query logs in a specified Logstore
    */
   description?: string;
   /**
@@ -269,7 +273,7 @@ export class CreateMcpServiceRequestTools extends $dara.Model {
    * The display name of the MCP tool.
    * 
    * @example
-   * 日志查询工具
+   * Log Query Tool
    */
   displayName?: string;
   /**
@@ -329,7 +333,7 @@ export class CreateMcpServiceRequestTools extends $dara.Model {
    * The title of the MCP tool.
    * 
    * @example
-   * 查询日志
+   * Query Logs
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -401,7 +405,7 @@ export class CreateMcpServiceRequest extends $dara.Model {
    * The description of the MCP service.
    * 
    * @example
-   * 通过 MCP 调用日志查询工具。
+   * Call the log query tool through MCP
    */
   description?: string;
   /**
@@ -409,7 +413,7 @@ export class CreateMcpServiceRequest extends $dara.Model {
    * The display name of the MCP service.
    * 
    * @example
-   * 日志查询
+   * Log Query
    */
   displayName?: string;
   /**

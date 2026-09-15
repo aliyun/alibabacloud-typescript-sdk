@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListDigitalEmployeesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Filters digital employees by channel type. If this parameter is not specified, the default channel is used.
+   * 
+   * @example
+   * default
+   */
+  channel?: string;
+  /**
+   * @remarks
    * The display name of the digital employee.
    * 
    * @example
@@ -58,6 +66,7 @@ export class ListDigitalEmployeesShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      channel: 'channel',
       displayName: 'displayName',
       employeeType: 'employeeType',
       maxResults: 'maxResults',
@@ -70,6 +79,7 @@ export class ListDigitalEmployeesShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      channel: 'string',
       displayName: 'string',
       employeeType: 'string',
       maxResults: 'number',

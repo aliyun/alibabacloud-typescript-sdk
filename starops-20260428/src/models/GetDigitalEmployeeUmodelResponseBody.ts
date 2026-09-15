@@ -66,7 +66,7 @@ export class GetDigitalEmployeeUmodelResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The unique identifier of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 0A1B2C3D-4E5F-6789-ABCD-1234567890AB

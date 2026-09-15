@@ -125,12 +125,12 @@ export class GetDigitalEmployeeEntityDataResponseBodyResponseStatus extends $dar
 export class GetDigitalEmployeeEntityDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query result in the form of a two-dimensional array. Each cell is returned as a string.
+   * The query results in the form of a two-dimensional array. Each cell is returned as a string.
    */
   data?: string[][];
   /**
    * @remarks
-   * The name of each column in the query result.
+   * The name of each column in the query results.
    */
   header?: string[];
   /**
