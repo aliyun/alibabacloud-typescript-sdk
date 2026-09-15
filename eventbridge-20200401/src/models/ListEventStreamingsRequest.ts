@@ -45,7 +45,7 @@ export class ListEventStreamingsRequestTags extends $dara.Model {
 export class ListEventStreamingsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned per request. You can use this parameter together with NextToken to implement paging.
+   * The maximum number of entries to return per request. You can use this parameter together with NextToken to implement paging.
    * >Notice: The maximum number of entries returned per request cannot exceed 100.
    * 
    * @example
@@ -62,7 +62,7 @@ export class ListEventStreamingsRequest extends $dara.Model {
   namePrefix?: string;
   /**
    * @remarks
-   * If the number of entries exceeds the value of Limit, a NextToken is returned.
+   * If the number of entries that match the specified conditions exceeds the value of Limit, a NextToken is returned.
    * 
    * @example
    * 10
@@ -78,7 +78,7 @@ export class ListEventStreamingsRequest extends $dara.Model {
   sinkArn?: string;
   /**
    * @remarks
-   * The ARN of the event source.
+   * The Alibaba Cloud Resource Name (ARN) of the event source.
    */
   sourceArn?: string;
   /**

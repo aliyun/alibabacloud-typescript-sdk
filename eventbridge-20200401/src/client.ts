@@ -58,7 +58,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data by using natural language.
+   * Queries data using natural language.
    * 
    * @param request - AskLumaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101,7 +101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data by using natural language.
+   * Queries data using natural language.
    * 
    * @param request - AskLumaRequest
    * @returns AskLumaResponse
@@ -1296,7 +1296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Namespace
+   * Deletes a namespace.
    * 
    * @param request - DeleteNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1337,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Namespace
+   * Deletes a namespace.
    * 
    * @param request - DeleteNamespaceRequest
    * @returns DeleteNamespaceResponse
@@ -2188,6 +2188,434 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a specified data catalog bound to a Luma Agent. You can only query data catalogs that are already bound to the Agent. A ResourceNotFound error is returned for unbound catalogs.
+   * 
+   * @remarks
+   * Retrieves the details of a specified data catalog bound to a Luma Agent. You can only query data catalogs that are already bound to the Agent. A ResourceNotFound error is returned for unbound catalogs.
+   * 
+   * @param request - GetLumaCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLumaCatalogResponse
+   */
+  async getLumaCatalogWithOptions(request: $_model.GetLumaCatalogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLumaCatalogResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLumaCatalog",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLumaCatalogResponse>(await this.callApi(params, req, runtime), new $_model.GetLumaCatalogResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a specified data catalog bound to a Luma Agent. You can only query data catalogs that are already bound to the Agent. A ResourceNotFound error is returned for unbound catalogs.
+   * 
+   * @remarks
+   * Retrieves the details of a specified data catalog bound to a Luma Agent. You can only query data catalogs that are already bound to the Agent. A ResourceNotFound error is returned for unbound catalogs.
+   * 
+   * @param request - GetLumaCatalogRequest
+   * @returns GetLumaCatalogResponse
+   */
+  async getLumaCatalog(request: $_model.GetLumaCatalogRequest): Promise<$_model.GetLumaCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLumaCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the full content of a specified text chunk from a knowledge base bound to a Luma Agent.
+   * 
+   * @remarks
+   * Retrieves the full content of a specified text chunk from a knowledge base bound to a Luma Agent.
+   * 
+   * @param request - GetLumaChunkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLumaChunkResponse
+   */
+  async getLumaChunkWithOptions(request: $_model.GetLumaChunkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLumaChunkResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.chunkSeq)) {
+      body["ChunkSeq"] = request.chunkSeq;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      body["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      body["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLumaChunk",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLumaChunkResponse>(await this.callApi(params, req, runtime), new $_model.GetLumaChunkResponse({}));
+  }
+
+  /**
+   * Retrieves the full content of a specified text chunk from a knowledge base bound to a Luma Agent.
+   * 
+   * @remarks
+   * Retrieves the full content of a specified text chunk from a knowledge base bound to a Luma Agent.
+   * 
+   * @param request - GetLumaChunkRequest
+   * @returns GetLumaChunkResponse
+   */
+  async getLumaChunk(request: $_model.GetLumaChunkRequest): Promise<$_model.GetLumaChunkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLumaChunkWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a specified document in the knowledge base bound to a Luma Agent.
+   * 
+   * @remarks
+   * Retrieves the details of a specified document in the knowledge base bound to a Luma Agent.
+   * 
+   * @param request - GetLumaDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLumaDocumentResponse
+   */
+  async getLumaDocumentWithOptions(request: $_model.GetLumaDocumentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLumaDocumentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      body["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      body["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLumaDocument",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLumaDocumentResponse>(await this.callApi(params, req, runtime), new $_model.GetLumaDocumentResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a specified document in the knowledge base bound to a Luma Agent.
+   * 
+   * @remarks
+   * Retrieves the details of a specified document in the knowledge base bound to a Luma Agent.
+   * 
+   * @param request - GetLumaDocumentRequest
+   * @returns GetLumaDocumentResponse
+   */
+  async getLumaDocument(request: $_model.GetLumaDocumentRequest): Promise<$_model.GetLumaDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLumaDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a temporary download URL for a specified document in the knowledge base bound to a Luma Agent. The URL is valid for one hour by default.
+   * 
+   * @remarks
+   * Retrieves a temporary download URL for a specified document in the knowledge base bound to a Luma Agent. The URL is valid for one hour by default.
+   * 
+   * @param request - GetLumaDocumentDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLumaDocumentDownloadUrlResponse
+   */
+  async getLumaDocumentDownloadUrlWithOptions(request: $_model.GetLumaDocumentDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLumaDocumentDownloadUrlResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      body["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      body["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      body["NetworkType"] = request.networkType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLumaDocumentDownloadUrl",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLumaDocumentDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetLumaDocumentDownloadUrlResponse({}));
+  }
+
+  /**
+   * Retrieves a temporary download URL for a specified document in the knowledge base bound to a Luma Agent. The URL is valid for one hour by default.
+   * 
+   * @remarks
+   * Retrieves a temporary download URL for a specified document in the knowledge base bound to a Luma Agent. The URL is valid for one hour by default.
+   * 
+   * @param request - GetLumaDocumentDownloadUrlRequest
+   * @returns GetLumaDocumentDownloadUrlResponse
+   */
+  async getLumaDocumentDownloadUrl(request: $_model.GetLumaDocumentDownloadUrlRequest): Promise<$_model.GetLumaDocumentDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLumaDocumentDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a specified knowledge base bound to a Luma Agent, including the vector model, chunking configuration, and retrieval configuration.
+   * 
+   * @remarks
+   * Retrieves the details of a specified knowledge base bound to a Luma Agent, including the vector model, chunking configuration, and retrieval configuration.
+   * 
+   * @param request - GetLumaKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLumaKnowledgeBaseResponse
+   */
+  async getLumaKnowledgeBaseWithOptions(request: $_model.GetLumaKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLumaKnowledgeBaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      body["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLumaKnowledgeBase",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLumaKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.GetLumaKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a specified knowledge base bound to a Luma Agent, including the vector model, chunking configuration, and retrieval configuration.
+   * 
+   * @remarks
+   * Retrieves the details of a specified knowledge base bound to a Luma Agent, including the vector model, chunking configuration, and retrieval configuration.
+   * 
+   * @param request - GetLumaKnowledgeBaseRequest
+   * @returns GetLumaKnowledgeBaseResponse
+   */
+  async getLumaKnowledgeBase(request: $_model.GetLumaKnowledgeBaseRequest): Promise<$_model.GetLumaKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLumaKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a specified namespace bound to a Luma Agent. Only namespaces that are already bound to the Agent can be queried.
+   * 
+   * @remarks
+   * Retrieves the details of a specified namespace bound to a Luma Agent. Only namespaces that are already bound to the Agent can be queried.
+   * 
+   * @param request - GetLumaNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLumaNamespaceResponse
+   */
+  async getLumaNamespaceWithOptions(request: $_model.GetLumaNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLumaNamespaceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLumaNamespace",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLumaNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.GetLumaNamespaceResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a specified namespace bound to a Luma Agent. Only namespaces that are already bound to the Agent can be queried.
+   * 
+   * @remarks
+   * Retrieves the details of a specified namespace bound to a Luma Agent. Only namespaces that are already bound to the Agent can be queried.
+   * 
+   * @param request - GetLumaNamespaceRequest
+   * @returns GetLumaNamespaceResponse
+   */
+  async getLumaNamespace(request: $_model.GetLumaNamespaceRequest): Promise<$_model.GetLumaNamespaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLumaNamespaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a specified event table bound to a Luma Agent, including column definitions and the data retention policy. Only event tables that are already bound to the Agent can be queried.
+   * 
+   * @remarks
+   * Retrieves the details of a specified event table bound to a Luma Agent, including column definitions and the data retention policy. Only event tables that are already bound to the Agent can be queried.
+   * 
+   * @param request - GetLumaTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLumaTableResponse
+   */
+  async getLumaTableWithOptions(request: $_model.GetLumaTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLumaTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLumaTable",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLumaTableResponse>(await this.callApi(params, req, runtime), new $_model.GetLumaTableResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a specified event table bound to a Luma Agent, including column definitions and the data retention policy. Only event tables that are already bound to the Agent can be queried.
+   * 
+   * @remarks
+   * Retrieves the details of a specified event table bound to a Luma Agent, including column definitions and the data retention policy. Only event tables that are already bound to the Agent can be queried.
+   * 
+   * @param request - GetLumaTableRequest
+   * @returns GetLumaTableResponse
+   */
+  async getLumaTable(request: $_model.GetLumaTableRequest): Promise<$_model.GetLumaTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLumaTableWithOptions(request, runtime);
+  }
+
+  /**
    * Get namespace
    * 
    * @param request - GetNamespaceRequest
@@ -2771,6 +3199,374 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+   * 
+   * @remarks
+   * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+   * 
+   * @param request - ListLumaCatalogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLumaCatalogsResponse
+   */
+  async listLumaCatalogsWithOptions(request: $_model.ListLumaCatalogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLumaCatalogsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLumaCatalogs",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLumaCatalogsResponse>(await this.callApi(params, req, runtime), new $_model.ListLumaCatalogsResponse({}));
+  }
+
+  /**
+   * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+   * 
+   * @remarks
+   * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+   * 
+   * @param request - ListLumaCatalogsRequest
+   * @returns ListLumaCatalogsResponse
+   */
+  async listLumaCatalogs(request: $_model.ListLumaCatalogsRequest): Promise<$_model.ListLumaCatalogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLumaCatalogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists text chunks in a knowledge base bound to a Luma Agent, with support for filtering by document, keyword, and enabled status.
+   * 
+   * @remarks
+   * Lists text chunks in a knowledge base bound to a Luma Agent, with support for filtering by document, keyword, and enabled status.
+   * 
+   * @param request - ListLumaChunksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLumaChunksResponse
+   */
+  async listLumaChunksWithOptions(request: $_model.ListLumaChunksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLumaChunksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      body["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      body["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLumaChunks",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLumaChunksResponse>(await this.callApi(params, req, runtime), new $_model.ListLumaChunksResponse({}));
+  }
+
+  /**
+   * Lists text chunks in a knowledge base bound to a Luma Agent, with support for filtering by document, keyword, and enabled status.
+   * 
+   * @remarks
+   * Lists text chunks in a knowledge base bound to a Luma Agent, with support for filtering by document, keyword, and enabled status.
+   * 
+   * @param request - ListLumaChunksRequest
+   * @returns ListLumaChunksResponse
+   */
+  async listLumaChunks(request: $_model.ListLumaChunksRequest): Promise<$_model.ListLumaChunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLumaChunksWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists documents in a knowledge base bound to a Luma Agent, with support for filtering by file name prefix and processing status.
+   * 
+   * @remarks
+   * Lists documents in a knowledge base bound to a Luma Agent, with support for filtering by file name prefix and processing status.
+   * 
+   * @param request - ListLumaDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLumaDocumentsResponse
+   */
+  async listLumaDocumentsWithOptions(request: $_model.ListLumaDocumentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLumaDocumentsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.fileNamePrefix)) {
+      body["FileNamePrefix"] = request.fileNamePrefix;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      body["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLumaDocuments",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLumaDocumentsResponse>(await this.callApi(params, req, runtime), new $_model.ListLumaDocumentsResponse({}));
+  }
+
+  /**
+   * Lists documents in a knowledge base bound to a Luma Agent, with support for filtering by file name prefix and processing status.
+   * 
+   * @remarks
+   * Lists documents in a knowledge base bound to a Luma Agent, with support for filtering by file name prefix and processing status.
+   * 
+   * @param request - ListLumaDocumentsRequest
+   * @returns ListLumaDocumentsResponse
+   */
+  async listLumaDocuments(request: $_model.ListLumaDocumentsRequest): Promise<$_model.ListLumaDocumentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLumaDocumentsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * 
+   * @remarks
+   * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * 
+   * @param request - ListLumaKnowledgeBasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLumaKnowledgeBasesResponse
+   */
+  async listLumaKnowledgeBasesWithOptions(request: $_model.ListLumaKnowledgeBasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLumaKnowledgeBasesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLumaKnowledgeBases",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLumaKnowledgeBasesResponse>(await this.callApi(params, req, runtime), new $_model.ListLumaKnowledgeBasesResponse({}));
+  }
+
+  /**
+   * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * 
+   * @remarks
+   * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * 
+   * @param request - ListLumaKnowledgeBasesRequest
+   * @returns ListLumaKnowledgeBasesResponse
+   */
+  async listLumaKnowledgeBases(request: $_model.ListLumaKnowledgeBasesRequest): Promise<$_model.ListLumaKnowledgeBasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLumaKnowledgeBasesWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+   * 
+   * @remarks
+   * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+   * 
+   * @param request - ListLumaNamespacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLumaNamespacesResponse
+   */
+  async listLumaNamespacesWithOptions(request: $_model.ListLumaNamespacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLumaNamespacesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLumaNamespaces",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLumaNamespacesResponse>(await this.callApi(params, req, runtime), new $_model.ListLumaNamespacesResponse({}));
+  }
+
+  /**
+   * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+   * 
+   * @remarks
+   * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+   * 
+   * @param request - ListLumaNamespacesRequest
+   * @returns ListLumaNamespacesResponse
+   */
+  async listLumaNamespaces(request: $_model.ListLumaNamespacesRequest): Promise<$_model.ListLumaNamespacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLumaNamespacesWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * 
+   * @remarks
+   * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * 
+   * @param request - ListLumaTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLumaTablesResponse
+   */
+  async listLumaTablesWithOptions(request: $_model.ListLumaTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLumaTablesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLumaTables",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLumaTablesResponse>(await this.callApi(params, req, runtime), new $_model.ListLumaTablesResponse({}));
+  }
+
+  /**
+   * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * 
+   * @remarks
+   * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * 
+   * @param request - ListLumaTablesRequest
+   * @returns ListLumaTablesResponse
+   */
+  async listLumaTables(request: $_model.ListLumaTablesRequest): Promise<$_model.ListLumaTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLumaTablesWithOptions(request, runtime);
+  }
+
+  /**
    * Query namespace list
    * 
    * @param request - ListNamespacesRequest
@@ -3101,7 +3897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Polls for natural language query results.
+   * Polls for the result of a natural language query.
    * 
    * @param request - PollAskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3136,7 +3932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Polls for natural language query results.
+   * Polls for the result of a natural language query.
    * 
    * @param request - PollAskResultRequest
    * @returns PollAskResultResponse
@@ -3531,6 +4327,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes an SQL query directly on the EventHouse associated with a Luma Agent and returns structured results. Unlike AskLuma, this operation executes the SQL provided by the caller without natural language rewriting.
+   * 
+   * @remarks
+   * Executes an SQL query directly on the EventHouse associated with a Luma Agent and returns structured results. Unlike AskLuma, this operation executes the SQL provided by the caller without natural language rewriting.
+   * 
+   * @param request - QueryLumaWithSQLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLumaWithSQLResponse
+   */
+  async queryLumaWithSQLWithOptions(request: $_model.QueryLumaWithSQLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryLumaWithSQLResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.maxRows)) {
+      body["MaxRows"] = request.maxRows;
+    }
+
+    if (!$dara.isNull(request.sql)) {
+      body["Sql"] = request.sql;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryLumaWithSQL",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryLumaWithSQLResponse>(await this.callApi(params, req, runtime), new $_model.QueryLumaWithSQLResponse({}));
+  }
+
+  /**
+   * Executes an SQL query directly on the EventHouse associated with a Luma Agent and returns structured results. Unlike AskLuma, this operation executes the SQL provided by the caller without natural language rewriting.
+   * 
+   * @remarks
+   * Executes an SQL query directly on the EventHouse associated with a Luma Agent and returns structured results. Unlike AskLuma, this operation executes the SQL provided by the caller without natural language rewriting.
+   * 
+   * @param request - QueryLumaWithSQLRequest
+   * @returns QueryLumaWithSQLResponse
+   */
+  async queryLumaWithSQL(request: $_model.QueryLumaWithSQLRequest): Promise<$_model.QueryLumaWithSQLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryLumaWithSQLWithOptions(request, runtime);
+  }
+
+  /**
    * Queries event traces by event ID.
    * 
    * @remarks
@@ -3740,6 +4592,86 @@ export default class Client extends OpenApi {
   async saveAgentDataSemantics(request: $_model.SaveAgentDataSemanticsRequest): Promise<$_model.SaveAgentDataSemanticsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.saveAgentDataSemanticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+   * 
+   * @remarks
+   * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+   * 
+   * @param request - SearchLumaKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchLumaKnowledgeBaseResponse
+   */
+  async searchLumaKnowledgeBaseWithOptions(request: $_model.SearchLumaKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchLumaKnowledgeBaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      body["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.metadataFilter)) {
+      body["MetadataFilter"] = request.metadataFilter;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.rerank)) {
+      body["Rerank"] = request.rerank;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      body["TopK"] = request.topK;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchLumaKnowledgeBase",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchLumaKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.SearchLumaKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+   * 
+   * @remarks
+   * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+   * 
+   * @param request - SearchLumaKnowledgeBaseRequest
+   * @returns SearchLumaKnowledgeBaseResponse
+   */
+  async searchLumaKnowledgeBase(request: $_model.SearchLumaKnowledgeBaseRequest): Promise<$_model.SearchLumaKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchLumaKnowledgeBaseWithOptions(request, runtime);
   }
 
   /**

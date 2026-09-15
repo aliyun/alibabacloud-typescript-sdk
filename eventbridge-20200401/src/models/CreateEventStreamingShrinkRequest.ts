@@ -81,32 +81,32 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The generic JSON Configurations for the event source. This parameter is mutually exclusive with Source.
+   * The general JSON Configurations for the event provider. This parameter is mutually exclusive with Source. Specify one of the two parameters.
    */
   metadata?: string;
   /**
    * @remarks
-   * The runtime environment parameters.
+   * The runtime parameters.
    */
   runOptionsShrink?: string;
   /**
    * @remarks
-   * The event target. You must select one Sink type, and you can select only one Sink type.
+   * The event target. You must specify exactly one type of Sink.
    */
   sinkShrink?: string;
   /**
    * @remarks
-   * The event provider. You must specify one source type, and you can specify only one source type.
+   * The event provider. You must specify one Source, and you can specify only one Source.
    */
   sourceShrink?: string;
   /**
    * @remarks
-   * The tag list, containing up to 20 items.
+   * The list of tags. A maximum of 20 tags can be specified.
    */
   tags?: CreateEventStreamingShrinkRequestTags[];
   /**
    * @remarks
-   * The Transform-related configurations.
+   * The transform configurations.
    */
   transformsShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Data catalog
+   * The data catalog to which the namespace belongs.
    * 
    * @example
    * my_catalog
@@ -13,7 +13,7 @@ export class DeleteNamespaceRequest extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * Idempotent Token
+   * The idempotency token.
    * 
    * @example
    * 1e9b8f60-3a2c-4d7e-9f1b-8c3d5e7a2b4f
@@ -21,7 +21,7 @@ export class DeleteNamespaceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Namespace name
+   * The name of the namespace.
    * 
    * This parameter is required.
    * 

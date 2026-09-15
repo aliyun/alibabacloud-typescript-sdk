@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SchemaColumn extends $dara.Model {
   /**
    * @remarks
-   * Column name
+   * The column name.
    * 
    * @example
    * name
@@ -13,7 +13,7 @@ export class SchemaColumn extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Column type
+   * The column type.
    * 
    * @example
    * VARCHAR

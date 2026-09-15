@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code. 200 indicates success
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * Operation success
@@ -21,7 +21,7 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
@@ -29,7 +29,7 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the operation was successful
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

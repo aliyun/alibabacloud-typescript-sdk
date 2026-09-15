@@ -6,7 +6,7 @@ import { SchemaColumn } from "./SchemaColumn";
 export class ExecutionResult extends $dara.Model {
   /**
    * @remarks
-   * Whether truncated due to the maxRows limit
+   * Indicates whether the result is truncated because of the maxRows limit.
    * 
    * @example
    * false
@@ -14,7 +14,7 @@ export class ExecutionResult extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * Number of rows returned this time
+   * The number of rows returned in this response.
    * 
    * @example
    * 2
@@ -22,20 +22,23 @@ export class ExecutionResult extends $dara.Model {
   rowCount?: number;
   /**
    * @remarks
-   * Two-dimensional array, one array per row
+   * A two-dimensional array where each row is an array.
    * 
    * @example
-   * [["北京",120],["上海",98]]
+   * [["Beijing",120],["Shanghai",98]]
    */
   rows?: string;
   /**
    * @remarks
-   * Schema information
+   * The schema information.
+   * 
+   * @example
+   * [{"Name":"event_date","Type":"varchar"}]
    */
   schema?: SchemaColumn[];
   /**
    * @remarks
-   * Total number of rows that meet the criteria. Different from RowCount when IsTruncated=true
+   * The total number of rows that match the condition. This value differs from RowCount when IsTruncated is set to true.
    * 
    * @example
    * 2
