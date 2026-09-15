@@ -58,7 +58,7 @@ export class CreateVolumeInputMountConfigVpcConfig extends $dara.Model {
 export class CreateVolumeInputMountConfig extends $dara.Model {
   /**
    * @remarks
-   * The RAM role that the user grants to the cloud sandbox. After this role is set, the cloud sandbox assumes the role to generate temporary access credentials. You can use the temporary access credentials of this role to mount storage in the cloud sandbox, such as OSS and AgenticFS.
+   * The RAM role that the user grants to the cloud sandbox. After the role is set, the cloud sandbox assumes this role to generate temporary access credentials. You can use the temporary access credentials of this role to mount storage in the cloud sandbox, such as OSS and AgenticFS.
    * 
    * @example
    * acs:ram::1338904783509062:role/aliyunfcdefaultrole
@@ -96,6 +96,10 @@ export class CreateVolumeInputMountConfig extends $dara.Model {
 }
 
 export class CreateVolumeInput extends $dara.Model {
+  /**
+   * @remarks
+   * The AgenticBucket configuration.
+   */
   agenticBucketVolumeConfig?: AgenticBucketVolumeConfig;
   /**
    * @remarks

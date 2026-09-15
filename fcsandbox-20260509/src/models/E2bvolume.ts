@@ -21,7 +21,7 @@ export class E2BVolumeMountConfigVpcConfig extends $dara.Model {
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-2ze4l2vyhej6a6dwapm4q
@@ -58,7 +58,7 @@ export class E2BVolumeMountConfigVpcConfig extends $dara.Model {
 export class E2BVolumeMountConfig extends $dara.Model {
   /**
    * @remarks
-   * The RAM role that the user grants to the sandboxed container. After this role is set, the sandboxed container assumes the role to generate temporary access credentials. You can use the temporary access credentials of this role to mount storage in the sandboxed container, such as OSS and AgenticFS.
+   * The RAM role that the user grants to the cloud sandbox. After this role is set, the cloud sandbox assumes the role to generate temporary access credentials. You can use the temporary access credentials of this role to mount storage in the cloud sandbox, such as OSS and AgenticFS.
    * 
    * @example
    * acs:ram::1673427197867277:role/aliyunfcdefaultrole
@@ -66,7 +66,7 @@ export class E2BVolumeMountConfig extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    */
   vpcConfig?: E2BVolumeMountConfigVpcConfig;
   static names(): { [key: string]: string } {
@@ -96,6 +96,10 @@ export class E2BVolumeMountConfig extends $dara.Model {
 }
 
 export class E2BVolume extends $dara.Model {
+  /**
+   * @remarks
+   * The AgenticBucket configuration.
+   */
   agenticBucketVolumeConfig?: AgenticBucketVolumeConfig;
   /**
    * @remarks
@@ -104,7 +108,7 @@ export class E2BVolume extends $dara.Model {
   agenticFSVolumeConfig?: AgenticFSVolumeConfig;
   /**
    * @remarks
-   * The time when the volume was created.
+   * The creation time.
    * 
    * @example
    * 2026-07-10T11:05:55Z
@@ -142,7 +146,7 @@ export class E2BVolume extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the status.
+   * The status reason.
    * 
    * @example
    * OK
@@ -168,7 +172,7 @@ export class E2BVolume extends $dara.Model {
   teamID?: string;
   /**
    * @remarks
-   * The time when the volume was last updated.
+   * The update time.
    * 
    * @example
    * 2026-07-10T11:05:55Z
