@@ -2,58 +2,60 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetKnowledgeRecallResponseBodyData extends $dara.Model {
+export class RemoveKnowledgeUploadUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries.
+   * The location of the knowledge base file.
    * 
    * @example
-   * 5
+   * oss://bucketName/path/to/file.pdf
    */
-  count?: number;
+  fileLocation?: string;
   /**
    * @remarks
    * The prompt message.
    * 
    * @example
-   * recall 5 files
+   * Successful
    */
   message?: string;
   /**
    * @remarks
-   * The recall results.
-   */
-  results?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * The Tracing Analysis ID.
+   * The number of users that were successfully deleted.
    * 
    * @example
-   * qf_c41fc27697d3
+   * 1
    */
-  traceId?: string;
+  removed?: number;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      count: 'Count',
+      fileLocation: 'FileLocation',
       message: 'Message',
-      results: 'Results',
-      traceId: 'TraceId',
+      removed: 'Removed',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      count: 'number',
+      fileLocation: 'string',
       message: 'string',
-      results: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      traceId: 'string',
+      removed: 'number',
+      success: 'boolean',
     };
   }
 
   validate() {
-    if(Array.isArray(this.results)) {
-      $dara.Model.validateArray(this.results);
-    }
     super.validate();
   }
 
@@ -62,12 +64,12 @@ export class GetKnowledgeRecallResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetKnowledgeRecallResponseBody extends $dara.Model {
+export class RemoveKnowledgeUploadUserResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned data.
    */
-  data?: GetKnowledgeRecallResponseBodyData;
+  data?: RemoveKnowledgeUploadUserResponseBodyData;
   /**
    * @remarks
    * Id of the request
@@ -85,7 +87,7 @@ export class GetKnowledgeRecallResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: GetKnowledgeRecallResponseBodyData,
+      data: RemoveKnowledgeUploadUserResponseBodyData,
       requestId: 'string',
     };
   }

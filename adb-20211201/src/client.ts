@@ -11059,7 +11059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a knowledge base document.
+   * Performs knowledge base recall.
    * 
    * @param request - GetKnowledgeRecallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11072,8 +11072,16 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
     if (!$dara.isNull(request.question)) {
       query["Question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.topk)) {
@@ -11102,7 +11110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a knowledge base document.
+   * Performs knowledge base recall.
    * 
    * @param request - GetKnowledgeRecallRequest
    * @returns GetKnowledgeRecallResponse
@@ -15251,7 +15259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an automatic materialized view recommendation task.
+   * Modifies a materialized view automatic recommendation task.
    * 
    * @param request - ModifyMaterializedViewRecommendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15338,7 +15346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an automatic materialized view recommendation task.
+   * Modifies a materialized view automatic recommendation task.
    * 
    * @param request - ModifyMaterializedViewRecommendRequest
    * @returns ModifyMaterializedViewRecommendResponse
@@ -15936,6 +15944,56 @@ export default class Client extends OpenApi {
   async removeKnowledgeTags(request: $_model.RemoveKnowledgeTagsRequest): Promise<$_model.RemoveKnowledgeTagsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeKnowledgeTagsWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes authorized users from a knowledge base document.
+   * 
+   * @param request - RemoveKnowledgeUploadUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveKnowledgeUploadUserResponse
+   */
+  async removeKnowledgeUploadUserWithOptions(request: $_model.RemoveKnowledgeUploadUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveKnowledgeUploadUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    if (!$dara.isNull(request.users)) {
+      query["Users"] = request.users;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveKnowledgeUploadUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveKnowledgeUploadUserResponse>(await this.callApi(params, req, runtime), new $_model.RemoveKnowledgeUploadUserResponse({}));
+  }
+
+  /**
+   * Deletes authorized users from a knowledge base document.
+   * 
+   * @param request - RemoveKnowledgeUploadUserRequest
+   * @returns RemoveKnowledgeUploadUserResponse
+   */
+  async removeKnowledgeUploadUser(request: $_model.RemoveKnowledgeUploadUserRequest): Promise<$_model.RemoveKnowledgeUploadUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeKnowledgeUploadUserWithOptions(request, runtime);
   }
 
   /**

@@ -288,6 +288,7 @@ export { PreloadSparkAppMetricsResponseBodyData } from './PreloadSparkAppMetrics
 export { QueryFormationInstsByTaskIDResponseBodyData } from './QueryFormationInstsByTaskIdresponseBody';
 export { QueryFormationTasksByTypeResponseBodyData } from './QueryFormationTasksByTypeResponseBody';
 export { RemoveKnowledgeTagsResponseBodyData } from './RemoveKnowledgeTagsResponseBody';
+export { RemoveKnowledgeUploadUserResponseBodyData } from './RemoveKnowledgeUploadUserResponseBody';
 export { SetSparkAppLogRootPathResponseBodyData } from './SetSparkAppLogRootPathResponseBody';
 export { StartSparkReplSessionResponseBodyData } from './StartSparkReplSessionResponseBody';
 export { StartSparkSQLEngineResponseBodyData } from './StartSparkSqlengineResponseBody';
@@ -1066,6 +1067,9 @@ export { ReleaseClusterPublicConnectionResponse } from './ReleaseClusterPublicCo
 export { RemoveKnowledgeTagsRequest } from './RemoveKnowledgeTagsRequest';
 export { RemoveKnowledgeTagsResponseBody } from './RemoveKnowledgeTagsResponseBody';
 export { RemoveKnowledgeTagsResponse } from './RemoveKnowledgeTagsResponse';
+export { RemoveKnowledgeUploadUserRequest } from './RemoveKnowledgeUploadUserRequest';
+export { RemoveKnowledgeUploadUserResponseBody } from './RemoveKnowledgeUploadUserResponseBody';
+export { RemoveKnowledgeUploadUserResponse } from './RemoveKnowledgeUploadUserResponse';
 export { RenameSemanticViewRequest } from './RenameSemanticViewRequest';
 export { RenameSemanticViewResponseBody } from './RenameSemanticViewResponseBody';
 export { RenameSemanticViewResponse } from './RenameSemanticViewResponse';

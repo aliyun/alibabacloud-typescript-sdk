@@ -23,7 +23,7 @@ export class ModifyMaterializedViewRecommendRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The minimum number of slow queries matched by a pattern.
+   * The minimum number of slow queries that a pattern must match.
    * 
    * @example
    * 3
@@ -51,7 +51,7 @@ export class ModifyMaterializedViewRecommendRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The scan time range, in days. Default value: 3.
+   * The time range to scan, in days. Default value: 3.
    * 
    * @example
    * 3
@@ -77,8 +77,8 @@ export class ModifyMaterializedViewRecommendRequest extends $dara.Model {
   /**
    * @remarks
    * The recommendation policy. Valid values: 
-   * - daliy: scheduled on a daily basis.
-   * - weekly: scheduled on a weekly basis.
+   * - daily: schedules the task on a daily basis.
+   * - weekly: schedules the task on a weekly basis.
    * 
    * @example
    * weekly
@@ -94,7 +94,7 @@ export class ModifyMaterializedViewRecommendRequest extends $dara.Model {
   slowQueryThreshold?: number;
   /**
    * @remarks
-   * The execution time of the task in the format HH:MM:SS.
+   * The execution time of the task in HH:MM:SS format.
    * 
    * @example
    * 10:00:00

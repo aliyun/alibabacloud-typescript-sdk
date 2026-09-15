@@ -13,7 +13,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   authNodeNum?: string;
   /**
    * @remarks
-   * The authentication node specifications.
+   * The node specifications of authentication nodes.
    * 
    * @example
    * 8ACU
@@ -29,7 +29,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   insertNodeNum?: string;
   /**
    * @remarks
-   * The write node specifications.
+   * The node specifications of write nodes.
    * 
    * @example
    * 8ACU
@@ -53,7 +53,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   selectNodeNum?: string;
   /**
    * @remarks
-   * The query node specifications.
+   * The node specifications of query nodes.
    * 
    * @example
    * 8ACU
@@ -85,7 +85,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   storageNodeNum?: string;
   /**
    * @remarks
-   * The storage node specifications.
+   * The node specifications of storage nodes.
    * 
    * @example
    * 8ACU
@@ -135,7 +135,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
 export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules extends $dara.Model {
   /**
    * @remarks
-   * The end time in Cron expression format. The interval must be at least 1 hour.
+   * The end time in cron expression format. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 3 * * ?
@@ -143,7 +143,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules ex
   endCronExpression?: string;
   /**
    * @remarks
-   * The start time in Cron expression format. The interval must be at least 1 hour.
+   * The start time in cron expression format. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 2 * * ?
@@ -369,7 +369,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups 
   allocateUnit?: string;
   /**
    * @remarks
-   * The Ray worker group name.
+   * The name of the Ray worker group.
    * 
    * @example
    * g01
@@ -461,9 +461,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
    * @remarks
    * The Ray cluster type. Valid values:
    * 
-   * - BASIC: basic type, non-high-availability
+   * - BASIC: basic type, non-high-availability.
    * 
-   * - HIGH_AVAILABILITY: high-availability type
+   * - HIGH_AVAILABILITY: high-availability type.
    * 
    * @example
    * BASIC
@@ -719,7 +719,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   elasticMinComputeResource?: string;
   /**
    * @remarks
-   * Indicates whether the spot instance feature is enabled for the resource group. When the spot instance feature is enabled, the unit price of resources is reduced, but instances may be released. Valid values:
+   * Indicates whether the spot instance feature is enabled for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Valid values:
    * - **True**: The spot instance feature is enabled.
    * - **False**: The spot instance feature is disabled.
    * 
@@ -760,7 +760,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
    * The resource group type. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about resource groups in Data Lakehouse Edition, see [Resource group introduction (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about resource groups of the Data Lakehouse Edition, see [Resource group introduction (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
    * 
    * @example
    * Job
@@ -873,12 +873,14 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   /**
    * @remarks
    * The resource group status. Valid values:
-   * - **creating**: being created
-   * - **ok**: created
-   * - **pendingdelete**: pending deletion
+   * - **Pending**: being created.
+   * - **Running**: running.
+   * - **Scaling**: being scaled.
+   * - **Deleting**: being deleted.
+   * - **Deleted**: deleted.
    * 
    * @example
-   * ok
+   * Running
    */
   status?: string;
   /**

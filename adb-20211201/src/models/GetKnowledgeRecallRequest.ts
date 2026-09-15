@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKnowledgeRecallRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The ID of the ADB MySQL cluster.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,14 @@ export class GetKnowledgeRecallRequest extends $dara.Model {
    * am-bp19aaaaaa****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The file path prefix. Only files that match the specified path prefix are recalled.
+   * 
+   * @example
+   * oss://bucketName/path/prefix/
+   */
+  path?: string;
   /**
    * @remarks
    * The question for knowledge base recall.
@@ -25,7 +33,15 @@ export class GetKnowledgeRecallRequest extends $dara.Model {
   question?: string;
   /**
    * @remarks
-   * The top K number of related files to recall.
+   * The list of tags in JSON format.
+   * 
+   * @example
+   * {   "tag_key1": ["tag_key1_value1", "tag_key1_value2"],   "tag_key2": ["tag_key2_value"] }
+   */
+  tags?: string;
+  /**
+   * @remarks
+   * The top K associated files to recall.
    * 
    * @example
    * 5
@@ -33,7 +49,7 @@ export class GetKnowledgeRecallRequest extends $dara.Model {
   topk?: number;
   /**
    * @remarks
-   * The username. Only files that this user has permission to access are recalled.
+   * The username. Only files that the specified user has permission to access are recalled.
    * 
    * @example
    * user_name1
@@ -42,7 +58,9 @@ export class GetKnowledgeRecallRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      path: 'Path',
       question: 'Question',
+      tags: 'Tags',
       topk: 'Topk',
       user: 'User',
     };
@@ -51,7 +69,9 @@ export class GetKnowledgeRecallRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      path: 'string',
       question: 'string',
+      tags: 'string',
       topk: 'number',
       user: 'string',
     };
