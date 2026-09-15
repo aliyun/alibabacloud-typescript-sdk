@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReopenComputeInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * 019F3F8E-4159-52B9-8C9B-0C0B63D70A4B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

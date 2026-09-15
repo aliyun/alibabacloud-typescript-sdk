@@ -5,12 +5,40 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CheckSqlContentResponseBodyDataErrorList extends $dara.Model {
+  /**
+   * @example
+   * SELECT FROM source_table
+   */
   codeSnippet?: string;
+  /**
+   * @example
+   * 8
+   */
   columnNumber?: number;
+  /**
+   * @example
+   * 12
+   */
   endColumnNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   endLineNumber?: number;
+  /**
+   * @example
+   * SYNTAX_ERROR
+   */
   errorType?: string;
+  /**
+   * @example
+   * 1
+   */
   lineNumber?: number;
+  /**
+   * @example
+   * SQL parse failed near FROM
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,6 +75,10 @@ export class CheckSqlContentResponseBodyDataErrorList extends $dara.Model {
 
 export class CheckSqlContentResponseBodyData extends $dara.Model {
   errorList?: CheckSqlContentResponseBodyDataErrorList[];
+  /**
+   * @example
+   * false
+   */
   valid?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -75,9 +107,21 @@ export class CheckSqlContentResponseBodyData extends $dara.Model {
 }
 
 export class CheckSqlContentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
   data?: CheckSqlContentResponseBodyData;
+  /**
+   * @example
+   * 062D8E8B-8D47-5DCC-BB12-5A1D93C3A66B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

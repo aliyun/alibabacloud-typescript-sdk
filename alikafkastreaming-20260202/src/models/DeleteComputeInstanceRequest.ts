@@ -6,19 +6,23 @@ export class DeleteComputeInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * alikafka_streaming-cn-pe333xxxxxx
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
-  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
-      resourceType: 'ResourceType',
     };
   }
 
@@ -26,7 +30,6 @@ export class DeleteComputeInstanceRequest extends $dara.Model {
     return {
       instanceId: 'string',
       regionId: 'string',
-      resourceType: 'string',
     };
   }
 

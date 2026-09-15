@@ -3,43 +3,50 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateComputeJobRequest extends $dara.Model {
-  clientToken?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * alikafka_streaming-cn-a1b2c3d4
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * order_enrichment
    */
   jobName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * 订单流实时清洗
+   */
   remark?: string;
-  upgradeMode?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       instanceId: 'InstanceId',
       jobName: 'JobName',
       regionId: 'RegionId',
       remark: 'Remark',
-      upgradeMode: 'UpgradeMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       instanceId: 'string',
       jobName: 'string',
       regionId: 'string',
       remark: 'string',
-      upgradeMode: 'string',
     };
   }
 

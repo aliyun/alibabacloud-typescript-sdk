@@ -3,25 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateComputeInstanceNameRequest extends $dara.Model {
-  clientToken?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * alikafka_streaming-cn-pe333xxxxxx
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * streaming-prod
    */
   instanceName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
@@ -30,7 +37,6 @@ export class UpdateComputeInstanceNameRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       instanceId: 'string',
       instanceName: 'string',
       regionId: 'string',

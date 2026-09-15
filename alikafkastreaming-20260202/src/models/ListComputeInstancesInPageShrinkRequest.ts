@@ -3,35 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListComputeInstancesInPageShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
-  instanceId?: string;
   instanceIdsShrink?: string;
-  orderId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfm2pz25js****
+   */
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
-      instanceId: 'InstanceId',
       instanceIdsShrink: 'InstanceIds',
-      orderId: 'OrderId',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
-      instanceId: 'string',
       instanceIdsShrink: 'string',
-      orderId: 'string',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 

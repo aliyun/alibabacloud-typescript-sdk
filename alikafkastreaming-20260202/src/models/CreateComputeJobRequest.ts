@@ -3,58 +3,70 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateComputeJobRequest extends $dara.Model {
-  clientToken?: string;
-  cuLimit?: number;
-  cuReserved?: number;
-  draftSql?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2.0
+   */
+  cuLimit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  cuReserved?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * alikafka_streaming-cn-pe333xxxxxx
    */
   instanceId?: string;
-  jobConfig?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * order_enrichment
    */
   jobName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * 订单流实时清洗
+   */
   remark?: string;
-  upgradeMode?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       cuLimit: 'CuLimit',
       cuReserved: 'CuReserved',
-      draftSql: 'DraftSql',
       instanceId: 'InstanceId',
-      jobConfig: 'JobConfig',
       jobName: 'JobName',
       regionId: 'RegionId',
       remark: 'Remark',
-      upgradeMode: 'UpgradeMode',
-      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       cuLimit: 'number',
       cuReserved: 'number',
-      draftSql: 'string',
       instanceId: 'string',
-      jobConfig: 'string',
       jobName: 'string',
       regionId: 'string',
       remark: 'string',
-      upgradeMode: 'string',
-      userId: 'string',
     };
   }
 

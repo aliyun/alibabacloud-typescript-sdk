@@ -6,18 +6,22 @@ export class GetComputeInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * alikafka_streaming-cn-xxxxxxx
    */
   instanceId?: string;
-  orderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      orderId: 'OrderId',
       regionId: 'RegionId',
     };
   }
@@ -25,7 +29,6 @@ export class GetComputeInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      orderId: 'string',
       regionId: 'string',
     };
   }

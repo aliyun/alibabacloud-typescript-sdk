@@ -6,21 +6,29 @@ export class CreateComputeInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 5
    */
   paidType?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
-  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       paidType: 'PaidType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      resourceType: 'ResourceType',
     };
   }
 
@@ -29,7 +37,6 @@ export class CreateComputeInstanceRequest extends $dara.Model {
       paidType: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
-      resourceType: 'string',
     };
   }
 

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateComputeInstanceResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * alikafka_streaming-cn-pe333xxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1234567890
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +37,21 @@ export class CreateComputeInstanceResponseBodyData extends $dara.Model {
 }
 
 export class CreateComputeInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
   data?: CreateComputeInstanceResponseBodyData;
+  /**
+   * @example
+   * 062D8E8B-8D47-5DCC-BB12-5A1D93C3A66B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

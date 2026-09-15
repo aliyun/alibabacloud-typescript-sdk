@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("alikafkastreaming", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -31,6 +31,15 @@ export default class Client extends OpenApi {
 
   /**
    * 检查sql语法
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口支持通过 GET 或 POST 方法调用。
+   * - 必须提供 `InstanceId`、`JobName` 和 `SqlContent` 参数，其中 `SqlContent` 是待校验的 Flink SQL 语句。
+   * - 返回结果中，`Data.Valid` 字段指示 SQL 是否通过校验；若未通过，则错误详情位于 `Data.ErrorList` 中。
+   * - 当前版本要求同时传入实例 ID (`InstanceId`) 和作业名称 (`JobName`) 以构建作业上下文。
+   * - 接口返回成功仅表示校验流程执行完成，并不直接反映 SQL 的有效性，请检查 `Data.Valid` 字段来确定 SQL 是否有效。
+   * - 错误码和异常处理请参考文档中的“错误码”部分。
    * 
    * @param request - CheckSqlContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75,6 +84,15 @@ export default class Client extends OpenApi {
   /**
    * 检查sql语法
    * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口支持通过 GET 或 POST 方法调用。
+   * - 必须提供 `InstanceId`、`JobName` 和 `SqlContent` 参数，其中 `SqlContent` 是待校验的 Flink SQL 语句。
+   * - 返回结果中，`Data.Valid` 字段指示 SQL 是否通过校验；若未通过，则错误详情位于 `Data.ErrorList` 中。
+   * - 当前版本要求同时传入实例 ID (`InstanceId`) 和作业名称 (`JobName`) 以构建作业上下文。
+   * - 接口返回成功仅表示校验流程执行完成，并不直接反映 SQL 的有效性，请检查 `Data.Valid` 字段来确定 SQL 是否有效。
+   * - 错误码和异常处理请参考文档中的“错误码”部分。
+   * 
    * @param request - CheckSqlContentRequest
    * @returns CheckSqlContentResponse
    */
@@ -85,6 +103,11 @@ export default class Client extends OpenApi {
 
   /**
    * 创建 流计算实例
+   * 
+   * @remarks
+   * 创建一个计算实例。接口只完成购买阶段；创建成功后需调用 StartComputeInstance 完成网络配置和部署。
+   * - API 版本：2026-02-02
+   * - Action：CreateComputeInstance
    * 
    * @param request - CreateComputeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -103,10 +126,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!$dara.isNull(request.resourceType)) {
-      query["ResourceType"] = request.resourceType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -129,6 +148,11 @@ export default class Client extends OpenApi {
   /**
    * 创建 流计算实例
    * 
+   * @remarks
+   * 创建一个计算实例。接口只完成购买阶段；创建成功后需调用 StartComputeInstance 完成网络配置和部署。
+   * - API 版本：2026-02-02
+   * - Action：CreateComputeInstance
+   * 
    * @param request - CreateComputeInstanceRequest
    * @returns CreateComputeInstanceResponse
    */
@@ -139,6 +163,16 @@ export default class Client extends OpenApi {
 
   /**
    * 创建 JOB
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于在指定的运行中的计算实例上创建一个新的Flink SQL作业。
+   * - 创建后的作业将处于`INIT`状态。
+   * - 用户可以通过设置`CuLimit`和`CuReserved`来控制作业的资源使用情况。
+   * - `Remark`字段允许用户为作业添加备注信息，便于管理和识别。
+   * - 确保提供的`RegionId`、`InstanceId`以及`JobName`参数准确无误，否则可能导致请求失败。
+   * - 如果尝试创建同名作业，则会返回错误提示。
+   * - 计算实例必须处于运行状态才能成功创建作业。
    * 
    * @param request - CreateComputeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -155,16 +189,8 @@ export default class Client extends OpenApi {
       query["CuReserved"] = request.cuReserved;
     }
 
-    if (!$dara.isNull(request.draftSql)) {
-      query["DraftSql"] = request.draftSql;
-    }
-
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!$dara.isNull(request.jobConfig)) {
-      query["JobConfig"] = request.jobConfig;
     }
 
     if (!$dara.isNull(request.jobName)) {
@@ -179,22 +205,8 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
-    if (!$dara.isNull(request.upgradeMode)) {
-      query["UpgradeMode"] = request.upgradeMode;
-    }
-
-    if (!$dara.isNull(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateComputeJob",
@@ -213,6 +225,16 @@ export default class Client extends OpenApi {
   /**
    * 创建 JOB
    * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于在指定的运行中的计算实例上创建一个新的Flink SQL作业。
+   * - 创建后的作业将处于`INIT`状态。
+   * - 用户可以通过设置`CuLimit`和`CuReserved`来控制作业的资源使用情况。
+   * - `Remark`字段允许用户为作业添加备注信息，便于管理和识别。
+   * - 确保提供的`RegionId`、`InstanceId`以及`JobName`参数准确无误，否则可能导致请求失败。
+   * - 如果尝试创建同名作业，则会返回错误提示。
+   * - 计算实例必须处于运行状态才能成功创建作业。
+   * 
    * @param request - CreateComputeJobRequest
    * @returns CreateComputeJobResponse
    */
@@ -223,6 +245,11 @@ export default class Client extends OpenApi {
 
   /**
    * 删除实例
+   * 
+   * @remarks
+   * 删除处于待部署、已停止或已释放状态的计算实例。
+   * - API版本：2026-02-02
+   * - Action：DeleteComputeInstance
    * 
    * @param request - DeleteComputeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -237,10 +264,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.resourceType)) {
-      query["ResourceType"] = request.resourceType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -263,6 +286,11 @@ export default class Client extends OpenApi {
   /**
    * 删除实例
    * 
+   * @remarks
+   * 删除处于待部署、已停止或已释放状态的计算实例。
+   * - API版本：2026-02-02
+   * - Action：DeleteComputeInstance
+   * 
    * @param request - DeleteComputeInstanceRequest
    * @returns DeleteComputeInstanceResponse
    */
@@ -273,6 +301,14 @@ export default class Client extends OpenApi {
 
   /**
    * 删除 JOB
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于删除一个特定的计算作业。
+   * - 成功调用此接口仅表示删除请求已被系统接受，并非立即完成删除操作。
+   * - 确保提供的`RegionId`、`InstanceId`以及`JobName`参数准确无误，否则可能导致请求失败。
+   * - 如果计算实例或作业处于不允许删除的状态（例如：非运行状态），则会返回相应的错误信息。
+   * - 删除操作不可逆，请谨慎使用。
    * 
    * @param request - DeleteComputeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -313,6 +349,14 @@ export default class Client extends OpenApi {
   /**
    * 删除 JOB
    * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于删除一个特定的计算作业。
+   * - 成功调用此接口仅表示删除请求已被系统接受，并非立即完成删除操作。
+   * - 确保提供的`RegionId`、`InstanceId`以及`JobName`参数准确无误，否则可能导致请求失败。
+   * - 如果计算实例或作业处于不允许删除的状态（例如：非运行状态），则会返回相应的错误信息。
+   * - 删除操作不可逆，请谨慎使用。
+   * 
    * @param request - DeleteComputeJobRequest
    * @returns DeleteComputeJobResponse
    */
@@ -333,10 +377,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!$dara.isNull(request.orderId)) {
-      query["OrderId"] = request.orderId;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -373,6 +413,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查询 JOB 详情
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口用于查询指定计算作业的详情。
+   * - 支持使用 GET 或 POST 方法进行请求。
+   * - 所有时间字段以 Unix 时间戳形式返回，单位为毫秒。
+   * - 必须提供 `RegionId`、`InstanceId` 和 `JobName` 参数。
+   * - 授权操作为 `alikafkastreaming:GetComputeJob`，访问级别为读取（Read）。
    * 
    * @param request - GetComputeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -412,6 +460,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查询 JOB 详情
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口用于查询指定计算作业的详情。
+   * - 支持使用 GET 或 POST 方法进行请求。
+   * - 所有时间字段以 Unix 时间戳形式返回，单位为毫秒。
+   * - 必须提供 `RegionId`、`InstanceId` 和 `JobName` 参数。
+   * - 授权操作为 `alikafkastreaming:GetComputeJob`，访问级别为读取（Read）。
    * 
    * @param request - GetComputeJobRequest
    * @returns GetComputeJobResponse
@@ -575,16 +631,8 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!$dara.isNull(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
     if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
-    }
-
-    if (!$dara.isNull(request.orderId)) {
-      query["OrderId"] = request.orderId;
     }
 
     if (!$dara.isNull(request.pageSize)) {
@@ -593,6 +641,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -626,6 +678,14 @@ export default class Client extends OpenApi {
   /**
    * 分页查询 JOB 列表
    * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口支持通过 `MaxResults` 和 `NextToken` 参数进行游标分页查询。
+   * - 首次请求时不需要传递 `NextToken`，后续请求需使用上一次响应中返回的 `NextToken` 值。
+   * - 支持按作业名称或备注搜索，并可选择不同的排序字段和方向。
+   * - 返回的时间字段均为 Unix 时间戳（单位：毫秒）。
+   * - 授权操作为 `alikafkastreaming:ListComputeJobs`，访问级别为列出（List），适用于全部资源。
+   * 
    * @param request - ListComputeJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListComputeJobsResponse
@@ -633,10 +693,6 @@ export default class Client extends OpenApi {
   async listComputeJobsWithOptions(request: $_model.ListComputeJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListComputeJobsResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.currentPage)) {
-      query["CurrentPage"] = request.currentPage;
-    }
-
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -647,10 +703,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
-    }
-
-    if (!$dara.isNull(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -688,6 +740,14 @@ export default class Client extends OpenApi {
 
   /**
    * 分页查询 JOB 列表
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口支持通过 `MaxResults` 和 `NextToken` 参数进行游标分页查询。
+   * - 首次请求时不需要传递 `NextToken`，后续请求需使用上一次响应中返回的 `NextToken` 值。
+   * - 支持按作业名称或备注搜索，并可选择不同的排序字段和方向。
+   * - 返回的时间字段均为 Unix 时间戳（单位：毫秒）。
+   * - 授权操作为 `alikafkastreaming:ListComputeJobs`，访问级别为列出（List），适用于全部资源。
    * 
    * @param request - ListComputeJobsRequest
    * @returns ListComputeJobsResponse
@@ -746,6 +806,11 @@ export default class Client extends OpenApi {
   /**
    * 重新启动后付费实例
    * 
+   * @remarks
+   * 重新启用一个已停止的后付费计算实例。接口返回成功表示启用请求已受理。
+   * - API版本：2026-02-02
+   * - Action：ReopenComputeInstance
+   * 
    * @param request - ReopenComputeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReopenComputeInstanceResponse
@@ -761,14 +826,8 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "ReopenComputeInstance",
@@ -786,6 +845,11 @@ export default class Client extends OpenApi {
 
   /**
    * 重新启动后付费实例
+   * 
+   * @remarks
+   * 重新启用一个已停止的后付费计算实例。接口返回成功表示启用请求已受理。
+   * - API版本：2026-02-02
+   * - Action：ReopenComputeInstance
    * 
    * @param request - ReopenComputeInstanceRequest
    * @returns ReopenComputeInstanceResponse
@@ -854,6 +918,11 @@ export default class Client extends OpenApi {
   /**
    * 部署实例
    * 
+   * @remarks
+   * 为处于待部署状态的计算实例配置网络并发起部署。
+   * - API 版本：2026-02-02
+   * - Action：StartComputeInstance
+   * 
    * @param tmpReq - StartComputeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartComputeInstanceResponse
@@ -879,14 +948,6 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.selectedZones)) {
-      query["SelectedZones"] = request.selectedZones;
-    }
-
-    if (!$dara.isNull(request.serviceVersion)) {
-      query["ServiceVersion"] = request.serviceVersion;
-    }
-
     if (!$dara.isNull(request.vSwitchIdsShrink)) {
       query["VSwitchIds"] = request.vSwitchIdsShrink;
     }
@@ -895,14 +956,8 @@ export default class Client extends OpenApi {
       query["VpcId"] = request.vpcId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "StartComputeInstance",
@@ -921,6 +976,11 @@ export default class Client extends OpenApi {
   /**
    * 部署实例
    * 
+   * @remarks
+   * 为处于待部署状态的计算实例配置网络并发起部署。
+   * - API 版本：2026-02-02
+   * - Action：StartComputeInstance
+   * 
    * @param request - StartComputeInstanceRequest
    * @returns StartComputeInstanceResponse
    */
@@ -931,6 +991,12 @@ export default class Client extends OpenApi {
 
   /**
    * 创建 JOB
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `RecoveryMode` 支持两种模式：`savepoint` 和 `stateless`。如果选择 `savepoint` 模式但没有可用的 savepoint，则会返回错误。
+   * - `CuLimit` 和 `CuReserved` 参数分别用来设定作业的 CU 上限和预留 CU 数量，支持整数或小数形式输入。
+   * - 确保提供的 `RegionId`, `InstanceId`, 和 `JobName` 参数值正确且存在，否则将导致请求失败。
    * 
    * @param request - StartComputeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -951,10 +1017,6 @@ export default class Client extends OpenApi {
       query["DraftSql"] = request.draftSql;
     }
 
-    if (!$dara.isNull(request.draftSqlStart)) {
-      query["DraftSqlStart"] = request.draftSqlStart;
-    }
-
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -971,14 +1033,8 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "StartComputeJob",
@@ -997,6 +1053,12 @@ export default class Client extends OpenApi {
   /**
    * 创建 JOB
    * 
+   * @remarks
+   * ## 请求说明
+   * - `RecoveryMode` 支持两种模式：`savepoint` 和 `stateless`。如果选择 `savepoint` 模式但没有可用的 savepoint，则会返回错误。
+   * - `CuLimit` 和 `CuReserved` 参数分别用来设定作业的 CU 上限和预留 CU 数量，支持整数或小数形式输入。
+   * - 确保提供的 `RegionId`, `InstanceId`, 和 `JobName` 参数值正确且存在，否则将导致请求失败。
+   * 
    * @param request - StartComputeJobRequest
    * @returns StartComputeJobResponse
    */
@@ -1007,6 +1069,11 @@ export default class Client extends OpenApi {
 
   /**
    * 停用/释放后付费实例
+   * 
+   * @remarks
+   * 停止一个正在运行的后付费计算实例。接口返回成功表示停止请求已受理。
+   * - API 版本：2026-02-02
+   * - Action：StopComputeInstance
    * 
    * @param request - StopComputeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1023,14 +1090,8 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "StopComputeInstance",
@@ -1049,6 +1110,11 @@ export default class Client extends OpenApi {
   /**
    * 停用/释放后付费实例
    * 
+   * @remarks
+   * 停止一个正在运行的后付费计算实例。接口返回成功表示停止请求已受理。
+   * - API 版本：2026-02-02
+   * - Action：StopComputeInstance
+   * 
    * @param request - StopComputeInstanceRequest
    * @returns StopComputeInstanceResponse
    */
@@ -1059,6 +1125,11 @@ export default class Client extends OpenApi {
 
   /**
    * 停止 JOB
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于停止指定的计算作业生产或 Debug 运行实例。
+   * - 接口返回成功表示停止请求已被受理，但并不意味着作业立即停止。
    * 
    * @param request - StopComputeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1079,14 +1150,8 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "StopComputeJob",
@@ -1105,6 +1170,11 @@ export default class Client extends OpenApi {
   /**
    * 停止 JOB
    * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于停止指定的计算作业生产或 Debug 运行实例。
+   * - 接口返回成功表示停止请求已被受理，但并不意味着作业立即停止。
+   * 
    * @param request - StopComputeJobRequest
    * @returns StopComputeJobResponse
    */
@@ -1115,6 +1185,11 @@ export default class Client extends OpenApi {
 
   /**
    * 更新实例名称
+   * 
+   * @remarks
+   * 修改计算实例名称。实例需处于部署准备阶段或运行中状态。
+   * - API 版本：2026-02-02
+   * - Action：UpdateComputeInstanceName
    * 
    * @param request - UpdateComputeInstanceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1135,14 +1210,8 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateComputeInstanceName",
@@ -1161,6 +1230,11 @@ export default class Client extends OpenApi {
   /**
    * 更新实例名称
    * 
+   * @remarks
+   * 修改计算实例名称。实例需处于部署准备阶段或运行中状态。
+   * - API 版本：2026-02-02
+   * - Action：UpdateComputeInstanceName
+   * 
    * @param request - UpdateComputeInstanceNameRequest
    * @returns UpdateComputeInstanceNameResponse
    */
@@ -1171,6 +1245,12 @@ export default class Client extends OpenApi {
 
   /**
    * 更新 JOB
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 确保提供的 `InstanceId` 和 `JobName` 是有效的，否则将返回错误。
+   * - 如果实例状态不在运行中，则不允许执行此操作。
+   * - 当前作业状态如果为调试任务正在运行或变更中，则不支持修改。
    * 
    * @param request - UpdateComputeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1195,18 +1275,8 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
-    if (!$dara.isNull(request.upgradeMode)) {
-      query["UpgradeMode"] = request.upgradeMode;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateComputeJob",
@@ -1225,6 +1295,12 @@ export default class Client extends OpenApi {
   /**
    * 更新 JOB
    * 
+   * @remarks
+   * ## 请求说明
+   * - 确保提供的 `InstanceId` 和 `JobName` 是有效的，否则将返回错误。
+   * - 如果实例状态不在运行中，则不允许执行此操作。
+   * - 当前作业状态如果为调试任务正在运行或变更中，则不支持修改。
+   * 
    * @param request - UpdateComputeJobRequest
    * @returns UpdateComputeJobResponse
    */
@@ -1235,6 +1311,10 @@ export default class Client extends OpenApi {
 
   /**
    * 更新 JOB 的 CU 配额
+   * 
+   * @remarks
+   * ## 请求说明
+   * 本API允许用户修改特定计算作业的计算单元（CU）上限和预留CU数量。在调用此接口前，请确保提供的`InstanceId`和`JobName`正确无误，并且实例处于运行状态。此外，注意检查`CuLimit`与`CuReserved`参数的有效性和合理性，避免因超出限制或不符合业务逻辑导致请求失败。
    * 
    * @param request - UpdateComputeJobCuRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1263,14 +1343,8 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateComputeJobCu",
@@ -1289,6 +1363,10 @@ export default class Client extends OpenApi {
   /**
    * 更新 JOB 的 CU 配额
    * 
+   * @remarks
+   * ## 请求说明
+   * 本API允许用户修改特定计算作业的计算单元（CU）上限和预留CU数量。在调用此接口前，请确保提供的`InstanceId`和`JobName`正确无误，并且实例处于运行状态。此外，注意检查`CuLimit`与`CuReserved`参数的有效性和合理性，避免因超出限制或不符合业务逻辑导致请求失败。
+   * 
    * @param request - UpdateComputeJobCuRequest
    * @returns UpdateComputeJobCuResponse
    */
@@ -1299,6 +1377,14 @@ export default class Client extends OpenApi {
 
   /**
    * 更新 JOB 的 SQL
+   * 
+   * @remarks
+   * ## 请求说明
+   * 本接口用于更新特定计算实例下的某个计算作业所保存的Flink SQL草稿内容。请确保提供的`InstanceId`和`JobName`准确无误，并且该作业当前状态支持进行SQL修改操作。
+   * - **注意事项**：
+   *   - 确保目标实例处于运行状态。
+   *   - 当前作业状态需允许修改SQL，即作业不应处于调试或变更过程中。
+   *   - `DraftSql`参数应包含完整的、格式正确的Flink SQL语句。
    * 
    * @param request - UpdateComputeJobDraftSqlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1323,14 +1409,8 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateComputeJobDraftSql",
@@ -1348,6 +1428,14 @@ export default class Client extends OpenApi {
 
   /**
    * 更新 JOB 的 SQL
+   * 
+   * @remarks
+   * ## 请求说明
+   * 本接口用于更新特定计算实例下的某个计算作业所保存的Flink SQL草稿内容。请确保提供的`InstanceId`和`JobName`准确无误，并且该作业当前状态支持进行SQL修改操作。
+   * - **注意事项**：
+   *   - 确保目标实例处于运行状态。
+   *   - 当前作业状态需允许修改SQL，即作业不应处于调试或变更过程中。
+   *   - `DraftSql`参数应包含完整的、格式正确的Flink SQL语句。
    * 
    * @param request - UpdateComputeJobDraftSqlRequest
    * @returns UpdateComputeJobDraftSqlResponse

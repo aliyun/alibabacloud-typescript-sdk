@@ -3,20 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartComputeInstanceRequest extends $dara.Model {
-  clientToken?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * alikafka_streaming-cn-pe333xxxxxx
    */
   instanceId?: string;
+  /**
+   * @example
+   * streaming-prod
+   */
   instanceName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
-  selectedZones?: string;
-  serviceVersion?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -25,16 +32,16 @@ export class StartComputeInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1abcdefg
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
-      selectedZones: 'SelectedZones',
-      serviceVersion: 'ServiceVersion',
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
     };
@@ -42,12 +49,9 @@ export class StartComputeInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       instanceId: 'string',
       instanceName: 'string',
       regionId: 'string',
-      selectedZones: 'string',
-      serviceVersion: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
     };

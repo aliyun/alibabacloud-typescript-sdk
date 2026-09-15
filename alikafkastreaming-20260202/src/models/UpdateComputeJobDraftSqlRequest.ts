@@ -3,30 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateComputeJobDraftSqlRequest extends $dara.Model {
-  clientToken?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * INSERT INTO sink_table SELECT * FROM source_table;
    */
   draftSql?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * alikafka_streaming-cn-a1b2c3d4
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * order_enrichment
    */
   jobName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       draftSql: 'DraftSql',
       instanceId: 'InstanceId',
       jobName: 'JobName',
@@ -36,7 +46,6 @@ export class UpdateComputeJobDraftSqlRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       draftSql: 'string',
       instanceId: 'string',
       jobName: 'string',

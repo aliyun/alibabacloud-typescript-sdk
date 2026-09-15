@@ -3,30 +3,52 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListComputeJobsRequest extends $dara.Model {
-  currentPage?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * alikafka_streaming-cn-a1b2c3d4
    */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * eyJvZmZzZXQiOjIwfQ==
+   */
   nextToken?: string;
-  pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * order
+   */
   search?: string;
+  /**
+   * @example
+   * DESC
+   */
   sortDirection?: string;
+  /**
+   * @example
+   * createTime
+   */
   sortField?: string;
   static names(): { [key: string]: string } {
     return {
-      currentPage: 'CurrentPage',
       instanceId: 'InstanceId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      pageSize: 'PageSize',
       regionId: 'RegionId',
       search: 'Search',
       sortDirection: 'SortDirection',
@@ -36,11 +58,9 @@ export class ListComputeJobsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      currentPage: 'number',
       instanceId: 'string',
       maxResults: 'number',
       nextToken: 'string',
-      pageSize: 'number',
       regionId: 'string',
       search: 'string',
       sortDirection: 'string',
