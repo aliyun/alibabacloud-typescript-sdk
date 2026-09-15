@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
+   * The application ID. You can obtain the ID on the Application Management page in the console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetJobInfoRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The job ID. You can obtain the job ID on the Task Management page in the SchedulerX console.
+   * The node ID. You can obtain the ID on the Task Management page in the console.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetJobInfoRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The job name.
+   * The node name.
    * 
    * @example
    * simpleJob
@@ -33,7 +33,7 @@ export class GetJobInfoRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+   * The namespace ID. You can obtain the ID on the Namespace page in the console.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class GetJobInfoRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The namespace source. This parameter is required only for a special third party.
+   * This parameter is required only for special third-party users.
    * 
    * @example
    * schedulerx

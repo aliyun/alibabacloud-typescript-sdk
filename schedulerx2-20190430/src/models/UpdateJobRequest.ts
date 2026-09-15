@@ -83,7 +83,7 @@ export class UpdateJobRequest extends $dara.Model {
    * @remarks
    * The full path of the node interface class.
    * 
-   * This field is required only for Java node types, and the full path must be specified.
+   * This field is required and must contain the full path only for Java node types.
    * 
    * @example
    * com.alibaba.test.helloworld
@@ -91,7 +91,7 @@ export class UpdateJobRequest extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The advanced configuration for parallel grid tasks. The number of threads for a single trigger on a single machine. Default value: 5.
+   * Advanced configuration for parallel grid tasks. The number of threads for a single trigger on a single machine. Default value: 5.
    * 
    * @example
    * 5
@@ -100,7 +100,7 @@ export class UpdateJobRequest extends $dara.Model {
   /**
    * @remarks
    * The contact information for the node.
-   * >Notice: This field is deprecated.</notice>
+   * >Notice: This parameter is deprecated.</notice>
    */
   contactInfo?: UpdateJobRequestContactInfo[];
   /**
@@ -130,21 +130,26 @@ export class UpdateJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The advanced configuration for parallel grid tasks. The number of subtask dispatch threads. Default value: 5.
+   * Advanced configuration for parallel grid tasks. The number of subtask dispatch threads. Default value: 5.
    * 
    * @example
    * 5
    */
   dispatcherSize?: number;
   /**
+   * @example
+   * 1789454134000
+   */
+  endTime?: number;
+  /**
    * @remarks
-   * The node execution mode. Valid values:
+   * The node execution mode. The following execution modes are supported:
    * 
-   * - **standalone**: standalone
-   * - **broadcatst**: broadcast
-   * - **parallel**: visual MapReduce
-   * - **batch**: MapReduce
-   * - **shard**: shard
+   * - **Standalone**: standalone
+   * - **Broadcast**: broadcatst
+   * - **Visual MapReduce**: parallel
+   * - **MapReduce**: batch
+   * - **Sharding**: shard
    * 
    * @example
    * standalone
@@ -154,8 +159,8 @@ export class UpdateJobRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the failure alert. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: enables the failure alert.
+   * - **false**: disables the failure alert.
    * 
    * @example
    * true
@@ -199,7 +204,7 @@ export class UpdateJobRequest extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger is not performed even if the scheduled time has arrived.
+   * The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger is skipped even if the scheduled time has arrived.
    * 
    * @example
    * 1
@@ -208,8 +213,8 @@ export class UpdateJobRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the no-available-machine alert. Valid values:
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: enables the no-available-machine alert.
+   * - **false**: disables the no-available-machine alert.
    * 
    * @example
    * true
@@ -243,7 +248,7 @@ export class UpdateJobRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The advanced configuration for parallel grid tasks. The number of subtasks pulled per request. Default value: 100.
+   * Advanced configuration for parallel grid tasks. The number of subtasks pulled per request. Default value: 100.
    * 
    * @example
    * 100
@@ -271,7 +276,7 @@ export class UpdateJobRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The advanced configuration for parallel grid tasks. The maximum cache size of the subtask queue. Default value: 10000.
+   * Advanced configuration for parallel grid tasks. The maximum cache size of the subtask queue. Default value: 10000.
    * 
    * @example
    * 10000
@@ -295,6 +300,13 @@ export class UpdateJobRequest extends $dara.Model {
    * sms
    */
   sendChannel?: string;
+  /**
+   * @remarks
+   * The start timestamp in milliseconds. The value must be greater than the current time. A value of -1 indicates immediate start.
+   * 
+   * @example
+   * 1789454134000
+   */
   startTime?: number;
   /**
    * @remarks
@@ -306,7 +318,7 @@ export class UpdateJobRequest extends $dara.Model {
   successNoticeEnable?: boolean;
   /**
    * @remarks
-   * The advanced configuration for parallel grid tasks. The retry interval for failed subtasks.
+   * Advanced configuration for parallel grid tasks. The retry interval for failed subtasks.
    * 
    * @example
    * 0
@@ -314,7 +326,7 @@ export class UpdateJobRequest extends $dara.Model {
   taskAttemptInterval?: number;
   /**
    * @remarks
-   * The advanced configuration for parallel grid tasks. Specifies the push model or pull model.
+   * Advanced configuration for parallel grid tasks. Specifies the push model or pull model.
    * 
    * @example
    * push
@@ -322,7 +334,7 @@ export class UpdateJobRequest extends $dara.Model {
   taskDispatchMode?: string;
   /**
    * @remarks
-   * The advanced configuration for parallel grid tasks. The number of retries for failed subtasks.
+   * Advanced configuration for parallel grid tasks. The number of retries for failed subtasks.
    * 
    * @example
    * 0
@@ -361,10 +373,10 @@ export class UpdateJobRequest extends $dara.Model {
    * @remarks
    * The time expression. Set the time expression based on the selected time type.
    * 
-   * - **cron**: Specify a standard cron expression. Online verification is supported.
-   * - **api**: No time expression is required.
-   * - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
-   * - **second_delay**: Specify a fixed delay in seconds before each execution (1s to 60s).
+   * - **cron**: specify a standard cron expression, which supports online verification.
+   * - **api**: no time expression is required.
+   * - **fixed_rate**: specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
+   * - **second_delay**: specify a fixed delay in seconds before each execution (1s to 60s).
    * 
    * @example
    * 30
@@ -372,13 +384,13 @@ export class UpdateJobRequest extends $dara.Model {
   timeExpression?: string;
   /**
    * @remarks
-   * The time configuration type. Valid values:
+   * The time configuration type. The following configuration types are supported:
    * 
-   * - **1**: cron
-   * - **3**: fix_rate
-   * - **4**: second_delay
-   * - **5**: one_time
-   * - **100**: api
+   * - **cron**: 1
+   * - **fix_rate**: 3
+   * - **second_delay**: 4
+   * - **one_time**: 5
+   * - **api**: 100
    * 
    * @example
    * 1
@@ -396,8 +408,8 @@ export class UpdateJobRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the timeout alert. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: enables the timeout alert.
+   * - **false**: disables the timeout alert.
    * 
    * @example
    * true
@@ -407,8 +419,8 @@ export class UpdateJobRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the timeout termination for the current trigger. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: enables the timeout termination.
+   * - **false**: disables the timeout termination.
    * 
    * @example
    * true
@@ -424,7 +436,7 @@ export class UpdateJobRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The parameter that must be configured for k8s node types.
+   * The extended attributes. This parameter is required for k8s node types.
    * Job task: {"resource":"job"}
    * Shell task: {"image":"busybox","resource":"shell"}
    * 
@@ -443,6 +455,7 @@ export class UpdateJobRequest extends $dara.Model {
       dataOffset: 'DataOffset',
       description: 'Description',
       dispatcherSize: 'DispatcherSize',
+      endTime: 'EndTime',
       executeMode: 'ExecuteMode',
       failEnable: 'FailEnable',
       failTimes: 'FailTimes',
@@ -487,6 +500,7 @@ export class UpdateJobRequest extends $dara.Model {
       dataOffset: 'number',
       description: 'string',
       dispatcherSize: 'number',
+      endTime: 'number',
       executeMode: 'string',
       failEnable: 'boolean',
       failTimes: 'number',

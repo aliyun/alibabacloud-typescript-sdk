@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobRequestContactInfo extends $dara.Model {
   /**
    * @remarks
-   * The webhook URL of the DingTalk chatbot for the alert contact\\"s DingTalk group. References: [DingTalk development documentation](https://open.dingtalk.com/document/org/application-types).
+   * The webhook URL of the DingTalk chatbot in the DingTalk group for alert contacts. References: [DingTalk development documentation](https://open.dingtalk.com/document/org/application-types).
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=**********
@@ -29,7 +29,7 @@ export class CreateJobRequestContactInfo extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The mobile phone number of the alert recipient.
+   * The phone number for receiving alerts.
    * 
    * @example
    * 1381111****
@@ -73,14 +73,17 @@ export class CreateJobRequest extends $dara.Model {
   attemptInterval?: number;
   /**
    * @remarks
-   * The custom calendar. This parameter is available for the cron time type.
+   * The custom calendar. This parameter is optional for the cron time type.
+   * 
+   * @example
+   * workday
    */
   calendar?: string;
   /**
    * @remarks
    * The full path of the node interface class.
    * 
-   * This field is required only when you select the Java node type. Specify the full path.
+   * This field is available and required only when you select the Java node type. Specify the full path.
    * 
    * @example
    * com.alibaba.schedulerx.test.helloworld
@@ -88,7 +91,7 @@ export class CreateJobRequest extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The advanced configuration for parallel grid nodes. The number of threads triggered for a single execution on a single machine. Default value: 5.
+   * Advanced configuration for parallel grid nodes. The number of threads for a single trigger on a single machine. Default value: 5.
    * 
    * @example
    * 5
@@ -98,7 +101,7 @@ export class CreateJobRequest extends $dara.Model {
    * @remarks
    * The node contact information.
    * 
-   * >Notice: This field is deprecated.</notice>
+   * >Notice: This parameter is deprecated.
    */
   contactInfo?: CreateJobRequestContactInfo[];
   /**
@@ -112,7 +115,7 @@ export class CreateJobRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The time offset. Unit: seconds. This parameter is available for the cron time type.
+   * The time offset for the cron time type. Unit: seconds.
    * 
    * @example
    * 2400
@@ -128,12 +131,20 @@ export class CreateJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The advanced configuration for parallel grid nodes. The number of subtask dispatch threads. Default value: 5.
+   * Advanced configuration for parallel grid nodes. The number of threads for subtask dispatching. Default value: 5.
    * 
    * @example
    * 5
    */
   dispatcherSize?: number;
+  /**
+   * @remarks
+   * The node expiration timestamp in milliseconds. The value must be greater than the current time and the start time. A value of -1 indicates no expiration.
+   * 
+   * @example
+   * 1789454134000
+   */
+  endTime?: number;
   /**
    * @remarks
    * The node execution mode. The following execution modes are supported:
@@ -209,7 +220,7 @@ export class CreateJobRequest extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger is not performed even if the scheduled time arrives.
+   * The maximum number of concurrently running instances. Default value: 1. A value of 1 indicates that if the previous trigger has not finished running, the next trigger is skipped even if the scheduled time has arrived.
    * 
    * @example
    * 1
@@ -255,7 +266,7 @@ export class CreateJobRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The advanced configuration for parallel grid nodes. The number of subtasks pulled in a single request. Default value: 100.
+   * Advanced configuration for parallel grid nodes. The number of subtasks pulled per request. Default value: 100.
    * 
    * @example
    * 100
@@ -283,7 +294,7 @@ export class CreateJobRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The advanced configuration for parallel grid nodes. The maximum cache size of the subtask queue. Default value: 10000.
+   * Advanced configuration for parallel grid nodes. The maximum number of subtasks that can be cached in the queue. Default value: 10000.
    * 
    * @example
    * 10000
@@ -304,16 +315,23 @@ export class CreateJobRequest extends $dara.Model {
    * The alert notification channel.
    * 
    * - Use the default channel of the application group: default.
-   * - Specify a notification channel for the node: sms, mail, phone, or webhook.
+   * - Specify the notification channel for the node: sms,mail,phone,webhook.
    * 
    * @example
    * sms
    */
   sendChannel?: string;
+  /**
+   * @remarks
+   * The start timestamp in milliseconds. The value must be greater than the current time. A value of -1 indicates immediate start.
+   * 
+   * @example
+   * 1789454134000
+   */
   startTime?: number;
   /**
    * @remarks
-   * The node status. Valid values: 0: disabled. 1: enabled. Default value: 1 (enabled).
+   * The node status. 0: disabled. 1: enabled. Default value: enabled.
    * 
    * @example
    * 1
@@ -329,7 +347,7 @@ export class CreateJobRequest extends $dara.Model {
   successNoticeEnable?: boolean;
   /**
    * @remarks
-   * The advanced configuration for parallel grid nodes. The retry interval for a failed subtask. Default value: 0.
+   * Advanced configuration for parallel grid nodes. The retry interval for a subtask on failure. Default value: 0.
    * 
    * @example
    * 0
@@ -337,7 +355,7 @@ export class CreateJobRequest extends $dara.Model {
   taskAttemptInterval?: number;
   /**
    * @remarks
-   * The advanced configuration for parallel grid nodes. The number of retries for a failed subtask. Default value: 0.
+   * Advanced configuration for parallel grid nodes. The maximum number of retries for a subtask on failure. Default value: 0.
    * 
    * @example
    * 0
@@ -350,8 +368,8 @@ export class CreateJobRequest extends $dara.Model {
    * - **cron**: Specify a standard cron expression. Online verification is supported.
    * - **api**: No time expression is required.
    * - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
-   * - **second_delay**: Specify a fixed delay in seconds before each execution (1s to 60s).
-   * - **one_time**: Specify a time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+   * - **second_delay**: Specify a fixed delay in seconds before each execution (valid values: 1 to 60).
+   * - **one_time**: Specify a time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
    * 
    * @example
    * 0 0/10 * * * ?
@@ -433,6 +451,7 @@ export class CreateJobRequest extends $dara.Model {
       dataOffset: 'DataOffset',
       description: 'Description',
       dispatcherSize: 'DispatcherSize',
+      endTime: 'EndTime',
       executeMode: 'ExecuteMode',
       failEnable: 'FailEnable',
       failTimes: 'FailTimes',
@@ -476,6 +495,7 @@ export class CreateJobRequest extends $dara.Model {
       dataOffset: 'number',
       description: 'string',
       dispatcherSize: 'number',
+      endTime: 'number',
       executeMode: 'string',
       failEnable: 'boolean',
       failTimes: 'number',

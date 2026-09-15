@@ -64,9 +64,9 @@ export class CreateJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the node was created successfully. Valid values:
+   * Indicates whether the node was created. Valid values:
    * 
-   * - **true**: The node was created successfully.
+   * - **true**: The node was created.
    * - **false**: The node failed to be created.
    * 
    * @example

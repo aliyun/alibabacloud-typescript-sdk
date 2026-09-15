@@ -15,7 +15,7 @@ export class ListJobsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The node name.
+   * The job name.
    * 
    * @example
    * helloword
@@ -42,11 +42,17 @@ export class ListJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The page number.
+   * 
+   * @example
+   * 1
    */
   pageNum?: number;
   /**
    * @remarks
    * The number of records per page.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
   /**
@@ -61,7 +67,7 @@ export class ListJobsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The node status.
+   * The job status. Valid values:
    * 
    * - **0**: disabled
    * 
