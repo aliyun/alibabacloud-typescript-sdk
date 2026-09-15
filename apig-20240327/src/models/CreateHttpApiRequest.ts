@@ -90,22 +90,22 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
 export class CreateHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of protocols supported by the agent. Required when type is Agent. This field is not required for other types.
+   * The list of protocols supported by the agent. This parameter is required when type is set to Agent. You do not need to specify this parameter for other types.
    */
   agentProtocols?: string[];
   /**
    * @remarks
-   * The list of AI API protocols. Required when type is LLM (only one protocol allowed) or Ai (multiple protocols allowed). Not required for other types. Example protocol: OpenAI/v1.
+   * The list of AI API protocols. This parameter is required when type is set to LLM, and only one protocol can be specified. This parameter is required when type is set to Ai, and multiple protocols can be specified. You do not need to specify this parameter for other types. Example protocol entry: OpenAI/v1.
    */
   aiProtocols?: string[];
   /**
    * @remarks
-   * The authentication configuration. Required when enableAuth is set to true.
+   * The authentication configuration. This parameter is required when enableAuth is set to true.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The base path of the API. Must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. Required when type is Rest. Optional when type is LLM, Ai, or Agent. Defaults to /.
+   * The base path of the API. The value must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. This parameter is required when type is set to Rest. When type is set to LLM, Ai, or Agent, this parameter is optional and defaults to /.
    * 
    * @example
    * /v1
@@ -121,12 +121,12 @@ export class CreateHttpApiRequest extends $dara.Model {
   belongGatewayId?: string;
   /**
    * @remarks
-   * The list of deployment configurations for the HTTP API. Required when type is LLM or Ai (only one deployment configuration allowed). Not validated at the request level for other types.
+   * The list of deployment configurations for the HTTP API. This parameter is required when type is set to LLM or Ai, and only one deployment configuration can be specified. This parameter is not validated at the request level for other types.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The API description.
+   * The description of the API.
    * 
    * @example
    * Test API for integration
@@ -134,7 +134,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to preview only without executing.
+   * Specifies whether to perform a dry run without executing the operation.
    * 
    * @example
    * true
@@ -144,7 +144,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable authentication. Validated when type is LLM, Ai, or Agent. Not validated at the request level when type is Rest.
+   * Specifies whether to enable authentication. This parameter is validated when type is set to LLM, Ai, or Agent. This parameter is not validated at the request level when type is set to Rest.
    * 
    * @example
    * true
@@ -152,7 +152,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The timeout period for waiting for the backend to return the first byte.
+   * The timeout period for waiting for the first byte from the backend.
    * 
    * @example
    * 30
@@ -160,20 +160,20 @@ export class CreateHttpApiRequest extends $dara.Model {
   firstByteTimeout?: number;
   /**
    * @remarks
-   * The HTTP Ingress API configuration. Required when type is HttpIngress and cannot be null. Not required for other types.
+   * The HTTP Ingress API configuration. This parameter is required and cannot be nil when type is set to HttpIngress. You do not need to specify this parameter for other types.
    */
   ingressConfig?: CreateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * The AI model category. Optional when type is LLM or Ai. Not required for other types. Valid values:
+   * The AI model category. This parameter is optional when type is set to LLM or Ai. You do not need to specify this parameter for other types. Valid values:
    * - Text: text generation.
    * - Image: image generation.
    * - Audio: audio processing.
-   * - Video: video generation.
+   * - Video: AI video generation.
    * - MultiModal: multimodal.
-   * - Embedding: vector embedding.
+   * - Embedding: embedding.
    * - Rerank: reranking.
-   * - Others: others.
+   * - Others: other.
    * 
    * @example
    * Text
@@ -181,7 +181,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The name of the HTTP API, used to identify the current API resource. For example, test-api.
+   * The name of the HTTP API, which identifies the API resource. Example: test-api.
    * 
    * This parameter is required.
    * 
@@ -212,7 +212,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The conflict resolution strategy for imports.
+   * The conflict merge strategy for import.
    * 
    * @example
    * ExistFirst
@@ -226,7 +226,7 @@ export class CreateHttpApiRequest extends $dara.Model {
    * - WebSocket: a WebSocket API.
    * - HttpIngress: an HTTP API accessed through Ingress.
    * - LLM: a large language model API.
-   * - Agent: an Agent proxy API.
+   * - Agent: an agent proxy API.
    * 
    * This parameter is required.
    * 
@@ -239,6 +239,14 @@ export class CreateHttpApiRequest extends $dara.Model {
    * The API versioning configuration.
    */
   versionConfig?: HttpApiVersionConfig;
+  /**
+   * @remarks
+   * The idempotency token, which is a globally unique value generated by the caller. We recommend that you use a UUID. The value cannot exceed 64 characters in length. Within approximately 24 hours after the first successful request, a duplicate request that carries the same ClientToken and identical request parameters directly returns the httpApiId created by the first request without creating a duplicate HTTP API. If the same ClientToken is carried but the request parameters are different, the IdempotentParameterMismatch error is returned. If the first request is still being processed, the IdempotentProcessing error is returned. If this parameter is not specified, idempotency control is not enabled, and the behavior is consistent with the existing version.
+   * 
+   * @example
+   * 5f7a2c1e-9b3d-4e8f-a1c6-0d2b8e4f7a13
+   */
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       agentProtocols: 'agentProtocols',
@@ -260,6 +268,7 @@ export class CreateHttpApiRequest extends $dara.Model {
       strategy: 'strategy',
       type: 'type',
       versionConfig: 'versionConfig',
+      clientToken: 'clientToken',
     };
   }
 
@@ -284,6 +293,7 @@ export class CreateHttpApiRequest extends $dara.Model {
       strategy: 'string',
       type: 'string',
       versionConfig: HttpApiVersionConfig,
+      clientToken: 'string',
     };
   }
 

@@ -16,7 +16,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The Ingress Class to listen on.
+   * The Ingress class to listen on.
    * 
    * @example
    * mse
@@ -24,7 +24,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the address in the Ingress Status.
+   * Specifies whether to update the address in the Ingress status.
    * 
    * @example
    * false
@@ -108,7 +108,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The description of the API.
+   * The API description.
    * 
    * @example
    * Update API description
@@ -158,12 +158,12 @@ export class UpdateHttpApiRequest extends $dara.Model {
   removeBasePathOnForward?: boolean;
   /**
    * @remarks
-   * The versioning configuration of the API.
+   * The API versioning configuration.
    */
   versionConfig?: HttpApiVersionConfig;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to a real update are performed without updating any configurations or producing side effects. If not specified or set to false, the behavior is the same as the existing version.
+   * Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to an actual update are performed, but no configurations are modified and no side effects are produced. If set to false or left empty, the behavior is the same as the existing version.
    */
   dryRun?: boolean;
   static names(): { [key: string]: string } {

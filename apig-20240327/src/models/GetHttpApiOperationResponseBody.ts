@@ -14,7 +14,7 @@ export class GetHttpApiOperationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The API operation information.
+   * The operation information.
    */
   data?: HttpApiOperationInfo;
   /**

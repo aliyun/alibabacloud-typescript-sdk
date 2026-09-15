@@ -51,9 +51,8 @@ export class GetConsumerAuthorizationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The expiration mode. Valid values:
-   * 
-   * - LongTerm
-   * - ShortTerm
+   * - LongTerm: long-term
+   * - ShortTerm: short-term
    * 
    * @example
    * LongTerm

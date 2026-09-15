@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDashboardResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the gateway.
+   * The unique ID of the gateway.
    * 
    * @example
    * gw-co370icmjeu****
@@ -29,7 +29,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The dashboard URL.
+   * The URL of the dashboard.
    * 
    * @example
    * https://sls.console.aliyun.com/lognext/project/xxxxx

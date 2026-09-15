@@ -13,7 +13,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   apiNameLike?: string;
   /**
    * @remarks
-   * The consumer group ID. If specified, the authorization rules of this consumer group are queried.
+   * The consumer group ID. If specified, the authorization rules of the consumer group are queried. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
    * 
    * @example
    * csg-8c13d2b4f8a1
@@ -29,7 +29,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   consumerGroupNameLike?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * The consumer ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
    * 
    * @example
    * cs-ct21c16m1hkp64hk6qmg
@@ -77,7 +77,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The parent resource ID.
+   * The parent resource ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
    * 
    * @example
    * ha-cn-li942gy8p01
@@ -85,7 +85,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   parentResourceId?: string;
   /**
    * @remarks
-   * The principal type. Valid values: Consumer or ConsumerGroup.
+   * The principal type. Valid values: Consumer and ConsumerGroup.
    * 
    * @example
    * ConsumerGroup
@@ -93,7 +93,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The resource ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
    * 
    * @example
    * ha-cn-li942gy8p03
@@ -109,7 +109,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The service source types.
+   * The service source type.
    * 
    * @example
    * K8S

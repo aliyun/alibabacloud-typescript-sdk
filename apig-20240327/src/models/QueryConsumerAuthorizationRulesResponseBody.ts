@@ -12,7 +12,7 @@ import { HttpRoute } from "./HttpRoute";
 export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The operation information.
+   * The API operation information.
    */
   operationInfo?: HttpApiOperationInfo;
   /**
@@ -52,7 +52,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo ex
 export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The API information details.
+   * The API information.
    */
   apiInfo?: HttpApiApiInfo;
   /**
@@ -86,7 +86,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   consumerId?: string;
   /**
    * @remarks
-   * The consumer information details.
+   * The consumer information.
    */
   consumerInfo?: ConsumerInfo;
   /**
@@ -99,7 +99,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   createTimestamp?: number;
   /**
    * @remarks
-   * The publish status of the API in the current environment.
+   * The deployment status of the API in the current environment.
    * 
    * @example
    * {}
@@ -112,9 +112,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * The expiration mode. Valid values:
-   * - LongTerm
-   * - ShortTerm
+   * The expiration mode. Valid values: LongTerm and ShortTerm.
    * 
    * @example
    * ShortTerm
@@ -143,7 +141,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The principal type. Valid values: Consumer or ConsumerGroup.
+   * The principal type. Valid values: Consumer and ConsumerGroup.
    * 
    * @example
    * ConsumerGroup
@@ -159,7 +157,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   resourceId?: string;
   /**
    * @remarks
-   * The resource information details.
+   * The resource information.
    */
   resourceInfo?: QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo;
   /**
@@ -254,7 +252,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
 export class QueryConsumerAuthorizationRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of consumer rules.
+   * The list of consumer authorization rules.
    */
   items?: QueryConsumerAuthorizationRulesResponseBodyDataItems[];
   /**

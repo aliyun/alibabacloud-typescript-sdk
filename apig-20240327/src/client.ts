@@ -1327,6 +1327,11 @@ export default class Client extends OpenApi {
    */
   async createHttpApiWithOptions(request: $_model.CreateHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHttpApiResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentProtocols)) {
       body["agentProtocols"] = request.agentProtocols;
@@ -1406,6 +1411,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1435,7 +1441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an operation for an HTTP API.
+   * Creates operations for an HTTP API.
    * 
    * @param request - CreateHttpApiOperationRequest
    * @param headers - map
@@ -1468,7 +1474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an operation for an HTTP API.
+   * Creates operations for an HTTP API.
    * 
    * @param request - CreateHttpApiOperationRequest
    * @returns CreateHttpApiOperationResponse
@@ -2686,7 +2692,7 @@ export default class Client extends OpenApi {
    * Deletes a quota throttling rule for a gateway.
    * 
    * @remarks
-   * Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+   * Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @param headers - map
@@ -2716,7 +2722,7 @@ export default class Client extends OpenApi {
    * Deletes a quota throttling rule for a gateway.
    * 
    * @remarks
-   * Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+   * Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @returns DeleteGatewayQuotaRuleResponse
@@ -4189,7 +4195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the API operation information.
+   * Retrieves operation information.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4214,7 +4220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the API operation information.
+   * Retrieves operation information.
    * @returns GetHttpApiOperationResponse
    */
   async getHttpApiOperation(httpApiId: string, operationId: string): Promise<$_model.GetHttpApiOperationResponse> {

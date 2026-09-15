@@ -25,7 +25,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   httpDubboTranscoder?: HttpDubboTranscoder;
   /**
    * @remarks
-   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not specified for the AiAutoRouter scenario, the default model of the AI service is used.
+   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
@@ -49,7 +49,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * The service protocol. Valid values:
+   * The Terms of Service. Valid values:
    * - HTTP.
    * - HTTPS.
    * 
@@ -75,7 +75,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   sourceType?: string;
   /**
    * @remarks
-   * The service version. This parameter takes effect only in the tag-based scenario.
+   * The service version. This parameter takes effect only in tag-based scenarios.
    * 
    * @example
    * v1
@@ -194,7 +194,7 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The service protocol. Valid values:
+   * The Terms of Service. Valid values:
    * - TCP.
    * - HTTP.
    * - DUBBO.
