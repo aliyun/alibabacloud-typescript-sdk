@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class InstallPmAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class InstallPmAgentRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 58.35.xx.xx
@@ -24,10 +23,8 @@ export class InstallPmAgentRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The type of the client.
-   * 
-   * *   **aliyun_assist**: Cloud Assistant client
-   * *   **aliyun_monitor**: CloudMonitor client
+   * The type of the O&M plugin. Valid values:
+   * - **aliyun_monitor**: CloudMonitor agent.
    * 
    * This parameter is required.
    * 
@@ -37,7 +34,7 @@ export class InstallPmAgentRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUID of the server. If you specify multiple UUIDs, separate the UUIDs with commas (,).
+   * The list of server UUIDs. Separate multiple UUIDs with commas (,).
    * 
    * This parameter is required.
    * 

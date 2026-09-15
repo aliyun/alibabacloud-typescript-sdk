@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileProtectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The severity of alerts. Valid values:
+   * The alert notification level. Valid values:
    * 
-   * *   0: does not generate alerts
-   * *   1: sends notifications
-   * *   2: suspicious
-   * *   3: high-risk
+   * - 0: no alert
+   * 
+   * - 1: reminder
+   * 
+   * - 2: suspicious
+   * 
+   * - 3: high-risk
    * 
    * @example
    * 0
@@ -18,24 +21,24 @@ export class CreateFileProtectRuleRequest extends $dara.Model {
   alertLevel?: number;
   /**
    * @remarks
-   * The operations that you want to perform on the files.
+   * The list of file operations.
    * 
    * This parameter is required.
    */
   fileOps?: string[];
   /**
    * @remarks
-   * The paths to the files that you want to monitor. Wildcard characters are supported.
+   * The list of file paths to monitor. Wildcards are supported.
    * 
    * This parameter is required.
    */
   filePaths?: string[];
   /**
    * @remarks
-   * The type of the operating system. Valid values:
+   * The operating system type. Valid values:
    * 
-   * *   **windows**: Windows
-   * *   **linux**: Linux
+   * - **windows**: Windows
+   * - **linux**: Linux
    * 
    * @example
    * linux
@@ -43,17 +46,18 @@ export class CreateFileProtectRuleRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The paths to the processes that you want to monitor. Wildcard characters are supported.
+   * The list of process paths to monitor. Wildcards are supported.
    * 
    * This parameter is required.
    */
   procPaths?: string[];
   /**
    * @remarks
-   * The handling method of the rule. Valid values:
+   * The action that the rule takes on the client. Valid values:
    * 
-   * *   pass: allow
-   * *   alert
+   * - pass: allow
+   * 
+   * - alert: alert
    * 
    * This parameter is required.
    * 
@@ -73,10 +77,9 @@ export class CreateFileProtectRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
+   * The rule status. Valid values:
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -84,7 +87,7 @@ export class CreateFileProtectRuleRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The switch ID of the rule.
+   * The switch ID associated with the rule.
    * 
    * @example
    * FILE_PROTECT_RULE_SWITCH_TYPE_0000

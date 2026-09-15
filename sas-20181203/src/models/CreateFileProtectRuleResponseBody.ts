@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileProtectRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * EC7C8984-D108-516F-9D36-3DF1D1228CCA
@@ -13,7 +13,7 @@ export class CreateFileProtectRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 123

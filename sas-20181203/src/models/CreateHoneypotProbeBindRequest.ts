@@ -7,8 +7,8 @@ export class CreateHoneypotProbeBindRequestBindPortList extends $dara.Model {
    * @remarks
    * Specifies whether to bind the port. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The port is bound.
+   * - **false**: The port is not bound.
    * 
    * @example
    * false
@@ -16,7 +16,7 @@ export class CreateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   bindPort?: boolean;
   /**
    * @remarks
-   * The end port on which the probe monitors.
+   * The end port of the probe listener.
    * 
    * @example
    * 80
@@ -24,10 +24,10 @@ export class CreateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   endPort?: number;
   /**
    * @remarks
-   * Specifies whether the port is a fixed port. Valid values:
+   * Specifies whether the port is fixed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The port is fixed.
+   * - **false**: The port is not fixed.
    * 
    * @example
    * false
@@ -35,10 +35,10 @@ export class CreateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   fixed?: boolean;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The protocol type. Valid values:
    * 
-   * *   **tcp**
-   * *   **udp**
+   * - **tcp**: TCP protocol.
+   * - **udp**: UDP protocol.
    * 
    * @example
    * tcp
@@ -46,7 +46,7 @@ export class CreateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   proto?: string;
   /**
    * @remarks
-   * The start port on which the probe monitors.
+   * The start port of the probe listener.
    * 
    * @example
    * 80
@@ -94,14 +94,14 @@ export class CreateHoneypotProbeBindRequestBindPortList extends $dara.Model {
 export class CreateHoneypotProbeBindRequest extends $dara.Model {
   /**
    * @remarks
-   * The ports that are bound to the probe.
+   * The list of port bindings.
    */
   bindPortList?: CreateHoneypotProbeBindRequestBindPortList[];
   /**
    * @remarks
    * The honeypot ID.
-   * 
-   * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+   * > Call the [ListHoneypot](~~ListHoneypot~~) operation to obtain this value.
+   * This parameter is required. If this parameter is not specified, the API returns InternalError (400).
    * 
    * @example
    * dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
@@ -109,10 +109,9 @@ export class CreateHoneypotProbeBindRequest extends $dara.Model {
   honeypotId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -121,8 +120,8 @@ export class CreateHoneypotProbeBindRequest extends $dara.Model {
   /**
    * @remarks
    * The probe ID.
-   * 
-   * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+   * >Call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to obtain this parameter.
+   * This parameter is required. If this parameter is not specified, the API returns InvalidParam (400).
    * 
    * @example
    * 36bad711-d1ac-4419-ac68-c1aa280f****
@@ -130,7 +129,7 @@ export class CreateHoneypotProbeBindRequest extends $dara.Model {
   probeId?: string;
   /**
    * @remarks
-   * The IP addresses that are monitored.
+   * The list of listener IP addresses.
    */
   serviceIpList?: string[];
   static names(): { [key: string]: string } {

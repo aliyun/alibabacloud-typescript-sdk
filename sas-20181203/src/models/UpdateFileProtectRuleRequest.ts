@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileProtectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The severity of alerts. Valid values:
+   * The alert notification level. Valid values:
    * 
-   * *   0: does not generate alerts
-   * *   1: sends notifications
-   * *   2: suspicious
-   * *   3: high-risk
+   * - 0: no alert
+   * 
+   * - 1: reminder
+   * 
+   * - 2: suspicious
+   * 
+   * - 3: high-risk
    * 
    * @example
    * 0
@@ -18,21 +21,21 @@ export class UpdateFileProtectRuleRequest extends $dara.Model {
   alertLevel?: number;
   /**
    * @remarks
-   * The operations that you want to perform on the files.
+   * The list of operations performed on files.
    * 
    * This parameter is required.
    */
   fileOps?: string[];
   /**
    * @remarks
-   * The paths to the monitored files. Wildcard characters are supported.
+   * The list of monitored file paths. Wildcards are supported.
    * 
    * This parameter is required.
    */
   filePaths?: string[];
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 1062
@@ -40,17 +43,18 @@ export class UpdateFileProtectRuleRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The paths to the monitored processes.
+   * The list of process listening paths.
    * 
    * This parameter is required.
    */
   procPaths?: string[];
   /**
    * @remarks
-   * The handling method of the rule. Valid values:
+   * The behavior of the rule on the client. Valid values:
    * 
-   * *   pass: allow
-   * *   alert
+   * - pass: allow
+   * 
+   * - alert: alert
    * 
    * @example
    * pass
@@ -58,7 +62,7 @@ export class UpdateFileProtectRuleRequest extends $dara.Model {
   ruleAction?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * This parameter is required.
    * 
@@ -68,10 +72,9 @@ export class UpdateFileProtectRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
-   * 
-   * *   **0**: disabled
-   * *   **1**: enabled
+   * The rule status. Valid values:
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1

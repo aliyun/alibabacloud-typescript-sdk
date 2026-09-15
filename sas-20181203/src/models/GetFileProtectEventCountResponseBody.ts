@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileProtectEventCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned if the request is successful.
+   * The data returned when the API call is successful.
    * 
    * @example
    * 16
@@ -13,7 +13,7 @@ export class GetFileProtectEventCountResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 9B28EC81-2FA7-5097-80D9-0DBE1A3DBD59

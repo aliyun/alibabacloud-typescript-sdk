@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ConfirmVirusEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to handle all alert events. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
+   * Specifies whether to handle all alerts. Valid values:
+   * - **1**: Yes.
+   * - **0**: No.
    * 
    * This parameter is required.
    * 
@@ -18,12 +17,12 @@ export class ConfirmVirusEventsRequest extends $dara.Model {
   operationAll?: number;
   /**
    * @remarks
-   * The operation that you want to perform on the alert events. Valid values:
+   * The method to handle the alert event. Valid values:
    * 
-   * *   **default**: performs in-depth detection and removal
-   * *   **ignore**: ignores the alert event
-   * *   **advance_mark_mis_info**: adds the alert events to the whitelist
-   * *   **manual_handled**: marks the alert events as manually handled
+   * - **default**: deep scan and removal
+   * - **ignore**: ignore
+   * - **advance_mark_mis_info**: add to whitelist
+   * - **manual_handled**: manually handled
    * 
    * This parameter is required.
    * 
@@ -33,7 +32,7 @@ export class ConfirmVirusEventsRequest extends $dara.Model {
   operationCode?: string;
   /**
    * @remarks
-   * The server on which you want to perform the alert events.
+   * The scope of the trojan scan alert handling. This parameter is required when OperationAll is set to 0. This parameter is ignored when OperationAll is set to 1.
    * 
    * @example
    * [{\\"type\\":\\"machine\\",\\"list\\":[\\"3aedba3d-bd4d-4dfb-bb0d-xxxxxxxxxxxx\\"]}]

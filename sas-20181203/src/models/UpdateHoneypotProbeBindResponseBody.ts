@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHoneypotProbeBindResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Any other value indicates failure.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateHoneypotProbeBindResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code of the response.
+   * The HTTP status code of the request.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class UpdateHoneypotProbeBindResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The detailed error message.
+   * The detailed information about the error code.
    * 
    * @example
    * successful

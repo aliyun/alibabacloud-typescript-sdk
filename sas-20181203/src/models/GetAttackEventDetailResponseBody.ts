@@ -16,7 +16,7 @@ export class GetAttackEventDetailResponseBodyDataCveBeans extends $dara.Model {
    * The name of the CVE vulnerability.
    * 
    * @example
-   * 1Panel loadfile 后台文件读取漏洞
+   * 1Panel loadfile backend file read vulnerability
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -93,7 +93,7 @@ export class GetAttackEventDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetAttackEventDetailResponseBodyData;
   /**
@@ -106,7 +106,7 @@ export class GetAttackEventDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message. The value is fixed as **success**, which indicates that the export was successful.
+   * The result message. Fixed value: **success**. This value indicates that the operation was successful.
    * 
    * @example
    * successful
@@ -123,8 +123,8 @@ export class GetAttackEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * - **true**: The API call was successful.
-   * - **false**: The API call failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

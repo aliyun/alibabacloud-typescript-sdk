@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeContainerAppsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 30CBF632-109F-596F-97F2-451C8B2A****
@@ -13,7 +13,7 @@ export class DescribeContainerAppsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tag values.
+   * The list of tag values.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {

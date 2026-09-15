@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHoneypotProbeRequestHoneypotBindListBindPortList extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to bind a port. Valid values:
+   * Specifies whether to bind the port. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class CreateHoneypotProbeRequestHoneypotBindListBindPortList extends $dar
   bindPort?: boolean;
   /**
    * @remarks
-   * The end of the port range.
+   * The end port.
    * 
    * @example
    * 90
@@ -24,18 +24,18 @@ export class CreateHoneypotProbeRequestHoneypotBindListBindPortList extends $dar
   endPort?: number;
   /**
    * @remarks
-   * Specifies whether the port is a fixed port. Valid values:
+   * Specifies whether the port is fixed. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
-   * 0
+   * false
    */
   fixed?: boolean;
   /**
    * @remarks
-   * The start of the port range.
+   * The start port.
    * 
    * @example
    * 80
@@ -44,8 +44,7 @@ export class CreateHoneypotProbeRequestHoneypotBindListBindPortList extends $dar
   /**
    * @remarks
    * The destination port.
-   * 
-   * > If **HoneypotId** is specified, this parameter is required.
+   * > This parameter is required when **HoneypotId** is not empty.
    * 
    * @example
    * 80
@@ -83,14 +82,13 @@ export class CreateHoneypotProbeRequestHoneypotBindListBindPortList extends $dar
 export class CreateHoneypotProbeRequestHoneypotBindList extends $dara.Model {
   /**
    * @remarks
-   * The listener ports.
+   * The list of listening ports.
    */
   bindPortList?: CreateHoneypotProbeRequestHoneypotBindListBindPortList[];
   /**
    * @remarks
-   * The ID of the honeypot.
-   * 
-   * > You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+   * The honeypot ID.
+   * > You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain this value.
    * 
    * @example
    * 1a5eda2d40f92ac87d6b63e1a5ad4b76fe0d4110c4a3e2fa85438a29ae55****
@@ -125,10 +123,9 @@ export class CreateHoneypotProbeRequestHoneypotBindList extends $dara.Model {
 export class CreateHoneypotProbeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Address Resolution Protocol (ARP) spoofing. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Specifies whether to enable ARP spoof detection. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -136,7 +133,7 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   arp?: boolean;
   /**
    * @remarks
-   * The ID of the business group.
+   * The business group.
    * 
    * @example
    * 2022011817324588686
@@ -144,9 +141,8 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   businessGroupId?: string;
   /**
    * @remarks
-   * The ID of the management node.
-   * 
-   * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+   * The management node ID.
+   * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this value.
    * 
    * This parameter is required.
    * 
@@ -156,7 +152,7 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   controlNodeId?: string;
   /**
    * @remarks
-   * The name of the probe.
+   * The probe name.
    * 
    * This parameter is required.
    * 
@@ -166,15 +162,15 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The configuration of the probe.
+   * The collection of service configurations.
    */
   honeypotBindList?: CreateHoneypotProbeRequestHoneypotBindList[];
   /**
    * @remarks
-   * Specifies whether to enable ping scan. Valid values:
+   * Specifies whether to enable ping scan detection. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -182,10 +178,11 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   ping?: boolean;
   /**
    * @remarks
-   * The type of the probe. Valid values:
+   * The probe type. Valid values:
    * 
-   * *   **host_probe**: host probe
-   * *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
+   * - **host_probe**: host probe
+   * 
+   * - **vpc_black_hole_probe**: VPC blackhole probe
    * 
    * This parameter is required.
    * 
@@ -195,7 +192,7 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   probeType?: string;
   /**
    * @remarks
-   * The version of the probe.
+   * The probe version.
    * 
    * @example
    * 0.0.0
@@ -203,7 +200,7 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   probeVersion?: string;
   /**
    * @remarks
-   * The IP address of the proxy.
+   * The proxy IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -211,9 +208,8 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   proxyIp?: string;
   /**
    * @remarks
-   * The UUID of the instance.
-   * 
-   * > If **ProbeType** is set to **host_probe**, this parameter is required.
+   * The instance UUID.
+   * > This parameter is required when **ProbeType** is set to **host_probe**.
    * 
    * @example
    * e4af3620-6895-4e2f-a641-a9d8fb53****
@@ -221,9 +217,9 @@ export class CreateHoneypotProbeRequest extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the virtual private cloud (VPC).
    * 
-   * > If **ProbeType** is set to **vpc_black_hole_probe**, this parameter is required. You can call the [DescribeVpcHoneyPotList](~~DescribeVpcHoneyPotList~~) operation to query the IDs of VPCs.
+   * > This parameter is required when **ProbeType** is set to **vpc_black_hole_probe**. You can call the [DescribeVpcHoneyPotList](~~DescribeVpcHoneyPotList~~) operation to obtain this value.
    * 
    * @example
    * vpc-zm0asrkpv1q8gnk7mn4dn

@@ -21,7 +21,7 @@ export class ListOperationProcessDetailResponseBodyPageInfo extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -134,7 +134,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   checks?: ListOperationProcessDetailResponseBodyProcessDetailsChecks[];
   /**
    * @remarks
-   * The timestamp when the task was created, in milliseconds.
+   * The timestamp when the task was created. Unit: milliseconds.
    * 
    * @example
    * 1706544199000
@@ -150,7 +150,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   detailTaskId?: string;
   /**
    * @remarks
-   * The timestamp when the operation subtask ended, in milliseconds.
+   * The timestamp when the operation subtask ended. Unit: milliseconds.
    * 
    * @example
    * 1706544199000
@@ -158,7 +158,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   endTime?: number;
   /**
    * @remarks
-   * The timestamp when the operation subtask started, in milliseconds.
+   * The timestamp when the operation subtask started. Unit: milliseconds.
    * 
    * @example
    * 1730335622000
@@ -167,11 +167,11 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   /**
    * @remarks
    * The operation subtask status code. Valid values:
-   * - 0: not started.
-   * - 1: checking.
-   * - 2: succeeded.
-   * - 3: timed out.
-   * - 4: failed.
+   * - 0: Not started.
+   * - 1: Checking.
+   * - 2: Succeeded.
+   * - 3: Timed out.
+   * - 4: Failed.
    * 
    * @example
    * 0
@@ -240,7 +240,7 @@ export class ListOperationProcessDetailResponseBody extends $dara.Model {
   processDetails?: ListOperationProcessDetailResponseBodyProcessDetails[];
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * CE500770-42D3-442E-9DDD-156E0F9F3***

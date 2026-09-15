@@ -7,8 +7,8 @@ export class UpdateClientAlertModeRequest extends $dara.Model {
    * @remarks
    * The protection mode. Valid values:
    * 
-   * *   **strict**: The strict mode. False positives may be generated. We recommend that you enable this mode during major events.
-   * *   **balance**: The balanced mode. More risks can be detected with less false positives in this mode.
+   * - **strict**: Strict mode. Defense mode has a risk of false positives. Use Defense mode during critical event protection periods.
+   * - **balance**: Balanced mode. Defense mode detects more suspicious risks while reducing false positives.
    * 
    * @example
    * balance
@@ -16,7 +16,7 @@ export class UpdateClientAlertModeRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The UUIDs of servers.
+   * The list of server UUIDs.
    */
   uuids?: string[];
   static names(): { [key: string]: string } {

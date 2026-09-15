@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeContainerServiceK8sClusterNamespacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster. Note: This parameter is required. If this parameter is not specified, the API returns InvalidParam (400).
    * 
    * @example
    * cf4435fefd45d4b1b8643f3a0bea3****
@@ -14,7 +14,7 @@ export class DescribeContainerServiceK8sClusterNamespacesRequest extends $dara.M
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 140.205.XXX.XXX

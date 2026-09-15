@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateClientAlertModeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The returned data. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Succeeded.
+   * - **false**: Failed.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class UpdateClientAlertModeResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 259E3E77-CA6D-5407-84A5-3A1C98D12F14

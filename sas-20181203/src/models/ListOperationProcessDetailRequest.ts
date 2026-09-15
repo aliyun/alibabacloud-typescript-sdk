@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationProcessDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number in a paged query. Default value: 1.
+   * The page number of the current page in a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListOperationProcessDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The query end time based on the task completion time, in milliseconds.
+   * The end time of the query based on the task completion time. Unit: milliseconds.
    * 
    * @example
    * 1731555850000
@@ -21,9 +21,9 @@ export class ListOperationProcessDetailRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -39,7 +39,7 @@ export class ListOperationProcessDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query start time based on the task creation time, in milliseconds.
+   * The start time of the query based on the task creation time. Unit: milliseconds.
    * 
    * @example
    * 1731469330000
@@ -52,7 +52,7 @@ export class ListOperationProcessDetailRequest extends $dara.Model {
   statusCodes?: number[];
   /**
    * @remarks
-   * The list of operation task IDs.
+   * The list of operation task IDs. You can call the ListOperationProcess operation to obtain valid values. This parameter is required. If this parameter is not specified, the API returns 400 CspmParamIllegal.
    */
   taskIds?: string[];
   static names(): { [key: string]: string } {

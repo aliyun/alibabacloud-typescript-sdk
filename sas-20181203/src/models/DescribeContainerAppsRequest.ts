@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeContainerAppsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the container cluster.
+   * The ID of the container cluster. Note: This parameter is required. If this parameter is not specified, the service returns a 400 error.
    * 
    * @example
    * ca0a686115432429ca26cf780f5e9fff5
@@ -13,7 +13,7 @@ export class DescribeContainerAppsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number for a paged query.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeContainerAppsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The application value that you want to query. Fuzzy match is supported.
+   * The application value to query. Fuzzy match is supported.
    * 
    * @example
    * cas-adad-qeqwe
@@ -31,9 +31,8 @@ export class DescribeContainerAppsRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page for a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned.
+   * > Do not leave PageSize empty.
    * 
    * This parameter is required.
    * 

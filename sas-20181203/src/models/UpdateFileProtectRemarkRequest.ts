@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileProtectRemarkRequest extends $dara.Model {
   /**
    * @remarks
-   * Alert notification level list.
+   * The list of alert notification levels.
    */
   alertLevels?: number[];
   /**
    * @remarks
-   * End time timestamp.
+   * The timestamp of the end time.
    * 
    * @example
    * 1649040221
@@ -18,7 +18,7 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the event.
+   * The event ID.
    * 
    * @example
    * 1764
@@ -26,12 +26,12 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Event ID list.
+   * The list of event IDs.
    */
   idList?: number[];
   /**
    * @remarks
-   * Asset instance ID.
+   * The ID of the asset instance.
    * 
    * @example
    * i-bp1g6wxdwps7s9dz****
@@ -39,7 +39,7 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Asset instance name.
+   * The name of the asset instance.
    * 
    * @example
    * test
@@ -47,7 +47,7 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Public IP.
+   * The public IP address.
    * 
    * @example
    * 101.132.XX.XX
@@ -55,7 +55,7 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * Private IP.
+   * The internal IP address.
    * 
    * @example
    * 172.26.XX.XX
@@ -63,13 +63,13 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * File operation type. Values:
+   * The type of operation performed on the file. Valid values:
    * 
-   * - **DELETE**: File deletion operation.
-   * - **WRITE**: File write operation.
-   * - **READ**: File read operation.
-   * - **RENAME**: File rename operation.
-   * - **CHOWN**: Set file owner and associated group operation.
+   * - **DELETE**: Delete the file.
+   * - **WRITE**: Write to the file.
+   * - **READ**: Read the file.
+   * - **RENAME**: Rename the file.
+   * - **CHOWN**: Change the file owner and file group.
    * 
    * @example
    * READ
@@ -82,7 +82,7 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   remark?: string[];
   /**
    * @remarks
-   * Rule name.
+   * The rule name.
    * 
    * @example
    * test-rule-1
@@ -90,9 +90,9 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Cross-page select all indicator. Values:
-   * - **true**: Yes
-   * - **false**: No
+   * Specifies whether to select all items across pages. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -100,7 +100,7 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   selectAllAcrossPages?: boolean;
   /**
    * @remarks
-   * Start time timestamp.
+   * The timestamp of the start time.
    * 
    * @example
    * 1651290987000
@@ -108,7 +108,7 @@ export class UpdateFileProtectRemarkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Server UUID.
+   * The UUID of the server.
    * 
    * @example
    * 5d55af3c-35f3-4d4d-8ccc-8c5443b0****

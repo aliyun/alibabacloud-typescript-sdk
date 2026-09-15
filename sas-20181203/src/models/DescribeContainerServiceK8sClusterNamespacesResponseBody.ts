@@ -35,12 +35,12 @@ export class DescribeContainerServiceK8sClusterNamespacesResponseBodyK8sClusterN
 export class DescribeContainerServiceK8sClusterNamespacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The namespaces.
+   * The list of namespaces.
    */
   k8sClusterNamespaces?: DescribeContainerServiceK8sClusterNamespacesResponseBodyK8sClusterNamespaces[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0C8487EF-50C2-54BB-8634-10F8C35D****

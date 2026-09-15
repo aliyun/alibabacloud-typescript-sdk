@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClientAlertModeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 5
@@ -50,7 +50,7 @@ export class ListClientAlertModeResponseBody extends $dara.Model {
   data?: ListClientAlertModeResponseBodyData;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7

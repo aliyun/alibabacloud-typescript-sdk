@@ -37,7 +37,7 @@ export class CreateAgentlessScanTaskRequestTargets extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of vulnerability identifiers to be fixed. At least one vulnerability identifier must be specified. Each identifier must be unique and non-empty.
+   * The list of vulnerability identifiers to be fixed. At least one vulnerability identifier must be specified, and each identifier must be unique and non-empty.
    */
   vulnerabilityIds?: string[];
   static names(): { [key: string]: string } {
@@ -99,13 +99,18 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The region ID of the instance to query. Valid values:
-   * 
-   * - **cn-hangzhou** (default): China.
-   * - **ap-southeast-1**: outside China.
+   * The source of the API call, which is used to collect statistics on scan task volume and scan data volume by source. If this parameter is not specified, the value is empty.
    * 
    * @example
-   * cn-hangzhou
+   * image-console
+   */
+  from?: string;
+  /**
+   * @remarks
+   * The region ID, which is usually automatically populated by the gateway.
+   * 
+   * @example
+   * cn-shanghai
    */
   regionId?: string;
   /**
@@ -119,6 +124,14 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
    * true
    */
   releaseAfterScan?: boolean;
+  /**
+   * @remarks
+   * The region ID of the resource to be detected, such as cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  resourceRegionId?: string;
   /**
    * @remarks
    * Specifies whether to detect data cloud disks. Valid values:
@@ -162,8 +175,10 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
       assetSelectionType: 'AssetSelectionType',
       autoDeleteDays: 'AutoDeleteDays',
       clientToken: 'ClientToken',
+      from: 'From',
       regionId: 'RegionId',
       releaseAfterScan: 'ReleaseAfterScan',
+      resourceRegionId: 'ResourceRegionId',
       scanDataDisk: 'ScanDataDisk',
       targetType: 'TargetType',
       targets: 'Targets',
@@ -176,8 +191,10 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
       assetSelectionType: 'string',
       autoDeleteDays: 'number',
       clientToken: 'string',
+      from: 'string',
       regionId: 'string',
       releaseAfterScan: 'boolean',
+      resourceRegionId: 'string',
       scanDataDisk: 'boolean',
       targetType: 'number',
       targets: { 'type': 'array', 'itemType': CreateAgentlessScanTaskRequestTargets },

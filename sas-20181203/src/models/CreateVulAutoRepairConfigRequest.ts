@@ -49,7 +49,7 @@ export class CreateVulAutoRepairConfigRequestVulAutoRepairConfigList extends $da
 export class CreateVulAutoRepairConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The reason why the vulnerability can be automatically fixed.
+   * The reason for adding the vulnerabilities that can be automatically fixed.
    * 
    * @example
    * TestAutoRepair
@@ -57,7 +57,9 @@ export class CreateVulAutoRepairConfigRequest extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values: -**cve**: Linux software vulnerability -**sys**: Windows system vulnerability
+   * The type of the vulnerability. Valid values:
+   * - **cve**: Linux software vulnerability.
+   * - **sys**: Windows system vulnerability.
    * 
    * This parameter is required.
    * 
@@ -67,7 +69,7 @@ export class CreateVulAutoRepairConfigRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The vulnerabilities that can be automatically fixed.
+   * The list of vulnerabilities that can be automatically fixed.
    * 
    * This parameter is required.
    */

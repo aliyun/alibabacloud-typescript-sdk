@@ -16,7 +16,7 @@ export class UpgradeHoneypotNodeRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * - **zh**: Chinese
+   * - **zh**: Chinese.
    * - **en**: English.
    * 
    * @example
@@ -26,7 +26,8 @@ export class UpgradeHoneypotNodeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the management node to upgrade.
-   * >You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this parameter.
+   * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this parameter.
+   * Note: This parameter is actually required. If it is not provided, the API returns InvalidParam (400).
    * 
    * @example
    * a882e590-b87b-45a6-87b9-d0a3e5a0****

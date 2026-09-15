@@ -7,8 +7,9 @@ export class AddContainerDefenseRuleRequestScope extends $dara.Model {
    * @remarks
    * Specifies whether to include all namespaces. Valid values:
    * 
-   * *   **0**: You can use the Namespaces parameter to specify the namespaces to include.
-   * *   **1**: All namespaces are included.
+   * - **0**: Specifies the namespaces to include by using the Namespaces parameter.
+   * 
+   * - **1**: Includes all namespaces.
    * 
    * @example
    * 0
@@ -16,9 +17,8 @@ export class AddContainerDefenseRuleRequestScope extends $dara.Model {
   allNamespace?: number;
   /**
    * @remarks
-   * The ID of the cluster.
-   * 
-   * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
+   * The cluster ID.
+   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
    * 
    * @example
    * 8e2***75b
@@ -26,7 +26,7 @@ export class AddContainerDefenseRuleRequestScope extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The namespaces to include.
+   * The list of included namespaces.
    */
   namespaces?: string[];
   static names(): { [key: string]: string } {
@@ -60,21 +60,19 @@ export class AddContainerDefenseRuleRequestScope extends $dara.Model {
 export class AddContainerDefenseRuleRequestWhitelist extends $dara.Model {
   /**
    * @remarks
-   * The hash values of the files that need to be added to the whitelist.
-   * 
-   * > This parameter is not supported.
+   * The file hash.>Notice: This parameter is not supported.
    * 
    * @deprecated
    */
   hash?: string[];
   /**
    * @remarks
-   * The images that need to be added to the whitelist.
+   * The list of images to whitelist.
    */
   image?: string[];
   /**
    * @remarks
-   * The paths to the files that need to be added to the whitelist.
+   * The list of file paths to whitelist.
    */
   path?: string[];
   static names(): { [key: string]: string } {
@@ -114,7 +112,7 @@ export class AddContainerDefenseRuleRequestWhitelist extends $dara.Model {
 export class AddContainerDefenseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the rule.
+   * The description.
    * 
    * @example
    * test-proc-defense
@@ -122,10 +120,11 @@ export class AddContainerDefenseRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The action that is performed when the rule is hit. Valid values:
+   * The action to take when the rule is matched. Valid values:
    * 
-   * *   **1**: alert
-   * *   **2**: block
+   * - **1**: Alert.
+   * 
+   * - **2**: Block.
    * 
    * @example
    * 1
@@ -133,7 +132,7 @@ export class AddContainerDefenseRuleRequest extends $dara.Model {
   ruleAction?: number;
   /**
    * @remarks
-   * The ID of the rule. You do not need to manually specify the ID.
+   * The rule ID. You do not need to specify this parameter when creating a rule.
    * 
    * @example
    * 500018
@@ -141,7 +140,7 @@ export class AddContainerDefenseRuleRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * auto-test-rule-lt9umq
@@ -149,10 +148,11 @@ export class AddContainerDefenseRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The switch of the rule. Valid values:
+   * The rule switch. Valid values:
    * 
-   * *   **0**: off
-   * *   **1**: on
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled.
    * 
    * @example
    * 1
@@ -161,10 +161,9 @@ export class AddContainerDefenseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The rule type. Valid values:
+   * - 2: user rule
    * 
-   * *   2: user-defined rules
-   * 
-   * > Only the value 2 is supported.
+   * >Notice: Only the value 2 is supported.
    * 
    * @example
    * 2
@@ -172,7 +171,7 @@ export class AddContainerDefenseRuleRequest extends $dara.Model {
   ruleType?: number;
   /**
    * @remarks
-   * The scope.
+   * The scope. This parameter is required. Specify at least one Scope entry, such as Scope.1.AllNamespace=1, which indicates that the rule applies to all namespaces. If this parameter is not specified, the API returns a 400 error.
    */
   scope?: AddContainerDefenseRuleRequestScope[];
   /**

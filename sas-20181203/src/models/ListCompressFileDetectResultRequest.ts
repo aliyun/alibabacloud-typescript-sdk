@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCompressFileDetectResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the current page in a paging query. Default value: 1.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListCompressFileDetectResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The unique identifier for the file.
+   * The unique identifier of the file. This parameter is required in practice. If this parameter is not specified, the API returns ServerError(400). The value must be the MD5 or SHA-256 hash of the file.
    * 
    * @example
    * 0a212417e65c26ff133cfff28f6c****
@@ -23,7 +23,7 @@ export class ListCompressFileDetectResultRequest extends $dara.Model {
   hashKey?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The maximum number of entries per page in a paging query. Default value: 20.
    * 
    * This parameter is required.
    * 

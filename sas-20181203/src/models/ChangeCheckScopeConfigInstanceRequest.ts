@@ -24,11 +24,20 @@ export class ChangeCheckScopeConfigInstanceRequest extends $dara.Model {
    * The list of unique IDs of cloud assets to delete.
    */
   deleteAssetUuids?: string[];
+  /**
+   * @remarks
+   * The key for cross-page select-all.
+   * 
+   * @example
+   * b6d1a39a-f020-4782-af2c-c4b6522*****
+   */
+  selectionKey?: string;
   static names(): { [key: string]: string } {
     return {
       addAssetUuids: 'AddAssetUuids',
       configId: 'ConfigId',
       deleteAssetUuids: 'DeleteAssetUuids',
+      selectionKey: 'SelectionKey',
     };
   }
 
@@ -37,6 +46,7 @@ export class ChangeCheckScopeConfigInstanceRequest extends $dara.Model {
       addAssetUuids: { 'type': 'array', 'itemType': 'string' },
       configId: 'string',
       deleteAssetUuids: { 'type': 'array', 'itemType': 'string' },
+      selectionKey: 'string',
     };
   }
 

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileProtectEventCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the event. Valid values:
+   * The event filter status. Valid values:
    * 
-   * *   0: unhandled
-   * *   1: handled
+   * - 0: Unhandled.
+   * 
+   * - 1: Handled.
    * 
    * @example
    * 1

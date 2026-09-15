@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileProtectEventStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * C286491D-4A2F-589A-B63B-D2AD3DA9BD71

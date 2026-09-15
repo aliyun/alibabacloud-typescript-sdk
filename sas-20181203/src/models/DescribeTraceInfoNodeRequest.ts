@@ -25,7 +25,7 @@ export class DescribeTraceInfoNodeRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The time when the event was first detected.
+   * The time when the event was first detected. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1635978934000
@@ -35,7 +35,7 @@ export class DescribeTraceInfoNodeRequest extends $dara.Model {
    * @remarks
    * The language type of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -43,7 +43,7 @@ export class DescribeTraceInfoNodeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
+   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains this value.
    * 
    * @example
    * 127.0.XX.XX
@@ -51,7 +51,7 @@ export class DescribeTraceInfoNodeRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The vertex type. You can call the [DescribeTraceInfoDetail](~~DescribeTraceInfoDetail~~) operation to obtain this parameter.
+   * The vertex type. You can obtain this value by calling the [DescribeTraceInfoDetail](~~DescribeTraceInfoDetail~~) operation. Valid values: **SAS_ASSET**: indicates a server asset. In this case, VertexId is the UUID of the server, which can be obtained by calling the DescribeCloudCenterInstances operation. If no security events exist for the account, you can obtain the VertexId by calling the DescribeCloudCenterInstances operation.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class DescribeTraceInfoNodeRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUID of the server to query. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this parameter.
+   * The UUID of the server to query. You can obtain this parameter by calling the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation.
    * 
    * This parameter is required.
    * 

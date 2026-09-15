@@ -30,7 +30,7 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
    * - **1**: Yes.
    * 
    * @example
-   * 0
+   * false
    */
   fixed?: boolean;
   /**
@@ -46,7 +46,7 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
    * The protocol type. Valid values:
    * 
    * - **tcp**
-   * - **udp**.
+   * - **udp**
    * 
    * @example
    * tcp
@@ -119,8 +119,8 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
    * @remarks
    * The service binding type. Valid values:
    * 
-   * - **forward_honey**: forward to honeypot
-   * - **scan_port**: listen for scans.
+   * - **forward_honey**: forwards traffic to the honeypot.
+   * - **scan_port**: listens for scans.
    * 
    * @example
    * forward_honey
@@ -128,7 +128,7 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   bindType?: string;
   /**
    * @remarks
-   * The page number of the page to return. Minimum value: **1**. Default value: **1**.
+   * The page number of the page to return. The value starts from **1**. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * - **zh**: Chinese
+   * - **zh**: Chinese.
    * - **en**: English.
    * 
    * @example
@@ -163,7 +163,7 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page when using paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by paging.
+   * The maximum number of entries to return on each page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by default.
    * > Do not leave PageSize empty.
    * 
    * @example

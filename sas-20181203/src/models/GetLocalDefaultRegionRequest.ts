@@ -7,10 +7,12 @@ export class GetLocalDefaultRegionRequest extends $dara.Model {
    * @remarks
    * The cloud asset vendor. Valid values:
    * 
-   * - **Tencent**: Tencent Cloud
-   * - **HUAWEICLOUD**: Huawei Cloud
-   * - **Azure**: Azure
+   * - **Tencent**: Tencent Cloud.
+   * - **HUAWEICLOUD**: Huawei Cloud.
+   * - **Azure**: Azure.
    * - **AWS**: AWS.
+   * 
+   * This parameter is required in practice. If this parameter is not specified, the API returns an HTTP 400 error (code: -101).
    * 
    * @example
    * Tencent

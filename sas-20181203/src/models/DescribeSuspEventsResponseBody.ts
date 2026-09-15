@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSuspEventsResponseBodySuspEventsDetails extends $dara.Model {
   /**
    * @remarks
-   * The display name of the security alert.
+   * The display name of the alert event.
    * 
    * @example
    * Login with unusual location
@@ -21,7 +21,7 @@ export class DescribeSuspEventsResponseBodySuspEventsDetails extends $dara.Model
   type?: string;
   /**
    * @remarks
-   * The path where the security alert occurred.
+   * The path where the alert event occurred.
    * 
    * @example
    * /etc/crontab
@@ -29,7 +29,7 @@ export class DescribeSuspEventsResponseBodySuspEventsDetails extends $dara.Model
   value?: string;
   /**
    * @remarks
-   * The path where the security alert occurred.
+   * The path where the alert event occurred.
    * 
    * @example
    * /etc/crontab
@@ -65,7 +65,7 @@ export class DescribeSuspEventsResponseBodySuspEventsDetails extends $dara.Model
 export class DescribeSuspEventsResponseBodySuspEventsEventNotes extends $dara.Model {
   /**
    * @remarks
-   * The remark information.
+   * The note information.
    * 
    * @example
    * Test
@@ -81,7 +81,7 @@ export class DescribeSuspEventsResponseBodySuspEventsEventNotes extends $dara.Mo
   noteId?: number;
   /**
    * @remarks
-   * The event record time.
+   * The event record time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2018-09-26 01:51:01
@@ -155,7 +155,7 @@ export class DescribeSuspEventsResponseBodySuspEventsTacticItems extends $dara.M
 export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether this is an offline analysis alert.
+   * Indicates whether the alert is from offline analysis.
    * 
    * @example
    * true
@@ -163,7 +163,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   advanced?: boolean;
   /**
    * @remarks
-   * The name of the security alert.
+   * The name of the alert event.
    * 
    * @example
    * login_common_location
@@ -171,7 +171,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   alarmEventName?: string;
   /**
    * @remarks
-   * The alert name.
+   * The display name of the alert.
    * 
    * @example
    * Login with unusual location
@@ -203,7 +203,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   alarmUniqueInfo?: string;
   /**
    * @remarks
-   * The name of the application to which the security alert belongs.
+   * The name of the application to which the alert event belongs.
    * 
    * @example
    * pro-deploy-tibasic
@@ -230,7 +230,9 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   canBeDealOnLine?: boolean;
   /**
    * @remarks
-   * Indicates whether the false positive mark can be unmarked. Valid values:
+   * Indicates whether the false positive marking can be unmarked. Valid values:
+   * - **true**: Can be unmarked.
+   * - **false**: Cannot be unmarked.
    * 
    * @example
    * false
@@ -280,12 +282,14 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   dataSource?: string;
   /**
    * @remarks
-   * The download URL of the file deep analysis report.
+   * The download URL of the deep file analysis report.
+   * 
+   * > Deep file analysis is triggered only for machines that have the AgenticEDR feature enabled.
    */
   deepAnalyzeReportUrl?: string;
   /**
    * @remarks
-   * The description of the impact of the security alert.
+   * The description of the impact of the alert event.
    * 
    * @example
    * webshell
@@ -293,12 +297,12 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The details of the security alert.
+   * The details of the alert event.
    */
   details?: DescribeSuspEventsResponseBodySuspEventsDetails[];
   /**
    * @remarks
-   * The discovery source. This parameter is invalid.
+   * The discovery source. This is an invalid field.
    * 
    * @example
    * linux
@@ -308,18 +312,29 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
    * @remarks
    * Indicates whether cloud sandbox detection is supported. Valid values:
    * 
+   * - **true**: Supported.
+   * - **false**: Not supported.
+   * 
    * @example
    * true
    */
   displaySandboxResult?: boolean;
   /**
    * @remarks
-   * The remarks of the security alert.
+   * The notes of the alert event.
    */
   eventNotes?: DescribeSuspEventsResponseBodySuspEventsEventNotes[];
   /**
    * @remarks
-   * The status of the security alert. Valid values:
+   * The status of the alert event. Valid values:
+   * - **1**: PENDING.
+   * - **2**: IGNORE (ignored).
+   * - **4**: HANDLED (confirmed).
+   * - **8**: FAULT (marked as false positive).
+   * - **16**: DEALING (being handled).
+   * - **32**: DONE (handling completed).
+   * - **64**: EXPIRE (expired).
+   * - **604**: SYSTEM_FAULT (marked as false positive by the system).
    * 
    * @example
    * 8
@@ -327,7 +342,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   eventStatus?: number;
   /**
    * @remarks
-   * The subtype of the security alert.
+   * The subtype of the alert event.
    * 
    * @example
    * login_common_location
@@ -335,7 +350,10 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   eventSubType?: string;
   /**
    * @remarks
-   * Indicates whether the security alert has tracing information. Valid values:
+   * Indicates whether the alert event has tracing information. Valid values:
+   * 
+   * - **true**: Has tracing information.
+   * - **false**: Does not have tracing information.
    * 
    * @example
    * true
@@ -351,7 +369,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The image UUID.
+   * The UUID of the image.
    * 
    * @example
    * 70489fb520cea585ad9761d5a842****
@@ -359,7 +377,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   imageUuid?: string;
   /**
    * @remarks
-   * The ID of the asset instance affected by the security alert.
+   * The ID of the asset instance affected by the alert event.
    * 
    * @example
    * i-9dp6dwsxdl9z5u1e2f****
@@ -391,7 +409,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The Kubernetes cluster ID.
+   * The ID of the Kubernetes cluster.
    * 
    * @example
    * c517b37e1401e4961b3951863a49a****
@@ -415,7 +433,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   k8sNamespace?: string;
   /**
    * @remarks
-   * The Kubernetes node ID.
+   * The ID of the Kubernetes node.
    * 
    * @example
    * i-bp14a1ay8e0aa9t0****
@@ -423,7 +441,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   k8sNodeId?: string;
   /**
    * @remarks
-   * The Kubernetes node name.
+   * The name of the Kubernetes node.
    * 
    * @example
    * N/A
@@ -431,7 +449,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   k8sNodeName?: string;
   /**
    * @remarks
-   * The Kubernetes pod name.
+   * The name of the Kubernetes pod.
    * 
    * @example
    * myapp-pod
@@ -439,7 +457,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   k8sPodName?: string;
   /**
    * @remarks
-   * Indicates whether large model analysis tags are supported. Valid values:
+   * Indicates whether large model analysis tagging is supported. Valid values:
    * 
    * - **true**: Supported.
    * - **false**: Not supported.
@@ -450,7 +468,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   largeModel?: boolean;
   /**
    * @remarks
-   * The most recent time when the security alert occurred.
+   * The most recent time when the alert event occurred. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2018-09-26 01:51:01
@@ -466,11 +484,10 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   lastTimeStamp?: number;
   /**
    * @remarks
-   * The risk level of the alert event. Valid values:
-   * 
-   * - **serious**: critical
-   * - **suspicious**: suspicious
-   * - **remind**: reminder
+   * The severity level of the alert event. Valid values:
+   * - **serious**: Critical.
+   * - **suspicious**: Suspicious.
+   * - **remind**: Reminder.
    * 
    * @example
    * serious
@@ -479,6 +496,8 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   /**
    * @remarks
    * The status of the malicious behavior defense rule. Valid values:
+   * - **open**: Enabled.
+   * - **close**: Disabled.
    * 
    * @example
    * open
@@ -486,7 +505,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   maliciousRuleStatus?: string;
   /**
    * @remarks
-   * The collection of security alert tags.
+   * The collection of alert event tags.
    */
   markList?: string[];
   /**
@@ -499,7 +518,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   markMisRules?: string;
   /**
    * @remarks
-   * The full name of the security alert.
+   * The full name of the alert event.
    * 
    * @example
    * Unusual Logon-Login with unusual location
@@ -507,7 +526,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the security alert first occurred.
+   * The time when the alert event first occurred. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2018-09-26 01:51:01
@@ -523,7 +542,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   occurrenceTimeStamp?: number;
   /**
    * @remarks
-   * The error code of the security alert operation.
+   * The error code of the alert event operation.
    * 
    * @example
    * kill_and_quara.Success
@@ -531,7 +550,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   operateErrorCode?: string;
   /**
    * @remarks
-   * The remarks of the security alert operation.
+   * The remarks of the alert event operation.
    * 
    * @example
    * success
@@ -539,7 +558,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   operateMsg?: string;
   /**
    * @remarks
-   * The timestamp of the security alert operation, in milliseconds.
+   * The timestamp of the alert event operation, in milliseconds.
    * 
    * @example
    * 1631699497000
@@ -547,7 +566,9 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   operateTime?: number;
   /**
    * @remarks
-   * The product edition that supports the detection of this security alert. Valid values:
+   * The product edition that supports the alert event detection. Valid values:
+   * - **0**: Basic edition.
+   * - **1**: Enterprise edition.
    * 
    * @example
    * 1
@@ -555,7 +576,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   saleVersion?: string;
   /**
    * @remarks
-   * The IDs of the security alerts associated with this security alert.
+   * The IDs of the alert events associated with this alert event.
    * 
    * @example
    * 270789
@@ -571,7 +592,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   sourceAliUid?: number;
   /**
    * @remarks
-   * The attack stage.
+   * The attack stages.
    * 
    * @example
    * "["authority_maintenance"]"
@@ -579,10 +600,10 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   stages?: string;
   /**
    * @remarks
-   * The operation types supported by the alert. Valid values:
-   * - **AI.false_positive**: suspected false positive.
-   * - **AI.real_attack**: real attack.
-   * - **AI.Insufficient_information_to_evaluate**: unable to determine.
+   * The operation type supported by the alert. Valid values:
+   * - **AI.false_positive**: Suspected false positive.
+   * - **AI.real_attack**: Real attack.
+   * - **AI.Insufficient_information_to_evaluate**: Unable to determine.
    * 
    * @example
    * AI.real_attack
@@ -590,7 +611,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
   supportOperateCode?: string;
   /**
    * @remarks
-   * The display name of the attack stage.
+   * The display names of the attack stages.
    */
   tacticItems?: DescribeSuspEventsResponseBodySuspEventsTacticItems[];
   /**
@@ -767,7 +788,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
 export class DescribeSuspEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page in a paging query.
+   * The number of entries returned on the current page in a paged query.
    * 
    * @example
    * 20
@@ -775,7 +796,7 @@ export class DescribeSuspEventsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -783,7 +804,7 @@ export class DescribeSuspEventsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -791,7 +812,7 @@ export class DescribeSuspEventsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 0D6E20E4-8326-1D03-A553-2182BE9E82F9
@@ -804,7 +825,7 @@ export class DescribeSuspEventsResponseBody extends $dara.Model {
   suspEvents?: DescribeSuspEventsResponseBodySuspEvents[];
   /**
    * @remarks
-   * The total number of security alerts.
+   * The total number of alert events.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationCheckRequestOperationTaskInstances extends $dara.Model {
   /**
    * @remarks
-   * Cloud asset instance ID.
+   * The cloud asset instance ID.
    * 
    * @example
    * r-bp1642ib4bg2bm****
@@ -13,7 +13,7 @@ export class ListOperationCheckRequestOperationTaskInstances extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class ListOperationCheckRequestOperationTaskInstances extends $dara.Model
   regionId?: string;
   /**
    * @remarks
-   * Asset vendor. Values:
+   * The asset vendor. Valid values:
    * 
    * - **ALIYUN**: Alibaba Cloud
    * 
@@ -57,8 +57,9 @@ export class ListOperationCheckRequestOperationTaskInstances extends $dara.Model
 export class ListOperationCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * Check item ID.
-   * > Obtain this parameter by calling the [ListCheckResult](~~ListCheckResult~~) interface.
+   * The check item ID.
+   * > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain this parameter.
+   * This parameter is required. If you do not specify this parameter, the API returns a 400 error.
    * 
    * @example
    * 23
@@ -66,7 +67,7 @@ export class ListOperationCheckRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * Timestamp (in milliseconds) of the end time of the queried task.
+   * The timestamp of the task end time to query. Unit: milliseconds.
    * 
    * @example
    * 1719923175001
@@ -74,7 +75,7 @@ export class ListOperationCheckRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Language type for request and response messages, default value is zh. Values:
+   * The language of the request and response. Default value: zh. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -84,14 +85,14 @@ export class ListOperationCheckRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Information about the operated instances.
+   * The information about the instances on which the operation is performed.
    * 
    * This parameter is required.
    */
   operationTaskInstances?: ListOperationCheckRequestOperationTaskInstances[];
   /**
    * @remarks
-   * Timestamp (in milliseconds) of the start time of the queried task.
+   * The timestamp of the task start time to query. Unit: milliseconds.
    * 
    * @example
    * 1719923175000
@@ -99,9 +100,9 @@ export class ListOperationCheckRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Task type corresponding to the task:
-   * - **REPAIR**: Repair task
-   * - **ROLLBACK**: Rollback task
+   * The task type. Valid values:
+   * - **REPAIR**: fix task
+   * - **ROLLBACK**: rollback task
    * 
    * This parameter is required.
    * 

@@ -18,7 +18,7 @@ export class ProcessSoarStrategyTaskRequest extends $dara.Model {
    * @remarks
    * The action status of the task. Valid values:
    * - SCHEDULE: scheduling
-   * - PAUSE: pause.
+   * - PAUSE: pause
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The severities of alerts.
+   * The list of alert notification levels.
    */
   alertLevels?: number[];
   /**
    * @remarks
-   * The end of the time range to query. Unit: milliseconds.
+   * The end timestamp of the query.
    * 
    * @example
    * 1649040221
@@ -18,12 +18,12 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The IDs of the events.
+   * The list of event IDs.
    */
   id?: number[];
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The ID of the asset instance.
    * 
    * @example
    * i-bp1g6wxdwps7s9dz****
@@ -31,7 +31,7 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The name of the asset instance.
    * 
    * @example
    * test
@@ -39,7 +39,7 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the server.
+   * The public IP address.
    * 
    * @example
    * 120.27.XX.XX
@@ -47,7 +47,7 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the server.
+   * The internal IP address.
    * 
    * @example
    * 172.26.XX.XX
@@ -55,13 +55,13 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * Type of operation on a file. eg:
+   * The type of operation performed on the file. Valid values:
    * 
-   * - **DELETE**: delete the file.
-   * - **WRITE**: write the file.
-   * - **READ**: read the file.
-   * - **RENAME**: rename the file.
-   * - **CHOWN**: set the file owner and file association group operations.
+   * - **DELETE**: Deletes a file.
+   * - **WRITE**: Writes to a file.
+   * - **READ**: Reads a file.
+   * - **RENAME**: Renames a file.
+   * - **CHOWN**: Changes the file owner and associated file group.
    * 
    * @example
    * READ
@@ -69,7 +69,7 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The name of the defense rule.
+   * The rule name.
    * 
    * @example
    * tetsRule
@@ -77,18 +77,14 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Whether to choose all fields across industries.
-   * 
-   * - **true**: yes
-   * - **false**: no
-   * 
-   * @example
-   * true
+   * Specifies whether to select all items across pages. Valid values:
+   * - **true**: Selected.
+   * - **false**: Not selected.
    */
   selectAllAcrossPages?: boolean;
   /**
    * @remarks
-   * The beginning of the time range to query. Unit: milliseconds.
+   * The start timestamp of the query.
    * 
    * @example
    * 1680919232000
@@ -96,11 +92,11 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The handling status of the event. Valid values:
-   * 
-   * *   **0**: unhandled
-   * *   **1**: handled
-   * *   **2**: added to the whitelist
+   * The event handling status.
+   * - **0**: Unhandled
+   * - **1**: Manually handled
+   * - **2**: Added to whitelist
+   * - **3**: Ignored
    * 
    * @example
    * 0
@@ -109,8 +105,6 @@ export class UpdateFileProtectEventStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The UUID of the server.
-   * 
-   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
    * 
    * @example
    * eb2c782e-64f2-4590-a86c-d90164df****

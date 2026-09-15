@@ -7,7 +7,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
    * @remarks
    * The unique ID of the alert event.
    * 
-   * > To query the exception information of a single alert event, provide the unique ID of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the ID.
+   * > To query the exception information of a single alert event, provide the unique ID of the alert event. You can obtain this ID by calling the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation.
    * 
    * @example
    * 8df914418f4211fb****
@@ -20,7 +20,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   assetsTypeList?: string[];
   /**
    * @remarks
-   * The ID of the cluster for which you want to query alert events.
+   * The cluster ID for which you want to query alert events.
    * 
    * @example
    * c4af4fdf38a98496a9b63c2be5dae****
@@ -57,7 +57,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The page number of the results to return. Default value: **1**.
+   * The page number of the page to return in a paged query. Default value: **1**, which indicates that the results start from page 1.
    * 
    * @example
    * 1
@@ -66,6 +66,8 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the alert events to query have been handled. Valid values:
+   * - **N**: Unhandled.
+   * - **Y**: Handled.
    * 
    * @example
    * N
@@ -73,7 +75,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The discovery source. This parameter is invalid.
+   * The discovery source. This is an invalid field.
    * 
    * @example
    * linux
@@ -114,8 +116,8 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Default value: **zh**. Valid values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -123,11 +125,10 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The severity levels of the security alerts that you want to query. Separate multiple severity levels with commas (,). The severity levels are listed in descending order. Valid values:
-   * 
-   * - **serious**: Critical.
+   * The severity levels of the alert events to query. Separate multiple severity levels with commas (,). The severity levels are listed in descending order. Valid values:
+   * - **serious**: Urgent.
    * - **suspicious**: Suspicious.
-   * - **remind**: Informational.
+   * - **remind**: Reminder.
    * 
    * @example
    * serious
@@ -136,8 +137,8 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The multi-account query type. Default value: **0**. Valid values:
-   * - **0**: Queries data of the current account.
-   * - **1**: Queries data of all accounts.
+   * - **0**: Query data of the current account.
+   * - **1**: Query data of all accounts.
    * 
    * @example
    * 0
@@ -174,7 +175,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   operateTimeStart?: string;
   /**
    * @remarks
-   * The number of alert events to display on each page in a paged query. Default value: **20**. Maximum value: 100.
+   * The number of alert events to display on each page in a paged query. Default value: **20**, which indicates that 20 alert events are displayed on each page. Maximum value: 100.
    * 
    * @example
    * 20
@@ -182,7 +183,31 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The Alarm Metric of the alerting events to query. Valid values:
+   * The alerting type of the alert events to query. Valid values:
+   * 
+   * - **Abnormal process behavior**
+   * - **Web shell**
+   * - **Unusual logon**
+   * - **Abnormal event**
+   * - **Sensitive file tampering**
+   * - **Malicious process (cloud scan)**
+   * - **Suspicious network connectivity**
+   * - **Abnormal account**
+   * - **Application intrusion event**
+   * - **Cloud service threat detection**
+   * - **Precise defense**
+   * - **Application whitelist**
+   * - **Persistent backdoor**
+   * - **Web application threat detection**
+   * - **Malicious script**
+   * - **Threat intelligence**
+   * - **Malicious network behavior**
+   * - **Container cluster exception**
+   * - **Web shell (local scan)**
+   * - **Vulnerability exploits**
+   * - **Malicious process (local scan)**
+   * - **Trusted exception**
+   * - **Other**
    * 
    * @example
    * other
@@ -192,13 +217,15 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
    * @remarks
    * The alert name or asset information to query.
    * 
+   * > Fuzzy match is supported. Asset information includes the asset name, public IP address, and private IP address.
+   * 
    * @example
    * 192.168.XX.XX
    */
   remark?: string;
   /**
    * @remarks
-   * The China site (Chinese mainland) account ID of the member account in the resource directory.
+   * The Alibaba Cloud account ID of the member accounts in the resource directory.
    * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
@@ -209,8 +236,8 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
    * @remarks
    * The custom sort field. Default value: **operateTime**. Valid values:
    * 
-   * - **lastTime**: the most recent occurrence time.
-   * - **operateTime**: the processing time.
+   * - **lastTime**: Latest occurrence time.
+   * - **operateTime**: Handling time.
    * 
    * > This field takes effect only when **Dealed** is set to Y.
    * 
@@ -220,12 +247,12 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   sortColumn?: string;
   /**
    * @remarks
-   * The custom sort type. Default value: **desc**. Valid values:
+   * The custom sort order. Default value: **desc**. Valid values:
    * 
-   * - **asc**: ascending order.
-   * - **desc**: descending order.
+   * - **asc**: Ascending order.
+   * - **desc**: Descending order.
    * 
-   * > This parameter takes effect only when **Dealed** is set to Y.
+   * > This field takes effect only when **Dealed** is set to Y.
    * 
    * @example
    * desc
@@ -255,6 +282,17 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the alert events to query. Valid values:
+   * - **0**: All.
+   * - **1**: Unhandled.
+   * - **2**: Ignored.
+   * - **4**: Confirmed.
+   * - **8**: Marked as false positive.
+   * - **16**: Handling.
+   * - **32**: Handled.
+   * - **64**: Expired.
+   * - **128**: Deleted.
+   * - **512**: Automatic blocking in progress.
+   * - **513**: Automatic blocking completed.
    * 
    * @example
    * 1
@@ -262,7 +300,9 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Specifies whether the alert is identified in strict mode.
+   * Specifies whether the alert is in strict mode. Valid values:
+   * - N: No.
+   * - Y: Yes.
    * 
    * @example
    * Y
@@ -275,7 +315,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   supportOperateCodeList?: string[];
   /**
    * @remarks
-   * The tactic ID in ATT&CK.
+   * The ATT&CK tactic ID.
    * 
    * @example
    * TA0001
@@ -283,11 +323,10 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   tacticId?: string;
   /**
    * @remarks
-   * The type of the container search target. Valid values:
-   * 
-   * - **containerId**: container ID.
-   * - **uuid**: server UUID.
-   * - **imageUuid**: image UUID.
+   * The target type for container search. Valid values:
+   * - **containerId**: container ID
+   * - **uuid**: server UUID
+   * - **imageUuid**: image UUID
    * 
    * @example
    * containerId
@@ -295,7 +334,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The end time of the latest occurrence time range.
+   * The end time of the latest occurrence. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-07-06 13:50:38
@@ -303,7 +342,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   timeEnd?: string;
   /**
    * @remarks
-   * The start time of the latest occurrence time range.
+   * The start time of the latest occurrence. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-07-05 13:50:38
