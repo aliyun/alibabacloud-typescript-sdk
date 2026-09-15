@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDataAgentThemeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the request is abnormal.
+   * The error code returned if the request failed.
    * 
    * @example
    * UnknownError
@@ -13,7 +13,7 @@ export class ModifyDataAgentThemeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned if the request failed.
    * 
    * @example
    * UnknownError

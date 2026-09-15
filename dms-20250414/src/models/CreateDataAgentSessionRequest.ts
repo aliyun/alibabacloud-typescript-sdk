@@ -2,6 +2,86 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateDataAgentSessionRequestSessionConfigMcpHeadersMcpHeader extends $dara.Model {
+  /**
+   * @remarks
+   * The key to add to the header.
+   * 
+   * @example
+   * UserId
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value to add to the header.
+   * 
+   * @example
+   * 421****571
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataAgentSessionRequestSessionConfigMcpHeaders extends $dara.Model {
+  /**
+   * @remarks
+   * The MCP header configuration.
+   */
+  mcpHeader?: CreateDataAgentSessionRequestSessionConfigMcpHeadersMcpHeader[];
+  /**
+   * @remarks
+   * The ID of the MCP server.
+   * 
+   * @example
+   * 1fl4r*****1qi
+   */
+  mcpServerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mcpHeader: 'McpHeader',
+      mcpServerId: 'McpServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mcpHeader: { 'type': 'array', 'itemType': CreateDataAgentSessionRequestSessionConfigMcpHeadersMcpHeader },
+      mcpServerId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mcpHeader)) {
+      $dara.Model.validateArray(this.mcpHeader);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   /**
    * @remarks
@@ -14,8 +94,8 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   /**
    * @remarks
    * The stage of the custom agent. Valid values:
-   * - **debug**: Debug stage.
-   * - **prod**: Production stage.
+   * - **debug**: the debugging stage.
+   * - **prod**: the production stage.
    * 
    * @example
    * debug
@@ -62,15 +142,20 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   language?: string;
   /**
    * @remarks
+   * The list of MCP header configurations.
+   */
+  mcpHeaders?: CreateDataAgentSessionRequestSessionConfigMcpHeaders[];
+  /**
+   * @remarks
    * The list of MCP server IDs in the session configuration.
    */
   mcpServerIds?: string[];
   /**
    * @remarks
    * The mode. Valid values:
-   * - **ASK_DATA**: Ask data mode.
-   * - **ANALYSIS**: Analysis mode.
-   * - **INSIGHT**: Insight mode.
+   *  - **ASK_DATA**: the data query mode.
+   *  - **ANALYSIS**: the analysis mode.
+   *  - **INSIGHT**: the insight mode.
    * 
    * @example
    * ANALYSIS
@@ -94,8 +179,7 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   reportWaterMark?: string;
   /**
    * @remarks
-   * The name of the user OSS bucket.
-   * - Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
+   * The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -110,6 +194,7 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
       encryptType: 'EncryptType',
       kbUuidList: 'KbUuidList',
       language: 'Language',
+      mcpHeaders: 'McpHeaders',
       mcpServerIds: 'McpServerIds',
       mode: 'Mode',
       reportPageWidth: 'ReportPageWidth',
@@ -127,6 +212,7 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
       encryptType: 'string',
       kbUuidList: { 'type': 'array', 'itemType': 'string' },
       language: 'string',
+      mcpHeaders: { 'type': 'array', 'itemType': CreateDataAgentSessionRequestSessionConfigMcpHeaders },
       mcpServerIds: { 'type': 'array', 'itemType': 'string' },
       mode: 'string',
       reportPageWidth: 'number',
@@ -138,6 +224,9 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   validate() {
     if(Array.isArray(this.kbUuidList)) {
       $dara.Model.validateArray(this.kbUuidList);
+    }
+    if(Array.isArray(this.mcpHeaders)) {
+      $dara.Model.validateArray(this.mcpHeaders);
     }
     if(Array.isArray(this.mcpServerIds)) {
       $dara.Model.validateArray(this.mcpServerIds);

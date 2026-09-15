@@ -23,6 +23,8 @@ export { CreateCustomAgentResponseBodyData } from './CreateCustomAgentResponseBo
 export { CreateDataAgentAccuracyTestResponseBodyData } from './CreateDataAgentAccuracyTestResponseBody';
 export { CreateDataAgentFeedbackResponseBodyData } from './CreateDataAgentFeedbackResponseBody';
 export { CreateDataAgentKnowledgeBaseResponseBodyData } from './CreateDataAgentKnowledgeBaseResponseBody';
+export { CreateDataAgentSessionRequestSessionConfigMcpHeadersMcpHeader } from './CreateDataAgentSessionRequest';
+export { CreateDataAgentSessionRequestSessionConfigMcpHeaders } from './CreateDataAgentSessionRequest';
 export { CreateDataAgentSessionRequestSessionConfig } from './CreateDataAgentSessionRequest';
 export { CreateDataAgentSessionResponseBodyDataSessionConfig } from './CreateDataAgentSessionResponseBody';
 export { CreateDataAgentSessionResponseBodyData } from './CreateDataAgentSessionResponseBody';

@@ -14,8 +14,8 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   /**
    * @remarks
    * The stage of the custom agent. Valid values:
-   * - **debug**: Debug stage.
-   * - **prod**: Production stage.
+   * - **debug**: the debugging stage.
+   * - **prod**: the production stage.
    * 
    * @example
    * debug
@@ -68,9 +68,9 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   /**
    * @remarks
    * The mode. Valid values:
-   * - **ASK_DATA**: Ask data mode.
-   * - **ANALYSIS**: Analysis mode.
-   * - **INSIGHT**: Insight mode.
+   *  - **ASK_DATA**: the data query mode.
+   *  - **ANALYSIS**: the analysis mode.
+   *  - **INSIGHT**: the insight mode.
    * 
    * @example
    * ANALYSIS
@@ -94,8 +94,7 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   reportWaterMark?: string;
   /**
    * @remarks
-   * The name of the user OSS bucket.
-   * - Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
+   * The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -169,7 +168,7 @@ export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
   agentStatus?: string;
   /**
    * @remarks
-   * The time when the session was created.
+   * The creation time of the session.
    * 
    * @example
    * 1765262307992
@@ -177,7 +176,7 @@ export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The basic information about the file.
+   * The basic information of the file.
    * 
    * @example
    * f-8*******01m
@@ -276,7 +275,7 @@ export class CreateDataAgentSessionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the request failed.
+   * The error message returned if the request failed.
    * 
    * @example
    * UnknownError
