@@ -13,7 +13,7 @@ export class DeleteRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   dstCidrBlock?: string;
   /**
    * @remarks
-   * The error code of the failure.
+   * The error code returned for the failure.
    * 
    * @example
    * VPC_ROUTER_ENTRY_NOT_EXIST
@@ -21,7 +21,7 @@ export class DeleteRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   failedCode?: string;
   /**
    * @remarks
-   * The error message of the failure.
+   * The error message returned for the failure.
    * 
    * @example
    * vRouterEntry not exists
@@ -96,7 +96,7 @@ export class DeleteRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of route entries that were successfully deleted.
+   * The number of route entries that were deleted.
    * 
    * @example
    * 2

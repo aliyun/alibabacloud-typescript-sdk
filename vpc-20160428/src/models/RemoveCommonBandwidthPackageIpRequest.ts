@@ -17,20 +17,24 @@ export class RemoveCommonBandwidthPackageIpRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** as the **ClientToken**. The **RequestId** of each API request may be different.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run without performing the actual operation.
+   */
   dryRun?: boolean;
   /**
    * @remarks
    * The ID of the EIP. 
    * 
-   * You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/36018.html) operation to query the EIP ID.
+   * You can call the [DescribeEipAddresses](https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips) operation to query the EIP ID.
    * 
    * This parameter is required.
    * 
@@ -44,7 +48,7 @@ export class RemoveCommonBandwidthPackageIpRequest extends $dara.Model {
    * @remarks
    * The region ID of the Internet Shared Bandwidth instance. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-describeregions) operation to query the region ID.
    * 
    * This parameter is required.
    * 

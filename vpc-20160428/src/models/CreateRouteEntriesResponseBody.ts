@@ -13,7 +13,7 @@ export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   dstCidrBlock?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code of the failure.
    * 
    * @example
    * VPC_ROUTE_ENTRY_CIDR_BLOCK_DUPLICATE
@@ -21,7 +21,7 @@ export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   failedCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message of the failure.
    * 
    * @example
    * Specified CIDR block is already exists, entry.cidrBlock=xxxx
@@ -86,7 +86,7 @@ export class CreateRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The instance IDs returned for the successfully added custom route entries. The routing information is included.
+   * The routing instance IDs returned for the custom route entries that were successfully added.
    */
   routeEntryIds?: string[];
   /**

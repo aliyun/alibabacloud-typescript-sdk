@@ -17,8 +17,8 @@ export class ModifyVSwitchAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable IPv6 for the vSwitch. Valid values:
    * 
-   * - **true**: enables IPv6. The VPC to which the vSwitch belongs must have IPv6 enabled. You must also specify Ipv6CidrBlock to assign an IPv6 CIDR block to the vSwitch.
-   * - **false** (default): disables IPv6. When you disable IPv6 for the vSwitch, make sure that no IPv6 addresses are in use. You cannot specify Ipv6CidrBlock at the same time.
+   * - **true**: Enables IPv6. IPv6 must be enabled for the VPC to which the vSwitch belongs. You must also specify Ipv6CidrBlock to allocate an IPv6 CIDR block to the vSwitch.
+   * - **false** (default): Disables IPv6. Before you disable IPv6 for the vSwitch, make sure that no IPv6 addresses are in use. You cannot specify Ipv6CidrBlock at the same time.
    * 
    * @example
    * false
@@ -28,12 +28,22 @@ export class ModifyVSwitchAttributeRequest extends $dara.Model {
    * @remarks
    * The last 8 bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
    * 
-   * You can specify this parameter only when the VPC to which the vSwitch belongs has IPv6 enabled. This parameter is used to assign an IPv6 CIDR block to the vSwitch. After the IPv6 CIDR block is allocated, it cannot be changed to another CIDR block. Make sure that the CIDR block does not overlap with those of other vSwitches in the same VPC.
+   * You can set this parameter only when IPv6 is enabled for the VPC to which the vSwitch belongs. This parameter allows you to allocate an IPv6 CIDR block to the vSwitch. After the IPv6 CIDR block is allocated, it cannot be changed to another CIDR block. Make sure that the CIDR block does not overlap with those of other vSwitches in the same VPC.
    * 
    * @example
    * 10
    */
   ipv6CidrBlock?: number;
+  /**
+   * @remarks
+   * The IPv6 CIDR block mask of the vSwitch. You can set this parameter only when IPv6 is enabled for the VPC to which the vSwitch belongs.
+   * 
+   * > Only 64 is supported.
+   * 
+   * @example
+   * 64
+   */
+  ipv6CidrMask?: number;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -80,6 +90,7 @@ export class ModifyVSwitchAttributeRequest extends $dara.Model {
       description: 'Description',
       enableIPv6: 'EnableIPv6',
       ipv6CidrBlock: 'Ipv6CidrBlock',
+      ipv6CidrMask: 'Ipv6CidrMask',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -96,6 +107,7 @@ export class ModifyVSwitchAttributeRequest extends $dara.Model {
       description: 'string',
       enableIPv6: 'boolean',
       ipv6CidrBlock: 'number',
+      ipv6CidrMask: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',

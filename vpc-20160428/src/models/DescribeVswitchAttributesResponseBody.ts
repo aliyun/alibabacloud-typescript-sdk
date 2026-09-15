@@ -101,7 +101,7 @@ export class DescribeVSwitchAttributesResponseBodyTags extends $dara.Model {
 export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of active IP addresses.
+   * The active IP address count.
    * 
    * @example
    * 12

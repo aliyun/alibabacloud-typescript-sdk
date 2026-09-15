@@ -74,17 +74,25 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
    * @remarks
    * The association status of the prefix list. Valid values:
    * 
-   * - **Created**: succeeded.
-   * - **ModifyFailed**: not associated with the latest version.
-   * - **Creating**: being created.
-   * - **Modifying**: being modified.
-   * - **Deleting**: being deleted.
-   * - **Deleted**: deleted.
+   * - **Created**: Succeeded.
+   * - **ModifyFailed**: Not associated with the latest version.
+   * - **Creating**: Being created.
+   * - **Modifying**: Being modified.
+   * - **Deleting**: Being deleted.
+   * - **Deleted**: Deleted.
    * 
    * @example
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of CIDR blocks in the prefix list that are not effective for the associated resource.
+   * 
+   * @example
+   * 192.124.0.0/16
+   */
+  suppressedList?: string;
   static names(): { [key: string]: string } {
     return {
       cidrList: 'CidrList',
@@ -96,6 +104,7 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
       resourceType: 'ResourceType',
       resourceUid: 'ResourceUid',
       status: 'Status',
+      suppressedList: 'SuppressedList',
     };
   }
 
@@ -110,6 +119,7 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
       resourceType: 'string',
       resourceUid: 'string',
       status: 'string',
+      suppressedList: 'string',
     };
   }
 
@@ -133,9 +143,9 @@ export class GetVpcPrefixListAssociationsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query is required.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** has a return value, the value is the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

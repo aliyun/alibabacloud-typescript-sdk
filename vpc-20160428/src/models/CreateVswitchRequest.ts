@@ -49,19 +49,17 @@ export class CreateVSwitchRequestTag extends $dara.Model {
 export class CreateVSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block of the vSwitch. The following requirements apply: 
+   * The CIDR block of the vSwitch. The vSwitch CIDR block must meet the following requirements: 
    * 
    * - The mask length of the vSwitch CIDR block must be 16 to 29 bits.  
    * 
-   * - The CIDR block of the vSwitch must be a subset of the CIDR block of the VPC to which the vSwitch belongs. 
+   * - The vSwitch CIDR block must be a subset of the CIDR block of the VPC to which the vSwitch belongs. 
    * 
-   * - The CIDR block of the vSwitch cannot be the same as the destination CIDR block of a route in the VPC, but can be a subset of the destination CIDR block. 
+   * - The vSwitch CIDR block cannot be the same as the destination CIDR block of a route entry in the VPC, but can be a subset of the destination CIDR block. 
    * 
-   * - The CIDR block of the vSwitch cannot be within the following reserved address ranges: 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, or 224.0.0.0/4.
+   * - The vSwitch CIDR block cannot be within the following reserved address ranges: 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, or 224.0.0.0/4.
    * 
    * > After a vSwitch is created, you cannot modify its CIDR block.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 172.16.0.0/24
@@ -69,11 +67,20 @@ export class CreateVSwitchRequest extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
+   * The mask length of the IPv4 CIDR block of the vSwitch.
+   * > The mask length of the vSwitch IPv4 CIDR block must be 16 to 29 bits. You must specify at least one of CidrBlock and CidrMask.
+   * 
+   * @example
+   * 24
+   */
+  cidrMask?: number;
+  /**
+   * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -92,17 +99,27 @@ export class CreateVSwitchRequest extends $dara.Model {
   /**
    * @remarks
    * The last 8 bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
-   * You can specify this parameter only when the VPC to which the vSwitch belongs has IPv6 enabled. This allows you to assign an IPv6 CIDR block to the vSwitch. After the IPv6 CIDR block is allocated, it cannot be changed. Make sure that the CIDR block does not overlap with those of other vSwitches in the VPC.
+   * You can specify this parameter to assign an IPv6 CIDR block to the vSwitch only when the VPC to which the vSwitch belongs has IPv6 enabled. After the IPv6 CIDR block is assigned, it cannot be changed to another CIDR block. Make sure that the CIDR block does not overlap with those of other vSwitches in the VPC.
    * 
    * @example
    * 12
    */
   ipv6CidrBlock?: number;
+  /**
+   * @remarks
+   * The subnet mask of the IPv6 CIDR block of the vSwitch. You can specify this parameter to assign an IPv6 CIDR block to the vSwitch only when the VPC to which the vSwitch belongs has IPv6 enabled.
+   * 
+   * > Only 64 is supported.
+   * 
+   * @example
+   * 64
+   */
+  ipv6CidrMask?: number;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the vSwitch that you want to create.
+   * The region ID of the vSwitch to create.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
@@ -160,9 +177,11 @@ export class CreateVSwitchRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cidrBlock: 'CidrBlock',
+      cidrMask: 'CidrMask',
       clientToken: 'ClientToken',
       description: 'Description',
       ipv6CidrBlock: 'Ipv6CidrBlock',
+      ipv6CidrMask: 'Ipv6CidrMask',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -179,9 +198,11 @@ export class CreateVSwitchRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cidrBlock: 'string',
+      cidrMask: 'number',
       clientToken: 'string',
       description: 'string',
       ipv6CidrBlock: 'number',
+      ipv6CidrMask: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',

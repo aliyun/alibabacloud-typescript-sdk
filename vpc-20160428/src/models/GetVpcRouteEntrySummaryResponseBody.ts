@@ -15,16 +15,16 @@ export class GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys 
    * @remarks
    * The type of the route. Valid values:
    * - **all**: all route types.
-   * - **custom**: custom route.
-   * - **system**: system route.
-   * - **bgp**: BGP route.
-   * - **cen**: Cloud Enterprise Network (CEN) route.
-   * - **type_vpn_bgp_internal**: VPN BGP route.
-   * - **ECR**: Express Connect Router (ECR) route.
+   * - **custom**: custom routes.
+   * - **system**: system routes.
+   * - **bgp**: BGP routes.
+   * - **cen**: Cloud Enterprise Network (CEN) routes.
+   * - **type_vpn_bgp_internal**: BGP routes of VPN.
+   * - **ECR**: Express Connect Router (ECR) routes.
    * 
    * 
    * 
-   * > The returned system routes are the system routes in the system route table.
+   * > The returned system routes are the system routes under the system route table.
    * 
    * @example
    * Custom
@@ -104,7 +104,7 @@ export class GetVpcRouteEntrySummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about all route tables returned.
+   * The information about all queried route tables.
    */
   routeEntrySummarys?: GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys[];
   static names(): { [key: string]: string } {

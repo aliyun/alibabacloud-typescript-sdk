@@ -13,9 +13,9 @@ export class GetVpcPrefixListAssociationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - Leave this parameter empty for the first query or if no subsequent query is required.
-   * - If a subsequent query is required, set this parameter to the NextToken value returned in the previous API call.
+   * The token for the next query. Valid values:
+   * - Leave this parameter empty for the first query or if no next query exists.
+   * - If a next query exists, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

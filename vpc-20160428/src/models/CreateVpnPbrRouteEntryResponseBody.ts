@@ -7,7 +7,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the policy-based route was created. Unit: milliseconds.
    * 
-   * The timestamp follows the UNIX time format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1492747187000
@@ -39,7 +39,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   overlayMode?: string;
   /**
    * @remarks
-   * The policy priority of the policy-based route.
+   * The policy priority of the policy-based routing entry.
    * 
    * @example
    * 10
@@ -83,7 +83,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The VPN gateway instance ID.
+   * The instance ID of the VPN gateway.
    * 
    * @example
    * vpn-bp1cmw7jh1nfe43m9****

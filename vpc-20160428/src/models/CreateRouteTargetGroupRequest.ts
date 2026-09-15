@@ -15,13 +15,13 @@ export class CreateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
   memberId?: string;
   /**
    * @remarks
-   * The member type of the route target group.
+   * The type of the route target group member.
    * 
    * Supported type:
    * 
    * - **GatewayLoadBalancerEndpoint**
    * 
-   * In active/standby mode, all members of the route target group must be of the same type.
+   * In active/standby mode, all members in the route target group must be of the same type.
    * 
    * This parameter is required.
    * 
@@ -136,7 +136,7 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
   configMode?: string;
   /**
    * @remarks
-   * The region ID of the route target group. You can call the DescribeRegions operation to query the region ID.
+   * The region ID of the route target group. You can call the DescribeRegions operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -156,8 +156,7 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The description of the route target group.
-   * The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * The description of the route target group. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * myRouteTargetGroupDescription
@@ -175,7 +174,7 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
   routeTargetGroupName?: string;
   /**
    * @remarks
-   * The member list of the route target group.
+   * The list of members in the route target group.
    * 
    * In active/standby mode, the following limits apply to route target group members:
    * 

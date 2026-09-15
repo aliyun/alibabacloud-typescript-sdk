@@ -170,7 +170,7 @@ export class GetDhcpOptionsSetResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The DHCP options configuration.
+   * The DHCP options configuration information.
    */
   dhcpOptions?: GetDhcpOptionsSetResponseBodyDhcpOptions;
   /**

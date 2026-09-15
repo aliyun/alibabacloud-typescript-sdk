@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowLogRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. Do not specify an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. Do not specify an empty string for this parameter.
    * 
    * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
@@ -15,7 +15,7 @@ export class CreateFlowLogRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. You can specify an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
    * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
@@ -140,9 +140,9 @@ export class CreateFlowLogRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource whose traffic you want to catch. Valid values:
+   * The type of the resource whose traffic you want to capture. Valid values:
    * 
-   * - **NetworkInterface**: network interface controller (NIC).
+   * - **NetworkInterface**: network interface controllers (NICs).
    *   
    * - **VSwitch**: all network interface controllers (NICs) in a vSwitch.
    *   
@@ -161,10 +161,18 @@ export class CreateFlowLogRequest extends $dara.Model {
   tag?: CreateFlowLogRequestTag[];
   /**
    * @remarks
-   * The traffic path to capture. Valid values:
+   * The traffic path to collect. Valid values:
    * 
-   * - **all**: captures all traffic.
-   * - **internetGateway**: captures Internet traffic.
+   * - **all** (default): all scenarios.
+   * - **internetGateway**: traffic to access the Internet.
+   * - **natGateway**: traffic through NAT gateway.
+   * - **vpnGateway**: traffic through VPN gateway.
+   * - **transitRouter**: traffic through TR.
+   * - **gatewayEndpoint**: traffic through gateway endpoint to access Alibaba Cloud services.
+   * - **vbr**: traffic through Virtual Border Router (VBR) to access Express Connect circuits.
+   * - **ecr**: traffic through Express Connect Router (ECR).
+   * - **ipv4Gateway**: traffic through IPv4 gateway to access the Internet.
+   * - **gatewayLoadBalancerEndpoint**: traffic through Gateway Load Balancer endpoint (GWLBe).
    */
   trafficPath?: string[];
   /**
@@ -175,7 +183,7 @@ export class CreateFlowLogRequest extends $dara.Model {
    *   
    * - **Allow**: traffic allowed by access control.
    *   
-   * - **Drop**: traffic deny by access control.
+   * - **Drop**: traffic denied by access control.
    * 
    * This parameter is required.
    * 
