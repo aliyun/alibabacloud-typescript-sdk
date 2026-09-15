@@ -56,6 +56,11 @@ export class GetComputeInstanceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @example
+   * rg-aek53bg4tl6fgma
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
    * RUNNING
    */
   serviceStatus?: string;
@@ -86,6 +91,7 @@ export class GetComputeInstanceResponseBodyData extends $dara.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       serviceStatus: 'ServiceStatus',
       totalJobs: 'TotalJobs',
       totalRunningJobs: 'TotalRunningJobs',
@@ -105,6 +111,7 @@ export class GetComputeInstanceResponseBodyData extends $dara.Model {
       instanceId: 'string',
       instanceName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       serviceStatus: 'string',
       totalJobs: 'number',
       totalRunningJobs: 'number',
