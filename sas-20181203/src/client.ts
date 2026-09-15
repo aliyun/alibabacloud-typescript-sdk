@@ -92,6 +92,10 @@ export default class Client extends OpenApi {
       query["CriteriaOperation"] = request.criteriaOperation;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.selectionKey)) {
       query["SelectionKey"] = request.selectionKey;
     }
@@ -208,6 +212,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
     }
@@ -268,6 +276,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.instanceIds)) {
@@ -1778,6 +1790,10 @@ export default class Client extends OpenApi {
       query["Criteria"] = request.criteria;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.isPreBind)) {
       query["IsPreBind"] = request.isPreBind;
     }
@@ -1969,7 +1985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a cloud platform configuration check.
+   * Modifies the configuration items for cloud platform configuration checks.
    * 
    * @param tmpReq - ChangeCheckConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2010,6 +2026,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.cycleDays)) {
       query["CycleDays"] = request.cycleDays;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.enableAddCheck)) {
@@ -2070,7 +2090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a cloud platform configuration check.
+   * Modifies the configuration items for cloud platform configuration checks.
    * 
    * @param request - ChangeCheckConfigRequest
    * @returns ChangeCheckConfigResponse
@@ -2745,6 +2765,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.platform)) {
@@ -3504,7 +3528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
+   * Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
    * 
    * @param request - CreateCycleTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3515,6 +3539,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.enable)) {
@@ -3575,7 +3603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
+   * Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
    * 
    * @param request - CreateCycleTaskRequest
    * @returns CreateCycleTaskResponse
@@ -5355,6 +5383,10 @@ export default class Client extends OpenApi {
       query["DecryptionList"] = request.decryptionList;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.enable)) {
       query["Enable"] = request.enable;
     }
@@ -5564,6 +5596,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fromEcs)) {
       body["FromEcs"] = request.fromEcs;
@@ -5629,6 +5665,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.serviceLinkedRole)) {
@@ -5721,7 +5761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
+   * Creates a node to query alerting events triggered by the same rule or Alarm Metric.
    * 
    * @param request - CreateSimilarSecurityEventsQueryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5732,6 +5772,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.resourceDirectoryAccountId)) {
@@ -5772,7 +5816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
+   * Creates a node to query alerting events triggered by the same rule or Alarm Metric.
    * 
    * @param request - CreateSimilarSecurityEventsQueryTaskRequest
    * @returns CreateSimilarSecurityEventsQueryTaskResponse
@@ -6178,6 +6222,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.param)) {
@@ -40522,7 +40570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of processes from unknown threat detections.
+   * Queries the process list of intelligent behavior analytics.
    * 
    * @param request - ListUnknownThreatDetectProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40571,6 +40619,10 @@ export default class Client extends OpenApi {
       query["Sha256"] = request.sha256;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!$dara.isNull(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
@@ -40593,7 +40645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of processes from unknown threat detections.
+   * Queries the process list of intelligent behavior analytics.
    * 
    * @param request - ListUnknownThreatDetectProcessRequest
    * @returns ListUnknownThreatDetectProcessResponse
@@ -42619,6 +42671,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.reason)) {
       query["Reason"] = request.reason;
     }
@@ -42863,6 +42919,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.lang)) {
@@ -43661,6 +43721,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.focusLevel)) {
       query["FocusLevel"] = request.focusLevel;
     }
@@ -43785,6 +43849,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.from)) {
       query["From"] = request.from;
     }
@@ -43859,6 +43927,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.edrModuleSwitchShrink)) {
@@ -44402,6 +44474,10 @@ export default class Client extends OpenApi {
       query["Criteria"] = request.criteria;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.logicalExp)) {
       query["LogicalExp"] = request.logicalExp;
     }
@@ -44522,6 +44598,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.resourceDirectoryAccountId)) {
@@ -44909,6 +44989,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.config)) {
       query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.type)) {
@@ -45967,6 +46051,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.config)) {
       query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.noTargetAsOn)) {
@@ -51681,6 +51769,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
@@ -51931,6 +52023,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.selectionKey)) {
@@ -52625,6 +52721,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.instanceIds)) {

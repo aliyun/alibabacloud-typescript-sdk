@@ -28,8 +28,13 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * Specifies whether to perform only a dry run of the request. Valid values: true: checks the request without performing the actual operation. false: performs the actual operation after the request passes the check. Default value: false.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The list of instance IDs of the affected assets for the check item.
-   * Note: This parameter is actually required. If this parameter is not specified, the API returns a 400 error (Code: -101).
+   * Note: This parameter is actually required. If it is not provided, the API returns a 400 error (Code: -101).
    */
   instanceIds?: string[];
   /**
@@ -47,6 +52,7 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
       checkId: 'CheckId',
       checkIds: 'CheckIds',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       instanceIds: 'InstanceIds',
       taskSource: 'TaskSource',
     };
@@ -57,6 +63,7 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
       checkId: 'number',
       checkIds: { 'type': 'array', 'itemType': 'number' },
       clientToken: 'string',
+      dryRun: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       taskSource: 'string',
     };

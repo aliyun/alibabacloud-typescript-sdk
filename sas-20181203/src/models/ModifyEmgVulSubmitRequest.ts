@@ -5,16 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyEmgVulSubmitRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
   /**
    * @remarks
-   * The language of the request and response. Default value: **zh**. Valid values:
+   * Specifies whether to perform a dry run. Valid values: true: performs a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The language type of the request and response. Default value: **zh**. Valid values:
    * 
-   * - **zh**: Chinese.
-   * 
-   * - **en**: English.
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -33,7 +37,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the member account in the resource directory (Alibaba Cloud account).
-   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 16670360956*****
@@ -44,7 +48,6 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
    * Specifies whether to perform vulnerability detection. Valid values:
    * 
    * - **yes**: Perform vulnerability detection.
-   * 
    * - **no**: Do not perform vulnerability detection.
    * 
    * This parameter is required.
@@ -56,6 +59,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       lang: 'Lang',
       name: 'Name',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
@@ -66,6 +70,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       lang: 'string',
       name: 'string',
       resourceDirectoryAccountId: 'number',

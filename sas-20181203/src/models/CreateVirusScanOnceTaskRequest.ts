@@ -10,6 +10,15 @@ export class CreateVirusScanOnceTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * Specifies whether to perform only a dry run of the request. Valid values:
+   * - true: performs only a dry run without executing the actual operation.
+   * - false: performs the actual request.
+   * 
+   * Default value: false.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The extended information field:
    * - **additionType**: the extended scan type
    * 
@@ -26,7 +35,7 @@ export class CreateVirusScanOnceTaskRequest extends $dara.Model {
    * @remarks
    * The scan type of the virus scan. Valid values:
    * - **system**: system scan
-   * - **user**: custom scan.
+   * - **user**: custom scan
    * 
    * @example
    * system
@@ -44,6 +53,7 @@ export class CreateVirusScanOnceTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       param: 'Param',
       scanPath: 'ScanPath',
       scanType: 'ScanType',
@@ -54,6 +64,7 @@ export class CreateVirusScanOnceTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       param: 'string',
       scanPath: { 'type': 'array', 'itemType': 'string' },
       scanType: 'string',

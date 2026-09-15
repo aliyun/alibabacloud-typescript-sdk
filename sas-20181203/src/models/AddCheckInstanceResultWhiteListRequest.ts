@@ -69,6 +69,11 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The collection of asset instance IDs.
    */
   instanceIds?: string[];
@@ -99,6 +104,7 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
       checkGroupId: 'CheckGroupId',
       checkId: 'CheckId',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       instanceIds: 'InstanceIds',
       instanceList: 'InstanceList',
       remark: 'Remark',
@@ -111,6 +117,7 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
       checkGroupId: 'string',
       checkId: 'number',
       clientToken: 'string',
+      dryRun: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       instanceList: { 'type': 'array', 'itemType': AddCheckInstanceResultWhiteListRequestInstanceList },
       remark: 'string',

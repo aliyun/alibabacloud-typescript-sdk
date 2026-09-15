@@ -57,6 +57,11 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   decryptionList?: string[];
   /**
    * @remarks
+   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * Specifies whether to enable the policy. Valid values:
    * - **1**: Enabled.
    * - **0**: Disabled.
@@ -139,6 +144,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
       decompressMaxFileCount: 'DecompressMaxFileCount',
       decompressMaxLayer: 'DecompressMaxLayer',
       decryptionList: 'DecryptionList',
+      dryRun: 'DryRun',
       enable: 'Enable',
       endTime: 'EndTime',
       keyPrefixList: 'KeyPrefixList',
@@ -161,6 +167,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
       decompressMaxFileCount: 'number',
       decompressMaxLayer: 'number',
       decryptionList: { 'type': 'array', 'itemType': 'string' },
+      dryRun: 'boolean',
       enable: 'number',
       endTime: 'string',
       keyPrefixList: { 'type': 'array', 'itemType': 'string' },

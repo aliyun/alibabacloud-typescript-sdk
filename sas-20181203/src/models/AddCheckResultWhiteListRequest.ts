@@ -11,9 +11,14 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   checkIds?: number[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run. Valid values: true: performs only a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
+   */
+  dryRun?: boolean;
   /**
    * @remarks
    * The instance IDs of the cloud service instances to add to the whitelist. Separate multiple instance IDs with commas (,).
@@ -30,7 +35,7 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   /**
    * @remarks
    * The rule type. Default value: **WHITE**. Valid values:
-   * - **WHITE**: adds to the whitelist.
+   * - **WHITE**: Add to whitelist.
    * 
    * @example
    * WHITE
@@ -40,6 +45,7 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
     return {
       checkIds: 'CheckIds',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       instanceIds: 'InstanceIds',
       remark: 'Remark',
       ruleType: 'RuleType',
@@ -50,6 +56,7 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
     return {
       checkIds: { 'type': 'array', 'itemType': 'number' },
       clientToken: 'string',
+      dryRun: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       remark: 'string',
       ruleType: 'string',

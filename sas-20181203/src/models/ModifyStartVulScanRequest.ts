@@ -10,13 +10,22 @@ export class ModifyStartVulScanRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * - true: performs only a dry run without performing the actual operation.
+   * - false: performs the actual request.
+   * 
+   * Default value: false.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The Alibaba Cloud account ID of the member accounts in the resource folder.
    * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * Settings for the vulnerability types to detect by using the one-click scan feature. Valid values:
+   * Settings for the vulnerability types to be detected by the one-click scan feature. Valid values:
    * - **cve**: Linux software vulnerability.
    * - **sys**: Windows system vulnerability.
    * - **cms**: Web-CMS vulnerability.
@@ -32,7 +41,7 @@ export class ModifyStartVulScanRequest extends $dara.Model {
   types?: string;
   /**
    * @remarks
-   * The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+   * The list of server UUIDs. Separate multiple UUIDs with commas (,).
    * 
    * 
    * > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/421726.html) operation to obtain this parameter.
@@ -44,6 +53,7 @@ export class ModifyStartVulScanRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       types: 'Types',
       uuids: 'Uuids',
@@ -53,6 +63,7 @@ export class ModifyStartVulScanRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       resourceDirectoryAccountId: 'number',
       types: 'string',
       uuids: 'string',

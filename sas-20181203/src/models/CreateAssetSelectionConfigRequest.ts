@@ -26,6 +26,11 @@ export class CreateAssetSelectionConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The operating system of the target asset. Valid values:
    * 
    * - **all**: all operating systems.
@@ -61,6 +66,7 @@ export class CreateAssetSelectionConfigRequest extends $dara.Model {
     return {
       businessType: 'BusinessType',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       platform: 'Platform',
       targetType: 'TargetType',
     };
@@ -70,6 +76,7 @@ export class CreateAssetSelectionConfigRequest extends $dara.Model {
     return {
       businessType: 'string',
       clientToken: 'string',
+      dryRun: 'boolean',
       platform: 'string',
       targetType: 'string',
     };

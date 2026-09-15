@@ -2,16 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListUnknownThreatDetectProcessResponseBodyDataTags extends $dara.Model {
+  /**
+   * @remarks
+   * The English label of the process.
+   * 
+   * @example
+   * System Process
+   */
+  tagEn?: string;
+  /**
+   * @remarks
+   * The Chinese label of the process.
+   * 
+   * @example
+   * System Process
+   */
+  tagZh?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagEn: 'TagEn',
+      tagZh: 'TagZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagEn: 'string',
+      tagZh: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The analysis result. Valid values:
    * 
-   * - **black**: A malicious process.
-   * 
-   * - **white**: A normal process.
-   * 
-   * - **abnormal**: An abnormal process.
+   * - **black**: Malicious process.
+   * - **white**: Normal process.
+   * - **abnormal**: Abnormal process.
    * 
    * @example
    * white
@@ -21,7 +59,7 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
   explanationZh?: string;
   /**
    * @remarks
-   * The timestamp of the first occurrence.
+   * The timestamp when the process was first detected.
    * 
    * @example
    * 1694576692000
@@ -37,7 +75,7 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
   md5?: string;
   /**
    * @remarks
-   * The process ID.
+   * The process ID of the event.
    * 
    * @example
    * 2025031506350619216822625103151158982
@@ -53,7 +91,7 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
   processPath?: string;
   /**
    * @remarks
-   * Remarks about the process.
+   * The remarks.
    * 
    * @example
    * safe process
@@ -67,6 +105,11 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
    * 3a6fed5fc11392b3ee9f81caf017b48640d7458766a8eb0382899a605b41****
    */
   sha256?: string;
+  /**
+   * @remarks
+   * The process labels.
+   */
+  tags?: ListUnknownThreatDetectProcessResponseBodyDataTags[];
   static names(): { [key: string]: string } {
     return {
       analyzeResult: 'AnalyzeResult',
@@ -78,6 +121,7 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
       processPath: 'ProcessPath',
       remark: 'Remark',
       sha256: 'Sha256',
+      tags: 'Tags',
     };
   }
 
@@ -92,10 +136,14 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
       processPath: 'string',
       remark: 'string',
       sha256: 'string',
+      tags: { 'type': 'array', 'itemType': ListUnknownThreatDetectProcessResponseBodyDataTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -115,7 +163,7 @@ export class ListUnknownThreatDetectProcessResponseBodyPageInfo extends $dara.Mo
   count?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number of the current page in a paged query. This is used for paging.
    * 
    * @example
    * 1
@@ -123,7 +171,7 @@ export class ListUnknownThreatDetectProcessResponseBodyPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page in a paged query. This is used for paging.
    * 
    * @example
    * 20
@@ -167,7 +215,7 @@ export class ListUnknownThreatDetectProcessResponseBodyPageInfo extends $dara.Mo
 export class ListUnknownThreatDetectProcessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of process details.
+   * The returned data.
    */
   data?: ListUnknownThreatDetectProcessResponseBodyData[];
   /**
@@ -177,7 +225,7 @@ export class ListUnknownThreatDetectProcessResponseBody extends $dara.Model {
   pageInfo?: ListUnknownThreatDetectProcessResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 20456DD5-5CBF-5015-9173-12CA4246B***

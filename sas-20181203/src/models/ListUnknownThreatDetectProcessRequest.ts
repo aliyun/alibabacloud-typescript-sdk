@@ -8,7 +8,6 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
    * The analysis result. Valid values:
    * 
    * - **black**: abnormal process
-   * 
    * - **white**: normal process
    * 
    * @example
@@ -17,7 +16,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   analyzeResult?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number of the current page when using paged query. This is used for paging.
    * 
    * @example
    * 1
@@ -25,7 +24,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end of the time range for the first detection, in milliseconds.
+   * The end of the time range during which the process was first detected. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1768891966345
@@ -33,7 +32,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   firstTimeEnd?: number;
   /**
    * @remarks
-   * The start of the time range for the first detection, in milliseconds.
+   * The start of the time range during which the process was first detected. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1768891966344
@@ -41,7 +40,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   firstTimeStart?: number;
   /**
    * @remarks
-   * The MD5 value of the file.
+   * The MD5 hash of the file.
    * 
    * @example
    * 0552c44e243abdea1729d4507bce****
@@ -49,7 +48,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The maximum number of entries per page when using paged query. This is used for paging.
    * 
    * @example
    * 20
@@ -81,12 +80,20 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The SHA-256 value of the file.
+   * The SHA-256 hash of the file.
    * 
    * @example
    * f204693a7d2ce99d6c4434e550d985ee1c7be7cb5dd9a76094369af0d2******
    */
   sha256?: string;
+  /**
+   * @remarks
+   * The label.
+   * 
+   * @example
+   * Process Tag
+   */
+  tag?: string;
   /**
    * @remarks
    * The UUID of the server to query.
@@ -107,6 +114,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
       processPath: 'ProcessPath',
       remark: 'Remark',
       sha256: 'Sha256',
+      tag: 'Tag',
       uuid: 'Uuid',
     };
   }
@@ -123,6 +131,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
       processPath: 'string',
       remark: 'string',
       sha256: 'string',
+      tag: 'string',
       uuid: 'string',
     };
   }

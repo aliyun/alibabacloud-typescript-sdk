@@ -104,6 +104,11 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The abbreviated name of the cloud service. Valid values:
    * - **sas**: Security Center
    */
@@ -122,6 +127,7 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
       autoBindVersion: 'AutoBindVersion',
       bindAction: 'BindAction',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       productCode: 'ProductCode',
       updateIfNecessary: 'UpdateIfNecessary',
     };
@@ -133,6 +139,7 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
       autoBindVersion: 'number',
       bindAction: { 'type': 'array', 'itemType': UpdatePostPaidBindRelRequestBindAction },
       clientToken: 'string',
+      dryRun: 'boolean',
       productCode: 'string',
       updateIfNecessary: 'boolean',
     };

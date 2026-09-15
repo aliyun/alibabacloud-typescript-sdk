@@ -8,6 +8,11 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Valid values: true: performs a check without executing the operation. false: executes the operation. Default value: false.
+   */
+  dryRun?: boolean;
   edrModuleSwitchShrink?: string;
   /**
    * @remarks
@@ -76,6 +81,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       edrModuleSwitchShrink: 'EdrModuleSwitch',
       postPaidHostAutoBind: 'PostPaidHostAutoBind',
       postPaidHostAutoBindVersion: 'PostPaidHostAutoBindVersion',
@@ -88,6 +94,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       edrModuleSwitchShrink: 'string',
       postPaidHostAutoBind: 'number',
       postPaidHostAutoBindVersion: 'number',

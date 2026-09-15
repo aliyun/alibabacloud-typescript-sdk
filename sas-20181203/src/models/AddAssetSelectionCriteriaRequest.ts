@@ -75,6 +75,11 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
   criteriaOperation?: string;
   /**
    * @remarks
+   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The unique identifier of the asset selection.
    * 
    * This parameter is required.
@@ -93,6 +98,7 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
       clientToken: 'ClientToken',
       criteria: 'Criteria',
       criteriaOperation: 'CriteriaOperation',
+      dryRun: 'DryRun',
       selectionKey: 'SelectionKey',
       targetOperationList: 'TargetOperationList',
     };
@@ -103,6 +109,7 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
       clientToken: 'string',
       criteria: 'string',
       criteriaOperation: 'string',
+      dryRun: 'boolean',
       selectionKey: 'string',
       targetOperationList: { 'type': 'array', 'itemType': AddAssetSelectionCriteriaRequestTargetOperationList },
     };

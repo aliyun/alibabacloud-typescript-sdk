@@ -5,9 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCreateVulWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run. Valid values:
+   * - true: performs only a dry run without executing the actual operation.
+   * - false: performs the actual operation.
+   * 
+   * Default value: false.
+   */
+  dryRun?: boolean;
   /**
    * @remarks
    * The reason for adding the vulnerability whitelist.
@@ -30,7 +39,7 @@ export class ModifyCreateVulWhitelistRequest extends $dara.Model {
    *     - **Uuid**: host asset
    * - **uuids**: The collection of host asset UUIDs. The field type is String.
    * - **groupIds**: The collection of server group IDs. The field type is Long.
-   * > If this value is empty, the whitelist applies to all hosts. If **type** is set to **GroupId**, **groupIds** cannot be empty. If **type** is set to **Uuid**, **uuids** cannot be empty.
+   * > If this parameter is left empty, the whitelist takes effect on all hosts. If **type** is set to **GroupId**, **groupIds** cannot be empty. If **type** is set to **Uuid**, **uuids** cannot be empty.
    * 
    * @example
    * {"type":"Uuid","uuids":["b31a708f-5fea-426e-bebe-a7b0893****","1f749687-3b5d-4e11-8140-d964673****"],"groupIds":[]}
@@ -40,12 +49,12 @@ export class ModifyCreateVulWhitelistRequest extends $dara.Model {
    * @remarks
    * The information about the vulnerability to add to the whitelist. The value is a JSON string that contains the following fields:
    * 
-   * - **Status**: The vulnerability status.
+   * - **Status**: The status of the vulnerability.
    * - **GmtLast**: The timestamp when the vulnerability was last detected. Unit: milliseconds.
    * - **LaterCount**: The number of medium-priority vulnerabilities.
    * - **AsapCount**: The number of high-priority vulnerabilities.
-   * - **Name**: The vulnerability name.
-   * - **Type**: The vulnerability type. Valid values:
+   * - **Name**: The name of the vulnerability.
+   * - **Type**: The type of the vulnerability. Valid values:
    * 
    *     - **cve**: Linux software vulnerability
    *     - **sys**: Windows system vulnerability
@@ -59,7 +68,7 @@ export class ModifyCreateVulWhitelistRequest extends $dara.Model {
    * - **RuleModifyTime**: The time when the vulnerability was last published.
    * - **NntfCount**: The number of low-priority vulnerabilities.
    * - **TotalFixCount**: The total number of fixed vulnerabilities.
-   * - **Tags**: The vulnerability tags.
+   * - **Tags**: The tags of the vulnerability.
    * 
    * > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain the vulnerability information to add to the whitelist.
    * 
@@ -72,6 +81,7 @@ export class ModifyCreateVulWhitelistRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       reason: 'Reason',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       targetInfo: 'TargetInfo',
@@ -82,6 +92,7 @@ export class ModifyCreateVulWhitelistRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       reason: 'string',
       resourceDirectoryAccountId: 'number',
       targetInfo: 'string',

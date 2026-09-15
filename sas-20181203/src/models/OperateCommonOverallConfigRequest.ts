@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class OperateCommonOverallConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
   /**
    * @remarks
    * The switch status. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: enabled
+   * - **off**: disabled
    * 
    * This parameter is required.
    * 
@@ -21,6 +21,11 @@ export class OperateCommonOverallConfigRequest extends $dara.Model {
    * on
    */
   config?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual request. false: performs the actual request. Default value: false.
+   */
+  dryRun?: boolean;
   /**
    * @remarks
    * Specifies whether asset configuration is required. Default value: **false**. Valid values:
@@ -44,8 +49,8 @@ export class OperateCommonOverallConfigRequest extends $dara.Model {
    * @remarks
    * The configuration type. Valid values:
    * 
-   * - **kdump_switch**: proactive defense experience optimization
-   * - **threat_detect**: adaptive threat detection capability
+   * - **kdump_switch**: proactive defense optimization
+   * - **threat_detect**: adaptive threat detection
    * - **suspicious_aggregation**: alert association
    * - **alidetect**: file detection
    * - **USER-ENABLE-SWITCH-TYPE_38857**: Linux entry service performs high-risk operations
@@ -83,8 +88,8 @@ export class OperateCommonOverallConfigRequest extends $dara.Model {
    * - **USER-ENABLE-SWITCH-TYPE_54369**: Windows creates WMI auto-start items
    * - **USER-ENABLE-SWITCH-TYPE_50869**: Linux privilege escalation to execute high-risk commands
    * - **USER-ENABLE-SWITCH-TYPE_53272**: Linux kernel vulnerability exploitation for privilege escalation
-   * - **USER-ENABLE-SWITCH-TYPE_54395**: Linux privilege escalation to read/write sensitive files
-   * - **USER-ENABLE-SWITCH-TYPE_57897**: Linux suspected privilege escalation behavior
+   * - **USER-ENABLE-SWITCH-TYPE_54395**: Linux privilege escalation to read or write sensitive files
+   * - **USER-ENABLE-SWITCH-TYPE_57897**: Linux suspected privilege escalation
    * - **USER-ENABLE-SWITCH-TYPE_52825**: Windows privilege escalation to execute high-risk commands
    * - **USER-ENABLE-SWITCH-TYPE_5507**: Linux malicious driver
    * - **USER-ENABLE-SWITCH-TYPE_50876**: Linux anti-security software
@@ -125,6 +130,7 @@ export class OperateCommonOverallConfigRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       config: 'Config',
+      dryRun: 'DryRun',
       noTargetAsOn: 'NoTargetAsOn',
       sourceIp: 'SourceIp',
       type: 'Type',
@@ -135,6 +141,7 @@ export class OperateCommonOverallConfigRequest extends $dara.Model {
     return {
       clientToken: 'string',
       config: 'string',
+      dryRun: 'boolean',
       noTargetAsOn: 'boolean',
       sourceIp: 'string',
       type: 'string',

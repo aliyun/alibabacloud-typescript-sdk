@@ -8,11 +8,21 @@ export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run of the request. Valid values:
+   * 
+   * - true: performs only a dry run without executing the actual operation.
+   * - false: performs the actual operation.
+   * 
+   * Default value: false.
+   */
+  dryRun?: boolean;
   resourceDirectoryAccountId?: number;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the security alert.
+   * The ID of the alert event.
    * 
    * This parameter is required.
    * 
@@ -39,6 +49,7 @@ export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       resourceOwnerId: 'ResourceOwnerId',
       securityEventId: 'SecurityEventId',
@@ -50,6 +61,7 @@ export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       resourceDirectoryAccountId: 'number',
       resourceOwnerId: 'number',
       securityEventId: 'number',

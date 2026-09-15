@@ -7,7 +7,7 @@ export class ChangeCheckConfigRequestAddedCheck extends $dara.Model {
    * @remarks
    * The ID of the check item.
    * 
-   * > Call [ListCheckResult](~~ListCheckResult~~) to obtain check item IDs.
+   * > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain check item IDs.
    * 
    * @example
    * 5
@@ -129,7 +129,7 @@ export class ChangeCheckConfigRequestRemovedCheck extends $dara.Model {
    * @remarks
    * The ID of the check item.
    * 
-   * > Call [ListCheckResult](~~ListCheckResult~~) to obtain check item IDs.
+   * > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain check item IDs.
    * 
    * @example
    * 19
@@ -170,33 +170,33 @@ export class ChangeCheckConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The list of check items to add to the policy.
-   * <notice> If ConfigStandardIds or ConfigRequirementIds is specified, this parameter does not take effect.
+   * <notice> If the ConfigStandardIds or ConfigRequirementIds parameter is specified, this parameter does not take effect.
    */
   addedCheck?: ChangeCheckConfigRequestAddedCheck[];
   /**
    * @remarks
-   * The client token used to ensure request idempotency. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
    */
   clientToken?: string;
   /**
    * @remarks
    * Configures the check policy by specifying requirement IDs.
    * 
-   * > Call [ListCheckResult](~~ListCheckResult~~) to obtain requirement IDs. If ConfigStandardIds is specified, this parameter does not take effect.
+   * > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain requirement IDs. If the ConfigStandardIds parameter is specified, this parameter does not take effect.
    */
   configRequirementIds?: ChangeCheckConfigRequestConfigRequirementIds;
   /**
    * @remarks
    * Configures the check policy by specifying standard IDs.
    * 
-   * > Call [ListCheckResult](~~ListCheckResult~~) to obtain standard IDs.
+   * > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain standard IDs.
    */
   configStandardIds?: ChangeCheckConfigRequestConfigStandardIds;
   /**
    * @remarks
    * The field configuration. Valid values:
    * 
-   * - **all:** Adds all check items.
+   * - **all**: adds all check items.
    * 
    * @example
    * all
@@ -204,12 +204,17 @@ export class ChangeCheckConfigRequest extends $dara.Model {
   configure?: string;
   /**
    * @remarks
-   * The scheduled check days.
+   * The periodic check schedule.
    */
   cycleDays?: number[];
   /**
    * @remarks
-   * Specifies whether to automatically include newly added check items from the selected requirements. Valid values:
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual operation. false: performs the actual request. Default value: false.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to automatically check newly added check items in the selected requirements. Valid values:
    * 
    * - **true:** Enabled.
    * - **false:** Disabled.
@@ -220,7 +225,7 @@ export class ChangeCheckConfigRequest extends $dara.Model {
   enableAddCheck?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic scheduled checks. Valid values:
+   * Specifies whether to enable automatic periodic checks. Valid values:
    * 
    * - **true:** Enabled.
    * - **false:** Disabled.
@@ -231,12 +236,12 @@ export class ChangeCheckConfigRequest extends $dara.Model {
   enableAutoCheck?: boolean;
   /**
    * @remarks
-   * The end hour of the check time window, expressed as an hour of the day. The start and end times must fall within one of the following time ranges. Valid values: 6, 12, 18, 24.
+   * The end hour of the check time window, indicating the hour of the day. The start time and end time must fall within one of the following time ranges. Valid values: 6, 12, 18, and 24.
    * 
-   * - **0~6:** If the start time is 0, set the end time to 6.
-   * - **6~12:** If the start time is 6, set the end time to 12.
-   * - **12~18:** If the start time is 12, set the end time to 18.
-   * - **18~24:** If the start time is 18, set the end time to 24.
+   * - **0~6**: If the start time is 0, the end time must be set to 6 on the same day.
+   * - **6~12**: If the start time is 6, the end time must be set to 12 on the same day.
+   * - **12~18**: If the start time is 12, the end time must be set to 18 on the same day.
+   * - **18~24**: If the start time is 18, the end time must be set to 24 on the same day.
    * 
    * @example
    * 6
@@ -246,7 +251,7 @@ export class ChangeCheckConfigRequest extends $dara.Model {
    * @remarks
    * The region of the Security Center instance. Valid values:
    * 
-   * - **cn-hangzhou:** China (Hangzhou)
+   * - **cn-hangzhou:** China
    * - **ap-southeast-1:** Singapore
    * 
    * @example
@@ -256,13 +261,13 @@ export class ChangeCheckConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The list of check items to remove from the policy.
-   * <notice> If ConfigStandardIds or ConfigRequirementIds is specified, this parameter does not take effect.
+   * <notice> If the ConfigStandardIds or ConfigRequirementIds parameter is specified, this parameter does not take effect.
    */
   removedCheck?: ChangeCheckConfigRequestRemovedCheck[];
   /**
    * @remarks
-   * The ID of the resource directory member accounts (Alibaba Cloud account).
-   * > Call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+   * The ID of the member account in the resource directory (Alibaba Cloud account).
+   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 1232428423234****
@@ -270,17 +275,17 @@ export class ChangeCheckConfigRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * This parameter is deprecated. You do not need to configure it.
+   * This parameter is deprecated and does not need to be specified.
    */
   standardIds?: number[];
   /**
    * @remarks
-   * The start hour of the check time window, expressed as an hour of the day. The start and end times must fall within one of the following time ranges. Valid values: 0, 6, 12, 18.
+   * The start hour of the check time window, indicating the hour of the day. The start time and end time must fall within one of the following time ranges. Valid values: 0, 6, 12, and 18.
    * 
-   * - **0~6:** If the start time is 0, set the end time to 6.
-   * - **6~12:** If the start time is 6, set the end time to 12.
-   * - **12~18:** If the start time is 12, set the end time to 18.
-   * - **18~24:** If the start time is 18, set the end time to 24.
+   * - **0~6**: If the start time is 0, the end time must be set to 6 on the same day.
+   * - **6~12**: If the start time is 6, the end time must be set to 12 on the same day.
+   * - **12~18**: If the start time is 12, the end time must be set to 18 on the same day.
+   * - **18~24**: If the start time is 18, the end time must be set to 24 on the same day.
    * 
    * @example
    * 0
@@ -289,8 +294,8 @@ export class ChangeCheckConfigRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use the system-generated configuration. Valid values:
-   * - **true:** Yes.
-   * - **false:** No.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -298,7 +303,7 @@ export class ChangeCheckConfigRequest extends $dara.Model {
   systemConfig?: boolean;
   /**
    * @remarks
-   * The list of cloud vendors.
+   * The list of cloud service providers.
    */
   vendors?: string[];
   static names(): { [key: string]: string } {
@@ -309,6 +314,7 @@ export class ChangeCheckConfigRequest extends $dara.Model {
       configStandardIds: 'ConfigStandardIds',
       configure: 'Configure',
       cycleDays: 'CycleDays',
+      dryRun: 'DryRun',
       enableAddCheck: 'EnableAddCheck',
       enableAutoCheck: 'EnableAutoCheck',
       endTime: 'EndTime',
@@ -330,6 +336,7 @@ export class ChangeCheckConfigRequest extends $dara.Model {
       configStandardIds: ChangeCheckConfigRequestConfigStandardIds,
       configure: 'string',
       cycleDays: { 'type': 'array', 'itemType': 'number' },
+      dryRun: 'boolean',
       enableAddCheck: 'boolean',
       enableAutoCheck: 'boolean',
       endTime: 'number',

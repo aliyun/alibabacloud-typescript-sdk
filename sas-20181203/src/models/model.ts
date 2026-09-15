@@ -1000,6 +1000,7 @@ export { ListUnknownThreatDetectEventResponseBodyData } from './ListUnknownThrea
 export { ListUnknownThreatDetectEventResponseBodyPageInfo } from './ListUnknownThreatDetectEventResponseBody';
 export { ListUnknownThreatDetectMachineResponseBodyData } from './ListUnknownThreatDetectMachineResponseBody';
 export { ListUnknownThreatDetectMachineResponseBodyPageInfo } from './ListUnknownThreatDetectMachineResponseBody';
+export { ListUnknownThreatDetectProcessResponseBodyDataTags } from './ListUnknownThreatDetectProcessResponseBody';
 export { ListUnknownThreatDetectProcessResponseBodyData } from './ListUnknownThreatDetectProcessResponseBody';
 export { ListUnknownThreatDetectProcessResponseBodyPageInfo } from './ListUnknownThreatDetectProcessResponseBody';
 export { ListUnknownThreatDetectStrategyResponseBodyData } from './ListUnknownThreatDetectStrategyResponseBody';

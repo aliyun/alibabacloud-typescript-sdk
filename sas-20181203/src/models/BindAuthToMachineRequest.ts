@@ -6,11 +6,11 @@ export class BindAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
    * The authorization version of the asset. Valid values:
-   * - **6**: Anti-virus Edition.
-   * - **5**: Premium Edition.
-   * - **3**: Enterprise Edition.
-   * - **7**: Ultimate Edition.
-   * - **10**: Value-added service Edition.
+   * - **6**: Anti-virus Edition
+   * - **5**: Advanced Edition
+   * - **3**: Enterprise Edition
+   * - **7**: Ultimate Edition
+   * - **10**: Value-added Service Edition
    * 
    * @example
    * 6
@@ -20,8 +20,8 @@ export class BindAuthToMachineRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic binding. Valid values:
    * 
-   * - **0**: Disable automatic binding.
-   * - **1**: Enable automatic binding.
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 1
@@ -52,13 +52,18 @@ export class BindAuthToMachineRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The conditions for searching assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
-   * > You can search for assets by instance ID, instance name, VPC ID, region, or public IP address. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+   * The conditions for searching for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
+   * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * [{"name":"riskStatus","value":"YES"},{"name":"internetIp","value":"1.2.XX.XX"}]
    */
   criteria?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Valid values: true: performs a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
+   */
+  dryRun?: boolean;
   /**
    * @remarks
    * Specifies whether this is a pre-binding operation. Valid values:
@@ -76,8 +81,8 @@ export class BindAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
    * The logical relationship among multiple search conditions. Default value: **OR**. Valid values:
-   * - **OR**: The search conditions are evaluated using a logical OR.
-   * - **AND**: The search conditions are evaluated using a logical AND.
+   * - **OR**: The search conditions are evaluated with a logical OR.
+   * - **AND**: The search conditions are evaluated with a logical AND.
    * 
    * @example
    * OR
@@ -85,13 +90,13 @@ export class BindAuthToMachineRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The order version associated with the pre-binding operation. Valid values:
+   * The order version associated with the pre-binding. Valid values:
    * 
-   * - **level7**: Anti-virus Edition.
-   * - **level3**: Premium Edition.
-   * - **level2**: Enterprise Edition.
-   * - **level8**: Ultimate Edition.
-   * - **level10**: Value-added service only.
+   * - **level7**: Anti-virus Edition
+   * - **level3**: Advanced Edition
+   * - **level2**: Enterprise Edition
+   * - **level8**: Ultimate Edition
+   * - **level10**: Value-added service only
    * 
    * @example
    * level2
@@ -99,7 +104,7 @@ export class BindAuthToMachineRequest extends $dara.Model {
   ntmVersion?: string;
   /**
    * @remarks
-   * The order ID associated with the pre-binding operation.
+   * The order ID associated with the pre-binding.
    * 
    * @example
    * 233016**0482
@@ -108,8 +113,8 @@ export class BindAuthToMachineRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the member accounts (Alibaba Cloud account) in the resource directory.
-   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the member account in the resource folder (Alibaba Cloud account).
+   * > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 16670360956*****
@@ -129,6 +134,7 @@ export class BindAuthToMachineRequest extends $dara.Model {
       bindAll: 'BindAll',
       clientToken: 'ClientToken',
       criteria: 'Criteria',
+      dryRun: 'DryRun',
       isPreBind: 'IsPreBind',
       logicalExp: 'LogicalExp',
       ntmVersion: 'NtmVersion',
@@ -147,6 +153,7 @@ export class BindAuthToMachineRequest extends $dara.Model {
       bindAll: 'boolean',
       clientToken: 'string',
       criteria: 'string',
+      dryRun: 'boolean',
       isPreBind: 'number',
       logicalExp: 'string',
       ntmVersion: 'string',

@@ -44,7 +44,7 @@ export class ModifyCreateVulWhitelistResponseBody extends $dara.Model {
   /**
    * @remarks
    * The vulnerability whitelist information.
-   * >Notice: This data is not returned when you add or update vulnerability whitelists in batches. This data is returned only when you add or update a single vulnerability whitelist entry.
+   * >Notice: This parameter is not returned when vulnerability whitelists are added or updated in batches. It is returned only when a single vulnerability whitelist entry is added or updated.
    */
   vulWhitelistList?: ModifyCreateVulWhitelistResponseBodyVulWhitelistList;
   static names(): { [key: string]: string } {

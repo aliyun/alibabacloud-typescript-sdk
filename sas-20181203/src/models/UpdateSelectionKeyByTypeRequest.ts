@@ -24,6 +24,16 @@ export class UpdateSelectionKeyByTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * - true: performs only a dry run without performing the actual operation.
+   * - false: performs the actual request.
+   * 
+   * Default value: false.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The unique identifier of the asset selection.
    * 
    * @example
@@ -34,6 +44,7 @@ export class UpdateSelectionKeyByTypeRequest extends $dara.Model {
     return {
       businessType: 'BusinessType',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       selectionKey: 'SelectionKey',
     };
   }
@@ -42,6 +53,7 @@ export class UpdateSelectionKeyByTypeRequest extends $dara.Model {
     return {
       businessType: 'string',
       clientToken: 'string',
+      dryRun: 'boolean',
       selectionKey: 'string',
     };
   }

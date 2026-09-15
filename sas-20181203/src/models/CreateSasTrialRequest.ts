@@ -40,6 +40,11 @@ export class CreateSasTrialRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * Specifies whether the request is from the ECS console. Valid values:
    * - **true**: yes.
    * - **false**: no.
@@ -92,6 +97,7 @@ export class CreateSasTrialRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       fromEcs: 'FromEcs',
       lang: 'Lang',
       requestForm: 'RequestForm',
@@ -103,6 +109,7 @@ export class CreateSasTrialRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       fromEcs: 'boolean',
       lang: 'string',
       requestForm: CreateSasTrialRequestRequestForm,

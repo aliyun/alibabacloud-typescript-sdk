@@ -12,8 +12,8 @@ export class VerifyCheckInstanceResultResponseBodyData extends $dara.Model {
    * @remarks
    * The operation code of the cloud service configuration check task. Valid values:
    * 
-   * - **Throttling**: Rate limited.
-   * - **ActionTrialUnauthorized**: Unauthorized error.
+   * - **Throttling**: rate limit.
+   * - **ActionTrialUnauthorized**: unauthorized error.
    * 
    * @example
    * ActionTrialUnauthorized

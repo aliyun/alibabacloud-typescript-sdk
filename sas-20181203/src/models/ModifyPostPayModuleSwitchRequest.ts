@@ -63,7 +63,7 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
    * - **0**: Disabled.
    * - **1**: Enabled.
    * 
-   * >Notice: The basic service module switch cannot be manually modified. This module is enabled when any other module is enabled, and is disabled when all other modules are disabled.
+   * >Notice: The basic service module switch cannot be manually modified. This module is in the enabling status when any other module is enabled, and is in the shutdown status only when all other modules are disabled.</notice>
    * 
    * @example
    * 1
@@ -210,6 +210,11 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Valid values: true: performs a check without executing the operation. false: executes the operation. Default value: false.
+   */
+  dryRun?: boolean;
   edrModuleSwitch?: ModifyPostPayModuleSwitchRequestEdrModuleSwitch;
   /**
    * @remarks
@@ -278,6 +283,7 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       edrModuleSwitch: 'EdrModuleSwitch',
       postPaidHostAutoBind: 'PostPaidHostAutoBind',
       postPaidHostAutoBindVersion: 'PostPaidHostAutoBindVersion',
@@ -290,6 +296,7 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       edrModuleSwitch: ModifyPostPayModuleSwitchRequestEdrModuleSwitch,
       postPaidHostAutoBind: 'number',
       postPaidHostAutoBindVersion: 'number',

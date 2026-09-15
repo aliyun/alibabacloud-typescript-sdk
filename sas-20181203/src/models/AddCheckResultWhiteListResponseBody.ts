@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCheckResultWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** The result of adding to the whitelist. This field is deprecated and can be ignored.
+   * **[Deprecated]** The result of adding items to the whitelist. This field is deprecated and can be ignored.
    * 
    * @example
    * 1

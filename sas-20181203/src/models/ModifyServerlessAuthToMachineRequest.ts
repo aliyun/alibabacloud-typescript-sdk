@@ -51,7 +51,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   bindAppList?: string[];
   /**
    * @remarks
-   * The Asset Type. Valid values:
+   * The Asset Type for the operation. Valid values:
    * - **INSTANCE**: Instance.
    * - **APP**: Application.
    * 
@@ -66,18 +66,23 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   bindUuidList?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
   /**
    * @remarks
-   * The search conditions for assets. This parameter is in JSON format. Pay attention to the letter case when you enter the parameter.
+   * The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
    * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * [{"name":"vulStatus","value":"YES","logicalExp":"AND"}]
    */
   criteria?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. true: performs only a check without executing the actual operation. false: performs the actual operation. Default value: false.
+   */
+  dryRun?: boolean;
   /**
    * @remarks
    * The logical relationship among multiple search conditions. Valid values:
@@ -149,6 +154,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
       bindUuidList: 'BindUuidList',
       clientToken: 'ClientToken',
       criteria: 'Criteria',
+      dryRun: 'DryRun',
       logicalExp: 'LogicalExp',
       ntmVersion: 'NtmVersion',
       preBind: 'PreBind',
@@ -170,6 +176,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
       bindUuidList: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
       criteria: 'string',
+      dryRun: 'boolean',
       logicalExp: 'string',
       ntmVersion: 'string',
       preBind: 'number',
