@@ -16,7 +16,7 @@ export class CreateExternalAgentResponseBodyDataExternalAgentStatus extends $dar
   heartbeatStatus?: string;
   /**
    * @remarks
-   * The last active time of the external agent in RFC 3339 format.
+   * The time when the external agent was last active, in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -24,7 +24,7 @@ export class CreateExternalAgentResponseBodyDataExternalAgentStatus extends $dar
   lastActiveAt?: string;
   /**
    * @remarks
-   * The last heartbeat time of the external agent in RFC 3339 format.
+   * The time of the last heartbeat from the external agent, in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -75,12 +75,100 @@ export class CreateExternalAgentResponseBodyDataExternalAgentStatus extends $dar
   }
 }
 
+export class CreateExternalAgentResponseBodyDataModelQuota extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the quota is enabled. This field is not returned if no quota is configured.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The quota limit type. Currently, only token is supported.
+   * 
+   * @example
+   * token
+   */
+  limitType?: string;
+  /**
+   * @remarks
+   * Indicates whether the quota has been exceeded in the current cycle. This is a read-only field returned by the backend.
+   * 
+   * @example
+   * false
+   */
+  overLimit?: boolean;
+  /**
+   * @remarks
+   * The quota statistical period. day indicates a daily period. month indicates a monthly period.
+   * 
+   * @example
+   * day
+   */
+  periodType?: string;
+  /**
+   * @remarks
+   * The gateway quota rule status. This is a read-only field returned by the backend.
+   * 
+   * @example
+   * ACTIVE
+   */
+  ruleStatus?: string;
+  /**
+   * @remarks
+   * The maximum number of tokens that can be consumed within a single cycle.
+   * 
+   * @example
+   * 1000000
+   */
+  usageLimit?: number;
+  /**
+   * @remarks
+   * The number of tokens consumed in the current cycle. This is a read-only field returned by the backend.
+   * 
+   * @example
+   * 12345
+   */
+  usedAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      limitType: 'limitType',
+      overLimit: 'overLimit',
+      periodType: 'periodType',
+      ruleStatus: 'ruleStatus',
+      usageLimit: 'usageLimit',
+      usedAmount: 'usedAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      limitType: 'string',
+      overLimit: 'boolean',
+      periodType: 'string',
+      ruleStatus: 'string',
+      usageLimit: 'number',
+      usedAmount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateExternalAgentResponseBodyDataModel extends $dara.Model {
   /**
    * @remarks
    * The model connection ID.
-   * 
-   * This parameter is required.
    * 
    * @example
    * mc-1
@@ -90,16 +178,20 @@ export class CreateExternalAgentResponseBodyDataModel extends $dara.Model {
    * @remarks
    * The upstream model name.
    * 
-   * This parameter is required.
-   * 
    * @example
    * qwen-max
    */
   modelName?: string;
+  /**
+   * @remarks
+   * The model token quota configuration and the quota usage status in the current cycle. This field is empty if no quota is configured.
+   */
+  quota?: CreateExternalAgentResponseBodyDataModelQuota;
   static names(): { [key: string]: string } {
     return {
       modelConnectionId: 'modelConnectionId',
       modelName: 'modelName',
+      quota: 'quota',
     };
   }
 
@@ -107,10 +199,14 @@ export class CreateExternalAgentResponseBodyDataModel extends $dara.Model {
     return {
       modelConnectionId: 'string',
       modelName: 'string',
+      quota: CreateExternalAgentResponseBodyDataModelQuota,
     };
   }
 
   validate() {
+    if(this.quota && typeof (this.quota as any).validate === 'function') {
+      (this.quota as any).validate();
+    }
     super.validate();
   }
 
@@ -249,7 +345,6 @@ export class CreateExternalAgentResponseBodyDataTools extends $dara.Model {
   /**
    * @remarks
    * The tool type. Valid values:
-   * 
    * - MCP: MCP tool.
    * 
    * This parameter is required.
@@ -364,10 +459,9 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
   model?: CreateExternalAgentResponseBodyDataModel;
   /**
    * @remarks
-   * The source of the model configuration. Valid values:
-   * 
-   * - PLATFORM: The platform parses and delivers the model configuration.
-   * - RUNTIME: The external runtime manages the model on its own. You cannot specify model at the same time.
+   * The model configuration source. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be specified at the same time. Valid values:
+   * - PLATFORM: platform model.
+   * - RUNTIME: runtime model.
    * 
    * @example
    * PLATFORM
@@ -540,7 +634,7 @@ export class CreateExternalAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message that indicates the result of the request.
+   * The request processing result message.
    * 
    * @example
    * success

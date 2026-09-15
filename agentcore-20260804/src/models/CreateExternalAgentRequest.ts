@@ -2,6 +2,66 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateExternalAgentRequestBodyModelQuota extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable token quota. Defaults to true if not specified. Set to false to disable and delete existing quota rules.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The quota limit type. Required by backend validation when quota is enabled. Fixed value: token.
+   * 
+   * @example
+   * token
+   */
+  limitType?: string;
+  /**
+   * @remarks
+   * The quota statistical period. Required by backend validation when quota is enabled. Valid values: day (daily) and month (monthly).
+   * 
+   * @example
+   * day
+   */
+  periodType?: string;
+  /**
+   * @remarks
+   * The maximum number of tokens that can be consumed within a single period. Required by backend validation when quota is enabled. The value must be greater than 0.
+   * 
+   * @example
+   * 1000000
+   */
+  usageLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      limitType: 'limitType',
+      periodType: 'periodType',
+      usageLimit: 'usageLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      limitType: 'string',
+      periodType: 'string',
+      usageLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateExternalAgentRequestBodyModel extends $dara.Model {
   /**
    * @remarks
@@ -23,10 +83,16 @@ export class CreateExternalAgentRequestBodyModel extends $dara.Model {
    * qwen-max
    */
   modelName?: string;
+  /**
+   * @remarks
+   * The model token quota configuration. If not specified, no quota is configured.
+   */
+  quota?: CreateExternalAgentRequestBodyModelQuota;
   static names(): { [key: string]: string } {
     return {
       modelConnectionId: 'modelConnectionId',
       modelName: 'modelName',
+      quota: 'quota',
     };
   }
 
@@ -34,10 +100,14 @@ export class CreateExternalAgentRequestBodyModel extends $dara.Model {
     return {
       modelConnectionId: 'string',
       modelName: 'string',
+      quota: CreateExternalAgentRequestBodyModelQuota,
     };
   }
 
   validate() {
+    if(this.quota && typeof (this.quota as any).validate === 'function') {
+      (this.quota as any).validate();
+    }
     super.validate();
   }
 
@@ -176,7 +246,6 @@ export class CreateExternalAgentRequestBodyTools extends $dara.Model {
   /**
    * @remarks
    * The tool type. Valid values:
-   * 
    * - MCP: MCP tool.
    * 
    * This parameter is required.
@@ -232,10 +301,9 @@ export class CreateExternalAgentRequestBody extends $dara.Model {
   model?: CreateExternalAgentRequestBodyModel;
   /**
    * @remarks
-   * The source of the model configuration. Valid values:
-   * 
-   * - PLATFORM: The platform parses and delivers the model configuration.
-   * - RUNTIME: The external runtime manages the model on its own. You cannot specify model at the same time.
+   * The model configuration source. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be specified at the same time. Valid values:
+   * - PLATFORM: platform model.
+   * - RUNTIME: runtime model.
    * 
    * @example
    * PLATFORM
@@ -321,7 +389,7 @@ export class CreateExternalAgentRequest extends $dara.Model {
   body?: CreateExternalAgentRequestBody;
   /**
    * @remarks
-   * The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
+   * The reserved idempotency token. The backend does not provide idempotency guarantee in the current phase.
    * 
    * @example
    * client-token-1

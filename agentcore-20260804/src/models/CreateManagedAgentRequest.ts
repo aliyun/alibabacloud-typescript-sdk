@@ -121,7 +121,7 @@ export class CreateManagedAgentRequestBodyEnvironment extends $dara.Model {
 export class CreateManagedAgentRequestBodyHarnessConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter is optional when only one key exists, but required when multiple keys exist.
+   * The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
    * 
    * @example
    * key-xxxx
@@ -129,7 +129,7 @@ export class CreateManagedAgentRequestBodyHarnessConfiguration extends $dara.Mod
   connectorServiceAccountKey?: string;
   /**
    * @remarks
-   * The Connector Key name that is populated during queries. This parameter is not used as a binding reference during writes.
+   * The Connector Key name that is populated during queries. This parameter is not used as a binding criterion during writes.
    * 
    * @example
    * my-connector-key
@@ -166,7 +166,7 @@ export class CreateManagedAgentRequestBodyHarness extends $dara.Model {
   configuration?: CreateManagedAgentRequestBodyHarnessConfiguration;
   /**
    * @remarks
-   * The runtime harness type. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
+   * The harness type. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
    * 
    * @example
    * qodercli
@@ -198,6 +198,68 @@ export class CreateManagedAgentRequestBodyHarness extends $dara.Model {
   }
 }
 
+export class CreateManagedAgentRequestBodyModelQuota extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the token quota is disabled and existing quota rules are deleted.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The quota limit type. This parameter is required by backend validation when the quota is enabled. Fixed value: token.
+   * 
+   * @example
+   * token
+   */
+  limitType?: string;
+  /**
+   * @remarks
+   * The quota statistical period. This parameter is required by backend validation when the quota is enabled. Valid values:
+   * - day: daily.
+   * - month: monthly.
+   * 
+   * @example
+   * day
+   */
+  periodType?: string;
+  /**
+   * @remarks
+   * The maximum number of tokens that can be consumed within a single period. This parameter is required by backend validation when the quota is enabled. The value must be greater than 0.
+   * 
+   * @example
+   * 1000000
+   */
+  usageLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      limitType: 'limitType',
+      periodType: 'periodType',
+      usageLimit: 'usageLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      limitType: 'string',
+      periodType: 'string',
+      usageLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateManagedAgentRequestBodyModel extends $dara.Model {
   /**
    * @remarks
@@ -217,10 +279,16 @@ export class CreateManagedAgentRequestBodyModel extends $dara.Model {
    * qwen-max
    */
   modelName?: string;
+  /**
+   * @remarks
+   * The model token quota configuration. If this parameter is not specified, no quota is configured.
+   */
+  quota?: CreateManagedAgentRequestBodyModelQuota;
   static names(): { [key: string]: string } {
     return {
       modelConnectionId: 'modelConnectionId',
       modelName: 'modelName',
+      quota: 'quota',
     };
   }
 
@@ -228,10 +296,14 @@ export class CreateManagedAgentRequestBodyModel extends $dara.Model {
     return {
       modelConnectionId: 'string',
       modelName: 'string',
+      quota: CreateManagedAgentRequestBodyModelQuota,
     };
   }
 
   validate() {
+    if(this.quota && typeof (this.quota as any).validate === 'function') {
+      (this.quota as any).validate();
+    }
     super.validate();
   }
 
@@ -343,22 +415,22 @@ export class CreateManagedAgentRequestBodyNetwork extends $dara.Model {
 export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket name. This parameter is required for each mount entry as validated by the backend.
+   * The OSS bucket name. This parameter is required by backend validation for each mount entry.
    */
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path in the container. This parameter is required for each mount entry as validated by the backend.
+   * The absolute mount path inside the container. This parameter is required by backend validation for each mount entry.
    */
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix in the bucket. If this parameter is not specified, the entire bucket is mounted.
+   * The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
    */
   path?: string;
   /**
    * @remarks
-   * Specifies whether to mount as read-only. Default value: false.
+   * Specifies whether to mount in read-only mode. Default value: false.
    */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -391,7 +463,7 @@ export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
 export class CreateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute specification.
+   * The compute class.
    * 
    * This parameter is required.
    * 
@@ -423,27 +495,27 @@ export class CreateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
 export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-scaling. This parameter is required when hpa is present as validated by the backend.
+   * Specifies whether to enable auto scaling. This parameter is required by backend validation when hpa is present.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of active sessions per Sandbox. This parameter is required when hpa is present as validated by the backend.
+   * The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is present.
    */
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of Sandboxes. This parameter is required when HPA is enabled and must be no less than the minimum value.
+   * The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
    */
   maxSandboxCount?: number;
   /**
    * @remarks
-   * The minimum number of Sandboxes. This parameter is required when HPA is enabled.
+   * The minimum number of sandboxes. This parameter is required when HPA is enabled.
    */
   minSandboxCount?: number;
   /**
    * @remarks
-   * The session reclamation time after inactivity, in seconds. This parameter is required when hpa is present as validated by the backend.
+   * The session reclamation time after inactivity, in seconds. This parameter is required by backend validation when hpa is present.
    */
   sessionTtlSeconds?: number;
   static names(): { [key: string]: string } {
@@ -478,7 +550,7 @@ export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
 export class CreateManagedAgentRequestBodyRuntimeSessionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The HTTP header name used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+   * The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
    * 
    * @example
    * X-Session-Id
@@ -527,7 +599,7 @@ export class CreateManagedAgentRequestBodyRuntime extends $dara.Model {
   compute?: CreateManagedAgentRequestBodyRuntimeCompute;
   /**
    * @remarks
-   * The Sandbox auto-scaling and session configuration.
+   * The sandbox auto scaling and session configuration.
    */
   hpa?: CreateManagedAgentRequestBodyRuntimeHpa;
   /**
@@ -791,7 +863,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   environment?: CreateManagedAgentRequestBodyEnvironment;
   /**
    * @remarks
-   * The runtime harness of the managed agent. Valid values: qwenpaw and qodercli.
+   * The harness for the managed agent. Valid values: qwenpaw and qodercli.
    */
   harness?: CreateManagedAgentRequestBodyHarness;
   /**
@@ -826,7 +898,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   network?: CreateManagedAgentRequestBodyNetwork;
   /**
    * @remarks
-   * The OSS mount list. A maximum of 10 entries are supported.
+   * The list of OSS mounts. A maximum of 10 entries are supported.
    */
   ossMounts?: CreateManagedAgentRequestBodyOssMounts[];
   /**
@@ -853,7 +925,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   template?: CreateManagedAgentRequestBodyTemplate;
   /**
    * @remarks
-   * The list of tool configurations.
+   * The tool configuration list.
    */
   tools?: CreateManagedAgentRequestBodyTools[];
   static names(): { [key: string]: string } {
@@ -939,7 +1011,7 @@ export class CreateManagedAgentRequest extends $dara.Model {
   body?: CreateManagedAgentRequestBody;
   /**
    * @remarks
-   * The reserved idempotency token. The backend does not provide idempotency guarantees in the current phase.
+   * The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
    * 
    * @example
    * client-token-1

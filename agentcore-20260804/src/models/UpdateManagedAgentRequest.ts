@@ -198,6 +198,54 @@ export class UpdateManagedAgentRequestBodyHarness extends $dara.Model {
   }
 }
 
+export class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * token
+   */
+  limitType?: string;
+  /**
+   * @example
+   * day
+   */
+  periodType?: string;
+  /**
+   * @example
+   * 1000000
+   */
+  usageLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      limitType: 'limitType',
+      periodType: 'periodType',
+      usageLimit: 'usageLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      limitType: 'string',
+      periodType: 'string',
+      usageLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateManagedAgentRequestBodyModel extends $dara.Model {
   /**
    * @remarks
@@ -217,10 +265,12 @@ export class UpdateManagedAgentRequestBodyModel extends $dara.Model {
    * qwen-max
    */
   modelName?: string;
+  quota?: UpdateManagedAgentRequestBodyModelQuota;
   static names(): { [key: string]: string } {
     return {
       modelConnectionId: 'modelConnectionId',
       modelName: 'modelName',
+      quota: 'quota',
     };
   }
 
@@ -228,10 +278,14 @@ export class UpdateManagedAgentRequestBodyModel extends $dara.Model {
     return {
       modelConnectionId: 'string',
       modelName: 'string',
+      quota: UpdateManagedAgentRequestBodyModelQuota,
     };
   }
 
   validate() {
+    if(this.quota && typeof (this.quota as any).validate === 'function') {
+      (this.quota as any).validate();
+    }
     super.validate();
   }
 

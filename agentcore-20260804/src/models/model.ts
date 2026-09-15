@@ -34,6 +34,7 @@ export { CreateCredentialRequestBodyResourceRefs } from './CreateCredentialReque
 export { CreateCredentialRequestBody } from './CreateCredentialRequest';
 export { CreateCredentialResponseBodyDataResourceRefs } from './CreateCredentialResponseBody';
 export { CreateCredentialResponseBodyData } from './CreateCredentialResponseBody';
+export { CreateExternalAgentRequestBodyModelQuota } from './CreateExternalAgentRequest';
 export { CreateExternalAgentRequestBodyModel } from './CreateExternalAgentRequest';
 export { CreateExternalAgentRequestBodySkills } from './CreateExternalAgentRequest';
 export { CreateExternalAgentRequestBodyTemplateAiRegistry } from './CreateExternalAgentRequest';
@@ -41,6 +42,7 @@ export { CreateExternalAgentRequestBodyTemplate } from './CreateExternalAgentReq
 export { CreateExternalAgentRequestBodyTools } from './CreateExternalAgentRequest';
 export { CreateExternalAgentRequestBody } from './CreateExternalAgentRequest';
 export { CreateExternalAgentResponseBodyDataExternalAgentStatus } from './CreateExternalAgentResponseBody';
+export { CreateExternalAgentResponseBodyDataModelQuota } from './CreateExternalAgentResponseBody';
 export { CreateExternalAgentResponseBodyDataModel } from './CreateExternalAgentResponseBody';
 export { CreateExternalAgentResponseBodyDataSkills } from './CreateExternalAgentResponseBody';
 export { CreateExternalAgentResponseBodyDataTemplateAiRegistry } from './CreateExternalAgentResponseBody';
@@ -57,6 +59,7 @@ export { CreateManagedAgentRequestBodyEnvironmentVariables } from './CreateManag
 export { CreateManagedAgentRequestBodyEnvironment } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodyHarnessConfiguration } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodyHarness } from './CreateManagedAgentRequest';
+export { CreateManagedAgentRequestBodyModelQuota } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodyModel } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodyNetworkAccessInternet } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodyNetworkAccessVpc } from './CreateManagedAgentRequest';
@@ -77,6 +80,7 @@ export { CreateManagedAgentResponseBodyDataEnvironmentVariables } from './Create
 export { CreateManagedAgentResponseBodyDataEnvironment } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataHarnessConfiguration } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataHarness } from './CreateManagedAgentResponseBody';
+export { CreateManagedAgentResponseBodyDataModelQuota } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataModel } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataNetworkAccessInternet } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataNetworkAccessVpc } from './CreateManagedAgentResponseBody';
@@ -189,6 +193,7 @@ export { GetCredentialResponseBodyDataBoundAgents } from './GetCredentialRespons
 export { GetCredentialResponseBodyDataResourceRefs } from './GetCredentialResponseBody';
 export { GetCredentialResponseBodyData } from './GetCredentialResponseBody';
 export { GetExternalAgentResponseBodyDataExternalAgentStatus } from './GetExternalAgentResponseBody';
+export { GetExternalAgentResponseBodyDataModelQuota } from './GetExternalAgentResponseBody';
 export { GetExternalAgentResponseBodyDataModel } from './GetExternalAgentResponseBody';
 export { GetExternalAgentResponseBodyDataSkills } from './GetExternalAgentResponseBody';
 export { GetExternalAgentResponseBodyDataTemplateAiRegistry } from './GetExternalAgentResponseBody';
@@ -204,6 +209,7 @@ export { GetManagedAgentResponseBodyDataEnvironmentVariables } from './GetManage
 export { GetManagedAgentResponseBodyDataEnvironment } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataHarnessConfiguration } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataHarness } from './GetManagedAgentResponseBody';
+export { GetManagedAgentResponseBodyDataModelQuota } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataModel } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataNetworkAccessInternet } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataNetworkAccessVpc } from './GetManagedAgentResponseBody';
@@ -406,6 +412,7 @@ export { UpdateCredentialRequestBodyResourceRefs } from './UpdateCredentialReque
 export { UpdateCredentialRequestBody } from './UpdateCredentialRequest';
 export { UpdateCredentialResponseBodyDataResourceRefs } from './UpdateCredentialResponseBody';
 export { UpdateCredentialResponseBodyData } from './UpdateCredentialResponseBody';
+export { UpdateExternalAgentRequestBodyModelQuota } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentRequestBodyModel } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentRequestBodySkills } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentRequestBodyTemplateAiRegistry } from './UpdateExternalAgentRequest';
@@ -413,6 +420,7 @@ export { UpdateExternalAgentRequestBodyTemplate } from './UpdateExternalAgentReq
 export { UpdateExternalAgentRequestBodyTools } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentRequestBody } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentResponseBodyDataExternalAgentStatus } from './UpdateExternalAgentResponseBody';
+export { UpdateExternalAgentResponseBodyDataModelQuota } from './UpdateExternalAgentResponseBody';
 export { UpdateExternalAgentResponseBodyDataModel } from './UpdateExternalAgentResponseBody';
 export { UpdateExternalAgentResponseBodyDataSkills } from './UpdateExternalAgentResponseBody';
 export { UpdateExternalAgentResponseBodyDataTemplateAiRegistry } from './UpdateExternalAgentResponseBody';
@@ -427,6 +435,7 @@ export { UpdateManagedAgentRequestBodyEnvironmentVariables } from './UpdateManag
 export { UpdateManagedAgentRequestBodyEnvironment } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodyHarnessConfiguration } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodyHarness } from './UpdateManagedAgentRequest';
+export { UpdateManagedAgentRequestBodyModelQuota } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodyModel } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodyNetworkAccessInternet } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodyNetworkAccessVpc } from './UpdateManagedAgentRequest';
@@ -447,6 +456,7 @@ export { UpdateManagedAgentResponseBodyDataEnvironmentVariables } from './Update
 export { UpdateManagedAgentResponseBodyDataEnvironment } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataHarnessConfiguration } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataHarness } from './UpdateManagedAgentResponseBody';
+export { UpdateManagedAgentResponseBodyDataModelQuota } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataModel } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataNetworkAccessInternet } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataNetworkAccessVpc } from './UpdateManagedAgentResponseBody';

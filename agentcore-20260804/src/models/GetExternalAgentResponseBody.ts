@@ -75,12 +75,79 @@ export class GetExternalAgentResponseBodyDataExternalAgentStatus extends $dara.M
   }
 }
 
+export class GetExternalAgentResponseBodyDataModelQuota extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * token
+   */
+  limitType?: string;
+  /**
+   * @example
+   * false
+   */
+  overLimit?: boolean;
+  /**
+   * @example
+   * day
+   */
+  periodType?: string;
+  /**
+   * @example
+   * ACTIVE
+   */
+  ruleStatus?: string;
+  /**
+   * @example
+   * 1000000
+   */
+  usageLimit?: number;
+  /**
+   * @example
+   * 12345
+   */
+  usedAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      limitType: 'limitType',
+      overLimit: 'overLimit',
+      periodType: 'periodType',
+      ruleStatus: 'ruleStatus',
+      usageLimit: 'usageLimit',
+      usedAmount: 'usedAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      limitType: 'string',
+      overLimit: 'boolean',
+      periodType: 'string',
+      ruleStatus: 'string',
+      usageLimit: 'number',
+      usedAmount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetExternalAgentResponseBodyDataModel extends $dara.Model {
   /**
    * @remarks
    * The model connection ID.
-   * 
-   * This parameter is required.
    * 
    * @example
    * mc-1
@@ -90,16 +157,16 @@ export class GetExternalAgentResponseBodyDataModel extends $dara.Model {
    * @remarks
    * The upstream model name.
    * 
-   * This parameter is required.
-   * 
    * @example
    * qwen-max
    */
   modelName?: string;
+  quota?: GetExternalAgentResponseBodyDataModelQuota;
   static names(): { [key: string]: string } {
     return {
       modelConnectionId: 'modelConnectionId',
       modelName: 'modelName',
+      quota: 'quota',
     };
   }
 
@@ -107,10 +174,14 @@ export class GetExternalAgentResponseBodyDataModel extends $dara.Model {
     return {
       modelConnectionId: 'string',
       modelName: 'string',
+      quota: GetExternalAgentResponseBodyDataModelQuota,
     };
   }
 
   validate() {
+    if(this.quota && typeof (this.quota as any).validate === 'function') {
+      (this.quota as any).validate();
+    }
     super.validate();
   }
 
