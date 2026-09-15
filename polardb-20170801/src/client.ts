@@ -10189,7 +10189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed attributes of a custom instance.
+   * Queries the details of a custom instance.
    * 
    * @param request - DescribeAIDBClusterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10236,7 +10236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed attributes of a custom instance.
+   * Queries the details of a custom instance.
    * 
    * @param request - DescribeAIDBClusterAttributeRequest
    * @returns DescribeAIDBClusterAttributeResponse
@@ -12655,7 +12655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of AI cluster models.
+   * Retrieves the list of models in an AI cluster.
    * 
    * @param request - DescribeAvailableModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12666,6 +12666,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.kubeType)) {
       query["KubeType"] = request.kubeType;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      query["ModelType"] = request.modelType;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -12690,7 +12694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of AI cluster models.
+   * Retrieves the list of models in an AI cluster.
    * 
    * @param request - DescribeAvailableModelsRequest
    * @returns DescribeAvailableModelsResponse

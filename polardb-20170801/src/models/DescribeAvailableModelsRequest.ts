@@ -13,6 +13,14 @@ export class DescribeAvailableModelsRequest extends $dara.Model {
   kubeType?: string;
   /**
    * @remarks
+   * The model type. Valid values: custom or public. If this parameter is not specified, all models are returned.
+   * 
+   * @example
+   * custom
+   */
+  modelType?: string;
+  /**
+   * @remarks
    * The region ID.
    * 
    * @example
@@ -22,6 +30,7 @@ export class DescribeAvailableModelsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       kubeType: 'KubeType',
+      modelType: 'ModelType',
       regionId: 'RegionId',
     };
   }
@@ -29,6 +38,7 @@ export class DescribeAvailableModelsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       kubeType: 'string',
+      modelType: 'string',
       regionId: 'string',
     };
   }
