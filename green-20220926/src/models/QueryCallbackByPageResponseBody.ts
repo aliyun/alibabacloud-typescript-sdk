@@ -32,7 +32,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
    * The primary key ID.
    * 
    * @example
-   * 1545
+   * 1554
    */
   id?: number;
   /**

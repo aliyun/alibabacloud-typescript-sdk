@@ -15,7 +15,7 @@ export class MarkOssV2ResultRequest extends $dara.Model {
    * @remarks
    * The freeze type. This parameter is required when Operation is set to freeze. Valid values:
    * - ACL: Modify file permissions.
-   * - COPY: Move the file to a directory. Directory description: 1. The directory selected when the task was created takes priority. 2. If automatic freezing was not enabled during creation, or ACL freezing was configured, the directory selected during manual freezing in the console is used. 3. The default directory is alicip_riskfile_backup/.
+   * - COPY: Move the file directory. Description of the destination directory: 1. The file directory selected when the task was created takes priority. 2. If automatic freezing was not enabled during creation, or ACL freezing was configured, the directory selected during freezing in the console is used. 3. The default directory is alicip_riskfile_backup/.
    * 
    * @example
    * ACL
@@ -27,8 +27,8 @@ export class MarkOssV2ResultRequest extends $dara.Model {
    * 
    * - freeze: Freeze.
    * - unfreeze: Unfreeze.
-   * - misreport: False positive (not a violation).
-   * - missOut: Missed violation.
+   * - misreport: Non-violation false positive.
+   * - missOut: Violation missed.
    * 
    * @example
    * freeze
@@ -55,7 +55,7 @@ export class MarkOssV2ResultRequest extends $dara.Model {
    * The task name.
    * 
    * @example
-   * Image batch task 20240914100517757
+   * Image stock task 20240914100517757
    */
   taskName?: string;
   static names(): { [key: string]: string } {

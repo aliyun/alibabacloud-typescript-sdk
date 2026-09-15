@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssV2ResultResponseBodyItemsLabelDetails extends $dara.Model {
   /**
    * @remarks
-   * The confidence score.
+   * The confidence level.
    * 
    * @example
    * 50.00
@@ -16,7 +16,7 @@ export class DescribeOssV2ResultResponseBodyItemsLabelDetails extends $dara.Mode
    * The label description.
    * 
    * @example
-   * 涉政
+   * Political sensitivity
    */
   description?: string;
   /**
@@ -55,7 +55,7 @@ export class DescribeOssV2ResultResponseBodyItemsLabelDetails extends $dara.Mode
 export class DescribeOssV2ResultResponseBodyItemsLabelDetails2 extends $dara.Model {
   /**
    * @remarks
-   * The confidence score.
+   * The confidence level.
    * 
    * @example
    * 90.00
@@ -66,7 +66,7 @@ export class DescribeOssV2ResultResponseBodyItemsLabelDetails2 extends $dara.Mod
    * The label description.
    * 
    * @example
-   * 涉政
+   * Political sensitivity
    */
   description?: string;
   /**
@@ -105,7 +105,7 @@ export class DescribeOssV2ResultResponseBodyItemsLabelDetails2 extends $dara.Mod
 export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The storage bucket.
+   * The OSS bucket.
    * 
    * @example
    * buckect_test
@@ -181,7 +181,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   manualFreezeAction?: string;
   /**
    * @remarks
-   * The disposition time.
+   * The disposition time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-08-09 12:00:00
@@ -261,7 +261,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The automatic system freeze operation.
+   * The automatic freeze operation performed by the system.
    * 
    * @example
    * COPY
@@ -378,7 +378,7 @@ export class DescribeOssV2ResultResponseBody extends $dara.Model {
   items?: DescribeOssV2ResultResponseBodyItems[];
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -386,7 +386,7 @@ export class DescribeOssV2ResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

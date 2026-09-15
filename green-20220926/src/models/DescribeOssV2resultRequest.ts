@@ -21,7 +21,7 @@ export class DescribeOssV2ResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time.
+   * The end time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-09-14 16:08:38
@@ -29,7 +29,7 @@ export class DescribeOssV2ResultRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribeOssV2ResultRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-09-14 16:08:38
@@ -56,7 +56,7 @@ export class DescribeOssV2ResultRequest extends $dara.Model {
    * The task name.
    * 
    * @example
-   * Image stock task 20240914100517757
+   * Image batch task 20240914100517757
    */
   taskName?: string;
   static names(): { [key: string]: string } {

@@ -1804,7 +1804,7 @@ export default class Client extends OpenApi {
    * Retrieves OSS moderation results v2.
    * 
    * @remarks
-   * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
+   * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
    * 
    * @param request - DescribeOssV2ResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1862,7 +1862,7 @@ export default class Client extends OpenApi {
    * Retrieves OSS moderation results v2.
    * 
    * @remarks
-   * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
+   * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
    * 
    * @param request - DescribeOssV2ResultRequest
    * @returns DescribeOssV2ResultResponse
@@ -5639,7 +5639,7 @@ export default class Client extends OpenApi {
    * Provides feedback on OSS detection results.
    * 
    * @remarks
-   * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
+   * This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
    * 
    * @param request - MarkOssV2ResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5693,7 +5693,7 @@ export default class Client extends OpenApi {
    * Provides feedback on OSS detection results.
    * 
    * @remarks
-   * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
+   * This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
    * 
    * @param request - MarkOssV2ResultRequest
    * @returns MarkOssV2ResultResponse
@@ -7256,6 +7256,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.fileConfig)) {
       body["FileConfig"] = request.fileConfig;
     }

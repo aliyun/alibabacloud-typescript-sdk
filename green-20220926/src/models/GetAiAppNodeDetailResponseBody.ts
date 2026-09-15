@@ -84,7 +84,7 @@ export class GetAiAppNodeDetailResponseBodyEventData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The time when the event occurred.
+   * The time when the event occurred. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-01-01 16:08:38
