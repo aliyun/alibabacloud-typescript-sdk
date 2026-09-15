@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the VPC network is enabled.
+   * Indicates whether VPC networking is enabled.
    * 
    * @example
    * true
@@ -55,17 +55,27 @@ export class GetWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dara.M
 export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The user VPC network configuration.
+   * The public egress IP address allocated to the workspace. You can use this IP address to configure IP address whitelists for external services. This field is returned only when the public egress resource is attached and an address is allocated. The field is empty if no address is allocated, the attachment is failed, or the address is being released. This address is independent of whether VPC networking is active.
+   * 
+   * @example
+   * 203.0.113.10
+   */
+  publicEgressIp?: string;
+  /**
+   * @remarks
+   * The VPC network configuration of the user.
    */
   vpc?: GetWorkspaceResponseBodyDataNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
     return {
+      publicEgressIp: 'publicEgressIp',
       vpc: 'vpc',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      publicEgressIp: 'string',
       vpc: GetWorkspaceResponseBodyDataNetworkConfigurationVpc,
     };
   }
@@ -85,7 +95,17 @@ export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Mode
 export class GetWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The OSS storage authorization status.
+   */
+  authorizationStatus?: string;
+  /**
+   * @remarks
+   * The name of the private OSS bucket.
+   */
+  bucketName?: string;
+  /**
+   * @remarks
+   * The time when the workspace was created.
    * 
    * @example
    * 2026-08-06T03:56:56Z
@@ -101,7 +121,7 @@ export class GetWorkspaceResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The workspace network configuration.
+   * The network configuration of the workspace.
    */
   networkConfiguration?: GetWorkspaceResponseBodyDataNetworkConfiguration;
   /**
@@ -114,7 +134,12 @@ export class GetWorkspaceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The workspace status. Valid values: Initializing, InitializationFailed, Initialized, Deleting, Deleted.
+   * The workspace status. Valid values:
+   * - Initializing
+   * - InitializationFailed
+   * - Initialized
+   * - Deleting
+   * - Deleted
    * 
    * @example
    * Initialized
@@ -128,6 +153,11 @@ export class GetWorkspaceResponseBodyData extends $dara.Model {
    * InitializationFailed: VPC not found
    */
   statusReason?: string;
+  /**
+   * @remarks
+   * The storage type of the workspace.
+   */
+  storageType?: string;
   /**
    * @remarks
    * The ID of the tenant to which the workspace belongs.
@@ -146,12 +176,15 @@ export class GetWorkspaceResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      authorizationStatus: 'authorizationStatus',
+      bucketName: 'bucketName',
       createTime: 'createTime',
       name: 'name',
       networkConfiguration: 'networkConfiguration',
       regionId: 'regionId',
       status: 'status',
       statusReason: 'statusReason',
+      storageType: 'storageType',
       tenantId: 'tenantId',
       workspaceId: 'workspaceId',
     };
@@ -159,12 +192,15 @@ export class GetWorkspaceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authorizationStatus: 'string',
+      bucketName: 'string',
       createTime: 'string',
       name: 'string',
       networkConfiguration: GetWorkspaceResponseBodyDataNetworkConfiguration,
       regionId: 'string',
       status: 'string',
       statusReason: 'string',
+      storageType: 'string',
       tenantId: 'string',
       workspaceId: 'string',
     };

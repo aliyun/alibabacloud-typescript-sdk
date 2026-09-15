@@ -13,12 +13,12 @@ export class UpdateWorkspaceRequestBodyNetworkConfigurationVpc extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be included, and all vSwitches must belong to the VPC specified by VpcId.
+   * The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be specified, and all vSwitches must belong to the VPC specified by VpcId.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the user VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1234567890
@@ -55,7 +55,7 @@ export class UpdateWorkspaceRequestBodyNetworkConfigurationVpc extends $dara.Mod
 export class UpdateWorkspaceRequestBodyNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The user VPC network configuration.
+   * The VPC network configuration.
    * 
    * This parameter is required.
    */
@@ -95,7 +95,7 @@ export class UpdateWorkspaceRequestBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The updated workspace network configuration.
+   * The updated network configuration of the workspace.
    */
   networkConfiguration?: UpdateWorkspaceRequestBodyNetworkConfiguration;
   static names(): { [key: string]: string } {

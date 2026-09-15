@@ -37,7 +37,7 @@ export class UpdateIdentityProviderRequestBodyMetadata extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * The data encryption key for event subscriptions. The value must be consistent with the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
+   * The data encryption key for event subscriptions. The value must match the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
    * 
    * @example
    * example-encrypt-key
@@ -45,7 +45,7 @@ export class UpdateIdentityProviderRequestBodyMetadata extends $dara.Model {
   encryptKey?: string;
   /**
    * @remarks
-   * The verification token for event subscriptions. The value must be consistent with the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
+   * The verification token for event subscriptions. The value must match the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
    * 
    * @example
    * example-verification-token
@@ -95,7 +95,7 @@ export class UpdateIdentityProviderRequestBody extends $dara.Model {
   metadata?: UpdateIdentityProviderRequestBodyMetadata;
   /**
    * @remarks
-   * Specifies whether to enable organization member synchronization. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
+   * Specifies whether to enable organization member synchronization. When enabled, the external identity provider synchronizes organization members as workspace users.
    */
   syncEnabled?: boolean;
   static names(): { [key: string]: string } {

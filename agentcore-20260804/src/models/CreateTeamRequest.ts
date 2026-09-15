@@ -13,9 +13,7 @@ export class CreateTeamRequestBodyAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The role of the agent in the team. Valid values:
-   * - LEADER
-   * - WORKER
+   * The role of the agent in the team. Valid values: LEADER, WORKER.
    * 
    * @example
    * WORKER
@@ -47,11 +45,7 @@ export class CreateTeamRequestBodyAgents extends $dara.Model {
 export class CreateTeamRequestBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The role of the user in the team. Valid values:
-   * - ADMIN
-   * - MEMBER
-   * 
-   * Each team must have exactly one ADMIN.
+   * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must include exactly one ADMIN.
    * 
    * @example
    * ADMIN
@@ -91,7 +85,7 @@ export class CreateTeamRequestBodyUsers extends $dara.Model {
 export class CreateTeamRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The list of agent members for the team.
+   * The list of agent members in the team.
    */
   agents?: CreateTeamRequestBodyAgents[];
   /**
@@ -114,7 +108,7 @@ export class CreateTeamRequestBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of user members for the team. The list must include exactly one member with the ADMIN role.
+   * The list of user members in the team. The list must include exactly one member with the ADMIN role.
    */
   users?: CreateTeamRequestBodyUsers[];
   static names(): { [key: string]: string } {

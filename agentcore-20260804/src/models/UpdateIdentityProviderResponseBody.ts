@@ -35,7 +35,7 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Specifies whether to enable organization member synchronization. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
+   * Specifies whether to enable organization member synchronization. When enabled, the external identity provider synchronizes organization members as workspace users.
    */
   syncEnabled?: boolean;
   /**
@@ -99,7 +99,7 @@ export class UpdateIdentityProviderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned if the request failed.
    * 
    * @example
    * success

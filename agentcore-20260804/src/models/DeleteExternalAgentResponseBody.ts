@@ -45,14 +45,6 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The currently effective specification version number.
-   * 
-   * @example
-   * 1
-   */
-  effectiveSpecVersion?: number;
-  /**
-   * @remarks
    * The latest specification version number.
    * 
    * @example
@@ -112,7 +104,6 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
       createdAt: 'createdAt',
       deployType: 'deployType',
       description: 'description',
-      effectiveSpecVersion: 'effectiveSpecVersion',
       latestSpecVersion: 'latestSpecVersion',
       name: 'name',
       runtime: 'runtime',
@@ -129,7 +120,6 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
       createdAt: 'string',
       deployType: 'string',
       description: 'string',
-      effectiveSpecVersion: 'number',
       latestSpecVersion: 'number',
       name: 'string',
       runtime: 'string',
@@ -151,7 +141,7 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
 export class DeleteExternalAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value SUCCESS is returned if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -159,12 +149,12 @@ export class DeleteExternalAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The summary information of the external agent after deletion.
+   * The summary information of the deleted external agent.
    */
   data?: DeleteExternalAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value 200 is returned if the request is successful.
    * 
    * @example
    * 200
@@ -172,7 +162,7 @@ export class DeleteExternalAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The message returned for the request processing result.
    * 
    * @example
    * success

@@ -63,7 +63,7 @@ export class DeleteCredentialResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The deleted credential information.
+   * The information about the deleted credential.
    */
   data?: DeleteCredentialResponseBodyData;
   /**

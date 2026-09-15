@@ -2,6 +2,56 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateCredentialRequestBodyResourceRefs extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the resource.
+   * 
+   * @example
+   * agent-xxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource name. This value is empty if the resource has been deleted.
+   * 
+   * @example
+   * my-agent
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type, such as agent.
+   * 
+   * @example
+   * agent
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCredentialRequestBody extends $dara.Model {
   /**
    * @remarks
@@ -13,16 +63,31 @@ export class UpdateCredentialRequestBody extends $dara.Model {
   credentialMetadata?: string;
   /**
    * @remarks
-   * The new credential description. The description can be up to 256 characters in length. At least one of credentialMetadata and description must be specified.
+   * The new credential description. The description can be up to 256 characters in length. At least one of description and credentialMetadata must be specified.
    * 
    * @example
    * API Key used for calling model services in the production environment
    */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required and must be a non-empty array when resourceScope is set to SPECIFIED. Each item contains resourceType and resourceId. resourceName is optional.
+   */
+  resourceRefs?: UpdateCredentialRequestBodyResourceRefs[];
+  /**
+   * @remarks
+   * ALL indicates all resources. SPECIFIED indicates that the credential applies only to the resources specified in resourceRefs.
+   * 
+   * @example
+   * ALL
+   */
+  resourceScope?: string;
   static names(): { [key: string]: string } {
     return {
       credentialMetadata: 'credentialMetadata',
       description: 'description',
+      resourceRefs: 'resourceRefs',
+      resourceScope: 'resourceScope',
     };
   }
 
@@ -30,10 +95,15 @@ export class UpdateCredentialRequestBody extends $dara.Model {
     return {
       credentialMetadata: 'string',
       description: 'string',
+      resourceRefs: { 'type': 'array', 'itemType': UpdateCredentialRequestBodyResourceRefs },
+      resourceScope: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.resourceRefs)) {
+      $dara.Model.validateArray(this.resourceRefs);
+    }
     super.validate();
   }
 

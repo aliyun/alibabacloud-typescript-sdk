@@ -146,6 +146,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Converts an MCP to free editing.
+   * 
+   * @remarks
+   * Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+   * 
+   * @param request - ConvertMcpToFreeEditRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConvertMcpToFreeEditResponse
+   */
+  async convertMcpToFreeEditWithOptions(workspaceId: string, mcpServerId: string, request: $_model.ConvertMcpToFreeEditRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ConvertMcpToFreeEditResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConvertMcpToFreeEdit",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-servers/${$dara.URL.percentEncode(mcpServerId)}/convert-to-free-edit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConvertMcpToFreeEditResponse>(await this.callApi(params, req, runtime), new $_model.ConvertMcpToFreeEditResponse({}));
+  }
+
+  /**
+   * Converts an MCP to free editing.
+   * 
+   * @remarks
+   * Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+   * 
+   * @param request - ConvertMcpToFreeEditRequest
+   * @returns ConvertMcpToFreeEditResponse
+   */
+  async convertMcpToFreeEdit(workspaceId: string, mcpServerId: string, request: $_model.ConvertMcpToFreeEditRequest): Promise<$_model.ConvertMcpToFreeEditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.convertMcpToFreeEditWithOptions(workspaceId, mcpServerId, request, headers, runtime);
+  }
+
+  /**
    * Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
    * 
    * @remarks
@@ -327,7 +378,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a credential in a specified workspace for agent authentication when accessing external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+   * Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+   * 
+   * @remarks
+   * Creates a credential in a workspace for authentication of services such as Connector.
    * 
    * @param tmpReq - CreateCredentialRequest
    * @param headers - map
@@ -372,7 +426,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a credential in a specified workspace for agent authentication when accessing external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+   * Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+   * 
+   * @remarks
+   * Creates a credential in a workspace for authentication of services such as Connector.
    * 
    * @param request - CreateCredentialRequest
    * @returns CreateCredentialResponse
@@ -1217,7 +1274,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a credential from the specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+   * Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+   * 
+   * @remarks
+   * Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
    * 
    * @param request - DeleteCredentialRequest
    * @param headers - map
@@ -1250,7 +1310,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a credential from the specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+   * Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+   * 
+   * @remarks
+   * Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
    * 
    * @param request - DeleteCredentialRequest
    * @returns DeleteCredentialResponse
@@ -1307,7 +1370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+   * Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
    * 
    * @param request - DeleteIdentityProviderRequest
    * @param headers - map
@@ -1340,7 +1403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+   * Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
    * 
    * @param request - DeleteIdentityProviderRequest
    * @returns DeleteIdentityProviderResponse
@@ -1394,7 +1457,7 @@ export default class Client extends OpenApi {
    * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
    * 
    * @param request - DeleteMcpRequest
@@ -1425,7 +1488,7 @@ export default class Client extends OpenApi {
    * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
    * 
    * @param request - DeleteMcpRequest
@@ -1622,7 +1685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a team in the specified workspace. Deleting a team does not delete the users or agents in the team. It only dissociates the member relationships.
+   * Deletes a team from a specified workspace. Deleting a team does not delete the users or agents within it. Only the membership associations are removed.
    * 
    * @param request - DeleteTeamRequest
    * @param headers - map
@@ -1655,7 +1718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a team in the specified workspace. Deleting a team does not delete the users or agents in the team. It only dissociates the member relationships.
+   * Deletes a team from a specified workspace. Deleting a team does not delete the users or agents within it. Only the membership associations are removed.
    * 
    * @param request - DeleteTeamRequest
    * @returns DeleteTeamResponse
@@ -1757,6 +1820,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables a Connector.
+   * 
+   * @remarks
+   * Disables a specified Connector in a workspace.
+   * 
+   * @param request - DisableConnectorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableConnectorResponse
+   */
+  async disableConnectorWithOptions(workspaceId: string, connectorName: string, request: $_model.DisableConnectorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableConnectorResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableConnector",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/connectors/${$dara.URL.percentEncode(connectorName)}/actions/disable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableConnectorResponse>(await this.callApi(params, req, runtime), new $_model.DisableConnectorResponse({}));
+  }
+
+  /**
+   * Disables a Connector.
+   * 
+   * @remarks
+   * Disables a specified Connector in a workspace.
+   * 
+   * @param request - DisableConnectorRequest
+   * @returns DisableConnectorResponse
+   */
+  async disableConnector(workspaceId: string, connectorName: string, request: $_model.DisableConnectorRequest): Promise<$_model.DisableConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableConnectorWithOptions(workspaceId, connectorName, request, headers, runtime);
+  }
+
+  /**
    * Retrieves a pre-signed OSS download URL for a specified AgentSpec ZIP package.
    * 
    * @remarks
@@ -1854,6 +1962,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.downloadSkillVersionViaOssWithOptions(workspaceId, skillName, skillVersion, request, headers, runtime);
+  }
+
+  /**
+   * Enables a Connector.
+   * 
+   * @remarks
+   * Enables a Connector in a specified workspace. Credential verification is required before enabling.
+   * 
+   * @param tmpReq - EnableConnectorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableConnectorResponse
+   */
+  async enableConnectorWithOptions(workspaceId: string, connectorName: string, tmpReq: $_model.EnableConnectorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableConnectorResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnableConnectorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableConnector",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/connectors/${$dara.URL.percentEncode(connectorName)}/actions/enable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableConnectorResponse>(await this.callApi(params, req, runtime), new $_model.EnableConnectorResponse({}));
+  }
+
+  /**
+   * Enables a Connector.
+   * 
+   * @remarks
+   * Enables a Connector in a specified workspace. Credential verification is required before enabling.
+   * 
+   * @param request - EnableConnectorRequest
+   * @returns EnableConnectorResponse
+   */
+  async enableConnector(workspaceId: string, connectorName: string, request: $_model.EnableConnectorRequest): Promise<$_model.EnableConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableConnectorWithOptions(workspaceId, connectorName, request, headers, runtime);
   }
 
   /**
@@ -2008,11 +2173,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+   * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
    * 
    * @remarks
    * ## Operation description
-   * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+   * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
    * 
    * @param request - GetAgentSpecImportFileUrlRequest
    * @param headers - map
@@ -2045,11 +2210,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+   * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
    * 
    * @remarks
    * ## Operation description
-   * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+   * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
    * 
    * @param request - GetAgentSpecImportFileUrlRequest
    * @returns GetAgentSpecImportFileUrlResponse
@@ -2155,7 +2320,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified credential and returns the list of agents that are bound to the credential. The credential content is returned in masked form.
+   * Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+   * 
+   * @remarks
+   * Queries the details of a single credential. Sensitive fields are not returned.
    * 
    * @param request - GetCredentialRequest
    * @param headers - map
@@ -2182,7 +2350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified credential and returns the list of agents that are bound to the credential. The credential content is returned in masked form.
+   * Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+   * 
+   * @remarks
+   * Queries the details of a single credential. Sensitive fields are not returned.
    * 
    * @param request - GetCredentialRequest
    * @returns GetCredentialResponse
@@ -2362,11 +2533,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+   * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
    * 
    * @remarks
    * ## Operation description
-   * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+   * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
    * 
    * @param request - GetMcpRequest
    * @param headers - map
@@ -2393,11 +2564,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+   * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
    * 
    * @remarks
    * ## Operation description
-   * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+   * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
    * 
    * @param request - GetMcpRequest
    * @returns GetMcpResponse
@@ -2406,6 +2577,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMcpWithOptions(workspaceId, mcpServerId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the details of an MCP marketplace template.
+   * 
+   * @remarks
+   * Returns the current template version and installation form schema.
+   * 
+   * @param request - GetMcpMarketItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcpMarketItemResponse
+   */
+  async getMcpMarketItemWithOptions(workspaceId: string, marketItemId: string, request: $_model.GetMcpMarketItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcpMarketItemResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMcpMarketItem",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-market/items/${$dara.URL.percentEncode(marketItemId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMcpMarketItemResponse>(await this.callApi(params, req, runtime), new $_model.GetMcpMarketItemResponse({}));
+  }
+
+  /**
+   * Queries the details of an MCP marketplace template.
+   * 
+   * @remarks
+   * Returns the current template version and installation form schema.
+   * 
+   * @param request - GetMcpMarketItemRequest
+   * @returns GetMcpMarketItemResponse
+   */
+  async getMcpMarketItem(workspaceId: string, marketItemId: string, request: $_model.GetMcpMarketItemRequest): Promise<$_model.GetMcpMarketItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMcpMarketItemWithOptions(workspaceId, marketItemId, request, headers, runtime);
   }
 
   /**
@@ -2724,7 +2940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified team. The response includes the complete properties and team roles of each user member and agent member in the team.
+   * Queries the details of a specified team. The response includes the complete attributes and team roles of each user member and agent member in the team.
    * 
    * @param request - GetTeamRequest
    * @param headers - map
@@ -2751,7 +2967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified team. The response includes the complete properties and team roles of each user member and agent member in the team.
+   * Queries the details of a specified team. The response includes the complete attributes and team roles of each user member and agent member in the team.
    * 
    * @param request - GetTeamRequest
    * @returns GetTeamResponse
@@ -2802,10 +3018,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+   * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
    * 
    * @remarks
-   * ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+   * ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
    * 
    * @param request - GetWorkspaceRequest
    * @param headers - map
@@ -2832,10 +3048,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+   * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
    * 
    * @remarks
-   * ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+   * ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
    * 
    * @param request - GetWorkspaceRequest
    * @returns GetWorkspaceResponse
@@ -2889,6 +3105,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWorkspacePluginWithOptions(workspaceId, pluginName, request, headers, runtime);
+  }
+
+  /**
+   * Installs an MCP marketplace template.
+   * 
+   * @remarks
+   * Validates input based on the specified template version and creates an MCP in the workspace.
+   * 
+   * @param tmpReq - InstallMcpMarketItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallMcpMarketItemResponse
+   */
+  async installMcpMarketItemWithOptions(workspaceId: string, marketItemId: string, tmpReq: $_model.InstallMcpMarketItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InstallMcpMarketItemResponse> {
+    tmpReq.validate();
+    let request = new $_model.InstallMcpMarketItemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.templateVersion)) {
+      query["templateVersion"] = request.templateVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallMcpMarketItem",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-market/items/${$dara.URL.percentEncode(marketItemId)}/install`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallMcpMarketItemResponse>(await this.callApi(params, req, runtime), new $_model.InstallMcpMarketItemResponse({}));
+  }
+
+  /**
+   * Installs an MCP marketplace template.
+   * 
+   * @remarks
+   * Validates input based on the specified template version and creates an MCP in the workspace.
+   * 
+   * @param request - InstallMcpMarketItemRequest
+   * @returns InstallMcpMarketItemResponse
+   */
+  async installMcpMarketItem(workspaceId: string, marketItemId: string, request: $_model.InstallMcpMarketItemRequest): Promise<$_model.InstallMcpMarketItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.installMcpMarketItemWithOptions(workspaceId, marketItemId, request, headers, runtime);
   }
 
   /**
@@ -3154,7 +3437,124 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credentials in a specified workspace by using paging. You can use credentialType to filter by type, nameLike to filter by credential name using fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+   * Queries the list of models for a connector.
+   * 
+   * @remarks
+   * Queries the list of available models for a specified connector. Pagination is supported.
+   * 
+   * @param request - ListConnectorModelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConnectorModelsResponse
+   */
+  async listConnectorModelsWithOptions(workspaceId: string, connectorName: string, request: $_model.ListConnectorModelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConnectorModelsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectorKeyId)) {
+      query["connectorKeyId"] = request.connectorKeyId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConnectorModels",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/connectors/${$dara.URL.percentEncode(connectorName)}/models`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConnectorModelsResponse>(await this.callApi(params, req, runtime), new $_model.ListConnectorModelsResponse({}));
+  }
+
+  /**
+   * Queries the list of models for a connector.
+   * 
+   * @remarks
+   * Queries the list of available models for a specified connector. Pagination is supported.
+   * 
+   * @param request - ListConnectorModelsRequest
+   * @returns ListConnectorModelsResponse
+   */
+  async listConnectorModels(workspaceId: string, connectorName: string, request: $_model.ListConnectorModelsRequest): Promise<$_model.ListConnectorModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConnectorModelsWithOptions(workspaceId, connectorName, request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of connectors.
+   * 
+   * @remarks
+   * Queries the list of connectors in a specified workspace.
+   * 
+   * @param request - ListConnectorsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConnectorsResponse
+   */
+  async listConnectorsWithOptions(workspaceId: string, request: $_model.ListConnectorsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConnectorsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConnectors",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/connectors`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConnectorsResponse>(await this.callApi(params, req, runtime), new $_model.ListConnectorsResponse({}));
+  }
+
+  /**
+   * Queries the list of connectors.
+   * 
+   * @remarks
+   * Queries the list of connectors in a specified workspace.
+   * 
+   * @param request - ListConnectorsRequest
+   * @returns ListConnectorsResponse
+   */
+  async listConnectors(workspaceId: string, request: $_model.ListConnectorsRequest): Promise<$_model.ListConnectorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConnectorsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+   * 
+   * @remarks
+   * Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
    * 
    * @param request - ListCredentialsRequest
    * @param headers - map
@@ -3203,7 +3603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credentials in a specified workspace by using paging. You can use credentialType to filter by type, nameLike to filter by credential name using fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+   * Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+   * 
+   * @remarks
+   * Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
    * 
    * @param request - ListCredentialsRequest
    * @returns ListCredentialsResponse
@@ -3322,7 +3725,7 @@ export default class Client extends OpenApi {
    * Queries the list of managed agents in a specified workspace.
    * 
    * @remarks
-   * Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+   * Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
    * 
    * @param request - ListManagedAgentsRequest
    * @param headers - map
@@ -3362,7 +3765,7 @@ export default class Client extends OpenApi {
    * Queries the list of managed agents in a specified workspace.
    * 
    * @remarks
-   * Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+   * Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
    * 
    * @param request - ListManagedAgentsRequest
    * @returns ListManagedAgentsResponse
@@ -3371,6 +3774,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listManagedAgentsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Queries MCP marketplace templates.
+   * 
+   * @remarks
+   * Queries all online official MCP templates. You can filter results by keyword, usage tag, and MCP type.
+   * 
+   * @param request - ListMcpMarketItemsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcpMarketItemsResponse
+   */
+  async listMcpMarketItemsWithOptions(workspaceId: string, request: $_model.ListMcpMarketItemsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcpMarketItemsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.mcpType)) {
+      query["mcpType"] = request.mcpType;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.officialTag)) {
+      query["officialTag"] = request.officialTag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMcpMarketItems",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-market/items`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMcpMarketItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListMcpMarketItemsResponse({}));
+  }
+
+  /**
+   * Queries MCP marketplace templates.
+   * 
+   * @remarks
+   * Queries all online official MCP templates. You can filter results by keyword, usage tag, and MCP type.
+   * 
+   * @param request - ListMcpMarketItemsRequest
+   * @returns ListMcpMarketItemsResponse
+   */
+  async listMcpMarketItems(workspaceId: string, request: $_model.ListMcpMarketItemsRequest): Promise<$_model.ListMcpMarketItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMcpMarketItemsWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -3431,11 +3901,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries MCP services and their configurations and statuses in a specified workspace by page.
+   * Queries MCP services and their configurations and statuses in a specified workspace by using paging.
    * 
    * @remarks
    * ## Operation description
-   * Queries MCP services and their configurations and statuses in a specified workspace by page.
+   * Queries MCP services and their configurations and statuses in a specified workspace by using paging.
    * 
    * @param request - ListMcpsRequest
    * @param headers - map
@@ -3457,8 +3927,16 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.officialTag)) {
+      query["officialTag"] = request.officialTag;
+    }
+
     if (!$dara.isNull(request.searchType)) {
       query["searchType"] = request.searchType;
+    }
+
+    if (!$dara.isNull(request.usageActive)) {
+      query["usageActive"] = request.usageActive;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3480,11 +3958,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries MCP services and their configurations and statuses in a specified workspace by page.
+   * Queries MCP services and their configurations and statuses in a specified workspace by using paging.
    * 
    * @remarks
    * ## Operation description
-   * Queries MCP services and their configurations and statuses in a specified workspace by page.
+   * Queries MCP services and their configurations and statuses in a specified workspace by using paging.
    * 
    * @param request - ListMcpsRequest
    * @returns ListMcpsResponse
@@ -3703,6 +4181,124 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPredefinedModelsWithOptions(providerType, request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of Sandbox sessions.
+   * 
+   * @remarks
+   * Queries the list of active sessions in the Sandbox of a specified managed agent.
+   * 
+   * @param request - ListSandboxSessionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSandboxSessionsResponse
+   */
+  async listSandboxSessionsWithOptions(workspaceId: string, agentId: string, sandboxId: string, request: $_model.ListSandboxSessionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSandboxSessionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSandboxSessions",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents/${$dara.URL.percentEncode(agentId)}/sandboxes/${$dara.URL.percentEncode(sandboxId)}/sessions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSandboxSessionsResponse>(await this.callApi(params, req, runtime), new $_model.ListSandboxSessionsResponse({}));
+  }
+
+  /**
+   * Queries the list of Sandbox sessions.
+   * 
+   * @remarks
+   * Queries the list of active sessions in the Sandbox of a specified managed agent.
+   * 
+   * @param request - ListSandboxSessionsRequest
+   * @returns ListSandboxSessionsResponse
+   */
+  async listSandboxSessions(workspaceId: string, agentId: string, sandboxId: string, request: $_model.ListSandboxSessionsRequest): Promise<$_model.ListSandboxSessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSandboxSessionsWithOptions(workspaceId, agentId, sandboxId, request, headers, runtime);
+  }
+
+  /**
+   * Queries a list of sandboxes.
+   * 
+   * @remarks
+   * Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+   * 
+   * @param request - ListSandboxesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSandboxesResponse
+   */
+  async listSandboxesWithOptions(workspaceId: string, agentId: string, request: $_model.ListSandboxesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSandboxesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchText)) {
+      query["searchText"] = request.searchText;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSandboxes",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents/${$dara.URL.percentEncode(agentId)}/sandboxes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSandboxesResponse>(await this.callApi(params, req, runtime), new $_model.ListSandboxesResponse({}));
+  }
+
+  /**
+   * Queries a list of sandboxes.
+   * 
+   * @remarks
+   * Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+   * 
+   * @param request - ListSandboxesRequest
+   * @returns ListSandboxesResponse
+   */
+  async listSandboxes(workspaceId: string, agentId: string, request: $_model.ListSandboxesRequest): Promise<$_model.ListSandboxesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSandboxesWithOptions(workspaceId, agentId, request, headers, runtime);
   }
 
   /**
@@ -3980,10 +4576,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+   * Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
    * 
    * @remarks
-   * ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+   * ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
    * 
    * @param request - ListWorkspacesRequest
    * @param headers - map
@@ -4024,10 +4620,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+   * Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
    * 
    * @remarks
-   * ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+   * ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -4688,7 +5284,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the credentials of a Connector.
+   * 
+   * @remarks
+   * Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+   * 
+   * @param tmpReq - UpdateConnectorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConnectorResponse
+   */
+  async updateConnectorWithOptions(workspaceId: string, connectorName: string, tmpReq: $_model.UpdateConnectorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConnectorResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateConnectorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConnector",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/connectors/${$dara.URL.percentEncode(connectorName)}/actions/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConnectorResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConnectorResponse({}));
+  }
+
+  /**
+   * Updates the credentials of a Connector.
+   * 
+   * @remarks
+   * Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+   * 
+   * @param request - UpdateConnectorRequest
+   * @returns UpdateConnectorResponse
+   */
+  async updateConnector(workspaceId: string, connectorName: string, request: $_model.UpdateConnectorRequest): Promise<$_model.UpdateConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConnectorWithOptions(workspaceId, connectorName, request, headers, runtime);
+  }
+
+  /**
    * Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+   * 
+   * @remarks
+   * Updates the metadata or resource scope of a specified credential.
    * 
    * @param tmpReq - UpdateCredentialRequest
    * @param headers - map
@@ -4734,6 +5390,9 @@ export default class Client extends OpenApi {
 
   /**
    * Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+   * 
+   * @remarks
+   * Updates the metadata or resource scope of a specified credential.
    * 
    * @param request - UpdateCredentialRequest
    * @returns UpdateCredentialResponse
@@ -4808,7 +5467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the login switch, member synchronization switch, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
+   * Updates the login toggle, member synchronization toggle, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
    * 
    * @param tmpReq - UpdateIdentityProviderRequest
    * @param headers - map
@@ -4847,7 +5506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the login switch, member synchronization switch, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
+   * Updates the login toggle, member synchronization toggle, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
    * 
    * @param request - UpdateIdentityProviderRequest
    * @returns UpdateIdentityProviderResponse
@@ -4981,12 +5640,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates MCP parameters by template.
+   * 
+   * @remarks
+   * Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+   * 
+   * @param tmpReq - UpdateMcpTemplateConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMcpTemplateConfigResponse
+   */
+  async updateMcpTemplateConfigWithOptions(workspaceId: string, mcpServerId: string, tmpReq: $_model.UpdateMcpTemplateConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMcpTemplateConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMcpTemplateConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.templateVersion)) {
+      query["templateVersion"] = request.templateVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMcpTemplateConfig",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-servers/${$dara.URL.percentEncode(mcpServerId)}/template-config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMcpTemplateConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMcpTemplateConfigResponse({}));
+  }
+
+  /**
+   * Updates MCP parameters by template.
+   * 
+   * @remarks
+   * Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+   * 
+   * @param request - UpdateMcpTemplateConfigRequest
+   * @returns UpdateMcpTemplateConfigResponse
+   */
+  async updateMcpTemplateConfig(workspaceId: string, mcpServerId: string, request: $_model.UpdateMcpTemplateConfigRequest): Promise<$_model.UpdateMcpTemplateConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMcpTemplateConfigWithOptions(workspaceId, mcpServerId, request, headers, runtime);
+  }
+
+  /**
    * Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
    * 
    * @remarks
-   * This operation updates description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
-   * Modifying only description does not refresh the model configuration of associated agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed agents that reference the model within the same workspace, as well as external agents whose model source is PLATFORM. External agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
-   * A successful response indicates that the model configuration has been saved. It does not indicate that associated agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
+   * This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+   * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+   * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
    * 
    * @param tmpReq - UpdateModelRequest
    * @param headers - map
@@ -5034,9 +5760,9 @@ export default class Client extends OpenApi {
    * Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
    * 
    * @remarks
-   * This operation updates description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
-   * Modifying only description does not refresh the model configuration of associated agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed agents that reference the model within the same workspace, as well as external agents whose model source is PLATFORM. External agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
-   * A successful response indicates that the model configuration has been saved. It does not indicate that associated agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
+   * This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+   * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+   * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
    * 
    * @param request - UpdateModelRequest
    * @returns UpdateModelResponse
@@ -5396,10 +6122,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
    * 
    * @remarks
-   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
    * 
    * @param tmpReq - UpdateWorkspaceRequest
    * @param headers - map
@@ -5444,10 +6170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
    * 
    * @remarks
-   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
    * 
    * @param request - UpdateWorkspaceRequest
    * @returns UpdateWorkspaceResponse
@@ -5574,6 +6300,114 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.uploadSkillViaOssWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Validates the credentials of a Connector.
+   * 
+   * @remarks
+   * Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
+   * 
+   * @param tmpReq - VerifyConnectorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyConnectorResponse
+   */
+  async verifyConnectorWithOptions(workspaceId: string, connectorName: string, tmpReq: $_model.VerifyConnectorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyConnectorResponse> {
+    tmpReq.validate();
+    let request = new $_model.VerifyConnectorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyConnector",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/connectors/${$dara.URL.percentEncode(connectorName)}/actions/verify`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyConnectorResponse>(await this.callApi(params, req, runtime), new $_model.VerifyConnectorResponse({}));
+  }
+
+  /**
+   * Validates the credentials of a Connector.
+   * 
+   * @remarks
+   * Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
+   * 
+   * @param request - VerifyConnectorRequest
+   * @returns VerifyConnectorResponse
+   */
+  async verifyConnector(workspaceId: string, connectorName: string, request: $_model.VerifyConnectorRequest): Promise<$_model.VerifyConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.verifyConnectorWithOptions(workspaceId, connectorName, request, headers, runtime);
+  }
+
+  /**
+   * Verifies the RAM authorization for an OSS mount in a workspace.
+   * 
+   * @remarks
+   * Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+   * 
+   * @param request - VerifyWorkspaceOssMountRamAuthorizationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyWorkspaceOssMountRamAuthorizationResponse
+   */
+  async verifyWorkspaceOssMountRamAuthorizationWithOptions(workspaceId: string, request: $_model.VerifyWorkspaceOssMountRamAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyWorkspaceOssMountRamAuthorizationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bucketName)) {
+      query["bucketName"] = request.bucketName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyWorkspaceOssMountRamAuthorization",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/oss-mount/authorize/verify`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyWorkspaceOssMountRamAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.VerifyWorkspaceOssMountRamAuthorizationResponse({}));
+  }
+
+  /**
+   * Verifies the RAM authorization for an OSS mount in a workspace.
+   * 
+   * @remarks
+   * Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+   * 
+   * @param request - VerifyWorkspaceOssMountRamAuthorizationRequest
+   * @returns VerifyWorkspaceOssMountRamAuthorizationResponse
+   */
+  async verifyWorkspaceOssMountRamAuthorization(workspaceId: string, request: $_model.VerifyWorkspaceOssMountRamAuthorizationRequest): Promise<$_model.VerifyWorkspaceOssMountRamAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.verifyWorkspaceOssMountRamAuthorizationWithOptions(workspaceId, request, headers, runtime);
   }
 
 }

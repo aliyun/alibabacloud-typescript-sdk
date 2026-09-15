@@ -10,7 +10,7 @@ export class UpdateExternalAgentShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * A reserved idempotency token. The backend does not guarantee idempotency in the current version.
+   * The reserved idempotency token. The backend does not guarantee idempotence in the current phase.
    * 
    * @example
    * client-token-1

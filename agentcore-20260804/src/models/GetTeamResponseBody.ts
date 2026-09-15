@@ -29,7 +29,7 @@ export class GetTeamResponseBodyDataAgents extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The deployment mode of the agent. MANAGED indicates platform-managed deployment. SELF_HOSTED indicates self-hosted deployment.
+   * The deployment type of the agent. MANAGED indicates platform-managed deployment. SELF_HOSTED indicates self-hosted deployment.
    * 
    * @example
    * MANAGED
@@ -45,15 +45,7 @@ export class GetTeamResponseBodyDataAgents extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The currently effective specification version number of the agent.
-   * 
-   * @example
-   * 1
-   */
-  effectiveSpecVersion?: number;
-  /**
-   * @remarks
-   * The latest specification version number of the agent.
+   * The latest configuration version number of the agent.
    * 
    * @example
    * 2
@@ -93,7 +85,7 @@ export class GetTeamResponseBodyDataAgents extends $dara.Model {
   teamRole?: string;
   /**
    * @remarks
-   * The last modification time in UTC, formatted in RFC 3339.
+   * The time of the last modification in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -114,7 +106,6 @@ export class GetTeamResponseBodyDataAgents extends $dara.Model {
       createdAt: 'createdAt',
       deployType: 'deployType',
       description: 'description',
-      effectiveSpecVersion: 'effectiveSpecVersion',
       latestSpecVersion: 'latestSpecVersion',
       name: 'name',
       runtime: 'runtime',
@@ -132,7 +123,6 @@ export class GetTeamResponseBodyDataAgents extends $dara.Model {
       createdAt: 'string',
       deployType: 'string',
       description: 'string',
-      effectiveSpecVersion: 'number',
       latestSpecVersion: 'number',
       name: 'string',
       runtime: 'string',
@@ -155,7 +145,7 @@ export class GetTeamResponseBodyDataAgents extends $dara.Model {
 export class GetTeamResponseBodyDataUsers extends $dara.Model {
   /**
    * @remarks
-   * The authentication method of the user. password indicates local password authentication within the workspace. dingtalk and feishu indicate that the user is synchronized and authenticated by the corresponding external identity provider.
+   * The authentication method of the user. password indicates local password authentication in the workspace. dingtalk and feishu indicate synchronization and authentication by the corresponding external identity provider.
    * 
    * @example
    * password
@@ -195,7 +185,7 @@ export class GetTeamResponseBodyDataUsers extends $dara.Model {
   initialPassword?: string;
   /**
    * @remarks
-   * The username. The name must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 32 characters in length.
+   * The username. The name must be unique within the workspace. It can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 32 characters in length.
    * 
    * @example
    * user-01
@@ -203,10 +193,10 @@ export class GetTeamResponseBodyDataUsers extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The note for the user. The note can be up to 1024 characters in length.
+   * The user note. The note can be up to 1024 characters in length.
    * 
    * @example
-   * Agent operations group member
+   * Member of the agent operations group
    */
   note?: string;
   /**
@@ -227,7 +217,7 @@ export class GetTeamResponseBodyDataUsers extends $dara.Model {
   teamRole?: string;
   /**
    * @remarks
-   * The last modification time in UTC, formatted in RFC 3339.
+   * The time of the last modification in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -311,7 +301,7 @@ export class GetTeamResponseBodyData extends $dara.Model {
    * The team description.
    * 
    * @example
-   * A team responsible for intelligent customer service
+   * A team responsible for intelligent customer service operations
    */
   description?: string;
   /**
@@ -324,7 +314,7 @@ export class GetTeamResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID where the resource resides.
+   * The region ID of the resource.
    * 
    * @example
    * cn-hangzhou
@@ -348,7 +338,7 @@ export class GetTeamResponseBodyData extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The last modification time in UTC, formatted in RFC 3339.
+   * The time of the last modification in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -436,7 +426,7 @@ export class GetTeamResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request failed.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success

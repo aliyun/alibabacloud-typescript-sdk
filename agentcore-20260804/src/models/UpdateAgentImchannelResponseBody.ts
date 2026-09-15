@@ -116,7 +116,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   credentialSummary?: UpdateAgentIMChannelResponseBodyDataCredentialSummary;
   /**
    * @remarks
-   * Specifies whether to enable the IM channel. Default value: true (when created).
+   * Specifies whether to enable the IM channel. Default value upon creation: true.
    */
   enabled?: boolean;
   /**
@@ -137,7 +137,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint address.
+   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint.
    * 
    * @example
    * se-1
@@ -159,7 +159,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the current status of the IM channel.
+   * The reason for the current IM channel status.
    * 
    * @example
    * AppFlow creation failed
@@ -256,7 +256,7 @@ export class UpdateAgentIMChannelResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The request processing result message.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentSpecImportFileUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Content-Type used for the OSS PUT request.
+   * The Content-Type to use for the OSS PUT request.
    * 
    * @example
    * application/zip

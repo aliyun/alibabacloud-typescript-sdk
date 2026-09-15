@@ -9,7 +9,7 @@ export class GetAgentSpecVersionResponseBodyData extends $dara.Model {
    * The business tags.
    * 
    * @example
-   * Sample property value
+   * SamplePropertyValue
    */
   bizTags?: string;
   /**
@@ -17,7 +17,7 @@ export class GetAgentSpecVersionResponseBodyData extends $dara.Model {
    * The content.
    * 
    * @example
-   * Sample content
+   * SampleContent
    */
   content?: string;
   /**

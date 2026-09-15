@@ -2,93 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetExternalAgentResponseBodyDataEffectiveResult extends $dara.Model {
-  /**
-   * @remarks
-   * The user ID of the agent in Matrix.
-   * 
-   * @example
-   * @agent-1:matrix.example.com
-   */
-  matrixUserId?: string;
-  /**
-   * @remarks
-   * The Matrix personal room ID of the agent.
-   * 
-   * @example
-   * !room:matrix.example.com
-   */
-  personalRoomId?: string;
-  /**
-   * @remarks
-   * The acceptance status of the runtime for the current request version.
-   * 
-   * @example
-   * ACCEPTED
-   */
-  runtimeAcceptStatus?: string;
-  /**
-   * @remarks
-   * The runtime instance ID.
-   * 
-   * @example
-   * runtime-123
-   */
-  runtimeId?: string;
-  /**
-   * @remarks
-   * The runtime request version number.
-   * 
-   * @example
-   * 5
-   */
-  runtimeRequestVersion?: number;
-  /**
-   * @remarks
-   * The storage prefix of the agent in the workspace.
-   * 
-   * @example
-   * agents/agent-1
-   */
-  workspacePrefix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      matrixUserId: 'matrixUserId',
-      personalRoomId: 'personalRoomId',
-      runtimeAcceptStatus: 'runtimeAcceptStatus',
-      runtimeId: 'runtimeId',
-      runtimeRequestVersion: 'runtimeRequestVersion',
-      workspacePrefix: 'workspacePrefix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      matrixUserId: 'string',
-      personalRoomId: 'string',
-      runtimeAcceptStatus: 'string',
-      runtimeId: 'string',
-      runtimeRequestVersion: 'number',
-      workspacePrefix: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetExternalAgentResponseBodyDataExternalAgentStatus extends $dara.Model {
   /**
    * @remarks
-   * The heartbeat status. Valid values:
-   * - ONLINE: The latest heartbeat has not exceeded the configured timeout threshold.
-   * - STALE: The heartbeat has timed out.
-   * - UNKNOWN: The heartbeat is missing or has an invalid format.
+   * The heartbeat status. ONLINE indicates that the most recent heartbeat has not exceeded the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or has an invalid format. Valid values:
+   * - ONLINE: Online.
+   * - STALE: Heartbeat expired.
+   * - UNKNOWN: Unknown.
    * 
    * @example
    * ONLINE
@@ -96,7 +16,7 @@ export class GetExternalAgentResponseBodyDataExternalAgentStatus extends $dara.M
   heartbeatStatus?: string;
   /**
    * @remarks
-   * The time when the external agent was last active in RFC 3339 format.
+   * The last active time of the external agent in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -104,7 +24,7 @@ export class GetExternalAgentResponseBodyDataExternalAgentStatus extends $dara.M
   lastActiveAt?: string;
   /**
    * @remarks
-   * The time of the last heartbeat from the external agent in RFC 3339 format.
+   * The last heartbeat time of the external agent in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -256,6 +176,8 @@ export class GetExternalAgentResponseBodyDataTemplateAiRegistry extends $dara.Mo
    * @remarks
    * The version of the template in AI Registry.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1.0.0
    */
@@ -393,25 +315,12 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The external agent description.
+   * The description of the external agent.
    * 
    * @example
    * A code review agent running in the user environment
    */
   description?: string;
-  /**
-   * @remarks
-   * The runtime result corresponding to the currently effective specification.
-   */
-  effectiveResult?: GetExternalAgentResponseBodyDataEffectiveResult;
-  /**
-   * @remarks
-   * The currently effective specification version number.
-   * 
-   * @example
-   * 1
-   */
-  effectiveSpecVersion?: number;
   /**
    * @remarks
    * The runtime status information reported by the external agent.
@@ -436,8 +345,8 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The processing status of the latest specification version. Valid values:
-   * - pending: Pending processing.
-   * - processing: Being processed.
+   * - pending: Pending.
+   * - processing: Processing.
    * - waiting_retry: Waiting for retry.
    * - succeeded: Succeeded.
    * - failed: Failed.
@@ -449,14 +358,14 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
   latestVersionStatus?: string;
   /**
    * @remarks
-   * The model configuration. Available only when modelSource is set to PLATFORM.
+   * The model configuration. This parameter is available only when modelSource is set to PLATFORM.
    */
   model?: GetExternalAgentResponseBodyDataModel;
   /**
    * @remarks
-   * The model configuration source. Valid values:
-   * - PLATFORM: The model configuration is parsed and delivered by the platform.
-   * - RUNTIME: The model is managed by the external runtime. The model parameter cannot be specified at the same time.
+   * The source of the model configuration. PLATFORM indicates that the model configuration is parsed and delivered by the platform. RUNTIME indicates that the model is managed by the external runtime, and the model parameter cannot be specified at the same time. Valid values:
+   * - PLATFORM: Platform model.
+   * - RUNTIME: Runtime model.
    * 
    * @example
    * PLATFORM
@@ -464,7 +373,7 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
   modelSource?: string;
   /**
    * @remarks
-   * The external agent name.
+   * The name of the external agent.
    * 
    * @example
    * my-external-agent
@@ -493,13 +402,13 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
   skills?: GetExternalAgentResponseBodyDataSkills[];
   /**
    * @remarks
-   * The external agent status. Valid values:
-   * - Creating: The agent is being created.
-   * - Running: The agent is running.
-   * - Failed: The agent has failed.
-   * - Updating: The agent is being updated.
-   * - Deleting: The agent is being deleted.
-   * - Deleted: The agent has been deleted.
+   * The status of the external agent. Valid values:
+   * - Creating: Being created.
+   * - Running: Running.
+   * - Failed: Failed.
+   * - Updating: Being updated.
+   * - Deleting: Being deleted.
+   * - Deleted: Deleted.
    * 
    * @example
    * Running
@@ -538,8 +447,6 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
       createdAt: 'createdAt',
       deployType: 'deployType',
       description: 'description',
-      effectiveResult: 'effectiveResult',
-      effectiveSpecVersion: 'effectiveSpecVersion',
       externalAgentStatus: 'externalAgentStatus',
       instruction: 'instruction',
       latestSpecVersion: 'latestSpecVersion',
@@ -565,8 +472,6 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
       createdAt: 'string',
       deployType: 'string',
       description: 'string',
-      effectiveResult: GetExternalAgentResponseBodyDataEffectiveResult,
-      effectiveSpecVersion: 'number',
       externalAgentStatus: GetExternalAgentResponseBodyDataExternalAgentStatus,
       instruction: 'string',
       latestSpecVersion: 'number',
@@ -586,9 +491,6 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
   }
 
   validate() {
-    if(this.effectiveResult && typeof (this.effectiveResult as any).validate === 'function') {
-      (this.effectiveResult as any).validate();
-    }
     if(this.externalAgentStatus && typeof (this.externalAgentStatus as any).validate === 'function') {
       (this.externalAgentStatus as any).validate();
     }
@@ -615,7 +517,7 @@ export class GetExternalAgentResponseBodyData extends $dara.Model {
 export class GetExternalAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value SUCCESS is returned when the request succeeds.
    * 
    * @example
    * SUCCESS
@@ -623,12 +525,12 @@ export class GetExternalAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The external agent details.
+   * The details of the external agent.
    */
   data?: GetExternalAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value 200 is returned when the request succeeds.
    * 
    * @example
    * 200
@@ -636,7 +538,7 @@ export class GetExternalAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request processing result message.
+   * The message that indicates the result of the request.
    * 
    * @example
    * success

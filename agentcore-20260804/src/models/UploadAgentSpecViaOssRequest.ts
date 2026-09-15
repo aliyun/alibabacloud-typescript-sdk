@@ -15,7 +15,7 @@ export class UploadAgentSpecViaOssRequestBody extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite existing drafts. Default value: false.
+   * Specifies whether to overwrite the existing draft. Default value: false.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class UploadAgentSpecViaOssRequestBody extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * Specifies whether to publish immediately after upload. Default value: false.
+   * Specifies whether to publish directly after upload. Default value: false.
    * 
    * @example
    * false

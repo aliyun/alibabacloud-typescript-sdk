@@ -13,7 +13,11 @@ export class UpdateTeamResponseBodyDataAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The role of the agent in the team. Valid values: LEADER, WORKER. Each team must have exactly one LEADER.
+   * The role of the agent in the team. Valid values:
+   * - LEADER
+   * - WORKER
+   * 
+   * Each team must have exactly one LEADER.
    * 
    * @example
    * WORKER
@@ -45,7 +49,11 @@ export class UpdateTeamResponseBodyDataAgents extends $dara.Model {
 export class UpdateTeamResponseBodyDataUsers extends $dara.Model {
   /**
    * @remarks
-   * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
+   * The role of the user in the team. Valid values:
+   * - ADMIN
+   * - MEMBER
+   * 
+   * Each team must have exactly one ADMIN.
    * 
    * @example
    * ADMIN
@@ -85,12 +93,12 @@ export class UpdateTeamResponseBodyDataUsers extends $dara.Model {
 export class UpdateTeamResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of agent members in the team.
+   * The agent member list of the team.
    */
   agents?: UpdateTeamResponseBodyDataAgents[];
   /**
    * @remarks
-   * The creation time in UTC, in RFC 3339 format.
+   * The creation time in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -101,7 +109,7 @@ export class UpdateTeamResponseBodyData extends $dara.Model {
    * The team description.
    * 
    * @example
-   * Team responsible for intelligent customer service
+   * A team responsible for intelligent customer service
    */
   description?: string;
   /**
@@ -114,7 +122,13 @@ export class UpdateTeamResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The team status. Valid values: Creating, Active, Updating, Deleting, Failed, Deleted.
+   * The team status. Valid values:
+   * - Creating
+   * - Active
+   * - Updating
+   * - Deleting
+   * - Failed
+   * - Deleted
    * 
    * @example
    * Active
@@ -130,7 +144,7 @@ export class UpdateTeamResponseBodyData extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC, in RFC 3339 format.
+   * The time of the last modification in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -138,7 +152,7 @@ export class UpdateTeamResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The list of user members in the team.
+   * The user member list of the team.
    */
   users?: UpdateTeamResponseBodyDataUsers[];
   /**
@@ -216,7 +230,7 @@ export class UpdateTeamResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned if the request failed.
    * 
    * @example
    * success

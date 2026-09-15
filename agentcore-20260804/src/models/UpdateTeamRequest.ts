@@ -13,7 +13,9 @@ export class UpdateTeamRequestBodyAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The role of the agent in the team. Valid values: LEADER, WORKER.
+   * The role of the agent in the team. Valid values:
+   * - LEADER
+   * - WORKER
    * 
    * @example
    * WORKER
@@ -45,7 +47,11 @@ export class UpdateTeamRequestBodyAgents extends $dara.Model {
 export class UpdateTeamRequestBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
+   * The role of the user in the team. Valid values:
+   * - ADMIN
+   * - MEMBER
+   * 
+   * Each team must have exactly one ADMIN.
    * 
    * @example
    * ADMIN
@@ -85,20 +91,20 @@ export class UpdateTeamRequestBodyUsers extends $dara.Model {
 export class UpdateTeamRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The new list of agent members. The existing agent members are replaced using full overwrite semantics. If not specified, the current value remains unchanged.
+   * The new agent member list. Replaces the existing agent members using full overwrite semantics. If not specified, the existing agent members remain unchanged.
    */
   agents?: UpdateTeamRequestBodyAgents[];
   /**
    * @remarks
-   * The new team description. If not specified, the current value remains unchanged.
+   * The new team description. If not specified, the existing description remains unchanged.
    * 
    * @example
-   * Team responsible for intelligent customer service
+   * A team responsible for intelligent customer service
    */
   description?: string;
   /**
    * @remarks
-   * The new list of user members. The existing user members are replaced using full overwrite semantics. When this parameter is specified, the list must contain exactly one member with the ADMIN role. If not specified, the current value remains unchanged.
+   * The new user member list. Replaces the existing user members using full overwrite semantics. When specified, the list must contain exactly one member with the ADMIN role. If not specified, the existing user members remain unchanged.
    */
   users?: UpdateTeamRequestBodyUsers[];
   static names(): { [key: string]: string } {

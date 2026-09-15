@@ -103,6 +103,8 @@ export class CreateExternalAgentRequestBodyTemplateAiRegistry extends $dara.Mode
    * @remarks
    * The version of the template in AI Registry.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1.0.0
    */
@@ -225,15 +227,15 @@ export class CreateExternalAgentRequestBody extends $dara.Model {
   instruction?: string;
   /**
    * @remarks
-   * The model configuration. This parameter is available only when modelSource is set to PLATFORM.
+   * The model configuration. Available only when modelSource is set to PLATFORM.
    */
   model?: CreateExternalAgentRequestBodyModel;
   /**
    * @remarks
    * The source of the model configuration. Valid values:
    * 
-   * - PLATFORM: The platform parses and delivers the model configuration. You can specify the model parameter.
-   * - RUNTIME: The external runtime manages the model on its own. You cannot specify the model parameter at the same time.
+   * - PLATFORM: The platform parses and delivers the model configuration.
+   * - RUNTIME: The external runtime manages the model on its own. You cannot specify model at the same time.
    * 
    * @example
    * PLATFORM
@@ -319,7 +321,7 @@ export class CreateExternalAgentRequest extends $dara.Model {
   body?: CreateExternalAgentRequestBody;
   /**
    * @remarks
-   * The reserved idempotency token. The backend does not guarantee idempotence in the current version.
+   * The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
    * 
    * @example
    * client-token-1

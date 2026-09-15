@@ -15,7 +15,7 @@ export class UpdateModelResponseBodyDataCapabilities extends $dara.Model {
   document?: boolean;
   /**
    * @remarks
-   * Indicates whether the model is able to invoke multiple tool calls in a single response.
+   * Indicates whether the model supports invoking multiple tools in a single response.
    */
   multiToolCall?: boolean;
   /**
@@ -25,12 +25,12 @@ export class UpdateModelResponseBodyDataCapabilities extends $dara.Model {
   reasoning?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports streaming tool calling.
+   * Indicates whether the model supports streaming tool invocation.
    */
   streamToolCall?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports tool calling.
+   * Indicates whether the model supports tool invocation.
    */
   toolCall?: boolean;
   /**
@@ -94,7 +94,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The context window size of the model, in tokens. The value must be a positive integer.
+   * The model context window size, in tokens. The value must be a positive integer.
    * 
    * @example
    * 128000
@@ -118,7 +118,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The maximum number of output tokens supported per generation by the model.
+   * The maximum number of output tokens supported per generation.
    * 
    * @example
    * 131072
@@ -201,7 +201,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
 export class UpdateModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value is SUCCESS when the request succeeds.
    * 
    * @example
    * SUCCESS
@@ -214,7 +214,7 @@ export class UpdateModelResponseBody extends $dara.Model {
   data?: UpdateModelResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value is 200 when the request succeeds.
    * 
    * @example
    * 200
@@ -222,7 +222,7 @@ export class UpdateModelResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The request processing result message.
    * 
    * @example
    * success

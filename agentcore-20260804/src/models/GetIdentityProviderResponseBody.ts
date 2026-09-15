@@ -63,7 +63,7 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The event subscription callback URL. Configure this URL in the application on the external identity provider side to receive organization change events. An empty string is returned if the user pool has not been provisioned.
+   * The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. An empty string is returned if the user pool has not been activated.
    * 
    * @example
    * http://auth.cn-hangzhou.agentteams.aliyuncs.com/roa/dingtalk/event/up-123456
@@ -79,7 +79,7 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * The logon callback URL. Configure this URL in the application on the external identity provider side. An empty string is returned if the user pool has not been provisioned.
+   * The logon callback URL. Configure this URL in the external identity provider application. An empty string is returned if the user pool has not been activated.
    * 
    * @example
    * https://signin-cn-hangzhou.aliyunagentid.com/up-123456/dingtalk/callback
@@ -98,7 +98,7 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * - CONFIGURED: The configuration has been accepted and is waiting for the user pool to be provisioned.
+   * - CONFIGURED: The configuration has been accepted and is waiting for user pool activation.
    * - SYNCING: Organization members are being synchronized.
    * - SYNCED: Organization member synchronization is complete.
    * - READY: The binding is active.
@@ -199,7 +199,7 @@ export class GetIdentityProviderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned if the request failed.
    * 
    * @example
    * success

@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIdentityProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the external identity provider. Valid values: DingTalk, Feishu.
+   * The type of the external identity provider. Valid values:
+   * 
+   * - DingTalk
+   * - Feishu
    * 
    * @example
    * DingTalk
@@ -14,14 +17,15 @@ export class DeleteIdentityProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
+   * 
    * - CONFIGURED: The configuration has been accepted and is waiting for the user pool to be provisioned.
    * - SYNCING: Organization members are being synchronized.
    * - SYNCED: Organization member synchronization is complete.
    * - READY: The binding is in effect.
    * - SYNC_FAILED: Organization member synchronization failed.
    * - UPDATING: The configuration is being updated.
-   * - UPDATE_FAILED: Configuration update failed.
-   * - DISCONNECTING: The unbinding is in progress.
+   * - UPDATE_FAILED: The configuration update failed.
+   * - DISCONNECTING: The identity provider is being unbound.
    * - DISCONNECT_FAILED: The unbinding failed.
    * 
    * @example
@@ -72,7 +76,7 @@ export class DeleteIdentityProviderResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The binding information of the external identity provider after the unbinding operation is accepted.
+   * The binding information of the external identity provider after the unbinding request is accepted.
    */
   data?: DeleteIdentityProviderResponseBodyData;
   /**
@@ -85,7 +89,7 @@ export class DeleteIdentityProviderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned if the request failed.
    * 
    * @example
    * success

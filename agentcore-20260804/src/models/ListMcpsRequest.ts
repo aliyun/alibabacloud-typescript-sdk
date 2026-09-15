@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListMcpsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The MCP service name. Used together with SearchType.
+   * The MCP service name or service ID. Used together with SearchType.
    * 
    * @example
    * my-mcp-server
@@ -29,6 +29,14 @@ export class ListMcpsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
+   * Filters results by official usage tag.
+   * 
+   * @example
+   * KNOWLEDGE_BASE
+   */
+  officialTag?: string;
+  /**
+   * @remarks
    * The name matching method. Takes effect only when Name is specified. Valid values:
    * - accurate: exact match.
    * - blur: fuzzy match.
@@ -39,12 +47,19 @@ export class ListMcpsRequest extends $dara.Model {
    * blur
    */
   searchType?: string;
+  /**
+   * @remarks
+   * Specifies whether the service is still bound by the official template usage constraint.
+   */
+  usageActive?: boolean;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'maxResults',
       name: 'name',
       nextToken: 'nextToken',
+      officialTag: 'officialTag',
       searchType: 'searchType',
+      usageActive: 'usageActive',
     };
   }
 
@@ -53,7 +68,9 @@ export class ListMcpsRequest extends $dara.Model {
       maxResults: 'number',
       name: 'string',
       nextToken: 'string',
+      officialTag: 'string',
       searchType: 'string',
+      usageActive: 'boolean',
     };
   }
 

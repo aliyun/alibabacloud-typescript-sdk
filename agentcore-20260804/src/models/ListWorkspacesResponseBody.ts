@@ -85,7 +85,7 @@ export class ListWorkspacesResponseBodyItemsNetworkConfiguration extends $dara.M
 export class ListWorkspacesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workspace.
+   * The time when the workspace was created.
    * 
    * @example
    * 2026-08-06T03:56:56Z
@@ -93,7 +93,7 @@ export class ListWorkspacesResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * production-agents
@@ -200,7 +200,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   items?: ListWorkspacesResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page used for this request.
+   * The maximum number of records per page used in this request.
    * 
    * @example
    * 20
@@ -216,7 +216,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This value is empty if no more pages exist.
+   * The pagination token for the next page. This parameter is empty if no more pages are available.
    * 
    * @example
    * d29ya3NwYWNlLW9mZnNldDo0MA

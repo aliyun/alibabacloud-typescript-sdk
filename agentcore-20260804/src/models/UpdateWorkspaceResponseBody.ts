@@ -18,7 +18,7 @@ export class UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the user VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1234567890
@@ -55,7 +55,7 @@ export class UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
 export class UpdateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The user VPC network configuration.
+   * The VPC network configuration.
    */
   vpc?: UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
@@ -85,6 +85,16 @@ export class UpdateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.M
 export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The OSS storage authorization status.
+   */
+  authorizationStatus?: string;
+  /**
+   * @remarks
+   * The name of the private OSS bucket.
+   */
+  bucketName?: string;
+  /**
+   * @remarks
    * The workspace name.
    * 
    * @example
@@ -93,7 +103,7 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The workspace network configuration.
+   * The network configuration of the workspace.
    */
   networkConfiguration?: UpdateWorkspaceResponseBodyDataNetworkConfiguration;
   /**
@@ -114,6 +124,11 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
+   * The storage type of the workspace.
+   */
+  storageType?: string;
+  /**
+   * @remarks
    * The ID of the tenant to which the workspace belongs.
    * 
    * @example
@@ -130,10 +145,13 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      authorizationStatus: 'authorizationStatus',
+      bucketName: 'bucketName',
       name: 'name',
       networkConfiguration: 'networkConfiguration',
       regionId: 'regionId',
       status: 'status',
+      storageType: 'storageType',
       tenantId: 'tenantId',
       workspaceId: 'workspaceId',
     };
@@ -141,10 +159,13 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authorizationStatus: 'string',
+      bucketName: 'string',
       name: 'string',
       networkConfiguration: UpdateWorkspaceResponseBodyDataNetworkConfiguration,
       regionId: 'string',
       status: 'string',
+      storageType: 'string',
       tenantId: 'string',
       workspaceId: 'string',
     };

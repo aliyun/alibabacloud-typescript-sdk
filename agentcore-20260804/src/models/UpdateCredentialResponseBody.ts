@@ -2,10 +2,60 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateCredentialResponseBodyDataResourceRefs extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the resource.
+   * 
+   * @example
+   * agent-xxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource name. This value is empty if the resource has been deleted.
+   * 
+   * @example
+   * my-agent
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type, such as agent.
+   * 
+   * @example
+   * agent
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCredentialResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time in UTC, formatted according to RFC 3339.
+   * The creation time in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -21,7 +71,7 @@ export class UpdateCredentialResponseBodyData extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The masked credential content. If credentialType is set to apiKey, the apiKey value is returned as asterisks (*) of equal length.
+   * The masked credential content. If credentialType is apiKey, the apiKey value is returned as asterisks (*) of equal length.
    * 
    * @example
    * {"apiKey":"****************"}
@@ -53,7 +103,7 @@ export class UpdateCredentialResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID where the resource resides.
+   * The region ID of the resource.
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +111,20 @@ export class UpdateCredentialResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time of the most recent modification in UTC, formatted according to RFC 3339.
+   * Each item contains resourceType, resourceId, and resourceName. resourceName is empty if the resource has been deleted.
+   */
+  resourceRefs?: UpdateCredentialResponseBodyDataResourceRefs[];
+  /**
+   * @remarks
+   * The credential resource scope.
+   * 
+   * @example
+   * ALL
+   */
+  resourceScope?: string;
+  /**
+   * @remarks
+   * The time of the last modification in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -84,6 +147,8 @@ export class UpdateCredentialResponseBodyData extends $dara.Model {
       description: 'description',
       name: 'name',
       regionId: 'regionId',
+      resourceRefs: 'resourceRefs',
+      resourceScope: 'resourceScope',
       updatedAt: 'updatedAt',
       workspaceId: 'workspaceId',
     };
@@ -98,12 +163,17 @@ export class UpdateCredentialResponseBodyData extends $dara.Model {
       description: 'string',
       name: 'string',
       regionId: 'string',
+      resourceRefs: { 'type': 'array', 'itemType': UpdateCredentialResponseBodyDataResourceRefs },
+      resourceScope: 'string',
       updatedAt: 'string',
       workspaceId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.resourceRefs)) {
+      $dara.Model.validateArray(this.resourceRefs);
+    }
     super.validate();
   }
 

@@ -13,7 +13,7 @@ export class ListCredentialsRequest extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The maximum number of records per page. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of records to return per page. Valid values: 1 to 100. If this parameter is not specified, 10 records are returned by default.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListCredentialsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The filter condition for fuzzy match by credential name.
+   * The fuzzy match filter condition for credential names.
    * 
    * @example
    * model

@@ -2,6 +2,86 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListManagedAgentsResponseBodyItemsHarnessConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * Binds a Service Account Key of the QoderCLI Connector by Key ID. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+   * 
+   * @example
+   * key-xxxx
+   */
+  connectorServiceAccountKey?: string;
+  /**
+   * @remarks
+   * The Connector Key name populated during queries. This parameter is not used as a binding reference during writes.
+   * 
+   * @example
+   * my-connector-key
+   */
+  connectorServiceAccountName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectorServiceAccountKey: 'connectorServiceAccountKey',
+      connectorServiceAccountName: 'connectorServiceAccountName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorServiceAccountKey: 'string',
+      connectorServiceAccountName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListManagedAgentsResponseBodyItemsHarness extends $dara.Model {
+  /**
+   * @remarks
+   * The Connector binding configuration for the qodercli framework.
+   */
+  configuration?: ListManagedAgentsResponseBodyItemsHarnessConfiguration;
+  /**
+   * @remarks
+   * The runtime framework type. Valid values: qwenpaw and qodercli. The qodercli type binds by configuration.connectorServiceAccountKey, and the name is also populated during queries.
+   * 
+   * @example
+   * qodercli
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: ListManagedAgentsResponseBodyItemsHarnessConfiguration,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.configuration && typeof (this.configuration as any).validate === 'function') {
+      (this.configuration as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
@@ -45,12 +125,9 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The effective specification version number.
-   * 
-   * @example
-   * 1
+   * The agent runtime framework.
    */
-  effectiveSpecVersion?: number;
+  harness?: ListManagedAgentsResponseBodyItemsHarness;
   /**
    * @remarks
    * The latest specification version number.
@@ -61,7 +138,7 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   latestSpecVersion?: number;
   /**
    * @remarks
-   * The managed agent name.
+   * The name of the managed agent.
    * 
    * @example
    * my-agent
@@ -77,7 +154,13 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The status of the managed agent.
+   * The status of the managed agent. Valid values:
+   * - Creating: Being created.
+   * - Failed: Failed.
+   * - Running: Running.
+   * - Updating: Being updated.
+   * - Deleted: Deleted.
+   * - Deleting: Being deleted.
    * 
    * @example
    * Running
@@ -106,7 +189,7 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
       createdAt: 'createdAt',
       deployType: 'deployType',
       description: 'description',
-      effectiveSpecVersion: 'effectiveSpecVersion',
+      harness: 'harness',
       latestSpecVersion: 'latestSpecVersion',
       name: 'name',
       runtime: 'runtime',
@@ -123,7 +206,7 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
       createdAt: 'string',
       deployType: 'string',
       description: 'string',
-      effectiveSpecVersion: 'number',
+      harness: ListManagedAgentsResponseBodyItemsHarness,
       latestSpecVersion: 'number',
       name: 'string',
       runtime: 'string',
@@ -134,6 +217,9 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   }
 
   validate() {
+    if(this.harness && typeof (this.harness as any).validate === 'function') {
+      (this.harness as any).validate();
+    }
     super.validate();
   }
 
@@ -177,7 +263,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The message returned for the request.
+   * The result message of the request.
    * 
    * @example
    * success
@@ -185,7 +271,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next page. An empty value indicates that no more pages are available.
+   * The token for the next page. An empty value indicates that the last page has been reached.
    * 
    * @example
    * next-token-1

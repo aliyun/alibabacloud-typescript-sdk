@@ -18,7 +18,7 @@ export class CreateWorkspaceRequestBodyNetworkConfigurationVpc extends $dara.Mod
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the user VPC.
    * 
    * @example
    * vpc-bp1234567890
@@ -100,10 +100,12 @@ export class CreateWorkspaceRequestBody extends $dara.Model {
    * The network configuration of the workspace.
    */
   networkConfiguration?: CreateWorkspaceRequestBodyNetworkConfiguration;
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
       networkConfiguration: 'networkConfiguration',
+      storageType: 'storageType',
     };
   }
 
@@ -111,6 +113,7 @@ export class CreateWorkspaceRequestBody extends $dara.Model {
     return {
       name: 'string',
       networkConfiguration: CreateWorkspaceRequestBodyNetworkConfiguration,
+      storageType: 'string',
     };
   }
 

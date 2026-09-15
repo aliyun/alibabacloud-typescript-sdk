@@ -2,6 +2,56 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListCredentialsResponseBodyItemsResourceRefs extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the resource.
+   * 
+   * @example
+   * agent-xxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource name. This value is empty if the resource has been deleted.
+   * 
+   * @example
+   * my-agent
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type, such as agent.
+   * 
+   * @example
+   * agent
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCredentialsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
@@ -29,7 +79,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The masked content of the credential. When credentialType is apiKey, the apiKey value is returned with equal-length asterisks (*).
+   * The masked content of the credential. When credentialType is apiKey, the apiKey value is returned as asterisks (*) of equal length.
    * 
    * @example
    * {"apiKey":"****************"}
@@ -61,12 +111,25 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The region ID where the resource resides.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of resources to which the credential can be applied.
+   */
+  resourceRefs?: ListCredentialsResponseBodyItemsResourceRefs[];
+  /**
+   * @remarks
+   * The scope of resources to which the credential can be applied.
+   * 
+   * @example
+   * ALL
+   */
+  resourceScope?: string;
   /**
    * @remarks
    * The time of the last modification in UTC, formatted according to RFC 3339.
@@ -93,6 +156,8 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
       description: 'description',
       name: 'name',
       regionId: 'regionId',
+      resourceRefs: 'resourceRefs',
+      resourceScope: 'resourceScope',
       updatedAt: 'updatedAt',
       workspaceId: 'workspaceId',
     };
@@ -108,12 +173,17 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
       description: 'string',
       name: 'string',
       regionId: 'string',
+      resourceRefs: { 'type': 'array', 'itemType': ListCredentialsResponseBodyItemsResourceRefs },
+      resourceScope: 'string',
       updatedAt: 'string',
       workspaceId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.resourceRefs)) {
+      $dara.Model.validateArray(this.resourceRefs);
+    }
     super.validate();
   }
 
@@ -146,7 +216,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   items?: ListCredentialsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page that takes effect for this query.
+   * The maximum number of records per page that took effect for this query.
    * 
    * @example
    * 10
@@ -162,7 +232,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This value is empty if no more pages are available.
+   * The pagination token for the next page. This value is empty if there is no next page.
    * 
    * @example
    * 10

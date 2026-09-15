@@ -13,11 +13,7 @@ export class CreateTeamResponseBodyDataAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The role of the agent in the team. Valid values:
-   * - LEADER
-   * - WORKER
-   * 
-   * Each team must have exactly one LEADER.
+   * The role of the agent in the team. Valid values: LEADER, WORKER. Each team must include exactly one LEADER.
    * 
    * @example
    * WORKER
@@ -49,11 +45,7 @@ export class CreateTeamResponseBodyDataAgents extends $dara.Model {
 export class CreateTeamResponseBodyDataUsers extends $dara.Model {
   /**
    * @remarks
-   * The role of the user in the team. Valid values:
-   * - ADMIN
-   * - MEMBER
-   * 
-   * Each team must have exactly one ADMIN.
+   * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must include exactly one ADMIN.
    * 
    * @example
    * ADMIN
@@ -93,12 +85,12 @@ export class CreateTeamResponseBodyDataUsers extends $dara.Model {
 export class CreateTeamResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of agent members for the team.
+   * The list of agent members in the team.
    */
   agents?: CreateTeamResponseBodyDataAgents[];
   /**
    * @remarks
-   * The time when the team was created, in UTC in RFC 3339 format.
+   * The creation time in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -122,13 +114,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The team status. Valid values:
-   * - Creating
-   * - Active
-   * - Updating
-   * - Deleting
-   * - Failed
-   * - Deleted
+   * The team status. Valid values: Creating, Active, Updating, Deleting, Failed, Deleted.
    * 
    * @example
    * Active
@@ -144,7 +130,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The time when the team was last modified, in UTC in RFC 3339 format.
+   * The time of the last modification in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -152,7 +138,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The list of user members for the team.
+   * The list of user members in the team.
    */
   users?: CreateTeamResponseBodyDataUsers[];
   /**

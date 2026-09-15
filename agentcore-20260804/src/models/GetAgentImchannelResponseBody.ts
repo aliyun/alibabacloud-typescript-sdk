@@ -111,12 +111,12 @@ export class GetAgentIMChannelResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The channel credential summary. Only non-sensitive fields and configured secret field names are returned. Secret values are not returned.
+   * The channel credential summary. Only non-sensitive fields and the names of configured secret fields are returned. Secret values are not returned.
    */
   credentialSummary?: GetAgentIMChannelResponseBodyDataCredentialSummary;
   /**
    * @remarks
-   * Specifies whether the IM channel is enabled. Default value: true.
+   * Indicates whether the IM channel is enabled. Default value upon creation: true.
    */
   enabled?: boolean;
   /**
@@ -137,7 +137,7 @@ export class GetAgentIMChannelResponseBodyData extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
+   * The ID of the associated ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready with a public access URL.
    * 
    * @example
    * se-1
@@ -146,12 +146,12 @@ export class GetAgentIMChannelResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The IM channel status. Valid values:
-   * - CREATING: Being created.
-   * - READY: Ready.
-   * - UPDATING: Being updated.
-   * - FAILED: Failed.
-   * - DELETING: Being deleted.
-   * - DELETE_FAILED: Deletion failed.
+   * - CREATING: The channel is being created.
+   * - READY: The channel is ready.
+   * - UPDATING: The channel is being updated.
+   * - FAILED: The channel creation or update failed.
+   * - DELETING: The channel is being deleted.
+   * - DELETE_FAILED: The channel deletion failed.
    * 
    * @example
    * READY
@@ -235,7 +235,7 @@ export class GetAgentIMChannelResponseBodyData extends $dara.Model {
 export class GetAgentIMChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value SUCCESS is returned if the request succeeds.
    * 
    * @example
    * SUCCESS
@@ -248,7 +248,7 @@ export class GetAgentIMChannelResponseBody extends $dara.Model {
   data?: GetAgentIMChannelResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value 200 is returned if the request succeeds.
    * 
    * @example
    * 200

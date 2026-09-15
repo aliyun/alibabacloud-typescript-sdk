@@ -37,20 +37,12 @@ export class ListExternalAgentsResponseBodyItems extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The external agent description.
+   * The description of the external agent.
    * 
    * @example
    * A code review agent running in the user environment
    */
   description?: string;
-  /**
-   * @remarks
-   * The currently effective specification version number.
-   * 
-   * @example
-   * 1
-   */
-  effectiveSpecVersion?: number;
   /**
    * @remarks
    * The latest specification version number.
@@ -61,7 +53,7 @@ export class ListExternalAgentsResponseBodyItems extends $dara.Model {
   latestSpecVersion?: number;
   /**
    * @remarks
-   * The external agent name.
+   * The name of the external agent.
    * 
    * @example
    * my-external-agent
@@ -77,7 +69,7 @@ export class ListExternalAgentsResponseBodyItems extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The external agent status. Valid values:
+   * The status of the external agent. Valid values:
    * - Creating: The agent is being created.
    * - Running: The agent is running.
    * - Failed: The agent has failed.
@@ -112,7 +104,6 @@ export class ListExternalAgentsResponseBodyItems extends $dara.Model {
       createdAt: 'createdAt',
       deployType: 'deployType',
       description: 'description',
-      effectiveSpecVersion: 'effectiveSpecVersion',
       latestSpecVersion: 'latestSpecVersion',
       name: 'name',
       runtime: 'runtime',
@@ -129,7 +120,6 @@ export class ListExternalAgentsResponseBodyItems extends $dara.Model {
       createdAt: 'string',
       deployType: 'string',
       description: 'string',
-      effectiveSpecVersion: 'number',
       latestSpecVersion: 'number',
       name: 'string',
       runtime: 'string',
@@ -151,7 +141,7 @@ export class ListExternalAgentsResponseBodyItems extends $dara.Model {
 export class ListExternalAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value SUCCESS is returned for a successful request.
    * 
    * @example
    * SUCCESS
@@ -159,7 +149,7 @@ export class ListExternalAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value 200 is returned for a successful request.
    * 
    * @example
    * 200
@@ -183,7 +173,7 @@ export class ListExternalAgentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The message returned for the request.
+   * The message that indicates the result of the request.
    * 
    * @example
    * success
@@ -191,7 +181,7 @@ export class ListExternalAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next page. An empty value indicates the last page.
+   * The token for the next page. An empty value indicates that the last page has been reached.
    * 
    * @example
    * next-token-1

@@ -18,7 +18,7 @@ export class CreateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the user VPC.
    * 
    * @example
    * vpc-bp1234567890
@@ -82,7 +82,93 @@ export class CreateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.M
   }
 }
 
+export class CreateWorkspaceResponseBodyDataTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * environment
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * development
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The AI Registry namespace ID. This value is returned after the related resource binding is complete and may be empty during initialization.
+   * 
+   * @example
+   * namespace-0123456789abcdef
+   * 
+   * **if can be null:**
+   * true
+   */
+  aiRegistryNamespaceId?: string;
+  /**
+   * @remarks
+   * The OSS storage authorization status.
+   */
+  authorizationStatus?: string;
+  /**
+   * @remarks
+   * The name of the private OSS bucket.
+   */
+  bucketName?: string;
+  /**
+   * @remarks
+   * The CloudMonitor workspace ID. This value is returned after the related resource binding is complete and may be empty during initialization.
+   * 
+   * @example
+   * cms-ws-0123456789abcdef
+   * 
+   * **if can be null:**
+   * true
+   */
+  cmsWorkspaceId?: string;
+  /**
+   * @remarks
+   * The time when the workspace was created, in ISO-8601 format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2026-08-28T10:00:00+08:00
+   */
+  createTime?: string;
   /**
    * @remarks
    * The workspace name.
@@ -106,12 +192,46 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the resource group to which the workspace belongs. This value may be empty if no resource group is specified.
+   * 
+   * @example
+   * rg-acfm1234567890
+   * 
+   * **if can be null:**
+   * true
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
    * The workspace status.
    * 
    * @example
    * Initialized
    */
   status?: string;
+  /**
+   * @remarks
+   * The supplementary reason for the current workspace status. This value is used to display the specific reason when initialization fails or authorization is pending, and may be empty under normal conditions.
+   * 
+   * @example
+   * Waiting for OSS RAM authorization
+   * 
+   * **if can be null:**
+   * true
+   */
+  statusReason?: string;
+  /**
+   * @remarks
+   * The storage type of the workspace.
+   */
+  storageType?: string;
+  /**
+   * @remarks
+   * The list of workspace tags. An empty array is returned if no tags are set.
+   * 
+   * This parameter is required.
+   */
+  tags?: CreateWorkspaceResponseBodyDataTags[];
   /**
    * @remarks
    * The ID of the tenant to which the workspace belongs.
@@ -130,10 +250,19 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      aiRegistryNamespaceId: 'aiRegistryNamespaceId',
+      authorizationStatus: 'authorizationStatus',
+      bucketName: 'bucketName',
+      cmsWorkspaceId: 'cmsWorkspaceId',
+      createTime: 'createTime',
       name: 'name',
       networkConfiguration: 'networkConfiguration',
       regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
       status: 'status',
+      statusReason: 'statusReason',
+      storageType: 'storageType',
+      tags: 'tags',
       tenantId: 'tenantId',
       workspaceId: 'workspaceId',
     };
@@ -141,10 +270,19 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiRegistryNamespaceId: 'string',
+      authorizationStatus: 'string',
+      bucketName: 'string',
+      cmsWorkspaceId: 'string',
+      createTime: 'string',
       name: 'string',
       networkConfiguration: CreateWorkspaceResponseBodyDataNetworkConfiguration,
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      statusReason: 'string',
+      storageType: 'string',
+      tags: { 'type': 'array', 'itemType': CreateWorkspaceResponseBodyDataTags },
       tenantId: 'string',
       workspaceId: 'string',
     };
@@ -153,6 +291,9 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   validate() {
     if(this.networkConfiguration && typeof (this.networkConfiguration as any).validate === 'function') {
       (this.networkConfiguration as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -202,7 +343,7 @@ export class CreateWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

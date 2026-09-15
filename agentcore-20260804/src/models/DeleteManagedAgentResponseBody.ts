@@ -45,14 +45,6 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The effective specification version number.
-   * 
-   * @example
-   * 1
-   */
-  effectiveSpecVersion?: number;
-  /**
-   * @remarks
    * The latest specification version number.
    * 
    * @example
@@ -106,7 +98,6 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
       createdAt: 'createdAt',
       deployType: 'deployType',
       description: 'description',
-      effectiveSpecVersion: 'effectiveSpecVersion',
       latestSpecVersion: 'latestSpecVersion',
       name: 'name',
       runtime: 'runtime',
@@ -123,7 +114,6 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
       createdAt: 'string',
       deployType: 'string',
       description: 'string',
-      effectiveSpecVersion: 'number',
       latestSpecVersion: 'number',
       name: 'string',
       runtime: 'string',
@@ -145,7 +135,7 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
 export class DeleteManagedAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value SUCCESS is returned if the request succeeds.
    * 
    * @example
    * SUCCESS
@@ -153,12 +143,12 @@ export class DeleteManagedAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The summary information of the managed agent after deletion.
+   * The summary information of the deleted managed agent.
    */
   data?: DeleteManagedAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value 200 is returned if the request succeeds.
    * 
    * @example
    * 200
@@ -166,7 +156,7 @@ export class DeleteManagedAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The message returned for the request processing result.
    * 
    * @example
    * success

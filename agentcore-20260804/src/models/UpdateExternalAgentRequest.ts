@@ -103,6 +103,8 @@ export class UpdateExternalAgentRequestBodyTemplateAiRegistry extends $dara.Mode
    * @remarks
    * The version of the template in AI Registry.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1.0.0
    */
@@ -174,7 +176,6 @@ export class UpdateExternalAgentRequestBodyTools extends $dara.Model {
   /**
    * @remarks
    * The tool type. Valid values:
-   * 
    * - MCP: MCP tool.
    * 
    * This parameter is required.
@@ -225,15 +226,14 @@ export class UpdateExternalAgentRequestBody extends $dara.Model {
   instruction?: string;
   /**
    * @remarks
-   * The model configuration. This parameter is available only when modelSource is set to PLATFORM.
+   * The model configuration. Available only when modelSource is set to PLATFORM.
    */
   model?: UpdateExternalAgentRequestBodyModel;
   /**
    * @remarks
    * The source of the model configuration. Valid values:
-   * 
-   * - PLATFORM: The model configuration is parsed and distributed by the platform. You can specify the model parameter.
-   * - RUNTIME: The model is managed by the external runtime. You cannot specify the model parameter at the same time.
+   * - PLATFORM: The platform parses and delivers the model configuration.
+   * - RUNTIME: The external runtime manages the model on its own. You cannot specify model at the same time.
    * 
    * @example
    * PLATFORM
@@ -317,7 +317,7 @@ export class UpdateExternalAgentRequest extends $dara.Model {
   body?: UpdateExternalAgentRequestBody;
   /**
    * @remarks
-   * A reserved idempotency token. The backend does not guarantee idempotency in the current version.
+   * The reserved idempotency token. The backend does not guarantee idempotence in the current phase.
    * 
    * @example
    * client-token-1

@@ -2,6 +2,56 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateCredentialResponseBodyDataResourceRefs extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the resource.
+   * 
+   * @example
+   * agent-xxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource name. This value is empty if the resource has been deleted.
+   * 
+   * @example
+   * my-agent
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type, such as agent.
+   * 
+   * @example
+   * agent
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCredentialResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -45,7 +95,7 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The credential name. The name must be unique within the workspace and can contain only letters, digits, periods, underscores, and hyphens. The name must be 3 to 128 characters in length and cannot use runtime reserved names.
+   * The credential name. The name must be unique within the workspace and can contain only letters, digits, periods (.), underscores (_), and hyphens (-). The name must be 3 to 128 characters in length and cannot use runtime reserved names.
    * 
    * @example
    * model-api-key
@@ -53,12 +103,25 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The region ID where the resource resides.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Each item contains resourceType, resourceId, and resourceName. resourceName is empty if the resource has been deleted.
+   */
+  resourceRefs?: CreateCredentialResponseBodyDataResourceRefs[];
+  /**
+   * @remarks
+   * The credential resource scope.
+   * 
+   * @example
+   * ALL
+   */
+  resourceScope?: string;
   /**
    * @remarks
    * The time of the last modification in UTC, formatted in RFC 3339.
@@ -84,6 +147,8 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
       description: 'description',
       name: 'name',
       regionId: 'regionId',
+      resourceRefs: 'resourceRefs',
+      resourceScope: 'resourceScope',
       updatedAt: 'updatedAt',
       workspaceId: 'workspaceId',
     };
@@ -98,12 +163,17 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
       description: 'string',
       name: 'string',
       regionId: 'string',
+      resourceRefs: { 'type': 'array', 'itemType': CreateCredentialResponseBodyDataResourceRefs },
+      resourceScope: 'string',
       updatedAt: 'string',
       workspaceId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.resourceRefs)) {
+      $dara.Model.validateArray(this.resourceRefs);
+    }
     super.validate();
   }
 
@@ -136,7 +206,7 @@ export class CreateCredentialResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request failed.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success

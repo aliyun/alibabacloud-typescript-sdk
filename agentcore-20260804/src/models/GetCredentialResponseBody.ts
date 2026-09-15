@@ -42,15 +42,65 @@ export class GetCredentialResponseBodyDataBoundAgents extends $dara.Model {
   }
 }
 
+export class GetCredentialResponseBodyDataResourceRefs extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the resource.
+   * 
+   * @example
+   * agent-xxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource name. This value is empty if the resource has been deleted.
+   * 
+   * @example
+   * my-agent
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type, such as agent.
+   * 
+   * @example
+   * agent
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCredentialResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of agents that are bound to the credential.
+   * The list of agents bound to the credential.
    */
   boundAgents?: GetCredentialResponseBodyDataBoundAgents[];
   /**
    * @remarks
-   * The creation time in UTC, formatted in RFC 3339.
+   * The creation time in UTC, formatted according to RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -66,7 +116,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The masked result of the credential content. When credentialType is apiKey, the value of apiKey is returned as asterisks (*) of equal length.
+   * The masked content of the credential. When credentialType is apiKey, the value of apiKey is returned as asterisks (*) of equal length.
    * 
    * @example
    * {"apiKey":"****************"}
@@ -82,10 +132,10 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The credential description. The description can be up to 256 characters in length.
+   * The credential description, up to 256 characters in length.
    * 
    * @example
-   * API Key used for calling model services in the production environment
+   * API Key used to call model services in the production environment
    */
   description?: string;
   /**
@@ -106,7 +156,20 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted in RFC 3339.
+   * Each item contains resourceType, resourceId, and resourceName. If the resource has been deleted, resourceName is empty.
+   */
+  resourceRefs?: GetCredentialResponseBodyDataResourceRefs[];
+  /**
+   * @remarks
+   * The scope of resources to which the credential applies.
+   * 
+   * @example
+   * ALL
+   */
+  resourceScope?: string;
+  /**
+   * @remarks
+   * The time of the last modification in UTC, formatted according to RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -130,6 +193,8 @@ export class GetCredentialResponseBodyData extends $dara.Model {
       description: 'description',
       name: 'name',
       regionId: 'regionId',
+      resourceRefs: 'resourceRefs',
+      resourceScope: 'resourceScope',
       updatedAt: 'updatedAt',
       workspaceId: 'workspaceId',
     };
@@ -145,6 +210,8 @@ export class GetCredentialResponseBodyData extends $dara.Model {
       description: 'string',
       name: 'string',
       regionId: 'string',
+      resourceRefs: { 'type': 'array', 'itemType': GetCredentialResponseBodyDataResourceRefs },
+      resourceScope: 'string',
       updatedAt: 'string',
       workspaceId: 'string',
     };
@@ -153,6 +220,9 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.boundAgents)) {
       $dara.Model.validateArray(this.boundAgents);
+    }
+    if(Array.isArray(this.resourceRefs)) {
+      $dara.Model.validateArray(this.resourceRefs);
     }
     super.validate();
   }
@@ -186,7 +256,7 @@ export class GetCredentialResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request failed.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success
