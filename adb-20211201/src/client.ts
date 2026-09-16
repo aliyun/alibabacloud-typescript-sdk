@@ -12899,6 +12899,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询知识库文件
+   * 
+   * @param request - ListKnowledgeFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeFilesResponse
+   */
+  async listKnowledgeFilesWithOptions(request: $_model.ListKnowledgeFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileIds)) {
+      query["FileIds"] = request.fileIds;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeFiles",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeFilesResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeFilesResponse({}));
+  }
+
+  /**
+   * 查询知识库文件
+   * 
+   * @param request - ListKnowledgeFilesRequest
+   * @returns ListKnowledgeFilesResponse
+   */
+  async listKnowledgeFiles(request: $_model.ListKnowledgeFilesRequest): Promise<$_model.ListKnowledgeFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeFilesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the tags of a knowledge base document.
    * 
    * @param request - ListKnowledgeTagsRequest
