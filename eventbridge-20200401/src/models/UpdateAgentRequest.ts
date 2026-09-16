@@ -90,6 +90,16 @@ export class UpdateAgentRequest extends $dara.Model {
    */
   description?: string;
   /**
+   * @example
+   * bGXX51ULuGl10xrr
+   */
+  mcpServerId?: string;
+  /**
+   * @example
+   * eventhouse-agentbridge
+   */
+  mcpServerName?: string;
+  /**
    * @remarks
    * The associated metadata.
    */
@@ -116,6 +126,8 @@ export class UpdateAgentRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
+      mcpServerId: 'McpServerId',
+      mcpServerName: 'McpServerName',
       metadata: 'Metadata',
       name: 'Name',
       prompt: 'Prompt',
@@ -126,6 +138,8 @@ export class UpdateAgentRequest extends $dara.Model {
     return {
       clientToken: 'string',
       description: 'string',
+      mcpServerId: 'string',
+      mcpServerName: 'string',
       metadata: UpdateAgentRequestMetadata,
       name: 'string',
       prompt: 'string',

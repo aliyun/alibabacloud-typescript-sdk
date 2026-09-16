@@ -1,5 +1,15 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AiChunkTransformParameters } from "./AiChunkTransformParameters";
+import { AiClassifyTransformParameters } from "./AiClassifyTransformParameters";
+import { AiEmbedTransformParameters } from "./AiEmbedTransformParameters";
+import { AiExtractTransformParameters } from "./AiExtractTransformParameters";
+import { AiFilterTransformParameters } from "./AiFilterTransformParameters";
+import { AiPrepSearchTransformParameters } from "./AiPrepSearchTransformParameters";
+import { AiRedactTransformParameters } from "./AiRedactTransformParameters";
+import { AiSentimentAnalysisTransformParameters } from "./AiSentimentAnalysisTransformParameters";
+import { AiSummarizeTransformParameters } from "./AiSummarizeTransformParameters";
+import { AiTranslateTransformParameters } from "./AiTranslateTransformParameters";
 import { BaiLianAgentTransformParameters } from "./BaiLianAgentTransformParameters";
 import { DashScopeTransformParameters } from "./DashScopeTransformParameters";
 import { SourceFeiShuDocsParameters } from "./SourceFeiShuDocsParameters";
@@ -23,7 +33,7 @@ import { SinkRabbitMQMsgSyncParameters } from "./SinkRabbitMqmsgSyncParameters";
 export class UpdateEventStreamingRequestRunOptionsBatchWindow extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of events that the window can contain. When this threshold is reached, the data in the window is pushed downstream. If multiple windows exist, the push is triggered when any window meets the threshold.
+   * The maximum number of events that the window can contain. When this threshold is reached, the data in the window is pushed downstream. If multiple windows exist, a push is triggered when any one of the windows meets the threshold.
    * 
    * @example
    * 100
@@ -31,7 +41,7 @@ export class UpdateEventStreamingRequestRunOptionsBatchWindow extends $dara.Mode
   countBasedWindow?: number;
   /**
    * @remarks
-   * The maximum time range (in seconds) of events that the window can contain. When this threshold is reached, the data in the window is pushed downstream. If multiple windows exist, the push is triggered when any window meets the threshold.
+   * The maximum time range (in seconds) of events that the window can contain. When this threshold is reached, the data in the window is pushed downstream. If multiple windows exist, a push is triggered when any one of the windows meets the threshold.
    * 
    * @example
    * 10
@@ -92,7 +102,7 @@ export class UpdateEventStreamingRequestRunOptionsBusinessOption extends $dara.M
 export class UpdateEventStreamingRequestRunOptionsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
+   * The ARN of the dead-letter queue.
    * 
    * @example
    * acs:ram::131733464781****:role/rdstoecsassumekms
@@ -215,7 +225,7 @@ export class UpdateEventStreamingRequestRunOptionsRetryStrategy extends $dara.Mo
 export class UpdateEventStreamingRequestRunOptions extends $dara.Model {
   /**
    * @remarks
-   * The batch window.
+   * The batching window.
    */
   batchWindow?: UpdateEventStreamingRequestRunOptionsBatchWindow;
   businessOption?: UpdateEventStreamingRequestRunOptionsBusinessOption;
@@ -226,7 +236,7 @@ export class UpdateEventStreamingRequestRunOptions extends $dara.Model {
   deadLetterQueue?: UpdateEventStreamingRequestRunOptionsDeadLetterQueue;
   /**
    * @remarks
-   * The error tolerance policy. Valid values: NONE (no tolerance) and ALL (tolerate all errors).
+   * The error tolerance policy. Valid values: NONE (no tolerance for errors) and ALL (tolerate all errors).
    * 
    * @example
    * ALL
@@ -242,7 +252,7 @@ export class UpdateEventStreamingRequestRunOptions extends $dara.Model {
   maximumTasks?: number;
   /**
    * @remarks
-   * The retry policy when event delivery fails.
+   * The retry policy when event pushing fails.
    */
   retryStrategy?: UpdateEventStreamingRequestRunOptionsRetryStrategy;
   throttling?: number;
@@ -295,7 +305,7 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParametersDynamicTopi
   /**
    * @remarks
    * The transformation type. Valid values:
-   * CONSTANT: constant value.
+   * CONSTANT: fixed value.
    * JSONPATH: extracts the value from the upstream based on a path.
    */
   form?: string;
@@ -453,7 +463,7 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSecurityGro
 export class UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSslKeystoreKey extends $dara.Model {
   /**
    * @remarks
-   * [Required] The KMS resource ARN that stores the SSL private key. Used to locate the KMS instance that stores the client private key. Format example: \\"acs:kms:cn-hangzhou:123456789:secret/ssl-keystore-key-xxxx\\". You can view the ARN information of the corresponding key in the KMS console.
+   * [Required] The KMS resource ARN that stores the SSL private key. Used to locate the Key Management Service instance that stores the client private key. Format example: \\"acs:kms:cn-hangzhou:123456789:secret/ssl-keystore-key-xxxx\\". You can obtain this value from the ARN information of the corresponding key in the KMS console.
    */
   kmsArn?: string;
   /**
@@ -578,7 +588,7 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
   /**
    * @remarks
    * Specifies the target Topic routing strategy for messages. If both the Topic parameter and the DynamicTopic parameter are specified, the value of the DynamicTopic parameter takes precedence. The following two configuration modes are supported:
-   *     1. **Static constant mode**: Specify a fixed Topic name string (for example, "order_created"). All messages are sent to this Topic.
+   *     1. **Static constant mode**: Directly specify a fixed Topic name string (for example, "order_created"). All messages are sent to this Topic.
    *     2. **Dynamic extraction mode**: Specify a standard JSONPath expression (for example, "$.user.id" or "$.metadata.category"). The system parses the upstream message body and extracts the value of the matching field as the target Topic name.
    */
   dynamicTopic?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersDynamicTopic;
@@ -592,22 +602,22 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
   securityProtocol?: string;
   /**
    * @remarks
-   * [Required for encrypted private keys] The password of the Kafka client private key. If the client private key is protected by password encryption (the PEM file contains the \\"Proc-Type: 4,ENCRYPTED\\" or \\"ENCRYPTED\\" marker), provide the decryption password. Leave this parameter empty if the private key is not encrypted. This password is used only to decrypt the private key and is not related to Kafka authentication.
+   * [Required for encrypted private keys] The password for the Kafka client private key. If the client private key is encrypted with a password (the PEM file contains the \\"Proc-Type: 4,ENCRYPTED\\" or \\"ENCRYPTED\\" marker), provide the decryption password. Leave this parameter empty if the private key is not encrypted. This password is used only to decrypt the private key and is not related to Kafka authentication.
    */
   sslKeyPassword?: string;
   /**
    * @remarks
-   * [Required for mutual authentication] The Kafka client certificate chain. If the Kafka server enables mutual SSL authentication (ssl.client.auth=required), this parameter is required. Format: Base64-encoded PEM format, containing the client certificate and the complete certificate chain (client certificate first, followed by intermediate CA certificates, with the root CA certificate being optional). Ensure that each PEM file content starts with \\"-----BEGIN CERTIFICATE-----\\" and ends with \\"-----END CERTIFICATE-----\\", then Base64-encode the concatenated content.
+   * [Required for mutual authentication] The Kafka client certificate chain. This parameter is required when the Kafka server enables mutual SSL authentication (ssl.client.auth=required). Format: Base64-encoded PEM format, containing the client certificate and the complete certificate chain (client certificate first, followed by intermediate CA certificates, with the root CA certificate being optional). Ensure that each PEM file begins with \\"-----BEGIN CERTIFICATE-----\\" and ends with \\"-----END CERTIFICATE-----\\", then Base64-encode the concatenated content.
    */
   sslKeystoreCertificateChain?: string;
   /**
    * @remarks
-   * [Required for bidirectional authentication] The SSL private key configuration object. When the Kafka server enables bidirectional SSL authentication, provide the client private key. Only KMS pattern is supported for the key: specify the EPS resource of the Key Management Service that stores the private key by using KmsArn. The system retrieves the private key content from KMS only in memory, which provides higher security. Configuration example: {\\"KmsArn\\": \\"acs:kms:cn-hangzhou:123456789:secret/ssl-key-xxxx\\", \\"KmsSecretValueKey\\": \\"keystore_private_key\\"}
+   * [Required for bidirectional authentication] The SSL private key configuration object. When the Kafka server enables bidirectional SSL authentication, you must provide the client private key. Only KMS pattern is supported for the key: specify the Key Management Service EPS resource that stores the private key by using KmsArn. The system retrieves the private key content from KMS only in memory, which provides higher security. Configuration example: {\\"KmsArn\\": \\"acs:kms:cn-hangzhou:123456789:secret/ssl-key-xxxx\\", \\"KmsSecretValueKey\\": \\"keystore_private_key\\"}
    */
   sslKeystoreKey?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSslKeystoreKey;
   /**
    * @remarks
-   * [Required for SSL scenarios] The trusted certificate of the Kafka server. This certificate is used to authenticate the validity of the SSL certificate of the Kafka broker and prevent man-in-the-middle attacks. Format requirement: Base64 encoding in PEM format. This typically contains the CA certificate or the server certificate of the Kafka server. Example: Base64-encode the content of the CA certificate PEM file (make sure the content starts with \\"-----BEGIN CERTIFICATE-----\\" and ends with \\"-----END CERTIFICATE-----\\"). If Kafka uses a self-signed certificate, provide the CA certificate that issued the certificate.
+   * [Required for SSL scenarios] The trusted certificate of the Kafka server. This certificate is used to authenticate the validity of the SSL certificate of the Kafka broker and prevent man-in-the-middle attacks. Format requirement: Base64 encoding of PEM format, which typically contains the CA certificate or the server certificate of the Kafka server. Example: Base64-encode the content of the CA signing certificate PEM file (make sure the content starts with \\"-----BEGIN CERTIFICATE-----\\" and ends with \\"-----END CERTIFICATE-----\\"). If Kafka uses a self-signed certificate, provide the CA certificate that issued the certificate.
    */
   sslTruststoreCertificates?: string;
   topic?: string;
@@ -878,7 +888,7 @@ export class UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParamete
   instanceUsername?: string;
   /**
    * @remarks
-   * The network type.
+   * The network type. Valid values:
    * 
    * - PublicNetwork
    * - PrivateNetwork
@@ -1443,7 +1453,7 @@ export class UpdateEventStreamingRequestSinkSinkDashVectorParameters extends $da
   primaryKeyId?: UpdateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId;
   /**
    * @remarks
-   * The vector of the DashVector record to insert.
+   * The vector of the record inserted into DashVector.
    */
   vector?: UpdateEventStreamingRequestSinkSinkDashVectorParametersVector;
   static names(): { [key: string]: string } {
@@ -1649,7 +1659,7 @@ export class UpdateEventStreamingRequestSinkSinkDataHubParametersProject extends
   template?: string;
   /**
    * @remarks
-   * The name of the DataHub project.
+   * The DataHub project name.
    * 
    * @example
    * demo-project
@@ -1743,7 +1753,7 @@ export class UpdateEventStreamingRequestSinkSinkDataHubParametersTopic extends $
   template?: string;
   /**
    * @remarks
-   * The name of the DataHub topic.
+   * The DataHub topic name.
    * 
    * @example
    * demo-topic
@@ -1882,12 +1892,12 @@ export class UpdateEventStreamingRequestSinkSinkDataHubParameters extends $dara.
   body?: UpdateEventStreamingRequestSinkSinkDataHubParametersBody;
   /**
    * @remarks
-   * The key-value pairs of custom logs. This parameter takes effect only when ContentType is set to KeyValue. Each key-value pair is represented by Key_n and Value_n.
+   * The key-value pairs of the custom log. This parameter takes effect only when ContentType is set to KeyValue. Each key-value pair is represented by Key_n and Value_n.
    */
   contentSchema?: UpdateEventStreamingRequestSinkSinkDataHubParametersContentSchema;
   /**
    * @remarks
-   * The data format. You can select the default format or specify key-value pairs. Valid values:
+   * The data format. You can select the default format or configure a specified key-value pair. Valid values:
    * 
    * - JSON
    * - KeyValue
@@ -1895,7 +1905,7 @@ export class UpdateEventStreamingRequestSinkSinkDataHubParameters extends $dara.
   contentType?: UpdateEventStreamingRequestSinkSinkDataHubParametersContentType;
   /**
    * @remarks
-   * The name of the DataHub project.
+   * The DataHub project name.
    */
   project?: UpdateEventStreamingRequestSinkSinkDataHubParametersProject;
   /**
@@ -1905,7 +1915,7 @@ export class UpdateEventStreamingRequestSinkSinkDataHubParameters extends $dara.
   roleName?: UpdateEventStreamingRequestSinkSinkDataHubParametersRoleName;
   /**
    * @remarks
-   * The name of the DataHub topic.
+   * The DataHub topic name.
    */
   topic?: UpdateEventStreamingRequestSinkSinkDataHubParametersTopic;
   /**
@@ -2947,7 +2957,8 @@ export class UpdateEventStreamingRequestSinkSinkFcParameters extends $dara.Model
   functionName?: UpdateEventStreamingRequestSinkSinkFcParametersFunctionName;
   /**
    * @remarks
-   * Specifies whether the invocation is synchronous or asynchronous. Valid values:
+   * The invocation type. Valid values:
+   * 
    * - Sync: Synchronous.
    * - Async: Asynchronous.
    */
@@ -3280,10 +3291,10 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParametersAcks extends $dar
   template?: string;
   /**
    * @remarks
-   * The acknowledgment mode for writing to Kafka:
+   * The acknowledgment mode for writing to Kafka. Valid values:
    * - acks=0: No response is required from the server. This mode delivers high performance but has a high risk of data loss.
    * - acks=1: A response is returned after the primary node on the server writes the data. This mode delivers moderate performance and has a moderate risk of data loss. Data loss may occur if the primary node goes down.
-   * - acks=all: A response is returned only after the primary node writes the data and the secondary nodes synchronize the data. This mode delivers lower performance but provides higher data security. Data loss occurs only if both the primary and secondary nodes go down.
+   * - acks=all: A response is returned only after the primary node on the server writes the data and the secondary nodes synchronize the data. This mode delivers lower performance but provides higher data security. Data loss occurs only if both the primary and secondary nodes go down.
    * 
    * @example
    * 1
@@ -3318,7 +3329,7 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParametersDynamicTopic exte
   /**
    * @remarks
    * The transformation type. Valid values:
-   * CONSTANT: constant value.
+   * CONSTANT: fixed value.
    * JSONPATH: extracts the value from the upstream based on a path.
    */
   form?: string;
@@ -3610,17 +3621,17 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParametersValue extends $da
 export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Model {
   /**
    * @remarks
-   * The acknowledgment mode for writing to Kafka:
+   * The acknowledgment mode for writing to Kafka. Valid values:
    * - acks=0: No response is required from the server. This mode delivers high performance but has a high risk of data loss.
    * - acks=1: A response is returned after the primary node on the server writes the data. This mode delivers moderate performance and has a moderate risk of data loss. Data loss may occur if the primary node goes down.
-   * - acks=all: A response is returned only after the primary node writes the data and the secondary nodes synchronize the data. This mode delivers lower performance but provides higher data security. Data loss occurs only if both the primary and secondary nodes go down.
+   * - acks=all: A response is returned only after the primary node on the server writes the data and the secondary nodes synchronize the data. This mode delivers lower performance but provides higher data security. Data loss occurs only if both the primary and secondary nodes go down.
    */
   acks?: UpdateEventStreamingRequestSinkSinkKafkaParametersAcks;
   compressionType?: string;
   /**
    * @remarks
    * Specifies the target Topic routing strategy for messages. If both the Topic parameter and the DynamicTopic parameter are specified, the value of the DynamicTopic parameter takes precedence. The following two configuration modes are supported:
-   *     1. **Static constant mode**: Specify a fixed Topic name string (for example, "order_created"). All messages are sent to this Topic.
+   *     1. **Static constant mode**: Directly specify a fixed Topic name string (for example, "order_created"). All messages are sent to this Topic.
    *     2. **Dynamic extraction mode**: Specify a standard JSONPath expression (for example, "$.user.id" or "$.metadata.category"). The system parses the upstream message body and extracts the value of the matching field as the target Topic name.
    */
   dynamicTopic?: UpdateEventStreamingRequestSinkSinkKafkaParametersDynamicTopic;
@@ -4101,7 +4112,7 @@ export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRout
 export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The authentication type:
+   * The authentication type. Valid values:
    * 
    * - ACL
    * - No configuration required
@@ -4138,7 +4149,7 @@ export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters ext
   messageId?: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId;
   /**
    * @remarks
-   * The network type.
+   * The network type. Valid values:
    * 
    * - PrivateNetwork
    * - PublicNetwork
@@ -4183,7 +4194,7 @@ export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters ext
   securityGroupId?: string;
   /**
    * @remarks
-   * The target type for message delivery.
+   * The target type for message delivery. Valid values:
    * 
    * - **Exchange:** Messages are routed through an exchange.
    * 
@@ -4389,9 +4400,9 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParame
    * 
    * Valid values:
    * 
-   * - JSONPATH: JSONPATH.
-   * - CONSTANT: CONSTANT.
-   * - TEMPLATE: TEMPLATE.
+   * - JSONPATH
+   * - CONSTANT
+   * - TEMPLATE
    * 
    * @example
    * TEMPLATE
@@ -4399,7 +4410,7 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParame
   form?: string;
   /**
    * @remarks
-   * The HTTP request header template. Specify this parameter when Form is set to TEMPLATE. The transformed event content must be in JSON format.
+   * The HTTP request header template. Specify this parameter when Form is set to TEMPLATE. The result after event content transformation must be in JSON format.
    * 
    * @example
    * {
@@ -4961,7 +4972,7 @@ export class UpdateEventStreamingRequestSinkSinkRabbitMQParametersExchange exten
   template?: string;
   /**
    * @remarks
-   * The name of the exchange in the ApsaraMQ for RabbitMQ instance.
+   * The name of the Exchange in the ApsaraMQ for RabbitMQ instance.
    * 
    * @example
    * a_exchange
@@ -5159,7 +5170,7 @@ export class UpdateEventStreamingRequestSinkSinkRabbitMQParametersQueueName exte
   template?: string;
   /**
    * @remarks
-   * The name of the queue in the instance.
+   * The name of the Queue in the instance.
    * 
    * @example
    * MyQueue
@@ -5302,7 +5313,7 @@ export class UpdateEventStreamingRequestSinkSinkRabbitMQParametersVirtualHostNam
   template?: string;
   /**
    * @remarks
-   * The name of the vhost in the ApsaraMQ for RabbitMQ instance.
+   * The name of the Vhost in the ApsaraMQ for RabbitMQ instance.
    * 
    * @example
    * rabbit-host
@@ -5376,7 +5387,7 @@ export class UpdateEventStreamingRequestSinkSinkRabbitMQParameters extends $dara
   targetType?: UpdateEventStreamingRequestSinkSinkRabbitMQParametersTargetType;
   /**
    * @remarks
-   * The name of the vhost in the ApsaraMQ for RabbitMQ instance.
+   * The name of the Vhost in the ApsaraMQ for RabbitMQ instance.
    */
   virtualHostName?: UpdateEventStreamingRequestSinkSinkRabbitMQParametersVirtualHostName;
   static names(): { [key: string]: string } {
@@ -6066,7 +6077,7 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork extend
   template?: string;
   /**
    * @remarks
-   * The network type.
+   * The network type. Valid values:
    * 
    * - PublicNetwork
    * - PrivateNetwork
@@ -6408,7 +6419,7 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId extends 
   template?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vbr-8vb835n3zf9shwlvb****
@@ -6482,7 +6493,7 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParameters extends $dara
   keys?: UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys;
   /**
    * @remarks
-   * The network type.
+   * The network type. Valid values:
    * 
    * - PublicNetwork
    * - PrivateNetwork
@@ -6501,7 +6512,7 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParameters extends $dara
   /**
    * @remarks
    * The sharding key of the message.
-   * > When DeliveryOrderType is set to Orderly, this parameter specifies the event content transformation rule for the ShardingKey property when writing messages to the downstream. When the source is RocketMQ, ShardingKey can be left empty. In this case, the upstream BrokerName and QueueId are concatenated to generate the message ShardingKey.
+   * > If DeliveryOrderType is set to Orderly, this parameter specifies the event content transformation rule for the ShardingKey property when messages are written to the downstream. If the source is RocketMQ, ShardingKey can be left empty. In this case, the upstream BrokerName and QueueId are concatenated to generate the message ShardingKey.
    */
   shardingKey?: UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey;
   /**
@@ -6521,7 +6532,7 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParameters extends $dara
   vSwitchIds?: UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    */
   vpcId?: UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId;
   static names(): { [key: string]: string } {
@@ -6738,7 +6749,7 @@ export class UpdateEventStreamingRequestSinkSinkSLSParametersContentType extends
   template?: string;
   /**
    * @remarks
-   * The SLS data format.
+   * The data format of SLS.
    * 
    * @example
    * JSON
@@ -6879,7 +6890,7 @@ export class UpdateEventStreamingRequestSinkSinkSLSParametersRoleName extends $d
   template?: string;
   /**
    * @remarks
-   * The role used for authorization of the event bus EventBridge to read SLS log content. To use this role, the following conditions must be met: when you create the role for the service in the Resource Access Management (RAM) console, select Alibaba Cloud Service as the trusted entity, and set the trusted service to event bus.
+   * The role used for authorization of the event bus EventBridge to read SLS log content. To use this role, the following conditions must be met: when you create the role for the service in the Resource Access Management (RAM) console, set the trusted entity type to Alibaba Cloud Service and set the trusted service to event bus.
    * 
    * @example
    * testRole
@@ -6970,7 +6981,7 @@ export class UpdateEventStreamingRequestSinkSinkSLSParameters extends $dara.Mode
   contentSchema?: UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema;
   /**
    * @remarks
-   * The SLS data format. You can select the default format or configure specified key-value pairs. Valid values:
+   * The data format of SLS. You can select the default format or configure specified key-value pairs. Valid values:
    * 
    * - JSON
    * - KeyValue
@@ -6988,7 +6999,7 @@ export class UpdateEventStreamingRequestSinkSinkSLSParameters extends $dara.Mode
   project?: UpdateEventStreamingRequestSinkSinkSLSParametersProject;
   /**
    * @remarks
-   * The role used for authorization of the event bus EventBridge to read SLS log content. To use this role, the following conditions must be met: when you create the role for the service in the Resource Access Management (RAM) console, select Alibaba Cloud Service as the trusted entity, and set the trusted service to event bus.
+   * The role used for authorization of the event bus EventBridge to read SLS log content. To use this role, the following conditions must be met: when you create the role for the service in the Resource Access Management (RAM) console, set the trusted entity type to Alibaba Cloud Service and set the trusted service to event bus.
    */
   roleName?: UpdateEventStreamingRequestSinkSinkSLSParametersRoleName;
   /**
@@ -7064,7 +7075,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
   sinkApacheRocketMQCheckpointParameters?: UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters;
   /**
    * @remarks
-   * The ApiDestination event target parameters.
+   * The ApiDestination target parameters.
    */
   sinkApiDestinationParameters?: SinkApiDestinationParameters;
   /**
@@ -7329,7 +7340,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
 export class UpdateEventStreamingRequestSourceSourceApacheKafkaParametersSslKeystoreKey extends $dara.Model {
   /**
    * @remarks
-   * [Required] The KMS resource ARN that stores the SSL private key. Used to locate the KMS instance that stores the client private key. Format example: \\"acs:kms:cn-hangzhou:123456789:secret/ssl-keystore-key-xxxx\\". You can view the ARN information of the corresponding key in the KMS console.
+   * [Required] The KMS resource ARN that stores the SSL private key. Used to locate the Key Management Service instance that stores the client private key. Format example: \\"acs:kms:cn-hangzhou:123456789:secret/ssl-keystore-key-xxxx\\". You can obtain this value from the ARN information of the corresponding key in the KMS console.
    */
   kmsArn?: string;
   /**
@@ -7372,22 +7383,22 @@ export class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters extend
   securityProtocol?: string;
   /**
    * @remarks
-   * [Required for encrypted private keys] The password of the Kafka client private key. If the client private key is protected by password encryption (the PEM file contains the \\"Proc-Type: 4,ENCRYPTED\\" or \\"ENCRYPTED\\" marker), provide the decryption password. Leave this parameter empty if the private key is not encrypted. This password is used only to decrypt the private key and is not related to Kafka authentication.
+   * [Required for encrypted private keys] The password for the Kafka client private key. If the client private key is encrypted with a password (the PEM file contains the \\"Proc-Type: 4,ENCRYPTED\\" or \\"ENCRYPTED\\" marker), provide the decryption password. Leave this parameter empty if the private key is not encrypted. This password is used only to decrypt the private key and is not related to Kafka authentication.
    */
   sslKeyPassword?: string;
   /**
    * @remarks
-   * [Required for mutual authentication] The Kafka client certificate chain. If the Kafka server enables mutual SSL authentication (ssl.client.auth=required), this parameter is required. Format: Base64-encoded PEM format, containing the client certificate and the complete certificate chain (client certificate first, followed by intermediate CA certificates, with the root CA certificate being optional). Ensure that each PEM file content starts with \\"-----BEGIN CERTIFICATE-----\\" and ends with \\"-----END CERTIFICATE-----\\", then Base64-encode the concatenated content.
+   * [Required for mutual authentication] The Kafka client certificate chain. This parameter is required when the Kafka server enables mutual SSL authentication (ssl.client.auth=required). Format: Base64-encoded PEM format, containing the client certificate and the complete certificate chain (client certificate first, followed by intermediate CA certificates, with the root CA certificate being optional). Ensure that each PEM file begins with \\"-----BEGIN CERTIFICATE-----\\" and ends with \\"-----END CERTIFICATE-----\\", then Base64-encode the concatenated content.
    */
   sslKeystoreCertificateChain?: string;
   /**
    * @remarks
-   * [Required for bidirectional authentication] The SSL private key configuration object. If the Kafka server enables bidirectional SSL authentication, the client private key is required. Only KMS pattern is supported: specify the Key Management Service EPS resource that stores the private key by using KmsArn. The system retrieves the private key content from KMS only in memory, which provides higher security. Configuration example: {\\"KmsArn\\": \\"acs:kms:cn-hangzhou:123456789:secret/ssl-key-xxxx\\", \\"KmsSecretValueKey\\": \\"keystore_private_key\\"}
+   * [Required for bidirectional authentication] The SSL private key configuration object. When the Kafka server enables bidirectional SSL authentication, the client private key is required. Only KMS pattern is supported: specify the Key Management Service EPS resource that stores the private key by using KmsArn. The system retrieves the private key content from KMS only in memory, which provides higher security. Configuration example: {\\"KmsArn\\": \\"acs:kms:cn-hangzhou:123456789:secret/ssl-key-xxxx\\", \\"KmsSecretValueKey\\": \\"keystore_private_key\\"}
    */
   sslKeystoreKey?: UpdateEventStreamingRequestSourceSourceApacheKafkaParametersSslKeystoreKey;
   /**
    * @remarks
-   * [Required for SSL] The Kafka server trust certificate. Used to authenticate the legitimacy of the Kafka Broker SSL certificate and prevent man-in-the-middle attacks. Format: Base64-encoded PEM format, typically containing the CA certificate of the Kafka server or the server certificate itself. Example: Base64-encode the PEM file content of the CA certificate (ensure it starts with \\"-----BEGIN CERTIFICATE-----\\" and ends with \\"-----END CERTIFICATE-----\\"). If Kafka uses a self-signed certificate, provide the CA certificate that issued the certificate.
+   * [Required for SSL] The Kafka server trust certificate. Used to authenticate the legitimacy of the Kafka Broker SSL certificate and prevent man-in-the-middle attacks. Format: Base64-encoded PEM format, typically containing the CA certificate of the Kafka server or the server certificate itself. Example: Base64-encode the PEM file content of the CA certificate (ensure it begins with \\"-----BEGIN CERTIFICATE-----\\" and ends with \\"-----END CERTIFICATE-----\\"). If Kafka uses a self-signed certificate, provide the CA certificate that issued the certificate.
    */
   sslTruststoreCertificates?: string;
   topic?: string;
@@ -7477,7 +7488,7 @@ export class UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointPara
   instanceUsername?: string;
   /**
    * @remarks
-   * The network type.
+   * The network type. Valid values:
    * 
    * - PublicNetwork
    * - PrivateNetwork
@@ -7504,7 +7515,7 @@ export class UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointPara
   securityGroupId?: string;
   /**
    * @remarks
-   * The topic of the Apache RocketMQ instance.
+   * The topics of the Apache RocketMQ instance.
    */
   topics?: string[];
   /**
@@ -7790,7 +7801,7 @@ export class UpdateEventStreamingRequestSourceSourceDTSParameters extends $dara.
 export class UpdateEventStreamingRequestSourceSourceEventBusParameters extends $dara.Model {
   /**
    * @remarks
-   * The name of the event bus.
+   * The event bus name.
    * 
    * @example
    * my-event-bus
@@ -7798,7 +7809,7 @@ export class UpdateEventStreamingRequestSourceSourceEventBusParameters extends $
   eventBusName?: string;
   /**
    * @remarks
-   * The name of the event rule.
+   * The event rule name.
    * 
    * @example
    * my-event-rule
@@ -7830,7 +7841,7 @@ export class UpdateEventStreamingRequestSourceSourceEventBusParameters extends $
 export class UpdateEventStreamingRequestSourceSourceKafkaParameters extends $dara.Model {
   /**
    * @remarks
-   * The group ID of the consumer that subscribes to the topic.
+   * The Group ID of the consumer that subscribes to the topic.
    * 
    * @example
    * DEFAULT_GROUP
@@ -7895,9 +7906,9 @@ export class UpdateEventStreamingRequestSourceSourceKafkaParameters extends $dar
   /**
    * @remarks
    * The encoding and decoding parameter. Valid values:
-   *   a. Json: The existing logic. Bytes are decoded to a character string by using UTF-8 and parsed as JSON.
-   *   b. Text: Bytes are decoded to a character string by using UTF-8 and directly placed into the payload.
-   *   c. Binary: Bytes are encoded to a character string by using Base64 encoding and placed into the payload.
+   *   - Json: The existing logic. Bytes are decoded to a character string by using UTF-8 encoding and parsed as JSON.
+   *   - Text: Bytes are decoded to a character string by using UTF-8 encoding and placed directly into the payload.
+   *   - Binary: Bytes are encoded to a character string by using Base64 encoding and placed into the payload.
    * 
    * @example
    * Text
@@ -8212,7 +8223,7 @@ export class UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters
   endpoint?: string;
   /**
    * @remarks
-   * The network type.
+   * The network type. Valid values:
    * 
    * - PublicNetwork
    * - PrivateNetwork
@@ -8223,7 +8234,7 @@ export class UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters
   networkType?: string;
   /**
    * @remarks
-   * The password used to connect to the open source RabbitMQ instance.
+   * The password used to connect to the open-source RabbitMQ instance.
    * 
    * @example
    * ****
@@ -8231,7 +8242,7 @@ export class UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters
   password?: string;
   /**
    * @remarks
-   * The queue name of the open source RabbitMQ instance.
+   * The queue name of the open-source RabbitMQ instance.
    * 
    * @example
    * demo
@@ -8247,7 +8258,7 @@ export class UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters
   securityGroupId?: string;
   /**
    * @remarks
-   * The username used to connect to the open source RabbitMQ instance.
+   * The username used to connect to the open-source RabbitMQ instance.
    * 
    * @example
    * admin
@@ -8263,7 +8274,7 @@ export class UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters
   vSwitchIds?: string;
   /**
    * @remarks
-   * The virtual host name of the open source RabbitMQ instance.
+   * The virtual host name of the open-source RabbitMQ instance.
    * 
    * @example
    * Vhost1
@@ -8643,7 +8654,7 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
   instanceVpcId?: string;
   /**
    * @remarks
-   * The network type.
+   * The network type. Valid values:
    * 
    * - PublicNetwork
    * - PrivateNetwork
@@ -8654,7 +8665,7 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
   network?: string;
   /**
    * @remarks
-   * The consumption offset of messages. Valid values:
+   * The consumption offset of the message. Valid values:
    * - CONSUMEFROMLASTOFFSET: starts consumption from the latest offset.
    * - CONSUMEFROMFIRSTOFFSET: starts consumption from the earliest offset.
    * - CONSUMEFROMTIMESTAMP: starts consumption from the offset at a specified point in time.
@@ -8789,7 +8800,7 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
 export class UpdateEventStreamingRequestSourceSourceSLSParameters extends $dara.Model {
   /**
    * @remarks
-   * The role that provides authorization for the event bus EventBridge to read SLS log content. When you create the role for the service in the Resource Access Management (RAM) console, select Alibaba Cloud Service as the trusted entity and select event bus as the trusted service.
+   * The name of the role that provides authorization for the event bus EventBridge to read SLS log content. When you create the role in the Resource Access Management (RAM) console, set the trusted entity type to Alibaba Cloud Service and set the trusted service to event bus.
    * 
    * @example
    * testRole
@@ -8872,7 +8883,7 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
   sourceOSSParameters?: UpdateEventStreamingRequestSourceSourceOSSParameters;
   /**
    * @remarks
-   * The Source open source RabbitMQ event source.
+   * The Source open-source RabbitMQ event source.
    */
   sourceOpenSourceRabbitMQParameters?: UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters;
   sourcePostgreSQLParameters?: SourcePostgreSQLParameters;
@@ -9035,6 +9046,56 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
 export class UpdateEventStreamingRequestTransforms extends $dara.Model {
   /**
    * @remarks
+   * The AI local text chunking parameters.
+   */
+  aiChunkTransformParameters?: AiChunkTransformParameters;
+  /**
+   * @remarks
+   * The AI text classification parameters.
+   */
+  aiClassifyTransformParameters?: AiClassifyTransformParameters;
+  /**
+   * @remarks
+   * The AI text embedding parameters.
+   */
+  aiEmbedTransformParameters?: AiEmbedTransformParameters;
+  /**
+   * @remarks
+   * The AI information extraction parameters.
+   */
+  aiExtractTransformParameters?: AiExtractTransformParameters;
+  /**
+   * @remarks
+   * The AI conditional filtering parameters.
+   */
+  aiFilterTransformParameters?: AiFilterTransformParameters;
+  /**
+   * @remarks
+   * The AI semantic chunking parameters.
+   */
+  aiPrepSearchTransformParameters?: AiPrepSearchTransformParameters;
+  /**
+   * @remarks
+   * The AI data masking parameters.
+   */
+  aiRedactTransformParameters?: AiRedactTransformParameters;
+  /**
+   * @remarks
+   * The AI emotion analysis parameters.
+   */
+  aiSentimentAnalysisTransformParameters?: AiSentimentAnalysisTransformParameters;
+  /**
+   * @remarks
+   * The AI summarization parameters.
+   */
+  aiSummarizeTransformParameters?: AiSummarizeTransformParameters;
+  /**
+   * @remarks
+   * The AI translation parameters.
+   */
+  aiTranslateTransformParameters?: AiTranslateTransformParameters;
+  /**
+   * @remarks
    * The ARN of the Alibaba Cloud service, such as the ARN of a function in Function Compute.
    * 
    * @example
@@ -9045,6 +9106,16 @@ export class UpdateEventStreamingRequestTransforms extends $dara.Model {
   dashScopeTransformParameters?: DashScopeTransformParameters;
   static names(): { [key: string]: string } {
     return {
+      aiChunkTransformParameters: 'AiChunkTransformParameters',
+      aiClassifyTransformParameters: 'AiClassifyTransformParameters',
+      aiEmbedTransformParameters: 'AiEmbedTransformParameters',
+      aiExtractTransformParameters: 'AiExtractTransformParameters',
+      aiFilterTransformParameters: 'AiFilterTransformParameters',
+      aiPrepSearchTransformParameters: 'AiPrepSearchTransformParameters',
+      aiRedactTransformParameters: 'AiRedactTransformParameters',
+      aiSentimentAnalysisTransformParameters: 'AiSentimentAnalysisTransformParameters',
+      aiSummarizeTransformParameters: 'AiSummarizeTransformParameters',
+      aiTranslateTransformParameters: 'AiTranslateTransformParameters',
       arn: 'Arn',
       baiLianAgentTransformParameters: 'BaiLianAgentTransformParameters',
       dashScopeTransformParameters: 'DashScopeTransformParameters',
@@ -9053,6 +9124,16 @@ export class UpdateEventStreamingRequestTransforms extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiChunkTransformParameters: AiChunkTransformParameters,
+      aiClassifyTransformParameters: AiClassifyTransformParameters,
+      aiEmbedTransformParameters: AiEmbedTransformParameters,
+      aiExtractTransformParameters: AiExtractTransformParameters,
+      aiFilterTransformParameters: AiFilterTransformParameters,
+      aiPrepSearchTransformParameters: AiPrepSearchTransformParameters,
+      aiRedactTransformParameters: AiRedactTransformParameters,
+      aiSentimentAnalysisTransformParameters: AiSentimentAnalysisTransformParameters,
+      aiSummarizeTransformParameters: AiSummarizeTransformParameters,
+      aiTranslateTransformParameters: AiTranslateTransformParameters,
       arn: 'string',
       baiLianAgentTransformParameters: BaiLianAgentTransformParameters,
       dashScopeTransformParameters: DashScopeTransformParameters,
@@ -9060,6 +9141,36 @@ export class UpdateEventStreamingRequestTransforms extends $dara.Model {
   }
 
   validate() {
+    if(this.aiChunkTransformParameters && typeof (this.aiChunkTransformParameters as any).validate === 'function') {
+      (this.aiChunkTransformParameters as any).validate();
+    }
+    if(this.aiClassifyTransformParameters && typeof (this.aiClassifyTransformParameters as any).validate === 'function') {
+      (this.aiClassifyTransformParameters as any).validate();
+    }
+    if(this.aiEmbedTransformParameters && typeof (this.aiEmbedTransformParameters as any).validate === 'function') {
+      (this.aiEmbedTransformParameters as any).validate();
+    }
+    if(this.aiExtractTransformParameters && typeof (this.aiExtractTransformParameters as any).validate === 'function') {
+      (this.aiExtractTransformParameters as any).validate();
+    }
+    if(this.aiFilterTransformParameters && typeof (this.aiFilterTransformParameters as any).validate === 'function') {
+      (this.aiFilterTransformParameters as any).validate();
+    }
+    if(this.aiPrepSearchTransformParameters && typeof (this.aiPrepSearchTransformParameters as any).validate === 'function') {
+      (this.aiPrepSearchTransformParameters as any).validate();
+    }
+    if(this.aiRedactTransformParameters && typeof (this.aiRedactTransformParameters as any).validate === 'function') {
+      (this.aiRedactTransformParameters as any).validate();
+    }
+    if(this.aiSentimentAnalysisTransformParameters && typeof (this.aiSentimentAnalysisTransformParameters as any).validate === 'function') {
+      (this.aiSentimentAnalysisTransformParameters as any).validate();
+    }
+    if(this.aiSummarizeTransformParameters && typeof (this.aiSummarizeTransformParameters as any).validate === 'function') {
+      (this.aiSummarizeTransformParameters as any).validate();
+    }
+    if(this.aiTranslateTransformParameters && typeof (this.aiTranslateTransformParameters as any).validate === 'function') {
+      (this.aiTranslateTransformParameters as any).validate();
+    }
     if(this.baiLianAgentTransformParameters && typeof (this.baiLianAgentTransformParameters as any).validate === 'function') {
       (this.baiLianAgentTransformParameters as any).validate();
     }
@@ -9119,7 +9230,7 @@ export class UpdateEventStreamingRequest extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The generic JSON configurations for the event provider. This parameter is mutually exclusive with Source.
+   * The generic JSON Configurations for the event source. This parameter is mutually exclusive with Source.
    */
   metadata?: string;
   /**
@@ -9139,7 +9250,7 @@ export class UpdateEventStreamingRequest extends $dara.Model {
   source?: UpdateEventStreamingRequestSource;
   /**
    * @remarks
-   * The event transformer configurations.
+   * The transform-related configurations.
    */
   transforms?: UpdateEventStreamingRequestTransforms[];
   static names(): { [key: string]: string } {

@@ -47,7 +47,7 @@ export class UpdateEventStreamingShrinkRequest extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The generic JSON configurations for the event provider. This parameter is mutually exclusive with Source.
+   * The generic JSON Configurations for the event source. This parameter is mutually exclusive with Source.
    */
   metadata?: string;
   /**
@@ -67,7 +67,7 @@ export class UpdateEventStreamingShrinkRequest extends $dara.Model {
   sourceShrink?: string;
   /**
    * @remarks
-   * The event transformer configurations.
+   * The transform-related configurations.
    */
   transformsShrink?: string;
   static names(): { [key: string]: string } {

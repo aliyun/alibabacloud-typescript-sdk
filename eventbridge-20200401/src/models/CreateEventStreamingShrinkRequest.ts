@@ -91,12 +91,12 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   runOptionsShrink?: string;
   /**
    * @remarks
-   * The event target. You must specify exactly one type of Sink.
+   * The event target. You must select exactly one type of Sink.
    */
   sinkShrink?: string;
   /**
    * @remarks
-   * The event provider. You must specify one Source, and you can specify only one Source.
+   * The event provider. You must select exactly one Source type.
    */
   sourceShrink?: string;
   /**
@@ -106,7 +106,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   tags?: CreateEventStreamingShrinkRequestTags[];
   /**
    * @remarks
-   * The transform configurations.
+   * The Transform-related configurations.
    */
   transformsShrink?: string;
   static names(): { [key: string]: string } {

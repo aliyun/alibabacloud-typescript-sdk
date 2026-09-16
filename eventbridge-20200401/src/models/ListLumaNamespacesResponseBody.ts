@@ -6,21 +6,51 @@ import { Namespace } from "./Namespace";
 export class ListLumaNamespacesResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * 本次请求实际生效的每页数量。未传 Limit 时为服务端默认值，超出上限时为收敛后的值
+   * 
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @remarks
    * The list of namespaces bound to the Agent.
    * 
    * @example
    * [{"Name":"my_namespace"}]
    */
   namespaces?: Namespace[];
+  /**
+   * @remarks
+   * 下一页起始Token，传入下次请求的 NextToken 可获取下一页；为空表示已无更多数据
+   * 
+   * @example
+   * 10
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Agent 绑定的命名空间总数，与本页返回条数无关
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      limit: 'Limit',
       namespaces: 'Namespaces',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      limit: 'number',
       namespaces: { 'type': 'array', 'itemType': Namespace },
+      nextToken: 'string',
+      totalCount: 'number',
     };
   }
 

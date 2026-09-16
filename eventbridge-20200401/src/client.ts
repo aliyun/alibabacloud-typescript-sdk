@@ -2985,6 +2985,10 @@ export default class Client extends OpenApi {
       body["ConnectionNamePrefix"] = request.connectionNamePrefix;
     }
 
+    if (!$dara.isNull(request.excludeType)) {
+      body["ExcludeType"] = request.excludeType;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
@@ -3215,6 +3219,14 @@ export default class Client extends OpenApi {
       body["AgentName"] = request.agentName;
     }
 
+    if (!$dara.isNull(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -3403,10 +3415,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * Lists all knowledge bases bound to a Luma Agent in a specified namespace. Returns the complete set of bindings without pagination.
    * 
    * @remarks
-   * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * Lists the knowledge bases bound to a Luma Agent in a specified namespace. Results are returned in pages. To retrieve the next page, pass the NextToken value from the previous response. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than MaxResults. Do not determine whether the last page is reached based on an insufficient number of entries on the current page.
    * 
    * @param request - ListLumaKnowledgeBasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3423,8 +3435,16 @@ export default class Client extends OpenApi {
       body["Catalog"] = request.catalog;
     }
 
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
     if (!$dara.isNull(request.namespace)) {
       body["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3445,10 +3465,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * Lists all knowledge bases bound to a Luma Agent in a specified namespace. Returns the complete set of bindings without pagination.
    * 
    * @remarks
-   * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * Lists the knowledge bases bound to a Luma Agent in a specified namespace. Results are returned in pages. To retrieve the next page, pass the NextToken value from the previous response. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than MaxResults. Do not determine whether the last page is reached based on an insufficient number of entries on the current page.
    * 
    * @param request - ListLumaKnowledgeBasesRequest
    * @returns ListLumaKnowledgeBasesResponse
@@ -3477,6 +3497,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.catalog)) {
       body["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3511,10 +3539,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * Lists all event tables bound to a Luma Agent in a specified namespace. Returns the complete set of bindings without pagination.
    * 
    * @remarks
-   * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * Lists the event tables bound to a Luma Agent in a specified namespace. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient number of entries on the current page to determine that the last page has been reached.
    * 
    * @param request - ListLumaTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3531,8 +3559,16 @@ export default class Client extends OpenApi {
       body["Catalog"] = request.catalog;
     }
 
+    if (!$dara.isNull(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
     if (!$dara.isNull(request.namespace)) {
       body["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3553,10 +3589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * Lists all event tables bound to a Luma Agent in a specified namespace. Returns the complete set of bindings without pagination.
    * 
    * @remarks
-   * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+   * Lists the event tables bound to a Luma Agent in a specified namespace. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient number of entries on the current page to determine that the last page has been reached.
    * 
    * @param request - ListLumaTablesRequest
    * @returns ListLumaTablesResponse
@@ -4850,6 +4886,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.mcpServerId)) {
+      body["McpServerId"] = request.mcpServerId;
+    }
+
+    if (!$dara.isNull(request.mcpServerName)) {
+      body["McpServerName"] = request.mcpServerName;
     }
 
     if (!$dara.isNull(request.metadataShrink)) {

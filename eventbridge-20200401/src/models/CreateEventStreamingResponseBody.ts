@@ -35,7 +35,7 @@ export class CreateEventStreamingResponseBodyData extends $dara.Model {
 export class CreateEventStreamingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned code. Valid values:
+   * The response code. Valid values:
    * - Success: The request was successful.                                
    * - Other values: An error occurred. For more information about error codes, see Error codes.
    * 
@@ -66,7 +66,7 @@ export class CreateEventStreamingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Indicates whether the operation was successful. The value true is returned if the operation was successful.
    * 
    * @example
    * true

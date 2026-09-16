@@ -6,6 +6,16 @@ import { Metadata } from "./Metadata";
 export class Agent extends $dara.Model {
   createdAt?: number;
   description?: string;
+  /**
+   * @example
+   * 8vHW4mDRxxxxx
+   */
+  mcpServerId?: string;
+  /**
+   * @example
+   * data-analyze-agent
+   */
+  mcpServerName?: string;
   metadata?: Metadata;
   name?: string;
   prompt?: string;
@@ -14,6 +24,8 @@ export class Agent extends $dara.Model {
     return {
       createdAt: 'CreatedAt',
       description: 'Description',
+      mcpServerId: 'McpServerId',
+      mcpServerName: 'McpServerName',
       metadata: 'Metadata',
       name: 'Name',
       prompt: 'Prompt',
@@ -25,6 +37,8 @@ export class Agent extends $dara.Model {
     return {
       createdAt: 'number',
       description: 'string',
+      mcpServerId: 'string',
+      mcpServerName: 'string',
       metadata: Metadata,
       name: 'string',
       prompt: 'string',
