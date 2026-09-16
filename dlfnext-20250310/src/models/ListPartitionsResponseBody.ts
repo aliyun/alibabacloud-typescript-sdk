@@ -6,7 +6,7 @@ import { Partition } from "./Partition";
 export class ListPartitionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used to retrieve the next page of results.
+   * The pagination token used to retrieve the next page of data.
    * 
    * @example
    * E8ABEB1C3DB893D16576269017992F57
@@ -14,7 +14,7 @@ export class ListPartitionsResponseBody extends $dara.Model {
   nextPageToken?: string;
   /**
    * @remarks
-   * The partitions.
+   * The list of partitions.
    */
   partitions?: Partition[];
   static names(): { [key: string]: string } {

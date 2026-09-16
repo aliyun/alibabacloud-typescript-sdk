@@ -2412,7 +2412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists partitions.
+   * Lists the partitions of a data table.
    * 
    * @param request - ListPartitionsRequest
    * @param headers - map
@@ -2453,7 +2453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists partitions.
+   * Lists the partitions of a data table.
    * 
    * @param request - ListPartitionsRequest
    * @returns ListPartitionsResponse

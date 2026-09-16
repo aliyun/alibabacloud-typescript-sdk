@@ -51,6 +51,7 @@ export class Partition extends $dara.Model {
    * 1741701564261
    */
   lastFileCreationTime?: number;
+  options?: { [key: string]: string };
   /**
    * @remarks
    * The number of records.
@@ -123,6 +124,7 @@ export class Partition extends $dara.Model {
       fileCount: 'fileCount',
       fileSizeInBytes: 'fileSizeInBytes',
       lastFileCreationTime: 'lastFileCreationTime',
+      options: 'options',
       recordCount: 'recordCount',
       spec: 'spec',
       storageAction: 'storageAction',
@@ -142,6 +144,7 @@ export class Partition extends $dara.Model {
       fileCount: 'number',
       fileSizeInBytes: 'number',
       lastFileCreationTime: 'number',
+      options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       recordCount: 'number',
       spec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       storageAction: 'string',
@@ -154,6 +157,9 @@ export class Partition extends $dara.Model {
   }
 
   validate() {
+    if(this.options) {
+      $dara.Model.validateMap(this.options);
+    }
     if(this.spec) {
       $dara.Model.validateMap(this.spec);
     }
