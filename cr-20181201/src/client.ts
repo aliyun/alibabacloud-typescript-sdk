@@ -12,49 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'us-west-1': "cr.us-west-1.aliyuncs.com",
-      'us-southeast-1': "cr.us-southeast-1.aliyuncs.com",
-      'us-east-1': "cr.us-east-1.aliyuncs.com",
-      'na-south-1': "cr.na-south-1.aliyuncs.com",
-      'me-east-1': "cr.me-east-1.aliyuncs.com",
-      'me-central-1': "cr.me-central-1.aliyuncs.com",
-      'eu-west-2': "cr.eu-west-2.aliyuncs.com",
-      'eu-west-1': "cr.eu-west-1.aliyuncs.com",
-      'eu-central-1': "cr.eu-central-1.aliyuncs.com",
-      'cn-zhongwei': "cr.cn-zhongwei.aliyuncs.com",
-      'cn-zhengzhou-jva': "cr.cn-zhengzhou-jva.aliyuncs.com",
-      'cn-zhangjiakou': "cr.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu-gic-1': "cr.cn-wulanchabu-gic-1.aliyuncs.com",
-      'cn-wulanchabu': "cr.cn-wulanchabu.aliyuncs.com",
-      'cn-wuhan-lr': "cr.cn-wuhan-lr.aliyuncs.com",
-      'cn-shenzhen-finance-1': "cr.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "cr.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "cr.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "cr.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "cr.cn-qingdao.aliyuncs.com",
-      'cn-north-2-gov-1': "cr.cn-north-2-gov-1.aliyuncs.com",
-      'cn-nanjing': "cr.cn-nanjing.aliyuncs.com",
-      'cn-huhehaote': "cr.cn-huhehaote.aliyuncs.com",
-      'cn-hongkong': "cr.cn-hongkong.aliyuncs.com",
-      'cn-heyuan-acdr-1': "cr.cn-heyuan-acdr-1.aliyuncs.com",
-      'cn-heyuan': "cr.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou-finance': "cr.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou': "cr.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "cr.cn-guangzhou.aliyuncs.com",
-      'cn-fuzhou': "cr.cn-fuzhou.aliyuncs.com",
-      'cn-chengdu': "cr.cn-chengdu.aliyuncs.com",
-      'cn-beijing-finance-1': "cr.cn-beijing-finance-1.aliyuncs.com",
-      'cn-beijing': "cr.cn-beijing.aliyuncs.com",
-      'ap-southeast-8': "cr.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-7': "cr.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "cr.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "cr.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "cr.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "cr.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "cr.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "cr.ap-northeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cr", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -350,8 +307,16 @@ export default class Client extends OpenApi {
       query["Auto"] = request.auto;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.enableDeleteTag)) {
       query["EnableDeleteTag"] = request.enableDeleteTag;
+    }
+
+    if (!$dara.isNull(request.enableDeleteUntaggedManifest)) {
+      query["EnableDeleteUntaggedManifest"] = request.enableDeleteUntaggedManifest;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -1215,7 +1180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image synchronization rule for an image repository.
+   * Creates a synchronization rule for an image repository.
    * 
    * @param request - CreateRepoSyncRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1234,6 +1199,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.namespaceName)) {
       query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!$dara.isNull(request.namespaceNameFilter)) {
+      query["NamespaceNameFilter"] = request.namespaceNameFilter;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
     }
 
     if (!$dara.isNull(request.repoName)) {
@@ -1298,7 +1271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image synchronization rule for an image repository.
+   * Creates a synchronization rule for an image repository.
    * 
    * @param request - CreateRepoSyncRuleRequest
    * @returns CreateRepoSyncRuleResponse
@@ -1309,7 +1282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manually create a sync task.
+   * Manually creates a synchronization task.
    * 
    * @param request - CreateRepoSyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1324,6 +1297,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.override)) {
       query["Override"] = request.override;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
     }
 
     if (!$dara.isNull(request.repoId)) {
@@ -1376,7 +1353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manually create a sync task.
+   * Manually creates a synchronization task.
    * 
    * @param request - CreateRepoSyncTaskRequest
    * @returns CreateRepoSyncTaskResponse
@@ -1387,7 +1364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image replication task based on a manual replication rule.
+   * Creates a synchronization task for an image repository based on a synchronization rule (manual synchronization rules only).
    * 
    * @param request - CreateRepoSyncTaskByRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1398,6 +1375,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
     }
 
     if (!$dara.isNull(request.repoId)) {
@@ -1430,7 +1411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image replication task based on a manual replication rule.
+   * Creates a synchronization task for an image repository based on a synchronization rule (manual synchronization rules only).
    * 
    * @param request - CreateRepoSyncTaskByRuleRequest
    * @returns CreateRepoSyncTaskByRuleResponse
@@ -2757,7 +2738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an artifact building rule.
+   * Retrieves an artifact build rule.
    * 
    * @param request - GetArtifactBuildRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2784,7 +2765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an artifact building rule.
+   * Retrieves an artifact build rule.
    * 
    * @param request - GetArtifactBuildRuleRequest
    * @returns GetArtifactBuildRuleResponse
@@ -2795,7 +2776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an artifact build task.
+   * Retrieves the build task of an artifact.
    * 
    * @param request - GetArtifactBuildTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2822,7 +2803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an artifact build task.
+   * Retrieves the build task of an artifact.
    * 
    * @param request - GetArtifactBuildTaskRequest
    * @returns GetArtifactBuildTaskResponse
@@ -2833,7 +2814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists artifact lifecycle management rules.
+   * Queries the lifecycle management rules of artifacts.
    * 
    * @param request - GetArtifactLifecycleRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2860,7 +2841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists artifact lifecycle management rules.
+   * Queries the lifecycle management rules of artifacts.
    * 
    * @param request - GetArtifactLifecycleRuleRequest
    * @returns GetArtifactLifecycleRuleResponse
@@ -2988,10 +2969,10 @@ export default class Client extends OpenApi {
    * Retrieves a temporary username and password for logging on to an instance.
    * 
    * @remarks
-   * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-   * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-   * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
-   * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
+   * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password equals the validity period of the STS token used in the request.
+   * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when logging on to the instance with the username and password of the Alibaba Cloud account.
+   * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when logging on to the instance with the username and password of the RAM user.
+   * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
    * 
    * @param request - GetAuthorizationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3029,10 +3010,10 @@ export default class Client extends OpenApi {
    * Retrieves a temporary username and password for logging on to an instance.
    * 
    * @remarks
-   * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-   * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-   * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
-   * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
+   * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password equals the validity period of the STS token used in the request.
+   * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when logging on to the instance with the username and password of the Alibaba Cloud account.
+   * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when logging on to the instance with the username and password of the RAM user.
+   * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
    * 
    * @param request - GetAuthorizationTokenRequest
    * @returns GetAuthorizationTokenResponse
@@ -3644,7 +3625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an image synchronization task in an instance.
+   * Queries a repository synchronization task.
    * 
    * @param request - GetRepoSyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3679,7 +3660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an image synchronization task in an instance.
+   * Queries a repository synchronization task.
    * 
    * @param request - GetRepoSyncTaskRequest
    * @returns GetRepoSyncTaskResponse
@@ -4902,7 +4883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of repository synchronization rules.
+   * Queries the list of repository synchronization rules.
    * 
    * @param request - ListRepoSyncRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4957,7 +4938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of repository synchronization rules.
+   * Queries the list of repository synchronization rules.
    * 
    * @param request - ListRepoSyncRuleRequest
    * @returns ListRepoSyncRuleResponse
@@ -4968,7 +4949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists repository synchronization tasks.
+   * Queries the list of repository synchronization tasks.
    * 
    * @param request - ListRepoSyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5023,7 +5004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists repository synchronization tasks.
+   * Queries the list of repository synchronization tasks.
    * 
    * @param request - ListRepoSyncTaskRequest
    * @returns ListRepoSyncTaskResponse
@@ -5658,7 +5639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a lifecycle management rule of an artifact.
+   * Updates an artifact lifecycle management rule.
    * 
    * @param request - UpdateArtifactLifecycleRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5671,8 +5652,16 @@ export default class Client extends OpenApi {
       query["Auto"] = request.auto;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.enableDeleteTag)) {
       query["EnableDeleteTag"] = request.enableDeleteTag;
+    }
+
+    if (!$dara.isNull(request.enableDeleteUntaggedManifest)) {
+      query["EnableDeleteUntaggedManifest"] = request.enableDeleteUntaggedManifest;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -5725,7 +5714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a lifecycle management rule of an artifact.
+   * Updates an artifact lifecycle management rule.
    * 
    * @param request - UpdateArtifactLifecycleRuleRequest
    * @returns UpdateArtifactLifecycleRuleResponse

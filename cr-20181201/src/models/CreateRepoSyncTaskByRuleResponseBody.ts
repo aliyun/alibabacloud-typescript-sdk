@@ -13,10 +13,11 @@ export class CreateRepoSyncTaskByRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call is successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class CreateRepoSyncTaskByRuleResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 17A4C658-AE8F-4A08-821F-EDCB5FC74EE8
@@ -32,7 +33,7 @@ export class CreateRepoSyncTaskByRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The synchronization task ID.
    * 
    * @example
    * rst-biu4u4pm4it5****

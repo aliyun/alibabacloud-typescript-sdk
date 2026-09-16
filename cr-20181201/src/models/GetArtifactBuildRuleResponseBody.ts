@@ -13,7 +13,15 @@ export class GetArtifactBuildRuleResponseBodyParameters extends $dara.Model {
   imageIndexOnly?: boolean;
   /**
    * @remarks
-   * The list of files that you want to prefetch when you use the image acceleration feature. Each entry contains the Base64-encoded absolute path of a file.
+   * The task priority. Valid values: [1, 5].
+   * 
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The list of prefetch files for the accelerated image. Each line contains an absolute path. The list is Base64-encoded.
    * 
    * @example
    * L2hvbWUvdGVzdC8=
@@ -22,6 +30,7 @@ export class GetArtifactBuildRuleResponseBodyParameters extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       imageIndexOnly: 'ImageIndexOnly',
+      priority: 'Priority',
       priorityFile: 'PriorityFile',
     };
   }
@@ -29,6 +38,7 @@ export class GetArtifactBuildRuleResponseBodyParameters extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       imageIndexOnly: 'boolean',
+      priority: 'number',
       priorityFile: 'string',
     };
   }
@@ -45,9 +55,9 @@ export class GetArtifactBuildRuleResponseBodyParameters extends $dara.Model {
 export class GetArtifactBuildRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the artifact. Valid values:
+   * The type of the accelerated image. Valid values:
    * 
-   * *   `ACCELERATED_IMAGE`: accelerated images.
+   * - `ACCELERATED_IMAGE`: generates an accelerated image.
    * 
    * @example
    * ACCELERATED_IMAGE
@@ -55,7 +65,7 @@ export class GetArtifactBuildRuleResponseBody extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The ID of the artifact building rule.
+   * The build rule ID.
    * 
    * @example
    * crabr-o2670wqz2n70****
@@ -63,9 +73,10 @@ export class GetArtifactBuildRuleResponseBody extends $dara.Model {
   buildRuleId?: string;
   /**
    * @remarks
-   * The API return code:
-   * - **200**: Indicates success.
-   * - Others: Indicate error codes.
+   * The response code. Valid values:
+   * 
+   * - **200**: success.
+   * - Other values: error codes.
    * 
    * @example
    * success
@@ -73,10 +84,11 @@ export class GetArtifactBuildRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the API request is successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call is successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -84,7 +96,7 @@ export class GetArtifactBuildRuleResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * Additional parameters.
+   * The additional parameters.
    */
   parameters?: GetArtifactBuildRuleResponseBodyParameters;
   /**
@@ -97,9 +109,9 @@ export class GetArtifactBuildRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the effective range of the artifact building rule.
+   * The ID of the scope in which the rule takes effect. Valid values:
    * 
-   * *   The parameter value is the ID of the image repository.
+   * - ScopeId: the image repository ID.
    * 
    * @example
    * crr-8dz3aedjqlmk****
@@ -107,9 +119,8 @@ export class GetArtifactBuildRuleResponseBody extends $dara.Model {
   scopeId?: string;
   /**
    * @remarks
-   * The effective range of the artifact building rule. Valid values:
-   * 
-   * *   `REPOSITORY`: The artifact building rule is effective in the repository level.
+   * The scope of the rule. Valid values:
+   * - `REPOSITORY`: repository level.
    * 
    * @example
    * REPOSITORY

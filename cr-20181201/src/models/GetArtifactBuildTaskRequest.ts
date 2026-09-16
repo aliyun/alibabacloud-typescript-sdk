@@ -15,7 +15,7 @@ export class GetArtifactBuildTaskRequest extends $dara.Model {
   buildTaskId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

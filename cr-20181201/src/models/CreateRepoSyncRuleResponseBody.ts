@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRepoSyncRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class CreateRepoSyncRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

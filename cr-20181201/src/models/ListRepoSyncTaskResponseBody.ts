@@ -13,7 +13,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $dara.Model 
   imageTag?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-kmsiwlxxdcva****
@@ -21,7 +21,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -83,7 +83,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-k77rd2eo9zttneqo
@@ -91,7 +91,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-shenzhen
@@ -145,7 +145,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $dara.Model {
 export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the task.
+   * The creation time.
    * 
    * @example
    * 1572839126000
@@ -153,7 +153,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Whether the image is synchronized across accounts. Valid values:
+   * Indicates whether the image is synchronized across accounts. Valid values:
    * 
    * - `true`: The image is synchronized across accounts.
    * 
@@ -167,7 +167,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   crossUser?: boolean;
   /**
    * @remarks
-   * Whether a custom sync link is used.
+   * Indicates whether a custom synchronization link is used.
    * 
    * @example
    * true
@@ -185,12 +185,15 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
   /**
    * @remarks
-   * The ID of the custom sync link.
+   * The custom synchronization link ID.
+   * 
+   * @example
+   * stl-b3fpik5nq6oy7***
    */
   linkId?: string;
   /**
    * @remarks
-   * This parameter is deprecated due to a typo. Use `ModifiedTime` instead.
+   * The modification time.
    * 
    * @example
    * 1572839133000
@@ -200,14 +203,28 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   modifedTime?: number;
   /**
    * @remarks
-   * The modification time of the task.
+   * The modification time.
+   * 
+   * @example
+   * 1572839133000
    */
   modifiedTime?: number;
   /**
    * @remarks
-   * The ID of the batch sync task. This ID is the same as the sync record ID (`SyncRecordId`).
+   * The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
    * 
-   * > If an image matches multiple sync rules, multiple sync tasks are generated. These tasks share the same `SyncBatchTaskId`.
+   * Valid values: 1 to 5.
+   * 
+   * Default value: 3.
+   * 
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The batch synchronization task ID for images, which corresponds to the SyncRecordId (synchronization task record ID) in the request parameters.
+   * > When an image matches multiple synchronization rules and generates multiple synchronization tasks, these tasks share the same SyncBatchTaskId.
    * 
    * @example
    * 9d8ac4f6-8138-4c15-a2e3-60624ad3****
@@ -215,7 +232,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   syncBatchTaskId?: string;
   /**
    * @remarks
-   * The ID of the sync rule.
+   * The synchronization rule ID.
    * 
    * @example
    * crsr-7lph66uloi6h****
@@ -223,7 +240,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   syncRuleId?: string;
   /**
    * @remarks
-   * The ID of the sync task.
+   * The synchronization task ID.
    * 
    * @example
    * rst-4kfd7fk6pohk****
@@ -231,7 +248,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   syncTaskId?: string;
   /**
    * @remarks
-   * Whether transfer acceleration is enabled for the sync task.
+   * The synchronization transfer acceleration status.
    * 
    * @example
    * true
@@ -240,8 +257,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   /**
    * @remarks
    * The task failure information.
-   * 
-   * > If the sync task fails, this field returns details about the failure.
+   * > When a synchronization task fails, this field returns information about the failure.
    * 
    * @example
    * NETWORK_ERROR
@@ -259,9 +275,9 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
    * @remarks
    * The trigger policy. Valid values:
    * 
-   * - `PASSIVE`: The sync task is automatically triggered.
+   * - `PASSIVE`: Synchronization is automatically triggered.
    * 
-   * - `INITIATIVE`: The sync task is manually triggered.
+   * - `INITIATIVE`: Synchronization is manually triggered.
    * 
    * Default value: `PASSIVE`
    * 
@@ -279,6 +295,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
       linkId: 'LinkId',
       modifedTime: 'ModifedTime',
       modifiedTime: 'ModifiedTime',
+      priority: 'Priority',
       syncBatchTaskId: 'SyncBatchTaskId',
       syncRuleId: 'SyncRuleId',
       syncTaskId: 'SyncTaskId',
@@ -299,6 +316,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
       linkId: 'string',
       modifedTime: 'number',
       modifiedTime: 'number',
+      priority: 'number',
       syncBatchTaskId: 'string',
       syncRuleId: 'string',
       syncTaskId: 'string',
@@ -327,7 +345,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
 export class ListRepoSyncTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The return value.
    * 
    * @example
    * success
@@ -335,7 +353,7 @@ export class ListRepoSyncTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -367,7 +385,7 @@ export class ListRepoSyncTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of sync tasks.
+   * The list of synchronization tasks.
    */
   syncTasks?: ListRepoSyncTaskResponseBodySyncTasks[];
   /**

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactBuildRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the artifact.
+   * The type of the accelerated image. Valid values:
    * 
-   * *   `ACCELERATED_IMAGE`: accelerated images.
+   * - `ACCELERATED_IMAGE`: generates an accelerated image.
    * 
    * @example
    * ACCELERATED_IMAGE
@@ -15,7 +15,7 @@ export class GetArtifactBuildRuleRequest extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The ID of the artifact building rule.
+   * The build rule ID.
    * 
    * @example
    * crabr-o2670wqz2n70****
@@ -23,7 +23,7 @@ export class GetArtifactBuildRuleRequest extends $dara.Model {
   buildRuleId?: string;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,9 +33,9 @@ export class GetArtifactBuildRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the effective range of the artifact building rule.
+   * The ID of the scope in which the rule takes effect. Valid values:
    * 
-   * *   Set the value to the ID of the image repository.
+   * - ScopeId: the image repository ID.
    * 
    * @example
    * crr-8dz3aedjqlmk****
@@ -43,9 +43,8 @@ export class GetArtifactBuildRuleRequest extends $dara.Model {
   scopeId?: string;
   /**
    * @remarks
-   * The effective range of the artifact building rule. Valid values:
-   * 
-   * *   `REPOSITORY`: The artifact building rule is effective in the repository level.
+   * The scope of the rule. Valid values:
+   * - `REPOSITORY`: repository level.
    * 
    * @example
    * REPOSITORY

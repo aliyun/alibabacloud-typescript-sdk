@@ -13,7 +13,25 @@ export class ListRepositoryRequest extends $dara.Model {
    * cri-kmsiwlxxdcva****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * Use this parameter together with NextToken. This parameter takes priority over PageNo and PageSize.
+   * 
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
+   * 
+   * Use this parameter together with MaxResults. This parameter takes priority over PageNo and PageSize.
+   * 
+   * @example
+   * *****V3MpHK1AP0pfERHZN5pu6lESTRpd5hnHNnmKOP/+w9F
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -21,6 +39,8 @@ export class ListRepositoryRequest extends $dara.Model {
    * 
    * @example
    * 1
+   * 
+   * @deprecated
    */
   pageNo?: number;
   /**
@@ -29,6 +49,8 @@ export class ListRepositoryRequest extends $dara.Model {
    * 
    * @example
    * 30
+   * 
+   * @deprecated
    */
   pageSize?: number;
   /**

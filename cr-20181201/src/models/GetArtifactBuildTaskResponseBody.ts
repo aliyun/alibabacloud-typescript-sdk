@@ -2,10 +2,60 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetArtifactBuildTaskResponseBodyArtifactCompression extends $dara.Model {
+  /**
+   * @remarks
+   * The operating system and architecture.
+   * 
+   * @example
+   * linux/arm64
+   */
+  platform?: string;
+  /**
+   * @remarks
+   * The number of layers to retain after compression.
+   * 
+   * @example
+   * 10
+   */
+  squashKeepLayers?: number;
+  /**
+   * @remarks
+   * The digest of the starting layer for compression.
+   * 
+   * @example
+   * sha256:xxxxx
+   */
+  startLayerDigest?: string;
+  static names(): { [key: string]: string } {
+    return {
+      platform: 'Platform',
+      squashKeepLayers: 'SquashKeepLayers',
+      startLayerDigest: 'StartLayerDigest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      platform: 'string',
+      squashKeepLayers: 'number',
+      startLayerDigest: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model {
   /**
    * @remarks
-   * The artifact type. Currently, only `IMAGE` is supported.
+   * The artifact type. Only IMAGE is supported.
    * 
    * @example
    * IMAGE
@@ -13,7 +63,15 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
   artifactType?: string;
   /**
    * @remarks
-   * The repository ID. Currently, only image repositories are supported.
+   * The number of artifact layers.
+   * 
+   * @example
+   * 10
+   */
+  layerCount?: number;
+  /**
+   * @remarks
+   * The repository ID. Only image repositories are supported.
    * 
    * @example
    * cri-shac42yvqzvq****
@@ -21,7 +79,15 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
   repoId?: string;
   /**
    * @remarks
-   * The artifact version. Currently, only image versions are supported.
+   * The artifact size, in bytes.
+   * 
+   * @example
+   * 5
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The artifact version. Only image versions are supported.
    * 
    * @example
    * latest
@@ -30,7 +96,9 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       artifactType: 'ArtifactType',
+      layerCount: 'LayerCount',
       repoId: 'RepoId',
+      size: 'Size',
       version: 'Version',
     };
   }
@@ -38,7 +106,9 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       artifactType: 'string',
+      layerCount: 'number',
       repoId: 'string',
+      size: 'number',
       version: 'string',
     };
   }
@@ -55,7 +125,7 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
 export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model {
   /**
    * @remarks
-   * The artifact type. Currently, only `IMAGE` is supported.
+   * The artifact type. Only IMAGE is supported.
    * 
    * @example
    * IMAGE
@@ -63,7 +133,15 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
   artifactType?: string;
   /**
    * @remarks
-   * The repository ID. It must be the same as the repository ID of the source artifact. Only image repositories are supported.
+   * The number of artifact layers.
+   * 
+   * @example
+   * 5
+   */
+  layerCount?: number;
+  /**
+   * @remarks
+   * The repository ID. Only image repositories are supported. The repository ID of the target artifact must be the same as that of the source artifact.
    * 
    * @example
    * crr-1234567
@@ -71,7 +149,15 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
   repoId?: string;
   /**
    * @remarks
-   * The artifact version. Currently, only image versions are supported.
+   * The artifact size, in bytes.
+   * 
+   * @example
+   * 10
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The artifact version. Only images are supported.
    * 
    * @example
    * latest_accelerated
@@ -80,7 +166,9 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       artifactType: 'ArtifactType',
+      layerCount: 'LayerCount',
       repoId: 'RepoId',
+      size: 'Size',
       version: 'Version',
     };
   }
@@ -88,7 +176,9 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       artifactType: 'string',
+      layerCount: 'number',
       repoId: 'string',
+      size: 'number',
       version: 'string',
     };
   }
@@ -107,14 +197,19 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
    * @remarks
    * The artifact build type. Valid values:
    * 
-   * - `IMAGE_TO_ACCELERATED_IMAGE`: an accelerated image for ACK.
+   * - `IMAGE_TO_ACCELERATED_IMAGE`: Accelerated image creation optimized for ACK scenarios.
    * 
-   * - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: an accelerated image for ECI.
+   * - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: Accelerated image artifact optimized for ECI scenarios.
    * 
    * @example
    * IMAGE_TO_ACCELERATED_IMAGE
    */
   artifactBuildType?: string;
+  /**
+   * @remarks
+   * The artifact compression parameters.
+   */
+  artifactCompression?: GetArtifactBuildTaskResponseBodyArtifactCompression;
   /**
    * @remarks
    * The ID of the artifact build task.
@@ -125,7 +220,7 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   buildTaskId?: string;
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * success
@@ -133,24 +228,33 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The Unix timestamp in seconds when the task ended.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1685415871
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The reserved field list of the artifact build task. The list elements should be empty.
+   */
   instructions?: string[];
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
    */
   isSuccess?: boolean;
   /**
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C4C7DD0C-C9D6-437A-A7EE-121EFD70D002
@@ -163,7 +267,7 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   sourceArtifact?: GetArtifactBuildTaskResponseBodySourceArtifact;
   /**
    * @remarks
-   * The Unix timestamp in seconds when the task started.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1685437471
@@ -176,15 +280,14 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   targetArtifact?: GetArtifactBuildTaskResponseBodyTargetArtifact;
   /**
    * @remarks
-   * The status of the artifact build task. Valid values:
+   * The artifact build status. Valid values:
+   * - `PENDING`: Scheduling in progress.
    * 
-   * - `PENDING`: The task is being scheduled.
+   * - `BUILDING`: Building in progress.
    * 
-   * - `BUILDING`: The task is in progress.
+   * - `SUCCESS`: Build succeeded.
    * 
-   * - `SUCCESS`: The task is successful.
-   * 
-   * - `FAILED`: The task failed.
+   * - `FAILED`: Build failed.
    * 
    * @example
    * BUILDING
@@ -193,11 +296,13 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       artifactBuildType: 'ArtifactBuildType',
+      artifactCompression: 'ArtifactCompression',
       buildTaskId: 'BuildTaskId',
       code: 'Code',
       endTime: 'EndTime',
       instructions: 'Instructions',
       isSuccess: 'IsSuccess',
+      priority: 'Priority',
       requestId: 'RequestId',
       sourceArtifact: 'SourceArtifact',
       startTime: 'StartTime',
@@ -209,11 +314,13 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       artifactBuildType: 'string',
+      artifactCompression: GetArtifactBuildTaskResponseBodyArtifactCompression,
       buildTaskId: 'string',
       code: 'string',
       endTime: 'number',
       instructions: { 'type': 'array', 'itemType': 'string' },
       isSuccess: 'boolean',
+      priority: 'number',
       requestId: 'string',
       sourceArtifact: GetArtifactBuildTaskResponseBodySourceArtifact,
       startTime: 'number',
@@ -223,6 +330,9 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.artifactCompression && typeof (this.artifactCompression as any).validate === 'function') {
+      (this.artifactCompression as any).validate();
+    }
     if(Array.isArray(this.instructions)) {
       $dara.Model.validateArray(this.instructions);
     }

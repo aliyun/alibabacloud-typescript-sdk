@@ -2,6 +2,7 @@ export { ArtifactLifecyclePolicyCondition } from './ArtifactLifecyclePolicy';
 export { ArtifactLifecyclePolicyFilter } from './ArtifactLifecyclePolicy';
 export { RepoConfigurationArtifactBuildRuleParameters } from './RepoConfiguration';
 export { GetArtifactBuildRuleResponseBodyParameters } from './GetArtifactBuildRuleResponseBody';
+export { GetArtifactBuildTaskResponseBodyArtifactCompression } from './GetArtifactBuildTaskResponseBody';
 export { GetArtifactBuildTaskResponseBodySourceArtifact } from './GetArtifactBuildTaskResponseBody';
 export { GetArtifactBuildTaskResponseBodyTargetArtifact } from './GetArtifactBuildTaskResponseBody';
 export { GetArtifactLifecycleRuleResponseBodyPoliciesCondition } from './GetArtifactLifecycleRuleResponseBody';

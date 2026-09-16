@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRepoSyncTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return value
+   * The return value.
    * 
    * @example
    * success
@@ -13,11 +13,11 @@ export class CreateRepoSyncTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - `true`: The invocation succeeded.
+   * - `true`: The call was successful.
    * 
-   * - `false`: Failed to invoke.
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -25,7 +25,7 @@ export class CreateRepoSyncTaskResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 8F8A0BA6-7F06-4BAE-B147-10BD6A25****
@@ -33,7 +33,7 @@ export class CreateRepoSyncTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Sync task ID
+   * The ID of the synchronization task.
    * 
    * @example
    * rst-gbch330f0c****

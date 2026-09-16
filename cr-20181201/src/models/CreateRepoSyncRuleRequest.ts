@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRepoSyncRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The source instance ID.
+   * The ID of the source instance.
    * 
    * This parameter is required.
    * 
@@ -13,12 +13,17 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
    * cri-hpdfkc6utbaq****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the custom synchronization link.
+   * 
+   * @example
+   * stl-72cjfd3fayno8***
+   */
   linkId?: string;
   /**
    * @remarks
    * The namespace name of the source instance.
-   * 
-   * This parameter is required.
    * 
    * @example
    * ns1
@@ -26,7 +31,28 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The name of the image repository in the source instance.
+   * The instance-level namespace regex filter.
+   * > This parameter takes effect only when SyncScope is set to `INSTANCE`.
+   * 
+   * @example
+   * .*
+   */
+  namespaceNameFilter?: string;
+  /**
+   * @remarks
+   * The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
+   * 
+   * Valid values: 1 to 5.
+   * 
+   * Default value: 3.
+   * 
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The repository name of the source instance.
    * 
    * @example
    * repo1
@@ -34,9 +60,8 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The regular expression that is used to filter repositories.
-   * 
-   * >  This parameter is valid only when SyncScope is set to `NAMESPACE`.
+   * The repository filter rule.
+   * > This parameter takes effect only when SyncScope is set to `INSTANCE` or `NAMESPACE`.
    * 
    * @example
    * .*
@@ -44,7 +69,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   repoNameFilter?: string;
   /**
    * @remarks
-   * The name of the image synchronization rule.
+   * The name of the synchronization rule.
    * 
    * This parameter is required.
    * 
@@ -54,10 +79,13 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   syncRuleName?: string;
   /**
    * @remarks
-   * The synchronization scope. Valid values:
+   * The synchronization type. Valid values:
    * 
-   * *   `REPO`: synchronizes the image tags in an image repository that meet the synchronization rule.
-   * *   `NAMESPACE`: synchronizes the image tags in a namespace that meet the synchronization rule.
+   * - `REPO`: Synchronizes by image repository.
+   * 
+   * - `NAMESPACE`: Synchronizes by namespace.
+   * 
+   * - `INSTANCE`: Synchronizes by namespace regex and repository regex.
    * 
    * This parameter is required.
    * 
@@ -67,10 +95,11 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   syncScope?: string;
   /**
    * @remarks
-   * The mode of triggering the synchronization rule. Valid values:
+   * The trigger for the synchronization action. Valid values:
    * 
-   * *   `INITIATIVE`: manually triggers the synchronization rule.
-   * *   `PASSIVE`: automatically triggers the synchronization rule.
+   * - `INITIATIVE`: Manual trigger.
+   *  
+   * - `PASSIVE`: Automatic trigger.
    * 
    * @example
    * PASSIVE
@@ -78,7 +107,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   syncTrigger?: string;
   /**
    * @remarks
-   * The regular expression that is used to filter image tags.
+   * The tag filter rule.
    * 
    * This parameter is required.
    * 
@@ -88,7 +117,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   tagFilter?: string;
   /**
    * @remarks
-   * The destination instance ID.
+   * The ID of the target instance.
    * 
    * This parameter is required.
    * 
@@ -98,9 +127,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The namespace name of the destination instance.
-   * 
-   * This parameter is required.
+   * The namespace name of the target instance.
    * 
    * @example
    * ns1
@@ -108,7 +135,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   targetNamespaceName?: string;
   /**
    * @remarks
-   * The region ID of the destination instance.
+   * The region ID of the target instance.
    * 
    * This parameter is required.
    * 
@@ -118,7 +145,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   targetRegionId?: string;
   /**
    * @remarks
-   * The name of the image repository in the destination instance.
+   * The image repository name of the target instance.
    * 
    * @example
    * repo1
@@ -126,9 +153,9 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   targetRepoName?: string;
   /**
    * @remarks
-   * The user ID (UID) of the account to which the destination instance belongs.
+   * The UID of the account to which the target instance belongs.
    * 
-   * >  If you synchronize images across accounts, you must use the UID.
+   * > This parameter is required for cross-account image synchronization.
    * 
    * @example
    * 12645940***
@@ -139,6 +166,8 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
       instanceId: 'InstanceId',
       linkId: 'LinkId',
       namespaceName: 'NamespaceName',
+      namespaceNameFilter: 'NamespaceNameFilter',
+      priority: 'Priority',
       repoName: 'RepoName',
       repoNameFilter: 'RepoNameFilter',
       syncRuleName: 'SyncRuleName',
@@ -158,6 +187,8 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
       instanceId: 'string',
       linkId: 'string',
       namespaceName: 'string',
+      namespaceNameFilter: 'string',
+      priority: 'number',
       repoName: 'string',
       repoNameFilter: 'string',
       syncRuleName: 'string',

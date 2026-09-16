@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRepoSyncTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetRepoSyncTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The synchronization task ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically execute the lifecycle management rule.
+   * Specifies whether to automatically execute the rule.
    * 
    * @example
    * false
@@ -13,12 +13,32 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   auto?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable lifecycle management for the artifact.
+   * Specifies whether to enable DryRun mode. If DryRun mode is enabled, only the lifecycle task scan is performed and no actual data cleanup is performed. DryRun mode is disabled by default.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable lifecycle management.
+   * 
+   * Only one of this parameter and EnableDeleteUntaggedManifest can be set to true.
    * 
    * @example
    * true
    */
   enableDeleteTag?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable artifact cleanup.
+   * 
+   * Only one of this parameter and EnableDeleteTag can be set to true.
+   * 
+   * @example
+   * false
+   */
+  enableDeleteUntaggedManifest?: boolean;
   /**
    * @remarks
    * The instance ID.
@@ -31,7 +51,7 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test-ns
@@ -39,7 +59,7 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The image repository name.
    * 
    * @example
    * test_1
@@ -47,7 +67,7 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The number of images that you want to retain.
+   * The number of images to retain.
    * 
    * @example
    * 30
@@ -65,7 +85,7 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The execution cycle of the lifecycle management rule.
+   * The execution cycle.
    * 
    * @example
    * WEEK
@@ -73,7 +93,7 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   scheduleTime?: string;
   /**
    * @remarks
-   * The deletion scope of artifacts.
+   * The cleanup scope.
    * 
    * @example
    * REPO
@@ -81,7 +101,7 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The regular expression that indicates which image tags you want to retain.
+   * The regular expression used to retain image versions.
    * 
    * @example
    * .*production_.*
@@ -90,7 +110,9 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       auto: 'Auto',
+      dryRun: 'DryRun',
       enableDeleteTag: 'EnableDeleteTag',
+      enableDeleteUntaggedManifest: 'EnableDeleteUntaggedManifest',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
       repoName: 'RepoName',
@@ -105,7 +127,9 @@ export class UpdateArtifactLifecycleRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       auto: 'boolean',
+      dryRun: 'boolean',
       enableDeleteTag: 'boolean',
+      enableDeleteUntaggedManifest: 'boolean',
       instanceId: 'string',
       namespaceName: 'string',
       repoName: 'string',

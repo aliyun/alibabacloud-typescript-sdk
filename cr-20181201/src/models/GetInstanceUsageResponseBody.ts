@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The quota of chart namespaces.
+   * The quota of Chart namespaces.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   chartNamespaceQuota?: string;
   /**
    * @remarks
-   * The number of chart namespaces that are created in the instance.
+   * The number of Chart namespaces created.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   chartNamespaceUsage?: string;
   /**
    * @remarks
-   * The quota of chart repositories for the instance.
+   * The quota of Chart repositories.
    * 
    * @example
    * 5000
@@ -29,7 +29,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   chartRepoQuota?: string;
   /**
    * @remarks
-   * The number of chart repositories that are created.
+   * The number of Chart repositories created.
    * 
    * @example
    * 5
@@ -45,10 +45,11 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call was successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -56,7 +57,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The quota of image namespaces for the instance.
+   * The quota of image namespaces.
    * 
    * @example
    * 100
@@ -64,7 +65,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   namespaceQuota?: string;
   /**
    * @remarks
-   * The number of image namespaces that are created in the instance.
+   * The number of image namespaces used.
    * 
    * @example
    * 4
@@ -72,7 +73,15 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   namespaceUsage?: string;
   /**
    * @remarks
-   * The quota of image repositories for the instance.
+   * The number of performance units, which indicates the additional instance capacity purchased on top of the Advanced Edition.
+   * 
+   * @example
+   * 10
+   */
+  performanceUnits?: number;
+  /**
+   * @remarks
+   * The quota of image repositories.
    * 
    * @example
    * 1000
@@ -80,7 +89,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   repoQuota?: string;
   /**
    * @remarks
-   * The number of image repositories that are created in the instance.
+   * The number of image repositories used.
    * 
    * @example
    * 2
@@ -88,7 +97,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   repoUsage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A726E801-7FCF-43F9-AF1C-51B3E65D3E7A
@@ -96,7 +105,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * VPC quota
+   * The VPC quota.
    * 
    * @example
    * 5
@@ -104,7 +113,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
   vpcQuota?: string;
   /**
    * @remarks
-   * Number of bound VPCs
+   * The number of bound VPCs.
    * 
    * @example
    * 2
@@ -120,6 +129,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
       isSuccess: 'IsSuccess',
       namespaceQuota: 'NamespaceQuota',
       namespaceUsage: 'NamespaceUsage',
+      performanceUnits: 'PerformanceUnits',
       repoQuota: 'RepoQuota',
       repoUsage: 'RepoUsage',
       requestId: 'RequestId',
@@ -138,6 +148,7 @@ export class GetInstanceUsageResponseBody extends $dara.Model {
       isSuccess: 'boolean',
       namespaceQuota: 'string',
       namespaceUsage: 'string',
+      performanceUnits: 'number',
       repoQuota: 'string',
       repoUsage: 'string',
       requestId: 'string',

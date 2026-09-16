@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactLifecycleRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetArtifactLifecycleRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRepoSyncTaskResponseBodyImageFrom extends $dara.Model {
   /**
    * @remarks
-   * The tag of the image.
+   * The image tag.
    * 
    * @example
    * master
@@ -13,7 +13,7 @@ export class GetRepoSyncTaskResponseBodyImageFrom extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-sgedpenzw80e****
@@ -21,7 +21,7 @@ export class GetRepoSyncTaskResponseBodyImageFrom extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-shanghai
@@ -29,7 +29,7 @@ export class GetRepoSyncTaskResponseBodyImageFrom extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The repository name.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class GetRepoSyncTaskResponseBodyImageFrom extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test
@@ -75,7 +75,7 @@ export class GetRepoSyncTaskResponseBodyImageFrom extends $dara.Model {
 export class GetRepoSyncTaskResponseBodyImageTo extends $dara.Model {
   /**
    * @remarks
-   * The tag of the image.
+   * The image tag.
    * 
    * @example
    * master
@@ -83,7 +83,7 @@ export class GetRepoSyncTaskResponseBodyImageTo extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-leqzomz5vijc****
@@ -91,7 +91,7 @@ export class GetRepoSyncTaskResponseBodyImageTo extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * eu-west-1
@@ -99,7 +99,7 @@ export class GetRepoSyncTaskResponseBodyImageTo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The repository name.
    * 
    * @example
    * test
@@ -107,7 +107,7 @@ export class GetRepoSyncTaskResponseBodyImageTo extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test
@@ -145,7 +145,7 @@ export class GetRepoSyncTaskResponseBodyImageTo extends $dara.Model {
 export class GetRepoSyncTaskResponseBodyLayerTasks extends $dara.Model {
   /**
    * @remarks
-   * The digest of the artifact.
+   * The digest value of the artifact.
    * 
    * @example
    * sha256:36fb85fcb5e919cb60e782397a6be04201868fe7b38ef7669fc01caec1c8fc4e
@@ -153,7 +153,7 @@ export class GetRepoSyncTaskResponseBodyLayerTasks extends $dara.Model {
   artifactDigest?: string;
   /**
    * @remarks
-   * The digest of the image layer.
+   * The image digest value.
    * 
    * @example
    * sha256:36fb85fcb5e919cb60e782397a6be04201868fe7b38ef7669fc01caec1c8fc4e
@@ -161,7 +161,7 @@ export class GetRepoSyncTaskResponseBodyLayerTasks extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The size of synchronized image layers.
+   * The size.
    * 
    * @example
    * 23655489
@@ -169,7 +169,7 @@ export class GetRepoSyncTaskResponseBodyLayerTasks extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The ID of the synchronization task for the image layer.
+   * The synchronization layer task ID.
    * 
    * @example
    * rslt-074x4q20fx2d****
@@ -177,7 +177,7 @@ export class GetRepoSyncTaskResponseBodyLayerTasks extends $dara.Model {
   syncLayerTaskId?: string;
   /**
    * @remarks
-   * The size of the image layer that is synchronized.
+   * The synchronized size.
    * 
    * @example
    * 23655489
@@ -185,7 +185,7 @@ export class GetRepoSyncTaskResponseBodyLayerTasks extends $dara.Model {
   syncedSize?: number;
   /**
    * @remarks
-   * The status of the synchronization task. Valid values:
+   * The task status.
    * 
    * @example
    * SUCCESS
@@ -233,7 +233,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the synchronization task is performed across Alibaba Cloud accounts.
+   * Indicates whether the synchronization is cross-account.
    * 
    * @example
    * true
@@ -241,12 +241,12 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   crossUser?: boolean;
   /**
    * @remarks
-   * The source address of the image.
+   * The source image.
    */
   imageFrom?: GetRepoSyncTaskResponseBodyImageFrom;
   /**
    * @remarks
-   * The destination address of the image.
+   * The destination image.
    */
   imageTo?: GetRepoSyncTaskResponseBodyImageTo;
   /**
@@ -259,15 +259,28 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The synchronization tasks for the image layer.
+   * The list of image layer synchronization tasks.
    */
   layerTasks?: GetRepoSyncTaskResponseBodyLayerTasks[];
   /**
    * @remarks
+   * The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
+   * 
+   * Valid values: 1 to 5.
+   * 
+   * Default value: 3.
+   * 
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
+   * @remarks
    * The synchronization progress. Valid values:
    * 
-   * *   `0`: The synchronization starts or failed.
-   * *   `1`: The synchronization is successful.
+   * - `0`: The synchronization has just started or failed.
+   * 
+   * - `1`: The synchronization succeeded.
    * 
    * @example
    * 1
@@ -275,7 +288,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A6DEF8B0-5D45-46D6-867D-8C7FF0966B07
@@ -283,7 +296,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the synchronization task in which multiple images are synchronized at a time.
+   * The synchronization batch task ID.
    * 
    * @example
    * a9434731-95ef-4087-9cf4-369c8e90****
@@ -291,7 +304,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   syncBatchTaskId?: string;
   /**
    * @remarks
-   * The ID of the synchronization rule.
+   * The synchronization rule ID.
    * 
    * @example
    * crsr-cllro6ho3wne****
@@ -299,7 +312,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   syncRuleId?: string;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The synchronization task ID.
    * 
    * @example
    * rst-zxjkiv5oil6f****
@@ -307,7 +320,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   syncTaskId?: string;
   /**
    * @remarks
-   * Indicates whether transfer acceleration is enabled in the synchronization process.
+   * Indicates whether transfer acceleration is enabled for synchronization.
    * 
    * @example
    * true
@@ -315,7 +328,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   syncTransAccelerate?: boolean;
   /**
    * @remarks
-   * The size of the image layer that is synchronized. Unit: bytes.
+   * The synchronized size, in bytes.
    * 
    * @example
    * 23655489
@@ -323,18 +336,8 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   syncedSize?: number;
   /**
    * @remarks
-   * The error message that is returned if the synchronization task fails.
-   * 
-   * >  The system uses this parameter to return an error message if the synchronization task fails.
-   * 
-   * Valid values:
-   * 
-   * *   OSS_POLICY_UNAUTHORIZED: Container Registry is not granted permissions to use Object Storage Service (OSS).
-   * *   TAG_CONFLICT: The destination repository contains an image that has the same tag as the source image, and image tag immutability is enabled for the destination repository.
-   * *   UNSUPPORTED_FORMAT: The manifest and config formats of the image to be synchronized are not supported.
-   * *   INTERNAL_ERROR: The synchronization task failed due to internal issues on the server.
-   * *   NETWORK_ERROR: The synchronization task failed due to unstable network connection.
-   * *   DATA_LENGTH_EXCEEDED: The manifest or config of the image is oversized.
+   * The task failure information.
+   * > When the synchronization task fails, this field returns information about the failure.
    * 
    * @example
    * NETWORK_ERROR
@@ -342,7 +345,17 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   taskIssue?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
+   * 
+   * `PENDING`: The synchronization is pending.
+   * 
+   * `SYNCHRONIZING`: The synchronization is in progress.
+   * 
+   * `SUCCESS`: The synchronization succeeded.
+   * 
+   * `ERROR`: The synchronization failed.
+   * 
+   * `CANCELED`: The synchronization task is canceled.
    * 
    * @example
    * SUCCESS
@@ -350,7 +363,11 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The policy that is used to trigger the synchronization task.
+   * The trigger type of the synchronization task. Valid values:
+   * 
+   * `PASSIVE`: The synchronization task is automatically triggered.
+   * 
+   * `INITIATIVE`: The synchronization task is manually triggered.
    * 
    * @example
    * PASSIVE
@@ -364,6 +381,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
       imageTo: 'ImageTo',
       isSuccess: 'IsSuccess',
       layerTasks: 'LayerTasks',
+      priority: 'Priority',
       progress: 'Progress',
       requestId: 'RequestId',
       syncBatchTaskId: 'SyncBatchTaskId',
@@ -385,6 +403,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
       imageTo: GetRepoSyncTaskResponseBodyImageTo,
       isSuccess: 'boolean',
       layerTasks: { 'type': 'array', 'itemType': GetRepoSyncTaskResponseBodyLayerTasks },
+      priority: 'number',
       progress: 'number',
       requestId: 'string',
       syncBatchTaskId: 'string',

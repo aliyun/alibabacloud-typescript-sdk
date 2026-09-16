@@ -11,6 +11,7 @@ export class CreateArtifactLifecycleRuleRequest extends $dara.Model {
    * false
    */
   auto?: boolean;
+  dryRun?: boolean;
   /**
    * @remarks
    * Specify whether to enable lifecycle management for the artifact.
@@ -19,6 +20,7 @@ export class CreateArtifactLifecycleRuleRequest extends $dara.Model {
    * true
    */
   enableDeleteTag?: boolean;
+  enableDeleteUntaggedManifest?: boolean;
   /**
    * @remarks
    * The instance ID.
@@ -80,7 +82,9 @@ export class CreateArtifactLifecycleRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       auto: 'Auto',
+      dryRun: 'DryRun',
       enableDeleteTag: 'EnableDeleteTag',
+      enableDeleteUntaggedManifest: 'EnableDeleteUntaggedManifest',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
       repoName: 'RepoName',
@@ -94,7 +98,9 @@ export class CreateArtifactLifecycleRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       auto: 'boolean',
+      dryRun: 'boolean',
       enableDeleteTag: 'boolean',
+      enableDeleteUntaggedManifest: 'boolean',
       instanceId: 'string',
       namespaceName: 'string',
       repoName: 'string',

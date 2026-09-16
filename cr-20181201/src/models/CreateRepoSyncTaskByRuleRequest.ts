@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRepoSyncTaskByRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,19 @@ export class CreateRepoSyncTaskByRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Synchronization tasks with the same priority are executed in random order.
+   * 
+   * Valid values: 1 to 5.
+   * 
+   * Default value: 3.
+   * 
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The image repository ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +37,7 @@ export class CreateRepoSyncTaskByRuleRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The ID of the synchronization rule.
+   * The synchronization rule ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +47,7 @@ export class CreateRepoSyncTaskByRuleRequest extends $dara.Model {
   syncRuleId?: string;
   /**
    * @remarks
-   * The version of the image to be synchronized.
+   * The image version to be synchronized.
    * 
    * This parameter is required.
    * 
@@ -46,6 +58,7 @@ export class CreateRepoSyncTaskByRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      priority: 'Priority',
       repoId: 'RepoId',
       syncRuleId: 'SyncRuleId',
       tag: 'Tag',
@@ -55,6 +68,7 @@ export class CreateRepoSyncTaskByRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      priority: 'number',
       repoId: 'string',
       syncRuleId: 'string',
       tag: 'string',

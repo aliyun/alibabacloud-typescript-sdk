@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The validity period of the temporary credential, in hours. Valid values: 1 to 24.
+   * The validity period of the temporary credential in hours. Valid values: 1 to 24. When you use STS to call this operation, the actual validity period is the minimum of the STS token validity period and this parameter value.
    * 
    * @example
    * 1

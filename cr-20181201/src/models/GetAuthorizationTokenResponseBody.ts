@@ -29,7 +29,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

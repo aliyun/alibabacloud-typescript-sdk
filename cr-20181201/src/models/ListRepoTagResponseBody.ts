@@ -37,7 +37,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
   imageSize?: number;
   /**
    * @remarks
-   * The time when the image was updated.
+   * The time when the image was last updated.
    * 
    * @example
    * 1572875608000
@@ -95,7 +95,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
 export class ListRepoTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The return value.
    * 
    * @example
    * success
@@ -103,18 +103,32 @@ export class ListRepoTagResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The image list.
+   * The list of images.
    */
   images?: ListRepoTagResponseBodyImages[];
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
    */
   isSuccess?: boolean;
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token for the next page. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
+   * 
+   * @example
+   * *****V3MpHK1AP0pfERHZN5pu6lESTRpd5hnHNnmKOP/+w9F
+   */
   nextToken?: string;
   /**
    * @remarks

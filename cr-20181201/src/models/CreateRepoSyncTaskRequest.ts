@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRepoSyncTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Source instance ID
+   * The source instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite an existing image:
+   * Specifies whether to forcibly overwrite existing images. Valid values:
    * 
-   * - `true`: Overwrite the existing image.
+   * - `true`: Forcibly overwrites existing images.
    * 
-   * - `false`: Do not overwrite the existing image.
+   * - `false`: Does not forcibly overwrite existing images.
    * 
    * @example
    * true
@@ -27,7 +27,19 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   override?: boolean;
   /**
    * @remarks
-   * Image repository ID in the source instance
+   * The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
+   * 
+   * Valid values: 1 to 5.
+   * 
+   * Default value: 3.
+   * 
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The ID of the image repository in the source instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +49,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * Image tag in the source instance
+   * The image tag in the source instance.
    * 
    * This parameter is required.
    * 
@@ -47,7 +59,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * Target instance ID
+   * The target instance ID.
    * 
    * This parameter is required.
    * 
@@ -57,7 +69,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * Namespace in the target instance
+   * The namespace of the target instance.
    * 
    * This parameter is required.
    * 
@@ -67,7 +79,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   targetNamespace?: string;
   /**
    * @remarks
-   * Region ID of the target instance
+   * The region ID of the target instance.
    * 
    * This parameter is required.
    * 
@@ -77,7 +89,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   targetRegionId?: string;
   /**
    * @remarks
-   * Name of the image repository in the target instance
+   * The name of the image repository in the target instance.
    * 
    * This parameter is required.
    * 
@@ -87,7 +99,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   targetRepoName?: string;
   /**
    * @remarks
-   * Image tag in the target instance
+   * The image tag in the target instance.
    * 
    * This parameter is required.
    * 
@@ -97,7 +109,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
   targetTag?: string;
   /**
    * @remarks
-   * UID of the account to which the target instance belongs
+   * The UID of the account to which the target instance belongs.
    * 
    * @example
    * 12345***
@@ -107,6 +119,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       override: 'Override',
+      priority: 'Priority',
       repoId: 'RepoId',
       tag: 'Tag',
       targetInstanceId: 'TargetInstanceId',
@@ -122,6 +135,7 @@ export class CreateRepoSyncTaskRequest extends $dara.Model {
     return {
       instanceId: 'string',
       override: 'boolean',
+      priority: 'number',
       repoId: 'string',
       tag: 'string',
       targetInstanceId: 'string',

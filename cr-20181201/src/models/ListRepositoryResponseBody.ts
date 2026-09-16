@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the repository was created.
    * 
    * @example
    * 1564153576000
@@ -21,7 +21,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The time when the repository was last modified.
    * 
    * @example
    * 1564153576000
@@ -93,7 +93,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The summary information.
+   * The summary.
    * 
    * @example
    * test OK
@@ -101,7 +101,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * The image tag immutability.
+   * The tag immutability of the image.
    * 
    * @example
    * true
@@ -161,13 +161,27 @@ export class ListRepositoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
    */
   isSuccess?: boolean;
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
+   * 
+   * @example
+   * *****V3MpHK1AP0pfERHZN5pu6lESTRpd5hnHNnmKOP/+w9F
+   */
   nextToken?: string;
   /**
    * @remarks

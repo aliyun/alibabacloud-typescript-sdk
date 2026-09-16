@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoSyncRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test-namespace
@@ -23,7 +23,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 30
@@ -39,7 +39,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the image repository.
+   * The image repository name.
    * 
    * @example
    * test-repo
@@ -47,7 +47,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The ID of the target instance.
+   * The target instance ID.
    * 
    * @example
    * cri-k77rd2eo9ztt****
@@ -55,7 +55,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The ID of the target region.
+   * The target region ID.
    * 
    * @example
    * cn-shenzhen
