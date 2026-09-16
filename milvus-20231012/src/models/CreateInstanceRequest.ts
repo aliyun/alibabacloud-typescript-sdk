@@ -21,7 +21,7 @@ export class CreateInstanceRequestBackupRestoreInfo extends $dara.Model {
   backupName?: string;
   /**
    * @remarks
-   * The ID of the source backup cluster.
+   * The ID of the source cluster for the backup.
    * 
    * @example
    * c-xxxxxxx
@@ -54,21 +54,33 @@ export class CreateInstanceRequestBackupRestoreInfo extends $dara.Model {
 
 export class CreateInstanceRequestComponentsDataDisk extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the QueryNode data cloud disk.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The ESSD performance level (PL). Valid values: PL0, PL1, PL2, and PL3. If StorageClass is not specified, this parameter is used for parsing.
+   * 
    * @example
    * PL1
    */
   performanceLevel?: string;
   /**
+   * @remarks
+   * The data cloud disk capacity. Unit: GiB.
+   * 
    * @example
    * 100
    */
   size?: number;
   /**
+   * @remarks
+   * The StorageClass of the data cloud disk. Valid values: alicloud-disk-essd-pl0, alicloud-disk-essd-pl1, alicloud-disk-essd-pl2, and alicloud-disk-essd-pl3.
+   * 
    * @example
    * alicloud-disk-essd-pl1
    */
@@ -119,10 +131,14 @@ export class CreateInstanceRequestComponents extends $dara.Model {
    * general
    */
   cuType?: string;
+  /**
+   * @remarks
+   * The QueryNode data cloud disk configuration. This parameter is supported only when type is set to query.
+   */
   dataDisk?: CreateInstanceRequestComponentsDataDisk;
   /**
    * @remarks
-   * The disk size type for Query Node. Set to Large for storage-optimized, and Normal for compute-optimized or other configurations.
+   * The disk size type for the Query Node. Set this parameter to Large for storage-optimized instances, and to Normal for compute-optimized and other instance types.
    * 
    * @example
    * Normal
@@ -287,6 +303,8 @@ export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic payment. Default value: true. Valid values:
+   * - true: Automatic payment is enabled.
+   * - false: Only an order is generated. No payment is made.
    * 
    * @example
    * true
@@ -294,7 +312,7 @@ export class CreateInstanceRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter takes effect only when the payment type is set to Subscription.
+   * Specifies whether to enable auto-renewal. This parameter takes effect only when the billing method of the instance is Subscription.
    * 
    * @example
    * true
@@ -322,7 +340,7 @@ export class CreateInstanceRequest extends $dara.Model {
   configuration?: string;
   /**
    * @remarks
-   * The database administrator password.
+   * The database password.
    * 
    * @example
    * test12
@@ -348,7 +366,7 @@ export class CreateInstanceRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable high availability.
+   * Specifies whether to enable high availability (HA).
    * 
    * @example
    * true
@@ -393,6 +411,14 @@ export class CreateInstanceRequest extends $dara.Model {
   multiZoneMode?: string;
   /**
    * @remarks
+   * The node type. Valid values for Milvus standalone: perf, enhanced, and cap. Default value: perf.
+   * 
+   * @example
+   * perf
+   */
+  nodeType?: string;
+  /**
+   * @remarks
    * The payment duration.
    * 
    * @example
@@ -401,7 +427,7 @@ export class CreateInstanceRequest extends $dara.Model {
   paymentDuration?: number;
   /**
    * @remarks
-   * The payment duration unit.
+   * The unit of the payment duration.
    * 
    * @example
    * month
@@ -493,6 +519,7 @@ export class CreateInstanceRequest extends $dara.Model {
       kmsKeyId: 'kmsKeyId',
       loadReplicas: 'loadReplicas',
       multiZoneMode: 'multiZoneMode',
+      nodeType: 'nodeType',
       paymentDuration: 'paymentDuration',
       paymentDurationUnit: 'paymentDurationUnit',
       paymentType: 'paymentType',
@@ -525,6 +552,7 @@ export class CreateInstanceRequest extends $dara.Model {
       kmsKeyId: 'string',
       loadReplicas: 'number',
       multiZoneMode: 'string',
+      nodeType: 'string',
       paymentDuration: 'number',
       paymentDurationUnit: 'string',
       paymentType: 'string',

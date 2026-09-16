@@ -53,7 +53,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: CreateInstanceResponseBodyData;
   /**

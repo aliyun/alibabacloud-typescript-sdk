@@ -32,6 +32,12 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
   /**
    * @remarks
    * The component type. Valid values:
+   * - standalone
+   * - proxy
+   * - mix_coordinator
+   * - query
+   * - index
+   * - data
    * 
    * @example
    * standalone
@@ -47,7 +53,9 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
   cuNum?: number;
   /**
    * @remarks
-   * The CU specifications. Valid values:
+   * The CU specification. Valid values:
+   * * 4: 1 core corresponds to 4 GB.
+   * * 8: 1 core corresponds to 8 GB.
    * 
    * @example
    * 4
@@ -80,16 +88,25 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
   replica?: number;
   zoneId?: string;
   /**
+   * @remarks
+   * Indicates whether the data cloud disk is enabled.
+   * 
    * @example
    * true
    */
   dataDiskEnabled?: boolean;
   /**
+   * @remarks
+   * The data cloud disk capacity, in GiB.
+   * 
    * @example
    * 100
    */
   dataDiskSize?: number;
   /**
+   * @remarks
+   * The StorageClass of the data cloud disk.
+   * 
    * @example
    * alicloud-disk-essd-pl1
    */
@@ -152,7 +169,23 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   attuPort?: number;
   /**
    * @remarks
-   * The public network address.
+   * The HTTPS download URL of the CA certificate.
+   * 
+   * @example
+   * https://example.com/ca.pem
+   */
+  caCertUrl?: string;
+  /**
+   * @remarks
+   * The certificate trust type.
+   * 
+   * @example
+   * privateCA
+   */
+  certificateTrust?: string;
+  /**
+   * @remarks
+   * The public endpoint.
    * 
    * @example
    * c-123xxx-.milvus.aliyuncs.com
@@ -160,7 +193,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   internetUrl?: string;
   /**
    * @remarks
-   * The internal network address.
+   * The internal endpoint.
    * 
    * @example
    * c-123xxx-internal.milvus.aliyuncs.com
@@ -181,7 +214,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   ossStorageSize?: string;
   /**
    * @remarks
-   * The timestamp of the OSS storage metric.
+   * The OSS storage metric timestamp.
    * 
    * @example
    * 1718604000000
@@ -195,6 +228,30 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
    * 19530
    */
   proxyPort?: number;
+  /**
+   * @remarks
+   * The TLS public domain name.
+   * 
+   * @example
+   * c-example.secure.milvus.aliyuncs.com
+   */
+  secureInternetUrl?: string;
+  /**
+   * @remarks
+   * The TLS internal domain name.
+   * 
+   * @example
+   * c-example-internal.secure.milvus.aliyuncs.com
+   */
+  secureIntranetUrl?: string;
+  /**
+   * @remarks
+   * The TLS connection port.
+   * 
+   * @example
+   * 443
+   */
+  secureProxyPort?: number;
   /**
    * @remarks
    * The total number of CUs.
@@ -214,12 +271,17 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attuPort: 'AttuPort',
+      caCertUrl: 'CaCertUrl',
+      certificateTrust: 'CertificateTrust',
       internetUrl: 'InternetUrl',
       intranetUrl: 'IntranetUrl',
       milvusResourceInfoList: 'MilvusResourceInfoList',
       ossStorageSize: 'OssStorageSize',
       ossStorageTimestamp: 'OssStorageTimestamp',
       proxyPort: 'ProxyPort',
+      secureInternetUrl: 'SecureInternetUrl',
+      secureIntranetUrl: 'SecureIntranetUrl',
+      secureProxyPort: 'SecureProxyPort',
       totalCuNum: 'TotalCuNum',
       totalDiskSize: 'TotalDiskSize',
     };
@@ -228,12 +290,17 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attuPort: 'number',
+      caCertUrl: 'string',
+      certificateTrust: 'string',
       internetUrl: 'string',
       intranetUrl: 'string',
       milvusResourceInfoList: { 'type': 'array', 'itemType': GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList },
       ossStorageSize: 'string',
       ossStorageTimestamp: 'number',
       proxyPort: 'number',
+      secureInternetUrl: 'string',
+      secureIntranetUrl: 'string',
+      secureProxyPort: 'number',
       totalCuNum: 'number',
       totalDiskSize: 'number',
     };
@@ -286,7 +353,7 @@ export class GetInstanceDetailResponseBodyDataHighAvailability extends $dara.Mod
 export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model {
   /**
    * @remarks
-   * The number of CUs for the Data node.
+   * The number of CUs for data nodes.
    * 
    * @example
    * 4
@@ -294,7 +361,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   dataNodeCuNum?: number;
   /**
    * @remarks
-   * The number of replicas for the Data node.
+   * The number of replicas for data nodes.
    * 
    * @example
    * 2
@@ -302,7 +369,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   dataNodeReplica?: number;
   /**
    * @remarks
-   * The number of CUs for the Index node.
+   * The number of CUs for index nodes.
    * 
    * @example
    * 4
@@ -310,7 +377,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   indexNodeCuNum?: number;
   /**
    * @remarks
-   * The number of replicas for the Index node.
+   * The number of replicas for index nodes.
    * 
    * @example
    * 2
@@ -318,7 +385,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   indexNodeReplica?: number;
   /**
    * @remarks
-   * The number of CUs for the MixCoordinator node.
+   * The number of CUs for MixCoordinator nodes.
    * 
    * @example
    * 4
@@ -326,7 +393,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   mixCoodinatorNodeCuNum?: number;
   /**
    * @remarks
-   * The number of replicas for the MixCoordinator node.
+   * The number of replicas for MixCoordinator nodes.
    * 
    * @example
    * 2
@@ -334,7 +401,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   mixCoodinatorNodeReplica?: number;
   /**
    * @remarks
-   * The number of CUs for the Proxy node.
+   * The number of CUs for proxy nodes.
    * 
    * @example
    * 4
@@ -342,7 +409,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   proxyNodeCuNum?: number;
   /**
    * @remarks
-   * The number of replicas for the Proxy node.
+   * The number of replicas for proxy nodes.
    * 
    * @example
    * 2
@@ -350,7 +417,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   proxyNodeReplica?: number;
   /**
    * @remarks
-   * The number of CUs for the Query node.
+   * The number of CUs for query nodes.
    * 
    * @example
    * 4
@@ -358,7 +425,7 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
   queryNodeCuNum?: number;
   /**
    * @remarks
-   * The number of replicas for the Query node.
+   * The number of replicas for query nodes.
    * 
    * @example
    * 2
@@ -472,7 +539,7 @@ export class GetInstanceDetailResponseBodyDataVSwitches extends $dara.Model {
 export class GetInstanceDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ACL ID for public network access control.
+   * The public network access control ACL ID.
    * 
    * @example
    * acl-123xxx
@@ -517,7 +584,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Indicates whether high availability is enabled.
+   * Indicates whether high availability (HA) is enabled.
    * 
    * @example
    * true
@@ -544,6 +611,12 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
+   * - creating: Being created.
+   * - running: Running.
+   * - updating: Being upgraded. This includes specification changes, configuration changes, and public network access toggling.
+   * - disable: Unavailable. The cluster has expired and requires renewal to reactivate.
+   * - deleting: Being deleted.
+   * - deleted: Deleted.
    * 
    * @example
    * running
@@ -556,10 +629,16 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * The configuration information.
    */
   measureConfig?: GetInstanceDetailResponseBodyDataMeasureConfig;
+  /**
+   * @remarks
+   * Single,Two,Three
+   */
   multiZoneMode?: string;
   /**
    * @remarks
    * The node type. Valid values:
+   * * perf: compute-optimized instance.
+   * * cap: storage-optimized.
    * 
    * @example
    * perf
@@ -575,7 +654,10 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   openPublicNet?: boolean;
   /**
    * @remarks
-   * The specification details. Valid values:
+   * The edition. Valid values:
+   * 
+   * - trial: Trial Edition.
+   * - standard: Standard Edition.
    * 
    * @example
    * standard
@@ -584,6 +666,8 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The billing type. Valid values:
+   * - 0: pay-as-you-go.
+   * - 1: subscription.
    * 
    * @example
    * 1
@@ -599,7 +683,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -677,7 +761,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   vswId?: string;
   /**
    * @remarks
-   * The zone.
+   * The zone ID.
    * 
    * @example
    * cn-beijing-g
@@ -789,7 +873,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
 export class GetInstanceDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
