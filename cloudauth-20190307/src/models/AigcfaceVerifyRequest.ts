@@ -42,7 +42,7 @@ export class AIGCFaceVerifyRequest extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * The custom business unique identifier on the client side, used for subsequent troubleshooting. The value can contain up to 32 characters, including letters and digits. Make sure the value is unique.
+   * The custom business unique identifier on the client side, which is used for subsequent troubleshooting. The value can contain up to 32 characters, including letters and digits. Make sure the value is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -50,7 +50,7 @@ export class AIGCFaceVerifyRequest extends $dara.Model {
   outerOrderNo?: string;
   /**
    * @remarks
-   * The product plan.
+   * The product solution.
    * 
    * @example
    * LR_FR_AIGC

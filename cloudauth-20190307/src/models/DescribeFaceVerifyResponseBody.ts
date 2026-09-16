@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
+   * The result of degraded verification.
+   * 
+   * @example
+   * {\\"certifyId\\":\\"ab110b7bbfea6631b37bc472797ac923\\",\\"degradeType\\":\\"ALIPAY\\",\\"passed\\":\\"T\\"}
+   */
+  degradeInfo?: string;
+  /**
+   * @remarks
    * The device risk label.
    * 
    * @example
@@ -21,7 +29,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   deviceToken?: string;
   /**
    * @remarks
-   * The identity information of the verification subject. This field is empty in common verification scenarios.
+   * The identity information of the verification subject. This field is empty for common verification scenarios.
    * 
    * @example
    * null
@@ -61,13 +69,13 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The identity information and corresponding encoding entered by the user in rare character mode. The value is a JSON-formatted string. An empty string is returned if the name does not contain rare characters.
+   * Records the identity information and corresponding encoding entered by the user in rare character mode. The return data is a JSON-formatted string. An empty string is returned if the name does not contain rare characters.
    * 
    * - name: the name entered by the user.
    * 
-   * - verifyName: the final name encoding that passed verification. For example, if a rare character is verified through transcoding: "王先生", the actual verified name is "王先升".
+   * - verifyName: the final name encoding that passed verification. For example, if a rare character is verified through transcoding: "Wang Xiansheng", the actual verified name is "Wang Xiansheng" (with a different character).
    * 
-   * - number: the ID number entered by the user.
+   * - number: the ID card number entered by the user.
    * 
    * @example
    * {
@@ -79,6 +87,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   userInfo?: string;
   static names(): { [key: string]: string } {
     return {
+      degradeInfo: 'DegradeInfo',
       deviceRisk: 'DeviceRisk',
       deviceToken: 'DeviceToken',
       identityInfo: 'IdentityInfo',
@@ -92,6 +101,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      degradeInfo: 'string',
       deviceRisk: 'string',
       deviceToken: 'string',
       identityInfo: 'string',
@@ -139,7 +149,7 @@ export class DescribeFaceVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result information.
+   * The result information.
    */
   resultObject?: DescribeFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

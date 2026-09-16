@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWhitelistSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of this request.
    * 
    * @example
    * CF4979D3-060F-5336-BD9F-0D46ECB66B22

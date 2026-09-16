@@ -13,7 +13,7 @@ export class QueryVerifyInvokeSatisticRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the query.
+   * The query end time. Format: UNIX timestamp. Unit: milliseconds. Example: 1761926399999.
    * 
    * @example
    * 1761926399999
@@ -29,7 +29,7 @@ export class QueryVerifyInvokeSatisticRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of product codes to query. For more information, refer to the productCode under the corresponding ProductType.
+   * The list of product codes to query. For specific values, refer to the productCode under the corresponding ProductType.
    * 
    * @example
    * ID_PRO
@@ -38,8 +38,8 @@ export class QueryVerifyInvokeSatisticRequest extends $dara.Model {
   /**
    * @remarks
    * The product type. Valid values:
-   * - **FINANCE_VERIFY**: financial-grade ID Verification
-   * - **SMART_VERIFY**: enhanced ID Verification (discontinued)
+   * - **FINANCE_VERIFY**: Finance-grade ID Verification.
+   * - **SMART_VERIFY**: Enhanced ID Verification (discontinued).
    * - **FACE_VERIFY**: ID Verification (discontinued).
    * 
    * @example
@@ -56,7 +56,7 @@ export class QueryVerifyInvokeSatisticRequest extends $dara.Model {
   sceneIdList?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The query start time. Format: UNIX timestamp. Unit: milliseconds. Example: 1743436800000.
    * 
    * @example
    * 1743436800000
@@ -64,8 +64,8 @@ export class QueryVerifyInvokeSatisticRequest extends $dara.Model {
   startDate?: number;
   /**
    * @remarks
-   * The statistical dimension. Valid values:
-   * - **day**: daily
+   * The statistics dimension. Valid values:
+   * - **day**: daily.
    * - **month**: monthly.
    * 
    * @example

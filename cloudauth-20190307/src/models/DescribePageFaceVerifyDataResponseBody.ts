@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The date.
+   * The date. The value is in ISO 8601/RFC 3339 format, UTC time zone (Z indicates +00:00), with millisecond precision, such as 2024-03-24T00:00:00.000Z.
    * 
    * @example
    * 2024-03-24T00:00:00.000Z
@@ -32,7 +32,7 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
    * The scene name.
    * 
    * @example
-   * ****实名认证
+   * ****Real-name verification
    */
   sceneName?: string;
   /**
@@ -122,7 +122,7 @@ export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of this request.
    * 
    * @example
    * 473469C7-A***B-A3DC0DE3C83E

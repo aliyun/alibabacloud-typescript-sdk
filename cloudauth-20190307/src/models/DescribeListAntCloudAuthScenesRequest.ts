@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeListAntCloudAuthScenesRequest extends $dara.Model {
   /**
    * @remarks
-   * The scene ID.
+   * The scenario ID.
    * 
    * @example
    * 100000xxxx

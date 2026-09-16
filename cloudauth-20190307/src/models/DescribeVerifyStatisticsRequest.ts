@@ -7,7 +7,7 @@ export class DescribeVerifyStatisticsRequest extends $dara.Model {
    * @remarks
    * Specifies whether the age is older than 14. Valid values:
    * - **T**: older than 14
-   * - **F**: younger than 14.
+   * - **F**: younger than 14
    * 
    * @example
    * T
@@ -15,7 +15,7 @@ export class DescribeVerifyStatisticsRequest extends $dara.Model {
   ageGt?: string;
   /**
    * @remarks
-   * The end time of the query.
+   * The end time of the query. Format: UNIX timestamp. Unit: milliseconds. Example: 1760630399999.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeVerifyStatisticsRequest extends $dara.Model {
    * @remarks
    * The service type. Valid values:
    * - **antcloudauth**: financial-grade ID Verification.
-   * - **cloudauthst** (discontinued): enhanced ID Verification.
+   * - **cloudauthst** (discontinued): ID Verification - Enhanced Edition.
    * - **cloudauth** (discontinued): ID Verification.
    * 
    * This parameter is required.
@@ -46,7 +46,7 @@ export class DescribeVerifyStatisticsRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The start time of the query. Format: UNIX timestamp. Unit: milliseconds. Example: 1760025600000.
    * 
    * This parameter is required.
    * 

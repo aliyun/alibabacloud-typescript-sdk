@@ -8,7 +8,7 @@ export class Id3MetaVerifyWithOCRRequest extends $dara.Model {
    * The input stream of the portrait side image of the ID card. Specify either CertUrl or CertFile.
    * 
    * @example
-   * 无
+   * None.
    */
   certFile?: string;
   /**
@@ -16,12 +16,12 @@ export class Id3MetaVerifyWithOCRRequest extends $dara.Model {
    * The image of the national emblem side of the ID card. Specify either CertNationalUrl or CertNationalFile, or leave both empty.
    * 
    * @example
-   * 无
+   * None.
    */
   certNationalFile?: string;
   /**
    * @remarks
-   * The URL of the national emblem side image of the ID card. Specify a publicly accessible HTTP or HTTPS URL. Specify either CertNationalUrl or CertNationalFile, or leave both empty.
+   * The URL of the national emblem side image of the ID card. A publicly accessible HTTP or HTTPS URL. Specify either CertNationalUrl or CertNationalFile, or leave both empty.
    * 
    * @example
    * https://www.aliyun.com/cert.jpeg
@@ -29,7 +29,7 @@ export class Id3MetaVerifyWithOCRRequest extends $dara.Model {
   certNationalUrl?: string;
   /**
    * @remarks
-   * The image of the portrait side of the ID card. Specify a publicly accessible HTTP or HTTPS URL. Specify either CertUrl or CertFile.
+   * The image of the portrait side of the ID card. A publicly accessible HTTP or HTTPS URL. Specify either CertUrl or CertFile.
    * 
    * @example
    * https://www.aliyun.com/cert.jpeg

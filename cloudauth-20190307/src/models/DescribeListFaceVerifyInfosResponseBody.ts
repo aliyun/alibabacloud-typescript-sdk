@@ -37,10 +37,10 @@ export class DescribeListFaceVerifyInfosResponseBodyFaceVerifyInfos extends $dar
   certifyId?: string;
   /**
    * @remarks
-   * The creation time of the facial recognition record.
+   * The creation time of the facial recognition record. The value is a UNIX timestamp in milliseconds (ms), such as 1740389697000.
    * 
    * @example
-   * 2022-10-02T11:16:06Z
+   * 1740389697000
    */
   createTime?: string;
   /**
@@ -54,6 +54,7 @@ export class DescribeListFaceVerifyInfosResponseBodyFaceVerifyInfos extends $dar
   /**
    * @remarks
    * The authentication status. Valid values:
+   * 
    * - **1**: Authentication passed.
    * - **2**: Authentication failed.
    * 

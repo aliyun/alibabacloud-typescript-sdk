@@ -32,7 +32,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
    * The remarks for the whitelist.
    * 
    * @example
-   * 测试白名单。
+   * Test whitelist
    */
   remark?: string;
   /**
@@ -74,6 +74,9 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
    */
   validDay?: number;
   /**
+   * @remarks
+   * The whitelist type.
+   * 
    * @example
    * SUPER
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetaStatisticsListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The commodity (product) code.
+   * The product code.
    * 
    * @example
    * MOBILE_ONLINE_LENGTH
@@ -22,15 +22,15 @@ export class DescribeMetaStatisticsListResponseBodyItems extends $dara.Model {
    * - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
    * - **MOBILE_2_META**: mobile number two-element verification
    * - **BANK_CARD_N_META**: bank card verification (detailed edition)
-   * - **MOBILE_DETECT**: phone number detection
+   * - **MOBILE_DETECT**: number detection
    * - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
    * - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
    * - **VEHICLE_LICENSE_INFO**: vehicle information recognition
    * - **VEHICLE_INSURE_DATE**: vehicle insurance date query
-   * - **VEHICLE_CHECK**: vehicle element verification.
+   * - **VEHICLE_CHECK**: vehicle element verification
    * 
    * @example
-   * 身份证二要素
+   * ID card two-element verification
    */
   apiName?: string;
   /**
@@ -51,7 +51,7 @@ export class DescribeMetaStatisticsListResponseBodyItems extends $dara.Model {
   billRate?: string;
   /**
    * @remarks
-   * The number of successful phone number queries (exclusive to phone number detection).
+   * The number of successful mobile number queries (exclusive to number detection).
    * 
    * @example
    * 0
@@ -59,18 +59,18 @@ export class DescribeMetaStatisticsListResponseBodyItems extends $dara.Model {
   chargeCount?: number;
   /**
    * @remarks
-   * The date.
+   * The date. Format: YYYY-MM-DD, such as 2015-08-24.
    * 
    * @example
-   * 11/8
+   * 2015-08-24
    */
   date?: string;
   /**
    * @remarks
-   * The name of the telecommunications service provider. Valid values:
+   * The carrier name. Valid values:
    * - **CMCC**: China Mobile
    * - **CUCC**: China Unicom
-   * - **CTCC**: China Telecom.
+   * - **CTCC**: China Telecom
    * 
    * @example
    * CUCC
@@ -78,7 +78,7 @@ export class DescribeMetaStatisticsListResponseBodyItems extends $dara.Model {
   ispName?: string;
   /**
    * @remarks
-   * The number of calls with no education information found.
+   * The number of calls with no education record information.
    * 
    * @example
    * 0

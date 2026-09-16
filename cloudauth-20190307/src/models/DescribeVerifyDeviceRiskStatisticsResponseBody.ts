@@ -13,7 +13,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObjectItems ext
   dailyCallCount?: number;
   /**
    * @remarks
-   * The date.
+   * The date. Format: YYYY-MM-DD, such as 2025-10-10.
    * 
    * @example
    * 2025-10-10
@@ -81,7 +81,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject extends 
   idFakeRate?: string;
   /**
    * @remarks
-   * The data items in the response.
+   * The data items of the returned result.
    */
   items?: DescribeVerifyDeviceRiskStatisticsResponseBodyResultObjectItems[];
   /**

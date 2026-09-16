@@ -31,7 +31,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the query result. Valid values:
+   * The language of the query results. Valid values:
    * - **zh**: Chinese.
    * - **en**: English.
    * 
@@ -60,8 +60,8 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   /**
    * @remarks
    * The service code. Valid values:
-   * - **cloudauthst**: enhanced financial-grade edition.
-   * - **antcloudauth**: financial-grade edition.
+   * - **cloudauthst**: Enhanced Finance Edition.
+   * - **antcloudauth**: Finance Edition.
    * 
    * This parameter is required.
    * 
@@ -90,7 +90,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The end time of the validity period.
+   * The end time of the validity period. Format: UNIX timestamp. Unit: milliseconds. Example: 1730304000000.
    * 
    * @example
    * 1730304000000
@@ -98,13 +98,16 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   validEndDate?: number;
   /**
    * @remarks
-   * The start time of the validity period. The value is a UNIX timestamp in seconds.
+   * The start time of the validity period. Format: UNIX timestamp. Unit: milliseconds. Example: 1759939200000.
    * 
    * @example
    * 1759939200000
    */
   validStartDate?: number;
   /**
+   * @remarks
+   * The whitelist type.
+   * 
    * @example
    * SUPER
    */

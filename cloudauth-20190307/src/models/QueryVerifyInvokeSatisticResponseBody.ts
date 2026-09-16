@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryVerifyInvokeSatisticResponseBodyItemsData extends $dara.Model {
   /**
    * @remarks
-   * The count of the statistical value.
+   * The count of the statistics value.
    * 
    * @example
    * 3
@@ -50,7 +50,7 @@ export class QueryVerifyInvokeSatisticResponseBodyItems extends $dara.Model {
   data?: QueryVerifyInvokeSatisticResponseBodyItemsData[];
   /**
    * @remarks
-   * The statistics date.
+   * The statistics date. Format: YYYY-MM-DD. Example: 2025-10-16.
    * 
    * @example
    * 2025-10-16
@@ -122,7 +122,7 @@ export class QueryVerifyInvokeSatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the response is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

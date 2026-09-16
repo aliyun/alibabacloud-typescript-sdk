@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The total number of devices used for ID Verification.
+   * The total number of authenticated devices.
    * 
    * @example
    * 24
@@ -13,7 +13,7 @@ export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends 
   allDeviceCnt?: number;
   /**
    * @remarks
-   * The number of Android devices used for ID Verification.
+   * The number of authenticated Android devices.
    * 
    * @example
    * 14
@@ -29,7 +29,7 @@ export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends 
   deviceAndroidRate?: string;
   /**
    * @remarks
-   * The number of iOS devices used for ID Verification.
+   * The number of authenticated iOS devices.
    * 
    * @example
    * 10

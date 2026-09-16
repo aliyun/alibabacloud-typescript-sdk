@@ -54,6 +54,7 @@ export class DescribeListFaceVerifyInfosRequest extends $dara.Model {
   /**
    * @remarks
    * The authentication status. Valid values:
+   * 
    * - **1**: Authentication passed.
    * - **2**: Authentication failed.
    * 

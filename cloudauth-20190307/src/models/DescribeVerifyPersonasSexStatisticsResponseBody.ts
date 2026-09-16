@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The number of authenticated users aged 14 and under.
+   * The number of users aged 14 and under.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age0To14Cnt?: number;
   /**
    * @remarks
-   * The proportion of authenticated users aged 14 and under.
+   * The proportion of users aged 14 and under.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age0To14Rate?: string;
   /**
    * @remarks
-   * The number of authenticated users aged 14 to 18.
+   * The number of users aged 14 to 18.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age14To18Cnt?: number;
   /**
    * @remarks
-   * The proportion of authenticated users aged 14 to 18.
+   * The proportion of users aged 14 to 18.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age14To18Rate?: string;
   /**
    * @remarks
-   * The number of authenticated users aged 18 to 35.
+   * The number of verified users aged 18 to 35.
    * 
    * @example
    * 9
@@ -45,7 +45,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age18To35Cnt?: number;
   /**
    * @remarks
-   * The proportion of authenticated users aged 18 to 35.
+   * The proportion of verified users aged 18 to 35.
    * 
    * @example
    * 64.29
@@ -53,7 +53,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age18To35Rate?: string;
   /**
    * @remarks
-   * The number of authenticated users aged 35 to 50.
+   * The number of verified users aged 35 to 50.
    * 
    * @example
    * 5
@@ -61,7 +61,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age35To50Cnt?: number;
   /**
    * @remarks
-   * The proportion of authenticated users aged 35 to 50.
+   * The proportion of verified users aged 35 to 50.
    * 
    * @example
    * 35.71
@@ -69,7 +69,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age35To50Rate?: string;
   /**
    * @remarks
-   * The number of authenticated users aged 50 and over.
+   * The number of verified users aged 50 and over.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age50To999Cnt?: number;
   /**
    * @remarks
-   * The number of authenticated users aged 50 and over.
+   * The number of verified users aged 50 and over.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age50To999Rate?: string;
   /**
    * @remarks
-   * The total number of authenticated users.
+   * The total number of verified users.
    * 
    * @example
    * 14
@@ -93,7 +93,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   allUserCnt?: number;
   /**
    * @remarks
-   * The number of female authenticated users.
+   * The number of female users.
    * 
    * @example
    * 4
@@ -101,7 +101,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   femaleCnt?: number;
   /**
    * @remarks
-   * The proportion of female authenticated users.
+   * The proportion of female verified users.
    * 
    * @example
    * 28.57
@@ -109,7 +109,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   femaleRate?: string;
   /**
    * @remarks
-   * The number of male authenticated users.
+   * The number of male users.
    * 
    * @example
    * 10
@@ -117,7 +117,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   maleCnt?: number;
   /**
    * @remarks
-   * The proportion of male authenticated users.
+   * The proportion of male users.
    * 
    * @example
    * 71.43

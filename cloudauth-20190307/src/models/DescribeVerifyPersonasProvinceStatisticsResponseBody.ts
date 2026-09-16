@@ -16,7 +16,7 @@ export class DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObjectIte
    * The province name.
    * 
    * @example
-   * 浙江
+   * Zhejiang
    */
   provinceName?: string;
   /**

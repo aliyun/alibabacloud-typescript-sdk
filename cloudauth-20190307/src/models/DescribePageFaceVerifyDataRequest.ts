@@ -13,7 +13,7 @@ export class DescribePageFaceVerifyDataRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Required. The end time in the yyyy-MM-dd format. The default value is yyyy-MM-dd 00:00:00. The maximum query interval is 90 days.
+   * Required. The end time in the format of yyyy-MM-dd. The default time is yyyy-MM-dd 00:00:00. The maximum query interval is 90 days.
    * 
    * @example
    * 2023-04-30
@@ -45,7 +45,7 @@ export class DescribePageFaceVerifyDataRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Required. The start time in the yyyy-MM-dd format. The default value is yyyy-MM-dd 00:00:00. The maximum query interval is 90 days.
+   * Required. The start time in the format of yyyy-MM-dd. The default time is yyyy-MM-dd 00:00:00. The maximum query interval is 90 days.
    * 
    * @example
    * 2023-04-10

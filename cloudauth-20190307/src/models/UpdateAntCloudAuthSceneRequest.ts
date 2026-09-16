@@ -8,7 +8,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
    * Specifies whether to bind a mini program. Valid values:
    * - **Y**: enabled.
    * - **N (default)**: disabled.
-   * >Notice: If you enable mini program binding, make sure that you specify all parameters related to the mini program binding..
+   * >Notice: If you enable mini program binding, make sure that you specify all parameters related to the mini program binding.
    * 
    * @example
    * Y
@@ -27,9 +27,33 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
    * The name of the uploaded verification file.
    * 
    * @example
-   * 测试.txt
+   * test.txt
    */
   checkFileName?: string;
+  /**
+   * @remarks
+   * The iOS app scheme for degradation.
+   * 
+   * @example
+   * cloudauth://callback
+   */
+  degradeAppScheme?: string;
+  /**
+   * @remarks
+   * The SubCode that triggers degradation.
+   * 
+   * @example
+   * 201,202
+   */
+  degradeSubCodes?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable degraded authentication.
+   * 
+   * @example
+   * ALIPAY
+   */
+  degradeType?: string;
   /**
    * @remarks
    * Specifies whether to enable enhanced device risk detection. Valid values:
@@ -45,7 +69,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
    * The name of the mini program.
    * 
    * @example
-   * 测试APP
+   * TestApp
    */
   miniProgramName?: string;
   /**
@@ -53,7 +77,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
    * The mini program platform. Valid values:
    * - **WECHAT**: WeChat
    * - **ALIPAY**: Alipay
-   * - **TIKTOK**: TikTok.
+   * - **TIKTOK**: TikTok
    * 
    * @example
    * IOS
@@ -61,7 +85,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The number of returned photos (1 to 5). This parameter takes effect only after StoreImage is enabled for certification file retention.
+   * The number of returned photos (1 to 5). This parameter takes effect after StoreImage is enabled for authentication file retention.
    * 
    * @example
    * 1
@@ -69,7 +93,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   returnPicCount?: number;
   /**
    * @remarks
-   * The duration of the returned video (1 to 2 seconds). This parameter takes effect only after StoreImage is enabled.
+   * The duration of the returned video (1 to 2 seconds). This parameter takes effect after StoreImage is enabled.
    * 
    * @example
    * 2
@@ -95,15 +119,15 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * This parameter is not used. You do not need to specify this parameter.
+   * This parameter has no effect. You do not need to specify this parameter.
    * 
    * @example
-   * -
+   * 0
    */
   status?: number;
   /**
    * @remarks
-   * Specifies whether to deliver certification files generated during the certification process to the user\\"s OSS bucket. Valid values:
+   * Specifies whether to deliver authentication files generated during the authentication process to your OSS bucket. Valid values:
    * - **Y**: enabled.
    * - **N (default)**: disabled.
    * 
@@ -111,11 +135,22 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
    * Y
    */
   storeImage?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable degraded authentication.
+   * 
+   * @example
+   * Y
+   */
+  useDegrade?: string;
   static names(): { [key: string]: string } {
     return {
       bindMiniProgram: 'BindMiniProgram',
       checkFileBody: 'CheckFileBody',
       checkFileName: 'CheckFileName',
+      degradeAppScheme: 'DegradeAppScheme',
+      degradeSubCodes: 'DegradeSubCodes',
+      degradeType: 'DegradeType',
       deviceRiskPlus: 'DeviceRiskPlus',
       miniProgramName: 'MiniProgramName',
       platform: 'Platform',
@@ -125,6 +160,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
       sceneName: 'SceneName',
       status: 'Status',
       storeImage: 'StoreImage',
+      useDegrade: 'UseDegrade',
     };
   }
 
@@ -133,6 +169,9 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
       bindMiniProgram: 'string',
       checkFileBody: 'string',
       checkFileName: 'string',
+      degradeAppScheme: 'string',
+      degradeSubCodes: 'string',
+      degradeType: 'string',
       deviceRiskPlus: 'string',
       miniProgramName: 'string',
       platform: 'string',
@@ -142,6 +181,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
       sceneName: 'string',
       status: 'number',
       storeImage: 'string',
+      useDegrade: 'string',
     };
   }
 

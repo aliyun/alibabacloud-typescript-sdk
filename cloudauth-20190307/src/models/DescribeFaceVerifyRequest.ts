@@ -21,7 +21,7 @@ export class DescribeFaceVerifyRequest extends $dara.Model {
   pictureReturnType?: string;
   /**
    * @remarks
-   * The ID of the verification scenario.
+   * The verification scenario ID.
    * 
    * @example
    * 1000000006

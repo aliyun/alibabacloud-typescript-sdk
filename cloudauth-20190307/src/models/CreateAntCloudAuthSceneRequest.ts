@@ -6,8 +6,8 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable mini program binding. Valid values:
-   * - **Y**: enabled
-   * - **N (default)**: disabled.
+   * - **Y**: Enabled.
+   * - **N (default)**: Disabled.
    * 
    * @example
    * Y
@@ -26,14 +26,38 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
    * The name of the uploaded verification file.
    * 
    * @example
-   * 测试.txt
+   * test.txt
    */
   checkFileName?: string;
   /**
    * @remarks
+   * The iOS app scheme for degradation redirect.
+   * 
+   * @example
+   * cloudauth://callback
+   */
+  degradeAppScheme?: string;
+  /**
+   * @remarks
+   * The SubCode that triggers degradation.
+   * 
+   * @example
+   * 201,202
+   */
+  degradeSubCodes?: string;
+  /**
+   * @remarks
+   * The degradation verification type.
+   * 
+   * @example
+   * ALIPAY
+   */
+  degradeType?: string;
+  /**
+   * @remarks
    * Specifies whether to enable enhanced device risk detection. Valid values:
-   * - **Y**: enabled
-   * - **N**: disabled.
+   * - **Y**: Enabled.
+   * - **N**: Disabled.
    * 
    * @example
    * N
@@ -44,14 +68,14 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
    * The mini program name.
    * 
    * @example
-   * 测试APP
+   * TestApp
    */
   miniProgramName?: string;
   /**
    * @remarks
    * The mini program platform to bind. Valid values:
-   * - **WECHAT**: WeChat
-   * - **ALIPAY**: Alipay
+   * - **WECHAT**: WeChat.
+   * - **ALIPAY**: Alipay.
    * - **TIKTOK**: TikTok.
    * 
    * @example
@@ -81,12 +105,12 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试场景
+   * TestScenario
    */
   sceneName?: string;
   /**
    * @remarks
-   * Specifies whether to deliver the files generated during authentication to the customer\\"s OSS. Valid values:
+   * Specifies whether to deliver files generated during verification to the customer\\"s OSS. Valid values:
    * - **Y**: Yes.
    * - **N**: No.
    * 
@@ -94,11 +118,22 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
    * Y
    */
   storeImage?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable degradation.
+   * 
+   * @example
+   * Y
+   */
+  useDegrade?: string;
   static names(): { [key: string]: string } {
     return {
       bindMiniProgram: 'BindMiniProgram',
       checkFileBody: 'CheckFileBody',
       checkFileName: 'CheckFileName',
+      degradeAppScheme: 'DegradeAppScheme',
+      degradeSubCodes: 'DegradeSubCodes',
+      degradeType: 'DegradeType',
       deviceRiskPlus: 'DeviceRiskPlus',
       miniProgramName: 'MiniProgramName',
       platform: 'Platform',
@@ -106,6 +141,7 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
       returnVideoLength: 'ReturnVideoLength',
       sceneName: 'SceneName',
       storeImage: 'StoreImage',
+      useDegrade: 'UseDegrade',
     };
   }
 
@@ -114,6 +150,9 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
       bindMiniProgram: 'string',
       checkFileBody: 'string',
       checkFileName: 'string',
+      degradeAppScheme: 'string',
+      degradeSubCodes: 'string',
+      degradeType: 'string',
       deviceRiskPlus: 'string',
       miniProgramName: 'string',
       platform: 'string',
@@ -121,6 +160,7 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
       returnVideoLength: 'number',
       sceneName: 'string',
       storeImage: 'string',
+      useDegrade: 'string',
     };
   }
 

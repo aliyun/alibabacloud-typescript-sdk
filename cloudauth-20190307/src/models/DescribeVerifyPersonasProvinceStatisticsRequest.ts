@@ -23,7 +23,7 @@ export class DescribeVerifyPersonasProvinceStatisticsRequest extends $dara.Model
    * @remarks
    * The service type. Valid values:
    * - **antcloudauth**: financial-grade ID Verification.
-   * - **cloudauthst** (discontinued): enhanced ID Verification.
+   * - **cloudauthst** (discontinued): ID Verification enhanced edition.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeVerifyPersonasProvinceStatisticsRequest extends $dara.Model
   serviceCode?: string;
   /**
    * @remarks
-   * The time range. The search scope is the previous N days. For example, a value of 1 indicates the previous day.
+   * The time range. The search range is the previous N days. Format: a numeric string. Unit: days (d). A value of 1 indicates the previous 1 day.
    * 
    * This parameter is required.
    * 

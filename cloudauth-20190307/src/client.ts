@@ -11,32 +11,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "regional";
+    this._endpointRule = "central";
     this._endpointMap = {
-      'us-west-1': "cloudauth.aliyuncs.com",
-      'us-east-1': "cloudauth.aliyuncs.com",
-      'me-east-1': "cloudauth.aliyuncs.com",
-      'eu-west-1': "cloudauth.aliyuncs.com",
-      'eu-central-1': "cloudauth.aliyuncs.com",
-      'cn-zhangjiakou': "cloudauth.aliyuncs.com",
-      'cn-shenzhen-finance-1': "cloudauth.aliyuncs.com",
-      'cn-shenzhen': "cloudauth.aliyuncs.com",
-      'cn-shanghai-finance-1': "cloudauth.aliyuncs.com",
-      'cn-shanghai': "cloudauth.aliyuncs.com",
-      'cn-qingdao': "cloudauth.cn-qingdao.aliyuncs.com",
-      'cn-north-2-gov-1': "cloudauth.aliyuncs.com",
-      'cn-huhehaote': "cloudauth.aliyuncs.com",
-      'cn-hongkong': "cloudauth.aliyuncs.com",
-      'cn-hangzhou-finance': "cloudauth.aliyuncs.com",
-      'cn-hangzhou': "cloudauth.aliyuncs.com",
-      'cn-chengdu': "cloudauth.aliyuncs.com",
       'cn-beijing': "cloudauth.cn-beijing.aliyuncs.com",
-      'ap-southeast-5': "cloudauth.aliyuncs.com",
-      'ap-southeast-3': "cloudauth.aliyuncs.com",
-      'ap-southeast-2': "cloudauth.aliyuncs.com",
-      'ap-southeast-1': "cloudauth.aliyuncs.com",
-      'ap-south-1': "cloudauth.aliyuncs.com",
-      'ap-northeast-1': "cloudauth.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloudauth", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -751,6 +728,18 @@ export default class Client extends OpenApi {
       query["CheckFileName"] = request.checkFileName;
     }
 
+    if (!$dara.isNull(request.degradeAppScheme)) {
+      query["DegradeAppScheme"] = request.degradeAppScheme;
+    }
+
+    if (!$dara.isNull(request.degradeSubCodes)) {
+      query["DegradeSubCodes"] = request.degradeSubCodes;
+    }
+
+    if (!$dara.isNull(request.degradeType)) {
+      query["DegradeType"] = request.degradeType;
+    }
+
     if (!$dara.isNull(request.deviceRiskPlus)) {
       query["DeviceRiskPlus"] = request.deviceRiskPlus;
     }
@@ -777,6 +766,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.storeImage)) {
       query["StoreImage"] = request.storeImage;
+    }
+
+    if (!$dara.isNull(request.useDegrade)) {
+      query["UseDegrade"] = request.useDegrade;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1060,7 +1053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an authentication whitelist.
+   * Creates a whitelist for ID Verification.
    * 
    * @remarks
    * Request method: Only HTTPS POST requests are supported.
@@ -1126,7 +1119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an authentication whitelist.
+   * Creates a whitelist for ID Verification.
    * 
    * @remarks
    * Request method: Only HTTPS POST requests are supported.
@@ -2485,7 +2478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After the China site (Chinese mainland) mobile client receives a callback, the China site (Chinese mainland) server can call this operation to obtain the corresponding verification status and verification materials.
+   * Retrieves the verification status and verification materials after the China-based mobile client receives a callback.
    * 
    * @remarks
    * - Service endpoint: cloudauth.aliyuncs.com.
@@ -2528,7 +2521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After the China site (Chinese mainland) mobile client receives a callback, the China site (Chinese mainland) server can call this operation to obtain the corresponding verification status and verification materials.
+   * Retrieves the verification status and verification materials after the China-based mobile client receives a callback.
    * 
    * @remarks
    * - Service endpoint: cloudauth.aliyuncs.com.
@@ -2543,10 +2536,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information verification export tasks by page.
+   * Queries export tasks for information verification in a paged manner.
    * 
    * @remarks
-   * Request method: Supports sending requests by using the HTTPS POST and GET methods.
+   * Request method: Supports sending requests by using HTTPS POST and GET methods.
    * 
    * @param request - DescribeInfoCheckExportRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2593,10 +2586,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information verification export tasks by page.
+   * Queries export tasks for information verification in a paged manner.
    * 
    * @remarks
-   * Request method: Supports sending requests by using the HTTPS POST and GET methods.
+   * Request method: Supports sending requests by using HTTPS POST and GET methods.
    * 
    * @param request - DescribeInfoCheckExportRecordRequest
    * @returns DescribeInfoCheckExportRecordResponse
@@ -2607,10 +2600,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified.
+   * Queries the list of financial-grade authentication scenarios.
    * 
    * @remarks
-   * Request method: Supports HTTPS POST and GET methods.
+   * Request method: Supports sending requests by using HTTPS POST and GET methods.
    * > The authorization key is valid for 30 minutes and cannot be reused. Obtain a new key before each activation.
    * 
    * @param request - DescribeListAntCloudAuthScenesRequest
@@ -2642,10 +2635,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified.
+   * Queries the list of financial-grade authentication scenarios.
    * 
    * @remarks
-   * Request method: Supports HTTPS POST and GET methods.
+   * Request method: Supports sending requests by using HTTPS POST and GET methods.
    * > The authorization key is valid for 30 minutes and cannot be reused. Obtain a new key before each activation.
    * 
    * @param request - DescribeListAntCloudAuthScenesRequest
@@ -2796,7 +2789,7 @@ export default class Client extends OpenApi {
    * Queries information verification details by paging.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeMetaSearchPageListRequest
@@ -2883,7 +2876,7 @@ export default class Client extends OpenApi {
    * Queries information verification details by paging.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeMetaSearchPageListRequest
@@ -2895,10 +2888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics information for information verification and authentication.
+   * Queries statistics information for information verification authentication.
    * 
    * @remarks
-   * - Request method: HTTPS POST and GET methods are supported.
+   * - Request method: Supports sending requests by using HTTPS POST and GET methods.
    * - Service address: cloudauth.aliyuncs.com.
    * 
    * @param request - DescribeMetaStatisticsListRequest
@@ -2938,10 +2931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics information for information verification and authentication.
+   * Queries statistics information for information verification authentication.
    * 
    * @remarks
-   * - Request method: HTTPS POST and GET methods are supported.
+   * - Request method: Supports sending requests by using HTTPS POST and GET methods.
    * - Service address: cloudauth.aliyuncs.com.
    * 
    * @param request - DescribeMetaStatisticsListRequest
@@ -2953,10 +2946,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information verification and authentication data with pagination.
+   * Queries information verification data by paging.
    * 
    * @remarks
-   * - Request method: Supports sending requests using HTTPS POST and GET methods.
+   * - Request method: HTTPS POST and GET methods are supported.
    * - Service address: cloudauth.aliyuncs.com.
    * 
    * @param request - DescribeMetaStatisticsPageListRequest
@@ -3004,10 +2997,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information verification and authentication data with pagination.
+   * Queries information verification data by paging.
    * 
    * @remarks
-   * - Request method: Supports sending requests using HTTPS POST and GET methods.
+   * - Request method: HTTPS POST and GET methods are supported.
    * - Service address: cloudauth.aliyuncs.com.
    * 
    * @param request - DescribeMetaStatisticsPageListRequest
@@ -3154,7 +3147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries financial-grade ID Verification call statistics by using a paging query operation.
+   * Queries the paging statistics of financial-grade ID Verification invocations.
    * 
    * @param request - DescribePageFaceVerifyDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3205,7 +3198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries financial-grade ID Verification call statistics by using a paging query operation.
+   * Queries the paging statistics of financial-grade ID Verification invocations.
    * 
    * @param request - DescribePageFaceVerifyDataRequest
    * @returns DescribePageFaceVerifyDataResponse
@@ -3355,7 +3348,7 @@ export default class Client extends OpenApi {
    * Retrieves statistics of verification devices.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifyDeviceRiskStatisticsRequest
@@ -3406,7 +3399,7 @@ export default class Client extends OpenApi {
    * Retrieves statistics of verification devices.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifyDeviceRiskStatisticsRequest
@@ -3554,10 +3547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the distribution data of ID Verification devices.
+   * Queries the distribution data of authenticated devices.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifyPersonasOsStatisticsRequest
@@ -3601,10 +3594,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the distribution data of ID Verification devices.
+   * Queries the distribution data of authenticated devices.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifyPersonasOsStatisticsRequest
@@ -3616,10 +3609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries authentication statistics by province of the individual.
+   * Queries authentication statistics by province where individuals are located.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifyPersonasProvinceStatisticsRequest
@@ -3663,10 +3656,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries authentication statistics by province of the individual.
+   * Queries authentication statistics by province where individuals are located.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifyPersonasProvinceStatisticsRequest
@@ -3681,7 +3674,7 @@ export default class Client extends OpenApi {
    * Queries ID Verification statistics by gender.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifyPersonasSexStatisticsRequest
@@ -3728,7 +3721,7 @@ export default class Client extends OpenApi {
    * Queries ID Verification statistics by gender.
    * 
    * @remarks
-   * - Service endpoint: cloudauth.aliyuncs.com.
+   * - Service address: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifyPersonasSexStatisticsRequest
@@ -3850,11 +3843,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query authentication details by page with conditions.
+   * Queries the details of authentication records with paging and conditional query.
    * 
    * @remarks
    * - Service endpoint: cloudauth.aliyuncs.com.
-   * - Request methods: HTTPS POST and GET.
+   * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifySearchPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3969,11 +3962,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query authentication details by page with conditions.
+   * Queries the details of authentication records with paging and conditional query.
    * 
    * @remarks
    * - Service endpoint: cloudauth.aliyuncs.com.
-   * - Request methods: HTTPS POST and GET.
+   * - Request method: HTTPS POST and GET.
    * 
    * @param request - DescribeVerifySearchPageListRequest
    * @returns DescribeVerifySearchPageListResponse
@@ -4172,7 +4165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the whitelist of a scenario.
+   * Queries the whitelist of a specified scenario.
    * 
    * @remarks
    * Request method: Only HTTPS POST requests are supported.
@@ -4250,7 +4243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the whitelist of a scenario.
+   * Queries the whitelist of a specified scenario.
    * 
    * @remarks
    * Request method: Only HTTPS POST requests are supported.
@@ -4887,10 +4880,178 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Accepts images of the front and back of an ID card, extracts the name, ID number, and facial photo by using OCR, and verifies the authenticity and consistency of the three facial elements against an authoritative source.
+   * Three-factor verification (premium edition).
    * 
    * @remarks
-   * Submits images of the front and back of an ID card and returns the verification result of the three facial elements from an authoritative data source.
+   * Verifies the authenticity and consistency of a name, ID card number, and facial photo against an authoritative source.
+   * 
+   * @param request - Id3MetaVerifyPRORequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Id3MetaVerifyPROResponse
+   */
+  async id3MetaVerifyPROWithOptions(request: $_model.Id3MetaVerifyPRORequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id3MetaVerifyPROResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enableFallback)) {
+      query["EnableFallback"] = request.enableFallback;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crop)) {
+      body["Crop"] = request.crop;
+    }
+
+    if (!$dara.isNull(request.faceFile)) {
+      body["FaceFile"] = request.faceFile;
+    }
+
+    if (!$dara.isNull(request.facePicture)) {
+      body["FacePicture"] = request.facePicture;
+    }
+
+    if (!$dara.isNull(request.faceUrl)) {
+      body["FaceUrl"] = request.faceUrl;
+    }
+
+    if (!$dara.isNull(request.identifyNum)) {
+      body["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!$dara.isNull(request.livenessCheck)) {
+      body["LivenessCheck"] = request.livenessCheck;
+    }
+
+    if (!$dara.isNull(request.paramType)) {
+      body["ParamType"] = request.paramType;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Id3MetaVerifyPRO",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.Id3MetaVerifyPROResponse>(await this.callApi(params, req, runtime), new $_model.Id3MetaVerifyPROResponse({}));
+  }
+
+  /**
+   * Three-factor verification (premium edition).
+   * 
+   * @remarks
+   * Verifies the authenticity and consistency of a name, ID card number, and facial photo against an authoritative source.
+   * 
+   * @param request - Id3MetaVerifyPRORequest
+   * @returns Id3MetaVerifyPROResponse
+   */
+  async id3MetaVerifyPRO(request: $_model.Id3MetaVerifyPRORequest): Promise<$_model.Id3MetaVerifyPROResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.id3MetaVerifyPROWithOptions(request, runtime);
+  }
+
+  async id3MetaVerifyPROAdvance(request: $_model.Id3MetaVerifyPROAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id3MetaVerifyPROResponse> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let id3MetaVerifyPROReq = new $_model.Id3MetaVerifyPRORequest({ });
+    OpenApiUtil.convert(request, id3MetaVerifyPROReq);
+    if (!$dara.isNull(request.faceFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.faceFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      id3MetaVerifyPROReq.faceFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let id3MetaVerifyPROResp = await this.id3MetaVerifyPROWithOptions(id3MetaVerifyPROReq, runtime);
+    return id3MetaVerifyPROResp;
+  }
+
+  /**
+   * Verifies the authenticity and consistency of facial recognition three-factor elements by accepting front and back images of an ID card, extracting the name, ID number, and facial photo through OCR, and checking them against an authoritative source.
+   * 
+   * @remarks
+   * Accepts front and back images of an ID card and returns the verification result of the facial recognition three-factor elements from an authoritative data source.
    * 
    * @param request - Id3MetaVerifyWithOCRRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4933,10 +5094,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Accepts images of the front and back of an ID card, extracts the name, ID number, and facial photo by using OCR, and verifies the authenticity and consistency of the three facial elements against an authoritative source.
+   * Verifies the authenticity and consistency of facial recognition three-factor elements by accepting front and back images of an ID card, extracting the name, ID number, and facial photo through OCR, and checking them against an authoritative source.
    * 
    * @remarks
-   * Submits images of the front and back of an ID card and returns the verification result of the three facial elements from an authoritative data source.
+   * Accepts front and back images of an ID card and returns the verification result of the facial recognition three-factor elements from an authoritative data source.
    * 
    * @param request - Id3MetaVerifyWithOCRRequest
    * @returns Id3MetaVerifyWithOCRResponse
@@ -5218,7 +5379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a CertifyId before each authentication to link the interfaces in the authentication request.
+   * Obtains a CertifyId before each authentication session, which is used to correlate the various API operations in the authentication request.
    * 
    * @remarks
    * - Service endpoint: cloudauth.aliyuncs.com
@@ -5226,11 +5387,11 @@ export default class Client extends OpenApi {
    * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
    * #### Image format requirements
    * When performing ID Verification, submit images that meet all of the following conditions:
-   * - A recent photo with a complete, clear, and unobstructed face, a natural expression, and the subject facing the camera directly.
-   * - A clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
-   * - Resolution must not exceed 1920×1080 and must be at least 640×480. Scale the short side to 720 pixels and use a compression ratio greater than 0.9.
+   * - A recent photo with a complete, clear, and unobstructed face, natural expression, and facing the camera directly.
+   * - Clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
+   * - Resolution must not exceed 1920×1080, must be at least 640×480. We recommend scaling the short edge to 720 pixels with a compression ratio greater than 0.9.
    * - Photo size: < 1 MB.
-   * - Photos rotated 90, 180, and 270 degrees are supported. For photos with multiple faces, the largest face is selected.
+   * - Photos rotated 90, 180, and 270 degrees are supported. For multiple faces, the largest face is selected.
    * 
    * @param request - InitFaceVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5419,7 +5580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a CertifyId before each authentication to link the interfaces in the authentication request.
+   * Obtains a CertifyId before each authentication session, which is used to correlate the various API operations in the authentication request.
    * 
    * @remarks
    * - Service endpoint: cloudauth.aliyuncs.com
@@ -5427,11 +5588,11 @@ export default class Client extends OpenApi {
    * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
    * #### Image format requirements
    * When performing ID Verification, submit images that meet all of the following conditions:
-   * - A recent photo with a complete, clear, and unobstructed face, a natural expression, and the subject facing the camera directly.
-   * - A clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
-   * - Resolution must not exceed 1920×1080 and must be at least 640×480. Scale the short side to 720 pixels and use a compression ratio greater than 0.9.
+   * - A recent photo with a complete, clear, and unobstructed face, natural expression, and facing the camera directly.
+   * - Clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
+   * - Resolution must not exceed 1920×1080, must be at least 640×480. We recommend scaling the short edge to 720 pixels with a compression ratio greater than 0.9.
    * - Photo size: < 1 MB.
-   * - Photos rotated 90, 180, and 270 degrees are supported. For photos with multiple faces, the largest face is selected.
+   * - Photos rotated 90, 180, and 270 degrees are supported. For multiple faces, the largest face is selected.
    * 
    * @param request - InitFaceVerifyRequest
    * @returns InitFaceVerifyResponse
@@ -6354,7 +6515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries ID Verification whitelist configurations by using paging.
+   * Queries ID Verification whitelist configurations by paging.
    * 
    * @param request - PageQueryWhiteListSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6417,7 +6578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries ID Verification whitelist configurations by using paging.
+   * Queries ID Verification whitelist configurations by paging.
    * 
    * @param request - PageQueryWhiteListSettingRequest
    * @returns PageQueryWhiteListSettingResponse
@@ -6701,7 +6862,7 @@ export default class Client extends OpenApi {
    * @remarks
    * - Service endpoint: cloudauth.aliyuncs.com
    * - Request method: HTTPS POST and GET.
-   * - This operation uses different parameters for different product plans. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
+   * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
    * 
    * @param request - QueryVerifyFlowPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6737,7 +6898,7 @@ export default class Client extends OpenApi {
    * @remarks
    * - Service endpoint: cloudauth.aliyuncs.com
    * - Request method: HTTPS POST and GET.
-   * - This operation uses different parameters for different product plans. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
+   * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
    * 
    * @param request - QueryVerifyFlowPackageRequest
    * @returns QueryVerifyFlowPackageResponse
@@ -6753,7 +6914,7 @@ export default class Client extends OpenApi {
    * @remarks
    * - Request endpoint: cloudauth.aliyuncs.com
    * - Request method: HTTPS POST and GET.
-   * > ID Verification counts call volume by CertifyId. To facilitate reconciliation, retain the CertifyId field in your system.
+   * > ID Verification products use CertifyId to calculate call volume. To facilitate reconciliation, retain the CertifyId field in your system.
    * 
    * @param request - QueryVerifyInvokeSatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6817,7 +6978,7 @@ export default class Client extends OpenApi {
    * @remarks
    * - Request endpoint: cloudauth.aliyuncs.com
    * - Request method: HTTPS POST and GET.
-   * > ID Verification counts call volume by CertifyId. To facilitate reconciliation, retain the CertifyId field in your system.
+   * > ID Verification products use CertifyId to calculate call volume. To facilitate reconciliation, retain the CertifyId field in your system.
    * 
    * @param request - QueryVerifyInvokeSatisticRequest
    * @returns QueryVerifyInvokeSatisticResponse
@@ -6880,10 +7041,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a China Finance Certification Initiative (CFCI) scenario.
+   * Updates a China Finance Certification scenario.
    * 
    * @remarks
-   * Updates the information of a China Finance Certification Initiative (CFCI) scenario based on the scenario ID.
+   * Updates the information of a China Finance Certification scenario based on the scenario ID.
    * - Service endpoint: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST.
    * 
@@ -6904,6 +7065,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.checkFileName)) {
       query["CheckFileName"] = request.checkFileName;
+    }
+
+    if (!$dara.isNull(request.degradeAppScheme)) {
+      query["DegradeAppScheme"] = request.degradeAppScheme;
+    }
+
+    if (!$dara.isNull(request.degradeSubCodes)) {
+      query["DegradeSubCodes"] = request.degradeSubCodes;
+    }
+
+    if (!$dara.isNull(request.degradeType)) {
+      query["DegradeType"] = request.degradeType;
     }
 
     if (!$dara.isNull(request.deviceRiskPlus)) {
@@ -6942,6 +7115,10 @@ export default class Client extends OpenApi {
       query["StoreImage"] = request.storeImage;
     }
 
+    if (!$dara.isNull(request.useDegrade)) {
+      query["UseDegrade"] = request.useDegrade;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6960,10 +7137,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a China Finance Certification Initiative (CFCI) scenario.
+   * Updates a China Finance Certification scenario.
    * 
    * @remarks
-   * Updates the information of a China Finance Certification Initiative (CFCI) scenario based on the scenario ID.
+   * Updates the information of a China Finance Certification scenario based on the scenario ID.
    * - Service endpoint: cloudauth.aliyuncs.com.
    * - Request method: HTTPS POST.
    * 

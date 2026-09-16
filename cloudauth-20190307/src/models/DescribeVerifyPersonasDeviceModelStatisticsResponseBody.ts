@@ -21,7 +21,7 @@ export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject
   deviceModel?: string;
   /**
    * @remarks
-   * The ratio of devices of this model to the total number of devices.
+   * The ratio of this device model to the total number of devices.
    * 
    * @example
    * 16.13
@@ -63,7 +63,7 @@ export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject
   allDeviceCnt?: number;
   /**
    * @remarks
-   * The list of data for different phone models.
+   * The data list of different phone models.
    */
   items?: DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObjectItems[];
   static names(): { [key: string]: string } {

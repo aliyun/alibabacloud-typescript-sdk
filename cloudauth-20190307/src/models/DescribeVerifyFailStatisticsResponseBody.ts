@@ -111,7 +111,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItemsData e
   count?: number;
   /**
    * @remarks
-   * The date.
+   * The date. Format: YYYY-MM-DD, such as 2025-10-16.
    * 
    * @example
    * 2025-10-16
@@ -153,7 +153,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItems exten
   code?: string;
   /**
    * @remarks
-   * The returned count data.
+   * The count data returned.
    */
   data?: DescribeVerifyFailStatisticsResponseBodyResultObjectLineItemsData[];
   static names(): { [key: string]: string } {
@@ -265,7 +265,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObject extends $dara.
 export class DescribeVerifyFailStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C2C596D1-B14B-5D79-9672-61D7686912B2

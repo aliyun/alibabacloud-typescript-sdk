@@ -29,7 +29,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time.
    * 
    * @example
    * 2025-10-16 17:28:03
@@ -48,7 +48,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
    * The remarks.
    * 
    * @example
-   * 测试白名单
+   * Test whitelist
    */
   remark?: string;
   /**
@@ -72,7 +72,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The expiration date.
+   * The effective end date. Format: YYYY-MM-DD HH:mm:ss. Example: 2025-10-16 17:28:03.
    * 
    * @example
    * 2025-10-16 17:28:03
@@ -87,6 +87,9 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
    */
   validStartDate?: string;
   /**
+   * @remarks
+   * The whitelist type.
+   * 
    * @example
    * SUPER
    */

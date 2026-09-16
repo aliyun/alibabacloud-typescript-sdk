@@ -14,29 +14,29 @@ export class DescribeMetaSearchPageListResponseBodyItemsRequest extends $dara.Mo
   /**
    * @remarks
    * The vehicle type. Valid values:
-   * - **01**: large vehicle  
-   * - **02**: small vehicle  
-   * - **03**: embassy vehicle  
-   * - **04**: consulate vehicle  
-   * - **05**: overseas vehicle  
-   * - **06**: foreign vehicle  
-   * - **07**: standard motorcycle  
-   * - **08**: light motorcycle  
-   * - **09**: embassy motorcycle  
-   * - **10**: consulate motorcycle  
-   * - **11**: overseas motorcycle  
-   * - **12**: foreign motorcycle  
-   * - **13**: low-speed vehicle  
-   * - **14**: tractor  
-   * - **15**: trailer  
-   * - **16**: training vehicle  
-   * - **17**: training motorcycle  
-   * - **20**: temporary entry vehicle  
-   * - **21**: temporary entry motorcycle  
-   * - **22**: temporary driving vehicle  
-   * - **23**: police vehicle  
-   * - **24**: police motorcycle  
-   * - **51**: new energy large vehicle  
+   * - **01**: large vehicle.  
+   * - **02**: small vehicle.  
+   * - **03**: embassy vehicle.  
+   * - **04**: consulate vehicle.  
+   * - **05**: overseas vehicle.  
+   * - **06**: foreign vehicle.  
+   * - **07**: standard motorcycle.  
+   * - **08**: light motorcycle.  
+   * - **09**: embassy motorcycle.  
+   * - **10**: consulate motorcycle.  
+   * - **11**: overseas motorcycle.  
+   * - **12**: foreign motorcycle.  
+   * - **13**: low-speed vehicle.  
+   * - **14**: tractor.  
+   * - **15**: trailer.  
+   * - **16**: training vehicle.  
+   * - **17**: training motorcycle.  
+   * - **20**: temporary entry vehicle.  
+   * - **21**: temporary entry motorcycle.  
+   * - **22**: temporary driving vehicle.  
+   * - **23**: police vehicle.  
+   * - **24**: police motorcycle.  
+   * - **51**: new energy large vehicle.  
    * - **52**: new energy small vehicle.
    * 
    * @example
@@ -48,7 +48,7 @@ export class DescribeMetaSearchPageListResponseBodyItemsRequest extends $dara.Mo
    * The vehicle type name.
    * 
    * @example
-   * 新能源小型车
+   * New energy small vehicle
    */
   vehicleTypeName?: string;
   static names(): { [key: string]: string } {
@@ -119,9 +119,9 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
   bankCard?: string;
   /**
    * @remarks
-   * The verification status. Valid values:
-   * - **1**: Verification passed.
-   * - **2**: Verification failed.
+   * The authentication status. Valid values:
+   * - **1**: Authentication passed.
+   * - **2**: Authentication failed.
    * - **3**: No record found.
    * 
    * @example
@@ -133,15 +133,15 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
    * The brand name.
    * 
    * @example
-   * 奔驰
+   * Mercedes-Benz
    */
   brand?: string;
   /**
    * @remarks
-   * The body color.
+   * The vehicle body color.
    * 
    * @example
-   * 白
+   * White
    */
   color?: string;
   /**
@@ -181,12 +181,12 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
    * The fuel type.
    * 
    * @example
-   * 电
+   * Electric
    */
   fuelType?: string;
   /**
    * @remarks
-   * The inspection validity expiration date.
+   * The inspection validity expiration date. Format: YYYY-MM-DD HH:mm:ss, for example, 2026-07-31 00:00:00.
    * 
    * @example
    * 2026-07-31 00:00:00
@@ -210,7 +210,7 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
   power?: string;
   /**
    * @remarks
-   * The initial registration date.
+   * The initial registration date. Format: YYYY-MM-DD HH:mm:ss, for example, 2015-08-24 00:00:00.
    * 
    * @example
    * 2015-08-24 00:00:00
@@ -218,7 +218,7 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
   registrationDate?: string;
   /**
    * @remarks
-   * The manufacturing date.
+   * The manufacturing date. Format: YYYY-MM-DD HH:mm:ss, for example, 2022-08-13 00:00:00.
    * 
    * @example
    * 2022-08-13 00:00:00
@@ -226,7 +226,7 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
   releaseDate?: string;
   /**
    * @remarks
-   * The mandatory retirement date.
+   * The mandatory retirement date. Format: YYYY-MM-DD HH:mm:ss, for example, 2099-12-31 00:00:00.
    * 
    * @example
    * 2099-12-31 00:00:00
@@ -234,7 +234,7 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
   retirementDate?: string;
   /**
    * @remarks
-   * The gross mass.
+   * The total mass.
    * 
    * @example
    * 2350
@@ -245,7 +245,7 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
    * The vehicle type.
    * 
    * @example
-   * 小型轿车
+   * Small sedan
    */
   type?: string;
   /**
@@ -269,7 +269,7 @@ export class DescribeMetaSearchPageListResponseBodyItemsResponseData extends $da
    * The motor vehicle status.
    * 
    * @example
-   * 正常
+   * Normal
    */
   vehicleState?: string;
   /**
@@ -413,19 +413,19 @@ export class DescribeMetaSearchPageListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The product API. Valid values:
-   * - **ID_CARD_2_META**: ID card two-element verification
-   * - **ID_PERIOD**: ID card validity period verification
-   * - **MOBILE_ONLINE_LENGTH**: mobile number online duration
-   * - **MOBILE_ONLINE_STATUS**: mobile number online status
-   * - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
-   * - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
-   * - **MOBILE_2_META**: mobile number two-element verification
-   * - **BANK_CARD_N_META**: bank card verification (detailed edition)
-   * - **MOBILE_DETECT**: phone number detection 
-   * - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
-   * - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
-   * - **VEHICLE_LICENSE_INFO**: vehicle information recognition
-   * - **VEHICLE_INSURE_DATE**: vehicle insurance date query
+   * - **ID_CARD_2_META**: ID card two-element verification.
+   * - **ID_PERIOD**: ID card validity period verification.
+   * - **MOBILE_ONLINE_LENGTH**: mobile number online duration.
+   * - **MOBILE_ONLINE_STATUS**: mobile number online status.
+   * - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition).
+   * - **MOBILE_3_META**: mobile number three-element verification (detailed edition).
+   * - **MOBILE_2_META**: mobile number two-element verification.
+   * - **BANK_CARD_N_META**: bank card verification (detailed edition).
+   * - **MOBILE_DETECT**: phone number detection. 
+   * - **VEHICLE_N_META**: vehicle element verification (enhanced edition).
+   * - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition.
+   * - **VEHICLE_LICENSE_INFO**: vehicle information recognition.
+   * - **VEHICLE_INSURE_DATE**: vehicle insurance date query.
    * - **VEHICLE_CHECK**: vehicle element verification.
    * 
    * @example
@@ -435,23 +435,23 @@ export class DescribeMetaSearchPageListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The name corresponding to the API. Valid values:
-   * - **ID_CARD_2_META**: ID card two-element verification
-   * - **ID_PERIOD**: ID card validity period verification
-   * - **MOBILE_ONLINE_LENGTH**: mobile number online duration
-   * - **MOBILE_ONLINE_STATUS**: mobile number online status
-   * - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
-   * - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
-   * - **MOBILE_2_META**: mobile number two-element verification
-   * - **BANK_CARD_N_META**: bank card verification (detailed edition)
-   * - **MOBILE_DETECT**: phone number detection 
-   * - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
-   * - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
-   * - **VEHICLE_LICENSE_INFO**: vehicle information recognition
-   * - **VEHICLE_INSURE_DATE**: vehicle insurance date query
-   * - **VEHICLE_CHECK**: vehicle element verification.
+   * - **ID_CARD_2_META**: ID card two-element verification.
+   * - **ID_PERIOD**: ID card validity period verification.
+   * - **MOBILE_ONLINE_LENGTH**: Mobile number online duration.
+   * - **MOBILE_ONLINE_STATUS**: Mobile number online status.
+   * - **MOBILE_3_META_SIMPLE**: Mobile number three-element verification (simple edition).
+   * - **MOBILE_3_META**: Mobile number three-element verification (detailed edition).
+   * - **MOBILE_2_META**: Mobile number two-element verification.
+   * - **BANK_CARD_N_META**: Bank card verification (detailed edition).
+   * - **MOBILE_DETECT**: Number detection. 
+   * - **VEHICLE_N_META**: Vehicle element verification (enhanced edition).
+   * - **VEHICLE_PENTA_INFO**: Vehicle five-element information recognition.
+   * - **VEHICLE_LICENSE_INFO**: Vehicle information recognition.
+   * - **VEHICLE_INSURE_DATE**: Vehicle insurance date query.
+   * - **VEHICLE_CHECK**: Vehicle element verification.
    * 
    * @example
-   * 身份证二要素
+   * ID card two-element verification
    */
   apiName?: string;
   /**
@@ -464,9 +464,9 @@ export class DescribeMetaSearchPageListResponseBodyItems extends $dara.Model {
   bankCard?: string;
   /**
    * @remarks
-   * The verification status. Valid values:
-   * - **1**: Verification passed.
-   * - **2**: Verification failed.
+   * The authentication status. Valid values:
+   * - **1**: Authentication passed.
+   * - **2**: Authentication failed.
    * - **3**: No record found.
    * 
    * @example
@@ -475,7 +475,7 @@ export class DescribeMetaSearchPageListResponseBodyItems extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The verification date.
+   * The authentication date. Format: YYYY-MM-DD HH:mm:ss, for example, 2025-10-17 10:00:11.
    * 
    * @example
    * 2025-10-17 10:00:11
@@ -491,9 +491,9 @@ export class DescribeMetaSearchPageListResponseBodyItems extends $dara.Model {
   identifyNum?: string;
   /**
    * @remarks
-   * The name of the telecommunications service provider. Valid values:
-   * - **CMCC**: China Mobile
-   * - **CUCC**: China Unicom
+   * The telecommunications service provider name. Valid values:
+   * - **CMCC**: China Mobile.
+   * - **CUCC**: China Unicom.
    * - **CTCC**: China Telecom.
    * 
    * @example
@@ -539,12 +539,12 @@ export class DescribeMetaSearchPageListResponseBodyItems extends $dara.Model {
    * The response content.
    * 
    * @example
-   * {\\"code\\":\\"200\\",\\"data\\":{\\"bizCode\\":\\"1\\",\\"ispName\\":\\"CMCC\\",\\"subCode\\":\\"101\\"},\\"message\\":\\"调用成功\\"}
+   * {\\"code\\":\\"200\\",\\"data\\":{\\"bizCode\\":\\"1\\",\\"ispName\\":\\"CMCC\\",\\"subCode\\":\\"101\\"},\\"message\\":\\"Call successful\\"}
    */
   responseJson?: string;
   /**
    * @remarks
-   * The result code. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/information-verification/).
+   * The result code. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/information-verification/).
    * 
    * @example
    * 207

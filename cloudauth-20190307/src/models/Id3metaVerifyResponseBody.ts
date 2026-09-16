@@ -7,9 +7,9 @@ export class Id3MetaVerifyResponseBodyResultObject extends $dara.Model {
    * @remarks
    * The identity verification result. Valid values:
    * 
-   * - 1: Consistent.
-   * - 2: Inconsistent.
-   * - 3: No record found.
+   * - 1: verification is consistent.
+   * - 2: verification is inconsistent.
+   * - 3: no record found.
    * 
    * @example
    * 1
@@ -26,6 +26,31 @@ export class Id3MetaVerifyResponseBodyResultObject extends $dara.Model {
    */
   faceDetail?: string;
   /**
+   * @remarks
+   * The authoritative source verification details. Valid values:
+   * 
+   * - 101: authentication passed.
+   * 
+   * - 201: authentication failed. The name does not match the ID card number.
+   * 
+   * - 202: authentication failed. The person is suspected to be the ID holder.
+   * 
+   * - 203: authentication failed. No photo exists in the database.
+   * 
+   * - 204: authentication failed. The person is not the same individual.
+   * 
+   * - 205: authentication failed. Modeling of the image to be compared failed.
+   * 
+   * - 206: authentication failed. The image format is incorrect.
+   * 
+   * - 207: authentication failed. The uploaded image is too small. Upload a new image.
+   * 
+   * - 208: authentication failed. The quality of the uploaded portrait photo is poor. Upload a new photo.
+   * 
+   * - 301: no record found. The ID number does not exist in the database.
+   * 
+   * - 302: no record found. Verification cannot be performed.
+   * 
    * @example
    * 101
    */
@@ -58,12 +83,12 @@ export class Id3MetaVerifyResponseBodyResultObject extends $dara.Model {
 export class Id3MetaVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. Other values indicate failure.
+   * The response code. 200 indicates success. Other values indicate failure.
    * 
    * **Important**
    * 
-   * - This parameter indicates only whether the API call is successful. For more information about return codes, see error codes.
-   * - Check the fields in ResultObject for the business verification result.
+   * - This parameter indicates whether the API call is successful. For more information about return codes, see error codes.
+   * - Check the business verification result in the fields of ResultObject.
    * 
    * @example
    * 200
@@ -71,11 +96,11 @@ export class Id3MetaVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message of the API call.
+   * The response message.
    * 
    * **Important**
    * 
-   * This parameter indicates only whether the API call is abnormal.
+   * This parameter only indicates whether the API call is abnormal.
    * 
    * @example
    * success

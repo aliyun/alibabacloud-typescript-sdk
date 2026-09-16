@@ -16,7 +16,7 @@ export class QueryVerifyFlowPackageResponseBodyItemsFlowDetails extends $dara.Mo
    * The name of the data transfer plan.
    * 
    * @example
-   * 实人认证流量包
+   * ID Verification data transfer plan
    */
   commodityName?: string;
   /**
@@ -37,10 +37,10 @@ export class QueryVerifyFlowPackageResponseBodyItemsFlowDetails extends $dara.Mo
   currProportion?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. Format: YYYY-MM-DD HH:mm:ss, for example, 2025-10-10 00:00:00.
    * 
    * @example
-   * -
+   * 2025-10-10 00:00:00
    */
   expireDate?: string;
   /**
@@ -61,10 +61,10 @@ export class QueryVerifyFlowPackageResponseBodyItemsFlowDetails extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The effective period.
+   * The effective period. Format: YYYY-MM-DD HH:mm:ss, for example, 2025-10-10 00:00:00.
    * 
    * @example
-   * -
+   * 2025-10-10 00:00:00
    */
   takeEffectDate?: string;
   static names(): { [key: string]: string } {
@@ -108,7 +108,7 @@ export class QueryVerifyFlowPackageResponseBodyItems extends $dara.Model {
    * The name of the resource plan.
    * 
    * @example
-   * 实人认证流量包
+   * ID Verification data transfer plan
    */
   commodityName?: string;
   /**
@@ -129,7 +129,7 @@ export class QueryVerifyFlowPackageResponseBodyItems extends $dara.Model {
   currProportion?: string;
   /**
    * @remarks
-   * The data transfer plan details.
+   * The details of the data transfer plan.
    */
   flowDetails?: QueryVerifyFlowPackageResponseBodyItemsFlowDetails[];
   /**
@@ -222,7 +222,7 @@ export class QueryVerifyFlowPackageResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

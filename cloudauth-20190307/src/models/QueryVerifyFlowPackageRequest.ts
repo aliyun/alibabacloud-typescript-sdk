@@ -6,8 +6,8 @@ export class QueryVerifyFlowPackageRequest extends $dara.Model {
   /**
    * @remarks
    * The product type. Valid values:
-   * - **FINANCE_VERIFY**: Financial-Grade ID Verification
-   * - **SMART_VERIFY**: Enhanced ID Verification (discontinued)
+   * - **FINANCE_VERIFY**: Financial-grade ID Verification.
+   * - **SMART_VERIFY**: Enhanced ID Verification (discontinued).
    * - **FACE_VERIFY**: ID Verification (discontinued).
    * 
    * This parameter is required.

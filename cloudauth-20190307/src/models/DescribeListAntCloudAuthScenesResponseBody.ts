@@ -23,10 +23,10 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   bindMiniProgram?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds (ms), such as 1740389697000.
    * 
    * @example
-   * 1260051251634779
+   * 1740389697000
    */
   createTime?: string;
   /**
@@ -37,6 +37,30 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
    * 189884094677xxxx
    */
   creator?: string;
+  /**
+   * @remarks
+   * The iOS scheme for degradation.
+   * 
+   * @example
+   * cloudauth://callback
+   */
+  degradeAppScheme?: string;
+  /**
+   * @remarks
+   * The list of SubCodes that trigger degradation.
+   * 
+   * @example
+   * 201,202
+   */
+  degradeSubCodes?: string;
+  /**
+   * @remarks
+   * The degraded authentication type.
+   * 
+   * @example
+   * ALIPAY
+   */
+  degradeType?: string;
   /**
    * @remarks
    * Specifies whether to enable enhanced device risk detection. Valid values:
@@ -60,7 +84,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
    * The mini program name.
    * 
    * @example
-   * 测试APP
+   * TestApp
    */
   miniProgramName?: string;
   /**
@@ -74,8 +98,8 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   /**
    * @remarks
    * The mini program platform. Valid values:
-   * - **WECHAT**: WeChat
-   * - **ALIPAY**: Alipay
+   * - **WECHAT**: WeChat.
+   * - **ALIPAY**: Alipay.
    * - **TIKTOK**: TikTok.
    * 
    * @example
@@ -84,7 +108,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   platform?: string;
   /**
    * @remarks
-   * The number of evidence face photos (1 to 5).
+   * The number of evidence face photos (1-5).
    * 
    * @example
    * 1
@@ -92,7 +116,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   returnPicCount?: number;
   /**
    * @remarks
-   * The duration of the evidence video, in seconds.
+   * The evidence video duration in seconds.
    * 
    * @example
    * 1
@@ -100,7 +124,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   returnVideoLength?: number;
   /**
    * @remarks
-   * The scene ID.
+   * The scenario ID.
    * 
    * @example
    * 100001xxxx
@@ -108,15 +132,15 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   sceneId?: number;
   /**
    * @remarks
-   * The scene name.
+   * The scenario name.
    * 
    * @example
-   * 测试场景
+   * TestScenario
    */
   sceneName?: string;
   /**
    * @remarks
-   * Indicates whether the scene is enabled. The value 1 indicates enabled.
+   * Indicates whether the scenario is enabled. The value is 1.
    * 
    * @example
    * 1
@@ -134,18 +158,29 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   storeImage?: string;
   /**
    * @remarks
-   * The time when the instance was last updated.
+   * The last update time of the instance. The value is a UNIX timestamp in milliseconds (ms), such as 1740541510000.
    * 
    * @example
-   * 1260051251634779
+   * 1740541510000
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable degraded authentication.
+   * 
+   * @example
+   * Y
+   */
+  useDegrade?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       bindMiniProgram: 'BindMiniProgram',
       createTime: 'CreateTime',
       creator: 'Creator',
+      degradeAppScheme: 'DegradeAppScheme',
+      degradeSubCodes: 'DegradeSubCodes',
+      degradeType: 'DegradeType',
       deviceRiskPlus: 'DeviceRiskPlus',
       domain: 'Domain',
       miniProgramName: 'MiniProgramName',
@@ -158,6 +193,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
       status: 'Status',
       storeImage: 'StoreImage',
       updateTime: 'UpdateTime',
+      useDegrade: 'UseDegrade',
     };
   }
 
@@ -167,6 +203,9 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
       bindMiniProgram: 'string',
       createTime: 'string',
       creator: 'string',
+      degradeAppScheme: 'string',
+      degradeSubCodes: 'string',
+      degradeType: 'string',
       deviceRiskPlus: 'string',
       domain: 'string',
       miniProgramName: 'string',
@@ -179,6 +218,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
       status: 'number',
       storeImage: 'string',
       updateTime: 'string',
+      useDegrade: 'string',
     };
   }
 
@@ -194,7 +234,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
 export class DescribeListAntCloudAuthScenesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CC1AB3F5-22A2-589F-ABDD-B766694AA671
@@ -202,7 +242,7 @@ export class DescribeListAntCloudAuthScenesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of scenes.
+   * The list of scenarios.
    */
   scenes?: DescribeListAntCloudAuthScenesResponseBodyScenes[];
   static names(): { [key: string]: string } {

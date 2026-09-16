@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * API.
+   * Api。
    * 
    * @example
    * ID_PERIOD
@@ -13,21 +13,21 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   api?: string;
   /**
    * @remarks
-   * Name corresponding to the API:
-   * - **ID_CARD_2_META**: ID Card Two-Element Verification
-   * - **ID_PERIOD**: ID Card Validity Verification Period
-   * - **MOBILE_ONLINE_LENGTH**: Mobile Online Duration
-   * - **MOBILE_ONLINE_STATUS**: Mobile Online Status
-   * - **MOBILE_3_META_SIMPLE**: Mobile Number Three-Element Verification (Simple)
-   * - **MOBILE_3_META**: Mobile Number Three-Element Verification (Detailed)
-   * - **MOBILE_2_META**: Mobile Number Two-Element Verification
-   * - **BANK_CARD_N_META**: Bank Card Verification (Detailed)
-   * - **MOBILE_DETECT**: Number Detection
-   *  -**VEHICLE_N_META**: Vehicle Element Verification (Enhanced)
-   * - **VEHICLE_PENTA_INFO**: Vehicle Five-Element Information Recognition
-   * - **VEHICLE_LICENSE_INFO**: Vehicle Information Recognition
-   * - **VEHICLE_INSURE_DATE**: Vehicle Insurance Date Query
-   * - **VEHICLE_CHECK**: Vehicle Element Verification
+   * The name corresponding to the API. Valid values:
+   * - **ID_CARD_2_META**: ID card two-element verification
+   * - **ID_PERIOD**: ID card validity period verification
+   * - **MOBILE_ONLINE_LENGTH**: mobile number online duration
+   * - **MOBILE_ONLINE_STATUS**: mobile number online status
+   * - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
+   * - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
+   * - **MOBILE_2_META**: mobile number two-element verification
+   * - **BANK_CARD_N_META**: bank card verification (detailed edition)
+   * - **MOBILE_DETECT**: phone number detection
+   * - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
+   * - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
+   * - **VEHICLE_LICENSE_INFO**: vehicle information recognition
+   * - **VEHICLE_INSURE_DATE**: vehicle insurance date query
+   * - **VEHICLE_CHECK**: vehicle element verification
    * 
    * @example
    * 车辆要素核验增强版
@@ -35,7 +35,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   apiName?: string;
   /**
    * @remarks
-   * Number of hits (billed).
+   * The number of successful queries (billable).
    * 
    * @example
    * 10
@@ -43,7 +43,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   billCount?: number;
   /**
    * @remarks
-   * Hit rate (%).
+   * The query hit rate (%).
    * 
    * @example
    * 80
@@ -51,7 +51,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   billRate?: string;
   /**
    * @remarks
-   * Number of successful mobile number queries (exclusive to Number Detection).
+   * The number of successful phone number queries (exclusive to phone number detection).
    * 
    * @example
    * 1
@@ -59,7 +59,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   chargeCount?: number;
   /**
    * @remarks
-   * Date.
+   * The date. Format: M/d (month/day). For example, 11/8 indicates November 8.
    * 
    * @example
    * 11/8
@@ -67,7 +67,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   date?: string;
   /**
    * @remarks
-   * Carrier name:
+   * The carrier name. Valid values:
    * - **CMCC**: China Mobile
    * - **CUCC**: China Unicom
    * - **CTCC**: China Telecom
@@ -78,7 +78,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   ispName?: string;
   /**
    * @remarks
-   * Number of calls with no record information.
+   * The number of calls with no education information found.
    * 
    * @example
    * 12
@@ -86,7 +86,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   noRecordCount?: number;
   /**
    * @remarks
-   * Number of passed authentications.
+   * The number of authentication-passed transactions.
    * 
    * @example
    * 21
@@ -94,7 +94,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   passedCount?: number;
   /**
    * @remarks
-   * Authentication pass rate (%).
+   * The authentication pass rate (%).
    * 
    * @example
    * 80
@@ -102,7 +102,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   passedRate?: string;
   /**
    * @remarks
-   * Number of successful requests.
+   * The number of successful requests.
    * 
    * @example
    * 1
@@ -110,7 +110,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   successCount?: number;
   /**
    * @remarks
-   * Call success rate (%).
+   * The call success rate (%).
    * 
    * @example
    * 100
@@ -118,7 +118,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   successRate?: string;
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of entries.
    * 
    * @example
    * 4
@@ -126,7 +126,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
   totalCount?: number;
   /**
    * @remarks
-   * Number of failed calls.
+   * The number of authentication-failed calls.
    * 
    * @example
    * 2
@@ -182,7 +182,7 @@ export class DescribeMetaStatisticsPageListResponseBodyItems extends $dara.Model
 export class DescribeMetaStatisticsPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 3
@@ -190,12 +190,12 @@ export class DescribeMetaStatisticsPageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Paginated list data.
+   * The paginated list data.
    */
   items?: DescribeMetaStatisticsPageListResponseBodyItems[];
   /**
    * @remarks
-   * Number of data entries per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -203,7 +203,7 @@ export class DescribeMetaStatisticsPageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * C379C9E4-4DA0-5D0B-821B-25E2B8693D48
@@ -211,7 +211,7 @@ export class DescribeMetaStatisticsPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 7
@@ -219,7 +219,7 @@ export class DescribeMetaStatisticsPageListResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

@@ -13,7 +13,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * The certification ID.
+   * The authentication ID.
    * 
    * @example
    * shadbdd3dbacd001cfa892a5e2b98dxx
@@ -31,15 +31,15 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The query end time. The format is a Unix timestamp in milliseconds.
+   * The end time of the query. Format: YYYY-MM-DD HH:mm:ss, such as 2025-10-16 23:59:59.
    * 
    * @example
-   * 2025-10-16 23:59:59 +0800
+   * 2025-10-16 23:59:59
    */
   endDate?: string;
   /**
    * @remarks
-   * Specifies whether there is a device risk. Setting this parameter to true indicates that root = 1, simulator = 1, or virtual_video = 1.
+   * Specifies whether device risk exists. Set this parameter to true to indicate root = 1, simulator = 1, or virtual_video = 1.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The unique identifier for the customer request.
+   * The unique identifier of the customer request.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -73,9 +73,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Specifies whether the authentication passed:
+   * Indicates whether the authentication is passed. Valid values:
    * - **T**: Passed.
-   * - **F**: Failed.
+   * - **F**: Not passed.
    * 
    * @example
    * F
@@ -91,9 +91,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The business scenario risk:
+   * The business scenario risk. Valid values:
    * - **0**: No risk.
-   * - **1**: Risk detected.
+   * - **1**: Risk exists.
    * 
    * @example
    * 1
@@ -101,9 +101,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskBizScenario?: number;
   /**
    * @remarks
-   * The device risk:
+   * The device risk. Valid values:
    * - **0**: No risk.
-   * - **1**: Risk detected.
+   * - **1**: Risk exists.
    * 
    * @example
    * 1
@@ -111,9 +111,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskDevice?: number;
   /**
    * @remarks
-   * The DeviceToken risk:
+   * The DeviceToken risk. Valid values:
    * - **0**: No risk.
-   * - **1**: Risk detected.
+   * - **1**: Risk exists.
    * 
    * @example
    * 0
@@ -121,9 +121,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskDeviceToken?: number;
   /**
    * @remarks
-   * The generic risk:
+   * The generic risk. Valid values:
    * - **0**: No risk.
-   * - **1**: Risk detected.
+   * - **1**: Risk exists.
    * 
    * @example
    * 1
@@ -131,9 +131,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskGeneric?: number;
   /**
    * @remarks
-   * The large model mining risk:
+   * The large model mining risk. Valid values:
    * - **0**: No risk.
-   * - **1**: Risk detected.
+   * - **1**: Risk exists.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskModelMining?: number;
   /**
    * @remarks
-   * Specifies whether the device is rooted. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the identity tag risk type.
+   * Specifies whether the device is rooted. Set this parameter to 1 if selected. Otherwise, do not pass this parameter. This corresponds to the identity tag risk type.
    * 
    * @example
    * 1
@@ -157,7 +157,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * Specifies whether the device is a simulator. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the device tag risk type.
+   * Specifies whether the device is a simulator. Set this parameter to 1 if selected. Otherwise, do not pass this parameter. This corresponds to the device tag risk type.
    * 
    * @example
    * 1
@@ -165,15 +165,15 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   simulator?: number;
   /**
    * @remarks
-   * The query start time.
+   * The start time of the query. Format: YYYY-MM-DD HH:mm:ss, such as 2025-10-10 00:00:00.
    * 
    * @example
-   * 2025-10-10 00:00:00 +0800
+   * 2025-10-10 00:00:00
    */
   startDate?: string;
   /**
    * @remarks
-   * The result code. For details, see [SubCode Description](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
+   * The result code. For more information about valid values, see [SubCode description](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/error-code-person-verify#d88910e172fgg).
    * 
    * @example
    * 201
@@ -181,7 +181,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * Comma-separated result codes. For details, see [SubCode Description](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
+   * Comma-separated result codes. For more information about valid values, see [SubCode description](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/error-code-person-verify#d88910e172fgg).
    * 
    * @example
    * 201,202
@@ -189,7 +189,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   subCodes?: string;
   /**
    * @remarks
-   * Specifies whether virtual video is used. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the behavior tag risk type.
+   * Specifies whether virtual video adaptation is used. Set this parameter to 1 if selected. Otherwise, do not pass this parameter. This corresponds to the behavior tag risk type.
    * 
    * @example
    * 1
