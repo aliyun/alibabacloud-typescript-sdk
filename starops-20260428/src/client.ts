@@ -232,6 +232,10 @@ export default class Client extends OpenApi {
       body["attributes"] = request.attributes;
     }
 
+    if (!$dara.isNull(request.channel)) {
+      body["channel"] = request.channel;
+    }
+
     if (!$dara.isNull(request.defaultRule)) {
       body["defaultRule"] = request.defaultRule;
     }

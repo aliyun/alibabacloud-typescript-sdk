@@ -330,6 +330,14 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   attributes?: { [key: string]: string };
   /**
    * @remarks
+   * 数字员工渠道类型。不填时使用默认渠道。
+   * 
+   * @example
+   * default
+   */
+  channel?: string;
+  /**
+   * @remarks
    * The default rule of the digital employee.
    * 
    * @example
@@ -409,6 +417,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
+      channel: 'channel',
       defaultRule: 'defaultRule',
       description: 'description',
       displayName: 'displayName',
@@ -425,6 +434,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      channel: 'string',
       defaultRule: 'string',
       description: 'string',
       displayName: 'string',
