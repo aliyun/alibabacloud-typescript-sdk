@@ -137,7 +137,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * Specifies whether to only modify the configuration. If set to true, only the configuration is modified without triggering a redeployment.
+   * Specifies whether to only modify the configuration. If this parameter is set to true, only the configuration is modified without triggering redeployment.
    * 
    * @example
    * true
@@ -163,7 +163,15 @@ export class UpdateHttpApiRequest extends $dara.Model {
   versionConfig?: HttpApiVersionConfig;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to an actual update are performed, but no configurations are modified and no side effects are produced. If set to false or left empty, the behavior is the same as the existing version.
+   * The idempotent request identifier. If you call this operation for the same HTTP API with the same clientToken value and request parameters, the result of the first successful call is returned.
+   * 
+   * @example
+   * update-http-api-client-token-001
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run. If this parameter is set to true, all synchronous validations identical to an actual update are performed, but no configurations are updated and no side effects are produced. If this parameter is not specified or is set to false, the behavior is the same as the existing version.
    */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
@@ -181,6 +189,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
       protocols: 'protocols',
       removeBasePathOnForward: 'removeBasePathOnForward',
       versionConfig: 'versionConfig',
+      clientToken: 'clientToken',
       dryRun: 'dryRun',
     };
   }
@@ -200,6 +209,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
       protocols: { 'type': 'array', 'itemType': 'string' },
       removeBasePathOnForward: 'boolean',
       versionConfig: HttpApiVersionConfig,
+      clientToken: 'string',
       dryRun: 'boolean',
     };
   }

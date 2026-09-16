@@ -16,6 +16,8 @@ export class CreateMigrationTaskRequest extends $dara.Model {
   /**
    * @example
    * env-xxxx
+   * 
+   * @deprecated
    */
   environmentId?: string;
   /**

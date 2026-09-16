@@ -9511,6 +9511,10 @@ export default class Client extends OpenApi {
   async updateHttpApiWithOptions(httpApiId: string, request: $_model.UpdateHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateHttpApiResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["dryRun"] = request.dryRun;
     }
