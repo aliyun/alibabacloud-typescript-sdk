@@ -64,7 +64,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
    * The name of the agent.
    * 
    * @example
-   * 查询实例列表Agent
+   * QueryInstanceListAgent
    */
   name?: string;
   /**
@@ -81,7 +81,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * 我是您用来查询实例列表的专属Agent
+   * I am your dedicated agent for querying instance lists
    */
   systemPrompt?: string;
   /**

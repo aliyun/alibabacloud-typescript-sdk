@@ -13,7 +13,7 @@ export class ModifyMessagesFeedbacksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    * 
    * @example
    * success

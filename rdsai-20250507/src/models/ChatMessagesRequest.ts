@@ -76,6 +76,14 @@ export class ChatMessagesRequestInputs extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The tool approval call ID for resuming execution. Pass this parameter after all decisions in the current approval round are completed in the console to continue the interrupted ChatMessage Loop. Do not pass this parameter for regular conversations.
+   * 
+   * @example
+   * call-example
+   */
+  resumeCallId?: string;
+  /**
+   * @remarks
    * The thinking depth.
    * 
    * @example
@@ -90,6 +98,22 @@ export class ChatMessagesRequestInputs extends $dara.Model {
    * UTC
    */
   timezone?: string;
+  /**
+   * @remarks
+   * The tool approval mode for the current conversation. Valid values: read_only (read-only, write tools are rejected), manual (write tools require manual approval), and auto (the approval sub-agent automatically determines the action. If the result is needs_human, the approval is escalated to manual review). When this parameter is passed, the approval mode of the current conversation is updated.
+   * 
+   * @example
+   * manual
+   */
+  toolApprovalMode?: string;
+  /**
+   * @remarks
+   * The ContextDB workspace ID.
+   * 
+   * @example
+   * 00000000-0000-4000-8000-000000000001
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       customAgentId: 'CustomAgentId',
@@ -97,8 +121,11 @@ export class ChatMessagesRequestInputs extends $dara.Model {
       language: 'Language',
       modelId: 'ModelId',
       regionId: 'RegionId',
+      resumeCallId: 'ResumeCallId',
       thinkEffort: 'ThinkEffort',
       timezone: 'Timezone',
+      toolApprovalMode: 'ToolApprovalMode',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -109,8 +136,11 @@ export class ChatMessagesRequestInputs extends $dara.Model {
       language: 'string',
       modelId: 'string',
       regionId: 'string',
+      resumeCallId: 'string',
       thinkEffort: 'string',
       timezone: 'string',
+      toolApprovalMode: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -134,7 +164,7 @@ export class ChatMessagesRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+   * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of the event = message response. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
    * 
    * @example
    * inline
@@ -143,7 +173,7 @@ export class ChatMessagesRequest extends $dara.Model {
   files?: ChatMessagesRequestFiles[];
   /**
    * @remarks
-   * The task input.
+   * The task inputs.
    */
   inputs?: ChatMessagesRequestInputs;
   /**
@@ -158,10 +188,8 @@ export class ChatMessagesRequest extends $dara.Model {
    * @remarks
    * The query content.
    * 
-   * This parameter is required.
-   * 
    * @example
-   * Disk usage of instance rm-bp14as9914vd3****, is capacity expansion needed
+   * Check the disk usage of instance rm-bp14as9914vd3**** and whether storage expansion is needed
    */
   query?: string;
   static names(): { [key: string]: string } {

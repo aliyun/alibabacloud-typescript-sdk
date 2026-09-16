@@ -11,6 +11,8 @@ export { CreateCustomAgentResponseBodySkills } from './CreateCustomAgentResponse
 export { CreateInspectionTaskResponseBodyData } from './CreateInspectionTaskResponseBody';
 export { CreateMOUsageDetailExportResponseBodyDataFilters } from './CreateMousageDetailExportResponseBody';
 export { CreateMOUsageDetailExportResponseBodyData } from './CreateMousageDetailExportResponseBody';
+export { CreateSkillResponseBodySkill } from './CreateSkillResponseBody';
+export { CreateSkillResponseBodyVersion } from './CreateSkillResponseBody';
 export { DeleteContextDatabaseMemberResponseBodyKeys } from './DeleteContextDatabaseMemberResponseBody';
 export { DescribeAppInstanceAttributeResponseBodyComponents } from './DescribeAppInstanceAttributeResponseBody';
 export { DescribeAppInstanceAttributeResponseBodyUploadKeyList } from './DescribeAppInstanceAttributeResponseBody';
@@ -54,6 +56,7 @@ export { GetModelOperatorOrderResponseBodyDataInstanceList } from './GetModelOpe
 export { GetModelOperatorOrderResponseBodyData } from './GetModelOperatorOrderResponseBody';
 export { GetScheduledInstancesResponseBodyInstances } from './GetScheduledInstancesResponseBody';
 export { GetScheduledReportsResponseBodyReports } from './GetScheduledReportsResponseBody';
+export { GetSkillResponseBodyVersions } from './GetSkillResponseBody';
 export { GetStandAloneReportsResponseBodyReports } from './GetStandAloneReportsResponseBody';
 export { ListApiKeysResponseBodyDataCustomKeyList } from './ListApiKeysResponseBody';
 export { ListApiKeysResponseBodyData } from './ListApiKeysResponseBody';

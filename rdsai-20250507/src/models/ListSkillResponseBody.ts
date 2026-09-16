@@ -5,15 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The content of the skill.
+   * The ID of the currently active version.
    * 
    * @example
-   * {"MySQL": "MySQL 优化指南...","PostgreSQL": "PostgreSQL 优化指南..."}
+   * version-example
+   */
+  activeVersionId?: string;
+  /**
+   * @remarks
+   * The skill category.
+   * 
+   * @example
+   * productivity
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The data content.
+   * 
+   * @example
+   * {"MySQL": "MySQL optimization guide...","PostgreSQL": "PostgreSQL optimization guide..."}
    */
   content?: { [key: string]: any };
   /**
    * @remarks
-   * The creation time of the skill.
+   * The creation time.
    * 
    * @example
    * 2026-02-04T21:14:45Z
@@ -21,17 +37,36 @@ export class ListSkillResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The list of database engines.
+   * The list of database types.
    */
   dbtypes?: string[];
   /**
    * @remarks
-   * The description of the skill.
+   * The description.
    * 
    * @example
-   * SQL审查专家：全面审核SQL的安全性、性能与规范性，识别风险并提供优化建议。用户提交SQL或询问“SQL审核”“SQL Review”“有风险吗”“如何优化”时，立即启用。
+   * SQL Review Expert: Comprehensively reviews SQL for security, performance, and compliance, identifies risks, and provides optimization suggestions. Activated immediately when a user submits SQL or asks about "SQL review", "SQL Review", "any risks", or "how to optimize"
    */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the skill.
+   * 
+   * @example
+   * Example Skill
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The public HTTPS URL of the current icon. Empty if not configured.
+   * 
+   * @example
+   * https://example.com/skill-icon.png
+   * 
+   * **if can be null:**
+   * true
+   */
+  icon?: string;
   /**
    * @remarks
    * The unique identifier of the skill.
@@ -42,7 +77,12 @@ export class ListSkillResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the skill.
+   * Indicates whether the skill is deleted.
+   */
+  isDeleted?: boolean;
+  /**
+   * @remarks
+   * The skill name.
    * 
    * @example
    * sql-review
@@ -50,7 +90,15 @@ export class ListSkillResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the skill.
+   * The visibility scope of the skill.
+   * 
+   * @example
+   * PRIVATE
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * The skill type.
    * 
    * @example
    * system
@@ -58,7 +106,15 @@ export class ListSkillResponseBodyData extends $dara.Model {
   skillType?: string;
   /**
    * @remarks
-   * The update time of the skill.
+   * The stable identifier of the skill.
+   * 
+   * @example
+   * example-skill
+   */
+  slug?: string;
+  /**
+   * @remarks
+   * The update time.
    * 
    * @example
    * 2026-02-04T21:14:45Z
@@ -66,26 +122,40 @@ export class ListSkillResponseBodyData extends $dara.Model {
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
+      activeVersionId: 'ActiveVersionId',
+      category: 'Category',
       content: 'Content',
       createdAt: 'CreatedAt',
       dbtypes: 'Dbtypes',
       description: 'Description',
+      displayName: 'DisplayName',
+      icon: 'Icon',
       id: 'Id',
+      isDeleted: 'IsDeleted',
       name: 'Name',
+      scope: 'Scope',
       skillType: 'SkillType',
+      slug: 'Slug',
       updatedAt: 'UpdatedAt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activeVersionId: 'string',
+      category: 'string',
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       createdAt: 'string',
       dbtypes: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
+      displayName: 'string',
+      icon: 'string',
       id: 'string',
+      isDeleted: 'boolean',
       name: 'string',
+      scope: 'string',
       skillType: 'string',
+      slug: 'string',
       updatedAt: 'string',
     };
   }
@@ -108,7 +178,7 @@ export class ListSkillResponseBodyData extends $dara.Model {
 export class ListSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of skills.
+   * The skill list.
    */
   data?: ListSkillResponseBodyData[];
   /**
@@ -121,7 +191,7 @@ export class ListSkillResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -129,7 +199,7 @@ export class ListSkillResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request identifier.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
@@ -137,7 +207,7 @@ export class ListSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned records.
+   * The total number of records.
    * 
    * @example
    * 20

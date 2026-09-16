@@ -16,9 +16,13 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * The name of the agent.
    * 
    * @example
-   * 查询实例列表Agent
+   * QueryInstanceListAgent
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of associated skill IDs.
+   */
   skillIdsShrink?: string;
   /**
    * @remarks
@@ -27,7 +31,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 我是您用来查询实例列表的专属Agent
+   * I am your dedicated agent for querying instance lists
    */
   systemPrompt?: string;
   /**

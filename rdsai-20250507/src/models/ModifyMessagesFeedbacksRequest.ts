@@ -5,20 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMessagesFeedbacksRequest extends $dara.Model {
   /**
    * @remarks
-   * The rating of the message.
-   * 
-   * Valid values:
-   * 
-   * *   like
-   * *   dislike
+   * The feedback content.
    * 
    * @example
-   * 无法理解上下文；答非所问
+   * Unable to understand context; irrelevant answer
    */
   content?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **ModifyMessagesFeedbacks**.
+   * The message ID.
    * 
    * @example
    * yy9rkn6q-js75-0dka-0cc2-6b5o86uj****
@@ -26,7 +21,7 @@ export class ModifyMessagesFeedbacksRequest extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The message ID.
+   * The rating.
    * 
    * @example
    * like

@@ -21,7 +21,7 @@ export class GetConversationsRequest extends $dara.Model {
   limit?: string;
   /**
    * @remarks
-   * The favorite pinning flag for the application.
+   * The pinned bookmark flag for the application.
    * 
    * @example
    * true
@@ -35,12 +35,21 @@ export class GetConversationsRequest extends $dara.Model {
    * CreatedAt
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * The ContextDB workspace ID.
+   * 
+   * @example
+   * 00000000-0000-4000-8000-000000000001
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       lastId: 'LastId',
       limit: 'Limit',
       pinned: 'Pinned',
       sortBy: 'SortBy',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -50,6 +59,7 @@ export class GetConversationsRequest extends $dara.Model {
       limit: 'string',
       pinned: 'string',
       sortBy: 'string',
+      workspaceId: 'string',
     };
   }
 

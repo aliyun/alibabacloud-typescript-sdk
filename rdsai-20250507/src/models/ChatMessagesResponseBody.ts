@@ -8,9 +8,25 @@ export class ChatMessagesResponseBody extends $dara.Model {
    * The answer content.
    * 
    * @example
-   * The disk usage of instance rm-bp14as9914vd3**** is 23%, and capacity expansion is not needed at this time. If you need to view the detailed configuration, performance monitoring, or perform other operations for a specific instance, please let me know your specific requirements!
+   * The disk usage of instance rm-bp14as9914vd3**** is 23%, and storage expansion is not needed at this time. If you need to view the detailed configuration, performance monitoring, or perform other operations for an instance, let me know your specific requirements!
    */
   answer?: string;
+  /**
+   * @remarks
+   * The tool invocation approval status.
+   * 
+   * @example
+   * pending
+   */
+  approvalStatus?: string;
+  /**
+   * @remarks
+   * The tool invocation ID.
+   * 
+   * @example
+   * call-example
+   */
+  callId?: string;
   /**
    * @remarks
    * The conversation ID.
@@ -27,6 +43,14 @@ export class ChatMessagesResponseBody extends $dara.Model {
    * 1763986004
    */
   createdAt?: number;
+  /**
+   * @remarks
+   * The tool invocation description.
+   * 
+   * @example
+   * Search ContextDB records
+   */
+  description?: string;
   /**
    * @remarks
    * The event.
@@ -56,7 +80,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
    * The query mode.
    * 
    * @example
-   * Will be deprecated in the future, no need to pay attention
+   * This field will be deprecated in the future. Ignore it
    */
   mode?: string;
   /**
@@ -69,41 +93,77 @@ export class ChatMessagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
+   * The tool approval round ID.
+   * 
+   * @example
+   * round-example
+   */
+  roundId?: string;
+  /**
+   * @remarks
    * The asynchronous task ID.
    * 
    * @example
    * 01c3d43d-9466-4bd5-8196-4cbbce08****
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The tool invocation parameters.
+   */
+  toolArguments?: { [key: string]: any };
+  /**
+   * @remarks
+   * The tool name.
+   * 
+   * @example
+   * contextdb.search
+   */
+  toolName?: string;
   static names(): { [key: string]: string } {
     return {
       answer: 'Answer',
+      approvalStatus: 'ApprovalStatus',
+      callId: 'CallId',
       conversationId: 'ConversationId',
       createdAt: 'CreatedAt',
+      description: 'Description',
       event: 'Event',
       id: 'Id',
       messageId: 'MessageId',
       mode: 'Mode',
       requestId: 'RequestId',
+      roundId: 'RoundId',
       taskId: 'TaskId',
+      toolArguments: 'ToolArguments',
+      toolName: 'ToolName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       answer: 'string',
+      approvalStatus: 'string',
+      callId: 'string',
       conversationId: 'string',
       createdAt: 'number',
+      description: 'string',
       event: 'string',
       id: 'string',
       messageId: 'string',
       mode: 'string',
       requestId: 'string',
+      roundId: 'string',
       taskId: 'string',
+      toolArguments: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      toolName: 'string',
     };
   }
 
   validate() {
+    if(this.toolArguments) {
+      $dara.Model.validateMap(this.toolArguments);
+    }
     super.validate();
   }
 

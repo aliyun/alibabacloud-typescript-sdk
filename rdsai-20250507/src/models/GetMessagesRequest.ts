@@ -22,18 +22,27 @@ export class GetMessagesRequest extends $dara.Model {
   firstId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Valid values: 1 to 100. Default value: 100.
+   * The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 10
    */
   limit?: number;
+  /**
+   * @remarks
+   * The ContextDB workspace ID.
+   * 
+   * @example
+   * 00000000-0000-4000-8000-000000000001
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       conversationId: 'ConversationId',
       eventMode: 'EventMode',
       firstId: 'FirstId',
       limit: 'Limit',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -43,6 +52,7 @@ export class GetMessagesRequest extends $dara.Model {
       eventMode: 'string',
       firstId: 'string',
       limit: 'number',
+      workspaceId: 'string',
     };
   }
 

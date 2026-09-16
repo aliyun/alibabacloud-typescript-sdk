@@ -13,7 +13,7 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+   * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of the event = message response. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
    * 
    * @example
    * inline
@@ -22,7 +22,7 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
   filesShrink?: string;
   /**
    * @remarks
-   * The task input.
+   * The task inputs.
    */
   inputsShrink?: string;
   /**
@@ -37,10 +37,8 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
    * @remarks
    * The query content.
    * 
-   * This parameter is required.
-   * 
    * @example
-   * Disk usage of instance rm-bp14as9914vd3****, is capacity expansion needed
+   * Check the disk usage of instance rm-bp14as9914vd3**** and whether storage expansion is needed
    */
   query?: string;
   static names(): { [key: string]: string } {

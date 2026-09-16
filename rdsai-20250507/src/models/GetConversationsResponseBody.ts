@@ -13,7 +13,7 @@ export class GetConversationsResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The ID of the historical conversation.
+   * The historical conversation ID.
    * 
    * @example
    * 60b335ca-124d-4ee1-864b-de554987****
@@ -24,18 +24,31 @@ export class GetConversationsResponseBodyData extends $dara.Model {
    * The conversation introduction.
    * 
    * @example
-   * 测试搜索RDS资源
+   * Test searching for RDS resources
    */
   introduction?: string;
   isRunning?: boolean;
   /**
    * @remarks
-   * The name of the historical conversation.
+   * The historical conversation name.
    * 
    * @example
-   * 搜索RDS资源。
+   * Search for RDS resources
    */
   name?: string;
+  /**
+   * @remarks
+   * The session status. Valid values:
+   * - idle: The session is idle.
+   * - running: The session is generating a response.
+   * - pending_approval: The session is waiting for approval or manual review.
+   * 
+   * If both pending_approval and running conditions are met, pending_approval is returned.
+   * 
+   * @example
+   * idle
+   */
+  status?: string;
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,6 +57,7 @@ export class GetConversationsResponseBodyData extends $dara.Model {
       introduction: 'Introduction',
       isRunning: 'IsRunning',
       name: 'Name',
+      status: 'Status',
       updatedAt: 'UpdatedAt',
     };
   }
@@ -55,6 +69,7 @@ export class GetConversationsResponseBodyData extends $dara.Model {
       introduction: 'string',
       isRunning: 'boolean',
       name: 'string',
+      status: 'string',
       updatedAt: 'string',
     };
   }

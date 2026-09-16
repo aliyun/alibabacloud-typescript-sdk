@@ -37,7 +37,7 @@ export class UpdateCustomAgentResponseBodySkills extends $dara.Model {
 export class UpdateCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether tools are enabled.
+   * Specifies whether to enable tools.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   enableTools?: string;
   /**
    * @remarks
-   * AgentId.
+   * AgentId。
    * 
    * @example
    * 82cf3d62-0add-47bd-869f-877131f7****
@@ -53,10 +53,10 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the custom agent.
+   * The name of the dedicated agent.
    * 
    * @example
-   * 查询实例列表Agent
+   * QueryInstanceListAgent
    */
   name?: string;
   /**
@@ -67,18 +67,22 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of associated skill details.
+   */
   skills?: UpdateCustomAgentResponseBodySkills[];
   /**
    * @remarks
    * The system prompt.
    * 
    * @example
-   * 我是您用来查询实例列表的专属Agent
+   * I am your dedicated agent for querying instance lists
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * The tools that the custom agent can use.
+   * The tool information.
    */
   tools?: string[];
   static names(): { [key: string]: string } {

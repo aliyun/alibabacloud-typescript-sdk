@@ -3,10 +3,79 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMessagesResponseBodyDataEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The approval status of the tool calling.
+   * 
+   * @example
+   * pending
+   */
+  approvalStatus?: string;
+  /**
+   * @remarks
+   * The tool calling ID.
+   * 
+   * @example
+   * call-example
+   */
+  callId?: string;
+  /**
+   * @remarks
+   * The session ID.
+   * 
+   * @example
+   * conversation-example
+   */
+  conversationId?: string;
+  /**
+   * @remarks
+   * The description of the tool calling.
+   * 
+   * @example
+   * Search ContextDB records
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The message ID.
+   * 
+   * @example
+   * message-example
+   */
+  messageId?: string;
+  /**
+   * @remarks
+   * The tool approval round ID.
+   * 
+   * @example
+   * round-example
+   */
+  roundId?: string;
+  /**
+   * @remarks
+   * The parameters of the tool calling.
+   */
+  toolArguments?: { [key: string]: any };
+  /**
+   * @remarks
+   * The tool name.
+   * 
+   * @example
+   * contextdb.search
+   */
+  toolName?: string;
   answer?: string;
   event?: string;
   static names(): { [key: string]: string } {
     return {
+      approvalStatus: 'ApprovalStatus',
+      callId: 'CallId',
+      conversationId: 'ConversationId',
+      description: 'Description',
+      messageId: 'MessageId',
+      roundId: 'RoundId',
+      toolArguments: 'ToolArguments',
+      toolName: 'ToolName',
       answer: 'answer',
       event: 'event',
     };
@@ -14,12 +83,23 @@ export class GetMessagesResponseBodyDataEvents extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      approvalStatus: 'string',
+      callId: 'string',
+      conversationId: 'string',
+      description: 'string',
+      messageId: 'string',
+      roundId: 'string',
+      toolArguments: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      toolName: 'string',
       answer: 'string',
       event: 'string',
     };
   }
 
   validate() {
+    if(this.toolArguments) {
+      $dara.Model.validateMap(this.toolArguments);
+    }
     super.validate();
   }
 
@@ -32,11 +112,20 @@ export class GetMessagesResponseBodyDataMessageFiles extends $dara.Model {
   id?: string;
   previewUrl?: string;
   type?: string;
+  /**
+   * @remarks
+   * The upload file ID.
+   * 
+   * @example
+   * file-example
+   */
+  uploadFileId?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       previewUrl: 'PreviewUrl',
       type: 'Type',
+      uploadFileId: 'UploadFileId',
     };
   }
 
@@ -45,6 +134,7 @@ export class GetMessagesResponseBodyDataMessageFiles extends $dara.Model {
       id: 'string',
       previewUrl: 'string',
       type: 'string',
+      uploadFileId: 'string',
     };
   }
 
@@ -63,12 +153,12 @@ export class GetMessagesResponseBodyData extends $dara.Model {
    * The answer.
    * 
    * @example
-   * The disk usage of instance rm-bp14as9914vd3**** is 23%, and scaling is not required for now. If you need to view the detailed configurations or performance monitoring of a specific instance, or perform other operations, let me know your specific requirements!
+   * The disk usage of the instance rm-bp14as9914vd3**** you queried is 23%, and no capacity expansion is needed at this time. If you need to view the detailed configurations or performance monitoring of a specific instance, or perform other operations, let me know your specific requirements!
    */
   answer?: string;
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * @example
    * 9cbbe885-b240-4803-9d15-6781a3fd****
@@ -109,7 +199,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
    * The query statement.
    * 
    * @example
-   * What is the disk usage of instance rm-bp14as9914vd3****, and is scaling required?
+   * Disk usage of instance rm-bp14as9914vd3****, is capacity expansion needed
    */
   query?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * AgentId。
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,10 @@ export class UpdateCustomAgentRequest extends $dara.Model {
   enableTools?: boolean;
   /**
    * @remarks
-   * The name of the custom agent.
+   * The name of the dedicated agent.
    * 
    * @example
-   * 查询实例列表Agent
+   * QueryInstanceListAgent
    */
   name?: string;
   skillIds?: string[];
@@ -35,12 +35,12 @@ export class UpdateCustomAgentRequest extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * 我是您用来查询实例列表的专属Agent
+   * I am your dedicated agent for querying instance lists
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * The tools that the custom agent can use.
+   * The tool information.
    */
   tools?: string[];
   static names(): { [key: string]: string } {

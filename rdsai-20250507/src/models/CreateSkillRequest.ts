@@ -5,45 +5,66 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the skill.
+   * The content.
    * 
    * @example
-   * {"MySQL": "MySQL 优化指南...","PostgreSQL": "PostgreSQL 优化指南..."}
+   * {"MySQL": "MySQL optimization guide...","PostgreSQL": "PostgreSQL optimization guide..."}
    */
   content?: { [key: string]: any };
   /**
    * @remarks
-   * The list of database engines.
-   * 
-   * This parameter is required.
+   * The list of database types.
    */
   dbtypes?: string[];
   /**
    * @remarks
-   * The description of the skill. It can be up to 1000 characters in length.
-   * 
-   * This parameter is required.
+   * The Skill description. The description can be up to 1000 characters in length.
    * 
    * @example
-   * SQL 查询优化技能。
+   * SQL query optimization skill
    */
   description?: string;
   /**
    * @remarks
-   * The name of the skill, which can contain only lowercase letters, numbers, and hyphens.
-   * 
-   * This parameter is required.
+   * The Skill name. The name can contain only lowercase letters, digits, and hyphens.
    * 
    * @example
    * query-optimization
    */
   name?: string;
+  /**
+   * @remarks
+   * The Skill upload session ID.
+   * 
+   * @example
+   * upload-example
+   */
+  uploadId?: string;
+  /**
+   * @remarks
+   * The Skill upload session token.
+   * 
+   * @example
+   * token-example
+   */
+  uploadToken?: string;
+  /**
+   * @remarks
+   * The ContextDB workspace ID.
+   * 
+   * @example
+   * 00000000-0000-4000-8000-000000000001
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       dbtypes: 'Dbtypes',
       description: 'Description',
       name: 'Name',
+      uploadId: 'UploadId',
+      uploadToken: 'UploadToken',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -53,6 +74,9 @@ export class CreateSkillRequest extends $dara.Model {
       dbtypes: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       name: 'string',
+      uploadId: 'string',
+      uploadToken: 'string',
+      workspaceId: 'string',
     };
   }
 

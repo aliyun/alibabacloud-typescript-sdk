@@ -198,6 +198,10 @@ export default class Client extends OpenApi {
       query["TaskId"] = request.taskId;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1013,7 +1017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a user-defined skill.
+   * Creates a user-defined Skill.
    * 
    * @param tmpReq - CreateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1048,6 +1052,18 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.uploadId)) {
+      query["UploadId"] = request.uploadId;
+    }
+
+    if (!$dara.isNull(request.uploadToken)) {
+      query["UploadToken"] = request.uploadToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1066,7 +1082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a user-defined skill.
+   * Creates a user-defined Skill.
    * 
    * @param request - CreateSkillRequest
    * @returns CreateSkillResponse
@@ -1301,7 +1317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the dedicated agent created by a user.
+   * Deletes a dedicated agent created by the user.
    * 
    * @param request - DeleteCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1332,7 +1348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the dedicated agent created by a user.
+   * Deletes a dedicated agent created by the user.
    * 
    * @param request - DeleteCustomAgentRequest
    * @returns DeleteCustomAgentResponse
@@ -1447,7 +1463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the specified skill.
+   * Deletes a specified Skill.
    * 
    * @param request - DeleteSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1458,6 +1474,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.skillId)) {
       query["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1478,7 +1498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the specified skill.
+   * Deletes a specified Skill.
    * 
    * @param request - DeleteSkillRequest
    * @returns DeleteSkillResponse
@@ -2835,6 +2855,10 @@ export default class Client extends OpenApi {
       query["SortBy"] = request.sortBy;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2979,6 +3003,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3168,7 +3196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
+   * Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
    * 
    * @param request - GetSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3183,6 +3211,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.skillId)) {
       query["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3203,7 +3235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
+   * Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
    * 
    * @param request - GetSkillRequest
    * @returns GetSkillResponse
@@ -3699,7 +3731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the user-defined skills and all system preset skills of the current user.
+   * Retrieves the custom skills of the current user and all system-preset skills.
    * 
    * @param request - ListSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3720,6 +3752,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3738,7 +3774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the user-defined skills and all system preset skills of the current user.
+   * Retrieves the custom skills of the current user and all system-preset skills.
    * 
    * @param request - ListSkillRequest
    * @returns ListSkillResponse
@@ -4349,7 +4385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the returned messages.
+   * Modifies message feedback.
    * 
    * @param request - ModifyMessagesFeedbacksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4388,7 +4424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the returned messages.
+   * Modifies message feedback.
    * 
    * @param request - ModifyMessagesFeedbacksRequest
    * @returns ModifyMessagesFeedbacksResponse
@@ -5483,7 +5519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a specified skill.
+   * Updates the information of a specified skill.
    * 
    * @param tmpReq - UpdateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5540,7 +5576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a specified skill.
+   * Updates the information of a specified skill.
    * 
    * @param request - UpdateSkillRequest
    * @returns UpdateSkillResponse

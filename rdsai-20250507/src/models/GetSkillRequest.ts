@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The languages supported by the skill. Valid values:
-   * 
-   * *   zh-CN: Simplified Chinese
-   * *   zh-TW: Traditional Chinese
-   * *   en-US: English
-   * *   ja-JP: Japanese
+   * The supported languages. Valid values:
+   * * zh-CN: Simplified Chinese
+   * * zh-TW: Traditional Chinese
+   * * en-US: English
+   * * ja-JP: Japanese
    * 
    * @example
    * zh-CN
@@ -18,7 +17,7 @@ export class GetSkillRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The unique identifier of the skill.
+   * The unique identifier of the Skill.
    * 
    * This parameter is required.
    * 
@@ -26,10 +25,19 @@ export class GetSkillRequest extends $dara.Model {
    * 550e8400-e29b-41d4-a716-44665544****
    */
   skillId?: string;
+  /**
+   * @remarks
+   * The ContextDB workspace ID.
+   * 
+   * @example
+   * 00000000-0000-4000-8000-000000000001
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       language: 'Language',
       skillId: 'SkillId',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -37,6 +45,7 @@ export class GetSkillRequest extends $dara.Model {
     return {
       language: 'string',
       skillId: 'string',
+      workspaceId: 'string',
     };
   }
 
