@@ -1393,6 +1393,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 假期工作日检查
+   * 
+   * @remarks
+   * 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+   * 
+   * @param request - CheckBusinessHoursRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckBusinessHoursResponse
+   */
+  async checkBusinessHoursWithOptions(request: $_model.CheckBusinessHoursRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckBusinessHoursResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.time)) {
+      query["Time"] = request.time;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckBusinessHours",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckBusinessHoursResponse>(await this.callApi(params, req, runtime), new $_model.CheckBusinessHoursResponse({}));
+  }
+
+  /**
+   * 假期工作日检查
+   * 
+   * @remarks
+   * 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+   * 
+   * @param request - CheckBusinessHoursRequest
+   * @returns CheckBusinessHoursResponse
+   */
+  async checkBusinessHours(request: $_model.CheckBusinessHoursRequest): Promise<$_model.CheckBusinessHoursResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkBusinessHoursWithOptions(request, runtime);
+  }
+
+  /**
    * Call the `ClaimCall` API to assign a call to an agent.
    * 
    * @param request - ClaimCallRequest
