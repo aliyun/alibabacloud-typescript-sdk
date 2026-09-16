@@ -7057,6 +7057,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a custom model registration from an AI cluster.
+   * 
+   * @param request - DeleteAIDBClusterCustomModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAIDBClusterCustomModelResponse
+   */
+  async deleteAIDBClusterCustomModelWithOptions(request: $_model.DeleteAIDBClusterCustomModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAIDBClusterCustomModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAIDBClusterCustomModel",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAIDBClusterCustomModelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAIDBClusterCustomModelResponse({}));
+  }
+
+  /**
+   * Deletes a custom model registration from an AI cluster.
+   * 
+   * @param request - DeleteAIDBClusterCustomModelRequest
+   * @returns DeleteAIDBClusterCustomModelResponse
+   */
+  async deleteAIDBClusterCustomModel(request: $_model.DeleteAIDBClusterCustomModelRequest): Promise<$_model.DeleteAIDBClusterCustomModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAIDBClusterCustomModelWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a dataset.
    * 
    * @param request - DeleteAIDBClusterDatasetRequest
@@ -23715,6 +23765,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the model or the customer-facing invocation name of an AI cluster.
+   * 
+   * @param request - ModifyAIDBClusterModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAIDBClusterModelResponse
+   */
+  async modifyAIDBClusterModelWithOptions(request: $_model.ModifyAIDBClusterModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAIDBClusterModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.displayModelName)) {
+      query["DisplayModelName"] = request.displayModelName;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAIDBClusterModel",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAIDBClusterModelResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAIDBClusterModelResponse({}));
+  }
+
+  /**
+   * Changes the model or the customer-facing invocation name of an AI cluster.
+   * 
+   * @param request - ModifyAIDBClusterModelRequest
+   * @returns ModifyAIDBClusterModelResponse
+   */
+  async modifyAIDBClusterModel(request: $_model.ModifyAIDBClusterModelRequest): Promise<$_model.ModifyAIDBClusterModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAIDBClusterModelWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the description of a PolarDB database account.
    * 
    * @param request - ModifyAccountDescriptionRequest
@@ -29394,6 +29502,68 @@ export default class Client extends OpenApi {
   async refreshDBClusterStorageUsage(request: $_model.RefreshDBClusterStorageUsageRequest): Promise<$_model.RefreshDBClusterStorageUsageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.refreshDBClusterStorageUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * Registers a custom model for an AI cluster.
+   * 
+   * @param request - RegisterAIDBClusterCustomModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterAIDBClusterCustomModelResponse
+   */
+  async registerAIDBClusterCustomModelWithOptions(request: $_model.RegisterAIDBClusterCustomModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterAIDBClusterCustomModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customOssBucketName)) {
+      query["CustomOssBucketName"] = request.customOssBucketName;
+    }
+
+    if (!$dara.isNull(request.customOssBucketPath)) {
+      query["CustomOssBucketPath"] = request.customOssBucketPath;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.displayModelName)) {
+      query["DisplayModelName"] = request.displayModelName;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RegisterAIDBClusterCustomModel",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RegisterAIDBClusterCustomModelResponse>(await this.callApi(params, req, runtime), new $_model.RegisterAIDBClusterCustomModelResponse({}));
+  }
+
+  /**
+   * Registers a custom model for an AI cluster.
+   * 
+   * @param request - RegisterAIDBClusterCustomModelRequest
+   * @returns RegisterAIDBClusterCustomModelResponse
+   */
+  async registerAIDBClusterCustomModel(request: $_model.RegisterAIDBClusterCustomModelRequest): Promise<$_model.RegisterAIDBClusterCustomModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.registerAIDBClusterCustomModelWithOptions(request, runtime);
   }
 
   /**
