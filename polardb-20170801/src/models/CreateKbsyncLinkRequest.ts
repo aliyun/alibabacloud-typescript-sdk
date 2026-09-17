@@ -33,7 +33,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The unique identifier of the knowledge base.
+   * The unique ID of the knowledge base.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   linkName?: string;
   /**
    * @remarks
-   * The DingTalk document MCP Server endpoint.
+   * The MCP Server address for DingTalk documents.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx789?key=d5e6fxxxxxx876
@@ -71,7 +71,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The DingTalk spreadsheet MCP Server endpoint.
+   * The MCP Server address for DingTalk sheets.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx567?key=d5e6fxxxxxx543
@@ -115,7 +115,15 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The DingTalk operator user ID.
+   * The Lark user access token. This token is used only when the application identity cannot expand group members because the bot is not in the group chat.
+   * 
+   * @example
+   * ******
+   */
+  userAccessToken?: string;
+  /**
+   * @remarks
+   * The DingTalk user ID of the operator.
    * 
    * @example
    * 123***56
@@ -135,6 +143,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
       sourceType: 'SourceType',
       syncIntervalMinutes: 'SyncIntervalMinutes',
       tenantId: 'TenantId',
+      userAccessToken: 'UserAccessToken',
       userId: 'UserId',
     };
   }
@@ -153,6 +162,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
       sourceType: 'string',
       syncIntervalMinutes: 'number',
       tenantId: 'string',
+      userAccessToken: 'string',
       userId: 'string',
     };
   }

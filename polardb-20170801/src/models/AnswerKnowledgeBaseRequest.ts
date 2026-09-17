@@ -23,7 +23,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   maxContextChars?: number;
   /**
    * @remarks
-   * The user query text.
+   * The user question.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable reranking. Default value: false.
+   * Specifies whether to enable reranking. Disabled by default.
    * 
    * @example
    * false
@@ -51,7 +51,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   rerankEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to return citation sources. Default value: true.
+   * Specifies whether to return citation sources. Enabled by default.
    * 
    * @example
    * true
@@ -83,7 +83,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   systemPrompt?: string;
   /**
    * @remarks
-   * The number of results to recall during retrieval.
+   * The number of recall results to retrieve.
    * 
    * @example
    * 10
@@ -91,7 +91,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   topK?: number;
   /**
    * @remarks
-   * The supplementary user instructions.
+   * The user supplementary instructions.
    * 
    * @example
    * Return a short summary and test result.

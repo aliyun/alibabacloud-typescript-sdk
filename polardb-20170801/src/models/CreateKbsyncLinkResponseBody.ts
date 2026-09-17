@@ -13,7 +13,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the synchronization link was created.
    * 
    * @example
    * 2026-08-14T05:58:42Z
@@ -39,7 +39,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   imPlatform?: string;
   /**
    * @remarks
-   * The synchronization link ID.
+   * The ID of the synchronization link.
    * 
    * @example
    * pkbl-xxxxxx

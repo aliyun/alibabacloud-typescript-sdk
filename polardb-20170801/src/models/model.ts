@@ -280,7 +280,9 @@ export { DescribeHistoryEventsResponseBodyItems } from './DescribeHistoryEventsR
 export { DescribeHistoryTasksResponseBodyItems } from './DescribeHistoryTasksResponseBody';
 export { DescribeHistoryTasksStatResponseBodyItems } from './DescribeHistoryTasksStatResponseBody';
 export { DescribeKBSyncLinksResponseBodyItems } from './DescribeKbsyncLinksResponseBody';
+export { DescribeKnowledgeBaseAnswerResponseBodySourcesImageResources } from './DescribeKnowledgeBaseAnswerResponseBody';
 export { DescribeKnowledgeBaseAnswerResponseBodySources } from './DescribeKnowledgeBaseAnswerResponseBody';
+export { DescribeKnowledgeBaseFileShardsResponseBodyShardsImageResources } from './DescribeKnowledgeBaseFileShardsResponseBody';
 export { DescribeKnowledgeBaseFileShardsResponseBodyShards } from './DescribeKnowledgeBaseFileShardsResponseBody';
 export { DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigDefaultStrategyParameters } from './DescribeKnowledgeBaseFilesResponseBody';
 export { DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigDefaultStrategy } from './DescribeKnowledgeBaseFilesResponseBody';

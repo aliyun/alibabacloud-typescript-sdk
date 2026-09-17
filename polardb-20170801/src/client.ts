@@ -591,7 +591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a single-round knowledge base question answering.
+   * Performs a single-turn knowledge base question answering.
    * 
    * @param request - AnswerKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -662,7 +662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a single-round knowledge base question answering.
+   * Performs a single-turn knowledge base question answering.
    * 
    * @param request - AnswerKnowledgeBaseRequest
    * @returns AnswerKnowledgeBaseResponse
@@ -5552,6 +5552,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tenantId)) {
       query["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.userAccessToken)) {
+      query["UserAccessToken"] = request.userAccessToken;
     }
 
     if (!$dara.isNull(request.userId)) {
@@ -17773,7 +17777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of a single-turn Q&A task in a knowledge base.
+   * Queries the result of a single-round knowledge base question answering task.
    * 
    * @param request - DescribeKnowledgeBaseAnswerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17812,7 +17816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of a single-turn Q&A task in a knowledge base.
+   * Queries the result of a single-round knowledge base question answering task.
    * 
    * @param request - DescribeKnowledgeBaseAnswerRequest
    * @returns DescribeKnowledgeBaseAnswerResponse
@@ -23765,7 +23769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the model or the customer-facing invocation name of an AI cluster.
+   * Changes the model or the client-facing invocation name of an AI cluster.
    * 
    * @param request - ModifyAIDBClusterModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23794,6 +23798,14 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.restartMode)) {
+      query["RestartMode"] = request.restartMode;
+    }
+
+    if (!$dara.isNull(request.workerBatchSize)) {
+      query["WorkerBatchSize"] = request.workerBatchSize;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23812,7 +23824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the model or the customer-facing invocation name of an AI cluster.
+   * Changes the model or the client-facing invocation name of an AI cluster.
    * 
    * @param request - ModifyAIDBClusterModelRequest
    * @returns ModifyAIDBClusterModelResponse
@@ -31950,6 +31962,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.syncIntervalMinutes)) {
       query["SyncIntervalMinutes"] = request.syncIntervalMinutes;
+    }
+
+    if (!$dara.isNull(request.userAccessToken)) {
+      query["UserAccessToken"] = request.userAccessToken;
     }
 
     if (!$dara.isNull(request.userId)) {

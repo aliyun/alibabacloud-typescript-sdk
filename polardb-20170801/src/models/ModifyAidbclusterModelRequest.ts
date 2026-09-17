@@ -15,7 +15,7 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The new customer-facing invocation name. If this parameter is not specified, the existing invocation name is retained.
+   * The new client-facing invocation name. If this parameter is not specified, the existing invocation name is retained.
    * 
    * @example
    * my-flagship-chat
@@ -23,7 +23,7 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
   displayModelName?: string;
   /**
    * @remarks
-   * Specifies whether to only preview the change.
+   * Specifies whether to only preview the change without actually performing it.
    * 
    * @example
    * true
@@ -49,6 +49,24 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The restart mode for workers. Valid values:
+   * - inPlace
+   * - recreate
+   * 
+   * @example
+   * inPlace
+   */
+  restartMode?: string;
+  /**
+   * @remarks
+   * The maximum number of workers to restart per batch within a single MSD. Valid values: 1 to 30. This parameter takes effect only when RestartMode is set to inPlace.
+   * 
+   * @example
+   * 8
+   */
+  workerBatchSize?: number;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -56,6 +74,8 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
       dryRun: 'DryRun',
       modelName: 'ModelName',
       regionId: 'RegionId',
+      restartMode: 'RestartMode',
+      workerBatchSize: 'WorkerBatchSize',
     };
   }
 
@@ -66,6 +86,8 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
       dryRun: 'boolean',
       modelName: 'string',
       regionId: 'string',
+      restartMode: 'string',
+      workerBatchSize: 'number',
     };
   }
 

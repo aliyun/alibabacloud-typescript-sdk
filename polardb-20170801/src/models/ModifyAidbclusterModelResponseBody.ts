@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request is a dry run.
+   * Indicates whether the request is a dry-run request.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   totalBatches?: number;
   /**
    * @remarks
-   * The number of affected model service instances.
+   * The number of affected model serving instances.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   totalMsds?: number;
   /**
    * @remarks
-   * The change warnings returned by the upstream service. The caller must display these warnings.
+   * The change warnings returned by the upstream. The caller must display these warnings.
    */
   warnings?: string[];
   static names(): { [key: string]: string } {

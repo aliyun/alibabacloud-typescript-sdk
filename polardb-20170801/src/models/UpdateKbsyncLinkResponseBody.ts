@@ -21,7 +21,7 @@ export class UpdateKBSyncLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scheduling time of the synchronization task.
+   * The scheduled time of the synchronization task.
    */
   syncSchedule?: string;
   static names(): { [key: string]: string } {

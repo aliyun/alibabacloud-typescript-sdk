@@ -21,7 +21,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   clientSecret?: string;
   /**
    * @remarks
-   * The unique identifier of the knowledge base.
+   * The unique ID of the knowledge base.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   linkId?: string;
   /**
    * @remarks
-   * The MCP Server address for DingTalk documents.
+   * The DingTalk document MCP Server endpoint.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx789?key=d5e6fxxxxxx876
@@ -59,7 +59,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The MCP Server address for DingTalk spreadsheets.
+   * The DingTalk spreadsheet MCP Server endpoint.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx567?key=d5e6fxxxxxx543
@@ -83,7 +83,15 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   syncIntervalMinutes?: number;
   /**
    * @remarks
-   * The DingTalk user ID for the operation.
+   * The new Lark user access token.
+   * 
+   * @example
+   * ******
+   */
+  userAccessToken?: string;
+  /**
+   * @remarks
+   * The DingTalk user ID of the operator.
    * 
    * @example
    * 123***56
@@ -100,6 +108,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
       sheetMcpEndpoint: 'SheetMcpEndpoint',
       syncEnabled: 'SyncEnabled',
       syncIntervalMinutes: 'SyncIntervalMinutes',
+      userAccessToken: 'UserAccessToken',
       userId: 'UserId',
     };
   }
@@ -115,6 +124,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
       sheetMcpEndpoint: 'string',
       syncEnabled: 'boolean',
       syncIntervalMinutes: 'number',
+      userAccessToken: 'string',
       userId: 'string',
     };
   }
