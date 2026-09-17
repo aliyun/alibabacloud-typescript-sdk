@@ -4406,6 +4406,10 @@ export default class Client extends OpenApi {
       query["Rating"] = request.rating;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });

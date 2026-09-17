@@ -27,11 +27,20 @@ export class ModifyMessagesFeedbacksRequest extends $dara.Model {
    * like
    */
   rating?: string;
+  /**
+   * @remarks
+   * The ContextDB workspace ID. Required only for ContextDB Manager App requests.
+   * 
+   * @example
+   * 00000000-0000-4000-8000-000000000001
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       messageId: 'MessageId',
       rating: 'Rating',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -40,6 +49,7 @@ export class ModifyMessagesFeedbacksRequest extends $dara.Model {
       content: 'string',
       messageId: 'string',
       rating: 'string',
+      workspaceId: 'string',
     };
   }
 
