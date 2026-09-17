@@ -7,11 +7,17 @@ export class Agent extends $dara.Model {
   createdAt?: number;
   description?: string;
   /**
+   * @remarks
+   * The ID of the MCP server associated with the agent.
+   * 
    * @example
    * 8vHW4mDRxxxxx
    */
   mcpServerId?: string;
   /**
+   * @remarks
+   * The name of the MCP server.
+   * 
    * @example
    * data-analyze-agent
    */

@@ -36,8 +36,8 @@ export class UpdateAgentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code. Valid values:
-   * - Success: The operation was successful.                                 
-   * - Other values: An error code was returned. For more information, see error codes.
+   * - Success: The request was successful.                                 
+   * - Other values: An error occurred. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -66,7 +66,7 @@ export class UpdateAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Returns true if the operation was successful.
    * 
    * @example
    * true

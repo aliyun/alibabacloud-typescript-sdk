@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the agent from which the next page of results starts.
+   * The name of the agent from which to start querying the next page.
    * 
    * @example
    * my-agent
@@ -13,7 +13,7 @@ export class ListAgentsRequest extends $dara.Model {
   after?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per request. You can use this parameter together with NextToken to implement paging.
+   * The maximum number of entries to return per request. You can use this parameter together with NextToken to implement pagination.
    * 
    * @example
    * 50
@@ -24,7 +24,7 @@ export class ListAgentsRequest extends $dara.Model {
    * The sort order. Valid values:
    * 
    * - desc
-   * - asc.
+   * - asc
    * 
    * @example
    * acs

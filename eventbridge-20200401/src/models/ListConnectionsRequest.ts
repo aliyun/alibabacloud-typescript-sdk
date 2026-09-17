@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the connection configuration name. Supports fuzzy match by prefix.
+   * The connection configuration name prefix used to filter results. Supports prefix matching.
    * 
    * @example
    * connection-name
@@ -13,7 +13,7 @@ export class ListConnectionsRequest extends $dara.Model {
   connectionNamePrefix?: string;
   /**
    * @remarks
-   * 排除单个连接类型，取值范围与 Type 相同。传入单个类型名称，不支持数组或逗号分隔的多个值。例如传入 Http 可排除 HTTP 类型的连接。未传或传入空字符串时不排除任何类型；与 Type 相同时返回空列表。分页与总数均在过滤后计算。
+   * Excludes a single connection type. Valid values are the same as those for Type. Specify a single type name. Arrays or comma-separated values are not supported. For example, specify Http to exclude HTTP connections. If this parameter is not specified or is set to an empty string, no types are excluded. If this parameter is set to the same value as Type, an empty list is returned. Pagination and total count are calculated after filtering.
    * 
    * @example
    * Http
@@ -21,7 +21,7 @@ export class ListConnectionsRequest extends $dara.Model {
   excludeType?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per request. You can use this parameter together with NextToken to implement paging.
+   * The maximum number of entries to return per request. You can use this parameter together with NextToken to implement pagination.
    * 
    * - Default value: 10.
    * 
@@ -31,7 +31,7 @@ export class ListConnectionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If the number of results exceeds the value of MaxResults, a NextToken value is returned.
+   * If the number of entries exceeds the value of MaxResults, NextToken is returned in the response.
    * 
    * - The NextToken value starts from 0. Default value: 0.
    * 
@@ -41,7 +41,7 @@ export class ListConnectionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Filters query results by connection type. Valid values: Http, MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, Iceberg, and lakehouse. If this parameter is not specified, all types are returned.
+   * Filters query results by connection type. Valid values: Http, MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, Iceberg, lakehouse. If this parameter is not specified, all types are returned.
    * 
    * @example
    * Http

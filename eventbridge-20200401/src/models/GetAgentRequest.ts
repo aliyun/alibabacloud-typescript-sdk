@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent name.
+   * The Agent name.
    * 
    * This parameter is required.
    * 

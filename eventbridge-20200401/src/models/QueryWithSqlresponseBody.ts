@@ -1,63 +1,39 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { Agent } from "./Agent";
+import { Row } from "./Row";
 
 
-export class ListAgentsResponseBodyData extends $dara.Model {
+export class QueryWithSQLResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of agents.
+   * The query result rows.
    */
-  agents?: Agent[];
+  rows?: Row[];
   /**
    * @remarks
-   * The ID of the first entry.
+   * The total number of entries.
    * 
    * @example
-   * uat-agent
+   * 1
    */
-  firstId?: string;
-  /**
-   * @remarks
-   * Indicates whether there is a next page. Valid values:
-   * 
-   * - true: There is a next page.
-   * 
-   * - false: There is no next page.
-   * 
-   * @example
-   * false
-   */
-  hasMore?: string;
-  /**
-   * @remarks
-   * The ID of the last conversation record.
-   * 
-   * @example
-   * last-agent
-   */
-  lastId?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
-      agents: 'Agents',
-      firstId: 'FirstId',
-      hasMore: 'HasMore',
-      lastId: 'LastId',
+      rows: 'Rows',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agents: { 'type': 'array', 'itemType': Agent },
-      firstId: 'string',
-      hasMore: 'string',
-      lastId: 'string',
+      rows: { 'type': 'array', 'itemType': Row },
+      total: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.agents)) {
-      $dara.Model.validateArray(this.agents);
+    if(Array.isArray(this.rows)) {
+      $dara.Model.validateArray(this.rows);
     }
     super.validate();
   }
@@ -67,10 +43,14 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   }
 }
 
-export class ListAgentsResponseBody extends $dara.Model {
+export class QueryWithSQLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code. Valid values: Success: The operation was successful.
+   * The response code. Valid values:
+   * 
+   * - Success: The request was successful.    
+   * 
+   * - Other values: An error occurred. For more information, see error codes.
    * 
    * @example
    * Success
@@ -78,28 +58,28 @@ export class ListAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The event trace information.
    */
-  data?: ListAgentsResponseBodyData;
+  data?: QueryWithSQLResponseBodyData;
   /**
    * @remarks
    * The error message.
    * 
    * @example
-   * Failed to list agents
+   * Operation success
    */
   message?: string;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique identifier for the request.
+   * The request ID.
    * 
    * @example
-   * 7DA60DED-CD36-5837-B848-C01A23D2****
+   * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Indicates whether the operation was successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true
@@ -118,7 +98,7 @@ export class ListAgentsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: ListAgentsResponseBodyData,
+      data: QueryWithSQLResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

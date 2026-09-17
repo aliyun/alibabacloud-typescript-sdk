@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { Agent } from "./Agent";
+import { KnowledgeBase } from "./KnowledgeBase";
 
 
-export class GetAgentResponseBody extends $dara.Model {
+export class GetKnowledgeBaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code. Valid values: Success: The operation was successful.
+   * The response code. Success indicates a successful call. If the call fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -14,18 +14,15 @@ export class GetAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
-   * 
-   * @example
-   * true
+   * The knowledge base details, including basic information, metadata schema, and chunking and retrieval configurations.
    */
-  data?: Agent;
+  data?: KnowledgeBase;
   /**
    * @remarks
-   * The error message.
+   * The response message. Operation success is returned for a successful call. A specific error description is returned for a failed call.
    * 
    * @example
-   * Agent with name \\"xxx\\" not found for account 1186xxx
+   * Operation success
    */
   message?: string;
   /**
@@ -33,12 +30,12 @@ export class GetAgentResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * E0FFAB67-XXXXXX-CAD4D37448C4
+   * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Indicates whether the call was successful. A value of true indicates success.
    * 
    * @example
    * true
@@ -57,7 +54,7 @@ export class GetAgentResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: Agent,
+      data: KnowledgeBase,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

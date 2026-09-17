@@ -656,6 +656,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a knowledge base.
+   * 
+   * @param tmpReq - CreateKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeBaseResponse
+   */
+  async createKnowledgeBaseWithOptions(tmpReq: $_model.CreateKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeBaseResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateKnowledgeBaseShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.chunkConfiguration)) {
+      request.chunkConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chunkConfiguration, "ChunkConfiguration", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.metadataSchema)) {
+      request.metadataSchemaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadataSchema, "MetadataSchema", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchConfiguration)) {
+      request.searchConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchConfiguration, "SearchConfiguration", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.chunkConfigurationShrink)) {
+      query["ChunkConfiguration"] = request.chunkConfigurationShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.embeddingDimension)) {
+      query["EmbeddingDimension"] = request.embeddingDimension;
+    }
+
+    if (!$dara.isNull(request.embeddingModel)) {
+      query["EmbeddingModel"] = request.embeddingModel;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.metadataSchemaShrink)) {
+      query["MetadataSchema"] = request.metadataSchemaShrink;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.searchConfigurationShrink)) {
+      query["SearchConfiguration"] = request.searchConfigurationShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeBase",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Creates a knowledge base.
+   * 
+   * @param request - CreateKnowledgeBaseRequest
+   * @returns CreateKnowledgeBaseResponse
+   */
+  async createKnowledgeBase(request: $_model.CreateKnowledgeBaseRequest): Promise<$_model.CreateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
    * Create Namespace
    * 
    * @param request - CreateNamespaceRequest
@@ -1296,6 +1384,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a knowledge base.
+   * 
+   * @param request - DeleteKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeBaseResponse
+   */
+  async deleteKnowledgeBaseWithOptions(request: $_model.DeleteKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeBase",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Deletes a knowledge base.
+   * 
+   * @param request - DeleteKnowledgeBaseRequest
+   * @returns DeleteKnowledgeBaseResponse
+   */
+  async deleteKnowledgeBase(request: $_model.DeleteKnowledgeBaseRequest): Promise<$_model.DeleteKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a namespace.
    * 
    * @param request - DeleteNamespaceRequest
@@ -1780,7 +1918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves agent metadata.
+   * Retrieves Agent metadata.
    * 
    * @param request - GetAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1811,7 +1949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves agent metadata.
+   * Retrieves Agent metadata.
    * 
    * @param request - GetAgentRequest
    * @returns GetAgentResponse
@@ -1960,6 +2098,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a chunk.
+   * 
+   * @param request - GetChunkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChunkResponse
+   */
+  async getChunkWithOptions(request: $_model.GetChunkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChunkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.chunkSeq)) {
+      query["ChunkSeq"] = request.chunkSeq;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      query["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChunk",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChunkResponse>(await this.callApi(params, req, runtime), new $_model.GetChunkResponse({}));
+  }
+
+  /**
+   * Queries the details of a chunk.
+   * 
+   * @param request - GetChunkRequest
+   * @returns GetChunkResponse
+   */
+  async getChunk(request: $_model.GetChunkRequest): Promise<$_model.GetChunkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChunkWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the configuration of a single connection.
    * 
    * @remarks
@@ -2005,6 +2201,118 @@ export default class Client extends OpenApi {
   async getConnection(request: $_model.GetConnectionRequest): Promise<$_model.GetConnectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a document.
+   * 
+   * @param request - GetDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentResponse
+   */
+  async getDocumentWithOptions(request: $_model.GetDocumentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocumentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      query["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDocument",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDocumentResponse>(await this.callApi(params, req, runtime), new $_model.GetDocumentResponse({}));
+  }
+
+  /**
+   * Queries the details of a document.
+   * 
+   * @param request - GetDocumentRequest
+   * @returns GetDocumentResponse
+   */
+  async getDocument(request: $_model.GetDocumentRequest): Promise<$_model.GetDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the download URL of a document.
+   * 
+   * @param request - GetDocumentDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentDownloadUrlResponse
+   */
+  async getDocumentDownloadUrlWithOptions(request: $_model.GetDocumentDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocumentDownloadUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      query["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDocumentDownloadUrl",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDocumentDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetDocumentDownloadUrlResponse({}));
+  }
+
+  /**
+   * Retrieves the download URL of a document.
+   * 
+   * @param request - GetDocumentDownloadUrlRequest
+   * @returns GetDocumentDownloadUrlResponse
+   */
+  async getDocumentDownloadUrl(request: $_model.GetDocumentDownloadUrlRequest): Promise<$_model.GetDocumentDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDocumentDownloadUrlWithOptions(request, runtime);
   }
 
   /**
@@ -2185,6 +2493,56 @@ export default class Client extends OpenApi {
   async getGenerateAgentDataSemanticsProgress(request: $_model.GetGenerateAgentDataSemanticsProgressRequest): Promise<$_model.GetGenerateAgentDataSemanticsProgressResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getGenerateAgentDataSemanticsProgressWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a knowledge base.
+   * 
+   * @param request - GetKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKnowledgeBaseResponse
+   */
+  async getKnowledgeBaseWithOptions(request: $_model.GetKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKnowledgeBase",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.GetKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Queries the details of a knowledge base.
+   * 
+   * @param request - GetKnowledgeBaseRequest
+   * @returns GetKnowledgeBaseResponse
+   */
+  async getKnowledgeBase(request: $_model.GetKnowledgeBaseRequest): Promise<$_model.GetKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKnowledgeBaseWithOptions(request, runtime);
   }
 
   /**
@@ -2969,6 +3327,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of document chunks.
+   * 
+   * @param request - ListChunksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChunksResponse
+   */
+  async listChunksWithOptions(request: $_model.ListChunksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChunksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      query["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChunks",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChunksResponse>(await this.callApi(params, req, runtime), new $_model.ListChunksResponse({}));
+  }
+
+  /**
+   * Queries the list of document chunks.
+   * 
+   * @param request - ListChunksRequest
+   * @returns ListChunksResponse
+   */
+  async listChunks(request: $_model.ListChunksRequest): Promise<$_model.ListChunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChunksWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves a list of connection configurations.
    * 
    * @remarks
@@ -3030,6 +3458,72 @@ export default class Client extends OpenApi {
   async listConnections(request: $_model.ListConnectionsRequest): Promise<$_model.ListConnectionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listConnectionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of documents.
+   * 
+   * @param request - ListDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDocumentsResponse
+   */
+  async listDocumentsWithOptions(request: $_model.ListDocumentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDocumentsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.fileNamePrefix)) {
+      query["FileNamePrefix"] = request.fileNamePrefix;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDocuments",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDocumentsResponse>(await this.callApi(params, req, runtime), new $_model.ListDocumentsResponse({}));
+  }
+
+  /**
+   * Queries a list of documents.
+   * 
+   * @param request - ListDocumentsRequest
+   * @returns ListDocumentsResponse
+   */
+  async listDocuments(request: $_model.ListDocumentsRequest): Promise<$_model.ListDocumentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDocumentsWithOptions(request, runtime);
   }
 
   /**
@@ -3203,10 +3697,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of knowledge bases.
+   * 
+   * @param request - ListKnowledgeBasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBasesResponse
+   */
+  async listKnowledgeBasesWithOptions(request: $_model.ListKnowledgeBasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeBasesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBases",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeBasesResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBasesResponse({}));
+  }
+
+  /**
+   * Queries a list of knowledge bases.
+   * 
+   * @param request - ListKnowledgeBasesRequest
+   * @returns ListKnowledgeBasesResponse
+   */
+  async listKnowledgeBases(request: $_model.ListKnowledgeBasesRequest): Promise<$_model.ListKnowledgeBasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeBasesWithOptions(request, runtime);
+  }
+
+  /**
    * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
    * 
    * @remarks
-   * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+   * Lists the data catalogs bound to a Luma Agent. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient page count to determine whether the last page has been reached.
    * 
    * @param request - ListLumaCatalogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3248,7 +3796,7 @@ export default class Client extends OpenApi {
    * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
    * 
    * @remarks
-   * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+   * Lists the data catalogs bound to a Luma Agent. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient page count to determine whether the last page has been reached.
    * 
    * @param request - ListLumaCatalogsRequest
    * @returns ListLumaCatalogsResponse
@@ -3482,7 +4030,7 @@ export default class Client extends OpenApi {
    * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
    * 
    * @remarks
-   * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+   * Lists the namespaces bound to a Luma Agent under a specified data catalog. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient number of entries on the current page to determine whether the last page has been reached.
    * 
    * @param request - ListLumaNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3528,7 +4076,7 @@ export default class Client extends OpenApi {
    * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
    * 
    * @remarks
-   * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+   * Lists the namespaces bound to a Luma Agent under a specified data catalog. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient number of entries on the current page to determine whether the last page has been reached.
    * 
    * @param request - ListLumaNamespacesRequest
    * @returns ListLumaNamespacesResponse
@@ -4555,6 +5103,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a SQL statement to query event warehouse data. This operation is suitable for scenarios where the exact SQL is known, without natural language conversion or conversation context. Returns a structured result set.
+   * 
+   * @remarks
+   * Queries event content.
+   * 
+   * @param request - QueryWithSQLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryWithSQLResponse
+   */
+  async queryWithSQLWithOptions(request: $_model.QueryWithSQLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryWithSQLResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryWithSQL",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryWithSQLResponse>(await this.callApi(params, req, runtime), new $_model.QueryWithSQLResponse({}));
+  }
+
+  /**
+   * Executes a SQL statement to query event warehouse data. This operation is suitable for scenarios where the exact SQL is known, without natural language conversion or conversation context. Returns a structured result set.
+   * 
+   * @remarks
+   * Queries event content.
+   * 
+   * @param request - QueryWithSQLRequest
+   * @returns QueryWithSQLResponse
+   */
+  async queryWithSQL(request: $_model.QueryWithSQLRequest): Promise<$_model.QueryWithSQLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryWithSQLWithOptions(request, runtime);
+  }
+
+  /**
    * Saves data semantics for an agent.
    * 
    * @param tmpReq - SaveAgentDataSemanticsRequest
@@ -4628,6 +5228,92 @@ export default class Client extends OpenApi {
   async saveAgentDataSemantics(request: $_model.SaveAgentDataSemanticsRequest): Promise<$_model.SaveAgentDataSemanticsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.saveAgentDataSemanticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves knowledge base search results.
+   * 
+   * @param request - SearchKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchKnowledgeBaseResponse
+   */
+  async searchKnowledgeBaseWithOptions(request: $_model.SearchKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.metadataFilter)) {
+      query["MetadataFilter"] = request.metadataFilter;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.rankAlgorithm)) {
+      query["RankAlgorithm"] = request.rankAlgorithm;
+    }
+
+    if (!$dara.isNull(request.rerank)) {
+      query["Rerank"] = request.rerank;
+    }
+
+    if (!$dara.isNull(request.rerankModel)) {
+      query["RerankModel"] = request.rerankModel;
+    }
+
+    if (!$dara.isNull(request.rrfK)) {
+      query["RrfK"] = request.rrfK;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.vectorWeight)) {
+      query["VectorWeight"] = request.vectorWeight;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchKnowledgeBase",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.SearchKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Retrieves knowledge base search results.
+   * 
+   * @param request - SearchKnowledgeBaseRequest
+   * @returns SearchKnowledgeBaseResponse
+   */
+  async searchKnowledgeBase(request: $_model.SearchKnowledgeBaseRequest): Promise<$_model.SearchKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchKnowledgeBaseWithOptions(request, runtime);
   }
 
   /**
@@ -5472,6 +6158,78 @@ export default class Client extends OpenApi {
   async updateEventStreamingBusinessOption(request: $_model.UpdateEventStreamingBusinessOptionRequest): Promise<$_model.UpdateEventStreamingBusinessOptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateEventStreamingBusinessOptionWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a knowledge base.
+   * 
+   * @param tmpReq - UpdateKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBaseWithOptions(tmpReq: $_model.UpdateKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateKnowledgeBaseShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.chunkConfiguration)) {
+      request.chunkConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chunkConfiguration, "ChunkConfiguration", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchConfiguration)) {
+      request.searchConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchConfiguration, "SearchConfiguration", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.chunkConfigurationShrink)) {
+      query["ChunkConfiguration"] = request.chunkConfigurationShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseName)) {
+      query["KnowledgeBaseName"] = request.knowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.searchConfigurationShrink)) {
+      query["SearchConfiguration"] = request.searchConfigurationShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeBase",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Updates a knowledge base.
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBase(request: $_model.UpdateKnowledgeBaseRequest): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeBaseWithOptions(request, runtime);
   }
 
   /**

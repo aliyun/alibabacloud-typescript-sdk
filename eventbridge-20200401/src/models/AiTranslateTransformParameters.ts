@@ -4,18 +4,31 @@ import { AiTransformField } from "./AiTransformField";
 
 
 export class AiTranslateTransformParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The input text field.
+   */
   inputField?: AiTransformField;
   /**
+   * @remarks
+   * The source language. If left empty, the language is automatically detected.
+   * 
    * @example
    * zh
    */
   sourceLanguage?: string;
   /**
+   * @remarks
+   * The field name attached to the CloudEvent output. Default value: transform0.
+   * 
    * @example
    * translation
    */
   stepName?: string;
   /**
+   * @remarks
+   * The target language.
+   * 
    * @example
    * en
    */

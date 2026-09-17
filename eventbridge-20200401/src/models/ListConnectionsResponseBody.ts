@@ -275,7 +275,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParameters extends $dara.Model {
   /**
    * @remarks
-   * The list of body request parameter data structures.
+   * The list of request parameter data structures for the body.
    */
   bodyParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersBodyParameters[];
   /**
@@ -325,7 +325,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The endpoint URL for obtaining the OAuth token.
+   * The endpoint for obtaining the OAuth token.
    * 
    * @example
    * http://localhost:8080/oauth/token
@@ -338,7 +338,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
   clientParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersClientParameters;
   /**
    * @remarks
-   * The HTTP method for the probe request. Valid values:
+   * The HTTP method. Valid values:
    * 
    * - GET
    * - POST
@@ -350,7 +350,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
   httpMethod?: string;
   /**
    * @remarks
-   * The HTTP request parameters for OAuth authentication.
+   * The request parameters for OAuth authentication.
    */
   OAuthHttpParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParameters;
   static names(): { [key: string]: string } {
@@ -394,7 +394,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParameters extends $d
   apiKeyAuthParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters;
   /**
    * @remarks
-   * The authorization type:
+   * The authentication type. Valid values:
    * 
    * - BASIC: BASIC_AUTH
    * 
@@ -455,9 +455,10 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParameters extends $d
 export class ListConnectionsResponseBodyDataConnectionsNetworkParameters extends $dara.Model {
   /**
    * @remarks
-   * - Public network: PublicNetwork
+   * The network type. Valid values:
    * 
-   * - Virtual private cloud: PrivateNetwork
+   * - PublicNetwork: public network.
+   * - PrivateNetwork: virtual private cloud (VPC).
    * 
    * @example
    * PublicNetwork
@@ -473,7 +474,7 @@ export class ListConnectionsResponseBodyDataConnectionsNetworkParameters extends
   securityGroupId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * eb-test/vpc-bp1symadadwnwgmqud
@@ -538,7 +539,7 @@ export class ListConnectionsResponseBodyDataConnections extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The timestamp when the datasource was created.
+   * The timestamp when the data source was created.
    * 
    * @example
    * 1592838994234
@@ -554,12 +555,12 @@ export class ListConnectionsResponseBodyDataConnections extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The data structure of the network configuration.
+   * The data structure of network configurations.
    */
   networkParameters?: ListConnectionsResponseBodyDataConnectionsNetworkParameters;
   /**
    * @remarks
-   * The datasource connection parameters (JSON object). This field is returned only for datasource-type connections and is empty for Http type. For field definitions, refer to the ParamsSchema returned by GetConnectionType.
+   * The data source connection parameters (JSON object). Returned only for data source type connections. This field is empty for Http type connections. For field definitions, refer to the ParamsSchema returned by GetConnectionType.
    * 
    * @example
    * {"HostName":"xxx.mysql.rds.aliyuncs.com","Port":"3306","User":"root","Password":"xxx","DatabaseName":"demo_db"}
@@ -567,7 +568,7 @@ export class ListConnectionsResponseBodyDataConnections extends $dara.Model {
   parameters?: any;
   /**
    * @remarks
-   * The connection type. Valid values: Http, MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, Iceberg, and lakehouse.
+   * The connection type. Valid values: Http, MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, Iceberg, lakehouse.
    * 
    * @example
    * Http
@@ -630,7 +631,7 @@ export class ListConnectionsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned when additional results are available.
+   * If there are additional entries to return, NextToken is included in the response.
    * 
    * @example
    * 0
@@ -698,7 +699,7 @@ export class ListConnectionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The common parameter. The ID of the request. Each request has a unique ID, which is active for troubleshooting.
+   * The common parameter. The request ID. Each request has a unique ID, which is active for troubleshooting and locating issues.
    * 
    * @example
    * E3619976-8714-5D88-BBA2-6983D798A8BB

@@ -1,45 +1,45 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { Catalog } from "./Catalog";
+import { KnowledgeBaseChunk } from "./KnowledgeBaseChunk";
 
 
-export class ListLumaCatalogsResponseBodyData extends $dara.Model {
+export class ListChunksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of data catalogs bound to the agent.
+   * The list of chunk entries.
    * 
    * @example
-   * [{"Name":"my_catalog"}]
+   * [{"DocumentId":"doc-bp1xxxxxxxxxxxx","ChunkSeq":1,"Content":"EventBridge supports event routing"}]
    */
-  catalogs?: Catalog[];
+  chunks?: KnowledgeBaseChunk[];
   /**
    * @remarks
-   * The effective page size for this request. If the Limit parameter is not specified, the server default value is used. If the specified value exceeds the upper limit, the value is adjusted to the maximum allowed value.
+   * The maximum number of results per page that took effect for this request.
    * 
    * @example
-   * 10
+   * 20
    */
-  limit?: number;
+  maxResults?: number;
   /**
    * @remarks
-   * The token for the next page. Pass this value as the NextToken in the next request to retrieve the next page. An empty value indicates that no more data is available.
+   * The pagination token for the next page (an opaque string). Pass this value as the NextToken parameter in the next request to retrieve the next page. An empty value indicates that no more data is available.
    * 
    * @example
-   * 10
+   * ca1eb85f5d99c7d6a97e6****
    */
   nextToken?: string;
   /**
    * @remarks
-   * The total number of data catalogs bound to the agent, regardless of the number of entries returned on the current page.
+   * The total number of chunks in the specified document when DocumentId is specified. In full knowledge base mode (when DocumentId is not specified), this field is not returned. Pagination ends when NextToken is empty.
    * 
    * @example
-   * 10
+   * 120
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      catalogs: 'Catalogs',
-      limit: 'Limit',
+      chunks: 'Chunks',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       totalCount: 'TotalCount',
     };
@@ -47,16 +47,16 @@ export class ListLumaCatalogsResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      catalogs: { 'type': 'array', 'itemType': Catalog },
-      limit: 'number',
+      chunks: { 'type': 'array', 'itemType': KnowledgeBaseChunk },
+      maxResults: 'number',
       nextToken: 'string',
       totalCount: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.catalogs)) {
-      $dara.Model.validateArray(this.catalogs);
+    if(Array.isArray(this.chunks)) {
+      $dara.Model.validateArray(this.chunks);
     }
     super.validate();
   }
@@ -66,7 +66,7 @@ export class ListLumaCatalogsResponseBodyData extends $dara.Model {
   }
 }
 
-export class ListLumaCatalogsResponseBody extends $dara.Model {
+export class ListChunksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code. A value of Success indicates a successful call. If the call fails, a specific error code is returned.
@@ -77,12 +77,12 @@ export class ListLumaCatalogsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of data catalogs bound to the agent, including entries and pagination information.
+   * The chunk list query result, which contains chunk entries and pagination information.
    */
-  data?: ListLumaCatalogsResponseBodyData;
+  data?: ListChunksResponseBodyData;
   /**
    * @remarks
-   * The response message. A value of Operation success is returned if the call succeeds. A specific error description is returned if the call fails.
+   * The message returned by the operation. The value is Operation success if the call succeeds, or a specific error description if the call fails.
    * 
    * @example
    * Operation success
@@ -90,7 +90,7 @@ export class ListLumaCatalogsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request. Use this ID for troubleshooting and when submitting a ticket.
+   * The request ID.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
@@ -98,7 +98,7 @@ export class ListLumaCatalogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success.
+   * Indicates whether the call was successful. A value of true indicates success.
    * 
    * @example
    * true
@@ -117,7 +117,7 @@ export class ListLumaCatalogsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: ListLumaCatalogsResponseBodyData,
+      data: ListChunksResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

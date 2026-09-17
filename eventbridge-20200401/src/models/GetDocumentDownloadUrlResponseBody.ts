@@ -1,64 +1,39 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { Agent } from "./Agent";
 
 
-export class ListAgentsResponseBodyData extends $dara.Model {
+export class GetDocumentDownloadUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of agents.
-   */
-  agents?: Agent[];
-  /**
-   * @remarks
-   * The ID of the first entry.
+   * A short-lived GET pre-signed URL that the client uses to download the original file.
    * 
    * @example
-   * uat-agent
+   * https://my-bucket.oss-cn-hangzhou.aliyuncs.com/kb/doc-bp1xxxxxxxxxxxx?Expires=1788000000&Signature=xxxx
    */
-  firstId?: string;
+  downloadUrl?: string;
   /**
    * @remarks
-   * Indicates whether there is a next page. Valid values:
-   * 
-   * - true: There is a next page.
-   * 
-   * - false: There is no next page.
+   * The expiration time of the pre-signed download URL, in ISO 8601 UTC format.
    * 
    * @example
-   * false
+   * 1756022400000
    */
-  hasMore?: string;
-  /**
-   * @remarks
-   * The ID of the last conversation record.
-   * 
-   * @example
-   * last-agent
-   */
-  lastId?: string;
+  expireAt?: string;
   static names(): { [key: string]: string } {
     return {
-      agents: 'Agents',
-      firstId: 'FirstId',
-      hasMore: 'HasMore',
-      lastId: 'LastId',
+      downloadUrl: 'DownloadUrl',
+      expireAt: 'ExpireAt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agents: { 'type': 'array', 'itemType': Agent },
-      firstId: 'string',
-      hasMore: 'string',
-      lastId: 'string',
+      downloadUrl: 'string',
+      expireAt: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.agents)) {
-      $dara.Model.validateArray(this.agents);
-    }
     super.validate();
   }
 
@@ -67,10 +42,10 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   }
 }
 
-export class ListAgentsResponseBody extends $dara.Model {
+export class GetDocumentDownloadUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code. Valid values: Success: The operation was successful.
+   * The response code. A value of Success indicates a successful call. If the call fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -78,28 +53,28 @@ export class ListAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The document download URL information.
    */
-  data?: ListAgentsResponseBodyData;
+  data?: GetDocumentDownloadUrlResponseBodyData;
   /**
    * @remarks
-   * The error message.
+   * The message returned by the operation. A value of Operation success indicates a successful call. If the call fails, a specific error description is returned.
    * 
    * @example
-   * Failed to list agents
+   * Operation success
    */
   message?: string;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique identifier for the request.
+   * The request ID.
    * 
    * @example
-   * 7DA60DED-CD36-5837-B848-C01A23D2****
+   * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Indicates whether the call was successful. A value of true indicates success.
    * 
    * @example
    * true
@@ -118,7 +93,7 @@ export class ListAgentsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: ListAgentsResponseBodyData,
+      data: GetDocumentDownloadUrlResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
