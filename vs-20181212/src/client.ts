@@ -7638,10 +7638,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of patches for a cloud application.
+   * Queries the patch list of a cloud application.
    * 
    * @remarks
-   * > Specify at least one of the template ID or the template type.
+   * >You must specify at least one of the template ID and templatetype.
    * 
    * @param request - ListCloudAppPatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7696,10 +7696,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of patches for a cloud application.
+   * Queries the patch list of a cloud application.
    * 
    * @remarks
-   * > Specify at least one of the template ID or the template type.
+   * >You must specify at least one of the template ID and templatetype.
    * 
    * @param request - ListCloudAppPatchesRequest
    * @returns ListCloudAppPatchesResponse
@@ -7710,7 +7710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of cloud applications. This operation supports paged queries.
+   * Queries a list of cloud applications. Paging is supported.
    * 
    * @param request - ListCloudAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7737,7 +7737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of cloud applications. This operation supports paged queries.
+   * Queries a list of cloud applications. Paging is supported.
    * 
    * @param request - ListCloudAppsRequest
    * @returns ListCloudAppsResponse
@@ -8114,6 +8114,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of images.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation supports filtering and paged query of rendering session lists by using various parameter combinations.
+   * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, more precise matching is performed based on the two parameters.
+   * 
+   * @param request - ListRenderingImagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRenderingImagesResponse
+   */
+  async listRenderingImagesWithOptions(request: $_model.ListRenderingImagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRenderingImagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRenderingImages",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRenderingImagesResponse>(await this.callApi(params, req, runtime), new $_model.ListRenderingImagesResponse({}));
+  }
+
+  /**
+   * Queries a list of images.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation supports filtering and paged query of rendering session lists by using various parameter combinations.
+   * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, more precise matching is performed based on the two parameters.
+   * 
+   * @param request - ListRenderingImagesRequest
+   * @returns ListRenderingImagesResponse
+   */
+  async listRenderingImages(request: $_model.ListRenderingImagesRequest): Promise<$_model.ListRenderingImagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRenderingImagesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries custom gateways.
    * 
    * @remarks
@@ -8458,7 +8518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all cloud application service specification information. Paging is supported.
+   * Queries the specifications of all cloud application services. Paging is supported.
    * 
    * @remarks
    * ## Operation description
@@ -8503,7 +8563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all cloud application service specification information. Paging is supported.
+   * Queries the specifications of all cloud application services. Paging is supported.
    * 
    * @remarks
    * ## Operation description
@@ -9725,7 +9785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts the host of a cloud application service instance.
+   * Restarts the hosts of cloud application service instances.
    * 
    * @param tmpReq - RebootRenderingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9740,6 +9800,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.precheck)) {
+      query["Precheck"] = request.precheck;
+    }
+
     if (!$dara.isNull(request.renderingInstanceIdsShrink)) {
       query["RenderingInstanceIds"] = request.renderingInstanceIdsShrink;
     }
@@ -9762,7 +9826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts the host of a cloud application service instance.
+   * Restarts the hosts of cloud application service instances.
    * 
    * @param request - RebootRenderingServerRequest
    * @returns RebootRenderingServerResponse
@@ -11557,7 +11621,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
+   * Updates the information of a cloud application, such as the description, application labels, and patches.
+   * You can upload patches or hot update packages, and create hot update packages for Android cloud application marketplace applications. Each cloud application supports up to 20 patches, and only one patch can be in the uploading state at a time for a single cloud application.
    * 
    * @param tmpReq - UpdateCloudAppInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11616,7 +11681,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
+   * Updates the information of a cloud application, such as the description, application labels, and patches.
+   * You can upload patches or hot update packages, and create hot update packages for Android cloud application marketplace applications. Each cloud application supports up to 20 patches, and only one patch can be in the uploading state at a time for a single cloud application.
    * 
    * @param request - UpdateCloudAppInfoRequest
    * @returns UpdateCloudAppInfoResponse
@@ -11913,7 +11979,59 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
+   * Upgrades instance images in batch.
+   * 
+   * @param tmpReq - UpgradeRenderingInstanceImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeRenderingInstanceImageResponse
+   */
+  async upgradeRenderingInstanceImageWithOptions(tmpReq: $_model.UpgradeRenderingInstanceImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeRenderingInstanceImageResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpgradeRenderingInstanceImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.renderingInstanceIds)) {
+      request.renderingInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.renderingInstanceIds, "RenderingInstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.renderingInstanceIdsShrink)) {
+      query["RenderingInstanceIds"] = request.renderingInstanceIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeRenderingInstanceImage",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeRenderingInstanceImageResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeRenderingInstanceImageResponse({}));
+  }
+
+  /**
+   * Upgrades instance images in batch.
+   * 
+   * @param request - UpgradeRenderingInstanceImageRequest
+   * @returns UpgradeRenderingInstanceImageResponse
+   */
+  async upgradeRenderingInstanceImage(request: $_model.UpgradeRenderingInstanceImageRequest): Promise<$_model.UpgradeRenderingInstanceImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeRenderingInstanceImageWithOptions(request, runtime);
+  }
+
+  /**
+   * Uploads a cloud application package for listing. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
    * 
    * @param tmpReq - UploadCloudAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11960,6 +12078,14 @@ export default class Client extends OpenApi {
       query["PkgType"] = request.pkgType;
     }
 
+    if (!$dara.isNull(request.postCommandPath)) {
+      query["PostCommandPath"] = request.postCommandPath;
+    }
+
+    if (!$dara.isNull(request.postCommandTimeoutSec)) {
+      query["PostCommandTimeoutSec"] = request.postCommandTimeoutSec;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11978,7 +12104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
+   * Uploads a cloud application package for listing. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
    * 
    * @param request - UploadCloudAppRequest
    * @returns UploadCloudAppResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically set the patch as the stable version after it is successfully uploaded. The default value is false.
+   * Specifies whether to automatically set the patch as the stable patch after a successful upload. Default value: false.
    * 
    * @example
    * false
@@ -13,9 +13,8 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
   asStablePatch?: boolean;
   /**
    * @remarks
-   * The download URL for the patch package.
-   * You must specify either RenderingInstanceId or DownloadURL.
-   * DownloadURL takes precedence.
+   * The download URL of the patch package.
+   * Either RenderingInstanceId or DownloadURL is required. DownloadURL takes priority.
    * 
    * @example
    * https://test_host/app/test-tar-pkg.tar
@@ -23,7 +22,7 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
   downloadURL?: string;
   /**
    * @remarks
-   * The MD5 hash of the patch package, used to verify integrity. This parameter is valid only if DownloadURL is not empty. It is required if DownloadURL is not empty.
+   * The MD5 hash of the patch package, used for integrity verification. Valid only when DownloadURL is not empty. Required when DownloadURL is not empty.
    * 
    * @example
    * 346f6404395adfg5bae1e45g4e943bf7
@@ -31,16 +30,12 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The name or description of the patch package. This is a unique identifier under the AppId.
-   * Default naming conventions:
-   * 
-   * 1. Cannot be origin or all.
-   * 
+   * The name or description of the patch package, which serves as a unique identifier under the AppId.
+   * Naming conventions:
+   * 1. Cannot be set to origin or all.
    * 2. Must be 1 to 50 characters in length.
-   * 
    * 3. Can contain lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
-   * 
-   * 4. The first and last characters must be a letter or a digit.
+   * 4. Must start and end with a letter or digit.
    * 
    * @example
    * p1
@@ -48,14 +43,10 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
   patchName?: string;
   /**
    * @remarks
-   * The format of the installation package. By default, the system uses the file extension from the download URL. This parameter is valid only if DownloadURL is not empty. Valid values:
-   * 
+   * The format of the installation package. The default value is the file extension of the download URL. Valid only when DownloadURL is not empty. Valid values:
    * 1. tar.gz
-   * 
    * 2. tar
-   * 
    * 3. zip
-   * 
    * 4. rar
    * 
    * @example
@@ -64,7 +55,23 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
   pkgFormat?: string;
   /**
    * @remarks
-   * The instance ID required to create the patch package. This parameter is valid only in the Android application marketplace scenario (PkgType=andrpid_appmarket). Specify either RenderingInstanceId or DownloadURL. DownloadURL takes precedence.
+   * The relative path of the post-command within the application package. Only supported for Windows applications.
+   * 
+   * @example
+   * install.ps1
+   */
+  postCommandPath?: string;
+  /**
+   * @remarks
+   * The timeout period for the post-command execution, in seconds. Only supported for Windows applications.
+   * 
+   * @example
+   * 10
+   */
+  postCommandTimeoutSec?: number;
+  /**
+   * @remarks
+   * The instance ID of the instance used to create the patch package. Valid only for Android application marketplace scenarios (PkgType=andrpid_appmarket). Either RenderingInstanceId or DownloadURL is required. DownloadURL takes priority.
    * 
    * @example
    * render-d7ec79fe47ce47aca2d8d7500d25a28a
@@ -77,6 +84,8 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
       md5: 'Md5',
       patchName: 'PatchName',
       pkgFormat: 'PkgFormat',
+      postCommandPath: 'PostCommandPath',
+      postCommandTimeoutSec: 'PostCommandTimeoutSec',
       renderingInstanceId: 'RenderingInstanceId',
     };
   }
@@ -88,6 +97,8 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
       md5: 'string',
       patchName: 'string',
       pkgFormat: 'string',
+      postCommandPath: 'string',
+      postCommandTimeoutSec: 'number',
       renderingInstanceId: 'string',
     };
   }
@@ -104,7 +115,7 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
 export class UpdateCloudAppInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud application, which corresponds to a unique application package.
+   * The cloud application ID, which corresponds to a unique application package.
    * 
    * This parameter is required.
    * 
@@ -117,35 +128,32 @@ export class UpdateCloudAppInfoRequest extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * 用于测试使用
+   * For testing purposes
    */
   description?: string;
   /**
    * @remarks
-   * Information about the patch package to upload.
-   * 
-   * 1. This parameter is not supported when PkgType is android.
-   * 
-   * 2. For the same AppId, only one patch can be in the process of uploading at a time. This means only one patch can be in a state other than its desired state.
+   * The information about the patch package to upload.
+   * 1. Not supported when PkgType is set to android.
+   * 2. Only one patch can be in the uploading state at a time for the same AppId (only one patch in a non-final state is allowed per AppId).
    */
   patch?: UpdateCloudAppInfoRequestPatch;
   /**
    * @remarks
-   * The tags for the cloud application. You can select multiple tags. This action resets all existing tags for the cloud application.
-   * 
+   * The cloud application labels. You can select multiple labels. This operation resets the cloud application labels.
    * 1. Valid values:
-   *    hot, game, and app.
-   * 
-   * 2. Special case:
-   *    To delete all tags, enter ["NULL"].
+   *   a. hot
+   *   b. game
+   *   c. app
+   * 2. Special cases:
+   *   a. To delete all labels, set this parameter to ["NULL"].
    */
   pkgLabels?: string[];
   /**
    * @remarks
-   * The ID of the stable patch. This patch is used by default if you do not specify a PatchId when the application is in use, such as during a session startup. This parameter is not supported when PkgType is android.
-   * Special value:
-   * 
-   * 1. If you set this parameter to origin, the patch version is removed and the initial version is used.
+   * The stable PatchId. When a PatchId is not specified during business operations (such as session startup), this PatchId is used by default. Not supported when PkgType is set to android.
+   * Special values:
+   * 1. origin: cancels the patch version and uses the initial version by default.
    * 
    * @example
    * patch-03fa76e8e13a49b6a966b063d9d309b4

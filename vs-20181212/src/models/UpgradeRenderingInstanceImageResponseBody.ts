@@ -2,29 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RebootRenderingServerResponseBodyFailedInstances extends $dara.Model {
+export class UpgradeRenderingInstanceImageResponseBodyFailedItems extends $dara.Model {
   /**
    * @remarks
    * The error code of the failure.
    * 
    * @example
-   * 300000
+   * 200302
    */
-  errCode?: number;
+  errCode?: string;
   /**
    * @remarks
    * The error message of the failure.
    * 
    * @example
-   * Rejected due to timeout
+   * Not Applied
    */
   errMessage?: string;
   /**
    * @remarks
-   * The instance ID of the cloud application service instance.
+   * The cloud application service instance ID.
    * 
    * @example
-   * render-421cd2a1125947c19fcd5c7dd2c7d31e
+   * render-072da95539d3402da90353b244191722
    */
   renderingInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -37,7 +37,7 @@ export class RebootRenderingServerResponseBodyFailedInstances extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
-      errCode: 'number',
+      errCode: 'string',
       errMessage: 'string',
       renderingInstanceId: 'string',
     };
@@ -52,13 +52,13 @@ export class RebootRenderingServerResponseBodyFailedInstances extends $dara.Mode
   }
 }
 
-export class RebootRenderingServerResponseBodySuccessInstances extends $dara.Model {
+export class UpgradeRenderingInstanceImageResponseBodySuccessItems extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the cloud application service instance.
+   * The cloud application service instance ID.
    * 
    * @example
-   * render-e6cf423c787e4e43b460a788da254fe3
+   * render-1ada8cd82783407b99fa202826fc6447
    */
   renderingInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -82,20 +82,20 @@ export class RebootRenderingServerResponseBodySuccessInstances extends $dara.Mod
   }
 }
 
-export class RebootRenderingServerResponseBody extends $dara.Model {
+export class UpgradeRenderingInstanceImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of cloud application service instances that failed to restart.
+   * The number of failed instances.
    * 
    * @example
-   * 0
+   * 1
    */
-  failedInstanceCount?: number;
+  failedCount?: number;
   /**
    * @remarks
-   * The cloud application service instance IDs and the associated failure information.
+   * The information about failed instances.
    */
-  failedInstances?: RebootRenderingServerResponseBodyFailedInstances[];
+  failedItems?: UpgradeRenderingInstanceImageResponseBodyFailedItems[];
   /**
    * @remarks
    * The request ID.
@@ -106,43 +106,43 @@ export class RebootRenderingServerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of cloud application service instances that were successfully restarted.
+   * The number of successful instances.
    * 
    * @example
-   * 5
+   * 1
    */
-  successInstanceCount?: number;
+  successCount?: number;
   /**
    * @remarks
-   * The cloud application service instance IDs and the associated result descriptions.
+   * The information about successful instances.
    */
-  successInstances?: RebootRenderingServerResponseBodySuccessInstances[];
+  successItems?: UpgradeRenderingInstanceImageResponseBodySuccessItems[];
   static names(): { [key: string]: string } {
     return {
-      failedInstanceCount: 'FailedInstanceCount',
-      failedInstances: 'FailedInstances',
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
       requestId: 'RequestId',
-      successInstanceCount: 'SuccessInstanceCount',
-      successInstances: 'SuccessInstances',
+      successCount: 'SuccessCount',
+      successItems: 'SuccessItems',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      failedInstanceCount: 'number',
-      failedInstances: { 'type': 'array', 'itemType': RebootRenderingServerResponseBodyFailedInstances },
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': UpgradeRenderingInstanceImageResponseBodyFailedItems },
       requestId: 'string',
-      successInstanceCount: 'number',
-      successInstances: { 'type': 'array', 'itemType': RebootRenderingServerResponseBodySuccessInstances },
+      successCount: 'number',
+      successItems: { 'type': 'array', 'itemType': UpgradeRenderingInstanceImageResponseBodySuccessItems },
     };
   }
 
   validate() {
-    if(Array.isArray(this.failedInstances)) {
-      $dara.Model.validateArray(this.failedInstances);
+    if(Array.isArray(this.failedItems)) {
+      $dara.Model.validateArray(this.failedItems);
     }
-    if(Array.isArray(this.successInstances)) {
-      $dara.Model.validateArray(this.successInstances);
+    if(Array.isArray(this.successItems)) {
+      $dara.Model.validateArray(this.successItems);
     }
     super.validate();
   }

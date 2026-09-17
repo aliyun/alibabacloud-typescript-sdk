@@ -2,10 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListSpecificationsRequest extends $dara.Model {
+export class ListRenderingImagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the query list. Minimum value: 1. Default value: 1.
+   * The cloud application service instance ID.
+   * 
+   * @example
+   * m-9timxhrrgopkec8ju
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The page number. The value starts from 1.
    * 
    * @example
    * 1
@@ -13,33 +21,25 @@ export class ListSpecificationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+   * The number of entries per page for a paged query.
    * 
    * @example
-   * 20
+   * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The specification.
-   * 
-   * @example
-   * ew.gn8t6xlarge-rb.x1p
-   */
-  specification?: string;
   static names(): { [key: string]: string } {
     return {
+      imageId: 'ImageId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      specification: 'Specification',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      imageId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      specification: 'string',
     };
   }
 

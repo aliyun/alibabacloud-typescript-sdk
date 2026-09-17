@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudAppInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the patch package.
+   * The patch ID.
    * 
    * @example
    * patch-03fa76e8e13a49b6a966b063d9d309b4

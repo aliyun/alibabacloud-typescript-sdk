@@ -21,19 +21,29 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
   patchName?: string;
   /**
    * @remarks
-   * The upload status of the application. Valid values:
+   * The relative path of the post-command within the application package. Only Windows-type applications are supported.
    * 
+   * @example
+   * install.ps1
+   */
+  postCommandPath?: string;
+  /**
+   * @remarks
+   * The timeout period for the post-command execution, in seconds. Only Windows-type applications are supported.
+   * 
+   * @example
+   * 10
+   */
+  postCommandTimeoutSec?: number;
+  /**
+   * @remarks
+   * The application upload status. Valid values:
    * 1. Created
-   * 
    * 2. Doing
-   * 
-   * 3. Success: A final state.
-   * 
-   * 4. Failed: A final state.
-   * 
+   * 3. Success: desired state.
+   * 4. Failed: desired state.
    * 5. Deleting
-   * 
-   * 6. DeleteFailed: A final state.
+   * 6. DeleteFailed: desired state.
    * 
    * @example
    * Doing
@@ -41,7 +51,7 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the status.
+   * The status description.
    * 
    * @example
    * Uploading
@@ -49,7 +59,7 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * The time when the status was last updated.
+   * The most recent time when the status was updated.
    * 
    * @example
    * 2024-09-23T02:12:28
@@ -67,6 +77,8 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
     return {
       patchId: 'PatchId',
       patchName: 'PatchName',
+      postCommandPath: 'PostCommandPath',
+      postCommandTimeoutSec: 'PostCommandTimeoutSec',
       status: 'Status',
       statusDescription: 'StatusDescription',
       updateTime: 'UpdateTime',
@@ -78,6 +90,8 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
     return {
       patchId: 'string',
       patchName: 'string',
+      postCommandPath: 'string',
+      postCommandTimeoutSec: 'number',
       status: 'string',
       statusDescription: 'string',
       updateTime: 'string',
@@ -97,7 +111,7 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
 export class ListCloudAppPatchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the query list.
    * 
    * @example
    * 1
@@ -105,7 +119,7 @@ export class ListCloudAppPatchesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page for the paged query.
    * 
    * @example
    * 20
@@ -113,7 +127,7 @@ export class ListCloudAppPatchesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of cloud application patches.
+   * The list of patches for the cloud application.
    */
   patches?: ListCloudAppPatchesResponseBodyPatches[];
   /**

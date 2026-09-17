@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   /**
    * @remarks
-   * Application ID.
+   * The application ID.
    * 
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
@@ -13,7 +13,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Application name.
+   * The application name.
    * 
    * @example
    * com.aaa.bbb
@@ -21,7 +21,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Application version.
+   * The application version.
    * 
    * @example
    * 1.5.0
@@ -29,7 +29,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * Application description.
+   * The application description.
    * 
    * @example
    * demo
@@ -37,7 +37,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Package format.
+   * The installation package format.
    * 
    * @example
    * apk
@@ -45,7 +45,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   pkgFormat?: string;
   /**
    * @remarks
-   * Package type: android/win.
+   * The installation package type. Valid values: android and win.
    * 
    * @example
    * android
@@ -53,7 +53,23 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   pkgType?: string;
   /**
    * @remarks
-   * Stable patch package ID.
+   * The relative path of the post-command within the application package. Only win type applications are supported.
+   * 
+   * @example
+   * install.ps1
+   */
+  postCommandPath?: string;
+  /**
+   * @remarks
+   * The timeout period for post-command execution, in seconds. Only win type applications are supported.
+   * 
+   * @example
+   * 10
+   */
+  postCommandTimeoutSec?: number;
+  /**
+   * @remarks
+   * The ID of the stable version patch package.
    * 
    * @example
    * patch-7bdf679812484df08a956b73e0b3bdf6
@@ -62,14 +78,12 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   /**
    * @remarks
    * The application upload status. Valid values:
-   * 
    * 1. Created
-   * 
    * 2. Doing
-   * 
-   * 3. Success: The desired state.
-   * 
-   * 4. Failed: The desired state.
+   * 3. Success: desired state.
+   * 4. Failed: desired state.
+   * 5. Deleting
+   * 6. DeleteFailed: desired state.
    * 
    * @example
    * Success
@@ -77,7 +91,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Status description.
+   * The status description.
    * 
    * @example
    * upload success
@@ -85,7 +99,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * Latest status update time.
+   * The latest status update time.
    * 
    * @example
    * 2024-05-28T14:48:34+08:00
@@ -93,7 +107,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Application upload time.
+   * The application upload time.
    * 
    * @example
    * 2024-05-28T14:28:14+08:00
@@ -107,6 +121,8 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
       description: 'Description',
       pkgFormat: 'PkgFormat',
       pkgType: 'PkgType',
+      postCommandPath: 'PostCommandPath',
+      postCommandTimeoutSec: 'PostCommandTimeoutSec',
       stablePatchId: 'StablePatchId',
       status: 'Status',
       statusDescription: 'StatusDescription',
@@ -123,6 +139,8 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
       description: 'string',
       pkgFormat: 'string',
       pkgType: 'string',
+      postCommandPath: 'string',
+      postCommandTimeoutSec: 'number',
       stablePatchId: 'string',
       status: 'string',
       statusDescription: 'string',
@@ -143,12 +161,12 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
 export class ListCloudAppsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of cloud application information.
+   * The list of cloud application information.
    */
   cloudApps?: ListCloudAppsResponseBodyCloudApps[];
   /**
    * @remarks
-   * Page number of the query list.
+   * The page number of the query list.
    * 
    * @example
    * 1
@@ -156,7 +174,7 @@ export class ListCloudAppsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of rows per page for paged queries.
+   * The number of entries per page for the paged query.
    * 
    * @example
    * 10
@@ -164,7 +182,7 @@ export class ListCloudAppsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -172,7 +190,7 @@ export class ListCloudAppsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of matching cloud application entries.
+   * The total number of matched cloud applications.
    * 
    * @example
    * 100

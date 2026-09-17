@@ -2,32 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RebootRenderingServerShrinkRequest extends $dara.Model {
+export class UpgradeRenderingInstanceImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform only an admission check without actually restarting the hosts. Default value: false.
+   * The image ID.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * true
+   * m-bp15om9lg9zb20magg86
    */
-  precheck?: boolean;
+  imageId?: string;
   /**
    * @remarks
-   * The list of cloud application service instance IDs.
+   * The list of cloud application service instance IDs. A maximum of 100 IDs can be specified.
    * 
    * This parameter is required.
    */
   renderingInstanceIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      precheck: 'Precheck',
+      imageId: 'ImageId',
       renderingInstanceIdsShrink: 'RenderingInstanceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      precheck: 'boolean',
+      imageId: 'string',
       renderingInstanceIdsShrink: 'string',
     };
   }

@@ -8,7 +8,7 @@ export class ListSpecificationsResponseBodyItems extends $dara.Model {
    * The specification family.
    * 
    * @example
-   * 4090CU
+   * G49\\G59
    */
   class?: string;
   /**
@@ -29,7 +29,7 @@ export class ListSpecificationsResponseBodyItems extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The number of cards per single load.
+   * The number of cards per workload.
    * 
    * @example
    * 1
@@ -37,10 +37,10 @@ export class ListSpecificationsResponseBodyItems extends $dara.Model {
   shard?: number;
   /**
    * @remarks
-   * `RenderingSpec`
+   * The specification.
    * 
    * @example
-   * crs.xic.s1
+   * ew.gn8t6xlarge-rb.x1p
    */
   specification?: string;
   /**
