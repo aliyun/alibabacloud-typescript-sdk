@@ -4086,7 +4086,8 @@ export default class Client extends OpenApi {
    * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+   * Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+   * Before you begin: Before calling this operation, make sure that Simple Log Service log delivery is enabled for the target gateway by calling UpdateGatewayFeature (name=log-config, value={"enable":true}). Otherwise, the error CloudProductInactive.LogDeliveryNotEnabled is returned.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @param headers - map
@@ -4138,7 +4139,8 @@ export default class Client extends OpenApi {
    * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+   * Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+   * Before you begin: Before calling this operation, make sure that Simple Log Service log delivery is enabled for the target gateway by calling UpdateGatewayFeature (name=log-config, value={"enable":true}). Otherwise, the error CloudProductInactive.LogDeliveryNotEnabled is returned.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @returns GetGatewayQuotaRuleSubjectUsageResponse
@@ -4147,6 +4149,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGatewayQuotaRuleSubjectUsageWithOptions(gatewayId, ruleId, subjectId, request, headers, runtime);
+  }
+
+  /**
+   * 查询网关资源配额与用量
+   * 
+   * @remarks
+   * 查询指定 API 网关或 AI 网关的九项资源配额用量、有效上限及统计范围。接口只读，成功响应包含全部九项；自定义插件配额暂不展示数值。该结果是各来源独立读取的当前观测，不保证新增资源一定成功。
+   * 
+   * @param request - GetGatewayResourceQuotaUsageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGatewayResourceQuotaUsageResponse
+   */
+  async getGatewayResourceQuotaUsageWithOptions(gatewayId: string, request: $_model.GetGatewayResourceQuotaUsageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetGatewayResourceQuotaUsageResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGatewayResourceQuotaUsage",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/resource-quota-usage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGatewayResourceQuotaUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetGatewayResourceQuotaUsageResponse({}));
+  }
+
+  /**
+   * 查询网关资源配额与用量
+   * 
+   * @remarks
+   * 查询指定 API 网关或 AI 网关的九项资源配额用量、有效上限及统计范围。接口只读，成功响应包含全部九项；自定义插件配额暂不展示数值。该结果是各来源独立读取的当前观测，不保证新增资源一定成功。
+   * 
+   * @param request - GetGatewayResourceQuotaUsageRequest
+   * @returns GetGatewayResourceQuotaUsageResponse
+   */
+  async getGatewayResourceQuotaUsage(gatewayId: string, request: $_model.GetGatewayResourceQuotaUsageRequest): Promise<$_model.GetGatewayResourceQuotaUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getGatewayResourceQuotaUsageWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -9356,12 +9403,12 @@ export default class Client extends OpenApi {
    * Edits a quota throttling rule on a gateway.
    * 
    * @remarks
-   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21. Editing a rule preserves the historical usage of consumer principals bound to the rule.
+   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
    * >  Recommended call sequence:
    * > - Step 1: Perform a dry run to check for rule conflicts.
    * > - - Set dryRun to true.
-   * > - - The response returns a conflict preview that contains conflictHash.
-   * > - Step 2: Confirm and submit the request.
+   * > - - The response contains a conflict preview with a conflictHash value.
+   * > - Step 2: Confirm and submit the changes.
    * > - - No conflicts: Set dryRun to false and overwrite to false.
    * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
@@ -9427,12 +9474,12 @@ export default class Client extends OpenApi {
    * Edits a quota throttling rule on a gateway.
    * 
    * @remarks
-   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21. Editing a rule preserves the historical usage of consumer principals bound to the rule.
+   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
    * >  Recommended call sequence:
    * > - Step 1: Perform a dry run to check for rule conflicts.
    * > - - Set dryRun to true.
-   * > - - The response returns a conflict preview that contains conflictHash.
-   * > - Step 2: Confirm and submit the request.
+   * > - - The response contains a conflict preview with a conflictHash value.
+   * > - Step 2: Confirm and submit the changes.
    * > - - No conflicts: Set dryRun to false and overwrite to false.
    * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 

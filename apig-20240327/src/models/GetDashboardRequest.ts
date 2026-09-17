@@ -35,7 +35,7 @@ export class GetDashboardRequestFilter extends $dara.Model {
 export class GetDashboardRequest extends $dara.Model {
   /**
    * @remarks
-   * The language. Valid values:
+   * The language of the response. Valid values:
    * 
    * - zh: Chinese
    * - en: English
@@ -59,10 +59,12 @@ export class GetDashboardRequest extends $dara.Model {
   filter?: GetDashboardRequestFilter;
   /**
    * @remarks
-   * The dashboard name. Valid values:
+   * The name of the dashboard. Valid values:
    * 
-   * - LOG: access log
-   * - PLUGIN: plugin log
+   * - LOG: Access log.
+   * - PLUGIN: Plugin log.
+   * 
+   * > Note: This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty (400).
    * 
    * @example
    * PLUGIN
@@ -94,9 +96,11 @@ export class GetDashboardRequest extends $dara.Model {
   routeId?: string;
   /**
    * @remarks
-   * The dashboard source. Valid values:
+   * The source of the dashboard. Valid values:
    * 
-   * - SLS: log dashboard
+   * - SLS: Log dashboard.
+   * 
+   * > Note: This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty (400).
    * 
    * @example
    * SLS

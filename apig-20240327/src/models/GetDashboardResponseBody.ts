@@ -13,7 +13,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The dashboard name.
+   * The name of the dashboard.
    * 
    * @example
    * PLUGIN
@@ -21,7 +21,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The dashboard title.
+   * The title of the dashboard.
    * 
    * @example
    * APIG Plugin

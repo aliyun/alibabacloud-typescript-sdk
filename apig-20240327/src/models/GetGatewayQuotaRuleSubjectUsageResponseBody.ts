@@ -13,7 +13,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   cachedAmount?: number;
   /**
    * @remarks
-   * The exact value of cached consumption. Supports decimals in credit scenarios.
+   * The exact value of cached consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 10.5
@@ -37,7 +37,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   inputAmount?: number;
   /**
    * @remarks
-   * The exact value of input consumption. Supports decimals in credit scenarios.
+   * The exact value of input consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 120.5
@@ -61,7 +61,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   outputAmount?: number;
   /**
    * @remarks
-   * The exact value of output consumption. Supports decimals in credit scenarios.
+   * The exact value of output consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 80.5
@@ -93,7 +93,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   usedAmount?: number;
   /**
    * @remarks
-   * The exact value of total consumption. Supports decimals in credit scenarios.
+   * The exact value of total consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 210.5
@@ -216,7 +216,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   cachedAmount?: number;
   /**
    * @remarks
-   * The exact value of total cached consumption. Supports decimals in credit scenarios.
+   * The exact value of total cached consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 20.5
@@ -240,7 +240,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   inputAmount?: number;
   /**
    * @remarks
-   * The exact value of total input consumption. Supports decimals in credit scenarios.
+   * The exact value of total input consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 300.5
@@ -256,7 +256,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   outputAmount?: number;
   /**
    * @remarks
-   * The exact value of total output consumption. Supports decimals in credit scenarios.
+   * The exact value of total output consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 180.5
@@ -304,7 +304,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   usedAmount?: number;
   /**
    * @remarks
-   * The exact value of the total used amount of the subject. Supports decimals in credit scenarios.
+   * The exact value of the total used amount of the subject. Decimals are supported in credit scenarios.
    * 
    * @example
    * 500.5
@@ -385,7 +385,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1234567890

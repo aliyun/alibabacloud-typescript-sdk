@@ -243,6 +243,8 @@ export { GetGatewayQuotaRuleResponseBodyData } from './GetGatewayQuotaRuleRespon
 export { GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems } from './GetGatewayQuotaRuleSubjectUsageResponseBody';
 export { GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails } from './GetGatewayQuotaRuleSubjectUsageResponseBody';
 export { GetGatewayQuotaRuleSubjectUsageResponseBodyData } from './GetGatewayQuotaRuleSubjectUsageResponseBody';
+export { GetGatewayResourceQuotaUsageResponseBodyDataItems } from './GetGatewayResourceQuotaUsageResponseBody';
+export { GetGatewayResourceQuotaUsageResponseBodyData } from './GetGatewayResourceQuotaUsageResponseBody';
 export { GetMcpServerResponseBodyDataAssembledSources } from './GetMcpServerResponseBody';
 export { GetMcpServerResponseBodyDataDomainInfos } from './GetMcpServerResponseBody';
 export { GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices } from './GetMcpServerResponseBody';
@@ -762,6 +764,9 @@ export { GetGatewayQuotaRuleResponse } from './GetGatewayQuotaRuleResponse';
 export { GetGatewayQuotaRuleSubjectUsageRequest } from './GetGatewayQuotaRuleSubjectUsageRequest';
 export { GetGatewayQuotaRuleSubjectUsageResponseBody } from './GetGatewayQuotaRuleSubjectUsageResponseBody';
 export { GetGatewayQuotaRuleSubjectUsageResponse } from './GetGatewayQuotaRuleSubjectUsageResponse';
+export { GetGatewayResourceQuotaUsageRequest } from './GetGatewayResourceQuotaUsageRequest';
+export { GetGatewayResourceQuotaUsageResponseBody } from './GetGatewayResourceQuotaUsageResponseBody';
+export { GetGatewayResourceQuotaUsageResponse } from './GetGatewayResourceQuotaUsageResponse';
 export { GetHttpApiRequest } from './GetHttpApiRequest';
 export { GetHttpApiResponseBody } from './GetHttpApiResponseBody';
 export { GetHttpApiResponse } from './GetHttpApiResponse';

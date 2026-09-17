@@ -21,7 +21,7 @@ export class UpdateConsumerAuthorizationRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C67DED2B-F19B-5BEC-88C1-D6EB854CD0D4
