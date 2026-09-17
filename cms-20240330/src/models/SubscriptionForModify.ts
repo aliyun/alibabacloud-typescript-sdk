@@ -126,7 +126,7 @@ export class SubscriptionForModify extends $dara.Model {
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * The UUID of the notification policy.
+   * The UUID of the notification strategy.
    * 
    * @example
    * 123123
@@ -139,9 +139,7 @@ export class SubscriptionForModify extends $dara.Model {
   pushingSetting?: SubscriptionForModifyPushingSetting;
   /**
    * @remarks
-   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
-   * - true: Subscribe.
-   * - false or null: Do not subscribe.
+   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values: true: Subscribe. false or null: Do not subscribe.
    * 
    * @example
    * false

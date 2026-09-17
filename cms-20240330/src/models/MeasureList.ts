@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class MeasureList extends $dara.Model {
   /**
    * @remarks
-   * The grouping dimension.
+   * The list of grouping dimensions for metric data. Specifies the dimension keys by which metric results are computed through grouping and aggregation.
+   * 
+   * @example
+   * ["host.name", "region"]
    */
   groupBy?: string[];
   /**

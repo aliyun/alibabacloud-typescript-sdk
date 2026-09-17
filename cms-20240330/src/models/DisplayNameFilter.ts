@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DisplayNameFilter extends $dara.Model {
   /**
    * @remarks
-   * Returns only resources whose display name contains the specified string. The match is case-sensitive.
+   * The inclusion keyword for the display name. Only alert rules whose display names contain this keyword are returned. Fuzzy match is supported.
+   * 
+   * @example
+   * CPU monitoring
    */
   contains?: string;
   /**
    * @remarks
-   * Returns only resources whose display name does not contain the specified string. The match is case-sensitive.
+   * The exclusion keyword for the display name. Alert rules whose display names contain this keyword are excluded. Fuzzy match is supported.
+   * 
+   * @example
+   * ARM
    */
   notContains?: string;
   static names(): { [key: string]: string } {

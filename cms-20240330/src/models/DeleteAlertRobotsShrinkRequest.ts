@@ -2,34 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Pagination extends $dara.Model {
+export class DeleteAlertRobotsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number, starting from 1.
+   * The chatbot ID.
    * 
-   * @example
-   * 1
+   * This parameter is required.
    */
-  pageNumber?: number;
+  robotIdsShrink?: string;
   /**
    * @remarks
-   * The number of records per page. This parameter controls the amount of data returned in a single request. Recommended value range: 1 to 100.
+   * The chatbot type.
    * 
    * @example
-   * 10
+   * DING
    */
-  pageSize?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
+      robotIdsShrink: 'robotIds',
+      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      pageSize: 'number',
+      robotIdsShrink: 'string',
+      type: 'string',
     };
   }
 

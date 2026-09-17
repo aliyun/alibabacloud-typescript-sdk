@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAlertWebhookRequest extends $dara.Model {
   /**
    * @remarks
-   * The content type of the data. Supported values:
-   * 
+   * The content type. Valid values:
    * - JSON
-   * 
    * - FORM
    * 
    * @example
@@ -17,15 +15,13 @@ export class UpdateAlertWebhookRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The headers.
+   * headers
    */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The language. Supported values:
-   * 
+   * The language. Valid values:
    * - zh_CN
-   * 
    * - en_US
    * 
    * @example
@@ -34,10 +30,8 @@ export class UpdateAlertWebhookRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The request method. Supported values:
-   * 
+   * The request method. Valid values:
    * - GET
-   * 
    * - POST
    * 
    * @example

@@ -135,7 +135,7 @@ export class IncidentResponsePlanForSNSView extends $dara.Model {
    * The name.
    * 
    * @example
-   * Sample response plan
+   * SampleResponsePlan
    */
   name?: string;
   /**
@@ -145,12 +145,12 @@ export class IncidentResponsePlanForSNSView extends $dara.Model {
   pushingSetting?: IncidentResponsePlanForSNSViewPushingSetting;
   /**
    * @remarks
-   * The repeat notification configuration.
+   * The repeat notification settings.
    */
   repeatNotifySetting?: IncidentResponsePlanForSNSViewRepeatNotifySetting;
   /**
    * @remarks
-   * The source. The value must be CUSTOM within SNS.
+   * The source. This value must be CUSTOM within SNS.
    * 
    * @example
    * CUSTOM
@@ -166,7 +166,7 @@ export class IncidentResponsePlanForSNSView extends $dara.Model {
   syncFromType?: string;
   /**
    * @remarks
-   * The response plan type. The value must be NOTIFY_STRATEGY_DEFINED within SNS.
+   * The response plan type. This value must be NOTIFY_STRATEGY_DEFINED within SNS.
    * 
    * @example
    * NOTIFY_STRATEGY_DEFINED

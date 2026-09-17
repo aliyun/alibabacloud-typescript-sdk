@@ -66,7 +66,7 @@ export class ListContactsRequest extends $dara.Model {
   queryUngroupedContacts?: boolean;
   /**
    * @remarks
-   * The workspace name.
+   * The workspace name. Format: `default-cms-{accountId}-{region}`. Example: `default-cms-1744108686100472-cn-hangzhou`. You can call the ListWorkspaces API to obtain valid workspace names.
    * 
    * @example
    * default-cms-1744108686100472-cn-hangzhou

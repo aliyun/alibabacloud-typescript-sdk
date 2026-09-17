@@ -6,7 +6,10 @@ import { CloudMonitoringCompositeEscalationEntry } from "./CloudMonitoringCompos
 export class CloudMonitoringCompositeEscalation extends $dara.Model {
   /**
    * @remarks
-   * The list of multi-condition configurations.
+   * The multi-condition configuration list for the cloud service monitoring composite trigger. The list contains multiple sub-causes that are combined by using logical operators (AND/OR) to determine whether to trigger an alert.
+   * 
+   * @example
+   * [{"metricName":"cpu_total","comparisonOperator":"GreaterThanThreshold","threshold":"90","times":3}]
    */
   escalations?: CloudMonitoringCompositeEscalationEntry[];
   /**
@@ -27,7 +30,7 @@ export class CloudMonitoringCompositeEscalation extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * The number of consecutive times the condition is triggered.
+   * The number of consecutive times the condition is met before the alert is triggered.
    * 
    * @example
    * 3

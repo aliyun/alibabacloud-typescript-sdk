@@ -11,7 +11,7 @@ export class TagSelector extends $dara.Model {
   conditions?: TagCondition[];
   /**
    * @remarks
-   * The custom expression in advanced mode, which overwrites conditions and relation.
+   * The custom expression in advanced mode. This overrides the conditions and relation settings.
    * 
    * @example
    * env=prod AND region=cn-hangzhou
@@ -19,7 +19,7 @@ export class TagSelector extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The condition relationship.
+   * The relationship between conditions.
    * 
    * @example
    * AND

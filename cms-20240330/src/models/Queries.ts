@@ -23,6 +23,9 @@ export class Queries extends $dara.Model {
   /**
    * @remarks
    * The label filter conditions for UMODEL_METRICSET_MULTI_QUERY. This parameter is optional and independent for each query.
+   * 
+   * @example
+   * [{"key":"host.name","value":"web-server-01","type":"eq"}]
    */
   labelFilters?: LabelFilters[];
   /**

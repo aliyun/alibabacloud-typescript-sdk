@@ -459,6 +459,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an alert robot.
+   * 
+   * @param request - CreateAlertRobotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAlertRobotResponse
+   */
+  async createAlertRobotWithOptions(request: $_model.CreateAlertRobotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertRobotResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.digitalEmployeeName)) {
+      body["digitalEmployeeName"] = request.digitalEmployeeName;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.robotId)) {
+      body["robotId"] = request.robotId;
+    }
+
+    if (!$dara.isNull(request.robotSignKey)) {
+      body["robotSignKey"] = request.robotSignKey;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAlertRobot",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/robot`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAlertRobotResponse>(await this.callApi(params, req, runtime), new $_model.CreateAlertRobotResponse({}));
+  }
+
+  /**
+   * Creates an alert robot.
+   * 
+   * @param request - CreateAlertRobotRequest
+   * @returns CreateAlertRobotResponse
+   */
+  async createAlertRobot(request: $_model.CreateAlertRobotRequest): Promise<$_model.CreateAlertRobotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAlertRobotWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a webhook.
    * 
    * @remarks
@@ -1955,6 +2028,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAggTaskGroupWithOptions(instanceId, groupId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes an alert chatbot.
+   * 
+   * @param tmpReq - DeleteAlertRobotsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAlertRobotsResponse
+   */
+  async deleteAlertRobotsWithOptions(tmpReq: $_model.DeleteAlertRobotsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlertRobotsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAlertRobotsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.robotIds)) {
+      request.robotIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.robotIds, "robotIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.robotIdsShrink)) {
+      query["robotIds"] = request.robotIdsShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAlertRobots",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/robots`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAlertRobotsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAlertRobotsResponse({}));
+  }
+
+  /**
+   * Deletes an alert chatbot.
+   * 
+   * @param request - DeleteAlertRobotsRequest
+   * @returns DeleteAlertRobotsResponse
+   */
+  async deleteAlertRobots(request: $_model.DeleteAlertRobotsRequest): Promise<$_model.DeleteAlertRobotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertRobotsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5575,8 +5703,7 @@ export default class Client extends OpenApi {
    * Queries alert robots.
    * 
    * @remarks
-   * This operation can only query alert history from the last year.
-   * This topic provides an example of querying the alert history of Elastic Computing Service from the `product` dimension of a cloud service.
+   * Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
    * 
    * @param tmpReq - ListAlertRobotsRequest
    * @param headers - map
@@ -5642,8 +5769,7 @@ export default class Client extends OpenApi {
    * Queries alert robots.
    * 
    * @remarks
-   * This operation can only query alert history from the last year.
-   * This topic provides an example of querying the alert history of Elastic Computing Service from the `product` dimension of a cloud service.
+   * Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
    * 
    * @param request - ListAlertRobotsRequest
    * @returns ListAlertRobotsResponse
@@ -8430,6 +8556,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAggTaskGroupStatusWithOptions(instanceId, groupId, request, headers, runtime);
+  }
+
+  /**
+   * Updates an alert robot.
+   * 
+   * @param request - UpdateAlertRobotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertRobotResponse
+   */
+  async updateAlertRobotWithOptions(robotId: string, request: $_model.UpdateAlertRobotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertRobotResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.digitalEmployeeName)) {
+      body["digitalEmployeeName"] = request.digitalEmployeeName;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.robotSignKey)) {
+      body["robotSignKey"] = request.robotSignKey;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlertRobot",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/robot/${$dara.URL.percentEncode(robotId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlertRobotResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlertRobotResponse({}));
+  }
+
+  /**
+   * Updates an alert robot.
+   * 
+   * @param request - UpdateAlertRobotRequest
+   * @returns UpdateAlertRobotResponse
+   */
+  async updateAlertRobot(robotId: string, request: $_model.UpdateAlertRobotRequest): Promise<$_model.UpdateAlertRobotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertRobotWithOptions(robotId, request, headers, runtime);
   }
 
   /**

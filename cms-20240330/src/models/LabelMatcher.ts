@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class LabelMatcher extends $dara.Model {
   /**
    * @remarks
-   * The label key to match.
+   * The key name of the label matcher. This parameter specifies the label dimension identity to match.
+   * 
+   * @example
+   * _cms_workspace
    */
   key?: string;
   /**
    * @remarks
-   * The label value to match.
+   * The match value of the label matcher. This parameter is used together with key to specify the value that the label key must match.
+   * 
+   * @example
+   * test-123
    */
   value?: string;
   static names(): { [key: string]: string } {

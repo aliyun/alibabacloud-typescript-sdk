@@ -7,6 +7,9 @@ export class MetricSetTriggerCompositeExpression extends $dara.Model {
   /**
    * @remarks
    * The list of sub-conditions. Each item is a simple comparison expression.
+   * 
+   * @example
+   * [{"metric":"cpu_usage","operator":"GreaterThanThreshold","threshold":"90"},{"metric":"mem_usage","operator":"GreaterThanThreshold","threshold":"85"}]
    */
   conditions?: MetricSetTriggerSimpleExpression[];
   /**

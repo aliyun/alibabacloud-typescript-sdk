@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SeverityLevelsFilter extends $dara.Model {
   /**
    * @remarks
-   * Matches a log entry if its severity level appears in this array of strings.
+   * The hit condition: the set of severity levels covered by the rule contains at least one level in the array (OR semantics).
+   * 
+   * @example
+   * ["CRITICAL","ERROR"]
    */
   contains?: string[];
   static names(): { [key: string]: string } {

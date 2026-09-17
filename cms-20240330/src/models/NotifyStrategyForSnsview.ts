@@ -156,12 +156,12 @@ export class NotifyStrategyForSNSViewRoutesChannels extends $dara.Model {
 export class NotifyStrategyForSNSViewRoutesEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * The effective days, from Monday to Sunday.
+   * The effective days (Monday to Sunday).
    */
   dayInWeek?: number[];
   /**
    * @remarks
-   * The start time in minutes.
+   * The start time (in minutes).
    * 
    * @example
    * 1
@@ -169,7 +169,7 @@ export class NotifyStrategyForSNSViewRoutesEffectTimeRange extends $dara.Model {
   endTimeInMinute?: number;
   /**
    * @remarks
-   * The start time in minutes.
+   * The start time (in minutes).
    * 
    * @example
    * 1
@@ -224,7 +224,7 @@ export class NotifyStrategyForSNSViewRoutes extends $dara.Model {
    * The digital employee name.
    * 
    * @example
-   * Sample name
+   * SampleName
    */
   digitalEmployeeName?: string;
   /**
@@ -312,7 +312,7 @@ export class NotifyStrategyForSNSView extends $dara.Model {
    * The description.
    * 
    * @example
-   * Sample description
+   * SampleDescription
    */
   description?: string;
   /**
@@ -338,7 +338,7 @@ export class NotifyStrategyForSNSView extends $dara.Model {
   groupingSetting?: NotifyStrategyForSNSViewGroupingSetting;
   /**
    * @remarks
-   * Indicates whether recovery notifications are sent.
+   * Indicates whether to send a notification upon recovery.
    * 
    * @example
    * true
@@ -346,7 +346,7 @@ export class NotifyStrategyForSNSView extends $dara.Model {
   ignoreRestoredNotification?: boolean;
   /**
    * @remarks
-   * The UUID of the associated response plan, which equals notifyStrategyId.
+   * The associated response plan UUID, which equals notifyStrategyId.
    * 
    * @example
    * example-id-001
@@ -357,7 +357,7 @@ export class NotifyStrategyForSNSView extends $dara.Model {
    * The lifecycle mode. Within SNS, this value is always BundleStrategy.
    * 
    * @example
-   * Sample value
+   * SampleValue
    */
   mode?: string;
   /**
@@ -373,7 +373,7 @@ export class NotifyStrategyForSNSView extends $dara.Model {
    * The name.
    * 
    * @example
-   * Sample name
+   * SampleName
    */
   notifyStrategyName?: string;
   /**
@@ -383,7 +383,7 @@ export class NotifyStrategyForSNSView extends $dara.Model {
   routes?: NotifyStrategyForSNSViewRoutes[];
   /**
    * @remarks
-   * The synchronization source. For SNS creation, this value is always OBS.
+   * The sync source. For SNS creation, this value is always OBS.
    * 
    * @example
    * default
@@ -410,7 +410,7 @@ export class NotifyStrategyForSNSView extends $dara.Model {
    * The workspace identifier.
    * 
    * @example
-   * Sample value
+   * SampleValue
    */
   workspace?: string;
   static names(): { [key: string]: string } {

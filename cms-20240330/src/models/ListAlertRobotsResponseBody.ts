@@ -37,7 +37,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   robotId?: string;
   /**
    * @remarks
-   * The signature key of the robot.
+   * The signing key of the robot.
    * 
    * @example
    * abc123
@@ -45,7 +45,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   robotSignKey?: string;
   /**
    * @remarks
-   * The robot type.
+   * The robot types.
    * 
    * @example
    * DING
@@ -129,7 +129,7 @@ export class ListAlertRobotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The robot ID.
+   * The robot IDs.
    */
   robots?: ListAlertRobotsResponseBodyRobots[];
   /**

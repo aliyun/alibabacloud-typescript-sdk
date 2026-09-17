@@ -13,7 +13,7 @@ export class NotifyRouteForSubscriptionChannels extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The list of enabled sub-channels.
+   * The list of enabled subchannels.
    */
   enabledSubChannels?: string[];
   /**

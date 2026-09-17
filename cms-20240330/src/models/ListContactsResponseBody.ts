@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactsResponseBodyContacts extends $dara.Model {
   /**
    * @remarks
-   * The ID of the on-duty contact.
+   * The ID of the alert contact.
    * 
    * @example
    * test

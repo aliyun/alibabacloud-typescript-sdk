@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAlertRulesRelationTypeFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Matches any value in the set with OR semantics. Valid values: ALL, UMODEL_ENTITY, CLOUD_INSTANCE, GROUP_V1, GROUP_V2, and TAG.
+   * 
+   * @example
+   * ["ALL","CLOUD_INSTANCE"]
+   */
   in?: string[];
+  /**
+   * @remarks
+   * Excludes any value in the set with NOT IN semantics.
+   * 
+   * @example
+   * ["TAG","GROUP_V1"]
+   */
   notIn?: string[];
   static names(): { [key: string]: string } {
     return {

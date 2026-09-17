@@ -5,21 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class ApmMeasureConfig extends $dara.Model {
   /**
    * @remarks
-   * The grouping dimension.
+   * The list of grouping dimensions for the APM metric. This parameter specifies the dimension keys by which to perform grouping and aggregation on metric data.
+   * 
+   * @example
+   * ["host.name", "service.name"]
    */
   groupBy?: string[];
   /**
    * @remarks
-   * The metric code.
+   * The code identifier of the APM metric. This parameter specifies the metric type to collect and query.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * CPU
    */
   measureCode?: string;
   /**
    * @remarks
-   * The query time window in seconds.
+   * The query time window, in seconds.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 10
    */
   windowSecs?: number;
   static names(): { [key: string]: string } {

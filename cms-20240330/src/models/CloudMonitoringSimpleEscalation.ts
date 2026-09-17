@@ -6,7 +6,10 @@ import { CloudMonitoringSimpleEscalationEntry } from "./CloudMonitoringSimpleEsc
 export class CloudMonitoringSimpleEscalation extends $dara.Model {
   /**
    * @remarks
-   * The multi-level trigger list.
+   * The list of multi-level trigger configurations for cloud service monitoring. Each item defines a trigger level, such as Warning or Critical, and includes parameters such as the threshold, duration, and notification method.
+   * 
+   * @example
+   * [{"level":"WARN","comparisonOperator":"GreaterThanThreshold","threshold":"80","times":3}]
    */
   escalations?: CloudMonitoringSimpleEscalationEntry[];
   /**
@@ -19,7 +22,7 @@ export class CloudMonitoringSimpleEscalation extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The collection period, in seconds.
+   * The aggregation period, in seconds.
    * 
    * @example
    * 60

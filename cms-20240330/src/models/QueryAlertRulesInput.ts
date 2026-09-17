@@ -7,17 +7,26 @@ import { Pagination } from "./Pagination";
 export class QueryAlertRulesInput extends $dara.Model {
   /**
    * @remarks
-   * The filter criteria. Only alert rules that match these criteria are returned.
+   * The comprehensive filter conditions for querying alert rules. Supports combined filtering by multiple dimensions such as name, status, severity level, tags, and notification channels.
+   * 
+   * @example
+   * {"status":{"eq":"Alarm"},"severityLevels":{"contains":["CRITICAL","ERROR"]}}
    */
   filter?: QueryAlertRulesFilter;
   /**
    * @remarks
-   * The pagination settings for the query. If omitted, the system returns the first page of results with the default page size.
+   * The pagination mode parameter. keyset indicates keyset-based pagination.
+   * 
+   * @example
+   * {"pageNumber":1,"pageSize":20}
    */
   pagination?: Pagination;
   /**
    * @remarks
-   * The ID of the workspace that contains the alert rules.
+   * The observable workspace name. If this parameter is not specified, all alert rules are returned based on the caller identity (callerUserId + callerRegionId). If this parameter is specified, only the rules under the specified workspace are returned.
+   * 
+   * @example
+   * workspace-test
    */
   workspace?: string;
   static names(): { [key: string]: string } {

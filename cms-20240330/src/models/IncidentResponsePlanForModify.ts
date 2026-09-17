@@ -7,7 +7,7 @@ import { RepeatNotifySetting } from "./RepeatNotifySetting";
 export class IncidentResponsePlanForModify extends $dara.Model {
   /**
    * @remarks
-   * The auto-recovery time in seconds when no events occur.
+   * The auto-recovery time when no events occur, in seconds.
    * 
    * @example
    * 100
@@ -39,7 +39,7 @@ export class IncidentResponsePlanForModify extends $dara.Model {
    * The lifecycle mode.
    * 
    * @example
-   * SampleValue
+   * Sample value
    */
   mode?: string;
   /**
@@ -47,7 +47,7 @@ export class IncidentResponsePlanForModify extends $dara.Model {
    * The name.
    * 
    * @example
-   * SampleName
+   * Sample name
    */
   name?: string;
   /**
@@ -65,7 +65,7 @@ export class IncidentResponsePlanForModify extends $dara.Model {
    * The source.
    * 
    * @example
-   * SampleValue
+   * Sample value
    */
   source?: string;
   /**
@@ -86,7 +86,7 @@ export class IncidentResponsePlanForModify extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Required for Update. Can be omitted for Create, in which case the backend generates it. The UUID is shared with NotifyStrategy.
+   * Required for Update. Can be omitted for Create, in which case the backend generates it. Shared with NotifyStrategy.
    * 
    * @example
    * example-id-001

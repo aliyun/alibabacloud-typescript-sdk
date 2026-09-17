@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAlertRulesEntityTypeFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Matches any value in the set (OR semantics).
+   * 
+   * @example
+   * ["UMODEL_ENTITY","CLOUD_INSTANCE"]
+   */
   in?: string[];
+  /**
+   * @remarks
+   * Excludes any value in the set (NOT IN semantics).
+   * 
+   * @example
+   * ["TAG"]
+   */
   notIn?: string[];
   static names(): { [key: string]: string } {
     return {

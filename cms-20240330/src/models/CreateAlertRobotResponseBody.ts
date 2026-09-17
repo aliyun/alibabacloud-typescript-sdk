@@ -2,34 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Pagination extends $dara.Model {
+export class CreateAlertRobotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number, starting from 1.
+   * The robot ID.
    * 
    * @example
-   * 1
+   * testId
    */
-  pageNumber?: number;
+  alertRobotId?: string;
   /**
    * @remarks
-   * The number of records per page. This parameter controls the amount of data returned in a single request. Recommended value range: 1 to 100.
+   * The request ID.
    * 
    * @example
-   * 10
+   * 8FDE2569-626B-5176-9844-28877A*****
    */
-  pageSize?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
+      alertRobotId: 'alertRobotId',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      pageSize: 'number',
+      alertRobotId: 'string',
+      requestId: 'string',
     };
   }
 

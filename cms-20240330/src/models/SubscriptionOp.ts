@@ -7,6 +7,9 @@ export class SubscriptionOp extends $dara.Model {
   /**
    * @remarks
    * The operation type.
+   * 
+   * @example
+   * create
    */
   op?: string;
   /**
@@ -17,6 +20,9 @@ export class SubscriptionOp extends $dara.Model {
   /**
    * @remarks
    * Required for update and remove operations.
+   * 
+   * @example
+   * 7076c75c-c804-461e-975f-c6f9ed5af745
    */
   uuid?: string;
   static names(): { [key: string]: string } {

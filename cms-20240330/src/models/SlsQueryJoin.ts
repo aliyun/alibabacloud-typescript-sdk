@@ -6,7 +6,10 @@ import { SlsJoinCondition } from "./SlsJoinCondition";
 export class SlsQueryJoin extends $dara.Model {
   /**
    * @remarks
-   * The list of join conditions.
+   * The list of join conditions for SLS query result sets. The conditions define the matching rules between multiple SLS query results for cross-Logstore data correlation analysis.
+   * 
+   * @example
+   * [{"leftField":"traceId","operator":"eq","rightField":"trace_id"}]
    */
   conditions?: SlsJoinCondition[];
   /**

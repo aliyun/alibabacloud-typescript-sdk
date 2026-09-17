@@ -155,7 +155,7 @@ export class SubscriptionForView extends $dara.Model {
   pushingSetting?: SubscriptionForViewPushingSetting;
   /**
    * @remarks
-   * Indicates whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: Subscribed. false or null: Not subscribed.
+   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values: true: Subscribe. false or null: Do not subscribe.
    * 
    * @example
    * false
@@ -171,7 +171,7 @@ export class SubscriptionForView extends $dara.Model {
   subscriptionId?: string;
   /**
    * @remarks
-   * The name.
+   * The name of the subscription.
    * 
    * This parameter is required.
    * 

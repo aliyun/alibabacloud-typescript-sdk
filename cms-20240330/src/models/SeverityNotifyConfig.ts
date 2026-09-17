@@ -6,7 +6,7 @@ import { DirectNotifyReceiver } from "./DirectNotifyReceiver";
 export class SeverityNotifyConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of Notification Recipients. Each recipient specifies the type, identifier, and enabled channels.
+   * The list of Notification Recipients. Each recipient specifies a type, an identifier, and the enabled channels.
    */
   receivers?: DirectNotifyReceiver[];
   /**

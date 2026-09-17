@@ -6,12 +6,15 @@ import { JoinConditions } from "./JoinConditions";
 export class Joinings extends $dara.Model {
   /**
    * @remarks
-   * The list of join conditions.
+   * The list of join conditions for result sets. The conditions define the matching rules between multiple result sets and are used to merge query results from different data sources based on specified conditions.
+   * 
+   * @example
+   * [{"leftField":"host","operator":"eq","rightField":"instance_id"}]
    */
   conditions?: JoinConditions[];
   /**
    * @remarks
-   * The set operation type. Valid values: InnerJoin, LeftJoin, RightJoin, FullJoin, LeftExclude, RightExclude, CrossJoin, NoJoin, and Concat.
+   * The set operation type: InnerJoin / LeftJoin / RightJoin / FullJoin / LeftExclude / RightExclude / CrossJoin / NoJoin / Concat.
    * 
    * @example
    * INNER
