@@ -6,9 +6,9 @@ export class CreateAgentSessionRequestParamsMetaAgent extends $dara.Model {
   /**
    * @remarks
    * The name of the agent bound to the session. This parameter is required.
-   * * dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
-   * * dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
-   * * dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+   * * dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire pipeline of data integration, development, O&M, governance, and analytics.
+   * * dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visualization report output.
+   * * dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. A DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
    * 
    * @example
    * dataworks_data_agent
@@ -38,7 +38,7 @@ export class CreateAgentSessionRequestParamsMetaAgent extends $dara.Model {
 export class CreateAgentSessionRequestParamsMetaConfigSessionTags extends $dara.Model {
   /**
    * @remarks
-   * The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI operations but your calling system has its own account system, you can pass the account ID of your calling system as this tag to filter the session list by account ID. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The session tag. You can filter sessions by tag. For example, if you use a fixed RAM user to call OpenAPI but your calling system has its own account system, you can pass the account ID of your calling system as this tag to filter the session list by account ID. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * chatbi
@@ -68,7 +68,7 @@ export class CreateAgentSessionRequestParamsMetaConfigSessionTags extends $dara.
 export class CreateAgentSessionRequestParamsMetaConfig extends $dara.Model {
   /**
    * @remarks
-   * The session source identifier for retrieval by source. For example, if an agent is used on both page A and page B, and you want page A to display only sessions created from page A, you can filter based on this parameter. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The session source identifier for retrieval by source. For example, if an agent is used on both page A and page B, and you want page A to display only sessions created on page A, you can filter by this parameter. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * openapi_sdk
@@ -108,9 +108,9 @@ export class CreateAgentSessionRequestParamsMetaConfig extends $dara.Model {
 export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $dara.Model {
   /**
    * @remarks
-   * The exec mode. Valid values:
+   * The execution pattern. Valid values:
    * * chat: conversation mode only. Suitable for simple Q&A scenarios. Advantages: fast response and low token consumption. Disadvantages: cannot handle complex problems.
-   * * cli: sandbox mode. Suitable for complex data analytics, data processing, and code writing scenarios. Advantages: can handle complex problems with the model autonomously performing analysis and problem resolution. Disadvantages: slower processing speed and higher token consumption compared to chat mode.
+   * * cli: sandbox pattern. Suitable for complex data analytics, data processing, and code writing scenarios. Advantages: can handle complex problems, and the model autonomously executes analysis and problem resolution. Disadvantages: slower processing speed and higher token consumption compared to chat pattern.
    * 
    * @example
    * chat，cli
@@ -119,7 +119,7 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
   /**
    * @remarks
    * The authorization mode for script execution. OpenAPI currently supports only the yolo mode. Valid values:
-   * * yolo: automatic authorization. No human intervention is required, and the model can process tasks automatically.
+   * * yolo: automatic authorization. No manual intervention is required, and the model can process tasks automatically.
    * 
    * @example
    * yolo

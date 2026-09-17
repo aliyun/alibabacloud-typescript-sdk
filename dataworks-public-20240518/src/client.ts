@@ -1191,12 +1191,12 @@ export default class Client extends OpenApi {
    * Creates a new agent session and returns the session ID.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * - This operation creates a new agent session.
-   * - Use `_meta.agent.agentName` to specify the bound agent name. This parameter is required.
-   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
-   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
-   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+   * - Use `_meta.agent.agentName` to specify the agent name to bind. This parameter is required.
+   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire pipeline of data integration, development, O&M, governance, and analytics.
+   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visualization report output.
+   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. A DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
    * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
    * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
    * 
@@ -1246,12 +1246,12 @@ export default class Client extends OpenApi {
    * Creates a new agent session and returns the session ID.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * - This operation creates a new agent session.
-   * - Use `_meta.agent.agentName` to specify the bound agent name. This parameter is required.
-   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
-   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
-   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+   * - Use `_meta.agent.agentName` to specify the agent name to bind. This parameter is required.
+   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire pipeline of data integration, development, O&M, governance, and analytics.
+   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visualization report output.
+   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. A DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
    * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
    * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
    * 
@@ -19720,6 +19720,68 @@ export default class Client extends OpenApi {
   async renameWorkflowDefinition(request: $_model.RenameWorkflowDefinitionRequest): Promise<$_model.RenameWorkflowDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.renameWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * Replies to a pending user interaction in a DataAgent session.
+   * 
+   * @remarks
+   * Replies to a permission_request issued by the DataAgent daemon. You can submit an answer to an ask_user_question or cancel the current interaction. The PermissionRequestId must come from the params.data.requestId field in the _qwen/notify event (params.kind=permission_request) of the original PromptAgentSession SSE. The reply only returns whether it was accepted. Subsequent execution events are still returned through the original PromptAgentSession SSE. Do not resubmit the same prompt round.
+   * 
+   * @param tmpReq - ReplyAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReplyAgentSessionResponse
+   */
+  async replyAgentSessionWithOptions(tmpReq: $_model.ReplyAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReplyAgentSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.ReplyAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReplyAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReplyAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.ReplyAgentSessionResponse({}));
+  }
+
+  /**
+   * Replies to a pending user interaction in a DataAgent session.
+   * 
+   * @remarks
+   * Replies to a permission_request issued by the DataAgent daemon. You can submit an answer to an ask_user_question or cancel the current interaction. The PermissionRequestId must come from the params.data.requestId field in the _qwen/notify event (params.kind=permission_request) of the original PromptAgentSession SSE. The reply only returns whether it was accepted. Subsequent execution events are still returned through the original PromptAgentSession SSE. Do not resubmit the same prompt round.
+   * 
+   * @param request - ReplyAgentSessionRequest
+   * @returns ReplyAgentSessionResponse
+   */
+  async replyAgentSession(request: $_model.ReplyAgentSessionRequest): Promise<$_model.ReplyAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.replyAgentSessionWithOptions(request, runtime);
   }
 
   /**
