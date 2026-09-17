@@ -5833,6 +5833,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!$dara.isNull(request.customOrderNum)) {
+      query["CustomOrderNum"] = request.customOrderNum;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }

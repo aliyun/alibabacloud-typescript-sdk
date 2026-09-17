@@ -13,6 +13,14 @@ export class ModifyAppInfoRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The sort number.
+   * 
+   * @example
+   * 1
+   */
+  customOrderNum?: number;
+  /**
+   * @remarks
    * The app name.
    * 
    * @example
@@ -38,6 +46,7 @@ export class ModifyAppInfoRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      customOrderNum: 'CustomOrderNum',
       name: 'Name',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
@@ -47,6 +56,7 @@ export class ModifyAppInfoRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      customOrderNum: 'number',
       name: 'string',
       regionId: 'string',
       resourceType: 'string',

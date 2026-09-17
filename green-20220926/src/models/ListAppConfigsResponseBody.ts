@@ -29,6 +29,14 @@ export class ListAppConfigsResponseBodyData extends $dara.Model {
   customConfig?: { [key: string]: any };
   /**
    * @remarks
+   * The sort number.
+   * 
+   * @example
+   * 1
+   */
+  customOrderNum?: number;
+  /**
+   * @remarks
    * The publish status.
    * 
    * @example
@@ -37,7 +45,7 @@ export class ListAppConfigsResponseBodyData extends $dara.Model {
   deployStatus?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last modified time.
    * 
    * @example
    * 2026-06-15 10:17:49
@@ -85,6 +93,7 @@ export class ListAppConfigsResponseBodyData extends $dara.Model {
       appId: 'AppId',
       classify: 'Classify',
       customConfig: 'CustomConfig',
+      customOrderNum: 'CustomOrderNum',
       deployStatus: 'DeployStatus',
       gmtModified: 'GmtModified',
       name: 'Name',
@@ -100,6 +109,7 @@ export class ListAppConfigsResponseBodyData extends $dara.Model {
       appId: 'string',
       classify: 'string',
       customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      customOrderNum: 'number',
       deployStatus: 'string',
       gmtModified: 'string',
       name: 'string',
