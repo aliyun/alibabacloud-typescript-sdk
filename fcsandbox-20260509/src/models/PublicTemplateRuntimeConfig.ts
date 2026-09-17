@@ -16,10 +16,10 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The disk size. Unit: GB.
+   * The disk size. Unit: MB.
    * 
    * @example
-   * 10
+   * 10240
    */
   diskSize?: number;
   /**
