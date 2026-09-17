@@ -33,12 +33,12 @@ export class ListAgentIMChannelsRequest extends $dara.Model {
   /**
    * @remarks
    * The IM channel status. Valid values:
-   * - CREATING: being created.
-   * - READY: ready.
-   * - UPDATING: being updated.
-   * - FAILED: failed.
-   * - DELETING: being deleted.
-   * - DELETE_FAILED: deletion failed.
+   * - CREATING: The channel is being created.
+   * - READY: The channel is ready.
+   * - UPDATING: The channel is being updated.
+   * - FAILED: The channel creation or update failed.
+   * - DELETING: The channel is being deleted.
+   * - DELETE_FAILED: The channel deletion failed.
    * 
    * @example
    * READY

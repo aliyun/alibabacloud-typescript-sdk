@@ -18,7 +18,7 @@ export class UpdateWorkspaceRequestBodyNetworkConfigurationVpc extends $dara.Mod
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID.
+   * The VPC ID of the user.
    * 
    * @example
    * vpc-bp1234567890
@@ -55,7 +55,7 @@ export class UpdateWorkspaceRequestBodyNetworkConfigurationVpc extends $dara.Mod
 export class UpdateWorkspaceRequestBodyNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The VPC network configuration.
+   * The VPC network configuration of the user.
    * 
    * This parameter is required.
    */

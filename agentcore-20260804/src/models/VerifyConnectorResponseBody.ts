@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyConnectorResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of Service Account Key names that failed validation. Each element is a key name string. This list is empty if all keys pass validation.
+   * The list of Service Account Key labels that failed validation or returned indeterminate results.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class VerifyConnectorResponseBodyData extends $dara.Model {
   invalidServiceAccountKeys?: string[];
   /**
    * @remarks
-   * Indicates whether the credentials are valid.
+   * Indicates whether all validated Service Account Keys are valid.
    * 
    * @example
    * true

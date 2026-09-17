@@ -124,7 +124,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   resourceRefs?: ListCredentialsResponseBodyItemsResourceRefs[];
   /**
    * @remarks
-   * The scope of resources to which the credential can be applied.
+   * The resource scope of the credential.
    * 
    * @example
    * ALL
@@ -216,7 +216,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   items?: ListCredentialsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page that took effect for this query.
+   * The maximum number of records per page that takes effect for this query.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size. The current version does not support this parameter.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListConnectorsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next page token. The current version does not support this parameter.
    * 
    * @example
    * dGVzdA==

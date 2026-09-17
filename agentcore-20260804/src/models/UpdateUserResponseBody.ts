@@ -45,7 +45,7 @@ export class UpdateUserResponseBodyData extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username. The name must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 32 characters in length.
+   * The username. The name must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit and be 1 to 32 characters in length.
    * 
    * @example
    * user-01

@@ -21,7 +21,7 @@ export class DisableConnectorResponseBodyData extends $dara.Model {
   enabledAt?: string;
   /**
    * @remarks
-   * A JSON string. For qodercli: {"site":"global|cn","organizationId":"...","apiKey":"...","serviceAccountKeys":[{"id":"ckey-xxx","name":"default","serviceAccountKey":"..."}]}. This field is empty when the Connector is not enabled.
+   * The Connector configuration JSON string before the Connector was disabled. This is sensitive data.
    * 
    * @example
    * {"site":"global","organizationId":"org-xxxx"}
@@ -29,7 +29,7 @@ export class DisableConnectorResponseBodyData extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The Connector name.
+   * The Connector name. Currently, the value is qodercli.
    * 
    * @example
    * qodercli

@@ -6,6 +6,9 @@ export class VerifyWorkspaceOssMountRamAuthorizationResponseBodyData extends $da
   /**
    * @remarks
    * The OSS storage authorization status.
+   * 
+   * @example
+   * AUTHORIZED
    */
   authorizationStatus?: string;
   static names(): { [key: string]: string } {
@@ -33,6 +36,9 @@ export class VerifyWorkspaceOssMountRamAuthorizationResponseBody extends $dara.M
   /**
    * @remarks
    * The business status code.
+   * 
+   * @example
+   * SUCCESS
    */
   code?: string;
   /**
@@ -43,16 +49,25 @@ export class VerifyWorkspaceOssMountRamAuthorizationResponseBody extends $dara.M
   /**
    * @remarks
    * The HTTP status code.
+   * 
+   * @example
+   * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
    * The response message.
+   * 
+   * @example
+   * success
    */
   message?: string;
   /**
    * @remarks
    * The request ID.
+   * 
+   * @example
+   * 1a2b3c4d-xxxx-xxxx-xxxx-xxxxxxxxxxxx
    */
   requestId?: string;
   /**

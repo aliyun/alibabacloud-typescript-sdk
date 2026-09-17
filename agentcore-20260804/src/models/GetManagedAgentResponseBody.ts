@@ -121,7 +121,7 @@ export class GetManagedAgentResponseBodyDataEnvironment extends $dara.Model {
 export class GetManagedAgentResponseBodyDataHarnessConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The Service Account Key bound to the QoderCLI Connector by Key ID. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+   * The connector service account key.
    * 
    * @example
    * key-xxxx
@@ -129,7 +129,7 @@ export class GetManagedAgentResponseBodyDataHarnessConfiguration extends $dara.M
   connectorServiceAccountKey?: string;
   /**
    * @remarks
-   * The Connector Key name that is backfilled during queries. This parameter is not used as a binding reference during writes.
+   * The connector service account name.
    * 
    * @example
    * my-connector-key
@@ -161,12 +161,12 @@ export class GetManagedAgentResponseBodyDataHarnessConfiguration extends $dara.M
 export class GetManagedAgentResponseBodyDataHarness extends $dara.Model {
   /**
    * @remarks
-   * The Connector binding configuration for the qodercli harness.
+   * The runtime harness configuration.
    */
   configuration?: GetManagedAgentResponseBodyDataHarnessConfiguration;
   /**
    * @remarks
-   * The runtime harness type. Valid values: qwenpaw and qodercli. The qodercli type binds by configuration.connectorServiceAccountKey, and the name is also backfilled during queries.
+   * The runtime harness type.
    * 
    * @example
    * qodercli
@@ -201,7 +201,7 @@ export class GetManagedAgentResponseBodyDataHarness extends $dara.Model {
 export class GetManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the quota is enabled. This parameter is not returned when no quota is configured.
+   * Indicates whether the quota is enabled. Not returned if no quota is configured.
    * 
    * @example
    * true
@@ -209,7 +209,7 @@ export class GetManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The quota limit type. Currently, only token is supported.
+   * The quota limit type. Currently only token is supported.
    * 
    * @example
    * token
@@ -217,7 +217,7 @@ export class GetManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   limitType?: string;
   /**
    * @remarks
-   * Indicates whether the quota has been exceeded in the current period. This parameter is read-only and returned by the backend.
+   * Indicates whether the quota has been exceeded in the current period. Read-only, returned by the backend.
    * 
    * @example
    * false
@@ -233,7 +233,7 @@ export class GetManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   periodType?: string;
   /**
    * @remarks
-   * The gateway quota rule status. This parameter is read-only and returned by the backend.
+   * The gateway quota rule status. Read-only, returned by the backend.
    * 
    * @example
    * ACTIVE
@@ -249,7 +249,7 @@ export class GetManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   usageLimit?: number;
   /**
    * @remarks
-   * The number of tokens consumed in the current period. This parameter is read-only and returned by the backend.
+   * The number of tokens consumed in the current period. Read-only, returned by the backend.
    * 
    * @example
    * 12345
@@ -307,7 +307,7 @@ export class GetManagedAgentResponseBodyDataModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model token quota configuration and quota usage status for the current period. This parameter is empty when no quota is configured.
+   * The model token quota configuration and usage status for the current period. Empty if no quota is configured.
    */
   quota?: GetManagedAgentResponseBodyDataModelQuota;
   static names(): { [key: string]: string } {
@@ -441,17 +441,26 @@ export class GetManagedAgentResponseBodyDataNetwork extends $dara.Model {
 export class GetManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket name. This parameter is required for each mount entry as validated by the backend.
+   * The OSS bucket name. Required for each mount entry, validated by the backend.
+   * 
+   * @example
+   * bucket-001
    */
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path in the container. This parameter is required for each mount entry as validated by the backend.
+   * The absolute mount path in the container. Required for each mount entry, validated by the backend.
+   * 
+   * @example
+   * /mnt/oss/datasets
    */
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
+   * The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+   * 
+   * @example
+   * datasets
    */
   path?: string;
   /**
@@ -521,27 +530,39 @@ export class GetManagedAgentResponseBodyDataRuntimeCompute extends $dara.Model {
 export class GetManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether auto scaling is enabled. This parameter is required when hpa is present as validated by the backend.
+   * Specifies whether auto-scaling is enabled. Required when hpa is present, validated by the backend.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of active sessions per Sandbox. This parameter is required when hpa is present as validated by the backend.
+   * The maximum number of active sessions per sandbox. Required when hpa is present, validated by the backend.
+   * 
+   * @example
+   * 5
    */
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of Sandboxes. This parameter is required when HPA is enabled and must be no less than the minimum value.
+   * The maximum number of sandboxes. Required when HPA is enabled and must be no less than the minimum value.
+   * 
+   * @example
+   * 3
    */
   maxSandboxCount?: number;
   /**
    * @remarks
-   * The minimum number of Sandboxes. This parameter is required when HPA is enabled.
+   * The minimum number of sandboxes. Required when HPA is enabled.
+   * 
+   * @example
+   * 1
    */
   minSandboxCount?: number;
   /**
    * @remarks
-   * The session reclamation time after inactivity, in seconds. This parameter is required when hpa is present as validated by the backend.
+   * The session reclamation time after inactivity, in seconds. Required when hpa is present, validated by the backend.
+   * 
+   * @example
+   * 3600
    */
   sessionTtlSeconds?: number;
   static names(): { [key: string]: string } {
@@ -576,7 +597,7 @@ export class GetManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
 export class GetManagedAgentResponseBodyDataRuntimeSessionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The HTTP header name used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+   * The HTTP header name used for session affinity. Takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
    * 
    * @example
    * X-Session-Id
@@ -625,7 +646,7 @@ export class GetManagedAgentResponseBodyDataRuntime extends $dara.Model {
   compute?: GetManagedAgentResponseBodyDataRuntimeCompute;
   /**
    * @remarks
-   * The Sandbox auto scaling and session configuration.
+   * The sandbox auto-scaling and session configuration.
    */
   hpa?: GetManagedAgentResponseBodyDataRuntimeHpa;
   /**
@@ -714,7 +735,7 @@ export class GetManagedAgentResponseBodyDataSkills extends $dara.Model {
 export class GetManagedAgentResponseBodyDataSubAgents extends $dara.Model {
   /**
    * @remarks
-   * The instruction of the sub-agent.
+   * The instruction for the sub-agent.
    * 
    * This parameter is required.
    * 
@@ -724,7 +745,7 @@ export class GetManagedAgentResponseBodyDataSubAgents extends $dara.Model {
   instruction?: string;
   /**
    * @remarks
-   * The name of the sub-agent.
+   * The sub-agent name.
    * 
    * This parameter is required.
    * 
@@ -921,7 +942,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   environment?: GetManagedAgentResponseBodyDataEnvironment;
   /**
    * @remarks
-   * The runtime harness of the managed agent. Valid values: qwenpaw and qodercli.
+   * The agent runtime harness.
    */
   harness?: GetManagedAgentResponseBodyDataHarness;
   /**
@@ -968,7 +989,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   network?: GetManagedAgentResponseBodyDataNetwork;
   /**
    * @remarks
-   * The list of OSS mounts. A maximum of 10 entries are supported.
+   * The OSS mount list. A maximum of 10 entries are supported.
    */
   ossMounts?: GetManagedAgentResponseBodyDataOssMounts[];
   /**
@@ -986,7 +1007,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   runtime?: GetManagedAgentResponseBodyDataRuntime;
   /**
    * @remarks
-   * The instance counts of managed agents grouped by sandbox phase. Current keys: PENDING (being created or initialized), RUNNING (running), HIBERNATING (entering hibernation), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (being terminated), FAILED (runtime failure). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic mapping and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
+   * The instance counts of the managed agent grouped by sandbox phase. Current keys: PENDING (being created or initialized), RUNNING (running), HIBERNATING (entering hibernation), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (being terminated), and FAILED (runtime failure). Only phases that actually occur are returned. Missing keys should be treated as 0. This field is a dynamic map, and new keys may be added in the future. You can use FAILED > 0 to determine whether abnormal instances exist.
    */
   sandboxPhaseCounts?: { [key: string]: number };
   /**
@@ -1019,7 +1040,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   tools?: GetManagedAgentResponseBodyDataTools[];
   /**
    * @remarks
-   * The time when the managed agent was last updated, in RFC 3339 format.
+   * The time when the agent was last updated, in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -1149,7 +1170,7 @@ export class GetManagedAgentResponseBody extends $dara.Model {
   data?: GetManagedAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. A value of 200 indicates success.
    * 
    * @example
    * 200

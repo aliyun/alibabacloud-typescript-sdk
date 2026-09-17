@@ -13,7 +13,10 @@ export class ListSandboxSessionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The cursor used to query the next page.
+   * The pagination token for querying the next page.
+   * 
+   * @example
+   * next-token-1
    */
   nextToken?: string;
   static names(): { [key: string]: string } {

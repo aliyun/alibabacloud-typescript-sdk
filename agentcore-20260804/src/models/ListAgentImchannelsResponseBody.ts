@@ -111,7 +111,7 @@ export class ListAgentIMChannelsResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The channel credential summary. Only non-sensitive fields and configured secret field names are returned. Secret values are not returned.
+   * The channel credential summary. Only non-sensitive fields and the names of configured secret fields are returned. Secret values are not returned.
    */
   credentialSummary?: ListAgentIMChannelsResponseBodyItemsCredentialSummary;
   /**
@@ -137,7 +137,7 @@ export class ListAgentIMChannelsResponseBodyItems extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
+   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public access URL.
    * 
    * @example
    * se-1
@@ -146,12 +146,12 @@ export class ListAgentIMChannelsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The IM channel status. Valid values:
-   * - CREATING: being created.
-   * - READY: ready.
-   * - UPDATING: being updated.
-   * - FAILED: failed.
-   * - DELETING: being deleted.
-   * - DELETE_FAILED: deletion failed.
+   * - CREATING: The channel is being created.
+   * - READY: The channel is ready.
+   * - UPDATING: The channel is being updated.
+   * - FAILED: The channel creation or update failed.
+   * - DELETING: The channel is being deleted.
+   * - DELETE_FAILED: The channel deletion failed.
    * 
    * @example
    * READY
@@ -235,7 +235,7 @@ export class ListAgentIMChannelsResponseBodyItems extends $dara.Model {
 export class ListAgentIMChannelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of SUCCESS indicates success.
+   * The business status code. The value SUCCESS indicates a successful request.
    * 
    * @example
    * SUCCESS
@@ -243,7 +243,7 @@ export class ListAgentIMChannelsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates success.
+   * The HTTP status code. The value 200 indicates a successful request.
    * 
    * @example
    * 200
@@ -251,7 +251,7 @@ export class ListAgentIMChannelsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The IM channel list.
+   * The list of IM channels.
    */
   items?: ListAgentIMChannelsResponseBodyItems[];
   /**
@@ -264,7 +264,7 @@ export class ListAgentIMChannelsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The message returned for the request.
+   * The request processing result message.
    * 
    * @example
    * success
@@ -293,7 +293,7 @@ export class ListAgentIMChannelsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records that match the query conditions.
+   * The total number of records that match the specified conditions.
    * 
    * @example
    * 100

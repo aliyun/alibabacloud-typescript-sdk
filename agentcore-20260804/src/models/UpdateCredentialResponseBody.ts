@@ -71,7 +71,7 @@ export class UpdateCredentialResponseBodyData extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The masked credential content. If credentialType is apiKey, the apiKey value is returned as asterisks (*) of equal length.
+   * The masked credential content. If credentialType is set to apiKey, the apiKey value is returned as asterisks (*) of equal length.
    * 
    * @example
    * {"apiKey":"****************"}

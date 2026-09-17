@@ -93,7 +93,6 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The IM channel type. Valid values:
-   * 
    * - DINGTALK: DingTalk.
    * - FEISHU: Lark.
    * - WECOM: WeCom.
@@ -117,7 +116,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   credentialSummary?: CreateAgentIMChannelResponseBodyDataCredentialSummary;
   /**
    * @remarks
-   * Specifies whether to enable the IM channel. Default value: true.
+   * Specifies whether to enable the IM channel. Default value during creation: true.
    */
   enabled?: boolean;
   /**
@@ -138,7 +137,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the ServiceEndpoint to bind. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
+   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
    * 
    * @example
    * se-1
@@ -147,7 +146,6 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The IM channel status. Valid values:
-   * 
    * - CREATING: Being created.
    * - READY: Ready.
    * - UPDATING: Being updated.
@@ -161,7 +159,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the current IM channel status.
+   * The reason for the current status of the IM channel.
    * 
    * @example
    * AppFlow creation failed
@@ -237,7 +235,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
 export class CreateAgentIMChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value is SUCCESS when the request succeeds.
    * 
    * @example
    * SUCCESS
@@ -250,7 +248,7 @@ export class CreateAgentIMChannelResponseBody extends $dara.Model {
   data?: CreateAgentIMChannelResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value is 200 when the request succeeds.
    * 
    * @example
    * 200

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIdentityProvidersResponseBodyItemsMetadata extends $dara.Model {
   /**
    * @remarks
-   * The App ID of the Lark application. Required when the binding type is Feishu.
+   * The App ID of the Lark application. This parameter is required when the binding type is Feishu.
    * 
    * @example
    * cli_exampleappid01
@@ -13,7 +13,7 @@ export class ListIdentityProvidersResponseBodyItemsMetadata extends $dara.Model 
   appId?: string;
   /**
    * @remarks
-   * The AppKey of the DingTalk application. Required when the binding type is DingTalk.
+   * The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
    * 
    * @example
    * dingexampleappkey01
@@ -21,7 +21,7 @@ export class ListIdentityProvidersResponseBodyItemsMetadata extends $dara.Model 
   appKey?: string;
   /**
    * @remarks
-   * The CorpId of the DingTalk enterprise. Required when the binding type is DingTalk.
+   * The CorpId of the DingTalk organization. This parameter is required when the binding type is DingTalk.
    * 
    * @example
    * dingexamplecorpid01
@@ -63,7 +63,7 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. An empty string is returned if the user pool has not been provisioned.
+   * The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. An empty string is returned if the user pool has not been activated.
    * 
    * @example
    * http://auth.cn-hangzhou.agentteams.aliyuncs.com/roa/dingtalk/event/up-123456
@@ -71,9 +71,7 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   eventSubscriptionCallbackUrl?: string;
   /**
    * @remarks
-   * The type of the external identity provider. Valid values:
-   * - DingTalk
-   * - Feishu
+   * The type of the external identity provider. Valid values: DingTalk, Feishu.
    * 
    * @example
    * DingTalk
@@ -81,7 +79,7 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * The logon callback URL. Configure this URL in the external identity provider application. An empty string is returned if the user pool has not been provisioned.
+   * The logon callback URL. Configure this URL in the external identity provider application. An empty string is returned if the user pool has not been activated.
    * 
    * @example
    * https://signin-cn-hangzhou.aliyunagentid.com/up-123456/dingtalk/callback
@@ -99,16 +97,7 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   metadata?: ListIdentityProvidersResponseBodyItemsMetadata;
   /**
    * @remarks
-   * The binding status. Valid values:
-   * - CONFIGURED: The configuration has been accepted and is waiting for user pool provisioning.
-   * - SYNCING: Organization members are being synchronized.
-   * - SYNCED: Organization member synchronization is complete.
-   * - READY: The binding is active.
-   * - SYNC_FAILED: Organization member synchronization failed.
-   * - UPDATING: The configuration is being updated.
-   * - UPDATE_FAILED: The configuration update failed.
-   * - DISCONNECTING: The binding is being removed.
-   * - DISCONNECT_FAILED: The unbinding failed.
+   * The binding status. Valid values: CONFIGURED (The configuration has been accepted and the user pool is pending activation.), SYNCING (Organization members are being synchronized.), SYNCED (Organization member synchronization is complete.), READY (The binding is active.), SYNC_FAILED (Organization member synchronization failed.), UPDATING (The configuration is being updated.), UPDATE_FAILED (The configuration update failed.), DISCONNECTING (The binding is being removed.), DISCONNECT_FAILED (The unbinding failed.).
    * 
    * @example
    * READY
@@ -116,12 +105,12 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether organization member synchronization is enabled. When enabled, organization members are synchronized from this external identity provider as workspace users.
+   * Indicates whether organization member synchronization is enabled. When enabled, the external identity provider synchronizes organization members as workspace users.
    */
   syncEnabled?: boolean;
   /**
    * @remarks
-   * The last modification time in UTC, formatted according to RFC 3339.
+   * The time of the last modification in UTC, formatted according to RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -201,7 +190,7 @@ export class ListIdentityProvidersResponseBody extends $dara.Model {
   items?: ListIdentityProvidersResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page that takes effect for this query.
+   * The maximum number of records per page that took effect for this query.
    * 
    * @example
    * 10
@@ -209,7 +198,7 @@ export class ListIdentityProvidersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned if the request failed.
    * 
    * @example
    * success
@@ -217,7 +206,7 @@ export class ListIdentityProvidersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This parameter is empty if no more pages exist.
+   * The pagination token for the next page. This parameter is empty if no more pages are available.
    * 
    * @example
    * aWRlbnRpdHktcHJvdmlkZXItb2Zmc2V0OjEw

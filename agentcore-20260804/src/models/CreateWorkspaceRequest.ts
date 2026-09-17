@@ -100,6 +100,15 @@ export class CreateWorkspaceRequestBody extends $dara.Model {
    * The network configuration of the workspace.
    */
   networkConfiguration?: CreateWorkspaceRequestBodyNetworkConfiguration;
+  /**
+   * @remarks
+   * The storage type of the workspace. Valid values:
+   * - PLATFORM: Platform-managed storage.
+   * - PRIVATE: User-owned private OSS storage.
+   * 
+   * @example
+   * PRIVATE
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {

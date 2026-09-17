@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadAgentSpecViaOssRequest extends $dara.Model {
   /**
    * @remarks
-   * The version number. If not specified, the version corresponding to the latest label is downloaded.
+   * The version number. If this parameter is not specified, the version corresponding to the latest label is downloaded.
    * 
    * @example
    * 1.0.0

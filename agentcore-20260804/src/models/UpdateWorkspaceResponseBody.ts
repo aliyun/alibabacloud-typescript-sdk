@@ -18,7 +18,7 @@ export class UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID.
+   * The VPC ID of the user.
    * 
    * @example
    * vpc-bp1234567890
@@ -55,7 +55,7 @@ export class UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
 export class UpdateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The VPC network configuration.
+   * The VPC network configuration of the user.
    */
   vpc?: UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
@@ -86,11 +86,17 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The OSS storage authorization status.
+   * 
+   * @example
+   * AUTHORIZED
    */
   authorizationStatus?: string;
   /**
    * @remarks
    * The name of the private OSS bucket.
+   * 
+   * @example
+   * bucket-001
    */
   bucketName?: string;
   /**
@@ -116,7 +122,7 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The workspace status. Valid values: Initializing, Initialized, Deleting, Deleted.
+   * The workspace status. Valid values: Initializing, Initialized, Deleting, and Deleted.
    * 
    * @example
    * Initialized
@@ -125,11 +131,14 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The storage type of the workspace.
+   * 
+   * @example
+   * PRIVATE
    */
   storageType?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the workspace belongs.
+   * The tenant ID to which the workspace belongs.
    * 
    * @example
    * tenant-123456

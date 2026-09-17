@@ -13,7 +13,7 @@ export class ListManagedAgentsResponseBodyItemsHarnessConfiguration extends $dar
   connectorServiceAccountKey?: string;
   /**
    * @remarks
-   * The Connector Key name populated during queries. This parameter is not used as a binding reference during writes.
+   * The Connector Key name populated during queries. This value is not used as a binding reference during writes.
    * 
    * @example
    * my-connector-key
@@ -154,13 +154,7 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The status of the managed agent. Valid values:
-   * - Creating: Being created.
-   * - Failed: Failed.
-   * - Running: Running.
-   * - Updating: Being updated.
-   * - Deleted: Deleted.
-   * - Deleting: Being deleted.
+   * The status of the managed agent.
    * 
    * @example
    * Running
@@ -271,7 +265,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next page. An empty value indicates that the last page has been reached.
+   * The token for the next page. An empty value indicates the last page.
    * 
    * @example
    * next-token-1

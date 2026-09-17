@@ -8,7 +8,7 @@ export class ListConnectorModelsResponseBodyItems extends $dara.Model {
    * The description of the model.
    * 
    * @example
-   * 通义千问旗舰模型
+   * Qwen flagship model
    */
   description?: string;
   /**
@@ -21,7 +21,7 @@ export class ListConnectorModelsResponseBodyItems extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Key ID
+   * The associated Connector Key ID. This field is not returned in the current version.
    * 
    * @example
    * ckey-xxxx
@@ -29,7 +29,7 @@ export class ListConnectorModelsResponseBodyItems extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The key name.
+   * The associated Connector Key name. This field is not returned in the current version.
    * 
    * @example
    * default
@@ -45,9 +45,7 @@ export class ListConnectorModelsResponseBodyItems extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
-   * The source of the model. Valid values:
-   * - official: an official model.
-   * - enterprise: an enterprise-specific model.
+   * The source of the model.
    * 
    * @example
    * official
@@ -108,7 +106,7 @@ export class ListConnectorModelsResponseBody extends $dara.Model {
   items?: ListConnectorModelsResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned in this request.
+   * The number of models returned in this request.
    * 
    * @example
    * 10
@@ -124,7 +122,7 @@ export class ListConnectorModelsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next page token. This field is not returned in the current version.
    * 
    * @example
    * dGVzdA==
@@ -148,7 +146,7 @@ export class ListConnectorModelsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of models.
+   * The total number of models returned.
    * 
    * @example
    * 100

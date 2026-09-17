@@ -21,7 +21,7 @@ export class GetServiceEndpointResponseBodyDataAccessUrls extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the access URL status. A specific reason is returned when the status is degraded.
+   * The reason for the access URL status. A specific reason is returned when the status is abnormal.
    * 
    * @example
    * ServiceEndpoint.Provider.Unavailable: no provider for the target type
@@ -65,9 +65,7 @@ export class GetServiceEndpointResponseBodyDataAccessUrls extends $dara.Model {
 export class GetServiceEndpointResponseBodyDataAuthentication extends $dara.Model {
   /**
    * @remarks
-   * The authentication method. Valid values:
-   * - NONE: no authentication required.
-   * - API_KEY: authentication by passing an API key through the x-api-key request header.
+   * The authentication method. NONE indicates that no authentication is required. API_KEY indicates that an API key is passed through the x-api-key request header for authentication.
    * 
    * @example
    * API_KEY
@@ -167,7 +165,7 @@ export class GetServiceEndpointResponseBodyDataTarget extends $dara.Model {
 export class GetServiceEndpointResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The access URL list of the service endpoint.
+   * The list of access URLs for the service endpoint.
    */
   accessUrls?: GetServiceEndpointResponseBodyDataAccessUrls[];
   /**
@@ -185,9 +183,7 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The service endpoint type. Valid values:
-   * - DEFAULT: a default endpoint created and maintained by the platform.
-   * - NAMED: a named endpoint explicitly created by the user.
+   * The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
    * 
    * @example
    * NAMED
@@ -195,7 +191,7 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * The service endpoint name. The name is unique within the workspace and is 1 to 128 characters in length.
+   * The service endpoint name. The name must be unique within the workspace and can be 1 to 128 characters in length.
    * 
    * @example
    * my-agent-endpoint
@@ -203,7 +199,7 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID where the service endpoint resides.
+   * The region ID of the service endpoint.
    * 
    * @example
    * cn-hangzhou
@@ -240,7 +236,7 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   target?: GetServiceEndpointResponseBodyDataTarget;
   /**
    * @remarks
-   * The last modification time in UTC, formatted in RFC 3339.
+   * The time of the last modification in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -330,7 +326,7 @@ export class GetServiceEndpointResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned when the request fails.
    * 
    * @example
    * success

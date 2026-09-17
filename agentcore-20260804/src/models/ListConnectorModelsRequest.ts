@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectorModelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of a service account key. This parameter is required when multiple keys exist. You can leave this parameter empty if only one key exists.
+   * The Connector Key ID. This parameter is not supported in the current version.
    * 
    * @example
    * ckey-xxxx
@@ -13,7 +13,7 @@ export class ListConnectorModelsRequest extends $dara.Model {
   connectorKeyId?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size. This parameter is not supported in the current version.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListConnectorModelsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next page token. This parameter is not supported in the current version.
    * 
    * @example
    * dGVzdA==

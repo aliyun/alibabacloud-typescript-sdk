@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConnectorResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of Agents attached to the Connector.
+   * The number of bound agents.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   enabledAt?: string;
   /**
    * @remarks
-   * A JSON string. For qodercli: {"site":"global|cn","organizationId":"...","apiKey":"...","serviceAccountKeys":[{"id":"ckey-xxx","name":"default","serviceAccountKey":"..."}]}. This field is empty when the Connector is not enabled.
+   * The updated Connector configuration JSON string. This is sensitive information.
    * 
    * @example
    * {"site":"global","organizationId":"org-xxxx"}
@@ -29,7 +29,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The Connector name.
+   * The Connector name. Currently, the value is qodercli.
    * 
    * @example
    * qodercli

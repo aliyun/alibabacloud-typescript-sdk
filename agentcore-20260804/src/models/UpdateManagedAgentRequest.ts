@@ -121,7 +121,7 @@ export class UpdateManagedAgentRequestBodyEnvironment extends $dara.Model {
 export class UpdateManagedAgentRequestBodyHarnessConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+   * The connector service account key.
    * 
    * @example
    * key-xxxx
@@ -129,7 +129,7 @@ export class UpdateManagedAgentRequestBodyHarnessConfiguration extends $dara.Mod
   connectorServiceAccountKey?: string;
   /**
    * @remarks
-   * The Connector Key name that is populated during queries. This value is not used as a binding reference during writes.
+   * The connector service account name.
    * 
    * @example
    * my-connector-key
@@ -161,12 +161,12 @@ export class UpdateManagedAgentRequestBodyHarnessConfiguration extends $dara.Mod
 export class UpdateManagedAgentRequestBodyHarness extends $dara.Model {
   /**
    * @remarks
-   * The Connector binding configuration for the qodercli harness.
+   * The harness configuration.
    */
   configuration?: UpdateManagedAgentRequestBodyHarnessConfiguration;
   /**
    * @remarks
-   * The type of the runtime harness. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
+   * The harness type.
    * 
    * @example
    * qodercli
@@ -200,21 +200,35 @@ export class UpdateManagedAgentRequestBodyHarness extends $dara.Model {
 
 export class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the token quota is disabled and existing quota rules are deleted.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The quota limit type. This parameter is required by backend validation when the quota is enabled. Fixed value: token.
+   * 
    * @example
    * token
    */
   limitType?: string;
   /**
+   * @remarks
+   * The quota statistical period. This parameter is required by backend validation when the quota is enabled. Valid values:
+   * - day: daily.
+   * - month: monthly.
+   * 
    * @example
    * day
    */
   periodType?: string;
   /**
+   * @remarks
+   * The maximum number of tokens that can be consumed within a single period. This parameter is required by backend validation when the quota is enabled. The value must be greater than 0.
+   * 
    * @example
    * 1000000
    */
@@ -265,6 +279,10 @@ export class UpdateManagedAgentRequestBodyModel extends $dara.Model {
    * qwen-max
    */
   modelName?: string;
+  /**
+   * @remarks
+   * The model token quota configuration. If this parameter is not specified, no quota is configured.
+   */
   quota?: UpdateManagedAgentRequestBodyModelQuota;
   static names(): { [key: string]: string } {
     return {
@@ -297,7 +315,7 @@ export class UpdateManagedAgentRequestBodyModel extends $dara.Model {
 export class UpdateManagedAgentRequestBodyNetworkAccessInternet extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether public network access is allowed.
+   * Specifies whether to allow public network access.
    * 
    * @example
    * false
@@ -327,7 +345,7 @@ export class UpdateManagedAgentRequestBodyNetworkAccessInternet extends $dara.Mo
 export class UpdateManagedAgentRequestBodyNetworkAccessVpc extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether VPC access is allowed.
+   * Specifies whether to allow VPC access.
    * 
    * @example
    * true
@@ -397,22 +415,31 @@ export class UpdateManagedAgentRequestBodyNetwork extends $dara.Model {
 export class UpdateManagedAgentRequestBodyOssMounts extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket name. Each mount item is validated as required by the backend.
+   * The OSS bucket name. This parameter is required by backend validation for each mount entry.
+   * 
+   * @example
+   * bucket-001
    */
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path in the container. Each mount item is validated as required by the backend.
+   * The absolute mount path in the container. This parameter is required by backend validation for each mount entry.
+   * 
+   * @example
+   * /mnt/oss/datasets
    */
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+   * The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
+   * 
+   * @example
+   * datasets
    */
   path?: string;
   /**
    * @remarks
-   * Specifies whether to mount as read-only. Default value: false.
+   * Specifies whether to mount in read-only mode. Default value: false.
    */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -477,27 +504,39 @@ export class UpdateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
 export class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto scaling. Required when hpa is present as validated by the backend.
+   * Specifies whether to enable auto scaling. This parameter is required by backend validation when hpa is specified.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of active sessions per Sandbox. Required when hpa is present as validated by the backend.
+   * The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is specified.
+   * 
+   * @example
+   * 5
    */
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of Sandboxes. Required when HPA is enabled and must be no less than the minimum value.
+   * The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
+   * 
+   * @example
+   * 3
    */
   maxSandboxCount?: number;
   /**
    * @remarks
-   * The minimum number of Sandboxes. Required when HPA is enabled.
+   * The minimum number of sandboxes. This parameter is required when HPA is enabled.
+   * 
+   * @example
+   * 1
    */
   minSandboxCount?: number;
   /**
    * @remarks
-   * The session reclamation time after inactivity, in seconds. Required when hpa is present as validated by the backend.
+   * The session reclamation time after inactivity, in seconds. This parameter is required by backend validation when hpa is specified.
+   * 
+   * @example
+   * 3600
    */
   sessionTtlSeconds?: number;
   static names(): { [key: string]: string } {
@@ -532,7 +571,7 @@ export class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
 export class UpdateManagedAgentRequestBodyRuntimeSessionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The HTTP header name used for session affinity. Takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+   * The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
    * 
    * @example
    * X-Session-Id
@@ -581,7 +620,7 @@ export class UpdateManagedAgentRequestBodyRuntime extends $dara.Model {
   compute?: UpdateManagedAgentRequestBodyRuntimeCompute;
   /**
    * @remarks
-   * The Sandbox auto scaling and session configuration.
+   * The sandbox auto scaling and session configuration.
    */
   hpa?: UpdateManagedAgentRequestBodyRuntimeHpa;
   /**
@@ -845,7 +884,7 @@ export class UpdateManagedAgentRequestBody extends $dara.Model {
   environment?: UpdateManagedAgentRequestBodyEnvironment;
   /**
    * @remarks
-   * The runtime harness of the managed agent. Valid values: qwenpaw and qodercli.
+   * The agent harness configuration.
    */
   harness?: UpdateManagedAgentRequestBodyHarness;
   /**
@@ -876,7 +915,7 @@ export class UpdateManagedAgentRequestBody extends $dara.Model {
   network?: UpdateManagedAgentRequestBodyNetwork;
   /**
    * @remarks
-   * The OSS mount list. A maximum of 10 items are supported. Pass an empty array to clear existing mounts.
+   * The list of OSS mounts. A maximum of 10 entries are supported. Pass an empty array to clear existing mounts.
    */
   ossMounts?: UpdateManagedAgentRequestBodyOssMounts[];
   /**
@@ -987,7 +1026,7 @@ export class UpdateManagedAgentRequest extends $dara.Model {
   body?: UpdateManagedAgentRequestBody;
   /**
    * @remarks
-   * The reserved idempotency token. The backend does not guarantee idempotence in the current phase.
+   * The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
    * 
    * @example
    * client-token-1

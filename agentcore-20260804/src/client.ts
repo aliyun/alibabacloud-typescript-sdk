@@ -319,11 +319,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
    * 
    * @remarks
    * ## Request description
-   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
    * 
    * @param tmpReq - CreateAgentSpecVersionRequest
    * @param headers - map
@@ -362,11 +362,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
    * 
    * @remarks
    * ## Request description
-   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
    * 
    * @param request - CreateAgentSpecVersionRequest
    * @returns CreateAgentSpecVersionResponse
@@ -504,10 +504,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+   * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
    * 
    * @remarks
-   * Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+   * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
    * 
    * @param request - CreateExternalAgentBootstrapTokenRequest
    * @param headers - map
@@ -540,10 +540,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+   * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
    * 
    * @remarks
-   * Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+   * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
    * 
    * @param request - CreateExternalAgentBootstrapTokenRequest
    * @returns CreateExternalAgentBootstrapTokenResponse
@@ -555,7 +555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+   * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
    * 
    * @param tmpReq - CreateIdentityProviderRequest
    * @param headers - map
@@ -594,7 +594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+   * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
    * 
    * @param request - CreateIdentityProviderRequest
    * @returns CreateIdentityProviderResponse
@@ -1018,7 +1018,7 @@ export default class Client extends OpenApi {
    * Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
    * 
    * @remarks
-   * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
    * 
    * @param tmpReq - CreateWorkspaceRequest
    * @param headers - map
@@ -1066,7 +1066,7 @@ export default class Client extends OpenApi {
    * Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
    * 
    * @remarks
-   * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
    * 
    * @param request - CreateWorkspaceRequest
    * @returns CreateWorkspaceResponse
@@ -1820,10 +1820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a Connector.
+   * Disables a QoderCLI Connector in a specified workspace. The Connector can be disabled only when no Agent is using it. After the Connector is disabled, the Connector and its Service Account Key configuration are removed.
    * 
    * @remarks
-   * Disables a specified Connector in a workspace.
+   * Disables a Connector in a specified workspace.
    * 
    * @param request - DisableConnectorRequest
    * @param headers - map
@@ -1850,10 +1850,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a Connector.
+   * Disables a QoderCLI Connector in a specified workspace. The Connector can be disabled only when no Agent is using it. After the Connector is disabled, the Connector and its Service Account Key configuration are removed.
    * 
    * @remarks
-   * Disables a specified Connector in a workspace.
+   * Disables a Connector in a specified workspace.
    * 
    * @param request - DisableConnectorRequest
    * @returns DisableConnectorResponse
@@ -1865,7 +1865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a pre-signed OSS download URL for a specified AgentSpec ZIP package.
+   * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
    * 
    * @remarks
    * ## Operation description
@@ -1902,7 +1902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a pre-signed OSS download URL for a specified AgentSpec ZIP package.
+   * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
    * 
    * @remarks
    * ## Operation description
@@ -1965,10 +1965,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a Connector.
+   * Enables a QoderCLI Connector in a specified workspace. The request must include the site, API key, and at least one service account key. The service validates all account keys before saving the configuration.
    * 
    * @remarks
-   * Enables a Connector in a specified workspace. Credential verification is required before enabling.
+   * Enables a Connector in a specified workspace. Credential verification is required before the Connector can be enabled.
    * 
    * @param tmpReq - EnableConnectorRequest
    * @param headers - map
@@ -2007,10 +2007,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a Connector.
+   * Enables a QoderCLI Connector in a specified workspace. The request must include the site, API key, and at least one service account key. The service validates all account keys before saving the configuration.
    * 
    * @remarks
-   * Enables a Connector in a specified workspace. Credential verification is required before enabling.
+   * Enables a Connector in a specified workspace. Credential verification is required before the Connector can be enabled.
    * 
    * @param request - EnableConnectorRequest
    * @returns EnableConnectorResponse
@@ -2979,7 +2979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
+   * Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
    * 
    * @param request - GetUserRequest
    * @param headers - map
@@ -3006,7 +3006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
+   * Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -3060,6 +3060,65 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWorkspaceWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the ACR RAM authorization URL for a workspace.
+   * 
+   * @remarks
+   * ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+   * 
+   * @param request - GetWorkspaceAcrRamAuthorizeUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceAcrRamAuthorizeUrlResponse
+   */
+  async getWorkspaceAcrRamAuthorizeUrlWithOptions(workspaceId: string, request: $_model.GetWorkspaceAcrRamAuthorizeUrlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceAcrRamAuthorizeUrlResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acrInstanceId)) {
+      query["acrInstanceId"] = request.acrInstanceId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.repository)) {
+      query["repository"] = request.repository;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspaceAcrRamAuthorizeUrl",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/acr/authorize`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceAcrRamAuthorizeUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceAcrRamAuthorizeUrlResponse({}));
+  }
+
+  /**
+   * Queries the ACR RAM authorization URL for a workspace.
+   * 
+   * @remarks
+   * ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+   * 
+   * @param request - GetWorkspaceAcrRamAuthorizeUrlRequest
+   * @returns GetWorkspaceAcrRamAuthorizeUrlResponse
+   */
+  async getWorkspaceAcrRamAuthorizeUrl(workspaceId: string, request: $_model.GetWorkspaceAcrRamAuthorizeUrlRequest): Promise<$_model.GetWorkspaceAcrRamAuthorizeUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkspaceAcrRamAuthorizeUrlWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -3238,10 +3297,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IM channel list of a specified agent.
+   * Queries the list of IM channels for a specified agent.
    * 
    * @remarks
-   * Queries the IM channel list of a specified agent.
+   * Queries the list of IM channels for a specified agent.
    * 
    * @param request - ListAgentIMChannelsRequest
    * @param headers - map
@@ -3286,10 +3345,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IM channel list of a specified agent.
+   * Queries the list of IM channels for a specified agent.
    * 
    * @remarks
-   * Queries the IM channel list of a specified agent.
+   * Queries the list of IM channels for a specified agent.
    * 
    * @param request - ListAgentIMChannelsRequest
    * @returns ListAgentIMChannelsResponse
@@ -3386,7 +3445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of teams to which specified agents belong. Specify the agent IDs through agentIds to retrieve the membership information between each agent and its teams, including the team ID, team name, and the role that the agent assumes in the team.
+   * Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
    * 
    * @param tmpReq - ListAgentTeamsRequest
    * @param headers - map
@@ -3425,7 +3484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of teams to which specified agents belong. Specify the agent IDs through agentIds to retrieve the membership information between each agent and its teams, including the team ID, team name, and the role that the agent assumes in the team.
+   * Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
    * 
    * @param request - ListAgentTeamsRequest
    * @returns ListAgentTeamsResponse
@@ -3437,10 +3496,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of models for a connector.
+   * Queries the available official models and enterprise models for an enabled QoderCLI Connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates the results by model ID.
    * 
    * @remarks
-   * Queries the list of available models for a specified connector. Pagination is supported.
+   * Queries the list of available models for a specified Connector. Pagination is supported.
    * 
    * @param request - ListConnectorModelsRequest
    * @param headers - map
@@ -3481,10 +3540,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of models for a connector.
+   * Queries the available official models and enterprise models for an enabled QoderCLI Connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates the results by model ID.
    * 
    * @remarks
-   * Queries the list of available models for a specified connector. Pagination is supported.
+   * Queries the list of available models for a specified Connector. Pagination is supported.
    * 
    * @param request - ListConnectorModelsRequest
    * @returns ListConnectorModelsResponse
@@ -3496,7 +3555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of connectors.
+   * Queries the list of connectors supported by a specified workspace, including their status, number of bound agents, and configurations. The current version returns the QoderCLI connector.
    * 
    * @remarks
    * Queries the list of connectors in a specified workspace.
@@ -3536,7 +3595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of connectors.
+   * Queries the list of connectors supported by a specified workspace, including their status, number of bound agents, and configurations. The current version returns the QoderCLI connector.
    * 
    * @remarks
    * Queries the list of connectors in a specified workspace.
@@ -3551,10 +3610,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+   * Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @remarks
-   * Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
+   * Queries credentials in a workspace with paging. Supports filtering by type and name.
    * 
    * @param request - ListCredentialsRequest
    * @param headers - map
@@ -3603,10 +3662,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+   * Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @remarks
-   * Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
+   * Queries credentials in a workspace with paging. Supports filtering by type and name.
    * 
    * @param request - ListCredentialsRequest
    * @returns ListCredentialsResponse
@@ -3725,7 +3784,7 @@ export default class Client extends OpenApi {
    * Queries the list of managed agents in a specified workspace.
    * 
    * @remarks
-   * Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
+   * Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
    * 
    * @param request - ListManagedAgentsRequest
    * @param headers - map
@@ -3765,7 +3824,7 @@ export default class Client extends OpenApi {
    * Queries the list of managed agents in a specified workspace.
    * 
    * @remarks
-   * Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
+   * Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
    * 
    * @param request - ListManagedAgentsRequest
    * @returns ListManagedAgentsResponse
@@ -4184,10 +4243,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Sandbox sessions.
+   * Queries the list of active sessions in the sandbox of a specified managed agent by paging, and returns the session source and external channel type.
    * 
    * @remarks
-   * Queries the list of active sessions in the Sandbox of a specified managed agent.
+   * Queries the list of active sessions in the sandbox of a specified managed agent.
    * 
    * @param request - ListSandboxSessionsRequest
    * @param headers - map
@@ -4224,10 +4283,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Sandbox sessions.
+   * Queries the list of active sessions in the sandbox of a specified managed agent by paging, and returns the session source and external channel type.
    * 
    * @remarks
-   * Queries the list of active sessions in the Sandbox of a specified managed agent.
+   * Queries the list of active sessions in the sandbox of a specified managed agent.
    * 
    * @param request - ListSandboxSessionsRequest
    * @returns ListSandboxSessionsResponse
@@ -4239,10 +4298,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of sandboxes.
+   * Queries the list of sandboxes for a managed agent in a specified workspace. You can filter results by sandbox ID and active session ID fragments.
    * 
    * @remarks
-   * Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+   * Queries the list of sandboxes for a specified managed agent. The searchText parameter performs a fuzzy match on sandbox ID fragments, and the sessionId parameter performs a fuzzy match on active session ID fragments. Both parameters are case-insensitive and can be used together with AND logic.
    * 
    * @param request - ListSandboxesRequest
    * @param headers - map
@@ -4287,10 +4346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of sandboxes.
+   * Queries the list of sandboxes for a managed agent in a specified workspace. You can filter results by sandbox ID and active session ID fragments.
    * 
    * @remarks
-   * Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+   * Queries the list of sandboxes for a specified managed agent. The searchText parameter performs a fuzzy match on sandbox ID fragments, and the sessionId parameter performs a fuzzy match on active session ID fragments. Both parameters are case-insensitive and can be used together with AND logic.
    * 
    * @param request - ListSandboxesRequest
    * @returns ListSandboxesResponse
@@ -4305,7 +4364,7 @@ export default class Client extends OpenApi {
    * Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
    * 
    * @remarks
-   * ## Request description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+   * ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
    * 
    * @param request - ListServiceEndpointsRequest
    * @param headers - map
@@ -4369,7 +4428,7 @@ export default class Client extends OpenApi {
    * Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
    * 
    * @remarks
-   * ## Request description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+   * ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
    * 
    * @param request - ListServiceEndpointsRequest
    * @returns ListServiceEndpointsResponse
@@ -4466,7 +4525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
+   * Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
    * 
    * @param request - ListTeamsRequest
    * @param headers - map
@@ -4507,7 +4566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
+   * Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
    * 
    * @param request - ListTeamsRequest
    * @returns ListTeamsResponse
@@ -4519,7 +4578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户列表
+   * Queries users in a specified workspace with paging. Use nameLike to filter by username with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @param request - ListUsersRequest
    * @param headers - map
@@ -4564,7 +4623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户列表
+   * Queries users in a specified workspace with paging. Use nameLike to filter by username with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -5284,10 +5343,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the credentials of a Connector.
+   * Updates the API Key or Service Account Key collection for an enabled QoderCLI Connector. When serviceAccountKeys is submitted, the service treats it as the complete updated key collection and performs additions, renames, rotations, and deletions accordingly.
    * 
    * @remarks
-   * Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+   * Updates the sensitive configuration of a specified Connector and aligns Service Account Keys by ID.
    * 
    * @param tmpReq - UpdateConnectorRequest
    * @param headers - map
@@ -5326,10 +5385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the credentials of a Connector.
+   * Updates the API Key or Service Account Key collection for an enabled QoderCLI Connector. When serviceAccountKeys is submitted, the service treats it as the complete updated key collection and performs additions, renames, rotations, and deletions accordingly.
    * 
    * @remarks
-   * Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+   * Updates the sensitive configuration of a specified Connector and aligns Service Account Keys by ID.
    * 
    * @param request - UpdateConnectorRequest
    * @returns UpdateConnectorResponse
@@ -6122,10 +6181,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
+   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
    * 
    * @remarks
-   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
    * 
    * @param tmpReq - UpdateWorkspaceRequest
    * @param headers - map
@@ -6170,10 +6229,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
+   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
    * 
    * @remarks
-   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
    * 
    * @param request - UpdateWorkspaceRequest
    * @returns UpdateWorkspaceResponse
@@ -6303,7 +6362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates the credentials of a Connector.
+   * Validates whether one or more Qoder Service Account Keys are available at a specified site. This operation does not save keys or modify the Connector status.
    * 
    * @remarks
    * Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
@@ -6345,7 +6404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates the credentials of a Connector.
+   * Validates whether one or more Qoder Service Account Keys are available at a specified site. This operation does not save keys or modify the Connector status.
    * 
    * @remarks
    * Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
@@ -6360,10 +6419,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the RAM authorization for an OSS mount in a workspace.
+   * Verifies the ACR RAM authorization of a workspace.
    * 
    * @remarks
-   * Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+   * ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+   * 
+   * @param request - VerifyWorkspaceAcrRamAuthorizationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyWorkspaceAcrRamAuthorizationResponse
+   */
+  async verifyWorkspaceAcrRamAuthorizationWithOptions(workspaceId: string, request: $_model.VerifyWorkspaceAcrRamAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyWorkspaceAcrRamAuthorizationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acrInstanceId)) {
+      query["acrInstanceId"] = request.acrInstanceId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.repository)) {
+      query["repository"] = request.repository;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyWorkspaceAcrRamAuthorization",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/acr/authorize/verify`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyWorkspaceAcrRamAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.VerifyWorkspaceAcrRamAuthorizationResponse({}));
+  }
+
+  /**
+   * Verifies the ACR RAM authorization of a workspace.
+   * 
+   * @remarks
+   * ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+   * 
+   * @param request - VerifyWorkspaceAcrRamAuthorizationRequest
+   * @returns VerifyWorkspaceAcrRamAuthorizationResponse
+   */
+  async verifyWorkspaceAcrRamAuthorization(workspaceId: string, request: $_model.VerifyWorkspaceAcrRamAuthorizationRequest): Promise<$_model.VerifyWorkspaceAcrRamAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.verifyWorkspaceAcrRamAuthorizationWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Verifies the RAM authorization for a workspace to access an OSS bucket and returns the current authorization status. When bucketName is specified, verifies the authorization for an agent-mounted bucket. When bucketName is not specified, verifies and updates the authorization status of the workspace\\"s private OSS storage.
+   * 
+   * @remarks
+   * Queries whether the workspace OSS mount role is bound to the custom RAM policy corresponding to the target bucket, and returns AUTHORIZED or UNAUTHORIZED. When bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. When bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks. Alibaba Cloud Container Registry (ACR) and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is reused and permissions are only appended without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not recreated or renamed due to new naming templates.
    * 
    * @param request - VerifyWorkspaceOssMountRamAuthorizationRequest
    * @param headers - map
@@ -6396,10 +6514,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the RAM authorization for an OSS mount in a workspace.
+   * Verifies the RAM authorization for a workspace to access an OSS bucket and returns the current authorization status. When bucketName is specified, verifies the authorization for an agent-mounted bucket. When bucketName is not specified, verifies and updates the authorization status of the workspace\\"s private OSS storage.
    * 
    * @remarks
-   * Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+   * Queries whether the workspace OSS mount role is bound to the custom RAM policy corresponding to the target bucket, and returns AUTHORIZED or UNAUTHORIZED. When bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. When bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks. Alibaba Cloud Container Registry (ACR) and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is reused and permissions are only appended without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not recreated or renamed due to new naming templates.
    * 
    * @param request - VerifyWorkspaceOssMountRamAuthorizationRequest
    * @returns VerifyWorkspaceOssMountRamAuthorizationResponse

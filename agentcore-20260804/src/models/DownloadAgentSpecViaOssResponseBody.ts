@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadAgentSpecViaOssResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    * 
    * @example
    * https://example.com/artifacts/example.zip

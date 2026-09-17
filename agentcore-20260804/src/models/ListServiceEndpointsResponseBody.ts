@@ -95,7 +95,7 @@ export class ListServiceEndpointsResponseBodyItemsAuthentication extends $dara.M
 export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   /**
    * @remarks
-   * The target agent ID. This parameter is returned when the target type is AGENT_VERSION.
+   * The target agent ID. Returned when the target type is AGENT_VERSION.
    * 
    * @example
    * agent-123456
@@ -103,7 +103,7 @@ export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The target agent version number. This parameter is returned when the target type is AGENT_VERSION.
+   * The target agent version number. Returned when the target type is AGENT_VERSION.
    * 
    * @example
    * v1
@@ -111,7 +111,7 @@ export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * The collaboration component type. This parameter is returned when the target type is TEAM_COLLABORATION.
+   * The collaboration component type. Returned when the target type is TEAM_COLLABORATION.
    * 
    * @example
    * ELEMENT_WEB
@@ -119,7 +119,7 @@ export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   collaborationComponent?: string;
   /**
    * @remarks
-   * The workspace resource binding ID associated with the target collaboration component. This parameter is returned when the target type is TEAM_COLLABORATION.
+   * The workspace resource binding ID associated with the target collaboration component. Returned when the target type is TEAM_COLLABORATION.
    * 
    * @example
    * wrb-123456
@@ -175,7 +175,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   authentication?: ListServiceEndpointsResponseBodyItemsAuthentication;
   /**
    * @remarks
-   * The creation time in UTC, formatted according to RFC 3339.
+   * The creation time in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -199,7 +199,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID where the service endpoint is located.
+   * The region ID of the service endpoint.
    * 
    * @example
    * cn-hangzhou
@@ -236,7 +236,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   target?: ListServiceEndpointsResponseBodyItemsTarget;
   /**
    * @remarks
-   * The last modification time in UTC, formatted according to RFC 3339.
+   * The time of the last modification in UTC, formatted in RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -334,7 +334,7 @@ export class ListServiceEndpointsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned when the request fails.
    * 
    * @example
    * success
@@ -342,7 +342,7 @@ export class ListServiceEndpointsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This value is empty if no more pages exist.
+   * The pagination token for the next page. This value is empty when no more pages are available.
    * 
    * @example
    * djE6YWdlbnRjb3JlLnNlcnZpY2UtZW5kcG9pbnQubGlzdDoyMA

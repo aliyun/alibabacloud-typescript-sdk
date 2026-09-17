@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectorsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of agents bound to the connector.
+   * The number of bound agents.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class ListConnectorsResponseBodyItems extends $dara.Model {
   enabledAt?: string;
   /**
    * @remarks
-   * A JSON string. qodercli: {"site":"global|cn","organizationId":"...","apiKey":"...","serviceAccountKeys":[{"id":"ckey-xxx","name":"default","serviceAccountKey":"..."}]}. This field is absent when the connector is not enabled.
+   * The connector configuration JSON string. After the connector is enabled, this string may contain sensitive credentials.
    * 
    * @example
    * {"site":"global","organizationId":"org-xxxx"}
@@ -29,7 +29,7 @@ export class ListConnectorsResponseBodyItems extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The connector name.
+   * The connector name. The current value is qodercli.
    * 
    * @example
    * qodercli
@@ -96,7 +96,7 @@ export class ListConnectorsResponseBody extends $dara.Model {
   items?: ListConnectorsResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned in this request.
+   * The number of connectors returned in this request.
    * 
    * @example
    * 10
@@ -112,7 +112,7 @@ export class ListConnectorsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next page token. The current version does not return this field.
    * 
    * @example
    * dGVzdA==
@@ -136,7 +136,7 @@ export class ListConnectorsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of connectors.
+   * The total number of connectors returned.
    * 
    * @example
    * 10

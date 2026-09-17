@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIdentityProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the external identity provider. Valid values: DingTalk, Feishu.
+   * The type of the external identity provider. Valid values:
+   * - DingTalk
+   * - Feishu
    * 
    * @example
    * DingTalk
@@ -99,7 +101,7 @@ export class CreateIdentityProviderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned if the request failed.
    * 
    * @example
    * success

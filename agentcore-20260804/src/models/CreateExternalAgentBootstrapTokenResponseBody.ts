@@ -63,7 +63,7 @@ export class CreateExternalAgentBootstrapTokenResponseBodyData extends $dara.Mod
   agentId?: string;
   /**
    * @remarks
-   * The Bootstrap Token used for connecting the external agent.
+   * The bootstrap token used for connecting the external agent.
    * 
    * @example
    * bootstrap-token
@@ -86,7 +86,7 @@ export class CreateExternalAgentBootstrapTokenResponseBodyData extends $dara.Mod
   networkType?: string;
   /**
    * @remarks
-   * The fingerprint of the Bootstrap Token.
+   * The fingerprint of the bootstrap token.
    * 
    * @example
    * fingerprint
@@ -137,7 +137,7 @@ export class CreateExternalAgentBootstrapTokenResponseBodyData extends $dara.Mod
 export class CreateExternalAgentBootstrapTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value SUCCESS is returned if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -145,12 +145,12 @@ export class CreateExternalAgentBootstrapTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The Bootstrap Token and CMS configuration required for connecting the external agent.
+   * The bootstrap token and CMS configuration required for connecting the external agent.
    */
   data?: CreateExternalAgentBootstrapTokenResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value 200 is returned if the request is successful.
    * 
    * @example
    * 200
@@ -158,7 +158,7 @@ export class CreateExternalAgentBootstrapTokenResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message indicating the request processing result.
+   * The message that indicates the result of the request.
    * 
    * @example
    * success

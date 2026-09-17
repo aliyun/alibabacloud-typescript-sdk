@@ -116,7 +116,7 @@ export class ListTeamsResponseBodyItems extends $dara.Model {
   agents?: ListTeamsResponseBodyItemsAgents[];
   /**
    * @remarks
-   * The time when the team was created, in UTC and RFC 3339 format.
+   * The creation time in UTC, formatted according to RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -127,7 +127,7 @@ export class ListTeamsResponseBodyItems extends $dara.Model {
    * The team description.
    * 
    * @example
-   * Team responsible for the intelligent customer service business
+   * A team responsible for intelligent customer service
    */
   description?: string;
   /**
@@ -162,7 +162,7 @@ export class ListTeamsResponseBodyItems extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The time when the team was last modified, in UTC and RFC 3339 format.
+   * The time of the last modification in UTC, formatted according to RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -256,7 +256,7 @@ export class ListTeamsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. An error description is returned if the request failed.
    * 
    * @example
    * success
@@ -264,7 +264,7 @@ export class ListTeamsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This parameter is empty if no more pages are available.
+   * The pagination token for the next page. This value is empty if no more pages are available.
    * 
    * @example
    * dGVhbS1vZmZzZXQ6MTA

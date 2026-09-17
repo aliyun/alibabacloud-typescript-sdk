@@ -129,7 +129,7 @@ export class CreateWorkspaceResponseBodyDataTags extends $dara.Model {
 export class CreateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AI Registry namespace ID. This value is returned after the related resource binding is complete and may be empty during initialization.
+   * The AI Registry namespace ID. This value is returned after the related resources are bound. It may be empty during initialization.
    * 
    * @example
    * namespace-0123456789abcdef
@@ -141,16 +141,22 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The OSS storage authorization status.
+   * 
+   * @example
+   * AUTHORIZED
    */
   authorizationStatus?: string;
   /**
    * @remarks
    * The name of the private OSS bucket.
+   * 
+   * @example
+   * bucket-001
    */
   bucketName?: string;
   /**
    * @remarks
-   * The CloudMonitor workspace ID. This value is returned after the related resource binding is complete and may be empty during initialization.
+   * The CloudMonitor workspace ID. This value is returned after the related resources are bound. It may be empty during initialization.
    * 
    * @example
    * cms-ws-0123456789abcdef
@@ -161,7 +167,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   cmsWorkspaceId?: string;
   /**
    * @remarks
-   * The time when the workspace was created, in ISO-8601 format.
+   * The time when the workspace was created, in ISO 8601 format.
    * 
    * This parameter is required.
    * 
@@ -211,7 +217,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The supplementary reason for the current workspace status. This value is used to display the specific reason when initialization fails or authorization is pending, and may be empty under normal conditions.
+   * The supplementary reason for the current workspace status. This value is used to display the specific reason when initialization fails or authorization is pending. It may be empty under normal conditions.
    * 
    * @example
    * Waiting for OSS RAM authorization
@@ -223,6 +229,9 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The storage type of the workspace.
+   * 
+   * @example
+   * PRIVATE
    */
   storageType?: string;
   /**

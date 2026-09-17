@@ -121,7 +121,7 @@ export class CreateManagedAgentRequestBodyEnvironment extends $dara.Model {
 export class CreateManagedAgentRequestBodyHarnessConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+   * The connector service account key.
    * 
    * @example
    * key-xxxx
@@ -129,7 +129,7 @@ export class CreateManagedAgentRequestBodyHarnessConfiguration extends $dara.Mod
   connectorServiceAccountKey?: string;
   /**
    * @remarks
-   * The Connector Key name that is populated during queries. This parameter is not used as a binding criterion during writes.
+   * The connector service account name.
    * 
    * @example
    * my-connector-key
@@ -161,12 +161,12 @@ export class CreateManagedAgentRequestBodyHarnessConfiguration extends $dara.Mod
 export class CreateManagedAgentRequestBodyHarness extends $dara.Model {
   /**
    * @remarks
-   * The Connector binding configuration for the qodercli harness.
+   * The harness configuration.
    */
   configuration?: CreateManagedAgentRequestBodyHarnessConfiguration;
   /**
    * @remarks
-   * The harness type. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
+   * The harness type.
    * 
    * @example
    * qodercli
@@ -281,7 +281,7 @@ export class CreateManagedAgentRequestBodyModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model token quota configuration. If this parameter is not specified, no quota is configured.
+   * The model token quota configuration. If not specified, no quota is configured.
    */
   quota?: CreateManagedAgentRequestBodyModelQuota;
   static names(): { [key: string]: string } {
@@ -416,16 +416,25 @@ export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
   /**
    * @remarks
    * The OSS bucket name. This parameter is required by backend validation for each mount entry.
+   * 
+   * @example
+   * bucket-001
    */
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path inside the container. This parameter is required by backend validation for each mount entry.
+   * The absolute mount path in the container. This parameter is required by backend validation for each mount entry.
+   * 
+   * @example
+   * /mnt/oss/datasets
    */
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
+   * The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+   * 
+   * @example
+   * datasets
    */
   path?: string;
   /**
@@ -463,7 +472,7 @@ export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
 export class CreateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute class.
+   * The compute specification.
    * 
    * This parameter is required.
    * 
@@ -501,21 +510,33 @@ export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   /**
    * @remarks
    * The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is present.
+   * 
+   * @example
+   * 5
    */
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
    * The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
+   * 
+   * @example
+   * 3
    */
   maxSandboxCount?: number;
   /**
    * @remarks
    * The minimum number of sandboxes. This parameter is required when HPA is enabled.
+   * 
+   * @example
+   * 1
    */
   minSandboxCount?: number;
   /**
    * @remarks
-   * The session reclamation time after inactivity, in seconds. This parameter is required by backend validation when hpa is present.
+   * The time in seconds before an inactive session is reclaimed. This parameter is required by backend validation when hpa is present.
+   * 
+   * @example
+   * 3600
    */
   sessionTtlSeconds?: number;
   static names(): { [key: string]: string } {
@@ -863,7 +884,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   environment?: CreateManagedAgentRequestBodyEnvironment;
   /**
    * @remarks
-   * The harness for the managed agent. Valid values: qwenpaw and qodercli.
+   * The agent harness.
    */
   harness?: CreateManagedAgentRequestBodyHarness;
   /**
@@ -898,7 +919,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   network?: CreateManagedAgentRequestBodyNetwork;
   /**
    * @remarks
-   * The list of OSS mounts. A maximum of 10 entries are supported.
+   * The OSS mount list. A maximum of 10 entries are supported.
    */
   ossMounts?: CreateManagedAgentRequestBodyOssMounts[];
   /**
@@ -925,7 +946,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   template?: CreateManagedAgentRequestBodyTemplate;
   /**
    * @remarks
-   * The tool configuration list.
+   * The list of tool configurations.
    */
   tools?: CreateManagedAgentRequestBodyTools[];
   static names(): { [key: string]: string } {
