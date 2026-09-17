@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
+export class CredentialRecognitionIntlV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The recognized key information, in JSON format.
@@ -16,7 +16,13 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * The description of the authentication result.
+   * The result code. Valid values:
+   * 
+   * - 200: OCR extraction succeeded and all rule checks passed.
+   * - 204: Validation result is inconsistent. OCR extraction succeeded, but some fields in CheckRuleConfig did not pass (N).
+   * - 211: Quality does not meet requirements. Quality detection did not pass when idQuality is set to Y (not yet supported in the current version).
+   * - 212: Anti-forgery check did not pass. fraudCheck was triggered and anti-forgery verification failed.
+   * - 213: No text was extracted, or the credential type check did not pass.
    * 
    * @example
    * 200
@@ -57,10 +63,10 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   }
 }
 
-export class CredentialRecognitionIntlResponseBody extends $dara.Model {
+export class CredentialRecognitionIntlV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The return code. A value of 200 indicates a successful request. Other values indicate failures.
    * 
    * @example
    * Success
@@ -76,17 +82,17 @@ export class CredentialRecognitionIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * 4EB35****87EBA1
+   * 7F971622-38C0-5F56-B2EC-315367979B4F
    */
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
-  result?: CredentialRecognitionIntlResponseBodyResult;
+  result?: CredentialRecognitionIntlV2ResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -101,7 +107,7 @@ export class CredentialRecognitionIntlResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: CredentialRecognitionIntlResponseBodyResult,
+      result: CredentialRecognitionIntlV2ResponseBodyResult,
     };
   }
 

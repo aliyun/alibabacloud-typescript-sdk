@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CredentialSubmitIntlResponseBodyResult extends $dara.Model {
+export class CredentialSubmitIntlV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the authentication request.
+   * The unique identifier of the verification request.
    * 
    * @example
-   * 4ab0b***cbde97
+   * hk573be80f944d95ac812e0*******a8
    */
   transactionId?: string;
   static names(): { [key: string]: string } {
@@ -32,7 +32,7 @@ export class CredentialSubmitIntlResponseBodyResult extends $dara.Model {
   }
 }
 
-export class CredentialSubmitIntlResponseBody extends $dara.Model {
+export class CredentialSubmitIntlV2ResponseBody extends $dara.Model {
   /**
    * @remarks
    * The return code.
@@ -43,7 +43,7 @@ export class CredentialSubmitIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -54,14 +54,14 @@ export class CredentialSubmitIntlResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * 5E63B760-0ECB-5C07-8503-A65C27876968
+   * 7F971622-38C0-5F56-B2EC-315367979B4F
    */
   requestId?: string;
   /**
    * @remarks
    * The returned result.
    */
-  result?: CredentialSubmitIntlResponseBodyResult;
+  result?: CredentialSubmitIntlV2ResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -76,7 +76,7 @@ export class CredentialSubmitIntlResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: CredentialSubmitIntlResponseBodyResult,
+      result: CredentialSubmitIntlV2ResponseBodyResult,
     };
   }
 

@@ -12,12 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-hongkong': "cloudauth-intl.cn-hongkong.aliyuncs.com",
-      'ap-southeast-5': "cloudauth-intl.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "cloudauth-intl.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "cloudauth-intl.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloudauth-intl", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -800,10 +794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
+   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
    * 
    * @remarks
-   * Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
+   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -814,6 +808,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.docType)) {
       query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.fileInputType)) {
+      query["FileInputType"] = request.fileInputType;
     }
 
     if (!$dara.isNull(request.fraudCheck)) {
@@ -872,10 +870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
+   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
    * 
    * @remarks
-   * Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
+   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @returns CredentialRecognitionIntlResponse
@@ -886,10 +884,190 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+   * 
+   * @remarks
+   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+   * 
+   * @param request - CredentialRecognitionIntlV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CredentialRecognitionIntlV2Response
+   */
+  async credentialRecognitionIntlV2WithOptions(request: $_model.CredentialRecognitionIntlV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialRecognitionIntlV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credentialOcrPictureFile)) {
+      query["CredentialOcrPictureFile"] = request.credentialOcrPictureFile;
+    }
+
+    if (!$dara.isNull(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.fileInputType)) {
+      query["FileInputType"] = request.fileInputType;
+    }
+
+    if (!$dara.isNull(request.fraudCheck)) {
+      query["FraudCheck"] = request.fraudCheck;
+    }
+
+    if (!$dara.isNull(request.idQuality)) {
+      query["IdQuality"] = request.idQuality;
+    }
+
+    if (!$dara.isNull(request.ocrArea)) {
+      query["OcrArea"] = request.ocrArea;
+    }
+
+    if (!$dara.isNull(request.ocrTranslation)) {
+      query["OcrTranslation"] = request.ocrTranslation;
+    }
+
+    if (!$dara.isNull(request.ocrValueStandard)) {
+      query["OcrValueStandard"] = request.ocrValueStandard;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.checkRuleConfig)) {
+      body["CheckRuleConfig"] = request.checkRuleConfig;
+    }
+
+    if (!$dara.isNull(request.credentialOcrPictureBase64)) {
+      body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64;
+    }
+
+    if (!$dara.isNull(request.credentialOcrPictureUrl)) {
+      body["CredentialOcrPictureUrl"] = request.credentialOcrPictureUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CredentialRecognitionIntlV2",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CredentialRecognitionIntlV2Response>(await this.callApi(params, req, runtime), new $_model.CredentialRecognitionIntlV2Response({}));
+  }
+
+  /**
+   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+   * 
+   * @remarks
+   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+   * 
+   * @param request - CredentialRecognitionIntlV2Request
+   * @returns CredentialRecognitionIntlV2Response
+   */
+  async credentialRecognitionIntlV2(request: $_model.CredentialRecognitionIntlV2Request): Promise<$_model.CredentialRecognitionIntlV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.credentialRecognitionIntlV2WithOptions(request, runtime);
+  }
+
+  async credentialRecognitionIntlV2Advance(request: $_model.CredentialRecognitionIntlV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialRecognitionIntlV2Response> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let credentialRecognitionIntlV2Req = new $_model.CredentialRecognitionIntlV2Request({ });
+    OpenApiUtil.convert(request, credentialRecognitionIntlV2Req);
+    if (!$dara.isNull(request.credentialOcrPictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.credentialOcrPictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      credentialRecognitionIntlV2Req.credentialOcrPictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let credentialRecognitionIntlV2Resp = await this.credentialRecognitionIntlV2WithOptions(credentialRecognitionIntlV2Req, runtime);
+    return credentialRecognitionIntlV2Resp;
+  }
+
+  /**
    * Submits credential recognition information.
    * 
    * @remarks
-   * Initializes the credential recognition OCR operation and returns a transactionId.
+   * Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -900,6 +1078,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.docType)) {
       query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.fileInputType)) {
+      query["FileInputType"] = request.fileInputType;
     }
 
     if (!$dara.isNull(request.fraudCheck)) {
@@ -969,7 +1151,7 @@ export default class Client extends OpenApi {
    * Submits credential recognition information.
    * 
    * @remarks
-   * Initializes the credential recognition OCR operation and returns a transactionId.
+   * Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @returns CredentialSubmitIntlResponse
@@ -977,6 +1159,194 @@ export default class Client extends OpenApi {
   async credentialSubmitIntl(request: $_model.CredentialSubmitIntlRequest): Promise<$_model.CredentialSubmitIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.credentialSubmitIntlWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a credential recognition request.
+   * 
+   * @remarks
+   * Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+   * 
+   * @param request - CredentialSubmitIntlV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CredentialSubmitIntlV2Response
+   */
+  async credentialSubmitIntlV2WithOptions(request: $_model.CredentialSubmitIntlV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialSubmitIntlV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credentialOcrPictureFile)) {
+      query["CredentialOcrPictureFile"] = request.credentialOcrPictureFile;
+    }
+
+    if (!$dara.isNull(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.fileInputType)) {
+      query["FileInputType"] = request.fileInputType;
+    }
+
+    if (!$dara.isNull(request.fraudCheck)) {
+      query["FraudCheck"] = request.fraudCheck;
+    }
+
+    if (!$dara.isNull(request.idQuality)) {
+      query["IdQuality"] = request.idQuality;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.ocrArea)) {
+      query["OcrArea"] = request.ocrArea;
+    }
+
+    if (!$dara.isNull(request.ocrTranslation)) {
+      query["OcrTranslation"] = request.ocrTranslation;
+    }
+
+    if (!$dara.isNull(request.ocrValueStandard)) {
+      query["OcrValueStandard"] = request.ocrValueStandard;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.checkRuleConfig)) {
+      body["CheckRuleConfig"] = request.checkRuleConfig;
+    }
+
+    if (!$dara.isNull(request.credentialOcrPictureBase64)) {
+      body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64;
+    }
+
+    if (!$dara.isNull(request.credentialOcrPictureUrl)) {
+      body["CredentialOcrPictureUrl"] = request.credentialOcrPictureUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CredentialSubmitIntlV2",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CredentialSubmitIntlV2Response>(await this.callApi(params, req, runtime), new $_model.CredentialSubmitIntlV2Response({}));
+  }
+
+  /**
+   * Submits a credential recognition request.
+   * 
+   * @remarks
+   * Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+   * 
+   * @param request - CredentialSubmitIntlV2Request
+   * @returns CredentialSubmitIntlV2Response
+   */
+  async credentialSubmitIntlV2(request: $_model.CredentialSubmitIntlV2Request): Promise<$_model.CredentialSubmitIntlV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.credentialSubmitIntlV2WithOptions(request, runtime);
+  }
+
+  async credentialSubmitIntlV2Advance(request: $_model.CredentialSubmitIntlV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialSubmitIntlV2Response> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let credentialSubmitIntlV2Req = new $_model.CredentialSubmitIntlV2Request({ });
+    OpenApiUtil.convert(request, credentialSubmitIntlV2Req);
+    if (!$dara.isNull(request.credentialOcrPictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.credentialOcrPictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      credentialSubmitIntlV2Req.credentialOcrPictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let credentialSubmitIntlV2Resp = await this.credentialSubmitIntlV2WithOptions(credentialSubmitIntlV2Req, runtime);
+    return credentialSubmitIntlV2Resp;
   }
 
   /**

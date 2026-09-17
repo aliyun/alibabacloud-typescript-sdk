@@ -9,9 +9,9 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
    * 
    * @example
    * {
-   * 	"address_rule": "Includes Adrress 杭州市***",
-   * 	"name_rule": "Includes Name  张*",
-   * 	"date_of_issue_rule": "Whthin 2026.05.20"
+   * 	"address_rule": "Includes Address Hangzhou ***",
+   * 	"name_rule": "Includes Name Zhang*",
+   * 	"date_of_issue_rule": "Within 2026.05.20"
    * }
    */
   checkRuleConfig?: string;
@@ -33,8 +33,8 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
   credentialOcrPictureUrl?: string;
   /**
    * @remarks
-   * The credential type.
-   * - Transaction credential: 01 (includes various electronic bill images such as water, electricity, gas, and credit card bills)
+   * The credential type. Valid values:
+   * - 01: transaction credential (including electronic bill images for water, electricity, gas, credit card, and other types)
    * 
    * This parameter is required.
    * 
@@ -42,6 +42,18 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
    * 01
    */
   docType?: string;
+  /**
+   * @remarks
+   * The input file type. Valid values:
+   * 
+   * - IMAGE (default): image.
+   * 
+   * - PDF: PDF format.
+   * 
+   * @example
+   * IMAGE
+   */
+  fileInputType?: string;
   /**
    * @remarks
    * Specifies whether to enable tampering detection. Valid values:
@@ -56,7 +68,9 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
   fraudCheck?: string;
   /**
    * @remarks
-   * Specifies whether to enable quality detection. Valid values: Y (enabled) and N (disabled).
+   * Specifies whether to enable quality detection. Valid values:
+   * - Y: Enabled.
+   * - N: Disabled.
    * 
    * @example
    * Y
@@ -64,8 +78,8 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
   idQuality?: string;
   /**
    * @remarks
-   * The extraction type:
-   * - 0101: Electronic bill address and name module (extracts address and name through intelligent analysis)
+   * The extraction type. Valid values:
+   * - 0101: electronic bill address and name module (extracts the address and name module through intelligent analysis)
    * 
    * This parameter is required.
    * 
@@ -75,7 +89,9 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
   ocrArea?: string;
   /**
    * @remarks
-   * Specifies whether to enable translation. Valid values: 0 (disabled) and 1 (enabled).
+   * Specifies whether to enable translation. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 1
@@ -83,7 +99,9 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
   ocrTranslation?: string;
   /**
    * @remarks
-   * Specifies whether to enable OCR result standardization. Valid values: 0 (disabled) and 1 (enabled).
+   * Specifies whether to enable OCR result normalization. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 1
@@ -91,7 +109,7 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
   ocrValueStandard?: string;
   /**
    * @remarks
-   * The product solution to use. Set this to CREDENTIAL_RECOGNITION.
+   * The product solution to use. Set the value to CREDENTIAL_RECOGNITION.
    * 
    * This parameter is required.
    * 
@@ -105,6 +123,7 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
       credentialOcrPictureBase64: 'CredentialOcrPictureBase64',
       credentialOcrPictureUrl: 'CredentialOcrPictureUrl',
       docType: 'DocType',
+      fileInputType: 'FileInputType',
       fraudCheck: 'FraudCheck',
       idQuality: 'IdQuality',
       ocrArea: 'OcrArea',
@@ -120,6 +139,7 @@ export class CredentialRecognitionIntlRequest extends $dara.Model {
       credentialOcrPictureBase64: 'string',
       credentialOcrPictureUrl: 'string',
       docType: 'string',
+      fileInputType: 'string',
       fraudCheck: 'string',
       idQuality: 'string',
       ocrArea: 'string',

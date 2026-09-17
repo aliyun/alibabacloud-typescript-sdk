@@ -1,28 +1,37 @@
 // This file is auto-generated, don't edit it
+import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 
 
-export class CredentialSubmitIntlRequest extends $dara.Model {
+export class CredentialRecognitionIntlV2AdvanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The field validation rule configuration in JSON string format.
+   * The field validation rule configuration, in JSON string format.
    * 
    * @example
    * {
-   * 	"address_rule": "Includes Address Hangzhou***",
-   * 	"name_rule": "Includes Name Zhang*",
+   * 	"address_rule": "Includes Adrress Hangzhou***",
+   * 	"name_rule": "Includes Name  Zhang*",
    * 	"date_of_issue_rule": "Whthin 2026.05.20"
    * }
    */
   checkRuleConfig?: string;
   /**
    * @remarks
-   * The Base64-encoded image. If you use this method to submit a photo, check the photo size and do not submit an excessively large photo.
+   * The Base64-encoded image. If you choose to pass in the image by using IdOcrPictureBase64 (Base64-encoded photo), check the photo size and do not pass in an excessively large photo.
    * 
    * @example
    * base64
    */
   credentialOcrPictureBase64?: string;
+  /**
+   * @remarks
+   * The image file stream.
+   * 
+   * @example
+   * InputStream
+   */
+  credentialOcrPictureFileObject?: Readable;
   /**
    * @remarks
    * The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
@@ -34,21 +43,24 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   /**
    * @remarks
    * The credential type. Valid values:
-   * - 02: vehicle registration certificate.
+   * 
+   * - 01: transaction credential (including electronic bill images for water, electricity, gas, credit cards, and other types)
+   * - 02: vehicle registration certificate
+   * - 03: transfer transaction record
+   * - 04: POA address proof
    * 
    * This parameter is required.
    * 
    * @example
-   * 02
+   * 01
    */
   docType?: string;
   /**
    * @remarks
-   * The input file type. Valid values:
+   * The input material type. Valid values:
    * 
-   * - IMAGE (default): image.
-   * 
-   * - PDF: PDF format.
+   * - IMAGE (default): image
+   * - PDF: PDF format
    * 
    * @example
    * IMAGE
@@ -68,9 +80,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   fraudCheck?: string;
   /**
    * @remarks
-   * Specifies whether to enable quality detection. Valid values:
-   * - Y: Enabled.
-   * - N: Disabled.
+   * Specifies whether to enable quality detection. Valid values: Y (enabled) and N (disabled).
    * 
    * @example
    * Y
@@ -78,31 +88,22 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   idQuality?: string;
   /**
    * @remarks
-   * The custom business unique identifier on the merchant side, used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * e0c34a***353888
-   */
-  merchantBizId?: string;
-  /**
-   * @remarks
    * The extraction type. Valid values:
    * 
-   * - 0201: Thailand vehicle registration certificate.
+   * - 0101: electronic bill address and name module (extracts address and name modules through intelligent analysis)
+   * - 0201: Thailand vehicle registration certificate
+   * - 0301: transfer transaction amount information
+   * - 0401: POA credential extraction information
    * 
    * This parameter is required.
    * 
    * @example
-   * 0201
+   * 0101
    */
   ocrArea?: string;
   /**
    * @remarks
-   * Specifies whether to enable translation. Valid values:
-   * - 0: Disabled.
-   * - 1: Enabled.
+   * Specifies whether to enable translation. Valid values: 0 (disabled) and 1 (enabled).
    * 
    * @example
    * 1
@@ -110,17 +111,15 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   ocrTranslation?: string;
   /**
    * @remarks
-   * Specifies whether to enable OCR result standardization. Valid values:
-   * - 0: Disabled.
-   * - 1: Enabled.
+   * Specifies whether to enable OCR result normalization. Valid values: 0 (disabled) and 1 (enabled).
    * 
    * @example
-   * 1
+   * 0
    */
   ocrValueStandard?: string;
   /**
    * @remarks
-   * The product solution to use. Set this parameter to CREDENTIAL_RECOGNITION.
+   * The product solution to use. Set the value to CREDENTIAL_RECOGNITION.
    * 
    * This parameter is required.
    * 
@@ -128,31 +127,20 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
    * CREDENTIAL_RECOGNITION
    */
   productCode?: string;
-  /**
-   * @remarks
-   * The custom authentication scenario ID. You can use this scenario ID to query related records in the console. The value can be a combination of letters, digits, or underscores with a maximum length of 10 characters.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 123****123
-   */
-  sceneCode?: string;
   static names(): { [key: string]: string } {
     return {
       checkRuleConfig: 'CheckRuleConfig',
       credentialOcrPictureBase64: 'CredentialOcrPictureBase64',
+      credentialOcrPictureFileObject: 'CredentialOcrPictureFile',
       credentialOcrPictureUrl: 'CredentialOcrPictureUrl',
       docType: 'DocType',
       fileInputType: 'FileInputType',
       fraudCheck: 'FraudCheck',
       idQuality: 'IdQuality',
-      merchantBizId: 'MerchantBizId',
       ocrArea: 'OcrArea',
       ocrTranslation: 'OcrTranslation',
       ocrValueStandard: 'OcrValueStandard',
       productCode: 'ProductCode',
-      sceneCode: 'SceneCode',
     };
   }
 
@@ -160,17 +148,16 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
     return {
       checkRuleConfig: 'string',
       credentialOcrPictureBase64: 'string',
+      credentialOcrPictureFileObject: 'Readable',
       credentialOcrPictureUrl: 'string',
       docType: 'string',
       fileInputType: 'string',
       fraudCheck: 'string',
       idQuality: 'string',
-      merchantBizId: 'string',
       ocrArea: 'string',
       ocrTranslation: 'string',
       ocrValueStandard: 'string',
       productCode: 'string',
-      sceneCode: 'string',
     };
   }
 
