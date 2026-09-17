@@ -718,6 +718,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels an SQL Pattern comparison report.
+   * 
+   * @remarks
+   * Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
+   * - `PENDING`: Waiting to be generated.
+   * - `RUNNING`: Being generated.
+   * > - Only reports with `CancelAvailable` set to `true` can be canceled.
+   * > - Reports that are completed, failed, or expired cannot be canceled.
+   * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+   * > - Reports are isolated by instance and Alibaba Cloud account.
+   * 
+   * @param request - CancelSqlPatternCompareReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelSqlPatternCompareReportResponse
+   */
+  async cancelSqlPatternCompareReportWithOptions(request: $_model.CancelSqlPatternCompareReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelSqlPatternCompareReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelSqlPatternCompareReport",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelSqlPatternCompareReportResponse>(await this.callApi(params, req, runtime), new $_model.CancelSqlPatternCompareReportResponse({}));
+  }
+
+  /**
+   * Cancels an SQL Pattern comparison report.
+   * 
+   * @remarks
+   * Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
+   * - `PENDING`: Waiting to be generated.
+   * - `RUNNING`: Being generated.
+   * > - Only reports with `CancelAvailable` set to `true` can be canceled.
+   * > - Reports that are completed, failed, or expired cannot be canceled.
+   * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+   * > - Reports are isolated by instance and Alibaba Cloud account.
+   * 
+   * @param request - CancelSqlPatternCompareReportRequest
+   * @returns CancelSqlPatternCompareReportResponse
+   */
+  async cancelSqlPatternCompareReport(request: $_model.CancelSqlPatternCompareReportRequest): Promise<$_model.CancelSqlPatternCompareReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelSqlPatternCompareReportWithOptions(request, runtime);
+  }
+
+  /**
    * Queries whether a database account of an AnalyticDB for MySQL cluster is associated with a Resource Access Management (RAM) user.
    * 
    * @remarks
@@ -2867,6 +2935,86 @@ export default class Client extends OpenApi {
   async createSparkTemplate(request: $_model.CreateSparkTemplateRequest): Promise<$_model.CreateSparkTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSparkTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a SQL pattern comparison report.
+   * 
+   * @remarks
+   * Compares two time windows and asynchronously generates a SQL pattern comparison report.
+   * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
+   * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+   * > - Only one report can be generated for an instance at a time.
+   * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+   * 
+   * @param request - CreateSqlPatternCompareReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSqlPatternCompareReportResponse
+   */
+  async createSqlPatternCompareReportWithOptions(request: $_model.CreateSqlPatternCompareReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSqlPatternCompareReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.compareEndTime)) {
+      query["CompareEndTime"] = request.compareEndTime;
+    }
+
+    if (!$dara.isNull(request.compareStartTime)) {
+      query["CompareStartTime"] = request.compareStartTime;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.patternType)) {
+      query["PatternType"] = request.patternType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSqlPatternCompareReport",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSqlPatternCompareReportResponse>(await this.callApi(params, req, runtime), new $_model.CreateSqlPatternCompareReportResponse({}));
+  }
+
+  /**
+   * Creates a SQL pattern comparison report.
+   * 
+   * @remarks
+   * Compares two time windows and asynchronously generates a SQL pattern comparison report.
+   * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
+   * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+   * > - Only one report can be generated for an instance at a time.
+   * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+   * 
+   * @param request - CreateSqlPatternCompareReportRequest
+   * @returns CreateSqlPatternCompareReportResponse
+   */
+  async createSqlPatternCompareReport(request: $_model.CreateSqlPatternCompareReportRequest): Promise<$_model.CreateSqlPatternCompareReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSqlPatternCompareReportWithOptions(request, runtime);
   }
 
   /**
@@ -9606,6 +9754,198 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of an SQL Pattern comparison report.
+   * 
+   * @remarks
+   * Performs a paged query of SQL Pattern comparison report details based on `MetricType` by using paging. Report type descriptions:
+   * - NEW: Returns Patterns that are new in time window 2. `MetricValues` returns `Time2`.
+   * - CHANGED: Returns Patterns that exist in both time windows and have increased average values for the current metric. `MetricValues` returns `Avg`, `Sum`, and `Max`.
+   * Metric calculation methods:
+   * - `Sum`: The sum of metric values across valid query minute buckets.
+   * - `Avg`: The average of metric values across valid query minute buckets.
+   * - `Max`: The peak metric value within a single minute bucket.
+   * Metric units:
+   * - `QUERY_COUNT`: count.
+   * - `CPU_COST`: seconds.
+   * - `SHUFFLE_SIZE`, `PEAK_MEMORY`, `SCAN_SIZE`: GB.
+   * > - Only reports with `DetailEnabled` set to `true` can be queried for details. Reports that are incomplete, canceled, or expired cannot be queried.
+   * > - Fields ending with `Percent` are already expressed as percentages. When the time window 1 metric value is 0, `ChangeRatePercent` may not be returned and should not be treated as 0%.
+   * > - Reports are isolated by instance and Alibaba Cloud account.
+   * 
+   * @param request - DescribeSqlPatternCompareReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSqlPatternCompareReportResponse
+   */
+  async describeSqlPatternCompareReportWithOptions(request: $_model.DescribeSqlPatternCompareReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSqlPatternCompareReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.changeRate)) {
+      query["ChangeRate"] = request.changeRate;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.includePattern)) {
+      query["IncludePattern"] = request.includePattern;
+    }
+
+    if (!$dara.isNull(request.metricType)) {
+      query["MetricType"] = request.metricType;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSqlPatternCompareReport",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSqlPatternCompareReportResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSqlPatternCompareReportResponse({}));
+  }
+
+  /**
+   * Queries the details of an SQL Pattern comparison report.
+   * 
+   * @remarks
+   * Performs a paged query of SQL Pattern comparison report details based on `MetricType` by using paging. Report type descriptions:
+   * - NEW: Returns Patterns that are new in time window 2. `MetricValues` returns `Time2`.
+   * - CHANGED: Returns Patterns that exist in both time windows and have increased average values for the current metric. `MetricValues` returns `Avg`, `Sum`, and `Max`.
+   * Metric calculation methods:
+   * - `Sum`: The sum of metric values across valid query minute buckets.
+   * - `Avg`: The average of metric values across valid query minute buckets.
+   * - `Max`: The peak metric value within a single minute bucket.
+   * Metric units:
+   * - `QUERY_COUNT`: count.
+   * - `CPU_COST`: seconds.
+   * - `SHUFFLE_SIZE`, `PEAK_MEMORY`, `SCAN_SIZE`: GB.
+   * > - Only reports with `DetailEnabled` set to `true` can be queried for details. Reports that are incomplete, canceled, or expired cannot be queried.
+   * > - Fields ending with `Percent` are already expressed as percentages. When the time window 1 metric value is 0, `ChangeRatePercent` may not be returned and should not be treated as 0%.
+   * > - Reports are isolated by instance and Alibaba Cloud account.
+   * 
+   * @param request - DescribeSqlPatternCompareReportRequest
+   * @returns DescribeSqlPatternCompareReportResponse
+   */
+  async describeSqlPatternCompareReport(request: $_model.DescribeSqlPatternCompareReportRequest): Promise<$_model.DescribeSqlPatternCompareReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSqlPatternCompareReportWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of SQL Pattern comparison reports.
+   * 
+   * @remarks
+   * Queries the SQL Pattern comparison reports created by the current Alibaba Cloud account for a specified instance. RAM users can query reports that belong to their parent Alibaba Cloud account.
+   * The following pagination methods are supported:
+   * - Page number-based pagination (recommended): Use `PageNumber` and `PageSize`.
+   * - Token-based pagination: Use `MaxResults` and `NextToken`.
+   * > - The two pagination methods cannot be used together. When you use page number-based pagination, the `MaxResults` parameter that is automatically included by the platform does not take effect.
+   * > - The list returns only unexpired reports in the `PENDING`, `RUNNING`, or `SUCCESS` state.
+   * > - Use `DetailEnabled` to determine whether report details can be queried. Use `CancelAvailable` to determine whether a report can be canceled.
+   * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+   * 
+   * @param request - DescribeSqlPatternCompareReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSqlPatternCompareReportsResponse
+   */
+  async describeSqlPatternCompareReportsWithOptions(request: $_model.DescribeSqlPatternCompareReportsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSqlPatternCompareReportsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSqlPatternCompareReports",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSqlPatternCompareReportsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSqlPatternCompareReportsResponse({}));
+  }
+
+  /**
+   * Queries the list of SQL Pattern comparison reports.
+   * 
+   * @remarks
+   * Queries the SQL Pattern comparison reports created by the current Alibaba Cloud account for a specified instance. RAM users can query reports that belong to their parent Alibaba Cloud account.
+   * The following pagination methods are supported:
+   * - Page number-based pagination (recommended): Use `PageNumber` and `PageSize`.
+   * - Token-based pagination: Use `MaxResults` and `NextToken`.
+   * > - The two pagination methods cannot be used together. When you use page number-based pagination, the `MaxResults` parameter that is automatically included by the platform does not take effect.
+   * > - The list returns only unexpired reports in the `PENDING`, `RUNNING`, or `SUCCESS` state.
+   * > - Use `DetailEnabled` to determine whether report details can be queried. Use `CancelAvailable` to determine whether a report can be canceled.
+   * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+   * 
+   * @param request - DescribeSqlPatternCompareReportsRequest
+   * @returns DescribeSqlPatternCompareReportsResponse
+   */
+  async describeSqlPatternCompareReports(request: $_model.DescribeSqlPatternCompareReportsRequest): Promise<$_model.DescribeSqlPatternCompareReportsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSqlPatternCompareReportsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the storage resource usage of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
@@ -12899,7 +13239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识库文件
+   * Queries knowledge base files.
    * 
    * @param request - ListKnowledgeFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12950,7 +13290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识库文件
+   * Queries knowledge base files.
    * 
    * @param request - ListKnowledgeFilesRequest
    * @returns ListKnowledgeFilesResponse
