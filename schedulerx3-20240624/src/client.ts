@@ -12,20 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shenzhen': "schedulerx3.cn-shenzhen.aliyuncs.com",
-      'cn-beijing': "schedulerx3.cn-beijing.aliyuncs.com",
-      'ap-northeast-1': "schedulerx3.ap-northeast-1.aliyuncs.com",
-      'cn-chengdu': "schedulerx3.cn-chengdu.aliyuncs.com",
-      'cn-shanghai': "schedulerx3.cn-shanghai.aliyuncs.com",
-      'cn-guangzhou': "schedulerx3.cn-guangzhou.aliyuncs.com",
-      'cn-hongkong': "schedulerx3.cn-hongkong.aliyuncs.com",
-      'ap-southeast-1': "schedulerx3.ap-southeast-1.aliyuncs.com",
-      'cn-zhangjiakou': "schedulerx3.cn-zhangjiakou.aliyuncs.com",
-      'cn-hangzhou': "schedulerx3.cn-hangzhou.aliyuncs.com",
-      'eu-central-1': "schedulerx3.eu-central-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "schedulerx3.cn-shanghai-finance-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("schedulerx3", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1035,6 +1021,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.deleteJobs)) {
+      body["DeleteJobs"] = request.deleteJobs;
     }
 
     if (!$dara.isNull(request.id)) {
@@ -3026,7 +3016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of jobs.
+   * Retrieves a list of tasks.
    * 
    * @param request - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3097,7 +3087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of jobs.
+   * Retrieves a list of tasks.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse

@@ -11,6 +11,7 @@ export class DeleteExecutorGroupRequest extends $dara.Model {
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
+  deleteJobs?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -23,6 +24,7 @@ export class DeleteExecutorGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      deleteJobs: 'DeleteJobs',
       id: 'Id',
       name: 'Name',
     };
@@ -31,6 +33,7 @@ export class DeleteExecutorGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      deleteJobs: 'boolean',
       id: 'number',
       name: 'string',
     };

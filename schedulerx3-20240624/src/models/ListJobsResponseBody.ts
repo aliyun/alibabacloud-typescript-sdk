@@ -6,6 +6,9 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The application ID.
+   * 
+   * @example
+   * 1625
    */
   appGroupId?: number;
   /**
@@ -18,7 +21,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The retry interval on error. Unit: seconds.
+   * The error retry interval, in seconds.
    * 
    * @example
    * 30
@@ -34,7 +37,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   calendar?: string;
   /**
    * @remarks
-   * The child job ID.
+   * The child task ID.
    * 
    * @example
    * 1246
@@ -48,6 +51,14 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * {"cleanMode":"NUM_ONLY","totalRemain":300}
    */
   cleanMode?: string;
+  /**
+   * @remarks
+   * The timestamp when the task was created.
+   * 
+   * @example
+   * 1786354281000
+   */
+  createTime?: number;
   /**
    * @remarks
    * The creator.
@@ -78,7 +89,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   dataOffset?: number;
   /**
    * @remarks
-   * The dependency check strategy.
+   * The dependency check policy.
    * 
    * @example
    * 1
@@ -86,18 +97,18 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   dependentStrategy?: number;
   /**
    * @remarks
-   * The job description.
+   * The task description.
    * 
    * @example
-   * job01 standalone job
+   * job01 standalone task
    */
   description?: string;
   /**
    * @remarks
    * The client blocking strategy. Valid values:
    * - 1: Serial execution on a single machine.
-   * - 2: Ignore subsequent schedules.
-   * - 3: Override previous schedules.
+   * - 2: Ignore subsequent scheduling.
+   * - 3: Override previous scheduling.
    * 
    * @example
    * 1
@@ -113,7 +124,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   jobHandler?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * 74
@@ -121,7 +132,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The job type.
+   * The task type.
    * 
    * @example
    * xxljob
@@ -129,7 +140,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The job label information.
+   * The task label information.
    * 
    * @example
    * {key:value}
@@ -155,7 +166,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   lastExecuteStatus?: number;
   /**
    * @remarks
-   * The maximum number of retry attempts on error. Set this based on your business requirements.
+   * The maximum number of error retries. Set this parameter based on your business requirements.
    * 
    * @example
    * 5
@@ -163,7 +174,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum concurrency threshold.
+   * The overall concurrency threshold.
    * 
    * @example
    * 100
@@ -171,7 +182,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   maxConcurrency?: number;
   /**
    * @remarks
-   * The job name.
+   * The task name.
    * 
    * @example
    * job01
@@ -198,12 +209,12 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * The notification contacts.
    * 
    * @example
-   * [{"contactType":1,"name":"恰橙"}]
+   * [{"contactType":1,"name":"John"}]
    */
   noticeContacts?: string;
   /**
    * @remarks
-   * The job parameters.
+   * The task parameters.
    * 
    * @example
    * name=10
@@ -211,7 +222,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The job execution priority.
+   * The execution job priority.
    * 
    * @example
    * 1
@@ -220,14 +231,14 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The routing strategy. Valid values:
-   * - 1: polling.
-   * - 2: random.
-   * - 3: first.
-   * - 4: last.
-   * - 5: least frequently used.
-   * - 6: least recently used.
-   * - 7: consistent hashing.
-   * - 8: shard broadcast.
+   * - 1: Round-robin.
+   * - 2: Random.
+   * - 3: First.
+   * - 4: Last.
+   * - 5: Least frequently used.
+   * - 6: Least recently used.
+   * - 7: Consistent hashing.
+   * - 8: Shard broadcast.
    * 
    * @example
    * 1
@@ -254,9 +265,9 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   startTimeType?: number;
   /**
    * @remarks
-   * The job status. Valid values:
-   * - 0: DISABLE (disabled).
-   * - 1: ENABLE (enabled).
+   * The task status. Valid values:
+   * - 0: DISABLE (Disabled).
+   * - 1: ENABLE (Enabled).
    * 
    * @example
    * 1
@@ -272,7 +283,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   timeExpression?: string;
   /**
    * @remarks
-   * The time type. Valid values:
+   * The time type. The following types are supported:
    * 
    * - -1: none.
    * - 1: cron.
@@ -302,6 +313,14 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
+   * The timestamp when the task was last updated.
+   * 
+   * @example
+   * 1786354281000
+   */
+  updateTime?: number;
+  /**
+   * @remarks
    * The updater.
    * 
    * @example
@@ -310,7 +329,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   updater?: string;
   /**
    * @remarks
-   * The job weight.
+   * The task weight.
    * 
    * @example
    * 1
@@ -327,10 +346,10 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The extended attributes.
-   * > Not supported currently.
+   * > Not supported.
    * 
    * @example
-   * 暂无
+   * N/A
    */
   xattrs?: string;
   static names(): { [key: string]: string } {
@@ -341,6 +360,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       calendar: 'Calendar',
       childJobId: 'ChildJobId',
       cleanMode: 'CleanMode',
+      createTime: 'CreateTime',
       creator: 'Creator',
       currentExecuteStatus: 'CurrentExecuteStatus',
       dataOffset: 'DataOffset',
@@ -369,6 +389,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       timeType: 'TimeType',
       timeZone: 'TimeZone',
       timezone: 'Timezone',
+      updateTime: 'UpdateTime',
       updater: 'Updater',
       weight: 'Weight',
       workflowId: 'WorkflowId',
@@ -384,6 +405,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       calendar: 'string',
       childJobId: 'string',
       cleanMode: 'string',
+      createTime: 'number',
       creator: 'string',
       currentExecuteStatus: 'number',
       dataOffset: 'number',
@@ -412,6 +434,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       timeType: 'number',
       timeZone: 'string',
       timezone: 'string',
+      updateTime: 'number',
       updater: 'string',
       weight: 'number',
       workflowId: 'number',

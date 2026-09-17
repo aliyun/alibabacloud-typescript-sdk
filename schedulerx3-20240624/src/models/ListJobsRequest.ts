@@ -26,7 +26,7 @@ export class ListJobsRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * job01 standalone job
+   * job01 standalone task
    */
   description?: string;
   /**
@@ -39,7 +39,7 @@ export class ListJobsRequest extends $dara.Model {
   jobHandler?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class ListJobsRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The job name.
+   * The task name.
    * 
    * @example
    * job01
@@ -55,7 +55,7 @@ export class ListJobsRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The job label filter condition.
+   * The task label filter condition.
    * 
    * @example
    * {key:value}
