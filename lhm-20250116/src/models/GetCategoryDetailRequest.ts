@@ -2,46 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDataCheckReportStepByJobIdRequest extends $dara.Model {
+export class GetCategoryDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The verification sub-job ID.
-   * 
-   * This parameter is required.
+   * The list of category paths.
    * 
    * @example
-   * 10001
+   * /lhm/
    */
-  jobId?: string;
+  category?: string;
   /**
    * @remarks
-   * The page number.
+   * The source dialect.
    * 
    * @example
-   * 1
+   * sparksql
    */
-  pageIndex?: number;
+  source?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The target dialect.
    * 
    * @example
-   * 20
+   * hologres
    */
-  pageSize?: number;
+  target?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'jobId',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
+      category: 'category',
+      source: 'source',
+      target: 'target',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
+      category: 'string',
+      source: 'string',
+      target: 'string',
     };
   }
 

@@ -4,98 +4,163 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataCheckTemplateRequestBasicMetricRules extends $dara.Model {
   /**
+   * @remarks
+   * The check methods (metric calculation methods). Separate multiple values with commas, such as SUM,AVG,MIN,MAX. The values must be within the range allowed by the templatetype.
+   * 
    * @example
    * SUM,AVG
    */
   checkMethods?: string;
   /**
+   * @remarks
+   * Specifies whether to control floating-point precision. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   controlFloatPrecision?: number;
   /**
+   * @remarks
+   * The data type category. Valid values: 0 (native data type) and 1 (complex data type).
+   * 
    * @example
    * 0
    */
   dataTypeClassify?: number;
   /**
+   * @remarks
+   * The data type group that identifies the data type category to which the check rule applies. Valid values: integers from 0 to 7. For the description of each value, see the enumeration values.
+   * 
    * @example
    * 0
    */
   dataTypeGroup?: number;
+  /**
+   * @remarks
+   * The list of data types to which the check rule applies. Configure this field as needed.
+   */
   dataTypeList?: string[];
   /**
+   * @remarks
+   * The data types. Configure this field as needed.
+   * 
    * @example
    * BIGINT
    */
   dataTypes?: string;
   /**
+   * @remarks
+   * The difference tolerance type. Valid values: 0 (unified) and 1 (custom). Default value: 0.
+   * 
    * @example
    * 0
    */
   diffTolerateType?: number;
+  /**
+   * @remarks
+   * The difference tolerance values. For the unified type, this is a single value, such as {"SAME": 0}. For the custom type, values are set separately for each configured tolerance type, such as {"SUM": 0.01, "AVG": 0.001}.
+   */
   diffTolerateValues?: { [key: string]: any };
   /**
+   * @remarks
+   * Specifies whether to enable decimal scale control for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   enableDecimalScale?: number;
   /**
+   * @remarks
+   * The filter column names, separated by commas.
+   * 
    * @example
    * col_a,col_b
    */
   filterColumnName?: string;
   /**
+   * @remarks
+   * **[Deprecated]** Use the filterColumnName field instead. This field was retained because the previous platform could not be modified.
+   * 
    * @example
    * col_a,col_b
    */
   filterColumns?: string;
   /**
+   * @remarks
+   * The number of decimal places for floating-point values.
+   * 
    * @example
    * 2
    */
   floatPrecision?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore trailing zero differences in the decimal part. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreDecimalDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore trailing zeros in the decimal scale for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreDecimalScaleSuffixZero?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore the difference between null values and empty strings. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreEmptyDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore zero values for numeric types. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreNumericZero?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore empty strings and null values for string types. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreStringEmpty?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore the difference between null values and zero values. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreZeroDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to enable count (data volume) check. Valid values: 0 (no) and 1 (yes). Default value: 1.
+   * 
    * @example
    * 1
    */
   isCountCheck?: number;
   /**
+   * @remarks
+   * The rule ID that uniquely identifies a check rule.
+   * 
    * @example
    * 1001
    */
   ruleId?: string;
   /**
+   * @remarks
+   * The specific decimal scale value for DECIMAL type comparison.
+   * 
    * @example
    * 2
    */
@@ -169,98 +234,163 @@ export class UpdateDataCheckTemplateRequestBasicMetricRules extends $dara.Model 
 
 export class UpdateDataCheckTemplateRequestComplexMetricRules extends $dara.Model {
   /**
+   * @remarks
+   * The check methods (metric calculation methods). Separate multiple values with commas, such as SUM,AVG,MIN,MAX. The values must be within the range allowed by the templatetype.
+   * 
    * @example
    * SUM,AVG
    */
   checkMethods?: string;
   /**
+   * @remarks
+   * Specifies whether to control floating-point precision. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   controlFloatPrecision?: number;
   /**
+   * @remarks
+   * The data type category. Valid values: 0 (native data type) and 1 (complex data type).
+   * 
    * @example
    * 0
    */
   dataTypeClassify?: number;
   /**
+   * @remarks
+   * The data type group that identifies the data type category to which the check rule applies. Valid values: integers from 0 to 7. For the description of each value, see the enumeration values.
+   * 
    * @example
    * 0
    */
   dataTypeGroup?: number;
+  /**
+   * @remarks
+   * The list of data types to which the check rule applies. Configure this field as needed.
+   */
   dataTypeList?: string[];
   /**
+   * @remarks
+   * The data types. Configure this field as needed.
+   * 
    * @example
    * BIGINT
    */
   dataTypes?: string;
   /**
+   * @remarks
+   * The difference tolerance type. Valid values: 0 (unified) and 1 (custom). Default value: 0.
+   * 
    * @example
    * 0
    */
   diffTolerateType?: number;
+  /**
+   * @remarks
+   * The difference tolerance values. For the unified type, this is a single value, such as {"SAME": 0}. For the custom type, values are set separately for each configured tolerance type, such as {"SUM": 0.01, "AVG": 0.001}.
+   */
   diffTolerateValues?: { [key: string]: any };
   /**
+   * @remarks
+   * Specifies whether to enable decimal scale control for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   enableDecimalScale?: number;
   /**
+   * @remarks
+   * The filter column names, separated by commas.
+   * 
    * @example
    * col_a,col_b
    */
   filterColumnName?: string;
   /**
+   * @remarks
+   * **[Deprecated]** Use the filterColumnName field instead. This field was retained because the previous platform could not be modified.
+   * 
    * @example
    * col_a,col_b
    */
   filterColumns?: string;
   /**
+   * @remarks
+   * The number of decimal places for floating-point values.
+   * 
    * @example
    * 2
    */
   floatPrecision?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore trailing zero differences in the decimal part. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreDecimalDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore trailing zeros in the decimal scale for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreDecimalScaleSuffixZero?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore the difference between null values and empty strings. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreEmptyDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore zero values for numeric types. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreNumericZero?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore empty strings and null values for string types. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreStringEmpty?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore the difference between null values and zero values. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreZeroDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to enable count (data volume) check. Valid values: 0 (no) and 1 (yes). Default value: 1.
+   * 
    * @example
    * 1
    */
   isCountCheck?: number;
   /**
+   * @remarks
+   * The rule ID that uniquely identifies a check rule.
+   * 
    * @example
    * 1001
    */
   ruleId?: string;
   /**
+   * @remarks
+   * The specific decimal scale value for DECIMAL type comparison.
+   * 
    * @example
    * 2
    */
@@ -334,15 +464,25 @@ export class UpdateDataCheckTemplateRequestComplexMetricRules extends $dara.Mode
 
 export class UpdateDataCheckTemplateRequestDsEngineRels extends $dara.Model {
   /**
+   * @remarks
+   * The datasource engine configuration ID.
+   * 
    * @example
    * 1001
    */
   dsEngineId?: string;
   /**
+   * @remarks
+   * The datasource type, such as Hive or MaxCompute.
+   * 
    * @example
    * Hive
    */
   dsType?: string;
+  /**
+   * @remarks
+   * The list of covered check engine types, such as Tez or MapReduce. When specified as a string, separate multiple values with commas.
+   */
   engineTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -374,91 +514,174 @@ export class UpdateDataCheckTemplateRequestDsEngineRels extends $dara.Model {
 
 export class UpdateDataCheckTemplateRequestFulltextRule extends $dara.Model {
   /**
+   * @remarks
+   * The check mode. Valid values:
+   * - 0: row-by-row overall comparison.
+   * - 1: row-by-row column-by-column comparison.
+   * - 2: both row-by-row overall comparison and row-by-row column-by-column comparison.
+   * 
    * @example
    * 0
    */
   checkMode?: number;
   /**
+   * @remarks
+   * The equality comparison type for row-by-row column-by-column comparison. Valid values:
+   * - 0: all field types.
+   * - 1: native primitive data types.
+   * - 2: complex data types.
+   * - 3: custom.
+   * 
    * @example
    * 0
    */
   columnEqualCmpType?: number;
   /**
+   * @remarks
+   * The custom type list for equality comparison during row-by-row column-by-column comparison. Separate multiple values with commas.
+   * 
    * @example
    * ARRAY,MAP
    */
   columnEqualCmpValues?: string;
   /**
+   * @remarks
+   * Specifies whether to enable cosine similarity during row-by-row column-by-column comparison. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
+   * 
    * @example
    * 0
    */
   columnIsCosine?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore differences between null values and empty strings during row-by-row column-by-column comparison. Valid values:
+   * - 0: Not ignored.
+   * - 1: Ignored.
+   * 
    * @example
    * 0
    */
   columnIsIgnoreNull?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore differences between null values and 0 values during row-by-row column-by-column comparison. Valid values:
+   * - 0: Not ignored.
+   * - 1: Ignored.
+   * 
    * @example
    * 0
    */
   columnIsIgnoreZero?: number;
   /**
+   * @remarks
+   * Specifies whether to enable sampling during row-by-row column-by-column comparison. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
+   * 
    * @example
    * 0
    */
   columnIsSamples?: number;
   /**
+   * @remarks
+   * The sampling method for row-by-row column-by-column comparison. Valid values:
+   * - 0: by row.
+   * - 1: by percentage.
+   * 
    * @example
    * 0
    */
   columnSamplesType?: number;
   /**
+   * @remarks
+   * The sampling value for row-by-row column-by-column comparison. The meaning depends on the sampling method: the number of rows when sampling by row, or the percentage value when sampling by percentage.
+   * 
    * @example
    * 100
    */
   columnSamplesValue?: number;
   /**
+   * @remarks
+   * The size comparison type for row-by-row column-by-column comparison. Valid values:
+   * - 0: all complex data types.
+   * - 1: custom.
+   * 
    * @example
    * 0
    */
   columnSizeCmpType?: number;
   /**
+   * @remarks
+   * The custom type list for size comparison during row-by-row column-by-column comparison. Separate multiple values with commas.
+   * 
    * @example
    * ARRAY,MAP
    */
   columnSizeCmpValues?: string;
   /**
+   * @remarks
+   * Specifies whether to enable primary key or composite primary key existence check. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
+   * 
    * @example
    * 1
    */
   isPrimaryKeyCheck?: number;
   /**
+   * @remarks
+   * The row-by-row comparison method. Valid values:
+   * - 0: md5.
+   * - 1: crc32.
+   * 
    * @example
    * 0
    */
   lineCheckType?: number;
   /**
+   * @remarks
+   * Specifies whether to print all columns in the difference details during row-by-row comparison. Valid values:
+   * - 0: Not printed.
+   * - 1: Printed.
+   * 
    * @example
    * 0
    */
   lineIsPrintAll?: number;
   /**
+   * @remarks
+   * Specifies whether to enable sampling during row-by-row comparison. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
+   * 
    * @example
    * 0
    */
   lineIsSamples?: number;
   /**
+   * @remarks
+   * The sampling method for row-by-row comparison. Valid values:
+   * - 0: by row.
+   * - 1: by percentage.
+   * 
    * @example
    * 0
    */
   lineSamplesType?: number;
   /**
+   * @remarks
+   * The sampling value for row-by-row comparison. The meaning depends on the sampling method: the number of rows when sampling by row, or the percentage value when sampling by percentage.
+   * 
    * @example
    * 100
    */
   lineSamplesValue?: number;
   /**
+   * @remarks
+   * The rule ID that uniquely identifies a check rule.
+   * 
    * @example
    * 1001
    */
@@ -520,98 +743,163 @@ export class UpdateDataCheckTemplateRequestFulltextRule extends $dara.Model {
 
 export class UpdateDataCheckTemplateRequestMetricRules extends $dara.Model {
   /**
+   * @remarks
+   * The check methods (metric calculation methods). Separate multiple values with commas (,), such as SUM,AVG,MIN,MAX. The values must be within the range allowed by the templatetype.
+   * 
    * @example
    * SUM,AVG
    */
   checkMethods?: string;
   /**
+   * @remarks
+   * Specifies whether to control floating-point precision. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   controlFloatPrecision?: number;
   /**
+   * @remarks
+   * The data type category. Valid values: 0 (native data type) and 1 (complex data type).
+   * 
    * @example
    * 0
    */
   dataTypeClassify?: number;
   /**
+   * @remarks
+   * The data type group that identifies the data type category to which the check rule applies. Valid values: integers from 0 to 7. For the description of each value, see the enumeration values.
+   * 
    * @example
    * 0
    */
   dataTypeGroup?: number;
+  /**
+   * @remarks
+   * The list of data types to which the check rule applies. Configure this field as needed.
+   */
   dataTypeList?: string[];
   /**
+   * @remarks
+   * The data types. Configure this field as needed.
+   * 
    * @example
    * BIGINT
    */
   dataTypes?: string;
   /**
+   * @remarks
+   * The difference tolerance type. Valid values: 0 (unified) and 1 (custom). Default value: 0.
+   * 
    * @example
    * 0
    */
   diffTolerateType?: number;
+  /**
+   * @remarks
+   * The difference tolerance values. For the unified type, this is a single value, such as {"SAME": 0}. For the custom type, values are set separately for each configured tolerance type, such as {"SUM": 0.01, "AVG": 0.001}.
+   */
   diffTolerateValues?: { [key: string]: any };
   /**
+   * @remarks
+   * Specifies whether to enable decimal scale control for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   enableDecimalScale?: number;
   /**
+   * @remarks
+   * The filter column names, separated by commas.
+   * 
    * @example
    * col_a,col_b
    */
   filterColumnName?: string;
   /**
+   * @remarks
+   * **[Deprecated]** Use the filterColumnName field instead. This field was retained because the previous platform could not be modified.
+   * 
    * @example
    * col_a,col_b
    */
   filterColumns?: string;
   /**
+   * @remarks
+   * The number of decimal places for floating-point values.
+   * 
    * @example
    * 2
    */
   floatPrecision?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore trailing zero differences in the decimal part. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreDecimalDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore trailing zeros in the decimal scale for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreDecimalScaleSuffixZero?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore the difference between null values and empty strings. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreEmptyDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore zero values for numeric types. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreNumericZero?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore empty strings and null values for string types. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreStringEmpty?: number;
   /**
+   * @remarks
+   * Specifies whether to ignore the difference between null values and zero values. Valid values: 0 (no) and 1 (yes).
+   * 
    * @example
    * 0
    */
   ignoreZeroDiff?: number;
   /**
+   * @remarks
+   * Specifies whether to enable count (data volume) check. Valid values: 0 (no) and 1 (yes). Default value: 1.
+   * 
    * @example
    * 1
    */
   isCountCheck?: number;
   /**
+   * @remarks
+   * The rule ID that uniquely identifies a check rule.
+   * 
    * @example
    * 1001
    */
   ruleId?: string;
   /**
+   * @remarks
+   * The specific decimal scale value for DECIMAL type comparison.
+   * 
    * @example
    * 2
    */
@@ -685,16 +973,25 @@ export class UpdateDataCheckTemplateRequestMetricRules extends $dara.Model {
 
 export class UpdateDataCheckTemplateRequestNullRules extends $dara.Model {
   /**
+   * @remarks
+   * The data type group that identifies the data type category to which the check rule applies. Valid values: integers from 0 to 7. For the description of each value, see the enumeration values.
+   * 
    * @example
    * 0
    */
   dataTypeGroup?: number;
   /**
+   * @remarks
+   * The null values, stored in JSON format.
+   * 
    * @example
    * {}
    */
   nullValues?: string;
   /**
+   * @remarks
+   * The rule ID that uniquely identifies a check rule.
+   * 
    * @example
    * 1001
    */
@@ -726,17 +1023,30 @@ export class UpdateDataCheckTemplateRequestNullRules extends $dara.Model {
 
 export class UpdateDataCheckTemplateRequestWeakContentRule extends $dara.Model {
   /**
+   * @remarks
+   * The filter column name expression.
+   * 
    * @example
    * ^col_.*$
    */
   filterColumnExpression?: string;
+  /**
+   * @remarks
+   * The filter column types, separated by vertical bars (|).
+   */
   filterColumnTypes?: string[];
   /**
+   * @remarks
+   * The rule ID that uniquely identifies a check rule.
+   * 
    * @example
    * 1001
    */
   ruleId?: string;
   /**
+   * @remarks
+   * The weak content algorithm name: md5 or crc32.
+   * 
    * @example
    * md5
    */
@@ -772,37 +1082,86 @@ export class UpdateDataCheckTemplateRequestWeakContentRule extends $dara.Model {
 }
 
 export class UpdateDataCheckTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of metric check rules for basic data types. This field is required when checkType is set to 1 (metric comparison).
+   */
   basicMetricRules?: UpdateDataCheckTemplateRequestBasicMetricRules[];
   /**
+   * @remarks
+   * The check rule type. Valid values:
+   * - 0: data volume comparison.
+   * - 1: metric comparison.
+   * - 2: weak content comparison.
+   * - 3: custom comparison.
+   * - 4: full-text comparison.
+   * - 5: null rate comparison.
+   * 
    * @example
    * 1
    */
   checkType?: number;
+  /**
+   * @remarks
+   * The list of complex data type metric check rules. Used when checkType is set to 1 (metric comparison).
+   */
   complexMetricRules?: UpdateDataCheckTemplateRequestComplexMetricRules[];
+  /**
+   * @remarks
+   * The list of datasource engine relationships (datasource engines associated with the template).
+   */
   dsEngineRels?: UpdateDataCheckTemplateRequestDsEngineRels[];
+  /**
+   * @remarks
+   * The full-text comparison rule. This parameter has a value when checkType is set to 4 (full-text comparison). Refer to the child fields for the field structure.
+   */
   fulltextRule?: UpdateDataCheckTemplateRequestFulltextRule;
+  /**
+   * @remarks
+   * The list of metric check rules. This parameter has a value when checkType is set to 1 (metric comparison).
+   */
   metricRules?: UpdateDataCheckTemplateRequestMetricRules[];
+  /**
+   * @remarks
+   * The list of null value rate check rules. This parameter has a value when checkType is set to 5 (null value rate comparison).
+   */
   nullRules?: UpdateDataCheckTemplateRequestNullRules[];
   /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues of this call.
+   * 
    * @example
    * 4C467B38-3910-4477-9B0B-6963D83B4E72
    */
   requestId?: string;
   /**
+   * @remarks
+   * The template description.
+   * 
    * @example
-   * 数据量校验模板描述
+   * Description of the data volume check template
    */
   templateDesc?: string;
   /**
+   * @remarks
+   * The check template ID (logical foreign key) that uniquely identifies a check template.
+   * 
    * @example
    * 1001
    */
   templateId?: string;
   /**
+   * @remarks
+   * The check template name.
+   * 
    * @example
-   * 数据量校验模板
+   * Data volume check template
    */
   templateName?: string;
+  /**
+   * @remarks
+   * The weak content check rule. This parameter has a value and is required when checkType is set to 2 (weak content comparison). For the field structure, see the child field descriptions.
+   */
   weakContentRule?: UpdateDataCheckTemplateRequestWeakContentRule;
   static names(): { [key: string]: string } {
     return {

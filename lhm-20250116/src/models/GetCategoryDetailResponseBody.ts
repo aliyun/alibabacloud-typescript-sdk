@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class PostInnerReaderResponseBody extends $dara.Model {
+export class GetCategoryDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business data returned by the operation (in string format). The specific content varies by operation.
+   * The returned data.
    * 
    * @example
-   * demo
+   * {\\"taskId\\": 1699}
    */
   data?: string;
   /**
    * @remarks
-   * The error code. This value is an empty string if the call is successful.
+   * The error code. An empty string is returned if the call is successful.
    * 
    * @example
    * Success
@@ -21,7 +21,7 @@ export class PostInnerReaderResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message. This value is an empty string if the call is successful.
+   * The error message. An empty string is returned if the call is successful.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class PostInnerReaderResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies this call. Provide this value when troubleshooting issues.
+   * The request ID, which is used to locate and troubleshoot issues.
    * 
    * @example
    * 4C467B38-3910-4477-9B0B-6963D83B4E72
@@ -37,14 +37,12 @@ export class PostInnerReaderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: Successful.
-   * - false: Failed. Troubleshoot by using errCode and errMessage.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true
    */
-  success?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
@@ -61,7 +59,7 @@ export class PostInnerReaderResponseBody extends $dara.Model {
       errCode: 'string',
       errMessage: 'string',
       requestId: 'string',
-      success: 'string',
+      success: 'boolean',
     };
   }
 

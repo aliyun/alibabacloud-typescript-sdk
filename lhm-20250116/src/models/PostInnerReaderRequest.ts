@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class PostInnerReaderRequestDataSourceDescriptor extends $dara.Model {
   /**
+   * @remarks
+   * The data source name. Exact match and fuzzy match are supported.
+   * 
    * @example
    * test_ds318_hangzhou_0428
    */
@@ -30,8 +33,15 @@ export class PostInnerReaderRequestDataSourceDescriptor extends $dara.Model {
 }
 
 export class PostInnerReaderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The fallback description used when the data source is missing. Use this parameter to pass the complete data source description information in the request parameters (Plan B).
+   */
   dataSourceDescriptor?: PostInnerReaderRequestDataSourceDescriptor;
   /**
+   * @remarks
+   * The data source name. The discovery task uses this field as the dimension identifier.
+   * 
    * @example
    * ds_dolphin_prod
    */

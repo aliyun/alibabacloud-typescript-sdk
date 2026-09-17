@@ -4,20 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataCheckTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. An empty string is returned if the call is successful.
+   * 
    * @example
    * Success
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message. An empty string is returned if the call is successful.
+   * 
    * @example
    * success
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues of this call.
+   * 
    * @example
    * 4C467B38-3910-4477-9B0B-6963D83B4E72
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure. If the call fails, check errCode and errMessage for troubleshooting.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -1856,6 +1856,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the specified dialect conversion rule.
+   * 
+   * @param request - GetAllRulesSummaryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAllRulesSummaryResponse
+   */
+  async getAllRulesSummaryWithOptions(request: $_model.GetAllRulesSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAllRulesSummaryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.source)) {
+      query["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      query["target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAllRulesSummary",
+      version: "2025-01-16",
+      protocol: "HTTPS",
+      pathname: `/api/bigdata/sql-translator/open/rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAllRulesSummaryResponse>(await this.callApi(params, req, runtime), new $_model.GetAllRulesSummaryResponse({}));
+  }
+
+  /**
+   * Retrieves the specified dialect conversion rule.
+   * 
+   * @param request - GetAllRulesSummaryRequest
+   * @returns GetAllRulesSummaryResponse
+   */
+  async getAllRulesSummary(request: $_model.GetAllRulesSummaryRequest): Promise<$_model.GetAllRulesSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAllRulesSummaryWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the paging list of commit (write) instances for a scheduling migration node by node ID and status, and returns the transform and commit stage status of each instance.
    * 
    * @remarks
@@ -2133,6 +2182,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getBwmMigrationWorkflowSubmitStartWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the details of dialect rules.
+   * 
+   * @param request - GetCategoryDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCategoryDetailResponse
+   */
+  async getCategoryDetailWithOptions(request: $_model.GetCategoryDetailRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCategoryDetailResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      body["target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCategoryDetail",
+      version: "2025-01-16",
+      protocol: "HTTPS",
+      pathname: `/api/bigdata/sql-translator/open/rules/categories`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCategoryDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetCategoryDetailResponse({}));
+  }
+
+  /**
+   * Retrieves the details of dialect rules.
+   * 
+   * @param request - GetCategoryDetailRequest
+   * @returns GetCategoryDetailResponse
+   */
+  async getCategoryDetail(request: $_model.GetCategoryDetailRequest): Promise<$_model.GetCategoryDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCategoryDetailWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3459,17 +3561,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询校验任务配置
+   * Queries the table-level configuration list of a data validation node by node ID and source table name with paging.
    * 
    * @remarks
-   * ## 接口说明
-   * 按数据校验任务 ID 分页查询该任务下的表明细配置，支持按源表名称模糊筛选，用于在任务包含较多表时定位单张表的配置，核对源端与目标端的表、字段、分区、过滤条件与比对规则是否符合预期。
-   * ## 请求说明
-   * - `taskId` 必填，为数据校验任务 ID。
-   * - `srcTable` 选填，按源表名称模糊搜索。
-   * - `pageIndex` 与 `pageSize` 选填，默认值为 1 与 10。
-   * ## 返回说明
-   * 返回分页响应：`totalCount` 为满足条件的配置总数，`pageIndex` 与 `pageSize` 回显本次分页参数，`data` 为当前页配置列表。列表元素包含配置 ID、是否跳过 `isSkipped`、所属任务 `taskId` 与校验类型 `checkType`；源端的 `sourceDataSource`、`sourceId`、`sourceType`、`sourceTable`、`sourceColumns`、`sourcePartition`、`sourceWhereClause`、`sourceGroupClause`、`sourceHint`、`sourceSql` 与 `sourceCompareKey`，以及目标端一一对应的 `targetDataSource`、`targetId`、`targetType`、`targetTable`、`targetColumns`、`targetPartition`、`targetWhereClause`、`targetGroupClause`、`targetHint`、`targetSql` 与 `targetCompareKey`；比对规则相关的总数据量阈值 `totalCountThreshold`、分组数据量阈值 `groupCountThreshold`、批大小 `batchSize`、校验算法 `algorithm`、比较类型 `comparator`、指标类型 `metricType`、是否整表比对 `isFullTableCount`、源端与目标端是否校验所有列（`sourceCheckAllColumn`、`targetCheckAllColumn`）；另有配置详情 `taskConfigInfo` 与备用字段 `extra`。
+   * ## Operation description
+   * Queries the table-level configurations of a data validation node by node ID with paging. Supports fuzzy filtering by source table name. This operation is useful for locating the configuration of a specific table when the node contains many tables, and for verifying whether the source and target table, column, partition, filter condition, and comparison rule settings meet expectations.
+   * ## Request description
+   * - `taskId` is required and specifies the ID of the data validation task.
+   * - `srcTable` is optional and performs a fuzzy search by source table name.
+   * - `pageIndex` and `pageSize` are optional. The default values are 1 and 10.
+   * ## Response description
+   * Returns a paginated response: `totalCount` indicates the total number of configurations that meet the conditions, `pageIndex` and `pageSize` echo the pagination parameters of the current request, and `data` contains the configuration list for the current page. Each list element includes the configuration ID, whether the configuration is skipped (`isSkipped`), the associated task (`taskId`), and the check type (`checkType`). Source-side fields include `sourceDataSource`, `sourceId`, `sourceType`, `sourceTable`, `sourceColumns`, `sourcePartition`, `sourceWhereClause`, `sourceGroupClause`, `sourceHint`, `sourceSql`, and `sourceCompareKey`. The corresponding target-side fields include `targetDataSource`, `targetId`, `targetType`, `targetTable`, `targetColumns`, `targetPartition`, `targetWhereClause`, `targetGroupClause`, `targetHint`, `targetSql`, and `targetCompareKey`. Comparison rule fields include the total data volume threshold (`totalCountThreshold`), group data volume threshold (`groupCountThreshold`), batch size (`batchSize`), check algorithm (`algorithm`), comparison type (`comparator`), metric type (`metricType`), whether to perform full-table comparison (`isFullTableCount`), and whether to validate all columns on the source and target sides (`sourceCheckAllColumn` and `targetCheckAllColumn`). Additional fields include configuration details (`taskConfigInfo`) and a reserved field (`extra`).
    * 
    * @param request - ListDataCheckConfigRequest
    * @param headers - map
@@ -3514,17 +3616,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询校验任务配置
+   * Queries the table-level configuration list of a data validation node by node ID and source table name with paging.
    * 
    * @remarks
-   * ## 接口说明
-   * 按数据校验任务 ID 分页查询该任务下的表明细配置，支持按源表名称模糊筛选，用于在任务包含较多表时定位单张表的配置，核对源端与目标端的表、字段、分区、过滤条件与比对规则是否符合预期。
-   * ## 请求说明
-   * - `taskId` 必填，为数据校验任务 ID。
-   * - `srcTable` 选填，按源表名称模糊搜索。
-   * - `pageIndex` 与 `pageSize` 选填，默认值为 1 与 10。
-   * ## 返回说明
-   * 返回分页响应：`totalCount` 为满足条件的配置总数，`pageIndex` 与 `pageSize` 回显本次分页参数，`data` 为当前页配置列表。列表元素包含配置 ID、是否跳过 `isSkipped`、所属任务 `taskId` 与校验类型 `checkType`；源端的 `sourceDataSource`、`sourceId`、`sourceType`、`sourceTable`、`sourceColumns`、`sourcePartition`、`sourceWhereClause`、`sourceGroupClause`、`sourceHint`、`sourceSql` 与 `sourceCompareKey`，以及目标端一一对应的 `targetDataSource`、`targetId`、`targetType`、`targetTable`、`targetColumns`、`targetPartition`、`targetWhereClause`、`targetGroupClause`、`targetHint`、`targetSql` 与 `targetCompareKey`；比对规则相关的总数据量阈值 `totalCountThreshold`、分组数据量阈值 `groupCountThreshold`、批大小 `batchSize`、校验算法 `algorithm`、比较类型 `comparator`、指标类型 `metricType`、是否整表比对 `isFullTableCount`、源端与目标端是否校验所有列（`sourceCheckAllColumn`、`targetCheckAllColumn`）；另有配置详情 `taskConfigInfo` 与备用字段 `extra`。
+   * ## Operation description
+   * Queries the table-level configurations of a data validation node by node ID with paging. Supports fuzzy filtering by source table name. This operation is useful for locating the configuration of a specific table when the node contains many tables, and for verifying whether the source and target table, column, partition, filter condition, and comparison rule settings meet expectations.
+   * ## Request description
+   * - `taskId` is required and specifies the ID of the data validation task.
+   * - `srcTable` is optional and performs a fuzzy search by source table name.
+   * - `pageIndex` and `pageSize` are optional. The default values are 1 and 10.
+   * ## Response description
+   * Returns a paginated response: `totalCount` indicates the total number of configurations that meet the conditions, `pageIndex` and `pageSize` echo the pagination parameters of the current request, and `data` contains the configuration list for the current page. Each list element includes the configuration ID, whether the configuration is skipped (`isSkipped`), the associated task (`taskId`), and the check type (`checkType`). Source-side fields include `sourceDataSource`, `sourceId`, `sourceType`, `sourceTable`, `sourceColumns`, `sourcePartition`, `sourceWhereClause`, `sourceGroupClause`, `sourceHint`, `sourceSql`, and `sourceCompareKey`. The corresponding target-side fields include `targetDataSource`, `targetId`, `targetType`, `targetTable`, `targetColumns`, `targetPartition`, `targetWhereClause`, `targetGroupClause`, `targetHint`, `targetSql`, and `targetCompareKey`. Comparison rule fields include the total data volume threshold (`totalCountThreshold`), group data volume threshold (`groupCountThreshold`), batch size (`batchSize`), check algorithm (`algorithm`), comparison type (`comparator`), metric type (`metricType`), whether to perform full-table comparison (`isFullTableCount`), and whether to validate all columns on the source and target sides (`sourceCheckAllColumn` and `targetCheckAllColumn`). Additional fields include configuration details (`taskConfigInfo`) and a reserved field (`extra`).
    * 
    * @param request - ListDataCheckConfigRequest
    * @returns ListDataCheckConfigResponse
@@ -3536,17 +3638,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询校验报告，表维度明细
+   * Queries a validation report by paged query, returning job dimension summaries and validation result details for each table within the job.
    * 
    * @remarks
-   * ## 接口说明
-   * 按校验作业（批次）分页查询校验报告明细，返回每个校验子作业及其对应表的校验结果，包含行数比对、字段与指标通过情况、差异率、源端与目标端配置和错误信息，是查看一次校验执行结论的主要入口。
-   * ## 请求说明
-   * - 请求体为 JSON 对象，其中 `batchId` 必填，为校验作业（批次）ID，取自保存校验任务接口的返回值。
-   * - `checkResult` 选填，按校验结果筛选（0 无记录、1 通过、2 不通过）；`jobStatus` 选填，按作业状态筛选（0 INIT 待运行、1 RUNNING 运行中、2 FINISHED 运行完成、3 STOPPED 终止、4 FAIL 失败、6 READY 就绪、7 SKIPPED 跳过）；`tableName` 选填，按表名筛选。
-   * - `pageIndex` 与 `pageSize` 选填，分别表示页码（最小值与默认值为 1）与每页条数。
-   * ## 返回说明
-   * 返回分页响应：`totalCount` 为满足条件的明细总数，`pageIndex` 与 `pageSize` 回显本次分页参数，`data` 为当前页明细列表。列表元素包含批次与作业标识（`batchId`、`jobId`、`resultId`）、是否跳过 `isSkipped`、校验结果 `checkResult` 与作业状态 `jobStatus`；源端与目标端行数（`sourceCount`、`targetCount`）、实际差异与相同行数（`realDiffCount`、`realSameCount`）、预期差异行数 `expDiffCount`、差异率 `diffRate`、作业完成率 `completionRate`、仅源端或仅目标端存在的条数（`onlySrcCount`、`onlyDstCount`）；字段与指标维度的校验数与通过数（`checkColumCount`、`passColumCount`、`metricColumCount`、`metricPassColumCount`）；源端与目标端的数据源、类型、表、字段、分区、where 与 group 条件、hint、SQL 列表、比较字段与错误信息；以及阈值 `threshold`、分组数据量阈值 `totalCountThreshold`、模板名称 `templateName`、任务配置 ID `taskConfigId`、执行时间 `execTime`、完成时间 `finishTime` 与错误信息 `errorMsg`。其中的 `jobId` 与 `resultId` 可分别用于查询步骤维度明细与字段维度明细。
+   * ## Operation description
+   * Queries validation report details by validation job (batch) with paging. Returns the validation results for each validation sub-job and its corresponding tables, including row count comparison, field and metric pass status, difference rate, source and destination configurations, and fault information. This is the primary entry point for viewing the conclusions of a validation execution.
+   * ## Request description
+   * - The request body is a JSON object. The `batchId` parameter is required and specifies the validation job (batch) ID, which is obtained from the response of the save validation task operation.
+   * - `checkResult` is optional and filters by validation result (0: no records, 1: passed, 2: failed). `jobStatus` is optional and filters by job status (0: INIT - pending, 1: RUNNING - running, 2: FINISHED - completed, 3: STOPPED - stopped, 4: FAIL - failed, 6: READY - ready, 7: SKIPPED - skipped). `tableName` is optional and filters by table name.
+   * - `pageIndex` and `pageSize` are optional and specify the page number (minimum and default value: 1) and the number of entries per page, respectively.
+   * ## Response description
+   * Returns a paginated response: `totalCount` is the total number of details that meet the conditions, `pageIndex` and `pageSize` echo the pagination parameters of the current request, and `data` is the list of details for the current page. Each list element contains batch and job identifiers (`batchId`, `jobId`, `resultId`), whether the job is skipped (`isSkipped`), the validation result (`checkResult`), and the job status (`jobStatus`). It also includes source and destination row counts (`sourceCount`, `targetCount`), actual difference and matching row counts (`realDiffCount`, `realSameCount`), expected difference row count (`expDiffCount`), difference rate (`diffRate`), job completion rate (`completionRate`), and counts of rows that exist only in the source or only in the destination (`onlySrcCount`, `onlyDstCount`). Field and metric-level validation counts and pass counts are provided (`checkColumCount`, `passColumCount`, `metricColumCount`, `metricPassColumCount`). Source and destination details include the data source, type, table, fields, partition, WHERE and GROUP conditions, hints, SQL list, comparison fields, and error information. Additional fields include the threshold (`threshold`), group data volume threshold (`totalCountThreshold`), template name (`templateName`), task configuration ID (`taskConfigId`), execution time (`execTime`), completion time (`finishTime`), and error message (`errorMsg`). The `jobId` and `resultId` can be used to query step-level details and field-level details, respectively.
    * 
    * @param request - ListDataCheckReportRequest
    * @param headers - map
@@ -3599,17 +3701,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询校验报告，表维度明细
+   * Queries a validation report by paged query, returning job dimension summaries and validation result details for each table within the job.
    * 
    * @remarks
-   * ## 接口说明
-   * 按校验作业（批次）分页查询校验报告明细，返回每个校验子作业及其对应表的校验结果，包含行数比对、字段与指标通过情况、差异率、源端与目标端配置和错误信息，是查看一次校验执行结论的主要入口。
-   * ## 请求说明
-   * - 请求体为 JSON 对象，其中 `batchId` 必填，为校验作业（批次）ID，取自保存校验任务接口的返回值。
-   * - `checkResult` 选填，按校验结果筛选（0 无记录、1 通过、2 不通过）；`jobStatus` 选填，按作业状态筛选（0 INIT 待运行、1 RUNNING 运行中、2 FINISHED 运行完成、3 STOPPED 终止、4 FAIL 失败、6 READY 就绪、7 SKIPPED 跳过）；`tableName` 选填，按表名筛选。
-   * - `pageIndex` 与 `pageSize` 选填，分别表示页码（最小值与默认值为 1）与每页条数。
-   * ## 返回说明
-   * 返回分页响应：`totalCount` 为满足条件的明细总数，`pageIndex` 与 `pageSize` 回显本次分页参数，`data` 为当前页明细列表。列表元素包含批次与作业标识（`batchId`、`jobId`、`resultId`）、是否跳过 `isSkipped`、校验结果 `checkResult` 与作业状态 `jobStatus`；源端与目标端行数（`sourceCount`、`targetCount`）、实际差异与相同行数（`realDiffCount`、`realSameCount`）、预期差异行数 `expDiffCount`、差异率 `diffRate`、作业完成率 `completionRate`、仅源端或仅目标端存在的条数（`onlySrcCount`、`onlyDstCount`）；字段与指标维度的校验数与通过数（`checkColumCount`、`passColumCount`、`metricColumCount`、`metricPassColumCount`）；源端与目标端的数据源、类型、表、字段、分区、where 与 group 条件、hint、SQL 列表、比较字段与错误信息；以及阈值 `threshold`、分组数据量阈值 `totalCountThreshold`、模板名称 `templateName`、任务配置 ID `taskConfigId`、执行时间 `execTime`、完成时间 `finishTime` 与错误信息 `errorMsg`。其中的 `jobId` 与 `resultId` 可分别用于查询步骤维度明细与字段维度明细。
+   * ## Operation description
+   * Queries validation report details by validation job (batch) with paging. Returns the validation results for each validation sub-job and its corresponding tables, including row count comparison, field and metric pass status, difference rate, source and destination configurations, and fault information. This is the primary entry point for viewing the conclusions of a validation execution.
+   * ## Request description
+   * - The request body is a JSON object. The `batchId` parameter is required and specifies the validation job (batch) ID, which is obtained from the response of the save validation task operation.
+   * - `checkResult` is optional and filters by validation result (0: no records, 1: passed, 2: failed). `jobStatus` is optional and filters by job status (0: INIT - pending, 1: RUNNING - running, 2: FINISHED - completed, 3: STOPPED - stopped, 4: FAIL - failed, 6: READY - ready, 7: SKIPPED - skipped). `tableName` is optional and filters by table name.
+   * - `pageIndex` and `pageSize` are optional and specify the page number (minimum and default value: 1) and the number of entries per page, respectively.
+   * ## Response description
+   * Returns a paginated response: `totalCount` is the total number of details that meet the conditions, `pageIndex` and `pageSize` echo the pagination parameters of the current request, and `data` is the list of details for the current page. Each list element contains batch and job identifiers (`batchId`, `jobId`, `resultId`), whether the job is skipped (`isSkipped`), the validation result (`checkResult`), and the job status (`jobStatus`). It also includes source and destination row counts (`sourceCount`, `targetCount`), actual difference and matching row counts (`realDiffCount`, `realSameCount`), expected difference row count (`expDiffCount`), difference rate (`diffRate`), job completion rate (`completionRate`), and counts of rows that exist only in the source or only in the destination (`onlySrcCount`, `onlyDstCount`). Field and metric-level validation counts and pass counts are provided (`checkColumCount`, `passColumCount`, `metricColumCount`, `metricPassColumCount`). Source and destination details include the data source, type, table, fields, partition, WHERE and GROUP conditions, hints, SQL list, comparison fields, and error information. Additional fields include the threshold (`threshold`), group data volume threshold (`totalCountThreshold`), template name (`templateName`), task configuration ID (`taskConfigId`), execution time (`execTime`), completion time (`finishTime`), and error message (`errorMsg`). The `jobId` and `resultId` can be used to query step-level details and field-level details, respectively.
    * 
    * @param request - ListDataCheckReportRequest
    * @returns ListDataCheckReportResponse
@@ -3765,17 +3867,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询报告-作业维度明细（分区列表）
+   * Queries a paged list of step (partition) dimension verification details by a UUID-format job ID with paging support.
    * 
    * @remarks
-   * ## 接口说明
-   * 按 UUID 形式的校验子作业 ID 分页查询 step（分区或分片）维度的校验明细。返回的明细与按数据库 ID 查询的接口一致，区别在于入参形态：本接口直接使用校验报告中给出的子作业 ID 字符串，无需先换算为数据库 ID，适合从报告结果直接下钻。
-   * ## 请求说明
-   * - `jobId` 必填，为 UUID 形式的校验子作业 ID（字符串），取自校验报告查询接口返回的 `jobId`。
-   * - `pageIndex` 与 `pageSize` 选填，默认值为 1 与 10。
-   * - 本接口不支持按校验结果或 step 状态筛选；需要筛选时改用按数据库 ID 查询 step 明细的接口。
-   * ## 返回说明
-   * 返回分页响应：`totalCount` 为满足条件的 step 总数，`pageIndex` 与 `pageSize` 回显本次分页参数，`data` 为当前页 step 明细。列表元素包含步骤 ID `stepId`、校验结果 ID `resultId`、分片边界 `boundary`、源端与目标端分区名称（`sourcePtName`、`targetPtName`）、源端与目标端数据量（`srcCount`、`dstCount`）、源端与目标端执行 SQL（`srcSql`、`dstSql`）、step 状态 `status`（0 创建、1 运行中、2 运行完成、3 停止、4 取消）、一致性结论 `isConsistent`（0 不一致、1 一致）、错误消息 `errMessage`、启动与结束时间（`gmtStart`、`gmtEnd`）、字段与指标维度的校验数与通过数（`checkColumCount`、`passColumCount`、`metricColumCount`、`metricPassColumCount`）与备用字段 `extra`。
+   * ## Operation description
+   * Performs a paged query for step (partition or shard) dimension verification details by a UUID-format verification sub-job ID. The returned details are identical to those returned by the database ID-based query operation. The difference is in the input parameter format: this operation directly uses the sub-job ID character string provided in the verification report, without requiring conversion to a database ID. This makes it suitable for drilling down directly from report results.
+   * ## Request description
+   * - `jobId` is required. It is a UUID-format verification sub-job ID (string), obtained from the `jobId` field returned by the verification report query operation.
+   * - `pageIndex` and `pageSize` are optional. The default values are 1 and 10.
+   * - This operation does not support filtering by verification result or step status. To filter, use the operation that queries step details by database ID instead.
+   * ## Response description
+   * A paginated response is returned: `totalCount` is the total number of steps that meet the conditions, `pageIndex` and `pageSize` echo the pagination parameters of the current request, and `data` contains the step details for the current page. Each list element includes the step ID `stepId`, verification result ID `resultId`, shard boundary `boundary`, source and destination partition names (`sourcePtName`, `targetPtName`), source and destination data volumes (`srcCount`, `dstCount`), source and destination execution SQL statements (`srcSql`, `dstSql`), step status `status` (0: created, 1: running, 2: completed, 3: stopped, 4: canceled), consistency conclusion `isConsistent` (0: inconsistent, 1: consistent), error message `errMessage`, start and end times (`gmtStart`, `gmtEnd`), field-level and metric-level verification counts and pass counts (`checkColumCount`, `passColumCount`, `metricColumCount`, `metricPassColumCount`), and a reserved field `extra`.
    * 
    * @param request - ListDataCheckReportStepByJobIdRequest
    * @param headers - map
@@ -3816,17 +3918,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询报告-作业维度明细（分区列表）
+   * Queries a paged list of step (partition) dimension verification details by a UUID-format job ID with paging support.
    * 
    * @remarks
-   * ## 接口说明
-   * 按 UUID 形式的校验子作业 ID 分页查询 step（分区或分片）维度的校验明细。返回的明细与按数据库 ID 查询的接口一致，区别在于入参形态：本接口直接使用校验报告中给出的子作业 ID 字符串，无需先换算为数据库 ID，适合从报告结果直接下钻。
-   * ## 请求说明
-   * - `jobId` 必填，为 UUID 形式的校验子作业 ID（字符串），取自校验报告查询接口返回的 `jobId`。
-   * - `pageIndex` 与 `pageSize` 选填，默认值为 1 与 10。
-   * - 本接口不支持按校验结果或 step 状态筛选；需要筛选时改用按数据库 ID 查询 step 明细的接口。
-   * ## 返回说明
-   * 返回分页响应：`totalCount` 为满足条件的 step 总数，`pageIndex` 与 `pageSize` 回显本次分页参数，`data` 为当前页 step 明细。列表元素包含步骤 ID `stepId`、校验结果 ID `resultId`、分片边界 `boundary`、源端与目标端分区名称（`sourcePtName`、`targetPtName`）、源端与目标端数据量（`srcCount`、`dstCount`）、源端与目标端执行 SQL（`srcSql`、`dstSql`）、step 状态 `status`（0 创建、1 运行中、2 运行完成、3 停止、4 取消）、一致性结论 `isConsistent`（0 不一致、1 一致）、错误消息 `errMessage`、启动与结束时间（`gmtStart`、`gmtEnd`）、字段与指标维度的校验数与通过数（`checkColumCount`、`passColumCount`、`metricColumCount`、`metricPassColumCount`）与备用字段 `extra`。
+   * ## Operation description
+   * Performs a paged query for step (partition or shard) dimension verification details by a UUID-format verification sub-job ID. The returned details are identical to those returned by the database ID-based query operation. The difference is in the input parameter format: this operation directly uses the sub-job ID character string provided in the verification report, without requiring conversion to a database ID. This makes it suitable for drilling down directly from report results.
+   * ## Request description
+   * - `jobId` is required. It is a UUID-format verification sub-job ID (string), obtained from the `jobId` field returned by the verification report query operation.
+   * - `pageIndex` and `pageSize` are optional. The default values are 1 and 10.
+   * - This operation does not support filtering by verification result or step status. To filter, use the operation that queries step details by database ID instead.
+   * ## Response description
+   * A paginated response is returned: `totalCount` is the total number of steps that meet the conditions, `pageIndex` and `pageSize` echo the pagination parameters of the current request, and `data` contains the step details for the current page. Each list element includes the step ID `stepId`, verification result ID `resultId`, shard boundary `boundary`, source and destination partition names (`sourcePtName`, `targetPtName`), source and destination data volumes (`srcCount`, `dstCount`), source and destination execution SQL statements (`srcSql`, `dstSql`), step status `status` (0: created, 1: running, 2: completed, 3: stopped, 4: canceled), consistency conclusion `isConsistent` (0: inconsistent, 1: consistent), error message `errMessage`, start and end times (`gmtStart`, `gmtEnd`), field-level and metric-level verification counts and pass counts (`checkColumCount`, `passColumCount`, `metricColumCount`, `metricPassColumCount`), and a reserved field `extra`.
    * 
    * @param request - ListDataCheckReportStepByJobIdRequest
    * @returns ListDataCheckReportStepByJobIdResponse
@@ -4127,15 +4229,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调度skillread
+   * Submits a source workflow read task for a Skill internal operation and returns an asynchronous execution credential. Query the result by calling GetInnerReadAsyncResult.
    * 
    * @remarks
-   * ## 接口说明
-   * 源端工作流读取任务提交内部接口。按数据源名称提交一次源端工作流读取，接口同步返回受理结果，读取的异步执行结果通过 GetInnerReadAsyncResult 查询。
-   * ## 请求说明
-   * 请求体为 JSON 对象，dataSourceName 指定读取任务的数据源名称；数据源缺失时可改由 dataSourceDescriptor 在入参中一次传齐数据源描述信息作为兜底。
-   * ## 返回说明
-   * 成功时 data 返回读取任务标识（字符串），用于后续异步结果查询；命中多个同名数据源等特定错误时 data 承载错误明细文本；失败时结合 errCode 与 errMessage 排查。
+   * ## Operation description
+   * This is an internal operation for submitting source workflow read tasks. Submit a source workflow read task by specifying a data source name. The operation synchronously returns the acceptance result. Query the asynchronous execution result by calling GetInnerReadAsyncResult.
+   * ## Request description
+   * The request body is a JSON object. The dataSourceName parameter specifies the data source name for the read task. If the data source is missing, use dataSourceDescriptor to pass the complete data source description information in the request parameters as a fallback.
+   * ## Response description
+   * On success, the data field returns the read task identifier (string), which is used for subsequent asynchronous result queries. For specific errors such as multiple data sources with the same name, the data field contains error detail text. On failure, troubleshoot by using errCode and errMessage.
    * 
    * @param request - PostInnerReaderRequest
    * @param headers - map
@@ -4172,15 +4274,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调度skillread
+   * Submits a source workflow read task for a Skill internal operation and returns an asynchronous execution credential. Query the result by calling GetInnerReadAsyncResult.
    * 
    * @remarks
-   * ## 接口说明
-   * 源端工作流读取任务提交内部接口。按数据源名称提交一次源端工作流读取，接口同步返回受理结果，读取的异步执行结果通过 GetInnerReadAsyncResult 查询。
-   * ## 请求说明
-   * 请求体为 JSON 对象，dataSourceName 指定读取任务的数据源名称；数据源缺失时可改由 dataSourceDescriptor 在入参中一次传齐数据源描述信息作为兜底。
-   * ## 返回说明
-   * 成功时 data 返回读取任务标识（字符串），用于后续异步结果查询；命中多个同名数据源等特定错误时 data 承载错误明细文本；失败时结合 errCode 与 errMessage 排查。
+   * ## Operation description
+   * This is an internal operation for submitting source workflow read tasks. Submit a source workflow read task by specifying a data source name. The operation synchronously returns the acceptance result. Query the asynchronous execution result by calling GetInnerReadAsyncResult.
+   * ## Request description
+   * The request body is a JSON object. The dataSourceName parameter specifies the data source name for the read task. If the data source is missing, use dataSourceDescriptor to pass the complete data source description information in the request parameters as a fallback.
+   * ## Response description
+   * On success, the data field returns the read task identifier (string), which is used for subsequent asynchronous result queries. For specific errors such as multiple data sources with the same name, the data field contains error detail text. On failure, troubleshoot by using errCode and errMessage.
    * 
    * @param request - PostInnerReaderRequest
    * @returns PostInnerReaderResponse
@@ -4330,17 +4432,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对某个sql转换任务校验+转换
+   * Validates the syntax of a specified SQL conversion task and then performs the conversion, returning the combined validation and conversion results.
    * 
    * @remarks
-   * ## 接口说明
-   * 对指定的 SQL 转换任务先执行语法校验、再执行转换，在一次调用内串起「校验 + 转换」两个动作，适用于希望在转换前自动拦截语法问题、而不必分两步分别调用的场景。
-   * ## 请求说明
-   * - `taskId` 必填，为 SQL 转换任务 ID。
-   * - 调用会校验任务归属，只能处理归属于当前账号的任务，否则返回鉴权失败。
-   * - 本接口按任务维度触发处理，不接受逐条脚本入参；脚本较多时处理耗时较长。
-   * ## 返回说明
-   * 返回单值响应，`data` 为对象，其中 `taskId` 回显本次处理的任务 ID。逐条脚本的校验与转换结果不在本接口返回，需调用查询转换进度接口跟踪进展、调用查询转换结果接口获取每条脚本的源语句、目标语句与转换状态。`success` 为 `false` 时说明语法校验或转换环节失败，结合 `errCode` 与 `errMessage` 定位原因；`requestId` 用于排查本次调用。
+   * ## Operation description
+   * This operation first validates the syntax of a specified SQL conversion task and then performs the conversion. It chains the validation and conversion actions in a single call. This is useful when you want to automatically catch syntax issues before conversion without making two separate calls.
+   * ## Request description
+   * - taskId is required and specifies the SQL conversion task ID.
+   * - The call verifies task ownership. Only tasks that belong to the current account can be processed. Otherwise, an authentication failure is returned.
+   * - This operation triggers processing at the task level and does not accept individual script input parameters. Processing may take longer when the task contains a large number of scripts.
+   * ## Response description
+   * The response is a single-value response. The data field is an object in which taskId indicates the task ID processed in this call. The validation and conversion results of individual scripts are not returned by this operation. Call the query conversion progress operation to track progress and the query conversion results operation to obtain the source statement, target statement, and conversion status of each script. If success is false, the syntax validation or conversion failed. Use errCode and errMessage to identify the cause. requestId can be used to troubleshoot this call.
    * 
    * @param request - SyntaxCheckAndTransformSqlConversionTaskRequest
    * @param headers - map
@@ -4373,17 +4475,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对某个sql转换任务校验+转换
+   * Validates the syntax of a specified SQL conversion task and then performs the conversion, returning the combined validation and conversion results.
    * 
    * @remarks
-   * ## 接口说明
-   * 对指定的 SQL 转换任务先执行语法校验、再执行转换，在一次调用内串起「校验 + 转换」两个动作，适用于希望在转换前自动拦截语法问题、而不必分两步分别调用的场景。
-   * ## 请求说明
-   * - `taskId` 必填，为 SQL 转换任务 ID。
-   * - 调用会校验任务归属，只能处理归属于当前账号的任务，否则返回鉴权失败。
-   * - 本接口按任务维度触发处理，不接受逐条脚本入参；脚本较多时处理耗时较长。
-   * ## 返回说明
-   * 返回单值响应，`data` 为对象，其中 `taskId` 回显本次处理的任务 ID。逐条脚本的校验与转换结果不在本接口返回，需调用查询转换进度接口跟踪进展、调用查询转换结果接口获取每条脚本的源语句、目标语句与转换状态。`success` 为 `false` 时说明语法校验或转换环节失败，结合 `errCode` 与 `errMessage` 定位原因；`requestId` 用于排查本次调用。
+   * ## Operation description
+   * This operation first validates the syntax of a specified SQL conversion task and then performs the conversion. It chains the validation and conversion actions in a single call. This is useful when you want to automatically catch syntax issues before conversion without making two separate calls.
+   * ## Request description
+   * - taskId is required and specifies the SQL conversion task ID.
+   * - The call verifies task ownership. Only tasks that belong to the current account can be processed. Otherwise, an authentication failure is returned.
+   * - This operation triggers processing at the task level and does not accept individual script input parameters. Processing may take longer when the task contains a large number of scripts.
+   * ## Response description
+   * The response is a single-value response. The data field is an object in which taskId indicates the task ID processed in this call. The validation and conversion results of individual scripts are not returned by this operation. Call the query conversion progress operation to track progress and the query conversion results operation to obtain the source statement, target statement, and conversion status of each script. If success is false, the syntax validation or conversion failed. Use errCode and errMessage to identify the cause. requestId can be used to troubleshoot this call.
    * 
    * @param request - SyntaxCheckAndTransformSqlConversionTaskRequest
    * @returns SyntaxCheckAndTransformSqlConversionTaskResponse
@@ -4522,17 +4624,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据校验模版
+   * Updates the name and metric definitions of a metric check template. After the update, nodes that reference this template execute based on the new definitions.
    * 
    * @remarks
-   * ## 接口说明
-   * 更新数据校验模板的名称、描述、适用的数据源与引擎范围以及各类校验规则定义。模板被校验任务引用后，更新会改变这些任务后续执行时所采用的比对规则，请在变更前确认影响范围。
-   * ## 请求说明
-   * - 请求体为 JSON 对象：`templateId` 指定要更新的校验模板 ID，`templateName` 与 `templateDesc` 更新模板名称与描述，`checkType` 为校验规则类型（0 数据量比对、1 指标比对、2 弱内容对比、3 自定义比对、4 全文比对、5 空值率比对），`dsEngineRels` 更新模板关联的数据源与引擎范围。
-   * - 规则字段按 `checkType` 取用：指标比对（1）使用 `basicMetricRules`（基础数据类型指标规则，该场景下应使用此字段）、`complexMetricRules`（复合数据类型指标规则）与 `metricRules`（指标规则列表）；弱内容对比（2）使用 `weakContentRule`，该场景下需要一并传入；全文比对（4）使用 `fulltextRule`；空值率比对（5）使用 `nullRules`。与 `checkType` 不匹配的规则字段不会被使用。
-   * - `requestId` 选填，为请求 ID。
-   * ## 返回说明
-   * 返回状态响应，响应体只包含 `success`、`errCode`、`errMessage` 与 `requestId`，不返回业务数据；`success` 为 `true` 即表示模板已更新，无需再回查确认。更新失败时结合 `errCode` 与 `errMessage` 排查，常见原因为模板 ID 不存在、无权修改该模板，或规则字段与 `checkType` 不匹配导致校验不通过。
+   * ## Operation description
+   * Updates the name, description, applicable data source and DPI engine scope, and check rule definitions of a data validation template. After a template is referenced by check nodes, updates change the comparison rules used when those nodes exec subsequently. Confirm the impact scope before making changes.
+   * ## Request description
+   * - The request body is a JSON object. `templateId` specifies the ID of the check template to update. `templateName` and `templateDesc` update the template name and description. `checkType` specifies the check rule type (0: data volume comparison, 1: metric comparison, 2: weak content comparison, 3: custom comparison, 4: full-text comparison, 5: null rate comparison). `dsEngineRels` updates the data source and engine scope associated with the template.
+   * - Rule fields are used based on `checkType`. Metric comparison (1) uses `basicMetricRules` (metric rules for basic data types, which should be used in this scenario), `complexMetricRules` (metric rules for complex data types), and `metricRules` (metric rule list). Weak content comparison (2) uses `weakContentRule`, which must be passed in for this scenario. Full-text comparison (4) uses `fulltextRule`. Null rate comparison (5) uses `nullRules`. Rule fields that do not match the `checkType` are not used.
+   * - `requestId` is optional and specifies the request ID.
+   * ## Response description
+   * Returns a status response. The response body contains only `success`, `errCode`, `errMessage`, and `requestId`, with no business data returned. If `success` is `true`, the template has been updated and no further confirmation query is required. If the update fails, troubleshoot by using `errCode` and `errMessage`. Common causes include a nonexistent template ID, insufficient permissions to modify the template, or rule fields that do not match the `checkType`, which causes validation failure.
    * 
    * @param request - UpdateDataCheckTemplateRequest
    * @param headers - map
@@ -4609,17 +4711,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据校验模版
+   * Updates the name and metric definitions of a metric check template. After the update, nodes that reference this template execute based on the new definitions.
    * 
    * @remarks
-   * ## 接口说明
-   * 更新数据校验模板的名称、描述、适用的数据源与引擎范围以及各类校验规则定义。模板被校验任务引用后，更新会改变这些任务后续执行时所采用的比对规则，请在变更前确认影响范围。
-   * ## 请求说明
-   * - 请求体为 JSON 对象：`templateId` 指定要更新的校验模板 ID，`templateName` 与 `templateDesc` 更新模板名称与描述，`checkType` 为校验规则类型（0 数据量比对、1 指标比对、2 弱内容对比、3 自定义比对、4 全文比对、5 空值率比对），`dsEngineRels` 更新模板关联的数据源与引擎范围。
-   * - 规则字段按 `checkType` 取用：指标比对（1）使用 `basicMetricRules`（基础数据类型指标规则，该场景下应使用此字段）、`complexMetricRules`（复合数据类型指标规则）与 `metricRules`（指标规则列表）；弱内容对比（2）使用 `weakContentRule`，该场景下需要一并传入；全文比对（4）使用 `fulltextRule`；空值率比对（5）使用 `nullRules`。与 `checkType` 不匹配的规则字段不会被使用。
-   * - `requestId` 选填，为请求 ID。
-   * ## 返回说明
-   * 返回状态响应，响应体只包含 `success`、`errCode`、`errMessage` 与 `requestId`，不返回业务数据；`success` 为 `true` 即表示模板已更新，无需再回查确认。更新失败时结合 `errCode` 与 `errMessage` 排查，常见原因为模板 ID 不存在、无权修改该模板，或规则字段与 `checkType` 不匹配导致校验不通过。
+   * ## Operation description
+   * Updates the name, description, applicable data source and DPI engine scope, and check rule definitions of a data validation template. After a template is referenced by check nodes, updates change the comparison rules used when those nodes exec subsequently. Confirm the impact scope before making changes.
+   * ## Request description
+   * - The request body is a JSON object. `templateId` specifies the ID of the check template to update. `templateName` and `templateDesc` update the template name and description. `checkType` specifies the check rule type (0: data volume comparison, 1: metric comparison, 2: weak content comparison, 3: custom comparison, 4: full-text comparison, 5: null rate comparison). `dsEngineRels` updates the data source and engine scope associated with the template.
+   * - Rule fields are used based on `checkType`. Metric comparison (1) uses `basicMetricRules` (metric rules for basic data types, which should be used in this scenario), `complexMetricRules` (metric rules for complex data types), and `metricRules` (metric rule list). Weak content comparison (2) uses `weakContentRule`, which must be passed in for this scenario. Full-text comparison (4) uses `fulltextRule`. Null rate comparison (5) uses `nullRules`. Rule fields that do not match the `checkType` are not used.
+   * - `requestId` is optional and specifies the request ID.
+   * ## Response description
+   * Returns a status response. The response body contains only `success`, `errCode`, `errMessage`, and `requestId`, with no business data returned. If `success` is `true`, the template has been updated and no further confirmation query is required. If the update fails, troubleshoot by using `errCode` and `errMessage`. Common causes include a nonexistent template ID, insufficient permissions to modify the template, or rule fields that do not match the `checkType`, which causes validation failure.
    * 
    * @param request - UpdateDataCheckTemplateRequest
    * @returns UpdateDataCheckTemplateResponse

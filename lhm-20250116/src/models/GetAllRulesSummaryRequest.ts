@@ -2,26 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SyntaxCheckAndTransformSqlConversionTaskRequest extends $dara.Model {
+export class GetAllRulesSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID that uniquely identifies a task.
-   * 
-   * This parameter is required.
+   * The source dialect.
    * 
    * @example
-   * 10001
+   * postgresql
    */
-  taskId?: number;
+  source?: string;
+  /**
+   * @remarks
+   * The target dialect.
+   * 
+   * @example
+   * hologres
+   */
+  target?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'taskId',
+      source: 'source',
+      target: 'target',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'number',
+      source: 'string',
+      target: 'string',
     };
   }
 
