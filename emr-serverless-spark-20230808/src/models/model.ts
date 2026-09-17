@@ -38,6 +38,7 @@ export { CreateSessionClusterRequestAutoStopConfiguration } from './CreateSessio
 export { CreateSqlStatementResponseBodyData } from './CreateSqlStatementResponseBody';
 export { CreateWorkspaceRequestResourceSpec } from './CreateWorkspaceRequest';
 export { CreateWorkspaceRequestTag } from './CreateWorkspaceRequest';
+export { CreateWorkspaceQueueRequestResourceSpec } from './CreateWorkspaceQueueRequest';
 export { EditWorkspaceQueueRequestResourceSpec } from './EditWorkspaceQueueRequest';
 export { GetCuHoursResponseBodyData } from './GetCuHoursResponseBody';
 export { GetDoctorApplicationResponseBodyData } from './GetDoctorApplicationResponseBody';
@@ -215,6 +216,9 @@ export { CreateSqlStatementResponse } from './CreateSqlStatementResponse';
 export { CreateWorkspaceRequest } from './CreateWorkspaceRequest';
 export { CreateWorkspaceResponseBody } from './CreateWorkspaceResponseBody';
 export { CreateWorkspaceResponse } from './CreateWorkspaceResponse';
+export { CreateWorkspaceQueueRequest } from './CreateWorkspaceQueueRequest';
+export { CreateWorkspaceQueueResponseBody } from './CreateWorkspaceQueueResponseBody';
+export { CreateWorkspaceQueueResponse } from './CreateWorkspaceQueueResponse';
 export { DeleteKyuubiServiceResponseBody } from './DeleteKyuubiServiceResponseBody';
 export { DeleteKyuubiServiceResponse } from './DeleteKyuubiServiceResponse';
 export { DeleteKyuubiTokenRequest } from './DeleteKyuubiTokenRequest';

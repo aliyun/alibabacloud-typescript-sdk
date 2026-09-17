@@ -1180,6 +1180,89 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a workspace queue.
+   * 
+   * @param request - CreateWorkspaceQueueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceQueueResponse
+   */
+  async createWorkspaceQueueWithOptions(request: $_model.CreateWorkspaceQueueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceQueueResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.gpuSpec)) {
+      body["gpuSpec"] = request.gpuSpec;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      body["paymentType"] = request.paymentType;
+    }
+
+    if (!$dara.isNull(request.preheat)) {
+      body["preheat"] = request.preheat;
+    }
+
+    if (!$dara.isNull(request.queueCategory)) {
+      body["queueCategory"] = request.queueCategory;
+    }
+
+    if (!$dara.isNull(request.resourceSpec)) {
+      body["resourceSpec"] = request.resourceSpec;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceQueueName)) {
+      body["workspaceQueueName"] = request.workspaceQueueName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkspaceQueue",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/queues`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkspaceQueueResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkspaceQueueResponse({}));
+  }
+
+  /**
+   * Creates a workspace queue.
+   * 
+   * @param request - CreateWorkspaceQueueRequest
+   * @returns CreateWorkspaceQueueResponse
+   */
+  async createWorkspaceQueue(request: $_model.CreateWorkspaceQueueRequest): Promise<$_model.CreateWorkspaceQueueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkspaceQueueWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes a Kyuubi gateway.
    * 
    * @param headers - map
