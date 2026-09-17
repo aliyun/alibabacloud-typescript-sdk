@@ -13,9 +13,9 @@ export class ModifyMasterSpecResponseBody extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
-   * This parameter is returned only if the request fails.
+   * This parameter is returned only when the API call fails.
    * 
    * @example
    * ******
@@ -31,10 +31,9 @@ export class ModifyMasterSpecResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
+   * The execution status of the operation. Valid values:
+   * - **false**: The operation failed.
+   * - **true**: The operation succeeded.
    * 
    * @example
    * true

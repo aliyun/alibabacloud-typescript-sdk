@@ -15,7 +15,7 @@ export class ModifyMasterSpecRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a region.
    * 
    * This parameter is required.
    * 
@@ -25,11 +25,22 @@ export class ModifyMasterSpecRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * This parameter must be specified if you want to change coordinator nodes to AI coordinator nodes.
-   * >-  You cannot specify the MasterAISpec and MasterCU parameters at the same time.
-   * >- You can change coordinator nodes to AI coordinator nodes only in specific regions and zones.
-   * >- Only AnalyticDB for PostgreSQL V7.0 instances of Basic Edition support AI coordinator nodes.
-   * >- You can view the valid values of this parameter on the configuration change page of coordinator nodes.
+   * The effective period of the specification change. Valid values: 
+   * - **Immediately** (default): The change takes effect immediately.
+   * - **MaintainTime**: The change takes effect during the maintenance window of the instance.
+   * 
+   * @example
+   * Immediate
+   */
+  effectiveTime?: string;
+  /**
+   * @remarks
+   * If you want to change the master node to a MasterAI node, specify this parameter.
+   * 
+   * > - This parameter and MasterCU cannot be specified at the same time.
+   * >- Only specific regions and zones support changing the master node to a MasterAI node.
+   * >- Only AnalyticDB for PostgreSQL V7.0 Basic Edition instances support MasterAI nodes.
+   * >- You can view all valid values of this parameter on the specification change page for the master node.
    * 
    * @example
    * ADB.AIMedium.2
@@ -37,15 +48,13 @@ export class ModifyMasterSpecRequest extends $dara.Model {
   masterAISpec?: string;
   /**
    * @remarks
-   * The specifications of coordinator node resources. Valid values:
-   * 
-   * *   2 CU
-   * *   4 CU
-   * *   8 CU
-   * *   16 CU
-   * *   32 CU
-   * 
-   * >  You are charged for coordinator node resources of more than 8 compute units (CUs).
+   * The master resources. Valid values: 
+   * - 2 CU 
+   * - 4 CU 
+   * - 8 CU 
+   * - 16 CU 
+   * - 32 CU 
+   * > Master resources greater than 8 CU incur additional fees.
    * 
    * @example
    * 8 CU
@@ -53,7 +62,7 @@ export class ModifyMasterSpecRequest extends $dara.Model {
   masterCU?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The ID of the resource group to which the instance belongs. For information about how to obtain the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -63,6 +72,7 @@ export class ModifyMasterSpecRequest extends $dara.Model {
     return {
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceId: 'DBInstanceId',
+      effectiveTime: 'EffectiveTime',
       masterAISpec: 'MasterAISpec',
       masterCU: 'MasterCU',
       resourceGroupId: 'ResourceGroupId',
@@ -73,6 +83,7 @@ export class ModifyMasterSpecRequest extends $dara.Model {
     return {
       DBInstanceDescription: 'string',
       DBInstanceId: 'string',
+      effectiveTime: 'string',
       masterAISpec: 'string',
       masterCU: 'number',
       resourceGroupId: 'string',

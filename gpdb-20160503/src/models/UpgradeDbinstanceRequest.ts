@@ -41,6 +41,11 @@ export class UpgradeDBInstanceRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @example
+   * Immediate
+   */
+  effectiveTime?: string;
+  /**
    * @remarks
    * The specifications of segment nodes. For information about supported node specifications, see [Instance specifications](https://help.aliyun.com/document_detail/35406.html).
    * 
@@ -168,6 +173,7 @@ export class UpgradeDBInstanceRequest extends $dara.Model {
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceGroupCount: 'DBInstanceGroupCount',
       DBInstanceId: 'DBInstanceId',
+      effectiveTime: 'EffectiveTime',
       instanceSpec: 'InstanceSpec',
       masterNodeNum: 'MasterNodeNum',
       ownerId: 'OwnerId',
@@ -189,6 +195,7 @@ export class UpgradeDBInstanceRequest extends $dara.Model {
       DBInstanceClass: 'string',
       DBInstanceGroupCount: 'string',
       DBInstanceId: 'string',
+      effectiveTime: 'string',
       instanceSpec: 'string',
       masterNodeNum: 'string',
       ownerId: 'number',

@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySupabaseAutoScalePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable **automatic start and stop**. Valid values:
+   * Specifies whether to enable **auto start/stop**.
+   * 
+   * Valid values:
    * - true: Enabled. After this feature is enabled, Supabase automatically pauses and resumes based on traffic conditions.
-   * - false: Disabled. After this feature is disabled, the automatic start and stop feature of Supabase is turned off.
+   * - false: Disabled. After this feature is disabled, the auto start/stop feature of Supabase is turned off.
    * 
    * This parameter is required.
    * 
@@ -15,6 +17,13 @@ export class ModifySupabaseAutoScalePolicyRequest extends $dara.Model {
    * false
    */
   autoScale?: boolean;
+  /**
+   * @remarks
+   * The idle time before auto stop, in hours.
+   * 
+   * @example
+   * 0.5
+   */
   idleTimeHours?: string;
   /**
    * @remarks

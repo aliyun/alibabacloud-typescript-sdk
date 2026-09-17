@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is no longer returned.
+   * **[Deprecated]** This parameter is deprecated. No value is returned for this parameter.
    * 
    * @example
-   * gp-wz9kmr708m155j***
+   * null
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * gp-wz9kmr708m155j***
@@ -21,7 +21,7 @@ export class UpgradeDBVersionResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25C11EE5-B7E8-481A-A07C-BD619971A570
@@ -29,7 +29,7 @@ export class UpgradeDBVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 101450956
