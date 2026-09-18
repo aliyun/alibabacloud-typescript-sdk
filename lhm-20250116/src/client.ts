@@ -4365,6 +4365,87 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retains SQL audit records.
+   * 
+   * @param request - SaveSkillAuditRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveSkillAuditRecordResponse
+   */
+  async saveSkillAuditRecordWithOptions(request: $_model.SaveSkillAuditRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSkillAuditRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.batchId)) {
+      body["batchId"] = request.batchId;
+    }
+
+    if (!$dara.isNull(request.cid)) {
+      body["cid"] = request.cid;
+    }
+
+    if (!$dara.isNull(request.dryRunStatus)) {
+      body["dryRunStatus"] = request.dryRunStatus;
+    }
+
+    if (!$dara.isNull(request.extInfo)) {
+      body["extInfo"] = request.extInfo;
+    }
+
+    if (!$dara.isNull(request.recordType)) {
+      body["recordType"] = request.recordType;
+    }
+
+    if (!$dara.isNull(request.scriptTransformResult)) {
+      body["scriptTransformResult"] = request.scriptTransformResult;
+    }
+
+    if (!$dara.isNull(request.scriptTransformStatus)) {
+      body["scriptTransformStatus"] = request.scriptTransformStatus;
+    }
+
+    if (!$dara.isNull(request.sourceDialect)) {
+      body["sourceDialect"] = request.sourceDialect;
+    }
+
+    if (!$dara.isNull(request.sourceSqlScript)) {
+      body["sourceSqlScript"] = request.sourceSqlScript;
+    }
+
+    if (!$dara.isNull(request.targetDialect)) {
+      body["targetDialect"] = request.targetDialect;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveSkillAuditRecord",
+      version: "2025-01-16",
+      protocol: "HTTPS",
+      pathname: `/api/bigdata/sql-translator/open/skill-audit/save`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveSkillAuditRecordResponse>(await this.callApi(params, req, runtime), new $_model.SaveSkillAuditRecordResponse({}));
+  }
+
+  /**
+   * Retains SQL audit records.
+   * 
+   * @param request - SaveSkillAuditRecordRequest
+   * @returns SaveSkillAuditRecordResponse
+   */
+  async saveSkillAuditRecord(request: $_model.SaveSkillAuditRecordRequest): Promise<$_model.SaveSkillAuditRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.saveSkillAuditRecordWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Performs a Dry Run validation on a single converted SQL statement to verify syntax and execution permissions without actually writing data.
    * 
    * @remarks
