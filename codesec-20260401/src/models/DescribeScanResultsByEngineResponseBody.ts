@@ -29,12 +29,28 @@ export class DescribeScanResultsByEngineResponseBodyItemsScaComponentCveDetails 
   cvssVersion?: string;
   /**
    * @remarks
+   * The associated CWE ID. This value can be absent or an empty string.
+   * 
+   * @example
+   * CWE-79
+   */
+  cweId?: string;
+  /**
+   * @remarks
    * The description.
    * 
    * @example
    * Apache Log4j2 JNDI features do not protect against attacker-controlled LDAP and other JNDI-related endpoints.
    */
   description?: string;
+  /**
+   * @remarks
+   * The target version for the fix. This value can be absent or an empty string.
+   * 
+   * @example
+   * 1
+   */
+  fixedVersion?: string;
   /**
    * @remarks
    * The reference information.
@@ -57,7 +73,9 @@ export class DescribeScanResultsByEngineResponseBodyItemsScaComponentCveDetails 
       cveId: 'cveId',
       cvss: 'cvss',
       cvssVersion: 'cvssVersion',
+      cweId: 'cweId',
       description: 'description',
+      fixedVersion: 'fixedVersion',
       references: 'references',
       severity: 'severity',
     };
@@ -68,7 +86,9 @@ export class DescribeScanResultsByEngineResponseBodyItemsScaComponentCveDetails 
       cveId: 'string',
       cvss: 'number',
       cvssVersion: 'string',
+      cweId: 'string',
       description: 'string',
+      fixedVersion: 'string',
       references: { 'type': 'array', 'itemType': 'string' },
       severity: 'string',
     };
@@ -86,7 +106,115 @@ export class DescribeScanResultsByEngineResponseBodyItemsScaComponentCveDetails 
   }
 }
 
+export class DescribeScanResultsByEngineResponseBodyItemsScaComponentLicenseDetected extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the license is listed as a free license by the FSF. If this key is absent, it means the license is not annotated, which differs from an explicit false value.
+   * 
+   * @example
+   * true
+   */
+  isFsfLibre?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the license is OSI-approved.
+   * 
+   * @example
+   * true
+   */
+  isOsiApproved?: boolean;
+  /**
+   * @remarks
+   * The full name of the license.
+   * 
+   * @example
+   * ISC License
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The SPDX license identifier. If the license cannot be determined, the value is NOASSERTION. The value may be in a non-standard format, such as Apache 2.0.
+   * 
+   * @example
+   * AFL-2.1
+   */
+  spdxId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isFsfLibre: 'isFsfLibre',
+      isOsiApproved: 'isOsiApproved',
+      name: 'name',
+      spdxId: 'spdxId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isFsfLibre: 'boolean',
+      isOsiApproved: 'boolean',
+      name: 'string',
+      spdxId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScanResultsByEngineResponseBodyItemsScaComponentLicense extends $dara.Model {
+  /**
+   * @remarks
+   * The concluded license expression (SPDX expression, which may contain OR or AND). This is an identifier string only, without full names or OSI/FSF annotations.
+   * 
+   * @example
+   * AFL-2.1 OR BSD-3-Clause
+   */
+  concluded?: string;
+  /**
+   * @remarks
+   * The list of detected licenses.
+   */
+  detected?: DescribeScanResultsByEngineResponseBodyItemsScaComponentLicenseDetected[];
+  static names(): { [key: string]: string } {
+    return {
+      concluded: 'concluded',
+      detected: 'detected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concluded: 'string',
+      detected: { 'type': 'array', 'itemType': DescribeScanResultsByEngineResponseBodyItemsScaComponentLicenseDetected },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.detected)) {
+      $dara.Model.validateArray(this.detected);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScanResultsByEngineResponseBodyItemsScaComponent extends $dara.Model {
+  /**
+   * @remarks
+   * The component type, such as library, application, or framework.
+   * 
+   * @example
+   * library
+   */
+  componentType?: string;
   /**
    * @remarks
    * The number of CVEs.
@@ -102,17 +230,38 @@ export class DescribeScanResultsByEngineResponseBodyItemsScaComponent extends $d
   cveDetails?: DescribeScanResultsByEngineResponseBodyItemsScaComponentCveDetails[];
   /**
    * @remarks
-   * The list of dependency introduction paths in the SCA component information. This field is returned only when engine is set to sca.
+   * The manifest file in which the dependency is declared.
+   * 
+   * @example
+   * node_modules/semver
+   */
+  declaredIn?: string;
+  /**
+   * @remarks
+   * The component ecosystem, such as npm, maven, pypi, or go.
+   * 
+   * @example
+   * maven
+   */
+  ecosystem?: string;
+  /**
+   * @remarks
+   * The list of dependency introduction paths in the SCA component information. This is returned only when engine is set to sca.
    */
   introPaths?: string[];
   /**
    * @remarks
-   * Indicates whether the component is a direct dependency.
+   * Indicates whether the dependency is a direct dependency.
    * 
    * @example
    * false
    */
   isDirect?: boolean;
+  /**
+   * @remarks
+   * The license determination result.
+   */
+  license?: DescribeScanResultsByEngineResponseBodyItemsScaComponentLicense;
   /**
    * @remarks
    * The component coordinate.
@@ -123,12 +272,28 @@ export class DescribeScanResultsByEngineResponseBodyItemsScaComponent extends $d
   packageName?: string;
   /**
    * @remarks
+   * The Package URL, which serves as the unique coordinate of the component within the scan.
+   * 
+   * @example
+   * pkg:npm/glob-parent@3.1.0
+   */
+  purl?: string;
+  /**
+   * @remarks
    * The component-level remediation suggestion.
    * 
    * @example
    * Upgrade log4j-core to version 2.17.1 or later
    */
   remediation?: string;
+  /**
+   * @remarks
+   * The dependency scope, such as runtime, required, optional, or dev.
+   * 
+   * @example
+   * runtime
+   */
+  scope?: string;
   /**
    * @remarks
    * The component version.
@@ -139,24 +304,36 @@ export class DescribeScanResultsByEngineResponseBodyItemsScaComponent extends $d
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      componentType: 'componentType',
       cveCount: 'cveCount',
       cveDetails: 'cveDetails',
+      declaredIn: 'declaredIn',
+      ecosystem: 'ecosystem',
       introPaths: 'introPaths',
       isDirect: 'isDirect',
+      license: 'license',
       packageName: 'packageName',
+      purl: 'purl',
       remediation: 'remediation',
+      scope: 'scope',
       version: 'version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      componentType: 'string',
       cveCount: 'number',
       cveDetails: { 'type': 'array', 'itemType': DescribeScanResultsByEngineResponseBodyItemsScaComponentCveDetails },
+      declaredIn: 'string',
+      ecosystem: 'string',
       introPaths: { 'type': 'array', 'itemType': 'string' },
       isDirect: 'boolean',
+      license: DescribeScanResultsByEngineResponseBodyItemsScaComponentLicense,
       packageName: 'string',
+      purl: 'string',
       remediation: 'string',
+      scope: 'string',
       version: 'string',
     };
   }
@@ -167,6 +344,9 @@ export class DescribeScanResultsByEngineResponseBodyItemsScaComponent extends $d
     }
     if(Array.isArray(this.introPaths)) {
       $dara.Model.validateArray(this.introPaths);
+    }
+    if(this.license && typeof (this.license as any).validate === 'function') {
+      (this.license as any).validate();
     }
     super.validate();
   }
@@ -196,10 +376,10 @@ export class DescribeScanResultsByEngineResponseBodyItemsTaintFlow extends $dara
   /**
    * @remarks
    * The role type in the taint propagation chain. Valid values:
-   * * source: taint source.
-   * * propagator: propagation node.	
-   * * validation: validation or scrubbing center.	
-   * * sink: dangerous sink.
+   * * source: taint source
+   * * propagator: propagation node	
+   * * validation: validation or scrubbing center	
+   * * sink: dangerous sink
    * 
    * @example
    * source
@@ -223,7 +403,7 @@ export class DescribeScanResultsByEngineResponseBodyItemsTaintFlow extends $dara
   note?: string;
   /**
    * @remarks
-   * The step number, starting from 0 and incrementing.
+   * The step sequence number, starting from 0 and incrementing.
    * 
    * @example
    * 1
@@ -263,7 +443,7 @@ export class DescribeScanResultsByEngineResponseBodyItemsTaintFlow extends $dara
 export class DescribeScanResultsByEngineResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Filters results by incremental scan baseline status. Valid values: new, unchanged, absent, updated.
+   * Filters results by the baseline state of incremental scans. Valid values: new, unchanged, absent, and updated.
    * 
    * @example
    * new
@@ -271,7 +451,7 @@ export class DescribeScanResultsByEngineResponseBodyItems extends $dara.Model {
   baselineState?: string;
   /**
    * @remarks
-   * The category. The system classifies files based on file name extensions and MIME types. Common categories include doc, image, audio, and video.
+   * The category. PDS classifies files based on their file name extensions and MIME types. Main categories include doc, image, audio, and video.
    * 
    * @example
    * SQL Injection
@@ -287,7 +467,7 @@ export class DescribeScanResultsByEngineResponseBodyItems extends $dara.Model {
   codeSnippet?: string;
   /**
    * @remarks
-   * The rule confidence level, ranging from 0 to 1. This field is common in SAST results and is omitted if not applicable.
+   * The rule confidence level, ranging from 0 to 1. This is common in SAST results and is omitted if not available.
    * 
    * @example
    * 1
@@ -295,7 +475,7 @@ export class DescribeScanResultsByEngineResponseBodyItems extends $dara.Model {
   confidence?: number;
   /**
    * @remarks
-   * The time when the finding record was created (RFC 3339 format).
+   * The time when the finding record was created, in RFC 3339 format.
    * 
    * @example
    * 2026-07-28T03:36:31.573Z
@@ -343,7 +523,7 @@ export class DescribeScanResultsByEngineResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The brief summary of the finding. Unlike description, this field is more of a conclusion statement.
+   * The brief summary of the finding. Unlike description, this is more of a conclusion statement.
    * 
    * @example
    * User input is used to construct SQL queries without sanitization
@@ -391,7 +571,7 @@ export class DescribeScanResultsByEngineResponseBodyItems extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The SCA component information. This field is returned only when engine is set to sca.
+   * The SCA component information. This is returned only when engine is set to sca.
    */
   scaComponent?: DescribeScanResultsByEngineResponseBodyItemsScaComponent;
   /**
@@ -443,12 +623,12 @@ export class DescribeScanResultsByEngineResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The SAST taint analysis call chain that describes the complete propagation path of sensitive data from the taint source to the dangerous sink. This field is returned only when engine is set to sast.
+   * The SAST taint analysis call chain, which describes the complete propagation path of sensitive data from the taint source to the dangerous sink. This is returned only when engine is set to sast.
    */
   taintFlow?: DescribeScanResultsByEngineResponseBodyItemsTaintFlow[];
   /**
    * @remarks
-   * The text summary of the taint call chain. This field is returned only when engine is set to sast.
+   * The text summary of the taint call chain. This is returned only when engine is set to sast.
    * 
    * @example
    * User input flows from HTTP parameter into SQL query executio
@@ -563,7 +743,7 @@ export class DescribeScanResultsByEngineResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Do not pass nextToken or pass an empty string for the first page. To retrieve the next page, pass the nextToken value from the previous response without any modification. When the nextToken in the response is empty, you have reached the last page.
+   * The pagination token. Do not specify this parameter for the first page or set it to an empty string. For subsequent pages, pass the nextToken value from the previous response without any modification. If the nextToken value in the response is empty, the last page has been reached.
    * 
    * @example
    * eyJ0IjoiMjAyNi0wNy0xNlQwNzo1MzozOC4wMjFaIiwiaSI6MTAwMDQ0OH0

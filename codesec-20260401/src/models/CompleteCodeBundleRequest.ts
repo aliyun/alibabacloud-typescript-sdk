@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CompleteCodeBundleRequest extends $dara.Model {
   /**
    * @remarks
-   * Declared uploaded object size; should match OSS **`Content-Length`**.
+   * The declared size of the uploaded object. This value must match the OSS Content-Length.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CompleteCodeBundleRequest extends $dara.Model {
   byteSize?: number;
   /**
    * @remarks
-   * MIME type stored on the bundle (often **`application/octet-stream`** for presigned PUT).
+   * The MIME type of the stored code bundle. This is typically application/octet-stream for pre-signed PUT operations.
    * 
    * This parameter is required.
    * 

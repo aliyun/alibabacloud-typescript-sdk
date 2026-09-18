@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateScanResponseBodyEngineSnapshot extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether SAST is supported.
+   * 
    * @example
    * true
    */
   sast?: boolean;
   /**
+   * @remarks
+   * Indicates whether SCA is supported.
+   * 
    * @example
    * true
    */
@@ -38,16 +44,25 @@ export class CreateScanResponseBodyEngineSnapshot extends $dara.Model {
 
 export class CreateScanResponseBodyScanMetrics extends $dara.Model {
   /**
+   * @remarks
+   * The number of files.
+   * 
    * @example
    * 1
    */
   fileCount?: number;
   /**
+   * @remarks
+   * The number of lines of code.
+   * 
    * @example
    * 11
    */
   linesOfCode?: number;
   /**
+   * @remarks
+   * Deprecated.
+   * 
    * @example
    * 11
    */
@@ -79,73 +94,130 @@ export class CreateScanResponseBodyScanMetrics extends $dara.Model {
 
 export class CreateScanResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The code package ID.
+   * 
    * @example
    * 111
    */
   codeBundleId?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2026-08-27T00:53:46.774Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * The user ID of the task creator.
+   * 
    * @example
    * 3221
    */
   createdBy?: string;
+  /**
+   * @remarks
+   * The supported types.
+   */
   engineSnapshot?: CreateScanResponseBodyEngineSnapshot;
   /**
+   * @remarks
+   * The scan end time.
+   * 
    * @example
    * 2026-08-27T00:53:46.774Z
    */
   finishedAt?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 111
    */
   id?: number;
   /**
+   * @remarks
+   * The type. Valid values:
+   * * full: full data
+   * * incremental: incremental
+   * 
    * @example
    * full
    */
   kind?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 11
    */
   projectId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9A1F403F-0A85-5578-8B7C-55E3E9408659
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scan information.
+   */
   scanMetrics?: CreateScanResponseBodyScanMetrics;
   /**
+   * @remarks
+   * The task progress.
+   * 
    * @example
    * 40
    */
   scanProgress?: number;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2026-08-27T00:53:46.774Z
    */
   startedAt?: string;
   /**
+   * @remarks
+   * The status. Valid values:
+   * * running: Running.
+   * * completed: Completed.
+   * * failed: Failed.
+   * * canceling: Being canceled.
+   * * canceled: Canceled.
+   * 
    * @example
    * running
    */
   status?: string;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
    * name
    */
   taskName?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2026-08-27T00:53:46.774Z
    */
   updatedAt?: string;
   /**
+   * @remarks
+   * Deprecated.
+   * 
    * @example
    * 1
    */

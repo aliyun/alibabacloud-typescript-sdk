@@ -2,10 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeProjectsResponseBodyItemsEnginesSastConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to generate remediation suggestions.
+   */
+  remediation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      remediation: 'remediation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediation: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectsResponseBodyItemsEnginesScaConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to generate remediation suggestions.
+   */
+  remediation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      remediation: 'remediation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediation: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeProjectsResponseBodyItemsEngines extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether SAST is enabled.
+   * Indicates whether SAST is supported.
    * 
    * @example
    * true
@@ -13,27 +67,47 @@ export class DescribeProjectsResponseBodyItemsEngines extends $dara.Model {
   sast?: boolean;
   /**
    * @remarks
-   * Indicates whether SCA is enabled.
+   * The engine-level configuration.
+   */
+  sastConfig?: DescribeProjectsResponseBodyItemsEnginesSastConfig;
+  /**
+   * @remarks
+   * Indicates whether SCA is supported.
    * 
    * @example
    * true
    */
   sca?: boolean;
+  /**
+   * @remarks
+   * The engine-level configuration.
+   */
+  scaConfig?: DescribeProjectsResponseBodyItemsEnginesScaConfig;
   static names(): { [key: string]: string } {
     return {
       sast: 'sast',
+      sastConfig: 'sastConfig',
       sca: 'sca',
+      scaConfig: 'scaConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       sast: 'boolean',
+      sastConfig: DescribeProjectsResponseBodyItemsEnginesSastConfig,
       sca: 'boolean',
+      scaConfig: DescribeProjectsResponseBodyItemsEnginesScaConfig,
     };
   }
 
   validate() {
+    if(this.sastConfig && typeof (this.sastConfig as any).validate === 'function') {
+      (this.sastConfig as any).validate();
+    }
+    if(this.scaConfig && typeof (this.scaConfig as any).validate === 'function') {
+      (this.scaConfig as any).validate();
+    }
     super.validate();
   }
 
@@ -83,7 +157,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
   configRevision?: number;
   /**
    * @remarks
-   * The time when the project was created.
+   * The creation time.
    * 
    * @example
    * 2026-07-28T03:36:31.573Z
@@ -107,7 +181,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The engine switches for the project or scan snapshot. Only SAST and SCA are supported.
+   * The engine switches in the project or scan snapshot. Only SAST and SCA are supported.
    */
   engines?: DescribeProjectsResponseBodyItemsEngines;
   /**
@@ -120,7 +194,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The natural language prompt provided by the user that describes scanning or result processing preferences, such as ignoring low-risk vulnerabilities.
+   * The natural language prompt provided by the user that describes scanning or result processing preferences, such as ignoring low-severity vulnerabilities.
    * 
    * @example
    * 1111
@@ -149,7 +223,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
   source?: DescribeProjectsResponseBodyItemsSource;
   /**
    * @remarks
-   * The time when the project was last updated.
+   * The update time.
    * 
    * @example
    * 2026-07-28T03:36:31.573Z
@@ -228,7 +302,7 @@ export class DescribeProjectsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * 9A1F403F-0A85-5578-8B7C-55E3E9408659

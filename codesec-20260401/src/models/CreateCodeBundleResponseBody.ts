@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCodeBundleResponseBodyUpload extends $dara.Model {
   /**
    * @remarks
-   * 凭证过期时间（RFC3339）
+   * The expiration time of the credential in RFC 3339 format.
    * 
    * @example
    * 2026-09-03T05:58:47.88987539Z
@@ -15,7 +15,7 @@ export class CreateCodeBundleResponseBodyUpload extends $dara.Model {
   expiresAt?: string;
   /**
    * @remarks
-   * HTTP method for the presigned URL.
+   * The HTTP method of the pre-signed URL. Valid values: PUT.
    * 
    * @example
    * PUT
@@ -23,7 +23,7 @@ export class CreateCodeBundleResponseBodyUpload extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * Presigned OSS PUT URL.
+   * The pre-signed OSS PUT upload URL.
    * 
    * @example
    * https://codesec-beijing.oss-cn-beijing.aliyuncs.com/87766767%2F1001667%2F1004171.zip
@@ -31,7 +31,7 @@ export class CreateCodeBundleResponseBodyUpload extends $dara.Model {
   putUrl?: string;
   /**
    * @remarks
-   * Clients MUST send this **`Content-Type`** on PUT when **`put_url`** is set.
+   * The Content-Type header that the client must include when performing the PUT request. This field is returned when putUrl is present.
    * 
    * @example
    * application/octet-stream
@@ -66,51 +66,73 @@ export class CreateCodeBundleResponseBodyUpload extends $dara.Model {
 
 export class CreateCodeBundleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The version identifier of the function code package.
+   * 
    * @example
    * 1
    */
   bundleVersion?: string;
   /**
+   * @remarks
+   * The function code package ID.
+   * 
    * @example
    * 111
    */
   codeBundleId?: number;
   /**
    * @remarks
-   * 代码包创建时间（RFC3339）
+   * The time when the function code package was created.
    * 
    * @example
    * 2026-08-27T00:53:46.774Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * test-cases.zip
    */
   filename?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 123
    */
   projectId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9A1F403F-0A85-5578-8B7C-55E3E9408659
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the function code package.
+   * 
    * @example
    * pending
    */
   status?: string;
   /**
    * @remarks
-   * 代码包更新时间（RFC3339）
+   * The time when the function code package was last updated.
    * 
    * @example
    * 2026-08-27T00:53:46.774Z
    */
   updatedAt?: string;
+  /**
+   * @remarks
+   * The upload credential. See the following fields for details.
+   */
   upload?: CreateCodeBundleResponseBodyUpload;
   static names(): { [key: string]: string } {
     return {

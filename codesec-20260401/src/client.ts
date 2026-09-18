@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Finalize code bundle after client PUT to OSS
+   * Finalizes a code bundle after the client completes an OSS PUT operation. This operation validates the uploaded object and sets the code bundle status to ready. If CI metadata that triggers an automatic scan was provided during creation, a scanId is returned.
    * 
    * @param request - CompleteCodeBundleRequest
    * @param headers - map
@@ -67,7 +67,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Finalize code bundle after client PUT to OSS
+   * Finalizes a code bundle after the client completes an OSS PUT operation. This operation validates the uploaded object and sets the code bundle status to ready. If CI metadata that triggers an automatic scan was provided during creation, a scanId is returned.
    * 
    * @param request - CompleteCodeBundleRequest
    * @returns CompleteCodeBundleResponse
@@ -79,7 +79,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create pending code bundle with CI metadata and issue direct-to-OSS PUT credentials
+   * Creates a function code package in pending status and returns a pre-signed OSS PUT upload credential.
    * 
    * @param request - CreateCodeBundleRequest
    * @param headers - map
@@ -116,7 +116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create pending code bundle with CI metadata and issue direct-to-OSS PUT credentials
+   * Creates a function code package in pending status and returns a pre-signed OSS PUT upload credential.
    * 
    * @param request - CreateCodeBundleRequest
    * @returns CreateCodeBundleResponse
@@ -128,7 +128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create project
+   * Creates a project.
    * 
    * @param tmpReq - CreateProjectRequest
    * @param headers - map
@@ -187,7 +187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create project
+   * Creates a project.
    * 
    * @param request - CreateProjectRequest
    * @returns CreateProjectResponse
@@ -199,7 +199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create scan
+   * Creates a scan task based on a code package that is ready.
    * 
    * @param request - CreateScanRequest
    * @param headers - map
@@ -240,7 +240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create scan
+   * Creates a scan task based on a code package that is ready.
    * 
    * @param request - CreateScanRequest
    * @returns CreateScanResponse
@@ -252,7 +252,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists projects under the current tenant with pagination. Supports fuzzy match by name or prompt.
+   * 生成 SBOM / 许可证清单的短时下载链接
+   * 
+   * @param request - CreateScanSbomExportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScanSbomExportResponse
+   */
+  async createScanSbomExportWithOptions(projectId: string, scanId: string, request: $_model.CreateScanSbomExportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScanSbomExportResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.format)) {
+      query["format"] = request.format;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScanSbomExport",
+      version: "2026-04-01",
+      protocol: "HTTPS",
+      pathname: `/v1/projects/${$dara.URL.percentEncode(projectId)}/scans/${$dara.URL.percentEncode(scanId)}/reports/sbomExports`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScanSbomExportResponse>(await this.callApi(params, req, runtime), new $_model.CreateScanSbomExportResponse({}));
+  }
+
+  /**
+   * 生成 SBOM / 许可证清单的短时下载链接
+   * 
+   * @param request - CreateScanSbomExportRequest
+   * @returns CreateScanSbomExportResponse
+   */
+  async createScanSbomExport(projectId: string, scanId: string, request: $_model.CreateScanSbomExportRequest): Promise<$_model.CreateScanSbomExportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createScanSbomExportWithOptions(projectId, scanId, request, headers, runtime);
+  }
+
+  /**
+   * Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
    * 
    * @param request - DescribeProjectsRequest
    * @param headers - map
@@ -301,7 +350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists projects under the current tenant with pagination. Supports fuzzy match by name or prompt.
+   * Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
    * 
    * @param request - DescribeProjectsRequest
    * @returns DescribeProjectsResponse
@@ -313,7 +362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get scan
+   * Queries the details of a scan task.
    * 
    * @param request - DescribeScanRequest
    * @param headers - map
@@ -340,7 +389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get scan
+   * Queries the details of a scan task.
    * 
    * @param request - DescribeScanRequest
    * @returns DescribeScanResponse
@@ -352,7 +401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
+   * Queries the task result list to retrieve detailed SAST or SCA results of a specific scan.
    * 
    * @param request - DescribeScanResultsByEngineRequest
    * @param headers - map
@@ -401,7 +450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
+   * Queries the task result list to retrieve detailed SAST or SCA results of a specific scan.
    * 
    * @param request - DescribeScanResultsByEngineRequest
    * @returns DescribeScanResultsByEngineResponse

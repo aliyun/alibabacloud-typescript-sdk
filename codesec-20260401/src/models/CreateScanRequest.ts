@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScanRequest extends $dara.Model {
   /**
    * @remarks
+   * The code package ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class CreateScanRequest extends $dara.Model {
   codeBundleId?: number;
   /**
    * @remarks
+   * The type. Valid values:
+   * * full: full data
+   * * incremental: incremental
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +27,8 @@ export class CreateScanRequest extends $dara.Model {
   kind?: string;
   /**
    * @remarks
+   * The task name.
+   * 
    * This parameter is required.
    * 
    * @example

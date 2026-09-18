@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateProjectResponseBodyEngines extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether SAST is supported.
+   * 
    * @example
    * true
    */
   sast?: boolean;
   /**
+   * @remarks
+   * Specifies whether SCA is supported.
+   * 
    * @example
    * true
    */
@@ -38,6 +44,9 @@ export class CreateProjectResponseBodyEngines extends $dara.Model {
 
 export class CreateProjectResponseBodySource extends $dara.Model {
   /**
+   * @remarks
+   * The project type.
+   * 
    * @example
    * api
    */
@@ -65,48 +74,83 @@ export class CreateProjectResponseBodySource extends $dara.Model {
 
 export class CreateProjectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The project configuration version number.
+   * 
    * @example
    * 1
    */
   configRevision?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2026-08-27T00:53:46.774Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * The user ID of the project creator.
+   * 
    * @example
    * 3221
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * This is default function description by fc-deploy component
    */
   description?: string;
+  /**
+   * @remarks
+   * The engine switches for the project or scan snapshot. Only SAST and SCA are supported.
+   */
   engines?: CreateProjectResponseBodyEngines;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 111
    */
   id?: number;
   /**
+   * @remarks
+   * The natural language prompt that describes scanning or result processing preferences, such as ignoring low-risk vulnerabilities.
+   * 
    * @example
    * such as ignoring low-severity vulnerabilities, etc.
    */
   instructionPrompt?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * name
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9A1F403F-0A85-5578-8B7C-55E3E9408659
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The project source.
+   */
   source?: CreateProjectResponseBodySource;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2026-08-27T00:53:46.774Z
    */
