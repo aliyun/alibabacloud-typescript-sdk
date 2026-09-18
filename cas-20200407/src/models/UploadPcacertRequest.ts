@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadPCACertRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the certificate and its chain, in PEM format.
+   * The certificate.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UploadPCACertRequest extends $dara.Model {
   cert?: string;
   /**
    * @remarks
-   * A custom name for the certificate.
+   * The certificate name.
    * 
    * @example
    * cert_name
@@ -23,7 +23,7 @@ export class UploadPCACertRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The private key of the certificate, in PEM format.
+   * The private key of the certificate.
    * 
    * @example
    * -----BEGIN RSA PRIVATE KEY----- MIIEowIBAAKCAQEA5SIfpNCBoiDrZhX1H39CHwQMVD0kBNeBTWfP9xkeesvfzbOz ******* POVNFfDf9h7pJtQ5fRZNTYTDs/d+cH62Z3+nS74mNnEfff0nkvne -----END RSA PRIVATE KEY-----
@@ -31,9 +31,8 @@ export class UploadPCACertRequest extends $dara.Model {
   privateKey?: string;
   /**
    * @remarks
-   * The ID of the certificate warehouse.
-   * 
-   * > Call [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) to obtain this ID.
+   * The repository ID.
+   * > You can call [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) to obtain this ID.
    * 
    * This parameter is required.
    * 

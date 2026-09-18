@@ -44,7 +44,7 @@ export class CreateContactRequest extends $dara.Model {
    * The webhook URLs of DingTalk, WeCom, or Lark chatbots. The value is a string in list format.
    * 
    * @example
-   * [\\"https://open.feishu.cn/open-apis/bot/v2/hook/dc1aa9b9-47cd-4b34-91ef-73c1034208e5\\"]
+   * [\\"https://open.feishu.cn/open-apis/bot/v2/hook/XXX\\"]
    */
   webhooks?: string;
   static names(): { [key: string]: string } {

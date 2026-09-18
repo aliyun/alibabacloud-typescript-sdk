@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the certificate application repository expires. Unit: milliseconds.
+   * The expiration time, in timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1665819958000
@@ -13,7 +13,7 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model 
   endTime?: number;
   /**
    * @remarks
-   * The instance ID of the certificate application repository.
+   * The sales instance.
    * 
    * @example
    * 14dcc8afc7578e1f
@@ -21,10 +21,9 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the certificate application repository has expired. Valid values:
+   * Indicates whether the repository has expired. Valid values:
    * 
    * - **true**
-   * 
    * - **false**
    * 
    * @example
@@ -33,7 +32,7 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model 
   isExpired?: boolean;
   /**
    * @remarks
-   * The name of the certificate application repository.
+   * The repository name.
    * 
    * @example
    * name
@@ -41,7 +40,7 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The instance ID of the private CA.
+   * The PCA instance.
    * 
    * @example
    * 14dcc8afc7578e1f
@@ -49,7 +48,7 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model 
   pcaInstanceId?: string;
   /**
    * @remarks
-   * The queries per second (QPS).
+   * Qps。
    * 
    * @example
    * 10
@@ -57,17 +56,11 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model 
   qps?: number;
   /**
    * @remarks
-   * The type of the certificate application repository. Valid values:
+   * The repository type. Valid values:
    * 
-   * - **ssl**: certificate application repository of SSL certificates
-   * 
-   * - **uploadPCA**: certificate application repository of uploaded private certificates
-   * 
-   * - **free**: certificate application repository of free certificates, available only on the China site (aliyun.com)
-   * 
-   * - **aliyunPCA**: certificate application repository of private certificates purchased from Alibaba Cloud PCA, available only on the China site (aliyun.com)
-   * 
-   * - **disable**: disabled certificate application repository
+   * - **uploadCA**: an uploaded CA certificate that contains a complete certificate chain.
+   * - **uploadPCA**: an uploaded certificate, including a self-signed certificate, a certificate issued by a third party, or a certificate issued by Alibaba Cloud.
+   * - **aliyunPCA**: an Alibaba Cloud PCA certificate.
    * 
    * @example
    * aliyunPCA
@@ -75,7 +68,7 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The ID of the certificate application repository.
+   * The repository ID.
    * 
    * @example
    * 1
@@ -119,12 +112,12 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $dara.Model 
 export class ListCertWarehouseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The certificate application repositories.
+   * The list of certificate repositories.
    */
   certWarehouseList?: ListCertWarehouseResponseBodyCertWarehouseList[];
   /**
    * @remarks
-   * The page number of the returned page. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -132,7 +125,7 @@ export class ListCertWarehouseResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -140,7 +133,7 @@ export class ListCertWarehouseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 50.
+   * The number of entries per page. Default value: 50.
    * 
    * @example
    * 50
@@ -148,7 +141,7 @@ export class ListCertWarehouseResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

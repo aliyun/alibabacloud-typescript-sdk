@@ -2,34 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateWarehouseResponseBody extends $dara.Model {
+export class CreateRollbackTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the deployment task.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * F0206B77-14B9-584C-8A3A-09D5827FBC50
+   * 436493
    */
-  requestId?: string;
+  jobId?: number;
   /**
    * @remarks
-   * The instance ID of the certificate application repository.
+   * The ID of the deployment worker.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * cas-wh-typ-serial
+   * 4197913
    */
-  warehouseInstanceId?: string;
+  workerId?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      warehouseInstanceId: 'WarehouseInstanceId',
+      jobId: 'JobId',
+      workerId: 'WorkerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      warehouseInstanceId: 'string',
+      jobId: 'number',
+      workerId: 'number',
     };
   }
 

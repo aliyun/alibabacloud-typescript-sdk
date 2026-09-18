@@ -5,6 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether the instance is managed. Valid values:
+   * - 1: Managed.
+   * - 0: Not managed.
+   * 
+   * @example
+   * 1
+   */
+  autoReissueFlag?: number;
+  /**
+   * @remarks
    * The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
    * 
    * @example
@@ -42,7 +52,7 @@ export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type. Valid values:
-   * - BUY: official certificate.
+   * - BUY: formal certificate.
    * - TEST: test certificate.
    * 
    * @example
@@ -67,6 +77,16 @@ export class ListInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * Specifies whether to return only instances that meet server deployment conditions. Valid values:
+   * - 1: Yes.
+   * - 0: No.
+   * 
+   * @example
+   * 1
+   */
+  serverDeployFlag?: number;
+  /**
+   * @remarks
    * The number of instances to display per page in a paged query. Default value: **10**. Maximum value: **100**.
    * 
    * @example
@@ -78,11 +98,11 @@ export class ListInstancesRequest extends $dara.Model {
    * The instance status. Valid values:
    * - **inactive**: Pending use.
    * - **pending**: Under review. The latest certificate is being reviewed.
-   * - **willExpire**: About to expire.
-   * - **expired**: Expired.
+   * - **willExpire**: The instance is about to expire.
+   * - **expired**: The instance has expired.
    * - **refund**: Refunded.
    * - **normal**: Normal.
-   * - **closed**: Closed and unavailable.
+   * - **closed**: Closed. The instance is unavailable.
    * 
    * @example
    * inactive
@@ -90,6 +110,7 @@ export class ListInstancesRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      autoReissueFlag: 'AutoReissueFlag',
       brand: 'Brand',
       certificateStatus: 'CertificateStatus',
       certificateType: 'CertificateType',
@@ -97,6 +118,7 @@ export class ListInstancesRequest extends $dara.Model {
       instanceType: 'InstanceType',
       keyword: 'Keyword',
       resourceGroupId: 'ResourceGroupId',
+      serverDeployFlag: 'ServerDeployFlag',
       showSize: 'ShowSize',
       status: 'Status',
     };
@@ -104,6 +126,7 @@ export class ListInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoReissueFlag: 'number',
       brand: 'string',
       certificateStatus: 'string',
       certificateType: 'string',
@@ -111,6 +134,7 @@ export class ListInstancesRequest extends $dara.Model {
       instanceType: 'string',
       keyword: 'string',
       resourceGroupId: 'string',
+      serverDeployFlag: 'number',
       showSize: 'number',
       status: 'string',
     };

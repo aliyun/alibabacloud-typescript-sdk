@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateWarehouseResponseBody extends $dara.Model {
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * F0206B77-14B9-584C-8A3A-09D5827FBC50
+   * 9D85A4B3-8F5B-411B-A91C-EF91B5183E2E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The instance ID of the certificate application repository.
-   * 
-   * @example
-   * cas-wh-typ-serial
-   */
-  warehouseInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      warehouseInstanceId: 'WarehouseInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      warehouseInstanceId: 'string',
     };
   }
 

@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm of the certificate. Valid values:
+   * The encryption algorithm type of the certificate. Valid values:
    * 
-   * - **RSA**
-   * 
-   * - **ECC**
-   * 
-   * - **SM2**
+   * - **RSA**: RSA algorithm.
+   * - **ECC**: ECC algorithm.
+   * - **SM2**: SM2 (Chinese national cryptographic) algorithm.
    * 
    * @example
    * RSA
@@ -19,13 +17,11 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The global ID of the certificate. This ID is used across Alibaba Cloud services and is in the `Certificate ID-Region ID` format. For example, if a certificate ID is `123`, the `CertIdentifier` is `123-cn-hangzhou` for the Alibaba Cloud China site and `123-ap-southeast-1` for the Alibaba Cloud International site (www\\.alibabacloud.com).
+   * The global certificate ID, in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+   * - For the China site, the value is certificate ID + "-cn-hangzhou".
+   * - For the China site, the value is certificate ID + "-ap-southeast-1".
    * 
-   * - For the Alibaba Cloud China website, the format is certificate ID + "-cn-hangzhou".
-   * 
-   * - For the Alibaba Cloud International website (www\\.alibabacloud.com), the format is certificate ID + "-ap-southeast-1".
-   * 
-   * For example, if the certificate ID is 123, the CertIdentifier is "123-cn-hangzhou" for the China site and "123-ap-southeast-1" for the International site.
+   * For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site is "123-ap-southeast-1".
    * 
    * @example
    * 21589515-cn-hangzhou
@@ -33,7 +29,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 17281539
@@ -41,7 +37,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   certificateId?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * test
@@ -49,13 +45,10 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The source of the certificate.
-   * 
-   * - BUY: A purchased certificate.
-   * 
-   * - TEST: A test certificate.
-   * 
-   * - UPLOAD: An uploaded certificate.
+   * The source of the certificate. Valid values:
+   * - BUY: a formal certificate.
+   * - TEST: a test certificate.
+   * - UPLOAD: an uploaded certificate.
    * 
    * @example
    * BUY
@@ -63,15 +56,11 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   certificateSource?: string;
   /**
    * @remarks
-   * The status of the certificate.
-   * 
-   * - **issued**: The certificate is issued.
-   * 
-   * - **revoked**: The certificate is revoked.
-   * 
-   * - **willExpire**: The certificate is about to expire.
-   * 
-   * - **expired**: The certificate has expired.
+   * The status of the certificate. Valid values:
+   * - **issued**: Issued.
+   * - **revoked**: Revoked.
+   * - **willExpire**: About to expire.
+   * - **expired**: Expired.
    * 
    * @example
    * issued
@@ -87,7 +76,25 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The domain names that are bound to the certificate. Multiple domain names are separated by commas.
+   * The deployment information in JSON format:
+   * 
+   * --Scope: valid values are all/server. If the certificate has a private key, the value is all. If the certificate does not have a private key, the value is server.
+   * 
+   * --ServerName: the name of the server associated with the certificate instance.
+   * 
+   * --ResourceInstanceId: the resource identifier of the server associated with the certificate instance.
+   * 
+   * @example
+   * {
+   *       "Scope": "all",
+   *        "ServerName": "acmeServerName",
+   *        "ResourceInstanceId": "cas_dv-cn-XXX"
+   * }
+   */
+  deploymentDesc?: string;
+  /**
+   * @remarks
+   * The domain names bound to the certificate. Multiple domain names are separated by commas (,).
    * 
    * @example
    * test.com
@@ -95,11 +102,10 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Indicates whether a private key is available. Valid values:
+   * Indicates whether the certificate has a private key. Valid values:
    * 
-   * - **true**: A private key is available.
-   * 
-   * - **false**: A private key is not available.
+   * - **true**
+   * - **false**
    * 
    * @example
    * true
@@ -115,7 +121,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   fingerPrint?: string;
   /**
    * @remarks
-   * The ID of the certificate instance.
+   * The certificate instance ID.
    * 
    * @example
    * cas-cn-v***
@@ -123,7 +129,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The certification authority.
+   * The certificate issuer.
    * 
    * @example
    * DigiCert
@@ -131,11 +137,9 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The key size, in bits.
-   * 
-   * - For RSA keys, typical sizes are 2048, 3072, or 4096.
-   * 
-   * - For ECC or SM2 keys, the typical size is 256.
+   * The key algorithm length.
+   * - The RSA algorithm length is typically 2048, 3072, or 4096.
+   * - The ECC and SM2 algorithm length is typically 256.
    * 
    * @example
    * 2048
@@ -143,7 +147,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   keySize?: number;
   /**
    * @remarks
-   * The end of the certificate validity period.
+   * The end time of the certificate validity period.
    * 
    * @example
    * 1749580567000
@@ -151,7 +155,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   notAfter?: number;
   /**
    * @remarks
-   * The beginning of the certificate validity period.
+   * The start time of the certificate validity period.
    * 
    * @example
    * 1760745600000
@@ -159,7 +163,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   notBefore?: number;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * 123
@@ -167,12 +171,12 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
   serial?: string;
   /**
    * @remarks
-   * An array that contains the alternative domain names of the certificate. This parameter corresponds to the `Subject Alternative Name` field of the certificate.
+   * The list of subject alternative names (SANs) of the certificate, returned as an array. This corresponds to the `Subject Alternative Name` field of the certificate.
    */
   subjectAlternativeNames?: string[];
   /**
    * @remarks
-   * The list of Alibaba Cloud products in which the certificate is deployed.
+   * The list of Alibaba Cloud services to which the certificate is currently deployed.
    */
   usingProductList?: string[];
   static names(): { [key: string]: string } {
@@ -184,6 +188,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
       certificateSource: 'CertificateSource',
       certificateStatus: 'CertificateStatus',
       commonName: 'CommonName',
+      deploymentDesc: 'DeploymentDesc',
       domain: 'Domain',
       existPrivateKey: 'ExistPrivateKey',
       fingerPrint: 'FingerPrint',
@@ -207,6 +212,7 @@ export class ListCertificatesResponseBodyCertificateList extends $dara.Model {
       certificateSource: 'string',
       certificateStatus: 'string',
       commonName: 'string',
+      deploymentDesc: 'string',
       domain: 'string',
       existPrivateKey: 'boolean',
       fingerPrint: 'string',
@@ -252,7 +258,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -260,7 +266,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -268,7 +274,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 10

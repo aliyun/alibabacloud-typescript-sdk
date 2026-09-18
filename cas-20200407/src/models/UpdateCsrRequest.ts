@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCsrRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the CSR. The CsrId is generated when the CSR is uploaded. You can obtain this value by querying the CSR list. For more information, see [ListCsr](https://help.aliyun.com/document_detail/2709717.html).
+   * The unique identifier of the CSR. The CsrId is generated when you upload the CSR. You can obtain this value by querying the CSR list. For more information, see [ListCsr](https://help.aliyun.com/document_detail/2709717.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateCsrRequest extends $dara.Model {
   csrId?: number;
   /**
    * @remarks
-   * The private key content in PEM format.
+   * The certificate private key content in PEM format. This private key must match the public key cryptography contained in the CSR referenced by CsrId. Otherwise, the API returns the NotMatch.CsrAndPrivateKey error.
    * 
    * This parameter is required.
    * 

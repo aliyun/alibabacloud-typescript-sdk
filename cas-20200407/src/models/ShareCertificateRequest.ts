@@ -2,36 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RevokeCertificateRequest extends $dara.Model {
+export class ShareCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate to revoke.
-   * 
-   * @example
-   * 51001
-   */
-  certificateId?: number;
-  /**
-   * @remarks
-   * The ID of the instance. This parameter accepts only V2.0 subscription certificate instances (certificates purchased from a CA such as DigiCert or GeoTrust, with an InstanceId in the format of cas-cn-*). Uploaded certificates (cas-upload-*) are not supported.
+   * The certificate ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * cas-cn-68n1mm16****
+   * 23279004
    */
-  instanceId?: string;
+  certificateId?: number;
+  /**
+   * @remarks
+   * The UID of the user with whom the certificate is shared.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1622883344556677
+   */
+  targetUserId?: number;
   static names(): { [key: string]: string } {
     return {
       certificateId: 'CertificateId',
-      instanceId: 'InstanceId',
+      targetUserId: 'TargetUserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       certificateId: 'number',
-      instanceId: 'string',
+      targetUserId: 'number',
     };
   }
 

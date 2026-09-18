@@ -64,8 +64,6 @@ export default class Client extends OpenApi {
       'rus-west-1-pop': "cas.aliyuncs.com",
       'us-east-1': "cas.aliyuncs.com",
       'us-west-1': "cas.aliyuncs.com",
-      'eu-central-1': "cas.eu-central-1.aliyuncs.com",
-      'ap-southeast-1': "cas.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -921,6 +919,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Rolls back a deployment.
+   * 
+   * @param request - CreateRollbackTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRollbackTaskResponse
+   */
+  async createRollbackTaskWithOptions(request: $_model.CreateRollbackTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRollbackTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workerId)) {
+      query["WorkerId"] = request.workerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRollbackTask",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRollbackTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateRollbackTaskResponse({}));
+  }
+
+  /**
+   * Rolls back a deployment.
+   * 
+   * @param request - CreateRollbackTaskRequest
+   * @returns CreateRollbackTaskResponse
+   */
+  async createRollbackTask(request: $_model.CreateRollbackTaskRequest): Promise<$_model.CreateRollbackTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRollbackTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Issues a single client certificate from the general user certificate repository.
    * 
    * @remarks
@@ -1033,7 +1077,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a certificate warehouse.
+   * Creates a certificate repository.
+   * 
+   * @remarks
+   * This operation is used to query the list of certificate repositories.
+   * ### QPS limit
+   * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - CreateWarehouseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1072,7 +1121,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a certificate warehouse.
+   * Creates a certificate repository.
+   * 
+   * @remarks
+   * This operation is used to query the list of certificate repositories.
+   * ### QPS limit
+   * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - CreateWarehouseRequest
    * @returns CreateWarehouseResponse
@@ -1419,7 +1473,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Certificate Management Service instance.
+   * Deletes an instance.
+   * 
+   * @remarks
+   * Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
    * 
    * @param request - DeleteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1428,6 +1488,10 @@ export default class Client extends OpenApi {
   async deleteInstanceWithOptions(request: $_model.DeleteInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -1450,7 +1514,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Certificate Management Service instance.
+   * Deletes an instance.
+   * 
+   * @remarks
+   * Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
    * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
@@ -1513,10 +1583,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an expired, revoked, or manually uploaded certificate from Certificate Management Service.
+   * Deletes an expired, revoked, or uploaded certificate.
    * 
    * @remarks
-   * This operation is limited to 100 queries per second (QPS) per user. API calls exceeding this limit are throttled, which can impact your business. We recommend calling this operation at a reasonable rate to avoid this.
+   * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DeleteUserCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1527,6 +1597,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.certId)) {
       query["CertId"] = request.certId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1547,10 +1621,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an expired, revoked, or manually uploaded certificate from Certificate Management Service.
+   * Deletes an expired, revoked, or uploaded certificate.
    * 
    * @remarks
-   * This operation is limited to 100 queries per second (QPS) per user. API calls exceeding this limit are throttled, which can impact your business. We recommend calling this operation at a reasonable rate to avoid this.
+   * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DeleteUserCertificateRequest
    * @returns DeleteUserCertificateResponse
@@ -2069,7 +2143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves certificate details, excluding the certificate body and private key.
+   * Queries the details of a certificate. The certificate content and private key content are not returned.
+   * 
+   * @remarks
+   * The per-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API calls are throttled, which may affect your business. Use this operation as appropriate.
    * 
    * @param request - GetCertificateDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2100,7 +2177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves certificate details, excluding the certificate body and private key.
+   * Queries the details of a certificate. The certificate content and private key content are not returned.
+   * 
+   * @remarks
+   * The per-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API calls are throttled, which may affect your business. Use this operation as appropriate.
    * 
    * @param request - GetCertificateDetailRequest
    * @returns GetCertificateDetailResponse
@@ -2108,6 +2188,51 @@ export default class Client extends OpenApi {
   async getCertificateDetail(request: $_model.GetCertificateDetailRequest): Promise<$_model.GetCertificateDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCertificateDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the number of certificate resource plans.
+   * 
+   * @remarks
+   * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
+   * 
+   * @param request - GetCertificatePackageCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCertificatePackageCountResponse
+   */
+  async getCertificatePackageCountWithOptions(request: $_model.GetCertificatePackageCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCertificatePackageCountResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCertificatePackageCount",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCertificatePackageCountResponse>(await this.callApi(params, req, runtime), new $_model.GetCertificatePackageCountResponse({}));
+  }
+
+  /**
+   * Retrieves the number of certificate resource plans.
+   * 
+   * @remarks
+   * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
+   * 
+   * @param request - GetCertificatePackageCountRequest
+   * @returns GetCertificatePackageCountResponse
+   */
+  async getCertificatePackageCount(request: $_model.GetCertificatePackageCountRequest): Promise<$_model.GetCertificatePackageCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCertificatePackageCountWithOptions(request, runtime);
   }
 
   /**
@@ -2239,6 +2364,12 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of an instance.
    * 
+   * @remarks
+   * This operation queries the status information of a Private Certificate Authority (PCA) instance that you purchased in the Certificate Management Service console by using the instance ID. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
+   * 
    * @param request - GetInstanceDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceDetailResponse
@@ -2269,6 +2400,12 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details of an instance.
+   * 
+   * @remarks
+   * This operation queries the status information of a Private Certificate Authority (PCA) instance that you purchased in the Certificate Management Service console by using the instance ID. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
    * 
    * @param request - GetInstanceDetailRequest
    * @returns GetInstanceDetailResponse
@@ -2666,12 +2803,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificate application repositories in your account.
+   * Queries the list of certificate repositories.
    * 
    * @remarks
-   * You can call the ListCertWarehouse operation to query certificate repositories.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * Queries the list of certificate repositories.
+   * ### QPS limit
+   * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
    * 
    * @param request - ListCertWarehouseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2718,12 +2855,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificate application repositories in your account.
+   * Queries the list of certificate repositories.
    * 
    * @remarks
-   * You can call the ListCertWarehouse operation to query certificate repositories.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * Queries the list of certificate repositories.
+   * ### QPS limit
+   * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
    * 
    * @param request - ListCertWarehouseRequest
    * @returns ListCertWarehouseResponse
@@ -2734,7 +2871,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificates managed by Certificate Management Service.
+   * Retrieves a list of certificates.
+   * 
+   * @remarks
+   * Queries the operation logs of CA certificates, including root CA certificates and subordinate CA certificates. For example, you can query the creation logs and status change logs of CA certificates.
+   * The per-user queries per second (QPS) limit for this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - ListCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2789,7 +2930,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificates managed by Certificate Management Service.
+   * Retrieves a list of certificates.
+   * 
+   * @remarks
+   * Queries the operation logs of CA certificates, including root CA certificates and subordinate CA certificates. For example, you can query the creation logs and status change logs of CA certificates.
+   * The per-user queries per second (QPS) limit for this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - ListCertificatesRequest
    * @returns ListCertificatesResponse
@@ -3224,6 +3369,12 @@ export default class Client extends OpenApi {
   /**
    * Retrieves a list of instances.
    * 
+   * @remarks
+   * Queries the status information of Private Certificate Authority (PCA) instances that you purchased through the SSL Certificate console by using the IDs of the PCA instances. For example, you can query the status of a CA instance, the number of digital certificates included, and the number of digital certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+   * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
@@ -3231,6 +3382,10 @@ export default class Client extends OpenApi {
   async listInstancesWithOptions(request: $_model.ListInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstancesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoReissueFlag)) {
+      query["AutoReissueFlag"] = request.autoReissueFlag;
+    }
+
     if (!$dara.isNull(request.brand)) {
       query["Brand"] = request.brand;
     }
@@ -3257,6 +3412,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.serverDeployFlag)) {
+      query["ServerDeployFlag"] = request.serverDeployFlag;
     }
 
     if (!$dara.isNull(request.showSize)) {
@@ -3287,12 +3446,234 @@ export default class Client extends OpenApi {
   /**
    * Retrieves a list of instances.
    * 
+   * @remarks
+   * Queries the status information of Private Certificate Authority (PCA) instances that you purchased through the SSL Certificate console by using the IDs of the PCA instances. For example, you can query the status of a CA instance, the number of digital certificates included, and the number of digital certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+   * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
    */
   async listInstances(request: $_model.ListInstancesRequest): Promise<$_model.ListInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a list of tag keys and values.
+   * 
+   * @remarks
+   * Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as appropriate.
+   * 
+   * @param request - ListTagKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagKeysResponse
+   */
+  async listTagKeysWithOptions(request: $_model.ListTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagKeys",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListTagKeysResponse({}));
+  }
+
+  /**
+   * Retrieves a list of tag keys and values.
+   * 
+   * @remarks
+   * Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as appropriate.
+   * 
+   * @param request - ListTagKeysRequest
+   * @returns ListTagKeysResponse
+   */
+  async listTagKeys(request: $_model.ListTagKeysRequest): Promise<$_model.ListTagKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the tags associated with a resource.
+   * 
+   * @remarks
+   * This operation queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of digital certificates included, and the number of digital certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
+  }
+
+  /**
+   * Retrieves the tags associated with a resource.
+   * 
+   * @remarks
+   * This operation queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of digital certificates included, and the number of digital certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of managed orders.
+   * 
+   * @remarks
+   * Queries the managed orders for a certificate or order.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+   * 
+   * @param request - ListTrusteeOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTrusteeOrderResponse
+   */
+  async listTrusteeOrderWithOptions(request: $_model.ListTrusteeOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTrusteeOrderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTrusteeOrder",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTrusteeOrderResponse>(await this.callApi(params, req, runtime), new $_model.ListTrusteeOrderResponse({}));
+  }
+
+  /**
+   * Retrieves the list of managed orders.
+   * 
+   * @remarks
+   * Queries the managed orders for a certificate or order.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+   * 
+   * @param request - ListTrusteeOrderRequest
+   * @returns ListTrusteeOrderResponse
+   */
+  async listTrusteeOrder(request: $_model.ListTrusteeOrderRequest): Promise<$_model.ListTrusteeOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTrusteeOrderWithOptions(request, runtime);
   }
 
   /**
@@ -3656,6 +4037,11 @@ export default class Client extends OpenApi {
   /**
    * Revokes a certificate.
    * 
+   * @remarks
+   * Invokes this operation to query the details of all revoked client certificates and server certificates by paging. The details include the unique identifier, serial number, and revocation date of each certificate.
+   * ## QPS limit
+   * The queries per second (QPS) limit for a single user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+   * 
    * @param request - RevokeCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RevokeCertificateResponse
@@ -3690,6 +4076,11 @@ export default class Client extends OpenApi {
 
   /**
    * Revokes a certificate.
+   * 
+   * @remarks
+   * Invokes this operation to query the details of all revoked client certificates and server certificates by paging. The details include the unique identifier, serial number, and revocation date of each certificate.
+   * ## QPS limit
+   * The queries per second (QPS) limit for a single user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
    * 
    * @param request - RevokeCertificateRequest
    * @returns RevokeCertificateResponse
@@ -3745,6 +4136,52 @@ export default class Client extends OpenApi {
   async revokeWHClientCertificate(request: $_model.RevokeWHClientCertificateRequest): Promise<$_model.RevokeWHClientCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeWHClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * Shares a certificate.
+   * 
+   * @param request - ShareCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ShareCertificateResponse
+   */
+  async shareCertificateWithOptions(request: $_model.ShareCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ShareCertificateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!$dara.isNull(request.targetUserId)) {
+      query["TargetUserId"] = request.targetUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ShareCertificate",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ShareCertificateResponse>(await this.callApi(params, req, runtime), new $_model.ShareCertificateResponse({}));
+  }
+
+  /**
+   * Shares a certificate.
+   * 
+   * @param request - ShareCertificateRequest
+   * @returns ShareCertificateResponse
+   */
+  async shareCertificate(request: $_model.ShareCertificateRequest): Promise<$_model.ShareCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.shareCertificateWithOptions(request, runtime);
   }
 
   /**
@@ -3817,6 +4254,142 @@ export default class Client extends OpenApi {
   async sign(request: $_model.SignRequest): Promise<$_model.SignResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.signWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds resource tags.
+   * 
+   * @remarks
+   * Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * Adds resource tags.
+   * 
+   * @remarks
+   * Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes tags.
+   * 
+   * @remarks
+   * Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * Removes tags.
+   * 
+   * @remarks
+   * Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+   * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -3972,7 +4545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
+   * Uploads the private key corresponding to a CSR if you did not provide the CSR private key when uploading the local CSR.
    * 
    * @param request - UpdateCsrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4007,7 +4580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
+   * Uploads the private key corresponding to a CSR if you did not provide the CSR private key when uploading the local CSR.
    * 
    * @param request - UpdateCsrRequest
    * @returns UpdateCsrResponse
@@ -4126,7 +4699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a Certificate Management Service instance.
+   * Updates an instance.
    * 
    * @param request - UpdateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4213,7 +4786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a Certificate Management Service instance.
+   * Updates an instance.
    * 
    * @param request - UpdateInstanceRequest
    * @returns UpdateInstanceResponse
@@ -4224,7 +4797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back or re-executes a worker task in a certificate deployment task.
+   * Updates the status of a worker task in a deployment task.
    * 
    * @param request - UpdateWorkerResourceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4263,7 +4836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back or re-executes a worker task in a certificate deployment task.
+   * Updates the status of a worker task in a deployment task.
    * 
    * @param request - UpdateWorkerResourceStatusRequest
    * @returns UpdateWorkerResourceStatusResponse
@@ -4324,12 +4897,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a PCA certificate to a certificate warehouse.
+   * Uploads a PCA certificate to a certificate repository.
    * 
    * @remarks
-   * Use this operation to upload a PCA certificate to a certificate warehouse.
+   * Uploads a PCA certificate to a certificate repository.
    * ## QPS limit
-   * The QPS limit for this operation is 10 requests per second per user. Exceeding this limit triggers throttling, which can affect your business.
+   * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - UploadPCACertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4372,12 +4945,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a PCA certificate to a certificate warehouse.
+   * Uploads a PCA certificate to a certificate repository.
    * 
    * @remarks
-   * Use this operation to upload a PCA certificate to a certificate warehouse.
+   * Uploads a PCA certificate to a certificate repository.
    * ## QPS limit
-   * The QPS limit for this operation is 10 requests per second per user. Exceeding this limit triggers throttling, which can affect your business.
+   * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - UploadPCACertRequest
    * @returns UploadPCACertResponse
@@ -4388,10 +4961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a certificate and its private key to Certificate Management Service. Both SM and non-SM certificates are supported.
+   * Uploads a certificate, including a standard SM certificate or a non-SM certificate.
    * 
    * @remarks
-   * The queries per second (QPS) limit for this operation is 100 for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+   * The maximum number of calls per user is 100 per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - UploadUserCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4402,6 +4975,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.cert)) {
       query["Cert"] = request.cert;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.encryptCert)) {
@@ -4454,10 +5031,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a certificate and its private key to Certificate Management Service. Both SM and non-SM certificates are supported.
+   * Uploads a certificate, including a standard SM certificate or a non-SM certificate.
    * 
    * @remarks
-   * The queries per second (QPS) limit for this operation is 100 for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+   * The maximum number of calls per user is 100 per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - UploadUserCertificateRequest
    * @returns UploadUserCertificateResponse

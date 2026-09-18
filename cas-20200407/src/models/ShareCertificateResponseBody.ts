@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateWarehouseResponseBody extends $dara.Model {
+export class ShareCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
-   * F0206B77-14B9-584C-8A3A-09D5827FBC50
+   * A79D2C05-4B0B-57CA-873D-4FA985F2D26E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The instance ID of the certificate application repository.
-   * 
-   * @example
-   * cas-wh-typ-serial
-   */
-  warehouseInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      warehouseInstanceId: 'WarehouseInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      warehouseInstanceId: 'string',
     };
   }
 

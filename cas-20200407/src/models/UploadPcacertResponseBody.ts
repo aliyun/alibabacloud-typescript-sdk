@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadPCACertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier for the certificate.
+   * The certificate identifier.
    * 
    * @example
    * 1ed65580-7e33-6a50-8630-dd13fdc009ee
@@ -13,7 +13,7 @@ export class UploadPCACertResponseBody extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74

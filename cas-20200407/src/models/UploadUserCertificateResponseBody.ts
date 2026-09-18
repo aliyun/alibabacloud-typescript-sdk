@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadUserCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 12345
@@ -13,7 +13,7 @@ export class UploadUserCertificateResponseBody extends $dara.Model {
   certId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BDB81BA2-E1F5-4D08-A2DD-4BE2BF44C90E
@@ -21,7 +21,7 @@ export class UploadUserCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the certificate instance.
+   * The instance ID of the certificate to operate on.
    * 
    * @example
    * cas-upload-xki1d0

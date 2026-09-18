@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance. Valid values for N: **1** to **20**. If you specify this value, it cannot be an empty string.
+   * The tag key of the instance. Valid values of N: **1** to **20**. If you specify this parameter, the value cannot be an empty string.
    * 
-   * It can contain up to 64 characters. It cannot start with `aliyun` or `acs:`, and it cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * test
@@ -15,9 +15,9 @@ export class UpdateInstanceRequestTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the instance. Valid values for N: **1** to **20**. If you specify this value, it can be an empty string.
+   * The tag value of the instance. Valid values of N: **1** to **20**. If you specify this parameter, the value can be an empty string.
    * 
-   * It can contain up to 128 characters. It cannot start with `aliyun` or `acs:`, and it cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * test
@@ -49,11 +49,9 @@ export class UpdateInstanceRequestTags extends $dara.Model {
 export class UpdateInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable automatic management.
-   * 
-   * - enable: enabled
-   * 
-   * - disable: disabled
+   * Specifies whether to enable automatic hosting. Valid values:
+   * - enable: Enabled.
+   * - disable: Disabled.
    * 
    * @example
    * enable
@@ -61,7 +59,7 @@ export class UpdateInstanceRequest extends $dara.Model {
   autoReissue?: string;
   /**
    * @remarks
-   * The name of the instance. When issuing a certificate, this value serves as the default certificate name.
+   * The name of the instance. When a certificate is issued, this name is used as the default name of the certificate.
    * 
    * @example
    * 123
@@ -69,7 +67,7 @@ export class UpdateInstanceRequest extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The city where the company or organization of the certificate requester is located. Required when generating a CSR for a DV certificate. Default value: Beijing.
+   * The city where the company or organization of the certificate purchaser is located. This field is required when generating a CSR for a DV certificate. Default value: Beijing.
    * 
    * @example
    * Beijing
@@ -77,7 +75,7 @@ export class UpdateInstanceRequest extends $dara.Model {
   city?: string;
   /**
    * @remarks
-   * The company information ID. Required for OV and EV certificates. Otherwise, you cannot call ApplyCertificate to request a certificate.
+   * The company information ID. This parameter is required for OV and EV certificates. Otherwise, you cannot call the ApplyCertificate operation to apply for a certificate.
    * 
    * @example
    * 44211
@@ -85,12 +83,12 @@ export class UpdateInstanceRequest extends $dara.Model {
   companyId?: number;
   /**
    * @remarks
-   * The list of contact IDs. You must specify at least one contact. Otherwise, you cannot call ApplyCertificate to request a certificate.
+   * The list of contact IDs. If a contact already exists, you do not need to specify this parameter. If no contact has been configured, specify at least one contact ID. Otherwise, you cannot call the ApplyCertificate operation to apply for a certificate.
    */
   contactIdList?: number[];
   /**
    * @remarks
-   * The country or region code of the certificate organization. For example, CN represents China, and US represents the United States. Required when generating a CSR for a DV certificate. Default value: CN.
+   * The country or region code of the certificate organization. For example, CN indicates China and US indicates the United States. This field is required when generating a CSR for a DV certificate. Default value: CN.
    * 
    * @example
    * CN
@@ -98,7 +96,7 @@ export class UpdateInstanceRequest extends $dara.Model {
   countryCode?: string;
   /**
    * @remarks
-   * The CSR content. You can generate a CSR using OpenSSL or Keytool. For more information, see [How to create a CSR file](https://help.aliyun.com/document_detail/42218.html).
+   * The CSR content. You can use OpenSSL or Keytool to generate a CSR. For more information, see [How do I create a CSR file?](https://help.aliyun.com/document_detail/42218.html).
    * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
@@ -106,15 +104,14 @@ export class UpdateInstanceRequest extends $dara.Model {
   csr?: string;
   /**
    * @remarks
-   * The domain name to bind to the certificate. Requirements are as follows:
+   * The domain name to which the certificate is bound. Requirements:
    * 
-   * - Supports single domain names or wildcard domain names (for example, `*.aliyundoc.com`).
+   * - You can specify a single domain name or a wildcard domain name (for example, `*.aliyundoc.com`).
+   * - You can specify multiple domain names. Separate multiple domain names with commas (,). Whether a free domain name is included is determined based on the first domain name.
    * 
-   * - Supports multiple domain names. Separate multiple domain names with commas (,). The first domain determines whether a free domain is included.
+   * >Notice:  
    * 
-   * >Notice: 
-   * 
-   * If you bind multiple domain names to the certificate, this parameter is required. This parameter and the **Csr** parameter cannot both be empty. If you set both parameters, the system uses the **CN** field value from the **Csr** as the domain name for the certificate.
+   * When the certificate is bound to multiple domain names, this parameter is required. This parameter and the **Csr** parameter cannot both be empty. If you specify both this parameter and the **Csr** parameter, the **CN** field value in the **Csr** parameter is used as the domain name to which the certificate is bound.
    * 
    * @example
    * test.com
@@ -122,11 +119,9 @@ export class UpdateInstanceRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The CSR generation method. Default value: online.
-   * 
-   * - online: The system generates the CSR. The Csr field is ignored.
-   * 
-   * - upload: You upload the CSR. The Csr field is required.
+   * The method used to generate the certificate signing request (CSR). Default value: online. Valid values:
+   * - online: The system generates the CSR. The Csr parameter is ignored.
+   * - upload: You upload the CSR. The Csr parameter is required.
    * 
    * @example
    * online
@@ -144,16 +139,11 @@ export class UpdateInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The certificate algorithm. Default value: RSA_2048.
-   * 
+   * The certificate algorithm. Default value: RSA_2048. Valid values:
    * - **RSA_2048**
-   * 
    * - **RSA_3072**
-   * 
    * - **RSA_4096**
-   * 
    * - **ECC_256**
-   * 
    * - **SM2**
    * 
    * @example
@@ -162,7 +152,7 @@ export class UpdateInstanceRequest extends $dara.Model {
   keyAlgorithm?: string;
   /**
    * @remarks
-   * The province or region where the company is located. Required when generating a CSR for a DV certificate. Default value: Beijing.
+   * The province or region where the company is located. This field is required when generating a CSR for a DV certificate. Default value: Beijing.
    * 
    * @example
    * Beijing
@@ -170,7 +160,7 @@ export class UpdateInstanceRequest extends $dara.Model {
   province?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ae******4wia
@@ -178,16 +168,14 @@ export class UpdateInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tags?: UpdateInstanceRequestTags[];
   /**
    * @remarks
-   * The certificate validation method.
-   * 
-   * - DNS: DNS validation using TXT or CNAME records.
-   * 
-   * - HTTP: File-based validation.
+   * The validation method for the certificate application. Valid values:
+   * - DNS: DNS validation, which uses TXT or CNAME records.
+   * - HTTP: File validation.
    * 
    * @example
    * DNS

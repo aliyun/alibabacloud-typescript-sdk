@@ -13,7 +13,7 @@ export class ListCertWarehouseRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The instance ID of the certificate application repository.
+   * The repository instance.
    * 
    * @example
    * 14dcc8afc7578e1f
@@ -21,7 +21,7 @@ export class ListCertWarehouseRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the certificate application repository. Fuzzy match is supported.
+   * The repository name. Fuzzy match is supported.
    * 
    * @example
    * name
@@ -29,7 +29,7 @@ export class ListCertWarehouseRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 50.
+   * The number of entries per page. Default value: 50.
    * 
    * @example
    * 50
@@ -37,17 +37,11 @@ export class ListCertWarehouseRequest extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The type of the certificate application repository. Valid values:
+   * The repository type. Valid values:
    * 
-   * - **ssl**: certificate application repository of SSL certificates
-   * 
-   * - **uploadPCA**: certificate application repository of uploaded private certificates
-   * 
-   * - **free**: certificate application repository of free certificates, available only on the China site (aliyun.com)
-   * 
-   * - **aliyunPCA**: certificate application repository of private certificates purchased from Alibaba Cloud Private Certificate Authority (PCA), available only on the China site (aliyun.com)
-   * 
-   * - **disable**: disabled certificate application repository
+   * - **uploadCA**: an uploaded CA certificate that contains a complete certificate chain.
+   * - **uploadPCA**: an uploaded certificate, including a self-signed certificate, a certificate issued by a third party, or a certificate issued by Alibaba Cloud.
+   * - **aliyunPCA**: an Alibaba Cloud PCA certificate.
    * 
    * @example
    * aliyunPCA

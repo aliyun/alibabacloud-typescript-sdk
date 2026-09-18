@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertificatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the certificate.
-   * 
-   * - BUY: A purchased certificate.
-   * 
-   * - TEST: A test certificate.
-   * 
-   * - UPLOAD: An uploaded certificate.
+   * The source of the certificate. Valid values:
+   * - BUY: a formal certificate.
+   * - TEST: a test certificate.
+   * - UPLOAD: an uploaded certificate.
    * 
    * @example
    * BUY
@@ -19,15 +16,11 @@ export class ListCertificatesRequest extends $dara.Model {
   certificateSource?: string;
   /**
    * @remarks
-   * The status of the certificate.
-   * 
-   * - **issued**: The certificate is issued.
-   * 
-   * - **revoked**: The certificate is revoked.
-   * 
-   * - **willExpire**: The certificate is about to expire.
-   * 
-   * - **expired**: The certificate has expired.
+   * The status of the certificate. Valid values:
+   * - **issued**: Issued.
+   * - **revoked**: Revoked.
+   * - **willExpire**: About to expire.
+   * - **expired**: Expired.
    * 
    * @example
    * issued
@@ -35,7 +28,7 @@ export class ListCertificatesRequest extends $dara.Model {
   certificateStatus?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -51,7 +44,7 @@ export class ListCertificatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A keyword for a fuzzy query. The keyword can be a domain name, a certificate name, or a resource ID.
+   * The keyword for fuzzy match. The keyword is matched against domain names, names, and corresponding resource IDs.
    * 
    * @example
    * test
@@ -67,7 +60,7 @@ export class ListCertificatesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10

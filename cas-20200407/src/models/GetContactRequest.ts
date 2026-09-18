@@ -7,6 +7,8 @@ export class GetContactRequest extends $dara.Model {
    * @remarks
    * The contact ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1397591
    */

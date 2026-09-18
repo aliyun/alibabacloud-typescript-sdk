@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCertificateDetailResponseBodyCertificateChainList extends $dara.Model {
   /**
    * @remarks
-   * The issuer of the certificate chain.
+   * The issuer name of the certificate chain.
    * 
    * @example
    * Digicert
@@ -13,7 +13,7 @@ export class GetCertificateDetailResponseBodyCertificateChainList extends $dara.
   issuer?: string;
   /**
    * @remarks
-   * The end of the validity period.
+   * The end time of the certificate validity period.
    * 
    * @example
    * 17326613180000
@@ -21,7 +21,7 @@ export class GetCertificateDetailResponseBodyCertificateChainList extends $dara.
   notAfter?: number;
   /**
    * @remarks
-   * The beginning of the validity period.
+   * The start time of the certificate validity period.
    * 
    * @example
    * 17321613180000
@@ -29,7 +29,7 @@ export class GetCertificateDetailResponseBodyCertificateChainList extends $dara.
   notBefore?: number;
   /**
    * @remarks
-   * The remaining validity period of the certificate chain.
+   * The remaining days of the certificate chain validity period.
    * 
    * @example
    * 10
@@ -75,9 +75,9 @@ export class GetCertificateDetailResponseBodyCertificateChainList extends $dara.
 export class GetCertificateDetailResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance. You can specify 1 to 20 tag keys. The value cannot be an empty string.
+   * The tag key of the instance. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
    * 
-   * The value can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * test
@@ -117,13 +117,11 @@ export class GetCertificateDetailResponseBodyTags extends $dara.Model {
 export class GetCertificateDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The certificate algorithm. Valid values:
+   * The certificate algorithm.
    * 
-   * - **RSA**: The RSA algorithm.
-   * 
-   * - **ECC**: The ECC algorithm.
-   * 
-   * - **SM2**: The SM2 algorithm.
+   * - **RSA**: RSA algorithm.
+   * - **ECC**: ECC algorithm.
+   * - **SM2**: SM2 algorithm.
    * 
    * @example
    * RSA
@@ -131,7 +129,10 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The global ID of the certificate, which is used in various Alibaba Cloud services. The format of the ID is `<Certificate ID>-<Region ID>`. The region ID is `cn-hangzhou` for the China site and `ap-southeast-1` for the International site. For example, if a certificate ID is `123`, its `CertIdentifier` is `123-cn-hangzhou` for the China site and `123-ap-southeast-1` for the International site.
+   * The global certificate ID in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+   *   --For the China site, the value is certificate ID + "-cn-hangzhou".
+   * For the International site, the value is certificate ID + "-ap-southeast-1".
+   * For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the International site is "123-ap-southeast-1".
    * 
    * @example
    * 21912069-cn-hangzhou
@@ -139,7 +140,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The information about the certificate chain.
+   * The certificate chain information list.
    */
   certificateChainList?: GetCertificateDetailResponseBodyCertificateChainList[];
   /**
@@ -160,13 +161,10 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The source of the certificate. Valid values:
-   * 
-   * - **BUY**: a purchased certificate.
-   * 
-   * - **TEST**: a test certificate.
-   * 
-   * - Upload the certificate.
+   * The certificate source.
+   * - BUY: Purchased certificate.
+   * - TEST: Test certificate.
+   * - UPLOAD: Uploaded certificate.
    * 
    * @example
    * BUY
@@ -174,15 +172,11 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   certificateSource?: string;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
-   * 
-   * - **issued**: The certificate is issued.
-   * 
-   * - **revoked**: The certificate is revoked.
-   * 
-   * - **willExpire**: The certificate is about to expire.
-   * 
-   * - **expired**: The certificate has expired.
+   * The certificate status.
+   * - **issued**: Issued.
+   * - **revoked**: Revoked.
+   * - **willExpire**: About to expire.
+   * - **expired**: Expired.
    * 
    * @example
    * issued
@@ -190,7 +184,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   certificateStatus?: string;
   /**
    * @remarks
-   * The common name.
+   * The common domain name.
    * 
    * @example
    * www.example.com
@@ -198,7 +192,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The ID of the company profile that is associated with the certificate application. This parameter is empty for DV certificates.
+   * The company information ID associated with the certificate application. This value is empty for DV certificates.
    * 
    * @example
    * 44211
@@ -206,20 +200,41 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   companyId?: number;
   /**
    * @remarks
-   * The ID of the contact.
+   * The contact ID.
    * 
    * @example
    * 304066
    */
   contactId?: number;
   /**
+   * @remarks
+   * The certificate signing request (CSR) used to issue the certificate.
+   * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
    */
   csr?: string;
   /**
    * @remarks
-   * The domain names that are bound to the certificate. Multiple domain names are separated by commas (,).
+   * The deployment information in JSON format:
+   * 
+   * --Scope: Valid values are all/server. The value is all if the certificate has a private key, or server if it does not.
+   * 
+   * --ServerName: The name of the server associated with the certificate instance.
+   * 
+   * --ResourceInstanceId: The resource identifier of the server associated with the certificate instance.
+   * 
+   * @example
+   * {
+   *       "Scope": "all",
+   *        "ServerName": "acmeServerName",
+   *        "ResourceInstanceId": "cas_dv-cn-XXX"
+   * }
+   */
+  deploymentDesc?: string;
+  /**
+   * @remarks
+   * All domain names included in the certificate. Multiple domain names are separated by commas (,).
    * 
    * @example
    * aliyundoc.com,example.aliyundoc.com
@@ -227,10 +242,9 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Indicates whether a private key is available. Valid values:
+   * Indicates whether a private key exists on the backend for the current certificate. Valid values:
    * 
    * - **true**
-   * 
    * - **false**
    * 
    * @example
@@ -239,7 +253,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   existPrivateKey?: boolean;
   /**
    * @remarks
-   * The fingerprint of the public key.
+   * The public key fingerprint.
    * 
    * @example
    * 123
@@ -247,7 +261,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   fingerPrint?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cas_dv-cn-123
@@ -255,7 +269,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The certificate issue authority.
    * 
    * @example
    * Digicert
@@ -263,11 +277,9 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The key size.
-   * 
-   * - For RSA algorithms, the key size is typically 2,048, 3,072, or 4,096 bits.
-   * 
-   * - For ECC and SM2 algorithms, the key size is typically 256 bits.
+   * The key algorithm length.
+   * - The RSA algorithm length is typically 2048, 3072, or 4096.
+   * - The ECC and SM2 algorithm length is typically 256.
    * 
    * @example
    * 2048
@@ -275,7 +287,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   keySize?: number;
   /**
    * @remarks
-   * The end of the validity period of the certificate.
+   * The end time of the certificate validity period.
    * 
    * @example
    * 17326613180000
@@ -283,7 +295,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   notAfter?: number;
   /**
    * @remarks
-   * The beginning of the validity period of the certificate.
+   * The start time of the certificate validity period.
    * 
    * @example
    * 17321613180000
@@ -291,7 +303,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   notBefore?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 5979d897-d69f-4fc9-87dd-f3bb73c40b80
@@ -299,7 +311,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * 123
@@ -307,17 +319,17 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
   serial?: string;
   /**
    * @remarks
-   * The subject alternative names (SANs) of the certificate.
+   * The list of Subject Alternative Names (SANs) of the certificate, returned in array format. This corresponds to the `Subject Alternative Name` field of the certificate.
    */
   subjectAlternativeNames?: string[];
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    */
   tags?: GetCertificateDetailResponseBodyTags[];
   /**
    * @remarks
-   * The list of cloud services in which the certificate is deployed.
+   * The list of Alibaba Cloud services to which the certificate is currently deployed.
    */
   usingProductList?: string[];
   static names(): { [key: string]: string } {
@@ -333,6 +345,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
       companyId: 'CompanyId',
       contactId: 'ContactId',
       csr: 'Csr',
+      deploymentDesc: 'DeploymentDesc',
       domain: 'Domain',
       existPrivateKey: 'ExistPrivateKey',
       fingerPrint: 'FingerPrint',
@@ -362,6 +375,7 @@ export class GetCertificateDetailResponseBody extends $dara.Model {
       companyId: 'number',
       contactId: 'number',
       csr: 'string',
+      deploymentDesc: 'string',
       domain: 'string',
       existPrivateKey: 'boolean',
       fingerPrint: 'string',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWarehouseRequest extends $dara.Model {
   /**
    * @remarks
-   * The use case of the certificate warehouse.
+   * The scenarios of the repository.
    * 
    * @example
    * contract
@@ -13,7 +13,7 @@ export class CreateWarehouseRequest extends $dara.Model {
   biz?: string;
   /**
    * @remarks
-   * The name of the certificate warehouse.
+   * The name of the certificate repository.
    * 
    * @example
    * MyCertificateWarehouse
@@ -21,7 +21,7 @@ export class CreateWarehouseRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the certificate warehouse. Valid values:
+   * The type of the certificate repository.
    * 
    * @example
    * pcaCertificate
