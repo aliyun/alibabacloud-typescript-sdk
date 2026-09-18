@@ -13,7 +13,7 @@ export class DeleteTensorboardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The TensorBoard ID.
+   * Tensorboard ID。
    * 
    * @example
    * tensorboard-20210114104214-vf9lowjt3pso

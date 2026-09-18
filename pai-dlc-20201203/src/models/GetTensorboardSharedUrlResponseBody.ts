@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTensorboardSharedUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID which is used for troubleshooting.
+   * The request ID. Used for troubleshooting and support inquiries.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -13,7 +13,7 @@ export class GetTensorboardSharedUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The shareable link of the TensorBoard task.
+   * The sharing link for the TensorBoard task.
    * 
    * @example
    * http://pai-dlc-proxy-xxx.alicyuncs.com/xxx/xxx/token/

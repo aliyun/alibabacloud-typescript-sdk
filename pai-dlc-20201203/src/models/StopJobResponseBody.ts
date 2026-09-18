@@ -13,7 +13,7 @@ export class StopJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID. You can troubleshoot issues based on the request ID.
+   * The request ID, used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxx

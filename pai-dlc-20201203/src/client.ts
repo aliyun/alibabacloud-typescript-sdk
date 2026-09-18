@@ -296,8 +296,8 @@ export default class Client extends OpenApi {
    * Creates a RayHistoryServer.
    * 
    * @remarks
-   * Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
-   * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+   * Make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before using this operation.
+   * >Notice: The total length of the CreateJob operation parameters (including system-generated parameters) cannot exceed 65536 bytes.
    * 
    * @param request - CreateRayHistoryServerRequest
    * @param headers - map
@@ -357,8 +357,8 @@ export default class Client extends OpenApi {
    * Creates a RayHistoryServer.
    * 
    * @remarks
-   * Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
-   * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+   * Make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before using this operation.
+   * >Notice: The total length of the CreateJob operation parameters (including system-generated parameters) cannot exceed 65536 bytes.
    * 
    * @param request - CreateRayHistoryServerRequest
    * @returns CreateRayHistoryServerResponse
@@ -370,13 +370,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a signal to the Pods of a specified job and retrieves the signal ID.
+   * Sends a signal to the pods of a specified job and retrieves the signal ID.
    * 
    * @remarks
    * ## Operation description
-   * - This API operation sends a specific signal to one or more Pods of a specified job.
+   * - This API operation sends a specific signal to one or more pods of a specified job.
    * - After the signal is sent, the API immediately returns a `SignalId`. The actual signal delivery is processed by a background worker.
-   * - Query the signal status by calling the `GetSignal` or `ListSignals` operation.
+   * - You can query the signal status by calling the `GetSignal` or `ListSignals` operation.
    * 
    * @param request - CreateSignalRequest
    * @param headers - map
@@ -413,13 +413,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a signal to the Pods of a specified job and retrieves the signal ID.
+   * Sends a signal to the pods of a specified job and retrieves the signal ID.
    * 
    * @remarks
    * ## Operation description
-   * - This API operation sends a specific signal to one or more Pods of a specified job.
+   * - This API operation sends a specific signal to one or more pods of a specified job.
    * - After the signal is sent, the API immediately returns a `SignalId`. The actual signal delivery is processed by a background worker.
-   * - Query the signal status by calling the `GetSignal` or `ListSignals` operation.
+   * - You can query the signal status by calling the `GetSignal` or `ListSignals` operation.
    * 
    * @param request - CreateSignalRequest
    * @returns CreateSignalResponse
@@ -431,7 +431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TensorBoard by using a job or specifying a data source configuration.
+   * Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
    * 
    * @param request - CreateTensorboardRequest
    * @param headers - map
@@ -540,7 +540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TensorBoard by using a job or specifying a data source configuration.
+   * Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
    * 
    * @param request - CreateTensorboardRequest
    * @returns CreateTensorboardResponse
@@ -552,7 +552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a completed or stopped job.
+   * Deletes a job that has completed or been stopped.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -577,7 +577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a completed or stopped job.
+   * Deletes a job that has completed or been stopped.
    * @returns DeleteJobResponse
    */
   async deleteJob(JobId: string): Promise<$_model.DeleteJobResponse> {
@@ -587,7 +587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a job template. You cannot delete a job template that is in use by a job.
+   * Deletes an unused task template. If the template is already in use by a node, it cannot be deleted.
    * 
    * @param request - DeleteJobTemplateRequest
    * @param headers - map
@@ -614,7 +614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a job template. You cannot delete a job template that is in use by a job.
+   * Deletes an unused task template. If the template is already in use by a node, it cannot be deleted.
    * 
    * @param request - DeleteJobTemplateRequest
    * @returns DeleteJobTemplateResponse
@@ -671,7 +671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stopped TensorBoard.
+   * Deletes a stopped Tensorboard.
    * 
    * @param request - DeleteTensorboardRequest
    * @param headers - map
@@ -704,7 +704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stopped TensorBoard.
+   * Deletes a stopped Tensorboard.
    * 
    * @param request - DeleteTensorboardRequest
    * @returns DeleteTensorboardResponse
@@ -716,10 +716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the Dashboard URL for a DLC job, if available.
+   * Retrieves the dashboard URL of a DLC job, if available.
    * 
    * @remarks
-   * Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
+   * Before using this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
    * 
    * @param request - GetDashboardRequest
    * @param headers - map
@@ -756,10 +756,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the Dashboard URL for a DLC job, if available.
+   * Retrieves the dashboard URL of a DLC job, if available.
    * 
    * @remarks
-   * Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
+   * Before using this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
    * 
    * @param request - GetDashboardRequest
    * @returns GetDashboardResponse
@@ -771,7 +771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration and runtime information of a task.
+   * Retrieves the detailed configuration and runtime information of a node.
    * 
    * @param request - GetJobRequest
    * @param headers - map
@@ -804,7 +804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration and runtime information of a task.
+   * Retrieves the detailed configuration and runtime information of a node.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -816,7 +816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the system events of a job.
+   * Retrieves system events for a job.
    * 
    * @param request - GetJobEventsRequest
    * @param headers - map
@@ -857,7 +857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the system events of a job.
+   * Retrieves system events for a job.
    * 
    * @param request - GetJobEventsRequest
    * @returns GetJobEventsResponse
@@ -869,7 +869,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate. ⚠️ Note: Except for pay-as-you-go tasks based on general-purpose computing resources, all task types are connected to CloudMonitor. Use the CloudMonitor API to call related monitoring. The overwritten features in the original API are no longer maintained. For more information, see \\[Training monitoring and alerting]\\\\(https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+   * Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
+   * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
    * 
    * @param request - GetJobMetricsRequest
    * @param headers - map
@@ -918,7 +919,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate. ⚠️ Note: Except for pay-as-you-go tasks based on general-purpose computing resources, all task types are connected to CloudMonitor. Use the CloudMonitor API to call related monitoring. The overwritten features in the original API are no longer maintained. For more information, see \\[Training monitoring and alerting]\\\\(https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+   * Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
+   * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
    * 
    * @param request - GetJobMetricsRequest
    * @returns GetJobMetricsResponse
@@ -930,7 +932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
+   * Retrieves the computing power health check result for a specific run of a DLC job.
    * 
    * @param request - GetJobSanityCheckResultRequest
    * @param headers - map
@@ -971,7 +973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
+   * Retrieves the computing power health check result for a specific run of a DLC job.
    * 
    * @param request - GetJobSanityCheckResultRequest
    * @returns GetJobSanityCheckResultResponse
@@ -1028,16 +1030,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve metrics data.
+   * Retrieves metrics data.
    * 
    * @remarks
-   * ## Request description
-   * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
-   * - It supports custom time ranges. By default, it returns data from the last hour.
-   * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
-   * - To paginate through large datasets, use the `NextToken` parameter.
-   * - The `MetricName` parameter is required and specifies the monitoring metric to query.
-   * - For advanced features or specific metric types, see the related documentation.
+   * ## Operation description
+   * - This operation queries monitoring metrics for a specific job (JobId) or dimension (Dimensions) under a specified namespace (Namespace).
+   * - Custom query time ranges are supported. By default, data from the last hour is returned.
+   * - You can select different time intervals (Period) to retrieve data points at a finer or coarser granularity.
+   * - To retrieve large amounts of data with paging, use the `NextToken` parameter for paging operations.
+   * - `MetricName` is required and specifies the name of the monitoring metric to query.
+   * - For advanced features or specific types of monitoring metrics, refer to the relevant documentation for more information.
    * 
    * @param request - GetMetricsRequest
    * @param headers - map
@@ -1106,16 +1108,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve metrics data.
+   * Retrieves metrics data.
    * 
    * @remarks
-   * ## Request description
-   * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
-   * - It supports custom time ranges. By default, it returns data from the last hour.
-   * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
-   * - To paginate through large datasets, use the `NextToken` parameter.
-   * - The `MetricName` parameter is required and specifies the monitoring metric to query.
-   * - For advanced features or specific metric types, see the related documentation.
+   * ## Operation description
+   * - This operation queries monitoring metrics for a specific job (JobId) or dimension (Dimensions) under a specified namespace (Namespace).
+   * - Custom query time ranges are supported. By default, data from the last hour is returned.
+   * - You can select different time intervals (Period) to retrieve data points at a finer or coarser granularity.
+   * - To retrieve large amounts of data with paging, use the `NextToken` parameter for paging operations.
+   * - `MetricName` is required and specifies the name of the monitoring metric to query.
+   * - For advanced features or specific types of monitoring metrics, refer to the relevant documentation for more information.
    * 
    * @param request - GetMetricsRequest
    * @returns GetMetricsResponse
@@ -1127,7 +1129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the system events of a specific node in a job to locate and troubleshoot issues.
+   * Retrieves system events for a specific node in a job to locate and troubleshoot issues.
    * 
    * @param request - GetPodEventsRequest
    * @param headers - map
@@ -1172,7 +1174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the system events of a specific node in a job to locate and troubleshoot issues.
+   * Retrieves system events for a specific node in a job to locate and troubleshoot issues.
    * 
    * @param request - GetPodEventsRequest
    * @returns GetPodEventsResponse
@@ -1249,10 +1251,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the Ray Dashboard URL.
+   * Retrieves the Ray Dashboard URL.
    * 
    * @remarks
-   * Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
    * 
    * @param request - GetRayDashboardRequest
    * @param headers - map
@@ -1289,10 +1291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the Ray Dashboard URL.
+   * Retrieves the Ray Dashboard URL.
    * 
    * @remarks
-   * Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
    * 
    * @param request - GetRayDashboardRequest
    * @returns GetRayDashboardResponse
@@ -1304,10 +1306,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific RayHistoryServer.
+   * Queries a RayHistoryServer.
    * 
    * @remarks
-   * Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and have read the [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - GetRayHistoryServerRequest
    * @param headers - map
@@ -1334,10 +1337,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific RayHistoryServer.
+   * Queries a RayHistoryServer.
    * 
    * @remarks
-   * Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and have read the [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - GetRayHistoryServerRequest
    * @returns GetRayHistoryServerResponse
@@ -1353,7 +1357,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * This API allows you to retrieve the signal details for the specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing status.
+   * You can call this operation to retrieve the details of a signal that corresponds to a specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing result.
    * 
    * @param request - GetSignalRequest
    * @param headers - map
@@ -1390,7 +1394,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * This API allows you to retrieve the signal details for the specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing status.
+   * You can call this operation to retrieve the details of a signal that corresponds to a specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing result.
    * 
    * @param request - GetSignalRequest
    * @returns GetSignalResponse
@@ -1402,7 +1406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Tensorboard instance.
+   * Retrieves the details of a Tensorboard.
    * 
    * @param request - GetTensorboardRequest
    * @param headers - map
@@ -1443,7 +1447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Tensorboard instance.
+   * Retrieves the details of a Tensorboard.
    * 
    * @param request - GetTensorboardRequest
    * @returns GetTensorboardResponse
@@ -1455,7 +1459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
+   * Retrieves the sharing link for a TensorBoard task. The link contains a digital token. You can use the sharing link to access the shared TensorBoard task.
    * 
    * @param request - GetTensorboardSharedUrlRequest
    * @param headers - map
@@ -1488,7 +1492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
+   * Retrieves the sharing link for a TensorBoard task. The link contains a digital token. You can use the sharing link to access the shared TensorBoard task.
    * 
    * @param request - GetTensorboardSharedUrlRequest
    * @returns GetTensorboardSharedUrlResponse
@@ -1557,7 +1561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides methods and steps to obtain a HTTP link for accessing a container.
+   * Provides the method and steps to obtain an HTTP link for accessing a container.
    * 
    * @param request - GetWebTerminalRequest
    * @param headers - map
@@ -1594,7 +1598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides methods and steps to obtain a HTTP link for accessing a container.
+   * Provides the method and steps to obtain an HTTP link for accessing a container.
    * 
    * @param request - GetWebTerminalRequest
    * @returns GetWebTerminalResponse
@@ -1606,7 +1610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of supported instance types.
+   * Queries the list of currently supported machine resource configurations.
    * 
    * @param request - ListEcsSpecsRequest
    * @param headers - map
@@ -1663,7 +1667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of supported instance types.
+   * Queries the list of currently supported machine resource configurations.
    * 
    * @param request - ListEcsSpecsRequest
    * @returns ListEcsSpecsResponse
@@ -1675,7 +1679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the results of all sanity checks for a DLC job.
+   * Retrieves all computing power health check results for a specific DLC job.
    * 
    * @param request - ListJobSanityCheckResultsRequest
    * @param headers - map
@@ -1708,7 +1712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the results of all sanity checks for a DLC job.
+   * Retrieves all computing power health check results for a specific DLC job.
    * 
    * @param request - ListJobSanityCheckResultsRequest
    * @returns ListJobSanityCheckResultsResponse
@@ -1995,8 +1999,8 @@ export default class Client extends OpenApi {
    * Lists RayHistoryServer resources.
    * 
    * @remarks
-   * Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
-   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+   * Before using this operation, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of parameters for the CreateJob operation (including system-generated parameters) cannot exceed 65536 bytes.
    * 
    * @param request - ListRayHistoryServersRequest
    * @param headers - map
@@ -2096,8 +2100,8 @@ export default class Client extends OpenApi {
    * Lists RayHistoryServer resources.
    * 
    * @remarks
-   * Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
-   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+   * Before using this operation, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of parameters for the CreateJob operation (including system-generated parameters) cannot exceed 65536 bytes.
    * 
    * @param request - ListRayHistoryServersRequest
    * @returns ListRayHistoryServersResponse
@@ -2113,7 +2117,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * You can call this API operation to retrieve the details of all signal records for a specific job, including signal IDs, statuses, and creation times. You can use query parameters to further filter or sort the results.
+   * You can call this operation to retrieve the details of all signal records for a specific job, including the signal ID, status, and creation time. You can use query parameters to further filter or sort the results.
    * 
    * @param request - ListSignalsRequest
    * @param headers - map
@@ -2170,7 +2174,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * You can call this API operation to retrieve the details of all signal records for a specific job, including signal IDs, statuses, and creation times. You can use query parameters to further filter or sort the results.
+   * You can call this operation to retrieve the details of all signal records for a specific job, including the signal ID, status, and creation time. You can use query parameters to further filter or sort the results.
    * 
    * @param request - ListSignalsRequest
    * @returns ListSignalsResponse
@@ -2351,7 +2355,8 @@ export default class Client extends OpenApi {
    * Starts a Ray History Server.
    * 
    * @remarks
-   * Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before using this operation, make sure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - StartRayHistoryServerRequest
    * @param headers - map
@@ -2381,7 +2386,8 @@ export default class Client extends OpenApi {
    * Starts a Ray History Server.
    * 
    * @remarks
-   * Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before using this operation, make sure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - StartRayHistoryServerRequest
    * @returns StartRayHistoryServerResponse
@@ -2393,7 +2399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a TensorBoard instance.
+   * Starts a Tensorboard.
    * 
    * @param request - StartTensorboardRequest
    * @param headers - map
@@ -2426,7 +2432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a TensorBoard instance.
+   * Starts a Tensorboard.
    * 
    * @param request - StartTensorboardRequest
    * @returns StartTensorboardResponse
@@ -2518,7 +2524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a TensorBoard instance.
+   * Stops a TensorBoard.
    * 
    * @param request - StopTensorboardRequest
    * @param headers - map
@@ -2551,7 +2557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a TensorBoard instance.
+   * Stops a TensorBoard.
    * 
    * @param request - StopTensorboardRequest
    * @returns StopTensorboardResponse
@@ -2754,7 +2760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job template.
+   * Updates a task template.
    * 
    * @param request - UpdateJobTemplateRequest
    * @param headers - map
@@ -2811,7 +2817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job template.
+   * Updates a task template.
    * 
    * @param request - UpdateJobTemplateRequest
    * @returns UpdateJobTemplateResponse

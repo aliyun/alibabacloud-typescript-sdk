@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListEcsSpecsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter by accelerator type. Valid values:
-   * 
-   * *   CPU
-   * *   GPU
+   * Filters by accelerator type. Valid values:
+   * - CPU
+   * - GPU
    * 
    * @example
    * GPU
@@ -16,7 +15,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
   acceleratorType?: string;
   /**
    * @remarks
-   * The instance types to query. Separate the types with commas (,).
+   * The list of instance types to query. Separate multiple instance types with commas (,).
    * 
    * @example
    * ecs.g6.large,ecs.g6.xlarge
@@ -24,10 +23,9 @@ export class ListEcsSpecsRequest extends $dara.Model {
   instanceTypes?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
-   * 
-   * *   desc: descending order.
-   * *   asc: ascending order.
+   * The sort order. Valid values:
+   * - desc: descending order.
+   * - asc: ascending order.
    * 
    * @example
    * desc
@@ -35,7 +33,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of the page to query. The start value is 1.
+   * The page number. The minimum value is 1.
    * 
    * @example
    * 1
@@ -43,7 +41,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries to return on each page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 10
@@ -51,10 +49,9 @@ export class ListEcsSpecsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   ECS
-   * *   Lingjun
+   * The resource type. Valid values:
+   * - ECS
+   * - Lingjun
    * 
    * @example
    * ECS
@@ -62,12 +59,11 @@ export class ListEcsSpecsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The field based on which the results are sorted. Valid values:
-   * 
-   * *   CPU
-   * *   GPU
-   * *   Memory
-   * *   GmtCreateTime
+   * Sorts by return field. Valid values:
+   * - CPU
+   * - GPU
+   * - Memory
+   * - GmtCreateTime
    * 
    * @example
    * GPU

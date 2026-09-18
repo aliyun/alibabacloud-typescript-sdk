@@ -13,6 +13,10 @@ export class UpdateJobRequest extends $dara.Model {
    * PUBLIC
    */
   accessibility?: string;
+  /**
+   * @example
+   * This is a training job
+   */
   description?: string;
   /**
    * @remarks
@@ -32,6 +36,9 @@ export class UpdateJobRequest extends $dara.Model {
   /**
    * @remarks
    * The user command.
+   * 
+   * @example
+   * sleep 1d
    */
   userCommand?: string;
   static names(): { [key: string]: string } {

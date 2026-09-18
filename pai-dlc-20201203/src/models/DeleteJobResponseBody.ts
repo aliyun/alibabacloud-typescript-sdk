@@ -13,7 +13,7 @@ export class DeleteJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID. You can troubleshoot issues based on the request ID.
+   * The request ID, which is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

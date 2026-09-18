@@ -22,7 +22,7 @@ export class GetJobSanityCheckResultResponseBody extends $dara.Model {
   requestID?: string;
   /**
    * @remarks
-   * The job sanity check result.
+   * The result of the computing power health check.
    */
   sanityCheckResult?: SanityCheckResultItem[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTensorboardRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID. Refer to [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
+   * The job ID. See [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
    * 
    * @example
    * dlc-xxxxxxxx
@@ -24,7 +24,7 @@ export class GetTensorboardRequest extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The workspace ID. <props="china">Refer to [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID..
+   * The workspace ID. <props="china">See [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
    * 
    * @example
    * 46099

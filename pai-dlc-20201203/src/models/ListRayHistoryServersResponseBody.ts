@@ -6,8 +6,8 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   /**
    * @remarks
    * The visibility of the job. Valid values:
-   * - PUBLIC: visible to all users in the workspace.
-   * - PRIVATE (default): visible only to you and administrators in the workspace.
+   * - PUBLIC: Visible to all users in the workspace.
+   * - PRIVATE (default): Visible only to you and administrators in the workspace.
    * 
    * @example
    * PUBLIC
@@ -15,7 +15,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   accessibility?: string;
   /**
    * @remarks
-   * The display name of the job.
+   * The display name of the node.
    * 
    * @example
    * AEB-RECHARGE-TASK-14478-1778466397-main-4-
@@ -23,7 +23,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   displayName?: string;
   /**
    * @remarks
-   * The hardware specifications of the public resource group. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for a detailed list of specifications.>Notice: Prices vary depending on the specifications..
+   * The hardware specifications of the public resource group. To access a detailed list of specifications, see [PAI-DLC billing overview](https://help.aliyun.com/document_detail/171758.html).>Notice: Prices vary by specification.
    * 
    * @example
    * ecs.g6.xlarge
@@ -39,7 +39,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the job ended, in UTC.
+   * The time when the job finished, in UTC.
    * 
    * @example
    * 2026-01-27T09:17:11Z
@@ -63,7 +63,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   maxRuntimeMinutes?: number;
   /**
    * @remarks
-   * The ID of the created RayHistoryServer.
+   * The ID of the created Ray History Server.
    * 
    * @example
    * rhsxxx
@@ -95,7 +95,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   reasonMessage?: string;
   /**
    * @remarks
-   * The resource group ID. For information about how to query the ID of a dedicated resource group, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * The resource group ID. To query the ID of a dedicated resource group, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
    * 
    * @example
    * quotazoqd53w0q75
@@ -111,12 +111,12 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   resourceName?: string;
   /**
    * @remarks
-   * The RayHistoryServer status. Valid values:
-   * - Creating: being created.
-   * - Running: running.
-   * - Stopped: stopped.
-   * - Succeeded: succeeded.
-   * - Failed: failed.
+   * The status of the Tensorboard. Valid values:
+   * - Creating: The Tensorboard is being created.
+   * - Running: The Tensorboard is running.
+   * - Stopped: The Tensorboard is stopped.
+   * - Succeeded: The Tensorboard has succeeded.
+   * - Failed: The Tensorboard has failed.
    * 
    * @example
    * Created
@@ -124,7 +124,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The storage path of Ray logs.
+   * The storage path for Ray logs.
    * 
    * @example
    * oss://bucket-test-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/tmp
@@ -156,7 +156,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   username?: string;
   /**
    * @remarks
-   * The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html)..
+   * The workspace ID. <props="china">To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 153466
@@ -222,12 +222,12 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
 export class ListRayHistoryServersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of RayHistoryServer entries.
+   * The list of RayHistoryServers.
    */
   rayHistoryServers?: ListRayHistoryServersResponseBodyRayHistoryServers[];
   /**
    * @remarks
-   * The request ID, which is used for diagnostics and troubleshooting.
+   * The request ID of this call, used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
@@ -235,7 +235,7 @@ export class ListRayHistoryServersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the filter conditions.
+   * The total number of nodes that match the filter conditions.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The default version number.
+   * The default version number currently in use.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class UpdateJobTemplateResponseBody extends $dara.Model {
   defaultVersion?: number;
   /**
    * @remarks
-   * The time the template was last modified.
+   * The last modification time of the template.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -23,7 +23,7 @@ export class UpdateJobTemplateResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The request ID, used for diagnostics and troubleshooting.
+   * The ID of the request, used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxx

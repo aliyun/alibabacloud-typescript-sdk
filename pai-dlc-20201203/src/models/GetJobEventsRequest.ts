@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time (UTC) of the time range for querying events. The default value is the current time.
+   * The end time (UTC) of the event query interval. Default value: current time.
    * 
    * @example
    * 2020-11-08T18:00:00Z
@@ -13,7 +13,7 @@ export class GetJobEventsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The maximum number of events that can be returned. Default value: 2000.
+   * The maximum number of events to retrieve. Default value: 2000.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class GetJobEventsRequest extends $dara.Model {
   maxEventsNum?: number;
   /**
    * @remarks
-   * The start time (UTC) of the time range for querying events. The default value is 7 days ago.
+   * The start time (UTC) of the event query interval. Default value: 7 days ago.
    * 
    * @example
    * 2020-11-08T16:00:00Z

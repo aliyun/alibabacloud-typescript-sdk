@@ -19,7 +19,7 @@ export class ListEcsSpecsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of types that meet the filter conditions.
+   * The total number of entries that match the filter conditions.
    * 
    * @example
    * 10

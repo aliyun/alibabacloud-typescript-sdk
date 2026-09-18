@@ -109,7 +109,7 @@ export class GetJobResponseBodyDataSources extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The local mount path. This is an optional parameter. The default value is empty, which indicates that the mount path specified in the data source is used.
+   * The local mount path. This is an optional parameter. If left empty, the mount path specified in the data source is used.
    * 
    * @example
    * /mnt/data/
@@ -156,7 +156,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The pod creation time (UTC).
+   * The time when the pod was created (UTC).
    * 
    * @example
    * 2021-01-12T14:36:01Z
@@ -164,7 +164,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The pod finish time (UTC).
+   * The time when the pod ended (UTC).
    * 
    * @example
    * 2021-01-12T14:36:01Z
@@ -172,7 +172,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   gmtFinishTime?: string;
   /**
    * @remarks
-   * The pod start time (UTC).
+   * The time when the pod started (UTC).
    * 
    * @example
    * 2021-01-12T14:36:01Z
@@ -214,7 +214,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   podUid?: string;
   /**
    * @remarks
-   * The pod resource usage type.
+   * The resource usage type of the pod.
    * 
    * @example
    * Normal
@@ -230,7 +230,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The pod substatus, such as preemption status. Valid values:
+   * The pod substatus, such as the preemption status. Valid values:
    * - Normal
    * - Evicted
    * 
@@ -248,7 +248,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
+   * The list of supported profiling types, separated by commas, such as sysom. An empty string indicates that profiling is not supported.
    * 
    * @example
    * sysom
@@ -312,7 +312,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The pod creation time (UTC).
+   * The time when the pod was created (UTC).
    * 
    * @example
    * 2021-01-12T14:36:01Z
@@ -320,7 +320,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The pod finish time (UTC).
+   * The time when the pod finished (UTC).
    * 
    * @example
    * 2021-01-12T15:36:05Z
@@ -328,7 +328,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   gmtFinishTime?: string;
   /**
    * @remarks
-   * The pod start time (UTC).
+   * The time when the pod started (UTC).
    * 
    * @example
    * 2021-01-12T14:36:01Z
@@ -341,7 +341,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   historyPods?: GetJobResponseBodyPodsHistoryPods[];
   /**
    * @remarks
-   * The network IP address of the pod.
+   * The network IP address of the node.
    * 
    * @example
    * 10.0.1.2
@@ -354,7 +354,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the pod.
+   * The node ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the node.
    * 
    * @example
    * Worker
@@ -375,7 +375,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   podUid?: string;
   /**
    * @remarks
-   * The pod resource usage type.
+   * The resource usage type of the pod.
    * 
    * @example
    * Normal
@@ -383,7 +383,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The pod status. Valid values:
+   * The node status. Valid values:
    * 
    * - Pending
    * - Running
@@ -397,7 +397,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The pod substatus, such as preemption status. Valid values:
+   * The pod substatus, such as the preemption status. Valid values:
    * - Normal
    * - Evicted
    * 
@@ -407,7 +407,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   subStatus?: string;
   /**
    * @remarks
-   * The pod type, which corresponds to a specific JobSpec in the JobSpecs parameter of CreateJob.
+   * The node type, which corresponds to a specific JobSpec in the JobSpecs parameter of the CreateJob operation.
    * 
    * @example
    * Worker
@@ -415,7 +415,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
+   * The list of supported profiling types, separated by commas, such as sysom. An empty string indicates that profiling is not supported.
    * 
    * @example
    * sysom
@@ -479,7 +479,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
 export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Model {
   /**
    * @remarks
-   * The job blacklist.
+   * The job-level blacklist.
    */
   addJobLevelBlacklist?: boolean;
   /**
@@ -499,7 +499,7 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
   errorCode?: string;
   /**
    * @remarks
-   * The error information.
+   * The fault error message.
    */
   errorMsg?: string;
   /**
@@ -514,7 +514,7 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
   node?: string;
   /**
    * @remarks
-   * The pod.
+   * The instance.
    */
   pod?: string;
   /**
@@ -562,7 +562,7 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
 export class GetJobResponseBodyRestartRecord extends $dara.Model {
   /**
    * @remarks
-   * The error information list.
+   * The list of fault error messages.
    */
   detailErrorInfoList?: GetJobResponseBodyRestartRecordDetailErrorInfoList[];
   /**
@@ -577,12 +577,12 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
   occurPhase?: string;
   /**
    * @remarks
-   * The time at which the event occurred.
+   * The time when the event occurred.
    */
   occurTime?: string;
   /**
    * @remarks
-   * The reason.
+   * The reason for the restart.
    */
   reason?: string;
   /**
@@ -655,10 +655,10 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
 export class GetJobResponseBodyUserVpc extends $dara.Model {
   /**
    * @remarks
-   * The default route. This parameter is valid only for general-purpose computing resources. Valid values:
+   * The default route. This parameter is valid only for general computing resources. Valid values:
    * 
-   * eth0: uses the default network interface card (NIC) to access external networks through the public gateway.
-   * eth1: uses the user elastic network interface (ENI) to access external networks through the private gateway.
+   * eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
+   * eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway.
    */
   defaultRoute?: string;
   /**
@@ -725,9 +725,9 @@ export class GetJobResponseBodyUserVpc extends $dara.Model {
 export class GetJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the task. Valid values:
-   * - PUBLIC: Visible to all users in the workspace.
-   * - PRIVATE (default): Visible only to you and administrators in the workspace.
+   * The visibility of the job. Valid values:
+   * - PUBLIC: The job is visible to all users in the workspace.
+   * - PRIVATE (default): The job is visible only to you and administrators in the workspace.
    * 
    * @example
    * PRIVATE
@@ -768,7 +768,7 @@ export class GetJobResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The job duration, in seconds.
+   * The job duration. Unit: seconds.
    * 
    * @example
    * 3602
@@ -810,7 +810,7 @@ export class GetJobResponseBody extends $dara.Model {
   gmtFailedTime?: string;
   /**
    * @remarks
-   * The time when the task finished (UTC).
+   * The time when the job finished (UTC).
    * 
    * @example
    * 2021-01-12T15:36:08Z
@@ -889,7 +889,7 @@ export class GetJobResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The status detail code, which categorizes the sub-status under the current status (Status).
+   * The status detail code, which categorizes the substatus under the current status (Status).
    * 
    * @example
    * JobStoppedByUser
@@ -905,7 +905,23 @@ export class GetJobResponseBody extends $dara.Model {
   reasonMessage?: string;
   /**
    * @remarks
-   * The request ID, used for diagnostics and troubleshooting.
+   * The amount of CPU resources required by the job.
+   * 
+   * @example
+   * 10
+   */
+  requestCPU?: number;
+  /**
+   * @remarks
+   * The amount of GPU resources required by the job.
+   * 
+   * @example
+   * 10
+   */
+  requestGPU?: number;
+  /**
+   * @remarks
+   * The request ID, which is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxxx
@@ -913,7 +929,15 @@ export class GetJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group where the job runs.
+   * The amount of memory resources required by the job.
+   * 
+   * @example
+   * 10
+   */
+  requestMemory?: number;
+  /**
+   * @remarks
+   * The ID of the resource group in which the job runs.
    * 
    * @example
    * r******
@@ -921,7 +945,7 @@ export class GetJobResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource level used when the job runs.
+   * The resource level used by the job at runtime.
    * 
    * @example
    * L0
@@ -942,7 +966,7 @@ export class GetJobResponseBody extends $dara.Model {
   restartRecord?: GetJobResponseBodyRestartRecord[];
   /**
    * @remarks
-   * The number of restarts used and the maximum number of restarts allowed for the job.
+   * The number of retries used by the job and the maximum number of retries.
    * 
    * @example
    * 0/10
@@ -959,12 +983,12 @@ export class GetJobResponseBody extends $dara.Model {
   schedulingStrategy?: string;
   /**
    * @remarks
-   * The additional parameter settings for the job.
+   * The additional parameter settings of the job.
    */
   settings?: JobSettings;
   /**
    * @remarks
-   * The job status. Valid values:
+   * The running status of the job. Valid values:
    * - Creating
    * - Queuing
    * - Bidding (currently only for Lingjun spot jobs)
@@ -985,12 +1009,12 @@ export class GetJobResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The status history.
+   * The historical statuses.
    */
   statusHistory?: StatusTransitionItem[];
   /**
    * @remarks
-   * The job substatus, such as preemption retry status.
+   * The sub-status of the job, such as the preemption retry status.
    * 
    * @example
    * Restarting
@@ -1056,7 +1080,7 @@ export class GetJobResponseBody extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
+   * The list of supported profiling types, separated by commas, such as sysom. An empty string indicates that profiling is not supported.
    * 
    * @example
    * sysom
@@ -1091,7 +1115,10 @@ export class GetJobResponseBody extends $dara.Model {
       priority: 'Priority',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
+      requestCPU: 'RequestCPU',
+      requestGPU: 'RequestGPU',
       requestId: 'RequestId',
+      requestMemory: 'RequestMemory',
       resourceId: 'ResourceId',
       resourceLevel: 'ResourceLevel',
       resourceType: 'ResourceType',
@@ -1144,7 +1171,10 @@ export class GetJobResponseBody extends $dara.Model {
       priority: 'number',
       reasonCode: 'string',
       reasonMessage: 'string',
+      requestCPU: 'number',
+      requestGPU: 'number',
       requestId: 'string',
+      requestMemory: 'number',
       resourceId: 'string',
       resourceLevel: 'string',
       resourceType: 'string',

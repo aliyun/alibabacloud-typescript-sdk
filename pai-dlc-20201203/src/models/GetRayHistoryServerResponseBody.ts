@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRayHistoryServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the job.
+   * The visibility.
    * 
    * @example
    * PRIVATE
@@ -21,7 +21,8 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The specifications of the public resource group. For a list of supported instance types, see [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html).>Notice: Pricing varies based on the specifications.
+   * The hardware specifications of the public resource group. For the detailed list of specifications, see [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html).
+   * >Notice: Prices vary depending on the specifications.
    * 
    * @example
    * ecs.g6.large
@@ -29,7 +30,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   ecsSpec?: string;
   /**
    * @remarks
-   * The time when the job was created. The time is in UTC.
+   * The creation time (UTC).
    * 
    * @example
    * 2021-01-12T14:35:01Z
@@ -37,7 +38,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the job is complete. The time is in UTC.
+   * The end time (UTC).
    * 
    * @example
    * 2021-01-12T15:36:08Z
@@ -45,7 +46,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   gmtFinishTime?: string;
   /**
    * @remarks
-   * The time when the job was last modified. The time is in UTC.
+   * The modification time (UTC).
    * 
    * @example
    * 2021-01-12T14:36:00Z
@@ -53,7 +54,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The maximum running time. Unit: minutes.
+   * The maximum runtime duration.
    * 
    * @example
    * 1000
@@ -61,7 +62,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   maxRuntimeMinutes?: number;
   /**
    * @remarks
-   * The ID of the Ray history server.
+   * The ID of the RayHistoryServer.
    * 
    * @example
    * rhsxxx
@@ -69,7 +70,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   rayHistoryServerId?: string;
   /**
    * @remarks
-   * The URL of the Ray dashboard.
+   * Ray Dashboard URL。
    * 
    * @example
    * https://rhsxxx-dashboard.dsw-gateway-cn-wulanchabu.data.aliyun.com/
@@ -77,7 +78,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   rayHistoryServerUrl?: string;
   /**
    * @remarks
-   * The code of the job status.
+   * The status detail code.
    * 
    * @example
    * NotFound
@@ -85,7 +86,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The message that describes the job status.
+   * The status details.
    * 
    * @example
    * ""
@@ -93,7 +94,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   reasonMessage?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the job belongs.
+   * The ID of the resource group in which the job runs.
    * 
    * @example
    * quotaxxx
@@ -101,7 +102,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the resource on which the job runs.
+   * The name of the resource in which the job runs.
    * 
    * @example
    * my-resource-name
@@ -109,7 +110,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The status of the job.
+   * The status.
    * 
    * @example
    * running
@@ -133,7 +134,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the user who creates the job.
+   * The user ID used to filter results.
    * 
    * @example
    * 123456789
@@ -141,7 +142,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The username of the user who creates the job.
+   * The username used to filter results.
    * 
    * @example
    * myusername

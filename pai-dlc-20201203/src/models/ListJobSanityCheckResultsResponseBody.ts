@@ -14,12 +14,12 @@ export class ListJobSanityCheckResultsResponseBody extends $dara.Model {
   requestID?: string;
   /**
    * @remarks
-   * The sanity check results.
+   * All computing power health check results.
    */
   sanityCheckResults?: SanityCheckResultItem[][];
   /**
    * @remarks
-   * The total number of results that meet the filter conditions.
+   * The total number of check results that match the filter conditions.
    * 
    * @example
    * 10

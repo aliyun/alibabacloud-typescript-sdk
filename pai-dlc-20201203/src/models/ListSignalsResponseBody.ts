@@ -21,7 +21,7 @@ export class ListSignalsResponseBodySignals extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The message returned with the result.
+   * The message of the returned result.
    * 
    * @example
    * signal delivered to 1 pods
@@ -47,7 +47,7 @@ export class ListSignalsResponseBodySignals extends $dara.Model {
   roles?: string[];
   /**
    * @remarks
-   * The delivery scope.
+   * The sending scope.
    * 
    * @example
    * pods
@@ -141,7 +141,7 @@ export class ListSignalsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

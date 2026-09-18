@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRayDashboardRequest extends $dara.Model {
   /**
    * @remarks
-   * Set to true to generate a shareable link. If you set this parameter to true, you must also specify the token parameter.
+   * Specifies whether the link is a shared link. If set to true, the token parameter is also required.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class GetRayDashboardRequest extends $dara.Model {
   isShared?: boolean;
   /**
    * @remarks
-   * The token returned by GetToken
+   * The token obtained from the GetToken operation.
    * 
    * @example
    * some_token_value

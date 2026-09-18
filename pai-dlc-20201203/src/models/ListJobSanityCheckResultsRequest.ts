@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobSanityCheckResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The sorting order:
-   * 
-   * *   desc: descending order
-   * *   asc: ascending order
+   * The sort order. Valid values:
+   * - desc: descending order
+   * - asc: ascending order
    * 
    * @example
    * desc

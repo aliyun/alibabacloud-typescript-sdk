@@ -39,7 +39,7 @@ export class GetPodLogsRequest extends $dara.Model {
   maxLines?: number;
   /**
    * @remarks
-   * The node UID. For information about how to obtain the node UID, see [GetJob](https://help.aliyun.com/document_detail/459677.html).
+   * The node UID. To obtain the node UID, see [GetJob](https://help.aliyun.com/document_detail/459677.html).
    * 
    * @example
    * fe846462-af2c-4521-bd6f-96787a57****

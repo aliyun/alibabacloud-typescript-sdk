@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRayDashboardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Cloud Monitor is enabled for this dashboard to display Ray metrics
+   * Indicates whether the dashboard has integrated CloudMonitor to display Ray metrics.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetRayDashboardResponseBody extends $dara.Model {
   metricsEnabled?: string;
   /**
    * @remarks
-   * The Ray Dashboard URL
+   * The URL of the Ray Dashboard.
    * 
    * @example
    * https://pre-pai-dlc-proxy-cn-hangzhou.aliyun.com/ray/dashboard/dlc1k7426goc7bvy

@@ -32,7 +32,7 @@ export class ListJobsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The job name. Supports fuzzy search. Case-insensitive. Wildcards are not supported.
+   * The job name. Supports fuzzy match and is case-insensitive. Wildcards are not supported.
    * For example, entering test matches test-job1, job-test, job-test2, or job-Test, but does not match job-t1.
    * Default value: empty, which indicates all job names.
    * 
@@ -42,7 +42,7 @@ export class ListJobsRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The search mode for DisplayName. Default value: wildcard matching.
+   * The search mode for DisplayName. Default value: wildcard match.
    * 
    * @example
    * wildcard
@@ -50,7 +50,7 @@ export class ListJobsRequest extends $dara.Model {
   displayNameSearchMode?: string;
   /**
    * @remarks
-   * Filters jobs based on whether assigned-node execution is enabled.
+   * Specifies whether to filter jobs that have assigned node execution enabled.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class ListJobsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to retrieve jobs across all workspaces. Use this parameter together with `ShowOwn=true` to query the jobs recently submitted by the current user.
+   * Specifies whether to retrieve jobs across all workspaces. This parameter must be used together with `ShowOwn=true` to query the jobs recently submitted by the current user.
    * 
    * @example
    * false
@@ -74,7 +74,7 @@ export class ListJobsRequest extends $dara.Model {
   fromAllWorkspaces?: boolean;
   /**
    * @remarks
-   * Performs a full-text search in the image (images) field. Supports Chinese and English word segmentation.
+   * Performs a full-text index retrieve on the image (images) field. Supports Chinese and English tokenization.
    * 
    * @example
    * pytorch
@@ -82,7 +82,7 @@ export class ListJobsRequest extends $dara.Model {
   imageSearch?: string;
   /**
    * @remarks
-   * The job ID. Fuzzy search is not supported. Case-insensitive. Wildcards are not supported.
+   * The job ID. Fuzzy match is not supported. Case-insensitive. Wildcards are not supported.
    * Default value: empty, which indicates all job IDs.
    * 
    * @example
@@ -91,7 +91,7 @@ export class ListJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The list of job IDs, separated by commas (,). If both JobIds and JobId are specified, JobId takes precedence.
+   * A list of job IDs separated by commas. If both JobIds and JobId are specified, JobId takes precedence.
    * 
    * @example
    * dlc123abc
@@ -112,7 +112,7 @@ export class ListJobsRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The field name for numeric range filtering. Use this parameter together with NumericRangeMin/NumericRangeMax.
+   * The field name for numeric range filtering. Must be used together with NumericRangeMin or NumericRangeMax.
    * 
    * @example
    * RequestGPU
@@ -120,7 +120,7 @@ export class ListJobsRequest extends $dara.Model {
   numericRangeField?: string;
   /**
    * @remarks
-   * The maximum value (inclusive) for numeric range filtering. Use this parameter together with NumericRangeField.
+   * The maximum value (inclusive) for numeric range filtering. Must be used together with NumericRangeField.
    * 
    * @example
    * 8
@@ -128,7 +128,7 @@ export class ListJobsRequest extends $dara.Model {
   numericRangeMax?: number;
   /**
    * @remarks
-   * The minimum value (inclusive) for numeric range filtering. Use this parameter together with NumericRangeField.
+   * The minimum value (inclusive) for numeric range filtering. Must be used together with NumericRangeField.
    * 
    * @example
    * 4
@@ -159,7 +159,7 @@ export class ListJobsRequest extends $dara.Model {
   oversoldInfo?: string;
   /**
    * @remarks
-   * The page number to return. Minimum value: 1. Default value: 1.
+   * The page number to return in a paged query. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -176,9 +176,9 @@ export class ListJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type. Valid values:
-   * - PrePaid: Resource quota.
-   * - Spot: Spot resource.
-   * - PostPaid: Public resource.
+   * - PrePaid: resource quota.
+   * - Spot: preemptible resources.
+   * - PostPaid: public resources.
    * 
    * @example
    * PostPaid
@@ -186,7 +186,7 @@ export class ListJobsRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Filters jobs created by the specified pipeline ID.
+   * Filters jobs created by the specified workflow ID.
    * 
    * @example
    * flow-*******
@@ -194,7 +194,7 @@ export class ListJobsRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * Performs a full-text search in the job failure reason (reason) field. Supports Chinese and English word segmentation.
+   * Performs a full-text index retrieve on the node failed reason (reason) field. Supports Chinese and English tokenization.
    * 
    * @example
    * OOM
@@ -211,7 +211,7 @@ export class ListJobsRequest extends $dara.Model {
   resourceIds?: string;
   /**
    * @remarks
-   * The resource quota name, used to filter the job list. Supports fuzzy search. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
+   * The name of the resource quota, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
    * 
    * @example
    * quota***
@@ -291,7 +291,7 @@ export class ListJobsRequest extends $dara.Model {
   timeRangeField?: string;
   /**
    * @remarks
-   * Performs a full-text search in the user command (user_command) field. Supports Chinese and English word segmentation.
+   * Performs a full-text index retrieve on the user command (user_command) field. Supports Chinese and English tokenization.
    * 
    * @example
    * python train.py
@@ -307,7 +307,7 @@ export class ListJobsRequest extends $dara.Model {
   userIdForFilter?: string;
   /**
    * @remarks
-   * The username of the job submitter, used to filter the job list. Supports fuzzy search. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
+   * The username of the job submitter, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
    * 
    * @example
    * test***

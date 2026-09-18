@@ -19,7 +19,7 @@ export class ListTensorboardsResponseBody extends $dara.Model {
   tensorboards?: Tensorboard[];
   /**
    * @remarks
-   * The total number of Tensorboard instances that match the specified conditions.
+   * The total number of data sources that match the specified conditions.
    * 
    * @example
    * 100

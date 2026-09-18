@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDashboardRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether this is a shared link. If it is, the \\`token\\` parameter is also required.
+   * Specifies whether the link is a shared link. If set to true, the token parameter is also required.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class GetDashboardRequest extends $dara.Model {
   isShared?: boolean;
   /**
    * @remarks
-   * The token obtained from GetToken.
+   * The token obtained from the GetToken operation.
    * 
    * @example
    * some_token_value

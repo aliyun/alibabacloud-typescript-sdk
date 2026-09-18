@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPodEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The events returned.
+   * The list of events.
    */
   events?: string[];
   /**
@@ -28,7 +28,7 @@ export class GetPodEventsResponseBody extends $dara.Model {
   podId?: string;
   /**
    * @remarks
-   * The node UID.
+   * The instance UID.
    * 
    * @example
    * 94a7cc7c-0033-48b5-85bd-71c63592c268
@@ -36,7 +36,7 @@ export class GetPodEventsResponseBody extends $dara.Model {
   podUid?: string;
   /**
    * @remarks
-   * The request ID, which can be used for troubleshooting.
+   * The request ID, which is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

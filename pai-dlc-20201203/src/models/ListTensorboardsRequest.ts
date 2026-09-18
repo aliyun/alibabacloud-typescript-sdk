@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTensorboardsRequest extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the Tensorboard instance. Valid values:
-   * - PUBLIC: visible to all members in the workspace.
-   * - PRIVATE: visible only to you and administrators in the workspace.
+   * The visibility of the job. Valid values:
+   * - PUBLIC: Visible to all users in this workspace.
+   * - PRIVATE: Visible only to you and administrators in this workspace.
    * 
    * @example
    * PRIVATE
@@ -23,7 +23,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The end time of the query range. Tensorboard instances are filtered by their creation time in UTC. If this parameter is left empty, the default value is the current time.
+   * The end time of the query range. The creation time of the Tensorboard instance in UTC is used for filtering. If this parameter is left empty, the default value is the current time.
    * 
    * @example
    * 2020-11-09T14:45:00Z
@@ -31,7 +31,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The DLC job ID used to filter Tensorboard instances. Call [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
+   * Filters Tensorboard instances by DLC job ID. See [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
    * 
    * @example
    * dlc-xxx
@@ -40,8 +40,8 @@ export class ListTensorboardsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - desc: descending order.
-   * - asc: ascending order.
+   * - desc: Descending order.
+   * - asc: Ascending order.
    * 
    * @example
    * desc
@@ -49,7 +49,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number for paging. The value starts from 1.
+   * The page number of the page to return in a paged query. The value starts from 1.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of Tensorboard instances to return on each page for paging.
+   * The number of Tensorboard instances to return per page in a paged query.
    * 
    * @example
    * 50
@@ -65,9 +65,9 @@ export class ListTensorboardsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The billing method of the Tensorboard instance. Valid values:
-   * - Free: a Tensorboard instance that uses free resources.
-   * - Postpaid: a Tensorboard instance that uses pay-as-you-go resources.
+   * The billing type of the Tensorboard instance. Valid values:
+   * - Free: The Tensorboard instance uses free resources.
+   * - Postpaid: The Tensorboard instance uses pay-as-you-go resources.
    * 
    * @example
    * Postpaid
@@ -77,7 +77,7 @@ export class ListTensorboardsRequest extends $dara.Model {
    * @remarks
    * The resource quota ID.
    * > - Currently, only whitelisted users can use resource quota resources to create Tensorboard instances. To use this feature, contact us.
-   * > - This parameter takes effect only when the Tensorboard instance uses resource quota resources.
+   * > - This value is valid only when the Tensorboard instance uses resource quota resources.
    * 
    * @example
    * quota12***
@@ -93,9 +93,9 @@ export class ListTensorboardsRequest extends $dara.Model {
   showOwn?: boolean;
   /**
    * @remarks
-   * The field by which the results are sorted. Valid values:
-   * - DisplayName: the job name.
-   * - GmtCreateTime: the job creation time.
+   * Sorts the results by the following fields. Valid values:
+   * - DisplayName: The job name.
+   * - GmtCreateTime: The job creation time.
    * 
    * @example
    * GmtCreateTime
@@ -103,7 +103,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The data source ID. Call [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
+   * The data source ID. See [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
    * 
    * @example
    * dlc-xxxxxx
@@ -119,7 +119,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The start time of the query range. Tensorboard instances are filtered by their creation time in UTC. If this parameter is left empty, the default value is 7 days before the current time.
+   * The start time of the query range. The creation time of the Tensorboard instance in UTC is used for filtering. If this parameter is left empty, the default value is 7 days before the current time.
    * 
    * @example
    * 2020-11-08T16:00:00Z
@@ -128,11 +128,11 @@ export class ListTensorboardsRequest extends $dara.Model {
   /**
    * @remarks
    * The Tensorboard status. Valid values:
-   * - Creating: being created.
-   * - Running: running.
-   * - Stopped: stopped.
-   * - Succeeded: succeeded.
-   * - Failed: failed.
+   * - Creating: Being created.
+   * - Running: Running.
+   * - Stopped: Stopped.
+   * - Succeeded: Succeeded.
+   * - Failed: Failed.
    * 
    * @example
    * Running
@@ -140,7 +140,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The Tensorboard ID used to filter the Tensorboard list.
+   * Filters the Tensorboard list by Tensorboard ID.
    * 
    * @example
    * tensorboard-xxx
@@ -164,9 +164,9 @@ export class ListTensorboardsRequest extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * Specifies whether to display details.
-   * - true: Display details.
-   * - false: Do not display details.
+   * Specifies whether to show details. Valid values:
+   * - true: Show details.
+   * - false: Do not show details.
    * 
    * @example
    * true
@@ -174,7 +174,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The workspace ID. Tensorboard instances are filtered by workspace ID. <props="china">Call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID..
+   * The workspace ID. The Tensorboard list is retrieved based on the workspace ID. <props="china">See [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
    * 
    * @example
    * 380
