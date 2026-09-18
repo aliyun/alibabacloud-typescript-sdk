@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HotlineSessionQueryRequest extends $dara.Model {
   /**
    * @remarks
-   * Session ID. The acid received via WebSocket after an inbound call.
+   * The session ID. The acid in the websocket after an inbound call.
    * 
    * @example
    * 7719786****
@@ -13,22 +13,22 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   acid?: string;
   /**
    * @remarks
-   * Session ID List.
+   * The list of session IDs.
    */
   acidList?: string[];
   /**
    * @remarks
-   * Call result. Valid values:  
+   * The call result. Valid values:
    * 
-   * - **normal**: Normal hang-up.  
-   * - **touchRouteError**: Queue hang-up.  
-   * - **touchInQueue**: Queue hang-up.  
-   * - **touchInLoss**: Queue hang-up.  
-   * - **userHangup**: User hang-up or IVR hang-up.  
-   * - **sysHangup**: System hang-up or IVR hang-up.  
-   * - **transferAgent**: User hang-up or IVR hang-up.  
-   * - **dailing**: Agent hang-up during ringing.  
-   * - **TouchRingCallLoss**: Queue hang-up during ringing.
+   * - **normal**: The call ended normally.
+   * - **touchRouteError**: The call was terminated in the queue.
+   * - **touchInQueue**: The call was terminated in the queue.
+   * - **touchInLoss**: The call was terminated in the queue.
+   * - **userHangup**: The user hung up or the call was terminated in the IVR.
+   * - **sysHangup**: The system hung up or the call was terminated in the IVR.
+   * - **transferAgent**: The user hung up or the call was terminated in the IVR.
+   * - **dailing**: The agent hung up or the call was terminated during ringing.
+   * - **TouchRingCallLoss**: The call was terminated in the queue or during ringing.
    * 
    * @example
    * normal
@@ -36,15 +36,15 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   callResult?: string;
   /**
    * @remarks
-   * List of call results.
+   * The list of call results.
    */
   callResultList?: string[];
   /**
    * @remarks
-   * Call Type. Valid values:
-   * - **1**: Outbound call.
-   * - **2**: Inbound call.
-   * - **3**: Change owner.
+   * The call type. Valid values:
+   * - **1**: outbound call.
+   * - **2**: inbound call.
+   * - **3**: transferred call.
    * 
    * @example
    * 1
@@ -52,12 +52,12 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   callType?: number;
   /**
    * @remarks
-   * Call Type List.
+   * The list of call types.
    */
   callTypeList?: number[];
   /**
    * @remarks
-   * Calling party number, such as a user\\"s phone number, agent number, or machine number.
+   * The number of the caller. For example, a mobile phone number, an agent number, or a robot number.
    * 
    * @example
    * 135615****
@@ -65,12 +65,12 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * List of called numbers.
+   * The list of called numbers.
    */
   calledNumberList?: string[];
   /**
    * @remarks
-   * Calling party number, such as a user\\"s phone number, customer service agent number, or machine number.
+   * The number of the callee. For example, a mobile phone number, an agent number, or a robot number.
    * 
    * @example
    * 057177****
@@ -78,12 +78,12 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * List of calling numbers.
+   * The list of calling numbers.
    */
   callingNumberList?: string[];
   /**
    * @remarks
-   * Skill group ID.
+   * The ID of the skill group.
    * 
    * @example
    * 123456
@@ -91,20 +91,20 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * List of skill group IDs.
+   * The list of skill group IDs.
    */
   groupIdList?: number[];
   /**
    * @remarks
-   * Skill group name.
+   * The name of the skill group.
    * 
    * @example
-   * 自动化技能组
+   * AutomationSkillGroup
    */
   groupName?: string;
   /**
    * @remarks
-   * Global unique ID (GUID) of the call detail.
+   * The globally unique ID of the call details.
    * 
    * @example
    * acc1c58dab4a4****0e3813c66
@@ -112,8 +112,8 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * AICCS instance ID.  
-   * You can obtain it in the **Instance Management** section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
+   * You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -123,7 +123,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Membership ID.
+   * The member ID.
    * 
    * @example
    * 7856****
@@ -131,20 +131,20 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   memberId?: string;
   /**
    * @remarks
-   * Membership List.
+   * The list of member IDs.
    */
   memberIdList?: string[];
   /**
    * @remarks
-   * Membership name.
+   * The member name.
    * 
    * @example
-   * 匿名会员
+   * AnonymousMember
    */
   memberName?: string;
   /**
    * @remarks
-   * Current page number. The value must be greater than **0**. Default Value: **1**.
+   * The current page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -152,7 +152,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size. The value must be greater than **0**. Default value: **20**.
+   * The number of entries per page. The value must be greater than **0**. Default value: **20**.
    * 
    * @example
    * 10
@@ -160,7 +160,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Extension parameters.
+   * The extended parameters.
    * 
    * @example
    * xxxx
@@ -168,7 +168,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * End UNIX timestamp. Unit: milliseconds.
+   * The end timestamp. Unit: milliseconds.
    * 
    * @example
    * 1614829721
@@ -176,7 +176,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   queryEndTime?: number;
   /**
    * @remarks
-   * Start UNIX timestamp. Unit: ms.
+   * The start timestamp. Unit: milliseconds.
    * 
    * @example
    * 1614828721
@@ -184,7 +184,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   queryStartTime?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -192,7 +192,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Agent ID.
+   * The agent ID.
    * 
    * @example
    * 555555
@@ -200,15 +200,15 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   servicerId?: string;
   /**
    * @remarks
-   * List of agent IDs.
+   * The list of agent IDs.
    */
   servicerIdList?: string[];
   /**
    * @remarks
-   * Agent Name.
+   * The agent name.
    * 
    * @example
-   * 刘测试
+   * TestAgent
    */
   servicerName?: string;
   static names(): { [key: string]: string } {

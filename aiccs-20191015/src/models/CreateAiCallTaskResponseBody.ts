@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiCallTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for the access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * None
@@ -29,10 +29,10 @@ export class CreateAiCallTaskResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The response message.
+   * The description of the status code.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
@@ -45,11 +45,9 @@ export class CreateAiCallTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
-   * 
-   * - **true**: The call succeeded.
-   * 
-   * - **false**: The call failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: successful.
+   * - **false**: failed.
    * 
    * @example
    * true

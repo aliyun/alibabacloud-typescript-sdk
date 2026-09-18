@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   /**
    * @remarks
-   * Called number.
+   * The called number.
    * 
    * @example
    * 186****0000
@@ -13,7 +13,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   called?: string;
   /**
    * @remarks
-   * Calling number.
+   * The caller number.
    * 
    * @example
    * 136****0000
@@ -21,18 +21,18 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   caller?: string;
   /**
    * @remarks
-   * Hang-up direction. Valid values:
+   * The hangup direction. Valid values:
    * 
    * - **User**.
-   * - **Machine**.
+   * - **Robot**.
    * 
    * @example
-   * 用户
+   * User
    */
   direction?: string;
   /**
    * @remarks
-   * Call duration. Unit: seconds.
+   * The call duration. Unit: seconds.
    * 
    * @example
    * 30
@@ -40,7 +40,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * End time.
+   * The end time.
    * 
    * @example
    * 2021-05-20 00:03:00
@@ -48,7 +48,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Record ID.
+   * The detail ID.
    * 
    * @example
    * 12****
@@ -56,7 +56,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Current retry count.
+   * The current retry count.
    * 
    * @example
    * 1
@@ -64,7 +64,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   retryCurTimes?: number;
   /**
    * @remarks
-   * Retry Count.
+   * The retry count.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   retryTimes?: number;
   /**
    * @remarks
-   * Start Time.
+   * The start time.
    * 
    * @example
    * 2021-05-20 00:00:00
@@ -80,7 +80,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Detail status.
+   * The detail status.
    * 
    * @example
    * SUCCESS
@@ -88,7 +88,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Call status code.
+   * The call status code.
    * 
    * @example
    * 200100
@@ -96,18 +96,18 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * Call status code description.
+   * The description of the call status code.
    * 
    * @example
-   * 呼叫成功
+   * Call succeeded
    */
   statusCodeDesc?: string;
   /**
    * @remarks
-   * Intent tags.
+   * The intent label.
    * 
    * @example
-   * 肯定
+   * Affirmative
    */
   tags?: string;
   static names(): { [key: string]: string } {
@@ -158,7 +158,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
 export class ListTaskDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -166,7 +166,7 @@ export class ListTaskDetailResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -174,12 +174,12 @@ export class ListTaskDetailResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of job information.
+   * The list of task details.
    */
   record?: ListTaskDetailResponseBodyDataRecord[];
   /**
    * @remarks
-   * Total number of jobs.
+   * The total number of tasks.
    * 
    * @example
    * 50
@@ -218,7 +218,7 @@ export class ListTaskDetailResponseBodyData extends $dara.Model {
 export class ListTaskDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code. A return value of OK indicates that the request succeeded.
+   * The request status code. OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -226,12 +226,12 @@ export class ListTaskDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Detailed job information.
+   * The task details.
    */
   data?: ListTaskDetailResponseBodyData;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -239,7 +239,7 @@ export class ListTaskDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
@@ -247,9 +247,9 @@ export class ListTaskDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API invocation succeeded. Valid values:
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the operation was successful. Valid values:
+   * - **true**: The operation was successful.
+   * - **false**: The operation failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIndexCurrentValueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -13,12 +13,12 @@ export class GetIndexCurrentValueResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of data entries.
+   * The data list.
    */
   data?: { [key: string]: any }[];
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -26,7 +26,7 @@ export class GetIndexCurrentValueResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -34,8 +34,8 @@ export class GetIndexCurrentValueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:  
-   * - **true**: Succeeded.  
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartHotlineServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent account name, which is the phone number or mailbox entered during account registration. It is unique within the instance.
+   * The name of the agent account, which is the mobile number or email address specified during account registration. The name must be unique within the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StartHotlineServiceRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Unique ID for the customer request. Used for idempotency validation and can be generated using UUID.
+   * The unique ID of the client request. Used for idempotency checks. You can use a UUID to generate this ID.
    * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -23,8 +23,8 @@ export class StartHotlineServiceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
+   * You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [AICCS console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 

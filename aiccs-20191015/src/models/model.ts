@@ -102,6 +102,7 @@ export { PageQueryAgentListNewResponseBodyData } from './PageQueryAgentListNewRe
 export { QueryAiCallDetailPageResponseBodyDataList } from './QueryAiCallDetailPageResponseBody';
 export { QueryAiCallDetailPageResponseBodyData } from './QueryAiCallDetailPageResponseBody';
 export { QueryAiCallTaskDetailResponseBodyDataCallTimes } from './QueryAiCallTaskDetailResponseBody';
+export { QueryAiCallTaskDetailResponseBodyDataCallableTimes } from './QueryAiCallTaskDetailResponseBody';
 export { QueryAiCallTaskDetailResponseBodyData } from './QueryAiCallTaskDetailResponseBody';
 export { QueryAiCallTaskPageResponseBodyDataList } from './QueryAiCallTaskPageResponseBody';
 export { QueryAiCallTaskPageResponseBodyData } from './QueryAiCallTaskPageResponseBody';

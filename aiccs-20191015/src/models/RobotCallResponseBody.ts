@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RobotCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request status code. A return value of "OK" indicates that the request succeeded.
+   * The request status code. OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class RobotCallResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The unique receipt ID of this call, which is also the unique call ID.
+   * The unique receipt ID of this call, which is the unique call ID.
    * 
    * @example
    * 1160128*****^10281427*****
@@ -21,7 +21,7 @@ export class RobotCallResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class RobotCallResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A90E4451-FED7-49D2-87C8-00700A8C4D0D

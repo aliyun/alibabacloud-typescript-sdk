@@ -10,7 +10,15 @@ export class ImportOneTaskPhoneNumberRequest extends $dara.Model {
   encryptionType?: number;
   /**
    * @remarks
-   * The external ID. We recommend that you use a unique ID to ensure idempotency. The value cannot exceed 128 characters.
+   * The extension number.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * The external serial number. We recommend that you use a unique ID. The value cannot exceed 128 characters.
    * 
    * @example
    * 94ba739b-xxxx-ef91-335d-4be006c34899
@@ -19,7 +27,7 @@ export class ImportOneTaskPhoneNumberRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The phone number of the callee.
+   * The called phone number.
    * 
    * This parameter is required.
    * 
@@ -41,20 +49,19 @@ export class ImportOneTaskPhoneNumberRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * A list of variables in a map.
-   * 
-   * > The format of variables for an engine-based call task is as follows:
-   * >
-   * > - {"startWordParam.variable_key1":"variable_value1","promptParam.variable_key2":"variable_value2","bizParam.variable_key3":"variable_value3"}
+   * The variable list in Map format.
+   * > Variable format for engine-based voice call tasks:
+   * > - {"startWordParam.VariableKey1":"VariableValue1","promptParam.VariableKey2":"VariableValue2","bizParam.VariableKey3":"VariableValue3"}
    * 
    * @example
-   * {"变量key1":"变量值1","变量key2":"变量值2"}
-   * 引擎呼叫任务示例值请看左侧描述
+   * {"VariableKey1":"VariableValue1","VariableKey2":"VariableValue2"}
+   * For example values of engine-based voice call tasks, refer to the description on the left
    */
   variables?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       encryptionType: 'EncryptionType',
+      extension: 'Extension',
       outId: 'OutId',
       ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
@@ -68,6 +75,7 @@ export class ImportOneTaskPhoneNumberRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       encryptionType: 'number',
+      extension: 'string',
       outId: 'string',
       ownerId: 'number',
       phoneNumber: 'string',

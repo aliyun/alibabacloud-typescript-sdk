@@ -5,14 +5,42 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when calls can be made.
+   * The available call days.
    * 
    * This parameter is required.
    */
   callDayShrink?: string;
   /**
    * @remarks
-   * The retry interval in minutes. The maximum value is 120.
+   * The expiration date of outbound call details (the specific deadline).
+   * 
+   * @example
+   * 2026-07-30 20:00:20
+   */
+  callExpireDate?: string;
+  /**
+   * @remarks
+   * The expiration duration of outbound call details. Unit: minutes.
+   * 
+   * @example
+   * 10
+   */
+  callExpireMinutes?: number;
+  /**
+   * @remarks
+   * The outbound call validity type. Valid values:
+   * 
+   * 0: permanently valid.
+   * 1: valid for a specified duration after import.
+   * 2: valid until a specified date.
+   * 
+   * @example
+   * 0
+   */
+  callExpireType?: number;
+  /**
+   * @remarks
+   * The retry interval. Unit: minutes. The maximum value is 120 minutes.
    * 
    * @example
    * 25
@@ -20,7 +48,7 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   callRetryInterval?: number;
   /**
    * @remarks
-   * The call failure statuses that trigger a retry.
+   * The reasons for retry upon failure.
    */
   callRetryReasonShrink?: string;
   /**
@@ -33,28 +61,35 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   callRetryTimes?: number;
   /**
    * @remarks
-   * The callable time windows.
+   * The available call time periods.
    * 
    * This parameter is required.
    */
   callTimeShrink?: string;
+  callableTimeShrink?: string;
   /**
+   * @remarks
+   * The line encoding.
+   * 
    * @example
-   * 示例值示例值示例值
+   * JILIANG_***_***_NET
    */
   lineEncoding?: string;
   /**
+   * @remarks
+   * The customer-provided line number.
+   * 
    * @example
-   * 示例值示例值
+   * 152****3120
    */
   linePhoneNum?: string;
   /**
    * @remarks
    * Specifies whether to enable retry. Valid values:
    * 
-   * - `true`: Yes.
+   * - true: Enabled.
    * 
-   * - `false` (default): No.
+   * - false (default): Disabled.
    * 
    * @example
    * true
@@ -62,24 +97,38 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   missCallRetry?: boolean;
   ownerId?: number;
   /**
+   * @remarks
+   * The number type. This parameter is used when the creation source is engine-based.
+   * 
+   * 0: Alibaba Cloud number.
+   * 
+   * 1: Customer-provided line.
+   * 
    * @example
-   * 53
+   * 0
    */
   phoneType?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The creation source. Valid values:
+   * 
+   * 0: created by agent.
+   * 
+   * 1: created by engine.
+   * 
    * @example
-   * 31
+   * Cannot be modified. Leave this parameter empty
    */
   source?: number;
   /**
    * @remarks
-   * The startup method. Valid values:
+   * The start mode. Valid values:
    * 
-   * - `IMMEDIATE`: Start immediately.
+   * - IMMEDIATE: starts immediately.
    * 
-   * - `SCHEDULE`: Start at a specified time.
+   * - SCHEDULE: starts at a scheduled time.
    * 
    * This parameter is required.
    * 
@@ -89,7 +138,7 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   startType?: string;
   /**
    * @remarks
-   * The number of concurrent calls per second (CPS) for the task. The maximum value is 500.
+   * The task concurrency. The maximum value is 500.
    * 
    * This parameter is required.
    * 
@@ -109,17 +158,17 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task name. The name must be unique within an Alibaba Cloud account.
+   * The task name. The name must be unique within the same account.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试任务
+   * TestTask
    */
   taskName?: string;
   /**
    * @remarks
-   * The scheduled start time for the task, specified as a Unix timestamp in milliseconds. This parameter is required when `StartType` is set to `SCHEDULE`.
+   * The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
    * 
    * @example
    * 1748923429000
@@ -136,10 +185,14 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       callDayShrink: 'CallDay',
+      callExpireDate: 'CallExpireDate',
+      callExpireMinutes: 'CallExpireMinutes',
+      callExpireType: 'CallExpireType',
       callRetryInterval: 'CallRetryInterval',
       callRetryReasonShrink: 'CallRetryReason',
       callRetryTimes: 'CallRetryTimes',
       callTimeShrink: 'CallTime',
+      callableTimeShrink: 'CallableTime',
       lineEncoding: 'LineEncoding',
       linePhoneNum: 'LinePhoneNum',
       missCallRetry: 'MissCallRetry',
@@ -160,10 +213,14 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       callDayShrink: 'string',
+      callExpireDate: 'string',
+      callExpireMinutes: 'number',
+      callExpireType: 'number',
       callRetryInterval: 'number',
       callRetryReasonShrink: 'string',
       callRetryTimes: 'number',
       callTimeShrink: 'string',
+      callableTimeShrink: 'string',
       lineEncoding: 'string',
       linePhoneNum: 'string',
       missCallRetry: 'boolean',

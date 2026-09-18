@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for the access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class UpdateModelApplicationResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code. A value of OK indicates that the request was successful.
+   * The request status code. OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class UpdateModelApplicationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned by the request.
+   * The data list.
    * 
    * @example
    * DKSDLSA
@@ -29,7 +29,7 @@ export class UpdateModelApplicationResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The response message.
+   * The description of the status code.
    * 
    * @example
    * successful
@@ -45,11 +45,9 @@ export class UpdateModelApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

@@ -31,7 +31,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * Specifies whether to hang up the call when a call assistant is detected.
+   * Specifies whether to hang up when an intelligent answering service is detected.
    * 
    * @example
    * false
@@ -47,7 +47,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   callAssistantRecognize?: boolean;
   /**
    * @remarks
-   * Specifies whether to trigger the model immediately after the call is connected.
+   * Specifies whether to enable call-connected event push. Disabled by default.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   callConnectedTriggerModel?: boolean;
   /**
    * @remarks
-   * The allowed DTMF digits, specified as a comma-separated string such as `1,2,3`. You can specify a maximum of 20 digits.
+   * The enumeration of allowed key digits, separated by commas, such as 1,2,3. Maximum of 20 values.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfAllowedDigits?: string;
   /**
    * @remarks
-   * Specifies whether to automatically validate the DTMF digits.
+   * Specifies whether to enable automatic validation of key values.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfAutoValidateEnable?: boolean;
   /**
    * @remarks
-   * The number of DTMF digits to collect. The value must be between 1 and 12.
+   * The number of DTMF key digits. Valid values: 1 to 12.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfDigitCount?: number;
   /**
    * @remarks
-   * The timeout for DTMF input, in seconds. The value must be between 1 and 10.
+   * The DTMF input timeout period in seconds. Valid values: 1 to 10.
    * 
    * @example
    * 1
@@ -87,7 +87,9 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfInputTimeout?: number;
   /**
    * @remarks
-   * The action to take when the input is outside the allowed range. Valid values: `RETURN_MODEL` and `AUTO_RETRY`.
+   * The action to take when the input is out of range. Valid values:
+   * - RETURN_MODEL: return to the model
+   * - AUTO_RETRY: automatically retry
    * 
    * @example
    * RETURN_MODEL
@@ -95,7 +97,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfOutOfRangeAction?: string;
   /**
    * @remarks
-   * The number of retry attempts. The value must be between 1 and 3. This parameter is effective only when `DtmfOutOfRangeAction` is set to `AUTO_RETRY`.
+   * The number of retry attempts (PlayTimes). Valid values: 1 to 3. Takes effect only when DtmfOutOfRangeAction is set to AUTO_RETRY.
    * 
    * @example
    * 1
@@ -103,7 +105,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfRetryPlayTimes?: number;
   /**
    * @remarks
-   * The custom text for the retry prompt. The text can contain a maximum of 50 characters. If this parameter is empty, the system uses the default prompt: "Invalid input. Please try again."
+   * The custom retry prompt text. Maximum length: 50 characters. If left empty, the default message is used.
    * 
    * @example
    * 测试文本
@@ -121,7 +123,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfSendWaitTimeout?: number;
   /**
    * @remarks
-   * The scene name.
+   * The scenario name.
    * 
    * @example
    * 测试场景
@@ -129,7 +131,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dyvmsSceneName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the collection of DTMF signals. The default value is `false`.
+   * Specifies whether to enable DTMF key collection. Default value: false.
    * 
    * @example
    * false
@@ -142,7 +144,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   enableDtmfSend?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the Morse code configuration. The default value is `false`.
+   * Specifies whether to enable Morse code configuration. Disabled by default.
    * 
    * @example
    * false
@@ -187,7 +189,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   muteDuration?: number;
   /**
    * @remarks
-   * The number of consecutive mute events that trigger an automatic hang-up.
+   * The number of consecutive mute events after which the system proactively hangs up.
    * 
    * @example
    * 70
@@ -195,13 +197,21 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   muteHangupNum?: number;
   /**
    * @remarks
-   * 静音事件推送模式
+   * The push mode for mute events.
    * 
    * @example
    * FIRST_ONLY
    */
   mutePushMode?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ASR recognition pause duration.
+   * 
+   * @example
+   * 350
+   */
+  pauseTime?: number;
   /**
    * @remarks
    * The prompt.
@@ -220,7 +230,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   qualificationId?: number;
   /**
    * @remarks
-   * The name of the qualification.
+   * The qualification name.
    * 
    * @example
    * 测试质检
@@ -228,7 +238,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   qualificationName?: string;
   /**
    * @remarks
-   * The URL of the recording file.
+   * The URL of the recording audio file.
    * 
    * @example
    * https://xxxxxxxxxxxxxxx.wav
@@ -238,7 +248,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The session timeout, which is the maximum duration of a call.
+   * The maximum call duration.
    * 
    * @example
    * 49
@@ -246,7 +256,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   sessionTimeout?: number;
   /**
    * @remarks
-   * The value must be `USER`.
+   * The source. Fixed value: USER.
    * 
    * @example
    * USER
@@ -254,7 +264,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The content of the speech.
+   * The speech script content.
    * 
    * @example
    * 测试话术
@@ -262,7 +272,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   speechContent?: string;
   /**
    * @remarks
-   * The speech ID.
+   * The speech script ID.
    * 
    * @example
    * 15
@@ -278,7 +288,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   startWord?: string;
   /**
    * @remarks
-   * The type of the opening statement. Valid values:
+   * The type of the opening statement.
    * 
    * @example
    * 0：文本
@@ -287,12 +297,12 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   startWordType?: number;
   /**
    * @remarks
-   * The TTS configuration, such as voice, volume, and speech rate.
+   * The text-to-speech (TTS) configuration, including voice, volume, and speed.
    */
   ttsConfigShrink?: string;
   /**
    * @remarks
-   * The purpose of the application.
+   * The usage description.
    * 
    * @example
    * 测试用途
@@ -327,6 +337,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
       muteHangupNum: 'MuteHangupNum',
       mutePushMode: 'MutePushMode',
       ownerId: 'OwnerId',
+      pauseTime: 'PauseTime',
       prompt: 'Prompt',
       qualificationId: 'QualificationId',
       qualificationName: 'QualificationName',
@@ -373,6 +384,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
       muteHangupNum: 'number',
       mutePushMode: 'string',
       ownerId: 'number',
+      pauseTime: 'number',
       prompt: 'string',
       qualificationId: 'number',
       qualificationName: 'string',

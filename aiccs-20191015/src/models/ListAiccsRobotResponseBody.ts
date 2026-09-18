@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListAiccsRobotResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Associated industry.
+   * The industry.
    * 
    * @example
-   * 房地产
+   * RealEstate
    */
   atProfession?: string;
   /**
    * @remarks
-   * Associated business.
+   * The associated business.
    * 
    * @example
-   * 新房销售
+   * NewHomeSales
    */
   atSence?: string;
   /**
    * @remarks
-   * Robot ID.
+   * The robot ID.
    * 
    * @example
    * 12****
@@ -29,15 +29,15 @@ export class ListAiccsRobotResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Robot name.
+   * The robot name.
    * 
    * @example
-   * 测试机器人
+   * TestRobot
    */
   robotName?: string;
   /**
    * @remarks
-   * Robot type.
+   * The robot type.
    * 
    * @example
    * CUSTOM
@@ -75,7 +75,7 @@ export class ListAiccsRobotResponseBodyData extends $dara.Model {
 export class ListAiccsRobotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request status code. A return value of OK indicates that the request Succeeded.
+   * The request status code. OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -83,12 +83,12 @@ export class ListAiccsRobotResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Robot scripts.
+   * The robot scripts.
    */
   data?: ListAiccsRobotResponseBodyData[];
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * successful
@@ -96,7 +96,7 @@ export class ListAiccsRobotResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
@@ -104,9 +104,9 @@ export class ListAiccsRobotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API invocation Succeeded. Valid values:
-   * - **true**: Succeeded.
-   * - **false**: failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

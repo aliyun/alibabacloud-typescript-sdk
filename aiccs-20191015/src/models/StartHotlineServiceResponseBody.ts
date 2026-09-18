@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartHotlineServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of "Success" indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request was successful.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class StartHotlineServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Token required to initiate a heartbeat, returned after a successful request.
+   * The token required to initiate a heartbeat. This parameter is returned when the request is successful.
    * 
    * @example
    * 0079e7a845e373****
@@ -21,7 +21,7 @@ export class StartHotlineServiceResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class StartHotlineServiceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class StartHotlineServiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -45,9 +45,9 @@ export class StartHotlineServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.  
-   * - **true**: Succeeded.  
-   * - **false**: Failed.
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

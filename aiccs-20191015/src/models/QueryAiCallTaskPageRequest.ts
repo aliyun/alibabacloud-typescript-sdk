@@ -5,21 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAiCallTaskPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent name. The system performs a fuzzy search based on this name.
+   * The agent name. The system performs a fuzzy match based on the agent name.
    * 
    * @example
-   * 测试智能体
+   * TestAgent.
    */
   agentName?: string;
   /**
+   * @remarks
+   * The application code.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 025****C98
    */
   applicationCode?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be greater than **0**. The default value is **1**.
+   * The current page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -27,7 +30,7 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in paging. Settings for the number of rows per page.
    * 
    * @example
    * 20
@@ -36,21 +39,24 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The creation source. Valid values:
+   * 
+   * 0: created by agent.
+   * 
+   * 1: created by engine.
+   * 
    * @example
-   * 68
+   * 0
    */
   source?: number;
   /**
    * @remarks
    * The task status. Valid values:
-   * 
-   * - **INIT**: The task is initialized but has not started.
-   * 
-   * - **FAILED**: The task failed to start.
-   * 
-   * - **RUNNING**: The task is running.
-   * 
-   * - **STOPPED**: The task is stopped.
+   * - INIT: init (not started).
+   * - FAILED: startup failed.
+   * - RUNNING: running.
+   * - STOPPED: stopped.
    * 
    * @example
    * INIT
@@ -58,7 +64,7 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The unique ID of the task.
+   * The task ID.
    * 
    * @example
    * 1187**************
@@ -66,10 +72,10 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task name. The system performs a fuzzy search based on this name.
+   * The task name. The system performs a fuzzy match based on the task name.
    * 
    * @example
-   * 测试任务
+   * TestTask.
    */
   taskName?: string;
   static names(): { [key: string]: string } {

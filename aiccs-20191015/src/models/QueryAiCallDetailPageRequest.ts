@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAiCallDetailPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The batch ID. You can find this ID by clicking Details on the **Call Task Management** page.
+   * The batch ID. On the **Call Task Management** page, click Details to view the batch ID.
    * 
    * @example
    * 1183**************
@@ -14,36 +14,21 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   /**
    * @remarks
    * The call result. Valid values:
-   * 
-   * - CALL_FORWARDING: Call Forwarding.
-   * 
-   * - INCOMING_CALL_BARRED: Incoming Call Barred.
-   * 
-   * - CALL_REJECTED: Call Rejected.
-   * 
-   * - ANSWERED: Answered.
-   * 
-   * - USER_BUSY: User Busy.
-   * 
-   * - POWERED_OFF: Powered Off.
-   * 
-   * - NO_USER_RESPONSE: No User Response.
-   * 
-   * - OPERATOR_BLOCK: Operator Block.
-   * 
-   * - OTHERS: Others.
-   * 
-   * - SUSPEND: Suspend.
-   * 
-   * - CANCEL: Canceled by the caller.
-   * 
-   * - INVALID_NUMBER: Invalid Number.
-   * 
-   * - UNAVAILABLE: Unavailable.
-   * 
-   * - NETWORK_BUSY: Network Busy.
-   * 
-   * - NO_ANSWER: No Answer.
+   * - CALL_FORWARDING: call forwarding.
+   * - INCOMING_CALL_BARRED: incoming call barred.
+   * - CALL_REJECTED: call rejected.
+   * - ANSWERED: answered.
+   * - USER_BUSY: user busy.
+   * - POWERED_OFF: powered off.
+   * - NO_USER_RESPONSE: out of service area.
+   * - OPERATOR_BLOCK: blocked by carrier.
+   * - OTHERS: other status.
+   * - SUSPEND: suspended.
+   * - CANCEL: canceled by caller.
+   * - INVALID_NUMBER: invalid number.
+   * - UNAVAILABLE: temporarily unavailable.
+   * - NETWORK_BUSY: network busy.
+   * - NO_ANSWER: no answer.
    * 
    * @example
    * ANSWERED
@@ -59,15 +44,12 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * A list of up to 100 detail IDs.
-   * 
-   * @example
-   * Sample value Sample value
+   * The list of task detail IDs. A maximum of 100 IDs can be specified.
    */
   detailIds?: number[];
   /**
    * @remarks
-   * The encryption method. Valid values: 0 (None), 1 (MD5), 2 (SHA256), and 3 (SM3).
+   * The encryption type. Valid values: 0: no encryption. 1: MD5. 2: SHA256. 3: SM3.
    * 
    * @example
    * 1
@@ -75,7 +57,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   encryptionType?: number;
   /**
    * @remarks
-   * The end of the call time range. This value is a timestamp in milliseconds.
+   * The end calling time. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -83,7 +65,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   endCallingTime?: number;
   /**
    * @remarks
-   * The end of the import time range. This value is a timestamp in milliseconds.
+   * The end import time. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -91,7 +73,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   endImportedTime?: number;
   /**
    * @remarks
-   * The major intent. You can find this intent by clicking Agent Details on the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page.
+   * The major intent. On the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page, click agent details to view the major intent.
    * 
    * @example
    * A
@@ -99,7 +81,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   majorIntent?: string;
   /**
    * @remarks
-   * The maximum conversation duration, in minutes.
+   * The maximum conversation duration. Unit: minutes.
    * 
    * @example
    * 20
@@ -107,7 +89,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   maxConversationDuration?: number;
   /**
    * @remarks
-   * The minimum conversation duration, in minutes.
+   * The minimum conversation duration. Unit: minutes.
    * 
    * @example
    * 0
@@ -115,7 +97,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   minConversationDuration?: number;
   /**
    * @remarks
-   * A custom ID provided by the caller. This ID is returned in the receipt message for request tracking.
+   * The ID reserved for the caller. This ID is returned to the caller in the receipt message.
    * 
    * @example
    * 94ba739b-c01a-ef91-335d-4be006c34899
@@ -124,7 +106,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be greater than **0**. The default value is **1**.
+   * The current page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -132,7 +114,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. The default value is **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -142,7 +124,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start of the call time range. This value is a timestamp in milliseconds.
+   * The start calling time. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -150,7 +132,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   startCallingTime?: number;
   /**
    * @remarks
-   * The start of the import time range. This value is a timestamp in milliseconds.
+   * The start import time. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -160,11 +142,11 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - 0: Pending.
+   * - 0: pending.
    * 
-   * - 1: Completed.
+   * - 1: completed.
    * 
-   * - 2: Failed.
+   * - 2: failed.
    * 
    * This parameter is required.
    * 

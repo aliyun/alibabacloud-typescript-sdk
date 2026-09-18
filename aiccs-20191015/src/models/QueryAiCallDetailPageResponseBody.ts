@@ -12,26 +12,51 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    */
   batchId?: string;
   /**
+   * @remarks
+   * The branch ID.
+   * 
    * @example
    * 49
    */
   branchId?: number;
   /**
+   * @remarks
+   * The branch name.
+   * 
    * @example
-   * example
+   * Default branch
    */
   branchName?: string;
   /**
+   * @remarks
+   * The version ID.
+   * 
    * @example
    * 9
    */
   branchVersionId?: number;
   /**
    * @remarks
+   * The expiration time of the outbound call detail.
+   * 
+   * @example
+   * 2026-07-30 20:00:20
+   */
+  callExpireTime?: number;
+  /**
+   * @remarks
+   * The call ID.
+   * 
+   * @example
+   * 123*****456^123*****456
+   */
+  callId?: string;
+  /**
+   * @remarks
    * The call result.
    * 
    * @example
-   * 用户接通
+   * Answered
    */
   callResult?: string;
   /**
@@ -44,7 +69,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * The call time, formatted as a timestamp in milliseconds.
+   * The calling time. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -52,7 +77,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   callingTime?: number;
   /**
    * @remarks
-   * The conversation duration, in seconds.
+   * The conversation duration. Unit: seconds.
    * 
    * @example
    * 100
@@ -60,13 +85,12 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   conversationDuration?: number;
   /**
    * @remarks
-   * The conversation record, formatted as a chronologically sorted JSON array. Each object has the following structure:
-   * 
+   * The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The format is as follows:
    * ```json
    * [
    *     {
-   *         "content":"The content of the message.",
-   *         "role":"The role of the speaker.", // Valid values: user, assistant
+   *         "content":"Chat content",
+   *         "role":"Role",//Valid values: user, assistant (bot)
    *     }
    * ]
    * ```
@@ -126,7 +150,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   conversationRecord?: string;
   /**
    * @remarks
-   * The conversation turn count.
+   * The number of conversation turns.
    * 
    * @example
    * 10
@@ -142,7 +166,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   detailId?: string;
   /**
    * @remarks
-   * The encryption type. Valid values are: 0 (no encryption), 1 (MD5), 2 (SHA256), and 3 (SM3).
+   * The encryption type. Valid values: 0: no encryption. 1: MD5. 2: SHA256. 3: SM3.
    * 
    * @example
    * 1
@@ -150,15 +174,15 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   encryptionType?: number;
   /**
    * @remarks
-   * The failure reason. Provided only if the call fails.
+   * The reason for call failure. This field is available only when the call fails.
    * 
    * @example
-   * 账户停机
+   * Account suspended
    */
   failedReason?: string;
   /**
    * @remarks
-   * The import time, formatted as a timestamp in milliseconds.
+   * The import time. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -174,7 +198,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   majorIntent?: string;
   /**
    * @remarks
-   * A JSON object of key-value pairs for runtime variables.
+   * The variable information used at runtime, stored in this field as key-value pairs.
    * 
    * @example
    * {
@@ -182,20 +206,23 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    *   "phoneNumber": "777",
    *   "distance": "555",
    *   "mendian": "444",
-   *   "sex": "男",
+   *   "sex": "male",
    *   "name": "111",
    *   "age": "222"
    * }
    */
   options?: string;
   /**
+   * @remarks
+   * The external business serial number reserved for external input. A unique ID can be used for business association.
+   * 
    * @example
    * outId
    */
   outId?: string;
   /**
    * @remarks
-   * The recording file path. Provided only after the recording file is generated.
+   * The download path of the recording file. This field is available only after the recording file is generated.
    * 
    * @example
    * https://*******
@@ -203,21 +230,15 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   recordingFilePath?: string;
   /**
    * @remarks
-   * The task detail status.
+   * The task detail status. Valid values:
+   * - 0: initialized.
+   * - 1: waiting to call.
+   * - 2: waiting to retry.
+   * - 3: calling.
+   * - 4: call ended.
+   * - 5: call failed.
    * 
-   * - 0: Initializing
-   * 
-   * - 1: Waiting to call
-   * 
-   * - 2: Waiting to retry
-   * 
-   * - 3: Calling
-   * 
-   * - 4: Call ended
-   * 
-   * - 5: Call failed
-   * 
-   * Only statuses 4 and 5 are terminal states.
+   * Only 4 and 5 are desired states.
    * 
    * @example
    * 4
@@ -232,13 +253,19 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    */
   taskId?: string;
   /**
+   * @remarks
+   * The version name.
+   * 
    * @example
-   * example
+   * Default version
    */
   versionName?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
-   * 55
+   * 1
    */
   versionNo?: number;
   static names(): { [key: string]: string } {
@@ -247,6 +274,8 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
       branchId: 'BranchId',
       branchName: 'BranchName',
       branchVersionId: 'BranchVersionId',
+      callExpireTime: 'CallExpireTime',
+      callId: 'CallId',
       callResult: 'CallResult',
       calledNumber: 'CalledNumber',
       callingTime: 'CallingTime',
@@ -274,6 +303,8 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
       branchId: 'number',
       branchName: 'string',
       branchVersionId: 'number',
+      callExpireTime: 'number',
+      callId: 'string',
       callResult: 'string',
       calledNumber: 'string',
       callingTime: 'number',
@@ -307,12 +338,12 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
 export class QueryAiCallDetailPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of task details.
+   * The list of task detail data.
    */
   list?: QueryAiCallDetailPageResponseBodyDataList[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 60
@@ -367,7 +398,7 @@ export class QueryAiCallDetailPageResponseBodyData extends $dara.Model {
 export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The reason why the access request was denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * None
@@ -388,10 +419,10 @@ export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   data?: QueryAiCallDetailPageResponseBodyData;
   /**
    * @remarks
-   * A description of the status code.
+   * The status code description.
    * 
    * @example
-   * 成功
+   * OK
    */
   message?: string;
   /**
@@ -404,11 +435,9 @@ export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values are:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: successful.
+   * - **false**: failed.
    * 
    * @example
    * true

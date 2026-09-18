@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiCallTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of a published agent.
+   * The code of the agent that is already online.
    * 
    * @example
    * 1180**************
    */
   agentId?: string;
   /**
+   * @remarks
+   * The application code. This parameter is used when the creation source is engine.
+   * 
    * @example
    * 025****C98
    */
@@ -25,7 +28,35 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callDay?: string[];
   /**
    * @remarks
-   * The retry interval, in minutes. The maximum value is 720.
+   * The expiration date of outbound call details (specific deadline).
+   * 
+   * @example
+   * 2026-07-30 20:00:20
+   */
+  callExpireDate?: string;
+  /**
+   * @remarks
+   * The expiration duration of outbound call details. Unit: minutes.
+   * 
+   * @example
+   * 10
+   */
+  callExpireMinutes?: number;
+  /**
+   * @remarks
+   * The outbound call validity type. Valid values:
+   * 
+   * 0: permanently valid.
+   * 1: valid for a specified duration after import.
+   * 2: valid until a specified date.
+   * 
+   * @example
+   * 0
+   */
+  callExpireType?: number;
+  /**
+   * @remarks
+   * The retry interval. Unit: minutes. The maximum value is 720 minutes.
    * 
    * @example
    * 32
@@ -33,7 +64,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callRetryInterval?: number;
   /**
    * @remarks
-   * The failure reasons that trigger a retry.
+   * The list of failure retry reasons.
    */
   callRetryReason?: string[];
   /**
@@ -51,12 +82,19 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    * This parameter is required.
    */
   callTime?: string[];
+  callableTime?: string[];
   /**
+   * @remarks
+   * The line encoding.
+   * 
    * @example
    * JILIANG_***_***_NET
    */
   lineEncoding?: string;
   /**
+   * @remarks
+   * The customer-provided line number.
+   * 
    * @example
    * 152****3120
    */
@@ -65,9 +103,9 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable retry. Valid values:
    * 
-   * - `true`: Enables retry.
+   * - true: enabled.
    * 
-   * - `false` (default): Disables retry.
+   * - false (default): disabled.
    * 
    * @example
    * false
@@ -75,6 +113,13 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   missCallRetry?: boolean;
   ownerId?: number;
   /**
+   * @remarks
+   * The number type. This parameter is used when the creation source is engine. Valid values:
+   * 
+   * - 0: Alibaba Cloud number.
+   * 
+   * - 1: customer-provided line.
+   * 
    * @example
    * 0
    */
@@ -82,17 +127,24 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The creation source. Valid values:
+   * 
+   * - 0: created by agent.
+   * 
+   * - 1: created by engine.
+   * 
    * @example
    * 0
    */
   source?: number;
   /**
    * @remarks
-   * The startup mode. Valid values:
+   * The start mode. Valid values:
    * 
-   * - `IMMEDIATE`: Starts the task immediately.
+   * - IMMEDIATE: starts immediately.
    * 
-   * - `SCHEDULE`: Starts the task at a scheduled time.
+   * - SCHEDULE: starts at a scheduled time.
    * 
    * This parameter is required.
    * 
@@ -110,17 +162,17 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   taskCps?: number;
   /**
    * @remarks
-   * The name of the task. It must be unique within an account.
+   * The task name. The name must be unique within the same account.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试任务
+   * TestTask
    */
   taskName?: string;
   /**
    * @remarks
-   * The scheduled start time for the task, specified as a timestamp in milliseconds. This parameter is required and applies only when `StartType` is set to `SCHEDULE`.
+   * The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
    * 
    * @example
    * 12313123133
@@ -139,10 +191,14 @@ export class CreateAiCallTaskRequest extends $dara.Model {
       agentId: 'AgentId',
       applicationCode: 'ApplicationCode',
       callDay: 'CallDay',
+      callExpireDate: 'CallExpireDate',
+      callExpireMinutes: 'CallExpireMinutes',
+      callExpireType: 'CallExpireType',
       callRetryInterval: 'CallRetryInterval',
       callRetryReason: 'CallRetryReason',
       callRetryTimes: 'CallRetryTimes',
       callTime: 'CallTime',
+      callableTime: 'CallableTime',
       lineEncoding: 'LineEncoding',
       linePhoneNum: 'LinePhoneNum',
       missCallRetry: 'MissCallRetry',
@@ -164,10 +220,14 @@ export class CreateAiCallTaskRequest extends $dara.Model {
       agentId: 'string',
       applicationCode: 'string',
       callDay: { 'type': 'array', 'itemType': 'string' },
+      callExpireDate: 'string',
+      callExpireMinutes: 'number',
+      callExpireType: 'number',
       callRetryInterval: 'number',
       callRetryReason: { 'type': 'array', 'itemType': 'string' },
       callRetryTimes: 'number',
       callTime: { 'type': 'array', 'itemType': 'string' },
+      callableTime: { 'type': 'array', 'itemType': 'string' },
       lineEncoding: 'string',
       linePhoneNum: 'string',
       missCallRetry: 'boolean',
@@ -193,6 +253,9 @@ export class CreateAiCallTaskRequest extends $dara.Model {
     }
     if(Array.isArray(this.callTime)) {
       $dara.Model.validateArray(this.callTime);
+    }
+    if(Array.isArray(this.callableTime)) {
+      $dara.Model.validateArray(this.callableTime);
     }
     super.validate();
   }

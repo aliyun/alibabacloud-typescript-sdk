@@ -16,22 +16,37 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * 测试智能体
+   * TestAgent.
    */
   agentName?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * Sample value.
    */
   applicationCode?: string;
   /**
    * @example
-   * 示例值
+   * Sample value.
    */
   applicationName?: string;
   /**
+   * @example
+   * Sample value.
+   */
+  callExpireDate?: string;
+  /**
+   * @example
+   * 39
+   */
+  callExpireMinutes?: number;
+  /**
+   * @example
+   * 72
+   */
+  callExpireType?: number;
+  /**
    * @remarks
-   * The number of calls in progress.
+   * The number of ongoing calls.
    * 
    * @example
    * 72
@@ -39,7 +54,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   callingCount?: number;
   /**
    * @remarks
-   * The completion rate of the task.
+   * The task completion rate.
    * 
    * @example
    * 70%
@@ -47,7 +62,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   completeRate?: string;
   /**
    * @remarks
-   * The number of concurrent tasks.
+   * The task concurrency.
    * 
    * @example
    * 10
@@ -55,7 +70,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   concurrentCount?: number;
   /**
    * @remarks
-   * The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1748932499000
@@ -71,7 +86,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   dayCallCount?: number;
   /**
    * @remarks
-   * The connection rate of the current day. This is the number of connected calls on the current day divided by the total number of calls on the current day (`DayCallCount`).
+   * The daily connection rate. Daily connection rate = number of connections on the current day ÷ number of calls on the current day (DayCallCount).
    * 
    * @example
    * 74.14%
@@ -79,7 +94,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   dayConnectRate?: string;
   /**
    * @remarks
-   * The number of data entries imported on the current day.
+   * The amount of data imported on the current day.
    * 
    * @example
    * 400
@@ -87,7 +102,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   dayImportCount?: number;
   /**
    * @remarks
-   * The total number of failed tasks.
+   * The total number of failed task executions.
    * 
    * @example
    * 61
@@ -95,7 +110,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The historical connection rate. This is the historical number of connected calls divided by the total number of calls (`TotalCallCount`).
+   * The historical connection rate. Historical connection rate = historical number of connections ÷ total number of calls (TotalCallCount).
    * 
    * @example
    * 95.89%
@@ -103,7 +118,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   historyConnectRate?: string;
   /**
    * @remarks
-   * The time when the task actually starts. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The actual start time of the task. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1748932499000
@@ -111,15 +126,15 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   realStartTime?: number;
   /**
    * @remarks
-   * The reason why the task failed to start.
+   * The reason for startup failure.
    * 
    * @example
-   * 智能体不在线
+   * Agent is offline.
    */
   startFailedReason?: string;
   /**
    * @remarks
-   * The time when the task is scheduled to start. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The scheduled start time of the task. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1748932499000
@@ -127,7 +142,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * 1
@@ -135,7 +150,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The total number of successful tasks.
+   * The total number of successful task executions.
    * 
    * @example
    * 36
@@ -154,12 +169,12 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
    * The task name.
    * 
    * @example
-   * 测试任务
+   * TestTask.
    */
   taskName?: string;
   /**
    * @remarks
-   * The total number of calls.
+   * The total number of calls made by the task.
    * 
    * @example
    * 58
@@ -167,7 +182,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   totalCallCount?: number;
   /**
    * @remarks
-   * The total number of tasks.
+   * The total number of task items.
    * 
    * @example
    * 71
@@ -179,6 +194,9 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
       agentName: 'AgentName',
       applicationCode: 'ApplicationCode',
       applicationName: 'ApplicationName',
+      callExpireDate: 'CallExpireDate',
+      callExpireMinutes: 'CallExpireMinutes',
+      callExpireType: 'CallExpireType',
       callingCount: 'CallingCount',
       completeRate: 'CompleteRate',
       concurrentCount: 'ConcurrentCount',
@@ -206,6 +224,9 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
       agentName: 'string',
       applicationCode: 'string',
       applicationName: 'string',
+      callExpireDate: 'string',
+      callExpireMinutes: 'number',
+      callExpireType: 'number',
       callingCount: 'number',
       completeRate: 'string',
       concurrentCount: 'number',
@@ -239,12 +260,12 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
 export class QueryAiCallTaskPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The tasks.
+   * The task data.
    */
   list?: QueryAiCallTaskPageResponseBodyDataList[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 37
@@ -260,7 +281,7 @@ export class QueryAiCallTaskPageResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 72
@@ -299,7 +320,7 @@ export class QueryAiCallTaskPageResponseBodyData extends $dara.Model {
 export class QueryAiCallTaskPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for the access denial.
+   * The detailed reason for access denial.
    * 
    * @example
    * None
@@ -315,15 +336,15 @@ export class QueryAiCallTaskPageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the tasks.
+   * The task details.
    */
   data?: QueryAiCallTaskPageResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is returned only if the call fails.
+   * The error message. This parameter is not returned if the call is successful.
    * 
    * @example
-   * 参数不合法
+   * Invalid parameter.
    */
   message?: string;
   /**
@@ -336,11 +357,9 @@ export class QueryAiCallTaskPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: successful.
+   * - **false**: failed.
    * 
    * @example
    * true

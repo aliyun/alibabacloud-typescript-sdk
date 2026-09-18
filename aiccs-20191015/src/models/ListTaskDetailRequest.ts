@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTaskDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The callee number. You can view the callee number on the **Detail** interface of [**Task Management**](https://aiccs.console.aliyun.com/job/list).
+   * The called number. You can view the called number on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
    * 
    * @example
    * 186****0000
@@ -13,7 +13,7 @@ export class ListTaskDetailRequest extends $dara.Model {
   called?: string;
   /**
    * @remarks
-   * The detail ID. You can view the detail ID on the **Detail** interface of [**Task Management**](https://aiccs.console.aliyun.com/job/list).
+   * The detail ID. You can view the detail ID on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
    * 
    * @example
    * 12****
@@ -40,7 +40,8 @@ export class ListTaskDetailRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Detail status. Valid values:
+   * The detail status. Valid values:
+   * 
    * - **SUCCESS**: The outbound call succeeded.
    * - **FAIL**: The outbound call failed.
    * - **INIT**: The outbound call has not been made.
@@ -51,7 +52,7 @@ export class ListTaskDetailRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The call status code. For more information, see [Call Status Codes](https://help.aliyun.com/document_detail/112804.html) in Voice Service.
+   * The call status code. For more information, see [Call status codes](https://help.aliyun.com/document_detail/112804.html) in Voice Messaging.
    * 
    * @example
    * 200100
@@ -59,7 +60,7 @@ export class ListTaskDetailRequest extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * The job ID. You can view the job ID on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or obtain it by using the [ListTask](https://help.aliyun.com/document_detail/2718008.html) API.
+   * The task ID. You can view the task ID on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or obtain it by calling the [ListTask](https://help.aliyun.com/document_detail/2718008.html) operation.
    * 
    * This parameter is required.
    * 

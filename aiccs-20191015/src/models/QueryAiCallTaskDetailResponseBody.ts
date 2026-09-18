@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAiCallTaskDetailResponseBodyDataCallTimes extends $dara.Model {
   /**
    * @remarks
-   * The end of the time window.
+   * The end time.
    * 
    * @example
    * 09:00:00
@@ -13,7 +13,7 @@ export class QueryAiCallTaskDetailResponseBodyDataCallTimes extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The beginning of the time window.
+   * The start time.
    * 
    * @example
    * 12:00:00
@@ -42,10 +42,50 @@ export class QueryAiCallTaskDetailResponseBodyDataCallTimes extends $dara.Model 
   }
 }
 
+export class QueryAiCallTaskDetailResponseBodyDataCallableTimes extends $dara.Model {
+  /**
+   * @remarks
+   * The end time.
+   * 
+   * @example
+   * 18:00:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 10:00:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deployed agent.
+   * The ID of the published agent.
    * 
    * @example
    * 1180**************
@@ -53,35 +93,68 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The name of the agent.
+   * The agent name.
    * 
    * @example
-   * 测试智能体
+   * TestAgent
    */
   agentName?: string;
   /**
    * @example
-   * 示例值
+   * SampleValue
    */
   applicationCode?: string;
   /**
    * @example
-   * 示例值
+   * SampleValue
    */
   applicationName?: string;
   /**
    * @remarks
-   * The days of the week on which calls are permitted.
+   * The list of callable days.
    */
   callDays?: string[];
   /**
    * @remarks
-   * The allowed call time windows.
+   * The expiration date of outbound call details (specific deadline).
+   * 
+   * @example
+   * 2026-07-30 20:00:20
+   */
+  callExpireDate?: string;
+  /**
+   * @remarks
+   * The expiration duration of outbound call details, in minutes.
+   * 
+   * @example
+   * 20
+   */
+  callExpireMinutes?: number;
+  /**
+   * @remarks
+   * The outbound call validity type. Valid values:
+   * 
+   * 0: Permanently valid.
+   * 1: Valid for a period of time after import.
+   * 2: Valid until a specified time.
+   * 
+   * @example
+   * 0
+   */
+  callExpireType?: number;
+  /**
+   * @remarks
+   * The allowed call time periods.
    */
   callTimes?: QueryAiCallTaskDetailResponseBodyDataCallTimes[];
   /**
    * @remarks
-   * The caller ID.
+   * The callable time periods for the current outbound call instance.
+   */
+  callableTimes?: QueryAiCallTaskDetailResponseBodyDataCallableTimes[];
+  /**
+   * @remarks
+   * The caller number.
    * 
    * @example
    * 05370124****
@@ -89,7 +162,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   callerNumber?: string;
   /**
    * @remarks
-   * The number of concurrent tasks.
+   * The task concurrency.
    * 
    * @example
    * 10
@@ -97,12 +170,12 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   concurrentCount?: number;
   /**
    * @example
-   * 示例值
+   * SampleValue
    */
   lineEncoding?: string;
   /**
    * @example
-   * 示例值
+   * SampleValue
    */
   linePhoneNum?: string;
   /**
@@ -112,7 +185,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   phoneType?: number;
   /**
    * @remarks
-   * The actual start time of the task. This value is a Unix timestamp in milliseconds.
+   * The actual start time of the task. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1748932499000
@@ -120,7 +193,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   realStartTime?: number;
   /**
    * @remarks
-   * The number of retries.
+   * The number of retry attempts.
    * 
    * @example
    * 2
@@ -129,10 +202,8 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether call retry is enabled. Valid values:
-   * 
-   * - `true`
-   * 
-   * - `false`
+   * - true: Enabled.
+   * - false: Not enabled.
    * 
    * @example
    * true
@@ -148,12 +219,12 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   retryInterval?: number;
   /**
    * @remarks
-   * The reasons for which a failed call can be retried.
+   * The list of reasons that allow retry on failure.
    */
   retryReasons?: string[];
   /**
    * @remarks
-   * The scheduled start time of the task. This value is a Unix timestamp in milliseconds.
+   * The scheduled start time of the task. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1748932499000
@@ -161,11 +232,11 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The start mode. Valid values:
+   * The start type. Valid values:
    * 
-   * - `IMMEDIATE`: The task starts immediately.
+   * - IMMEDIATE: Start immediately.
    * 
-   * - `SCHEDULE`: The task starts at a scheduled time.
+   * - SCHEDULE: Start at a scheduled time.
    * 
    * @example
    * IMMEDIATE
@@ -173,7 +244,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   startType?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 1187**************
@@ -181,10 +252,10 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
-   * 测试任务
+   * TestTask
    */
   taskName?: string;
   static names(): { [key: string]: string } {
@@ -194,7 +265,11 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
       applicationCode: 'ApplicationCode',
       applicationName: 'ApplicationName',
       callDays: 'CallDays',
+      callExpireDate: 'CallExpireDate',
+      callExpireMinutes: 'CallExpireMinutes',
+      callExpireType: 'CallExpireType',
       callTimes: 'CallTimes',
+      callableTimes: 'CallableTimes',
       callerNumber: 'CallerNumber',
       concurrentCount: 'ConcurrentCount',
       lineEncoding: 'LineEncoding',
@@ -219,7 +294,11 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
       applicationCode: 'string',
       applicationName: 'string',
       callDays: { 'type': 'array', 'itemType': 'string' },
+      callExpireDate: 'string',
+      callExpireMinutes: 'number',
+      callExpireType: 'number',
       callTimes: { 'type': 'array', 'itemType': QueryAiCallTaskDetailResponseBodyDataCallTimes },
+      callableTimes: { 'type': 'array', 'itemType': QueryAiCallTaskDetailResponseBodyDataCallableTimes },
       callerNumber: 'string',
       concurrentCount: 'number',
       lineEncoding: 'string',
@@ -244,6 +323,9 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
     if(Array.isArray(this.callTimes)) {
       $dara.Model.validateArray(this.callTimes);
     }
+    if(Array.isArray(this.callableTimes)) {
+      $dara.Model.validateArray(this.callableTimes);
+    }
     if(Array.isArray(this.retryReasons)) {
       $dara.Model.validateArray(this.retryReasons);
     }
@@ -258,7 +340,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
 export class QueryAiCallTaskDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details. This parameter is returned only if RAM validation fails.
+   * The access denial details. This field is returned only when RAM authentication fails.
    * 
    * @example
    * None
@@ -266,7 +348,7 @@ export class QueryAiCallTaskDetailResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code.
+   * The error code.
    * 
    * @example
    * OK
@@ -274,20 +356,20 @@ export class QueryAiCallTaskDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: QueryAiCallTaskDetailResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is returned only if the call fails.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
-   * 参数无效
+   * Invalid parameter
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 23822ECB-8CAA-5C52-9C9E-807FD82A5A7F
@@ -295,11 +377,9 @@ export class QueryAiCallTaskDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * false

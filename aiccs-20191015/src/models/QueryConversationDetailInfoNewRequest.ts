@@ -13,7 +13,7 @@ export class QueryConversationDetailInfoNewRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The task detail ID. View the task detail ID in the upper-left corner of the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console, or call the [QueryAiCallDetailPage](https://help.aliyun.com/document_detail/2926853.html) operation to obtain the task detail ID.
+   * The task detail ID. View the task detail ID in the upper-left corner of the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console, or retrieve it by calling the [QueryAiCallDetailPage](https://help.aliyun.com/document_detail/2926853.html) operation.
    * 
    * @example
    * 9662*************
@@ -32,7 +32,7 @@ export class QueryConversationDetailInfoNewRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The task ID. View the task ID in the **Call Task Management** console or call the [QueryAiCallTaskPage](https://help.aliyun.com/document_detail/2926799.html) operation to obtain the task ID.
+   * The task ID. View the task ID in the **Call Task Management** console or retrieve it by calling the [QueryAiCallTaskPage](https://help.aliyun.com/document_detail/2926799.html) operation.
    * 
    * This parameter is required.
    * 

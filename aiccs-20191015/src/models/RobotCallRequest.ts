@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RobotCallRequest extends $dara.Model {
   /**
    * @remarks
-   * Called number.
+   * The called number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RobotCallRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * Outbound caller number. View it in the Voice Service [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
+   * The caller number for the outbound call. You can view this number on the [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) page of the voice messaging service.
    * 
    * This parameter is required.
    * 
@@ -25,11 +25,11 @@ export class RobotCallRequest extends $dara.Model {
   calledShowNumber?: string;
   /**
    * @remarks
-   * Whether to enable the number status detection identity. Valid values:  
+   * Specifies whether to enable the number status identification feature. Valid values:
    * 
-   * - **false** (Default Value): Disable.  
-   * - **true**: Enable.  
-   * > When enabled, the reason for unanswered calls will be recorded.
+   * - **false** (default): Disabled.
+   * - **true**: Enabled.
+   * >After this feature is enabled, the reason why a call is not answered is recorded.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class RobotCallRequest extends $dara.Model {
   earlyMediaAsr?: boolean;
   /**
    * @remarks
-   * An ID reserved for the caller. This ID will be returned to the caller through the receipt message. It must be 1 to 15 bytes in length.
+   * The ID reserved for the caller. This ID is returned to the caller through a receipt message. The value is 1 to 15 bytes in length.
    * 
    * @example
    * 222356****
@@ -46,18 +46,18 @@ export class RobotCallRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Parameter list for the robot, in JSON format. The total length must not exceed 512 bytes. You can view the parameters in [Script Management](https://aiccs.console.aliyun.com/patter/list) > **Details** > **Input Parameters**, or by using the [ListRobotParams](https://help.aliyun.com/document_detail/2717999.html) API.
+   * The parameter list of the robot in JSON format. The total length cannot exceed 512 bytes. You can view the parameters on the [Script Management](https://aiccs.console.aliyun.com/patter/list) > **Details** > **Input/Output Parameters** page or by calling the [ListRobotParams](https://help.aliyun.com/document_detail/2717999.html) operation.
    * 
    * @example
    * {
-   *   "name": "张三",
+   *   "name": "Zhang San",
    *   "age": "25"
    * }
    */
   params?: string;
   /**
    * @remarks
-   * Whether to record the call. Valid values:
+   * Specifies whether to record the call. Valid values:
    * 
    * - **false** (default): Do not record.
    * - **true**: Record.
@@ -70,7 +70,7 @@ export class RobotCallRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Robot ID, which is the script ID. View the reviewed and approved script ID in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface.
+   * The robot ID, which is the script ID. You can view approved script IDs on the [Script Management](https://aiccs.console.aliyun.com/patter/list) page.
    * 
    * This parameter is required.
    * 
