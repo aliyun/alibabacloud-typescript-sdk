@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStorageAmountSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The date of the statistics.
+   * The date for statistics collection, in the YYYYMMdd format.
    * 
    * @example
    * 20241205
@@ -13,7 +13,7 @@ export class GetStorageAmountSummaryResponseBodyData extends $dara.Model {
   date?: string;
   /**
    * @remarks
-   * The timestamp. This API does not return this parameter.
+   * The timestamp. This API operation does not return this field.
    * 
    * @example
    * -
@@ -21,13 +21,12 @@ export class GetStorageAmountSummaryResponseBodyData extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The unit of the storage metrics. This API does not return this parameter.
+   * The unit of the storage metric. This API operation does not return this field.
    */
   unit?: { [key: string]: string };
   /**
    * @remarks
-   * The storage metrics. The metrics include the following:
-   * 
+   * The storage metrics. Valid values:
    * - projectAmount
    * - schemaAmount
    * - tableAmount
@@ -75,9 +74,9 @@ export class GetStorageAmountSummaryResponseBody extends $dara.Model {
   data?: GetStorageAmountSummaryResponseBodyData;
   /**
    * @remarks
-   * The business error code or an empty value.
-   * 
+   * The business error code, or an empty value.
    * - If success is false, a business error code is returned.
+   *  
    * - If success is true, an empty value is returned.
    * 
    * @example
@@ -94,7 +93,7 @@ export class GetStorageAmountSummaryResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the business is successful. If this parameter is not empty and the value is not 200, the business processing failed.
+   * The HTTP status code that indicates whether the business request was successful. A non-empty value other than 200 indicates a business processing failure.
    * 
    * @example
    * 200

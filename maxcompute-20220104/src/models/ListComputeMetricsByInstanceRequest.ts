@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the query time range, specified as a UNIX timestamp in milliseconds.
+   * The end date. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1718590596556
@@ -13,7 +13,7 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The job ID.
    * 
    * @example
    * 20240730****ddlr
@@ -37,7 +37,7 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The names of the projects.
+   * The project name.
    */
   projectNames?: string[];
   /**
@@ -63,7 +63,7 @@ export class ListComputeMetricsByInstanceRequest extends $dara.Model {
   specCodes?: string[];
   /**
    * @remarks
-   * The start of the query time range, specified as a UNIX timestamp in milliseconds.
+   * The start date. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1715393576201

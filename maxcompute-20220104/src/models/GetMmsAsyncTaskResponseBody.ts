@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 15:44:00
@@ -13,7 +13,7 @@ export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the task stopped running.
+   * The end time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 17:44:17
@@ -45,7 +45,7 @@ export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
   objectId?: number;
   /**
    * @remarks
-   * The progress of the task.
+   * The running progress.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The result of the task.
+   * The running result.
    * 
    * @example
    * null
@@ -77,7 +77,7 @@ export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
   sourceId?: number;
   /**
    * @remarks
-   * The time when the task started to run.
+   * The start time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 15:44:17
@@ -85,7 +85,7 @@ export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the asynchronous task.
+   * The asynchronous task status.
    * 
    * @example
    * DONE
@@ -93,7 +93,7 @@ export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the asynchronous task.
+   * The asynchronous task type.
    * 
    * @example
    * TASK_CREATE

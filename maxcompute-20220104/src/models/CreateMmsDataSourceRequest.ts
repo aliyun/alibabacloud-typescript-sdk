@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMmsDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the data source.
+   * The data source configurations. Call ListMmsDataSourceConfigItems first to retrieve the valid and required configuration items for the target data source type, and then construct this object accordingly.
    */
   config?: { [key: string]: any };
   /**

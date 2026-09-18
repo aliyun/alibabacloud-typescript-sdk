@@ -13,9 +13,13 @@ export class ListJobInfosRequest extends $dara.Model {
   ascOrder?: boolean;
   /**
    * @remarks
-   * The list of upstream node IDs.
+   * The upstream node IDs.
    */
   extNodeIdList?: string[];
+  /**
+   * @remarks
+   * The upstream node names.
+   */
   extNodeNameList?: string[];
   /**
    * @remarks
@@ -29,22 +33,22 @@ export class ListJobInfosRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The list of job instance IDs.
+   * The job instance IDs.
    */
   instanceIdList?: string[];
   /**
    * @remarks
-   * The list of job owners.
+   * The job owners.
    */
   jobOwnerList?: string[];
   /**
    * @remarks
-   * The list of job priorities.
+   * The job priorities.
    */
   priorityList?: number[];
   /**
    * @remarks
-   * The list of project names.
+   * The project names.
    */
   projectList?: string[];
   /**
@@ -57,29 +61,33 @@ export class ListJobInfosRequest extends $dara.Model {
   quotaNickname?: string;
   /**
    * @remarks
-   * The list of intelligent diagnostics tags.
+   * The intelligent diagnosis labels.
    */
   sceneTagList?: string[];
   /**
    * @remarks
-   * The list of job signatures.
+   * The job signatures.
    */
   signatureList?: string[];
   /**
    * @remarks
-   * The list of columns for multi-column sorting.
+   * The fields used for multi-column sorting.
    */
   sortByList?: string[];
   /**
    * @remarks
-   * The list of sort orders for multi-column sorting.
+   * The sort orders for multi-column sorting.
    */
   sortOrderList?: string[];
   /**
    * @remarks
-   * The list of job statuses.
+   * The job statuses.
    */
   statusList?: string[];
+  /**
+   * @remarks
+   * The job names.
+   */
   taskNameList?: string[];
   /**
    * @remarks
@@ -93,7 +101,7 @@ export class ListJobInfosRequest extends $dara.Model {
   to?: number;
   /**
    * @remarks
-   * The list of job types.
+   * The job types.
    */
   typeList?: string[];
   /**

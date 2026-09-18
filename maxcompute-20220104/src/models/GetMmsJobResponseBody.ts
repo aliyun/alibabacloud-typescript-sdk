@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetMmsJobResponseBodyDataConfig extends $dara.Model {
   /**
    * @remarks
-   * {Source column name: Destination column name}
+   * The column name mapping in the format of {source column name: destination column name}.
    */
   columnMapping?: { [key: string]: string };
   /**
    * @remarks
-   * Enables data verification. The current verification method is to execute a SELECT COUNT statement on the source and destination to compare the row counts.
+   * Specifies whether to enable verification. The current verification method executes SELECT COUNT on both the source and destination to compare row counts.
    * 
    * @example
    * true
@@ -18,7 +18,7 @@ export class GetMmsJobResponseBodyDataConfig extends $dara.Model {
   enableVerification?: boolean;
   /**
    * @remarks
-   * Incremental migration. Only new or modified partitions are migrated. Note: Modified partitions are re-migrated.
+   * Specifies whether to enable incremental migration. Only new partitions or modified partitions are migrated. Modified partitions are re-migrated.
    * 
    * @example
    * true
@@ -26,7 +26,7 @@ export class GetMmsJobResponseBodyDataConfig extends $dara.Model {
   increment?: boolean;
   /**
    * @remarks
-   * Other configuration information.
+   * The additional configuration information.
    * 
    * @example
    * {"spark.executor.mem": "2g"}
@@ -34,17 +34,17 @@ export class GetMmsJobResponseBodyDataConfig extends $dara.Model {
   others?: { [key: string]: any };
   /**
    * @remarks
-   * The partition filter expression. This parameter specifies the partition filter expression for a specific table.
+   * The partition filter expressions. Specifies the partition filter expression for a given table.
    */
   partitionFilters?: { [key: string]: string };
   /**
    * @remarks
-   * If type is set to Partitions, this parameter specifies the list of partition IDs of the table to migrate.
+   * The list of partition IDs of the tables to migrate. This parameter takes effect when type is set to Partitions.
    */
   partitions?: number[];
   /**
    * @remarks
-   * Deprecated
+   * Depcreated
    * 
    * @example
    * false
@@ -52,7 +52,7 @@ export class GetMmsJobResponseBodyDataConfig extends $dara.Model {
   schemaOnly?: boolean;
   /**
    * @remarks
-   * If type is set to Database, this parameter specifies the tables to exclude from the migration.
+   * The list of tables to exclude from migration. This parameter takes effect when type is set to Database.
    */
   tableBlackList?: string[];
   /**
@@ -62,17 +62,17 @@ export class GetMmsJobResponseBodyDataConfig extends $dara.Model {
   tableMapping?: { [key: string]: string };
   /**
    * @remarks
-   * If type is set to Database, this parameter specifies the list of tables to migrate. If you do not specify this parameter, all tables in the database are migrated.
+   * The list of tables to migrate. This parameter takes effect when type is set to Database. If tableWhiteList is not specified, all tables in the corresponding database are migrated.
    */
   tableWhiteList?: string[];
   /**
    * @remarks
-   * If type is set to Tables, this parameter specifies the list of names of the tables to migrate.
+   * The list of table names to migrate. This parameter takes effect when type is set to Tables.
    */
   tables?: string[];
   /**
    * @remarks
-   * Deprecated. Valid values: MOCK, HIVE (a Hive user-defined table-valued function (UDTF) task), HIVE_DATAX (a Hive DataX task), COPY_TASK (an ODPS Copy Task), ODPS_INSERT_OVERWRITE (an ODPS simple insert overwrite task), MC2MC_VERIFY, OSS, HIVE_OSS, HIVE_SPARK, and BIGQUERY.
+   * **[Deprecated]** Valid values: MOCK, HIVE (hive udtf task), HIVE_DATAX (hive datax task), COPY_TASK (ODPS Copy Task), ODPS_INSERT_OVERWRITE (ODPS simple insert overwrite task), MC2MC_VERIFY, OSS, HIVE_OSS, HIVE_SPARK, BIGQUERY.
    * 
    * @example
    * BIGQUERY
@@ -80,7 +80,7 @@ export class GetMmsJobResponseBodyDataConfig extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * Deprecated
+   * Depcreated
    * 
    * @example
    * Depcreated
@@ -163,7 +163,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   config?: GetMmsJobResponseBodyDataConfig;
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 15:44:17
@@ -195,7 +195,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   dstSchemaName?: string;
   /**
    * @remarks
-   * The expected completion time of the migration. Note: A smaller eta value indicates a higher priority for the migration task.
+   * The expected migration completion time. A smaller eta value indicates a higher priority for the migration task.
    * 
    * @example
    * 2025-05-06
@@ -211,7 +211,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the migration job.
+   * The migration job name.
    * 
    * @example
    * migrate_db_1
@@ -227,7 +227,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   sourceId?: number;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * demo
@@ -235,7 +235,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   sourceName?: string;
   /**
    * @remarks
-   * The name of the source database.
+   * The source database name.
    * 
    * @example
    * mms_test
@@ -243,7 +243,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   srcDbName?: string;
   /**
    * @remarks
-   * The name of the source schema. This parameter specifies the schema in a Layer 3 namespace.
+   * The source schema name in a three-level namespace.
    * 
    * @example
    * default
@@ -251,7 +251,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   srcSchemaName?: string;
   /**
    * @remarks
-   * The status of the migration task.
+   * The migration task status.
    * 
    * @example
    * DOING
@@ -259,7 +259,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Stopped.
+   * Indicates whether the job is stopped.
    * 
    * @example
    * false
@@ -275,7 +275,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   taskDone?: number;
   /**
    * @remarks
-   * The number of migration tasks included in the job.
+   * The number of migration tasks included.
    * 
    * @example
    * 100
@@ -283,7 +283,7 @@ export class GetMmsJobResponseBodyData extends $dara.Model {
   taskNum?: number;
   /**
    * @remarks
-   * The migration scope. Valid values: Database, Tables, and Partitions.
+   * The migration scope. Valid values: Database, Tables, Partitions.
    * 
    * @example
    * Tables

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMmsTimerRequest extends $dara.Model {
   /**
    * @remarks
-   * The scheduling type of the task. Valid values: `Daily` and `Hourly`.
+   * The scheduling type of the scheduled task.
    * 
    * @example
    * Daily
@@ -13,12 +13,22 @@ export class UpdateMmsTimerRequest extends $dara.Model {
   scheduleType?: string;
   /**
    * @remarks
-   * Specifies whether the scheduled task is stopped.
+   * Indicates whether the scheduled task is stopped.
    */
   stopped?: boolean;
   /**
    * @remarks
-   * The execution time of the scheduled task. If `scheduleType` is set to `Daily`, specify the time in the HH:mm format. If `scheduleType` is set to `Hourly`, specify the minute in the mm format.
+   * The tables to exclude when type is set to Database.
+   */
+  tableBlackList?: string[];
+  /**
+   * @remarks
+   * The tables to migrate when type is set to Database.
+   */
+  tableWhiteList?: string[];
+  /**
+   * @remarks
+   * The scheduling time of the scheduled task. If scheduleType is set to Daily, the value is in the HH:MM format. If scheduleType is set to Hourly, the value is in the MM format.
    * 
    * @example
    * 2025-09-20
@@ -28,6 +38,8 @@ export class UpdateMmsTimerRequest extends $dara.Model {
     return {
       scheduleType: 'scheduleType',
       stopped: 'stopped',
+      tableBlackList: 'tableBlackList',
+      tableWhiteList: 'tableWhiteList',
       value: 'value',
     };
   }
@@ -36,11 +48,19 @@ export class UpdateMmsTimerRequest extends $dara.Model {
     return {
       scheduleType: 'string',
       stopped: 'boolean',
+      tableBlackList: { 'type': 'array', 'itemType': 'string' },
+      tableWhiteList: { 'type': 'array', 'itemType': 'string' },
       value: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tableBlackList)) {
+      $dara.Model.validateArray(this.tableBlackList);
+    }
+    if(Array.isArray(this.tableWhiteList)) {
+      $dara.Model.validateArray(this.tableWhiteList);
+    }
     super.validate();
   }
 

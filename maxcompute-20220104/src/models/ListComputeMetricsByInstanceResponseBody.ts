@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics extends $dara.Model {
   /**
    * @remarks
-   * The job completion time, as a UNIX timestamp in milliseconds.
+   * The job end time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710432000000
@@ -13,7 +13,7 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   endTime?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The job ID.
    * 
    * @example
    * 20240730****ddlr
@@ -21,7 +21,7 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   instanceId?: string;
   /**
    * @remarks
-   * The owner of the job.
+   * The job owner.
    * 
    * @example
    * ALIYUN$7632***@aliyun.com
@@ -29,7 +29,7 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   jobOwner?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The project name.
    * 
    * @example
    * odps_porject
@@ -37,7 +37,7 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   projectName?: string;
   /**
    * @remarks
-   * The signature of the SQL job.
+   * The SQL job signature.
    * 
    * @example
    * pqrs12345tuv
@@ -45,11 +45,9 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   signature?: string;
   /**
    * @remarks
-   * The specification type.
-   * 
-   * - `OdpsStandard`: Standard pay-as-you-go specification.
-   * 
-   * - `OdpsSpot`: Spot pay-as-you-go specification.
+   * The specification type. Valid values:
+   * - OdpsStandard: the pay-as-you-go billing method Standard Edition.
+   * - OdpsSpot: the pay-as-you-go billing method Off-peak Edition.
    * 
    * @example
    * OdpsStandard
@@ -57,7 +55,7 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   specCode?: string;
   /**
    * @remarks
-   * The job submission time, as a UNIX timestamp in milliseconds.
+   * The job submit time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1610432000000
@@ -65,19 +63,19 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
   submitTime?: number;
   /**
    * @remarks
-   * The metering type.
+   * The metering type. Valid values:
    * 
-   * - `ComputationSql`: Metrics for SQL jobs on internal tables.
+   * - ComputationSql: metering data of SQL jobs that operate on internal tables.
    * 
-   * - `ComputationSqlOTS`: Metrics for SQL jobs on Tablestore external tables.
+   * - ComputationSqlOTS: metering data of SQL jobs that operate on OTS external tables.
    * 
-   * - `ComputationSqlOSS`: Metrics for SQL jobs on OSS external tables.
+   * - ComputationSqlOSS: metering data of SQL jobs that operate on OSS external tables.
    * 
-   * - `MapReduce`: Metrics for MapReduce jobs.
+   * - MapReduce: metering data of MapReduce jobs.
    * 
-   * - `spark`: Metrics for Spark jobs.
+   * - spark: metering data of Spark jobs.
    * 
-   * - `mars`: Metrics for Mars jobs.
+   * - mars: metering data of Mars jobs.
    * 
    * @example
    * ComputationSql
@@ -95,9 +93,9 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
    * @remarks
    * The compute usage.
    * 
-   * - For jobs billed by the amount of data scanned, such as `ComputationSql`, `ComputationSqlOTS`, and `ComputationSqlOSS` jobs, the unit is GB. The usage is calculated as: Amount of scanned data × Complexity. The complexity factor for `ComputationSqlOTS` and `ComputationSqlOSS` jobs is 1.
+   * - For scan-based billing types, the unit is GB. This includes the ComputationSql, ComputationSqlOTS, and ComputationSqlOSS billing types, which are billed based on the amount of data scanned. The compute usage is calculated as the scan volume × complexity for each job. The complexity for ComputationSqlOTS and ComputationSqlOSS types is fixed at 1.
    * 
-   * - For jobs billed by CU-hours (such as `MapReduce`, `spark`, and `mars` jobs), the unit is CU-hour.
+   * - For CU-hour-based billing types, the unit is CU-hours. This includes the MapReduce, spark, and mars billing types, which are billed based on CU-hours.
    * 
    * @example
    * 1024
@@ -145,12 +143,12 @@ export class ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics 
 export class ListComputeMetricsByInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Usage metrics for pay-as-you-go jobs.
+   * The list of pay-as-you-go job compute usage.
    */
   instanceComputeMetrics?: ListComputeMetricsByInstanceResponseBodyDataInstanceComputeMetrics[];
   /**
    * @remarks
-   * The returned page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -205,22 +203,17 @@ export class ListComputeMetricsByInstanceResponseBodyData extends $dara.Model {
 export class ListComputeMetricsByInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListComputeMetricsByInstanceResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * - 1xx: Informational - The request has been received and is being processed.
-   * 
-   * - 2xx: Success - The request was successfully received, understood, and accepted.
-   * 
-   * - 3xx: Redirection - Further action is required to complete the request.
-   * 
-   * - 4xx: Client Error - The request contains invalid syntax or cannot be fulfilled.
-   * 
-   * - 5xx: Server Error - The server failed to fulfill a valid request.
+   * The HTTP status code. Valid values:
+   * - 1xx: Informational response. The request has been received and is being processed.
+   * - 2xx: Success. The request has been successfully received, understood, and accepted by the server.
+   * - 3xx: Redirection. The request is redirected, and further action is required to complete the request.
+   * - 4xx: Client error. The request contains invalid parameters, bad syntax, or specific request conditions cannot be fulfilled.
+   * - 5xx: Server error. The server cannot fulfill the request due to other reasons.
    * 
    * @example
    * 200

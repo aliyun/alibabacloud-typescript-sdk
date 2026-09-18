@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStorageAmountSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The date for which the statistics are collected. The statistics are collected on a daily basis. Specify the date in the YYYYMMDD format.
+   * The date for statistics collection. The value is at the day level and must be in the YYYYMMdd format.
    * 
    * @example
    * 20241205
@@ -21,7 +21,7 @@ export class GetStorageAmountSummaryRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The tenant ID. You can log on to the MaxCompute console and choose **Tenant Management** > **Tenant Properties** in the navigation pane on the left to view the tenant ID.
+   * The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing **Tenant Management** > **Tenant Properties** in the left-side navigation pane.
    * 
    * @example
    * 478403690625249

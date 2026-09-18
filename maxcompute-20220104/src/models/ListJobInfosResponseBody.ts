@@ -123,10 +123,17 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
    * node_4
    */
   extNodeId?: string;
+  /**
+   * @remarks
+   * The name of the external scheduling platform that submitted the job.
+   * 
+   * @example
+   * ods_wfq_company_industry_di
+   */
   extNodeName?: string;
   /**
    * @remarks
-   * The person responsible for execution.
+   * The person responsible for the execution.
    * 
    * @example
    * duty_2
@@ -140,6 +147,13 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
    * platform_3
    */
   extPlantFrom?: string;
+  /**
+   * @remarks
+   * The identifier of the external scheduling platform that submitted the job.
+   * 
+   * @example
+   * dataworks
+   */
   extPlatformId?: string;
   /**
    * @remarks
@@ -167,7 +181,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   jobOwner?: string;
   /**
    * @remarks
-   * The list of job types.
+   * The job types.
    * 
    * @example
    * SQL
@@ -207,7 +221,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The quota nickname used by the job.
+   * The nickname of the quota used by the job.
    * 
    * @example
    * my_quota
@@ -229,6 +243,13 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
    * cn-shanghai
    */
   region?: string;
+  /**
+   * @remarks
+   * The role session name of the entity that submitted the job through role assumption.
+   * 
+   * @example
+   * aliyunservicerole
+   */
   roleSessionName?: string;
   /**
    * @remarks
@@ -240,7 +261,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   runningAtTime?: number;
   /**
    * @remarks
-   * The running duration.
+   * The running time.
    * 
    * @example
    * 800
@@ -291,6 +312,13 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
    * []
    */
   tags?: string;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * console_query_task_1788796813532
+   */
   taskName?: string;
   /**
    * @remarks
@@ -467,12 +495,12 @@ export class ListJobInfosResponseBodyData extends $dara.Model {
 export class ListJobInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: ListJobInfosResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. If this parameter is not empty and is not 200, the business processing failed.
+   * The HTTP status code. If the value is not empty and is not 200, the request failed.
    * 
    * @example
    * 200

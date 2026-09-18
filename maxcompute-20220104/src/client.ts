@@ -186,7 +186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
+   * Creates a data source to perform data migration from the data source to MaxCompute through Migration Service (MMA 4.0).
    * 
    * @param request - CreateMmsDataSourceRequest
    * @param headers - map
@@ -231,7 +231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
+   * Creates a data source to perform data migration from the data source to MaxCompute through Migration Service (MMA 4.0).
    * 
    * @param request - CreateMmsDataSourceRequest
    * @returns CreateMmsDataSourceResponse
@@ -1273,7 +1273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
+   * Retrieves a single MMA asynchronous task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1298,7 +1298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
+   * Retrieves a single MMA asynchronous task.
    * @returns GetMmsAsyncTaskResponse
    */
   async getMmsAsyncTask(sourceId: string, asyncTaskId: string): Promise<$_model.GetMmsAsyncTaskResponse> {
@@ -1427,7 +1427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
+   * Retrieves the details of a single MMA migration plan.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1452,7 +1452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
+   * Retrieves the details of a single MMA migration plan.
    * @returns GetMmsJobResponse
    */
   async getMmsJob(sourceId: string, jobId: string): Promise<$_model.GetMmsJobResponse> {
@@ -2146,7 +2146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a summary of the total storage amount.
+   * Retrieves the total storage information.
    * 
    * @param request - GetStorageAmountSummaryRequest
    * @param headers - map
@@ -2187,7 +2187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a summary of the total storage amount.
+   * Retrieves the total storage information.
    * 
    * @param request - GetStorageAmountSummaryRequest
    * @returns GetStorageAmountSummaryResponse
@@ -2453,7 +2453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the compute usage for jobs per instance.
+   * Lists job compute usage at the instance level.
    * 
    * @param request - ListComputeMetricsByInstanceRequest
    * @param headers - map
@@ -2522,7 +2522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the compute usage for jobs per instance.
+   * Lists job compute usage at the instance level.
    * 
    * @param request - ListComputeMetricsByInstanceRequest
    * @returns ListComputeMetricsByInstanceResponse
@@ -6052,11 +6052,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the settings of a scheduled task.
+   * Updates a scheduled task.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the <props="china">[billing method and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
-   * <props="intl">[billing method and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
+   * Before you call this operation, make sure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of dedicated resource groups and elastic reserved compute resources for Data Transmission Service.
    * 
    * @param request - UpdateMmsTimerRequest
    * @param headers - map
@@ -6072,6 +6071,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.stopped)) {
       body["stopped"] = request.stopped;
+    }
+
+    if (!$dara.isNull(request.tableBlackList)) {
+      body["tableBlackList"] = request.tableBlackList;
+    }
+
+    if (!$dara.isNull(request.tableWhiteList)) {
+      body["tableWhiteList"] = request.tableWhiteList;
     }
 
     if (!$dara.isNull(request.value)) {
@@ -6097,11 +6104,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the settings of a scheduled task.
+   * Updates a scheduled task.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the <props="china">[billing method and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
-   * <props="intl">[billing method and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
+   * Before you call this operation, make sure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of dedicated resource groups and elastic reserved compute resources for Data Transmission Service.
    * 
    * @param request - UpdateMmsTimerRequest
    * @returns UpdateMmsTimerResponse
