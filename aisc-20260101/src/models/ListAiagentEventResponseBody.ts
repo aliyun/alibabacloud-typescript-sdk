@@ -45,7 +45,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   assetType?: string;
   /**
    * @remarks
-   * The check time.
+   * The check time, in UNIX timestamp format. Unit: seconds.
    * 
    * @example
    * 1763949968
@@ -53,7 +53,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   checkTime?: string;
   /**
    * @remarks
-   * The event handling time.
+   * The event handling time, in UNIX timestamp format. Unit: seconds.
    * 
    * @example
    * 1763949968
@@ -143,6 +143,13 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
    * Weak password
    */
   riskName?: string;
+  /**
+   * @remarks
+   * The associated skill ID.
+   * 
+   * @example
+   * 0
+   */
   skillId?: number;
   /**
    * @remarks
@@ -173,12 +180,12 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cloud asset vendor. Valid values:
-   * - **DIFY**: DIFY.
-   * - **BAILIAN**: BAILIAN.
-   * - **VOLCAI**: VOLCAI.
-   * - **AGENTRUN**: AGENTRUN.
-   * - **PAI**: PAI.
-   * - **OpenClaw**: OpenClaw.
+   * - ** DIFY**: DIFY
+   * - ** BAILIAN**: BAILIAN
+   * - ** VOLCAI**: VOLCAI
+   * - ** AGENTRUN**: AGENTRUN
+   * - ** PAI**: PAI
+   * - ** OpenClaw**: OpenClaw
    * 
    * @example
    * DIFY

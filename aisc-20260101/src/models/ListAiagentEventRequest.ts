@@ -88,12 +88,18 @@ export class ListAIAgentEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Sort direction
+   * The sort order. Valid values: asc indicates ascending order. desc indicates descending order.
+   * 
+   * @example
+   * asc
    */
   order?: string;
   /**
    * @remarks
-   * Sort field, currently supports CheckTime
+   * The field by which to sort results. Currently, only sorting by check time is supported.
+   * 
+   * @example
+   * CheckTime
    */
   orderBy?: string;
   /**
@@ -104,6 +110,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The risk level of the check item to query. Valid values:
@@ -158,12 +165,12 @@ export class ListAIAgentEventRequest extends $dara.Model {
   /**
    * @remarks
    * The cloud asset vendor. Valid values:
-   * - **DIFY**: DIFY.
-   * - **BAILIAN**: BAILIAN.
-   * - **VOLCAI**: VOLCAI.
-   * - **AGENTRUN**: AGENTRUN.
-   * - **PAI**: PAI.
-   * - **OpenClaw**: OpenClaw.
+   * - ** DIFY**: DIFY
+   * - ** BAILIAN**: BAILIAN
+   * - ** VOLCAI**: VOLCAI
+   * - ** AGENTRUN**: AGENTRUN
+   * - ** PAI**: PAI
+   * - ** OpenClaw**: OpenClaw
    * 
    * @example
    * DIFY
@@ -183,6 +190,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
       order: 'Order',
       orderBy: 'OrderBy',
       pageSize: 'PageSize',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       riskLevel: 'RiskLevel',
       riskName: 'RiskName',
       source: 'Source',
@@ -206,6 +214,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
       order: 'string',
       orderBy: 'string',
       pageSize: 'number',
+      resourceDirectoryAccountId: 'number',
       riskLevel: 'string',
       riskName: 'string',
       source: 'string',

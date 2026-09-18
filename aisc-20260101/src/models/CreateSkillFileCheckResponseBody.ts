@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillFileCheckResponseBodyDataUploadResults extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the file upload fails.
+   * The error message returned when the file fails to be uploaded.
    * 
    * @example
    * Network error.
@@ -13,7 +13,7 @@ export class CreateSkillFileCheckResponseBodyDataUploadResults extends $dara.Mod
   errorMsg?: string;
   /**
    * @remarks
-   * The SHA256 value of the uploaded file.
+   * The SHA256 hash of the uploaded file.
    * 
    * @example
    * 514f44ebed1d0c1df5e16a116080b64b

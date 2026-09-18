@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateSkillFileCheckRequestFiles extends $dara.Model {
   /**
    * @remarks
@@ -62,7 +60,7 @@ export class CreateSkillFileCheckRequest extends $dara.Model {
   files?: CreateSkillFileCheckRequestFiles[];
   /**
    * @remarks
-   * The upload source. If left empty, the default value is user_upload. Use sec_ops_agent for the security operations agent.
+   * The upload source. If left empty, user_upload is used by default. Security operations agents use sec_ops_agent.
    * 
    * @example
    * sec_ops_agent
