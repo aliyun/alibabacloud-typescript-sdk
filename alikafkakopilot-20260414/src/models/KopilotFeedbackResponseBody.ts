@@ -3,9 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class KopilotFeedbackResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The return code. A value of 200 indicates success.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The data returned when the call is successful.
+   */
   data?: { [key: string]: number };
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E522C7AB-AA99-53B1-BEE7-8BA83ED678F7
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
