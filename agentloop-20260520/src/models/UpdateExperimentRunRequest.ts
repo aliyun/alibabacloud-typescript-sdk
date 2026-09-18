@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateExperimentRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The experiment completion time. A millisecond-level UNIX timestamp.
+   * The experiment completion time. This value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1784719989371
@@ -21,7 +21,7 @@ export class UpdateExperimentRunRequest extends $dara.Model {
   completedTasks?: number;
   /**
    * @remarks
-   * The experiment execution time. A millisecond-level UNIX timestamp.
+   * The experiment execution time. This value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1784719439255
@@ -45,7 +45,7 @@ export class UpdateExperimentRunRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The experiment record status. Set to cancelled to cancel execution.
+   * The experiment record status. Set this parameter to cancelled to cancel the execution.
    * 
    * @example
    * running

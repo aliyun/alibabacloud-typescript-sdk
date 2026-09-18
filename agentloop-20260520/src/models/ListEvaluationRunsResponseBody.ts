@@ -161,7 +161,7 @@ export class ListEvaluationRunsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that no more pages exist.
+   * The pagination token for the next page. An empty value indicates that no more pages are available.
    * 
    * @example
    * eyJsYXN0SWQiOjEyMH0=

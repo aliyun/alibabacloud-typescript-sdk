@@ -13,7 +13,7 @@ export class GetEvaluationRunResponseBodyEvaluatorProgress extends $dara.Model {
   evaluatorName?: string;
   /**
    * @remarks
-   * The number of failed entries for this evaluator.
+   * The number of failed items for this evaluator.
    * 
    * @example
    * 4
@@ -21,7 +21,7 @@ export class GetEvaluationRunResponseBodyEvaluatorProgress extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The number of successful entries for this evaluator.
+   * The number of successful items for this evaluator.
    * 
    * @example
    * 96
@@ -29,7 +29,7 @@ export class GetEvaluationRunResponseBodyEvaluatorProgress extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The total number of entries for this evaluator.
+   * The total number of items for this evaluator.
    * 
    * @example
    * 100
@@ -73,7 +73,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The end time of the data window for the run, in seconds-level UNIX timestamp.
+   * The end time of the run data window, in seconds-level UNIX timestamp.
    * 
    * @example
    * 1782902400
@@ -81,7 +81,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   dataEndTime?: number;
   /**
    * @remarks
-   * The start time of the data window for the run, in seconds-level UNIX timestamp.
+   * The start time of the run data window, in seconds-level UNIX timestamp.
    * 
    * @example
    * 1782816000
@@ -89,7 +89,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   dataStartTime?: number;
   /**
    * @remarks
-   * The list of progress details by evaluator.
+   * The list of progress entries by evaluator.
    * 
    * @example
    * [{"evaluatorName":"Builtin.agent_task_completion","totalCount":100,"successCount":96,"failedCount":4}]
@@ -97,7 +97,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   evaluatorProgress?: GetEvaluationRunResponseBodyEvaluatorProgress[];
   /**
    * @remarks
-   * The evaluator configuration snapshot at the time the run was created, in JSON string format.
+   * The snapshot of the evaluator configuration at the time the run was created, in JSON string format.
    * 
    * @example
    * [{"evaluatorRef":"Builtin.agent_task_completion"}]
@@ -105,7 +105,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   evaluators?: string;
   /**
    * @remarks
-   * The number of failed entries.
+   * The number of failed items.
    * 
    * @example
    * 4
@@ -153,7 +153,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of successful entries.
+   * The number of successful items.
    * 
    * @example
    * 96
@@ -169,7 +169,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The total number of evaluation entries.
+   * The total number of evaluation items.
    * 
    * @example
    * 100

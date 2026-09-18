@@ -15,7 +15,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The task source.
+   * The source of the task.
    * 
    * @example
    * default
@@ -23,7 +23,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The data source and execution configuration. Tasks with `dataType=trace` typically contain `project`, `storeName`, and `dataScope` fields that are populated by the backend.
+   * The data source and execution configuration. Tasks with `dataType=trace` typically contain backend-populated `project`, `storeName`, and `dataScope` fields.
    * 
    * @example
    * {"project":"agentspace-project","storeName":"logstore-tracing","dataScope":"trace"}
@@ -31,7 +31,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   config?: { [key: string]: string };
   /**
    * @remarks
-   * The creation time, in seconds-level UNIX timestamp.
+   * The creation time, in seconds as a UNIX timestamp.
    * 
    * @example
    * 1782816000
@@ -39,7 +39,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The evaluation data filter condition, returned by the backend as a JSON string.
+   * The evaluation data filter conditions, returned by the backend as a JSON string.
    * 
    * @example
    * {"query":"serviceName=\\"checkout-service\\"","maxRecords":10,"samplingRate":100}
@@ -55,10 +55,10 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The evaluation task description.
+   * The description of the evaluation task.
    * 
    * @example
-   * Evaluate the task completion rate of the online Agent pipeline
+   * Evaluate the task completion of the online Agent pipeline
    */
   description?: string;
   /**
@@ -87,7 +87,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The structured configuration of the run strategy, including the parsed backfill strategy and continuous evaluation strategy.
+   * The structured run strategy configuration, including the parsed backfill strategy and continuous evaluation strategy.
    * 
    * @example
    * {"backfill":{"enabled":true,"startTime":1782816000000,"endTime":1782902400000},"continuous":{"enabled":true,"intervalUnit":"HOUR","intervalValue":1,"dataDelayMinutes":5}}
@@ -135,7 +135,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The last update time, in seconds-level UNIX timestamp.
+   * The last update time, in seconds as a UNIX timestamp.
    * 
    * @example
    * 1782816600

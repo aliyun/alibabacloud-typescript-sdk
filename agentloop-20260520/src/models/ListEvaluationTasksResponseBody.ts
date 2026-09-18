@@ -30,10 +30,10 @@ export class ListEvaluationTasksResponseBodyEvaluationTasks extends $dara.Model 
   dataType?: string;
   /**
    * @remarks
-   * The evaluation task description.
+   * The description of the evaluation task.
    * 
    * @example
-   * 评估线上 Agent 链路任务完成度
+   * Evaluate the task completion of the online Agent trace
    */
   description?: string;
   /**
@@ -187,7 +187,7 @@ export class ListEvaluationTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records. The total count is returned only on the first page. This value may be empty on subsequent pages.
+   * The total number of records. The total count is calculated only on the first page. This value may be empty on subsequent pages.
    * 
    * @example
    * 126

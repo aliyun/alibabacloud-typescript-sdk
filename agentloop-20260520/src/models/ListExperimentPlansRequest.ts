@@ -37,7 +37,7 @@ export class ListExperimentPlansRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * Fuzzy match by plan name.
+   * Fuzzy matches experiment plans by plan name.
    * 
    * @example
    * arms_agent
@@ -45,7 +45,7 @@ export class ListExperimentPlansRequest extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * Filters by exact status.
+   * Filters experiment plans by exact status.
    * 
    * @example
    * pending

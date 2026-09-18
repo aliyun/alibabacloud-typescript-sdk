@@ -7,7 +7,7 @@ import { ExperimentConfig } from "./ExperimentConfig";
 export class GetExperimentPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in millisecond-level UNIX timestamp.
+   * The creation time. The value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1782816000000
@@ -26,7 +26,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
    * The description.
    * 
    * @example
-   * Compare the checkout Agent baseline with the optimized version
+   * Compare checkout Agent baseline with optimized version
    */
   description?: string;
   /**
@@ -100,7 +100,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of data item IDs selected in partial dataset mode.
+   * The list of selected data item IDs in partial dataset mode.
    * 
    * @example
    * ["019ef4d5-a0f0-7114-832d-5542d771cd8c"]
@@ -116,7 +116,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time, in millisecond-level UNIX timestamp.
+   * The update time. The value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1782816600000

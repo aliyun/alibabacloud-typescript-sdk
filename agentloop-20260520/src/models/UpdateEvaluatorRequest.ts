@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEvaluatorRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of annotation marks.
+   * The list of annotation tags.
    * 
    * @example
    * ["__en"]
@@ -13,10 +13,10 @@ export class UpdateEvaluatorRequest extends $dara.Model {
   annotations?: string[];
   /**
    * @remarks
-   * The new version configuration. This parameter is typically required when `version` is specified.
+   * The configuration of the new version. This parameter is typically required when `version` is specified.
    * 
    * @example
-   * {"prompt":"请更严格地评估任务完成度"}
+   * {"prompt":"Evaluate task completion more strictly"}
    */
   config?: { [key: string]: any };
   /**
@@ -24,7 +24,7 @@ export class UpdateEvaluatorRequest extends $dara.Model {
    * The evaluator description.
    * 
    * @example
-   * 判断 Agent 是否完成用户任务
+   * Determines whether the agent completes the user task
    */
   description?: string;
   /**
@@ -32,7 +32,7 @@ export class UpdateEvaluatorRequest extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 链路任务完成度
+   * Task completion of the chain
    */
   displayName?: string;
   /**
@@ -45,7 +45,7 @@ export class UpdateEvaluatorRequest extends $dara.Model {
   properties?: { [key: string]: any };
   /**
    * @remarks
-   * The new version number. If specified, a new version is created.
+   * The new version number. A new version is created when this parameter is specified.
    * 
    * @example
    * 1.1.0
@@ -56,7 +56,7 @@ export class UpdateEvaluatorRequest extends $dara.Model {
    * The version description.
    * 
    * @example
-   * 优化评分说明
+   * Optimized scoring instructions
    */
   versionDescription?: string;
   /**

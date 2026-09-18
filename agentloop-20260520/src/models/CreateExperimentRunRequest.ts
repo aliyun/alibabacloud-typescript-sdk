@@ -6,7 +6,7 @@ import { OfflineExperimentConfig } from "./OfflineExperimentConfig";
 export class CreateExperimentRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The completion time, in millisecond-level UNIX timestamp.
+   * The completion time. The value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1784721811392
@@ -14,7 +14,7 @@ export class CreateExperimentRunRequest extends $dara.Model {
   completedAt?: number;
   /**
    * @remarks
-   * The number of completed tasks. If not specified, the default value is 0.
+   * The number of completed tasks. Default value: 0.
    * 
    * @example
    * 0
@@ -22,7 +22,7 @@ export class CreateExperimentRunRequest extends $dara.Model {
   completedTasks?: number;
   /**
    * @remarks
-   * The execution time, in millisecond-level UNIX timestamp.
+   * The execution time. The value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1784721775379
@@ -40,7 +40,7 @@ export class CreateExperimentRunRequest extends $dara.Model {
   experimentPlanId?: string;
   /**
    * @remarks
-   * The number of failed tasks. If not specified, the default value is 0.
+   * The number of failed tasks. Default value: 0.
    * 
    * @example
    * 0
@@ -48,7 +48,7 @@ export class CreateExperimentRunRequest extends $dara.Model {
   failedTasks?: number;
   /**
    * @remarks
-   * The list of offline experiment configurations. Required when the plan type is offline. The number of items ranges from 1 to 5.
+   * The list of offline experiment configurations. This parameter is required when the plan type is offline. You can specify 1 to 5 configurations.
    * 
    * @example
    * [{"label": "experimentA", "name": "experimentA"}]
@@ -56,7 +56,7 @@ export class CreateExperimentRunRequest extends $dara.Model {
   offlineExperiments?: OfflineExperimentConfig[];
   /**
    * @remarks
-   * The experiment record name. If not specified, the default value is the plan name plus a timestamp.
+   * The experiment record name. If not specified, the default value is the plan name followed by a timestamp.
    * 
    * @example
    * arms_agent_experiment 2026/07/22 20:02:55
@@ -64,7 +64,7 @@ export class CreateExperimentRunRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The initial status. If not specified, the default value is `pending`.
+   * The initial status. Default value: `pending`.
    * 
    * @example
    * pending

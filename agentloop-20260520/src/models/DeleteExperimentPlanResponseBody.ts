@@ -21,7 +21,7 @@ export class DeleteExperimentPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The deletion result. The value is deleted if the operation is successful.
+   * The deletion result. The value is deleted if the operation succeeds.
    * 
    * @example
    * deleted

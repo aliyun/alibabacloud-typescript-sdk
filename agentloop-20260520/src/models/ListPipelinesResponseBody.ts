@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce extends $dara.Model {
   /**
+   * @remarks
+   * The start of the time slice, in UNIX millisecond timestamp format.
+   * 
    * @example
    * 1735660800000
    */
   fromTime?: number;
   /**
+   * @remarks
+   * The end of the time slice, in UNIX millisecond timestamp format.
+   * 
    * @example
    * 1735747200000
    */
@@ -38,11 +44,17 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce extends $dar
 
 export class ListPipelinesResponseBodyPipelinesExecutePolicyScheduled extends $dara.Model {
   /**
+   * @remarks
+   * The scheduling start time, in UNIX millisecond timestamp format.
+   * 
    * @example
    * 1735660800000
    */
   fromTime?: number;
   /**
+   * @remarks
+   * The scheduling interval, such as 1h or 30m.
+   * 
    * @example
    * 1h
    */
@@ -72,11 +84,24 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicyScheduled extends $d
 
 export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model {
   /**
+   * @remarks
+   * The scheduling mode. Valid values:
+   * - RunOnce: one-time execution.
+   * - Scheduled: periodic scheduling.
+   * 
    * @example
    * RunOnce
    */
   mode?: string;
+  /**
+   * @remarks
+   * The parameters for one-time execution. This parameter has a value only when mode is set to RunOnce.
+   */
   runOnce?: ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce;
+  /**
+   * @remarks
+   * The parameters for periodic scheduling. This parameter has a value only when mode is set to Scheduled.
+   */
   scheduled?: ListPipelinesResponseBodyPipelinesExecutePolicyScheduled;
   static names(): { [key: string]: string } {
     return {
@@ -111,11 +136,17 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model
 
 export class ListPipelinesResponseBodyPipelinesSinkConditionDefaultSinkDataset extends $dara.Model {
   /**
+   * @remarks
+   * The name of the AgentSpace to which the default destination dataset belongs.
+   * 
    * @example
    * my-agent-space
    */
   agentSpace?: string;
   /**
+   * @remarks
+   * The name of the default destination dataset.
+   * 
    * @example
    * other-result
    */
@@ -144,8 +175,15 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionDefaultSinkDataset e
 }
 
 export class ListPipelinesResponseBodyPipelinesSinkConditionDefaultSink extends $dara.Model {
+  /**
+   * @remarks
+   * The default destination dataset.
+   */
   dataset?: ListPipelinesResponseBodyPipelinesSinkConditionDefaultSinkDataset;
   /**
+   * @remarks
+   * The type of the default destination. Currently, only dataset is supported.
+   * 
    * @example
    * dataset
    */
@@ -178,11 +216,17 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionDefaultSink extends 
 
 export class ListPipelinesResponseBodyPipelinesSinkConditionRoutesSinkDataset extends $dara.Model {
   /**
+   * @remarks
+   * The name of the AgentSpace to which the destination dataset belongs.
+   * 
    * @example
    * my-agent-space
    */
   agentSpace?: string;
   /**
+   * @remarks
+   * The name of the destination dataset.
+   * 
    * @example
    * refund-result
    */
@@ -211,8 +255,15 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionRoutesSinkDataset ex
 }
 
 export class ListPipelinesResponseBodyPipelinesSinkConditionRoutesSink extends $dara.Model {
+  /**
+   * @remarks
+   * The destination dataset of the route.
+   */
   dataset?: ListPipelinesResponseBodyPipelinesSinkConditionRoutesSinkDataset;
   /**
+   * @remarks
+   * The type of the route destination. Currently, only dataset is supported.
+   * 
    * @example
    * dataset
    */
@@ -245,15 +296,25 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionRoutesSink extends $
 
 export class ListPipelinesResponseBodyPipelinesSinkConditionRoutes extends $dara.Model {
   /**
+   * @remarks
+   * The route expression in SPL. Only where, project, and extend are supported.
+   * 
    * @example
    * * | where intent = \\"refund\\"
    */
   expression?: string;
   /**
+   * @remarks
+   * The route ID.
+   * 
    * @example
    * refund
    */
   id?: string;
+  /**
+   * @remarks
+   * The write destination of the route.
+   */
   sink?: ListPipelinesResponseBodyPipelinesSinkConditionRoutesSink;
   static names(): { [key: string]: string } {
     return {
@@ -284,12 +345,23 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionRoutes extends $dara
 }
 
 export class ListPipelinesResponseBodyPipelinesSinkCondition extends $dara.Model {
+  /**
+   * @remarks
+   * The default write destination that is used when no condition route is matched.
+   */
   defaultSink?: ListPipelinesResponseBodyPipelinesSinkConditionDefaultSink;
   /**
+   * @remarks
+   * The route matching mode. Currently, only all is supported.
+   * 
    * @example
    * all
    */
   matchMode?: string;
+  /**
+   * @remarks
+   * The list of condition routes.
+   */
   routes?: ListPipelinesResponseBodyPipelinesSinkConditionRoutes[];
   static names(): { [key: string]: string } {
     return {
@@ -324,11 +396,17 @@ export class ListPipelinesResponseBodyPipelinesSinkCondition extends $dara.Model
 
 export class ListPipelinesResponseBodyPipelinesSinkDataset extends $dara.Model {
   /**
+   * @remarks
+   * The name of the AgentSpace to which the destination dataset belongs.
+   * 
    * @example
    * my-agent-space
    */
   agentSpace?: string;
   /**
+   * @remarks
+   * The name of the destination dataset.
+   * 
    * @example
    * my-dataset
    */
@@ -357,9 +435,20 @@ export class ListPipelinesResponseBodyPipelinesSinkDataset extends $dara.Model {
 }
 
 export class ListPipelinesResponseBodyPipelinesSink extends $dara.Model {
+  /**
+   * @remarks
+   * The conditional routing configuration. This parameter is used only when sink.type is set to condition.
+   */
   condition?: ListPipelinesResponseBodyPipelinesSinkCondition;
+  /**
+   * @remarks
+   * The destination dataset configuration for the dataset sink. This parameter is used only when sink.type is set to dataset.
+   */
   dataset?: ListPipelinesResponseBodyPipelinesSinkDataset;
   /**
+   * @remarks
+   * The destination type. Valid values: dataset or condition.
+   * 
    * @example
    * condition
    */
@@ -397,11 +486,17 @@ export class ListPipelinesResponseBodyPipelinesSink extends $dara.Model {
 
 export class ListPipelinesResponseBodyPipelinesSourceDataset extends $dara.Model {
   /**
+   * @remarks
+   * The name of the source dataset.
+   * 
    * @example
    * my-dataset
    */
   dataset?: string;
   /**
+   * @remarks
+   * The data filter condition for the dataset.
+   * 
    * @example
    * status = \\"pending\\"
    */
@@ -431,16 +526,25 @@ export class ListPipelinesResponseBodyPipelinesSourceDataset extends $dara.Model
 
 export class ListPipelinesResponseBodyPipelinesSourceLogstore extends $dara.Model {
   /**
+   * @remarks
+   * The name of the SLS Logstore.
+   * 
    * @example
    * my-sls-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The name of the SLS project.
+   * 
    * @example
    * my-sls-project
    */
   project?: string;
   /**
+   * @remarks
+   * The data filtered query statement in SLS query/analysis syntax.
+   * 
    * @example
    * * | SELECT *
    */
@@ -471,9 +575,20 @@ export class ListPipelinesResponseBodyPipelinesSourceLogstore extends $dara.Mode
 }
 
 export class ListPipelinesResponseBodyPipelinesSource extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset datasource config in the current AgentSpace.
+   */
   dataset?: ListPipelinesResponseBodyPipelinesSourceDataset;
+  /**
+   * @remarks
+   * The Simple Log Service (SLS) Logstore datasource config.
+   */
   logstore?: ListPipelinesResponseBodyPipelinesSourceLogstore;
   /**
+   * @remarks
+   * The data source type. Valid values: logstore or dataset.
+   * 
    * @example
    * dataset
    */
@@ -512,6 +627,8 @@ export class ListPipelinesResponseBodyPipelinesSource extends $dara.Model {
 export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   /**
    * @remarks
+   * The time when the pipeline was created, in ISO 8601 UTC format.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -519,35 +636,70 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the pipeline.
+   * 
    * @example
-   * 我的流水线
+   * My pipeline
    */
   description?: string;
+  /**
+   * @remarks
+   * The execution policy.
+   */
   executePolicy?: ListPipelinesResponseBodyPipelinesExecutePolicy;
   /**
+   * @remarks
+   * The name of the pipeline.
+   * 
    * @example
    * my-pipeline
    */
   pipelineName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The scheduling status. Valid values:
+   * - None: no scheduling. This value is returned for RunOnce pipelines.
+   * - Active: active.
+   * - Paused: paused.
+   * - Terminated: terminated.
+   * 
    * @example
    * None
    */
   scheduleStatus?: string;
   /**
+   * @remarks
+   * The scheduling type. Valid values:
+   * - RunOnce: one-time execution.
+   * - Scheduled: periodic scheduling.
+   * 
    * @example
    * RunOnce
    */
   scheduleType?: string;
+  /**
+   * @remarks
+   * The pipeline sink (data write destination).
+   */
   sink?: ListPipelinesResponseBodyPipelinesSink;
+  /**
+   * @remarks
+   * The pipeline data source.
+   */
   source?: ListPipelinesResponseBodyPipelinesSource;
   /**
    * @remarks
+   * The time when the pipeline was last updated, in ISO 8601 UTC format.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -555,6 +707,9 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The workspace associated with the pipeline.
+   * 
    * @example
    * my-workspace
    */
@@ -611,22 +766,38 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
 
 export class ListPipelinesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries per page that was specified in the request. This value is echoed back.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page. An empty string indicates that the current page is the last page.
+   * 
    * @example
    * MTIzNDU2Nzg5MA==
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of pipelines.
+   */
   pipelines?: ListPipelinesResponseBodyPipelines[];
   /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of pipelines that match the filter conditions.
+   * 
    * @example
    * 100
    */

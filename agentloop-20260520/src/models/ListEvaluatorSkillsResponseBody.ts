@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
   /**
    * @remarks
-   * The creation time. This field is declared as int64 in CloudSpec, but the backend currently returns the StarOps `createTime` string field.
+   * The creation time. Declared as int64 in CloudSpec. The backend currently returns the StarOps `createTime` string field.
    * 
    * @example
    * 1782816000
@@ -16,7 +16,7 @@ export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
    * The skill description.
    * 
    * @example
-   * 读取链路上下文辅助评估
+   * Reads trace context to assist evaluation
    */
   description?: string;
   /**
@@ -24,7 +24,7 @@ export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
    * The display name.
    * 
    * @example
-   * Trace 上下文读取
+   * Trace Context Loader
    */
   displayName?: string;
   /**
@@ -53,7 +53,7 @@ export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The update time. This field is declared as int64 in CloudSpec, but the backend currently returns the StarOps `updateTime` string field.
+   * The update time. Declared as int64 in CloudSpec. The backend currently returns the StarOps `updateTime` string field.
    * 
    * @example
    * 1782816600
@@ -122,7 +122,7 @@ export class ListEvaluatorSkillsResponseBody extends $dara.Model {
    * The list of skill summaries.
    * 
    * @example
-   * [{"skillName":"trace_context_loader","displayName":"Trace 上下文读取","enable":true}]
+   * [{"skillName":"trace_context_loader","displayName":"Trace Context Loader","enable":true}]
    */
   skills?: ListEvaluatorSkillsResponseBodySkills[];
   /**

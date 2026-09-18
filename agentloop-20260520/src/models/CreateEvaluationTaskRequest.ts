@@ -15,7 +15,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The data source and execution configuration. When `dataType=trace`, the backend automatically populates the SLS Project and sets `storeName=logstore-tracing`. For trace-level evaluation, set `dataScope=trace`.
+   * The data source and execution configuration. When `dataType=trace`, the backend automatically populates the SLS Project and `storeName=logstore-tracing`. For trace-level Trace evaluation, set `dataScope=trace`.
    * 
    * @example
    * {"dataScope":"trace"}
@@ -31,7 +31,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   dataFilter?: string;
   /**
    * @remarks
-   * The data source type of the evaluation target. Use `trace` for trace-based evaluation.
+   * The data source type of the evaluation object. Use `trace` for trace-based evaluation.
    * 
    * @example
    * trace
@@ -39,7 +39,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The evaluation task description.
+   * The description of the evaluation task.
    * 
    * @example
    * Evaluate the task completion of online Agent traces
@@ -47,7 +47,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The evaluator configuration list. This parameter cannot be empty. Within the same task, `evaluatorRef` takes precedence as the unique identifier. Otherwise, `name` is used.
+   * The list of evaluator configurations. This parameter cannot be empty. Within the same task, `evaluatorRef` takes precedence. Otherwise, `name` is used as the unique identifier.
    * 
    * @example
    * [{"evaluatorRef":"Builtin.agent_task_completion","resultName":"agent_task_completion","resultType":"score","variableMapping":{"input":"trace.input","output":"trace.output","agent_trajectory":"trace.agent_trajectory"}}]
@@ -55,12 +55,12 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   evaluators?: Evaluator[];
   /**
    * @remarks
-   * The task execution strategies. Supports a JSON object or JSON string. `backfill` is used for historical data backfill, and `continuous` is used for continuous evaluation of new data.
+   * The task execution strategies. Supports a JSON object or JSON string. `backfill` is used for historical data backfill. `continuous` is used for continuous evaluation of new data.
    */
   runStrategies?: RunStrategies;
   /**
    * @remarks
-   * The task tag key-value pairs. You do not need to specify this parameter by default. Specify this parameter only when you need to associate or filter tasks by business tags.
+   * The task tag key-value pairs. No tags need to be specified by default. Specify tags only when you need to associate or filter tasks by business tags.
    * 
    * @example
    * {"env":"prod","serviceId":"checkout-service","planId":"plan-20260703"}
@@ -84,7 +84,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The idempotency token. This query parameter is declared in CloudSpec, but the backend does not currently perform idempotency comparison.
+   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency comparison.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

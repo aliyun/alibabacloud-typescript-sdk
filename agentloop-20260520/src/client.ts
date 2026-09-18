@@ -363,7 +363,7 @@ export default class Client extends OpenApi {
    * Creates an evaluation task.
    * 
    * @remarks
-   * Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+   * Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
    * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
    * 
    * @param request - CreateEvaluationTaskRequest
@@ -442,7 +442,7 @@ export default class Client extends OpenApi {
    * Creates an evaluation task.
    * 
    * @remarks
-   * Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+   * Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
    * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
    * 
    * @param request - CreateEvaluationTaskRequest
@@ -616,7 +616,7 @@ export default class Client extends OpenApi {
    * Creates an experiment plan.
    * 
    * @remarks
-   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
    * 
    * @param request - CreateExperimentPlanRequest
    * @param headers - map
@@ -688,7 +688,7 @@ export default class Client extends OpenApi {
    * Creates an experiment plan.
    * 
    * @remarks
-   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
    * 
    * @param request - CreateExperimentPlanRequest
    * @returns CreateExperimentPlanResponse
@@ -703,7 +703,7 @@ export default class Client extends OpenApi {
    * Executes an experiment.
    * 
    * @remarks
-   * Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+   * Calls CreateExperimentRun to initiate an experiment run based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you must pass `offlineExperiments` (1 to 5).
    * 
    * @param request - CreateExperimentRunRequest
    * @param headers - map
@@ -777,7 +777,7 @@ export default class Client extends OpenApi {
    * Executes an experiment.
    * 
    * @remarks
-   * Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+   * Calls CreateExperimentRun to initiate an experiment run based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you must pass `offlineExperiments` (1 to 5).
    * 
    * @param request - CreateExperimentRunRequest
    * @returns CreateExperimentRunResponse
@@ -1069,7 +1069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an evaluation task.
+   * Deletes a model evaluation task.
    * 
    * @param request - DeleteEvaluationTaskRequest
    * @param headers - map
@@ -1096,7 +1096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an evaluation task.
+   * Deletes a model evaluation task.
    * 
    * @param request - DeleteEvaluationTaskRequest
    * @returns DeleteEvaluationTaskResponse
@@ -1246,7 +1246,7 @@ export default class Client extends OpenApi {
    * Deletes an experiment record.
    * 
    * @remarks
-   * Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+   * Calls DeleteExperimentRun to delete a specified experiment run record. Deleting a record does not delete the experiment plan to which it belongs.
    * 
    * @param request - DeleteExperimentRunRequest
    * @param headers - map
@@ -1276,7 +1276,7 @@ export default class Client extends OpenApi {
    * Deletes an experiment record.
    * 
    * @remarks
-   * Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+   * Calls DeleteExperimentRun to delete a specified experiment run record. Deleting a record does not delete the experiment plan to which it belongs.
    * 
    * @param request - DeleteExperimentRunRequest
    * @returns DeleteExperimentRunResponse
@@ -2376,7 +2376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the skill list of an evaluator.
+   * Queries the list of skills for an evaluator.
    * 
    * @param request - ListEvaluatorSkillsRequest
    * @param headers - map
@@ -2417,7 +2417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the skill list of an evaluator.
+   * Queries the list of skills for an evaluator.
    * 
    * @param request - ListEvaluatorSkillsRequest
    * @returns ListEvaluatorSkillsResponse
@@ -2497,7 +2497,7 @@ export default class Client extends OpenApi {
    * Queries the list of experiment plans.
    * 
    * @remarks
-   * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+   * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination by using `offset`/`limit`.
    * 
    * @param request - ListExperimentPlansRequest
    * @param headers - map
@@ -2553,7 +2553,7 @@ export default class Client extends OpenApi {
    * Queries the list of experiment plans.
    * 
    * @remarks
-   * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+   * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination by using `offset`/`limit`.
    * 
    * @param request - ListExperimentPlansRequest
    * @returns ListExperimentPlansResponse
@@ -2709,7 +2709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists CI/CD pipelines.
+   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
    * 
    * @param request - ListPipelinesRequest
    * @param headers - map
@@ -2762,7 +2762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists CI/CD pipelines.
+   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
    * 
    * @param request - ListPipelinesRequest
    * @returns ListPipelinesResponse
@@ -3623,7 +3623,7 @@ export default class Client extends OpenApi {
    * Updates an experiment run.
    * 
    * @remarks
-   * Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+   * Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for an offline experiment: running → progress writeback → completed.
    * 
    * @param request - UpdateExperimentRunRequest
    * @param headers - map
@@ -3689,7 +3689,7 @@ export default class Client extends OpenApi {
    * Updates an experiment run.
    * 
    * @remarks
-   * Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+   * Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for an offline experiment: running → progress writeback → completed.
    * 
    * @param request - UpdateExperimentRunRequest
    * @returns UpdateExperimentRunResponse

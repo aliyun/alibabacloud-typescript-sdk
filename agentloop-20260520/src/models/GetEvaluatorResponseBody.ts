@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEvaluatorResponseBodyEvaluatorVersions extends $dara.Model {
   /**
    * @remarks
-   * The time when the version was created. The value is a UNIX timestamp in seconds.
+   * The version creation time, in seconds-level UNIX timestamp.
    * 
    * @example
    * 1782816000
@@ -24,7 +24,7 @@ export class GetEvaluatorResponseBodyEvaluatorVersions extends $dara.Model {
    * The version description.
    * 
    * @example
-   * 初始版本
+   * Initial version
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {
@@ -74,12 +74,12 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
    * The configuration of the current version.
    * 
    * @example
-   * {"prompt":"请评估任务完成度"}
+   * {"prompt":"Please evaluate the task completion"}
    */
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the evaluator was created. The value is a UNIX timestamp in seconds.
+   * The creation time, in seconds-level UNIX timestamp.
    * 
    * @example
    * 1782816000
@@ -98,7 +98,7 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
    * The evaluator description.
    * 
    * @example
-   * 判断 Agent 是否完成用户任务
+   * Determines whether the Agent has completed the user task
    */
   description?: string;
   /**
@@ -106,7 +106,7 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 链路任务完成度
+   * Trace task completion
    */
   displayName?: string;
   /**
@@ -151,7 +151,7 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the evaluator was last updated. The value is a UNIX timestamp in seconds.
+   * The update time, in seconds-level UNIX timestamp.
    * 
    * @example
    * 1782816600

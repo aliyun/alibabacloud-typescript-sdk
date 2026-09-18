@@ -29,7 +29,7 @@ export class CreateExperimentPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The creation result. A value of `created` indicates success.
+   * The creation result. The value `created` indicates success.
    * 
    * @example
    * created

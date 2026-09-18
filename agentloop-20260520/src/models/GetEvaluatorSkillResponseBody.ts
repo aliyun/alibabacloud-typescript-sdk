@@ -21,10 +21,10 @@ export class GetEvaluatorSkillResponseBodySkillFiles extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The file remarks.
+   * The file remark.
    * 
    * @example
-   * 主技能说明
+   * Main skill description
    */
   remark?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class GetEvaluatorSkillResponseBodySkillFiles extends $dara.Model {
 export class GetEvaluatorSkillResponseBodySkillVersions extends $dara.Model {
   /**
    * @remarks
-   * The time when the version was created. This value is a UNIX timestamp in seconds.
+   * The version creation time, in seconds-level UNIX timestamp.
    * 
    * @example
    * 1782816000
@@ -74,7 +74,7 @@ export class GetEvaluatorSkillResponseBodySkillVersions extends $dara.Model {
    * The version description.
    * 
    * @example
-   * 首次发布版本
+   * Initial release version
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class GetEvaluatorSkillResponseBodySkillVersions extends $dara.Model {
 export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
   /**
    * @remarks
-   * The time when the skill was created. This value is a UNIX timestamp in seconds.
+   * The creation time, in seconds-level UNIX timestamp.
    * 
    * @example
    * 1782816000
@@ -124,7 +124,7 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
    * The skill description.
    * 
    * @example
-   * 读取链路上下文辅助评估
+   * Read trace context to assist evaluation
    */
   description?: string;
   /**
@@ -132,7 +132,7 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
    * The display name.
    * 
    * @example
-   * Trace 上下文读取
+   * Trace Context Loader
    */
   displayName?: string;
   /**
@@ -148,7 +148,7 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
    * The list of skill files.
    * 
    * @example
-   * [{"name":"SKILL.md","content":"# Trace Context Loader","remark":"主技能说明"}]
+   * [{"name":"SKILL.md","content":"# Trace Context Loader","remark":"Main skill description"}]
    */
   files?: GetEvaluatorSkillResponseBodySkillFiles[];
   /**
@@ -169,7 +169,7 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The time when the skill was last updated. This value is a UNIX timestamp in seconds.
+   * The update time, in seconds-level UNIX timestamp.
    * 
    * @example
    * 1782816600
@@ -180,7 +180,7 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
    * The list of skill versions.
    * 
    * @example
-   * [{"version":"1782816000000","versionDescription":"首次发布版本"}]
+   * [{"version":"1782816000000","versionDescription":"Initial release version"}]
    */
   versions?: GetEvaluatorSkillResponseBodySkillVersions[];
   static names(): { [key: string]: string } {

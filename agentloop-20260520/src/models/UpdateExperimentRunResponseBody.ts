@@ -8,7 +8,7 @@ export class UpdateExperimentRunResponseBody extends $dara.Model {
    * The prompt message.
    * 
    * @example
-   * Experiment record updated successfully.
+   * Experiment record updated successfully
    */
   message?: string;
   /**

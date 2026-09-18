@@ -13,7 +13,7 @@ export class UpdateExperimentPlanResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the experiment plan.
+   * The experiment plan ID.
    * 
    * @example
    * exp-plan-e95bff54685a4ae29ff3a834c1008a71

@@ -22,7 +22,7 @@ export class ListExperimentPlansResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number information.
    * 
    * @example
    * 0
@@ -54,7 +54,7 @@ export class ListExperimentPlansResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the filter criteria.
+   * The total number of records that match the filter conditions.
    * 
    * @example
    * 6
