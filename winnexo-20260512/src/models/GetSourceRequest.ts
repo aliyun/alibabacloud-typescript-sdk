@@ -23,7 +23,7 @@ export class GetSourceRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The tenant ID to which the task belongs.
+   * The ID of the tenant to which the task belongs.
    * 
    * @example
    * 10000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * **The list of direct child user groups.**
+   * **Direct child user group list**
    */
   childGroups?: any[];
   /**
@@ -18,7 +18,7 @@ export class GetUserGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * **The list of direct members in the current user group.**
+   * **Direct member list of the current user group**
    */
   members?: any[];
   /**
@@ -31,7 +31,7 @@ export class GetUserGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * **The parent user group information. This is empty for the root node.**
+   * **Parent user group information. This value is empty for the root node.**
    * 
    * @example
    * {"userGroupId":"b07fb0a4-0b7d-44a7-a3d5-a43a5964c8f0","userGroupName":"Sales Center","parentId":null,"level":1,"description":"Sales organization","childGroupCount":1,"directMemberCount":0,"sourceType":"internal","externalSyncStatus":null,"gmtCreate":"2026-08-27T08:00:00Z","gmtModified":"2026-08-27T08:00:00Z"}
@@ -47,10 +47,10 @@ export class GetUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * **The target user group information.**
+   * **Target user group information**
    * 
    * @example
-   * {"userGroupId":"7ea8973f-7a5c-4e8a-956b-4fe0e7e2eb11","userGroupName":"South China Sales","parentId":"b07fb0a4-0b7d-44a7-a3d5-a43a5964c8f0","level":2,"description":"South China Sales organization","childGroupCount":0,"directMemberCount":2,"sourceType":"internal","externalSyncStatus":null,"gmtCreate":"2026-08-27T09:00:00Z","gmtModified":"2026-08-27T10:00:00Z"}
+   * {"userGroupId":"7ea8973f-7a5c-4e8a-956b-4fe0e7e2eb11","userGroupName":"South China Sales","parentId":"b07fb0a4-0b7d-44a7-a3d5-a43a5964c8f0","level":2,"description":"South China sales organization","childGroupCount":0,"directMemberCount":2,"sourceType":"internal","externalSyncStatus":null,"gmtCreate":"2026-08-27T09:00:00Z","gmtModified":"2026-08-27T10:00:00Z"}
    */
   userGroup?: any;
   static names(): { [key: string]: string } {

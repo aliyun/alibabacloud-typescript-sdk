@@ -21,7 +21,7 @@ export class GetSkillResponseBodyArguments extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of valid values, which is available when the options are limited.
+   * The list of valid values when options are limited.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class GetSkillResponseBodyArguments extends $dara.Model {
   enum?: string[];
   /**
    * @remarks
-   * The parameter name, which corresponds to the key in runSkill.arguments.
+   * The parameter name, corresponding to the key in runSkill.arguments.
    * 
    * @example
    * SampleName.pdf
@@ -88,7 +88,7 @@ export class GetSkillResponseBodyArguments extends $dara.Model {
 export class GetSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The simplified parameter schema that describes what needs to be passed in runSkill.arguments. This is automatically extracted from inputConfigFormatted.
+   * The simplified parameter schema that describes what to pass in runSkill.arguments. Automatically extracted from inputConfigFormatted.
    */
   arguments?: GetSkillResponseBodyArguments[];
   /**
@@ -109,7 +109,7 @@ export class GetSkillResponseBody extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The skill description, which has been resolved through internationalization (i18n).
+   * The skill description. The value is resolved through i18n.
    * 
    * @example
    * Sample description
@@ -178,7 +178,7 @@ export class GetSkillResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The skill name, which has been resolved through internationalization (i18n).
+   * The skill name. The value is resolved through i18n.
    * 
    * @example
    * SampleName.pdf
@@ -202,7 +202,7 @@ export class GetSkillResponseBody extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * The nested tree of skill files. This is returned only when includeSkillFiles is set to True.
+   * The nested skill file tree. This parameter is returned only when includeSkillFiles is set to True.
    */
   skillFiles?: { [key: string]: any }[];
   /**
@@ -239,7 +239,7 @@ export class GetSkillResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag list, which has been resolved through internationalization (i18n).
+   * The label list. The values are resolved through i18n.
    * 
    * @example
    * string_value
@@ -247,7 +247,7 @@ export class GetSkillResponseBody extends $dara.Model {
   tags?: string[];
   /**
    * @remarks
-   * The modification time in ISO 8601 format.
+   * The update time in ISO 8601 format.
    * 
    * @example
    * 2023-10-01T12:00:00Z

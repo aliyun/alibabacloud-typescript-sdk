@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 草稿变更 ID；内容与在线完全一致被跳过时为 null
+   * The draft change ID (the draftChangeId returned by listGraphDraftResources).
    * 
    * @example
    * 401001
@@ -21,7 +21,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   draftChangeId?: number;
   /**
    * @remarks
-   * 草稿内容哈希；被跳过时为 null
+   * The online content hash on which the draft save is based (draft starting point), a 64-character SHA-256 hexadecimal string.
    * 
    * @example
    * sha256:abc123
@@ -29,7 +29,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   draftContentHash?: string;
   /**
    * @remarks
-   * 资源小类：resourceType=object 时固定 object_type；resourceType=element 时为 indicator / logic / process / rule / analysis 之一
+   * The element type. Currently, only text is supported.
    * 
    * @example
    * object_type
@@ -37,7 +37,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   elementType?: string;
   /**
    * @remarks
-   * 最后修改时间（ISO8601）；被跳过时为 null
+   * The last modified time in ISO 8601 format.
    * 
    * @example
    * 2026-09-08T10:30:00+00:00
@@ -45,7 +45,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 图谱名称
+   * The graph name.
    * 
    * @example
    * crm_graph
@@ -53,7 +53,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
    * 
    * @example
    * The current zone list is illegal.
@@ -61,7 +61,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 操作类型：CREATE / UPDATE（由底层判定）；被跳过时为 null
+   * The operation type.
    * 
    * @example
    * UPDATE
@@ -69,7 +69,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -77,7 +77,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 资源名
+   * The resource name.
    * 
    * @example
    * customer
@@ -85,7 +85,7 @@ export class SaveGraphDraftResourceResponseBody extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * 资源大类：object（对象）/ element（业务元素）
+   * The resource type.
    * 
    * @example
    * object

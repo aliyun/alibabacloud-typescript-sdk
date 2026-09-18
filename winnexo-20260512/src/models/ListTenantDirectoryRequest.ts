@@ -41,7 +41,7 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
+   * The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC (case-insensitive).
    * 
    * @example
    * asc

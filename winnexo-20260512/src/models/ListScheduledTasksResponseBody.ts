@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The reason for the exception. This field has a value only when status is abnormal.
+   * The reason for the exception. This parameter has a value only when status is abnormal.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   abnormalReason?: string;
   /**
    * @remarks
-   * Indicates whether the current caller can delete the task (only the task creator and group owner can do so). Always returns true for personal tasks.
+   * Indicates whether the current caller can delete the task. Only the task creator and group owner can delete the task. For personal tasks, this value is always true.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * Indicates whether the task can be edited or deleted.
+   * Indicates whether the course can be edited or deleted.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   canEdit?: boolean;
   /**
    * @remarks
-   * Indicates whether the current caller can immediately execute the task (anyone with visibility can operate. Returns false for abnormal tasks). Always returns true for personal tasks.
+   * Indicates whether the current caller can immediately execute the task. A task is executable if it is visible to the caller, except for abnormal tasks which return false. For personal tasks, this value is always true.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   canExecute?: boolean;
   /**
    * @remarks
-   * Indicates whether the current caller can start or stop the task (only the task creator and group owner can do so. Returns false for abnormal tasks). Always returns true for personal tasks.
+   * Indicates whether the current caller can start or stop the task. Only the task creator and group owner can toggle the task. Abnormal tasks return false. For personal tasks, this value is always true.
    * 
    * @example
    * true
@@ -80,7 +80,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
    * The description of the to-do card type.
    * 
    * @example
-   * SampleDescription
+   * Sample description
    */
   description?: string;
   /**
@@ -93,7 +93,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   digitalEmployeeName?: string[];
   /**
    * @remarks
-   * The total number of executions.
+   * The cumulative number of executions.
    * 
    * @example
    * 1
@@ -157,7 +157,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The trigger type.
+   * The type of the trigger.
    * 
    * @example
    * string_value
@@ -170,7 +170,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
    * - COLLABORATIVE: visible to specified collaborators.
    * - PUBLIC: visible to all group members.
    * 
-   * For group tasks, the default value is PRIVATE if not specified. This field is ignored for personal tasks.
+   * If not specified for a group task, the default value is PRIVATE. This parameter is ignored for personal tasks.
    * 
    * @example
    * PRIVATE
@@ -178,7 +178,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The list of collaborators (excluding the task creator and group creator, who are covered by the authentication layer). This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility.
+   * The list of collaborator members, excluding the task creator and group creator whose access is governed by the authentication layer. This parameter is returned only for group tasks. An empty list is returned for PRIVATE and PUBLIC visibility.
    * 
    * @example
    * string_value

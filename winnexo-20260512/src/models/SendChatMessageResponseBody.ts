@@ -57,6 +57,19 @@ export class SendChatMessageResponseBody extends $dara.Model {
    * think
    */
   type?: string;
+  /**
+   * @remarks
+   * The session work mode that takes effect for the current turn. Valid values:
+   * - ask: Quick Q&A.
+   * - work: Deep work.
+   * - direct: Direct connection (request-level).
+   * 
+   * In multi-digital-employee or task execution scenarios, if ask is provided, work takes effect instead.
+   * 
+   * @example
+   * work
+   */
+  workMode?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
@@ -65,6 +78,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
       message: 'message',
       requestId: 'requestId',
       type: 'type',
+      workMode: 'workMode',
     };
   }
 
@@ -76,6 +90,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
       message: 'string',
       requestId: 'string',
       type: 'string',
+      workMode: 'string',
     };
   }
 

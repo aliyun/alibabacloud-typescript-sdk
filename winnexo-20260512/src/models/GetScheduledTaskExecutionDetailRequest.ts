@@ -15,7 +15,7 @@ export class GetScheduledTaskExecutionDetailRequest extends $dara.Model {
   executionId?: string;
   /**
    * @remarks
-   * The tenant ID that takes effect.
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

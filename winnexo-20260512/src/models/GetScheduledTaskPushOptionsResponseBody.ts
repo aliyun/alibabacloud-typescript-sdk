@@ -18,7 +18,7 @@ export class GetScheduledTaskPushOptionsResponseBodyChannelsImGroups extends $da
    * The external IM group name.
    * 
    * @example
-   * Project collaboration group
+   * Project Collaboration Group
    */
   imGroupName?: string;
   /**
@@ -67,7 +67,7 @@ export class GetScheduledTaskPushOptionsResponseBodyChannelsMethods extends $dar
   disabledReason?: string;
   /**
    * @remarks
-   * The feature switch. This parameter is optional when type is set to web_search.
+   * Specifies whether the feature is enabled. This parameter is optional when type is set to web_search.
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class GetScheduledTaskPushOptionsResponseBodyChannelsMethods extends $dar
    * This parameter is required.
    * 
    * @example
-   * Group chatbot
+   * Group Chatbot
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -207,15 +207,15 @@ export class GetScheduledTaskPushOptionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The prompt displayed when no third-party accounts are bound.
+   * The hint displayed when no third-party accounts are bound.
    * 
    * @example
-   * No push channels available
+   * No push channels are available
    */
   emptyHint?: string;
   /**
    * @remarks
-   * The prompt message.
+   * The response message.
    * 
    * @example
    * success

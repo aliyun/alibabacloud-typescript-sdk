@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The business error code (i18n key). Returned on failure.
+   * The business error code (i18n key) returned on failure.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error description, localized based on the request Accept-Language header. Returned on failure.
+   * The error description returned on failure, localized based on the request locale.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The sourceId of the newly created resource. Returned on success.
+   * The sourceId of the newly created resource, returned on success.
    * 
    * @example
    * exampleSourceId
@@ -75,7 +75,7 @@ export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
 export class SaveOutputFileToResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
+   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* or InvalidParameter.*).
    * 
    * @example
    * 200
@@ -83,7 +83,7 @@ export class SaveOutputFileToResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error description. This value is empty on success.
+   * The error description. This value is empty when the operation succeeds.
    * 
    * @example
    * The current zone list is illegal.
@@ -99,7 +99,7 @@ export class SaveOutputFileToResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The per-record results in the same order as the input itemIds. A single record failure does not affect other records.
+   * The per-record results, in the same order as the input itemIds. A failure of a single record does not affect other records.
    */
   results?: SaveOutputFileToResourceResponseBodyResults[];
   static names(): { [key: string]: string } {

@@ -37,7 +37,7 @@ export class ListChatSessionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tenant ID to which the task belongs.
+   * The ID of the tenant to which the node belongs.
    * 
    * @example
    * 10000

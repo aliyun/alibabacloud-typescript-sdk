@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGraphSchemasResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * active Schema 版本
+   * The currently active schema version number. The value is 0.0.0 for a quick-created placeholder graph.
    * 
    * @example
    * 0.0.0
@@ -13,23 +13,23 @@ export class ListGraphSchemasResponseBodyItems extends $dara.Model {
   activeVersion?: string;
   /**
    * @remarks
-   * 业务说明，未设置时为空字符串
+   * The business description of the graph. An empty string is returned if this parameter is not configured.
    * 
    * @example
-   * 客户域语义图谱
+   * Customer domain semantic graph
    */
   businessProfile?: string;
   /**
    * @remarks
-   * 图谱展示名，空值时兜底 graphName
+   * The display name of the tool.
    * 
    * @example
-   * CRM 图谱
+   * CRM Graph
    */
   displayName?: string;
   /**
    * @remarks
-   * 图谱名称
+   * The graph name.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ListGraphSchemasResponseBodyItems extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 图谱状态：PUBLISHED / DEVELOPING（当前用户有活动草稿）/ PUBLISHING（当前用户发布中）
+   * The status of the semantic graph.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ListGraphSchemasResponseBodyItems extends $dara.Model {
   graphStatus?: string;
   /**
    * @remarks
-   * 当前调用者视角是否存在个人活动草稿；部署/系统级 Token 恒 false
+   * Indicates whether the graph contains a draft.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ListGraphSchemasResponseBodyItems extends $dara.Model {
   hasDraft?: boolean;
   /**
    * @remarks
-   * 是否为租户默认图谱
+   * Indicates whether this is the default group.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class ListGraphSchemasResponseBodyItems extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * object_type 数量，解析失败兜底 0
+   * The number of object types. The value falls back to 0 if parsing fails.
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class ListGraphSchemasResponseBodyItems extends $dara.Model {
   objectTypeCount?: number;
   /**
    * @remarks
-   * relation 数量，解析失败兜底 0
+   * The number of relations. The value falls back to 0 if parsing fails.
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class ListGraphSchemasResponseBodyItems extends $dara.Model {
   relationCount?: number;
   /**
    * @remarks
-   * 语义标签列表，未配置时为空数组
+   * The list of semantic tags. An empty array [] is returned if this parameter is not configured.
    * 
    * This parameter is required.
    */
@@ -139,7 +139,7 @@ export class ListGraphSchemasResponseBodyItems extends $dara.Model {
 export class ListGraphSchemasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -147,12 +147,12 @@ export class ListGraphSchemasResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 租户下 active 图谱摘要列表
+   * The location clustering.
    */
   items?: ListGraphSchemasResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
    * 
    * @example
    * ok
@@ -160,7 +160,7 @@ export class ListGraphSchemasResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

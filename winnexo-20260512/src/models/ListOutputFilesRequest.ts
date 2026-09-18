@@ -53,7 +53,7 @@ export class ListOutputFilesRequest extends $dara.Model {
   sharedOnly?: boolean;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly by using --tenant-id.
    * 
    * @example
    * 10000

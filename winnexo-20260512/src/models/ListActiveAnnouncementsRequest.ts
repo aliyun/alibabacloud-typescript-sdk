@@ -21,7 +21,7 @@ export class ListActiveAnnouncementsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

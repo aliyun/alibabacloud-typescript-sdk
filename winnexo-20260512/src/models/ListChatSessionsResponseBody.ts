@@ -13,7 +13,7 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether there is a next page.
+   * Indicates whether more pages are available.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * ok

@@ -13,7 +13,7 @@ export class CreatePersonalTextRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -39,10 +39,10 @@ export class CreatePersonalTextRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 资源标签 JSON 字符串列表
+   * The list of resource tag JSON strings.
    * 
    * @example
-   * ["重点","文本"]
+   * ["Key","Text"]
    */
   sourceTags?: string;
   /**

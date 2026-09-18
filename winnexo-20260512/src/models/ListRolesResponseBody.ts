@@ -29,7 +29,7 @@ export class ListRolesResponseBodyItems extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether the enable/disable operation is allowed. Super administrators and application users cannot be switched.
+   * Indicates whether the enable/disable operation is allowed. Super administrators and application users cannot be toggled.
    * 
    * @example
    * true
@@ -73,7 +73,7 @@ export class ListRolesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The MCP card list.
+   * The list of MCP cards.
    */
   items?: ListRolesResponseBodyItems[];
   /**

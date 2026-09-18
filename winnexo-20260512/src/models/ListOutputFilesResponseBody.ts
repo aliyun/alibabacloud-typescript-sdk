@@ -13,7 +13,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsEmailInfo extends $dara.
   body?: string;
   /**
    * @remarks
-   * The content type, such as MARKDOWN/JSONML/HTML.
+   * The content type, such as MARKDOWN, JSONML, or HTML.
    * 
    * @example
    * string_value
@@ -196,12 +196,12 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The email information. This field is present when the output type is email.
+   * The email information. This field is present only when the output type is email.
    */
   emailInfo?: ListOutputFilesResponseBodyItemsOutputItemsEmailInfo;
   /**
    * @remarks
-   * The file information. This field is present when the output type is file.
+   * The file information. This field is present only when the output type is file.
    */
   fileInfo?: ListOutputFilesResponseBodyItemsOutputItemsFileInfo;
   /**
@@ -270,7 +270,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   shareEnabled?: boolean;
   /**
    * @remarks
-   * The share token that is present when sharing is enabled. You can use this token to access the public share preview API.
+   * The share token. This field is present only when sharing is enabled. You can use this token to access the public share preview endpoint.
    * 
    * @example
    * example_share_token
@@ -286,7 +286,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   skillOutputId?: string;
   /**
    * @remarks
-   * The slides information. This field is present when the output type is slides.
+   * The slides information. This field is present only when the output type is slides.
    */
   slidesInfo?: ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo;
   /**
@@ -358,7 +358,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
 export class ListOutputFilesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * @example
    * exampleConversationId
@@ -411,7 +411,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   outputItems?: ListOutputFilesResponseBodyItemsOutputItems[];
   /**
    * @remarks
-   * The output type: `conversation/skill/task`.
+   * The output type. Valid values: `conversation/skill/task`.
    * 
    * @example
    * conversation
@@ -435,7 +435,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   skillOutputId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The node ID.
    * 
    * @example
    * string_example_value
@@ -533,7 +533,7 @@ export class ListOutputFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of outputs that match the specified conditions.
+   * The total number of outputs that meet the specified conditions.
    * 
    * @example
    * 1

@@ -13,7 +13,7 @@ export class ListScheduledTasksShrinkRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to return only tasks created by the caller. This parameter takes effect only in the group dimension (in the personal dimension, only the caller\\"s own tasks are returned). If not specified, no filtering is applied.
+   * Specifies whether to return only tasks created by the caller. This parameter takes effect only in the group dimension. In the personal dimension, only the caller\\"s own tasks are always returned. If not specified, no filtering is applied.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListScheduledTasksShrinkRequest extends $dara.Model {
   creatorOnly?: boolean;
   /**
    * @remarks
-   * The keyword of the rule name for fuzzy match.
+   * The keyword of the rule name, used for fuzzy match.
    * 
    * @example
    * SampleKeyword
@@ -63,7 +63,7 @@ export class ListScheduledTasksShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tenant ID that takes effect.
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

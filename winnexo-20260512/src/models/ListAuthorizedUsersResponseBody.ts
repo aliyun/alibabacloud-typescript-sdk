@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The authorization expiration timestamp in milliseconds. If not specified, the authorization never expires.
+   * The authorization expiration timestamp in milliseconds. If this parameter is not specified, the authorization never expires.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last update time.
+   * The last modification time.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The user ID of the person who granted the authorization.
+   * The user ID of the grantor.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   grantedBy?: number;
   /**
    * @remarks
-   * The ID of the authorized object.
+   * The ID of the grantee.
    * 
    * @example
    * exampleGranteeId
@@ -45,7 +45,9 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   granteeId?: string;
   /**
    * @remarks
-   * The authorization object type. Valid values: USER, USER_GROUP.
+   * The object type of the authorization target. Valid values:
+   * - USER
+   * - USER_GROUP
    * 
    * @example
    * string_value
@@ -71,15 +73,15 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
    * @remarks
    * The permission member type. Valid values:
    * 
-   * - **ORG**: Enterprise.
+   * - **ORG**: enterprise.
    * 
-   * - **DEPT**: Department.
+   * - **DEPT**: department.
    * 
-   * - **TAG**: Custom tag.
+   * - **TAG**: custom tag.
    * 
-   * - **CONVERSATION**: Conversation.
+   * - **CONVERSATION**: conversation.
    * 
-   * - **USER**: User.
+   * - **USER**: user.
    * 
    * @example
    * string_value
@@ -95,7 +97,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   userGroupId?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
    * string_value

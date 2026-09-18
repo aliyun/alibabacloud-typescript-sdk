@@ -13,7 +13,10 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The content type. Valid values: Text and Markdown.
+   * The content type. Valid values:
+   * 
+   * - Text
+   * - Markdown
    * 
    * @example
    * string_value
@@ -37,7 +40,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * The file record ID. This parameter is optional and corresponds to settings.file_record_id.
+   * The file record ID (optional, corresponding to settings.file_record_id).
    * 
    * @example
    * exampleFileRecordId

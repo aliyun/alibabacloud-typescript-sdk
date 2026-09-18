@@ -13,7 +13,7 @@ export class CreatePersonalFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The directory ID.
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId

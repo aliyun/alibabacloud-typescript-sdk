@@ -88,7 +88,7 @@ export class GetScheduledTaskExecutionDetailResponseBodyMetadata extends $dara.M
 export class GetScheduledTaskExecutionDetailResponseBodyTriggerInfo extends $dara.Model {
   /**
    * @remarks
-   * The user identifier that triggered the execution.
+   * The identifier of the user who triggered the execution.
    * 
    * @example
    * user_10001
@@ -187,7 +187,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * ok
@@ -277,7 +277,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The visibility scope of the execution record, which is always equal to the visibility scope of the associated task. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC. This field is empty for personal task executions.
+   * The visibility scope of the execution record, which is always the same as the visibility scope of the associated task. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC. This value is empty for personal task executions.
    * 
    * @example
    * COLLABORATIVE

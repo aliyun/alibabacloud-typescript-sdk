@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter type. Valid values: USER, USER_GROUP. If not specified, all types are returned.
+   * The filter type. Valid values:
+   * - USER
+   * - USER_GROUP
+   * 
+   * If this parameter is not specified, all types are returned.
    * 
    * @example
    * USER
@@ -39,7 +43,7 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

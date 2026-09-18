@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceResponseBodyObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * The semantic graph name to which the object belongs.
+   * The name of the semantic graph to which the object belongs.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class GetSourceResponseBodyObjectBindings extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * The ID of the recommended item, which can be a **feedId** or a micro-application ID.
+   * The ID of the recommended item. The value can be a **feedId** or a mini-app ID.
    * 
    * @example
    * exampleObjectId
@@ -71,7 +71,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file record ID (optional, corresponding to settings.file_record_id).
+   * The file record ID (optional). This value corresponds to settings.file_record_id.
    * 
    * @example
    * exampleFileRecordId
@@ -89,7 +89,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The session analysis result in OSS URL format. The URL expires in one hour.
+   * The session analysis result in OSS URL format. The URL expires after one hour.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -185,7 +185,7 @@ export class GetSourceResponseBody extends $dara.Model {
   hasNotes?: boolean;
   /**
    * @remarks
-   * Indicates whether settings configuration exists.
+   * Indicates whether settings configurations exist.
    * 
    * @example
    * true
@@ -238,7 +238,7 @@ export class GetSourceResponseBody extends $dara.Model {
   objectBindings?: GetSourceResponseBodyObjectBindings[];
   /**
    * @remarks
-   * The associated variable ID.
+   * The ID of the associated variable.
    * 
    * @example
    * exampleObjectId
@@ -254,7 +254,7 @@ export class GetSourceResponseBody extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The digital employee name (operating object name, optional).
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value
@@ -278,12 +278,12 @@ export class GetSourceResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The user profile settings.
+   * The user card information settings.
    */
   settings?: { [key: string]: any };
   /**
    * @remarks
-   * The skill output ID (carried when the output is saved as a resource).
+   * The skill output ID. This ID is included when the output is saved as a resource.
    * 
    * @example
    * exampleSkillOutputId
@@ -301,7 +301,7 @@ export class GetSourceResponseBody extends $dara.Model {
    * @remarks
    * The knowledge base (KB) ownership type. Valid values:
    * - aliding_kb_doc: DingTalk knowledge base document.
-   * - normal: common knowledge.
+   * - normal: standard knowledge.
    * 
    * @example
    * string_value
@@ -309,7 +309,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceKind?: string;
   /**
    * @remarks
-   * The resource tags (optional, a JSON string list such as ["tagA","tagB"]).
+   * The resource tags (optional). The value is a JSON string list, such as ["tagA","tagB"].
    * 
    * @example
    * string_value
@@ -325,7 +325,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The final status of the message.
+   * The final message status.
    * 
    * @example
    * READY

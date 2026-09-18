@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledTaskPushOptionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group (such as cg_101). If specified, a group workspace task is created (the caller must be a valid group member). If left empty, a personal task is created.
+   * The ID of the collaboration group, such as cg_101. If specified, a group workspace task is created and the caller must be a valid group member. If left empty, a personal task is created.
    * 
    * @example
    * cg_401
@@ -21,7 +21,7 @@ export class GetScheduledTaskPushOptionsRequest extends $dara.Model {
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
    * 
    * @example
    * 10000

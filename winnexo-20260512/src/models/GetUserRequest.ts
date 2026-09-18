@@ -13,7 +13,7 @@ export class GetUserRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The WINNEXO logon account. This is a unique identifier and cannot be empty.
+   * The WINNEXO logon account. This parameter is a unique identifier and cannot be empty.
    * 
    * @example
    * exampleAccountId

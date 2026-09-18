@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGraphInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * 业务说明（可选；传空串表示清空；与 displayName 至少传其一）
+   * The business description of the knowledge graph. If not configured, the value is an empty string.
    * 
    * @example
-   * 客户域语义图谱
+   * Customer domain knowledge graph
    */
   businessProfile?: string;
   /**
    * @remarks
-   * 图谱展示名（可选，最多200字；传空串或纯空白会被拒绝；与 businessProfile 至少传其一）
+   * The display name of the knowledge graph.
    * 
    * @example
-   * CRM 图谱
+   * CRM Graph
    */
   displayName?: string;
   /**
    * @remarks
-   * 图谱名称
+   * The name of the knowledge graph.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class UpdateGraphInfoRequest extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
    * 10000

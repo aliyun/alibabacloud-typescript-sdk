@@ -13,7 +13,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory ID.
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,7 +21,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The file extension (optional, such as pdf or docx).
+   * The file name extension (optional, such as pdf or docx).
    * 
    * @example
    * string_value
@@ -47,7 +47,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The publicly accessible URL of the Alibaba DingTalk online document.
+   * The publicly accessible URL of the DingTalk online document.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -81,10 +81,10 @@ export class CreatePersonalFileRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 资源标签 JSON 字符串列表
+   * The list of resource tag JSON strings.
    * 
    * @example
-   * ["重点","文件"]
+   * ["Important","File"]
    */
   sourceTags?: string;
   /**

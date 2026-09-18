@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceUploadSignatureRequest extends $dara.Model {
   /**
    * @remarks
-   * The content type. Valid values: Text and Markdown.
+   * The content type. Valid values:
+   * 
+   * - Text
+   * - Markdown
    * 
    * @example
    * string_value
@@ -31,7 +34,15 @@ export class GetSourceUploadSignatureRequest extends $dara.Model {
   filename?: string;
   /**
    * @remarks
-   * The name of the digital employee (operating object name). This parameter is optional.
+   * The collaboration space ID passed from the frontend. This parameter is required when scope is set to group. The value must be a space accessible to the current user and is used in the OSS path for locating. The value must be 1 to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-). This parameter is not used for other scope values.
+   * 
+   * @example
+   * group_example
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value
@@ -58,6 +69,7 @@ export class GetSourceUploadSignatureRequest extends $dara.Model {
       contentType: 'contentType',
       expires: 'expires',
       filename: 'filename',
+      groupId: 'groupId',
       operatingObjectName: 'operatingObjectName',
       scope: 'scope',
       tenantId: 'tenantId',
@@ -69,6 +81,7 @@ export class GetSourceUploadSignatureRequest extends $dara.Model {
       contentType: 'string',
       expires: 'number',
       filename: 'string',
+      groupId: 'string',
       operatingObjectName: 'string',
       scope: 'string',
       tenantId: 'string',

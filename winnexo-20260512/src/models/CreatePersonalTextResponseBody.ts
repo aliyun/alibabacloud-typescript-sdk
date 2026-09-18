@@ -13,7 +13,7 @@ export class CreatePersonalTextResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -53,7 +53,7 @@ export class CreatePersonalTextResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The travel scale of the integration partner.
+   * The travel scale of the partner.
    * 
    * @example
    * read:user,read:repo,write:repo,read:org,read:group
@@ -71,13 +71,13 @@ export class CreatePersonalTextResponseBody extends $dara.Model {
    * @remarks
    * The filter status.
    * 
-   * - 0: All
+   * - 0: All.
    * 
-   * - 1: Unconfirmed
+   * - 1: Unconfirmed.
    * 
-   * - 3: Ignored
+   * - 3: Ignored.
    * 
-   * - 4: Rejected
+   * - 4: Rejected.
    * 
    * @example
    * {\\"observedGeneration\\": 4, \\"servicesInstances\\": {}, \\"observedTime\\": \\"2025-10-31T03:48:27Z\\", \\"servicesWithPendingChanges\\": [], \\"latestEnvironmentDeploymentName\\": \\"manual-1761882507097-Eu1vIP\\"}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveGroupOutputFileToPersonalResourceResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The business error code (i18n key), returned on failure.
+   * The business error code (i18n key) returned upon failure.
    * 
    * @example
    * ERR.Robject.UserOutput.ItemNotFound
@@ -13,7 +13,7 @@ export class SaveGroupOutputFileToPersonalResourceResponseBodyResults extends $d
   errorCode?: string;
   /**
    * @remarks
-   * The error description (internationalized based on the request locale), returned on failure.
+   * The error description returned upon failure. The description is internationalized based on the request locale.
    * 
    * @example
    * Group output does not exist
@@ -29,7 +29,7 @@ export class SaveGroupOutputFileToPersonalResourceResponseBodyResults extends $d
   itemId?: string;
   /**
    * @remarks
-   * The sourceId of the newly created resource, returned on success.
+   * The sourceId of the newly created resource, returned upon success.
    * 
    * @example
    * exampleSourceId
@@ -83,7 +83,7 @@ export class SaveGroupOutputFileToPersonalResourceResponseBody extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * successful
@@ -99,7 +99,7 @@ export class SaveGroupOutputFileToPersonalResourceResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The result list.
+   * The list of results.
    */
   results?: SaveGroupOutputFileToPersonalResourceResponseBodyResults[];
   static names(): { [key: string]: string } {
