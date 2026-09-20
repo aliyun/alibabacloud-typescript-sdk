@@ -6,18 +6,12 @@ export class ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList exte
   /**
    * @remarks
    * The component type. Valid values:
-   * 
-   * - `standalone`
-   * 
-   * - `proxy`
-   * 
-   * - `mix_coordinator`
-   * 
-   * - `query`
-   * 
-   * - `index`
-   * 
-   * - `data`
+   * - standalone
+   * - proxy
+   * - mix_coordinator
+   * - query
+   * - index
+   * - data
    * 
    * @example
    * standalone
@@ -33,7 +27,7 @@ export class ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList exte
   cuNum?: number;
   /**
    * @remarks
-   * The disk size in GB.
+   * The disk size.
    * 
    * @example
    * 100
@@ -87,7 +81,7 @@ export class ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList exte
 export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   /**
    * @remarks
-   * The Attu port.
+   * The port of the Attu component.
    * 
    * @example
    * 3000
@@ -111,7 +105,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   intranetUrl?: string;
   /**
    * @remarks
-   * A list of resource details for the instance\\"s components.
+   * The resource details.
    */
   milvusResourceInfoList?: ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList[];
   /**
@@ -124,7 +118,15 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   proxyPort?: number;
   /**
    * @remarks
-   * The total number of CUs.
+   * The ID of the resource owner account.
+   * 
+   * @example
+   * 1234567890123456
+   */
+  resourceOwnerId?: string;
+  /**
+   * @remarks
+   * The number of CUs.
    * 
    * @example
    * 24
@@ -132,7 +134,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   totalCuNum?: number;
   /**
    * @remarks
-   * The total disk size in GB.
+   * The total disk size.
    * 
    * @example
    * 500
@@ -145,6 +147,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
       intranetUrl: 'IntranetUrl',
       milvusResourceInfoList: 'MilvusResourceInfoList',
       proxyPort: 'ProxyPort',
+      resourceOwnerId: 'ResourceOwnerId',
       totalCuNum: 'TotalCuNum',
       totalDiskSize: 'TotalDiskSize',
     };
@@ -157,6 +160,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
       intranetUrl: 'string',
       milvusResourceInfoList: { 'type': 'array', 'itemType': ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList },
       proxyPort: 'number',
+      resourceOwnerId: 'string',
       totalCuNum: 'number',
       totalDiskSize: 'number',
     };
@@ -177,7 +181,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
 export class ListInstancesResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key1
@@ -185,7 +189,7 @@ export class ListInstancesResponseBodyDataTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value1
@@ -225,7 +229,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   autoBackup?: boolean;
   /**
    * @remarks
-   * The creation time of the instance.
+   * The start time.
    * 
    * @example
    * 1718608505000
@@ -246,7 +250,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The expiration time of the instance.
+   * The expiration time.
    * 
    * @example
    * 1721232000000
@@ -263,18 +267,12 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * 
-   * - `creating`: The instance is being created.
-   * 
-   * - `running`: The instance is running.
-   * 
-   * - `updating`: The instance is being updated. This includes scaling the instance, changing configurations, or modifying public network access.
-   * 
-   * - `disable`: The instance is unavailable because it has expired and requires renewal.
-   * 
-   * - `deleting`: The instance is being deleted.
-   * 
-   * - `deleted`: The instance has been deleted.
+   * - creating: Being created.
+   * - running: Running.
+   * - updating: Being upgraded. This includes specification changes, configuration changes, and enabling or disabling public network access.
+   * - disable: Unavailable. The cluster has expired and requires renewal to reactivate.
+   * - deleting: Being deleted.
+   * - deleted: Deleted.
    * 
    * @example
    * running
@@ -298,11 +296,9 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   openPublicNet?: boolean;
   /**
    * @remarks
-   * The instance edition. Valid values:
-   * 
-   * - `trial`: Trial Edition.
-   * 
-   * - `standard`: Standard Edition.
+   * The edition. Valid values:
+   * - trial: Trial Edition.
+   * - standard: Standard Edition.
    * 
    * @example
    * trial
@@ -310,11 +306,9 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
-   * 
-   * - `0`: pay-as-you-go.
-   * 
-   * - `1`: subscription.
+   * The billing type. Valid values:
+   * - 0: Pay-as-you-go.
+   * - 1: Subscription.
    * 
    * @example
    * 1
@@ -322,7 +316,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   payType?: number;
   /**
    * @remarks
-   * The product code.
+   * The commodity code.
    * 
    * @example
    * milvus_milvuspre_public_cn
@@ -346,7 +340,15 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The duration the instance has been running.
+   * The ID of the resource owner account.
+   * 
+   * @example
+   * 1234567890123456
+   */
+  resourceOwnerId?: string;
+  /**
+   * @remarks
+   * The running time.
    * 
    * @example
    * 536611
@@ -362,18 +364,10 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   sgId?: string;
   /**
    * @remarks
-   * The tags attached to the instance.
+   * The tag information.
    */
   tags?: ListInstancesResponseBodyDataTags[];
-  /**
-   * @remarks
-   * The template version.
-   */
   templateVersion?: string;
-  /**
-   * @remarks
-   * The instance version.
-   */
   version?: string;
   /**
    * @remarks
@@ -393,7 +387,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   vswId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The zone.
    * 
    * @example
    * cn-beijing-g
@@ -415,6 +409,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
       productCode: 'ProductCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      resourceOwnerId: 'ResourceOwnerId',
       runningTime: 'RunningTime',
       sgId: 'SgId',
       tags: 'Tags',
@@ -442,6 +437,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
       productCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      resourceOwnerId: 'string',
       runningTime: 'number',
       sgId: 'string',
       tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyDataTags },
@@ -471,7 +467,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details for an access denial error.
+   * The details of the access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
@@ -479,7 +475,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * An array of instance objects.
+   * The returned data.
    */
   data?: ListInstancesResponseBodyData[];
   /**
@@ -524,7 +520,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of instances found.
+   * The total count.
    * 
    * @example
    * 15

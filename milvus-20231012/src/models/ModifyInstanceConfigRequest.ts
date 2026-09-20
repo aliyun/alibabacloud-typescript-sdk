@@ -15,7 +15,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The reason for the modification.
+   * The reason for the update.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The custom user configuration.
+   * The user-defined configuration.
    * 
    * @example
    * dataCoord:\\n  segment:\\n    maxSize: 1024

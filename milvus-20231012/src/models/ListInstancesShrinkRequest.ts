@@ -53,7 +53,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags used to filter instances.
+   * The tag information.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

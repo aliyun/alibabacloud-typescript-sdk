@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class ListInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value1
@@ -93,7 +93,7 @@ export class ListInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags used to filter instances.
+   * The tag information.
    */
   tag?: ListInstancesRequestTag[];
   static names(): { [key: string]: string } {

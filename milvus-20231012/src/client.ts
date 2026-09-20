@@ -620,7 +620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Milvus instances in the current account.
+   * Retrieves the list of Milvus instances under the current account.
    * 
    * @param tmpReq - ListInstancesRequest
    * @param headers - map
@@ -683,7 +683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Milvus instances in the current account.
+   * Retrieves the list of Milvus instances under the current account.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -778,7 +778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration parameters for Milvus components.
+   * Updates the configuration parameters of various Milvus components.
    * 
    * @param request - ModifyInstanceConfigRequest
    * @param headers - map
@@ -819,7 +819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration parameters for Milvus components.
+   * Updates the configuration parameters of various Milvus components.
    * 
    * @param request - ModifyInstanceConfigRequest
    * @returns ModifyInstanceConfigResponse

@@ -19,6 +19,10 @@ export class UpdateInstanceResponseBody extends $dara.Model {
    * true
    */
   data?: boolean;
+  /**
+   * @remarks
+   * The order ID.
+   */
   orderId?: string;
   /**
    * @remarks
