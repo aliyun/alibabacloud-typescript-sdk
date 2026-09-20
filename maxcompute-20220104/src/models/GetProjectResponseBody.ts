@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectResponseBodyDataIpWhiteList extends $dara.Model {
   /**
    * @remarks
-   * The IP whitelist for public network and cloud product interconnection network.
+   * The IP whitelist for the Internet and cloud service interconnection network.
    * 
-   * > If only the public network and cloud product interconnection network IP whitelist is configured, access through the public network and cloud product interconnection network is restricted by the configuration, and all VPC network access is prohibited.
+   * > If only the Internet and cloud service interconnection network IP whitelist is configured, access from the Internet and cloud service interconnection network is restricted by the configuration, and all VPC network access is prohibited.
    * 
    * @example
    * 10.88.111.3
@@ -15,8 +15,8 @@ export class GetProjectResponseBodyDataIpWhiteList extends $dara.Model {
   ipList?: string;
   /**
    * @remarks
-   * The VPC network IP whitelist.
-   * > If only the VPC network IP whitelist is configured, VPC network access is restricted by the configuration, and all public network and cloud product interconnection network access is prohibited.
+   * The IP whitelist for VPC networks.
+   * > If only the VPC network IP whitelist is configured, VPC network access is restricted by the configuration, and all access from the Internet and cloud service interconnection network is prohibited.
    * 
    * @example
    * 10.88.111.3
@@ -48,7 +48,7 @@ export class GetProjectResponseBodyDataIpWhiteList extends $dara.Model {
 export class GetProjectResponseBodyDataPropertiesEncryption extends $dara.Model {
   /**
    * @remarks
-   * The data encryption algorithm. Supported encryption algorithms include AES256, AESCTR, and RC4.
+   * The data encryption algorithm. The supported encryption algorithms include AES256, AESCTR, and RC4.
    * 
    * @example
    * AES256
@@ -56,9 +56,9 @@ export class GetProjectResponseBodyDataPropertiesEncryption extends $dara.Model 
   algorithm?: string;
   /**
    * @remarks
-   * Whether data encryption is enabled for the project. For more information about data encryption, see
-   * <props="china">[Storage Encryption](https://help.aliyun.com/zh/maxcompute/security-and-compliance/storage-encryption)
-   * <props="intl">[Storage Encryption](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/storage-encryption).
+   * Specifies whether data encryption is enabled for the project. For more information about data encryption, see
+   * <props="china">[Storage encryption](https://www.alibabacloud.com/help/en/maxcompute/security-and-compliance/storage-encryption)
+   * <props="intl">[Storage encryption](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/storage-encryption).
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class GetProjectResponseBodyDataPropertiesEncryption extends $dara.Model 
   enable?: boolean;
   /**
    * @remarks
-   * The key type used for data encryption, including the default key (MaxCompute Default Key) and Bring Your Own Key (BYOK). The default key (MaxCompute Default Key) is created internally by MaxCompute.
+   * The type of key used for data encryption, including the default key (MaxCompute Default Key) and Bring Your Own Key (BYOK). The default key (MaxCompute Default Key) is a default key created internally by MaxCompute.
    * 
    * @example
    * dafault
@@ -103,8 +103,8 @@ export class GetProjectResponseBodyDataPropertiesExternalProjectProperties exten
   foreignServerType?: string;
   /**
    * @remarks
-   * Whether this is a <props="china">[Lakehouse 2.0](https://help.aliyun.com/zh/maxcompute/user-guide/lake-warehouse-integrated-2-0-use-guide)
-   * <props="intl">[Lakehouse 2.0](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/lake-warehouse-integrated-2-0-use-guide) external project.
+   * Indicates whether this is a <props="china">[Data Lakehouse Solution 2.0](https://www.alibabacloud.com/help/en/maxcompute/user-guide/lake-warehouse-integrated-2-0-use-guide)
+   * <props="intl">[Data Lakehouse Solution 2.0](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/lake-warehouse-integrated-2-0-use-guide) external project.
    * 
    * @example
    * true
@@ -154,7 +154,7 @@ export class GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize 
   longTermSize?: number;
   /**
    * @remarks
-   * The infrequent access storage usage.
+   * The low-frequency storage usage.
    * 
    * @example
    * 767693
@@ -212,7 +212,7 @@ export class GetProjectResponseBodyDataPropertiesStorageTierInfo extends $dara.M
   projectTotalSize?: number;
   /**
    * @remarks
-   * The <props="china">[tiered storage](https://help.aliyun.com/zh/maxcompute/user-guide/tiered-storage)
+   * The <props="china">[tiered storage](https://www.alibabacloud.com/help/en/maxcompute/user-guide/tiered-storage)
    * <props="intl">[tiered storage](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tiered-storage) information.
    */
   storageTierSize?: GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize;
@@ -248,9 +248,9 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycle extends $dara.Mo
   /**
    * @remarks
    * The lifecycle type. Valid values:
-   * - **mandatory**: The Lifecycle clause is mandatory. Users must set the table lifecycle.
-   * - **optional**: The Lifecycle clause is optional when creating a table. If the table lifecycle is not set, the table is permanently valid.
-   * - **inherit**: If the table lifecycle is not set when creating a table, the table lifecycle defaults to the value of odps.table.lifecycle.value.
+   * - **mandatory**: The Lifecycle clause is required. You must set the lifecycle of the table.
+   * - **optional**: The Lifecycle clause is optional when you create a table. If the lifecycle is not set, the table is permanently valid.
+   * - **inherit**: If the lifecycle is not set when you create a table, the lifecycle of the table is the value of odps.table.lifecycle.value.
    * 
    * @example
    * optional
@@ -258,7 +258,7 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycle extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The table lifecycle in days. Valid values: 1 to 37231. Default value: 37231.
+   * The lifecycle of the table. Unit: days. Valid values: 1 to 37231. Default value: 37231.
    * 
    * @example
    * 37231
@@ -290,11 +290,11 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycle extends $dara.Mo
 export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm extends $dara.Model {
   /**
    * @remarks
-   * The number of days after the last data access before automatic conversion, corresponding to the `LastAccessTime` of the table or partition.
+   * The number of days after the last access time of the data before the setting is automatically applied. This corresponds to the `LastAccessTime` of the table or partition.
    * 
    * > If the LastAccessTime of the table or partition is empty:
-   * > - For tables or partitions created before October 1, 2023, the default time is 2023.10.01 00:00:00 in the UTC+0 timezone.
-   * > - For tables or partitions created after October 1, 2023, if the data has not been accessed, the CreateTime is used for calculation.
+   * > - For tables or partitions created before October 1, 2023, the calculation defaults to 2023.10.01 00:00:00 in the UTC+0 time zone.
+   * > - For tables or partitions created after October 1, 2023, if the data has not been accessed, the calculation is based on the CreateTime.
    * 
    * @example
    * 180
@@ -302,7 +302,7 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongt
   daysAfterLastAccessGreaterThan?: number;
   /**
    * @remarks
-   * The number of days after the last data modification before automatic conversion, corresponding to the `LastModifiedTime` of the table or partition.
+   * The number of days after the last modification time of the data before the setting is automatically applied. This corresponds to the `LastModifiedTime` of the table or partition.
    * 
    * @example
    * 180
@@ -344,11 +344,11 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongt
 export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency extends $dara.Model {
   /**
    * @remarks
-   * The number of days after the last data access before automatic conversion, corresponding to the `LastAccessTime` of the table or partition.
+   * The number of days after the last access time of the data before the setting is automatically applied. This corresponds to the `LastAccessTime` of the table or partition.
    * 
    * > If the LastAccessTime of the table or partition is empty:
-   * > - For tables or partitions created before October 1, 2023, the default time is 2023.10.01 00:00:00 in the UTC+0 timezone.
-   * > - For tables or partitions created after October 1, 2023, if the data has not been accessed, the CreateTime is used for calculation.
+   * > - For tables or partitions created before October 1, 2023, the calculation defaults to 2023.10.01 00:00:00 in the UTC+0 time zone.
+   * > - For tables or partitions created after October 1, 2023, if the data has not been accessed, the calculation is based on the CreateTime.
    * 
    * @example
    * 30
@@ -356,7 +356,7 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFr
   daysAfterLastAccessGreaterThan?: number;
   /**
    * @remarks
-   * The number of days after the last data modification before automatic conversion, corresponding to the `LastModifiedTime` of the table or partition.
+   * The number of days after the last modification time of the data before the setting is automatically applied. This corresponds to the `LastModifiedTime` of the table or partition.
    * 
    * @example
    * 30
@@ -403,7 +403,7 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycleConfig extends $d
   tierToLongterm?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm;
   /**
    * @remarks
-   * The infrequent access storage identifier.
+   * The low-frequency storage identifier.
    */
   tierToLowFrequency?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency;
   static names(): { [key: string]: string } {
@@ -438,7 +438,7 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycleConfig extends $d
 export class GetProjectResponseBodyDataProperties extends $dara.Model {
   /**
    * @remarks
-   * Whether full table scans are allowed in the project. Full table scans consume significant resources, so this feature is disabled by default to improve processing efficiency.
+   * Specifies whether full table scans are allowed in the project. Full table scans consume a large amount of resources. To improve processing efficiency, this feature is disabled by default.
    * 
    * @example
    * false
@@ -447,7 +447,7 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   autoMvQuotaGb?: number;
   /**
    * @remarks
-   * The parent group of the Data Transfer Service resource group bound to the project (can be ignored).
+   * The parent group of the data transfer EPS resource group attached to the project. You can ignore this parameter.
    * 
    * @example
    * Default_p
@@ -457,7 +457,7 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   enableDataMasking?: boolean;
   /**
    * @remarks
-   * Whether the MaxCompute 2.0 Decimal data type is enabled for the project.
+   * Specifies whether the Decimal data type of MaxCompute 2.0 is enabled for the project.
    * 
    * @example
    * true
@@ -466,7 +466,7 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   enableDr?: boolean;
   /**
    * @remarks
-   * Whether to force enable external table caching.
+   * Specifies whether to forcibly enable external table caching.
    * 
    * @example
    * true
@@ -474,7 +474,7 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   enableFdcCacheForce?: boolean;
   /**
    * @remarks
-   * Whether <props="china">[tiered storage](https://help.aliyun.com/zh/maxcompute/user-guide/tiered-storage)
+   * Specifies whether <props="china">[tiered storage](https://www.alibabacloud.com/help/en/maxcompute/user-guide/tiered-storage)
    * <props="intl">[tiered storage](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tiered-storage) is enabled.
    * 
    * @example
@@ -483,9 +483,9 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   enableTieredStorage?: boolean;
   /**
    * @remarks
-   * Whether the Data Transfer Service resource group routing is enabled.
-   * - true: Data Transfer Service tasks submitted by this project will use the bound Data Transfer Service resource group by default.
-   * - false: Data Transfer Service tasks submitted by this project will use the Data Transfer Service shared resource group by default.
+   * Specifies whether data transfer EPS resource group routing is enabled.
+   * - true: Data transfer tasks submitted by this project use the bound data transfer EPS resource group by default.
+   * - false: Data transfer tasks submitted by this project use the shared data transfer EPS resource group by default.
    * 
    * @example
    * true
@@ -511,8 +511,8 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   fdcQuota?: string;
   /**
    * @remarks
-   * The number of days to retain backup data. During this period, you can restore the current version to any backed-up data version.
-   * Valid values: [0, 30]. Default value: 1. A value of 0 indicates that the backup feature is disabled.
+   * The number of days that backup data is retained. During this period, you can restore the current version to any backed-up data version.
+   * Valid values: 0 to 30. Default value: 1. A value of 0 indicates that the backup feature is disabled.
    * 
    * @example
    * 1
@@ -520,7 +520,7 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   retentionDays?: number;
   /**
    * @remarks
-   * The maximum threshold for single SQL consumption.
+   * The maximum threshold for a single SQL statement.
    * Unit: scan volume (GB) × complexity.
    * 
    * @example
@@ -529,24 +529,24 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   sqlMeteringMax?: string;
   /**
    * @remarks
-   * The <props="china">[tiered storage](https://help.aliyun.com/zh/maxcompute/user-guide/tiered-storage)
+   * The <props="china">[tiered storage](https://www.alibabacloud.com/help/en/maxcompute/user-guide/tiered-storage)
    * <props="intl">[tiered storage](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tiered-storage) information.
    */
   storageTierInfo?: GetProjectResponseBodyDataPropertiesStorageTierInfo;
   /**
    * @remarks
-   * The lifecycle properties of tables.
+   * The lifecycle properties of the table.
    */
   tableLifecycle?: GetProjectResponseBodyDataPropertiesTableLifecycle;
   /**
    * @remarks
-   * The <props="china">[tiered storage lifecycle rules](https://help.aliyun.com/zh/maxcompute/user-guide/tiered-storage#f61fc9db76nna)
-   * <props="intl">[tiered storage lifecycle rules](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tiered-storage#f61fc9db76nna) properties. After configuration, the system will trigger automatic storage tier conversion based on these rules.
+   * The <props="china">[tiered storage lifecycle rules](https://www.alibabacloud.com/help/en/maxcompute/user-guide/tiered-storage#f61fc9db76nna)
+   * <props="intl">[tiered storage lifecycle rules](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tiered-storage#f61fc9db76nna) properties. After configuration, the system automatically triggers storage tier conversion based on these rules.
    */
   tableLifecycleConfig?: GetProjectResponseBodyDataPropertiesTableLifecycleConfig;
   /**
    * @remarks
-   * The project timezone, which is the `odps.sql.timezone` property.
+   * The project time zone, which is the `odps.sql.timezone` property.
    * 
    * @example
    * Asia/Shanghai
@@ -554,12 +554,12 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The <props="china">[Data Transfer Service](https://help.aliyun.com/zh/maxcompute/user-guide/overview-of-dts)
-   * <props="intl">[Data Transfer Service](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) resource group bound to the project.
+   * The <props="china">[data transfer service](https://www.alibabacloud.com/help/en/maxcompute/user-guide/overview-of-dts)
+   * <props="intl">[data transfer service](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) resource group bound to the project.
    * 
-   * - Default (Data Transfer Service shared resource group): This project is not allowed to use the Data Transfer Service (subscription) resource group. Regardless of the default Data Transfer Service resource group setting, Data Transfer Service tasks submitted by this project will automatically use the Default resource group.
+   * - Default (shared data transfer EPS resource group): The project is not allowed to use a data transfer service (subscription) resource group. Regardless of the default data transfer EPS resource group setting, data transfer tasks submitted by this project automatically use the Default resource group.
    * 
-   * - Data Transfer Service (subscription) resource group: This project is allowed to use the Data Transfer Service (subscription) resource group.
+   * - Data transfer service (subscription) resource group: The project is allowed to use a data transfer service (subscription) resource group.
    * 
    * @example
    * Default
@@ -567,13 +567,13 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   tunnelQuota?: string;
   /**
    * @remarks
-   * The data type edition. Valid values:
-   * - **1**: Edition 1.0.
-   * - **2**: Edition 2.0.
-   * - **hive**: Hive-compatible type.
+   * The data type version. Valid values:
+   * - **1**: version 1.0
+   * - **2**: version 2.0
+   * - **hive**: Hive-compatible type
    * 
-   * For differences among the three data type editions, see <props="china">[Data Type Editions](https://help.aliyun.com/zh/maxcompute/user-guide/data-type-editions)
-   * <props="intl">[Data Type Editions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
+   * For differences among the three data type versions, see <props="china">[Data type editions](https://www.alibabacloud.com/help/en/maxcompute/user-guide/data-type-editions)
+   * <props="intl">[Data type editions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
    * 
    * @example
    * 2.0
@@ -698,7 +698,7 @@ export class GetProjectResponseBodyDataSaleTag extends $dara.Model {
 export class GetProjectResponseBodyDataSecurityPropertiesProjectProtection extends $dara.Model {
   /**
    * @remarks
-   * If project data protection is enabled, you can set exceptions or trusted projects to allow specified users to export data of specified objects to specified projects. All scenarios described in the Exception Policy can override the data protection mechanism.
+   * If project data protection is enabled, you can set exceptions or trusted projects to allow specified users to export data of specified objects to specified projects. All scenarios described in the exception policy can override the data protection mechanism.
    * 
    * @example
    * {
@@ -725,8 +725,8 @@ export class GetProjectResponseBodyDataSecurityPropertiesProjectProtection exten
   exceptionPolicy?: string;
   /**
    * @remarks
-   * Whether the project <props="china">[data protection mechanism](https://help.aliyun.com/zh/maxcompute/security-and-compliance/project-data-protection)
-   * <props="intl">[data protection mechanism](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection) is enabled to prohibit or allow data to flow out of the project. It is disabled by default.
+   * Indicates the enabling status of the <props="china">[data protection](https://www.alibabacloud.com/help/en/maxcompute/security-and-compliance/project-data-protection)
+   * <props="intl">[data protection](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection) mechanism for the project, which prohibits or allows the data stream to flow out of the project. This is disabled by default.
    * 
    * @example
    * true
@@ -758,8 +758,8 @@ export class GetProjectResponseBodyDataSecurityPropertiesProjectProtection exten
 export class GetProjectResponseBodyDataSecurityProperties extends $dara.Model {
   /**
    * @remarks
-   * Whether the <props="china">[download control](https://help.aliyun.com/zh/maxcompute/user-guide/download-control)
-   * <props="intl">[download control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control) feature is enabled. It is disabled by default.
+   * Specifies whether the <props="china">[Download permission control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/download-control)
+   * <props="intl">[Download permission control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control) feature is enabled. This feature is disabled by default.
    * 
    * @example
    * false
@@ -767,8 +767,13 @@ export class GetProjectResponseBodyDataSecurityProperties extends $dara.Model {
   enableDownloadPrivilege?: boolean;
   /**
    * @remarks
-   * Whether the <props="china">[label-based access control](https://help.aliyun.com/zh/maxcompute/user-guide/label-based-access-control)
-   * <props="intl">[label-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control) feature is enabled. It is disabled by default.
+   * Specifies whether to enable IAM permissions.
+   */
+  enableNamespacePrivilege?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the <props="china">[Label-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/label-based-access-control)
+   * <props="intl">[Label-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control) feature is enabled. This feature is disabled by default.
    * 
    * @example
    * false
@@ -776,7 +781,7 @@ export class GetProjectResponseBodyDataSecurityProperties extends $dara.Model {
   labelSecurity?: boolean;
   /**
    * @remarks
-   * Whether the object creator is allowed to have access permissions on the object. This is allowed by default.
+   * Specifies whether object creators are allowed to have access permissions on the objects they create. This is enabled by default.
    * 
    * @example
    * true
@@ -784,7 +789,7 @@ export class GetProjectResponseBodyDataSecurityProperties extends $dara.Model {
   objectCreatorHasAccessPermission?: boolean;
   /**
    * @remarks
-   * Whether the object creator is allowed to have grant permissions on the object. This is allowed by default.
+   * Specifies whether object creators are allowed to have grant permissions on the objects they create. This is enabled by default.
    * 
    * @example
    * true
@@ -792,14 +797,14 @@ export class GetProjectResponseBodyDataSecurityProperties extends $dara.Model {
   objectCreatorHasGrantPermission?: boolean;
   /**
    * @remarks
-   * The <props="china">[data protection](https://help.aliyun.com/zh/maxcompute/security-and-compliance/project-data-protection)
+   * The <props="china">[data protection](https://www.alibabacloud.com/help/en/maxcompute/security-and-compliance/project-data-protection)
    * <props="intl">[data protection](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection) properties.
    */
   projectProtection?: GetProjectResponseBodyDataSecurityPropertiesProjectProtection;
   /**
    * @remarks
-   * Whether the <props="china">[ACL-based access control](https://help.aliyun.com/zh/maxcompute/user-guide/acl-based-access-control)
-   * <props="intl">[ACL-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/acl-based-access-control) feature is enabled. It is enabled by default.
+   * Specifies whether the <props="china">[ACL-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/acl-based-access-control)
+   * <props="intl">[ACL-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/acl-based-access-control) feature is enabled. This feature is enabled by default.
    * 
    * @example
    * true
@@ -807,8 +812,8 @@ export class GetProjectResponseBodyDataSecurityProperties extends $dara.Model {
   usingAcl?: boolean;
   /**
    * @remarks
-   * Whether the <props="china">[policy-based access control](https://help.aliyun.com/zh/maxcompute/user-guide/policy-based-access-control-1)
-   * <props="intl">[policy-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/policy-based-access-control-1) feature is enabled. It is enabled by default.
+   * Specifies whether the <props="china">[Policy-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/policy-based-access-control-1)
+   * <props="intl">[Policy-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/policy-based-access-control-1) feature is enabled. This feature is enabled by default.
    * 
    * @example
    * true
@@ -817,6 +822,7 @@ export class GetProjectResponseBodyDataSecurityProperties extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enableDownloadPrivilege: 'enableDownloadPrivilege',
+      enableNamespacePrivilege: 'enableNamespacePrivilege',
       labelSecurity: 'labelSecurity',
       objectCreatorHasAccessPermission: 'objectCreatorHasAccessPermission',
       objectCreatorHasGrantPermission: 'objectCreatorHasGrantPermission',
@@ -829,6 +835,7 @@ export class GetProjectResponseBodyDataSecurityProperties extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enableDownloadPrivilege: 'boolean',
+      enableNamespacePrivilege: 'boolean',
       labelSecurity: 'boolean',
       objectCreatorHasAccessPermission: 'boolean',
       objectCreatorHasGrantPermission: 'boolean',
@@ -862,7 +869,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The total storage size.
-   * Views the current storage size of the project. This storage size is consistent with the metering caliber, which is the logical storage size after compression at the Project level.
+   * Views the current storage size of the project. This storage size is consistent with the metering standard, which is the logical storage size after data is collected and compressed at the project level.
    * 
    * @example
    * 16489027
@@ -879,8 +886,8 @@ export class GetProjectResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The default computing quota.
-   * Used to allocate computing resources. If no computing quota is specified, jobs initiated by this project will consume resources from the default quota. For more information about computing resource usage, see <props="china">[Computing Resources - Quota Usage](https://help.aliyun.com/zh/maxcompute/user-guide/use-of-computing-resources)
-   * <props="intl">[Computing Resources - Quota Usage](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/use-of-computing-resources).
+   * Used for compute resource allocation. If no computing quota is specified, jobs initiated by this project consume resources from the default quota. For more information about compute resource usage, see <props="china">[Compute resources - Quota usage](https://www.alibabacloud.com/help/en/maxcompute/user-guide/use-of-computing-resources)
+   * <props="intl">[Compute resources - Quota usage](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/use-of-computing-resources).
    * 
    * @example
    * os_PayAsYouGoQuota
@@ -909,7 +916,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The billing mode of the default computing quota.
+   * The billing method of the default computing quota.
    * 
    * @example
    * PayAsYouGo
@@ -935,16 +942,16 @@ export class GetProjectResponseBodyData extends $dara.Model {
   saleTag?: GetProjectResponseBodyDataSaleTag;
   /**
    * @remarks
-   * The permission properties.
+   * The security properties.
    */
   securityProperties?: GetProjectResponseBodyDataSecurityProperties;
   /**
    * @remarks
    * The project status. Valid values:
-   * - **AVAILABLE**: normal.
-   * - **READONLY**: read-only.
-   * - **FROZEN**: frozen.
-   * - **DELETING**: being deleted.
+   * - **AVAILABLE**: Normal.
+   * - **READONLY**: Read-only.
+   * - **FROZEN**: Frozen.
+   * - **DELETING**: Being deleted.
    * 
    * @example
    * AVAILABLE
@@ -957,9 +964,9 @@ export class GetProjectResponseBodyData extends $dara.Model {
   superAdmins?: string[];
   /**
    * @remarks
-   * Whether schema-based storage is supported.
-   * MaxCompute supports Schema, which is an object between Project and Table/Resource/UDF for categorizing Tables, Resources, and UDFs. A Project can contain multiple Schemas. For more information, see <props="china">[Schema Operations](https://help.aliyun.com/zh/maxcompute/user-guide/schema-related-operations)
-   * <props="intl">[Schema Operations](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/schema-related-operations).
+   * Indicates whether schema-based storage is supported.
+   * MaxCompute supports schemas, which are objects under a project and above tables, resources, and UDFs, used to categorize tables, resources, and UDFs. A project can contain multiple schemas. For more information, see <props="china">[Schema operations](https://www.alibabacloud.com/help/en/maxcompute/user-guide/schema-related-operations)
+   * <props="intl">[Schema operations](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/schema-related-operations).
    * 
    * @example
    * true
@@ -968,8 +975,8 @@ export class GetProjectResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The project type. Valid values:
-   * - **managed**: internal project.
-   * - **external**: external project.
+   * - **managed**: Internal project.
+   * - **external**: External project.
    * 
    * @example
    * managed
@@ -1044,7 +1051,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
 export class GetProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response result.
+   * The response data.
    */
   data?: GetProjectResponseBodyData;
   /**
@@ -1069,8 +1076,8 @@ export class GetProjectResponseBody extends $dara.Model {
    * - 1xx: Informational response - The request has been received and is being processed.
    * - 2xx: Success - The request has been successfully received, understood, and accepted by the server.
    * - 3xx: Redirection - The request has been redirected. Further action is required to complete the request.
-   * - 4xx: Client error - The request contains incorrect parameters, syntax errors, or specific request conditions cannot be met.
-   * - 5xx: Server error - The server is unable to fulfill the request due to other reasons.
+   * - 4xx: Client error - The request contains invalid parameters, syntax errors, or specific request conditions that cannot be met.
+   * - 5xx: Server error - The server cannot fulfill the request due to other reasons.
    * 
    * @example
    * 200

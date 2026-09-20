@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to include additional information (securityProperties, superAdmins).
+   * Specifies whether to include additional information (securityProperties, superAdmins).
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetProjectRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * Whether to include additional information (productType).
+   * Specifies whether to include additional information (productType).
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetProjectRequest extends $dara.Model {
   withQuotaProductType?: boolean;
   /**
    * @remarks
-   * Whether to include additional information (properties.storageTierInfo).
+   * Specifies whether to include additional information (properties.storageTierInfo).
    * 
    * @example
    * true

@@ -1653,7 +1653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of a MaxCompute project.
+   * Queries the basic information about a MaxCompute project.
    * 
    * @param request - GetProjectRequest
    * @param headers - map
@@ -1694,7 +1694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of a MaxCompute project.
+   * Queries the basic information about a MaxCompute project.
    * 
    * @param request - GetProjectRequest
    * @returns GetProjectResponse
