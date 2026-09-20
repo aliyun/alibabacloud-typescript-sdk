@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetNamespaceRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

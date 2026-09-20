@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSkillDraftRequest extends $dara.Model {
   /**
+   * @remarks
+   * The version to fork from. If not specified, a new Skill is created based on the latest version.
+   * 
    * @example
    * 0.0.1
    */
   basedOnVersion?: string;
   /**
+   * @remarks
+   * The commit message.
+   * 
    * @example
-   * 初始版本
+   * Initial version
    */
   commitMsg?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +30,17 @@ export class CreateSkillDraftRequest extends $dara.Model {
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The Skill card JSON string that contains complete Skill information.
+   * 
    * @example
-   * {"name":"customer-service-skill","description":"..."}
+   * {"name":"customer-service-skill","description":"customer-skill-desc","skillMd":"---\\nname: customer-service-skill\\ndescription: customer-skill-desc\\n---\\ncustomer-skill-content"}
    */
   skillCard?: string;
   /**
    * @remarks
+   * The Skill name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +48,9 @@ export class CreateSkillDraftRequest extends $dara.Model {
    */
   skillName?: string;
   /**
+   * @remarks
+   * The specified draft version number. If not specified, the version number auto-increments.
+   * 
    * @example
    * 0.0.2
    */

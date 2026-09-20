@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadSkillViaOssRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The commit message. This parameter is optional.
+   */
   commitMsg?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,20 +20,34 @@ export class UploadSkillViaOssRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The OSS object name (path).
+   * 
    * This parameter is required.
    */
   ossObjectName?: string;
   /**
+   * @remarks
+   * Specifies whether to overwrite an existing skill. Default value: false.
+   * 
    * @example
    * false
    */
   overwrite?: boolean;
+  /**
+   * @remarks
+   * The target upload version number. This parameter is optional and used as a fallback when the ZIP file contains no version information.
+   * 
+   * @example
+   * 1.0.0
+   */
+  targetVersion?: string;
   static names(): { [key: string]: string } {
     return {
       commitMsg: 'CommitMsg',
       namespaceId: 'NamespaceId',
       ossObjectName: 'OssObjectName',
       overwrite: 'Overwrite',
+      targetVersion: 'TargetVersion',
     };
   }
 
@@ -37,6 +57,7 @@ export class UploadSkillViaOssRequest extends $dara.Model {
       namespaceId: 'string',
       ossObjectName: 'string',
       overwrite: 'boolean',
+      targetVersion: 'string',
     };
   }
 

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitPromptVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SubmitPromptVersionRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The unique identifier of the prompt.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class SubmitPromptVersionRequest extends $dara.Model {
    */
   promptKey?: string;
   /**
+   * @remarks
+   * The version number to publish. If not specified, the current draft version is published by default.
+   * 
    * @example
    * 0.0.1
    */

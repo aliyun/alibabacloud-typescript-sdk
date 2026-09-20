@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePromptVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The commit message.
+   * 
    * @example
-   * 优化回答语气
+   * Optimize response tone.
    */
   commitMsg?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdatePromptVersionRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The unique identifier of the prompt.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,13 +33,18 @@ export class UpdatePromptVersionRequest extends $dara.Model {
   promptKey?: string;
   /**
    * @remarks
+   * The updated template content.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 你是一个客服助手，请回答：{question}
+   * You are a customer service assistant. Please answer: {question}
    */
   template?: string;
   /**
+   * @remarks
+   * The updated variable definition in JSON format.
+   * 
    * @example
    * [{"name":"question","defaultValue":"Hello"}]
    */

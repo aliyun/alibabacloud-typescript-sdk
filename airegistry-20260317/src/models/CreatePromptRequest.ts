@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePromptRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business tags, comma-separated
+   * 
    * @example
    * cs,qa,support
    */
   bizTags?: string;
   /**
+   * @remarks
+   * Commit message
+   * 
    * @example
    * 初始版本
    */
   commitMsg?: string;
   /**
+   * @remarks
+   * Prompt description
+   * 
    * @example
    * 客服问答 Prompt
    */
   description?: string;
   /**
    * @remarks
+   * Workspace ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +39,8 @@ export class CreatePromptRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * Prompt unique identifier
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,12 +48,17 @@ export class CreatePromptRequest extends $dara.Model {
    */
   promptKey?: string;
   /**
+   * @remarks
+   * Version number for the initial draft version of the prompt. Defaults to 0.0.1 if not specified.
+   * 
    * @example
    * 0.0.1
    */
   targetVersion?: string;
   /**
    * @remarks
+   * Template content for the initial draft version of the prompt
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +66,9 @@ export class CreatePromptRequest extends $dara.Model {
    */
   template?: string;
   /**
+   * @remarks
+   * Variable definitions, JSON array string, supporting name, description, and defaultValue parameters
+   * 
    * @example
    * [{"name":"question","defaultValue":"Hello"}]
    */

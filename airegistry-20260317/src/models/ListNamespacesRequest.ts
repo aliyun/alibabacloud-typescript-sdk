@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNamespacesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Performs a fuzzy search by name.
+   * 
    * @example
-   * 客服
+   * test-namespace
    */
   name?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Filters by tags. Separate multiple tags with commas. Results are matched by intersection.
+   * 
    * @example
    * production,customer-service
    */

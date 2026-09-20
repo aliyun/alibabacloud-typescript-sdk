@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSkillDraftRequest extends $dara.Model {
   /**
+   * @remarks
+   * The commit message.
+   * 
    * @example
-   * 更新说明
+   * Update description
    */
   commitMsg?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdateSkillDraftRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The skill card JSON string that contains complete skill information.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class UpdateSkillDraftRequest extends $dara.Model {
   skillCard?: string;
   /**
    * @remarks
+   * The skill name.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ForcePublishSkillVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ForcePublishSkillVersionRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The skill name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ForcePublishSkillVersionRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
+   * The version number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class ForcePublishSkillVersionRequest extends $dara.Model {
    */
   skillVersion?: string;
   /**
+   * @remarks
+   * Specifies whether to update the latest label.
+   * 
    * @example
    * true
    */

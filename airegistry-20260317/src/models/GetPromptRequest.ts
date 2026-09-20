@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetPromptRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetPromptRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The unique identifier of the prompt.
+   * 
    * This parameter is required.
    * 
    * @example

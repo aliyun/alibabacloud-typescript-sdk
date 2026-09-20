@@ -3,9 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DataResourceValue extends $dara.Model {
+  /**
+   * @remarks
+   * The resource name (including the file name extension).
+   * 
+   * @example
+   * sample.md
+   */
   name?: string;
+  /**
+   * @remarks
+   * The resource type, such as template, data, or script.
+   * 
+   * @example
+   * script
+   */
   type?: string;
+  /**
+   * @remarks
+   * The resource content.
+   * 
+   * @example
+   * This is a sample file
+   */
   content?: string;
+  /**
+   * @remarks
+   * The resource metadata.
+   */
   metadata?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

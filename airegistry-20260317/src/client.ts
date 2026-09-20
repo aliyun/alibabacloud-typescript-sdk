@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("airegistry", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 AI Registry 命名空间
+   * Creates a namespace in AI Registry and returns the corresponding namespace ID.
    * 
    * @param request - CreateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 AI Registry 命名空间
+   * Creates a namespace in AI Registry and returns the corresponding namespace ID.
    * 
    * @param request - CreateNamespaceRequest
    * @returns CreateNamespaceResponse
@@ -84,7 +84,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Prompt
+   * Create a prompt and create the initial draft version content of that prompt
    * 
    * @param request - CreatePromptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -143,7 +143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Prompt
+   * Create a prompt and create the initial draft version content of that prompt
    * 
    * @param request - CreatePromptRequest
    * @returns CreatePromptResponse
@@ -154,7 +154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Prompt 草稿版本。Prompt 必须已存在，且当前没有正在编辑的草稿。只对草稿版本生效。
+   * Creates a new version of a prompt. The new version defaults to draft status. An error is returned if a draft version already exists.
    * 
    * @param request - CreatePromptVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -209,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Prompt 草稿版本。Prompt 必须已存在，且当前没有正在编辑的草稿。只对草稿版本生效。
+   * Creates a new version of a prompt. The new version defaults to draft status. An error is returned if a draft version already exists.
    * 
    * @param request - CreatePromptVersionRequest
    * @returns CreatePromptVersionResponse
@@ -220,7 +220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Skill 草稿版本
+   * Creates a Skill draft and returns the Skill version.
    * 
    * @param request - CreateSkillDraftRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -271,7 +271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Skill 草稿版本
+   * Creates a Skill draft and returns the Skill version.
    * 
    * @param request - CreateSkillDraftRequest
    * @returns CreateSkillDraftResponse
@@ -282,7 +282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除命名空间
+   * Deletes a specified namespace from the AI Governance Center. The system checks whether the namespace contains any resources in use (such as Skills or Prompts) before deletion. If such resources exist, the deletion fails.
    * 
    * @param request - DeleteNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -313,7 +313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除命名空间
+   * Deletes a specified namespace from the AI Governance Center. The system checks whether the namespace contains any resources in use (such as Skills or Prompts) before deletion. If such resources exist, the deletion fails.
    * 
    * @param request - DeleteNamespaceRequest
    * @returns DeleteNamespaceResponse
@@ -324,7 +324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Prompt
+   * Deletes a specified prompt.
    * 
    * @param request - DeletePromptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -359,7 +359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Prompt
+   * Deletes a specified prompt.
    * 
    * @param request - DeletePromptRequest
    * @returns DeletePromptResponse
@@ -370,7 +370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Skill
+   * Deletes a specified Skill.
    * 
    * @param request - DeleteSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -405,7 +405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Skill
+   * Deletes a specified Skill.
    * 
    * @param request - DeleteSkillRequest
    * @returns DeleteSkillResponse
@@ -416,7 +416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过 OSS 下载 Skill 版本 - 返回 OSS 下载 URL
+   * Downloads a skill version through OSS and returns the OSS download URL.
    * 
    * @param request - DownloadSkillVersionViaOssRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -455,7 +455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过 OSS 下载 Skill 版本 - 返回 OSS 下载 URL
+   * Downloads a skill version through OSS and returns the OSS download URL.
    * 
    * @param request - DownloadSkillVersionViaOssRequest
    * @returns DownloadSkillVersionViaOssResponse
@@ -466,7 +466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 强制发布版本
+   * Force-publishes a version.
    * 
    * @param request - ForcePublishSkillVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -509,7 +509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 强制发布版本
+   * Force-publishes a version.
    * 
    * @param request - ForcePublishSkillVersionRequest
    * @returns ForcePublishSkillVersionResponse
@@ -520,7 +520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取命名空间详细信息
+   * Queries the details of an AI Governance Center namespace.
    * 
    * @param request - GetNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -551,7 +551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取命名空间详细信息
+   * Queries the details of an AI Governance Center namespace.
    * 
    * @param request - GetNamespaceRequest
    * @returns GetNamespaceResponse
@@ -562,7 +562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Prompt 详情信息
+   * Retrieves the details of a prompt.
    * 
    * @param request - GetPromptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -597,7 +597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Prompt 详情信息
+   * Retrieves the details of a prompt.
    * 
    * @param request - GetPromptRequest
    * @returns GetPromptResponse
@@ -608,7 +608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Prompt 某个版本的信息
+   * Query the detailed information of a specified version of a prompt.
    * 
    * @param request - GetPromptVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -647,7 +647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Prompt 某个版本的信息
+   * Query the detailed information of a specified version of a prompt.
    * 
    * @param request - GetPromptVersionRequest
    * @returns GetPromptVersionResponse
@@ -658,7 +658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Skill 详情
+   * Retrieves the metadata and version information of a skill.
    * 
    * @param request - GetSkillDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -693,7 +693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Skill 详情
+   * Retrieves the metadata and version information of a skill.
    * 
    * @param request - GetSkillDetailRequest
    * @returns GetSkillDetailResponse
@@ -704,7 +704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Skill 导入用 OSS 上传 URL。客户端使用返回的 uploadUrl 执行 PUT 上传后，
+   * Retrieves a pre-signed URL for uploading a Skill to OSS. The client uses the returned URL to perform a PUT request to upload the Skill.
    * 
    * @param request - GetSkillImportFileUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -739,7 +739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Skill 导入用 OSS 上传 URL。客户端使用返回的 uploadUrl 执行 PUT 上传后，
+   * Retrieves a pre-signed URL for uploading a Skill to OSS. The client uses the returned URL to perform a PUT request to upload the Skill.
    * 
    * @param request - GetSkillImportFileUrlRequest
    * @returns GetSkillImportFileUrlResponse
@@ -750,7 +750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定版本详情
+   * Retrieves the details of a specified version.
    * 
    * @param request - GetSkillVersionDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -789,7 +789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定版本详情
+   * Retrieves the details of a specified version.
    * 
    * @param request - GetSkillVersionDetailRequest
    * @returns GetSkillVersionDetailResponse
@@ -800,7 +800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取命名空间列表
+   * Lists the namespaces in the AI Governance Center.
    * 
    * @param request - ListNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -843,7 +843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取命名空间列表
+   * Lists the namespaces in the AI Governance Center.
    * 
    * @param request - ListNamespacesRequest
    * @returns ListNamespacesResponse
@@ -854,7 +854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出Prompt版本列表
+   * Lists the versions of a prompt.
    * 
    * @param request - ListPromptVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -897,7 +897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出Prompt版本列表
+   * Lists the versions of a prompt.
    * 
    * @param request - ListPromptVersionsRequest
    * @returns ListPromptVersionsResponse
@@ -908,7 +908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prompt列表
+   * Lists the prompts in a namespace.
    * 
    * @param request - ListPromptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -959,7 +959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prompt列表
+   * Lists the prompts in a namespace.
    * 
    * @param request - ListPromptsRequest
    * @returns ListPromptsResponse
@@ -970,7 +970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出 Skills
+   * Lists skills.
    * 
    * @param request - ListSkillsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1029,7 +1029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出 Skills
+   * Lists skills.
    * 
    * @param request - ListSkillsRequest
    * @returns ListSkillsResponse
@@ -1040,7 +1040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下线版本
+   * Offlines a Skill or a specific version of a Skill.
    * 
    * @param request - OfflineSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1083,7 +1083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下线版本
+   * Offlines a Skill or a specific version of a Skill.
    * 
    * @param request - OfflineSkillRequest
    * @returns OfflineSkillResponse
@@ -1094,7 +1094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上线 Skill
+   * Publishes a skill or a specific version of a skill.
    * 
    * @param request - OnlineSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1137,7 +1137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上线 Skill
+   * Publishes a skill or a specific version of a skill.
    * 
    * @param request - OnlineSkillRequest
    * @returns OnlineSkillResponse
@@ -1148,7 +1148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布版本
+   * Publishes a specific version of a Skill.
    * 
    * @param request - PublishSkillVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1191,7 +1191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布版本
+   * Publishes a specific version of a Skill.
    * 
    * @param request - PublishSkillVersionRequest
    * @returns PublishSkillVersionResponse
@@ -1202,7 +1202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交 Prompt 版本, 将 Prompt 的草稿版本转化为正式版本
+   * Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
    * 
    * @param request - SubmitPromptVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1241,7 +1241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交 Prompt 版本, 将 Prompt 的草稿版本转化为正式版本
+   * Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
    * 
    * @param request - SubmitPromptVersionRequest
    * @returns SubmitPromptVersionResponse
@@ -1252,7 +1252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交 Skill Draft 审核
+   * Submits a specific version of a skill for review.
    * 
    * @param request - SubmitSkillVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1291,7 +1291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交 Skill Draft 审核
+   * Submits a specific version of a skill for review.
    * 
    * @param request - SubmitSkillVersionRequest
    * @returns SubmitSkillVersionResponse
@@ -1302,7 +1302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新命名空间信息
+   * Updates namespace information.
    * 
    * @param request - UpdateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1349,7 +1349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新命名空间信息
+   * Updates namespace information.
    * 
    * @param request - UpdateNamespaceRequest
    * @returns UpdateNamespaceResponse
@@ -1360,7 +1360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Prompt 元数据，支持同时更新 description、bizTags、labels。
+   * Modifies the metadata of a prompt, such as the description and business tags.
    * 
    * @param tmpReq - UpdatePromptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1417,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Prompt 元数据，支持同时更新 description、bizTags、labels。
+   * Modifies the metadata of a prompt, such as the description and business tags.
    * 
    * @param request - UpdatePromptRequest
    * @returns UpdatePromptResponse
@@ -1428,7 +1428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Prompt 草稿版本内容。只对草稿版本生效，已发布的版本不可修改。
+   * Updates the content of a prompt version. Only the draft version of a prompt can be modified.
    * 
    * @param request - UpdatePromptVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1475,7 +1475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Prompt 草稿版本内容。只对草稿版本生效，已发布的版本不可修改。
+   * Updates the content of a prompt version. Only the draft version of a prompt can be modified.
    * 
    * @param request - UpdatePromptVersionRequest
    * @returns UpdatePromptVersionResponse
@@ -1486,7 +1486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新业务标签
+   * Updates business tags for a skill.
    * 
    * @param request - UpdateSkillBizTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1525,7 +1525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新业务标签
+   * Updates business tags for a skill.
    * 
    * @param request - UpdateSkillBizTagsRequest
    * @returns UpdateSkillBizTagsResponse
@@ -1536,7 +1536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Draft
+   * Updates a draft.
    * 
    * @param request - UpdateSkillDraftRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1579,7 +1579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Draft
+   * Updates a draft.
    * 
    * @param request - UpdateSkillDraftRequest
    * @returns UpdateSkillDraftResponse
@@ -1590,7 +1590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新版本标签
+   * Updates version labels.
    * 
    * @param request - UpdateSkillLabelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1629,7 +1629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新版本标签
+   * Updates version labels.
    * 
    * @param request - UpdateSkillLabelsRequest
    * @returns UpdateSkillLabelsResponse
@@ -1640,7 +1640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新可见性
+   * Updates the visibility.
    * 
    * @param request - UpdateSkillScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1679,7 +1679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新可见性
+   * Updates the visibility.
    * 
    * @param request - UpdateSkillScopeRequest
    * @returns UpdateSkillScopeResponse
@@ -1690,7 +1690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过 OSS 上传 Skill (ZIP) - 从 OSS 拉取文件内容后上传到 Nacos
+   * Uploads a skill (ZIP) from OSS by pulling the file content from OSS and uploading it to Nacos.
    * 
    * @param request - UploadSkillViaOssRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1715,6 +1715,10 @@ export default class Client extends OpenApi {
       query["Overwrite"] = request.overwrite;
     }
 
+    if (!$dara.isNull(request.targetVersion)) {
+      query["TargetVersion"] = request.targetVersion;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1733,7 +1737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过 OSS 上传 Skill (ZIP) - 从 OSS 拉取文件内容后上传到 Nacos
+   * Uploads a skill (ZIP) from OSS by pulling the file content from OSS and uploading it to Nacos.
    * 
    * @param request - UploadSkillViaOssRequest
    * @returns UploadSkillViaOssResponse

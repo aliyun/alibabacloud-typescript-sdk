@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillsRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,36 +14,63 @@ export class ListSkillsRequest extends $dara.Model {
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The field by which to sort the results. Set the value to download_count. Default value: gmt_modified.
+   * 
    * @example
    * download_count
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The owner by which to filter the results.
+   * 
    * @example
    * user123
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The visibility by which to filter the results. Valid values:
+   * 
+   * - PUBLIC
+   * - PRIVATE
+   * 
    * @example
    * PUBLIC
    */
   scope?: string;
   /**
+   * @remarks
+   * The search mode. Valid values:
+   * 
+   * - accurate: exact match.
+   * - blur: fuzzy match.
+   * 
    * @example
    * blur
    */
   search?: string;
   /**
+   * @remarks
+   * The filter keyword.
+   * 
    * @example
    * customer
    */

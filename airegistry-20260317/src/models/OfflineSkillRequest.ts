@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineSkillRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,19 @@ export class OfflineSkillRequest extends $dara.Model {
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The operation scope. Valid values:
+   * - skill: the entire Skill.
+   * - version: a specified version.
+   * 
    * @example
    * version
    */
   scope?: string;
   /**
    * @remarks
+   * The Skill name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +34,9 @@ export class OfflineSkillRequest extends $dara.Model {
    */
   skillName?: string;
   /**
+   * @remarks
+   * The version number. This parameter is required when scope is set to version.
+   * 
    * @example
    * 0.0.2
    */

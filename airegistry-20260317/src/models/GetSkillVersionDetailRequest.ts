@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillVersionDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetSkillVersionDetailRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The Skill name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetSkillVersionDetailRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
+   * The version number.
+   * 
    * This parameter is required.
    * 
    * @example

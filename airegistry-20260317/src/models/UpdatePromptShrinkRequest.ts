@@ -4,18 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePromptShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The list of business tags. The value is a string array.
+   * 
    * @example
    * ["cs","qa","support"]
    */
   bizTagsShrink?: string;
   /**
+   * @remarks
+   * The description of the prompt.
+   * 
    * @example
    * 客服问答 Prompt
    */
   description?: string;
+  /**
+   * @remarks
+   * The mapping between prompt versions and labels.
+   * 
+   * @example
+   * {"latest":"0.0.1","stable":"0.0.1"}
+   */
   labelsShrink?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +39,8 @@ export class UpdatePromptShrinkRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The unique identifier of the prompt.
+   * 
    * This parameter is required.
    * 
    * @example

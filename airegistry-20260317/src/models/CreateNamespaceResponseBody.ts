@@ -5,6 +5,13 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CreateNamespaceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The namespace ID. The default namespace cannot be queried, modified, or deleted.
+   * 
+   * @example
+   * a2a9310a-9d91-4283-b4e2-844f6d45fe64
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,7 +35,18 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
 }
 
 export class CreateNamespaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The namespace creation result.
+   */
   data?: CreateNamespaceResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D9E87E66-9EF0-5C10-A5E6-924020A0C9B7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

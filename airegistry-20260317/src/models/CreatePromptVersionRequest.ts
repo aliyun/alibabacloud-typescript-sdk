@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePromptVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * Fork from this version. Either this parameter or Template must be specified.
+   * 
    * @example
    * 0.0.1
    */
   basedOnVersion?: string;
   /**
+   * @remarks
+   * Commit message.
+   * 
    * @example
    * 初始版本
    */
   commitMsg?: string;
   /**
    * @remarks
+   * Workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class CreatePromptVersionRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * Unique identifier of the prompt.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,16 +40,25 @@ export class CreatePromptVersionRequest extends $dara.Model {
    */
   promptKey?: string;
   /**
+   * @remarks
+   * Draft version number. If not specified, the version number is automatically incremented.
+   * 
    * @example
    * 0.0.2
    */
   targetVersion?: string;
   /**
+   * @remarks
+   * Prompt template content. Either this parameter or BasedOnVersion must be specified.
+   * 
    * @example
    * 你是一个客服助手，请回答：{question}
    */
   template?: string;
   /**
+   * @remarks
+   * Variable definitions in a JSON array string.
+   * 
    * @example
    * [{"name":"question","defaultValue":"Hello"}]
    */
