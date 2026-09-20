@@ -566,6 +566,8 @@ export { VerifyConnectorResponseBodyData } from './VerifyConnectorResponseBody';
 export { VerifyWorkspaceAcrRamAuthorizationResponseBodyData } from './VerifyWorkspaceAcrRamAuthorizationResponseBody';
 export { VerifyWorkspaceOssMountRamAuthorizationResponseBodyData } from './VerifyWorkspaceOssMountRamAuthorizationResponseBody';
 export { DataResourceValue } from './DataResourceValue';
+export { DataI18nValue } from './DataI18nValue';
+export { ItemsI18nValue } from './ItemsI18nValue';
 export { BatchDeleteModelsRequest } from './BatchDeleteModelsRequest';
 export { BatchDeleteModelsShrinkRequest } from './BatchDeleteModelsShrinkRequest';
 export { BatchDeleteModelsResponseBody } from './BatchDeleteModelsResponseBody';

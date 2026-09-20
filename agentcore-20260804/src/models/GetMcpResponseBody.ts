@@ -225,7 +225,7 @@ export class GetMcpResponseBodyDataDeploymentConfigAccessControl extends $dara.M
   enabled?: boolean;
   /**
    * @remarks
-   * ANONYMOUS indicates anonymous access. CREDENTIAL indicates the use of AgentCore access credentials.
+   * ANONYMOUS indicates anonymous access. CREDENTIAL indicates that AgentCore access credentials are used.
    * 
    * @example
    * CREDENTIAL
@@ -321,7 +321,7 @@ export class GetMcpResponseBodyDataDeploymentConfigCodeConfiguration extends $da
   codePackageToken?: string;
   /**
    * @remarks
-   * The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and remaining arguments.
+   * The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and the remaining arguments.
    */
   command?: string[];
   /**
@@ -464,7 +464,7 @@ export class GetMcpResponseBodyDataDeploymentConfigHookConfigurationHooks extend
    * The hook description.
    * 
    * @example
-   * Log MCP tool calling invokes
+   * Log MCP tool invocations
    */
   description?: string;
   /**
@@ -487,7 +487,7 @@ export class GetMcpResponseBodyDataDeploymentConfigHookConfigurationHooks extend
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The timeout period, in milliseconds.
+   * The timeout period. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -570,17 +570,17 @@ export class GetMcpResponseBodyDataDeploymentConfigHookConfiguration extends $da
 export class GetMcpResponseBodyDataDeploymentConfigLogConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether instance metrics are collected.
+   * Indicates whether instance metrics collection is enabled.
    */
   enableInstanceMetrics?: boolean;
   /**
    * @remarks
-   * Indicates whether request metrics are collected.
+   * Indicates whether request metrics collection is enabled.
    */
   enableRequestMetrics?: boolean;
   /**
    * @remarks
-   * The log splitting begin rule for Function Compute (FC).
+   * The log segmentation begin rule for Function Compute (FC).
    * 
    * @example
    * DefaultRegex
@@ -634,7 +634,7 @@ export class GetMcpResponseBodyDataDeploymentConfigLogConfiguration extends $dar
 export class GetMcpResponseBodyDataDeploymentConfigMcpConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The MCP endpoint path, such as /mcp or /sse.
+   * The MCP endpoint path. For example, /mcp or /sse.
    * 
    * @example
    * /mcp
@@ -650,7 +650,7 @@ export class GetMcpResponseBodyDataDeploymentConfigMcpConfiguration extends $dar
   sessionConcurrencyPerInstance?: number;
   /**
    * @remarks
-   * The session idle timeout period, in seconds. Default value: 1800.
+   * The session idle timeout period. Unit: seconds. Default value: 1800.
    * 
    * @example
    * 1800
@@ -658,7 +658,7 @@ export class GetMcpResponseBodyDataDeploymentConfigMcpConfiguration extends $dar
   sessionIdleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The maximum session lifetime, in seconds. Default value: 21600.
+   * The maximum session lifetime. Unit: seconds. Default value: 21600.
    * 
    * @example
    * 21600
@@ -1030,7 +1030,7 @@ export class GetMcpResponseBodyDataDeploymentConfigRuntimeConfiguration extends 
   cpu?: number;
   /**
    * @remarks
-   * The temporary disk size. Unit: MB. Valid values: 512 and 10240.
+   * The ephemeral disk size. Unit: MB. Valid values: 512 and 10240.
    * 
    * @example
    * 512
@@ -1043,7 +1043,7 @@ export class GetMcpResponseBodyDataDeploymentConfigRuntimeConfiguration extends 
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role used by user code to access downstream Alibaba Cloud resources.
+   * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -1051,7 +1051,7 @@ export class GetMcpResponseBodyDataDeploymentConfigRuntimeConfiguration extends 
   executionRoleArn?: string;
   /**
    * @remarks
-   * The maximum number of concurrent requests per instance. Default value: 200.
+   * The number of concurrent requests per instance. Default value: 200.
    * 
    * @example
    * 200
@@ -1282,7 +1282,7 @@ export class GetMcpResponseBodyDataDeploymentConfig extends $dara.Model {
 export class GetMcpResponseBodyDataMarketSource extends $dara.Model {
   /**
    * @remarks
-   * The MCP marketplace template ID.
+   * The marketplace template ID for the MCP.
    * 
    * @example
    * market-1
@@ -1344,7 +1344,7 @@ export class GetMcpResponseBodyDataTemplate extends $dara.Model {
   templateInputSchema?: string;
   /**
    * @remarks
-   * Indicates whether an updated template version is available.
+   * Indicates whether a template version update is available.
    */
   updateAvailable?: boolean;
   static names(): { [key: string]: string } {
@@ -1397,7 +1397,7 @@ export class GetMcpResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The custom tags. Multiple values are supported.
+   * The custom tags. Multiple tags are supported.
    */
   customTags?: string[];
   /**
@@ -1431,7 +1431,7 @@ export class GetMcpResponseBodyData extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The marketplace source template of the MCP.
+   * The marketplace source template for the MCP.
    */
   marketSource?: GetMcpResponseBodyDataMarketSource;
   /**
@@ -1444,7 +1444,7 @@ export class GetMcpResponseBodyData extends $dara.Model {
   mcpServerConfig?: string;
   /**
    * @remarks
-   * The MCP service ID.
+   * The MCP server ID.
    * 
    * @example
    * mcp-1234567890abcdef
@@ -1513,7 +1513,7 @@ export class GetMcpResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The last updated time of the MCP, in ISO 8601 UTC format.
+   * The last updated time of the MCP in ISO 8601 UTC format.
    * 
    * @example
    * 2026-08-23T01:00:00Z
@@ -1640,7 +1640,7 @@ export class GetMcpResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * Request processing succeeded
+   * Request processed successfully
    */
   message?: string;
   /**

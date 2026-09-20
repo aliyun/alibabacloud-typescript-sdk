@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpsRequest extends $dara.Model {
   /**
    * @remarks
+   * Filters results by custom tag. The tag must be an exact match.
+   * 
+   * @example
+   * KnowledgeBase
+   */
+  customTag?: string;
+  /**
+   * @remarks
    * The maximum number of entries per page.
    * 
    * @example
@@ -49,11 +57,12 @@ export class ListMcpsRequest extends $dara.Model {
   searchType?: string;
   /**
    * @remarks
-   * Specifies whether the service is still bound by the official template usage constraint.
+   * Specifies whether the service is still bound by the official template usage.
    */
   usageActive?: boolean;
   static names(): { [key: string]: string } {
     return {
+      customTag: 'customTag',
       maxResults: 'maxResults',
       name: 'name',
       nextToken: 'nextToken',
@@ -65,6 +74,7 @@ export class ListMcpsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customTag: 'string',
       maxResults: 'number',
       name: 'string',
       nextToken: 'string',

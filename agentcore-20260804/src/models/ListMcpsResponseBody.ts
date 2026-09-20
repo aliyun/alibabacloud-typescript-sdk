@@ -212,7 +212,7 @@ export class ListMcpsResponseBodyItemsAuth extends $dara.Model {
 export class ListMcpsResponseBodyItemsDeploymentConfigAccessControl extends $dara.Model {
   /**
    * @remarks
-   * References an AgentCore Credential when mode is set to CREDENTIAL.
+   * The AgentCore Credential referenced when mode is set to CREDENTIAL.
    * 
    * @example
    * credential-id
@@ -225,7 +225,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigAccessControl extends $dar
   enabled?: boolean;
   /**
    * @remarks
-   * ANONYMOUS indicates anonymous access. CREDENTIAL indicates using an AgentCore access credential.
+   * ANONYMOUS indicates anonymous access. CREDENTIAL indicates using AgentCore access credentials.
    * 
    * @example
    * CREDENTIAL
@@ -321,7 +321,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration extends 
   codePackageToken?: string;
   /**
    * @remarks
-   * The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and remaining arguments.
+   * The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass in supergateway, --stdio, the full subcommand, and the remaining arguments.
    */
   command?: string[];
   /**
@@ -464,7 +464,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks ext
    * The hook description.
    * 
    * @example
-   * Record MCP tool invocations
+   * Record MCP tool calling invokes
    */
   description?: string;
   /**
@@ -580,7 +580,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration extends $
   enableRequestMetrics?: boolean;
   /**
    * @remarks
-   * The log splitting begin rule for Function Compute (FC).
+   * The log segmentation begin rule for Function Compute (FC).
    * 
    * @example
    * DefaultRegex
@@ -596,7 +596,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration extends $
   logstore?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The Log Service project name.
    * 
    * @example
    * agentcore-mcp-logs
@@ -634,7 +634,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration extends $
 export class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The MCP endpoint path. For example, /mcp or /sse.
+   * The MCP endpoint path, such as /mcp or /sse.
    * 
    * @example
    * /mcp

@@ -2533,11 +2533,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+   * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
    * 
    * @remarks
    * ## Operation description
-   * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+   * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
    * 
    * @param request - GetMcpRequest
    * @param headers - map
@@ -2564,11 +2564,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+   * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
    * 
    * @remarks
    * ## Operation description
-   * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+   * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
    * 
    * @param request - GetMcpRequest
    * @returns GetMcpResponse
@@ -3170,7 +3170,7 @@ export default class Client extends OpenApi {
    * Installs an MCP marketplace template.
    * 
    * @remarks
-   * Validates input based on the specified template version and creates an MCP in the workspace.
+   * Validates the input based on the specified template version and creates an MCP in the workspace.
    * 
    * @param tmpReq - InstallMcpMarketItemRequest
    * @param headers - map
@@ -3222,7 +3222,7 @@ export default class Client extends OpenApi {
    * Installs an MCP marketplace template.
    * 
    * @remarks
-   * Validates input based on the specified template version and creates an MCP in the workspace.
+   * Validates the input based on the specified template version and creates an MCP in the workspace.
    * 
    * @param request - InstallMcpMarketItemRequest
    * @returns InstallMcpMarketItemResponse
@@ -3974,6 +3974,10 @@ export default class Client extends OpenApi {
   async listMcpsWithOptions(workspaceId: string, request: $_model.ListMcpsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcpsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customTag)) {
+      query["customTag"] = request.customTag;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
@@ -5702,7 +5706,7 @@ export default class Client extends OpenApi {
    * Updates MCP parameters by template.
    * 
    * @remarks
-   * Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+   * Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created, without upgrading the template version.
    * 
    * @param tmpReq - UpdateMcpTemplateConfigRequest
    * @param headers - map
@@ -5754,7 +5758,7 @@ export default class Client extends OpenApi {
    * Updates MCP parameters by template.
    * 
    * @remarks
-   * Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+   * Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created, without upgrading the template version.
    * 
    * @param request - UpdateMcpTemplateConfigRequest
    * @returns UpdateMcpTemplateConfigResponse

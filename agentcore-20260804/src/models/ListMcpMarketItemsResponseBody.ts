@@ -1,11 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ItemsI18nValue } from "./ItemsI18nValue";
 
 
 export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The MCP marketplace template category.
+   * The category of the MCP marketplace template.
    * 
    * @example
    * knowledge
@@ -13,7 +14,7 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The MCP service description.
+   * The description of the MCP service.
    * 
    * @example
    * An MCP service for querying knowledge bases
@@ -24,6 +25,11 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
    * The display metadata of the template.
    */
   displayMetadata?: { [key: string]: any };
+  /**
+   * @remarks
+   * The multilingual display content organized by BCP-47 language tags. Falls back to default fields if the specified language is not matched.
+   */
+  i18n?: { [key: string]: ItemsI18nValue };
   /**
    * @remarks
    * The icon URL of the MCP marketplace template.
@@ -42,7 +48,7 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
   installCount?: number;
   /**
    * @remarks
-   * The MCP marketplace template ID.
+   * The ID of the MCP marketplace template.
    * 
    * @example
    * market-1
@@ -58,7 +64,7 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
   mcpType?: string;
   /**
    * @remarks
-   * The MCP marketplace template name.
+   * The name of the MCP marketplace template.
    * 
    * @example
    * Knowledge
@@ -82,7 +88,7 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The usage instructions for the MCP marketplace template.
+   * The usage instructions of the MCP marketplace template.
    * 
    * @example
    * # Knowledge\\nKnowledge base query service
@@ -90,7 +96,7 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
   readme?: string;
   /**
    * @remarks
-   * The template schema version.
+   * The schema version of the template.
    * 
    * @example
    * 1.0
@@ -106,7 +112,7 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
   templateInputSchema?: string;
   /**
    * @remarks
-   * The MCP marketplace template version.
+   * The version of the MCP marketplace template.
    * 
    * @example
    * 1.0.0
@@ -117,6 +123,7 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
       category: 'category',
       description: 'description',
       displayMetadata: 'displayMetadata',
+      i18n: 'i18n',
       iconUrl: 'iconUrl',
       installCount: 'installCount',
       marketItemId: 'marketItemId',
@@ -136,6 +143,7 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
       category: 'string',
       description: 'string',
       displayMetadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      i18n: { 'type': 'map', 'keyType': 'string', 'valueType': ItemsI18nValue },
       iconUrl: 'string',
       installCount: 'number',
       marketItemId: 'string',
@@ -153,6 +161,9 @@ export class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
   validate() {
     if(this.displayMetadata) {
       $dara.Model.validateMap(this.displayMetadata);
+    }
+    if(this.i18n) {
+      $dara.Model.validateMap(this.i18n);
     }
     super.validate();
   }
@@ -223,7 +234,7 @@ export class ListMcpMarketItemsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records that match the filter conditions.
+   * The total number of records that match the specified conditions.
    * 
    * @example
    * 12

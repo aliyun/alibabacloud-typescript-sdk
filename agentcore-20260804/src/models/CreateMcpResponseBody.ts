@@ -155,7 +155,7 @@ export class CreateMcpResponseBodyDataAuthHttpToMcp extends $dara.Model {
 export class CreateMcpResponseBodyDataAuth extends $dara.Model {
   /**
    * @remarks
-   * The API key authentication configuration for callers of code-deployed MCP.
+   * The API key authentication configuration for code-deployed MCP callers.
    */
   codePackage?: CreateMcpResponseBodyDataAuthCodePackage;
   /**
@@ -466,7 +466,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigHookConfigurationHooks ext
    * The hook description.
    * 
    * @example
-   * Record MCP tool calling
+   * Record MCP tool invocations
    */
   description?: string;
   /**
@@ -489,7 +489,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigHookConfigurationHooks ext
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The hook timeout period. Unit: milliseconds.
+   * The timeout period. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -814,7 +814,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigNetworkConfiguration exten
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-example
@@ -1045,7 +1045,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfiguration exten
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
+   * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -1388,12 +1388,12 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   addresses?: string[];
   /**
    * @remarks
-   * The backend authentication configuration. enabled indicates whether authentication is enabled. directProxy specifies custom authentication headers for direct proxy connections. httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
+   * The backend authentication configuration. enabled indicates whether authentication is enabled. directProxy specifies custom authentication headers for direct-connect proxies. httpToMcp specifies the OpenAPI credential list for HTTP_TO_MCP.
    */
   auth?: CreateMcpResponseBodyDataAuth;
   /**
    * @remarks
-   * Custom tags. Multiple tags are supported.
+   * The custom tags. Multiple tags are supported.
    */
   customTags?: string[];
   /**

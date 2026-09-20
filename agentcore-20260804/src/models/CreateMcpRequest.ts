@@ -155,7 +155,7 @@ export class CreateMcpRequestBodyAuthHttpToMcp extends $dara.Model {
 export class CreateMcpRequestBodyAuth extends $dara.Model {
   /**
    * @remarks
-   * The API key authentication configuration for callers of code-deployed MCP.
+   * The API key authentication configuration for code-deployed MCP callers.
    */
   codePackage?: CreateMcpRequestBodyAuthCodePackage;
   /**
@@ -499,7 +499,7 @@ export class CreateMcpRequestBodyDeploymentConfigHookConfigurationHooks extends 
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The hook timeout period. Unit: milliseconds.
+   * The timeout period. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -824,7 +824,7 @@ export class CreateMcpRequestBodyDeploymentConfigNetworkConfiguration extends $d
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-example
@@ -1055,7 +1055,7 @@ export class CreateMcpRequestBodyDeploymentConfigRuntimeConfiguration extends $d
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
+   * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -1306,7 +1306,7 @@ export class CreateMcpRequestBody extends $dara.Model {
   auth?: CreateMcpRequestBodyAuth;
   /**
    * @remarks
-   * Custom tags. Multiple tags are supported.
+   * The custom tags. Multiple tags are supported.
    */
   customTags?: string[];
   /**
@@ -1415,7 +1415,7 @@ export class CreateMcpRequest extends $dara.Model {
   body?: CreateMcpRequestBody;
   /**
    * @remarks
-   * The client token that ensures idempotency of the request.
+   * The client token that is used to ensure the idempotency of the request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426614174000

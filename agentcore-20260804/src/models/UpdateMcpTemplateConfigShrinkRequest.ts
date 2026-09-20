@@ -10,7 +10,7 @@ export class UpdateMcpTemplateConfigShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotency of the request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000

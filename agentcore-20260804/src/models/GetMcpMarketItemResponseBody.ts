@@ -1,11 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DataI18nValue } from "./DataI18nValue";
 
 
 export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The category of the MCP marketplace template.
+   * The MCP marketplace template category.
    * 
    * @example
    * knowledge
@@ -13,7 +14,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The description of the MCP service.
+   * The MCP service description.
    * 
    * @example
    * An MCP service for querying knowledge bases
@@ -21,9 +22,14 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display metadata of the template.
+   * The template display metadata.
    */
   displayMetadata?: { [key: string]: any };
+  /**
+   * @remarks
+   * The multilingual display content, organized by BCP-47 language tags. Falls back to default fields when the specified language is not matched.
+   */
+  i18n?: { [key: string]: DataI18nValue };
   /**
    * @remarks
    * The icon URL of the MCP marketplace template.
@@ -58,7 +64,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   mcpType?: string;
   /**
    * @remarks
-   * The name of the MCP marketplace template.
+   * The MCP marketplace template name.
    * 
    * @example
    * Knowledge
@@ -106,7 +112,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   templateInputSchema?: string;
   /**
    * @remarks
-   * The version of the MCP marketplace template.
+   * The MCP marketplace template version.
    * 
    * @example
    * 1.0.0
@@ -117,6 +123,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
       category: 'category',
       description: 'description',
       displayMetadata: 'displayMetadata',
+      i18n: 'i18n',
       iconUrl: 'iconUrl',
       installCount: 'installCount',
       marketItemId: 'marketItemId',
@@ -136,6 +143,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
       category: 'string',
       description: 'string',
       displayMetadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      i18n: { 'type': 'map', 'keyType': 'string', 'valueType': DataI18nValue },
       iconUrl: 'string',
       installCount: 'number',
       marketItemId: 'string',
@@ -153,6 +161,9 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   validate() {
     if(this.displayMetadata) {
       $dara.Model.validateMap(this.displayMetadata);
+    }
+    if(this.i18n) {
+      $dara.Model.validateMap(this.i18n);
     }
     super.validate();
   }
