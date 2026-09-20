@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class PurgeInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 276F899F-E952-496F-81B8-BD46D86854E3
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class XpackRelateDBRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the current Spark instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class XpackRelateDBRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The instance ID of the cluster to associate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,15 @@ export class XpackRelateDBRequest extends $dara.Model {
   dbClusterIds?: string;
   /**
    * @remarks
+   * The type of database to associate. Valid values:
+   * - **hdfs**
+   * - **hbase**
+   * - **mongodb**
+   * - **mysql**
+   * - **polardb_mysql**
+   * - **redis**
+   * - **geomesa**.
+   * 
    * This parameter is required.
    * 
    * @example

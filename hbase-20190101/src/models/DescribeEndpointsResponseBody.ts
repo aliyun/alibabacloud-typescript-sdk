@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEndpointsResponseBodyConnAddrsConnAddrInfo extends $dara.Model {
-  /**
-   * @example
-   * ****
-   */
   connAddr?: string;
-  /**
-   * @example
-   * ****
-   */
   connAddrPort?: string;
-  /**
-   * @example
-   * zkConn
-   */
   connType?: string;
-  /**
-   * @example
-   * 2
-   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,26 +63,48 @@ export class DescribeEndpointsResponseBodyConnAddrs extends $dara.Model {
 export class DescribeEndpointsResponseBody extends $dara.Model {
   connAddrs?: DescribeEndpointsResponseBodyConnAddrs;
   /**
+   * @remarks
+   * The engine type of the instance. Valid values:
+   * 
+   * - **hbaseue**
+   * - **hbase**
+   * - **spark**
+   * - **geomesa**.
+   * 
    * @example
    * hbaseue
    */
   engine?: string;
   /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * - **VPC**: virtual private cloud.
+   * - **CLASSIC**: classic network.
+   * 
    * @example
    * VPC
    */
   netType?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F072593C-5234-5B56-9F63-3C7A3AD85D66
    */
   requestId?: string;
   /**
+   * @remarks
+   * The vSwitch ID. This parameter is returned only when NetType is set to **VPC**.
+   * 
    * @example
    * vsw-bp1foll427ze3d4ps****
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The VPC ID. This parameter is returned only when NetType is set to **VPC**.
+   * 
    * @example
    * vpc-bp15s22y1a7sff5gj****
    */

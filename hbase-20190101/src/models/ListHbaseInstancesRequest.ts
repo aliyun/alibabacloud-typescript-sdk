@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListHBaseInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The VPC ID.
+   * 
    * This parameter is required.
    * 
    * @example

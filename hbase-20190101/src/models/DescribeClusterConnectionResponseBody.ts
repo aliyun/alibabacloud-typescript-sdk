@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterConnectionResponseBodyServiceConnAddrsServiceConnAddrConnAddrInfo extends $dara.Model {
-  /**
-   * @example
-   * hb-****-proxy-phoenix.hbase.rds.aliyuncs.com
-   */
   connAddr?: string;
-  /**
-   * @example
-   * 8765
-   */
   connAddrPort?: string;
-  /**
-   * @example
-   * 2
-   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -45,10 +33,6 @@ export class DescribeClusterConnectionResponseBodyServiceConnAddrsServiceConnAdd
 
 export class DescribeClusterConnectionResponseBodyServiceConnAddrsServiceConnAddr extends $dara.Model {
   connAddrInfo?: DescribeClusterConnectionResponseBodyServiceConnAddrsServiceConnAddrConnAddrInfo;
-  /**
-   * @example
-   * PhoenixConnAddr
-   */
   connType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,20 +87,8 @@ export class DescribeClusterConnectionResponseBodyServiceConnAddrs extends $dara
 }
 
 export class DescribeClusterConnectionResponseBodySlbConnAddrsSlbConnAddrConnAddrInfo extends $dara.Model {
-  /**
-   * @example
-   * ld-bp150tns0sjxs****-proxy-hbaseue-pub.hbaseue.rds.aliyuncs.com
-   */
   connAddr?: string;
-  /**
-   * @example
-   * 9190
-   */
   connAddrPort?: string;
-  /**
-   * @example
-   * 0
-   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,10 +117,6 @@ export class DescribeClusterConnectionResponseBodySlbConnAddrsSlbConnAddrConnAdd
 
 export class DescribeClusterConnectionResponseBodySlbConnAddrsSlbConnAddr extends $dara.Model {
   connAddrInfo?: DescribeClusterConnectionResponseBodySlbConnAddrsSlbConnAddrConnAddrInfo;
-  /**
-   * @example
-   * hbaseue
-   */
   slbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -204,16 +172,28 @@ export class DescribeClusterConnectionResponseBodySlbConnAddrs extends $dara.Mod
 
 export class DescribeClusterConnectionResponseBodyThriftConn extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint.
+   * 
    * @example
    * hb-bp1u0639js2h7****-proxy-thrift.hbase.rds.aliyuncs.com
    */
   connAddr?: string;
   /**
+   * @remarks
+   * The connection port.
+   * 
    * @example
    * 9099
    */
   connAddrPort?: string;
   /**
+   * @remarks
+   * The access type of the endpoint. Valid values:
+   * 
+   * - **2**: internal network access.
+   * - **0**: public network access.
+   * 
    * @example
    * 2
    */
@@ -245,16 +225,25 @@ export class DescribeClusterConnectionResponseBodyThriftConn extends $dara.Model
 
 export class DescribeClusterConnectionResponseBodyUiProxyConnAddrInfo extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint.
+   * 
    * @example
    * ld-bp150tns0sjxs****-master1-001.hbaseue.rds.aliyuncs.com
    */
   connAddr?: string;
   /**
+   * @remarks
+   * The connection port.
+   * 
    * @example
    * 443
    */
   connAddrPort?: string;
   /**
+   * @remarks
+   * The access type of the endpoint, which is public network access.
+   * 
    * @example
    * PUBLIC
    */
@@ -285,20 +274,8 @@ export class DescribeClusterConnectionResponseBodyUiProxyConnAddrInfo extends $d
 }
 
 export class DescribeClusterConnectionResponseBodyZkConnAddrsZkConnAddr extends $dara.Model {
-  /**
-   * @example
-   * ld-bp150tns0sjxs****-master1-001.hbaseue.rds.aliyuncs.com
-   */
   connAddr?: string;
-  /**
-   * @example
-   * 2181
-   */
   connAddrPort?: string;
-  /**
-   * @example
-   * 2
-   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -353,35 +330,73 @@ export class DescribeClusterConnectionResponseBodyZkConnAddrs extends $dara.Mode
 
 export class DescribeClusterConnectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The database engine type. Valid values:
+   * 
+   * - **hbaseue**: ApsaraDB for HBase Performance-enhanced Edition.
+   * - **hbase**: ApsaraDB for HBase Standard Edition or ApsaraDB for HBase single-node edition.
+   * - **bds**: a BDS instance.
+   * 
    * @example
    * hbaseue
    */
   dbType?: string;
   /**
+   * @remarks
+   * Indicates whether multi-model management is enabled. Valid values:
+   * 
+   * - **true**: Multi-model management is enabled.
+   * - **false**: Multi-model management is not enabled.
+   * 
    * @example
    * true
    */
   isMultimod?: string;
   /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * - **VPC**: Virtual Private Cloud (VPC).
+   * - **CLASSIC**: classic network.
+   * 
    * @example
    * VPC
    */
   netType?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 70220050-A465-5DCC-8C0C-C38C6E3DB24D
    */
   requestId?: string;
   serviceConnAddrs?: DescribeClusterConnectionResponseBodyServiceConnAddrs;
   slbConnAddrs?: DescribeClusterConnectionResponseBodySlbConnAddrs;
+  /**
+   * @remarks
+   * The Thrift endpoint information list.
+   * 
+   * > This parameter list is returned only when the database DPI engine type is **hbase**.
+   */
   thriftConn?: DescribeClusterConnectionResponseBodyThriftConn;
+  /**
+   * @remarks
+   * The WebUI connection information list.
+   */
   uiProxyConnAddrInfo?: DescribeClusterConnectionResponseBodyUiProxyConnAddrInfo;
   /**
+   * @remarks
+   * The vSwitch ID in the VPC.
+   * 
    * @example
    * vsw-bp1foll427ze3d4ps****
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-bp15s22y1a7sff5gj****
    */

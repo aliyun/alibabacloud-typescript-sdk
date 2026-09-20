@@ -66,6 +66,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a self-managed HDFS address to Xpack.
+   * 
    * @param request - AddUserHdfsInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddUserHdfsInfoResponse
@@ -103,6 +105,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a self-managed HDFS address to Xpack.
+   * 
    * @param request - AddUserHdfsInfoRequest
    * @returns AddUserHdfsInfoResponse
    */
@@ -112,6 +116,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Applies for a public endpoint.
+   * 
    * @param request - AllocatePublicNetworkAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocatePublicNetworkAddressResponse
@@ -145,6 +151,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Applies for a public endpoint.
+   * 
    * @param request - AllocatePublicNetworkAddressRequest
    * @returns AllocatePublicNetworkAddressResponse
    */
@@ -154,6 +162,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels O&M event tasks by calling the CancelActiveOperationTasks operation.
+   * 
    * @param request - CancelActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelActiveOperationTasksResponse
@@ -203,6 +213,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels O&M event tasks by calling the CancelActiveOperationTasks operation.
+   * 
    * @param request - CancelActiveOperationTasksRequest
    * @returns CancelActiveOperationTasksResponse
    */
@@ -212,6 +224,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks whether the versions of components are the latest versions by calling CheckComponentsVersion.
+   * 
    * @param request - CheckComponentsVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckComponentsVersionResponse
@@ -245,6 +259,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks whether the versions of components are the latest versions by calling CheckComponentsVersion.
+   * 
    * @param request - CheckComponentsVersionRequest
    * @returns CheckComponentsVersionResponse
    */
@@ -254,6 +270,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables the backup and recovery feature for an HBase cluster by calling CloseBackup.
+   * 
    * @param request - CloseBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CloseBackupResponse
@@ -283,6 +301,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables the backup and recovery feature for an HBase cluster by calling CloseBackup.
+   * 
    * @param request - CloseBackupRequest
    * @returns CloseBackupResponse
    */
@@ -292,6 +312,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Converts an instance from pay-as-you-go to subscription billing.
+   * 
+   * @remarks
+   * Note: This operation can be called only when payType is set to Postpaid.
+   * 
    * @param request - ConvertInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConvertInstanceResponse
@@ -333,6 +358,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Converts an instance from pay-as-you-go to subscription billing.
+   * 
+   * @remarks
+   * Note: This operation can be called only when payType is set to Postpaid.
+   * 
    * @param request - ConvertInstanceRequest
    * @returns ConvertInstanceResponse
    */
@@ -342,7 +372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建账户
+   * Creates a wide table account.
+   * 
+   * @remarks
+   * Only ApsaraDB for HBase Performance-enhanced Edition is supported.
    * 
    * @param request - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -381,7 +414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建账户
+   * Creates a wide table account.
+   * 
+   * @remarks
+   * Only ApsaraDB for HBase Performance-enhanced Edition is supported.
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -392,6 +428,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a backup plan. Currently, only HBaseue is supported.
+   * 
+   * @remarks
+   * Currently, this operation supports only HBaseue clusters. The EnableHBaseueBackup operation is compatible with this operation and performs automatic creation of a backup plan after a BDS cluster is created.
+   * 
    * @param request - CreateBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateBackupPlanResponse
@@ -421,6 +462,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a backup plan. Currently, only HBaseue is supported.
+   * 
+   * @remarks
+   * Currently, this operation supports only HBaseue clusters. The EnableHBaseueBackup operation is compatible with this operation and performs automatic creation of a backup plan after a BDS cluster is created.
+   * 
    * @param request - CreateBackupPlanRequest
    * @returns CreateBackupPlanResponse
    */
@@ -430,6 +476,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an ApsaraDB for HBase cluster by calling CreateCluster.
+   * 
    * @param request - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateClusterResponse
@@ -539,6 +587,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an ApsaraDB for HBase cluster by calling CreateCluster.
+   * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
    */
@@ -548,6 +598,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a global resource in a cluster by calling CreateGlobalResource.
+   * 
    * @param request - CreateGlobalResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateGlobalResourceResponse
@@ -593,6 +645,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a global resource in a cluster by calling CreateGlobalResource.
+   * 
    * @param request - CreateGlobalResourceRequest
    * @returns CreateGlobalResourceResponse
    */
@@ -602,6 +656,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a load balancing service by calling CreateHBaseSlbServer.
+   * 
    * @param request - CreateHBaseSlbServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateHBaseSlbServerResponse
@@ -639,6 +695,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a load balancing service by calling CreateHBaseSlbServer.
+   * 
    * @param request - CreateHBaseSlbServerRequest
    * @returns CreateHBaseSlbServerResponse
    */
@@ -648,6 +706,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a high-availability Thrift or Phoenix service for a BDS cluster that already has a high-availability HBase setup.
+   * 
    * @param request - CreateHbaseHaSlbRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateHbaseHaSlbResponse
@@ -693,6 +753,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a high-availability Thrift or Phoenix service for a BDS cluster that already has a high-availability HBase setup.
+   * 
    * @param request - CreateHbaseHaSlbRequest
    * @returns CreateHbaseHaSlbResponse
    */
@@ -702,6 +764,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a multi-zone cluster by calling CreateMultiZoneCluster.
+   * 
+   * @remarks
+   * Currently, only version 2.0 of the HBaseue engine is supported.
+   * 
    * @param request - CreateMultiZoneClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateMultiZoneClusterResponse
@@ -843,6 +910,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a multi-zone cluster by calling CreateMultiZoneCluster.
+   * 
+   * @remarks
+   * Currently, only version 2.0 of the HBaseue engine is supported.
+   * 
    * @param request - CreateMultiZoneClusterRequest
    * @returns CreateMultiZoneClusterResponse
    */
@@ -852,6 +924,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Restores backed-up data from a cluster with the backup and restore feature enabled to another ApsaraDB for HBase Performance-enhanced Edition cluster in the same region.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and restore feature is enabled for the ApsaraDB for HBase Performance-enhanced Edition cluster and that the target ApsaraDB for HBase Performance-enhanced Edition cluster is associated with the corresponding BDS.
+   * 
    * @param request - CreateRestorePlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateRestorePlanResponse
@@ -901,6 +978,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Restores backed-up data from a cluster with the backup and restore feature enabled to another ApsaraDB for HBase Performance-enhanced Edition cluster in the same region.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and restore feature is enabled for the ApsaraDB for HBase Performance-enhanced Edition cluster and that the target ApsaraDB for HBase Performance-enhanced Edition cluster is associated with the corresponding BDS.
+   * 
    * @param request - CreateRestorePlanRequest
    * @returns CreateRestorePlanResponse
    */
@@ -910,6 +992,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an HBase Serverless cluster.
+   * 
    * @param request - CreateServerlessClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServerlessClusterResponse
@@ -1007,6 +1091,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an HBase Serverless cluster.
+   * 
    * @param request - CreateServerlessClusterRequest
    * @returns CreateServerlessClusterResponse
    */
@@ -1016,7 +1102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除账户
+   * Delete Wide Table Database Account
+   * 
+   * @remarks
+   * Only supported for HBase Enhanced Edition (HBaseue).
    * 
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1051,7 +1140,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除账户
+   * Delete Wide Table Database Account
+   * 
+   * @remarks
+   * Only supported for HBase Enhanced Edition (HBaseue).
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -1062,6 +1154,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a global resource from a cluster by calling DeleteGlobalResource.
+   * 
    * @param request - DeleteGlobalResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGlobalResourceResponse
@@ -1103,6 +1197,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a global resource from a cluster by calling DeleteGlobalResource.
+   * 
    * @param request - DeleteGlobalResourceRequest
    * @returns DeleteGlobalResourceResponse
    */
@@ -1112,6 +1208,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a created HA instance.
+   * 
    * @param request - DeleteHBaseHaDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteHBaseHaDBResponse
@@ -1145,6 +1243,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a created HA instance.
+   * 
    * @param request - DeleteHBaseHaDBRequest
    * @returns DeleteHBaseHaDBResponse
    */
@@ -1154,6 +1254,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DeleteHBaseSlbServer to delete an activated load balancing service.
+   * 
    * @param request - DeleteHBaseSlbServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteHBaseSlbServerResponse
@@ -1187,6 +1289,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DeleteHBaseSlbServer to delete an activated load balancing service.
+   * 
    * @param request - DeleteHBaseSlbServerRequest
    * @returns DeleteHBaseSlbServerResponse
    */
@@ -1196,6 +1300,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the corresponding high-availability Thrift or high-availability Phoenix configuration. This operation is the counterpart of the CreateHbaseHaSlb operation.
+   * 
    * @param request - DeleteHbaseHaSlbRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteHbaseHaSlbResponse
@@ -1233,6 +1339,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the corresponding high-availability Thrift or high-availability Phoenix configuration. This operation is the counterpart of the CreateHbaseHaSlb operation.
+   * 
    * @param request - DeleteHbaseHaSlbRequest
    * @returns DeleteHbaseHaSlbResponse
    */
@@ -1242,6 +1350,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DeleteInstance to release an HBase instance.
+   * 
+   * @remarks
+   * When you call this operation, the instance must meet the following conditions:
+   * - The instance status is **Running**.
+   * - The billing method of the instance is **pay-as-you-go**.
+   * > Subscription instances cannot be deleted by calling this operation. They are automatically released upon expiration. To release a subscription instance in advance, submit a ticket.
+   * 
    * @param request - DeleteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceResponse
@@ -1275,6 +1391,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DeleteInstance to release an HBase instance.
+   * 
+   * @remarks
+   * When you call this operation, the instance must meet the following conditions:
+   * - The instance status is **Running**.
+   * - The billing method of the instance is **pay-as-you-go**.
+   * > Subscription instances cannot be deleted by calling this operation. They are automatically released upon expiration. To release a subscription instance in advance, submit a ticket.
+   * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
    */
@@ -1284,6 +1408,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a multi-zone instance by calling the DeleteMultiZoneCluster operation.
+   * 
    * @param request - DeleteMultiZoneClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMultiZoneClusterResponse
@@ -1317,6 +1443,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a multi-zone instance by calling the DeleteMultiZoneCluster operation.
+   * 
    * @param request - DeleteMultiZoneClusterRequest
    * @returns DeleteMultiZoneClusterResponse
    */
@@ -1326,6 +1454,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an HBase Serverless cluster.
+   * 
    * @param request - DeleteServerlessClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServerlessClusterResponse
@@ -1363,6 +1493,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an HBase Serverless cluster.
+   * 
    * @param request - DeleteServerlessClusterRequest
    * @returns DeleteServerlessClusterResponse
    */
@@ -1372,6 +1504,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DeleteUserHdfsInfo to delete user-created HDFS information in Xpack.
+   * 
    * @param request - DeleteUserHdfsInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUserHdfsInfoResponse
@@ -1405,6 +1539,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DeleteUserHdfsInfo to delete user-created HDFS information in Xpack.
+   * 
    * @param request - DeleteUserHdfsInfoRequest
    * @returns DeleteUserHdfsInfoResponse
    */
@@ -1414,7 +1550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账户列表
+   * Queries the list of database accounts.
    * 
    * @param request - DescribeAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1445,7 +1581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账户列表
+   * Queries the list of database accounts.
    * 
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
@@ -1456,6 +1592,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the DescribeActiveOperationTaskType operation to query the O&M task types, the number of tasks of each type, and the details of an HBase instance.
+   * 
    * @param request - DescribeActiveOperationTaskTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeActiveOperationTaskTypeResponse
@@ -1505,6 +1643,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the DescribeActiveOperationTaskType operation to query the O&M task types, the number of tasks of each type, and the details of an HBase instance.
+   * 
    * @param request - DescribeActiveOperationTaskTypeRequest
    * @returns DescribeActiveOperationTaskTypeResponse
    */
@@ -1514,6 +1654,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the DescribeActiveOperationTasks operation to query details of O&M tasks for HBase instances.
+   * 
    * @param request - DescribeActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeActiveOperationTasksResponse
@@ -1603,6 +1745,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the DescribeActiveOperationTasks operation to query details of O&M tasks for HBase instances.
+   * 
    * @param request - DescribeActiveOperationTasksRequest
    * @returns DescribeActiveOperationTasksResponse
    */
@@ -1612,6 +1756,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries available resources by calling DescribeAvailableResource.
+   * 
    * @param request - DescribeAvailableResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAvailableResourceResponse
@@ -1665,6 +1811,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries available resources by calling DescribeAvailableResource.
+   * 
    * @param request - DescribeAvailableResourceRequest
    * @returns DescribeAvailableResourceResponse
    */
@@ -1674,6 +1822,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configuration of a backup plan by calling the DescribeBackupPlanConfig operation.
+   * 
+   * @remarks
+   * This operation currently supports only HBaseue. Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue instance.
+   * 
    * @param request - DescribeBackupPlanConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupPlanConfigResponse
@@ -1703,6 +1856,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configuration of a backup plan by calling the DescribeBackupPlanConfig operation.
+   * 
+   * @remarks
+   * This operation currently supports only HBaseue. Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue instance.
+   * 
    * @param request - DescribeBackupPlanConfigRequest
    * @returns DescribeBackupPlanConfigResponse
    */
@@ -1712,6 +1870,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the backup policy of an HBase cluster by calling DescribeBackupPolicy.
+   * 
    * @param request - DescribeBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupPolicyResponse
@@ -1741,6 +1901,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the backup policy of an HBase cluster by calling DescribeBackupPolicy.
+   * 
    * @param request - DescribeBackupPolicyRequest
    * @returns DescribeBackupPolicyResponse
    */
@@ -1750,6 +1912,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Describes the status of a backup task by calling the DescribeBackupStatus operation.
+   * 
    * @param request - DescribeBackupStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupStatusResponse
@@ -1779,6 +1943,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Describes the status of a backup task by calling the DescribeBackupStatus operation.
+   * 
    * @param request - DescribeBackupStatusRequest
    * @returns DescribeBackupStatusResponse
    */
@@ -1788,6 +1954,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * After HBase Enhanced Edition backup is enabled, you can call the DescribeBackupSummary operation to query backup details.
+   * 
+   * @remarks
+   * The backup and restore feature of the HBase Enhanced Edition instance is enabled. For more information, see [Enable backup and restore](https://help.aliyun.com/document_detail/145767.html).
+   * 
    * @param request - DescribeBackupSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupSummaryResponse
@@ -1825,6 +1996,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * After HBase Enhanced Edition backup is enabled, you can call the DescribeBackupSummary operation to query backup details.
+   * 
+   * @remarks
+   * The backup and restore feature of the HBase Enhanced Edition instance is enabled. For more information, see [Enable backup and restore](https://help.aliyun.com/document_detail/145767.html).
+   * 
    * @param request - DescribeBackupSummaryRequest
    * @returns DescribeBackupSummaryResponse
    */
@@ -1834,6 +2010,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the backup table information of a specific backup record by calling the DescribeBackupTables operation.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that backup records exist. You can call the DescribeBackupSummary operation to obtain backup records.
+   * 
    * @param request - DescribeBackupTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupTablesResponse
@@ -1875,6 +2056,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the backup table information of a specific backup record by calling the DescribeBackupTables operation.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that backup records exist. You can call the DescribeBackupSummary operation to obtain backup records.
+   * 
    * @param request - DescribeBackupTablesRequest
    * @returns DescribeBackupTablesResponse
    */
@@ -1884,6 +2070,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves backup records of an ApsaraDB for HBase cluster by calling DescribeBackups.
+   * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupsResponse
@@ -1941,6 +2129,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves backup records of an ApsaraDB for HBase cluster by calling DescribeBackups.
+   * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
    */
@@ -1950,6 +2140,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the connection list of a cluster by calling DescribeClusterConnection.
+   * 
    * @param request - DescribeClusterConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClusterConnectionResponse
@@ -1983,6 +2175,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the connection list of a cluster by calling DescribeClusterConnection.
+   * 
    * @param request - DescribeClusterConnectionRequest
    * @returns DescribeClusterConnectionResponse
    */
@@ -1992,6 +2186,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DescribeColdStorage to retrieve the cold storage information of an instance.
+   * 
    * @param request - DescribeColdStorageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeColdStorageResponse
@@ -2021,6 +2217,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DescribeColdStorage to retrieve the cold storage information of an instance.
+   * 
    * @param request - DescribeColdStorageRequest
    * @returns DescribeColdStorageResponse
    */
@@ -2030,6 +2228,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DescribeDBInstanceUsage to retrieve the running watermark status of an HBase cluster by cluster ID.
+   * 
    * @param request - DescribeDBInstanceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceUsageResponse
@@ -2059,6 +2259,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DescribeDBInstanceUsage to retrieve the running watermark status of an HBase cluster by cluster ID.
+   * 
    * @param request - DescribeDBInstanceUsageRequest
    * @returns DescribeDBInstanceUsageResponse
    */
@@ -2068,6 +2270,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of clusters that have been deleted but not fully released.
+   * 
+   * @remarks
+   * By default, cluster resources are fully cleaned up 7 days after deletion. If you have called the PurgeInstance operation or set ImmediateDeleteFlag to true when calling the delete operation, the resources have already been fully cleaned up.
+   * 
    * @param request - DescribeDeletedInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDeletedInstancesResponse
@@ -2105,6 +2312,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of clusters that have been deleted but not fully released.
+   * 
+   * @remarks
+   * By default, cluster resources are fully cleaned up 7 days after deletion. If you have called the PurgeInstance operation or set ImmediateDeleteFlag to true when calling the delete operation, the resources have already been fully cleaned up.
+   * 
    * @param request - DescribeDeletedInstancesRequest
    * @returns DescribeDeletedInstancesResponse
    */
@@ -2114,6 +2326,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Currently, only HBase and HBaseue are supported.
+   * 
    * @param request - DescribeDiskWarningLineRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDiskWarningLineResponse
@@ -2143,6 +2357,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Currently, only HBase and HBaseue are supported.
+   * 
    * @param request - DescribeDiskWarningLineRequest
    * @returns DescribeDiskWarningLineResponse
    */
@@ -2152,6 +2368,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the database connection information of an ApsaraDB for HBase instance by calling DescribeEndpoints.
+   * 
    * @param request - DescribeEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEndpointsResponse
@@ -2181,6 +2399,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the database connection information of an ApsaraDB for HBase instance by calling DescribeEndpoints.
+   * 
    * @param request - DescribeEndpointsRequest
    * @returns DescribeEndpointsResponse
    */
@@ -2190,6 +2410,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of an ApsaraDB for HBase instance.
+   * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceResponse
@@ -2219,6 +2441,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of an ApsaraDB for HBase instance.
+   * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
    */
@@ -2228,6 +2452,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries instance specifications (CPU and memory) by calling DescribeInstanceType.
+   * 
+   * @remarks
+   * The complete specification mapping table is based on the list returned by this operation.
+   * If the response returns an "instanceType is not found" error, the specification has been deprecated. If you have a strong dependency on this specification, contact the Alibaba Cloud HBase management team.
+   * 
    * @param request - DescribeInstanceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceTypeResponse
@@ -2257,6 +2487,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries instance specifications (CPU and memory) by calling DescribeInstanceType.
+   * 
+   * @remarks
+   * The complete specification mapping table is based on the list returned by this operation.
+   * If the response returns an "instanceType is not found" error, the specification has been deprecated. If you have a strong dependency on this specification, contact the Alibaba Cloud HBase management team.
+   * 
    * @param request - DescribeInstanceTypeRequest
    * @returns DescribeInstanceTypeResponse
    */
@@ -2266,6 +2502,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of ApsaraDB for HBase instances in a specified region by calling DescribeInstances.
+   * 
    * @param request - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstancesResponse
@@ -2323,6 +2561,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of ApsaraDB for HBase instances in a specified region by calling DescribeInstances.
+   * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
    */
@@ -2332,6 +2572,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the IP whitelist information of a cluster by cluster ID.
+   * 
    * @param request - DescribeIpWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeIpWhitelistResponse
@@ -2361,6 +2603,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the IP whitelist information of a cluster by cluster ID.
+   * 
    * @param request - DescribeIpWhitelistRequest
    * @returns DescribeIpWhitelistResponse
    */
@@ -2370,6 +2614,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the available region and zone combinations for multi-zone deployment by calling DescribeMultiZoneAvailableRegions.
+   * 
    * @param request - DescribeMultiZoneAvailableRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMultiZoneAvailableRegionsResponse
@@ -2399,6 +2645,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the available region and zone combinations for multi-zone deployment by calling DescribeMultiZoneAvailableRegions.
+   * 
    * @param request - DescribeMultiZoneAvailableRegionsRequest
    * @returns DescribeMultiZoneAvailableRegionsResponse
    */
@@ -2408,6 +2656,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries purchasable resources in multiple zones by calling DescribeMultiZoneAvailableResource.
+   * 
    * @param request - DescribeMultiZoneAvailableResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMultiZoneAvailableResourceResponse
@@ -2445,6 +2695,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries purchasable resources in multiple zones by calling DescribeMultiZoneAvailableResource.
+   * 
    * @param request - DescribeMultiZoneAvailableResourceRequest
    * @returns DescribeMultiZoneAvailableResourceResponse
    */
@@ -2454,6 +2706,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a multi-zone instance.
+   * 
    * @param request - DescribeMultiZoneClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMultiZoneClusterResponse
@@ -2483,6 +2737,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a multi-zone instance.
+   * 
    * @param request - DescribeMultiZoneClusterRequest
    * @returns DescribeMultiZoneClusterResponse
    */
@@ -2492,6 +2748,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the recoverable time range after backup is enabled for an HBaseue cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster.
+   * 
    * @param request - DescribeRecoverableTimeRangeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRecoverableTimeRangeResponse
@@ -2521,6 +2782,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the recoverable time range after backup is enabled for an HBaseue cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster.
+   * 
    * @param request - DescribeRecoverableTimeRangeRequest
    * @returns DescribeRecoverableTimeRangeResponse
    */
@@ -2530,6 +2796,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries available regions by calling DescribeRegions.
+   * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
@@ -2563,6 +2831,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries available regions by calling DescribeRegions.
+   * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
    */
@@ -2572,6 +2842,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a specific full restoration for an HBaseue cluster that has backup and recovery enabled.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that restoration records exist. You can call DescribeRestoreSummary to obtain restoration records.
+   * 
    * @param request - DescribeRestoreFullDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRestoreFullDetailsResponse
@@ -2613,6 +2888,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a specific full restoration for an HBaseue cluster that has backup and recovery enabled.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that restoration records exist. You can call DescribeRestoreSummary to obtain restoration records.
+   * 
    * @param request - DescribeRestoreFullDetailsRequest
    * @returns DescribeRestoreFullDetailsResponse
    */
@@ -2622,6 +2902,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an incremental restoration by calling the DescribeRestoreIncrDetail operation.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that restoration records exist. You can call the DescribeRestoreSummary operation to obtain restoration records.
+   * 
    * @param request - DescribeRestoreIncrDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRestoreIncrDetailResponse
@@ -2655,6 +2940,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an incremental restoration by calling the DescribeRestoreIncrDetail operation.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that restoration records exist. You can call the DescribeRestoreSummary operation to obtain restoration records.
+   * 
    * @param request - DescribeRestoreIncrDetailRequest
    * @returns DescribeRestoreIncrDetailResponse
    */
@@ -2664,6 +2954,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of schema restoration for an HBaseue cluster that has backup and recovery enabled.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that restoration records exist.
+   * 
    * @param request - DescribeRestoreSchemaDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRestoreSchemaDetailsResponse
@@ -2705,6 +3000,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of schema restoration for an HBaseue cluster that has backup and recovery enabled.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that restoration records exist.
+   * 
    * @param request - DescribeRestoreSchemaDetailsRequest
    * @returns DescribeRestoreSchemaDetailsResponse
    */
@@ -2714,6 +3014,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the data recovery summary for an HBaseue cluster that has backup and recovery enabled by calling the DescribeRestoreSummary operation.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that backup and recovery is enabled for the HBaseue cluster.
+   * 
    * @param request - DescribeRestoreSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRestoreSummaryResponse
@@ -2751,6 +3056,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the data recovery summary for an HBaseue cluster that has backup and recovery enabled by calling the DescribeRestoreSummary operation.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that backup and recovery is enabled for the HBaseue cluster.
+   * 
    * @param request - DescribeRestoreSummaryRequest
    * @returns DescribeRestoreSummaryResponse
    */
@@ -2760,6 +3070,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a restore record for a cluster that has been restored from a backup.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that restore records exist. You can call DescribeRestoreSummary to obtain restore records.
+   * 
    * @param request - DescribeRestoreTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRestoreTablesResponse
@@ -2793,6 +3108,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a restore record for a cluster that has been restored from a backup.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster and that restore records exist. You can call DescribeRestoreSummary to obtain restore records.
+   * 
    * @param request - DescribeRestoreTablesRequest
    * @returns DescribeRestoreTablesResponse
    */
@@ -2802,6 +3122,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DescribeSecurityGroups to retrieve the security group information of a cluster by cluster ID.
+   * 
    * @param request - DescribeSecurityGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSecurityGroupsResponse
@@ -2831,6 +3153,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DescribeSecurityGroups to retrieve the security group information of a cluster by cluster ID.
+   * 
    * @param request - DescribeSecurityGroupsRequest
    * @returns DescribeSecurityGroupsResponse
    */
@@ -2840,6 +3164,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a serverless cluster by calling DescribeServerlessCluster.
+   * 
    * @param request - DescribeServerlessClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServerlessClusterResponse
@@ -2873,6 +3199,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a serverless cluster by calling DescribeServerlessCluster.
+   * 
    * @param request - DescribeServerlessClusterRequest
    * @returns DescribeServerlessClusterResponse
    */
@@ -2882,6 +3210,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DescribeSubDomain to retrieve an available subdomain.
+   * 
    * @param request - DescribeSubDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSubDomainResponse
@@ -2915,6 +3245,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls DescribeSubDomain to retrieve an available subdomain.
+   * 
    * @param request - DescribeSubDomainRequest
    * @returns DescribeSubDomainResponse
    */
@@ -2924,6 +3256,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables backup and recovery for an HBaseue cluster.
+   * 
    * @param request - EnableHBaseueBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableHBaseueBackupResponse
@@ -2965,6 +3299,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables backup and recovery for an HBaseue cluster.
+   * 
    * @param request - EnableHBaseueBackupRequest
    * @returns EnableHBaseueBackupResponse
    */
@@ -2974,6 +3310,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the EnableHBaseueModule operation to enable an extension service.
+   * 
    * @param request - EnableHBaseueModuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableHBaseueModuleResponse
@@ -3071,6 +3409,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the EnableHBaseueModule operation to enable an extension service.
+   * 
    * @param request - EnableHBaseueModuleRequest
    * @returns EnableHBaseueModuleResponse
    */
@@ -3080,6 +3420,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the EvaluateMultiZoneResource operation to evaluate whether available resources exist.
+   * 
    * @param request - EvaluateMultiZoneResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EvaluateMultiZoneResourceResponse
@@ -3217,6 +3559,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the EvaluateMultiZoneResource operation to evaluate whether available resources exist.
+   * 
    * @param request - EvaluateMultiZoneResourceRequest
    * @returns EvaluateMultiZoneResourceResponse
    */
@@ -3226,6 +3570,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the monitoring URL based on the cluster ID.
+   * 
+   * @remarks
+   * CloudMonitor has been migrated. This operation is no longer in use. Access monitoring from the Monitoring and Alerts page in cluster management.
+   * 
    * @param request - GetMultimodeCmsUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMultimodeCmsUrlResponse
@@ -3259,6 +3608,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the monitoring URL based on the cluster ID.
+   * 
+   * @remarks
+   * CloudMonitor has been migrated. This operation is no longer in use. Access monitoring from the Monitoring and Alerts page in cluster management.
+   * 
    * @param request - GetMultimodeCmsUrlRequest
    * @returns GetMultimodeCmsUrlResponse
    */
@@ -3268,7 +3622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权账户权限
+   * Grants permissions to an account.
    * 
    * @param request - GrantRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3315,7 +3669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权账户权限
+   * Grants permissions to an account.
    * 
    * @param request - GrantRequest
    * @returns GrantResponse
@@ -3326,6 +3680,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ListHBaseInstances to retrieve ApsaraDB for HBase instances within the same VPC.
+   * 
    * @param request - ListHBaseInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHBaseInstancesResponse
@@ -3355,6 +3711,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ListHBaseInstances to retrieve ApsaraDB for HBase instances within the same VPC.
+   * 
    * @param request - ListHBaseInstancesRequest
    * @returns ListHBaseInstancesResponse
    */
@@ -3364,6 +3722,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the modification history of cluster parameters by calling ListInstanceServiceConfigHistories.
+   * 
    * @param request - ListInstanceServiceConfigHistoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstanceServiceConfigHistoriesResponse
@@ -3401,6 +3761,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the modification history of cluster parameters by calling ListInstanceServiceConfigHistories.
+   * 
    * @param request - ListInstanceServiceConfigHistoriesRequest
    * @returns ListInstanceServiceConfigHistoriesResponse
    */
@@ -3410,6 +3772,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the configuration items of a cluster by calling ListInstanceServiceConfigurations.
+   * 
    * @param request - ListInstanceServiceConfigurationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstanceServiceConfigurationsResponse
@@ -3447,6 +3811,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the configuration items of a cluster by calling ListInstanceServiceConfigurations.
+   * 
    * @param request - ListInstanceServiceConfigurationsRequest
    * @returns ListInstanceServiceConfigurationsResponse
    */
@@ -3456,6 +3822,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of tags by ResourceId or Tag (query by Key only, or by both Key and Value).
+   * 
+   * @remarks
+   * You must specify at least one of the ResourceId and Tag parameters. Otherwise, an error is returned.
+   * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
@@ -3497,6 +3868,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of tags by ResourceId or Tag (query by Key only, or by both Key and Value).
+   * 
+   * @remarks
+   * You must specify at least one of the ResourceId and Tag parameters. Otherwise, an error is returned.
+   * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
    */
@@ -3506,6 +3882,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves all labels in a specified region.
+   * 
    * @param request - ListTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagsResponse
@@ -3535,6 +3913,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves all labels in a specified region.
+   * 
    * @param request - ListTagsRequest
    * @returns ListTagsResponse
    */
@@ -3544,7 +3924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更改账户密码
+   * Changes the password of a database access account.
    * 
    * @param request - ModifyAccountPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3583,7 +3963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更改账户密码
+   * Changes the password of a database access account.
    * 
    * @param request - ModifyAccountPasswordRequest
    * @returns ModifyAccountPasswordResponse
@@ -3594,6 +3974,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the ModifyActiveOperationTasks operation to modify the scheduled switchover time of O&M tasks.
+   * 
+   * @remarks
+   * In addition to notifications sent by text message, phone call, email, or internal message, O&M events of ApsaraDB for HBase (such as minor engine version updates) are also displayed in the console. In addition to calling this operation to modify the scheduled switchover time, you can also modify it in the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/405057.html).
+   * 
    * @param request - ModifyActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyActiveOperationTasksResponse
@@ -3651,6 +4036,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the ModifyActiveOperationTasks operation to modify the scheduled switchover time of O&M tasks.
+   * 
+   * @remarks
+   * In addition to notifications sent by text message, phone call, email, or internal message, O&M events of ApsaraDB for HBase (such as minor engine version updates) are also displayed in the console. In addition to calling this operation to modify the scheduled switchover time, you can also modify it in the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/405057.html).
+   * 
    * @param request - ModifyActiveOperationTasksRequest
    * @returns ModifyActiveOperationTasksResponse
    */
@@ -3660,6 +4050,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the backup configuration for an HBaseue cluster that has backup and recovery enabled.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster.
+   * 
    * @param request - ModifyBackupPlanConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyBackupPlanConfigResponse
@@ -3705,6 +4100,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the backup configuration for an HBaseue cluster that has backup and recovery enabled.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the backup and recovery feature is enabled for the HBaseue cluster.
+   * 
    * @param request - ModifyBackupPlanConfigRequest
    * @returns ModifyBackupPlanConfigResponse
    */
@@ -3714,6 +4114,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ModifyBackupPolicy to modify the backup plan of an HBase cluster.
+   * 
    * @param request - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyBackupPolicyResponse
@@ -3759,6 +4161,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ModifyBackupPolicy to modify the backup plan of an HBase cluster.
+   * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse
    */
@@ -3768,6 +4172,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Sets the deletion protection attribute of an instance by calling ModifyClusterDeletionProtection.
+   * 
    * @param request - ModifyClusterDeletionProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyClusterDeletionProtectionResponse
@@ -3801,6 +4207,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Sets the deletion protection attribute of an instance by calling ModifyClusterDeletionProtection.
+   * 
    * @param request - ModifyClusterDeletionProtectionRequest
    * @returns ModifyClusterDeletionProtectionResponse
    */
@@ -3810,6 +4218,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the disk capacity alert threshold for HBase Cluster Edition and HBaseue clusters. The default alert threshold is 80%.
+   * 
    * @param request - ModifyDiskWarningLineRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDiskWarningLineResponse
@@ -3843,6 +4253,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the disk capacity alert threshold for HBase Cluster Edition and HBaseue clusters. The default alert threshold is 80%.
+   * 
    * @param request - ModifyDiskWarningLineRequest
    * @returns ModifyDiskWarningLineResponse
    */
@@ -3852,6 +4264,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the ModifyInstanceMaintainTime operation to modify the O&M window start time of an instance.
+   * 
    * @param request - ModifyInstanceMaintainTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceMaintainTimeResponse
@@ -3889,6 +4303,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the ModifyInstanceMaintainTime operation to modify the O&M window start time of an instance.
+   * 
    * @param request - ModifyInstanceMaintainTimeRequest
    * @returns ModifyInstanceMaintainTimeResponse
    */
@@ -3898,6 +4314,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the name of an instance by calling ModifyInstanceName.
+   * 
    * @param request - ModifyInstanceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceNameResponse
@@ -3943,6 +4361,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the name of an instance by calling ModifyInstanceName.
+   * 
    * @param request - ModifyInstanceNameRequest
    * @returns ModifyInstanceNameResponse
    */
@@ -3952,6 +4372,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ModifyInstanceServiceConfig to modify cluster configurations. You can call the ListInstanceServiceConfigurations operation to query the configuration items that can be modified.
+   * 
    * @param request - ModifyInstanceServiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceServiceConfigResponse
@@ -3997,6 +4419,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ModifyInstanceServiceConfig to modify cluster configurations. You can call the ListInstanceServiceConfigurations operation to query the configuration items that can be modified.
+   * 
    * @param request - ModifyInstanceServiceConfigRequest
    * @returns ModifyInstanceServiceConfigResponse
    */
@@ -4006,6 +4430,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ModifyInstanceType to change the specifications of an instance.
+   * 
    * @param request - ModifyInstanceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceTypeResponse
@@ -4043,6 +4469,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ModifyInstanceType to change the specifications of an instance.
+   * 
    * @param request - ModifyInstanceTypeRequest
    * @returns ModifyInstanceTypeResponse
    */
@@ -4052,6 +4480,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the IP whitelist group of an instance by calling ModifyIpWhitelist.
+   * 
    * @param request - ModifyIpWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyIpWhitelistResponse
@@ -4093,6 +4523,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the IP whitelist group of an instance by calling ModifyIpWhitelist.
+   * 
    * @param request - ModifyIpWhitelistRequest
    * @returns ModifyIpWhitelistResponse
    */
@@ -4102,6 +4534,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the node specifications of a multi-zone instance by calling ModifyMultiZoneClusterNodeType.
+   * 
    * @param request - ModifyMultiZoneClusterNodeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyMultiZoneClusterNodeTypeResponse
@@ -4143,6 +4577,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the node specifications of a multi-zone instance by calling ModifyMultiZoneClusterNodeType.
+   * 
    * @param request - ModifyMultiZoneClusterNodeTypeRequest
    * @returns ModifyMultiZoneClusterNodeTypeResponse
    */
@@ -4152,6 +4588,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ModifySecurityGroups to modify the security groups associated with a cluster.
+   * 
    * @param request - ModifySecurityGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySecurityGroupsResponse
@@ -4185,6 +4623,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ModifySecurityGroups to modify the security groups associated with a cluster.
+   * 
    * @param request - ModifySecurityGroupsRequest
    * @returns ModifySecurityGroupsResponse
    */
@@ -4194,6 +4634,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resets the password for accessing the cluster management UI by calling ModifyUIProxyAccountPassword.
+   * 
    * @param request - ModifyUIAccountPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyUIAccountPasswordResponse
@@ -4231,6 +4673,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resets the password for accessing the cluster management UI by calling ModifyUIProxyAccountPassword.
+   * 
    * @param request - ModifyUIAccountPasswordRequest
    * @returns ModifyUIAccountPasswordResponse
    */
@@ -4240,6 +4684,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Moves a target instance to a target resource group.
+   * 
    * @param request - MoveResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MoveResourceGroupResponse
@@ -4273,6 +4719,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Moves a target instance to a target resource group.
+   * 
    * @param request - MoveResourceGroupRequest
    * @returns MoveResourceGroupResponse
    */
@@ -4282,6 +4730,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables the backup and recovery feature for an ApsaraDB for HBase cluster by calling OpenBackup.
+   * 
    * @param request - OpenBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenBackupResponse
@@ -4311,6 +4761,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables the backup and recovery feature for an ApsaraDB for HBase cluster by calling OpenBackup.
+   * 
    * @param request - OpenBackupRequest
    * @returns OpenBackupResponse
    */
@@ -4320,6 +4772,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Completely cleans up an instance that has been deleted (within the last 7 days) but not fully cleaned up.
+   * 
    * @param request - PurgeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PurgeInstanceResponse
@@ -4349,6 +4803,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Completely cleans up an instance that has been deleted (within the last 7 days) but not fully cleaned up.
+   * 
    * @param request - PurgeInstanceRequest
    * @returns PurgeInstanceResponse
    */
@@ -4358,6 +4814,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the high-availability HBase list for a BDS cluster. This operation corresponds to CreateHaCluster and CreateHbaseHaSlb. It returns the corresponding high-availability list.
+   * 
    * @param request - QueryHBaseHaDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryHBaseHaDBResponse
@@ -4387,6 +4845,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the high-availability HBase list for a BDS cluster. This operation corresponds to CreateHaCluster and CreateHbaseHaSlb. It returns the corresponding high-availability list.
+   * 
    * @param request - QueryHBaseHaDBRequest
    * @returns QueryHBaseHaDBResponse
    */
@@ -4396,6 +4856,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of databases that can be associated with the current instance by calling QueryXpackRelateDB.
+   * 
    * @param request - QueryXpackRelateDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryXpackRelateDBResponse
@@ -4433,6 +4895,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of databases that can be associated with the current instance by calling QueryXpackRelateDB.
+   * 
    * @param request - QueryXpackRelateDBRequest
    * @returns QueryXpackRelateDBResponse
    */
@@ -4442,6 +4906,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds an active-active instance pair to a BDS cluster.
+   * 
    * @param request - RelateDbForHBaseHaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RelateDbForHBaseHaResponse
@@ -4551,6 +5017,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds an active-active instance pair to a BDS cluster.
+   * 
    * @param request - RelateDbForHBaseHaRequest
    * @returns RelateDbForHBaseHaResponse
    */
@@ -4560,6 +5028,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Releases the public endpoint of an instance.
+   * 
    * @param request - ReleasePublicNetworkAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleasePublicNetworkAddressResponse
@@ -4589,6 +5059,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Releases the public endpoint of an instance.
+   * 
    * @param request - ReleasePublicNetworkAddressRequest
    * @returns ReleasePublicNetworkAddressResponse
    */
@@ -4598,6 +5070,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Renews a subscription for an HBase instance.
+   * 
+   * @remarks
+   * This operation applies only to subscription HBase instances.
+   * 
    * @param request - RenewInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RenewInstanceResponse
@@ -4635,6 +5112,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Renews a subscription for an HBase instance.
+   * 
+   * @remarks
+   * This operation applies only to subscription HBase instances.
+   * 
    * @param request - RenewInstanceRequest
    * @returns RenewInstanceResponse
    */
@@ -4644,6 +5126,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the cold storage size.
+   * 
    * @param request - ResizeColdStorageSizeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResizeColdStorageSizeResponse
@@ -4677,6 +5161,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the cold storage size.
+   * 
    * @param request - ResizeColdStorageSizeRequest
    * @returns ResizeColdStorageSizeResponse
    */
@@ -4686,6 +5172,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ResizeDiskSize to resize a disk.
+   * 
    * @param request - ResizeDiskSizeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResizeDiskSizeResponse
@@ -4719,6 +5207,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ResizeDiskSize to resize a disk.
+   * 
    * @param request - ResizeDiskSizeRequest
    * @returns ResizeDiskSizeResponse
    */
@@ -4728,6 +5218,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the ResizeMultiZoneClusterDiskSize operation to modify the disk size of a multi-zone instance.
+   * 
    * @param request - ResizeMultiZoneClusterDiskSizeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResizeMultiZoneClusterDiskSizeResponse
@@ -4765,6 +5257,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the ResizeMultiZoneClusterDiskSize operation to modify the disk size of a multi-zone instance.
+   * 
    * @param request - ResizeMultiZoneClusterDiskSizeRequest
    * @returns ResizeMultiZoneClusterDiskSizeResponse
    */
@@ -4774,6 +5268,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Scales out nodes for a multi-zone instance by calling the ResizeMultiZoneClusterNodeCount operation.
+   * 
    * @param request - ResizeMultiZoneClusterNodeCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResizeMultiZoneClusterNodeCountResponse
@@ -4831,6 +5327,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Scales out nodes for a multi-zone instance by calling the ResizeMultiZoneClusterNodeCount operation.
+   * 
    * @param request - ResizeMultiZoneClusterNodeCountRequest
    * @returns ResizeMultiZoneClusterNodeCountResponse
    */
@@ -4840,6 +5338,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ResizeNodeCount to adjust the number of nodes for an instance.
+   * 
+   * @remarks
+   * Scales up the number of core nodes in a cluster. You can add up to 50 nodes at a time, and the total number of nodes can be scaled up to 250. If you have additional requirements, submit a ticket.
+   * 
    * @param request - ResizeNodeCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResizeNodeCountResponse
@@ -4881,6 +5384,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls ResizeNodeCount to adjust the number of nodes for an instance.
+   * 
+   * @remarks
+   * Scales up the number of core nodes in a cluster. You can add up to 50 nodes at a time, and the total number of nodes can be scaled up to 250. If you have additional requirements, submit a ticket.
+   * 
    * @param request - ResizeNodeCountRequest
    * @returns ResizeNodeCountResponse
    */
@@ -4890,6 +5398,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Restarts an HBase cluster by calling RestartInstance.
+   * 
    * @param request - RestartInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartInstanceResponse
@@ -4923,6 +5433,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Restarts an HBase cluster by calling RestartInstance.
+   * 
    * @param request - RestartInstanceRequest
    * @returns RestartInstanceResponse
    */
@@ -4932,7 +5444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回收账户权限
+   * Revokes permissions from a wide table account.
    * 
    * @param request - RevokeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4979,7 +5491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回收账户权限
+   * Revokes permissions from a wide table account.
    * 
    * @param request - RevokeRequest
    * @returns RevokeResponse
@@ -4990,6 +5502,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a primary/secondary switchover for high-availability Thrift or high-availability Phoenix. This operation corresponds to the CreateHbaseHaSlb operation.
+   * 
    * @param request - SwitchHbaseHaSlbRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SwitchHbaseHaSlbResponse
@@ -5031,6 +5545,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a primary/secondary switchover for high-availability Thrift or high-availability Phoenix. This operation corresponds to the CreateHbaseHaSlb operation.
+   * 
    * @param request - SwitchHbaseHaSlbRequest
    * @returns SwitchHbaseHaSlbResponse
    */
@@ -5040,7 +5556,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通/关闭 扩展服务
+   * Enable or disable an extension service
+   * 
+   * @remarks
+   * Extension service  
+   * For example: the Lindorm service compatible with the HBaseProxy protocol.
    * 
    * @param request - SwitchServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5079,7 +5599,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通/关闭 扩展服务
+   * Enable or disable an extension service
+   * 
+   * @remarks
+   * Extension service  
+   * For example: the Lindorm service compatible with the HBaseProxy protocol.
    * 
    * @param request - SwitchServiceRequest
    * @returns SwitchServiceResponse
@@ -5090,6 +5614,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds tags to instances.
+   * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
@@ -5127,6 +5653,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds tags to instances.
+   * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
    */
@@ -5136,6 +5664,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Untags resources. This operation is the counterpart of TagResources.
+   * 
    * @param request - UnTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnTagResourcesResponse
@@ -5177,6 +5707,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Untags resources. This operation is the counterpart of TagResources.
+   * 
    * @param request - UnTagResourcesRequest
    * @returns UnTagResourcesResponse
    */
@@ -5186,6 +5718,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upgrades the minor version of a cluster by calling UpgradeMinorVersion.
+   * 
    * @param request - UpgradeMinorVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpgradeMinorVersionResponse
@@ -5219,6 +5753,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upgrades the minor version of a cluster by calling UpgradeMinorVersion.
+   * 
    * @param request - UpgradeMinorVersionRequest
    * @returns UpgradeMinorVersionResponse
    */
@@ -5228,6 +5764,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upgrades the minor version of components for a multi-zone instance by calling the UpgradeMultiZoneCluster operation.
+   * 
    * @param request - UpgradeMultiZoneClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpgradeMultiZoneClusterResponse
@@ -5277,6 +5815,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upgrades the minor version of components for a multi-zone instance by calling the UpgradeMultiZoneCluster operation.
+   * 
    * @param request - UpgradeMultiZoneClusterRequest
    * @returns UpgradeMultiZoneClusterResponse
    */
@@ -5286,6 +5826,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Associates a database by calling XpackRelateDB.
+   * 
    * @param request - XpackRelateDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns XpackRelateDBResponse
@@ -5323,6 +5865,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Associates a database by calling XpackRelateDB.
+   * 
    * @param request - XpackRelateDBRequest
    * @returns XpackRelateDBResponse
    */

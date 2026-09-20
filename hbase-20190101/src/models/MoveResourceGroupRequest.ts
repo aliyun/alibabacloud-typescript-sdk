@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class MoveResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the target instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/144595.html) operation to obtain the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class MoveResourceGroupRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the target resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the list of resource groups.
+   * 
    * This parameter is required.
    * 
    * @example

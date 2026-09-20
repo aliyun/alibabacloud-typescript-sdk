@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyMultiZoneClusterNodeTypeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 12341234123****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06CF7A6F-A81C-431D-BACD-793F24A67C54
    */

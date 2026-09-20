@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRestoreIncrDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cluster for backup and recovery.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeRestoreIncrDetailRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the restoration record. You can call the DescribeRestoreSummary operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example

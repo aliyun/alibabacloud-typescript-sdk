@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class EvaluateMultiZoneResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FB703B69-D4D4-4879-B9FE-6A37F67C46FD
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether available resources exist. Valid values:
+   * 
+   * - **true**: Available resources exist.
+   * - **false**: No available resources exist.
+   * 
    * @example
    * true
    */

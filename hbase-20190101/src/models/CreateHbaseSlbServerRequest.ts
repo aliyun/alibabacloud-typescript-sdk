@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateHBaseSlbServerRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token.
+   * 
    * @example
    * xxxxx-xxxxx-xxxxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,11 @@ export class CreateHBaseSlbServerRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The load balancing service to create. Valid values:
+   * 
+   * - **thrift**: the Thrift cross-language and cross-platform remote procedure call (RPC) protocol service.
+   * - **rest**: the HTTP protocol service.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -45,6 +45,7 @@ export { DescribeDeletedInstancesResponseBodyInstances } from './DescribeDeleted
 export { DescribeEndpointsResponseBodyConnAddrsConnAddrInfo } from './DescribeEndpointsResponseBody';
 export { DescribeEndpointsResponseBodyConnAddrs } from './DescribeEndpointsResponseBody';
 export { DescribeInstanceResponseBodyNeedUpgradeComps } from './DescribeInstanceResponseBody';
+export { DescribeInstanceResponseBodySingleZoneRiskAlert } from './DescribeInstanceResponseBody';
 export { DescribeInstanceResponseBodyTagsTag } from './DescribeInstanceResponseBody';
 export { DescribeInstanceResponseBodyTags } from './DescribeInstanceResponseBody';
 export { DescribeInstanceTypeResponseBodyInstanceTypeSpecListInstanceTypeSpec } from './DescribeInstanceTypeResponseBody';

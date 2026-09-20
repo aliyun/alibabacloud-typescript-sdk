@@ -3,45 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRestoreTablesResponseBodyRestoreFullRestoreFullDetailsRestoreFullDetail extends $dara.Model {
-  /**
-   * @example
-   * 1.2 kB
-   */
   dataSize?: string;
-  /**
-   * @example
-   * 2020-11-05T06:45:51Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * “”
-   */
   message?: string;
-  /**
-   * @example
-   * 14/14
-   */
   process?: string;
-  /**
-   * @example
-   * 0.00 MB/s
-   */
   speed?: string;
-  /**
-   * @example
-   * 2020-11-05T06:45:45Z
-   */
   startTime?: string;
-  /**
-   * @example
-   * SUCCEEDED
-   */
   state?: string;
-  /**
-   * @example
-   * default:test1
-   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,37 +74,58 @@ export class DescribeRestoreTablesResponseBodyRestoreFullRestoreFullDetails exte
 
 export class DescribeRestoreTablesResponseBodyRestoreFull extends $dara.Model {
   /**
+   * @remarks
+   * The total data size.
+   * 
    * @example
    * 1.2 kB
    */
   dataSize?: string;
   /**
+   * @remarks
+   * The number of failed full restores.
+   * 
    * @example
    * 0
    */
   fail?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   restoreFullDetails?: DescribeRestoreTablesResponseBodyRestoreFullRestoreFullDetails;
   /**
+   * @remarks
+   * The total speed.
+   * 
    * @example
    * 0.00 MB/s
    */
   speed?: string;
   /**
+   * @remarks
+   * The number of successful restores.
+   * 
    * @example
    * 1
    */
   succeed?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
@@ -181,36 +170,57 @@ export class DescribeRestoreTablesResponseBodyRestoreFull extends $dara.Model {
 
 export class DescribeRestoreTablesResponseBodyRestoreIncrDetail extends $dara.Model {
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2020-11-05T06:45:44Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The completion progress.
+   * 
    * @example
    * 0/0
    */
   process?: string;
   /**
+   * @remarks
+   * The synchronization latency.
+   * 
    * @example
    * 0 ms
    */
   restoreDelay?: string;
   /**
+   * @remarks
+   * The synchronization start position.
+   * 
    * @example
    * 2020-11-02T18:00:00Z
    */
   restoreStartTs?: string;
   /**
+   * @remarks
+   * The synchronization position.
+   * 
    * @example
    * “”
    */
   restoredTs?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2020-11-05T06:45:44Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * SUCCEEDED
    */
@@ -249,30 +259,10 @@ export class DescribeRestoreTablesResponseBodyRestoreIncrDetail extends $dara.Mo
 }
 
 export class DescribeRestoreTablesResponseBodyRestoreSchemaRestoreSchemaDetailsRestoreSchemaDetail extends $dara.Model {
-  /**
-   * @example
-   * 2020-11-05T06:45:18Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * null
-   */
   message?: string;
-  /**
-   * @example
-   * 2020-11-05T06:45:14Z
-   */
   startTime?: string;
-  /**
-   * @example
-   * SUCCEEDED
-   */
   state?: string;
-  /**
-   * @example
-   * default:test1
-   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -331,27 +321,42 @@ export class DescribeRestoreTablesResponseBodyRestoreSchemaRestoreSchemaDetails 
 
 export class DescribeRestoreTablesResponseBodyRestoreSchema extends $dara.Model {
   /**
+   * @remarks
+   * The number of failed restores.
+   * 
    * @example
    * 0
    */
   fail?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   restoreSchemaDetails?: DescribeRestoreTablesResponseBodyRestoreSchemaRestoreSchemaDetails;
   /**
+   * @remarks
+   * The number of successful restores.
+   * 
    * @example
    * 1
    */
   succeed?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
@@ -392,31 +397,49 @@ export class DescribeRestoreTablesResponseBodyRestoreSchema extends $dara.Model 
 
 export class DescribeRestoreTablesResponseBodyRestoreSummary extends $dara.Model {
   /**
+   * @remarks
+   * The completion time.
+   * 
    * @example
    * 2020-11-05T06:45:51Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The record ID.
+   * 
    * @example
    * 20201105144514
    */
   recordId?: string;
   /**
+   * @remarks
+   * The point in time to which data is restored.
+   * 
    * @example
    * 2020-11-04T05:15:00Z
    */
   restoreToDate?: string;
   /**
+   * @remarks
+   * The restore start time.
+   * 
    * @example
    * 2020-11-05T06:45:14Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * SUCCEEDED
    */
   state?: string;
   /**
+   * @remarks
+   * The target cluster for the restore.
+   * 
    * @example
    * ld-m5e2t34kr54wgxxxx
    */
@@ -480,13 +503,32 @@ export class DescribeRestoreTablesResponseBodyTables extends $dara.Model {
 
 export class DescribeRestoreTablesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 18D9CC47-D913-48BF-AB6B-4FA9B28FBDB1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The full restore details.
+   */
   restoreFull?: DescribeRestoreTablesResponseBodyRestoreFull;
+  /**
+   * @remarks
+   * The incremental restore details.
+   */
   restoreIncrDetail?: DescribeRestoreTablesResponseBodyRestoreIncrDetail;
+  /**
+   * @remarks
+   * The schema restore details.
+   */
   restoreSchema?: DescribeRestoreTablesResponseBodyRestoreSchema;
+  /**
+   * @remarks
+   * The restore summary.
+   */
   restoreSummary?: DescribeRestoreTablesResponseBodyRestoreSummary;
   tables?: DescribeRestoreTablesResponseBodyTables;
   static names(): { [key: string]: string } {

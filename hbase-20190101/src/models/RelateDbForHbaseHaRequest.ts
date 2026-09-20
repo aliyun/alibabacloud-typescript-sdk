@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RelateDbForHBaseHaRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the BDS cluster. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/144595.html) operation to obtain the cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RelateDbForHBaseHaRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The instance ID of the primary instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class RelateDbForHBaseHaRequest extends $dara.Model {
    */
   haActive?: string;
   /**
+   * @remarks
+   * The ZooKeeper address of the primary instance. This parameter is required when the primary instance is a non-standard instance (IsActiveStandard is set to false).
+   * 
    * @example
    * hb-t4naqsay5gn******-master1-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master3-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master2-001.hbase.singapore.rds.aliyuncs.com:2181:/hbase
    */
   haActiveClusterKey?: string;
   /**
    * @remarks
+   * The cluster type of the primary instance. Valid values: **HBase** and **HBaseue**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,32 +42,55 @@ export class RelateDbForHBaseHaRequest extends $dara.Model {
    */
   haActiveDBType?: string;
   /**
+   * @remarks
+   * The HDFS directory of the primary instance. This parameter is required when the primary instance is a non-standard instance (IsActiveStandard is set to false).
+   * 
    * @example
    * /hbase
    */
   haActiveHbaseFsDir?: string;
   /**
+   * @remarks
+   * The HDFS URI of the primary instance. This parameter is required when the primary instance is a non-standard instance (IsActiveStandard is set to false).
+   * 
    * @example
    * hdfs://hb-t4naqsay5gn******-master1-001.hbase.rds.aliyuncs.com:8020,hb-t4naqsay5gn******-master2-001.hbase.rds.aliyuncs.com:8020
    */
   haActiveHdfsUri?: string;
   /**
+   * @remarks
+   * The password that corresponds to the username of the primary instance. This parameter is required when the primary instance is **HBaseue**.
+   * 
    * @example
    * root
    */
   haActivePassword?: string;
   /**
+   * @remarks
+   * The username of the primary instance. This parameter is required when the primary instance is **HBaseue**.
+   * 
    * @example
    * root
    */
   haActiveUser?: string;
   /**
+   * @remarks
+   * The database engine version of the primary instance. This parameter is required when the primary instance is a non-standard instance (IsActiveStandard is set to false). Valid values:
+   * - **HBase1x**: HBase 1.x.
+   * - **HBase2x**: HBase 2.x.
+   * - **HBaseUE**: HBaseue.
+   * 
    * @example
    * HBase2x
    */
   haActiveVersion?: string;
   /**
    * @remarks
+   * The synchronization type. Valid values:
+   * - **CLUSTER**: instance-level synchronization.
+   * - **TABLE**: table-level synchronization.
+   * - **SKIP**: no synchronization required.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67,6 +99,8 @@ export class RelateDbForHBaseHaRequest extends $dara.Model {
   haMigrateType?: string;
   /**
    * @remarks
+   * The ID of the secondary instance cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -74,12 +108,17 @@ export class RelateDbForHBaseHaRequest extends $dara.Model {
    */
   haStandby?: string;
   /**
+   * @remarks
+   * The ZooKeeper address of the secondary instance. This parameter is required when the secondary instance is a non-standard instance (IsStandbyStandard is set to false).
+   * 
    * @example
    * hb-bp1w6krp539******-master1-001.hbase.singapore.rds.aliyuncs.com,hb-bp1w6krp539******-master3-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master2-001.hbase.singapore.rds.aliyuncs.com:2181:/hbase
    */
   haStandbyClusterKey?: string;
   /**
    * @remarks
+   * The cluster type of the secondary instance. Valid values: **HBase** and **HBaseue**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -87,37 +126,60 @@ export class RelateDbForHBaseHaRequest extends $dara.Model {
    */
   haStandbyDBType?: string;
   /**
+   * @remarks
+   * The HDFS directory of the secondary instance. This parameter is required when the secondary instance is a non-standard instance (IsStandbyStandard is set to false).
+   * 
    * @example
    * /hbase
    */
   haStandbyHbaseFsDir?: string;
   /**
+   * @remarks
+   * The HDFS URI of the secondary instance. This parameter is required when the secondary instance is a non-standard instance (IsStandbyStandard is set to false).
+   * 
    * @example
    * hdfs://hb-bp1w6krp539******-master1-001.hbase.rds.aliyuncs.com:8020,hb-bp1w6krp539******-master2-001.hbase.rds.aliyuncs.com:8020
    */
   haStandbyHdfsUri?: string;
   /**
+   * @remarks
+   * The password that corresponds to the username of the secondary instance. This parameter is required when the secondary instance is **hbaseue**.
+   * 
    * @example
    * root
    */
   haStandbyPassword?: string;
   /**
+   * @remarks
+   * The username of the secondary instance. This parameter is required when the secondary instance is **hbaseue**.
+   * 
    * @example
    * root
    */
   haStandbyUser?: string;
   /**
+   * @remarks
+   * The database engine version of the secondary instance. This parameter is required when the secondary instance is a non-standard instance (IsStandbyStandard is set to false). Valid values:
+   * - **HBase1x**: HBase 1.x.
+   * - **HBase2x**: HBase 2.x.
+   * - **HBaseUE**: HBaseue.
+   * 
    * @example
    * HBase2x
    */
   haStandbyVersion?: string;
   /**
+   * @remarks
+   * The tables to synchronize. This parameter is required when HaMigrateType is set to TABLE. Separate multiple tables with commas (,).
+   * 
    * @example
    * test,test1
    */
   haTables?: string;
   /**
    * @remarks
+   * Specifies whether the primary instance is a standard instance. Set this parameter to **true** for a standard instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -126,6 +188,8 @@ export class RelateDbForHBaseHaRequest extends $dara.Model {
   isActiveStandard?: boolean;
   /**
    * @remarks
+   * Specifies whether the secondary instance is a standard instance. Set this parameter to **true** for a standard instance.
+   * 
    * This parameter is required.
    * 
    * @example

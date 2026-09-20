@@ -3,65 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDeletedInstancesResponseBodyInstancesInstance extends $dara.Model {
-  /**
-   * @example
-   * cluster
-   */
   clusterType?: string;
-  /**
-   * @example
-   * 2020-11-02T07:16:07Z
-   */
   createdTime?: string;
-  /**
-   * @example
-   * 2020-11-02T07:27:24Z
-   */
   deleteTime?: string;
-  /**
-   * @example
-   * hbase
-   */
   engine?: string;
-  /**
-   * @example
-   * hb-bp10q7n2zdw12xxxx
-   */
   instanceId?: string;
-  /**
-   * @example
-   * e2e-test
-   */
   instanceName?: string;
-  /**
-   * @example
-   * 2.0
-   */
   majorVersion?: string;
-  /**
-   * @example
-   * null
-   */
   moduleStackVersion?: string;
-  /**
-   * @example
-   * null
-   */
   parentId?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @example
-   * DELETED
-   */
   status?: string;
-  /**
-   * @example
-   * cn-hangzhou-f
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,21 +87,33 @@ export class DescribeDeletedInstancesResponseBodyInstances extends $dara.Model {
 export class DescribeDeletedInstancesResponseBody extends $dara.Model {
   instances?: DescribeDeletedInstancesResponseBodyInstances;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0CAC5702-C862-44C0-AD54-C9CE70F4B246
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */

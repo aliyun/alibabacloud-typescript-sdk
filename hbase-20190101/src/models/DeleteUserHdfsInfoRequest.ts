@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserHdfsInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteUserHdfsInfoRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The value of dfs.nameservices in addUserHdfsInfo. This value is returned when you call the [QueryXpackRelateDB](https://help.aliyun.com/document_detail/144509.html) operation with relateDB set to hdfs.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CheckComponentsVersionResponseBodyComponentsComponent extends $dara.Model {
-  /**
-   * @example
-   * HBASE
-   */
   component?: string;
-  /**
-   * @example
-   * true
-   */
   isLatestVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,6 +59,9 @@ export class CheckComponentsVersionResponseBodyComponents extends $dara.Model {
 export class CheckComponentsVersionResponseBody extends $dara.Model {
   components?: CheckComponentsVersionResponseBodyComponents;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E3537EB4-1100-41CA-A147-C74CCC8BB12C
    */

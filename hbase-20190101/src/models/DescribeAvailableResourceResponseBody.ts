@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResourceInstanceTypeDetail extends $dara.Model {
-  /**
-   * @example
-   * 4
-   */
   cpu?: number;
-  /**
-   * @example
-   * 8
-   */
   mem?: number;
   static names(): { [key: string]: string } {
     return {
@@ -37,10 +29,6 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMas
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResource extends $dara.Model {
-  /**
-   * @example
-   * hbase.sn1.medium
-   */
   instanceType?: string;
   instanceTypeDetail?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResourceInstanceTypeDetail;
   static names(): { [key: string]: string } {
@@ -96,20 +84,8 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMas
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceDBInstanceStorageRange extends $dara.Model {
-  /**
-   * @example
-   * 8000
-   */
   maxSize?: number;
-  /**
-   * @example
-   * 400
-   */
   minSize?: number;
-  /**
-   * @example
-   * 40
-   */
   stepSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -137,15 +113,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceInstanceTypeDetail extends $dara.Model {
-  /**
-   * @example
-   * 4
-   */
   cpu?: number;
-  /**
-   * @example
-   * 8
-   */
   mem?: number;
   static names(): { [key: string]: string } {
     return {
@@ -172,16 +140,8 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResource extends $dara.Model {
   DBInstanceStorageRange?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceDBInstanceStorageRange;
-  /**
-   * @example
-   * hbase.sn1.large
-   */
   instanceType?: string;
   instanceTypeDetail?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceInstanceTypeDetail;
-  /**
-   * @example
-   * 16
-   */
   maxCoreCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -244,10 +204,6 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageType extends $dara.Model {
   coreResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResources;
-  /**
-   * @example
-   * cloud_ssd
-   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -302,10 +258,6 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategories extends $dara.Model {
-  /**
-   * @example
-   * cluster
-   */
   category?: string;
   supportedStorageTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypes;
   static names(): { [key: string]: string } {
@@ -362,10 +314,6 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersion extends $dara.Model {
   supportedCategories?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategories;
-  /**
-   * @example
-   * 2.0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -420,10 +368,6 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine extends $dara.Model {
-  /**
-   * @example
-   * hbase
-   */
   engine?: string;
   supportedEngineVersions?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersions;
   static names(): { [key: string]: string } {
@@ -480,16 +424,8 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone extends $dara.Model {
   masterResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResources;
-  /**
-   * @example
-   * cn-shenzhen
-   */
   regionId?: string;
   supportedEngines?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines;
-  /**
-   * @example
-   * cn-shenzhen-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -553,6 +489,9 @@ export class DescribeAvailableResourceResponseBodyAvailableZones extends $dara.M
 export class DescribeAvailableResourceResponseBody extends $dara.Model {
   availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EA76F208-E334-592A-A0C6-41E15EC87ED0
    */

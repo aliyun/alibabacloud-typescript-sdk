@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RelateDbForHBaseHaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DC654531-0799-4502-AFA5-80EE1C16829A
    */

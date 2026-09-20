@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceServiceConfigHistoriesRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ListInstanceServiceConfigHistoriesRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */

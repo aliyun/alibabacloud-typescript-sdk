@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResizeDiskSizeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 3C22622B-8555-42BF-AD8A-1B960743****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 493A762B-E4A6-44E9-B877-CA6D0CAF8B29
    */

@@ -3,45 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRestoreSummaryResponseBodyRescordsRescord extends $dara.Model {
-  /**
-   * @example
-   * 1/1
-   */
   bulkLoadProcess?: string;
-  /**
-   * @example
-   * 2020-11-05T06:45:14Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 2020-11-05T06:45:51Z
-   */
   finishTime?: string;
-  /**
-   * @example
-   * 1/1
-   */
   hfileRestoreProcess?: string;
-  /**
-   * @example
-   * 0/0
-   */
   logProcess?: string;
-  /**
-   * @example
-   * 20201105144514
-   */
   recordId?: string;
-  /**
-   * @example
-   * 1/1
-   */
   schemaProcess?: string;
-  /**
-   * @example
-   * SUCCEEDED
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,27 +74,42 @@ export class DescribeRestoreSummaryResponseBodyRescords extends $dara.Model {
 
 export class DescribeRestoreSummaryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether there is a next page. This parameter is currently not used.
+   * 
    * @example
    * 0
    */
   hasMoreRestoreRecord?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AE639ED7-F0F3-4A71-911E-CF8EC088816E
    */
   requestId?: string;
   rescords?: DescribeRestoreSummaryResponseBodyRescords;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */

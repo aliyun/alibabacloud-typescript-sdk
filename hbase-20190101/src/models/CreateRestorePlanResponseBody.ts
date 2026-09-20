@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRestorePlanResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A0598673-EB6E-4F6D-9961-E0F2012090C0
    */

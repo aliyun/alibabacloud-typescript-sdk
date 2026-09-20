@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the target instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,11 @@ export class RenewInstanceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The renewal epoch for the target instance.
+   * 
+   * - If PricingCycle is set to **year**, valid values are 1 to 3.
+   * - If PricingCycle is set to **month**, valid values are 1 to 9.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +28,11 @@ export class RenewInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
+   * The unit of the renewal epoch for the target instance.
+   * 
+   * - **year**: year.
+   * - **month**: month.
+   * 
    * This parameter is required.
    * 
    * @example

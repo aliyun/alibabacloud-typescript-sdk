@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnTagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to delete all tags. If TagKey is specified, tags are deleted only by TagKey. Valid values: true and false. If this parameter is set to true and TagKey is not specified, all tags are deleted.
+   * 
    * @example
    * true
    */
   all?: boolean;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UnTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of resource N to untag. The resource ID is the cluster ID. You can specify multiple resource IDs, such as ResourceId.2 and ResourceId.3. N is a positive integer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class UnTagResourcesRequest extends $dara.Model {
    */
   resourceId?: string[];
   /**
+   * @remarks
+   * The key of tag N to delete. You can specify multiple tag keys, such as TagKey.2 and TagKey.3. N is a positive integer.
+   * 
    * @example
    * key1
    */

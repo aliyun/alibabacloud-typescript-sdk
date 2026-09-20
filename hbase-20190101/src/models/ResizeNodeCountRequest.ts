@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResizeNodeCountRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class ResizeNodeCountRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The number of core nodes in the cluster.
+   * 
+   * You can add up to 50 nodes at a time, and the total number of nodes can be scaled up to 250. If you have additional requirements, submit a ticket.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +26,17 @@ export class ResizeNodeCountRequest extends $dara.Model {
    */
   nodeCount?: number;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-bp191otqj1ssyl****
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-f
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterConnectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of target instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/144595.html) operation to obtain target instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeClusterConnectionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/144489.html) operation to obtain the region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagsResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @example
-   * k1
-   */
   tagKey?: string;
-  /**
-   * @example
-   * v2
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,6 +56,9 @@ export class ListTagsResponseBodyTags extends $dara.Model {
 
 export class ListTagsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36D1BE9B-3C4A-425B-947A-69E3D77999C4
    */

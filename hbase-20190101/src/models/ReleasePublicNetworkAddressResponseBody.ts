@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReleasePublicNetworkAddressResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B18D4390-A968-4444-B323-4360B8E5DA3E
    */

@@ -3,45 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRestoreFullDetailsResponseBodyRestoreFullRestoreFullDetailsRestoreFullDetail extends $dara.Model {
-  /**
-   * @example
-   * 1.2 kB
-   */
   dataSize?: string;
-  /**
-   * @example
-   * 2020-11-05T06:45:51Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * null
-   */
   message?: string;
-  /**
-   * @example
-   * 14/14
-   */
   process?: string;
-  /**
-   * @example
-   * 0.00 MB/s
-   */
   speed?: string;
-  /**
-   * @example
-   * 2020-11-05T06:45:45Z
-   */
   startTime?: string;
-  /**
-   * @example
-   * SUCCEEDED
-   */
   state?: string;
-  /**
-   * @example
-   * default:test1
-   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,37 +74,58 @@ export class DescribeRestoreFullDetailsResponseBodyRestoreFullRestoreFullDetails
 
 export class DescribeRestoreFullDetailsResponseBodyRestoreFull extends $dara.Model {
   /**
+   * @remarks
+   * The total data size.
+   * 
    * @example
    * 1.2 kB
    */
   dataSize?: string;
   /**
+   * @remarks
+   * The number of failed restorations.
+   * 
    * @example
    * 0
    */
   fail?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   restoreFullDetails?: DescribeRestoreFullDetailsResponseBodyRestoreFullRestoreFullDetails;
   /**
+   * @remarks
+   * The total restoration speed.
+   * 
    * @example
    * 0.00 MB/s
    */
   speed?: string;
   /**
+   * @remarks
+   * The number of successful restorations.
+   * 
    * @example
    * 1
    */
   succeed?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
@@ -181,10 +170,17 @@ export class DescribeRestoreFullDetailsResponseBodyRestoreFull extends $dara.Mod
 
 export class DescribeRestoreFullDetailsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CFE525CF-C691-4140-A981-D004DAA7A840
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The full restoration details.
+   */
   restoreFull?: DescribeRestoreFullDetailsResponseBodyRestoreFull;
   static names(): { [key: string]: string } {
     return {

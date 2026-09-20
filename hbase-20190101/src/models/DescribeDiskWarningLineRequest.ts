@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiskWarningLineRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cluster to query.
+   * 
    * This parameter is required.
    * 
    * @example

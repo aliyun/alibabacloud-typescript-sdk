@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResizeNodeCountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 20470860005****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B288B41F-6681-42A6-8905-47C3C42B19B0
    */

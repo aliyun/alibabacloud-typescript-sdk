@@ -3,45 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupTablesResponseBodyBackupRecordsBackupRecord extends $dara.Model {
-  /**
-   * @example
-   * 1.2 kB
-   */
   dataSize?: string;
-  /**
-   * @example
-   * 2020-11-02T18:00:05Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * null
-   */
   message?: string;
-  /**
-   * @example
-   * 14/14
-   */
   process?: string;
-  /**
-   * @example
-   * 0.00 MB/s
-   */
   speed?: string;
-  /**
-   * @example
-   * 2020-11-02T18:00:00Z
-   */
   startTime?: string;
-  /**
-   * @example
-   * SUCCEEDED
-   */
   state?: string;
-  /**
-   * @example
-   * default:test1
-   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -133,22 +101,34 @@ export class DescribeBackupTablesResponseBodyTables extends $dara.Model {
 export class DescribeBackupTablesResponseBody extends $dara.Model {
   backupRecords?: DescribeBackupTablesResponseBodyBackupRecords;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 01262E9C-B0CC-4663-82FA-D50173649F92
    */
   requestId?: string;
   tables?: DescribeBackupTablesResponseBodyTables;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */

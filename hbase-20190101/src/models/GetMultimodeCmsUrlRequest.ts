@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMultimodeCmsUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetMultimodeCmsUrlRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRestoreSchemaDetailsResponseBodyRestoreSchemaRestoreSchemaDetailsRestoreSchemaDetail extends $dara.Model {
-  /**
-   * @example
-   * 2020-11-05T06:45:18Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * null
-   */
   message?: string;
-  /**
-   * @example
-   * 2020-11-05T06:45:14Z
-   */
   startTime?: string;
-  /**
-   * @example
-   * SUCCEEDED
-   */
   state?: string;
-  /**
-   * @example
-   * default:test1
-   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,27 +65,42 @@ export class DescribeRestoreSchemaDetailsResponseBodyRestoreSchemaRestoreSchemaD
 
 export class DescribeRestoreSchemaDetailsResponseBodyRestoreSchema extends $dara.Model {
   /**
+   * @remarks
+   * The number of failed restorations.
+   * 
    * @example
    * 0
    */
   fail?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   restoreSchemaDetails?: DescribeRestoreSchemaDetailsResponseBodyRestoreSchemaRestoreSchemaDetails;
   /**
+   * @remarks
+   * The number of successful restorations.
+   * 
    * @example
    * 1
    */
   succeed?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
@@ -146,10 +141,17 @@ export class DescribeRestoreSchemaDetailsResponseBodyRestoreSchema extends $dara
 
 export class DescribeRestoreSchemaDetailsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BC682A80-7677-4294-975C-CFEA425381DE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The schema restoration details.
+   */
   restoreSchema?: DescribeRestoreSchemaDetailsResponseBodyRestoreSchema;
   static names(): { [key: string]: string } {
     return {

@@ -29,10 +29,6 @@ export class DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailable
 }
 
 export class DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailableCombinesAvailableCombine extends $dara.Model {
-  /**
-   * @example
-   * cn-shenzhen-****-aliyun
-   */
   id?: string;
   zones?: DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailableCombinesAvailableCombineZones;
   static names(): { [key: string]: string } {
@@ -90,15 +86,7 @@ export class DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailable
 export class DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegion extends $dara.Model {
   availableCombines?: DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailableCombines;
   localName?: string;
-  /**
-   * @example
-   * hbase.aliyuncs.com
-   */
   regionEndpoint?: string;
-  /**
-   * @example
-   * cn-shenzhen
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,6 +147,9 @@ export class DescribeMultiZoneAvailableRegionsResponseBodyRegions extends $dara.
 export class DescribeMultiZoneAvailableRegionsResponseBody extends $dara.Model {
   regions?: DescribeMultiZoneAvailableRegionsResponseBodyRegions;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F03BB273-45EE-4B6C-A329-A6E6A8D15856
    */

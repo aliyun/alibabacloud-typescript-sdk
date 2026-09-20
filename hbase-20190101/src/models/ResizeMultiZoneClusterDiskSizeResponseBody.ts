@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResizeMultiZoneClusterDiskSizeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 123412341****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 568339C4-9F71-43D0-994E-E039CD826E56
    */

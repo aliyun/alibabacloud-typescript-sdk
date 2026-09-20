@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpWhitelistRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance that you want to query. You can call [DescribeInstances](https://help.aliyun.com/document_detail/144595.html) to obtain the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

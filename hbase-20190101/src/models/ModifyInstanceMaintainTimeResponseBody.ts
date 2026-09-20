@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInstanceMaintainTimeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C9085433-A56A-4089-B49A-DF5A4E2B7B06
    */

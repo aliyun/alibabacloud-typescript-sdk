@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * hb-bp1hy2sjf8gd****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 23232069786****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3E19E345-101D-4014-946C-A205
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,32 @@ export class ConvertInstanceRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The subscription duration. Valid values:
+   * - If PricingCycle is set to year, the value ranges from 1 to 3.
+   * - If PricingCycle is set to month, the value ranges from 1 to 9.
+   * 
    * @example
    * 7
    */
   duration?: number;
   /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * - **Prepaid**: subscription.
+   * - **Postpaid**: pay-as-you-go.
+   * 
    * @example
    * Prepaid
    */
   payType?: string;
   /**
+   * @remarks
+   * The unit of the subscription period. Valid values:
+   * - year: year.
+   * - month: month.
+   * 
    * @example
    * month
    */

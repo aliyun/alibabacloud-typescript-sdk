@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResizeColdStorageSizeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the HBase instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/144595.html) operation to obtain the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ResizeColdStorageSizeRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The cold storage capacity after the change. Unit: GB. Valid values: **800** to **1000000**.
+   * 
    * This parameter is required.
    * 
    * @example

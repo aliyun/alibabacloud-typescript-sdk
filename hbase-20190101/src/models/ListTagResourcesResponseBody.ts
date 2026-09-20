@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @example
-   * bds-bp15e022622f****
-   */
   resourceId?: string;
-  /**
-   * @example
-   * ALIYUN::MULTIMOD::CLUSTER
-   */
   resourceType?: string;
-  /**
-   * @example
-   * k1
-   */
   tagKey?: string;
-  /**
-   * @example
-   * v2
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,11 +62,17 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token used to start the next query. An empty value of NextToken indicates that no more pages exist.
+   * 
    * @example
    * 1d2db86sca4384811e0b5e8707e68****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 74F02441-9A8D-48F6-933F-E317AEB28DBF
    */

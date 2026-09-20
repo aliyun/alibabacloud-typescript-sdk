@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskWarningLineRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyDiskWarningLineRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The alert threshold. Valid values: 50 to 90.
+   * 
    * This parameter is required.
    * 
    * @example

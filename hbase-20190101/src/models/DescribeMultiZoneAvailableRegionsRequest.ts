@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMultiZoneAvailableRegionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The supported language. Valid values:
+   * - zh-CN: Chinese (default)
+   * - en-US: English
+   * - ja: Japanese.
+   * 
    * @example
    * zh-CN
    */

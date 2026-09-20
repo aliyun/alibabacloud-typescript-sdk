@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGlobalResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class DeleteGlobalResourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The resource name. PubPhoenixSLBQueryServerVip releases the public endpoint of the HBase SQL service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class DeleteGlobalResourceRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloseBackupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F1A11940-0C34-4385-864F-A01E29B55F6A
    */

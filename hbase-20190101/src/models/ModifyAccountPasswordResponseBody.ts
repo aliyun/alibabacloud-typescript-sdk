@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAccountPasswordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * AFAA617B-3268-5883-982B-DB8EC8CC1F1B
+   * AFAA617B-3268-5883-982B-DB8EC8C*****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

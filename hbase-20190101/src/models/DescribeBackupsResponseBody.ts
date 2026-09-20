@@ -3,65 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupsResponseBodyBackupsBackup extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   backupDBNames?: string;
-  /**
-   * @example
-   * 1
-   */
   backupDownloadURL?: string;
-  /**
-   * @example
-   * 2020-12-23 17:25:24
-   */
   backupEndTime?: string;
-  /**
-   * @example
-   * 2020-12-23T09:25:24Z
-   */
   backupEndTimeUTC?: string;
-  /**
-   * @example
-   * 511876087
-   */
   backupId?: number;
-  /**
-   * @example
-   * P
-   */
   backupMethod?: string;
-  /**
-   * @example
-   * 0
-   */
   backupMode?: string;
-  /**
-   * @example
-   * 0.00
-   */
   backupSize?: string;
-  /**
-   * @example
-   * 2020-12-23 17:25:08
-   */
   backupStartTime?: string;
-  /**
-   * @example
-   * 2020-12-23T09:25:08Z
-   */
   backupStartTimeUTC?: string;
-  /**
-   * @example
-   * 0
-   */
   backupStatus?: string;
-  /**
-   * @example
-   * F
-   */
   backupType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,26 +87,44 @@ export class DescribeBackupsResponseBodyBackups extends $dara.Model {
 export class DescribeBackupsResponseBody extends $dara.Model {
   backups?: DescribeBackupsResponseBodyBackups;
   /**
+   * @remarks
+   * The backup enabling status. Valid values:
+   * - enable: Enabled.
+   * - disable: Not enabled.
+   * - opening: Being enabled.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A93CE373-0FDE-4CCB-9DBA-6700906825ED
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */

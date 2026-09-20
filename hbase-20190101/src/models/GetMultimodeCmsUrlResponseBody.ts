@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMultimodeCmsUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * hb-t4naqsay5gn******
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The CloudMonitor URL.
+   * 
    * @example
    * htpp://***********
    */
   multimodCmsUrl?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 44183B05-852E-4716-B902-52977140190F
    */

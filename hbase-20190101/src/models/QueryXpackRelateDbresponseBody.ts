@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryXpackRelateDBResponseBodyClusterListCluster extends $dara.Model {
-  /**
-   * @example
-   * hb-bp16o0pd52e3y582s
-   */
   clusterId?: string;
-  /**
-   * @example
-   * hbase_test
-   */
   clusterName?: string;
-  /**
-   * @example
-   * hbase
-   */
   DBType?: string;
-  /**
-   * @example
-   * 2.0
-   */
   DBVersion?: string;
-  /**
-   * @example
-   * false
-   */
   isRelated?: boolean;
-  /**
-   * @example
-   * ..
-   */
   lockMode?: string;
-  /**
-   * @example
-   * ACTIVATION
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,6 +72,9 @@ export class QueryXpackRelateDBResponseBodyClusterList extends $dara.Model {
 export class QueryXpackRelateDBResponseBody extends $dara.Model {
   clusterList?: QueryXpackRelateDBResponseBodyClusterList;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 288E9010-36DD-499C-B4DA-61E4362DA4CC
    */

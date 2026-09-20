@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the existing account to be deleted.
+   * 
    * This parameter is required.
    * 
    * @example
-   * test01
+   * test01****
    */
   accountName?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

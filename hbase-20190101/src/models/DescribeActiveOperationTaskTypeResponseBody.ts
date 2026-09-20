@@ -4,20 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeActiveOperationTaskTypeResponseBodyTypeList extends $dara.Model {
   /**
+   * @remarks
+   * The number of pending tasks.
+   * 
    * @example
    * 1
    */
   count?: number;
   /**
+   * @remarks
+   * The task type. The return value **rds_apsaradb_upgrade** indicates a minor engine version update.
+   * 
    * @example
    * rds_apsaradb_upgrade
    */
   taskType?: string;
   /**
+   * @remarks
+   * The task type in English.
+   * 
    * @example
    * rds_apsaradb_upgrade
    */
   taskTypeInfoEn?: string;
+  /**
+   * @remarks
+   * The task type in Chinese.
+   * 
+   * @example
+   * 小版本升级
+   */
   taskTypeInfoZh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,10 +64,17 @@ export class DescribeActiveOperationTaskTypeResponseBodyTypeList extends $dara.M
 
 export class DescribeActiveOperationTaskTypeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC7E27FC-58F8-4722-89CF-D1B6B0971956
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The task list.
+   */
   typeList?: DescribeActiveOperationTaskTypeResponseBodyTypeList[];
   static names(): { [key: string]: string } {
     return {

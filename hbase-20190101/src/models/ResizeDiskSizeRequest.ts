@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResizeDiskSizeRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ResizeDiskSizeRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The disk size of a single node. Unit: GB.
+   * 
    * This parameter is required.
    * 
    * @example

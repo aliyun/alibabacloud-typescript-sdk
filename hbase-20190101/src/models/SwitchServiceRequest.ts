@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,9 @@ export class SwitchServiceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * - open: Enable  
+   * - close: Shutdown
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +26,8 @@ export class SwitchServiceRequest extends $dara.Model {
   operate?: string;
   /**
    * @remarks
+   * Service name.
+   * 
    * This parameter is required.
    * 
    * @example

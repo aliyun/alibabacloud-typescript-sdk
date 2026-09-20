@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecoverableTimeRangeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the HBaseue cluster for which you want to query the recoverable time range.
+   * 
    * This parameter is required.
    * 
    * @example

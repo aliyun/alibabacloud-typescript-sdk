@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstanceTypeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance specification name. For more information, see [Instance node specifications](https://help.aliyun.com/document_detail/194870.html).
+   * > If InstanceType is left empty, all instance specifications are returned.
+   * 
    * @example
    * hbase.n2.4xlarge
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchHbaseHaSlbRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the BDS cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SwitchHbaseHaSlbRequest extends $dara.Model {
   bdsId?: string;
   /**
    * @remarks
+   * The high-availability ID in BDS high-availability management.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class SwitchHbaseHaSlbRequest extends $dara.Model {
   haId?: string;
   /**
    * @remarks
+   * The high-availability type. Valid values:
+   * 1. thrift
+   * 2. phoenix.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +37,10 @@ export class SwitchHbaseHaSlbRequest extends $dara.Model {
   haTypes?: string;
   /**
    * @remarks
+   * Specifies whether to switch to the primary or secondary instance. Valid values:
+   * 1. Active: Switch to the primary instance.
+   * 2. Standby: Switch to the secondary instance.
+   * 
    * This parameter is required.
    * 
    * @example

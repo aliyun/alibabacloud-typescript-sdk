@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRecoverableTimeRangeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A1A51D18-96DC-465C-9F1B-47180CA22524
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time of the recoverable time range.
+   * 
    * @example
    * 2020-10-26T18:02:03Z
    */
   timeBegin?: string;
   /**
+   * @remarks
+   * The end time of the recoverable time range.
+   * 
    * @example
    * 2020-11-05T01:20:31Z
    */

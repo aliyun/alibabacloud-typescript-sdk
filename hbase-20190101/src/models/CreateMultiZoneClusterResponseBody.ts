@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMultiZoneClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the ApsaraDB for HBase multi-zone database instance that is active.
+   * 
    * @example
    * ld-t4nn71xa0yn56****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 23232453****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F68E8F5-0377-4CF8-8B1D-FFFD6F5804D5
    */

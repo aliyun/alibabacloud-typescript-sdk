@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstancesResponseBodyInstancesInstanceTagsTag extends $dara.Model {
-  /**
-   * @example
-   * test-key
-   */
   key?: string;
-  /**
-   * @example
-   * test-value
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,191 +55,43 @@ export class DescribeInstancesResponseBodyInstancesInstanceTags extends $dara.Mo
 }
 
 export class DescribeInstancesResponseBodyInstancesInstance extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   autoRenewal?: boolean;
-  /**
-   * @example
-   * open
-   */
   backupStatus?: string;
-  /**
-   * @example
-   * hb-bp1u0639js2h7****
-   */
   clusterId?: string;
-  /**
-   * @example
-   * test
-   */
   clusterName?: string;
-  /**
-   * @example
-   * cluster
-   */
   clusterType?: string;
-  /**
-   * @example
-   * open
-   */
   coldStorageStatus?: string;
-  /**
-   * @example
-   * 2
-   */
   coreDiskCount?: string;
-  /**
-   * @example
-   * 100
-   */
   coreDiskSize?: number;
-  /**
-   * @example
-   * cloud_efficiency
-   */
   coreDiskType?: string;
-  /**
-   * @example
-   * hbase.sn1.large
-   */
   coreInstanceType?: string;
-  /**
-   * @example
-   * 2
-   */
   coreNodeCount?: number;
-  /**
-   * @example
-   * 2019-09-12T14:40:46
-   */
   createdTime?: string;
-  /**
-   * @example
-   * 2019-09-12T14:40:46Z
-   */
   createdTimeUTC?: string;
-  /**
-   * @example
-   * 12
-   */
   duration?: number;
-  /**
-   * @example
-   * hbase
-   */
   engine?: string;
-  /**
-   * @example
-   * 2019-10-12T14:40:46
-   */
   expireTime?: string;
-  /**
-   * @example
-   * 2019-10-12T14:40:46Z
-   */
   expireTimeUTC?: string;
-  /**
-   * @example
-   * hb-bp1u0639js2h7****
-   */
   instanceId?: string;
-  /**
-   * @example
-   * test
-   */
   instanceName?: string;
-  /**
-   * @example
-   * true
-   */
   isDeletionProtection?: boolean;
-  /**
-   * @example
-   * true
-   */
   isHa?: boolean;
-  /**
-   * @example
-   * 2.0
-   */
   majorVersion?: string;
-  /**
-   * @example
-   * 100
-   */
   masterDiskSize?: number;
-  /**
-   * @example
-   * cloud_efficiency
-   */
   masterDiskType?: string;
-  /**
-   * @example
-   * hbase.sn1.large
-   */
   masterInstanceType?: string;
-  /**
-   * @example
-   * 2
-   */
   masterNodeCount?: number;
-  /**
-   * @example
-   * 0
-   */
   moduleId?: number;
-  /**
-   * @example
-   * 1.0
-   */
   moduleStackVersion?: string;
-  /**
-   * @example
-   * VPC
-   */
   networkType?: string;
-  /**
-   * @example
-   * 2980****2123
-   */
   parentId?: string;
-  /**
-   * @example
-   * Prepaid
-   */
   payType?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @example
-   * rg-4f51d54g5****
-   */
   resourceGroupId?: string;
-  /**
-   * @example
-   * ACTIVATION
-   */
   status?: string;
   tags?: DescribeInstancesResponseBodyInstancesInstanceTags;
-  /**
-   * @example
-   * vpc-bp120k6ixs4eoghz*****
-   */
   vpcId?: string;
-  /**
-   * @example
-   * vsw-bp191ipotq****dbqf
-   */
   vswitchId?: string;
-  /**
-   * @example
-   * cn-hangzhou-f
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -376,21 +220,33 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
 export class DescribeInstancesResponseBody extends $dara.Model {
   instances?: DescribeInstancesResponseBodyInstances;
   /**
+   * @remarks
+   * The page number of the instance list.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The maximum number of rows displayed per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EBECBF12-2E34-41BE-8DE9-FC3700D4****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of instances.
+   * 
    * @example
    * 18
    */

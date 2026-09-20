@@ -31,8 +31,11 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
 export class DescribeAccountsResponseBody extends $dara.Model {
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * F744E939-D08D-5623-82C8-9D1F9F7685D1
+   * F744E939-D08D-5623-82C8-9D1F9F7*****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

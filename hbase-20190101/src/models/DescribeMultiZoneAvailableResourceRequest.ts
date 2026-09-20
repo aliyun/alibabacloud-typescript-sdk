@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMultiZoneAvailableResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The billing method. Valid values:
+   * - Prepaid: subscription.
+   * - Postpaid: pay-as-you-go.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class DescribeMultiZoneAvailableResourceRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +26,9 @@ export class DescribeMultiZoneAvailableResourceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The zone combination. If this parameter is not specified, all zone combinations in the region are queried.
+   * 
    * @example
    * cn-hangzhou-bef-aliyun
    */

@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListHBaseInstancesResponseBodyInstancesInstance extends $dara.Model {
-  /**
-   * @example
-   * hb-t4naqsay5gn****
-   */
   instanceId?: string;
-  /**
-   * @example
-   * name_test
-   */
   instanceName?: string;
-  /**
-   * @example
-   * false
-   */
   isDefault?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -72,6 +60,9 @@ export class ListHBaseInstancesResponseBodyInstances extends $dara.Model {
 export class ListHBaseInstancesResponseBody extends $dara.Model {
   instances?: ListHBaseInstancesResponseBodyInstances;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 89F81C30-320B-4550-91DB-C37C81D2358F
    */

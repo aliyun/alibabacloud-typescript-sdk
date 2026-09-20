@@ -4,6 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeActiveOperationTaskTypeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to return historical O&M tasks. Valid values:
+   * 
+   * - **0**: Returns only the current pending O&M tasks.
+   * - **1**: Returns historical O&M tasks.
+   * 
+   * Default value: **0**.
+   * 
    * @example
    * 0
    */

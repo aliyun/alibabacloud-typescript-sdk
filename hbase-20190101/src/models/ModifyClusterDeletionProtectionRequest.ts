@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClusterDeletionProtectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,11 @@ export class ModifyClusterDeletionProtectionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * Specifies whether to enable deletion protection. Valid values:
+   * 
+   * - true: Enables deletion protection. The cluster cannot be deleted when deletion protection is enabled.
+   * - false: Disables deletion protection. The cluster can be deleted.
+   * 
    * This parameter is required.
    * 
    * @example

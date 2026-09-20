@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SwitchServiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * F1005DE4-D981-559F-9E37-5172DXXXXXX
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryHBaseHaDBRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the BDS cluster.
+   * 
    * This parameter is required.
    * 
    * @example

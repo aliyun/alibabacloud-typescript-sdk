@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateHBaseSlbServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 61FC5B21-87B0-41BC-9686-9DA395EB40B6
    */

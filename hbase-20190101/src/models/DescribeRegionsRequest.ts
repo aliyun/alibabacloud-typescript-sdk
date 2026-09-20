@@ -4,11 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRegionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The supported language. Valid values:
+   * 
+   * - **zh-CN**: Chinese (default)
+   * - **en-US**: English
+   * - **ja**: Japanese.
+   * 
    * @example
    * zh-CN
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The data engine type. Valid values:
+   * - **hbase**: ApsaraDB for HBase Standard Edition or ApsaraDB for HBase single-node edition.
+   * - **hbaseue**: ApsaraDB for HBase Performance-enhanced Edition.
+   * - **serverlesshbase**: ApsaraDB for HBase Serverless edition.
+   * - **bds**: BDS instance.
+   * 
    * @example
    * hbase
    */

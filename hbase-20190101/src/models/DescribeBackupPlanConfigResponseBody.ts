@@ -30,21 +30,33 @@ export class DescribeBackupPlanConfigResponseBodyTables extends $dara.Model {
 
 export class DescribeBackupPlanConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The full backup cycle.
+   * 
    * @example
    * 7
    */
   fullBackupCycle?: number;
   /**
+   * @remarks
+   * The number of full backups to retain.
+   * 
    * @example
    * 3
    */
   minHFileBackupCount?: number;
   /**
+   * @remarks
+   * The date of the next full backup.
+   * 
    * @example
    * 2020-11-09T18:00:00Z
    */
   nextFullBackupDate?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 33A23201-6038-4A6A-B76A-61047EA04E6A
    */

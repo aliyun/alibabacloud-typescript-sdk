@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupSummaryResponseBodyFullRecordsRecord extends $dara.Model {
-  /**
-   * @example
-   * 2020-11-02T18:00:00Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1.2 kB
-   */
   dataSize?: string;
-  /**
-   * @example
-   * 2020-11-02T18:02:04Z
-   */
   finishTime?: string;
-  /**
-   * @example
-   * 1/1
-   */
   process?: string;
-  /**
-   * @example
-   * 20201103020000
-   */
   recordId?: string;
-  /**
-   * @example
-   * 0.00 MB/s
-   */
   speed?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,27 +71,45 @@ export class DescribeBackupSummaryResponseBodyFullRecords extends $dara.Model {
 
 export class DescribeBackupSummaryResponseBodyFull extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether there is a next page. Valid values:
+   * 
+   * - true: There is a next page.
+   * - false: There is no next page.
+   * 
    * @example
    * false
    */
   hasMore?: string;
   /**
+   * @remarks
+   * The time of the next full backup.
+   * 
    * @example
    * 2020-11-09T18:00:00Z
    */
   nextFullBackupDate?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   records?: DescribeBackupSummaryResponseBodyFullRecords;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 2
    */
@@ -160,31 +150,49 @@ export class DescribeBackupSummaryResponseBodyFull extends $dara.Model {
 
 export class DescribeBackupSummaryResponseBodyIncr extends $dara.Model {
   /**
+   * @remarks
+   * The data size.
+   * 
    * @example
    * 266 B
    */
   backupLogSize?: string;
   /**
+   * @remarks
+   * The synchronization point.
+   * 
    * @example
    * 2020-11-05T01:20:31Z
    */
   pos?: string;
   /**
+   * @remarks
+   * The number of logs in the queue.
+   * 
    * @example
    * 0
    */
   queueLogNum?: string;
   /**
+   * @remarks
+   * The number of logs being backed up.
+   * 
    * @example
    * 2
    */
   runningLogNum?: string;
   /**
+   * @remarks
+   * The current write speed of the incremental backup.
+   * 
    * @example
    * 0.00 MB/s
    */
   speed?: string;
   /**
+   * @remarks
+   * The status of the incremental backup.
+   * 
    * @example
    * RUNNING
    */
@@ -221,9 +229,20 @@ export class DescribeBackupSummaryResponseBodyIncr extends $dara.Model {
 }
 
 export class DescribeBackupSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the full backup.
+   */
   full?: DescribeBackupSummaryResponseBodyFull;
+  /**
+   * @remarks
+   * The details of the incremental backup.
+   */
   incr?: DescribeBackupSummaryResponseBodyIncr;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 168793CB-7B31-43E7-ADAB-FE3E8D584D6E
    */

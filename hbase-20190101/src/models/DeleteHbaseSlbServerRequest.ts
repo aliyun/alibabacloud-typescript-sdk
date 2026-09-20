@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHBaseSlbServerRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class DeleteHBaseSlbServerRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The load balancing service. Valid values:
+   * thrift
+   * rest.
+   * 
    * This parameter is required.
    * 
    * @example

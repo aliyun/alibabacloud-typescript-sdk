@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHBaseHaDBRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the BDS cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteHBaseHaDBRequest extends $dara.Model {
   bdsId?: string;
   /**
    * @remarks
+   * The ID of the HA instance. You can call the QueryHBaseHaDB operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example

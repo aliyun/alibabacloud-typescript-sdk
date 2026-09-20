@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagsRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * 
    * This parameter is required.
    * 
    * @example

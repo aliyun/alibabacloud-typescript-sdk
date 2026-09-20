@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyBackupPlanConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 50F4A8C2-076F-4703-9813-2FCD7FBB91C2
    */

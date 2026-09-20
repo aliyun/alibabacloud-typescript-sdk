@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CancelActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The O&M task IDs. Separate multiple IDs with commas (,).
+   * 
+   * > You can call [DescribeActiveOperationTasks](https://help.aliyun.com/document_detail/414458.html) to obtain O&M task IDs.
+   * 
    * This parameter is required.
    * 
    * @example

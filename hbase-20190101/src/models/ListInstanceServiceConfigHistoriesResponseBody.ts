@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstanceServiceConfigHistoriesResponseBodyConfigureHistoryListConfig extends $dara.Model {
-  /**
-   * @example
-   * hbase#hbase-site.xml#hbase.client.keyvalue.maxsize
-   */
   configureName?: string;
-  /**
-   * @example
-   * 1608708923000
-   */
   createTime?: string;
-  /**
-   * @example
-   * false
-   */
   effective?: string;
-  /**
-   * @example
-   * 10485770
-   */
   newValue?: string;
-  /**
-   * @example
-   * 10485760
-   */
   oldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -86,21 +66,33 @@ export class ListInstanceServiceConfigHistoriesResponseBodyConfigureHistoryList 
 export class ListInstanceServiceConfigHistoriesResponseBody extends $dara.Model {
   configureHistoryList?: ListInstanceServiceConfigHistoriesResponseBodyConfigureHistoryList;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 658C1549-2C02-4FD9-9490-EB3B285F9DCA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */

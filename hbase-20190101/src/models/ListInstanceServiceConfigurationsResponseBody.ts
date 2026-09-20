@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstanceServiceConfigurationsResponseBodyConfigureListConfig extends $dara.Model {
-  /**
-   * @example
-   * hbase#hbase-site.xml#hbase.client.keyvalue.maxsize
-   */
   configureName?: string;
-  /**
-   * @example
-   * INT
-   */
   configureUnit?: string;
-  /**
-   * @example
-   * 10485760
-   */
   defaultValue?: string;
-  /**
-   * @example
-   * hbase client keyvalue maxsize
-   */
   description?: string;
-  /**
-   * @example
-   * true
-   */
   needRestart?: string;
-  /**
-   * @example
-   * 10485760
-   */
   runningValue?: string;
-  /**
-   * @example
-   * R[10485760,52428800]
-   */
   valueRange?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,21 +72,33 @@ export class ListInstanceServiceConfigurationsResponseBodyConfigureList extends 
 export class ListInstanceServiceConfigurationsResponseBody extends $dara.Model {
   configureList?: ListInstanceServiceConfigurationsResponseBodyConfigureList;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5B381E36-BCA3-4377-8638-B65C236617D5
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 42
    */

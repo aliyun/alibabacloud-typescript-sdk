@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableHBaseueBackupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * xxx
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The cold storage size for the backup service. The minimum value is 800 GB.
+   * 
    * @example
    * 800
    */
   coldStorageSize?: number;
   /**
    * @remarks
+   * The ID of the HBaseue cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class EnableHBaseueBackupRequest extends $dara.Model {
   hbaseueClusterId?: string;
   /**
    * @remarks
+   * The number of backup nodes.
+   * 
    * This parameter is required.
    * 
    * @example

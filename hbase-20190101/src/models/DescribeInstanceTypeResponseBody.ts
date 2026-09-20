@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceTypeResponseBodyInstanceTypeSpecListInstanceTypeSpec extends $dara.Model {
-  /**
-   * @example
-   * 8
-   */
   cpuSize?: number;
-  /**
-   * @example
-   * hbase.n2.4xlarge
-   */
   instanceType?: string;
-  /**
-   * @example
-   * 16
-   */
   memSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -72,6 +60,9 @@ export class DescribeInstanceTypeResponseBodyInstanceTypeSpecList extends $dara.
 export class DescribeInstanceTypeResponseBody extends $dara.Model {
   instanceTypeSpecList?: DescribeInstanceTypeResponseBodyInstanceTypeSpecList;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD23BBB4-64C2-42A4-B2E2-7E56C7AA815A
    */

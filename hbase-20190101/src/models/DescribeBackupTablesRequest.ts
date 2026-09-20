@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupTablesRequest extends $dara.Model {
   /**
    * @remarks
+   * The backup record ID. You can call the DescribeBackupSummary operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeBackupTablesRequest extends $dara.Model {
   backupRecordId?: string;
   /**
    * @remarks
+   * The ID of the backup cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class DescribeBackupTablesRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

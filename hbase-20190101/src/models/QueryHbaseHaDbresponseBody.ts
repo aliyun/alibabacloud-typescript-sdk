@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryHBaseHaDBResponseBodyClusterListClusterHaSlbConnListHaSlbConn extends $dara.Model {
-  /**
-   * @example
-   * Standby
-   */
   hbaseType?: string;
-  /**
-   * @example
-   * ha-v21tmnxjwh2yuy1il-phoenix.bds.9b78df04-b.rds.aliyuncs.com:8765
-   */
   slbConnAddr?: string;
-  /**
-   * @example
-   * phoenix
-   */
   slbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,29 +58,10 @@ export class QueryHBaseHaDBResponseBodyClusterListClusterHaSlbConnList extends $
 }
 
 export class QueryHBaseHaDBResponseBodyClusterListCluster extends $dara.Model {
-  /**
-   * @example
-   * hb-t4nn7dy1u1etbzmzm
-   */
   activeName?: string;
-  /**
-   * @remarks
-   * bdsId
-   * 
-   * @example
-   * bds-t4n3496whj23ia4k
-   */
   bdsName?: string;
-  /**
-   * @example
-   * ha-v21tmnxjwh2yuy1il
-   */
   haName?: string;
   haSlbConnList?: QueryHBaseHaDBResponseBodyClusterListClusterHaSlbConnList;
-  /**
-   * @example
-   * hb-t4n0ye37832tx22vz
-   */
   standbyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,21 +124,33 @@ export class QueryHBaseHaDBResponseBodyClusterList extends $dara.Model {
 export class QueryHBaseHaDBResponseBody extends $dara.Model {
   clusterList?: QueryHBaseHaDBResponseBodyClusterList;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 963355AD-A3B1-4654-AFFC-B5186EB8F889
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries in the list.
+   * 
    * @example
    * 1
    */

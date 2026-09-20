@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupPlanConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyBackupPlanConfigRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The full backup cycle, in days. Valid values: 3 to 9.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifyBackupPlanConfigRequest extends $dara.Model {
   fullBackupCycle?: string;
   /**
    * @remarks
+   * The number of full backups to retain. Valid values: 3 to 8.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ModifyBackupPlanConfigRequest extends $dara.Model {
   minHFileBackupCount?: string;
   /**
    * @remarks
+   * The time of the next full backup. The specified time must be at least 6 minutes later than the current time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class ModifyBackupPlanConfigRequest extends $dara.Model {
   nextFullBackupDate?: string;
   /**
    * @remarks
+   * The tables to back up. Specify one table name per line. Wildcards are supported. An asterisk (*) indicates all tables.
+   * 
    * This parameter is required.
    * 
    * @example

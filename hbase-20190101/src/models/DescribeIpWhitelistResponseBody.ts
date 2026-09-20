@@ -29,16 +29,8 @@ export class DescribeIpWhitelistResponseBodyGroupsGroupIpList extends $dara.Mode
 }
 
 export class DescribeIpWhitelistResponseBodyGroupsGroup extends $dara.Model {
-  /**
-   * @example
-   * default
-   */
   groupName?: string;
   ipList?: DescribeIpWhitelistResponseBodyGroupsGroupIpList;
-  /**
-   * @example
-   * 4
-   */
   ipVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -97,6 +89,9 @@ export class DescribeIpWhitelistResponseBodyGroups extends $dara.Model {
 export class DescribeIpWhitelistResponseBody extends $dara.Model {
   groups?: DescribeIpWhitelistResponseBodyGroups;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AFAA617B-3268-5883-982B-DB8EC8CC1F1B
    */

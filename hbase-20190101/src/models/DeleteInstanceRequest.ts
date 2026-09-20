@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the instance to be released.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,11 @@ export class DeleteInstanceRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to immediately release the instance. Valid values:
+   * - **true**: The instance is immediately released.
+   * - **false**: The instance is not immediately released and is stored in the recycle bin. This is the default value.
+   * 
    * @example
    * false
    */

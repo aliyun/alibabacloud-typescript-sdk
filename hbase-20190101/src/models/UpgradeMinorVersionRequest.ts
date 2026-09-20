@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeMinorVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The names of the components to upgrade. Separate multiple component names with commas (,).
+   * 
    * @example
    * HADOOP
    */

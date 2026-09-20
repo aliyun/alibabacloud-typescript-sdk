@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the HBaseue cluster for which data backup is performed.
+   * 
    * This parameter is required.
    * 
    * @example

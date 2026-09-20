@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeRequest extends $dara.Model {
   /**
    * @remarks
+   * The database account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,12 @@ export class RevokeRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The list of permissions. Separate multiple permissions with commas (,). Valid values:
+   * - READ: read permission.
+   * - WRITE: write permission.
+   * - ADMIN: administrative permission.
+   * - TRASH: purge permission.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,8 @@ export class RevokeRequest extends $dara.Model {
   aclActions?: string;
   /**
    * @remarks
+   * The target instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,8 @@ export class RevokeRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The namespace. An asterisk (*) indicates global, which means all namespaces.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +49,8 @@ export class RevokeRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
+   * The table name. An asterisk (*) indicates global, which means all tables.
+   * 
    * This parameter is required.
    * 
    * @example

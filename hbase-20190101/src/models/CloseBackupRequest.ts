@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CloseBackupRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

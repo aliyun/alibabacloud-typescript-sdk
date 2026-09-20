@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRestoreSummaryRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class DescribeRestoreSummaryRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */

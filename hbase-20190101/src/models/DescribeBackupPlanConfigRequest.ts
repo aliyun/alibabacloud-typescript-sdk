@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPlanConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cluster for which the backup plan is executed.
+   * 
    * This parameter is required.
    * 
    * @example

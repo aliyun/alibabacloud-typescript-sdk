@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMultiZoneClusterNodeTypeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the multi-zone instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,25 @@ export class ModifyMultiZoneClusterNodeTypeRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The node specifications of the core node. For valid values, refer to DescribeInstanceType.
+   * 
    * @example
    * hbase.sn1.large
    */
   coreInstanceType?: string;
   /**
+   * @remarks
+   * The node specifications of the log node. For valid values, refer to DescribeInstanceType.
+   * 
    * @example
    * hbase.sn1.2xlarge
    */
   logInstanceType?: string;
   /**
+   * @remarks
+   * The node specifications of the master node. For valid values, refer to DescribeInstanceType.
+   * 
    * @example
    * hbase.sn1.8xlarge
    */

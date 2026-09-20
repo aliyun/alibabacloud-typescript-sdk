@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $dara.Model {
-  /**
-   * @example
-   * cn-hangzhou-b
-   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,15 +53,7 @@ export class DescribeRegionsResponseBodyRegionsRegionZones extends $dara.Model {
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
   localName?: string;
-  /**
-   * @example
-   * hbase.aliyuncs.com
-   */
   regionEndpoint?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   zones?: DescribeRegionsResponseBodyRegionsRegionZones;
   static names(): { [key: string]: string } {
@@ -127,6 +115,9 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   regions?: DescribeRegionsResponseBodyRegions;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 14D3924C-4FD8-4EE9-9B34-DA949D104F42
    */

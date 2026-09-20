@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResizeColdStorageSizeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 21711518427****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5AA6F80E-535C-5611-BD13-3832D96A4D0E
    */
