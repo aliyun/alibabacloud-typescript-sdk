@@ -41,6 +41,14 @@ export class DescribeNetworkLayerInterceptsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The interception module.
+   * 
+   * @example
+   * src
+   */
+  interceptModule?: string;
+  /**
+   * @remarks
    * The network protocol.
    * 
    * @example
@@ -57,7 +65,7 @@ export class DescribeNetworkLayerInterceptsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Settings for the number of interception logs to return on each page when you perform a paged query. Paging is used to return results.
+   * The number of interception log entries per page in a paged query.
    * 
    * @example
    * 10
@@ -103,6 +111,7 @@ export class DescribeNetworkLayerInterceptsRequest extends $dara.Model {
       destinationPort: 'DestinationPort',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      interceptModule: 'InterceptModule',
       networkProtocol: 'NetworkProtocol',
       page: 'Page',
       pageSize: 'PageSize',
@@ -119,6 +128,7 @@ export class DescribeNetworkLayerInterceptsRequest extends $dara.Model {
       destinationPort: 'number',
       endTime: 'number',
       instanceId: 'string',
+      interceptModule: 'string',
       networkProtocol: 'string',
       page: 'number',
       pageSize: 'number',

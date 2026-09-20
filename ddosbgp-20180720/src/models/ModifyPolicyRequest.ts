@@ -41,8 +41,8 @@ export class ModifyPolicyRequestContentFingerPrintRuleList extends $dara.Model {
    * 
    * - **accept**: Allows traffic that matches the fingerprint.
    * - **drop**: Drops traffic that matches the fingerprint.
-   * - **ip_rate**: Rate-limits the source IP address of traffic that matches the fingerprint. Set the rate limit value by using the **RateValue** parameter.
-   * - **session_rate**: Rate-limits the source session of traffic that matches the fingerprint. Set the rate limit value by using the **RateValue** parameter.
+   * - **ip_rate**: Rate-limits the source IP address of traffic that matches the fingerprint. The rate limit value is specified by the **RateValue** parameter.
+   * - **session_rate**: Rate-limits the source session of traffic that matches the fingerprint. The rate limit value is specified by the **RateValue** parameter.
    * 
    * This parameter is required.
    * 
@@ -84,7 +84,7 @@ export class ModifyPolicyRequestContentFingerPrintRuleList extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The detection payload. Expressed in hexadecimal string format.
+   * The detection payload. The value is in hexadecimal string format.
    * 
    * @example
    * abcd
@@ -121,8 +121,8 @@ export class ModifyPolicyRequestContentFingerPrintRuleList extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The priority number, expressed as an integer.
-   * > A smaller number indicates a higher priority.
+   * The priority, expressed as an integer.
+   * > A smaller value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -263,19 +263,19 @@ export class ModifyPolicyRequestContentL4RuleListConditionList extends $dara.Mod
    * @remarks
    * The matching content.
    * 
-   * 1. When **Encode** is set to **str**, the following requirements must be met:
+   * 1. When **Encode** is set to **str**, the value must meet the following requirements:
    * 
-   * - The length of **Content** must not exceed 1500.
+   * - The length of **Content** does not exceed 1500.
    * 
    * - **End** - **Start** >= the length of **Content**.
    * 
-   * 2. When **Encode** is set to **hex**, the following requirements must be met:
+   * 2. When **Encode** is set to **hex**, the value must meet the following requirements:
    * 
    * - **Content** must be hexadecimal characters.
    * 
    * - The length of **Content** must be an even number.
    * 
-   * - The length of **Content** must not exceed 3000.
+   * - The length of **Content** does not exceed 3000.
    * 
    * - **End** - **Start** + 1 >= the length of **Content** / 2.
    * 
@@ -295,9 +295,9 @@ export class ModifyPolicyRequestContentL4RuleListConditionList extends $dara.Mod
    * @remarks
    * The character type. Valid values:
    * 
-   * - **str**: string.
+   * - **str**: String.
    * 
-   * - **hex**: hexadecimal.
+   * - **hex**: Hexadecimal.
    * 
    * @example
    * str
@@ -310,20 +310,20 @@ export class ModifyPolicyRequestContentL4RuleListConditionList extends $dara.Mod
   offset?: ModifyPolicyRequestContentL4RuleListConditionListOffset;
   /**
    * @remarks
-   * The matching pattern. Valid values vary depending on the value of the **Encode** field:
+   * The matching pattern. Valid values depend on the **Encode** field:
    * 
-   * (1) When **Encode** is set to **str**, valid values:
-   * - **contain**: contains.
+   * (1) When **Encode** is set to **str**:
+   * - **contain**: Contains.
    * 
-   * - **not_contain**: does not contain.
+   * - **not_contain**: Does not contain.
    * 
-   * - **regex**: regular expression.
+   * - **regex**: Regular expression.
    * 
-   * (2) When **Encode** is set to **hex**, valid values:
+   * (2) When **Encode** is set to **hex**:
    * 
-   * - **contain**: contains.
+   * - **contain**: Contains.
    * 
-   * - **not_contain**: does not contain.
+   * - **not_contain**: Does not contain.
    * 
    * @example
    * contain
@@ -389,7 +389,7 @@ export class ModifyPolicyRequestContentL4RuleList extends $dara.Model {
   conditionList?: ModifyPolicyRequestContentL4RuleListConditionList[];
   /**
    * @remarks
-   * The minimum number of bytes in a session flow that triggers rule matching. Valid values: **0** to **2048**.
+   * The minimum number of bytes in a session flow to trigger rule matching. Valid values: **0** to **2048**.
    * 
    * @example
    * 0
@@ -399,9 +399,9 @@ export class ModifyPolicyRequestContentL4RuleList extends $dara.Model {
    * @remarks
    * The logical operator. Valid values:
    * 
-   * - **0**: The action is executed when the condition is met.
+   * - **0**: Executes the action when the rule is hit.
    * 
-   * - **1**: The action is executed when the condition is not met.
+   * - **1**: Executes the action when the rule is not hit.
    * 
    * @example
    * 0
@@ -411,9 +411,9 @@ export class ModifyPolicyRequestContentL4RuleList extends $dara.Model {
    * @remarks
    * The rule type. Valid values:
    * 
-   * - **hex**: hexadecimal match.
+   * - **hex**: Hexadecimal matching.
    * 
-   * - **char**: string match.
+   * - **char**: String matching.
    * 
    * @example
    * char
@@ -508,7 +508,7 @@ export class ModifyPolicyRequestContentPortRuleList extends $dara.Model {
    * @remarks
    * The match action. Valid values:
    * 
-   * - **drop**: Drops the traffic.
+   * - **drop**: Drop.
    * 
    * This parameter is required.
    * 
@@ -531,8 +531,8 @@ export class ModifyPolicyRequestContentPortRuleList extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The priority number, expressed as an integer.
-   * > A smaller number indicates a higher priority.
+   * The priority, expressed as an integer.
+   * > A smaller value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -598,7 +598,7 @@ export class ModifyPolicyRequestContentPortRuleList extends $dara.Model {
 export class ModifyPolicyRequestContentSipDefense extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether SIP protection is enabled. Valid values:
+   * Specifies whether to enable SIP protection. Valid values:
    * 
    * - **true**: Enabled.
    * - **false**: Disabled.
@@ -640,7 +640,7 @@ export class ModifyPolicyRequestContentSipDefense extends $dara.Model {
   sipPort?: string;
   /**
    * @remarks
-   * The SIP source rate limit value in PPS.
+   * The SIP source rate limit value (PPS).
    * 
    * @example
    * 1000
@@ -648,7 +648,7 @@ export class ModifyPolicyRequestContentSipDefense extends $dara.Model {
   sipRate?: number;
   /**
    * @remarks
-   * The SIP activation threshold in Mbit/s.
+   * The SIP activation threshold (Mbit/s).
    * 
    * @example
    * 100
@@ -656,7 +656,7 @@ export class ModifyPolicyRequestContentSipDefense extends $dara.Model {
   sipStartMbps?: number;
   /**
    * @remarks
-   * The SIP activation threshold in PPS.
+   * The SIP activation threshold (PPS).
    * 
    * @example
    * 500
@@ -778,7 +778,7 @@ export class ModifyPolicyRequestContentSourceBlockList extends $dara.Model {
 export class ModifyPolicyRequestContentSourceLimit extends $dara.Model {
   /**
    * @remarks
-   * The source bandwidth throttling value. Unit: bytes per second.
+   * The source bandwidth throttling rate limit, in bytes per second.
    * 
    * @example
    * 2048
@@ -786,7 +786,7 @@ export class ModifyPolicyRequestContentSourceLimit extends $dara.Model {
   bps?: number;
   /**
    * @remarks
-   * The source PPS rate limit. Unit: packets per second.
+   * The source PPS rate limit, in packets per second.
    * 
    * @example
    * 64
@@ -794,7 +794,7 @@ export class ModifyPolicyRequestContentSourceLimit extends $dara.Model {
   pps?: number;
   /**
    * @remarks
-   * The source SYN bandwidth throttling value. Unit: bytes per second.
+   * The source SYN bandwidth throttling rate limit, in bytes per second.
    * 
    * @example
    * 2048
@@ -802,7 +802,7 @@ export class ModifyPolicyRequestContentSourceLimit extends $dara.Model {
   synBps?: number;
   /**
    * @remarks
-   * The source SYN PPS rate limit. Unit: packets per second.
+   * The source SYN PPS rate limit, in packets per second.
    * 
    * @example
    * 64
@@ -875,7 +875,7 @@ export class ModifyPolicyRequestContent extends $dara.Model {
   enableL4Defense?: boolean;
   /**
    * @remarks
-   * The list of byte-match filter rules.
+   * The list of Byte-Match Filter rules.
    */
   fingerPrintRuleList?: ModifyPolicyRequestContentFingerPrintRuleList[];
   /**
@@ -892,7 +892,7 @@ export class ModifyPolicyRequestContent extends $dara.Model {
   intelligenceLevel?: string;
   /**
    * @remarks
-   * The list of port forwarding rules.
+   * The list of port-specific mitigation rules.
    */
   l4RuleList?: ModifyPolicyRequestContentL4RuleList[];
   /**
@@ -902,7 +902,7 @@ export class ModifyPolicyRequestContent extends $dara.Model {
   portRuleList?: ModifyPolicyRequestContentPortRuleList[];
   /**
    * @remarks
-   * The list of ports filtered by Reflection Attack Filtering.
+   * The list of ports filtered by reflection attack prevention.
    */
   reflectBlockUdpPortList?: number[];
   /**
@@ -917,7 +917,7 @@ export class ModifyPolicyRequestContent extends $dara.Model {
   regionBlockProvinceList?: number[];
   /**
    * @remarks
-   * The SIP protection settings.
+   * The SIP Protection Settings.
    */
   sipDefense?: ModifyPolicyRequestContentSipDefense;
   /**
@@ -1034,28 +1034,28 @@ export class ModifyPolicyRequest extends $dara.Model {
    * @remarks
    * The action type. Valid values:
    * 
-   * - **10**: Modifies the name (Name is required).
-   * - **11**: Modifies the blacklist timeout period (BlackIpListExpireAt is required). Only IP-specific mitigation policies are supported.
-   * - **12**: Modifies the switch for whitelisting back-to-origin IP addresses of Anti-DDoS Pro and Anti-DDoS Premium (WhitenGfbrNets is required). Only IP-specific mitigation policies are supported.
-   * - **13**: Modifies the switch for ICMP Blocking (EnableDropIcmp is required). Only IP-specific mitigation policies are supported.
-   * - **20**: Adds blacklist and whitelist entries (WhiteIpList and BlackIpList are optional). Only IP-specific mitigation policies are supported.
-   * - **21**: Deletes blacklist and whitelist entries (WhiteIpList and BlackIpList are optional). Only IP-specific mitigation policies are supported.
-   * - **22**: Clears the whitelist. Only IP-specific mitigation policies are supported.
-   * - **23**: Clears the blacklist. Only IP-specific mitigation policies are supported.
-   * - **30**: Modifies the AI-based intelligent protection switch and level (EnableIntelligence and IntelligenceLevel are required). Only IP-specific mitigation policies are supported.
-   * - **31**: Modifies the Location Blacklist configuration (RegionBlockCountryList and RegionBlockProvinceList are optional). Only IP-specific mitigation policies are supported.
-   * - **32**: Modifies the Source Rate Limiting configuration (SourceLimit and SourceBlockList are required). Only IP-specific mitigation policies are supported.
-   * - **33**: Modifies the Reflection Attack Filtering (ReflectBlockUdpPortList is required). Only IP-specific mitigation policies are supported.
-   * - **40**: Creates a Port Blocking rule (PortRuleList is required). Only IP-specific mitigation policies are supported.
-   * - **41**: Modifies a Port Blocking rule (PortRuleList is required). Only IP-specific mitigation policies are supported.
-   * - **42**: Deletes a Port Blocking rule (PortRuleList is required). Only IP-specific mitigation policies are supported.
-   * - **50**: Creates a Byte-Match Filter rule (FingerPrintRuleList is required). Only IP-specific mitigation policies are supported.
-   * - **51**: Modifies a Byte-Match Filter rule (FingerPrintRuleList is required). Only IP-specific mitigation policies are supported.
-   * - **52**: Deletes a Byte-Match Filter rule (FingerPrintRuleList is required). Only IP-specific mitigation policies are supported.
-   * - **60**: Modifies the port-specific mitigation switch (EnableL4Defense is required). Only port-specific mitigation policies are supported.
-   * - **61**: Creates a port-specific mitigation rule (L4RuleList is required). Only port-specific mitigation policies are supported.
-   * - **62**: Modifies a port-specific mitigation rule (L4RuleList is required). Only port-specific mitigation policies are supported.
-   * - **63**: Deletes a port-specific mitigation rule (L4RuleList is required). Only port-specific mitigation policies are supported.
+   * - **10**: modifies the name (Name is required).
+   * - **11**: modifies the blacklist timeout period (BlackIpListExpireAt is required). Only IP-specific mitigation policy is supported.
+   * - **12**: modifies the switch for whitelisting back-to-origin IP addresses of Anti-DDoS Pro and Anti-DDoS Premium (WhitenGfbrNets is required). Only IP-specific mitigation policy is supported.
+   * - **13**: modifies the switch for ICMP Blocking (EnableDropIcmp is required). Only IP-specific mitigation policy is supported.
+   * - **20**: adds entries to blacklists and whitelists (WhiteIpList and BlackIpList are optional). Only IP-specific mitigation policy is supported.
+   * - **21**: deletes entries from blacklists and whitelists (WhiteIpList and BlackIpList are optional). Only IP-specific mitigation policy is supported.
+   * - **22**: clears the whitelist. Only IP-specific mitigation policy is supported.
+   * - **23**: clears the blacklist. Only IP-specific mitigation policy is supported.
+   * - **30**: modifies the AI-based intelligent protection switch and level (EnableIntelligence and IntelligenceLevel are required). Only IP-specific mitigation policy is supported.
+   * - **31**: modifies the Location Blacklist configuration (RegionBlockCountryList and RegionBlockProvinceList are optional). Only IP-specific mitigation policy is supported.
+   * - **32**: modifies the source rate limiting configuration (SourceLimit and SourceBlockList are required). Only IP-specific mitigation policy is supported.
+   * - **33**: modifies the reflection attack port filtering (ReflectBlockUdpPortList is required). Only IP-specific mitigation policy is supported.
+   * - **40**: creates a port blocking rule (PortRuleList is required). Only IP-specific mitigation policy is supported.
+   * - **41**: modifies a port blocking rule (PortRuleList is required). Only IP-specific mitigation policy is supported.
+   * - **42**: deletes a port blocking rule (PortRuleList is required). Only IP-specific mitigation policy is supported.
+   * - **50**: creates a byte-match filter rule (FingerPrintRuleList is required). Only IP-specific mitigation policy is supported.
+   * - **51**: modifies a byte-match filter rule (FingerPrintRuleList is required). Only IP-specific mitigation policy is supported.
+   * - **52**: deletes a byte-match filter rule (FingerPrintRuleList is required). Only IP-specific mitigation policy is supported.
+   * - **60**: modifies the port-specific mitigation switch (EnableL4Defense is required). Only port-specific mitigation policy is supported.
+   * - **61**: creates a port-specific mitigation rule (L4RuleList is required). Only port-specific mitigation policy is supported.
+   * - **62**: modifies a port-specific mitigation rule (L4RuleList is required). Only port-specific mitigation policy is supported.
+   * - **63**: deletes a port-specific mitigation rule (L4RuleList is required). Only port-specific mitigation policy is supported.
    * 
    * This parameter is required.
    * 
@@ -1088,10 +1088,10 @@ export class ModifyPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port-specific mitigation policy version. Valid values:
+   * The version of the port-specific mitigation policy. Valid values:
    * 
-   * - **Empty**: Modifies the default surf DPI engine policy.
-   * - **2**: Modifies the new stream DPI engine policy.
+   * - **Not specified**: Modifies the default surf mitigation engine policy.
+   * - **2**: Modifies the new stream mitigation engine policy.
    * > Only port-specific mitigation policies are supported.
    * 
    * @example

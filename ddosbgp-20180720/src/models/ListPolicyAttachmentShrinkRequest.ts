@@ -18,7 +18,7 @@ export class ListPolicyAttachmentShrinkRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of rows per page in a paging query. Default value: **10**.
+   * The number of entries per page in a paging query. Default value: **10**.
    * 
    * @example
    * 10
@@ -47,8 +47,8 @@ export class ListPolicyAttachmentShrinkRequest extends $dara.Model {
    * @remarks
    * The version of the port-specific mitigation policy. Valid values:
    * 
-   * - **Not specified**: queries the policy associations that attach to the default surf DPI engine.
-   * - **2**: queries the policy associations that attach to the new stream DPI engine.
+   * - **Not specified**: queries the policy associations of the default surf DPI engine.
+   * - **2**: queries the policy associations of the new stream DPI engine.
    * 
    * @example
    * 2

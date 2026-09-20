@@ -37,12 +37,12 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
   id?: string;
   /**
    * @remarks
-   * The action to take after a fingerprint match. Valid values:
+   * The action to take when the fingerprint is matched. Valid values:
    * 
-   * - **permit**: Permits traffic that matches the fingerprint.
-   * - **drop**: Drops traffic that matches the fingerprint.
-   * - **ip_rate**: Rate-limits the source IP address of traffic that matches the fingerprint. Set the rate limit by using the **RateValue** parameter.
-   * - **session_rate**: Rate-limits the source session of traffic that matches the fingerprint. Set the rate limit by using the **RateValue** parameter.
+   * - **permit**: allows traffic that matches the fingerprint.
+   * - **drop**: drops traffic that matches the fingerprint.
+   * - **ip_rate**: rate-limits the source IP address of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
+   * - **session_rate**: rate-limits the source session of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
    * 
    * This parameter is required.
    * 
@@ -84,7 +84,7 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
   offset?: number;
   /**
    * @remarks
-   * The detection payload, represented in hexadecimal string format.
+   * The detection payload. The value is in hexadecimal string format.
    * 
    * @example
    * abcd
@@ -103,9 +103,9 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
   protocol?: string;
   /**
    * @remarks
-   * The rate limit value. Valid values: **1** to **100000**.
+   * The rate limit. Valid values: **1** to **100000**.
    * 
-   * > This parameter is required when the match action is source IP rate limiting or source session rate limiting (**MatchAction** is **ip_rate** or **session_rate**).
+   * > This parameter is required when the match action is source IP rate limiting or source session rate limiting (**MatchAction** is set to **ip_rate** or **session_rate**).
    * 
    * @example
    * 100
@@ -121,8 +121,8 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
   rule?: string;
   /**
    * @remarks
-   * The priority number, expressed as an integer.
-   * >A smaller number indicates a higher priority.
+   * The priority of the rule, represented as an integer.
+   * >A smaller value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -261,13 +261,13 @@ export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $d
   arg?: string;
   /**
    * @remarks
-   * The match content.
+   * The matching content.
    * 
    * 1. When **Encode** is set to **str**, the following requirements must be met:
    * 
    * - The length of **Content** must not exceed 1500.
    * 
-   * - **End** - **Start** >= the length of **Content**.
+   * - **End** - **Start** >= length of **Content**.
    * 
    * 2. When **Encode** is set to **hex**, the following requirements must be met:
    * 
@@ -277,7 +277,7 @@ export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $d
    * 
    * - The length of **Content** must not exceed 3000.
    * 
-   * - **End** - **Start** + 1 >= the length of **Content** / 2.
+   * - **End** - **Start** + 1 >= length of **Content** / 2.
    * 
    * @example
    * test**
@@ -305,12 +305,12 @@ export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $d
   encode?: string;
   /**
    * @remarks
-   * The match range.
+   * The matching range.
    */
   offset?: ModifyPolicyContentRequestContentL4RuleListConditionListOffset;
   /**
    * @remarks
-   * The match mode. Valid values:
+   * The matching pattern. Valid values:
    * 
    * - **contain**: contains.
    * 
@@ -380,7 +380,7 @@ export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
   conditionList?: ModifyPolicyContentRequestContentL4RuleListConditionList[];
   /**
    * @remarks
-   * The minimum number of bytes in a session flow that triggers rule matching. Valid values: **0** to **2048**.
+   * The minimum number of bytes in a session flow to trigger rule matching. Valid values: **0** to **2048**.
    * 
    * @example
    * 0
@@ -390,9 +390,9 @@ export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
    * @remarks
    * The logical operator. Valid values:
    * 
-   * - **0**: The action is executed on a match.
+   * - **0**: executes the action when the rule is matched.
    * 
-   * - **1**: The action is executed on a non-match.
+   * - **1**: executes the action when the rule is not matched.
    * 
    * @example
    * 0
@@ -402,9 +402,9 @@ export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
    * @remarks
    * The rule type. Valid values:
    * 
-   * - **char**: string match.
+   * - **char**: string matching.
    * 
-   * - **hex**: hexadecimal match.
+   * - **hex**: hexadecimal matching.
    * 
    * @example
    * char
@@ -423,7 +423,7 @@ export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
   /**
    * @remarks
    * The rule priority. Valid values: 1 to 100.
-   * >A smaller value indicates a higher priority.
+   * > A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -521,8 +521,8 @@ export class ModifyPolicyContentRequestContentPortRuleList extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The priority number, expressed as an integer.
-   * >A smaller number indicates a higher priority.
+   * The priority of the rule, represented as an integer.
+   * >A smaller value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -588,7 +588,7 @@ export class ModifyPolicyContentRequestContentPortRuleList extends $dara.Model {
 export class ModifyPolicyContentRequestContentSipDefense extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether SIP protection is enabled. Valid values:
+   * Specifies whether to enable SIP protection. Valid values:
    * 
    * - **true**: Enabled.
    * - **false**: Disabled.
@@ -630,7 +630,7 @@ export class ModifyPolicyContentRequestContentSipDefense extends $dara.Model {
   sipPort?: string;
   /**
    * @remarks
-   * The SIP source rate limit value in PPS.
+   * The SIP source rate limit (PPS).
    * 
    * @example
    * 1000
@@ -638,7 +638,7 @@ export class ModifyPolicyContentRequestContentSipDefense extends $dara.Model {
   sipRate?: number;
   /**
    * @remarks
-   * The SIP activation threshold in Mbit/s.
+   * The SIP activation threshold (Mbps).
    * 
    * @example
    * 100
@@ -646,7 +646,7 @@ export class ModifyPolicyContentRequestContentSipDefense extends $dara.Model {
   sipStartMbps?: number;
   /**
    * @remarks
-   * The SIP activation threshold in PPS.
+   * The SIP activation threshold (PPS).
    * 
    * @example
    * 500
@@ -723,10 +723,10 @@ export class ModifyPolicyContentRequestContentSourceBlockList extends $dara.Mode
   /**
    * @remarks
    * The source rate limiting type. Valid values:
-   * - **3**: source PPS rate limiting.
-   * - **4**: source bandwidth throttling.
-   * - **5**: source SYN PPS rate limiting.
-   * - **6**: source SYN bandwidth throttling.
+   * - **3**: Source PPS rate limiting.
+   * - **4**: Source bandwidth throttling.
+   * - **5**: Source SYN PPS rate limiting.
+   * - **6**: Source SYN bandwidth throttling.
    * 
    * This parameter is required.
    * 
@@ -764,7 +764,7 @@ export class ModifyPolicyContentRequestContentSourceBlockList extends $dara.Mode
 export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
   /**
    * @remarks
-   * The source bandwidth throttling value, in bytes per second (Byte/s).
+   * The source bandwidth throttling value, in bytes per second (byte/s).
    * 
    * @example
    * 2048
@@ -772,7 +772,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
   bps?: number;
   /**
    * @remarks
-   * The source PPS rate limit, in packets per second (Packet/s).
+   * The source PPS rate limit, in packets per second (packet/s).
    * 
    * @example
    * 64
@@ -780,7 +780,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
   pps?: number;
   /**
    * @remarks
-   * The source SYN bandwidth throttling value, in bytes per second (Byte/s).
+   * The source SYN bandwidth throttling value, in bytes per second (byte/s).
    * 
    * @example
    * 2048
@@ -788,7 +788,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
   synBps?: number;
   /**
    * @remarks
-   * The source SYN PPS rate limit, in packets per second (Packet/s).
+   * The source SYN PPS rate limit, in packets per second (packet/s).
    * 
    * @example
    * 64
@@ -824,7 +824,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
 export class ModifyPolicyContentRequestContent extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the IP blacklist, in UNIX timestamp format.
+   * The expiration time of the IP blacklist (UNIX timestamp).
    * 
    * @example
    * 1716878000
@@ -840,7 +840,7 @@ export class ModifyPolicyContentRequestContent extends $dara.Model {
   enableDropIcmp?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable AI-based intelligent protection.
+   * Specifies whether to enable AI-based intelligent analysis.
    * 
    * @example
    * true
@@ -848,7 +848,7 @@ export class ModifyPolicyContentRequestContent extends $dara.Model {
   enableIntelligence?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable port protection.
+   * Specifies whether to enable port-specific mitigation.
    * 
    * @example
    * true
@@ -861,7 +861,7 @@ export class ModifyPolicyContentRequestContent extends $dara.Model {
   fingerPrintRuleList?: ModifyPolicyContentRequestContentFingerPrintRuleList[];
   /**
    * @remarks
-   * The protection level of AI-based intelligent protection. Valid values:
+   * The protection level of AI-based intelligent analysis. Valid values:
    * 
    * - **default**: Normal.
    * - **hard**: Strict.
@@ -883,7 +883,7 @@ export class ModifyPolicyContentRequestContent extends $dara.Model {
   portRuleList?: ModifyPolicyContentRequestContentPortRuleList[];
   /**
    * @remarks
-   * The list of ports filtered by reflection attack prevention.
+   * The list of ports filtered by the reflection attack prevention feature.
    */
   reflectBlockUdpPortList?: number[];
   /**
@@ -913,7 +913,7 @@ export class ModifyPolicyContentRequestContent extends $dara.Model {
   sourceLimit?: ModifyPolicyContentRequestContentSourceLimit;
   /**
    * @remarks
-   * Specifies whether to whitelist the back-to-origin IP addresses of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland & outside the Chinese mainland).
+   * Specifies whether to whitelist the back-to-origin IP addresses of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland and outside the Chinese mainland).
    * 
    * @example
    * false
@@ -1023,8 +1023,8 @@ export class ModifyPolicyContentRequest extends $dara.Model {
    * @remarks
    * The version of the port-specific mitigation policy. Valid values:
    * 
-   * - **Not specified**: Modifies the default surf mitigation engine policy.
-   * - **2**: Modifies the new stream mitigation engine policy.
+   * - **Not specified**: modifies the default surf mitigation engine policy.
+   * - **2**: modifies the new stream mitigation engine policy.
    * > Only port-specific mitigation policies are supported.
    * 
    * @example

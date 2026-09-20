@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request, which can be used for troubleshooting and diagnostics.
+   * The request ID. Alibaba Cloud generates a unique ID for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * B4B379C2-9319-4C6B-B579-FE36831****

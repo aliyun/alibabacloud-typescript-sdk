@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the rule.
+   * The rule remarks.
    * 
    * @example
    * comment
@@ -41,8 +41,8 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
    * 
    * - **accept**: Allow traffic that matches the fingerprint.
    * - **drop**: Drop traffic that matches the fingerprint.
-   * - **ip_rate**: Apply rate limiting to the source IP address of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
-   * - **session_rate**: Apply rate limiting to the source session of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
+   * - **ip_rate**: Rate-limit the source IP address of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
+   * - **session_rate**: Rate-limit the source session of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
    * 
    * @example
    * drop
@@ -101,7 +101,7 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
   protocol?: string;
   /**
    * @remarks
-   * The rate limit. Valid values: **1** to **100000**.
+   * The rate limit value. Valid values: **1** to **100000**.
    * 
    * > This parameter is required when the match action is source IP rate limiting or source session rate limiting (**MatchAction** is **ip_rate** or **session_rate**).
    * 
@@ -119,7 +119,7 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
   rule?: string;
   /**
    * @remarks
-   * The priority of the rule, represented as an integer.
+   * The priority number, represented as an integer.
    * 
    * @example
    * 1
@@ -256,15 +256,15 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList exte
   arg?: string;
   /**
    * @remarks
-   * The match content.
+   * The matching content.
    * 
-   * 1. When **Encode** is set to **str**, the following requirements must be met:
+   * 1. If **Encode** is set to **str**, the following requirements must be met:
    * 
    * - The length of **Content** cannot exceed 1500.
    * 
    * - **End** - **Start** >= the length of **Content**.
    * 
-   * 2. When **Encode** is set to **hex**, the following requirements must be met:
+   * 2. If **Encode** is set to **hex**, the following requirements must be met:
    * 
    * - **Content** must be hexadecimal characters.
    * 
@@ -300,12 +300,12 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList exte
   encode?: string;
   /**
    * @remarks
-   * The match range.
+   * The matching range.
    */
   offset?: ListPolicyResponseBodyPolicyListContentL4RuleListConditionListOffset;
   /**
    * @remarks
-   * The match pattern. Valid values:
+   * The matching pattern. Valid values:
    * 
    * - **contain**: contains.
    * 
@@ -317,7 +317,7 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList exte
   pattern?: string;
   /**
    * @remarks
-   * The start position of detection. Valid values: **0** to **2047**.
+   * The detection start position. Valid values: **0** to **2047**.
    * 
    * @example
    * 0
@@ -387,9 +387,9 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleList extends $dara.Mod
    * @remarks
    * The logical operator. Valid values:
    * 
-   * - **0**: Execute the action when the rule is matched.
+   * - **0**: Execute the action when matched.
    * 
-   * - **1**: Execute the action when the rule is not matched.
+   * - **1**: Execute the action when not matched.
    * 
    * @example
    * 1
@@ -399,9 +399,9 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleList extends $dara.Mod
    * @remarks
    * The rule type. Valid values:
    * 
-   * - **char**: string match.
+   * - **char**: string matching.
    * 
-   * - **hex**: hexadecimal match.
+   * - **hex**: hexadecimal matching.
    * 
    * @example
    * char
@@ -507,7 +507,7 @@ export class ListPolicyResponseBodyPolicyListContentPortRuleList extends $dara.M
   protocol?: string;
   /**
    * @remarks
-   * The priority of the rule, represented as an integer.
+   * The priority number, represented as an integer.
    * 
    * @example
    * 1
@@ -609,7 +609,7 @@ export class ListPolicyResponseBodyPolicyListContentSipDefense extends $dara.Mod
   sipPort?: string;
   /**
    * @remarks
-   * The SIP source rate limit value (PPS).
+   * The SIP source rate limit value in PPS.
    * 
    * @example
    * 1000
@@ -617,7 +617,7 @@ export class ListPolicyResponseBodyPolicyListContentSipDefense extends $dara.Mod
   sipRate?: number;
   /**
    * @remarks
-   * The SIP activation threshold (Mbit/s).
+   * The SIP activation threshold in Mbit/s.
    * 
    * @example
    * 100
@@ -625,7 +625,7 @@ export class ListPolicyResponseBodyPolicyListContentSipDefense extends $dara.Mod
   sipStartMbps?: number;
   /**
    * @remarks
-   * The SIP activation threshold (PPS).
+   * The SIP activation threshold in PPS.
    * 
    * @example
    * 500
@@ -679,7 +679,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dar
   blockExpireSeconds?: number;
   /**
    * @remarks
-   * The statistical period for source rate limiting and blacklisting. Unit: seconds.
+   * The statistical period for source rate limiting blacklisting. Unit: seconds.
    * 
    * @example
    * 60
@@ -687,7 +687,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dar
   everySeconds?: number;
   /**
    * @remarks
-   * The number of times that the source IP address exceeds the rate limit within a single statistical period.
+   * The number of times the source IP address exceeds the rate limit within one statistical period.
    * 
    * @example
    * 5
@@ -695,7 +695,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dar
   exceedLimitTimes?: number;
   /**
    * @remarks
-   * The type of source rate limiting. Valid values:
+   * The source rate limiting type. Valid values:
    * 
    * - **3**: source PPS rate limiting.
    * 
@@ -739,7 +739,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dar
 export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Model {
   /**
    * @remarks
-   * The source bandwidth throttling value. Unit: bytes per second.
+   * The source bandwidth throttling value, in bytes per second (Byte/s).
    * 
    * @example
    * 2048
@@ -747,7 +747,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Mo
   bps?: number;
   /**
    * @remarks
-   * The source PPS rate limit. Unit: packets per second.
+   * The source PPS rate limit, in packets per second (Packet/s).
    * 
    * @example
    * 64
@@ -755,7 +755,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Mo
   pps?: number;
   /**
    * @remarks
-   * The source SYN bandwidth throttling value. Unit: bytes per second.
+   * The source SYN bandwidth throttling value, in bytes per second (Byte/s).
    * 
    * @example
    * 2048
@@ -763,7 +763,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Mo
   synBps?: number;
   /**
    * @remarks
-   * The source SYN PPS rate limit. Unit: packets per second.
+   * The source SYN PPS rate limit, in packets per second (Packet/s).
    * 
    * @example
    * 64
@@ -799,7 +799,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Mo
 export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the IP blacklist. The value is a UNIX timestamp.
+   * The expiration time of the IP blacklist (UNIX timestamp).
    * 
    * @example
    * 1716878000
@@ -853,16 +853,16 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   l4RuleList?: ListPolicyResponseBodyPolicyListContentL4RuleList[];
   /**
    * @remarks
-   * The list of Port Blocking rules.
+   * The list of port blocking rules.
    */
   portRuleList?: ListPolicyResponseBodyPolicyListContentPortRuleList[];
   /**
    * @remarks
    * The version of the port-specific mitigation policy. Valid values:
    * 
-   * - **Empty**: the default surf protection engine policy.
-   * - **2**: the new stream protection engine policy.
-   * > Only port-specific mitigation policies are supported.
+   * - **Not specified**: the default surf mitigation engine policy.
+   * - **2**: the new stream mitigation engine policy.
+   * > Only port-specific mitigation policies support this parameter.
    * 
    * @example
    * 2
@@ -885,12 +885,12 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   regionBlockProvinceList?: number[];
   /**
    * @remarks
-   * The SIP protection settings.
+   * The SIP Protection Settings.
    */
   sipDefense?: ListPolicyResponseBodyPolicyListContentSipDefense;
   /**
    * @remarks
-   * The list of source rate limiting and blacklisting rules.
+   * The list of source rate limiting blacklist rules.
    */
   sourceBlockList?: ListPolicyResponseBodyPolicyListContentSourceBlockList[];
   /**
@@ -987,7 +987,7 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
 export class ListPolicyResponseBodyPolicyList extends $dara.Model {
   /**
    * @remarks
-   * The number of protected objects that are associated with the policy.
+   * The number of protected objects associated with the policy.
    * 
    * @example
    * 0
@@ -1016,7 +1016,7 @@ export class ListPolicyResponseBodyPolicyList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The remarks of the policy.
+   * The policy remarks.
    * 
    * @example
    * test
@@ -1075,7 +1075,7 @@ export class ListPolicyResponseBody extends $dara.Model {
   policyList?: ListPolicyResponseBodyPolicyList[];
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * B4B379C2-9319-4C6B-B579-FE36831B09F4

@@ -17,22 +17,57 @@ export default class Client extends OpenApi {
       'cn-beijing': "ddosbgp.aliyuncs.com",
       'cn-zhangjiakou': "ddosbgp.aliyuncs.com",
       'cn-huhehaote': "ddosbgp.aliyuncs.com",
+      'cn-wulanchabu': "ddosbgp.aliyuncs.com",
       'cn-hangzhou': "ddosbgp.aliyuncs.com",
       'cn-shanghai': "ddosbgp.aliyuncs.com",
       'cn-shenzhen': "ddosbgp.aliyuncs.com",
-      'ap-northeast-1': "ddosbgp.ap-southeast-1.aliyuncs.com",
-      'ap-south-1': "ddosbgp.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-2': "ddosbgp.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "ddosbgp.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-5': "ddosbgp.ap-southeast-1.aliyuncs.com",
+      'cn-heyuan': "ddosbgp.aliyuncs.com",
+      'cn-guangzhou': "ddosbgp.aliyuncs.com",
       'cn-chengdu': "ddosbgp.aliyuncs.com",
-      'eu-central-1': "ddosbgp.ap-southeast-1.aliyuncs.com",
-      'eu-west-1': "ddosbgp.ap-southeast-1.aliyuncs.com",
-      'me-east-1': "ddosbgp.ap-southeast-1.aliyuncs.com",
-      'cn-hangzhou-finance': "ddosbgp.aliyuncs.com",
+      'ap-northeast-1': "ddosbgp.aliyuncs.com",
+      'ap-southeast-2': "ddosbgp.aliyuncs.com",
+      'ap-southeast-3': "ddosbgp.aliyuncs.com",
+      'ap-southeast-5': "ddosbgp.aliyuncs.com",
+      'eu-west-1': "ddosbgp.aliyuncs.com",
+      'eu-central-1': "ddosbgp.aliyuncs.com",
+      'ap-south-1': "ddosbgp.aliyuncs.com",
+      'me-east-1': "ddosbgp.aliyuncs.com",
       'cn-shenzhen-finance-1': "ddosbgp.aliyuncs.com",
-      'cn-shanghai-finance-1': "ddosbgp.aliyuncs.com",
+      'ap-northeast-2-pop': "ddosbgp.aliyuncs.com",
+      'cn-beijing-finance-1': "ddosbgp.aliyuncs.com",
+      'cn-beijing-finance-pop': "ddosbgp.aliyuncs.com",
+      'cn-beijing-gov-1': "ddosbgp.aliyuncs.com",
+      'cn-beijing-nu16-b01': "ddosbgp.aliyuncs.com",
+      'cn-edge-1': "ddosbgp.aliyuncs.com",
+      'cn-fujian': "ddosbgp.aliyuncs.com",
+      'cn-haidian-cm12-c01': "ddosbgp.aliyuncs.com",
+      'cn-hangzhou-bj-b01': "ddosbgp.aliyuncs.com",
+      'cn-hangzhou-finance': "ddosbgp.aliyuncs.com",
+      'cn-hangzhou-internal-prod-1': "ddosbgp.aliyuncs.com",
+      'cn-hangzhou-internal-test-1': "ddosbgp.aliyuncs.com",
+      'cn-hangzhou-internal-test-2': "ddosbgp.aliyuncs.com",
+      'cn-hangzhou-internal-test-3': "ddosbgp.aliyuncs.com",
+      'cn-hangzhou-test-306': "ddosbgp.aliyuncs.com",
+      'cn-hongkong-finance-pop': "ddosbgp.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "ddosbgp.aliyuncs.com",
       'cn-north-2-gov-1': "ddosbgp.aliyuncs.com",
+      'cn-qingdao-nebula': "ddosbgp.aliyuncs.com",
+      'cn-shanghai-et15-b01': "ddosbgp.aliyuncs.com",
+      'cn-shanghai-et2-b01': "ddosbgp.aliyuncs.com",
+      'cn-shanghai-finance-1': "ddosbgp.aliyuncs.com",
+      'cn-shanghai-inner': "ddosbgp.aliyuncs.com",
+      'cn-shanghai-internal-test-1': "ddosbgp.aliyuncs.com",
+      'cn-shenzhen-inner': "ddosbgp.aliyuncs.com",
+      'cn-shenzhen-st4-d01': "ddosbgp.aliyuncs.com",
+      'cn-shenzhen-su18-b01': "ddosbgp.aliyuncs.com",
+      'cn-wuhan': "ddosbgp.aliyuncs.com",
+      'cn-yushanfang': "ddosbgp.aliyuncs.com",
+      'cn-zhangbei': "ddosbgp.aliyuncs.com",
+      'cn-zhangbei-na61-b01': "ddosbgp.aliyuncs.com",
+      'cn-zhangjiakou-na62-a01': "ddosbgp.aliyuncs.com",
+      'cn-zhengzhou-nebula-1': "ddosbgp.aliyuncs.com",
+      'eu-west-1-oxs': "ddosbgp.aliyuncs.com",
+      'rus-west-1-pop': "ddosbgp.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ddosbgp", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -216,10 +251,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates protection objects with mitigation policies.
+   * Associates protection objects with a mitigation policy.
    * 
    * @remarks
-   * Mitigation policies that are associated with protection objects cannot be deleted.
+   * A mitigation policy that is associated with protection objects cannot be deleted.
    * 
    * @param tmpReq - AttachToPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -264,10 +299,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates protection objects with mitigation policies.
+   * Associates protection objects with a mitigation policy.
    * 
    * @remarks
-   * Mitigation policies that are associated with protection objects cannot be deleted.
+   * A mitigation policy that is associated with protection objects cannot be deleted.
    * 
    * @param request - AttachToPolicyRequest
    * @returns AttachToPolicyResponse
@@ -1113,9 +1148,9 @@ export default class Client extends OpenApi {
    * Queries the network-layer interception records of Anti-DDoS Origin instances.
    * 
    * @remarks
-   * This operation is used to perform a paged query of the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. Paging is supported.
+   * This operation is used to query the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by using paging.
    * ### QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API invokes are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Invoke this operation at an appropriate frequency.
    * 
    * @param request - DescribeNetworkLayerInterceptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1138,6 +1173,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.interceptModule)) {
+      query["InterceptModule"] = request.interceptModule;
     }
 
     if (!$dara.isNull(request.networkProtocol)) {
@@ -1189,9 +1228,9 @@ export default class Client extends OpenApi {
    * Queries the network-layer interception records of Anti-DDoS Origin instances.
    * 
    * @remarks
-   * This operation is used to perform a paged query of the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. Paging is supported.
+   * This operation is used to query the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by using paging.
    * ### QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API invokes are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Invoke this operation at an appropriate frequency.
    * 
    * @param request - DescribeNetworkLayerInterceptsRequest
    * @returns DescribeNetworkLayerInterceptsResponse

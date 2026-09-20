@@ -93,8 +93,8 @@ export class AttachToPolicyRequest extends $dara.Model {
    * @remarks
    * The version of the port-specific mitigation policy. Valid values:
    * 
-   * - **Not specified**: Associates the default surf mitigation engine policy.
-   * - **2**: Associates the new stream mitigation engine policy.
+   * - **Not specified**: Binds the default surf protection engine policy.
+   * - **2**: Binds the new stream protection engine policy.
    * > Only port-specific mitigation policies support this parameter.
    * 
    * @example

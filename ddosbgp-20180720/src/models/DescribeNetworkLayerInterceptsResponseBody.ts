@@ -37,7 +37,7 @@ export class DescribeNetworkLayerInterceptsResponseBodyInterceptionRecords exten
   interceptCount?: number;
   /**
    * @remarks
-   * The end time of the interception.
+   * The interception end time.
    *  > The value is a Unix/POSIX timestamp. Unit: seconds.
    * 
    * @example
@@ -54,7 +54,7 @@ export class DescribeNetworkLayerInterceptsResponseBodyInterceptionRecords exten
   interceptModule?: string;
   /**
    * @remarks
-   * The start time of the interception.
+   * The interception start time.
    * > The value is a Unix/POSIX timestamp. Unit: seconds.
    * 
    * @example
@@ -158,7 +158,7 @@ export class DescribeNetworkLayerInterceptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of interception logs that match the current filter conditions.
+   * The total number of interception log entries that match the current filter conditions.
    * 
    * @example
    * 17
