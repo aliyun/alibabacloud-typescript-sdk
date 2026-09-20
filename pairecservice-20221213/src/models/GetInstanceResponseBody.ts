@@ -165,7 +165,7 @@ export class GetInstanceResponseBodyConfig extends $dara.Model {
   engines?: GetInstanceResponseBodyConfigEngines[];
   /**
    * @remarks
-   * The list of monitoring components.
+   * The list of supporting features.
    */
   monitors?: GetInstanceResponseBodyConfigMonitors[];
   static names(): { [key: string]: string } {
@@ -202,14 +202,39 @@ export class GetInstanceResponseBodyConfig extends $dara.Model {
   }
 }
 
+export class GetInstanceResponseBodyFeatureStoreInfo extends $dara.Model {
+  featureDBStatus?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureDBStatus: 'FeatureDBStatus',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureDBStatus: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyOperatingTool extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operating tool is enabled for the instance. Valid values:
+   * Indicates whether the operations tool is enabled for the instance. Valid values:
    * 
-   * - True: Enabled
-   * 
-   * - False: Disabled
+   * - True: Enabled.
+   * - False: Not enabled.
    * 
    * @example
    * True
@@ -236,10 +261,33 @@ export class GetInstanceResponseBodyOperatingTool extends $dara.Model {
   }
 }
 
+export class GetInstanceResponseBodyRecommendCustomization extends $dara.Model {
+  isEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isEnable: 'IsEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isEnable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the instance. The value is fixed as Subscription.
+   * The billing type of the instance. Currently, only Subscription (prepayment) is supported.
    * 
    * @example
    * Subscription
@@ -255,7 +303,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The instance configurations.
+   * The instance configuration.
    */
   config?: GetInstanceResponseBodyConfig;
   /**
@@ -266,6 +314,7 @@ export class GetInstanceResponseBody extends $dara.Model {
    * 2022-12-14 00:00:00.0
    */
   expiredTime?: string;
+  featureStoreInfo?: GetInstanceResponseBodyFeatureStoreInfo;
   /**
    * @remarks
    * The time when the instance was created.
@@ -292,12 +341,18 @@ export class GetInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The operating tool configurations.
+   * The configuration of the operations tool.
    */
   operatingTool?: GetInstanceResponseBodyOperatingTool;
+  recommendCustomization?: GetInstanceResponseBodyRecommendCustomization;
   /**
    * @remarks
-   * The region ID. Valid values:<br>● cn-shenzhen: Shenzhen<br>● cn-hangzhou: Hangzhou<br>● cn-beijing: Beijing<br>● cn-shanghai: Shanghai<br><br><br><br>
+   * The region ID. Valid values:
+   * 
+   * - cn-shenzhen: China (Shenzhen).
+   * - cn-hangzhou: China (Hangzhou).
+   * - cn-beijing: China (Beijing).
+   * - cn-shanghai: China (Shanghai).
    * 
    * @example
    * cn-shenzhen
@@ -313,7 +368,11 @@ export class GetInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The instance status. Valid values:<br>● Initializing<br>● Stopped<br>● Running<br><br><br>
+   * The instance status. Valid values:
+   * 
+   * - Initializing: The instance is being initialized.
+   * - Stopped: The instance is stopped.
+   * - Running: The instance is running.
    * 
    * @example
    * Initializing
@@ -321,7 +380,12 @@ export class GetInstanceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The instance type. Valid values:<br>● basic: Basic<br>● highlevel: High-level<br>● advanced: Advanced<br>● standard: Standard<br><br><br><br>
+   * The instance type. Valid values:
+   * 
+   * - basic: Basic Edition.
+   * - highleve: Upgraded Edition.
+   * - advance: Advanced Edition.
+   * - standard: Standard Edition.
    * 
    * @example
    * basic
@@ -333,10 +397,12 @@ export class GetInstanceResponseBody extends $dara.Model {
       commodityCode: 'CommodityCode',
       config: 'Config',
       expiredTime: 'ExpiredTime',
+      featureStoreInfo: 'FeatureStoreInfo',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       instanceId: 'InstanceId',
       operatingTool: 'OperatingTool',
+      recommendCustomization: 'RecommendCustomization',
       regionId: 'RegionId',
       requestId: 'RequestId',
       status: 'Status',
@@ -350,10 +416,12 @@ export class GetInstanceResponseBody extends $dara.Model {
       commodityCode: 'string',
       config: GetInstanceResponseBodyConfig,
       expiredTime: 'string',
+      featureStoreInfo: GetInstanceResponseBodyFeatureStoreInfo,
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       instanceId: 'string',
       operatingTool: GetInstanceResponseBodyOperatingTool,
+      recommendCustomization: GetInstanceResponseBodyRecommendCustomization,
       regionId: 'string',
       requestId: 'string',
       status: 'string',
@@ -365,8 +433,14 @@ export class GetInstanceResponseBody extends $dara.Model {
     if(this.config && typeof (this.config as any).validate === 'function') {
       (this.config as any).validate();
     }
+    if(this.featureStoreInfo && typeof (this.featureStoreInfo as any).validate === 'function') {
+      (this.featureStoreInfo as any).validate();
+    }
     if(this.operatingTool && typeof (this.operatingTool as any).validate === 'function') {
       (this.operatingTool as any).validate();
+    }
+    if(this.recommendCustomization && typeof (this.recommendCustomization as any).validate === 'function') {
+      (this.recommendCustomization as any).validate();
     }
     super.validate();
   }

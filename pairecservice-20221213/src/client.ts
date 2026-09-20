@@ -12,18 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shenzhen': "pairecservice.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "pairecservice.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "pairecservice.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "pairecservice.cn-hangzhou.aliyuncs.com",
-      'cn-beijing': "pairecservice.cn-beijing.aliyuncs.com",
-      'ap-southeast-5': "pairecservice.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-1': "pairecservice.ap-southeast-1.aliyuncs.com",
-      'eu-central-1': "pairecservice.eu-central-1.aliyuncs.com",
-      'us-east-1': "pairecservice.us-east-1.aliyuncs.com",
-      'us-west-1': "pairecservice.us-west-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("pairecservice", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -5103,7 +5091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified PAI-REC instance.
+   * Retrieves the details of a specified PAIRec instance.
    * 
    * @param request - GetInstanceRequest
    * @param headers - map
@@ -5130,7 +5118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified PAI-REC instance.
+   * Retrieves the details of a specified PAIRec instance.
    * 
    * @param request - GetInstanceRequest
    * @returns GetInstanceResponse

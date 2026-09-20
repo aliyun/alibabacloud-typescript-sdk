@@ -24,7 +24,9 @@ export { GetInstanceResponseBodyConfigDataManagements } from './GetInstanceRespo
 export { GetInstanceResponseBodyConfigEngines } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyConfigMonitors } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyConfig } from './GetInstanceResponseBody';
+export { GetInstanceResponseBodyFeatureStoreInfo } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyOperatingTool } from './GetInstanceResponseBody';
+export { GetInstanceResponseBodyRecommendCustomization } from './GetInstanceResponseBody';
 export { GetInstanceResourceTableResponseBodyFields } from './GetInstanceResourceTableResponseBody';
 export { GetRecallManagementConfigResponseBodyNetworkConfigs } from './GetRecallManagementConfigResponseBody';
 export { GetRecallManagementJobResponseBodyRecallManagementTableInfo } from './GetRecallManagementJobResponseBody';
