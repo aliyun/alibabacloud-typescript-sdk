@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The stream ingestion URL. Push audio streams to this URL for real-time transcription.
+   * The audio stream push URL generated in the real-time recording scenario. You can use this URL for subsequent real-time audio stream recognition.
    * 
    * @example
    * wss://tingwu-realtime-cn-beijing.aliyuncs.com/api/ws/v1?mc=****
@@ -21,7 +21,7 @@ export class CreateTaskResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The custom identifier specified during task creation.
+   * The custom identifier set by the user when creating the task.
    * 
    * @example
    * task_tingwu_123
@@ -73,12 +73,12 @@ export class CreateTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The response object.
    */
   data?: CreateTaskResponseBodyData;
   /**
    * @remarks
-   * The status message.
+   * The status description.
    * 
    * @example
    * Success.
@@ -86,7 +86,7 @@ export class CreateTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, used for troubleshooting only.
+   * The request ID, used only for troubleshooting.
    * 
    * @example
    * 35124E1C-AE99-5D6C-A52E-BD689D8D****
