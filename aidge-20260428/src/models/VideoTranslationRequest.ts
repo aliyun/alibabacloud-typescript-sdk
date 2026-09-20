@@ -12,7 +12,7 @@ export class VideoTranslationRequest extends $dara.Model {
   capabilities?: string[];
   /**
    * @remarks
-   * The source language. This parameter is optional. Default value: auto (automatic detection).
+   * The source language. This parameter is optional. Default value: auto, which indicates automatic detection.
    * 
    * @example
    * zh

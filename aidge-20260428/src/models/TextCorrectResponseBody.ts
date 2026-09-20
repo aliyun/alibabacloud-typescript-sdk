@@ -61,7 +61,7 @@ export class TextCorrectResponseBody extends $dara.Model {
   data?: TextCorrectResponseBodyData;
   /**
    * @remarks
-   * The error message. The value "Success" is returned if the call is successful. A specific error message is returned if an exception occurs, such as "The parameters contain sensitive information. Try other input."
+   * The error message. The value "Success" is returned if the call is successful. If an error occurs, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
    * 
    * @example
    * Success

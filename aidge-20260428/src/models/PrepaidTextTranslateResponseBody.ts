@@ -24,7 +24,7 @@ export class PrepaidTextTranslateResponseBodyDataTranslations extends $dara.Mode
    * The translated text.
    * 
    * @example
-   * 你好世界
+   * Hello World
    */
   translatedText?: string;
   static names(): { [key: string]: string } {
@@ -60,7 +60,7 @@ export class PrepaidTextTranslateResponseBodyData extends $dara.Model {
   translations?: PrepaidTextTranslateResponseBodyDataTranslations[];
   /**
    * @remarks
-   * The usage information, including the number of input characters.
+   * The usage information, including the input character count.
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {

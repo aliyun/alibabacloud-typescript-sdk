@@ -57,7 +57,7 @@ export class PrepaidTextTranslateRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * The format of the translation text. html (web page format. This setting processes the source text and translated text in HTML format). text (text format. This setting processes the source text and translated text as plain text without any format processing).
+   * The format of the translation text. Valid values: html (web page format. This setting processes both the source text and translated text in HTML format) and text (text format. This setting processes both the source text and translated text as plain text without any format processing).
    * 
    * @example
    * e-commerce-title

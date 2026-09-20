@@ -1,3 +1,5 @@
+export { AiTryOnResponseBodyDataUsageMap } from './AiTryOnResponseBody';
+export { AiTryOnResponseBodyData } from './AiTryOnResponseBody';
 export { AssetOptimizeLiteResponseBodyData } from './AssetOptimizeLiteResponseBody';
 export { AssetOptimizeProResponseBodyData } from './AssetOptimizeProResponseBody';
 export { CategoryAttributeMatchResponseBodyDataAttributes } from './CategoryAttributeMatchResponseBody';
@@ -66,6 +68,9 @@ export { VideoGenerationResponseBodyData } from './VideoGenerationResponseBody';
 export { VideoTranslationResponseBodyData } from './VideoTranslationResponseBody';
 export { VirtualTryOnResponseBodyData } from './VirtualTryOnResponseBody';
 export { VisionFlowResponseBodyData } from './VisionFlowResponseBody';
+export { AiTryOnRequest } from './AiTryOnRequest';
+export { AiTryOnResponseBody } from './AiTryOnResponseBody';
+export { AiTryOnResponse } from './AiTryOnResponse';
 export { AssetOptimizeLiteRequest } from './AssetOptimizeLiteRequest';
 export { AssetOptimizeLiteResponseBody } from './AssetOptimizeLiteResponseBody';
 export { AssetOptimizeLiteResponse } from './AssetOptimizeLiteResponse';

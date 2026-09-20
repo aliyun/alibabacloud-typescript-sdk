@@ -30,6 +30,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 虚拟试穿（同步）
+   * 
+   * @param request - AiTryOnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AiTryOnResponse
+   */
+  async aiTryOnWithOptions(request: $_model.AiTryOnRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AiTryOnResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clothImageUrl)) {
+      query["ClothImageUrl"] = request.clothImageUrl;
+    }
+
+    if (!$dara.isNull(request.clothType)) {
+      query["ClothType"] = request.clothType;
+    }
+
+    if (!$dara.isNull(request.modelImageUrl)) {
+      query["ModelImageUrl"] = request.modelImageUrl;
+    }
+
+    if (!$dara.isNull(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AiTryOn",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AiTryOnResponse>(await this.callApi(params, req, runtime), new $_model.AiTryOnResponse({}));
+  }
+
+  /**
+   * 虚拟试穿（同步）
+   * 
+   * @param request - AiTryOnRequest
+   * @returns AiTryOnResponse
+   */
+  async aiTryOn(request: $_model.AiTryOnRequest): Promise<$_model.AiTryOnResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.aiTryOnWithOptions(request, runtime);
+  }
+
+  /**
    * Provides a one-click cross-platform product listing optimization service for cross-border e-commerce sellers (minimum cost edition). Accepts a product link from a source platform and outputs all listing assets adapted to the target platform requirements, including titles, attributes, main images, SKU images, detail images, and copywriting. Uses an officially preset minimum-cost workflow that focuses on filtering and lightweight processing without calling expensive image translation capabilities, maximizing cost control while ensuring listing compliance. (Asynchronous)
    * 
    * @remarks
@@ -592,25 +646,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Designed specifically for document translation. Supports translation between more than 100 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
+   * Designed specifically for document translation. Supports translation between more than 400 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
    * Excels in the following areas:
    * - Content accuracy: translation accuracy, parameter and unit accuracy.
    * - Structural integrity: overall layout continuity, page margin and layout restoration.
    * 
    * @remarks
    * ## Product Introduction
-   * Designed specifically for document translation. Supports translation between more than 100 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
+   * Designed specifically for document translation. Supports translation between more than 400 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
    * Excels in the following areas:
    * - Content accuracy: translation accuracy, parameter and unit accuracy
    * - Structural integrity: overall layout continuity, page margin and layout restoration
    * ## Common scenarios
    * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and many other scenarios.
-   * ## Features
+   * ## Functions and features
    * - Supports PDF and Word formats. Supports source documents that contain multiple languages. For a detailed language list, see section 4.5.
    * - Supports translation of text within images in documents, as well as complex translation scenarios such as charts and special symbols.
    * - Supports high-fidelity layout restoration after translation.
    * - A single PDF supports up to 100 pages. A single Word document supports up to 100 pages.
-   * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 glossary entries. If you need more, contact the platform for assistance.
+   * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * 
    * @param request - DocumentTranslateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -653,25 +707,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Designed specifically for document translation. Supports translation between more than 100 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
+   * Designed specifically for document translation. Supports translation between more than 400 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
    * Excels in the following areas:
    * - Content accuracy: translation accuracy, parameter and unit accuracy.
    * - Structural integrity: overall layout continuity, page margin and layout restoration.
    * 
    * @remarks
    * ## Product Introduction
-   * Designed specifically for document translation. Supports translation between more than 100 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
+   * Designed specifically for document translation. Supports translation between more than 400 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
    * Excels in the following areas:
    * - Content accuracy: translation accuracy, parameter and unit accuracy
    * - Structural integrity: overall layout continuity, page margin and layout restoration
    * ## Common scenarios
    * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and many other scenarios.
-   * ## Features
+   * ## Functions and features
    * - Supports PDF and Word formats. Supports source documents that contain multiple languages. For a detailed language list, see section 4.5.
    * - Supports translation of text within images in documents, as well as complex translation scenarios such as charts and special symbols.
    * - Supports high-fidelity layout restoration after translation.
    * - A single PDF supports up to 100 pages. A single Word document supports up to 100 pages.
-   * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 glossary entries. If you need more, contact the platform for assistance.
+   * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * 
    * @param request - DocumentTranslateRequest
    * @returns DocumentTranslateResponse
@@ -978,16 +1032,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies intelligent elements in images.
+   * Intelligent element recognition.
    * 
    * @remarks
    * ## Product Introduction
-   * The Intelligent Element Recognition API is designed specifically for identifying specific elements in e-commerce images. It can deeply analyze image details and help users quickly identify elements such as text, logos, watermarks, and text-containing color blocks in both the subject and background of images. This greatly improves the efficiency and accuracy of image screening. (Synchronous)
+   * The Intelligent Element Recognition API is designed specifically for identifying specific elements in e-commerce images. It analyzes image details in depth, helping users quickly identify elements such as text, logos, watermarks, and text-containing color blocks in both the subject and background of images. This greatly improves the efficiency and accuracy of image screening. (Synchronous)
    * ## Scenarios
    * **1. Intelligent image screening and optimization:**
    * Merchants and platforms can use the Intelligent Element Recognition API for image screening to automatically identify images that contain specific elements such as watermarks and logos. After screening, you can call the Intelligent Removal API to optimize these images, improve image quality, and shorten the product release cycle.
    * **2. Automated image processing and efficiency improvement:**
-   * By using the Intelligent Element Recognition API, merchants and platforms can automate the image processing workflow to automatically identify and mark image elements that need optimization. This process reduces manual intervention and improves image processing efficiency.
+   * With the Intelligent Element Recognition API, merchants and platforms can automate the image processing workflow by automatically identifying and marking image elements that require optimization. This process reduces manual intervention and improves image processing efficiency.
    * ## Features
    * **1. Definitions of image subject, image background, text, logo, watermark, and text-containing color block: For details, see the related examples in the removal documentation (reserved text link)**
    * *   Image subject: The core product area in the image.
@@ -1005,12 +1059,12 @@ export default class Client extends OpenApi {
    * **2. The main features of the Intelligent Element Recognition API include:**
    * *   Element recognition: Identifies whether elements such as text, logos, watermarks, and text-containing color blocks exist in the image subject and background.
    *     
-   * *   Workflow coordination: Used in combination with the Intelligent Removal API. First, use the Intelligent Element Recognition API to identify elements that need to be removed, and then use the Intelligent Removal API to effectively remove them, ensuring the accuracy and efficiency of image processing.
+   * *   Workflow coordination: Used in combination with the Intelligent Removal API. First, the Intelligent Element Recognition API identifies elements that need to be removed, and then the Intelligent Removal API removes them effectively, ensuring the accuracy and efficiency of image processing.
    * ## Technical advantages
-   * *   Synchronous batch processing: As a synchronous API, the Intelligent Element Recognition API can process a large number of images while maintaining fast response times, adapting to business requirements of different scales.
+   * *   Synchronous batch processing: As a synchronous API, the Intelligent Element Recognition API can process a large number of images while maintaining fast response times, adapting to business needs of different scales.
    *     
-   * *   Flexibility: Users can select the types of elements to identify as needed, including elements in the subject and non-subject areas such as watermarks, logos, and text, to meet personalized recognition requirements.
-   * ## Effect comparison
+   * *   Flexibility: Users can select the types of elements to identify, including elements in both the subject and non-subject areas, such as watermarks, logos, and text, to meet personalized recognition needs.
+   * ## Comparison
    * | **Original image** | **Recognition result** |
    * | --- | --- |
    * | ![done-image-30091469-e1be-4d31-85de-18983a358a61.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5j4yM2KVOdG/img/bbd3dbca-9f91-4b57-a382-2701e90c0d46.png) | [Subject]
@@ -1115,16 +1169,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies intelligent elements in images.
+   * Intelligent element recognition.
    * 
    * @remarks
    * ## Product Introduction
-   * The Intelligent Element Recognition API is designed specifically for identifying specific elements in e-commerce images. It can deeply analyze image details and help users quickly identify elements such as text, logos, watermarks, and text-containing color blocks in both the subject and background of images. This greatly improves the efficiency and accuracy of image screening. (Synchronous)
+   * The Intelligent Element Recognition API is designed specifically for identifying specific elements in e-commerce images. It analyzes image details in depth, helping users quickly identify elements such as text, logos, watermarks, and text-containing color blocks in both the subject and background of images. This greatly improves the efficiency and accuracy of image screening. (Synchronous)
    * ## Scenarios
    * **1. Intelligent image screening and optimization:**
    * Merchants and platforms can use the Intelligent Element Recognition API for image screening to automatically identify images that contain specific elements such as watermarks and logos. After screening, you can call the Intelligent Removal API to optimize these images, improve image quality, and shorten the product release cycle.
    * **2. Automated image processing and efficiency improvement:**
-   * By using the Intelligent Element Recognition API, merchants and platforms can automate the image processing workflow to automatically identify and mark image elements that need optimization. This process reduces manual intervention and improves image processing efficiency.
+   * With the Intelligent Element Recognition API, merchants and platforms can automate the image processing workflow by automatically identifying and marking image elements that require optimization. This process reduces manual intervention and improves image processing efficiency.
    * ## Features
    * **1. Definitions of image subject, image background, text, logo, watermark, and text-containing color block: For details, see the related examples in the removal documentation (reserved text link)**
    * *   Image subject: The core product area in the image.
@@ -1142,12 +1196,12 @@ export default class Client extends OpenApi {
    * **2. The main features of the Intelligent Element Recognition API include:**
    * *   Element recognition: Identifies whether elements such as text, logos, watermarks, and text-containing color blocks exist in the image subject and background.
    *     
-   * *   Workflow coordination: Used in combination with the Intelligent Removal API. First, use the Intelligent Element Recognition API to identify elements that need to be removed, and then use the Intelligent Removal API to effectively remove them, ensuring the accuracy and efficiency of image processing.
+   * *   Workflow coordination: Used in combination with the Intelligent Removal API. First, the Intelligent Element Recognition API identifies elements that need to be removed, and then the Intelligent Removal API removes them effectively, ensuring the accuracy and efficiency of image processing.
    * ## Technical advantages
-   * *   Synchronous batch processing: As a synchronous API, the Intelligent Element Recognition API can process a large number of images while maintaining fast response times, adapting to business requirements of different scales.
+   * *   Synchronous batch processing: As a synchronous API, the Intelligent Element Recognition API can process a large number of images while maintaining fast response times, adapting to business needs of different scales.
    *     
-   * *   Flexibility: Users can select the types of elements to identify as needed, including elements in the subject and non-subject areas such as watermarks, logos, and text, to meet personalized recognition requirements.
-   * ## Effect comparison
+   * *   Flexibility: Users can select the types of elements to identify, including elements in both the subject and non-subject areas, such as watermarks, logos, and text, to meet personalized recognition needs.
+   * ## Comparison
    * | **Original image** | **Recognition result** |
    * | --- | --- |
    * | ![done-image-30091469-e1be-4d31-85de-18983a358a61.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5j4yM2KVOdG/img/bbd3dbca-9f91-4b57-a382-2701e90c0d46.png) | [Subject]
@@ -1662,19 +1716,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
+   * Image Translation Pro is designed for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
    * 
    * @remarks
    * ## Product Introduction
-   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
+   * Image Translation Pro is designed for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language directions (including bridged directions).
    * ## Scenarios
    * E-commerce product images, marketing images, and images for various other scenarios.
    * ## Features
-   * - **Product subject protection**: Specify whether to translate text on the product subject. This helps protect subject information such as embedded product names from being translated.
-   * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This information can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
-   * - **Brand name protection**: Specify whether to translate brand names on images. This helps protect brand name information from being translated.
-   * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet translation requirements across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need a higher limit.  
-   * - **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
+   * - **Product subject protection**: Specify whether to translate text on the product subject. This helps you protect subject information from being translated, such as embedded information like product names.
+   * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
+   * - **Brand name protection**: Specify whether to translate brand names on images. This helps you protect brand name information from being translated.
+   * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+   * - <props="china"> **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
    * 
    * @param request - ImageTranslationProRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1733,19 +1787,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
+   * Image Translation Pro is designed for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
    * 
    * @remarks
    * ## Product Introduction
-   * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
+   * Image Translation Pro is designed for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language directions (including bridged directions).
    * ## Scenarios
    * E-commerce product images, marketing images, and images for various other scenarios.
    * ## Features
-   * - **Product subject protection**: Specify whether to translate text on the product subject. This helps protect subject information such as embedded product names from being translated.
-   * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This information can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
-   * - **Brand name protection**: Specify whether to translate brand names on images. This helps protect brand name information from being translated.
-   * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet translation requirements across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need a higher limit.  
-   * - **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
+   * - **Product subject protection**: Specify whether to translate text on the product subject. This helps you protect subject information from being translated, such as embedded information like product names.
+   * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
+   * - **Brand name protection**: Specify whether to translate brand names on images. This helps you protect brand name information from being translated.
+   * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+   * - <props="china"> **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
    * 
    * @param request - ImageTranslationProRequest
    * @returns ImageTranslationProResponse
@@ -2174,28 +2228,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+   * Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 400 language directions (including bridged translations), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * 
    * @remarks
    * ## Product Introduction
-   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged translations), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * ## Common scenarios
    * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
-   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML format, delivering excellent translation quality and format preservation.
-   * - Product attributes: Product attribute terms are short and may contain e-commerce-specific terms such as model numbers and parameters.
+   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco MT large model translation supports long text translation and HTML formatting, delivering excellent translation quality and format preservation.
+   * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and specifications.
    * - Customer service conversations: In customer service scenarios, the model optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
    * Marco MT large model translation can also be used for general-purpose translation scenarios, such as office work, meetings, and daily conversations.
    * ## Features
-   * - **Supported language directions** Marco MT large model translation supports translation between more than 100 languages and language detection for 23 languages. For specific language directions, refer to the language mapping table in Section 5.6.
-   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * - **Supported language directions** Marco MT large model translation supports mutual translation among more than 100 languages and language detection for 23 languages. For specific language directions, refer to the language mapping table in Section 5.6.
+   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it delivers faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
    * - **Supported text format types** Currently supports text and html text types.
-   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand term protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * ## Translation quality comparison
    * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
    * |----------|---------------|-----------------------|-----------------------|---------------------|
    * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
    * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
-   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more precise product subject expression. The translation correctly identifies "key bag" rather than "keychain", avoiding ambiguity about the product type |
+   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject description — correctly identifies "key bag" rather than "keychain." Other translations may cause ambiguity about the product subject |
    * 
    * @param tmpReq - PrepaidTextTranslateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2256,28 +2310,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+   * Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 400 language directions (including bridged translations), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * 
    * @remarks
    * ## Product Introduction
-   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged translations), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * ## Common scenarios
    * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
-   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML format, delivering excellent translation quality and format preservation.
-   * - Product attributes: Product attribute terms are short and may contain e-commerce-specific terms such as model numbers and parameters.
+   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco MT large model translation supports long text translation and HTML formatting, delivering excellent translation quality and format preservation.
+   * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and specifications.
    * - Customer service conversations: In customer service scenarios, the model optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
    * Marco MT large model translation can also be used for general-purpose translation scenarios, such as office work, meetings, and daily conversations.
    * ## Features
-   * - **Supported language directions** Marco MT large model translation supports translation between more than 100 languages and language detection for 23 languages. For specific language directions, refer to the language mapping table in Section 5.6.
-   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * - **Supported language directions** Marco MT large model translation supports mutual translation among more than 100 languages and language detection for 23 languages. For specific language directions, refer to the language mapping table in Section 5.6.
+   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it delivers faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
    * - **Supported text format types** Currently supports text and html text types.
-   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand term protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * ## Translation quality comparison
    * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
    * |----------|---------------|-----------------------|-----------------------|---------------------|
    * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
    * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
-   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more precise product subject expression. The translation correctly identifies "key bag" rather than "keychain", avoiding ambiguity about the product type |
+   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject description — correctly identifies "key bag" rather than "keychain." Other translations may cause ambiguity about the product subject |
    * 
    * @param request - PrepaidTextTranslateRequest
    * @returns PrepaidTextTranslateResponse
@@ -2488,19 +2542,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Intelligently extracts structured information such as size charts and package weight/dimensions from images using a multimodal foundation model. (Asynchronous)
+   * Intelligently extracts structured information such as size charts and package weight/dimension data from images by using a multimodal large language model. (Asynchronous)
    * 
    * @remarks
    * ## Product Introduction
-   * Intelligently extracts structured information such as size charts and package weight/dimensions from images using a multimodal foundation model. (Asynchronous)
+   * Intelligently extracts structured information such as size charts and package weight/dimension data from images by using a multimodal large language model. (Asynchronous)
    * ## Common scenarios
    * *   Size chart: Extracts size charts from apparel category images into text.
    *     
    * *   Package weight/dimensions: Extracts package weight and dimension information from images.
    * ## Functions and features
-   * The size chart extraction service is based on a multimodal foundation model that automatically identifies size tables or package weight/dimension information in images and converts them into structured text output. You provide an image URL, and the system processes it as an asynchronous task, returning the extracted structured data. You can specify column names to recognize (such as Size, Bust, Length) through ColumnNameList for precise targeted extraction. You can also control the output language through the LanguageModel parameter, with options for Chinese (cn) or English (en). If not specified, the original language is preserved. This service is suitable for scenarios such as converting apparel size tables to text and batch structuring of product package weight/dimension information.
-   * Core capabilities: Input an image URL and optional column name configuration, and output structured data of size charts or package weight/dimensions from the image. The API uses an asynchronous task mode (background: true). After submission, a task ID is returned, and you need to poll for the final result. This is suitable for processing complex images or high-volume call scenarios.
-   * ## Effect comparison
+   * The size chart extraction service is based on a multimodal large language model. It automatically recognizes size chart or package weight/dimension information in images and converts it into structured text output. You provide an image URL, and the system processes the request as an asynchronous task and returns the extracted structured data. You can use the ColumnNameList parameter to specify the column names to recognize (such as Size, Bust, and Length) for precise targeted extraction. You can also use the LanguageModel parameter to control the output language. Valid values: cn (Chinese) and en (English). If you leave this parameter empty, the original language is retained. This service is applicable to scenarios such as converting apparel size charts to text and batch structuring of product weight/dimension information.
+   * Core capability: Provide an image URL and optional column name configurations as input, and receive structured data of size charts or package weight/dimensions from the image as output. The API uses an asynchronous task mode (background: true). After submission, a task ID is returned. Poll for the final result. This mode is suitable for processing complex images or high-volume call scenarios.
+   * ## Comparison
    * | **Input image** | **Output result** |
    * | --- | --- |
    * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4jKqm0bAebrKLnw1/img/0a914347-2acb-4b94-bf07-86aab2b31279.png) | {
@@ -2653,19 +2707,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Intelligently extracts structured information such as size charts and package weight/dimensions from images using a multimodal foundation model. (Asynchronous)
+   * Intelligently extracts structured information such as size charts and package weight/dimension data from images by using a multimodal large language model. (Asynchronous)
    * 
    * @remarks
    * ## Product Introduction
-   * Intelligently extracts structured information such as size charts and package weight/dimensions from images using a multimodal foundation model. (Asynchronous)
+   * Intelligently extracts structured information such as size charts and package weight/dimension data from images by using a multimodal large language model. (Asynchronous)
    * ## Common scenarios
    * *   Size chart: Extracts size charts from apparel category images into text.
    *     
    * *   Package weight/dimensions: Extracts package weight and dimension information from images.
    * ## Functions and features
-   * The size chart extraction service is based on a multimodal foundation model that automatically identifies size tables or package weight/dimension information in images and converts them into structured text output. You provide an image URL, and the system processes it as an asynchronous task, returning the extracted structured data. You can specify column names to recognize (such as Size, Bust, Length) through ColumnNameList for precise targeted extraction. You can also control the output language through the LanguageModel parameter, with options for Chinese (cn) or English (en). If not specified, the original language is preserved. This service is suitable for scenarios such as converting apparel size tables to text and batch structuring of product package weight/dimension information.
-   * Core capabilities: Input an image URL and optional column name configuration, and output structured data of size charts or package weight/dimensions from the image. The API uses an asynchronous task mode (background: true). After submission, a task ID is returned, and you need to poll for the final result. This is suitable for processing complex images or high-volume call scenarios.
-   * ## Effect comparison
+   * The size chart extraction service is based on a multimodal large language model. It automatically recognizes size chart or package weight/dimension information in images and converts it into structured text output. You provide an image URL, and the system processes the request as an asynchronous task and returns the extracted structured data. You can use the ColumnNameList parameter to specify the column names to recognize (such as Size, Bust, and Length) for precise targeted extraction. You can also use the LanguageModel parameter to control the output language. Valid values: cn (Chinese) and en (English). If you leave this parameter empty, the original language is retained. This service is applicable to scenarios such as converting apparel size charts to text and batch structuring of product weight/dimension information.
+   * Core capability: Provide an image URL and optional column name configurations as input, and receive structured data of size charts or package weight/dimensions from the image as output. The API uses an asynchronous task mode (background: true). After submission, a task ID is returned. Poll for the final result. This mode is suitable for processing complex images or high-volume call scenarios.
+   * ## Comparison
    * | **Input image** | **Output result** |
    * | --- | --- |
    * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4jKqm0bAebrKLnw1/img/0a914347-2acb-4b94-bf07-86aab2b31279.png) | {
@@ -2936,32 +2990,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+   * Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * 
    * @remarks
    * ## Product Introduction
-   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * ## Common scenarios
-   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
-   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML formatting, delivering excellent translation quality and format preservation.
-   * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and parameters.
-   * - Customer service conversations: In customer service scenarios, Marco MT optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
-   * Marco MT large model translation can also be used for general-purpose translation scenarios, such as office work, meetings, and daily conversations.
-   * ## Features
+   * - **Product titles**: Marco MT can accurately translate phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
+   * - **Product descriptions**: Product descriptions are typically long with diverse and complex formatting. Marco MT supports long text translation and HTML format, delivering excellent translation quality and format preservation.
+   * - **Product attributes**: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and specifications.
+   * - **Customer service conversations**: In customer service scenarios, Marco MT can handle issues such as missing context and typos, and supports polite expressions for certain language directions.
+   * Marco MT can also be used for general translation scenarios such as office work, meetings, and daily conversations.
+   * ## Functions and features
    * - **Supported language directions**   
-   * Marco MT large model translation supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * Marco MT supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
    * - **Ultra-low hallucination rate and high-speed inference**   
-   * Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it delivers faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
    * - **Supported text format types**   
-   * Currently, text and html text types are supported.
-   * - **Translation intervention support**   
-   * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for brand term protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * Currently supports text and html text types.
+   * - **Translation intervention**   
+   * Supports custom translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * ## Translation quality comparison
    * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
    * |----------|---------------|-----------------------|-----------------------|---------------------|
    * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
    * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
-   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression, correctly identifying "key bag" rather than "keychain", avoiding ambiguity about the product subject in other translations |
+   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression — correctly identifies "key bag" rather than "keychain," avoiding ambiguity about the product |
    * 
    * @param tmpReq - TextTranslateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3022,32 +3076,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+   * Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * 
    * @remarks
    * ## Product Introduction
-   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
    * ## Common scenarios
-   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
-   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML formatting, delivering excellent translation quality and format preservation.
-   * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and parameters.
-   * - Customer service conversations: In customer service scenarios, Marco MT optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
-   * Marco MT large model translation can also be used for general-purpose translation scenarios, such as office work, meetings, and daily conversations.
-   * ## Features
+   * - **Product titles**: Marco MT can accurately translate phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
+   * - **Product descriptions**: Product descriptions are typically long with diverse and complex formatting. Marco MT supports long text translation and HTML format, delivering excellent translation quality and format preservation.
+   * - **Product attributes**: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and specifications.
+   * - **Customer service conversations**: In customer service scenarios, Marco MT can handle issues such as missing context and typos, and supports polite expressions for certain language directions.
+   * Marco MT can also be used for general translation scenarios such as office work, meetings, and daily conversations.
+   * ## Functions and features
    * - **Supported language directions**   
-   * Marco MT large model translation supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * Marco MT supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
    * - **Ultra-low hallucination rate and high-speed inference**   
-   * Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it delivers faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
    * - **Supported text format types**   
-   * Currently, text and html text types are supported.
-   * - **Translation intervention support**   
-   * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for brand term protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * Currently supports text and html text types.
+   * - **Translation intervention**   
+   * Supports custom translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
    * ## Translation quality comparison
    * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
    * |----------|---------------|-----------------------|-----------------------|---------------------|
    * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
    * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
-   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression, correctly identifying "key bag" rather than "keychain", avoiding ambiguity about the product subject in other translations |
+   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression — correctly identifies "key bag" rather than "keychain," avoiding ambiguity about the product |
    * 
    * @param request - TextTranslateRequest
    * @returns TextTranslateResponse
@@ -3171,9 +3225,9 @@ export default class Client extends OpenApi {
    *     
    * *   **Global brand advertising**: Automatically generates video versions in the language of the target region to reduce manual production costs.
    *     
-   * *   **Training and product documentation**: Translates on-screen text in training courses or product demonstration videos into multiple languages for use by global teams.
+   * *   **Training and product instructions**: Translates on-screen text in training courses or product demonstration videos into multiple languages for use by global teams.
    * ## 3. Features
-   * | Capability | Identifier | Description |
+   * | Feature | Identifier | Description |
    * | --- | --- | --- |
    * | Visual translation | `visual` | Translates embedded text (subtitles, promotional text, etc.) in video frames into the target language and erases the original text. |
    * ## 4. Developer guide.
@@ -3241,9 +3295,9 @@ export default class Client extends OpenApi {
    *     
    * *   **Global brand advertising**: Automatically generates video versions in the language of the target region to reduce manual production costs.
    *     
-   * *   **Training and product documentation**: Translates on-screen text in training courses or product demonstration videos into multiple languages for use by global teams.
+   * *   **Training and product instructions**: Translates on-screen text in training courses or product demonstration videos into multiple languages for use by global teams.
    * ## 3. Features
-   * | Capability | Identifier | Description |
+   * | Feature | Identifier | Description |
    * | --- | --- | --- |
    * | Visual translation | `visual` | Translates embedded text (subtitles, promotional text, etc.) in video frames into the target language and erases the original text. |
    * ## 4. Developer guide.
@@ -3260,29 +3314,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates virtual try-on images based on AI algorithms. This API service replaces the clothing on a model with the specified garment based on the input garment image and model image, while preserving the model\\"s appearance details, pose, facial features, and scene details to achieve a realistic and well-fitted try-on result. You only need to provide the URL of the original product image to obtain a processed clean image.
+   * Generates virtual try-on images based on AI algorithms. This API service replaces the clothing on a model with the specified garment based on the input garment image and model image, while preserving the model\\"s appearance details, pose, facial features, and scene details to produce realistic and well-fitted try-on results. You only need to provide the URL of the original product image to obtain a processed clean image.
    * 
    * @remarks
    * ## Scenarios
    * - **Virtual try-on for clothing products:**
-   * Supports multiple clothing categories such as tops, bottoms, jumpsuits, and skirts. After uploading a model image and a product image, the system generates a natural and realistic try-on effect that intuitively showcases how the clothing looks when worn.
+   * Supports multiple clothing categories such as tops, bottoms, jumpsuits, and dresses. After uploading a model image and a product image, the system generates a natural and realistic try-on effect that visually demonstrates how the garment looks when worn.
    * - **Virtual try-on for shoes and hats:**
-   * Supports virtual try-on for shoes, hats, and similar products. The system intelligently matches the product position and proportion based on the model\\"s pose and body parts, producing a coordinated and realistic wearing effect.
+   * Supports virtual try-on for shoes, hats, and similar products. The system intelligently matches the product position and proportion based on the model\\"s pose and body parts to produce a coordinated and realistic wearing effect.
    * - **E-commerce product display and marketing:**
-   * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.  
+   * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production while improving the production efficiency of product images.  
    * - **Online shopping experience optimization:**
-   * Consumers can preview how products look when worn through virtual try-on, gaining a more intuitive understanding of the style, coordination, and overall effect of products, which assists purchase decisions and enhances the shopping experience.
+   * Consumers can preview how products look when worn through virtual try-on, gaining a more intuitive understanding of the style, coordination, and overall effect of products to support purchasing decisions and enhance the shopping experience.
    * ## Features
-   * - **First, the user needs to provide a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image onto the model:**
-   *   - a. Model image: the image of the person for the virtual try-on.
+   * - **First, provide a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image onto the model:**
+   *   - a. Model image: the image of the person for virtual try-on.
    *   - b. Product image: the image of the clothing, shoes, or hat to be applied onto the model.
-   * - **Second, the user can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, skirts, shoes, and hats:**
-   *   - a. Specified product type: the user can directly specify the product type, and the system processes accordingly.
-   *   - b. Automatic type recognition: if the user does not specify a product type, the system automatically identifies the product category from the product image and performs the virtual try-on based on the recognition result.
+   * - **Second, select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
+   *   - a. Specify product type: directly specify the product type, and the system processes accordingly.
+   *   - b. Automatic type recognition: if no product type is specified, the system automatically identifies the product category from the product image and performs the virtual try-on based on the recognition result.
    * - **Finally, the system combines the model image, product image, and product type to generate a virtual try-on image that shows how the product looks on the model:**
-   *   - a. Preserves model details: the generation process does not alter the model\\"s appearance, hairstyle, pose, body shape, or other details from the original model image.
-   *   - b. Maintains scene consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
-   *   - c. Generates try-on effect: the product is naturally applied onto the model, fitting the model\\"s pose and body structure to produce a coordinated and realistic virtual try-on image.
+   *   - a. Preserve model details: the generation process does not alter the model\\"s appearance, hairstyle, pose, body shape, or other details from the original model image.
+   *   - b. Maintain scene consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
+   *   - c. Generate try-on effect: the product is naturally applied onto the model, conforming to the model\\"s pose and body structure, to produce a coordinated and realistic virtual try-on image.
    * ## Sample results
    * | **Type** | **Model image** | **Garment image** | **Try-on result** |
    * | --- | --- | --- | --- |
@@ -3290,7 +3344,7 @@ export default class Client extends OpenApi {
    * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![微喇牛仔裤-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
    * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![男模特鞋子正面-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
    * | Jumpsuits | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
-   * | Skirts | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
+   * | Dresses | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
    * | Hats | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![帽子-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
    * 
    * @param request - VirtualTryOnRequest
@@ -3334,29 +3388,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates virtual try-on images based on AI algorithms. This API service replaces the clothing on a model with the specified garment based on the input garment image and model image, while preserving the model\\"s appearance details, pose, facial features, and scene details to achieve a realistic and well-fitted try-on result. You only need to provide the URL of the original product image to obtain a processed clean image.
+   * Generates virtual try-on images based on AI algorithms. This API service replaces the clothing on a model with the specified garment based on the input garment image and model image, while preserving the model\\"s appearance details, pose, facial features, and scene details to produce realistic and well-fitted try-on results. You only need to provide the URL of the original product image to obtain a processed clean image.
    * 
    * @remarks
    * ## Scenarios
    * - **Virtual try-on for clothing products:**
-   * Supports multiple clothing categories such as tops, bottoms, jumpsuits, and skirts. After uploading a model image and a product image, the system generates a natural and realistic try-on effect that intuitively showcases how the clothing looks when worn.
+   * Supports multiple clothing categories such as tops, bottoms, jumpsuits, and dresses. After uploading a model image and a product image, the system generates a natural and realistic try-on effect that visually demonstrates how the garment looks when worn.
    * - **Virtual try-on for shoes and hats:**
-   * Supports virtual try-on for shoes, hats, and similar products. The system intelligently matches the product position and proportion based on the model\\"s pose and body parts, producing a coordinated and realistic wearing effect.
+   * Supports virtual try-on for shoes, hats, and similar products. The system intelligently matches the product position and proportion based on the model\\"s pose and body parts to produce a coordinated and realistic wearing effect.
    * - **E-commerce product display and marketing:**
-   * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.  
+   * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production while improving the production efficiency of product images.  
    * - **Online shopping experience optimization:**
-   * Consumers can preview how products look when worn through virtual try-on, gaining a more intuitive understanding of the style, coordination, and overall effect of products, which assists purchase decisions and enhances the shopping experience.
+   * Consumers can preview how products look when worn through virtual try-on, gaining a more intuitive understanding of the style, coordination, and overall effect of products to support purchasing decisions and enhance the shopping experience.
    * ## Features
-   * - **First, the user needs to provide a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image onto the model:**
-   *   - a. Model image: the image of the person for the virtual try-on.
+   * - **First, provide a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image onto the model:**
+   *   - a. Model image: the image of the person for virtual try-on.
    *   - b. Product image: the image of the clothing, shoes, or hat to be applied onto the model.
-   * - **Second, the user can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, skirts, shoes, and hats:**
-   *   - a. Specified product type: the user can directly specify the product type, and the system processes accordingly.
-   *   - b. Automatic type recognition: if the user does not specify a product type, the system automatically identifies the product category from the product image and performs the virtual try-on based on the recognition result.
+   * - **Second, select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
+   *   - a. Specify product type: directly specify the product type, and the system processes accordingly.
+   *   - b. Automatic type recognition: if no product type is specified, the system automatically identifies the product category from the product image and performs the virtual try-on based on the recognition result.
    * - **Finally, the system combines the model image, product image, and product type to generate a virtual try-on image that shows how the product looks on the model:**
-   *   - a. Preserves model details: the generation process does not alter the model\\"s appearance, hairstyle, pose, body shape, or other details from the original model image.
-   *   - b. Maintains scene consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
-   *   - c. Generates try-on effect: the product is naturally applied onto the model, fitting the model\\"s pose and body structure to produce a coordinated and realistic virtual try-on image.
+   *   - a. Preserve model details: the generation process does not alter the model\\"s appearance, hairstyle, pose, body shape, or other details from the original model image.
+   *   - b. Maintain scene consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
+   *   - c. Generate try-on effect: the product is naturally applied onto the model, conforming to the model\\"s pose and body structure, to produce a coordinated and realistic virtual try-on image.
    * ## Sample results
    * | **Type** | **Model image** | **Garment image** | **Try-on result** |
    * | --- | --- | --- | --- |
@@ -3364,7 +3418,7 @@ export default class Client extends OpenApi {
    * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![微喇牛仔裤-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
    * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![男模特鞋子正面-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
    * | Jumpsuits | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
-   * | Skirts | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
+   * | Dresses | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
    * | Hats | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![帽子-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
    * 
    * @param request - VirtualTryOnRequest

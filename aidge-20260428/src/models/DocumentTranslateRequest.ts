@@ -19,7 +19,7 @@ export class DocumentTranslateRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The glossary ID. Specify this parameter when you need the glossary feature. Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand name protection.
+   * The intervention glossary ID. Specify this parameter when you need the intervention feature. Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand name protection and similar scenarios.
    * 
    * @example
    * glossary_1

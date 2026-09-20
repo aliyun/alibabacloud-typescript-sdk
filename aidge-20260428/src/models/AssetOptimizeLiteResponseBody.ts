@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class AssetOptimizeLiteResponseBodyData extends $dara.Model {
   /**
    * @remarks

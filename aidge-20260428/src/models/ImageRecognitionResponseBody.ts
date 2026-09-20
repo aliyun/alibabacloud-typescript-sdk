@@ -85,7 +85,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
   pdNum?: number;
   /**
    * @remarks
-   * The proportion of the product area in the image.
+   * The proportion of the product in the image.
    * 
    * @example
    * 74.15%
@@ -98,7 +98,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
   recText?: string[];
   /**
    * @remarks
-   * The proportion of the text area in the image.
+   * The proportion of text in the image.
    * 
    * @example
    * 7.52%

@@ -43,7 +43,7 @@ export class VideoTranslationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The asynchronous task submit result.
+   * The submit status of the asynchronous task.
    */
   data?: VideoTranslationResponseBodyData;
   /**
