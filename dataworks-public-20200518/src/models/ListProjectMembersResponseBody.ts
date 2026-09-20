@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectMembersResponseBodyDataProjectMemberListProjectRoleList extends $dara.Model {
   /**
    * @remarks
-   * The code of the role. DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
+   * The role code. DataWorks provides preset roles. You can also create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
    * 
    * @example
    * role_project_guest
@@ -21,7 +21,7 @@ export class ListProjectMembersResponseBodyDataProjectMemberListProjectRoleList 
   projectRoleId?: number;
   /**
    * @remarks
-   * The name of the role. DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
+   * The name of the role. DataWorks provides preset roles. You can also create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
    * 
    * @example
    * Visitor
@@ -31,9 +31,9 @@ export class ListProjectMembersResponseBodyDataProjectMemberListProjectRoleList 
    * @remarks
    * The type of the role. Valid values:
    * 
-   * - 0: SYSTEM, which indicates that the role is a built-in role.
+   * - SYSTEM (0): system role.
    * 
-   * - 2: USER_CUSTOM, which indicates that the role is a custom role.
+   * - USER_CUSTOM (2): custom role.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class ListProjectMembersResponseBodyDataProjectMemberListProjectRoleList 
 export class ListProjectMembersResponseBodyDataProjectMemberList extends $dara.Model {
   /**
    * @remarks
-   * The nickname of the member.
+   * The nickname of the workspace member.
    * 
    * @example
    * zhangsan
@@ -77,7 +77,7 @@ export class ListProjectMembersResponseBodyDataProjectMemberList extends $dara.M
   nick?: string;
   /**
    * @remarks
-   * The member ID.
+   * The user ID of the member.
    * 
    * @example
    * 121
@@ -95,11 +95,9 @@ export class ListProjectMembersResponseBodyDataProjectMemberList extends $dara.M
    * @remarks
    * The type of the member. Valid values:
    * 
-   * - 1: USER_ALIYUN, which indicates that the member is an Alibaba Cloud account.
-   * 
-   * - 5: USER_UBACCOUNT, which indicates that the member is a RAM user.
-   * 
-   * - 6: USER_STS_ROLE, which indicates that the member is a RAM role.
+   * - 1: Alibaba Cloud account (USER_ALIYUN).
+   * - 5: RAM user (USER_UBACCOUNT).
+   * - 6: RAM role (USER_STS_ROLE).
    * 
    * @example
    * 1
@@ -107,18 +105,16 @@ export class ListProjectMembersResponseBodyDataProjectMemberList extends $dara.M
   projectMemberType?: string;
   /**
    * @remarks
-   * The roles that are assigned to the member.
+   * The list of roles assigned to the member.
    */
   projectRoleList?: ListProjectMembersResponseBodyDataProjectMemberListProjectRoleList[];
   /**
    * @remarks
-   * The status of the member. Valid values:
-   * 
-   * - 0: NORMAL, which indicates that the member is in a normal state.
-   * 
-   * - 1: FORBIDDEN, which indicates that the member is disabled.
-   * 
-   * - 2: DELETED, which indicates that the member is deleted.
+   * The query status. Valid values:
+   *  
+   * - 0: Normal (NORMAL).
+   * - 1: Disabled (FORBIDDEN).
+   * - 2: Deleted (DELETED).
    * 
    * @example
    * 0
@@ -161,7 +157,7 @@ export class ListProjectMembersResponseBodyDataProjectMemberList extends $dara.M
 export class ListProjectMembersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -177,7 +173,7 @@ export class ListProjectMembersResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The information about members in the DataWorks workspace.
+   * The list of workspace members.
    */
   projectMemberList?: ListProjectMembersResponseBodyDataProjectMemberList[];
   /**
@@ -221,7 +217,7 @@ export class ListProjectMembersResponseBodyData extends $dara.Model {
 export class ListProjectMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned results.
+   * The query result.
    */
   data?: ListProjectMembersResponseBodyData;
   /**

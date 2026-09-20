@@ -13,7 +13,7 @@ export class UpdateMetaCollectionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * The specified product does not exist.
@@ -29,7 +29,7 @@ export class UpdateMetaCollectionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-E****
@@ -37,7 +37,9 @@ export class UpdateMetaCollectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the operation. Valid values: true false
+   * The update result. Valid values:
+   * - true: Succeeded.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -45,11 +47,9 @@ export class UpdateMetaCollectionResponseBody extends $dara.Model {
   status?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

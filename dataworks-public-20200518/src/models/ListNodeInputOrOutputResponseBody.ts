@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodeInputOrOutputResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the ancestor or descendant node.
+   * The name of the input or output node.
    * 
    * @example
    * xxxx.123141254_out
@@ -21,7 +21,7 @@ export class ListNodeInputOrOutputResponseBodyData extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * This parameter does not take effect. You cannot obtain the parameter settings.
+   * This parameter is not in use and cannot be queried.
    * 
    * @example
    * dwd_xxx_table
@@ -55,7 +55,7 @@ export class ListNodeInputOrOutputResponseBodyData extends $dara.Model {
 export class ListNodeInputOrOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ancestor or descendant nodes.
+   * The list of input and output nodes.
    */
   data?: ListNodeInputOrOutputResponseBodyData[];
   /**
@@ -84,7 +84,7 @@ export class ListNodeInputOrOutputResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * E6F0DBDD-5AD****

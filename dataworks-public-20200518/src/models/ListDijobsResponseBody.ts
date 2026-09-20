@@ -13,7 +13,7 @@ export class ListDIJobsResponseBodyDIJobPagingDIJobs extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The type of the destination. The value Hologres is returned.
+   * The destination data source type. Valid values: Hologres.
    * 
    * @example
    * Hologres
@@ -29,19 +29,13 @@ export class ListDIJobsResponseBodyDIJobPagingDIJobs extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * 
-   * - Finished
-   * 
-   * - Initialized
-   * 
-   * - Stopped
-   * 
-   * - Failed
-   * 
-   * - Running
-   * 
-   * - Stopping
+   * The synchronization status. Valid values:
+   * - Finished: Completed successfully.
+   * - Initialized: Initialization completed.
+   * - Stopped: Stopped.
+   * - Failed: Failed.
+   * - Running: Running.
+   * - Stopping: Stopping.
    * 
    * @example
    * Finished
@@ -50,12 +44,9 @@ export class ListDIJobsResponseBodyDIJobPagingDIJobs extends $dara.Model {
   /**
    * @remarks
    * The synchronization type. Valid values:
-   * 
-   * - FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-   * 
-   * - RealtimeIncremental: real-time incremental synchronization
-   * 
-   * - Full: one-time full synchronization
+   * - FullAndRealtimeIncremental: Full and real-time incremental.
+   * - RealtimeIncremental: Real-time incremental.
+   * - Full: Full.
    * 
    * @example
    * Full
@@ -71,7 +62,7 @@ export class ListDIJobsResponseBodyDIJobPagingDIJobs extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the source. The value MySQL is returned.
+   * The source data source type. Valid values: MySQL.
    * 
    * @example
    * MySQL
@@ -113,7 +104,7 @@ export class ListDIJobsResponseBodyDIJobPagingDIJobs extends $dara.Model {
 export class ListDIJobsResponseBodyDIJobPaging extends $dara.Model {
   /**
    * @remarks
-   * The list of tasks.
+   * The task list.
    */
   DIJobs?: ListDIJobsResponseBodyDIJobPagingDIJobs[];
   /**
@@ -126,7 +117,7 @@ export class ListDIJobsResponseBodyDIJobPaging extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -134,7 +125,7 @@ export class ListDIJobsResponseBodyDIJobPaging extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 6
@@ -173,7 +164,7 @@ export class ListDIJobsResponseBodyDIJobPaging extends $dara.Model {
 export class ListDIJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The paginated task results.
    */
   DIJobPaging?: ListDIJobsResponseBodyDIJobPaging;
   /**

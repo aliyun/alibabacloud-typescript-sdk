@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RunSmokeTestRequest extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp.
+   * The business date.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`. Example: `2020-05-26 00:00:00`.
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,9 @@ export class RunSmokeTestRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
+   * The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to obtain the node ID.
+   * 
+   * Full retrieval path: first call ListProjects to obtain the ProjectId, then call ListNodes, and obtain the node ID from Data.Nodes[].NodeId.
    * 
    * This parameter is required.
    * 
@@ -35,7 +39,7 @@ export class RunSmokeTestRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The parameters related to the node. Set this parameter to a JSON string. A key in the string indicates a parameter, and a value in the string indicates the value of the related parameter.
+   * The parameters of the node. This parameter is configured as a JSON string. The key is the node ID, and the value is the actual parameter value.
    * 
    * @example
    * bizdate=$bizdate tbods=$tbods
@@ -43,7 +47,12 @@ export class RunSmokeTestRequest extends $dara.Model {
   nodeParams?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment. A workspace in basic mode does not have a development environment. For more information, see [Differences between workspaces in basic mode and workspaces in standard mode](https://help.aliyun.com/document_detail/85772.html).
+   * The environment of the workspace. Valid values:
+   * 
+   * - PROD: production environment.
+   * - DEV: development environment.
+   * 
+   * Workspaces in basic mode do not have a development environment. For more information, see [Basic mode and standard mode](https://help.aliyun.com/document_detail/85772.html).
    * 
    * This parameter is required.
    * 

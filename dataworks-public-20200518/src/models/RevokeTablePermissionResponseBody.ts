@@ -13,7 +13,7 @@ export class RevokeTablePermissionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the permissions are revoked.
+   * Indicates whether the revocation was successful.
    * 
    * @example
    * true

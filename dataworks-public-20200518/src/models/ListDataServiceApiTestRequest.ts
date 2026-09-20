@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiTestRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DataService Studio API on which tests are performed.
+   * The ID of the API to test.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListDataServiceApiTestRequest extends $dara.Model {
   apiId?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100.
+   * The page size. Maximum value: 100.
    * 
    * @example
    * 10

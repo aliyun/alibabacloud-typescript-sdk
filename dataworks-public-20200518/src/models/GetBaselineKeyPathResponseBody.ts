@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
   /**
    * @remarks
-   * The timestamp obtained by adding the predicted time when the instance started to run to the historical average running duration of the instance.
+   * The timestamp calculated by adding the historical average run duration to the estimated start time of the instance.
    * 
    * @example
    * 1553531402000
@@ -13,7 +13,7 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
   absTime?: number;
   /**
    * @remarks
-   * The timestamp of the predicted time when the instance started to run.
+   * The estimated start time of the instance.
    * 
    * @example
    * 1553531686000
@@ -21,7 +21,7 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
   beginCast?: number;
   /**
    * @remarks
-   * The timestamp of the actual time when the instance started to run.
+   * The timestamp when the instance actually started running.
    * 
    * @example
    * 1553531401000
@@ -29,7 +29,7 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
   beginRunningTime?: number;
   /**
    * @remarks
-   * The timestamp when the instance started to wait for resources.
+   * The timestamp when the instance entered the waiting-for-resources state.
    * 
    * @example
    * 1553531401000
@@ -37,7 +37,7 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
   beginWaitResTime?: number;
   /**
    * @remarks
-   * The timestamp when the instance started to wait for the scheduling time.
+   * The timestamp when the instance entered the waiting-for-time state.
    * 
    * @example
    * 1553531400000
@@ -45,7 +45,7 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
   beginWaitTimeTime?: number;
   /**
    * @remarks
-   * The timestamp of the predicted time when the instance finished running.
+   * The estimated end time of the instance.
    * 
    * @example
    * 1553531687000
@@ -53,7 +53,7 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
   endCast?: number;
   /**
    * @remarks
-   * The timestamp of the actual time when the instance finished running.
+   * The timestamp when the instance actually finished running.
    * 
    * @example
    * 1553531401000
@@ -61,7 +61,15 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
   finishTime?: number;
   /**
    * @remarks
-   * The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the instance. The value CHECKING_CONDITION indicates that branch conditions are being checked for the instance. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is run.
+   * The status of the instance. Valid values:
+   * - NOT_RUN: not run.
+   * - WAIT_TIME: waiting for the scheduled time.
+   * - WAIT_RESOURCE: waiting for resources.
+   * - RUNNING: running.
+   * - CHECKING: checking.
+   * - CHECKING_CONDITION: checking conditions.
+   * - FAILURE: failed.
+   * - SUCCESS: succeeded.
    * 
    * @example
    * SUCCESS
@@ -105,7 +113,7 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $dara.Model {
 export class GetBaselineKeyPathResponseBodyDataTopics extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the event was found.
+   * The timestamp when the event was detected.
    * 
    * @example
    * 1553531401000
@@ -113,7 +121,7 @@ export class GetBaselineKeyPathResponseBodyDataTopics extends $dara.Model {
   addTime?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * 1234
@@ -121,7 +129,7 @@ export class GetBaselineKeyPathResponseBodyDataTopics extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The event ID.
+   * The ID of the event.
    * 
    * @example
    * 1234
@@ -165,7 +173,7 @@ export class GetBaselineKeyPathResponseBodyDataTopics extends $dara.Model {
 export class GetBaselineKeyPathResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp of the instance.
+   * The timestamp of the business date of the instance.
    * 
    * @example
    * 1553443200000
@@ -173,7 +181,7 @@ export class GetBaselineKeyPathResponseBodyData extends $dara.Model {
   bizdate?: number;
   /**
    * @remarks
-   * The ID of the scheduling cycle of the instance. Valid values: 1 to 288.
+   * The cycle number of the instance. Valid values: [1,288\\].
    * 
    * @example
    * 1
@@ -189,7 +197,7 @@ export class GetBaselineKeyPathResponseBodyData extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * 1234
@@ -205,7 +213,7 @@ export class GetBaselineKeyPathResponseBodyData extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the node owner.
+   * The Alibaba Cloud UID of the node owner.
    * 
    * @example
    * 9527952****
@@ -213,7 +221,7 @@ export class GetBaselineKeyPathResponseBodyData extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The type of the node. Valid values: 23, 10, 6, and 99. The value 23 indicates that the node is a Data Integration node. The value 10 indicates that the node is a MaxCompute SQL node. The value 6 indicates that the node is a Shell node. The value 99 indicates that the node is a zero load node.
+   * The node type. Common node types include Data Integration (23), MaxCompute SQL (10), Shell (6), and virtual node (99).
    * 
    * @example
    * 10
@@ -229,12 +237,12 @@ export class GetBaselineKeyPathResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The running records of the instance.
+   * The run records of the instance.
    */
   runs?: GetBaselineKeyPathResponseBodyDataRuns[];
   /**
    * @remarks
-   * The information about the events that are associated with the instance.
+   * The event information associated with the instance.
    */
   topics?: GetBaselineKeyPathResponseBodyDataTopics[];
   static names(): { [key: string]: string } {
@@ -285,12 +293,12 @@ export class GetBaselineKeyPathResponseBodyData extends $dara.Model {
 export class GetBaselineKeyPathResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the key path.
+   * The critical path information.
    */
   data?: GetBaselineKeyPathResponseBodyData[];
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 1031203110005
@@ -298,7 +306,7 @@ export class GetBaselineKeyPathResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * The specified parameters are invalid.
@@ -306,7 +314,7 @@ export class GetBaselineKeyPathResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The timestamp when the event was found.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -314,7 +322,7 @@ export class GetBaselineKeyPathResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The unique ID of the call. After an error occurs, you can troubleshoot the problem based on the ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -322,7 +330,7 @@ export class GetBaselineKeyPathResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the call is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

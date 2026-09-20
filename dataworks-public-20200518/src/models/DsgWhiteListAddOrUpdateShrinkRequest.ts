@@ -8,6 +8,9 @@ export class DsgWhiteListAddOrUpdateShrinkRequest extends $dara.Model {
    * A collection of whitelists.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * DsgWhiteListAddOrUpdate
    */
   whiteListsShrink?: string;
   static names(): { [key: string]: string } {

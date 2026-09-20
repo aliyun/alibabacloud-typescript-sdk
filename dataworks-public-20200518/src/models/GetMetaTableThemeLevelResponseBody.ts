@@ -13,7 +13,7 @@ export class GetMetaTableThemeLevelResponseBodyEntityLevel extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the level.
+   * The level ID.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetMetaTableThemeLevelResponseBodyEntityLevel extends $dara.Model {
   levelId?: number;
   /**
    * @remarks
-   * The name of the level.
+   * The level name.
    * 
    * @example
    * level1
@@ -29,11 +29,9 @@ export class GetMetaTableThemeLevelResponseBodyEntityLevel extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the level. Valid values:
-   * 
-   * - 1: indicates the logical level.
-   * 
-   * - 2: indicates the physical level.
+   * The level type. Valid values:
+   * - 1: logical level.
+   * - 2: physical level.
    * 
    * @example
    * 1
@@ -69,11 +67,9 @@ export class GetMetaTableThemeLevelResponseBodyEntityLevel extends $dara.Model {
 export class GetMetaTableThemeLevelResponseBodyEntityTheme extends $dara.Model {
   /**
    * @remarks
-   * The level of the theme. Valid values:
-   * 
-   * - 1
-   * 
-   * - 2
+   * The theme type. Valid values:
+   * - 1: primary theme.
+   * - 2: secondary theme.
    * 
    * @example
    * 1
@@ -81,7 +77,7 @@ export class GetMetaTableThemeLevelResponseBodyEntityTheme extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The name of the theme.
+   * The theme name.
    * 
    * @example
    * theme1
@@ -97,7 +93,7 @@ export class GetMetaTableThemeLevelResponseBodyEntityTheme extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * The ID of the theme.
+   * The theme ID.
    * 
    * @example
    * 123
@@ -133,12 +129,12 @@ export class GetMetaTableThemeLevelResponseBodyEntityTheme extends $dara.Model {
 export class GetMetaTableThemeLevelResponseBodyEntity extends $dara.Model {
   /**
    * @remarks
-   * The information about the levels of the metatable.
+   * The level information.
    */
   level?: GetMetaTableThemeLevelResponseBodyEntityLevel[];
   /**
    * @remarks
-   * The information about the themes of the metatable.
+   * The theme information.
    */
   theme?: GetMetaTableThemeLevelResponseBodyEntityTheme[];
   static names(): { [key: string]: string } {
@@ -202,7 +198,7 @@ export class GetMetaTableThemeLevelResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can troubleshoot issues based on the ID.
+   * The request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 1324afdsfde

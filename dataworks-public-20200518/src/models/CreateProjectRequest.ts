@@ -49,7 +49,7 @@ export class CreateProjectRequestTags extends $dara.Model {
 export class CreateProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. This parameter can be left empty.
+   * The idempotency parameter. This parameter can be left empty.
    * 
    * @example
    * ABFUOEUOTRTRJKE
@@ -57,10 +57,10 @@ export class CreateProjectRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to disable the Develop role. Valid values:
+   * Specifies whether to disable the development role. Valid values:
    * 
-   * *   **false** (default)
-   * *   **true**
+   * - **false** (default): enables the development role.
+   * - **true**: disables the development role.
    * 
    * @example
    * false
@@ -68,10 +68,10 @@ export class CreateProjectRequest extends $dara.Model {
   disableDevelopment?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow you to download the query result from DataStudio. Valid values:
+   * Specifies whether to allow downloading query results from the IDE. Valid values:
    * 
-   * *   **1** (default): allows you to download the query result from DataStudio.
-   * *   **0**: does not allow you to download the query result from DataStudio.
+   * - **1** (default): allows downloading.
+   * - **0**: does not allow downloading.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class CreateProjectRequest extends $dara.Model {
   isAllowDownload?: number;
   /**
    * @remarks
-   * The description of the workspace.
+   * The detailed description of the workspace.
    * 
    * @example
    * test_describe
@@ -87,7 +87,7 @@ export class CreateProjectRequest extends $dara.Model {
   projectDescription?: string;
   /**
    * @remarks
-   * The name of the workspace. The name can contain only letters, digits, and underscores (_) and must start with a letter or digit.
+   * The name of the workspace. The name can contain only letters, digits, and underscores (_), and must start with a letter or digit.
    * 
    * This parameter is required.
    * 
@@ -97,12 +97,12 @@ export class CreateProjectRequest extends $dara.Model {
   projectIdentifier?: string;
   /**
    * @remarks
-   * The mode of the workspace. For more information about the differences between the modes of workspaces, see [Differences between workspaces in basic mode and workspaces in standard mode](https://help.aliyun.com/document_detail/85772.html).
+   * The mode of the workspace. For more information about the differences between modes, see [Must-read: Differences between simple mode and standard mode](https://help.aliyun.com/document_detail/85772.html).
    * 
    * Valid values:
    * 
-   * *   **2** (default): basic mode
-   * *   **3**: standard mode
+   * - **2** (default): simple workspace mode.
+   * - **3**: standard workspace mode.
    * 
    * @example
    * 3
@@ -128,7 +128,7 @@ export class CreateProjectRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tags added to the workspace.
+   * The list of tags bound to the workspace.
    */
   tags?: CreateProjectRequestTags[];
   static names(): { [key: string]: string } {

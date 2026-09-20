@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListShiftPersonnelsResponseBodyPagingShiftPersons extends $dara.Model {
   /**
    * @remarks
-   * The time when the on-duty engineer starts the shift.
+   * The start time of the on-duty cycle.
+   * 
+   * The value is a 13-digit timestamp, for example, `1593950832000`.
    * 
    * @example
    * 1593950832000
@@ -13,7 +15,9 @@ export class ListShiftPersonnelsResponseBodyPagingShiftPersons extends $dara.Mod
   beginTime?: number;
   /**
    * @remarks
-   * The time when the on-duty engineer ends the shift.
+   * The end time of the on-duty cycle.
+   * 
+   * The value is a 13-digit timestamp, for example, `1593950832000`.
    * 
    * @example
    * 1593950832000
@@ -21,7 +25,7 @@ export class ListShiftPersonnelsResponseBodyPagingShiftPersons extends $dara.Mod
   endTime?: number;
   /**
    * @remarks
-   * The name of the on-duty engineer.
+   * The name of the on-duty person.
    * 
    * @example
    * Zhang San
@@ -29,7 +33,7 @@ export class ListShiftPersonnelsResponseBodyPagingShiftPersons extends $dara.Mod
   shiftPersonName?: string;
   /**
    * @remarks
-   * The UID of the on-duty engineer.
+   * The UID of the on-duty person.
    * 
    * @example
    * 3726346****
@@ -65,7 +69,7 @@ export class ListShiftPersonnelsResponseBodyPagingShiftPersons extends $dara.Mod
 export class ListShiftPersonnelsResponseBodyPaging extends $dara.Model {
   /**
    * @remarks
-   * The page number. Valid values: 1 to 100. Default value: 1.
+   * The page number. Minimum value: 1. Maximum value: 100. Default value: 1.
    * 
    * @example
    * 1
@@ -81,12 +85,12 @@ export class ListShiftPersonnelsResponseBodyPaging extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The on-duty engineers in the shift schedule.
+   * The list of on-duty personnel.
    */
   shiftPersons?: ListShiftPersonnelsResponseBodyPagingShiftPersons[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 100
@@ -125,12 +129,12 @@ export class ListShiftPersonnelsResponseBodyPaging extends $dara.Model {
 export class ListShiftPersonnelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination result.
    */
   paging?: ListShiftPersonnelsResponseBodyPaging;
   /**
    * @remarks
-   * The request ID. You can use the ID to troubleshoot issues.
+   * The request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG

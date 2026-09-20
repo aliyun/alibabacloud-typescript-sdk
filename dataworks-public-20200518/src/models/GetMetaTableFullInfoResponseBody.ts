@@ -13,7 +13,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   caption?: string;
   /**
    * @remarks
-   * The unique identifier of the field.
+   * The GUID of the field.
    * 
    * @example
    * odps.engine_name.table_name.1
@@ -29,7 +29,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   columnName?: string;
   /**
    * @remarks
-   * The data type of the field.
+   * The type of the field.
    * 
    * @example
    * string
@@ -37,7 +37,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   columnType?: string;
   /**
    * @remarks
-   * The remarks of the field.
+   * The comment of the field.
    * 
    * @example
    * comment
@@ -46,10 +46,8 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   /**
    * @remarks
    * Indicates whether the field is a foreign key. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * - true: The field is a foreign key.
+   * - false: The field is not a foreign key.
    * 
    * @example
    * true
@@ -58,10 +56,8 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   /**
    * @remarks
    * Indicates whether the field is a partition field. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * - true: The field is a partition field.
+   * - false: The field is not a partition field.
    * 
    * @example
    * true
@@ -70,10 +66,8 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   /**
    * @remarks
    * Indicates whether the field is a primary key. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * - true: The field is a primary key.
+   * - false: The field is not a primary key.
    * 
    * @example
    * false
@@ -81,7 +75,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   isPrimaryKey?: boolean;
   /**
    * @remarks
-   * The sequence number of the field.
+   * The ordinal position of the field.
    * 
    * @example
    * 1
@@ -127,7 +121,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
 export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The EMR cluster ID.
+   * The ID of the EMR cluster.
    * 
    * @example
    * C-010A704DA760****
@@ -135,12 +129,12 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The fields in the table.
+   * The list of fields.
    */
   columnList?: GetMetaTableFullInfoResponseBodyDataColumnList[];
   /**
    * @remarks
-   * The comment on the table.
+   * The comment of the table.
    * 
    * @example
    * comment
@@ -148,7 +142,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the table was created. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
+   * The time when the table was created. The value is a timestamp. You can convert the timestamp to a date based on the time zone that you use.
    * 
    * @example
    * 1589870293000
@@ -156,7 +150,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The size of the storage space that is consumed by the table. Unit: bytes.
+   * The storage space occupied by the table, in bytes.
    * 
    * @example
    * 10
@@ -172,11 +166,9 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The type of the environment. Valid values:
-   * 
-   * - 0: indicates that the table resides in the development environment.
-   * 
-   * - 1: indicates that the table resides in the production environment.
+   * The environment type. Valid values:
+   * - 0: The table is in the development environment.
+   * - 1: The table is in the production environment.
    * 
    * @example
    * 1
@@ -184,15 +176,11 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   envType?: number;
   /**
    * @remarks
-   * The scope in which the table is visible. Valid values:
-   * 
-   * - 0: indicates that the table is visible to workspace members.
-   * 
-   * - 1: indicates that the table is visible to users within a tenant.
-   * 
-   * - 2: indicates that the table is visible to all tenants.
-   * 
-   * - 3: indicates that the table is visible only to the table owner.
+   * The visibility of the table. Valid values:
+   * - 0: The table is visible to workspace members.
+   * - 1: The table is visible within the tenant.
+   * - 2: The table is visible across tenants.
+   * - 3: The table is visible only to the owner.
    * 
    * @example
    * 1
@@ -200,7 +188,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   isVisible?: number;
   /**
    * @remarks
-   * The time when the table was last accessed. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
+   * The time when the table was last accessed. The value is a timestamp. You can convert the timestamp to a date based on the time zone that you use.
    * 
    * @example
    * 1589870294000
@@ -208,7 +196,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   lastAccessTime?: number;
   /**
    * @remarks
-   * The time when the schema of the table was last changed. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
+   * The time when the table schema was last changed. The value is a timestamp. You can convert the timestamp to a date based on the time zone that you use.
    * 
    * @example
    * 1589870294000
@@ -216,7 +204,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   lastDdlTime?: number;
   /**
    * @remarks
-   * The time when the table was last updated. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
+   * The time when the table was last updated. The value is a timestamp. You can convert the timestamp to a date based on the time zone that you use.
    * 
    * @example
    * 1589870294000
@@ -224,7 +212,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * The lifecycle of the table. Unit: days.
+   * The lifecycle of the table, in days.
    * 
    * @example
    * 5
@@ -248,7 +236,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The partition key column.
+   * The partition keys.
    * 
    * @example
    * abc
@@ -280,7 +268,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The unique identifier of the table.
+   * The GUID of the table.
    * 
    * @example
    * odps.engine_name.table_name
@@ -408,7 +396,7 @@ export class GetMetaTableFullInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 0bc1411515937****
@@ -416,7 +404,7 @@ export class GetMetaTableFullInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMetaCollectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The comment of the collection. The comment must be 1 to 64 characters in length.
+   * The comment of the collection. Length limit: 1 to 64 characters.
    * 
    * @example
    * this is a comment

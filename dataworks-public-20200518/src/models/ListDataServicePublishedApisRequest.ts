@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServicePublishedApisRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword in API names. The keyword is used to search for the APIs whose names contain the keyword.
+   * The keyword used to filter APIs by name. APIs whose names contain this keyword are returned.
    * 
    * @example
    * My API name
@@ -13,7 +13,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   apiNameKeyword?: string;
   /**
    * @remarks
-   * The keyword in API paths. The keyword is used to search for the APIs whose paths contain the keyword.
+   * The keyword used to filter APIs by path. APIs whose paths contain this keyword are returned.
    * 
    * @example
    * /test/
@@ -21,7 +21,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   apiPathKeyword?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the creator of the APIs. The ID is used to search for the APIs created by the creator.
+   * The Alibaba Cloud ID of the API creator. Only APIs created by this user are returned.
    * 
    * @example
    * 12345
@@ -29,7 +29,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default is 10, and the maximum is 100.
+   * The number of entries per page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
+   * The tenant ID. To obtain the tenant ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console), go to the DataStudio page, click your username in the upper-right corner, and select Menu > User Info.
    * 
    * @example
    * 10001

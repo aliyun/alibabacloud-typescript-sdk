@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSuccessInstanceAmountRequest extends $dara.Model {
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to obtain the workspace ID.
+   * The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the workspace configuration page to obtain the workspace ID.
    * 
    * This parameter is required.
    * 

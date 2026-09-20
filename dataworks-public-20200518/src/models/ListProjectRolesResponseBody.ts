@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectRolesResponseBodyProjectRoleList extends $dara.Model {
   /**
    * @remarks
-   * The code of the role in the DataWorks workspace.
+   * The code of the workspace role.
    * 
    * @example
    * role_project_guest
@@ -13,7 +13,7 @@ export class ListProjectRolesResponseBodyProjectRoleList extends $dara.Model {
   projectRoleCode?: string;
   /**
    * @remarks
-   * The ID of the role in the DataWorks workspace.
+   * The ID of the workspace role.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListProjectRolesResponseBodyProjectRoleList extends $dara.Model {
   projectRoleId?: number;
   /**
    * @remarks
-   * The name of the role in the DataWorks workspace.
+   * The name of the workspace role.
    * 
    * @example
    * Visitor
@@ -29,7 +29,7 @@ export class ListProjectRolesResponseBodyProjectRoleList extends $dara.Model {
   projectRoleName?: string;
   /**
    * @remarks
-   * The type of the role in the DataWorks workspace.
+   * The type of the workspace role.
    * 
    * @example
    * 0
@@ -65,7 +65,7 @@ export class ListProjectRolesResponseBodyProjectRoleList extends $dara.Model {
 export class ListProjectRolesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The roles in the DataWorks workspace.
+   * The list of roles in the workspace.
    */
   projectRoleList?: ListProjectRolesResponseBodyProjectRoleList[];
   /**

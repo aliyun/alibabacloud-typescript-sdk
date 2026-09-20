@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number. Used for pagination.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetMetaCategoryRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class GetMetaCategoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The category tree ID.
+   * The ID of the tree category.
    * 
    * @example
    * 333

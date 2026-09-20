@@ -29,7 +29,7 @@ export class AddMetaCollectionEntityResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the request ID to query logs and troubleshoot issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-E****
@@ -37,10 +37,10 @@ export class AddMetaCollectionEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the operation. Valid values:
+   * The operation result. Valid values: 
    * 
-   * *   true: succeeded
-   * *   false: failed
+   * - true: Succeeded. 
+   * - false: Failed.
    * 
    * @example
    * true
@@ -48,9 +48,9 @@ export class AddMetaCollectionEntityResponseBody extends $dara.Model {
   status?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * true false
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -45,7 +45,7 @@ export class GetProjectDetailResponseBodyDataTags extends $dara.Model {
 export class GetProjectDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the shared resource group for Data Integration on which nodes are run.
+   * The identifier of the default data integration resource group for nodes.
    * 
    * @example
    * group_280749521****
@@ -53,7 +53,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   defaultDiResourceGroupIdentifier?: string;
   /**
    * @remarks
-   * The development type of the workspace. The value is fixed to 4.
+   * The project development type. The value is 4.
    * 
    * @example
    * 4
@@ -61,10 +61,9 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   developmentType?: number;
   /**
    * @remarks
-   * Indicates whether the Develop role is disabled. Valid values:
-   * 
-   * *   **false** (default)
-   * *   **true**
+   * Indicates whether the development role is disabled. Valid values:
+   *  - **false** (default): The development role is enabled.
+   *  - **true**: The development role is disabled.
    * 
    * @example
    * true
@@ -72,7 +71,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   disableDevelopment?: boolean;
   /**
    * @remarks
-   * The environments of workspaces in different modes. Workspaces in basic mode provide only the production environment. Workspaces in standard mode provide both the development environment and the production environment.
+   * The environments contained in the workspace. A workspace in basic mode contains only the production environment (PROD). A workspace in standard mode contains the development environment (DEV) and the production environment (PROD).
    */
   envTypes?: string[];
   /**
@@ -93,7 +92,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the download operation is allowed.
+   * Indicates whether downloads are allowed.
    * 
    * @example
    * 1
@@ -101,10 +100,9 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   isAllowDownload?: number;
   /**
    * @remarks
-   * Indicates whether the workspace is a default workspace. Valid values:
-   * 
-   * *   1: The workspace is a default workspace.
-   * *   0: The workspace is not a default workspace.
+   * Indicates whether the workspace is the default workspace. Valid values:
+   * - 1: Yes.
+   * - 0: No.
    * 
    * @example
    * 1
@@ -120,7 +118,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   projectDescription?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 27
@@ -128,7 +126,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The unique identifier of the workspace.
+   * The identifier of the workspace.
    * 
    * @example
    * abc
@@ -136,7 +134,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   projectIdentifier?: string;
   /**
    * @remarks
-   * The mode of the workspace. The value 2 indicates that the workspace is in basic mode. The value 3 indicates that the workspace is in standard mode.
+   * The workspace mode. A value of 2 indicates basic mode. A value of 3 indicates standard mode.
    * 
    * @example
    * 1
@@ -152,7 +150,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the workspace owner.
+   * The Alibaba Cloud ID of the workspace owner.
    * 
    * @example
    * 18229311****
@@ -160,7 +158,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   projectOwnerBaseId?: string;
   /**
    * @remarks
-   * Indicates whether the workspace protection feature is enabled.
+   * Indicates whether protected mode is enabled for the workspace.
    * 
    * @example
    * 1
@@ -168,7 +166,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   protectedMode?: number;
   /**
    * @remarks
-   * The type of the workspace. Valid values: private and swap.
+   * The type of the workspace. A value of private indicates a private zone. A value of swap indicates a swap zone.
    * 
    * @example
    * private
@@ -184,7 +182,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The default maximum number of automatic reruns that are allowed after an error occurs.
+   * The default maximum number of automatic reruns upon an error.
    * 
    * @example
    * 3
@@ -192,7 +190,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   schedulerMaxRetryTimes?: number;
   /**
    * @remarks
-   * The interval between automatic reruns after an error occurs.
+   * The default interval between automatic reruns upon an error.
    * 
    * @example
    * 120000
@@ -208,10 +206,9 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
-   * 
-   * *   0: The MaxCompute tables in the workspace are not visible to the users within a tenant.
-   * *   1: The MaxCompute tables in the workspace are visible to the users within a tenant.
+   * The visibility of MaxCompute tables. Valid values:
+   * - 0: MaxCompute tables are not visible to tenant users.
+   * - 1: MaxCompute tables are visible to tenant users.
    * 
    * @example
    * 1
@@ -232,7 +229,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * Indicates whether a proxy account is used to access the MaxCompute compute engine.
+   * Indicates whether a proxy account is used to access the MaxCompute engine.
    * 
    * @example
    * true
@@ -314,7 +311,7 @@ export class GetProjectDetailResponseBodyData extends $dara.Model {
 export class GetProjectDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the workspace.
+   * The description of the workspace.
    */
   data?: GetProjectDetailResponseBodyData;
   /**
@@ -335,7 +332,7 @@ export class GetProjectDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the workspace information was queried successfully.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationListAuthorizationRecords extends $dara.Model {
   /**
    * @remarks
-   * The time when the access permissions on the API were granted to other users.
+   * The authorization time, in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format (the example time zone is +0800).
    * 
    * @example
    * 2020-06-23T00:21:01+0800
@@ -13,7 +13,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationListAu
   createdTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the API owner.
+   * The Alibaba Cloud ID of the API owner.
    * 
    * @example
    * 12345
@@ -21,7 +21,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationListAu
   creatorId?: string;
   /**
    * @remarks
-   * The end time of the validity period of the authorization.
+   * The end time of the authorization validity period, in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format (the example time zone is +0800).
    * 
    * @example
    * 2020-06-24T00:21:01+0800
@@ -29,7 +29,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationListAu
   endTime?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the access permissions on the API are granted.
+   * The workspace ID that has been granted the authorization.
    * 
    * @example
    * 10004
@@ -76,7 +76,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationList e
    * The name of the API.
    * 
    * @example
-   * My API name
+   * MyAPIName
    */
   apiName?: string;
   /**
@@ -89,7 +89,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationList e
   apiPath?: string;
   /**
    * @remarks
-   * The status of the API. Valid values: 0 and 1. The value 0 indicates that the API is not published. The value 1 indicates that the API is published.
+   * The status of the API. Valid values: 0: unpublished. 1: published.
    * 
    * @example
    * 0
@@ -97,12 +97,12 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationList e
   apiStatus?: number;
   /**
    * @remarks
-   * The authorization records.
+   * The list of authorization details for APIs authorized to other users.
    */
   authorizationRecords?: ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationListAuthorizationRecords[];
   /**
    * @remarks
-   * The time when the API was created.
+   * The time when the API was created, in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format (the example time zone is +0800).
    * 
    * @example
    * 2020-06-23T00:21:01+0800
@@ -110,7 +110,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationList e
   createdTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the API owner.
+   * The Alibaba Cloud ID of the API owner.
    * 
    * @example
    * 12345
@@ -126,7 +126,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationList e
   groupId?: string;
   /**
    * @remarks
-   * The time when the API was last modified.
+   * The time when the API was last modified, in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format (the example time zone is +0800).
    * 
    * @example
    * 2020-06-23T00:21:01+0800
@@ -195,12 +195,12 @@ export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationList e
 export class ListDataServiceApiAuthoritiesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The APIs on which other users are granted the access permissions.
+   * The response structure.
    */
   apiAuthorizationList?: ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationList[];
   /**
    * @remarks
-   * The page number. The value of this parameter is the same as that of the PageNumber parameter in the request.
+   * The page number, which is the same as the PageNumber value in the request.
    * 
    * @example
    * 1
@@ -208,7 +208,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -216,7 +216,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -255,7 +255,7 @@ export class ListDataServiceApiAuthoritiesResponseBodyData extends $dara.Model {
 export class ListDataServiceApiAuthoritiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The APIs on which other users are granted the access permissions.
+   * The list of APIs authorized to other users.
    */
   data?: ListDataServiceApiAuthoritiesResponseBodyData;
   /**
@@ -284,7 +284,7 @@ export class ListDataServiceApiAuthoritiesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. A unique identifier for the request.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -292,10 +292,10 @@ export class ListDataServiceApiAuthoritiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
-   * Boolean
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class UpdateTableModelInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the table is updated.
    * 
    * @example
    * true

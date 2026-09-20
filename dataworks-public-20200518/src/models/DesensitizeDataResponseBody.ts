@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DesensitizeDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned after masking.
+   * The masked result data.
    * 
    * @example
    * {     "desensData": "**198807120510**"   }
@@ -13,7 +13,7 @@ export class DesensitizeDataResponseBody extends $dara.Model {
   desensitizeData?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. A unique identifier for the request.
    * 
    * @example
    * BCA321BA-46C5-40E9-8A08-6******

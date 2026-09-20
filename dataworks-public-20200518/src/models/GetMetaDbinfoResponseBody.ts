@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaDBInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The compute engine instance ID. Specify the ID in the `Engine type.Engine name` format.
+   * The engine ID, in the format of `Engine type.Engine name`.
    * 
    * @example
    * odps.engine_name
@@ -24,12 +24,14 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
    * The comment.
    * 
    * @example
-   * Remarks
+   * Comment
    */
   comment?: string;
   /**
    * @remarks
-   * The time when the compute engine instance was created.
+   * The time when the engine was created.
+   * 
+   * The value is a 13-digit number, for example, `1541576644000`.
    * 
    * @example
    * 1541576644000
@@ -37,7 +39,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The endpoint of the service.
+   * The service endpoint.
    * 
    * @example
    * http://service.odpsstg.aliyun-inc.com/
@@ -45,7 +47,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The type of the environment. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+   * The environment type. A value of 0 indicates a non-production table. A value of 1 indicates a production table.
    * 
    * @example
    * 1
@@ -53,7 +55,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
   envType?: number;
   /**
    * @remarks
-   * The storage path of the metadatabase of the EMR cluster.
+   * The data storage address of the EMR database.
    * 
    * @example
    * hdfs://
@@ -61,7 +63,9 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The time when the compute engine instance was modified.
+   * The time when the engine was modified.
+   * 
+   * The value is a 13-digit number, for example, `1541576644000`.
    * 
    * @example
    * 1541576644000
@@ -69,7 +73,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * abc
@@ -77,7 +81,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the workspace owner.
+   * The Alibaba Cloud account ID of the workspace owner.
    * 
    * @example
    * userId
@@ -112,7 +116,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
    * The display name of the workspace.
    * 
    * @example
-   * 测试项目
+   * Test project
    */
   projectNameCn?: string;
   /**
@@ -125,7 +129,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The type of the metadatabase.
+   * The database type.
    * 
    * @example
    * hive

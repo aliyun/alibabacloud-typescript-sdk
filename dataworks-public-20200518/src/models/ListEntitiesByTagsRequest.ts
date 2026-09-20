@@ -16,7 +16,7 @@ export class ListEntitiesByTagsRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token that specifies the start point of the current read operation.
    * 
    * @example
    * 12345
@@ -24,7 +24,7 @@ export class ListEntitiesByTagsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -32,7 +32,7 @@ export class ListEntitiesByTagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    * 
    * This parameter is required.
    */

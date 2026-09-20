@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunCycleDagNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the nodes in the workflow. You can query instances based on the IDs.
+   * The DagId returned by the data backfill instance. You can use this DagId to query the corresponding instances.
    */
   data?: number[];
   /**
@@ -34,7 +34,7 @@ export class RunCycleDagNodesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the request ID to query logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * >E6F0DBDD-5AD****
@@ -42,7 +42,7 @@ export class RunCycleDagNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

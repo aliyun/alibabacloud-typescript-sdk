@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DataService Studio API on which the test is performed.
+   * The ID of the API to test.
    * 
    * @example
    * 2343
@@ -13,7 +13,7 @@ export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
   apiId?: number;
   /**
    * @remarks
-   * The time that is consumed to complete the test.
+   * The time consumed by the API request.
    * 
    * @example
    * 10
@@ -21,7 +21,9 @@ export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
   costTime?: number;
   /**
    * @remarks
-   * The time when the test was initiated.
+   * The time when the task was created.
+   * 
+   * The value is a 13-digit number, such as `1651824913000`.
    * 
    * @example
    * 1651824913000
@@ -29,7 +31,7 @@ export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The request parameters configured for the test.
+   * The request parameters of the test API.
    * 
    * @example
    * {"name":"test"}
@@ -37,7 +39,7 @@ export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
   paramMap?: string;
   /**
    * @remarks
-   * The status code returned for the test. If the test is not complete, this parameter is not returned.
+   * The return code of the test API. This field is empty if the test is not completed.
    * 
    * @example
    * 0
@@ -45,7 +47,7 @@ export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
   retCode?: number;
   /**
    * @remarks
-   * The result returned for the test.
+   * The returned data.
    * 
    * @example
    * {"id":2}
@@ -53,7 +55,10 @@ export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
   retResult?: string;
   /**
    * @remarks
-   * The status of the test. Valid values: RUNNING and FINISHED.
+   * Indicates whether the task is completed. Valid values:
+   * 
+   * - RUNNING
+   * - FINISHED
    * 
    * @example
    * FINISHED
@@ -61,7 +66,7 @@ export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the test.
+   * The test ID.
    * 
    * @example
    * 123
@@ -105,12 +110,12 @@ export class ListDataServiceApiTestResponseBodyData extends $dara.Model {
 export class ListDataServiceApiTestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of test records.
+   * The data list.
    */
   data?: ListDataServiceApiTestResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ESDAFWEA

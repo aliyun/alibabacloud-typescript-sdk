@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckMetaTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the metatable exists.
+   * Indicates whether the table exists.
    * 
    * @example
    * true

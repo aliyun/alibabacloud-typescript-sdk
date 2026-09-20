@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the event was found.
+   * The timestamp when the event was discovered.
    * 
    * @example
    * 1553524393000
@@ -13,7 +13,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   addTime?: number;
   /**
    * @remarks
-   * The timestamp when the first alert was reported.
+   * The timestamp of the first alert.
    * 
    * @example
    * 1553524393000
@@ -21,7 +21,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   alertTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the alert recipient.
+   * The Alibaba Cloud UID of the assigner.
    * 
    * @example
    * 952795****
@@ -29,7 +29,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   assigner?: string;
   /**
    * @remarks
-   * The margin of the worst baseline instance. Unit: seconds.
+   * The buffer of the worst baseline instance, in seconds.
    * 
    * @example
    * 3600
@@ -37,7 +37,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   baselineBuffer?: number;
   /**
    * @remarks
-   * The ID of the baseline to which the worst baseline instance belongs.
+   * The baseline ID of the worst baseline instance.
    * 
    * @example
    * 1234
@@ -45,7 +45,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   baselineId?: number;
   /**
    * @remarks
-   * The ID of the cycle of the worst baseline instance.
+   * The cycle number of the worst baseline instance.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   baselineInGroupId?: number;
   /**
    * @remarks
-   * The name of the baseline to which the worst baseline instance belongs.
+   * The baseline name of the worst baseline instance.
    * 
    * @example
    * Baseline name
@@ -61,7 +61,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   baselineName?: string;
   /**
    * @remarks
-   * The status of the baseline. Valid values: ERROR, SAFE, DANGROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGROUS indicates that nodes are still running after the alert duration ends but the committed completion time does not arrive. The value OVER indicates that nodes are still running after the committed completion time.
+   * The status of the baseline. Valid values: ERROR, SAFE, DANGROUS (warning), and OVER (exceeded).
    * 
    * @example
    * SAFE
@@ -69,7 +69,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   baselineStatus?: string;
   /**
    * @remarks
-   * The margin of the event. Unit: seconds.
+   * The buffer of the event, in seconds.
    * 
    * @example
    * 1200
@@ -77,7 +77,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   buffer?: number;
   /**
    * @remarks
-   * The timestamp when the event was last processed.
+   * The timestamp of the last handling.
    * 
    * @example
    * 1553524393000
@@ -85,7 +85,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   dealTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the user who last processed the event.
+   * The Alibaba Cloud UID of the last handler.
    * 
    * @example
    * 952795****
@@ -93,7 +93,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   dealUser?: string;
   /**
    * @remarks
-   * The timestamp when the event was processed.
+   * The timestamp when the event was resolved.
    * 
    * @example
    * 1553524393000
@@ -101,7 +101,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   fixTime?: number;
   /**
    * @remarks
-   * The timestamp when the event occurred. A time difference may exist between the time when the event occurred and the time when the event was found.
+   * The timestamp when the event occurred. There may be a time difference between when the event occurred and when it was discovered.
    * 
    * @example
    * 1553524393000
@@ -109,7 +109,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   happenTime?: number;
   /**
    * @remarks
-   * The ID of the instance that triggered the event.
+   * The instance ID associated with the event.
    * 
    * @example
    * 12345
@@ -117,7 +117,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The timestamp when the system reports the next alert.
+   * The timestamp of the next alert.
    * 
    * @example
    * 1553524393000
@@ -125,7 +125,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   nextAlertTime?: number;
   /**
    * @remarks
-   * The ID of the node that triggered the event.
+   * The ID of the node associated with the event.
    * 
    * @example
    * 1234
@@ -133,7 +133,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The name of the node that triggered the event.
+   * The name of the node associated with the event.
    * 
    * @example
    * Node name
@@ -141,7 +141,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the event owner.
+   * The Alibaba Cloud UID of the event owner.
    * 
    * @example
    * 952795****
@@ -149,7 +149,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the node that triggered the event belongs.
+   * The ID of the workspace to which the node associated with the event belongs.
    * 
    * @example
    * 123456
@@ -157,7 +157,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The event ID.
+   * The ID of the event.
    * 
    * @example
    * 1234
@@ -173,7 +173,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
-   * The status of the event. Valid values: IGNORE, NEW, FIXING, and RECOVER.
+   * The status of the event. Valid values: IGNORE (ignored), NEW (newly discovered), FIXING (being handled), and RECOVER (recovered).
    * 
    * @example
    * FIXING
@@ -181,7 +181,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   topicStatus?: string;
   /**
    * @remarks
-   * The type of the event. Valid values: SLOW and ERROR. The value SLOW indicates that the duration of the task is significantly longer than the average duration of the task in previous cycles. The value ERROR indicates that the task fails to run.
+   * The type of the event. Valid values: SLOW and ERROR.
    * 
    * @example
    * ERROR
@@ -284,7 +284,7 @@ export class GetTopicResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFGH-IJKLMNOPQ
@@ -292,7 +292,7 @@ export class GetTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

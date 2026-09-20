@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CallbackExtensionRequest extends $dara.Model {
   /**
    * @remarks
-   * The check message of the extension point event. If CheckResult is set to FAIL, you must provide the failure cause.
+   * The reason for the failure when CheckResult is set to FAIL.
    * 
    * @example
    * The xxx rule is hit. Modify it and try again.
@@ -13,11 +13,10 @@ export class CallbackExtensionRequest extends $dara.Model {
   checkMessage?: string;
   /**
    * @remarks
-   * The check status of the extension point event. Valid values:
-   * 
-   * *   OK: The event passes the check.
-   * *   FAIL: The event fails to pass the check. You must check and handle the reported error at the earliest opportunity to ensure that your program is run as expected.
-   * *   WARN: The event passes the check, but an alert is reported.
+   * The check status of the extension program for the extension point event. Valid values:
+   * - OK: The extension program check for the extension point event passed.
+   * - FAIL: The extension program check for the extension point event failed. View and resolve the error promptly to avoid affecting the normal execution of subsequent programs.
+   * - WARN: The extension program check for the extension point event passed, but warnings exist.
    * 
    * This parameter is required.
    * 
@@ -27,22 +26,24 @@ export class CallbackExtensionRequest extends $dara.Model {
   checkResult?: string;
   /**
    * @remarks
-   * The unique code of the extension.
+   * The unique code of the extension program.
    * 
    * This parameter is required.
    * 
    * @example
-   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   * 8abcb91f-d266-4073-b907-2****
    */
   extensionCode?: string;
   /**
    * @remarks
-   * The message ID in DataWorks OpenEvent. You can obtain the ID from a received message when an extension point event is triggered.
+   * The message ID of the DataWorks open message. After an extension point event is triggered, you can obtain the message ID from the received event message.
+   * 
+   * <props="china">For more information about the message format, see [Message format](https://help.aliyun.com/document_detail/215367.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * 03400b03-b721-4c34-8727-2d6884077091
+   * 034********091
    */
   messageId?: string;
   static names(): { [key: string]: string } {

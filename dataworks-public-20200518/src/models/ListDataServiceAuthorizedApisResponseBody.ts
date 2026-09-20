@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList extends $dara.Model {
   /**
    * @remarks
-   * The API ID.
+   * The ID of the API.
    * 
    * @example
    * 10002
@@ -16,7 +16,7 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
    * The name of the API.
    * 
    * @example
-   * My API name
+   * MyAPIName
    */
   apiName?: string;
   /**
@@ -29,7 +29,9 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
   apiPath?: string;
   /**
    * @remarks
-   * The status of the API. Valid values: 0 and 1. The value 0 indicates that the API is not published. The value 1 indicates that the API is published.
+   * The status of the API. Valid values:
+   * - 0: unpublished.
+   * - 1: published.
    * 
    * @example
    * 0
@@ -37,7 +39,7 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
   apiStatus?: number;
   /**
    * @remarks
-   * The time when the API was created.
+   * The time when the API was created. Format: yyyy-MM-dd\\"T\\"HH:mm:ssZ (the example time zone is +0800).
    * 
    * @example
    * 2020-06-23T00:21:01+0800
@@ -45,7 +47,7 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
   createdTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the API owner.
+   * The Alibaba Cloud ID of the API owner.
    * 
    * @example
    * 12345
@@ -53,7 +55,7 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
   creatorId?: string;
   /**
    * @remarks
-   * The time when the access permissions on the API were granted.
+   * The time when the API was authorized. Format: yyyy-MM-dd\\"T\\"HH:mm:ssZ (the example time zone is +0800).
    * 
    * @example
    * 2020-06-23T00:21:01+0800
@@ -61,7 +63,7 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
   grantCreatedTime?: string;
   /**
    * @remarks
-   * The expiration time of the access permissions granted on the API.
+   * The expiration time of the API authorization. Format: yyyy-MM-dd\\"T\\"HH:mm:ssZ (the example time zone is +0800).
    * 
    * @example
    * 2020-06-24T00:21:01+0800
@@ -69,7 +71,7 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
   grantEndTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the user who granted the access permissions on the API.
+   * The Alibaba Cloud ID of the user who granted the authorization.
    * 
    * @example
    * 23456
@@ -85,7 +87,7 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
   groupId?: string;
   /**
    * @remarks
-   * The time when the API was last updated.
+   * The last modification time of the API. Format: yyyy-MM-dd\\"T\\"HH:mm:ssZ (the example time zone is +0800).
    * 
    * @example
    * 2020-06-23T00:21:01+0800
@@ -155,12 +157,12 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
 export class ListDataServiceAuthorizedApisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The APIs that you are authorized to access.
+   * The list of authorized APIs.
    */
   apiAuthorizedList?: ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList[];
   /**
    * @remarks
-   * The page number. The value of this parameter is the same as that of the PageNumber parameter in the request.
+   * The page number, which is the same as the PageNumber value in the request.
    * 
    * @example
    * 1
@@ -176,7 +178,7 @@ export class ListDataServiceAuthorizedApisResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -215,7 +217,7 @@ export class ListDataServiceAuthorizedApisResponseBodyData extends $dara.Model {
 export class ListDataServiceAuthorizedApisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the APIs that you are authorized to access.
+   * The information about authorized APIs.
    */
   data?: ListDataServiceAuthorizedApisResponseBodyData;
   /**
@@ -244,7 +246,7 @@ export class ListDataServiceAuthorizedApisResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. A unique identifier for the request.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -252,7 +254,7 @@ export class ListDataServiceAuthorizedApisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

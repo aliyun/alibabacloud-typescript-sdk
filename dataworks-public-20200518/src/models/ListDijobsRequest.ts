@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDIJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination type. If you do not configure this parameter, no limits are imposed on the tasks.
+   * The destination data source type. If this parameter is not specified, no filtering is applied.
    * 
    * @example
    * Hologres
@@ -13,7 +13,7 @@ export class ListDIJobsRequest extends $dara.Model {
   destinationDataSourceType?: string;
   /**
    * @remarks
-   * The name of the task. Fuzzy match is supported. If you do not configure this parameter, no limits are imposed on the tasks.
+   * The task name. If this parameter is not specified, no filtering is applied. Fuzzy match is supported.
    * 
    * @example
    * mysql_to_holo_sync_8772
@@ -29,7 +29,7 @@ export class ListDIJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The page size. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListDIJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class ListDIJobsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The source type. If you do not configure this parameter, no limits are imposed on the tasks.
+   * The source data source type. If this parameter is not specified, no filtering is applied.
    * 
    * @example
    * MySQL

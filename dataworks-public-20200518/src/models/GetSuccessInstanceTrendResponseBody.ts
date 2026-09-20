@@ -13,7 +13,9 @@ export class GetSuccessInstanceTrendResponseBodyInstanceStatusTrendAvgTrend exte
   count?: number;
   /**
    * @remarks
-   * The point in time. Valid values: 00:00 to 23:00.
+   * The time point, ranging from 00:00 to 23:00.
+   * 
+   * The format is `HH:mm`, for example, `01:00`.
    * 
    * @example
    * 01:00
@@ -53,7 +55,9 @@ export class GetSuccessInstanceTrendResponseBodyInstanceStatusTrendTodayTrend ex
   count?: number;
   /**
    * @remarks
-   * The point in time. Valid values: 00:00 to 23:00.
+   * The time point, ranging from 00:00 to 23:00.
+   * 
+   * The format is `HH:mm`, for example, `01:00`.
    * 
    * @example
    * 01:00
@@ -93,7 +97,9 @@ export class GetSuccessInstanceTrendResponseBodyInstanceStatusTrendYesterdayTren
   count?: number;
   /**
    * @remarks
-   * The point in time. Valid values: 00:00 to 23:00.
+   * The time point, ranging from 00:00 to 23:00.
+   * 
+   * The format is `HH:mm`, for example, `01:00`.
    * 
    * @example
    * 01:00
@@ -125,17 +131,17 @@ export class GetSuccessInstanceTrendResponseBodyInstanceStatusTrendYesterdayTren
 export class GetSuccessInstanceTrendResponseBodyInstanceStatusTrend extends $dara.Model {
   /**
    * @remarks
-   * The average trend.
+   * The historical average trends.
    */
   avgTrend?: GetSuccessInstanceTrendResponseBodyInstanceStatusTrendAvgTrend[];
   /**
    * @remarks
-   * The trend on the current day.
+   * The trends for today.
    */
   todayTrend?: GetSuccessInstanceTrendResponseBodyInstanceStatusTrendTodayTrend[];
   /**
    * @remarks
-   * The trend on the previous day.
+   * The trends for yesterday.
    */
   yesterdayTrend?: GetSuccessInstanceTrendResponseBodyInstanceStatusTrendYesterdayTrend[];
   static names(): { [key: string]: string } {
@@ -175,12 +181,12 @@ export class GetSuccessInstanceTrendResponseBodyInstanceStatusTrend extends $dar
 export class GetSuccessInstanceTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The trend of statistics on the instance status in different time periods.
+   * The statistical trends of instance status by time period.
    */
   instanceStatusTrend?: GetSuccessInstanceTrendResponseBodyInstanceStatusTrend;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID generated for each request.
    * 
    * @example
    * 952795279527ab****

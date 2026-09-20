@@ -7,6 +7,8 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
    * @remarks
    * The end time.
    * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, for example, `2020-01-01 00:01:00`.
+   * 
    * @example
    * 2020-01-01 00:01:00
    */
@@ -23,13 +25,15 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
    * @remarks
    * The start time.
    * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, for example, `2020-01-01 00:00:00`.
+   * 
    * @example
    * 2020-01-01 00:00:00
    */
   startTime?: string;
   /**
    * @remarks
-   * The GUID of the MaxCompute table.
+   * The unique identifier of the ODPS table.
    * 
    * @example
    * odps.engine_name.table_name
@@ -53,7 +57,7 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
   taskInstanceId?: number;
   /**
    * @remarks
-   * The waiting time.
+   * The task wait duration, in seconds.
    * 
    * @example
    * 323
@@ -95,12 +99,12 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
 export class GetMetaTableOutputResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The partitions.
+   * The list of instances.
    */
   dataEntityList?: GetMetaTableOutputResponseBodyDataDataEntityList[];
   /**
    * @remarks
-   * The page number. Valid values: 1 to 30. Default value: 1.
+   * The page number. Default value: 1. Minimum value: 1. Maximum value: 30.
    * 
    * @example
    * 1
@@ -116,7 +120,7 @@ export class GetMetaTableOutputResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of tables.
    * 
    * @example
    * 100

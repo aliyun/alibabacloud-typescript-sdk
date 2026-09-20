@@ -6,7 +6,7 @@ import { UserEntityTag } from "./UserEntityTag";
 export class ListEntityTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   data?: UserEntityTag[];
   /**
@@ -35,7 +35,7 @@ export class ListEntityTagsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-E****
@@ -45,8 +45,8 @@ export class ListEntityTagsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * true\\
-   * false
+   * - true: The request was successful.  
+   * - false: The request failed.
    * 
    * @example
    * true

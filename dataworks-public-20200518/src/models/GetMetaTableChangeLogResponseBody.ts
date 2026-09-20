@@ -21,7 +21,9 @@ export class GetMetaTableChangeLogResponseBodyDataDataEntityList extends $dara.M
   changeType?: string;
   /**
    * @remarks
-   * The time when the metatable was created.
+   * The time when the table was created.
+   * 
+   * The format is a 13-digit number, for example, `1590722845000`.
    * 
    * @example
    * 1590722845000
@@ -29,7 +31,9 @@ export class GetMetaTableChangeLogResponseBodyDataDataEntityList extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The time when the metatable was modified.
+   * The time when the table was modified.
+   * 
+   * The format is a 13-digit number, for example, `1590722845000`.
    * 
    * @example
    * 1590722845000
@@ -37,7 +41,7 @@ export class GetMetaTableChangeLogResponseBodyDataDataEntityList extends $dara.M
   modifiedTime?: number;
   /**
    * @remarks
-   * The entity on which the change was made. Valid values: TABLE and PARTITION.
+   * The type of the changed object. Valid values: TABLE and PARTITION.
    * 
    * @example
    * TABLE
@@ -90,7 +94,7 @@ export class GetMetaTableChangeLogResponseBodyData extends $dara.Model {
   dataEntityList?: GetMetaTableChangeLogResponseBodyDataDataEntityList[];
   /**
    * @remarks
-   * The page number.
+   * The page number. Used for pagination.
    * 
    * @example
    * 10
@@ -106,7 +110,7 @@ export class GetMetaTableChangeLogResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of metatables.
+   * The total number of tables.
    * 
    * @example
    * 10

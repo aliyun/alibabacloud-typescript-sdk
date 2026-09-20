@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaTableThemeLevelRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the data source. Set the value to odps.
+   * The data type. Currently, only odps is supported.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetMetaTableThemeLevelRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The GUID of the metatable. Specify the GUID in the format of odps.${projectName}.${tableName}.
+   * The unique ID of the table. Format: odps.${projectName}.${tableName}.
    * 
    * This parameter is required.
    * 

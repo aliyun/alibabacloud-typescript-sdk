@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataServiceApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the API was deleted.
+   * Indicates whether the deletion was successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DeleteDataServiceApiResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. It is a unique identifier for the request.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -45,7 +45,7 @@ export class DeleteDataServiceApiResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -13,7 +13,7 @@ export class UpdateFileResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The connection does not exist.
@@ -21,7 +21,7 @@ export class UpdateFileResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class UpdateFileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to troubleshoot issues.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFGH-IJKLMNOPQ
@@ -37,10 +37,9 @@ export class UpdateFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * *   true: The request is successful.
-   * *   false: The request fails.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

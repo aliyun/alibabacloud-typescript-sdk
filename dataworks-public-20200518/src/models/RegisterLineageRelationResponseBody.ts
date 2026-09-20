@@ -13,7 +13,7 @@ export class RegisterLineageRelationResponseBodyLineageRelation extends $dara.Mo
   destEntityQualifiedName?: string;
   /**
    * @remarks
-   * The ID of the lineage between entities.
+   * The lineage relationship ID between entities.
    * 
    * @example
    * dfsldfdlsfdsaaaabbbb
@@ -79,12 +79,12 @@ export class RegisterLineageRelationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The lineage.
+   * The lineage relationship object.
    */
   lineageRelation?: RegisterLineageRelationResponseBodyLineageRelation;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * EE50E05E-028C-182B-****
@@ -94,9 +94,9 @@ export class RegisterLineageRelationResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true
+   * - true: The request was successful.
    * 
-   * - false
+   * - false: The request failed.
    * 
    * @example
    * true

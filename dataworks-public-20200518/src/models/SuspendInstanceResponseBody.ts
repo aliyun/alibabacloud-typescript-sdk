@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SuspendInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The result details returned after the SuspendInstance operation is called.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class SuspendInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

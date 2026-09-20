@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaDBInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The compute engine instance ID. Specify the ID in the `Engine type.Engine name` format.
+   * The engine ID, in the format of `Engine type.Engine name`.
    * 
    * @example
    * odps.some_engine_name
@@ -13,7 +13,7 @@ export class GetMetaDBInfoRequest extends $dara.Model {
   appGuid?: string;
   /**
    * @remarks
-   * The E-MapReduce (EMR) cluster ID.
+   * The cluster ID of the EMR cluster.
    * 
    * @example
    * abc
@@ -21,7 +21,7 @@ export class GetMetaDBInfoRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps and emr.
+   * The data type. Valid values: odps and emr.
    * 
    * @example
    * emr
@@ -29,7 +29,7 @@ export class GetMetaDBInfoRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The name of the metadatabase of the EMR cluster.
+   * The database of the EMR cluster.
    * 
    * @example
    * abc

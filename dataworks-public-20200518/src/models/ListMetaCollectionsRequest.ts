@@ -13,9 +13,9 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   administrator?: string;
   /**
    * @remarks
-   * - ALBUM: data album
-   * 
-   * - ALBUM_CATEGORY: category in a data album
+   * The type of collection to query. Valid values:
+   * - **ALBUM**: album collection.
+   * - **ALBUM_CATEGORY**: subcategory within an album.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   collectionType?: string;
   /**
    * @remarks
-   * The ID of the collection creator.
+   * The user ID of the creator.
    * 
    * @example
    * 1200759642363000
@@ -49,7 +49,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token that specifies the start point of the current read operation.
    * 
    * @example
    * 12345
@@ -57,7 +57,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The name of the sorting field.
+   * The name of the field used for sorting.
    * 
    * @example
    * Sort field

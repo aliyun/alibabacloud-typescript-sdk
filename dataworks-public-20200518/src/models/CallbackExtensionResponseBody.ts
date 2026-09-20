@@ -13,11 +13,11 @@ export class CallbackExtensionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * true
+   * true: The call was successful.
    * 
-   * false
+   * false: The call failed.
    * 
    * @example
    * true

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTableAddColumnResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
-   * The details about the status of the current subtask.
-   * 
-   * *   If the current subtask is successful, success is returned.
-   * *   If the current subtask fails, the error details are displayed.
+   * The detailed execution status of the current subtask:
+   * - If the execution succeeds, "success" is returned.
+   * - If the execution fails, the corresponding error details are returned.
    * 
    * @example
    * success
@@ -16,7 +15,7 @@ export class UpdateTableAddColumnResponseBodyTaskInfo extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The ID of the subtask that you want to run. If this parameter is left empty, all subtasks are complete.
+   * The ID of the subtask to be executed next. If this field is empty, all subtasks have been completed.
    * 
    * @example
    * abc1
@@ -25,10 +24,9 @@ export class UpdateTableAddColumnResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
    * The status of the current subtask. Valid values:
-   * 
-   * *   operating: The subtask is running.
-   * *   success: The subtask succeeds.
-   * *   failure: The subtask fails to run. For more information about the error details, see the Content parameter.
+   * - operating: The subtask is being executed.
+   * - success: The subtask is executed.
+   * - failure: The subtask failed to be executed. For detailed error information, see the Content parameter.
    * 
    * @example
    * success
@@ -80,10 +78,11 @@ export class UpdateTableAddColumnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the request task. After a request task is submitted, it is divided into multiple subtasks that are run in sequence. After the current subtask is complete, the next subtask starts to run. After all subtasks are complete, the request task is complete. If a request task is aborted due to one of the following issues, address the issue based on the error code and initiate the request task again:
+   * The information about the request task.
    * 
-   * *   The request task fails to be submitted.
-   * *   After the request task is submitted, a subtask fails to run.
+   * After the request task is submitted, it is divided into multiple subtasks that are executed in sequence. The next subtask is executed only after the current subtask succeeds. The request task ends when all subtasks are completed. The request task terminates in the following situations. You must resolve the issue based on the error code and resubmit the request task:
+   * - The request task fails to be submitted.
+   * - After the request task is submitted, any subtask fails.
    */
   taskInfo?: UpdateTableAddColumnResponseBodyTaskInfo;
   static names(): { [key: string]: string } {

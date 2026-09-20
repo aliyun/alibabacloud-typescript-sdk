@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListDIAlarmRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task with which the alert rules are associated.
+   * The task ID. This is the task ID associated with the alert rule.
+   * 
+   * You can obtain this value from DIJobPaging.DIJobs[].DIJobId in the ListDIJobs response.
    * 
    * This parameter is required.
    * 
@@ -23,7 +25,7 @@ export class ListDIAlarmRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The page size. Default value: 10.
    * 
    * @example
    * 10

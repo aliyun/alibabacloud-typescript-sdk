@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the workspace.
+   * The tag key.
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class ListProjectsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the workspace.
+   * The tag value.
    * 
    * @example
    * value
@@ -45,7 +45,7 @@ export class ListProjectsRequestTags extends $dara.Model {
 export class ListProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Valid values: 1 to 100.
+   * The page number. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListProjectsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tags to add to the workspace.
+   * The list of tags bound to the workspace.
    */
   tags?: ListProjectsRequestTags[];
   static names(): { [key: string]: string } {

@@ -15,7 +15,9 @@ export class GetNodeCodeRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV.
+   * The environment of the workspace. Valid values:
+   * - PROD: production environment
+   * - DEV: development environment
    * 
    * This parameter is required.
    * 

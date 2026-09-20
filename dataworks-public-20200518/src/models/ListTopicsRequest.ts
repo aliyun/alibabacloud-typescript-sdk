@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTopicsRequest extends $dara.Model {
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
+   * The start time for discovery. Specify the time in UTC format (yyyy-MM-dd\\"T\\"HH:mm:ssZ).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListTopicsRequest extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
+   * The end time for discovery. Specify the time in UTC format (yyyy-MM-dd\\"T\\"HH:mm:ssZ).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListTopicsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the node instance that triggers the events. You can configure either this parameter or the NodeId parameter.
+   * The instance ID associated with the event. This parameter is mutually exclusive with NodeId.
    * 
    * @example
    * 12345
@@ -33,7 +33,7 @@ export class ListTopicsRequest extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The ID of the node that triggers the events. You can configure either this parameter or the InstanceId parameter.
+   * The ID of the node associated with the event. This parameter is mutually exclusive with InstanceId.
    * 
    * @example
    * 1234
@@ -41,7 +41,7 @@ export class ListTopicsRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the owner of the events.
+   * The Alibaba Cloud UID of the event owner.
    * 
    * @example
    * 952795****
@@ -49,7 +49,7 @@ export class ListTopicsRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The number of the page to return. Valid values: 1 to 30. Default value: 1.
+   * The page number. Default value: 1. Minimum value: 1. Maximum value: 30.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ListTopicsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class ListTopicsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the events. Valid values: IGNORE, NEW, FIXING, and RECOVER. The value IGNORE indicates that the events are ignored. The value NEW indicates that the events are new events. The value FIXING indicates that the events are being processed. The value RECOVER indicates that the events are processed. You can specify multiple states. Separate them with commas (,).
+   * The status of the event. Valid values: IGNORE (ignored), NEW (newly discovered), FIXING (being processed), and RECOVER (recovered). Separate multiple event statuses with commas (,).
    * 
    * @example
    * IGNORE,NEW,FIXING,RECOVER
@@ -77,7 +77,7 @@ export class ListTopicsRequest extends $dara.Model {
   topicStatuses?: string;
   /**
    * @remarks
-   * The types of the events. Valid values: SLOW and ERROR. The value SLOW indicates that the running duration of the node in the current scheduling cycle is significantly longer than the average running duration of the node in previous scheduling cycles. The value ERROR indicates that the node fails to run. You can specify multiple types. Separate them with commas (,).
+   * The type of the event. Valid values: SLOW (slow) and ERROR (error). Separate multiple event types with commas (,).
    * 
    * @example
    * ERROR,SLOW

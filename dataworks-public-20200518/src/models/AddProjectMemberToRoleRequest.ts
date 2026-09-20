@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddProjectMemberToRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. We recommend that you set this parameter to a UUID. This parameter is used to uniquely identify the API operation call.
+   * The idempotency field. We recommend that you use a UUID. This field uniquely identifies this call operation.
    * 
    * @example
    * 1AFAE64E-D1BE-432B-A9*****
@@ -13,7 +13,7 @@ export class AddProjectMemberToRoleRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
+   * The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to obtain the workspace ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class AddProjectMemberToRoleRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The code of the role that you want to assign to a member of the DataWorks workspace. You can call the [ListProjectRoles](https://help.aliyun.com/document_detail/2780079.html) operation to query the codes of all roles in a DataWorks workspace.
+   * The code of the DataWorks workspace role. You can call the [ListProjectRoles](https://help.aliyun.com/document_detail/2780079.html) operation to obtain the role code.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class AddProjectMemberToRoleRequest extends $dara.Model {
   roleCode?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and move the pointer over the profile picture in the upper-right corner to view the ID.
+   * The Alibaba Cloud account ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and hover over the profile picture in the upper-right corner of the top navigation bar to view the account ID.
    * 
    * This parameter is required.
    * 

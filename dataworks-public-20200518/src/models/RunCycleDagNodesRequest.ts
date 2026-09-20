@@ -6,10 +6,9 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The alert notification method. Valid values:
-   * 
-   * *   SMS
-   * *   MAIL
-   * *   SMS_MAIL
+   * - SMS: text message.
+   * - MAIL: email.
+   * - SMS_MAIL: text message and email.
    * 
    * @example
    * SMS
@@ -17,11 +16,10 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   alertNoticeType?: string;
   /**
    * @remarks
-   * The alert type. Valid values:
-   * 
-   * *   SUCCESS: An alert is generated when data backfill succeeds.
-   * *   FAILURE: An alert is generated when data backfill fails.
-   * *   SUCCESS_FAILURE: An alert is generated regardless of whether data backfill succeeds or fails.
+   * The Alarm Metric. Valid values:
+   * - SUCCESS: Alerting on success.
+   * - FAILURE: Alerting on failed.
+   * - SUCCESS_FAILURE: Alerting on success or failed.
    * 
    * @example
    * FAILURE
@@ -29,7 +27,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The time when the node starts to run. This parameter is required only for auto triggered nodes that are scheduled by hour. Specify the value in the HH:mm:ss format. Valid values: 00:00:00 to 23:59:59.
+   * The start time of the node. This parameter is required only for hourly scheduled nodes. Format: HH:mm:ss. Valid values: 00:00:00 to 23:59:59.
    * 
    * @example
    * 00:00:00
@@ -37,7 +35,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   bizBeginTime?: string;
   /**
    * @remarks
-   * The time when the node stops running. This parameter is required only for auto triggered nodes that are scheduled by hour. Specify the value in the HH:mm:ss format. Valid values: 00:00:00 to 23:59:59.
+   * The end time of the node. This parameter is required only for hourly scheduled nodes. Format: HH:mm:ss. Valid values: 00:00:00 to 23:59:59.
    * 
    * @example
    * 01:00:00
@@ -45,7 +43,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   bizEndTime?: string;
   /**
    * @remarks
-   * The number of nodes that can run in parallel. Valid values: 2 to 10.
+   * The number of concurrent nodes. Valid values: 2 to 10.
    * 
    * @example
    * 5
@@ -53,7 +51,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   concurrentRuns?: number;
   /**
    * @remarks
-   * The data timestamp at which data is no longer backfilled. Specify the value in the yyyy-MM-dd 00:00:00 format.
+   * The end business date for data backfill. Format: yyyy-MM-dd 00:00:00.
    * 
    * This parameter is required.
    * 
@@ -63,7 +61,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   endBizDate?: string;
   /**
    * @remarks
-   * The IDs of the nodes for which no data needs to be backfilled. The system generates dry-run instances for all these nodes. After these dry-run instances are scheduled, the statuses of these instances are directly set to successful, but the script is not run.
+   * The list of node IDs that do not require data backfill. Nodes in this list generate dry-run instances. After a dry-run instance is scheduled, it directly succeeds without executing the script content.
    * 
    * @example
    * 1234,123465
@@ -71,7 +69,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   excludeNodeIds?: string;
   /**
    * @remarks
-   * The ID of the node for which you want to backfill data. If you want to backfill data for multiple nodes, separate the IDs of the nodes with commas (,). You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to obtain the node ID.
+   * The node IDs for data backfill. Separate multiple node IDs with commas (,). You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to obtain node IDs.
    * 
    * This parameter is required.
    * 
@@ -91,15 +89,15 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameters that need to be configured for the node. Set this parameter to a JSON string. The key indicates the ID of the node, and the value indicates the actual values of the parameters.
+   * A JSON string in which the key is the node ID and the value is the actual parameter value.
    * 
    * @example
-   * {74324:"a=123 b=456"}
+   * {"74324":"a=123 b=456"}
    */
   nodeParams?: string;
   /**
    * @remarks
-   * Specifies whether data can be backfilled for multiple nodes at the same time.
+   * Specifies whether nodes across multiple business dates can run in parallel.
    * 
    * This parameter is required.
    * 
@@ -109,7 +107,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   parallelism?: boolean;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
+   * The environment of the workspace. PROD indicates the production environment. DEV indicates the development environment.
    * 
    * This parameter is required.
    * 
@@ -119,7 +117,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   projectEnv?: string;
   /**
    * @remarks
-   * The ID of the node for which data is first backfilled. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to obtain the node ID.
+   * The ID of the start node for data backfill. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to obtain the node ID.
    * 
    * This parameter is required.
    * 
@@ -129,7 +127,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   rootNodeId?: number;
   /**
    * @remarks
-   * The data timestamp at which data starts to be backfilled. Specify the value in the yyyy-MM-dd 00:00:00 format.
+   * The start business date for data backfill. Format: yyyy-MM-dd 00:00:00.
    * 
    * This parameter is required.
    * 
@@ -139,7 +137,7 @@ export class RunCycleDagNodesRequest extends $dara.Model {
   startBizDate?: string;
   /**
    * @remarks
-   * Specifies whether to immediately run an instance that is scheduled to run in the future. If you set this parameter to true, the instance that is scheduled to run in the future is run immediately. Otherwise, the instance is run as scheduled.
+   * Specifies whether to immediately run instances whose scheduling time is in the future. If this parameter is set to true, instances with a scheduling time later than the current time run immediately. Otherwise, the instances wait until the scheduling time.
    * 
    * @example
    * false

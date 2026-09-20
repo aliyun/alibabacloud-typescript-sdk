@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataServiceApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the API in DataService Studio.
+   * The ID of the DataService API.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,9 @@ export class DeleteDataServiceApiRequest extends $dara.Model {
   apiId?: number;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
+   * 
+   * You can obtain the workspace ID from PageResult.ProjectList[].ProjectId in the response of ListProjects.
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,9 @@ export class DeleteDataServiceApiRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
+   * The tenant ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console), go to the DataStudio page, click the username in the upper-right corner, and choose Menu > User Info to obtain the tenant ID.
+   * 
+   * You can also obtain the tenant ID from Data.Apis[].TenantId in the response of ListDataServiceApis.
    * 
    * @example
    * 10002

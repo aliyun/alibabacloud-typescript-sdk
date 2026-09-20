@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchNodesByOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The map returned. The key in the map indicates an output name, and the value in the map indicates the information about the node that generates the output.
+   * The returned data, which is a map. The key is each output that you specify, and the value is the node information that corresponds to the output.
    */
   data?: { [key: string]: any };
   /**
@@ -34,7 +34,7 @@ export class SearchNodesByOutputResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * SDFSDFSDF-asdfDFSDF-SDFSDf-SDfSFD
@@ -42,7 +42,7 @@ export class SearchNodesByOutputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

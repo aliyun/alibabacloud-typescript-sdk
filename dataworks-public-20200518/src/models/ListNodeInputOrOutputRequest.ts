@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodeInputOrOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of node that you want to query. Valid values:
+   * Specifies whether to query upstream or downstream nodes. Valid values:
    * 
-   * *   input: ancestor node
-   * *   output: descendant node
+   * - input: upstream nodes.
+   * - output: downstream nodes.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class ListNodeInputOrOutputRequest extends $dara.Model {
   ioType?: string;
   /**
    * @remarks
-   * The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
+   * The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class ListNodeInputOrOutputRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: DEV and PROD.
+   * The environment in which the node runs. Valid values: DEV (development environment) and PROD (production environment).
    * 
    * This parameter is required.
    * 

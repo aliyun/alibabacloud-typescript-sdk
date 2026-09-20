@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListShiftPersonnelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The time when the on-duty engineer starts a shift. Set the value to a UNIX timestamp.
+   * The start time of the on-duty period. This value is a timestamp.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListShiftPersonnelsRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The time when the on-duty engineer ends a shift. Set the value to a UNIX timestamp.
+   * The end time of the on-duty period. This value is a timestamp.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListShiftPersonnelsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to view the ID.
+   * The Alibaba Cloud account ID. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to view the account ID.
    * 
    * @example
    * 1933790****551
@@ -43,7 +43,11 @@ export class ListShiftPersonnelsRequest extends $dara.Model {
   shiftScheduleIdentifier?: string;
   /**
    * @remarks
-   * The type of the on-duty engineer that you want to query. Valid values: ALL, PRIMARY, BACKUP, and DESIGNATED_USER.
+   * The query condition for on-duty personnel. Valid values:
+   * - ALL: all on-duty personnel.
+   * - PRIMARY: primary on-duty personnel.
+   * - BACKUP: backup on-duty personnel.
+   * - DESIGNATED_USER: designated personnel.
    * 
    * @example
    * ALL

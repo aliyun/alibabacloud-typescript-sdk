@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaColumnLineageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the E-MapReduce (EMR) cluster. Configure this parameter only when you query data in an EMR compute engine instance.
+   * The ID of the EMR cluster. This parameter is required for EMR scenarios.
    * 
    * @example
    * abc
@@ -29,7 +29,10 @@ export class GetMetaColumnLineageRequest extends $dara.Model {
   columnName?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps and emr.
+   * The data source type. Valid values:
+   * 
+   * - odps
+   * - emr
    * 
    * @example
    * emr
@@ -45,7 +48,10 @@ export class GetMetaColumnLineageRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * Specifies whether to query the ancestor or descendant lineage of the field. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
+   * The direction of the field lineage. Valid values:
+   * 
+   * - up: upstream.
+   * - down: downstream.
    * 
    * This parameter is required.
    * 
@@ -55,7 +61,7 @@ export class GetMetaColumnLineageRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number. Used for pagination.
    * 
    * @example
    * 1
@@ -63,7 +69,7 @@ export class GetMetaColumnLineageRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -71,7 +77,7 @@ export class GetMetaColumnLineageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the metatable.
+   * The name of the table.
    * 
    * @example
    * abc

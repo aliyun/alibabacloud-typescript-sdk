@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBaselineConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The baseline ID. You can call the [GetNode](https://help.aliyun.com/document_detail/173977.html) operation to query the baseline ID.
+   * The ID of the baseline. You can obtain the baseline ID by calling the [GetNode](https://help.aliyun.com/document_detail/173977.html) operation.
    * 
    * This parameter is required.
    * 

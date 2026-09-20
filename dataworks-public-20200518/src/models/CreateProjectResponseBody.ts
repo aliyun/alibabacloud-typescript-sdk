@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the DataWorks workspace that was created.
    * 
    * @example
    * 466230
@@ -31,8 +31,8 @@ export class CreateProjectResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

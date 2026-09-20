@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SuspendInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,9 @@ export class SuspendInstanceRequest extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV.
+   * The environment of the workspace. Valid values:
+   * - PROD: production environment
+   * - DEV: development environment
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   /**
    * @remarks
-   * The type of the workflow. Valid values:
-   * 
-   * *   DAILY: The workflow is used to run auto triggered nodes.
-   * *   MANUAL: The workflow is used to run manually triggered nodes.
-   * *   SMOKE_TEST: The workflow is used to perform smoke testing.
-   * *   SUPPLY_DATA: The workflow is used to backfill data.
+   * The baseline ID.
    * 
    * @example
    * 123123
@@ -18,7 +13,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   baselineId?: number;
   /**
    * @remarks
-   * The time when the instance started to run.
+   * The time when the instance started running.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -26,7 +23,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   beginRunningTime?: number;
   /**
    * @remarks
-   * The time when the node stopped running.
+   * The time when the instance started waiting for resources.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -34,7 +33,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   beginWaitResTime?: number;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+   * The time when the instance started waiting for scheduling.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -42,9 +43,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   beginWaitTimeTime?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
+   * The data timestamp of the scheduled node. This is typically the day before the node runs.
    * 
-   * You cannot specify the sorting method for the instances to be returned by this operation. By default, the instances are sorted in descending order of the time when the instances were created.
+   * The value is a 13-digit number, such as `1590336000000`.
    * 
    * @example
    * 1590336000000
@@ -52,7 +53,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   bizdate?: number;
   /**
    * @remarks
-   * The ID of the workflow to which the node belongs.
+   * The business process ID.
    * 
    * @example
    * 123
@@ -60,19 +61,17 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   businessId?: number;
   /**
    * @remarks
-   * The number of times the node can be rerun. The value of this parameter can be empty or an integer that is greater than or equal to 0.
-   * 
-   * *   If the value of this parameter is empty, the number of times that the node can be rerun is not specified.
-   * *   If the value of this parameter is 0, the node cannot be rerun.
-   * *   If the value of this parameter is a positive integer such as n, the node can be rerun n times. For example, if the value of this parameter is 1, the node can be rerun once. If the value of this parameter is 2, the node can be rerun twice.
+   * The connection string.
    * 
    * @example
-   * odps_first
+   * odps_source
    */
   connection?: string;
   /**
    * @remarks
-   * The interval at which the node is rerun after the node fails to run. Unit: milliseconds.
+   * The time when the instance was created.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -80,7 +79,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID of the node.
+   * The user who triggered the instance to run. For example, if user Test triggered a data backfill instance, the CreateUser is Test.
    * 
    * @example
    * Test
@@ -88,7 +87,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The scheduled runtime of the node.
+   * 
+   * The value is a 13-digit number, such as `1590422400000`.
    * 
    * @example
    * 1590422400000
@@ -96,7 +97,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   cycTime?: number;
   /**
    * @remarks
-   * The time when the instance started to wait for resources.
+   * The workflow ID.
    * 
    * @example
    * 33845
@@ -104,7 +105,14 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   dagId?: number;
   /**
    * @remarks
-   * The data timestamp of the instance. In most cases, the value is one day before the time when the instance was run.
+   * The type of the workflow. Valid values:
+   * 
+   * - DAILY(0): daily scheduling workflow.
+   * - MANUAL(1): manual task workflow.
+   * - SMOKE_TEST(2): smoke testing workflow.
+   * - SUPPLY_DATA(3): data backfill workflow.
+   * - MANUAL_FLOW(4): manually triggered dataflow PAI workflow (such as running a workflow in the IDE).
+   * - BUSINESS_PROCESS_DAG(5): manual business process workflow.
    * 
    * @example
    * DAILY
@@ -112,7 +120,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   dagType?: string;
   /**
    * @remarks
-   * The operation that you want to perform.
+   * The DQC partitioning rule string.
    * 
    * @example
    * [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\\u003d$[yyyy-mm-dd-1]"}]
@@ -120,16 +128,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   dqcDescription?: string;
   /**
    * @remarks
-   * The status of the node. Valid values:
-   * 
-   * *   NOT_RUN: The node is not run.
-   * *   WAIT_TIME: The node is waiting for the scheduling time to arrive.
-   * *   WAIT_RESOURCE: The node is waiting for resources.
-   * *   RUNNING: The node is running.
-   * *   CHECKING: Data quality is being checked for the node.
-   * *   CHECKING_CONDITION: Branch conditions are being checked for the node.
-   * *   FAILURE: The node fails to run.
-   * *   SUCCESS: The node is successfully run.
+   * The DQC type. Valid values:
+   * - 0: associated with DQC.
+   * - 1: not associated with DQC.
    * 
    * @example
    * 1
@@ -137,7 +138,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   dqcType?: number;
   /**
    * @remarks
-   * The name of the account that is used to run the instance. For example, if an account named Test was used to run the instance to backfill data, the value of this parameter is Test.
+   * **[Deprecated]** The error message of the instance run. You can call [GetInstanceLog](https://help.aliyun.com/document_detail/173983.html) to obtain the error information of the executed task.
    * 
    * @example
    * error message
@@ -145,7 +146,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the ID on the Security Settings page of the Account Center console.
+   * The time when the scheduled node finished running.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -153,7 +156,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   finishTime?: number;
   /**
    * @remarks
-   * The number of the page to return. Minimum value:1. Maximum value: 100.
+   * The instance ID.
    * 
    * @example
    * 1234
@@ -161,7 +164,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The name of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the name of the workflow.
+   * The time when the scheduled node was last modified.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -169,7 +174,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
+   * The node ID.
    * 
    * @example
    * 33115
@@ -177,7 +182,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The ID of the workflow.
+   * The node name.
    * 
    * @example
    * kzh
@@ -185,7 +190,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The table and partition filter expression in Data Quality that are associated with the node.
+   * The parameter information.
    * 
    * @example
    * bizdate=$bizdate tbods=$tbods
@@ -193,7 +198,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   paramValues?: string;
   /**
    * @remarks
-   * The total number of instances.
+   * The priority of the instance. Valid values: 1, 3, 5, 7, and 8.
+   * 
+   * A larger value indicates a higher priority. Default value: 1.
    * 
    * @example
    * 1
@@ -201,7 +208,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The type of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the type of the node.
+   * The ID of the associated business process.
    * 
    * @example
    * 123456
@@ -209,23 +216,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   relatedFlowId?: number;
   /**
    * @remarks
-   * The scheduling type of the node. Valid values:
-   * 
-   * *   NORMAL(0): The node is an auto triggered node. The scheduling system regularly runs the node.
-   * 
-   * *   MANUAL(1): The node is a manually triggered node. The scheduling system does not regularly run the node.
-   * 
-   * *   PAUSE(2): The node is a frozen node. The scheduling system regularly runs the node but sets the status of the node to failed when the scheduling system starts to run the node.
-   * 
-   * *   SKIP(3): The node is a dry-run node. The scheduling system regularly runs the node but sets the status of the node to succeeded when the scheduling system starts to run the node.
-   * 
-   * *   SKIP_UNCHOOSE(4): The node is an unselected node in a temporary workflow. This type of node exists only in temporary workflows. The scheduling system sets the status of the node to succeeded when the scheduling system starts to run the node.
-   * 
-   * *   SKIP_CYCLE(5): The node is a node that is scheduled by week or month and is waiting for the scheduling time to arrive. The scheduling system regularly runs the node but sets the status of the node to succeeded when the scheduling system starts to run the node.
-   * 
-   * *   CONDITION_UNCHOOSE(6): The node is not selected by its ancestor branch node and is run as a dry-run node.
-   * 
-   *     REALTIME_DEPRECATED(7): The node has instances that are generated in real time but deprecated. The scheduling system sets the status of the node to succeeded.
+   * The interval at which the node is rescheduled after a failure. Unit: milliseconds.
    * 
    * @example
    * 60000
@@ -233,16 +224,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   repeatInterval?: number;
   /**
    * @remarks
-   * The status of the node. Valid values:
-   * 
-   * *   NOT_RUN: The node is not run.
-   * *   WAIT_TIME: The node is waiting for the scheduling time to arrive.
-   * *   WAIT_RESOURCE: The node is waiting for resources.
-   * *   RUNNING: The node is running.
-   * *   CHECKING: Data quality is being checked for the node.
-   * *   CHECKING_CONDITION: Branch conditions are being checked for the node.
-   * *   FAILURE: The node fails to run.
-   * *   SUCCESS: The node is successfully run.
+   * Indicates whether the instance task can be rerun.
    * 
    * @example
    * true
@@ -250,7 +232,17 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   repeatability?: boolean;
   /**
    * @remarks
-   * The data timestamp of the instances that you want to query. Specify the timestamp in the yyyy-MM-dd HH:mm:ss format.
+   * The status of the node. Valid values:
+   * 
+   * - NOT_RUN(1): The node is not run.
+   * - WAIT_TIME(2): The node is waiting for the scheduled time to arrive.
+   * - WAIT_RESOURCE(3): The node has been sent to the execution engine and is waiting for resources to be scheduled.
+   * - RUNNING(4): The node is running.
+   * - CHECKING(7): The node has finished running and has been sent to Data Quality for data verification.
+   * - CHECKING_CONDITION(8): The node has finished running and is undergoing branch condition verification.
+   * - WAIT_TRIGGER(9): The node is waiting to be triggered. A trigger-based node enters this state after the waiting time elapses.
+   * - FAILURE(5): The node failed to run.
+   * - SUCCESS(6): The node ran successfully.
    * 
    * @example
    * NOT_RUN
@@ -258,7 +250,10 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID of the workspace.
+   * The number of remaining reruns for the instance. The value can be empty or an integer greater than or equal to 0.
+   * - Empty: The node corresponding to this instance does not have automatic rerun configured.
+   * - 0: The instance cannot be rerun.
+   * - An integer greater than 0 (n): The instance can be rerun n times. For example, if the value is 1, the remaining rerun count is 1. If the value is 2, the remaining rerun count is 2, and so on. The initial value is the automatic rerun count defined for the corresponding node plus 1.
    * 
    * @example
    * 0
@@ -266,7 +261,15 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   taskRerunTime?: number;
   /**
    * @remarks
-   * The information about the instances.
+   * The scheduling type of the task instance. Valid values:
+   * - NORMAL(0): The node is a normal scheduled node that is triggered by daily scheduling.
+   * - MANUAL(1): The node is a manual node that is not triggered by daily scheduling.
+   * - PAUSE(2): The node is a frozen node that is triggered by daily scheduling but is set to failed when scheduling starts.
+   * - SKIP(3): The node is a dry-run node that is triggered by daily scheduling but is set to successful when scheduling starts.
+   * - SKIP_UNCHOOSE(4): The node is an unselected node in a temporary workflow. It exists only in temporary workflows and is set to successful when scheduling starts.
+   * - SKIP_CYCLE(5): The node is a weekly or monthly node whose scheduling cycle has not arrived. It is triggered by daily scheduling but is set to successful when scheduling starts.
+   * - CONDITION_UNCHOOSE(6): The upstream instance contains a branch (IF) node, but this downstream node is not selected by the branch node and is set to a dry-run node.
+   * - REALTIME_DEPRECATED(7): The node is an expired periodic instance generated in real time. This type of node is set to successful.
    * 
    * @example
    * NORMAL(0)
@@ -350,12 +353,12 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
 export class ListInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the name of the node.
+   * The instance information.
    */
   instances?: ListInstancesResponseBodyDataInstances[];
   /**
    * @remarks
-   * The time when the node was scheduled to run.
+   * The page number.
    * 
    * @example
    * 1
@@ -363,7 +366,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -371,9 +374,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The priority of the instance. Valid values: 1, 3, 5, 7, and 8.
-   * 
-   * A greater value indicates a higher priority. Default value: 1.
+   * The total number of instances.
    * 
    * @example
    * 66
@@ -412,12 +413,12 @@ export class ListInstancesResponseBodyData extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID of the node.
+   * The list of instances.
    */
   data?: ListInstancesResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The error code.
    * 
    * @example
    * Invalid.Tenant.ProjectNotExists
@@ -425,7 +426,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The error message.
    * 
    * @example
    * The project does not exist.
@@ -433,9 +434,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The error message that is returned for the instance.
-   * 
-   * This parameter is deprecated. You can call the [GetInstanceLog](https://help.aliyun.com/document_detail/173983.html) operation to query the error information related to the node.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -443,7 +442,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The name of the node.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * E6F0DBDD-5AD****
@@ -451,7 +450,9 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * Indicates whether the request was successful. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

@@ -70,8 +70,8 @@ export default class Client extends OpenApi {
       'rus-west-1-pop': "dataworks.aliyuncs.com",
       'us-east-1': "dataworks.us-east-1.aliyuncs.com",
       'us-west-1': "dataworks.us-west-1.aliyuncs.com",
-      'me-central-1': "dataworks.me-central-1.aliyuncs.com",
       'ap-northeast-2': "dataworks.ap-northeast-2.aliyuncs.com",
+      'me-central-1': "dataworks.me-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dataworks-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -227,6 +227,9 @@ export default class Client extends OpenApi {
   /**
    * Adds an entity to a collection.
    * 
+   * @remarks
+   * Before you begin: Before calling this operation, activate DataWorks Professional Edition or a higher edition. The Basic Edition and Standard Edition do not support the metadata collection feature.
+   * 
    * @param request - AddMetaCollectionEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddMetaCollectionEntityResponse
@@ -266,6 +269,9 @@ export default class Client extends OpenApi {
   /**
    * Adds an entity to a collection.
    * 
+   * @remarks
+   * Before you begin: Before calling this operation, activate DataWorks Professional Edition or a higher edition. The Basic Edition and Standard Edition do not support the metadata collection feature.
+   * 
    * @param request - AddMetaCollectionEntityRequest
    * @returns AddMetaCollectionEntityResponse
    */
@@ -275,11 +281,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
+   * Adds a DataWorks workspace user to a role. Before calling this operation, you must first add the target account as a member of the DataWorks workspace.
    * 
    * @remarks
-   * - Add the target account as a member of the DataWorks workspace. For more information, see [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
-   * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, see [Mappings between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
+   * - To add the target account as a member of the DataWorks workspace, refer to [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+   * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, refer to [Mapping between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
    * 
    * @param request - AddProjectMemberToRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -322,11 +328,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
+   * Adds a DataWorks workspace user to a role. Before calling this operation, you must first add the target account as a member of the DataWorks workspace.
    * 
    * @remarks
-   * - Add the target account as a member of the DataWorks workspace. For more information, see [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
-   * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, see [Mappings between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
+   * - To add the target account as a member of the DataWorks workspace, refer to [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+   * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, refer to [Mapping between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
    * 
    * @param request - AddProjectMemberToRoleRequest
    * @returns AddProjectMemberToRoleResponse
@@ -494,10 +500,10 @@ export default class Client extends OpenApi {
 
   /**
    * Approves a permission request order.
-   * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI ApproveProcessInstance as soon as possible.
+   * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — ApproveProcessInstance.
    * 
    * @remarks
-   * *Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance) as soon as possible.**.
+   * *Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance).**
    * 
    * @param request - ApprovePermissionApplyOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -537,10 +543,10 @@ export default class Client extends OpenApi {
 
   /**
    * Approves a permission request order.
-   * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI ApproveProcessInstance as soon as possible.
+   * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — ApproveProcessInstance.
    * 
    * @remarks
-   * *Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance) as soon as possible.**.
+   * *Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance).**
    * 
    * @param request - ApprovePermissionApplyOrderRequest
    * @returns ApprovePermissionApplyOrderResponse
@@ -551,7 +557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends the processing result of an extension point event by an extension to DataWorks.
+   * Returns the check result of an extension program for an extension point event to the DataWorks platform by calling the CallbackExtension operation when an extension point is triggered during the use of the DataWorks platform.
    * 
    * @param request - CallbackExtensionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -594,7 +600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends the processing result of an extension point event by an extension to DataWorks.
+   * Returns the check result of an extension program for an extension point event to the DataWorks platform by calling the CallbackExtension operation when an extension point is triggered during the use of the DataWorks platform.
    * 
    * @param request - CallbackExtensionRequest
    * @returns CallbackExtensionResponse
@@ -655,7 +661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the check events for a file that is pending deployment in DataStudio. After a file is committed, DataWorks checks the file and generates events before deployment. Use the returned events to determine whether the file can proceed with deployment validation.
+   * Returns the check result of a file pending deployment to DataWorks. After a file created on the DataWorks DataStudio page is submitted, the file enters the deployment check state. DataWorks returns a file deployment check event to you, and you need to determine whether the file can proceed with deployment verification based on the event content. You can call this operation to return the check result of the file pending deployment to DataWorks.
    * 
    * @param request - CheckFileDeploymentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -694,7 +700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the check events for a file that is pending deployment in DataStudio. After a file is committed, DataWorks checks the file and generates events before deployment. Use the returned events to determine whether the file can proceed with deployment validation.
+   * Returns the check result of a file pending deployment to DataWorks. After a file created on the DataWorks DataStudio page is submitted, the file enters the deployment check state. DataWorks returns a file deployment check event to you, and you need to determine whether the file can proceed with deployment verification based on the event content. You can call this operation to return the check result of the file pending deployment to DataWorks.
    * 
    * @param request - CheckFileDeploymentRequest
    * @returns CheckFileDeploymentResponse
@@ -767,7 +773,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a metatable exists.
+   * Checks whether a table exists.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
    * 
    * @param request - CheckMetaTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -814,7 +823,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a metatable exists.
+   * Checks whether a table exists.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
    * 
    * @param request - CheckMetaTableRequest
    * @returns CheckMetaTableResponse
@@ -895,7 +907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow in DataStudio.
+   * Creates a business process in DataStudio for data development.
    * 
    * @param request - CreateBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -946,7 +958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow in DataStudio.
+   * Creates a business process in DataStudio for data development.
    * 
    * @param request - CreateBusinessRequest
    * @returns CreateBusinessResponse
@@ -1294,7 +1306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls CreateDagComplement to create a data backfill workflow.
+   * Creates a data backfill workflow by calling CreateDagComplement.
    * 
    * @deprecated OpenAPI CreateDagComplement is deprecated
    * 
@@ -1367,7 +1379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls CreateDagComplement to create a data backfill workflow.
+   * Creates a data backfill workflow by calling CreateDagComplement.
    * 
    * @deprecated OpenAPI CreateDagComplement is deprecated
    * 
@@ -1444,7 +1456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API.
+   * Creates a Data Service API by calling CreateDataServiceApi.
    * 
    * @param request - CreateDataServiceApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1547,7 +1559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API.
+   * Creates a Data Service API by calling CreateDataServiceApi.
    * 
    * @param request - CreateDataServiceApiRequest
    * @returns CreateDataServiceApiResponse
@@ -1798,7 +1810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
+   * Creates an export task in DataWorks. This API operation only creates the export task and does not start the export task.
    * 
    * @param request - CreateExportMigrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1849,7 +1861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
+   * Creates an export task in DataWorks. This API operation only creates the export task and does not start the export task.
    * 
    * @param request - CreateExportMigrationRequest
    * @returns CreateExportMigrationResponse
@@ -2284,7 +2296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The manual workflow must have already been submitted and deployed in the UI, and the Operation Center must be able to find the corresponding manual workflow. Only then can this API be used.
+   * Triggers the execution of a manual business process. The manual business process must have been submitted and published in the console, and the O&M center must be able to find the corresponding manual business process before you can call this operation.
    * 
    * @deprecated OpenAPI CreateManualDag is deprecated
    * 
@@ -2345,7 +2357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The manual workflow must have already been submitted and deployed in the UI, and the Operation Center must be able to find the corresponding manual workflow. Only then can this API be used.
+   * Triggers the execution of a manual business process. The manual business process must have been submitted and published in the console, and the O&M center must be able to find the corresponding manual business process before you can call this operation.
    * 
    * @deprecated OpenAPI CreateManualDag is deprecated
    * 
@@ -2409,10 +2421,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a collection.
+   * Creates a collection object.
    * 
    * @remarks
-   * Collections are classified into various types. The names of collections of the same type must be different.
+   * Collections have multiple types. The name must be unique within the same collection type.
    * 
    * @param request - CreateMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2455,10 +2467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a collection.
+   * Creates a collection object.
    * 
    * @remarks
-   * Collections are classified into various types. The names of collections of the same type must be different.
+   * Collections have multiple types. The name must be unique within the same collection type.
    * 
    * @param request - CreateMetaCollectionRequest
    * @returns CreateMetaCollectionResponse
@@ -2470,10 +2482,10 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a permission request order.
-   * Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — ApplyResourceAccessPermission.
+   * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — ApplyResourceAccessPermission as soon as possible.
    * 
    * @remarks
-   * *Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission).**
+   * *Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission) as soon as possible.**
    * 
    * @param request - CreatePermissionApplyOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2541,10 +2553,10 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a permission request order.
-   * Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — ApplyResourceAccessPermission.
+   * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — ApplyResourceAccessPermission as soon as possible.
    * 
    * @remarks
-   * *Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission).**
+   * *Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission) as soon as possible.**
    * 
    * @param request - CreatePermissionApplyOrderRequest
    * @returns CreatePermissionApplyOrderResponse
@@ -2756,7 +2768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a follower to a partition expression to receive data quality alerts.
+   * Creates a subscriber for a partition expression by calling CreateQualityFollower.
    * 
    * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
    * 
@@ -2805,7 +2817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a follower to a partition expression to receive data quality alerts.
+   * Creates a subscriber for a partition expression by calling CreateQualityFollower.
    * 
    * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
    * 
@@ -3017,7 +3029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom alert rule.
+   * Creates a custom alert rule by calling CreateRemind.
    * 
    * @param request - CreateRemindRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3108,7 +3120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom alert rule.
+   * Creates a custom alert rule by calling CreateRemind.
    * 
    * @param request - CreateRemindRequest
    * @returns CreateRemindResponse
@@ -3524,7 +3536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file for a function in DataStudio.
+   * Creates a function type file in DataStudio.
    * 
    * @param request - CreateUdfFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3603,7 +3615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file for a function in DataStudio.
+   * Creates a function type file in DataStudio.
    * 
    * @param request - CreateUdfFileRequest
    * @returns CreateUdfFileResponse
@@ -3903,7 +3915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an API in DataService Studio.
+   * Deletes a DataService API.
    * 
    * @param request - DeleteDataServiceApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3942,7 +3954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an API in DataService Studio.
+   * Deletes a DataService API.
    * 
    * @param request - DeleteDataServiceApiRequest
    * @returns DeleteDataServiceApiResponse
@@ -5034,7 +5046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Masks data.
+   * Submits data for masking and returns the masked result.
    * 
    * @param request - DesensitizeDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5061,7 +5073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Masks data.
+   * Submits data for masking and returns the masked result.
    * 
    * @param request - DesensitizeDataRequest
    * @returns DesensitizeDataResponse
@@ -6833,7 +6845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a baseline based on its ID.
+   * Retrieves the baseline configuration based on a baseline ID.
    * 
    * @param request - GetBaselineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6868,7 +6880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a baseline based on its ID.
+   * Retrieves the baseline configuration based on a baseline ID.
    * 
    * @param request - GetBaselineRequest
    * @returns GetBaselineResponse
@@ -6879,7 +6891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a baseline.
+   * Retrieves the configuration details of a baseline by calling GetBaselineConfig.
    * 
    * @param request - GetBaselineConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6910,7 +6922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a baseline.
+   * Retrieves the configuration details of a baseline by calling GetBaselineConfig.
    * 
    * @param request - GetBaselineConfigRequest
    * @returns GetBaselineConfigResponse
@@ -6921,7 +6933,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The information about the events that are associated with the instance.
+   * Retrieves the critical path of a baseline instance.
+   * 
+   * @remarks
+   * 调用前需准备有效的 BaselineId：可先通过 ListProjects 获取 ProjectId，再调用 ListBaselines，并从其 Data.Baselines[].BaselineId 获取。
    * 
    * @param request - GetBaselineKeyPathRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6960,7 +6975,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The information about the events that are associated with the instance.
+   * Retrieves the critical path of a baseline instance.
+   * 
+   * @remarks
+   * 调用前需准备有效的 BaselineId：可先通过 ListProjects 获取 ProjectId，再调用 ListBaselines，并从其 Data.Baselines[].BaselineId 获取。
    * 
    * @param request - GetBaselineKeyPathRequest
    * @returns GetBaselineKeyPathResponse
@@ -6971,7 +6989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the status of a baseline instance.
+   * Retrieves the details of a baseline instance.
    * 
    * @param request - GetBaselineStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7010,7 +7028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the status of a baseline instance.
+   * Retrieves the details of a baseline instance.
    * 
    * @param request - GetBaselineStatusRequest
    * @returns GetBaselineStatusResponse
@@ -7071,7 +7089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a table creation, update, or deletion task.
+   * Retrieves the status of tasks for creating, updating, and deleting tables.
    * 
    * @deprecated OpenAPI GetDDLJobStatus is deprecated
    * 
@@ -7100,7 +7118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a table creation, update, or deletion task.
+   * Retrieves the status of tasks for creating, updating, and deleting tables.
    * 
    * @deprecated OpenAPI GetDDLJobStatus is deprecated
    * 
@@ -7618,6 +7636,9 @@ export default class Client extends OpenApi {
   /**
    * Retrieves the details of a published DataService Studio API.
    * 
+   * @remarks
+   * 前置条件：请先开通 DataWorks 企业版或旗舰版，并准备已发布的数据服务 API。ProjectId 可通过 ListProjects 获取，ApiId 可通过 ListDataServicePublishedApis 的 Data.Apis[].ApiId 获取；未开通所需版本时会返回 403 Forbidden.Access。
+   * 
    * @param request - GetDataServicePublishedApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDataServicePublishedApiResponse
@@ -7656,6 +7677,9 @@ export default class Client extends OpenApi {
 
   /**
    * Retrieves the details of a published DataService Studio API.
+   * 
+   * @remarks
+   * 前置条件：请先开通 DataWorks 企业版或旗舰版，并准备已发布的数据服务 API。ProjectId 可通过 ListProjects 获取，ApiId 可通过 ListDataServicePublishedApis 的 Data.Apis[].ApiId 获取；未开通所需版本时会返回 403 Forbidden.Access。
    * 
    * @param request - GetDataServicePublishedApiRequest
    * @returns GetDataServicePublishedApiResponse
@@ -8024,7 +8048,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
+   * Queries the extension point data snapshot at the time an extension point event was triggered, based on the message ID of a DataWorks open message.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns a 403 Forbidden.Access error.
    * 
    * @param request - GetIDEEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8059,7 +8086,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
+   * Queries the extension point data snapshot at the time an extension point event was triggered, based on the message ID of a DataWorks open message.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns a 403 Forbidden.Access error.
    * 
    * @param request - GetIDEEventDetailRequest
    * @returns GetIDEEventDetailResponse
@@ -8442,7 +8472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about instances in a manually triggered workflow.
+   * Queries information about instances of a manually triggered workflow.
    * 
    * @deprecated OpenAPI GetManualDagInstances is deprecated
    * 
@@ -8483,7 +8513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about instances in a manually triggered workflow.
+   * Queries information about instances of a manually triggered workflow.
    * 
    * @deprecated OpenAPI GetManualDagInstances is deprecated
    * 
@@ -8497,7 +8527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a category tree.
+   * Queries the tree categories.
    * 
    * @param request - GetMetaCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8536,7 +8566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a category tree.
+   * Queries the tree categories.
    * 
    * @param request - GetMetaCategoryRequest
    * @returns GetMetaCategoryResponse
@@ -8547,7 +8577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a collection.
+   * Queries the details of a collection.
    * 
    * @param request - GetMetaCollectionDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8578,7 +8608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a collection.
+   * Queries the details of a collection.
    * 
    * @param request - GetMetaCollectionDetailRequest
    * @returns GetMetaCollectionDetailResponse
@@ -8589,7 +8619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the lineage of a field in a metatable.
+   * Queries the lineage of a field by calling GetMetaColumnLineage.
    * 
    * @param request - GetMetaColumnLineageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8652,7 +8682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the lineage of a field in a metatable.
+   * Queries the lineage of a field by calling GetMetaColumnLineage.
    * 
    * @param request - GetMetaColumnLineageRequest
    * @returns GetMetaColumnLineageResponse
@@ -8663,7 +8693,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic metadata information about a compute engine instance.
+   * Retrieves the basic metadata information of an engine instance.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
    * 
    * @param request - GetMetaDBInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8690,7 +8723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic metadata information about a compute engine instance.
+   * Retrieves the basic metadata information of an engine instance.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
    * 
    * @param request - GetMetaDBInfoRequest
    * @returns GetMetaDBInfoResponse
@@ -8765,6 +8801,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the basic information about a metatable.
    * 
+   * @remarks
+   * 前置条件：调用本接口前，请先开通 DataWorks 企业版或旗舰版；未开通时服务会返回 403 Forbidden.Access。
+   * 
    * @param request - GetMetaTableBasicInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMetaTableBasicInfoResponse
@@ -8792,6 +8831,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the basic information about a metatable.
    * 
+   * @remarks
+   * 前置条件：调用本接口前，请先开通 DataWorks 企业版或旗舰版；未开通时服务会返回 403 Forbidden.Access。
+   * 
    * @param request - GetMetaTableBasicInfoRequest
    * @returns GetMetaTableBasicInfoResponse
    */
@@ -8801,10 +8843,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the change logs of a metatable.
+   * Retrieves the change log of a table.
    * 
    * @remarks
-   * > This API operation is not recommended. A new API operation that provides the same capability will be released soon.
+   * > We do not recommend that you use this API operation. A new API operation will be released to replace it.
    * 
    * @param request - GetMetaTableChangeLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8859,10 +8901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the change logs of a metatable.
+   * Retrieves the change log of a table.
    * 
    * @remarks
-   * > This API operation is not recommended. A new API operation that provides the same capability will be released soon.
+   * > We do not recommend that you use this API operation. A new API operation will be released to replace it.
    * 
    * @param request - GetMetaTableChangeLogRequest
    * @returns GetMetaTableChangeLogResponse
@@ -8911,10 +8953,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves complete metadata for a table, including field details.
+   * Retrieves the complete information about a table, including field information.
    * 
    * @remarks
-   * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
+   * Only tables of the EMR engine type are supported.
    * 
    * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
    * 
@@ -8943,10 +8985,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves complete metadata for a table, including field details.
+   * Retrieves the complete information about a table, including field information.
    * 
    * @remarks
-   * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
+   * Only tables of the EMR engine type are supported.
    * 
    * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
    * 
@@ -8960,7 +9002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the instructions on how to use a table.
+   * Retrieves the usage instructions for a table.
    * 
    * @param request - GetMetaTableIntroWikiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8995,7 +9037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the instructions on how to use a table.
+   * Retrieves the usage instructions for a table.
    * 
    * @param request - GetMetaTableIntroWikiRequest
    * @returns GetMetaTableIntroWikiResponse
@@ -9006,7 +9048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the lineage of a metatable.
+   * Queries the data lineage of a table.
    * 
    * @param request - GetMetaTableLineageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9065,7 +9107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the lineage of a metatable.
+   * Queries the data lineage of a table.
    * 
    * @param request - GetMetaTableLineageRequest
    * @returns GetMetaTableLineageResponse
@@ -9114,7 +9156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the output information of a metatable.
+   * Retrieves the output information of a table.
    * 
    * @param request - GetMetaTableOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9165,7 +9207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the output information of a metatable.
+   * Retrieves the output information of a table.
    * 
    * @param request - GetMetaTableOutputRequest
    * @returns GetMetaTableOutputResponse
@@ -9320,7 +9362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Fetches topics and hierarchy metadata for tables
+   * Queries the theme and level information of a table.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) to activate or upgrade to the required edition.
    * 
    * @param request - GetMetaTableThemeLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9347,7 +9392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Fetches topics and hierarchy metadata for tables
+   * Queries the theme and level information of a table.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) to activate or upgrade to the required edition.
    * 
    * @param request - GetMetaTableThemeLevelRequest
    * @returns GetMetaTableThemeLevelResponse
@@ -9450,7 +9498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether the request is successful.
+   * Retrieves the details of a node.
    * 
    * @param request - GetNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9485,7 +9533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether the request is successful.
+   * Retrieves the details of a node.
    * 
    * @param request - GetNodeRequest
    * @returns GetNodeResponse
@@ -9496,7 +9544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Calls GetNodeChildren to retrieve the downstream node list of a node.
    * 
    * @param request - GetNodeChildrenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9531,7 +9579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Calls GetNodeChildren to retrieve the downstream node list of a node.
    * 
    * @param request - GetNodeChildrenRequest
    * @returns GetNodeChildrenResponse
@@ -9542,7 +9590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the code of a node.
+   * Retrieves the code of a node.
    * 
    * @param request - GetNodeCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9577,7 +9625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the code of a node.
+   * Retrieves the code of a node.
    * 
    * @param request - GetNodeCodeRequest
    * @returns GetNodeCodeResponse
@@ -9635,7 +9683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ancestor nodes of a node.
+   * Calls GetNodeParents to retrieve the list of upstream nodes.
    * 
    * @param request - GetNodeParentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9670,7 +9718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ancestor nodes of a node.
+   * Calls GetNodeParents to retrieve the list of upstream nodes.
    * 
    * @param request - GetNodeParentsRequest
    * @returns GetNodeParentsResponse
@@ -9870,11 +9918,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a permission request order.
-   * Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — GetApplicationContents/GetProcessInstance.
+   * Queries the details of a permission application order.
+   * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: GetApplicationContents/GetProcessInstance.
    * 
    * @remarks
-   * *Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — [GetApplicationContents](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_3.75985eba2pEw9l&scm=20140722.H_3040926._.OR_help-T_cn~zh-V_1)/[GetProcessInstance](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_4.64e62414k6cKri&scm=20140722.H_3040933._.OR_help-T_cn~zh-V_1).**
+   * *Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: [GetApplicationContents](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents)/[GetProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance).**
    * 
    * @param request - GetPermissionApplyOrderDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9905,11 +9953,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a permission request order.
-   * Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — GetApplicationContents/GetProcessInstance.
+   * Queries the details of a permission application order.
+   * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: GetApplicationContents/GetProcessInstance.
    * 
    * @remarks
-   * *Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — [GetApplicationContents](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_3.75985eba2pEw9l&scm=20140722.H_3040926._.OR_help-T_cn~zh-V_1)/[GetProcessInstance](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_4.64e62414k6cKri&scm=20140722.H_3040933._.OR_help-T_cn~zh-V_1).**
+   * *Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: [GetApplicationContents](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents)/[GetProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance).**
    * 
    * @param request - GetPermissionApplyOrderDetailRequest
    * @returns GetPermissionApplyOrderDetailResponse
@@ -9920,7 +9968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a DataWorks workspace.
+   * Queries the details of a DataWorks workspace.
    * 
    * @param request - GetProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9955,7 +10003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a DataWorks workspace.
+   * Queries the details of a DataWorks workspace.
    * 
    * @param request - GetProjectRequest
    * @returns GetProjectResponse
@@ -9968,7 +10016,7 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about a DataWorks workspace.
    * 
-   * @deprecated OpenAPI GetProjectDetail is deprecated
+   * @deprecated OpenAPI GetProjectDetail is deprecated, please use dataworks-public::2020-05-18::GetProject instead.
    * 
    * @param request - GetProjectDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10001,7 +10049,7 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about a DataWorks workspace.
    * 
-   * @deprecated OpenAPI GetProjectDetail is deprecated
+   * @deprecated OpenAPI GetProjectDetail is deprecated, please use dataworks-public::2020-05-18::GetProject instead.
    * 
    * @param request - GetProjectDetailRequest
    * @returns GetProjectDetailResponse
@@ -10013,7 +10061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call `GetQualityEntity` to retrieve the partition expression.
+   * Retrieves a partition expression.
    * 
    * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
    * 
@@ -10062,7 +10110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call `GetQualityEntity` to retrieve the partition expression.
+   * Retrieves a partition expression.
    * 
    * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
    * 
@@ -10076,7 +10124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the followers of a Partition Expression.
+   * Retrieves the subscribers of a partition expression.
    * 
    * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
    * 
@@ -10117,7 +10165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the followers of a Partition Expression.
+   * Retrieves the subscribers of a partition expression.
    * 
    * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
    * 
@@ -10266,7 +10314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of instances in different periods of a day.
+   * Retrieves the hourly statistical trends of instances for the current day.
    * 
    * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
    * 
@@ -10299,7 +10347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of instances in different periods of a day.
+   * Retrieves the hourly statistical trends of instances for the current day.
    * 
    * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
    * 
@@ -10313,7 +10361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an event.
+   * Retrieves the details of an event.
    * 
    * @remarks
    * ***
@@ -10347,7 +10395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an event.
+   * Retrieves the details of an event.
    * 
    * @remarks
    * ***
@@ -10603,7 +10651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of baseline instances.
+   * Retrieves a list of baseline instances.
    * 
    * @param request - ListBaselineStatusesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10670,7 +10718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of baseline instances.
+   * Retrieves a list of baseline instances.
    * 
    * @param request - ListBaselineStatusesRequest
    * @returns ListBaselineStatusesResponse
@@ -10871,7 +10919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the check results of extension point events.
+   * Queries the check list of extension events.
    * 
    * @param request - ListCheckProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10926,7 +10974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the check results of extension point events.
+   * Queries the check list of extension events.
    * 
    * @param request - ListCheckProcessesRequest
    * @returns ListCheckProcessesResponse
@@ -11056,10 +11104,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of alert rules configured for a synchronization task.
+   * Queries the list of alerting rules for data integration new-version nodes. Currently supported node types include the MySQL-to-Hologres full-database real-time Solutions.
    * 
    * @remarks
-   * Alert rules can be configured when your task includes real-time synchronization.
+   * When your task synchronization type includes real-time synchronization, you can configure alert rules.
    * 
    * @param request - ListDIAlarmRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11098,10 +11146,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of alert rules configured for a synchronization task.
+   * Queries the list of alerting rules for data integration new-version nodes. Currently supported node types include the MySQL-to-Hologres full-database real-time Solutions.
    * 
    * @remarks
-   * Alert rules can be configured when your task includes real-time synchronization.
+   * When your task synchronization type includes real-time synchronization, you can configure alert rules.
    * 
    * @param request - ListDIAlarmRulesRequest
    * @returns ListDIAlarmRulesResponse
@@ -11112,10 +11160,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of synchronization tasks.
+   * Queries the list of new-version data integration tasks. Currently supported task types include MySQL-to-Hologres full-database real-time synchronization tasks.
    * 
    * @remarks
-   * You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
+   * This list operation returns only basic task information. To view detailed task information, call the GetDIJob operation.
+   * Prerequisites: Activate DataWorks Enterprise Edition or Ultimate Edition first. The required ProjectId can be obtained from PageResult.ProjectList[].ProjectId in the ListProjects response. If the required edition is not activated, this operation returns 403 Forbidden.Access.
    * 
    * @param request - ListDIJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11166,10 +11215,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of synchronization tasks.
+   * Queries the list of new-version data integration tasks. Currently supported task types include MySQL-to-Hologres full-database real-time synchronization tasks.
    * 
    * @remarks
-   * You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
+   * This list operation returns only basic task information. To view detailed task information, call the GetDIJob operation.
+   * Prerequisites: Activate DataWorks Enterprise Edition or Ultimate Edition first. The required ProjectId can be obtained from PageResult.ProjectList[].ProjectId in the ListProjects response. If the required edition is not activated, this operation returns 403 Forbidden.Access.
    * 
    * @param request - ListDIJobsRequest
    * @returns ListDIJobsResponse
@@ -11236,19 +11286,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of directed acyclic graphs (DAGs) for a data backfill instance by operation sequence number (OpSeq).
+   * Calls the ListDags operation to retrieve the details of all DAGs for a single data backfill instance based on the OpSeq (unique identifier of the data backfill instance).
    * 
    * @remarks
-   * Supported DAG types:
-   * - MANUAL: DAG for a manually triggered workflow
-   * - SMOKE_TEST: DAG for a smoke testing workflow
-   * - SUPPLY_DATA: DAG for a data backfill instance
-   * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
-   * Supported DAG states:
-   * - CREATED: The DAG is created.
-   * - RUNNING: The DAG is running.
-   * - FAILURE: The DAG fails to run.
-   * - SUCCESS: The DAG is successfully run.
+   * Dag Type values:
+   * - MANUAL: manual task workflow
+   * - SMOKE_TEST: smoke test workflow
+   * - SUPPLY_DATA: data backfill
+   * - BUSINESS_PROCESS_DAG: one-time business process workflow
+   * Dag Status values:
+   * - CREATED: created
+   * - RUNNING: running
+   * - FAILURE: failed
+   * - SUCCESS: succeeded
    * 
    * @param request - ListDagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11283,19 +11333,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of directed acyclic graphs (DAGs) for a data backfill instance by operation sequence number (OpSeq).
+   * Calls the ListDags operation to retrieve the details of all DAGs for a single data backfill instance based on the OpSeq (unique identifier of the data backfill instance).
    * 
    * @remarks
-   * Supported DAG types:
-   * - MANUAL: DAG for a manually triggered workflow
-   * - SMOKE_TEST: DAG for a smoke testing workflow
-   * - SUPPLY_DATA: DAG for a data backfill instance
-   * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
-   * Supported DAG states:
-   * - CREATED: The DAG is created.
-   * - RUNNING: The DAG is running.
-   * - FAILURE: The DAG fails to run.
-   * - SUCCESS: The DAG is successfully run.
+   * Dag Type values:
+   * - MANUAL: manual task workflow
+   * - SMOKE_TEST: smoke test workflow
+   * - SUPPLY_DATA: data backfill
+   * - BUSINESS_PROCESS_DAG: one-time business process workflow
+   * Dag Status values:
+   * - CREATED: created
+   * - RUNNING: running
+   * - FAILURE: failed
+   * - SUCCESS: succeeded
    * 
    * @param request - ListDagsRequest
    * @returns ListDagsResponse
@@ -11306,7 +11356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of APIs on which other users are granted access permissions.
+   * Retrieves the list of APIs that have been authorized to other users.
    * 
    * @param request - ListDataServiceApiAuthoritiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11355,7 +11405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of APIs on which other users are granted access permissions.
+   * Retrieves the list of APIs that have been authorized to other users.
    * 
    * @param request - ListDataServiceApiAuthoritiesRequest
    * @returns ListDataServiceApiAuthoritiesResponse
@@ -11366,7 +11416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
+   * Lists the test records of a DataService API. Only data from the last month can be queried.
    * 
    * @param request - ListDataServiceApiTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11393,7 +11443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
+   * Lists the test records of a DataService API. Only data from the last month can be queried.
    * 
    * @param request - ListDataServiceApiTestRequest
    * @returns ListDataServiceApiTestResponse
@@ -11524,7 +11574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of APIs that you are authorized to access.
+   * Retrieves a list of authorized APIs in DataService.
    * 
    * @param request - ListDataServiceAuthorizedApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11573,7 +11623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of APIs that you are authorized to access.
+   * Retrieves a list of authorized APIs in DataService.
    * 
    * @param request - ListDataServiceAuthorizedApisRequest
    * @returns ListDataServiceAuthorizedApisResponse
@@ -11584,7 +11634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of folders.
+   * Queries the list of Data Service folders.
    * 
    * @param request - ListDataServiceFoldersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11635,7 +11685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of folders.
+   * Queries the list of Data Service folders.
    * 
    * @param request - ListDataServiceFoldersRequest
    * @returns ListDataServiceFoldersResponse
@@ -11646,7 +11696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of business processes.
+   * Queries the list of Data Service business processes.
    * 
    * @param request - ListDataServiceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11693,7 +11743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of business processes.
+   * Queries the list of Data Service business processes.
    * 
    * @param request - ListDataServiceGroupsRequest
    * @returns ListDataServiceGroupsResponse
@@ -11704,7 +11754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of published APIs.
+   * Queries the list of published Data Service APIs.
    * 
    * @param request - ListDataServicePublishedApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11759,7 +11809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of published APIs.
+   * Queries the list of published Data Service APIs.
    * 
    * @param request - ListDataServicePublishedApisRequest
    * @returns ListDataServicePublishedApisResponse
@@ -11942,7 +11992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of entities by tag. Only entities of the maxcompute-table type are supported.
+   * Lists entities by tag. Currently, only entities of the maxcompute-table type are supported.
    * 
    * @param tmpReq - ListEntitiesByTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11975,7 +12025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of entities by tag. Only entities of the maxcompute-table type are supported.
+   * Lists entities by tag. Currently, only entities of the maxcompute-table type are supported.
    * 
    * @param request - ListEntitiesByTagsRequest
    * @returns ListEntitiesByTagsResponse
@@ -11986,7 +12036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
+   * Lists the tags of an entity. Currently, only entities of the maxcompute-table type are supported.
    * 
    * @param request - ListEntityTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12013,7 +12063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
+   * Lists the tags of an entity. Currently, only entities of the maxcompute-table type are supported.
    * 
    * @param request - ListEntityTagsRequest
    * @returns ListEntityTagsResponse
@@ -12024,7 +12074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of extensions.
+   * Retrieves the list of extensions from the open platform.
    * 
    * @param request - ListExtensionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12059,7 +12109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of extensions.
+   * Retrieves the list of extensions from the open platform.
    * 
    * @param request - ListExtensionsRequest
    * @returns ListExtensionsResponse
@@ -12462,7 +12512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the run history of an instance. Each rerun generates a new historical record.
+   * Retrieves all history records of an instance. A history record is generated each time a node is rerun.
    * 
    * @param request - ListInstanceHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12497,7 +12547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the run history of an instance. Each rerun generates a new historical record.
+   * Retrieves all history records of an instance. A history record is generated each time a node is rerun.
    * 
    * @param request - ListInstanceHistoryRequest
    * @returns ListInstanceHistoryResponse
@@ -12508,7 +12558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Retrieves a list of instances.
    * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12595,7 +12645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Retrieves a list of instances.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -12606,7 +12656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ancestor or descendant lineage of an entity.
+   * Queries the upstream and downstream lineage relationships of an entity.
    * 
    * @param request - ListLineageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12653,7 +12703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ancestor or descendant lineage of an entity.
+   * Queries the upstream and downstream lineage relationships of an entity.
    * 
    * @param request - ListLineageRequest
    * @returns ListLineageResponse
@@ -12768,7 +12818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the entities in a collection.
+   * Queries entities in a collection.
    * 
    * @param request - ListMetaCollectionEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12815,7 +12865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the entities in a collection.
+   * Queries entities in a collection.
    * 
    * @param request - ListMetaCollectionEntitiesRequest
    * @returns ListMetaCollectionEntitiesResponse
@@ -12826,10 +12876,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of collections. Collections include data albums displayed on the Data Map page and categories created in data albums. You can filter collections by type.
+   * Queries collection information. Collections include albums and subcategories within albums on the Data Map page. You can call this operation to query collection information by specifying a collection type.
    * 
    * @remarks
-   * Collections include ALBUM (data album) and ALBUM_CATEGORY (category within a data album).
+   * Collections include: ALBUM (album collection) and ALBUM_CATEGORY (subcategory within an album).
    * 
    * @param request - ListMetaCollectionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12892,10 +12942,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of collections. Collections include data albums displayed on the Data Map page and categories created in data albums. You can filter collections by type.
+   * Queries collection information. Collections include albums and subcategories within albums on the Data Map page. You can call this operation to query collection information by specifying a collection type.
    * 
    * @remarks
-   * Collections include ALBUM (data album) and ALBUM_CATEGORY (category within a data album).
+   * Collections include: ALBUM (album collection) and ALBUM_CATEGORY (subcategory within an album).
    * 
    * @param request - ListMetaCollectionsRequest
    * @returns ListMetaCollectionsResponse
@@ -12906,7 +12956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of metadatabases.
+   * Queries a list of databases.
    * 
    * @param request - ListMetaDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12933,7 +12983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of metadatabases.
+   * Queries a list of databases.
    * 
    * @param request - ListMetaDBRequest
    * @returns ListMetaDBResponse
@@ -13002,7 +13052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one level of ancestor or descendant nodes of a node.
+   * Queries the information of upstream and downstream nodes. Only one level can be queried.
    * 
    * @deprecated OpenAPI ListNodeIO is deprecated
    * 
@@ -13043,7 +13093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one level of ancestor or descendant nodes of a node.
+   * Queries the information of upstream and downstream nodes. Only one level can be queried.
    * 
    * @deprecated OpenAPI ListNodeIO is deprecated
    * 
@@ -13057,7 +13107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
+   * Queries the input and output information of the current node.
    * 
    * @param request - ListNodeInputOrOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13096,7 +13146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
+   * Queries the input and output information of the current node.
    * 
    * @param request - ListNodeInputOrOutputRequest
    * @returns ListNodeInputOrOutputResponse
@@ -13181,7 +13231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries nodes in a baseline.
+   * Retrieves the nodes in a baseline (excluding the upstream nodes of these nodes).
    * 
    * @param request - ListNodesByBaselineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13212,7 +13262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries nodes in a baseline.
+   * Retrieves the nodes in a baseline (excluding the upstream nodes of these nodes).
    * 
    * @param request - ListNodesByBaselineRequest
    * @returns ListNodesByBaselineResponse
@@ -13466,7 +13516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of existing members in a DataWorks workspace.
+   * Queries the list of existing members in a DataWorks workspace.
    * 
    * @param request - ListProjectMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13505,7 +13555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of existing members in a DataWorks workspace.
+   * Queries the list of existing members in a DataWorks workspace.
    * 
    * @param request - ListProjectMembersRequest
    * @returns ListProjectMembersResponse
@@ -13516,7 +13566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of roles in a DataWorks workspace.
+   * Retrieves a list of all roles in a workspace.
    * 
    * @param request - ListProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13547,7 +13597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of roles in a DataWorks workspace.
+   * Retrieves a list of all roles in a workspace.
    * 
    * @param request - ListProjectRolesRequest
    * @returns ListProjectRolesResponse
@@ -13558,7 +13608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of DataWorks workspaces of the tenant to which a user belongs.
+   * Queries the list of DataWorks workspaces under the tenant to which the current user belongs.
    * 
    * @param tmpReq - ListProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13607,7 +13657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of DataWorks workspaces of the tenant to which a user belongs.
+   * Queries the list of DataWorks workspaces under the tenant to which the current user belongs.
    * 
    * @param request - ListProjectsRequest
    * @returns ListProjectsResponse
@@ -13957,7 +14007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of resource groups of a specific type.
+   * Queries the list of resource groups of a specified type.
    * 
    * @param tmpReq - ListResourceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14010,7 +14060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of resource groups of a specific type.
+   * Queries the list of resource groups of a specified type.
    * 
    * @param request - ListResourceGroupsRequest
    * @returns ListResourceGroupsResponse
@@ -14021,7 +14071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of on-duty engineers in a shift schedule.
+   * Retrieves the list of on-duty personnel for a shift schedule.
    * 
    * @param request - ListShiftPersonnelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14068,7 +14118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of on-duty engineers in a shift schedule.
+   * Retrieves the list of on-duty personnel for a shift schedule.
    * 
    * @param request - ListShiftPersonnelsRequest
    * @returns ListShiftPersonnelsResponse
@@ -14133,7 +14183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+   * Retrieves the trend of successfully completed instance counts at different hours on the business date for periodic instances generated on that date.
    * 
    * @param request - ListSuccessInstanceAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14164,7 +14214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+   * Retrieves the trend of successfully completed instance counts at different hours on the business date for periodic instances generated on that date.
    * 
    * @param request - ListSuccessInstanceAmountRequest
    * @returns ListSuccessInstanceAmountResponse
@@ -14301,7 +14351,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries events.
+   * Queries or searches for a list of events.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
    * 
    * @param request - ListTopicsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14364,7 +14417,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries events.
+   * Queries or searches for a list of events.
+   * 
+   * @remarks
+   * Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
    * 
    * @param request - ListTopicsRequest
    * @returns ListTopicsResponse
@@ -14529,7 +14585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the default data category and data sensitivity level template defined by Data Security Guard.
+   * Queries the default data classification template defined by Data Security Guard.
    * 
    * @param request - QueryDefaultTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14560,7 +14616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the default data category and data sensitivity level template defined by Data Security Guard.
+   * Queries the default data classification template defined by Data Security Guard.
    * 
    * @param request - QueryDefaultTemplateRequest
    * @returns QueryDefaultTemplateResponse
@@ -14627,7 +14683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the type of a sensitive data identification rule.
+   * Queries the list of sensitive field recognition methods in Data Protection Umbrella by calling the QueryRecognizeDataByRuleType operation.
    * 
    * @param request - QueryRecognizeDataByRuleTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14662,7 +14718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the type of a sensitive data identification rule.
+   * Queries the list of sensitive field recognition methods in Data Protection Umbrella by calling the QueryRecognizeDataByRuleType operation.
    * 
    * @param request - QueryRecognizeDataByRuleTypeRequest
    * @returns QueryRecognizeDataByRuleTypeResponse
@@ -14908,10 +14964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers the lineage between self-managed entities to DataWorks.
+   * Registers entity relationships. You can register custom entity relationships.
    * 
    * @remarks
-   * This API operation is currently in trial. Users who want to try it out can submit an application. After the administrator adds the user to the trial list, the user can call this operation.
+   * This operation is currently in trial. To use this operation, submit a request. After an administrator adds you to the trial list, you can call this operation.
    * 
    * @param tmpReq - RegisterLineageRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14948,10 +15004,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers the lineage between self-managed entities to DataWorks.
+   * Registers entity relationships. You can register custom entity relationships.
    * 
    * @remarks
-   * This API operation is currently in trial. Users who want to try it out can submit an application. After the administrator adds the user to the trial list, the user can call this operation.
+   * This operation is currently in trial. To use this operation, submit a request. After an administrator adds you to the trial list, you can call this operation.
    * 
    * @param request - RegisterLineageRelationRequest
    * @returns RegisterLineageRelationResponse
@@ -14962,7 +15018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from an entity. Only entities of the maxcompute-table type are supported.
+   * Removes tags from an entity. Currently, only entities of the maxcompute-table type are supported.
    * 
    * @param tmpReq - RemoveEntityTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15005,7 +15061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from an entity. Only entities of the maxcompute-table type are supported.
+   * Removes tags from an entity. Currently, only entities of the maxcompute-table type are supported.
    * 
    * @param request - RemoveEntityTagsRequest
    * @returns RemoveEntityTagsResponse
@@ -15016,7 +15072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a role from a user in a DataWorks workspace.
+   * Removes a user from a DataWorks role in a DataWorks workspace.
    * 
    * @param request - RemoveProjectMemberFromRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15055,7 +15111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a role from a user in a DataWorks workspace.
+   * Removes a user from a DataWorks role in a DataWorks workspace.
    * 
    * @param request - RemoveProjectMemberFromRoleRequest
    * @returns RemoveProjectMemberFromRoleResponse
@@ -15112,7 +15168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a suspended instance.
+   * Resumes a paused instance.
    * 
    * @param request - ResumeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15147,7 +15203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a suspended instance.
+   * Resumes a paused instance.
    * 
    * @param request - ResumeInstanceRequest
    * @returns ResumeInstanceResponse
@@ -15158,7 +15214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes permissions on a table from a user.
+   * Revokes table permissions from a user.
    * 
    * @param request - RevokeTablePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15209,7 +15265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes permissions on a table from a user.
+   * Revokes table permissions from a user.
    * 
    * @param request - RevokeTablePermissionRequest
    * @returns RevokeTablePermissionResponse
@@ -15220,10 +15276,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow to backfill data.
+   * Creates a data backfill workflow by calling RunCycleDagNodes.
    * 
    * @remarks
-   * For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+   * For more information about data backfill, see [Data backfill](https://help.aliyun.com/document_detail/137937.html).
    * 
    * @param request - RunCycleDagNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15310,10 +15366,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow to backfill data.
+   * Creates a data backfill workflow by calling RunCycleDagNodes.
    * 
    * @remarks
-   * For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+   * For more information about data backfill, see [Data backfill](https://help.aliyun.com/document_detail/137937.html).
    * 
    * @param request - RunCycleDagNodesRequest
    * @returns RunCycleDagNodesResponse
@@ -15324,7 +15380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
+   * Triggers a manual workflow to run. The manual workflow must have been submitted and published in the environment page before it appears in the Operation Center and can be triggered by this operation.
    * 
    * @param request - RunManualDagNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15395,7 +15451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
+   * Triggers a manual workflow to run. The manual workflow must have been submitted and published in the environment page before it appears in the Operation Center and can be triggered by this operation.
    * 
    * @param request - RunManualDagNodesRequest
    * @returns RunManualDagNodesResponse
@@ -15406,7 +15462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow to perform smoke testing.
+   * Creates a smoke test workflow by calling the RunSmokeTest operation.
    * 
    * @param request - RunSmokeTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15453,7 +15509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow to perform smoke testing.
+   * Creates a smoke test workflow by calling the RunSmokeTest operation.
    * 
    * @param request - RunSmokeTestRequest
    * @returns RunSmokeTestResponse
@@ -15464,7 +15520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a manually triggered node.
+   * Runs a trigger node.
    * 
    * @param request - RunTriggerNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15507,7 +15563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a manually triggered node.
+   * Runs a trigger node.
    * 
    * @param request - RunTriggerNodeRequest
    * @returns RunTriggerNodeResponse
@@ -15690,7 +15746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a node based on the output.
+   * Queries nodes by exact match based on output.
    * 
    * @deprecated OpenAPI SearchNodesByOutput is deprecated
    * 
@@ -15727,7 +15783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a node based on the output.
+   * Queries nodes by exact match based on output.
    * 
    * @deprecated OpenAPI SearchNodesByOutput is deprecated
    * 
@@ -15804,7 +15860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures tags for an entity. Only entities of the maxcompute-table type are supported.
+   * Sets labels for an entity. Currently, only entities of the maxcompute-table type are supported.
    * 
    * @param tmpReq - SetEntityTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15847,7 +15903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures tags for an entity. Only entities of the maxcompute-table type are supported.
+   * Sets labels for an entity. Currently, only entities of the maxcompute-table type are supported.
    * 
    * @param request - SetEntityTagsRequest
    * @returns SetEntityTagsResponse
@@ -16152,7 +16208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates an instance.
+   * Stops an instance.
    * 
    * @param request - StopInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16187,7 +16243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates an instance.
+   * Stops an instance.
    * 
    * @param request - StopInstanceRequest
    * @returns StopInstanceResponse
@@ -16312,7 +16368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Suspends an instance.
+   * Pauses an instance.
    * 
    * @param request - SuspendInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16347,7 +16403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Suspends an instance.
+   * Pauses an instance.
    * 
    * @param request - SuspendInstanceRequest
    * @returns SuspendInstanceResponse
@@ -17327,10 +17383,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a file.
+   * Updates a created file.
    * 
    * @remarks
-   * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+   * When you debug or call this operation, the parameter values that you specify must be different from the existing file configurations of the node. For example, if a parameter of the source node is set to A, you must change the value to B before you submit the request. If you still specify A, an invalid exception is returned.
    * 
    * @param request - UpdateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17489,10 +17545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a file.
+   * Updates a created file.
    * 
    * @remarks
-   * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+   * When you debug or call this operation, the parameter values that you specify must be different from the existing file configurations of the node. For example, if a parameter of the source node is set to A, you must change the value to B before you submit the request. If you still specify A, an invalid exception is returned.
    * 
    * @param request - UpdateFileRequest
    * @returns UpdateFileResponse
@@ -17661,10 +17717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name and comment of a collection.
+   * Updates the name and comment of a collection object.
    * 
    * @remarks
-   * Only the Name and Comment fields can be updated.
+   * Currently, only the name (Name) and comment (Comment) can be updated.
    * 
    * @param request - UpdateMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17703,10 +17759,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name and comment of a collection.
+   * Updates the name and comment of a collection object.
    * 
    * @remarks
-   * Only the Name and Comment fields can be updated.
+   * Currently, only the name (Name) and comment (Comment) can be updated.
    * 
    * @param request - UpdateMetaCollectionRequest
    * @returns UpdateMetaCollectionResponse
@@ -17807,7 +17863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
+   * Updates the description of a table. If the data does not exist, the description is added.
    * 
    * @param request - UpdateMetaTableIntroWikiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17844,7 +17900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
+   * Updates the description of a table. If the data does not exist, the description is added.
    * 
    * @param request - UpdateMetaTableIntroWikiRequest
    * @returns UpdateMetaTableIntroWikiResponse
@@ -17905,7 +17961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Freezes or unfreezes a node.
+   * Freezes or unfreezes a specified node.
    * 
    * @param request - UpdateNodeRunModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17944,7 +18000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Freezes or unfreezes a node.
+   * Freezes or unfreezes a specified node.
    * 
    * @param request - UpdateNodeRunModeRequest
    * @returns UpdateNodeRunModeResponse
@@ -17955,7 +18011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a subscription.
+   * Updates a subscription relationship.
    * 
    * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
    * 
@@ -18004,7 +18060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a subscription.
+   * Updates a subscription relationship.
    * 
    * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
    * 
@@ -18018,7 +18074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified quality rule.
+   * Calls UpdateQualityRule to update the information of a quality check rule.
    * 
    * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
    * 
@@ -18135,7 +18191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified quality rule.
+   * Calls UpdateQualityRule to update the information of a quality check rule.
    * 
    * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
    * 
@@ -18149,7 +18205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom alert rule.
+   * Updates a custom monitoring rule.
    * 
    * @param request - UpdateRemindRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18248,7 +18304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom alert rule.
+   * Updates a custom monitoring rule.
    * 
    * @param request - UpdateRemindRequest
    * @returns UpdateRemindResponse
@@ -18384,7 +18440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the fields in a MaxCompute table.
+   * Updates the column information of a MaxCompute table.
    * 
    * @deprecated OpenAPI UpdateTableAddColumn is deprecated
    * 
@@ -18423,7 +18479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the fields in a MaxCompute table.
+   * Updates the column information of a MaxCompute table.
    * 
    * @deprecated OpenAPI UpdateTableAddColumn is deprecated
    * 
@@ -18495,7 +18551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a table, such as the table folder, level, and category.
+   * Modifies the topic, level, and physical category information of a table.
    * 
    * @param request - UpdateTableModelInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18542,7 +18598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a table, such as the table folder, level, and category.
+   * Modifies the topic, level, and physical category information of a table.
    * 
    * @param request - UpdateTableModelInfoRequest
    * @returns UpdateTableModelInfoResponse
@@ -18603,7 +18659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the file information about a function.
+   * Updates the file information of a function.
    * 
    * @param request - UpdateUdfFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18678,7 +18734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the file information about a function.
+   * Updates the file information of a function.
    * 
    * @param request - UpdateUdfFileRequest
    * @returns UpdateUdfFileResponse

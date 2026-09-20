@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateManualDagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the DAG generated when the manual workflow runs. You can use this DagId together with the relevant API to query the details and status of the internal node instances of this manual workflow run.
+   * The instance ID of the dagrun for the manual business process. You can use this DagId with the corresponding operation to query the detailed information and status of the internal node instances of this manual business process execution.
    * 
    * @example
    * 700000123123141
@@ -13,7 +13,7 @@ export class CreateManualDagResponseBody extends $dara.Model {
   dagId?: number;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The unique request ID.
    * 
    * @example
    * AASFDFSDFG-DFSDF-DFSDFD-SDFSDF

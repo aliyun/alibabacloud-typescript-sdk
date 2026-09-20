@@ -6,12 +6,12 @@ import { Entity } from "./Entity";
 export class ListMetaCollectionEntitiesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The entities.
+   * The entity array.
    */
   entityList?: Entity[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page.
    * 
    * @example
    * 123344
@@ -46,7 +46,7 @@ export class ListMetaCollectionEntitiesResponseBodyData extends $dara.Model {
 export class ListMetaCollectionEntitiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The response structure.
    */
   data?: ListMetaCollectionEntitiesResponseBodyData;
   /**
@@ -75,7 +75,7 @@ export class ListMetaCollectionEntitiesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * E25887B7-579C-54A5-9C4F-83A0DE367DD
@@ -83,11 +83,11 @@ export class ListMetaCollectionEntitiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * true: The request was successful.
+   * true: The call was successful.
    * 
-   * false: The request failed.
+   * false: The call failed.
    * 
    * @example
    * true

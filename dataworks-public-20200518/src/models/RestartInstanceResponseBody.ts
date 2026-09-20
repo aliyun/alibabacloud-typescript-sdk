@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The details of the result returned after the instance is restarted.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * q32ety****
@@ -45,7 +45,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

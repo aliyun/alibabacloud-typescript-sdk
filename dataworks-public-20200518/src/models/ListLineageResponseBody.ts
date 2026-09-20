@@ -8,8 +8,8 @@ export class ListLineageResponseBodyDataDataEntityListRelationList extends $dara
    * @remarks
    * The data channel. Valid values:
    * 
-   * *   **FIRST_PARTY: DataWorks platform**
-   * *   **THIRD_PARTY: user registration**
+   * - **FIRST_PARTY**: DataWorks platform data.
+   * - **THIRD_PARTY**: User-registered data.
    * 
    * @example
    * THIRD_PARTY
@@ -20,12 +20,12 @@ export class ListLineageResponseBodyDataDataEntityListRelationList extends $dara
    * The data source.
    * 
    * @example
-   * mysql
+   * maxcompute,mysql
    */
   datasource?: string;
   /**
    * @remarks
-   * The unique relationship ID.
+   * The unique ID of the relation.
    * 
    * @example
    * aaabbccddguid
@@ -33,7 +33,7 @@ export class ListLineageResponseBodyDataDataEntityListRelationList extends $dara
   guid?: string;
   /**
    * @remarks
-   * The task type, which is used to describe the relationship between entities, such as SQL-based calculation, mapping based on report fields, or API operation definition.
+   * The task type, which describes the relationship type between entities. For example, computed by SQL, mapped by report fields, or defined by API.
    * 
    * @example
    * sql
@@ -69,7 +69,7 @@ export class ListLineageResponseBodyDataDataEntityListRelationList extends $dara
 export class ListLineageResponseBodyDataDataEntityList extends $dara.Model {
   /**
    * @remarks
-   * The time when the lineage was generated.
+   * The time when the lineage was created.
    * 
    * @example
    * 1686215809269
@@ -77,12 +77,12 @@ export class ListLineageResponseBodyDataDataEntityList extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The information about the entity.
+   * The entity information.
    */
   entity?: Entity;
   /**
    * @remarks
-   * The array of the relationship structure.
+   * The array of relation structures.
    */
   relationList?: ListLineageResponseBodyDataDataEntityListRelationList[];
   static names(): { [key: string]: string } {
@@ -119,12 +119,12 @@ export class ListLineageResponseBodyDataDataEntityList extends $dara.Model {
 export class ListLineageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The array of the entity structure.
+   * The array of entity structures.
    */
   dataEntityList?: ListLineageResponseBodyDataDataEntityList[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token that specifies the starting point of the next read operation.
    * 
    * @example
    * nextTokenFromRequest-xxxsd-ff
@@ -159,7 +159,7 @@ export class ListLineageResponseBodyData extends $dara.Model {
 export class ListLineageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The structure returned.
+   * The response structure.
    */
   data?: ListLineageResponseBodyData;
   /**
@@ -188,7 +188,7 @@ export class ListLineageResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * 64B-587A-8CED-969E1973887FXXX-TT
@@ -197,9 +197,8 @@ export class ListLineageResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

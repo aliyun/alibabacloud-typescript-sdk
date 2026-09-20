@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRemindResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom alert rule.
+   * The ID of the custom rule returned after the custom monitoring rule is created.
    * 
    * @example
    * 1234
@@ -37,7 +37,7 @@ export class CreateRemindResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****

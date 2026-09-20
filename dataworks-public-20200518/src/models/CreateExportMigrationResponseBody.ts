@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExportMigrationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The export task ID.
+   * The ID of the export task.
    * 
    * @example
    * 1234
@@ -13,7 +13,7 @@ export class CreateExportMigrationResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 34267E2E-0335-1A60-A1F0-ADA530890CBA
@@ -21,10 +21,9 @@ export class CreateExportMigrationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed. You can locate the issue based on the request ID.
    * 
    * @example
    * true

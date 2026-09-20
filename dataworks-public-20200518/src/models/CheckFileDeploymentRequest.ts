@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckFileDeploymentRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * https://result.aliyun.com/?checkerInstanceId=
@@ -13,7 +13,7 @@ export class CheckFileDeploymentRequest extends $dara.Model {
   checkDetailUrl?: string;
   /**
    * @remarks
-   * The ID of the instance to which the file checker belongs. You can obtain the ID from the CheckerInstanceId parameter in the check event logs returned by DataWorks.
+   * The instance ID to which the file checker belongs. You can obtain this value from the CheckerInstanceId field in the file publish check event.
    * 
    * This parameter is required.
    * 
@@ -23,13 +23,11 @@ export class CheckFileDeploymentRequest extends $dara.Model {
   checkerInstanceId?: string;
   /**
    * @remarks
-   * The check status of the file that you want to deploy. Valid values:
+   * The check status of the file pending deployment. Valid values:
    * 
-   * - OK: The file passes the check.
-   * 
-   * - WARN: The file passes the check, but an alert is reported.
-   * 
-   * - FAIL: The file fails the check.
+   * - OK: The file passed the check.
+   * - WARN: The file passed the check but has warnings.
+   * - FAIL: The file failed the check.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceGroupsResponseBodyGroupPagingResultGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the API Gateway group to which the workflow is bound.
+   * The ID of the API Gateway group associated with the business process.
    * 
    * @example
    * 100abc
@@ -15,13 +15,15 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResultGroups extends $d
    * @remarks
    * The time when the business process was created.
    * 
+   * The format is `yyyy-MM-dd\\"T\\"HH:mm:ssZ`, for example, `2020-09-24T18:37:51+0800`. The time zone offset in this example is `+0800`.
+   * 
    * @example
    * 2020-09-24T18:37:51+0800
    */
   createdTime?: string;
   /**
    * @remarks
-   * The user identifier (UID) of the creator of the business process. The value of this parameter may be empty for creators of some existing business processes.
+   * The UID of the creator. The creator UID may be empty for some legacy business processes.
    * 
    * @example
    * 10001
@@ -32,12 +34,12 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResultGroups extends $d
    * The description of the business process.
    * 
    * @example
-   * Workflow description
+   * Business process description
    */
   description?: string;
   /**
    * @remarks
-   * The business process ID.
+   * The ID of the business process.
    * 
    * @example
    * ds_123abc
@@ -48,12 +50,14 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResultGroups extends $d
    * The name of the business process.
    * 
    * @example
-   * Workflow name
+   * Business process name
    */
   groupName?: string;
   /**
    * @remarks
-   * The time when the business process was modified.
+   * The time when the business process was last modified.
+   * 
+   * The format is `yyyy-MM-dd\\"T\\"HH:mm:ssZ`, for example, `2020-09-24T18:37:51+0800`. The time zone offset in this example is `+0800`.
    * 
    * @example
    * 2020-09-24T18:37:51+0800
@@ -115,12 +119,12 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResultGroups extends $d
 export class ListDataServiceGroupsResponseBodyGroupPagingResult extends $dara.Model {
   /**
    * @remarks
-   * The business processes.
+   * The list of business processes.
    */
   groups?: ListDataServiceGroupsResponseBodyGroupPagingResultGroups[];
   /**
    * @remarks
-   * The page number. The value of this parameter is the same as that of the PageNumber parameter in the request.
+   * The page number, which is the same as the PageNumber value in the request.
    * 
    * @example
    * 1
@@ -128,7 +132,7 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResult extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -136,7 +140,7 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResult extends $dara.Mo
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -175,12 +179,12 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResult extends $dara.Mo
 export class ListDataServiceGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paging result for the business processes.
+   * The pagination result of business processes.
    */
   groupPagingResult?: ListDataServiceGroupsResponseBodyGroupPagingResult;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. A unique identifier for the request.
    * 
    * @example
    * 0000-ABCD-EF****

@@ -15,9 +15,7 @@ export class ListMetaCollectionEntitiesRequest extends $dara.Model {
   collectionQualifiedName?: string;
   /**
    * @remarks
-   * The type of the entities.
-   * 
-   * For example, if this parameter is set to maxcompute-table, the entity is a MaxCompute table.
+   * The entity type. Example: maxcompute-table indicates the MaxCompute table type.
    * 
    * @example
    * maxcompute-table
@@ -33,7 +31,7 @@ export class ListMetaCollectionEntitiesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token that specifies the starting point of the current read operation.
    * 
    * @example
    * 12222
@@ -41,7 +39,7 @@ export class ListMetaCollectionEntitiesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10

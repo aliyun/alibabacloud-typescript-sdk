@@ -37,7 +37,7 @@ export class CreateDagTestResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * E6F0DBDD-5AD****

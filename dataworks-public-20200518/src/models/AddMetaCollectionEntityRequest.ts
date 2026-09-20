@@ -15,7 +15,7 @@ export class AddMetaCollectionEntityRequest extends $dara.Model {
   collectionQualifiedName?: string;
   /**
    * @remarks
-   * The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
+   * The unique identifier of the entity.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class AddMetaCollectionEntityRequest extends $dara.Model {
   entityQualifiedName?: string;
   /**
    * @remarks
-   * The remarks of the entity. Example: latest product table.
+   * The remarks on the entity.
    * 
    * @example
    * this is a remark

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterLineageRelationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The structure whose lineage you want to register to DataWorks.
+   * The lineage registration structure.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckMetaTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The E-MapReduce (EMR) cluster ID.
+   * The ID of the EMR cluster.
    * 
    * @example
    * abc
@@ -13,7 +13,7 @@ export class CheckMetaTableRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps and emr.
+   * The data source type. Valid values: odps and emr.
    * 
    * @example
    * emr
@@ -21,7 +21,7 @@ export class CheckMetaTableRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The name of the metadatabase of the EMR cluster.
+   * The name of the EMR database.
    * 
    * @example
    * abc
@@ -29,7 +29,7 @@ export class CheckMetaTableRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The GUID of the metatable.
+   * The globally unique identifier of the table.
    * 
    * @example
    * odps.engine_name.table_name
@@ -37,7 +37,7 @@ export class CheckMetaTableRequest extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The name of the EMR metatable.
+   * The name of the EMR table.
    * 
    * @example
    * abc

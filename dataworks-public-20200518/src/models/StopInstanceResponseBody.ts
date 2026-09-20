@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result returned.
+   * The result details returned after the stop instance operation is called.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class StopInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * E6F0DBDD-5AD****
@@ -45,7 +45,7 @@ export class StopInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

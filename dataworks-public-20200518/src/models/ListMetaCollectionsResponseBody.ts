@@ -6,12 +6,12 @@ import { Collection } from "./Collection";
 export class ListMetaCollectionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The collections.
+   * The array object.
    */
   collectionList?: Collection[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page.
    * 
    * @example
    * 37ae2053d87d380f28ce0dc0853ca51e
@@ -46,7 +46,7 @@ export class ListMetaCollectionsResponseBodyData extends $dara.Model {
 export class ListMetaCollectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The returned object.
    */
   data?: ListMetaCollectionsResponseBodyData;
   /**
@@ -75,7 +75,7 @@ export class ListMetaCollectionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * E25887B7-579C-54A5-9C4F-83A0DE367DDE
@@ -83,11 +83,9 @@ export class ListMetaCollectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

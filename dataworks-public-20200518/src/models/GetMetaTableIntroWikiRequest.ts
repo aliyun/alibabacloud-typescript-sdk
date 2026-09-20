@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaTableIntroWikiRequest extends $dara.Model {
   /**
    * @remarks
-   * The GUID of the metatable.
+   * The unique identifier of the table.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetMetaTableIntroWikiRequest extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The version of the instructions.
+   * The version of the usage instructions.
    * 
    * @example
    * 1

@@ -37,7 +37,7 @@ export class CreateMetaCollectionResponseBody extends $dara.Model {
   qualifiedName?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * E6F0DBDD-5AD****
@@ -45,10 +45,9 @@ export class CreateMetaCollectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

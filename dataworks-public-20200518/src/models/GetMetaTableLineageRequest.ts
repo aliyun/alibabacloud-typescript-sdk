@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaTableLineageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the E-MapReduce (EMR) cluster. Configure this parameter only if you want to query the lineage of an EMR table.
+   * The ID of the EMR cluster. This parameter is required for EMR scenarios.
    * 
    * @example
    * abc
@@ -13,7 +13,7 @@ export class GetMetaTableLineageRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps and emr.
+   * The data source type. Valid values: odps and emr.
    * 
    * @example
    * emr
@@ -29,7 +29,10 @@ export class GetMetaTableLineageRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * Specifies the ancestor or descendant lineage that you want to query for a field. Valid values: up and down. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
+   * The direction of the lineage. Valid values:
+   * 
+   * - up: upstream.
+   * - down: downstream.
    * 
    * This parameter is required.
    * 
@@ -39,7 +42,9 @@ export class GetMetaTableLineageRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The logic of paging. Configure this parameter based on the value of the response parameter NextPrimaryKey when the value of the response parameter HasNext is true in the previous request.
+   * The pagination logic.
+   * 
+   * If HasNext is set to true and NextPrimaryKey is not empty in the last response, set this parameter to the value of NextPrimaryKey in the next request.
    * 
    * @example
    * next_primary_key

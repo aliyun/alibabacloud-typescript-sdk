@@ -15,7 +15,7 @@ export class RemoveEntityTagsShrinkRequest extends $dara.Model {
   qualifiedName?: string;
   /**
    * @remarks
-   * The tag keys.
+   * The list of tag keys.
    * 
    * This parameter is required.
    */

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveEntityTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * true\\
-   * false
+   * true: Successful.  
+   * false: Failed.
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class RemoveEntityTagsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-E****
@@ -50,8 +50,8 @@ export class RemoveEntityTagsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * true\\
-   * false
+   * true: Successful.  
+   * false: Failed.
    * 
    * @example
    * true

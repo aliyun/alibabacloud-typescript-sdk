@@ -7,6 +7,8 @@ export class GetMetaTableOutputRequest extends $dara.Model {
    * @remarks
    * The end date.
    * 
+   * The format is `yyyy-MM-dd`, for example, `2020-05-27`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,7 +17,7 @@ export class GetMetaTableOutputRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The page number. Valid values: 1 to 30. Default value: 1.
+   * The page number. Default value: 1. Minimum value: 1. Maximum value: 30.
    * 
    * @example
    * 1
@@ -33,6 +35,8 @@ export class GetMetaTableOutputRequest extends $dara.Model {
    * @remarks
    * The start date.
    * 
+   * The format is `yyyy-MM-dd`, for example, `2020-06-27`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,7 +45,7 @@ export class GetMetaTableOutputRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The GUID of the metatable.
+   * The unique identifier of the table.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. We recommend that you set this parameter to a UUID.
+   * The idempotence string. A UUID is recommended.
    * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****
@@ -13,7 +13,7 @@ export class CreateProjectMemberRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateProjectMemberRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The code of the role. This parameter is optional. If you configure the RoleCode parameter, the user is assigned the role.
+   * The role code. This parameter is optional. If this parameter is specified, the user is also added to the specified role.
    * 
    * @example
    * role_project_guest

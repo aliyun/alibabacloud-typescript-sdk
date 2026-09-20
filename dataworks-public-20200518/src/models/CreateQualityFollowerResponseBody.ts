@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQualityFollowerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The subscription ID.
+   * The ID of the newly created subscription.
    * 
    * @example
    * 12345
@@ -45,7 +45,7 @@ export class CreateQualityFollowerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

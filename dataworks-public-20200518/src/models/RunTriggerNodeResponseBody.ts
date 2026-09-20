@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunTriggerNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 9BA675F1-F848-4752-A6E3-92ABA0616005
@@ -13,10 +13,11 @@ export class RunTriggerNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful.
    * 
-   * *   true
-   * *   false
+   * - true: The call was successful.
+   * 
+   * - false: The call failed.
    * 
    * @example
    * true

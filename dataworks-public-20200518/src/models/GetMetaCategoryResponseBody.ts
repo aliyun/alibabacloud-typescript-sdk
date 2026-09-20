@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaCategoryResponseBodyDataDataEntityList extends $dara.Model {
   /**
    * @remarks
-   * The category ID.
+   * The ID of the category.
    * 
    * @example
    * 133
@@ -23,13 +23,15 @@ export class GetMetaCategoryResponseBodyDataDataEntityList extends $dara.Model {
    * @remarks
    * The time when the category was created.
    * 
+   * The value is a 13-digit number, such as `1541576644000`.
+   * 
    * @example
    * 1541576644000
    */
   createTime?: number;
   /**
    * @remarks
-   * The number of category levels.
+   * The depth level of the category.
    * 
    * @example
    * 1
@@ -37,7 +39,7 @@ export class GetMetaCategoryResponseBodyDataDataEntityList extends $dara.Model {
   depth?: number;
   /**
    * @remarks
-   * The ID of the user that performed the last operation.
+   * The ID of the user who last performed an operation.
    * 
    * @example
    * 12345
@@ -46,6 +48,8 @@ export class GetMetaCategoryResponseBodyDataDataEntityList extends $dara.Model {
   /**
    * @remarks
    * The time when the category was last modified.
+   * 
+   * The value is a 13-digit number, such as `1541576644000`.
    * 
    * @example
    * 1541576644000
@@ -61,7 +65,7 @@ export class GetMetaCategoryResponseBodyDataDataEntityList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The category owner ID.
+   * The ID of the category owner.
    * 
    * @example
    * 123
@@ -69,7 +73,7 @@ export class GetMetaCategoryResponseBodyDataDataEntityList extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The parent category ID.
+   * The ID of the parent category.
    * 
    * @example
    * 12
@@ -115,12 +119,12 @@ export class GetMetaCategoryResponseBodyDataDataEntityList extends $dara.Model {
 export class GetMetaCategoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the category tree.
+   * The list of data entities.
    */
   dataEntityList?: GetMetaCategoryResponseBodyDataDataEntityList[];
   /**
    * @remarks
-   * The page number.
+   * The page number. Used for pagination.
    * 
    * @example
    * 1
@@ -136,7 +140,7 @@ export class GetMetaCategoryResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of categories returned.
+   * The total number of categories.
    * 
    * @example
    * 10

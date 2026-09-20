@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SetEntityTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * true and false.
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -39,7 +40,7 @@ export class SetEntityTagsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-E****
@@ -49,7 +50,8 @@ export class SetEntityTagsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * true and false.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

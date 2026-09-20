@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunSmokeTestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The workflow ID.
+   * The ID of the workflow.
    * 
    * @example
    * 3333333
@@ -45,7 +45,7 @@ export class RunSmokeTestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * false

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryRecognizeDataByRuleTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result in the JSON format.
+   * The returned data in JSON format.
    * 
    * @example
    * [{"custom": false,       "name": "EducationDegree",       "localeName": "EducationDegree",       "templateJsonStr": "{&quot;_clazz&quot;:&quot;com.alipay.dsgclient.sdk.dsg.fastscan.engine.cond.EducationDegreeCond&quot;}",       "desc": ""}]
@@ -37,18 +37,17 @@ export class QueryRecognizeDataByRuleTypeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
-   * 10000001
+   * 100000012
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the call was successful.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

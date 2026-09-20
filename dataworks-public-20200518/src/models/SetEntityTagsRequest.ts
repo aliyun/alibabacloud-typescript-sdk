@@ -16,7 +16,7 @@ export class SetEntityTagsRequest extends $dara.Model {
   qualifiedName?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of labels.
    */
   tags?: UserEntityTag[];
   static names(): { [key: string]: string } {

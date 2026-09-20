@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The description of the node.
+   * The baseline ID. The baseline ID configured for the node as a leaf node is returned. If no baseline is configured, a workspace default value is returned.
    * 
    * @example
    * 123456
@@ -13,7 +13,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   baselineId?: number;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **GetNode**.
+   * The ID of the workflow.
    * 
    * @example
    * 123
@@ -21,7 +21,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   businessId?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV.
+   * The connection string.
    * 
    * @example
    * odps_source_dev
@@ -31,13 +31,15 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The value is a 13-digit number, such as `1727280000000`.
+   * 
    * @example
    * 1727280000000
    */
   createTime?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV.
+   * The CRON expression.
    * 
    * @example
    * 00 00 00 * * ?
@@ -47,13 +49,15 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * @remarks
    * The deployment date.
    * 
+   * The value is a 13-digit number, such as `1727280000000`.
+   * 
    * @example
    * 1727280000000
    */
   deployDate?: number;
   /**
    * @remarks
-   * The name of the resource group.
+   * The description of the node.
    * 
    * @example
    * test
@@ -61,7 +65,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
+   * The DQC partitioning rule string.
    * 
    * @example
    * [{"projectName":"test_0923001","tableName":"test_table_001","partition":"ds\\u003d$[yyyymmdd]"},{"projectName":"test_0923001","tableName":"test_table_002","partition":"NOTAPARTITIONTABLE"}]
@@ -69,7 +73,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   dqcDescription?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The DQC type. A value of 0 indicates that no DQC rule is associated. A value of 1 indicates that a DQC rule is associated.
    * 
    * @example
    * 1
@@ -77,11 +81,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   dqcType?: number;
   /**
    * @remarks
-   * The file ID.
-   * 
-   * \\*\\*
-   * 
-   * **Warning** The field is deprecated.
+   * The file ID. <warning>This field is deprecated.</warning>
    * 
    * @example
    * 123
@@ -89,7 +89,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The file type. Different file types have different codes. For more information, see [DataWorks node collection](https://help.aliyun.com/document_detail/600169.html).
+   * The file type. Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
    * 
    * @example
    * 10
@@ -97,7 +97,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   fileType?: number;
   /**
    * @remarks
-   * The version of the file.
+   * The file version.
    * 
    * @example
    * 1
@@ -107,13 +107,15 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * @remarks
    * The modification time.
    * 
+   * The value is a 13-digit number, such as `1727280000000`.
+   * 
    * @example
    * 1727280000000
    */
   modifyTime?: number;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The ID of the node.
    * 
    * @example
    * 1234
@@ -121,23 +123,15 @@ export class GetNodeResponseBodyData extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The scheduling type of the node. Valid values:
-   * 
-   * - NORMAL: The node is an auto triggered node.
-   * 
-   * - MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
-   * 
-   * - PAUSE: The node is a paused node.
-   * 
-   * - SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+   * The name of the node.
    * 
    * @example
-   * Sql node
+   * sql_node
    */
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the node owner.
    * 
    * @example
    * 17366294****
@@ -145,7 +139,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The CRON expression returned.
+   * The additional parameters.
    * 
    * @example
    * a=b
@@ -153,7 +147,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   paramValues?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The priority of the node. Valid values: 1, 3, 5, 7, and 8.
    * 
    * @example
    * 1
@@ -161,7 +155,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the owner of the node.
+   * The type of the node.
    * 
    * @example
    * ODPS_SQL
@@ -169,7 +163,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   programType?: string;
   /**
    * @remarks
-   * Indicates whether the node can be rerun.
+   * The ID of the workspace.
    * 
    * @example
    * 1234
@@ -177,7 +171,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Indicates whether the node is associated with Data Quality. Valid values: 0 and 1. A value of 0 indicates that the node is associated with Data Quality. A value of 1 indicates that the node is not associated with Data Quality.
+   * The ID of the associated workflow.
    * 
    * @example
    * 123
@@ -185,7 +179,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   relatedFlowId?: number;
   /**
    * @remarks
-   * The ID of the workflow to which the node belongs.
+   * The interval at which the node is rescheduled after a failure.
    * 
    * @example
    * 60
@@ -193,7 +187,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   repeatInterval?: number;
   /**
    * @remarks
-   * Rerun mode. 0 indicates that you can rerun only if you fail, 1 indicates that you can rerun in all cases, and 2 indicates that you cannot rerun in all cases.
+   * The rerun mode. A value of 0 indicates that the node can be rerun only upon failure. A value of 1 indicates that the node can be rerun in all cases. A value of 2 indicates that the node cannot be rerun in any case.
    * 
    * @example
    * 1
@@ -201,7 +195,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
   repeatMode?: number;
   /**
    * @remarks
-   * The type of the node.
+   * Indicates whether the node can be rerun.
    * 
    * @example
    * true
@@ -217,15 +211,19 @@ export class GetNodeResponseBodyData extends $dara.Model {
   resGroupIdentifier?: string;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+   * The name of the resource group.
    * 
    * @example
-   * Default resource group
+   * Default Resource Group
    */
   resGroupName?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The scheduling type. Valid values:
+   * - NORMAL: normal scheduling node.
+   * - MANUAL: manual node that is not scheduled on a regular basis.
+   * - PAUSE: paused node.
+   * - SKIP: dry-run node that is scheduled on a regular basis but is directly set to successful when scheduling starts.
    * 
    * @example
    * NORMAL
@@ -312,7 +310,7 @@ export class GetNodeResponseBody extends $dara.Model {
   data?: GetNodeResponseBodyData;
   /**
    * @remarks
-   * The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
+   * The error code.
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -320,7 +318,7 @@ export class GetNodeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The connection string.
+   * The error message.
    * 
    * @example
    * The connection does not exist.
@@ -328,7 +326,7 @@ export class GetNodeResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **GetNode**.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -336,7 +334,7 @@ export class GetNodeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Other parameters.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * E6F0DBDD-5AD****
@@ -344,7 +342,7 @@ export class GetNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the workflow.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

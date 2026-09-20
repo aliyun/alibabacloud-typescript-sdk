@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RestartInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
+   * 
+   * You can obtain the ID from Data.Instances[].InstanceId in the ListInstances response.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,10 @@ export class RestartInstanceRequest extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV.
+   * The environment of the workspace. Valid values:
+   * 
+   * - PROD: production environment
+   * - DEV: development environment
    * 
    * This parameter is required.
    * 

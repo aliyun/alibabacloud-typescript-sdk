@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExtensionsResponseBodyPagingInfoExtensionsBindEventList extends $dara.Model {
   /**
    * @remarks
-   * The code of the event.
+   * The event code.
    * 
    * @example
    * commit-file
@@ -13,7 +13,7 @@ export class ListExtensionsResponseBodyPagingInfoExtensionsBindEventList extends
   eventCode?: string;
   /**
    * @remarks
-   * The name of the event.
+   * The event name.
    * 
    * @example
    * File submission pre-event
@@ -50,7 +50,7 @@ export class ListExtensionsResponseBodyPagingInfoExtensions extends $dara.Model 
   bindEventList?: ListExtensionsResponseBodyPagingInfoExtensionsBindEventList[];
   /**
    * @remarks
-   * The unique code of the extension.
+   * The unique extension code.
    * 
    * @example
    * Extension Code
@@ -74,7 +74,7 @@ export class ListExtensionsResponseBodyPagingInfoExtensions extends $dara.Model 
   extensionName?: string;
   /**
    * @remarks
-   * The ID of the RAM user.
+   * The RAM user ID.
    * 
    * @example
    * 2003****
@@ -82,7 +82,13 @@ export class ListExtensionsResponseBodyPagingInfoExtensions extends $dara.Model 
   owner?: string;
   /**
    * @remarks
-   * The state of the extension. Valid values: 0: Testing 1: Publishing 3: Disabled 4: Processing 5: Approved 6: Approve Failed
+   * The extension status. Valid values:
+   * 0: testing.
+   * 1: online.
+   * 3: disabled.
+   * 4: pending approval.
+   * 5: approved.
+   * 6: rejected.
    * 
    * @example
    * 0
@@ -130,7 +136,7 @@ export class ListExtensionsResponseBodyPagingInfo extends $dara.Model {
   extensions?: ListExtensionsResponseBodyPagingInfoExtensions[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the request, used for pagination.
    * 
    * @example
    * 1
@@ -146,7 +152,7 @@ export class ListExtensionsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 12
@@ -193,7 +199,7 @@ export class ListExtensionsResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * 0000-ABCD-EFG
+   * 0000-ABCD-****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

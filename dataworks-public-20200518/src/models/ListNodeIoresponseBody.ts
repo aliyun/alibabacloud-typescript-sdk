@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodeIOResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the ancestor or descendant node.
+   * The name of the input or output.
    * 
    * @example
    * dataworks_a.1234_out
@@ -55,7 +55,7 @@ export class ListNodeIOResponseBodyData extends $dara.Model {
 export class ListNodeIOResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node information.
+   * The upstream and downstream information.
    */
   data?: ListNodeIOResponseBodyData[];
   /**
@@ -84,7 +84,7 @@ export class ListNodeIOResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * E6F0DBDD-5AD****
@@ -92,7 +92,7 @@ export class ListNodeIOResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

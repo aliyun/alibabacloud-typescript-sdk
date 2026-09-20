@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBaselineRequest extends $dara.Model {
   /**
    * @remarks
-   * The baseline ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
+   * The ID of the baseline. You can call [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetBaselineRequest extends $dara.Model {
   baselineId?: number;
   /**
    * @remarks
-   * The ID of the workspace to which the baseline belongs. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
+   * The ID of the workspace monitored by the baseline. You can call [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) to obtain the ID.
    * 
    * This parameter is required.
    * 

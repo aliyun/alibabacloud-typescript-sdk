@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityEntityResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the partition filter expression was created.
+   * The time when the partition expression was created.
+   * 
+   * The value is a 13-digit number, for example, `1593964800000`.
    * 
    * @example
    * 1593964800000
@@ -13,11 +15,9 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The level of the partition filter expression. Valid values:
-   * 
-   * - 0 (SQL-level): A data quality check is triggered after each SQL statement is run.
-   * 
-   * - 1 (Task-level): A data quality check is triggered after all SQL statements are run.
+   * The level of the partition expression. Valid values:
+   * - 0 (SQL level): DQC verification is triggered after each SQL statement is executed.
+   * - 1 (Task level): Verification is performed after all SQL statements are executed.
    * 
    * @example
    * 0
@@ -33,7 +33,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The subscribers who receive alert notifications. The value is the ID of an Alibaba Cloud account.
+   * The subscribers. The Alibaba Cloud account IDs that receive alert notifications.
    * 
    * @example
    * 1822931****
@@ -41,11 +41,9 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   followers?: string;
   /**
    * @remarks
-   * Indicates whether the partition filter expression is associated with a scheduling node. Valid values:
-   * 
-   * - true: The partition filter expression is associated with a scheduling node.
-   * 
-   * - false: The partition filter expression is not associated with a scheduling node.
+   * Indicates whether the partition expression is associated with scheduling. Valid values:
+   * - true: Associated with scheduling.
+   * - false: Not associated with scheduling.
    * 
    * @example
    * true
@@ -53,7 +51,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   hasRelativeNode?: boolean;
   /**
    * @remarks
-   * The ID of the partition filter expression.
+   * The ID of the partition expression.
    * 
    * @example
    * 4003918
@@ -61,7 +59,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The partition filter expression.
+   * The partition expression.
    * 
    * @example
    * dt=$[yyyymmdd-1]
@@ -69,7 +67,9 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   matchExpression?: string;
   /**
    * @remarks
-   * The time when the partition filter expression was last updated.
+   * The time when the partition expression was updated.
+   * 
+   * The value is a 13-digit number, for example, `1593964800000`.
    * 
    * @example
    * 1593964800000
@@ -77,7 +77,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The user who updates the partition filter expression. The value is the ID of an Alibaba Cloud account.
+   * The account ID of the user who updated the partition expression.
    * 
    * @example
    * 1822931****
@@ -85,7 +85,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   modifyUser?: string;
   /**
    * @remarks
-   * The owner who configures the partition filter expression. The value is the ID of an Alibaba Cloud account.
+   * The owner. The account ID of the user who configured the partition expression.
    * 
    * @example
    * 1822931****
@@ -93,7 +93,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   onDuty?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account of the owner.
+   * The Alibaba Cloud account name of the owner.
    * 
    * @example
    * test
@@ -109,11 +109,9 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The scheduling node that is associated with the partition filter expression. This parameter includes the following sub-parameters:
-   * 
-   * - ProjectName: The name of the workspace to which the scheduling node belongs.
-   * 
-   * - NodeID: The ID of the scheduling node.
+   * The information about the scheduling node associated with the partition expression, including:
+   * - ProjectName: the name of the project to which the scheduling node belongs.
+   * - NodeID: the node ID of the scheduling node.
    * 
    * @example
    * [{"projectName":"xc_DP****","nodeId":7000026****}]
@@ -121,7 +119,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   relativeNode?: string;
   /**
    * @remarks
-   * The SQL-level partition filter expression.
+   * The SQL-level partition expression.
    * 
    * @example
    * 0
@@ -197,7 +195,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
 export class GetQualityEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned information.
    */
   data?: GetQualityEntityResponseBodyData[];
   /**
@@ -234,7 +232,7 @@ export class GetQualityEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

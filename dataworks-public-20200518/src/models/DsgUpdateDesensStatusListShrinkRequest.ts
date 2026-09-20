@@ -20,6 +20,9 @@ export class DsgUpdateDesensStatusListShrinkRequest extends $dara.Model {
    * The list of switch IDs.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * DsgUpdateDesensStatusList
    */
   idsShrink?: string;
   static names(): { [key: string]: string } {

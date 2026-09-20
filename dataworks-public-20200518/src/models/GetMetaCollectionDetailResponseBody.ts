@@ -6,7 +6,7 @@ import { Collection } from "./Collection";
 export class GetMetaCollectionDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the collection.
+   * The collection object.
    */
   collection?: Collection;
   /**
@@ -35,7 +35,7 @@ export class GetMetaCollectionDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-E****
@@ -43,11 +43,10 @@ export class GetMetaCollectionDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * true
-   * 
-   * false
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

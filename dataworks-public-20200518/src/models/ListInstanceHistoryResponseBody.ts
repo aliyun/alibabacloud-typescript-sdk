@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance started to be run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The time when the instance started running, in timestamp format.
    * 
    * @example
    * 1590416703313
@@ -13,7 +13,9 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   beginRunningTime?: number;
   /**
    * @remarks
-   * The time when the instance started to wait for resources.
+   * The time when the instance started waiting for resources.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -21,7 +23,9 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   beginWaitResTime?: number;
   /**
    * @remarks
-   * The time when the instance started to wait to be scheduled.
+   * The time when the instance started waiting for scheduling.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -29,7 +33,9 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   beginWaitTimeTime?: number;
   /**
    * @remarks
-   * The data timestamp of the instance. In most cases, the value is one day before the time when the instance was run.
+   * The business date on which the scheduled node was run. This value is typically one day before the run time of the node.
+   * 
+   * The value is a 13-digit number, such as `1590336000000`.
    * 
    * @example
    * 1590336000000
@@ -37,7 +43,9 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   bizdate?: number;
   /**
    * @remarks
-   * The time when the instance was generated.
+   * The time when the instance was created.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -45,7 +53,7 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The time when the node started to be run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The scheduled run time of the node, in timestamp format.
    * 
    * @example
    * 1590422400000
@@ -53,7 +61,7 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   cycTime?: number;
   /**
    * @remarks
-   * The workflow ID.
+   * The ID of the workflow.
    * 
    * @example
    * 33845
@@ -61,11 +69,10 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   dagId?: number;
   /**
    * @remarks
-   * Indicates whether the instance is associated with a monitoring rule in Data Quality. Valid values:
+   * The Data Quality Check (DQC) type. Valid values:
    * 
-   * - 0: The instance is associated with a monitoring rule in Data Quality.
-   * 
-   * - 1: The instance is not associated with a monitoring rule in Data Quality.
+   * - 0: associated with DQC.
+   * - 1: not associated with DQC.
    * 
    * @example
    * 1
@@ -73,7 +80,7 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   dagType?: string;
   /**
    * @remarks
-   * The error message. This parameter is deprecated. You can call the GetInstanceLog operation to query the error information related to the node.
+   * **[Deprecated]** The error message returned when the instance failed to run. This field is deprecated. You can call the GetInstanceLog operation to obtain the error information of the node.
    * 
    * @example
    * error message
@@ -81,7 +88,7 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The time when the running of the node was complete. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The time when the scheduled node finished running, in timestamp format.
    * 
    * @example
    * 1590416703313
@@ -89,7 +96,7 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   finishTime?: number;
   /**
    * @remarks
-   * The historical record number of the instance.
+   * The history archive ID of the instance.
    * 
    * @example
    * 1
@@ -97,7 +104,7 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   instanceHistoryId?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * 1234
@@ -105,7 +112,9 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The time when the node was last modified.
+   * The time when the scheduled node was last modified.
+   * 
+   * The value is a 13-digit number, such as `1590416703313`.
    * 
    * @example
    * 1590416703313
@@ -113,7 +122,7 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * 33115
@@ -129,23 +138,16 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The status of the node that generates the instance. Valid values:
+   * The status of the node. Valid values:
    * 
    * - NOT_RUN: The node is not run.
-   * 
-   * - WAIT_TIME: The node is waiting for the scheduling time to arrive.
-   * 
+   * - WAIT_TIME: The node is waiting for the scheduled time (DueTime or CycTime) to arrive.
    * - WAIT_RESOURCE: The node is waiting for resources.
-   * 
    * - RUNNING: The node is running.
-   * 
-   * - CHECKING: Data quality is being checked for the node.
-   * 
-   * - CHECKING_CONDITION: Branch conditions are being checked for the node.
-   * 
-   * - FAILURE: The node fails to be run.
-   * 
-   * - SUCCESS: The node is successfully run.
+   * - CHECKING: The node is sent to Data Quality for data verification.
+   * - CHECKING_CONDITION: The node is undergoing branch condition verification.
+   * - FAILURE: The node failed to run.
+   * - SUCCESS: The node ran successfully.
    * 
    * @example
    * NOT_RUN
@@ -153,23 +155,16 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The scheduling type of the node. Valid values:
+   * The scheduling type of the node instance. Valid values:
    * 
-   * - NORMAL(0): The node is an auto triggered node. The scheduling system regularly runs the node.
-   * 
-   * - MANUAL(1): The node is a manually triggered node. The scheduling system does not regularly run the node.
-   * 
-   * - PAUSE(2): The node is a frozen node. The scheduling system regularly runs the node but sets the status of the node to failed when the scheduling system starts to run the node.
-   * 
-   * - SKIP(3): The node is a dry-run node. The scheduling system regularly runs the node but sets the status of the node to successful when the scheduling system starts to run the node.
-   * 
-   * - SKIP_UNCHOOSE(4): The node is an unselected node in a temporary workflow. This type of node exists only in temporary workflows. The scheduling system sets the status of the node to successful when the scheduling system starts to run the node.
-   * 
-   * - SKIP_CYCLE(5): The node is a node that is scheduled by the week or month and is waiting for the scheduling time to arrive. The scheduling system regularly runs the node but sets the status of the node to successful when the scheduling system starts to run the node.
-   * 
-   * - CONDITION_UNCHOOSE(6): The node is not selected by its ancestor branch node and is run as a dry-run node.
-   * 
-   * - REALTIME_DEPRECATED(7): The node has instances that are generated in real time but deprecated. The scheduling system sets the status of the node to successful.
+   * - NORMAL(0): A normal scheduling node. The node is scheduled on a daily basis.
+   * - MANUAL(1): A manual node. The node is not scheduled on a daily basis.
+   * - PAUSE(2): A frozen node. The node is scheduled on a daily basis, but is set to failed when scheduling starts.
+   * - SKIP(3): A dry-run node. The node is scheduled on a daily basis, but is set to successful when scheduling starts.
+   * - SKIP_UNCHOOSE(4): A node that is not selected in a temporary workflow. This type of node exists only in temporary workflows and is set to successful when scheduling starts.
+   * - SKIP_CYCLE(5): A weekly or monthly node that has not reached its run cycle. The node is scheduled on a daily basis, but is set to successful when scheduling starts.
+   * - CONDITION_UNCHOOSE(6): A downstream node that is not selected by an upstream branch (IF) node. The node is directly set to dry-run.
+   * - REALTIME_DEPRECATED(7): An expired periodic instance generated in real time. This type of node is directly set to successful.
    * 
    * @example
    * NORMAL(0)
@@ -231,12 +226,12 @@ export class ListInstanceHistoryResponseBodyInstances extends $dara.Model {
 export class ListInstanceHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances.
+   * The list of instances.
    */
   instances?: ListInstanceHistoryResponseBodyInstances[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * E6F0DBDD-5AD****
@@ -244,11 +239,9 @@ export class ListInstanceHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

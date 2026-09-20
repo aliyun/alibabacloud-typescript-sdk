@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMetaCollectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the collection.
+   * The collection type.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,9 @@ export class CreateMetaCollectionRequest extends $dara.Model {
   collectionType?: string;
   /**
    * @remarks
-   * The comment of the collection. The comment must be 1 to 64 characters in length.
+   * The comment for the collection.
+   * 
+   * Length limit: 1 to 64 characters.
    * 
    * @example
    * this is a comment
@@ -23,7 +25,9 @@ export class CreateMetaCollectionRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The name of the collection. The name must be 1 to 32 characters in length.
+   * The collection name.
+   * 
+   * Length limit: 1 to 32 characters.
    * 
    * This parameter is required.
    * 

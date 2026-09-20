@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataServiceApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the API.
+   * The ID of the created API.
    * 
    * @example
    * 100003
@@ -37,7 +37,7 @@ export class CreateDataServiceApiResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. A unique identifier for the request.
    * 
    * @example
    * 0000-ABCD-EFG****

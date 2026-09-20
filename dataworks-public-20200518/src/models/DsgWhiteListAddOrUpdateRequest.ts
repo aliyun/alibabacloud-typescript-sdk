@@ -87,6 +87,9 @@ export class DsgWhiteListAddOrUpdateRequest extends $dara.Model {
    * A collection of whitelists.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * DsgWhiteListAddOrUpdate
    */
   whiteLists?: DsgWhiteListAddOrUpdateRequestWhiteLists[];
   static names(): { [key: string]: string } {

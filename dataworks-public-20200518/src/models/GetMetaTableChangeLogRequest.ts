@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaTableChangeLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the change. Valid values: CREATE_TABLE, ALTER_TABLE, DROP_TABLE, ADD_PARTITION, and DROP_PARTITION.
+   * The type of change. Valid values: CREATE_TABLE, ALTER_TABLE, DROP_TABLE, ADD_PARTITION, and DROP_PARTITION.
    * 
    * @example
    * ALTER_TABLE
@@ -13,11 +13,9 @@ export class GetMetaTableChangeLogRequest extends $dara.Model {
   changeType?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-   * 
-   * - By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-   * 
-   * - If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+   * The end date of the table change. Format: yyyy-MM-dd HH:mm:ss.
+   * - If the date validation fails, the system uses the current time as the end date by default.
+   * - If both the start date and end date fail validation, the system automatically retrieves the table change records from the last 30 days.
    * 
    * @example
    * 2020-06-02 00:00:00
@@ -25,7 +23,7 @@ export class GetMetaTableChangeLogRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The entity on which the change is made. Valid values: TABLE and PARTITION.
+   * The type of the changed object. Valid values: TABLE and PARTITION.
    * 
    * @example
    * TABLE
@@ -33,7 +31,7 @@ export class GetMetaTableChangeLogRequest extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number. Used for pagination.
    * 
    * @example
    * 1
@@ -49,11 +47,9 @@ export class GetMetaTableChangeLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-   * 
-   * - By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-   * 
-   * - If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+   * The start date of the table change. Format: yyyy-MM-dd HH:mm:ss.
+   * - If the date validation fails, the system uses the current time as the start date by default.
+   * - If both the start date and end date fail validation, the system automatically retrieves the table change records from the last 30 days.
    * 
    * @example
    * 2020-06-01 00:00:00
@@ -61,9 +57,8 @@ export class GetMetaTableChangeLogRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The GUID of the table. Specify the GUID in the odps.projectName.tableName format. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the GUID.
-   * 
-   * > To query the change logs of a MaxCompute table, you must call the [GetMetaTableChangeLog](https://help.aliyun.com/document_detail/2780094.html) operation.
+   * The globally unique identifier (GUID) of the table. Format: odps.projectName.tableName. You can call [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) to obtain the GUID of the table.
+   * > Currently, you can call [GetMetaTableChangeLog](https://help.aliyun.com/document_detail/2780094.html) to retrieve the change log of only MaxCompute tables.
    * 
    * This parameter is required.
    * 

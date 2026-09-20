@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMetaDBResponseBodyDatabaseInfoDbList extends $dara.Model {
   /**
    * @remarks
-   * The timestamp at which the metadatabase was created. You can convert the timestamp to the date based on the time zone that you use.
+   * The time when the database was created. The value is a timestamp. You can convert the timestamp to a date based on your time zone.
    * 
    * @example
    * 1388776825
@@ -13,7 +13,7 @@ export class ListMetaDBResponseBodyDatabaseInfoDbList extends $dara.Model {
   createTimeStamp?: number;
   /**
    * @remarks
-   * The URL of the metadatabase.
+   * The storage address of the database.
    * 
    * @example
    * hdfs://localhost:777/user/hadoop/test.txt
@@ -21,7 +21,7 @@ export class ListMetaDBResponseBodyDatabaseInfoDbList extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The timestamp at which the metadatabase was updated.
+   * The time when the database was last updated.
    * 
    * @example
    * 1388776837
@@ -29,7 +29,7 @@ export class ListMetaDBResponseBodyDatabaseInfoDbList extends $dara.Model {
   modifiedTimeStamp?: number;
   /**
    * @remarks
-   * The name of the metadatabase.
+   * The name of the database.
    * 
    * @example
    * name
@@ -37,7 +37,7 @@ export class ListMetaDBResponseBodyDatabaseInfoDbList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The owner ID.
+   * The ID of the owner.
    * 
    * @example
    * 1232
@@ -45,7 +45,7 @@ export class ListMetaDBResponseBodyDatabaseInfoDbList extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The type of the metadatabase.
+   * The type of the database.
    * 
    * @example
    * HIVE
@@ -53,7 +53,7 @@ export class ListMetaDBResponseBodyDatabaseInfoDbList extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUID of the metadatabase.
+   * The unique identifier of the database.
    * 
    * @example
    * 32342
@@ -95,12 +95,12 @@ export class ListMetaDBResponseBodyDatabaseInfoDbList extends $dara.Model {
 export class ListMetaDBResponseBodyDatabaseInfo extends $dara.Model {
   /**
    * @remarks
-   * The metadatabases.
+   * The list of databases.
    */
   dbList?: ListMetaDBResponseBodyDatabaseInfoDbList[];
   /**
    * @remarks
-   * The total number of the metadatabases returned.
+   * The total number of databases.
    * 
    * @example
    * 10
@@ -135,7 +135,7 @@ export class ListMetaDBResponseBodyDatabaseInfo extends $dara.Model {
 export class ListMetaDBResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the metadatabases.
+   * The database information.
    */
   databaseInfo?: ListMetaDBResponseBodyDatabaseInfo;
   /**

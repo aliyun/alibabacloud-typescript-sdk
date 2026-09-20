@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBusinessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The workflow ID.
+   * The ID of the business process.
    * 
    * @example
    * 100001
@@ -37,7 +37,7 @@ export class CreateBusinessResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****

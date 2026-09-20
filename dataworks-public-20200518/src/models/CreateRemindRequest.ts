@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRemindRequest extends $dara.Model {
   /**
    * @remarks
-   * The minimum interval at which alerts are reported. Unit: seconds. Minimum value: 1200. Default value: 1800.
+   * The minimum alert interval, in seconds. Minimum value: 1200. Default value: 1800.
    * 
    * @example
    * 1800
@@ -13,14 +13,15 @@ export class CreateRemindRequest extends $dara.Model {
   alertInterval?: number;
   /**
    * @remarks
-   * The notification method. Valid values:
+   * The alert method. Valid values:
+   * - MAIL: email.
+   * - SMS: text message.
+   * <props="intl">The regions that support SMS alerts are Singapore, Malaysia (Kuala Lumpur), and Germany (Frankfurt).
+   * <props="china">- PHONE: phone call. Only DataWorks Professional Edition and higher editions are supported.
+   * - Webhooks (WeCom or Lark chatbot). This alert method takes effect only after the Webhooks parameter is configured.
+   * - DINGROBOTS: DingTalk chatbot.
    * 
-   * *   MAIL: Alert notifications are sent by email.
-   * *   SMS: Alert notifications are sent by text message. Alert notifications can be sent by text message only in the Singapore, Malaysia (Kuala Lumpur), and Germany (Frankfurt) regions.
-   * *   WEBHOOKS (WeCom or Lark chatbot): Alert notifications are sent by WeCom or Lark message. If you want to use this notification method, you must configure the Webhooks parameter.
-   * *   DINGROBOTS: Alert notifications are sent by DingTalk chatbot.
-   * 
-   * You can specify multiple notification methods. Separate them with commas (,).
+   * Separate multiple alert methods with commas (,).
    * 
    * This parameter is required.
    * 
@@ -30,8 +31,9 @@ export class CreateRemindRequest extends $dara.Model {
   alertMethods?: string;
   /**
    * @remarks
-   * *   If the AlertUnit parameter is set to OWNER, leave this parameter empty.
-   * *   If the AlertUnit parameter is set to OTHER, set this parameter to the ID of the Alibaba Cloud account used by the specified user. You can specify multiple IDs. Separate multiple IDs with commas (,). You can specify a maximum of 10 IDs.
+   * - When AlertUnit (alert recipient) is set to OWNER (node owner), pass an empty value.
+   * 
+   * - When AlertUnit (alert recipient) is set to OTHER (specified user), pass the Alibaba Cloud UIDs of the specified users. Separate multiple Alibaba Cloud UIDs with commas (,). A maximum of 10 UIDs are supported.
    * 
    * @example
    * 9527952795279527
@@ -39,7 +41,7 @@ export class CreateRemindRequest extends $dara.Model {
   alertTargets?: string;
   /**
    * @remarks
-   * The recipient of the alert. Valid values: OWNER and OTHER. The value OWNER indicates the node owner. The value OTHER indicates a specified user.
+   * The granularity of the alert recipient. Valid values: OWNER (node owner) and OTHER (specified user).
    * 
    * This parameter is required.
    * 
@@ -49,7 +51,7 @@ export class CreateRemindRequest extends $dara.Model {
   alertUnit?: string;
   /**
    * @remarks
-   * The ID of the baseline to which the custom alert rule is applied. This parameter takes effect when the RemindUnit parameter is set to BASELINE. You can specify multiple IDs. Separate multiple IDs with commas (,). A maximum of five baselines can be specified for a custom alert rule.
+   * The IDs of the baselines to monitor when RemindUnit (object type) is set to BASELINE (baseline). Separate multiple IDs with commas (,). A maximum of 5 baselines can be monitored by a single rule.
    * 
    * @example
    * 1,2,3
@@ -57,7 +59,7 @@ export class CreateRemindRequest extends $dara.Model {
   baselineIds?: string;
   /**
    * @remarks
-   * The ID of the workflow to which the custom alert rule is applied. This parameter takes effect when the RemindUnit parameter is set to BIZPROCESS. You can specify multiple IDs. Separate multiple IDs with commas (,). A maximum of five workflows can be specified for a custom alert rule.
+   * The IDs of the business processes to monitor when RemindUnit (object type) is set to BIZPROCESS (business process). Separate multiple business process IDs with commas (,). A maximum of 5 business processes can be monitored by a single rule.
    * 
    * @example
    * 1,2,3
@@ -65,13 +67,17 @@ export class CreateRemindRequest extends $dara.Model {
   bizProcessIds?: string;
   /**
    * @remarks
-   * The details of the conditions that trigger an alert.
+   * The descriptions for different trigger conditions are as follows:
    * 
-   * *   If the RemindType parameter is set to FINISHED, leave this parameter empty.
-   * *   If the RemindType parameter is set to UNFINISHED, configure this parameter as key-value pairs. Example: {"hour":23,"minu":59}. Valid values of hour: [0,47]. Valid values of minu: [0,59].
-   * *   If the RemindType parameter is set to ERROR, leave this parameter empty.
-   * *   If the RemindType parameter is set to CYCLE_UNFINISHED, configure this parameter as key-value pairs. Example: {"1":"05:50","2":"06:50","3":"07:50","4":"08:50","5":"09:50","6":"10:50","7":"11:50","8":"12:50","9":"13:50","10":"14:50","11":"15:50","12":"16:50","13":"17:50","14":"18:50","15":"19:50","16":"20:50","17":"21:50","18":"22:50","19":"23:50","20":"24:50","21":"25:50"}. The key indicates the ID of the cycle. Valid values: [1,288]. The value indicates the timeout period of the node that is running in the cycle. Specify the value in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
-   * *   If the RemindType parameter is set to TIMEOUT, set this parameter to the timeout period. Unit: seconds. Example: 1800. This value indicates that an alert is reported if the node has run for more than 30 minutes.
+   * - When RemindType (trigger condition) is set to FINISHED (completed), pass an empty value.
+   * 
+   * - When RemindType (trigger condition) is set to UNFINISHED (not completed), pass parameter in the format of {"hour":23,"minu":59}. Valid values of hour: [0,47\\]. Valid values of minu: [0,59\\].
+   * 
+   * - When RemindType (trigger condition) is set to ERROR (error), pass an empty value.
+   * 
+   * - When RemindType (trigger condition) is set to CYCLE_UNFINISHED (cycle not completed), pass parameter in the format of {"1":"05:50","2":"06:50","3":"07:50","4":"08:50","5":"09:50","6":"10:50","7":"11:50","8":"12:50","9":"13:50","10":"14:50","11":"15:50","12":"16:50","13":"17:50","14":"18:50","15":"19:50","16":"20:50","17":"21:50","18":"22:50","19":"23:50","20":"24:50","21":"25:50"}. The key in the JSON character string is the cycle number. Valid values: [1,288\\]. The value is the not-completed time for the corresponding cycle, in the hh:mm format. Valid values of hh: [0,47\\]. Valid values of mm: [0,59\\].
+   * 
+   * - When RemindType (trigger condition) is set to TIMEOUT (running timeout), pass parameter as a value such as 1800, in seconds. This means that an alert is triggered if the running time exceeds 30 minutes from the start of execution.
    * 
    * @example
    * {"hour":"23","minu":"59"}
@@ -79,7 +85,7 @@ export class CreateRemindRequest extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The end time of the quiet hours. Specify the time in the hh:mm format. Valid values of hh: [0,23]. Valid values of mm: [0,59].
+   * The end time of the do-not-disturb period, in the hh:mm format. Valid values of hh: [0,23\\]. Valid values of mm: [0,59\\].
    * 
    * @example
    * 08:00
@@ -87,7 +93,7 @@ export class CreateRemindRequest extends $dara.Model {
   dndEnd?: string;
   /**
    * @remarks
-   * The maximum number of alerts. Valid values: 1 to 10. Default value: 3.
+   * The maximum number of alerts. Minimum value: 1. Maximum value: 10. Default value: 3.
    * 
    * @example
    * 2
@@ -95,7 +101,7 @@ export class CreateRemindRequest extends $dara.Model {
   maxAlertTimes?: number;
   /**
    * @remarks
-   * The ID of the node to which the custom alert rule is applied. This parameter takes effect when the RemindUnit parameter is set to NODE. You can specify multiple IDs. Separate multiple IDs with commas (,). A maximum of 50 nodes can be specified for a custom alert rule.
+   * The IDs of the nodes to monitor when RemindUnit (object type) is set to NODE (node). Separate multiple IDs with commas (,). A maximum of 50 nodes can be monitored by a single rule.
    * 
    * @example
    * 1,2,3
@@ -103,7 +109,7 @@ export class CreateRemindRequest extends $dara.Model {
   nodeIds?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the custom alert rule is applied. This parameter takes effect when the RemindUnit parameter is set to PROJECT. You can specify only one workspace for a custom alert rule.
+   * The ID of the workspace to monitor when RemindUnit (object type) is set to PROJECT (workspace). A single rule can monitor only one workspace.
    * 
    * @example
    * 9527
@@ -111,7 +117,7 @@ export class CreateRemindRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the custom alert rule. The name cannot exceed 128 characters in length.
+   * The name of the custom rule. The name can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -121,7 +127,7 @@ export class CreateRemindRequest extends $dara.Model {
   remindName?: string;
   /**
    * @remarks
-   * The conditions that trigger an alert. Valid values: FINISHED, UNFINISHED, ERROR, CYCLE_UNFINISHED, and TIMEOUT.
+   * The trigger condition. Valid values: FINISHED (completed), UNFINISHED (not completed), ERROR (error), CYCLE_UNFINISHED (cycle not completed), and TIMEOUT (running timeout).
    * 
    * This parameter is required.
    * 
@@ -131,7 +137,7 @@ export class CreateRemindRequest extends $dara.Model {
   remindType?: string;
   /**
    * @remarks
-   * The type of the object to which the custom alert rule is applied. Valid values: NODE, BASELINE, PROJECT, and BIZPROCESS. The value NODE indicates a node. The value BASELINE indicates a baseline. The value PROJECT indicates a workspace. The value BIZPROCESS indicates a workflow.
+   * The type of the object. Valid values: NODE (node), BASELINE (baseline), PROJECT (workspace), and BIZPROCESS (business process).
    * 
    * This parameter is required.
    * 
@@ -141,7 +147,7 @@ export class CreateRemindRequest extends $dara.Model {
   remindUnit?: string;
   /**
    * @remarks
-   * The webhook URL of the DingTalk chatbot. You can specify multiple webhook URLs. Separate multiple webhook URLs with commas (,).
+   * The webhook URLs of DingTalk chatbots. Separate multiple webhook URLs with commas (,).
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=******************************
@@ -149,9 +155,10 @@ export class CreateRemindRequest extends $dara.Model {
   robotUrls?: string;
   /**
    * @remarks
-   * The webhook URL of the WeCom or Lark chatbot. You can specify multiple webhook URLs. Separate multiple webhook URLs with commas (,). You must specify WEBHOOKS for AlertMethods.
+   * The webhook URLs of WeCom or Lark chatbots. Separate multiple webhook URLs with commas (,). The alertMethods parameter must include the WEBHOOKS alert method.
    * 
-   * Only DataWorks Enterprise Edition supports this parameter. The webhook URL-based alerting feature is supported in the following regions: China (Shanghai), China (Chengdu), China (Zhangjiakou), China (Beijing), China (Hangzhou), China (Shenzhen), China (Hong Kong), Germany (Frankfurt), and Singapore.
+   * Only DataWorks Enterprise Edition is supported.
+   * Available regions: China (Shanghai), China (Chengdu), China (Zhangjiakou), China (Beijing), China (Hangzhou), China (Shenzhen), Hong Kong (China), Germany (Frankfurt), and Singapore.
    * 
    * @example
    * https://open.feishu.cn/open-apis/bot/v2/hook/*******

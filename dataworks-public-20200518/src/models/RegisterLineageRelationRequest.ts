@@ -6,7 +6,7 @@ import { LineageRelationRegisterVO } from "./LineageRelationRegisterVo";
 export class RegisterLineageRelationRequest extends $dara.Model {
   /**
    * @remarks
-   * The structure whose lineage you want to register to DataWorks.
+   * The lineage registration structure.
    * 
    * This parameter is required.
    */

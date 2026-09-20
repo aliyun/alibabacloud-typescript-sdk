@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendAvgTrend extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that are successfully run.
+   * The number of successfully completed instances.
    * 
    * @example
    * 10
@@ -13,7 +13,9 @@ export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendAvgTrend ex
   count?: number;
   /**
    * @remarks
-   * The point in time. The value is an exact hour that ranges from 00:00 to 23:00, such as 00:00, 01:00, or 02:00.
+   * The time point. Valid values: hours on the hour from 00:00 to 23:00, such as 00:00, 01:00, and 02:00.
+   * 
+   * Format: `HH:mm`. Example: `01:00`.
    * 
    * @example
    * 01:00
@@ -45,7 +47,7 @@ export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendAvgTrend ex
 export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendTodayTrend extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that are successfully run.
+   * The number of successfully completed instances.
    * 
    * @example
    * 10
@@ -53,7 +55,9 @@ export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendTodayTrend 
   count?: number;
   /**
    * @remarks
-   * The point in time. The value is an exact hour that ranges from 00:00 to 23:00, such as 00:00, 01:00, or 02:00.
+   * The time point. Valid values: hours on the hour from 00:00 to 23:00, such as 00:00, 01:00, and 02:00.
+   * 
+   * Format: `HH:mm`. Example: `01:00`.
    * 
    * @example
    * 01:00
@@ -85,7 +89,7 @@ export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendTodayTrend 
 export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendYesterdayTrend extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that are successfully run.
+   * The number of successfully completed instances.
    * 
    * @example
    * 10
@@ -93,7 +97,9 @@ export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendYesterdayTr
   count?: number;
   /**
    * @remarks
-   * The point in time. The value is an exact hour that ranges from 00:00 to 23:00, such as 00:00, 01:00, or 02:00.
+   * The time point. Valid values: hours on the hour from 00:00 to 23:00, such as 00:00, 01:00, and 02:00.
+   * 
+   * Format: `HH:mm`. Example: `01:00`.
    * 
    * @example
    * 01:00
@@ -125,17 +131,17 @@ export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendYesterdayTr
 export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrend extends $dara.Model {
   /**
    * @remarks
-   * The average trend.
+   * The historical average trend.
    */
   avgTrend?: ListSuccessInstanceAmountResponseBodyInstanceStatusTrendAvgTrend[];
   /**
    * @remarks
-   * The trend of the number of auto triggered node instances that are successfully run on the current day.
+   * The trend for the current business date.
    */
   todayTrend?: ListSuccessInstanceAmountResponseBodyInstanceStatusTrendTodayTrend[];
   /**
    * @remarks
-   * The trend of the number of auto triggered node instances that are successfully run one day earlier than the current day.
+   * The trend for the day before the business date.
    */
   yesterdayTrend?: ListSuccessInstanceAmountResponseBodyInstanceStatusTrendYesterdayTrend[];
   static names(): { [key: string]: string } {
@@ -175,12 +181,12 @@ export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrend extends $d
 export class ListSuccessInstanceAmountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+   * The trend data of successfully completed instance counts at different hours on the business date.
    */
   instanceStatusTrend?: ListSuccessInstanceAmountResponseBodyInstanceStatusTrend;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 952795279527ab****

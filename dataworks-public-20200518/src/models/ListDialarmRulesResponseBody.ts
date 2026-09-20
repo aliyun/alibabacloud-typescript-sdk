@@ -5,15 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification methods.
+   * The list of channels.
    */
   channels?: string[];
   /**
    * @remarks
    * The severity level. Valid values:
-   * 
    * - Warning
-   * 
    * - Critical
    * 
    * @example
@@ -49,11 +47,10 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotific
 export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The recipient type. Valid values: AliyunUid and DingToken.
+   * The receiver type.
    * 
-   * - If the alert notification method is Mail, Phone, or Sms, the value of this parameter is **AliyunUid**, which indicates the Alibaba Cloud account ID.
-   * 
-   * - If the alert notification method is Ding, the value of this parameter is **DingToken**, which indicates the DingTalk chatbot token.
+   * - If the alert notification channel is email, phone call, or text message, the receiver type is Alibaba Cloud user ID (**AliyunUid**).
+   * - If the alert notification channel is DingTalk, the receiver type is DingTalk token (**DingToken**).
    * 
    * @example
    * DingToken
@@ -61,7 +58,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotific
   receiverType?: string;
   /**
    * @remarks
-   * The recipients.
+   * The list of receiver values.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -93,7 +90,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotific
 export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettings extends $dara.Model {
   /**
    * @remarks
-   * The duration of the alert suppression interval. Unit: minutes.
+   * The alert suppression interval. Unit: minutes.
    * 
    * @example
    * 5
@@ -101,12 +98,12 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotific
   inhibitionInterval?: number;
   /**
    * @remarks
-   * The alert notification methods.
+   * The alert notification channels. Multiple values are supported.
    */
   notificationChannels?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationChannels[];
   /**
    * @remarks
-   * The settings of alert notification recipients.
+   * The alert notification receivers. Multiple values are supported.
    */
   notificationReceivers?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -143,7 +140,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotific
 export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTriggerConditions extends $dara.Model {
   /**
    * @remarks
-   * The time interval for alert calculation. Unit: minutes.
+   * The time window for alert calculation. Unit: minutes.
    * 
    * @example
    * 15
@@ -152,9 +149,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTrigger
   /**
    * @remarks
    * The severity level. Valid values:
-   * 
    * - Warning
-   * 
    * - Critical
    * 
    * @example
@@ -165,11 +160,9 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTrigger
    * @remarks
    * The alert threshold.
    * 
-   * - If the alert rule is for task status, no threshold is used.
-   * 
-   * - If the alert rule is for failovers, the threshold is the number of failovers.
-   * 
-   * - If the alert rule is for latency, the threshold is the latency duration, in seconds.
+   * - Task status alert: no threshold.
+   * - Failover count alert: the threshold is the number of failovers.
+   * - Task delay alert: the threshold is the delay duration. Unit: seconds.
    * 
    * @example
    * 5
@@ -211,7 +204,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules extend
   DIAlarmRuleId?: number;
   /**
    * @remarks
-   * The ID of the task with which the alert rule is associated.
+   * The task ID. This is the task ID associated with the alert rule.
    * 
    * @example
    * 11260
@@ -219,7 +212,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules extend
   DIJobId?: number;
   /**
    * @remarks
-   * The description of the alert rule.
+   * The description.
    * 
    * @example
    * mysql synchronizes to hologres heartbeat alert
@@ -235,13 +228,10 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules extend
   enabled?: boolean;
   /**
    * @remarks
-   * The metric type in the alert rule. Valid values:
-   * 
-   * - Heartbeat
-   * 
-   * - FailoverCount
-   * 
-   * - Delay
+   * The alert metric type. Valid values:
+   * - Heartbeat: task status alert.
+   * - FailoverCount: failover count alert.
+   * - Delay: task delay alert.
    * 
    * @example
    * Heartbeat
@@ -254,7 +244,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules extend
   notificationSettings?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettings;
   /**
    * @remarks
-   * The conditions that are used to trigger the alert rule.
+   * The list of alert trigger conditions. Multiple conditions are supported.
    */
   triggerConditions?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTriggerConditions[];
   static names(): { [key: string]: string } {
@@ -299,7 +289,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules extend
 export class ListDIAlarmRulesResponseBodyDIAlarmRulePaging extends $dara.Model {
   /**
    * @remarks
-   * The alert rules.
+   * The list of alert rules.
    */
   DIJobAlarmRules?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules[];
   /**
@@ -312,7 +302,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePaging extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -320,7 +310,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePaging extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 2
@@ -359,7 +349,7 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePaging extends $dara.Model {
 export class ListDIAlarmRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The paginated result of alert rules.
    */
   DIAlarmRulePaging?: ListDIAlarmRulesResponseBodyDIAlarmRulePaging;
   /**

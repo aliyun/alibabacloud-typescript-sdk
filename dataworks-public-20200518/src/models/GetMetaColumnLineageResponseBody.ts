@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaColumnLineageResponseBodyDataDataEntityList extends $dara.Model {
   /**
    * @remarks
-   * The EMR cluster ID.
+   * The ID of the EMR cluster.
    * 
    * @example
    * abc
@@ -75,12 +75,12 @@ export class GetMetaColumnLineageResponseBodyDataDataEntityList extends $dara.Mo
 export class GetMetaColumnLineageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The list of instance data.
    */
   dataEntityList?: GetMetaColumnLineageResponseBodyDataDataEntityList[];
   /**
    * @remarks
-   * The page number.
+   * The page number. Used for pagination.
    * 
    * @example
    * 1

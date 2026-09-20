@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBaselineResponseBodyDataAlertSettingsDingRobots extends $dara.Model {
   /**
    * @remarks
-   * Whether @ everyone.
+   * Indicates whether to @ all members.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetBaselineResponseBodyDataAlertSettingsDingRobots extends $dara.Mo
   atAll?: boolean;
   /**
    * @remarks
-   * DingTalk robot address
+   * The webhook URL of the DingTalk chatbot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
@@ -42,10 +42,44 @@ export class GetBaselineResponseBodyDataAlertSettingsDingRobots extends $dara.Mo
   }
 }
 
+export class GetBaselineResponseBodyDataAlertSettingsTopicSlowConfig extends $dara.Model {
+  /**
+   * @example
+   * 3600
+   */
+  minOver?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  overFactor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      minOver: 'MinOver',
+      overFactor: 'OverFactor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      minOver: 'number',
+      overFactor: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
   /**
    * @remarks
-   * The event alert interval, in seconds.
+   * The event alerting interval, in seconds.
    * 
    * @example
    * 900
@@ -53,7 +87,7 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
   alertInterval?: number;
   /**
    * @remarks
-   * The maximum number of event alerts.
+   * The maximum number of event alerting notifications.
    * 
    * @example
    * 1
@@ -61,16 +95,16 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
   alertMaximum?: number;
   /**
    * @remarks
-   * Alert method list
+   * The list of alert methods.
    */
   alertMethods?: string[];
   /**
    * @remarks
-   * Alert recipient details.
+   * The alert recipient details.
    * 
-   * AlertRecipientType is OWNER: empty
-   * AlertRecipientType is SHIFT_SCHEDULE: duty table uid
-   * AlertRecipientType is OTHER: uid list, multiple UIDs are in English, split
+   * - If AlertRecipientType is set to OWNER: empty.
+   * - If AlertRecipientType is set to SHIFT_SCHEDULE: the UID of the shift schedule.
+   * - If AlertRecipientType is set to OTHER: a list of UIDs. Separate multiple UIDs with commas (,).
    * 
    * @example
    * 123123
@@ -78,11 +112,11 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
   alertRecipient?: string;
   /**
    * @remarks
-   * The type of alert recipient.
+   * The type of alert recipient. Valid values:
    * 
-   * - OWNER: task owner
-   * - OTHER: designated person
-   * - SHIFT: SCHEDULE-duty table
+   * - OWNER: node owner.
+   * - OTHER: specified users.
+   * - SHIFT_SCHEDULE: shift schedule.
    * 
    * @example
    * OWNER
@@ -90,10 +124,9 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
   alertRecipientType?: string;
   /**
    * @remarks
-   * Alert type
-   * 
-   * - BASELINE: baseline
-   * - TOPIC: event
+   * The alerting type. Valid values:
+   * - BASELINE: baseline.
+   * - TOPIC: event.
    * 
    * @example
    * BASELINE
@@ -101,10 +134,10 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The baseline alarm switch.
+   * The baseline alert switch. This is a baseline-specific configuration. Valid values:
    * 
-   * - true
-   * - false
+   * - true: started.
+   * - false: stopped.
    * 
    * @example
    * false
@@ -112,12 +145,12 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
   baselineAlertEnabled?: boolean;
   /**
    * @remarks
-   * DingTalk robot list.
+   * The list of DingTalk chatbots.
    */
   dingRobots?: GetBaselineResponseBodyDataAlertSettingsDingRobots[];
   /**
    * @remarks
-   * The end time of the silence. The format is HH:mm:ss.
+   * The silence end time, in the HH:mm:ss format.
    * 
    * @example
    * 00:00:00
@@ -125,20 +158,21 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
   silenceEndTime?: string;
   /**
    * @remarks
-   * The start time of the silence. Format: HH:mm:ss
+   * The silence start time, in the HH:mm:ss format.
    * 
    * @example
    * 00:00:00
    */
   silenceStartTime?: string;
+  topicSlowConfig?: GetBaselineResponseBodyDataAlertSettingsTopicSlowConfig;
   /**
    * @remarks
-   * The list of Event Alert types.
+   * The list of event alerting types. This is an event-specific configuration.
    */
   topicTypes?: string[];
   /**
    * @remarks
-   * webhook list.
+   * The list of webhooks.
    */
   webhooks?: string[];
   static names(): { [key: string]: string } {
@@ -153,6 +187,7 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
       dingRobots: 'DingRobots',
       silenceEndTime: 'SilenceEndTime',
       silenceStartTime: 'SilenceStartTime',
+      topicSlowConfig: 'TopicSlowConfig',
       topicTypes: 'TopicTypes',
       webhooks: 'Webhooks',
     };
@@ -170,6 +205,7 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
       dingRobots: { 'type': 'array', 'itemType': GetBaselineResponseBodyDataAlertSettingsDingRobots },
       silenceEndTime: 'string',
       silenceStartTime: 'string',
+      topicSlowConfig: GetBaselineResponseBodyDataAlertSettingsTopicSlowConfig,
       topicTypes: { 'type': 'array', 'itemType': 'string' },
       webhooks: { 'type': 'array', 'itemType': 'string' },
     };
@@ -181,6 +217,9 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
     }
     if(Array.isArray(this.dingRobots)) {
       $dara.Model.validateArray(this.dingRobots);
+    }
+    if(this.topicSlowConfig && typeof (this.topicSlowConfig as any).validate === 'function') {
+      (this.topicSlowConfig as any).validate();
     }
     if(Array.isArray(this.topicTypes)) {
       $dara.Model.validateArray(this.topicTypes);
@@ -199,7 +238,7 @@ export class GetBaselineResponseBodyDataAlertSettings extends $dara.Model {
 export class GetBaselineResponseBodyDataOverTimeSettings extends $dara.Model {
   /**
    * @remarks
-   * The period corresponding to the commitment time. The space-based line is 1, and the hourly baseline can be configured for up to 24 cycles.
+   * The cycle corresponding to the committed time. The value is 1 for daily baselines. You can configure up to 24 cycles for hourly baselines.
    * 
    * @example
    * 1
@@ -207,7 +246,7 @@ export class GetBaselineResponseBodyDataOverTimeSettings extends $dara.Model {
   cycle?: number;
   /**
    * @remarks
-   * Commitment time, hh:mm format, hh value range is [0,47],mm value range is [0,59].
+   * The committed time in hh:mm format, where hh ranges from 0 to 47 and mm ranges from 0 to 59.
    * 
    * @example
    * 00:00
@@ -239,10 +278,10 @@ export class GetBaselineResponseBodyDataOverTimeSettings extends $dara.Model {
 export class GetBaselineResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the alerting feature is enabled. Valid values:
+   * Indicates whether alerting is started. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -250,7 +289,7 @@ export class GetBaselineResponseBodyData extends $dara.Model {
   alertEnabled?: boolean;
   /**
    * @remarks
-   * The alert margin threshold. Unit: minutes.
+   * The alert margin threshold, in minutes.
    * 
    * @example
    * 60
@@ -263,7 +302,7 @@ export class GetBaselineResponseBodyData extends $dara.Model {
   alertSettings?: GetBaselineResponseBodyDataAlertSettings[];
   /**
    * @remarks
-   * The baseline ID.
+   * The ID of the baseline.
    * 
    * @example
    * 1001
@@ -281,8 +320,8 @@ export class GetBaselineResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the baseline. Valid values:
    * 
-   * *   DAILY
-   * *   HOURLY
+   * - DAILY: daily baseline.
+   * - HOURLY: hourly baseline.
    * 
    * @example
    * DAILY
@@ -290,7 +329,7 @@ export class GetBaselineResponseBodyData extends $dara.Model {
   baselineType?: string;
   /**
    * @remarks
-   * Indicates whether the baseline is enabled.
+   * Indicates whether the baseline is started.
    * 
    * @example
    * true
@@ -298,12 +337,12 @@ export class GetBaselineResponseBodyData extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The node IDs.
+   * The list of upstream nodes of the baseline.
    */
   nodeIds?: number[];
   /**
    * @remarks
-   * The settings of the committed completion time of the baseline.
+   * The baseline committed time settings.
    */
   overTimeSettings?: GetBaselineResponseBodyDataOverTimeSettings[];
   /**
@@ -324,7 +363,7 @@ export class GetBaselineResponseBodyData extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * @example
    * 10000
@@ -385,7 +424,7 @@ export class GetBaselineResponseBodyData extends $dara.Model {
 export class GetBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetBaselineResponseBodyData;
   /**
@@ -423,9 +462,8 @@ export class GetBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * - true
+   * - false
    * 
    * @example
    * true

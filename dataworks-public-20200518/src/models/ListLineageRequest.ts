@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListLineageRequest extends $dara.Model {
   /**
    * @remarks
-   * The lineage type. Valid values:
-   * 
-   * *   up: ancestor lineage
-   * *   down: descendant lineage
+   * The lineage direction. Valid values: 
+   * - up: upstream.
+   * - down: downstream.
    * 
    * This parameter is required.
    * 
@@ -36,7 +35,7 @@ export class ListLineageRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token that specifies the starting point of the current read operation.
    * 
    * @example
    * next-token-from-previous-request
@@ -44,7 +43,7 @@ export class ListLineageRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The page size. Maximum value: 100.
    * 
    * @example
    * 10

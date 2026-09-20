@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRemindResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the modification to the custom alert rule succeeds.
+   * The result of updating the custom monitoring rule.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class UpdateRemindResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to troubleshoot issues.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -45,10 +45,9 @@ export class UpdateRemindResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

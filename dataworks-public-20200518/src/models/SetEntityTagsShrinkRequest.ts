@@ -15,7 +15,7 @@ export class SetEntityTagsShrinkRequest extends $dara.Model {
   qualifiedName?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of labels.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {

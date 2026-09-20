@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSuccessInstanceTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * This parameter is required.
    * 

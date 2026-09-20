@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExtensionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the request, used for pagination.
    * 
    * @example
    * 1

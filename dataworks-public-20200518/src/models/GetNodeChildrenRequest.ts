@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeChildrenRequest extends $dara.Model {
   /**
    * @remarks
-   * The node ID. You can go to the Operation Center page in the DataWorks console to query the node ID.
+   * The node ID. You can view the node ID in the Operation Center of the DataWorks console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetNodeChildrenRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The environment type of Operation Center. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
+   * The environment identifier of the Operation Center. PROD indicates the production environment. DEV indicates the development environment.
    * 
    * This parameter is required.
    * 

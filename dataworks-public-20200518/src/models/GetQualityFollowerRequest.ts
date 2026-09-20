@@ -23,7 +23,7 @@ export class GetQualityFollowerRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the engine or data source.
+   * The name of the compute engine or data source.
    * 
    * This parameter is required.
    * 

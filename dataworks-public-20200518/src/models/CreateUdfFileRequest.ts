@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUdfFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the class in which the function is defined. This parameter corresponds to the Class Name parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+   * The name of the class in which the function is defined, which corresponds to the Class Name field in the Create Function form.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The syntax used for calling the function. This parameter corresponds to the Expression Syntax parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+   * The command format for invoking the function, which corresponds to the Command Format field in the Create Function form.
    * 
    * @example
    * StringConcat(String... substrs)
@@ -23,10 +23,11 @@ export class CreateUdfFileRequest extends $dara.Model {
   cmdDescription?: string;
   /**
    * @remarks
-   * Specifies whether to automatically create the directory that is specified by the FileFolderPath parameter if the directory does not exist. Valid values:
+   * Specifies whether to enable automatic creation of the directory specified by the FileFolderPath parameter if it does not exist. Valid values:
    * 
-   * *   true: The system automatically creates the directory if the directory does not exist.
-   * *   false: The system does not automatically create the directory if the directory does not exist. In this case, the call fails.
+   * - true: Automatically creates the directory if it does not exist.
+   * 
+   * - false: The invocation fails if the directory does not exist.
    * 
    * @example
    * false
@@ -34,7 +35,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   createFolderIfNotExists?: boolean;
   /**
    * @remarks
-   * The example for calling the function. This parameter corresponds to the Example parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+   * The function invocation example, which corresponds to the Example field in the Create Function form.
    * 
    * @example
    * StringConcat(\\"a\\", \\"b\\", \\"c\\")
@@ -42,7 +43,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   example?: string;
   /**
    * @remarks
-   * The path of the folder in which the file for the function is stored.
+   * The path of the folder where the function file is stored.
    * 
    * @example
    * Business_process/First_Business_Process/function/string_processing
@@ -50,7 +51,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   fileFolderPath?: string;
   /**
    * @remarks
-   * The name of the file for the function.
+   * The name of the function.
    * 
    * This parameter is required.
    * 
@@ -60,7 +61,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The type of the function. Valid values: MATH, AGGREGATE, STRING, DATE, ANALYTIC, and OTHER. This parameter corresponds to the Function Type parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
+   * The categorization of the function, which corresponds to the Function Type field in the Create Function form. Valid values: MATH (mathematical operation function), AGGREGATE (aggregate functions), STRING (character string processing function), DATE (date processing function), ANALYTIC (window function), and OTHER (other function).
    * 
    * This parameter is required.
    * 
@@ -70,7 +71,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   functionType?: string;
   /**
    * @remarks
-   * The description of the input parameters of the function. This parameter corresponds to the Parameter Description parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
+   * The description of the function input parameters, which corresponds to the Parameter Description field in the Create Function form.
    * 
    * @example
    * List of strings to be connected
@@ -78,7 +79,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   parameterDescription?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace Management page and view the workspace ID.
+   * The ID of the DataWorks workspace. You can click the small wrench icon in the upper-right corner of the page to go to the storage management page and view the ID.
    * 
    * @example
    * 10000
@@ -86,9 +87,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The unique identifier of the DataWorks workspace. You can click the identifier in the upper-left corner of the DataStudio page to switch to another workspace.
-   * 
-   * You must specify either this parameter or the projectId parameter to determine the DataWorks workspace to which the operation is called.
+   * The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the DataStudio page.
    * 
    * @example
    * dw_project
@@ -96,7 +95,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   projectIdentifier?: string;
   /**
    * @remarks
-   * The names of the resources that are referenced by the function. This parameter corresponds to the Resources parameter in the Register Function section of the configuration tab of the function in the DataWorks console. Multiple resource names are separated by commas (,).
+   * The resources referenced by the function, which corresponds to the Resources field in the Create Function form. Separate multiple resource names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -106,7 +105,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   resources?: string;
   /**
    * @remarks
-   * The description of the return value of the function. This parameter corresponds to the Return Value parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
+   * The description of the return value of the function, which corresponds to the Return Value field in the Create Function form.
    * 
    * @example
    * New strings generated by concatenating all strings before and after the input order
@@ -114,7 +113,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   returnValue?: string;
   /**
    * @remarks
-   * The description of the function. This parameter corresponds to the Description parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
+   * The description of the function purpose, which corresponds to the Description field in the Create Function form.
    * 
    * @example
    * Concatenate several strings to generate a new string

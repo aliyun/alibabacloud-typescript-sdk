@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDefaultTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data about the default data category and data sensitivity level template. The data is in the JSON array format.
+   * The default data classification template returned. The value is in JSON format.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class QueryDefaultTemplateResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * This parameter is required.
    * 
@@ -56,9 +56,8 @@ export class QueryDefaultTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * This parameter is required.
    * 

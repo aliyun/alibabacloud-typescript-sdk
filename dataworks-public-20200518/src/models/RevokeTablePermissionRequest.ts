@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeTablePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The permissions that you want to revoke. Separate multiple permissions with commas (,). You can revoke only the SELECT, DESCRIBE, and DOWNLOAD permissions on MaxCompute tables.
+   * The operation permissions on the table that you want to revoke. Separate multiple operation permissions with commas (,).
+   * 
+   * Currently, only the Select, Describe, and Download operation permissions on MaxCompute tables can be revoked.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,7 @@ export class RevokeTablePermissionRequest extends $dara.Model {
   actions?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project to which the table belongs. You can log on to the DataWorks console and go to the SettingCenter page to obtain the name of the MaxCompute project that you associate with the workspace.
+   * The name of the MaxCompute project that contains the table from which you want to revoke permissions. You can log on to the DataWorks console and go to the Workspace Settings page to obtain the name of the MaxCompute project associated with the DataWorks workspace.
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,9 @@ export class RevokeTablePermissionRequest extends $dara.Model {
   maxComputeProjectName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account from which you want to revoke permissions. You can log on to the DataWorks console and go to the Security Settings page to obtain the ID. You must specify either this parameter or the RevokeUserName parameter. If you specify both this parameter and the RevokeUserName parameter and the parameter values are different, the value of this parameter prevails.
+   * The Alibaba Cloud account ID from which you want to revoke table permissions. You can logon to the DataWorks console and go to the Security Settings page to obtain the account ID.
+   * 
+   * You only need to specify either this parameter or the RevokeUserName parameter. If both this parameter and the RevokeUserName parameter are specified in the parameter settings but have different values, the value of the RevokeUserId parameter takes precedence.
    * 
    * @example
    * 267842600408993176
@@ -33,12 +37,11 @@ export class RevokeTablePermissionRequest extends $dara.Model {
   revokeUserId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account from which you want to revoke permissions. Specify this parameter in the format that is the same as the format of the account used to access the MaxCompute project.
+   * The name of the Alibaba Cloud account from which you want to revoke table permissions. The account format is the same as the account format used in MaxCompute.
+   * - An Alibaba Cloud account is in the format of ALIYUN$+account name.
+   * - A RAM user is in the format of RAM$+account name.
    * 
-   * *   If the account is an Alibaba Cloud account, the value is in the ALIYUN$+Account name format.
-   * *   If the account is a RAM user, the value is in the RAM$+Account name format.
-   * 
-   * You must specify either this parameter or the RevokeUserId parameter. If you specify both this parameter and the RevokeUserId parameter and the parameter values are different, the value of the RevokeUserId parameter prevails.
+   * You only need to specify either this parameter or the RevokeUserId parameter. If both this parameter and the RevokeUserId parameter are specified in the parameter settings but have different values, the value of the RevokeUserId parameter takes precedence.
    * 
    * @example
    * RAM$dataworks_3h1_1:stsramuser
@@ -46,7 +49,7 @@ export class RevokeTablePermissionRequest extends $dara.Model {
   revokeUserName?: string;
   /**
    * @remarks
-   * The name of the MaxCompute table. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to query the name of the MaxCompute table.
+   * The name of the MaxCompute table from which you want to revoke permissions. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to obtain the MaxCompute table name.
    * 
    * This parameter is required.
    * 
@@ -56,7 +59,7 @@ export class RevokeTablePermissionRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace with which the MaxCompute project is associated. You can log on to the DataWorks console and go to the Workspace page to obtain the ID.
+   * The ID of the DataWorks workspace to which the MaxCompute table belongs. You can log on to the DataWorks console and go to the Workspace Settings page to obtain the workspace ID.
    * 
    * This parameter is required.
    * 

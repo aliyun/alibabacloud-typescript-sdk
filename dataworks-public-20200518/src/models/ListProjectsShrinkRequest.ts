@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Valid values: 1 to 100.
+   * The page number. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListProjectsShrinkRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tags to add to the workspace.
+   * The list of tags bound to the workspace.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {

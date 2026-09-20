@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBaselineShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the alerting feature. Valid values: true and false.
+   * Specifies whether alerting is enabled. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -13,7 +15,7 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   alertEnabled?: boolean;
   /**
    * @remarks
-   * The alert margin threshold of the baseline. Unit: minutes.
+   * The baseline alert margin. Unit: minutes.
    * 
    * @example
    * 30
@@ -21,12 +23,12 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   alertMarginThreshold?: number;
   /**
    * @remarks
-   * The alert settings of the baseline.
+   * The baseline alert configurations.
    */
   alertSettingsShrink?: string;
   /**
    * @remarks
-   * The baseline ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
+   * The ID of the baseline. You can call [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -36,7 +38,7 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   baselineId?: number;
   /**
    * @remarks
-   * The name of the baseline.
+   * The baseline name.
    * 
    * @example
    * BaselineName
@@ -44,7 +46,9 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   baselineName?: string;
   /**
    * @remarks
-   * The type of the baseline. Valid values: DAILY and HOURLY.
+   * The baseline type. Valid values:
+   * - DAILY: daily baseline.
+   * - HOURLY: hourly baseline.
    * 
    * @example
    * DAILY
@@ -52,7 +56,9 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   baselineType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the baseline. Valid values: true and false.
+   * Specifies whether the baseline is enabled. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -60,7 +66,7 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The ancestor nodes of nodes in the baseline. Separate the ancestor nodes with commas (,). If a large number of ancestor nodes exist, we recommend that you create a zero load node and configure the zero load node as the descendant node of nodes in the baseline to facilitate node management.
+   * The list of upstream node IDs for the baseline, separated by commas. If there are many nodes, we recommend that you add a virtual node downstream for easier management.
    * 
    * @example
    * 1,2,3
@@ -68,12 +74,12 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   nodeIds?: string;
   /**
    * @remarks
-   * The settings of the committed completion time of the baseline.
+   * The baseline committed time configurations.
    */
   overtimeSettingsShrink?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the baseline owner.
+   * The Alibaba Cloud UID of the baseline owner.
    * 
    * @example
    * 3726346****
@@ -81,7 +87,7 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The priority of the baseline. Valid values: {1,3,5,7,8}.
+   * The priority of the baseline. Valid values: 1, 3, 5, 7, and 8.
    * 
    * @example
    * 7
@@ -89,7 +95,7 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The workspace ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
+   * The project ID. You can call [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -99,7 +105,7 @@ export class UpdateBaselineShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The ID of the node that you want to disassociate from the baseline. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
+   * The IDs of nodes to remove from the baseline. Separate multiple IDs with commas (,).
    * 
    * @example
    * 123,456

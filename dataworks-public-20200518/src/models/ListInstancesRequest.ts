@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters related to the node.
+   * The start date for which to retrieve the instance list. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2020-02-02 00:00:00
@@ -13,7 +13,7 @@ export class ListInstancesRequest extends $dara.Model {
   beginBizdate?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The name of the workflow. You can call [ListBusiness](https://help.aliyun.com/document_detail/173945.html) to query workflow information.
    * 
    * @example
    * test_bizName
@@ -21,7 +21,7 @@ export class ListInstancesRequest extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 10. Maximum value: 100.
+   * The date for which to retrieve the instance list. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2020-02-02 00:00:00
@@ -29,7 +29,7 @@ export class ListInstancesRequest extends $dara.Model {
   bizdate?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
+   * The DAG ID. The DagId can be the DagId returned by operations such as [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html) for data backfill, [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html) for smoke testing, and [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) for manual workflows.
    * 
    * @example
    * 11111
@@ -37,7 +37,7 @@ export class ListInstancesRequest extends $dara.Model {
   dagId?: number;
   /**
    * @remarks
-   * The ID of the workflow.
+   * The end date for which to retrieve the instance list. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2020-02-03 00:00:00
@@ -45,10 +45,7 @@ export class ListInstancesRequest extends $dara.Model {
   endBizdate?: string;
   /**
    * @remarks
-   * Indicates whether the instance is associated with a monitoring rule in Data Quality. Valid values:
-   * 
-   * *   0: The instance is associated with a monitoring rule in Data Quality.
-   * *   1: The instance is not associated with a monitoring rule in Data Quality.
+   * The node ID. You can call [ListNodes](https://help.aliyun.com/document_detail/173979.html) to query the node ID.
    * 
    * @example
    * 100000000000
@@ -56,7 +53,7 @@ export class ListInstancesRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * Indicates whether the node can be rerun.
+   * The node name. You can call [ListNodes](https://help.aliyun.com/document_detail/173979.html) to query the node name.
    * 
    * @example
    * openmr_8****
@@ -64,10 +61,9 @@ export class ListInstancesRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The sorting rule of the instances to be returned. Valid values:
-   * 
-   * *   CREATE_TIME_DESC: The instances are sorted in descending order of their creation time.
-   * *   INSTANCE_ID_DESC (default): The instances are sorted in descending order of their IDs.
+   * The sorting rule for the returned results. Valid values:
+   * - CREATE_TIME_DESC: sorted by creation time in descending order.
+   * - INSTANCE_ID_DESC: default value. Sorted by instance ID in descending order.
    * 
    * @example
    * INSTANCE_ID_DESC
@@ -75,7 +71,7 @@ export class ListInstancesRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The connection string.
+   * The ID of the owner, which is the UID of the workspace administrator. You can logon to the Alibaba Cloud Management Console and view the UID in the Security Settings section of the storage management page.
    * 
    * @example
    * 193379****
@@ -83,7 +79,7 @@ export class ListInstancesRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The operation that you want to perform.
+   * The page number. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 1
@@ -91,7 +87,7 @@ export class ListInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The ID of the node.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -99,7 +95,7 @@ export class ListInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The error code returned.
+   * The node type. You can call [ListNodes](https://help.aliyun.com/document_detail/173979.html) to query the node type.
    * 
    * @example
    * ODPS_SQL
@@ -107,7 +103,10 @@ export class ListInstancesRequest extends $dara.Model {
   programType?: string;
   /**
    * @remarks
-   * The environment in which the node runs. Valid values: DEV and PROD.
+   * The runtime environment. Valid values:
+   * 
+   * - PROD: production environment.
+   * - DEV: development environment.
    * 
    * This parameter is required.
    * 
@@ -117,7 +116,7 @@ export class ListInstancesRequest extends $dara.Model {
   projectEnv?: string;
   /**
    * @remarks
-   * The ID of the baseline.
+   * The workspace ID. You can call [ListProjects](https://help.aliyun.com/document_detail/178393.html) to query the workspace ID.
    * 
    * This parameter is required.
    * 
@@ -129,14 +128,17 @@ export class ListInstancesRequest extends $dara.Model {
    * @remarks
    * The status of the node. Valid values:
    * 
-   * *   NOT_RUN: The node is not run.
-   * *   WAIT_TIME: The node is waiting for the scheduling time to arrive.
-   * *   WAIT_RESOURCE: The node is waiting for resources.
-   * *   RUNNING: The node is running.
-   * *   CHECKING: Data quality is being checked for the node.
-   * *   CHECKING_CONDITION: Branch conditions are being checked for the node.
-   * *   FAILURE: The node fails to run.
-   * *   SUCCESS: The node is successfully run.
+   * - NOT_RUN: The node is not run.
+   * 
+   * - WAIT_TIME: The node is waiting for the scheduled time (DueTime or CycTime) to arrive.
+   * 
+   * - WAIT_RESOURCE: The node is waiting for resources.
+   * 
+   * - RUNNING: The node is running.
+   * - CHECKING: The node has been sent to Data Quality for data validation.
+   * - CHECKING_CONDITION: The node is undergoing branch condition verification.
+   * - FAILURE: Failed to execute.
+   * - SUCCESS: Execute successfully.
    * 
    * @example
    * NOT_RUN

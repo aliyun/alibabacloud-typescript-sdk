@@ -29,7 +29,7 @@ export class DeleteMetaCollectionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * 0000-ABCD-E****
@@ -37,11 +37,11 @@ export class DeleteMetaCollectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the operation. Valid values:
+   * The operation result. Valid values:
+   *  
+   * true: Succeeded.
    * 
-   * true: succeeded
-   * 
-   * false: failed
+   * false: Failed.
    * 
    * @example
    * true
@@ -49,11 +49,11 @@ export class DeleteMetaCollectionResponseBody extends $dara.Model {
   status?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * true
+   * true: The call was successful.
    * 
-   * false
+   * false: The call failed.
    * 
    * @example
    * true

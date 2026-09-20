@@ -13,7 +13,7 @@ export class GetDDLJobStatusResponseBodyData extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The ID of the ongoing task. If no value is returned for this parameter, all subtasks are complete.
+   * The ID of the task that is in progress. If this parameter is empty, all tasks are completed.
    * 
    * @example
    * abc1
@@ -29,7 +29,7 @@ export class GetDDLJobStatusResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * abc

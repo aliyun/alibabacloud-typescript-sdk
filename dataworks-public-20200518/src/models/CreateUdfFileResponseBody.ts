@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUdfFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file that was created.
+   * The ID of the file after it is created.
    * 
    * @example
    * 100000002
@@ -13,7 +13,7 @@ export class CreateUdfFileResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -21,7 +21,7 @@ export class CreateUdfFileResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The connection does not exist.
@@ -29,7 +29,7 @@ export class CreateUdfFileResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class CreateUdfFileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request. You can troubleshoot issues based on the ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -45,7 +45,7 @@ export class CreateUdfFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

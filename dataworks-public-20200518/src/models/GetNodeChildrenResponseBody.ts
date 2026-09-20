@@ -13,7 +13,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
   baselineId?: number;
   /**
    * @remarks
-   * The CRON expression. CRON expressions are used to run auto triggered nodes.
+   * The CRON expression. The expression is used for timed scheduling to execute the node task.
    * 
    * @example
    * 00 00 * * * *
@@ -29,7 +29,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * test_Node
@@ -37,7 +37,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the node owner.
+   * The DataWorks UID of the node owner.
    * 
    * @example
    * 123124561341251321
@@ -45,7 +45,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The priority. Valid values: 1 to 8. A large value indicates a high priority.
+   * The priority. Valid values: 1 to 8. A larger value indicates a higher priority.
    * 
    * @example
    * 3
@@ -53,7 +53,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The type of the node.
+   * The node type.
    * 
    * @example
    * ODPS_SQL
@@ -69,10 +69,9 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Indicates whether the node can be rerun if the node fails to run. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the node can be rerun upon failure. Valid values:
+   * - true: The node can be rerun.
+   * - false: The node cannot be rerun.
    * 
    * @example
    * true
@@ -80,12 +79,11 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
   repeatability?: boolean;
   /**
    * @remarks
-   * The scheduling type of the node. Valid values:
-   * 
-   * *   NORMAL: The node is an auto triggered node.
-   * *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
-   * *   PAUSE: The node is a paused node. Paused nodes are started as scheduled but the system sets the status of the nodes to failed when it starts to run them.
-   * *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+   * The scheduling type. Valid values:
+   * - NORMAL: normal scheduling node.
+   * - MANUAL: manual node. The node is not scheduled on a regular basis.
+   * - PAUSE: paused node. The node is scheduled on a regular basis but is set to failed when scheduling starts.
+   * - SKIP: dry-run node. The node is scheduled on a regular basis but is set to successful when scheduling starts.
    * 
    * @example
    * NORMAL
@@ -94,9 +92,8 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
   /**
    * @remarks
    * The scheduling dependency type. Valid values:
-   * 
-   * *   **0**: same-cycle scheduling dependency
-   * *   **3**: cross-cycle scheduling dependency
+   * - **0**: same-cycle dependency.
+   * - **3**: cross-cycle dependency.
    * 
    * @example
    * 0
@@ -146,7 +143,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $dara.Model {
 export class GetNodeChildrenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The descendant nodes.
+   * The list of nodes.
    */
   nodes?: GetNodeChildrenResponseBodyDataNodes[];
   static names(): { [key: string]: string } {
@@ -176,7 +173,7 @@ export class GetNodeChildrenResponseBodyData extends $dara.Model {
 export class GetNodeChildrenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the descendant nodes.
+   * The list of node information returned.
    */
   data?: GetNodeChildrenResponseBodyData;
   /**
@@ -205,7 +202,7 @@ export class GetNodeChildrenResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to troubleshoot issues.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * adsfasdf-adf-asdf-asdf-asdfadfasdd
@@ -213,7 +210,7 @@ export class GetNodeChildrenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

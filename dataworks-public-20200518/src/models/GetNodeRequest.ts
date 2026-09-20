@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The interval at which the node is rerun after the node fails to run.
+   * The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
    * 
    * This parameter is required.
    * 

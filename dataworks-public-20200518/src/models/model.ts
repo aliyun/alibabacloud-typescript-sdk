@@ -63,6 +63,7 @@ export { GetAlertMessageResponseBodyDataSlaAlert } from './GetAlertMessageRespon
 export { GetAlertMessageResponseBodyDataTopics } from './GetAlertMessageResponseBody';
 export { GetAlertMessageResponseBodyData } from './GetAlertMessageResponseBody';
 export { GetBaselineResponseBodyDataAlertSettingsDingRobots } from './GetBaselineResponseBody';
+export { GetBaselineResponseBodyDataAlertSettingsTopicSlowConfig } from './GetBaselineResponseBody';
 export { GetBaselineResponseBodyDataAlertSettings } from './GetBaselineResponseBody';
 export { GetBaselineResponseBodyDataOverTimeSettings } from './GetBaselineResponseBody';
 export { GetBaselineResponseBodyData } from './GetBaselineResponseBody';
@@ -420,6 +421,7 @@ export { TopTenElapsedTimeInstanceResponseBodyInstanceConsumeTimeRank } from './
 export { TopTenErrorTimesInstanceResponseBodyInstanceErrorRankErrorRank } from './TopTenErrorTimesInstanceResponseBody';
 export { TopTenErrorTimesInstanceResponseBodyInstanceErrorRank } from './TopTenErrorTimesInstanceResponseBody';
 export { UpdateBaselineRequestAlertSettingsDingRobots } from './UpdateBaselineRequest';
+export { UpdateBaselineRequestAlertSettingsTopicSlowConfig } from './UpdateBaselineRequest';
 export { UpdateBaselineRequestAlertSettings } from './UpdateBaselineRequest';
 export { UpdateBaselineRequestOvertimeSettings } from './UpdateBaselineRequest';
 export { UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels } from './UpdateDialarmRuleRequest';

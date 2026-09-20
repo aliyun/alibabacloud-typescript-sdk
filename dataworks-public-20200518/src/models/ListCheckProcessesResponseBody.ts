@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dara.Model {
   /**
    * @remarks
-   * Extension point event encoding.
+   * The event code of the extension point.
    * 
    * @example
    * commit-file
@@ -29,7 +29,7 @@ export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dar
   eventNameEn?: string;
   /**
    * @remarks
-   * DataWorks the message ID of the open message. After an extended point event is triggered, you can obtain the message ID from the received event message.
+   * The message ID of the DataWorks open message. After an extension point event is triggered, you can obtain the message ID from the received event message.
    * 
    * @example
    * b824a5de-4223-4315-af3e-c4449d236db4
@@ -37,7 +37,7 @@ export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dar
   messageId?: string;
   /**
    * @remarks
-   * The operator ID.
+   * The ID of the operator.
    * 
    * @example
    * 297635
@@ -45,7 +45,7 @@ export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dar
   operator?: string;
   /**
    * @remarks
-   * The ID of the process instance.
+   * The process instance ID.
    * 
    * @example
    * rdk_generate_d395da25-b0d3-4114-b2a5-d0247444a661_none_3496903_365203
@@ -53,7 +53,7 @@ export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dar
   processId?: string;
   /**
    * @remarks
-   * The name of the check object, such as the file name or node name.
+   * The name of the operation object, such as the file name or node name.
    * 
    * @example
    * odps_sql_test
@@ -69,10 +69,11 @@ export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dar
   projectId?: number;
   /**
    * @remarks
-   * The status of the extender check.
-   * - CHECKING CHECKING
-   * - PASSED the pass check
-   * - BLOCKED check failed
+   * The check status of the extension. Valid values:
+   * 
+   * - CHECKING: The check is in progress.
+   * - PASSED: The check is passed.
+   * - BLOCKED: The check is not passed.
    * 
    * @example
    * CHECKING
@@ -118,7 +119,7 @@ export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dar
 export class ListCheckProcessesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The check details of the extension.
+   * The details of the extension check processes.
    */
   checkProcesses?: ListCheckProcessesResponseBodyPagingInfoCheckProcesses[];
   /**
@@ -131,7 +132,7 @@ export class ListCheckProcessesResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries displayed on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -139,7 +140,7 @@ export class ListCheckProcessesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 12
@@ -183,7 +184,7 @@ export class ListCheckProcessesResponseBody extends $dara.Model {
   pagingInfo?: ListCheckProcessesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0000-ABCD-EF****

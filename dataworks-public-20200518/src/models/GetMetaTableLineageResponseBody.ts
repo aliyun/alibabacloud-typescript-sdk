@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaTableLineageResponseBodyDataDataEntityList extends $dara.Model {
   /**
    * @remarks
-   * The time when the table was created.
+   * The creation time.
    * 
    * @example
    * 1638720736000
@@ -65,12 +65,12 @@ export class GetMetaTableLineageResponseBodyDataDataEntityList extends $dara.Mod
 export class GetMetaTableLineageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the table.
+   * The table information.
    */
   dataEntityList?: GetMetaTableLineageResponseBodyDataDataEntityList[];
   /**
    * @remarks
-   * Indicates whether the next page exists.
+   * Indicates whether there is a next page.
    * 
    * @example
    * true
@@ -78,7 +78,7 @@ export class GetMetaTableLineageResponseBodyData extends $dara.Model {
   hasNext?: boolean;
   /**
    * @remarks
-   * The logic of paging. If the value true is returned for the HasNext parameter and a value is returned for the NextPrimaryKey parameter in the response of the previous request, you must use the value of the NextPrimaryKey parameter for the next request.
+   * The pagination key. Set this parameter based on the HasNext and key values returned in the response.
    * 
    * @example
    * odps.tt.2

@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
+   * The DataWorks workspace ID.
+   * You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to obtain the workspace ID.
    * 
    * @example
    * 466230
@@ -13,7 +14,7 @@ export class GetProjectRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the name.
+   * The name of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to obtain the workspace name.
    * 
    * @example
    * test_project

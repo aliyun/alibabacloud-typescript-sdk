@@ -61,7 +61,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   baseProject?: boolean;
   /**
    * @remarks
-   * The ID of the resource group that was allocated by default when you purchased an exclusive resource group for MaxCompute.
+   * The identifier of the default resource group that is automatically assigned when you purchase a MaxCompute exclusive resource group.
    * 
    * @example
    * group_280749521****
@@ -93,10 +93,9 @@ export class GetProjectResponseBodyData extends $dara.Model {
   developmentType?: number;
   /**
    * @remarks
-   * Indicates whether the Develop role is disabled. Valid values:
-   * 
-   * *   **false** (default)
-   * *   **true**
+   * Indicates whether the development role is disabled. Valid values:
+   *  - **false** (default): The development role is enabled.
+   *  - **true**: The development role is disabled.
    * 
    * @example
    * true
@@ -104,7 +103,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   disableDevelopment?: boolean;
   /**
    * @remarks
-   * The environment information of the workspace.
+   * The environment context of the workspace.
    */
   envTypes?: string[];
   /**
@@ -125,10 +124,9 @@ export class GetProjectResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether you are allowed to download the query result from DataStudio. Valid values:
-   * 
-   * *   **1**: You are allowed to download the query result from DataStudio.
-   * *   **0**: You are not allowed to download the query result from DataStudio.
+   * Indicates whether downloading query results from the IDE is allowed. Valid values:
+   * - **1**: Downloading is allowed.
+   * - **0**: Downloading is not allowed.
    * 
    * @example
    * 1
@@ -136,10 +134,9 @@ export class GetProjectResponseBodyData extends $dara.Model {
   isAllowDownload?: number;
   /**
    * @remarks
-   * Indicates whether the workspace is a default workspace. Valid values:
-   * 
-   * *   **1**: The workspace is a default workspace.
-   * *   **0**: The workspace is not a default workspace.
+   * Indicates whether the workspace is the default workspace. Valid values:
+   * - **1**: Yes.
+   * - **0**: No.
    * 
    * @example
    * 1
@@ -171,7 +168,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   projectDescription?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 466230
@@ -188,9 +185,8 @@ export class GetProjectResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The mode of the workspace. Valid values:
-   * 
-   * *   **2**: The workspace is in basic mode.
-   * *   **3**: The workspace is in standard mode.
+   * - **2**: basic mode.
+   * - **3**: standard mode.
    * 
    * @example
    * 2
@@ -206,7 +202,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the workspace owner.
+   * The Alibaba Cloud ID of the workspace owner.
    * 
    * @example
    * 18229311****
@@ -214,10 +210,9 @@ export class GetProjectResponseBodyData extends $dara.Model {
   projectOwnerBaseId?: string;
   /**
    * @remarks
-   * Indicates whether the workspace protection feature is enabled. Valid values:
-   * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * Indicates whether protected mode is enabled for the workspace. Valid values:
+   * - **1**: Protected mode is enabled.
+   * - **0**: Protected mode is not enabled.
    * 
    * @example
    * 1
@@ -226,9 +221,8 @@ export class GetProjectResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The type of the workspace. Valid values:
-   * 
-   * *   **private**
-   * *   **swap**
+   * - **private**: private zone.
+   * - **swap**: swap zone.
    * 
    * @example
    * private
@@ -244,7 +238,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The default maximum number of automatic reruns that are allowed after an error occurs.
+   * The default maximum number of automatic reruns upon an error.
    * 
    * @example
    * 3
@@ -252,7 +246,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   schedulerMaxRetryTimes?: number;
   /**
    * @remarks
-   * The default interval between automatic reruns after an error occurs. Unit: milliseconds. The maximum interval is 30 minutes. You must pay attention to the conversion between units.
+   * The default interval between automatic reruns upon an error. Unit: ms. The maximum value is 30 minutes. Note the unit conversion.
    * 
    * @example
    * 120000
@@ -261,17 +255,16 @@ export class GetProjectResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status of the workspace. Valid values:
-   * 
-   * *   **0**: AVAILABLE, which indicates that the workspace runs as expected.
-   * *   **1**: DELETED, which indicates that the workspace is deleted.
-   * *   **2**: INITIALIZING, which indicates that the workspace is being initialized.
-   * *   **3**: INIT_FAILED, which indicates that the workspace fails to be initialized.
-   * *   **4**: FORBIDDEN, which indicates that the workspace is manually disabled.
-   * *   **5**: DELETING, which indicates that the workspace is being deleted.
-   * *   **6**: DEL_FAILED, which indicates that the workspace fails to be deleted.
-   * *   **7**: FROZEN, which indicates that the workspace is frozen due to overdue payments.
-   * *   **8**: UPDATING, which indicates that the workspace is being updated. The workspace enters this state after you associate a new compute engine with the workspace and the compute engine is initialized.
-   * *   **9**: UPDATE_FAILED, which indicates that the workspace fails to be updated.
+   * - **0**: AVAILABLE. The workspace is running normally.
+   * - **1**: DELETED. The workspace has been deleted.
+   * - **2**: INITIALIZING. The workspace is being initialized.
+   * - **3**: INIT_FAILED. The workspace failed to be initialized.
+   * - **4**: FORBIDDEN. The workspace is manually disabled.
+   * - **5**: DELETING. The workspace is being deleted.
+   * - **6**: DEL_FAILED. The workspace failed to be deleted.
+   * - **7**: FROZEN. The workspace is frozen due to overdue payment.
+   * - **8**: UPDATING. The workspace is being updated (a compute engine is being added and initialized).
+   * - **9**: UPDATE_FAILED. The workspace failed to be updated (a compute engine failed to be added and initialized).
    * 
    * @example
    * 0
@@ -279,10 +272,9 @@ export class GetProjectResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
-   * 
-   * *   **0**: invisible
-   * *   **1**: visible
+   * The visibility of MaxCompute tables. Valid values:
+   * - **0**: MaxCompute tables are not visible to users within the tenant.
+   * - **1**: MaxCompute tables are visible to users within the tenant.
    * 
    * @example
    * 1
@@ -290,7 +282,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   tablePrivacyMode?: number;
   /**
    * @remarks
-   * The tags added to the workspace.
+   * The list of tags bound to the workspace.
    */
   tags?: GetProjectResponseBodyDataTags[];
   /**
@@ -303,7 +295,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * Indicates whether a proxy account is used to access the MaxCompute compute engine associated with the workspace.
+   * Indicates whether a proxy account is used to access the MaxCompute engine.
    * 
    * @example
    * true
@@ -397,7 +389,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
 export class GetProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the workspace.
+   * The details of the workspace.
    */
   data?: GetProjectResponseBodyData;
   /**
@@ -419,9 +411,8 @@ export class GetProjectResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

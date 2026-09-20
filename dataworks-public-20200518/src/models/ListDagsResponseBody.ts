@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListDagsResponseBodyDataDags extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp.
+   * The business date.
+   * 
+   * The value is a 13-digit number, for example, `1605052800000`.
    * 
    * @example
    * 1605052800000
@@ -14,6 +16,8 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
   /**
    * @remarks
    * The creation time.
+   * 
+   * The value is a 13-digit number, for example, `1605052800000`.
    * 
    * @example
    * 1605052800000
@@ -29,7 +33,7 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The DAG ID.
+   * DagId。
    * 
    * @example
    * 351249682
@@ -39,13 +43,17 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
    * @remarks
    * The end time.
    * 
+   * The value is a 13-digit number, for example, `1605052800000`.
+   * 
    * @example
    * 1605052800000
    */
   finishTime?: number;
   /**
    * @remarks
-   * The actual running time.
+   * The GMT date.
+   * 
+   * The value is a 13-digit number, for example, `1605052800000`.
    * 
    * @example
    * 1605052800000
@@ -54,6 +62,8 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
   /**
    * @remarks
    * The modification time.
+   * 
+   * The value is a 13-digit number, for example, `1605052800000`.
    * 
    * @example
    * 1605052800000
@@ -69,7 +79,7 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sequence number of the operation.
+   * The operation sequence code.
    * 
    * @example
    * 123
@@ -87,6 +97,8 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
    * @remarks
    * The start time.
    * 
+   * The value is a 13-digit number, for example, `1605052800000`.
+   * 
    * @example
    * 1605052800000
    */
@@ -94,14 +106,10 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
   /**
    * @remarks
    * The status of the DAG. Valid values:
-   * 
-   * - CREATED
-   * 
-   * - RUNNING
-   * 
-   * - FAILURE
-   * 
-   * - SUCCESS
+   * - CREATED: created
+   * - RUNNING: running
+   * - FAILURE: failed
+   * - SUCCESS: succeeded
    * 
    * @example
    * FAILURE
@@ -110,14 +118,10 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
   /**
    * @remarks
    * The type of the DAG. Valid values:
-   * 
-   * - MANUAL: DAG for a manually triggered workflow
-   * 
-   * - SMOKE_TEST: DAG for a smoke testing workflow
-   * 
-   * - SUPPLY_DATA: DAG for a data backfill instance
-   * 
-   * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+   * - MANUAL: manual task workflow
+   * - SMOKE_TEST: smoke test workflow
+   * - SUPPLY_DATA: data backfill
+   * - BUSINESS_PROCESS_DAG: one-time business process workflow
    * 
    * @example
    * MANUAL_FLOW
@@ -171,7 +175,7 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
 export class ListDagsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The entities returned.
+   * The returned entities.
    */
   dags?: ListDagsResponseBodyDataDags[];
   static names(): { [key: string]: string } {
@@ -201,7 +205,7 @@ export class ListDagsResponseBodyData extends $dara.Model {
 export class ListDagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of DAGs.
+   * The details of the DAGs.
    */
   data?: ListDagsResponseBodyData;
   /**
@@ -230,7 +234,7 @@ export class ListDagsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 7782a299-b291-4fee-8424-cf8058efa8e8
@@ -238,7 +242,7 @@ export class ListDagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

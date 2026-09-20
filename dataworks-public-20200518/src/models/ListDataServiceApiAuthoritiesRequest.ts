@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiAuthoritiesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword in the name of the API. The keyword can be used to search for the API whose name contains the keyword.
+   * The keyword in the API name. This parameter is used to filter APIs whose names contain the specified keyword.
    * 
    * @example
-   * My API name
+   * MyAPIName
    */
   apiNameKeyword?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListDataServiceApiAuthoritiesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListDataServiceApiAuthoritiesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ListDataServiceApiAuthoritiesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tenant ID. This parameter is deprecated.
+   * **[Deprecated]** The tenant ID.
    * 
    * @example
    * 10001

@@ -34,7 +34,7 @@ export class CreateDagComplementResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. The ID is used to locate logs and troubleshoot issues.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * E6F0DBDD-5AD****
@@ -42,7 +42,7 @@ export class CreateDagComplementResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

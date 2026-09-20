@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMetaTableIntroWikiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can troubleshoot issues based on the ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * abcde
@@ -13,7 +13,7 @@ export class UpdateMetaTableIntroWikiResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the instructions on how to use the table are updated.
+   * The update result of the table.
    * 
    * @example
    * true

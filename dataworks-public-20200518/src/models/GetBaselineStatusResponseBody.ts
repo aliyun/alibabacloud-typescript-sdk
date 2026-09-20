@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBaselineStatusResponseBodyDataBlockInstance extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the predicted time when the instance finished running.
+   * The estimated completion timestamp of the instance.
    * 
    * @example
    * 1553443200000
@@ -13,7 +13,7 @@ export class GetBaselineStatusResponseBodyDataBlockInstance extends $dara.Model 
   endCast?: number;
   /**
    * @remarks
-   * The timestamp of the actual time when the instance finished running.
+   * The actual completion timestamp of the instance.
    * 
    * @example
    * 1553443200000
@@ -40,12 +40,12 @@ export class GetBaselineStatusResponseBodyDataBlockInstance extends $dara.Model 
    * The name of the node.
    * 
    * @example
-   * 节点名称
+   * NodeName
    */
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the node owner.
+   * The Alibaba Cloud UID of the node owner.
    * 
    * @example
    * 9527952795****
@@ -61,7 +61,7 @@ export class GetBaselineStatusResponseBodyDataBlockInstance extends $dara.Model 
   projectId?: number;
   /**
    * @remarks
-   * The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the instance. The value CHECKING_CONDITION indicates that branch conditions are being checked for the instance. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is run.
+   * The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS.
    * 
    * @example
    * SUCCESS
@@ -105,7 +105,7 @@ export class GetBaselineStatusResponseBodyDataBlockInstance extends $dara.Model 
 export class GetBaselineStatusResponseBodyDataLastInstance extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the predicted time when the instance finished running.
+   * The estimated completion timestamp of the instance.
    * 
    * @example
    * 1553443200000
@@ -113,7 +113,7 @@ export class GetBaselineStatusResponseBodyDataLastInstance extends $dara.Model {
   endCast?: number;
   /**
    * @remarks
-   * The timestamp of the actual time when the instance finished running.
+   * The actual completion timestamp of the instance.
    * 
    * @example
    * 1553443200000
@@ -145,7 +145,7 @@ export class GetBaselineStatusResponseBodyDataLastInstance extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the node owner.
+   * The Alibaba Cloud UID of the node owner.
    * 
    * @example
    * 9527952795****
@@ -161,7 +161,7 @@ export class GetBaselineStatusResponseBodyDataLastInstance extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the instance. The value CHECKING_CONDITION indicates that branch conditions are being checked for the instance. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is run.
+   * The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS.
    * 
    * @example
    * SUCCESS
@@ -221,7 +221,7 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   baselineName?: string;
   /**
    * @remarks
-   * The data timestamp of the baseline instance.
+   * The business date timestamp.
    * 
    * @example
    * 1553443200000
@@ -229,12 +229,12 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   bizdate?: number;
   /**
    * @remarks
-   * The information about the key instance.
+   * The information about the critical instance.
    */
   blockInstance?: GetBaselineStatusResponseBodyDataBlockInstance;
   /**
    * @remarks
-   * The margin of the baseline instance. Unit: seconds.
+   * The buffer time of the baseline instance, in seconds.
    * 
    * @example
    * 1200
@@ -242,7 +242,7 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   buffer?: number;
   /**
    * @remarks
-   * The timestamp of the predicted time when the baseline instance finished running.
+   * The estimated completion timestamp of the baseline instance.
    * 
    * @example
    * 1553443200000
@@ -250,7 +250,7 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   endCast?: number;
   /**
    * @remarks
-   * The timestamp of the alerting time of the baseline instance.
+   * The warning timestamp of the baseline instance.
    * 
    * @example
    * 1553443200000
@@ -258,7 +258,7 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   expTime?: number;
   /**
    * @remarks
-   * The status of the baseline instance. Valid values: UNFINISH and FINISH. The value UNFINISH indicates that the baseline instance is still running. The value FINISH indicates that the baseline instance finishes running.
+   * Indicates whether the baseline instance is completed. Valid values: UNFINISH and FINISH.
    * 
    * @example
    * UNFINISH
@@ -266,7 +266,7 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   finishStatus?: string;
   /**
    * @remarks
-   * The timestamp of the actual time when the baseline instance finished running. This parameter is returned if the value of the FinishStatus parameter is FINISH.
+   * The completion timestamp of the baseline instance. This parameter is returned only when FinishStatus is FINISH.
    * 
    * @example
    * 1553443200000
@@ -274,7 +274,7 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   finishTime?: number;
   /**
    * @remarks
-   * The ID of the scheduling cycle of the baseline instance. For a baseline instance that is scheduled by day, the value of this parameter is 1. For a baseline instance that is scheduled by hour, the value of this parameter ranges from 1 to 24.
+   * The cycle number of the baseline instance. The value is 1 for daily baselines. The value ranges from [1,24\\] for hourly baselines.
    * 
    * @example
    * 1
@@ -282,12 +282,12 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   inGroupId?: number;
   /**
    * @remarks
-   * The information about the last generated instance.
+   * The information about the latest instance.
    */
   lastInstance?: GetBaselineStatusResponseBodyDataLastInstance;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the baseline owner. Multiple IDs are separated by commas (,).
+   * The Alibaba Cloud UID of the baseline owner. Multiple owners are separated by commas (,).
    * 
    * @example
    * 9527952795****
@@ -311,7 +311,7 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The timestamp of the committed completion time of the baseline instance.
+   * The committed completion timestamp of the baseline instance.
    * 
    * @example
    * 1553443200000
@@ -319,7 +319,7 @@ export class GetBaselineStatusResponseBodyData extends $dara.Model {
   slaTime?: number;
   /**
    * @remarks
-   * The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes finish running before the alerting time. The value DANGEROUS indicates that nodes are still running after the alerting time but before the committed completion time. The value OVER indicates that nodes are still running after the committed completion time.
+   * The status of the baseline. Valid values: ERROR, SAFE, DANGROUS (warning), and OVER (exceeded).
    * 
    * @example
    * SAFE
@@ -390,7 +390,7 @@ export class GetBaselineStatusResponseBody extends $dara.Model {
   data?: GetBaselineStatusResponseBodyData;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * 1031203110005
@@ -398,7 +398,7 @@ export class GetBaselineStatusResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The specified parameters are invalid.
@@ -406,7 +406,7 @@ export class GetBaselineStatusResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -414,7 +414,7 @@ export class GetBaselineStatusResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to troubleshoot issues.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -422,7 +422,7 @@ export class GetBaselineStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

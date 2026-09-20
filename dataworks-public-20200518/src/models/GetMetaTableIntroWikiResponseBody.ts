@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaTableIntroWikiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The description of the metatable.
+   * The description of the table.
    * 
    * @example
    * # Business requirements\\n\\n&lt;a name=&quot;xiw5n&quot;
@@ -13,7 +13,9 @@ export class GetMetaTableIntroWikiResponseBodyData extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The time when the metatable was created.
+   * The time when the table was created.
+   * 
+   * The value is a 13-digit number, such as `1584444247000`.
    * 
    * @example
    * 1584444247000
@@ -21,7 +23,7 @@ export class GetMetaTableIntroWikiResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The creator of the metatable.
+   * The creator of the table.
    * 
    * @example
    * abc
@@ -29,7 +31,7 @@ export class GetMetaTableIntroWikiResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The name of the user who creates the metatable.
+   * The name of the table creator.
    * 
    * @example
    * abc
@@ -37,7 +39,9 @@ export class GetMetaTableIntroWikiResponseBodyData extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The time when the metatable was last modified.
+   * The time when the table was modified.
+   * 
+   * The value is a 13-digit number, such as `1584444247000`.
    * 
    * @example
    * 1584444247000

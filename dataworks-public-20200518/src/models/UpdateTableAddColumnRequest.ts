@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTableAddColumnRequestColumn extends $dara.Model {
   /**
    * @remarks
-   * The name of the field.
+   * The name of the column.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateTableAddColumnRequestColumn extends $dara.Model {
   columnName?: string;
   /**
    * @remarks
-   * The display name of the field.
+   * The Chinese name of the column.
    * 
    * @example
    * 中文
@@ -23,7 +23,7 @@ export class UpdateTableAddColumnRequestColumn extends $dara.Model {
   columnNameCn?: string;
   /**
    * @remarks
-   * The type of the field. For more information, see MaxCompute field types.
+   * The type of the column. For more information, see the column types supported by MaxCompute.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateTableAddColumnRequestColumn extends $dara.Model {
   columnType?: string;
   /**
    * @remarks
-   * The comment of the field.
+   * The comment of the column.
    * 
    * @example
    * Remarks
@@ -69,14 +69,14 @@ export class UpdateTableAddColumnRequestColumn extends $dara.Model {
 export class UpdateTableAddColumnRequest extends $dara.Model {
   /**
    * @remarks
-   * The fields.
+   * The list of columns.
    * 
    * This parameter is required.
    */
   column?: UpdateTableAddColumnRequestColumn[];
   /**
    * @remarks
-   * The globally unique identifier (GUID) of the MaxCompute table. Specify the GUID in the odps.projectName.tableName format.
+   * The unique identifier of the MaxCompute table. Format: odps.projectName.tableName.
    * 
    * This parameter is required.
    * 
