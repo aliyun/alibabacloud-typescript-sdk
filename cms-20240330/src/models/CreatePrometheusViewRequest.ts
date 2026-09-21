@@ -95,7 +95,7 @@ export class CreatePrometheusViewRequestTags extends $dara.Model {
 export class CreatePrometheusViewRequest extends $dara.Model {
   /**
    * @remarks
-   * Not in use.
+   * Not yet enabled.
    * 
    * @example
    * {
@@ -108,14 +108,18 @@ export class CreatePrometheusViewRequest extends $dara.Model {
    *     "vpc-xx2"
    *   ]
    * }
+   * 
+   * @deprecated
    */
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * Specifies whether anonymous read is supported.
+   * Specifies whether authentication-free read is supported.
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   enableAuthFreeRead?: boolean;
   /**
@@ -153,7 +157,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Not in use.
+   * Not yet enabled.
    * 
    * @example
    * null
@@ -161,14 +165,14 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The operation to perform.
    */
   tags?: CreatePrometheusViewRequestTags[];
   /**
    * @remarks
    * Valid values:
-   * - V1: legacy version
-   * - V2: new version.
+   * - V1: Legacy version.
+   * - V2: New version.
    * 
    * This parameter is required.
    * 

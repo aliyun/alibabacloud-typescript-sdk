@@ -13,7 +13,7 @@ export class UpdatePrometheusViewRequestPrometheusInstances extends $dara.Model 
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-north-2-gov-1
@@ -55,7 +55,7 @@ export class UpdatePrometheusViewRequestPrometheusInstances extends $dara.Model 
 export class UpdatePrometheusViewRequest extends $dara.Model {
   /**
    * @remarks
-   * The policy for password-free read access. IP address segments and VPC IDs are supported.
+   * The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
    * 
    * @example
    * {
@@ -68,19 +68,23 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
    *     "vpc-xx2"
    *   ]
    * }
+   * 
+   * @deprecated
    */
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * Specifies whether to enable password-free read access.
+   * Specifies whether authentication-free read is supported.
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable authentication tokens.
+   * Specifies whether authToken is supported.
    * 
    * @example
    * false
@@ -88,7 +92,7 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * A list of Prometheus instances.
+   * The list of Prometheus instances.
    */
   prometheusInstances?: UpdatePrometheusViewRequestPrometheusInstances[];
   /**
@@ -101,7 +105,7 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
   prometheusViewName?: string;
   /**
    * @remarks
-   * The status of the Prometheus view.
+   * The running status.
    * 
    * @example
    * Running
@@ -109,7 +113,7 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The workspace to which the view belongs.
+   * The workspace to which the instance belongs.
    * 
    * @example
    * default-cms-108490012345-cn-heyuan

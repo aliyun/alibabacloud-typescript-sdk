@@ -110,7 +110,12 @@ export class PreviewDataPipelineResponseBody extends $dara.Model {
   datasets?: PreviewDataPipelineResponseBodyDatasets[];
   /**
    * @remarks
-   * The effective SPL.
+   * The aggregated diagnostics.
+   */
+  diagnostics?: { [key: string]: any };
+  /**
+   * @remarks
+   * The effective SPL script.
    * 
    * @example
    * * | where status_code == "ERROR"
@@ -127,6 +132,7 @@ export class PreviewDataPipelineResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       datasets: 'datasets',
+      diagnostics: 'diagnostics',
       effectiveScript: 'effectiveScript',
       requestId: 'requestId',
     };
@@ -135,6 +141,7 @@ export class PreviewDataPipelineResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       datasets: { 'type': 'array', 'itemType': PreviewDataPipelineResponseBodyDatasets },
+      diagnostics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       effectiveScript: 'string',
       requestId: 'string',
     };
@@ -143,6 +150,9 @@ export class PreviewDataPipelineResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.datasets)) {
       $dara.Model.validateArray(this.datasets);
+    }
+    if(this.diagnostics) {
+      $dara.Model.validateMap(this.diagnostics);
     }
     super.validate();
   }

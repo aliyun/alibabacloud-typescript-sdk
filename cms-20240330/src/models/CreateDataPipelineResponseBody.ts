@@ -2,6 +2,86 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigAssignments extends $dara.Model {
+  /**
+   * @remarks
+   * The assignment expression.
+   * 
+   * @example
+   * duration / 1000000.0
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The output field.
+   * 
+   * @example
+   * latency_ms
+   */
+  field?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'expression',
+      field: 'field',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      field: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigProjections extends $dara.Model {
+  /**
+   * @remarks
+   * The source field.
+   * 
+   * @example
+   * serviceName
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The target field.
+   * 
+   * @example
+   * service
+   */
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'source',
+      target: 'target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      target: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
@@ -82,10 +162,253 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules 
   }
 }
 
+export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeConditionsField extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON object container.
+   * 
+   * @example
+   * attributes
+   */
+  container?: string;
+  /**
+   * @remarks
+   * The reference data type.
+   * 
+   * @example
+   * field
+   */
+  kind?: string;
+  /**
+   * @remarks
+   * The field or dimension name.
+   * 
+   * @example
+   * serviceName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The JSON literal key path.
+   */
+  path?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      container: 'container',
+      kind: 'kind',
+      name: 'name',
+      path: 'path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      container: 'string',
+      kind: 'string',
+      name: 'string',
+      path: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.path)) {
+      $dara.Model.validateArray(this.path);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field reference.
+   */
+  field?: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeConditionsField;
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      field: 'field',
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeConditionsField,
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.field && typeof (this.field as any).validate === 'function') {
+      (this.field as any).validate();
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeMetricName extends $dara.Model {
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The metric names.
+   * 
+   * @example
+   * ["http_requests_total"]
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeServiceName extends $dara.Model {
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScope extends $dara.Model {
+  /**
+   * @remarks
+   * The additional field conditions.
+   */
+  conditions?: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeConditions[];
+  /**
+   * @remarks
+   * The metric name scope.
+   */
+  metricName?: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeMetricName;
+  /**
+   * @remarks
+   * The service name scope.
+   */
+  serviceName?: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeServiceName;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'conditions',
+      metricName: 'metricName',
+      serviceName: 'serviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeConditions },
+      metricName: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeMetricName,
+      serviceName: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeServiceName,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.metricName && typeof (this.metricName as any).validate === 'function') {
+      (this.metricName as any).validate();
+    }
+    if(this.serviceName && typeof (this.serviceName as any).validate === 'function') {
+      (this.serviceName as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -148,9 +471,14 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigTarget
 export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfig extends $dara.Model {
   /**
    * @remarks
-   * The application list.
+   * The list of applications.
    */
   applications?: string[];
+  /**
+   * @remarks
+   * The list of field assignments.
+   */
+  assignments?: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigAssignments[];
   /**
    * @remarks
    * The filter expression.
@@ -161,14 +489,29 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfig exten
   expression?: string;
   /**
    * @remarks
-   * The field list.
+   * The list of fields.
    */
   fields?: string[];
   /**
    * @remarks
-   * The masking rule list.
+   * The extended parameters.
+   */
+  parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The list of field projections.
+   */
+  projections?: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigProjections[];
+  /**
+   * @remarks
+   * The list of masking rules.
    */
   rules?: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules[];
+  /**
+   * @remarks
+   * The scope in which the pipeline processing processor takes effect.
+   */
+  scope?: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScope;
   /**
    * @remarks
    * The SPL script.
@@ -190,9 +533,13 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfig exten
   static names(): { [key: string]: string } {
     return {
       applications: 'applications',
+      assignments: 'assignments',
       expression: 'expression',
       fields: 'fields',
+      parameters: 'parameters',
+      projections: 'projections',
       rules: 'rules',
+      scope: 'scope',
       script: 'script',
       selector: 'selector',
       target: 'target',
@@ -202,9 +549,13 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfig exten
   static types(): { [key: string]: any } {
     return {
       applications: { 'type': 'array', 'itemType': 'string' },
+      assignments: { 'type': 'array', 'itemType': CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigAssignments },
       expression: 'string',
       fields: { 'type': 'array', 'itemType': 'string' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      projections: { 'type': 'array', 'itemType': CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigProjections },
       rules: { 'type': 'array', 'itemType': CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules },
+      scope: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScope,
       script: 'string',
       selector: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigSelector,
       target: CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigTarget,
@@ -215,11 +566,23 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfig exten
     if(Array.isArray(this.applications)) {
       $dara.Model.validateArray(this.applications);
     }
+    if(Array.isArray(this.assignments)) {
+      $dara.Model.validateArray(this.assignments);
+    }
     if(Array.isArray(this.fields)) {
       $dara.Model.validateArray(this.fields);
     }
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    if(Array.isArray(this.projections)) {
+      $dara.Model.validateArray(this.projections);
+    }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
+    }
+    if(this.scope && typeof (this.scope as any).validate === 'function') {
+      (this.scope as any).validate();
     }
     if(this.selector && typeof (this.selector as any).validate === 'function') {
       (this.selector as any).validate();
@@ -325,6 +688,86 @@ export class CreateDataPipelineResponseBodyPipelineOutputs extends $dara.Model {
   }
 }
 
+export class CreateDataPipelineResponseBodyPipelineProcessorsConfigAssignments extends $dara.Model {
+  /**
+   * @remarks
+   * The assignment expression.
+   * 
+   * @example
+   * duration / 1000000.0
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The output field.
+   * 
+   * @example
+   * latency_ms
+   */
+  field?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'expression',
+      field: 'field',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      field: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineProcessorsConfigProjections extends $dara.Model {
+  /**
+   * @remarks
+   * The source field.
+   * 
+   * @example
+   * serviceName
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The target field.
+   * 
+   * @example
+   * service
+   */
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'source',
+      target: 'target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      target: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataPipelineResponseBodyPipelineProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
@@ -405,10 +848,253 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfigRules extends
   }
 }
 
+export class CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditionsField extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON object container.
+   * 
+   * @example
+   * attributes
+   */
+  container?: string;
+  /**
+   * @remarks
+   * The reference data type.
+   * 
+   * @example
+   * field
+   */
+  kind?: string;
+  /**
+   * @remarks
+   * The field or dimension name.
+   * 
+   * @example
+   * service.name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The JSON literal key path.
+   */
+  path?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      container: 'container',
+      kind: 'kind',
+      name: 'name',
+      path: 'path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      container: 'string',
+      kind: 'string',
+      name: 'string',
+      path: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.path)) {
+      $dara.Model.validateArray(this.path);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field reference.
+   */
+  field?: CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditionsField;
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      field: 'field',
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditionsField,
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.field && typeof (this.field as any).validate === 'function') {
+      (this.field as any).validate();
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeMetricName extends $dara.Model {
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The metric names.
+   * 
+   * @example
+   * ["http_requests_total"]
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeServiceName extends $dara.Model {
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * GLOB
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataPipelineResponseBodyPipelineProcessorsConfigScope extends $dara.Model {
+  /**
+   * @remarks
+   * The additional field conditions.
+   */
+  conditions?: CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditions[];
+  /**
+   * @remarks
+   * The metric name scope.
+   */
+  metricName?: CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeMetricName;
+  /**
+   * @remarks
+   * The service name scope.
+   */
+  serviceName?: CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeServiceName;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'conditions',
+      metricName: 'metricName',
+      serviceName: 'serviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditions },
+      metricName: CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeMetricName,
+      serviceName: CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeServiceName,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.metricName && typeof (this.metricName as any).validate === 'function') {
+      (this.metricName as any).validate();
+    }
+    if(this.serviceName && typeof (this.serviceName as any).validate === 'function') {
+      (this.serviceName as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataPipelineResponseBodyPipelineProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -471,9 +1157,14 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfigTarget extend
 export class CreateDataPipelineResponseBodyPipelineProcessorsConfig extends $dara.Model {
   /**
    * @remarks
-   * The application list.
+   * The list of applications.
    */
   applications?: string[];
+  /**
+   * @remarks
+   * The list of field assignments.
+   */
+  assignments?: CreateDataPipelineResponseBodyPipelineProcessorsConfigAssignments[];
   /**
    * @remarks
    * The filter expression.
@@ -484,14 +1175,29 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfig extends $dar
   expression?: string;
   /**
    * @remarks
-   * The field list.
+   * The list of fields.
    */
   fields?: string[];
   /**
    * @remarks
-   * The masking rule list.
+   * The extended parameters.
+   */
+  parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The list of field projections.
+   */
+  projections?: CreateDataPipelineResponseBodyPipelineProcessorsConfigProjections[];
+  /**
+   * @remarks
+   * The list of masking rules.
    */
   rules?: CreateDataPipelineResponseBodyPipelineProcessorsConfigRules[];
+  /**
+   * @remarks
+   * The scope in which the pipeline processing processor takes effect.
+   */
+  scope?: CreateDataPipelineResponseBodyPipelineProcessorsConfigScope;
   /**
    * @remarks
    * The SPL script.
@@ -513,9 +1219,13 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfig extends $dar
   static names(): { [key: string]: string } {
     return {
       applications: 'applications',
+      assignments: 'assignments',
       expression: 'expression',
       fields: 'fields',
+      parameters: 'parameters',
+      projections: 'projections',
       rules: 'rules',
+      scope: 'scope',
       script: 'script',
       selector: 'selector',
       target: 'target',
@@ -525,9 +1235,13 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfig extends $dar
   static types(): { [key: string]: any } {
     return {
       applications: { 'type': 'array', 'itemType': 'string' },
+      assignments: { 'type': 'array', 'itemType': CreateDataPipelineResponseBodyPipelineProcessorsConfigAssignments },
       expression: 'string',
       fields: { 'type': 'array', 'itemType': 'string' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      projections: { 'type': 'array', 'itemType': CreateDataPipelineResponseBodyPipelineProcessorsConfigProjections },
       rules: { 'type': 'array', 'itemType': CreateDataPipelineResponseBodyPipelineProcessorsConfigRules },
+      scope: CreateDataPipelineResponseBodyPipelineProcessorsConfigScope,
       script: 'string',
       selector: CreateDataPipelineResponseBodyPipelineProcessorsConfigSelector,
       target: CreateDataPipelineResponseBodyPipelineProcessorsConfigTarget,
@@ -538,11 +1252,23 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfig extends $dar
     if(Array.isArray(this.applications)) {
       $dara.Model.validateArray(this.applications);
     }
+    if(Array.isArray(this.assignments)) {
+      $dara.Model.validateArray(this.assignments);
+    }
     if(Array.isArray(this.fields)) {
       $dara.Model.validateArray(this.fields);
     }
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    if(Array.isArray(this.projections)) {
+      $dara.Model.validateArray(this.projections);
+    }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
+    }
+    if(this.scope && typeof (this.scope as any).validate === 'function') {
+      (this.scope as any).validate();
     }
     if(this.selector && typeof (this.selector as any).validate === 'function') {
       (this.selector as any).validate();
@@ -776,7 +1502,7 @@ export class CreateDataPipelineResponseBodyPipelineSource extends $dara.Model {
   config?: CreateDataPipelineResponseBodyPipelineSourceConfig;
   /**
    * @remarks
-   * The data source type.
+   * The type of the data source.
    * 
    * @example
    * traces-default

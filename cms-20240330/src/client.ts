@@ -6169,10 +6169,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of DataPipelines.
+   * Queries a list of DataPipelines.
    * 
    * @remarks
-   * Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+   * Queries data pipelines in a specified workspace by using paging.
    * 
    * @param request - ListDataPipelinesRequest
    * @param headers - map
@@ -6209,10 +6209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of DataPipelines.
+   * Queries a list of DataPipelines.
    * 
    * @remarks
-   * Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+   * Queries data pipelines in a specified workspace by using paging.
    * 
    * @param request - ListDataPipelinesRequest
    * @returns ListDataPipelinesResponse
@@ -9585,10 +9585,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a Prometheus view instance.
+   * Updates the information of a Prometheus view instance.
    * 
    * @remarks
-   * Updates the information about a Prometheus view instance.
+   * Updates the information of a Prometheus view instance.
    * 
    * @param request - UpdatePrometheusViewRequest
    * @param headers - map
@@ -9645,10 +9645,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a Prometheus view instance.
+   * Updates the information of a Prometheus view instance.
    * 
    * @remarks
-   * Updates the information about a Prometheus view instance.
+   * Updates the information of a Prometheus view instance.
    * 
    * @param request - UpdatePrometheusViewRequest
    * @returns UpdatePrometheusViewResponse

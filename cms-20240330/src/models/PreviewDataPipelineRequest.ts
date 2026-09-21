@@ -2,10 +2,90 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class PreviewDataPipelineRequestOutputsProcessorsConfigAssignments extends $dara.Model {
+  /**
+   * @remarks
+   * The assignment expression.
+   * 
+   * @example
+   * duration / 1000000.0
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The output field.
+   * 
+   * @example
+   * latency_ms
+   */
+  field?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'expression',
+      field: 'field',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      field: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestOutputsProcessorsConfigProjections extends $dara.Model {
+  /**
+   * @remarks
+   * The source field.
+   * 
+   * @example
+   * serviceName
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The target field.
+   * 
+   * @example
+   * service
+   */
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'source',
+      target: 'target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      target: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The prefix length to retain.
+   * The length of the prefix to retain.
    * 
    * @example
    * 2
@@ -13,7 +93,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dar
   keepPrefix?: number;
   /**
    * @remarks
-   * The suffix length to retain.
+   * The length of the suffix to retain.
    * 
    * @example
    * 2
@@ -82,10 +162,253 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dar
   }
 }
 
+export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditionsField extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON object container.
+   * 
+   * @example
+   * attributes
+   */
+  container?: string;
+  /**
+   * @remarks
+   * The reference data type.
+   * 
+   * @example
+   * field
+   */
+  kind?: string;
+  /**
+   * @remarks
+   * The field or dimension name.
+   * 
+   * @example
+   * service.name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The JSON literal key path.
+   */
+  path?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      container: 'container',
+      kind: 'kind',
+      name: 'name',
+      path: 'path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      container: 'string',
+      kind: 'string',
+      name: 'string',
+      path: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.path)) {
+      $dara.Model.validateArray(this.path);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field reference.
+   */
+  field?: PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditionsField;
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      field: 'field',
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditionsField,
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.field && typeof (this.field as any).validate === 'function') {
+      (this.field as any).validate();
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeMetricName extends $dara.Model {
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The metric names.
+   * 
+   * @example
+   * ["http_requests_total"]
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeServiceName extends $dara.Model {
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestOutputsProcessorsConfigScope extends $dara.Model {
+  /**
+   * @remarks
+   * The additional field conditions.
+   */
+  conditions?: PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditions[];
+  /**
+   * @remarks
+   * The metric name scope.
+   */
+  metricName?: PreviewDataPipelineRequestOutputsProcessorsConfigScopeMetricName;
+  /**
+   * @remarks
+   * The service name scope.
+   */
+  serviceName?: PreviewDataPipelineRequestOutputsProcessorsConfigScopeServiceName;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'conditions',
+      metricName: 'metricName',
+      serviceName: 'serviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditions },
+      metricName: PreviewDataPipelineRequestOutputsProcessorsConfigScopeMetricName,
+      serviceName: PreviewDataPipelineRequestOutputsProcessorsConfigScopeServiceName,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.metricName && typeof (this.metricName as any).validate === 'function') {
+      (this.metricName as any).validate();
+    }
+    if(this.serviceName && typeof (this.serviceName as any).validate === 'function') {
+      (this.serviceName as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewDataPipelineRequestOutputsProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -148,9 +471,14 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigTarget extends $da
 export class PreviewDataPipelineRequestOutputsProcessorsConfig extends $dara.Model {
   /**
    * @remarks
-   * The application list.
+   * The list of applications.
    */
   applications?: string[];
+  /**
+   * @remarks
+   * The list of field assignments.
+   */
+  assignments?: PreviewDataPipelineRequestOutputsProcessorsConfigAssignments[];
   /**
    * @remarks
    * The filter expression.
@@ -161,14 +489,29 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfig extends $dara.Mod
   expression?: string;
   /**
    * @remarks
-   * The field list.
+   * The list of fields.
    */
   fields?: string[];
   /**
    * @remarks
-   * The masking rule list.
+   * The extended parameters.
+   */
+  parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The list of field projections.
+   */
+  projections?: PreviewDataPipelineRequestOutputsProcessorsConfigProjections[];
+  /**
+   * @remarks
+   * The list of masking rules.
    */
   rules?: PreviewDataPipelineRequestOutputsProcessorsConfigRules[];
+  /**
+   * @remarks
+   * The pipeline processing scope.
+   */
+  scope?: PreviewDataPipelineRequestOutputsProcessorsConfigScope;
   /**
    * @remarks
    * The SPL script.
@@ -190,9 +533,13 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfig extends $dara.Mod
   static names(): { [key: string]: string } {
     return {
       applications: 'applications',
+      assignments: 'assignments',
       expression: 'expression',
       fields: 'fields',
+      parameters: 'parameters',
+      projections: 'projections',
       rules: 'rules',
+      scope: 'scope',
       script: 'script',
       selector: 'selector',
       target: 'target',
@@ -202,9 +549,13 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfig extends $dara.Mod
   static types(): { [key: string]: any } {
     return {
       applications: { 'type': 'array', 'itemType': 'string' },
+      assignments: { 'type': 'array', 'itemType': PreviewDataPipelineRequestOutputsProcessorsConfigAssignments },
       expression: 'string',
       fields: { 'type': 'array', 'itemType': 'string' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      projections: { 'type': 'array', 'itemType': PreviewDataPipelineRequestOutputsProcessorsConfigProjections },
       rules: { 'type': 'array', 'itemType': PreviewDataPipelineRequestOutputsProcessorsConfigRules },
+      scope: PreviewDataPipelineRequestOutputsProcessorsConfigScope,
       script: 'string',
       selector: PreviewDataPipelineRequestOutputsProcessorsConfigSelector,
       target: PreviewDataPipelineRequestOutputsProcessorsConfigTarget,
@@ -215,11 +566,23 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfig extends $dara.Mod
     if(Array.isArray(this.applications)) {
       $dara.Model.validateArray(this.applications);
     }
+    if(Array.isArray(this.assignments)) {
+      $dara.Model.validateArray(this.assignments);
+    }
     if(Array.isArray(this.fields)) {
       $dara.Model.validateArray(this.fields);
     }
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    if(Array.isArray(this.projections)) {
+      $dara.Model.validateArray(this.projections);
+    }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
+    }
+    if(this.scope && typeof (this.scope as any).validate === 'function') {
+      (this.scope as any).validate();
     }
     if(this.selector && typeof (this.selector as any).validate === 'function') {
       (this.selector as any).validate();
@@ -325,10 +688,90 @@ export class PreviewDataPipelineRequestOutputs extends $dara.Model {
   }
 }
 
+export class PreviewDataPipelineRequestProcessorsConfigAssignments extends $dara.Model {
+  /**
+   * @remarks
+   * The assignment expression.
+   * 
+   * @example
+   * duration / 1000000.0
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The output field.
+   * 
+   * @example
+   * latency_ms
+   */
+  field?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'expression',
+      field: 'field',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      field: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestProcessorsConfigProjections extends $dara.Model {
+  /**
+   * @remarks
+   * The source field.
+   * 
+   * @example
+   * serviceName
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The target field.
+   * 
+   * @example
+   * service
+   */
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'source',
+      target: 'target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      target: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The prefix length to retain.
+   * The length of the prefix to retain.
    * 
    * @example
    * 2
@@ -336,7 +779,7 @@ export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model
   keepPrefix?: number;
   /**
    * @remarks
-   * The suffix length to retain.
+   * The length of the suffix to retain.
    * 
    * @example
    * 2
@@ -405,10 +848,253 @@ export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model
   }
 }
 
+export class PreviewDataPipelineRequestProcessorsConfigScopeConditionsField extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON object container.
+   * 
+   * @example
+   * resources
+   */
+  container?: string;
+  /**
+   * @remarks
+   * The reference data type.
+   * 
+   * @example
+   * field
+   */
+  kind?: string;
+  /**
+   * @remarks
+   * The field or dimension name.
+   * 
+   * @example
+   * service.name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The JSON literal key path.
+   */
+  path?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      container: 'container',
+      kind: 'kind',
+      name: 'name',
+      path: 'path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      container: 'string',
+      kind: 'string',
+      name: 'string',
+      path: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.path)) {
+      $dara.Model.validateArray(this.path);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestProcessorsConfigScopeConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field reference.
+   */
+  field?: PreviewDataPipelineRequestProcessorsConfigScopeConditionsField;
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      field: 'field',
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: PreviewDataPipelineRequestProcessorsConfigScopeConditionsField,
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.field && typeof (this.field as any).validate === 'function') {
+      (this.field as any).validate();
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestProcessorsConfigScopeMetricName extends $dara.Model {
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The metric names.
+   * 
+   * @example
+   * ["http_requests_total"]
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestProcessorsConfigScopeServiceName extends $dara.Model {
+  /**
+   * @remarks
+   * The matching method.
+   * 
+   * @example
+   * EXACT
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewDataPipelineRequestProcessorsConfigScope extends $dara.Model {
+  /**
+   * @remarks
+   * The additional field conditions.
+   */
+  conditions?: PreviewDataPipelineRequestProcessorsConfigScopeConditions[];
+  /**
+   * @remarks
+   * The metric name scope.
+   */
+  metricName?: PreviewDataPipelineRequestProcessorsConfigScopeMetricName;
+  /**
+   * @remarks
+   * The service name scope.
+   */
+  serviceName?: PreviewDataPipelineRequestProcessorsConfigScopeServiceName;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'conditions',
+      metricName: 'metricName',
+      serviceName: 'serviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': PreviewDataPipelineRequestProcessorsConfigScopeConditions },
+      metricName: PreviewDataPipelineRequestProcessorsConfigScopeMetricName,
+      serviceName: PreviewDataPipelineRequestProcessorsConfigScopeServiceName,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.metricName && typeof (this.metricName as any).validate === 'function') {
+      (this.metricName as any).validate();
+    }
+    if(this.serviceName && typeof (this.serviceName as any).validate === 'function') {
+      (this.serviceName as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewDataPipelineRequestProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -471,9 +1157,14 @@ export class PreviewDataPipelineRequestProcessorsConfigTarget extends $dara.Mode
 export class PreviewDataPipelineRequestProcessorsConfig extends $dara.Model {
   /**
    * @remarks
-   * The application list.
+   * The list of applications.
    */
   applications?: string[];
+  /**
+   * @remarks
+   * The list of field assignments.
+   */
+  assignments?: PreviewDataPipelineRequestProcessorsConfigAssignments[];
   /**
    * @remarks
    * The filter expression.
@@ -484,14 +1175,29 @@ export class PreviewDataPipelineRequestProcessorsConfig extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The field list.
+   * The list of fields.
    */
   fields?: string[];
   /**
    * @remarks
-   * The masking rule list.
+   * The extended parameters.
+   */
+  parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The list of field projections.
+   */
+  projections?: PreviewDataPipelineRequestProcessorsConfigProjections[];
+  /**
+   * @remarks
+   * The list of masking rules.
    */
   rules?: PreviewDataPipelineRequestProcessorsConfigRules[];
+  /**
+   * @remarks
+   * The scope in which pipeline processing takes effect.
+   */
+  scope?: PreviewDataPipelineRequestProcessorsConfigScope;
   /**
    * @remarks
    * The SPL script.
@@ -513,9 +1219,13 @@ export class PreviewDataPipelineRequestProcessorsConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applications: 'applications',
+      assignments: 'assignments',
       expression: 'expression',
       fields: 'fields',
+      parameters: 'parameters',
+      projections: 'projections',
       rules: 'rules',
+      scope: 'scope',
       script: 'script',
       selector: 'selector',
       target: 'target',
@@ -525,9 +1235,13 @@ export class PreviewDataPipelineRequestProcessorsConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applications: { 'type': 'array', 'itemType': 'string' },
+      assignments: { 'type': 'array', 'itemType': PreviewDataPipelineRequestProcessorsConfigAssignments },
       expression: 'string',
       fields: { 'type': 'array', 'itemType': 'string' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      projections: { 'type': 'array', 'itemType': PreviewDataPipelineRequestProcessorsConfigProjections },
       rules: { 'type': 'array', 'itemType': PreviewDataPipelineRequestProcessorsConfigRules },
+      scope: PreviewDataPipelineRequestProcessorsConfigScope,
       script: 'string',
       selector: PreviewDataPipelineRequestProcessorsConfigSelector,
       target: PreviewDataPipelineRequestProcessorsConfigTarget,
@@ -538,11 +1252,23 @@ export class PreviewDataPipelineRequestProcessorsConfig extends $dara.Model {
     if(Array.isArray(this.applications)) {
       $dara.Model.validateArray(this.applications);
     }
+    if(Array.isArray(this.assignments)) {
+      $dara.Model.validateArray(this.assignments);
+    }
     if(Array.isArray(this.fields)) {
       $dara.Model.validateArray(this.fields);
     }
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    if(Array.isArray(this.projections)) {
+      $dara.Model.validateArray(this.projections);
+    }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
+    }
+    if(this.scope && typeof (this.scope as any).validate === 'function') {
+      (this.scope as any).validate();
     }
     if(this.selector && typeof (this.selector as any).validate === 'function') {
       (this.selector as any).validate();
@@ -776,7 +1502,7 @@ export class PreviewDataPipelineRequestSource extends $dara.Model {
   config?: PreviewDataPipelineRequestSourceConfig;
   /**
    * @remarks
-   * The data source type.
+   * The type of the data source.
    * 
    * @example
    * traces-default
@@ -863,7 +1589,7 @@ export class PreviewDataPipelineRequest extends $dara.Model {
   source?: PreviewDataPipelineRequestSource;
   /**
    * @remarks
-   * The end time of the preview.
+   * The end time for the preview.
    * 
    * @example
    * 1784566800
