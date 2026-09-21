@@ -8,7 +8,7 @@ export class ShoppingAssistantRequestContents extends $dara.Model {
    * The message content.
    * 
    * @example
-   * Recommend some light-colored long-sleeve shirts suitable for spring, budget under 300
+   * Recommend some light-colored long-sleeve shirts for spring, budget under 300
    */
   text?: string;
   /**
@@ -48,7 +48,7 @@ export class ShoppingAssistantRequestInputMessageContent extends $dara.Model {
    * The message content.
    * 
    * @example
-   * Recommend some light-colored long-sleeve shirts suitable for spring, budget under 300
+   * Recommend some light-colored long-sleeve shirts for spring, budget under 300
    */
   text?: string;
   /**
@@ -123,7 +123,7 @@ export class ShoppingAssistantRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The contents.
+   * The content.
    */
   contents?: ShoppingAssistantRequestContents;
   /**
@@ -139,7 +139,7 @@ export class ShoppingAssistantRequest extends $dara.Model {
    * **The environment.**
    * 
    * @example
-   * Prod: productionPre: pre-release.
+   * Prod: ProductionPre: Pre-release
    */
   environment?: string;
   /**
@@ -176,7 +176,7 @@ export class ShoppingAssistantRequest extends $dara.Model {
    * **The service ID.**
    * 
    * @example
-   * ServiceId.
+   * Service ID
    */
   serviceId?: string;
   /**

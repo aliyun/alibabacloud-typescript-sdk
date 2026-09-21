@@ -29,13 +29,13 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   engineConfigId?: string;
   /**
    * @remarks
-   * The runtime environment.
+   * The runtime environment. Valid values:
    * 
-   * - Daily: daily environment.
+   * - Daily: Daily environment.
    * 
-   * - Pre: staging environment.
+   * - Pre: Pre-release environment.
    * 
-   * - Prod: production environment.
+   * - Prod: Production environment.
    * 
    * @example
    * Pre
@@ -75,11 +75,19 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status.
+   * The scene ID.
    * 
-   * - Released: released.
+   * @example
+   * 1
+   */
+  sceneId?: string;
+  /**
+   * @remarks
+   * The status. Valid values:
    * 
-   * - UnReleased: not released.
+   * - Released: Released.
+   * 
+   * - UnReleased: Not released.
    * 
    * @example
    * Released
@@ -111,6 +119,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
       gmtModifiedTime: 'GmtModifiedTime',
       gmtReleasedTime: 'GmtReleasedTime',
       name: 'Name',
+      sceneId: 'SceneId',
       status: 'Status',
       type: 'Type',
       version: 'Version',
@@ -127,6 +136,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
       gmtModifiedTime: 'string',
       gmtReleasedTime: 'string',
       name: 'string',
+      sceneId: 'string',
       status: 'string',
       type: 'string',
       version: 'string',
@@ -158,7 +168,7 @@ export class ListEngineConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of elements in the list.
+   * The total number of entries in the list.
    * 
    * @example
    * 10

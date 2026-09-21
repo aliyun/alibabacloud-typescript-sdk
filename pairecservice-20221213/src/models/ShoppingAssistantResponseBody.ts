@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ShoppingAssistantResponseBodyCitation extends $dara.Model {
   /**
    * @remarks
-   * The ID of the `item`.
+   * The ID of the item.
    * 
    * @example
    * 0005
@@ -120,10 +120,10 @@ export class ShoppingAssistantResponseBodyResult extends $dara.Model {
   citation?: ShoppingAssistantResponseBodyResultCitation;
   /**
    * @remarks
-   * The returned content.
+   * The response content.
    * 
    * @example
-   * Here are some light-colored long-sleeve shirts I picked for you:\\\\n.
+   * Here are some light-colored long-sleeve shirts for you:\\\\n
    */
   content?: string;
   /**
@@ -190,10 +190,10 @@ export class ShoppingAssistantResponseBody extends $dara.Model {
   citation?: ShoppingAssistantResponseBodyCitation;
   /**
    * @remarks
-   * The returned content.
+   * The response content.
    * 
    * @example
-   * Here are some light-colored long-sleeve shirts I picked for you:\\n.
+   * Here are some light-colored long-sleeve shirts for you:\\n
    */
   content?: string;
   /**
@@ -204,6 +204,11 @@ export class ShoppingAssistantResponseBody extends $dara.Model {
    * e47cfae9-c0cc-42e1-91e2-e67cdb0e7b96
    */
   conversationId?: string;
+  /**
+   * @remarks
+   * Indicates whether suggestions are provided.
+   */
+  enableSuggestion?: boolean;
   /**
    * @remarks
    * The error message.
@@ -254,6 +259,7 @@ export class ShoppingAssistantResponseBody extends $dara.Model {
       citation: 'Citation',
       content: 'Content',
       conversationId: 'ConversationId',
+      enableSuggestion: 'EnableSuggestion',
       errorCode: 'ErrorCode',
       event: 'Event',
       requestId: 'RequestId',
@@ -268,6 +274,7 @@ export class ShoppingAssistantResponseBody extends $dara.Model {
       citation: ShoppingAssistantResponseBodyCitation,
       content: 'string',
       conversationId: 'string',
+      enableSuggestion: 'boolean',
       errorCode: 'string',
       event: 'string',
       requestId: 'string',

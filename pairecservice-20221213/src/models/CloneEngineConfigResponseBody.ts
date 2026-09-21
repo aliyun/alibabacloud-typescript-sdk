@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneEngineConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The engine configuration ID.
+   * The DPI engine configuration ID.
    * 
    * @example
    * 2

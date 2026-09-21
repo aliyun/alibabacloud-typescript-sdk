@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListEngineConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The runtime environment.
+   * The runtime environment. Valid values:
    * 
-   * - Daily: daily environment.
+   * - Daily: Daily environment.
    * 
-   * - Pre: staging environment.
+   * - Pre: Pre-release environment.
    * 
-   * - Prod: production environment.
+   * - Prod: Production environment.
    * 
    * @example
    * Pre
@@ -45,7 +45,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -53,11 +53,19 @@ export class ListEngineConfigsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status filter.
+   * The scene ID.
    * 
-   * - Released: released.
+   * @example
+   * 1
+   */
+  sceneId?: string;
+  /**
+   * @remarks
+   * The status filter. Valid values:
    * 
-   * - Unreleased: not released.
+   * - Released: Released.
+   * 
+   * - Unreleased: Not released.
    * 
    * @example
    * Released
@@ -65,7 +73,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version filter.
+   * The version filter. Valid values:
    * 
    * latest: the most recently updated version.
    * 
@@ -80,6 +88,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
       name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sceneId: 'SceneId',
       status: 'Status',
       version: 'Version',
     };
@@ -92,6 +101,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
       name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sceneId: 'string',
       status: 'string',
       version: 'string',
     };

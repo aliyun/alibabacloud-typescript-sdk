@@ -50,6 +50,11 @@ export class CreateEngineConfigRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * 1
+   */
+  sceneId?: string;
+  /**
    * @remarks
    * The type of the engine configuration.
    * 
@@ -64,6 +69,7 @@ export class CreateEngineConfigRequest extends $dara.Model {
       environment: 'Environment',
       instanceId: 'InstanceId',
       name: 'Name',
+      sceneId: 'SceneId',
       type: 'Type',
     };
   }
@@ -75,6 +81,7 @@ export class CreateEngineConfigRequest extends $dara.Model {
       environment: 'string',
       instanceId: 'string',
       name: 'string',
+      sceneId: 'string',
       type: 'string',
     };
   }

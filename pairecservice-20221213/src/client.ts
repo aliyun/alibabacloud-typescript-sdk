@@ -476,7 +476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones an engine configuration.
+   * Clones a DPI engine configuration.
    * 
    * @param request - CloneEngineConfigRequest
    * @param headers - map
@@ -502,6 +502,10 @@ export default class Client extends OpenApi {
       body["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -521,7 +525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones an engine configuration.
+   * Clones a DPI engine configuration.
    * 
    * @param request - CloneEngineConfigRequest
    * @returns CloneEngineConfigResponse
@@ -1325,6 +1329,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
     }
 
     if (!$dara.isNull(request.type)) {
@@ -6601,7 +6609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of engine configurations.
+   * Retrieves a list of engine configurations.
    * 
    * @param request - ListEngineConfigsRequest
    * @param headers - map
@@ -6631,6 +6639,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
@@ -6658,7 +6670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of engine configurations.
+   * Retrieves a list of engine configurations.
    * 
    * @param request - ListEngineConfigsRequest
    * @returns ListEngineConfigsResponse
@@ -6788,7 +6800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of feature consistency check task configurations.
+   * Retrieves the list of feature consistency check task configurations.
    * 
    * @param request - ListFeatureConsistencyCheckJobConfigsRequest
    * @param headers - map
@@ -6814,6 +6826,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
@@ -6837,7 +6853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of feature consistency check task configurations.
+   * Retrieves the list of feature consistency check task configurations.
    * 
    * @param request - ListFeatureConsistencyCheckJobConfigsRequest
    * @returns ListFeatureConsistencyCheckJobConfigsResponse
@@ -7945,6 +7961,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
     }
 
     if (!$dara.isNull(request.sortBy)) {
@@ -9459,13 +9479,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+   * Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
    * 
    * @remarks
    * ## Operation description
-   * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-   * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-   * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+   * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+   * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+   * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
    * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
    * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
    * 
@@ -9554,13 +9574,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+   * Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
    * 
    * @remarks
    * ## Operation description
-   * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-   * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-   * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+   * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+   * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+   * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
    * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
    * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
    * 
@@ -9635,13 +9655,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+   * Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
    * 
    * @remarks
    * ## Operation description
-   * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-   * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-   * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+   * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+   * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+   * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
    * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
    * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
    * 
@@ -10572,6 +10592,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
     }
 
     if (!$dara.isNull(request.type)) {

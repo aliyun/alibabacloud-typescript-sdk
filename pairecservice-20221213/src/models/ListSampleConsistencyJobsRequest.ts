@@ -11,6 +11,7 @@ export class ListSampleConsistencyJobsRequest extends $dara.Model {
   order?: string;
   pageNumber?: number;
   pageSize?: number;
+  sceneId?: string;
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18,6 +19,7 @@ export class ListSampleConsistencyJobsRequest extends $dara.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sceneId: 'SceneId',
       sortBy: 'SortBy',
     };
   }
@@ -28,6 +30,7 @@ export class ListSampleConsistencyJobsRequest extends $dara.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sceneId: 'string',
       sortBy: 'string',
     };
   }

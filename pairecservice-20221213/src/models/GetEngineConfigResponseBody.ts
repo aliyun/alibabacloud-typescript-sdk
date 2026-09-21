@@ -74,6 +74,11 @@ export class GetEngineConfigResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @example
+   * 1
+   */
+  sceneId?: string;
+  /**
    * @remarks
    * The status. Valid values:
    * 
@@ -103,6 +108,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
       gmtReleasedTime: 'GmtReleasedTime',
       name: 'Name',
       requestId: 'RequestId',
+      sceneId: 'SceneId',
       status: 'Status',
       type: 'Type',
     };
@@ -118,6 +124,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
       gmtReleasedTime: 'string',
       name: 'string',
       requestId: 'string',
+      sceneId: 'string',
       status: 'string',
       type: 'string',
     };

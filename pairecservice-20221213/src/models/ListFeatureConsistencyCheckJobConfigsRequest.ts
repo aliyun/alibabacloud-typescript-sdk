@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. To obtain an instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The instance ID. For information about how to obtain an instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,9 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sort order.
-   * 
-   * - `ASC`: Ascending order.
-   * 
-   * - `DESC`: Descending order.
+   * The sort order. Valid values:
+   * - ASC: ascending order.
+   * - DESC: descending order.
    * 
    * @example
    * ASC
@@ -27,7 +25,7 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. The value starts at 1. The default value is 1.
+   * The page number. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -43,11 +41,17 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The field to sort by.
+   * The scene ID.
    * 
-   * - `GmtCreateTime`: Creation time.
-   * 
-   * - `GmtModifiedTime`: Modified time.
+   * @example
+   * 1
+   */
+  sceneId?: string;
+  /**
+   * @remarks
+   * The field used to sort the results. Valid values:
+   * - GmtCreateTime: sorts by creation time.
+   * - GmtModifiedTime: sorts by update time.
    * 
    * @example
    * GmtCreateTime
@@ -59,6 +63,7 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sceneId: 'SceneId',
       sortBy: 'SortBy',
     };
   }
@@ -69,6 +74,7 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
       order: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      sceneId: 'string',
       sortBy: 'string',
     };
   }

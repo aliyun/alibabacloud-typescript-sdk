@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistencyCheckConfigs extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable feature comparison.
+   * Indicates whether feature comparison is enabled.
    * 
    * @example
    * true
@@ -19,7 +19,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   defaultRoute?: string;
   /**
    * @remarks
-   * The name of the EAS service.
+   * The service name of EAS.
    * 
    * @example
    * eas_service_1
@@ -51,7 +51,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureConsistencyCheckJobConfigId?: string;
   /**
    * @remarks
-   * The features to exclude from the results. Separate multiple features with a comma (,).
+   * The features to exclude from display. Separate multiple features with commas (,).
    * 
    * @example
    * feature1,feature2
@@ -59,7 +59,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureDisplayExclude?: string;
   /**
    * @remarks
-   * The ID of the data source for feature landing.
+   * The ID of the data landing resource.
    * 
    * @example
    * reso-********
@@ -67,7 +67,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureLandingResourceId?: string;
   /**
    * @remarks
-   * The URI of the data source for feature landing.
+   * The URI of the data landing resource.
    * 
    * @example
    * mc_project_1
@@ -75,7 +75,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureLandingResourceUri?: string;
   /**
    * @remarks
-   * The high-priority features to read from the user table. If a feature is not found, the system retrieves it from the behavior table. Separate multiple features with a comma (,).
+   * The feature priority. Separate multiple features with commas (,). This parameter specifies which features are preferentially read from the user table. If the user table is empty, the features are queried from the behavior table.
    * 
    * @example
    * feature1,feature2,feature3
@@ -83,7 +83,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featurePriority?: string;
   /**
    * @remarks
-   * The primary key for the item side in the feature store.
+   * The primary key on the item side in Feature Store.
    * 
    * @example
    * item
@@ -91,7 +91,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreItemId?: string;
   /**
    * @remarks
-   * The ID of the model in the feature store.
+   * feature store model ID。
    * 
    * @example
    * 2
@@ -99,7 +99,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreModelId?: string;
   /**
    * @remarks
-   * The ID of the feature store project.
+   * The Feature Store project ID.
    * 
    * @example
    * prj-01
@@ -107,7 +107,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreProjectId?: string;
   /**
    * @remarks
-   * The name of the feature store project.
+   * The Feature Store project name.
    * 
    * @example
    * project-1
@@ -115,7 +115,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreProjectName?: string;
   /**
    * @remarks
-   * The name of the feature view that contains item features within the sequence features.
+   * The name of the feature view that contains the item features in the sequence feature.
    * 
    * @example
    * item-1
@@ -123,7 +123,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreSeqFeatureView?: string;
   /**
    * @remarks
-   * The primary key for the user side in the feature store.
+   * The primary key on the user side in Feature Store.
    * 
    * @example
    * user
@@ -131,7 +131,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreUserId?: string;
   /**
    * @remarks
-   * The version of the `fg_jar` file.
+   * The version of fg_jar.
    * 
    * @example
    * 1.0.0
@@ -139,7 +139,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   fgJarVersion?: string;
   /**
    * @remarks
-   * The name of the `fg_json` file.
+   * The name of the fg_json file.
    * 
    * @example
    * file.json
@@ -147,7 +147,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   fgJsonFileName?: string;
   /**
    * @remarks
-   * Indicates whether to generate a ZIP package.
+   * Indicates whether a zip package needs to be generated.
    * 
    * @example
    * true
@@ -171,7 +171,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The name of the `item_id` field.
+   * The name of the item_id field.
    * 
    * @example
    * item_id
@@ -195,11 +195,9 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   itemTablePartitionField?: string;
   /**
    * @remarks
-   * The format of the partition field of the item table. Valid values:
-   * 
-   * - `yyyymmdd`
-   * 
-   * - `yyyy-mm-dd`
+   * The format of the item table partition field. Valid values:
+   * - yyyymmdd
+   * - yyyy-mm-dd
    * 
    * @example
    * yyyymmdd
@@ -207,7 +205,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   itemTablePartitionFieldFormat?: string;
   /**
    * @remarks
-   * The end time of the latest job based on this configuration.
+   * The end time of the most recently created job.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -215,7 +213,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   latestJobGmtSamplingEndTime?: string;
   /**
    * @remarks
-   * The start time of the latest job based on this configuration.
+   * The start time of the most recently created job.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -223,7 +221,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   latestJobGmtSamplingStartTime?: string;
   /**
    * @remarks
-   * The ID of the most recent job created from this configuration.
+   * The ID of the most recently created job based on this configuration.
    * 
    * @example
    * 3
@@ -259,7 +257,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   resourceConfig?: string;
   /**
    * @remarks
-   * The sample rate, a value from 0 to 1.
+   * The sampling rate. Valid values: 0 to 1.
    * 
    * @example
    * 0.89
@@ -267,7 +265,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   sampleRate?: string;
   /**
    * @remarks
-   * The ID of the scene.
+   * The scene ID.
    * 
    * @example
    * 3
@@ -292,7 +290,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   serviceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * service1
@@ -300,11 +298,9 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   serviceName?: string;
   /**
    * @remarks
-   * The status of the configuration. Valid values:
-   * 
-   * - `Editable`: The configuration is editable.
-   * 
-   * - `Uneditable`: The configuration is not editable.
+   * The status. Valid values:
+   * - Editable: Editable.
+   * - Uneditable: Not editable.
    * 
    * @example
    * Editable
@@ -313,11 +309,10 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   switchId?: string;
   /**
    * @remarks
-   * Indicates whether to use a feature store. Valid values:
+   * Indicates whether Feature Store is used. Valid values:
    * 
-   * - `true`: A feature store is used. In this case, the response includes parameters such as `FeatureStoreProjectId`, `FeatureStoreProjectName`, `FeatureStoreModelId`, `FeatureStoreUserId`, and `FeatureStoreItemId`.
-   * 
-   * - `false`: A feature store is not used. In this case, the response includes parameters such as `UserTable`, `UserIdField`, `UserTablePartitionField`, `UserTablePartitionFieldFormat`, `ItemTable`, `ItemIdField`, `ItemTablePartitionField`, and `ItemTablePartitionFieldFormat`.
+   * - true: Feature Store is used. In this case, FeatureStoreProjectId, FeatureStoreProjectName, FeatureStoreModelId, FeatureStoreUserId, and FeatureStoreItemId are returned.
+   * - false: Feature Store is not used. In this case, UserTable, UserIdField, UserTablePartitionField, UserTablePartitionFieldFormat, ItemTable, ItemIdField, ItemTablePartitionField, and ItemTablePartitionFieldFormat are returned.
    * 
    * @example
    * true
@@ -325,7 +320,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   useFeatureStore?: string;
   /**
    * @remarks
-   * The name of the `user_id` field.
+   * The name of the user_id field.
    * 
    * @example
    * user_id
@@ -349,11 +344,9 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   userTablePartitionField?: string;
   /**
    * @remarks
-   * The format of the partition field of the user table. Valid values:
-   * 
-   * - `yyyymmdd`
-   * 
-   * - `yyyy-mm-dd`
+   * The format of the user table partition field. Valid values:
+   * - yyyymmdd
+   * - yyyy-mm-dd
    * 
    * @example
    * yyyymmdd
@@ -516,7 +509,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of configurations.
+   * The total number of entries.
    * 
    * @example
    * 10

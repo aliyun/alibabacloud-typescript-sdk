@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceResponseBodyLatestProdReleaseOrder extends $dara.Model {
   /**
    * @remarks
-   * The release content.
+   * The publish content.
    * 
    * @example
    * update golang version to 1.22
@@ -21,7 +21,7 @@ export class GetServiceResponseBodyLatestProdReleaseOrder extends $dara.Model {
   imageVersion?: string;
   /**
    * @remarks
-   * The release information.
+   * The publish information.
    * 
    * @example
    * {
@@ -38,7 +38,7 @@ export class GetServiceResponseBodyLatestProdReleaseOrder extends $dara.Model {
   releaseInfo?: string;
   /**
    * @remarks
-   * The release order ID.
+   * The publish order ID.
    * 
    * @example
    * 3
@@ -54,7 +54,7 @@ export class GetServiceResponseBodyLatestProdReleaseOrder extends $dara.Model {
   releaser?: string;
   /**
    * @remarks
-   * The release title.
+   * The publish title.
    * 
    * @example
    * update version
@@ -94,7 +94,7 @@ export class GetServiceResponseBodyLatestProdReleaseOrder extends $dara.Model {
 export class GetServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Container Registry Enterprise instance ID selected by the user when a non-official image is used.
+   * The instance ID of the Container Registry Enterprise instance selected when a non-official image is used.
    * 
    * @example
    * cri-xxx
@@ -118,7 +118,7 @@ export class GetServiceResponseBody extends $dara.Model {
   engineConfigId?: string;
   /**
    * @remarks
-   * The time of the most recent production release.
+   * The time of the most recent production publish.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -139,7 +139,7 @@ export class GetServiceResponseBody extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The most recent production release record.
+   * The most recent production publish record.
    */
   latestProdReleaseOrder?: GetServiceResponseBodyLatestProdReleaseOrder;
   /**
@@ -160,7 +160,7 @@ export class GetServiceResponseBody extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The Container Registry Enterprise Edition repository ID selected by the user when a non-official image is used.
+   * The ID of the Container Registry Enterprise Edition repository selected when a non-official image is used.
    * 
    * @example
    * crr-xxx
@@ -176,7 +176,15 @@ export class GetServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configuration used to publish the service, such as the service configuration in EAS.
+   * The scenario.
+   * 
+   * @example
+   * 1
+   */
+  sceneId?: string;
+  /**
+   * @remarks
+   * The configuration used to publish the service, such as the Elastic Algorithm Service (EAS) service configuration.
    * 
    * @example
    * {"Port":8080}
@@ -184,7 +192,7 @@ export class GetServiceResponseBody extends $dara.Model {
   serviceConfig?: string;
   /**
    * @remarks
-   * The resource address used to publish the service, such as the resource group name in Elastic Algorithm Service (EAS).
+   * The resource address used to publish the service, such as the EAS resource group name.
    * 
    * @example
    * eas-resource-xxx
@@ -203,6 +211,7 @@ export class GetServiceResponseBody extends $dara.Model {
       region: 'Region',
       repositoryId: 'RepositoryId',
       requestId: 'RequestId',
+      sceneId: 'SceneId',
       serviceConfig: 'ServiceConfig',
       serviceResourceUri: 'ServiceResourceUri',
     };
@@ -221,6 +230,7 @@ export class GetServiceResponseBody extends $dara.Model {
       region: 'string',
       repositoryId: 'string',
       requestId: 'string',
+      sceneId: 'string',
       serviceConfig: 'string',
       serviceResourceUri: 'string',
     };

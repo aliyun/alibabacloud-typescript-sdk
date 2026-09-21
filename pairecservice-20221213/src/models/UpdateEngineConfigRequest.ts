@@ -26,9 +26,7 @@ export class UpdateEngineConfigRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The runtime environment.
-   * 
-   * Valid values:
+   * The runtime environment. Valid values:
    * 
    * - Daily: daily environment.
    * 
@@ -58,6 +56,14 @@ export class UpdateEngineConfigRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The scene.
+   * 
+   * @example
+   * 1
+   */
+  sceneId?: string;
+  /**
+   * @remarks
    * The engine configuration type.
    * 
    * @example
@@ -71,6 +77,7 @@ export class UpdateEngineConfigRequest extends $dara.Model {
       environment: 'Environment',
       instanceId: 'InstanceId',
       name: 'Name',
+      sceneId: 'SceneId',
       type: 'Type',
     };
   }
@@ -82,6 +89,7 @@ export class UpdateEngineConfigRequest extends $dara.Model {
       environment: 'string',
       instanceId: 'string',
       name: 'string',
+      sceneId: 'string',
       type: 'string',
     };
   }

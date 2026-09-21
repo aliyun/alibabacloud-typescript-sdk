@@ -5,22 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class CloneEngineConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the engine configuration.
+   * The content of the DPI engine configuration.
    * 
    * @example
    * {}
    */
   configValue?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * this is a clone config.
+   */
   description?: string;
   /**
    * @remarks
-   * The environment. Valid values:
+   * The runtime environment. Valid values:
    * 
-   * - Daily: The daily environment.
+   * - Daily: daily environment.
    * 
-   * - Pre: The pre-release environment.
+   * - Pre: staging environment.
    * 
-   * - Prod: The production environment.
+   * - Prod: production environment.
    * 
    * @example
    * Pre
@@ -28,18 +35,27 @@ export class CloneEngineConfigRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. To obtain an instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The instance ID. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * @example
    * pairec-cn-********
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The scene.
+   * 
+   * @example
+   * 1
+   */
+  sceneId?: string;
   static names(): { [key: string]: string } {
     return {
       configValue: 'ConfigValue',
       description: 'Description',
       environment: 'Environment',
       instanceId: 'InstanceId',
+      sceneId: 'SceneId',
     };
   }
 
@@ -49,6 +65,7 @@ export class CloneEngineConfigRequest extends $dara.Model {
       description: 'string',
       environment: 'string',
       instanceId: 'string',
+      sceneId: 'string',
     };
   }
 
