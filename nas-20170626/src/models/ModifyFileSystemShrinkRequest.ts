@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFileSystemShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system description.
+   * The auto-scaling configuration.
+   */
+  autoUpgradeConfigShrink?: string;
+  /**
+   * @remarks
+   * The description of the file system.
    * 
    * Limits:
    * 
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter or Chinese character and cannot start with `http://` or `https://`.
+   * - The description must start with a letter. It cannot start with `http://` or `https://`.
    * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
@@ -23,8 +28,8 @@ export class ModifyFileSystemShrinkRequest extends $dara.Model {
    * 
    * - General-purpose NAS: `31a8e4****`.
    * 
-   * - Extreme NAS: must start with `extreme-`, for example, `extreme-0015****`.
-   * - CPFS: must start with `cpfs-`, for example, `cpfs-125487****`.
+   * - Extreme NAS: The ID must start with `extreme-`, for example, `extreme-0015****`.
+   * - Cloud Parallel File Storage (CPFS): The ID must start with `cpfs-`, for example, `cpfs-125487****`.
    * 
    * This parameter is required.
    * 
@@ -39,6 +44,7 @@ export class ModifyFileSystemShrinkRequest extends $dara.Model {
   optionsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUpgradeConfigShrink: 'AutoUpgradeConfig',
       description: 'Description',
       fileSystemId: 'FileSystemId',
       optionsShrink: 'Options',
@@ -47,6 +53,7 @@ export class ModifyFileSystemShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUpgradeConfigShrink: 'string',
       description: 'string',
       fileSystemId: 'string',
       optionsShrink: 'string',

@@ -2,10 +2,67 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModifyFileSystemRequestAutoUpgradeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The capacity usage threshold.
+   * 
+   * @example
+   * 80
+   */
+  capacityUsedRatio?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-scaling.
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The scaling increment.
+   * 
+   * @example
+   * 100
+   */
+  step?: number;
+  /**
+   * @remarks
+   * The duration.
+   * 
+   * @example
+   * 30
+   */
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      capacityUsedRatio: 'capacityUsedRatio',
+      enabled: 'enabled',
+      step: 'step',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityUsedRatio: 'number',
+      enabled: 'boolean',
+      step: 'number',
+      time: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyFileSystemRequestOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the SMB Access-based Enumeration (ABE) access control feature.
+   * Specifies whether to enable the SMB Access-Based Enumeration (ABE) feature.
    * 
    * @example
    * false
@@ -13,11 +70,12 @@ export class ModifyFileSystemRequestOptions extends $dara.Model {
   enableABE?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the OpLock feature.
+   * Specifies whether the OpLock feature is enabled.
+   * 
    * Valid values:
-   * - true: enables the feature.
-   * - false: does not enable the feature.
-   * > Only file systems whose Protocol Type is SMB protocol are supported.
+   * - true: Enabled.
+   * - false: Not enabled.
+   * > Only file systems of the SMB Protocol Type are supported.
    * 
    * @example
    * true
@@ -25,7 +83,7 @@ export class ModifyFileSystemRequestOptions extends $dara.Model {
   enableOplock?: boolean;
   /**
    * @remarks
-   * Specifies whether the Lingjun VSC mount target supports access only through access points.
+   * Specifies whether the Lingjun VSC mount target supports only access point-based access.
    * 
    * @example
    * false
@@ -59,12 +117,17 @@ export class ModifyFileSystemRequestOptions extends $dara.Model {
 export class ModifyFileSystemRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system description.
+   * The auto-scaling configuration.
+   */
+  autoUpgradeConfig?: ModifyFileSystemRequestAutoUpgradeConfig;
+  /**
+   * @remarks
+   * The description of the file system.
    * 
    * Limits:
    * 
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter or Chinese character and cannot start with `http://` or `https://`.
+   * - The description must start with a letter. It cannot start with `http://` or `https://`.
    * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
@@ -77,8 +140,8 @@ export class ModifyFileSystemRequest extends $dara.Model {
    * 
    * - General-purpose NAS: `31a8e4****`.
    * 
-   * - Extreme NAS: must start with `extreme-`, for example, `extreme-0015****`.
-   * - CPFS: must start with `cpfs-`, for example, `cpfs-125487****`.
+   * - Extreme NAS: The ID must start with `extreme-`, for example, `extreme-0015****`.
+   * - Cloud Parallel File Storage (CPFS): The ID must start with `cpfs-`, for example, `cpfs-125487****`.
    * 
    * This parameter is required.
    * 
@@ -93,6 +156,7 @@ export class ModifyFileSystemRequest extends $dara.Model {
   options?: ModifyFileSystemRequestOptions;
   static names(): { [key: string]: string } {
     return {
+      autoUpgradeConfig: 'AutoUpgradeConfig',
       description: 'Description',
       fileSystemId: 'FileSystemId',
       options: 'Options',
@@ -101,6 +165,7 @@ export class ModifyFileSystemRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUpgradeConfig: ModifyFileSystemRequestAutoUpgradeConfig,
       description: 'string',
       fileSystemId: 'string',
       options: ModifyFileSystemRequestOptions,
@@ -108,6 +173,9 @@ export class ModifyFileSystemRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.autoUpgradeConfig && typeof (this.autoUpgradeConfig as any).validate === 'function') {
+      (this.autoUpgradeConfig as any).validate();
+    }
     if(this.options && typeof (this.options as any).validate === 'function') {
       (this.options as any).validate();
     }

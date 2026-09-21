@@ -7680,11 +7680,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ModifyFileSystemShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.autoUpgradeConfig)) {
+      request.autoUpgradeConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoUpgradeConfig, "AutoUpgradeConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.options)) {
       request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "Options", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.autoUpgradeConfigShrink)) {
+      query["AutoUpgradeConfig"] = request.autoUpgradeConfigShrink;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }

@@ -2,6 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemAutoUpgradeConfig extends $dara.Model {
+  /**
+   * @example
+   * 80
+   */
+  capacityUsedRatio?: number;
+  enabled?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  step?: number;
+  /**
+   * @example
+   * 30
+   */
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      capacityUsedRatio: 'capacityUsedRatio',
+      enabled: 'enabled',
+      step: 'step',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityUsedRatio: 'number',
+      enabled: 'boolean',
+      step: 'number',
+      time: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap extends $dara.Model {
   bindDN?: string;
   searchBase?: string;
@@ -443,6 +487,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds extends 
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.Model {
   accessPointCount?: string;
   autoSnapshotPolicyId?: string;
+  autoUpgradeConfig?: DescribeFileSystemsResponseBodyFileSystemsFileSystemAutoUpgradeConfig;
   bandwidth?: number;
   capacity?: number;
   chargeType?: string;
@@ -483,6 +528,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
     return {
       accessPointCount: 'AccessPointCount',
       autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
+      autoUpgradeConfig: 'AutoUpgradeConfig',
       bandwidth: 'Bandwidth',
       capacity: 'Capacity',
       chargeType: 'ChargeType',
@@ -522,6 +568,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
     return {
       accessPointCount: 'string',
       autoSnapshotPolicyId: 'string',
+      autoUpgradeConfig: DescribeFileSystemsResponseBodyFileSystemsFileSystemAutoUpgradeConfig,
       bandwidth: 'number',
       capacity: 'number',
       chargeType: 'string',
@@ -558,6 +605,9 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
   }
 
   validate() {
+    if(this.autoUpgradeConfig && typeof (this.autoUpgradeConfig as any).validate === 'function') {
+      (this.autoUpgradeConfig as any).validate();
+    }
     if(this.ldap && typeof (this.ldap as any).validate === 'function') {
       (this.ldap as any).validate();
     }
@@ -628,7 +678,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of file systems per page.
+   * The number of file systems on each page.
    * 
    * @example
    * 1

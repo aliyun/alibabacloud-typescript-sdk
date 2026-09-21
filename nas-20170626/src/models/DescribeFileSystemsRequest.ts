@@ -24,7 +24,7 @@ export class DescribeFileSystemsRequestTag extends $dara.Model {
    * 
    * Limits:
    * 
-   * - N can be an integer from 1 to 20.
+   * - Valid values of N: 1 to 20.
    * - The tag value can be up to 128 characters in length.
    * - The tag value cannot start with `aliyun` or `acs:`.
    * - The tag value cannot contain `http://` or `https://`.
@@ -61,9 +61,9 @@ export class DescribeFileSystemsRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * - General-purpose NAS: 31a8e4****.
-   * - Extreme NAS: must start with extreme-, such as extreme-0015****.
-   * - CPFS (locally redundant): must start with cpfs-, such as cpfs-125487****.
-   * - CPFS SE (zone-redundant): must start with cpfsse-, such as cpfsse-022c71b134****.
+   * - Extreme NAS: Must start with extreme-, such as extreme-0015****.
+   * - Cloud Parallel File Storage (CPFS) (locally redundant version): Must start with cpfs-, such as cpfs-125487****.
+   * - CPFS SE (zone-redundant version): Must start with cpfsse-, such as cpfsse-022c71b134****.
    * 
    * @example
    * 31a8e4****
@@ -71,15 +71,15 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The type of the file system.
+   * The file system type.
    * 
    * Valid values:
    * 
    * - all (default): queries all types.
    * - standard: General-purpose NAS.
    * - extreme: Extreme NAS.
-   * - cpfs: Cloud Parallel File Storage (CPFS) with locally redundant storage.
-   * - cpfsse: CPFS SE with zone-redundant storage.
+   * - cpfs: Cloud Parallel File Storage (CPFS) (locally redundant version).
+   * - cpfsse: CPFS SE (zone-redundant version).
    * 
    * > To query multiple types, separate them with commas (,).
    * 
@@ -91,13 +91,19 @@ export class DescribeFileSystemsRequest extends $dara.Model {
    * @remarks
    * The page number of the file system list.
    * 
+   * Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The number of file systems on each page in a paging query.
+   * The number of file systems on each page during a paged query.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 10.
    * 
    * @example
    * 1
@@ -115,7 +121,17 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The storage type. Currently, only CPFS for Lingjun specifications are supported for a filtered query. Other FileSystemType values are not supported. The following specifications are supported:
+   * The storage type. Currently, only CPFS for Lingjun specifications are supported for filtered query. Other file system types (FileSystemType) are not supported. The following specifications are supported:
+   * - bm_advance_400
+   * - bm_advance_400_large
+   * - bm_advance_new
+   * - bm_advance_100
+   * - cpfslight_100
+   * - bm_p100_stepsize_300
+   * - bm_p400_stepsize_1
+   * - bm_p400_stepsize_300
+   * 
+   * You can specify multiple specifications separated by commas (,). For example: bm_advance_400,bm_advance_new.
    * 
    * @example
    * bm_advance_400
@@ -128,7 +144,9 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   tag?: DescribeFileSystemsRequestTag[];
   /**
    * @remarks
-   * The VPC ID.
+   * The virtual private cloud (VPC) ID.
+   * 
+   * The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to which you want to mount the file system.
    * 
    * @example
    * vpc-bp1sevsgtqvk5gxbl****

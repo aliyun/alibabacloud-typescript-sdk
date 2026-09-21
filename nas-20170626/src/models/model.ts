@@ -65,6 +65,7 @@ export { DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages }
 export { DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem } from './DescribeFileSystemStatisticsResponseBody';
 export { DescribeFileSystemStatisticsResponseBodyFileSystems } from './DescribeFileSystemStatisticsResponseBody';
 export { DescribeFileSystemsRequestTag } from './DescribeFileSystemsRequest';
+export { DescribeFileSystemsResponseBodyFileSystemsFileSystemAutoUpgradeConfig } from './DescribeFileSystemsResponseBody';
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap } from './DescribeFileSystemsResponseBody';
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodesClientMasterNode } from './DescribeFileSystemsResponseBody';
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodes } from './DescribeFileSystemsResponseBody';
@@ -152,6 +153,7 @@ export { ListRecycledDirectoriesAndFilesResponseBodyEntries } from './ListRecycl
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
+export { ModifyFileSystemRequestAutoUpgradeConfig } from './ModifyFileSystemRequest';
 export { ModifyFileSystemRequestOptions } from './ModifyFileSystemRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { UpdateLifecyclePolicyRequestDeleteRules } from './UpdateLifecyclePolicyRequest';
