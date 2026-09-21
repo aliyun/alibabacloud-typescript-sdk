@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetDataLakeTableResponseBody } from "./GetDataLakeTableResponseBody";
+import { ResetAgenticApiKeyResponseBody } from "./ResetAgenticApiKeyResponseBody";
 
 
-export class GetDataLakeTableResponse extends $dara.Model {
+export class ResetAgenticApiKeyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: GetDataLakeTableResponseBody;
+  body?: ResetAgenticApiKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class GetDataLakeTableResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: GetDataLakeTableResponseBody,
+      body: ResetAgenticApiKeyResponseBody,
     };
   }
 

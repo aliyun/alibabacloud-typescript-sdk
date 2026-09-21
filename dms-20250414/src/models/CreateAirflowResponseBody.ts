@@ -6,7 +6,7 @@ import { DataMountInfo } from "./DataMountInfo";
 export class CreateAirflowResponseBodyRoot extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Airflow instance.
+   * The instance ID of the Airflow instance.
    * 
    * @example
    * af-****
@@ -38,7 +38,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   appSpec?: string;
   /**
    * @remarks
-   * The application type. This value is always airflow.
+   * The type.
    * 
    * @example
    * airflow
@@ -46,7 +46,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * Custom Airflow configurations.
+   * The custom Airflow configuration.
    */
   customAirflowCfg?: string[];
   /**
@@ -59,12 +59,12 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   dagsDir?: string;
   /**
    * @remarks
-   * A list of data mount configurations.
+   * The list of data mount information.
    */
   dataMountInfoList?: DataMountInfo[];
   /**
    * @remarks
-   * The deployment error message.
+   * The error log information.
    * 
    * @example
    * vpc not found
@@ -80,12 +80,12 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether to enable serverless workers.
+   * Specifies whether to enable Worker elasticity.
    */
   enableServerless?: boolean;
   /**
    * @remarks
-   * The time the instance was created.
+   * The creation time.
    * 
    * @example
    * 2025-08-12T05:46:01.000+0000
@@ -93,7 +93,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The timeout period for a graceful shutdown, in seconds.
+   * The timeout period for the Worker to gracefully shut down.
    * 
    * @example
    * 60
@@ -117,7 +117,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The plugin directory that Airflow scans.
+   * The directory that Airflow scans for plugins.
    * 
    * @example
    * default/plugins
@@ -125,7 +125,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   pluginsDir?: string;
   /**
    * @remarks
-   * The path to the requirements file.
+   * The path of the installable package.
    * 
    * @example
    * default/requirements.txt
@@ -133,7 +133,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   requirementFile?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-2ze1nak7h0alg1xxx
@@ -141,7 +141,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The file that is loaded when the Airflow instance starts. You can use this file to set environment variables.
+   * The file loaded when the Airflow instance starts. You can use this file to set environment variables and other configurations.
    * 
    * @example
    * default/startup.sh
@@ -149,7 +149,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   startupFile?: string;
   /**
    * @remarks
-   * The status of the Airflow instance.
+   * The instance status of the Airflow instance.
    * 
    * @example
    * DEPLOYING
@@ -157,7 +157,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The VSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-8vbaf073jawozfpbg****
@@ -165,7 +165,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * VPC ID。
    * 
    * @example
    * vpc-uf63r6coyiw9o5gf****
@@ -173,7 +173,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The number of scaled-out worker nodes.
+   * The number of worker scale-out nodes.
    * 
    * @example
    * 0
@@ -273,7 +273,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
 export class CreateAirflowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the access denial.
+   * The details of the access denial.
    * 
    * @example
    * NOT_FOUND
@@ -297,7 +297,7 @@ export class CreateAirflowResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The log information.
    * 
    * @example
    * Successful
@@ -318,10 +318,9 @@ export class CreateAirflowResponseBody extends $dara.Model {
   root?: CreateAirflowResponseBodyRoot;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request succeeded.
-   * 
+   * - **true**: The request was successful.
    * - **false**: The request failed.
    * 
    * @example

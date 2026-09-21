@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataAgentSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The current DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou

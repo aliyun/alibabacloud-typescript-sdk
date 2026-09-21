@@ -13,9 +13,9 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
   customAgentId?: string;
   /**
    * @remarks
-   * The usage stage of the custom agent. Valid values:
+   * The stage of the custom agent. Valid values:
    * - **debug**: Debug stage.
-   * - **prod**: Production environment stage.
+   * - **prod**: Production stage.
    * 
    * @example
    * prod
@@ -54,7 +54,7 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
    * @remarks
    * The name of the user OSS bucket.
    * 
-   * - Analysis process files and report outputs can be uploaded to the user-specified OSS bucket.
+   * Analysis process files and report outputs can be uploaded to the user-specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -229,7 +229,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   data?: ListDataAgentSessionResponseBodyData[];
   /**
    * @remarks
-   * The error code returned when the request is abnormal.
+   * The error code returned when the request fails.
    * 
    * @example
    * success

@@ -15,15 +15,15 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   airflowName?: string;
   /**
    * @remarks
-   * The Airflow version. Supported versions: 2.10 and 3.1.
+   * The Airflow version. Valid values: "3.2.2", "3.1.0", "2.10.4", and "3.0.6".
    * 
    * @example
-   * 3.1
+   * 3.2.2
    */
   airflowVersion?: string;
   /**
    * @remarks
-   * The compute specifications for the Airflow instance. Valid values: **SMALL**, **MEDIUM**, **LARGE**, **XLARGE**, or **X2LARGE**.
+   * The specification of the Airflow instance. Valid values: **SMALL**, **MEDIUM**, **LARGE**, **XLARGE**, and **X2LARGE**.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   appSpec?: string;
   /**
    * @remarks
-   * A client token to ensure request idempotence.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * token-****
@@ -41,7 +41,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The path to the DAG directory for Airflow to scan.
+   * The DAG directory scanned by Airflow.
    * 
    * @example
    * default/dags
@@ -49,7 +49,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   dagsDir?: string;
   /**
    * @remarks
-   * A list of data mount configurations.
+   * The list of data mount information.
    */
   dataMountInfoListShrink?: string;
   /**
@@ -62,12 +62,12 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable worker elasticity.
+   * Specifies whether to enable Worker elasticity.
    */
   enableServerless?: boolean;
   /**
    * @remarks
-   * The graceful shutdown timeout for workers, in seconds.
+   * The timeout period for the Worker to gracefully shut down.
    * 
    * @example
    * 60
@@ -85,7 +85,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * The OSS path for log storage.
+   * The OSS path for storing logs.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The path to the plugin directory for the Airflow instance to scan.
+   * The plugin directory scanned by the Airflow instance.
    * 
    * @example
    * default/plugins
@@ -103,7 +103,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   pluginsDir?: string;
   /**
    * @remarks
-   * The path to the Python requirements file.
+   * The path of the package installation file.
    * 
    * @example
    * default/requirements.txt
@@ -111,7 +111,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   requirementFile?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * This parameter is required.
    * 
@@ -121,7 +121,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The path to the startup script in the Airflow container.
+   * The startup script of the Airflow container.
    * 
    * @example
    * default/startup.sh
@@ -129,7 +129,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   startupFile?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * This parameter is required.
    * 
@@ -139,7 +139,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * VPC ID。
    * 
    * This parameter is required.
    * 
@@ -149,7 +149,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The number of elastic worker nodes.
+   * The number of extended Worker node replicas.
    * 
    * This parameter is required.
    * 
@@ -159,7 +159,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   workerServerlessReplicas?: number;
   /**
    * @remarks
-   * The ID of the DMS workspace.
+   * The ID of the Data Management workspace.
    * 
    * This parameter is required.
    * 
@@ -169,7 +169,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The ID of the zone where the instance will be created.
+   * The zone ID within the region.
    * 
    * @example
    * cn-hangzhou-h

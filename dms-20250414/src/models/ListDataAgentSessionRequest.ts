@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for session creation.
+   * The end time of the session creation time range.
    * 
    * @example
    * 1770912000000
@@ -13,12 +13,19 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   createEndTime?: number;
   /**
    * @remarks
-   * The start time for session creation.
+   * The start time of the session creation time range.
    * 
    * @example
    * 1770825600000
    */
   createStartTime?: number;
+  /**
+   * @remarks
+   * The ID of the session creator.
+   * 
+   * @example
+   * 2096******
+   */
   creatorId?: string;
   /**
    * @remarks
@@ -30,7 +37,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -49,6 +56,9 @@ export class ListDataAgentSessionRequest extends $dara.Model {
    * The mode. Valid values:
    * - Analysis
    * - Coding
+   * 
+   * @example
+   * Analysis
    */
   mode?: string;
   /**
@@ -80,7 +90,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
    * The Data Agent title. Fuzzy match is supported.
    * 
    * @example
-   * Analyze this data for me
+   * Help me analyze this data
    */
   title?: string;
   /**
