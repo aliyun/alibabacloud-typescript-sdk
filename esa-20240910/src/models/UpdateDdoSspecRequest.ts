@@ -15,7 +15,7 @@ export class UpdateDDoSSpecRequest extends $dara.Model {
   DDoSBillingMode?: string;
   /**
    * @remarks
-   * The instance specification for the Chinese mainland.
+   * The instance specification for Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateDDoSSpecRequest extends $dara.Model {
   DDoSBurstableDomesticProtection?: string;
   /**
    * @remarks
-   * The instance specification for outside the Chinese mainland.
+   * The instance specification for regions outside Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UpdateDDoSSpecRequest extends $dara.Model {
   DDoSBurstableOverseasProtection?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID. You can call the ListDDoSInstances operation to query the list of DDoS instances.
    * 
    * This parameter is required.
    * 

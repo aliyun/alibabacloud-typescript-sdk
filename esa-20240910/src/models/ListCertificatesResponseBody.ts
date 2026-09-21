@@ -29,7 +29,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The DCV type. Valid values: DNS and HTTP.
+   * The DCV type. Valid values: DNS, HTTP.
    * 
    * @example
    * HTTP
@@ -107,7 +107,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in UTC/GMT time zone.
+   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2022-06-24 07:48:51
@@ -168,7 +168,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in UTC/GMT time zone.
+   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -176,7 +176,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in UTC/GMT time zone.
+   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -228,10 +228,10 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
    * - OK: Normal.
    * - Expired: The certificate has expired.
    * - Expiring: The certificate is about to expire (within 30 days).
-   * - Issued: Free certificate - issued.
-   * - Applying: Free certificate - applying.
-   * - ApplyFailed: Free certificate - application failed.
-   * - Canceled: Free certificate - canceled.
+   * - Issued: Free certificate - Issued.
+   * - Applying: Free certificate - Applying.
+   * - ApplyFailed: Free certificate - Application failed.
+   * - Canceled: Free certificate - Canceled.
    * 
    * @example
    * OK
@@ -240,7 +240,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The certificate type. Valid values:
-   * - cas: SSL Certificates Service certificate.
+   * - cas: Alibaba Cloud SSL certificate.
    * - upload: Custom uploaded certificate.
    * - free: Free certificate.
    * - keyless: Keyless certificate.
@@ -251,7 +251,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The update time. Format: YYYY-MM-DD HH:MM:SS, in UTC/GMT time zone.
+   * The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2023-04-20 06:18:42

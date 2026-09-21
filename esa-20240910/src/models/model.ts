@@ -222,6 +222,9 @@ export { GetWafFilterResponseBodyFilterFieldsLogicsValidator } from './GetWafFil
 export { GetWafFilterResponseBodyFilterFieldsLogics } from './GetWafFilterResponseBody';
 export { GetWafFilterResponseBodyFilterFieldsSelectorData } from './GetWafFilterResponseBody';
 export { GetWafFilterResponseBodyFilterFieldsSelector } from './GetWafFilterResponseBody';
+export { GetWafFilterResponseBodyFilterFieldsSubsLogicsValidator } from './GetWafFilterResponseBody';
+export { GetWafFilterResponseBodyFilterFieldsSubsLogics } from './GetWafFilterResponseBody';
+export { GetWafFilterResponseBodyFilterFieldsSubs } from './GetWafFilterResponseBody';
 export { GetWafFilterResponseBodyFilterFields } from './GetWafFilterResponseBody';
 export { GetWafFilterResponseBodyFilter } from './GetWafFilterResponseBody';
 export { GetWafQuotaResponseBodyQuotaCaptcha } from './GetWafQuotaResponseBody';

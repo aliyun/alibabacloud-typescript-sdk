@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateTraceDiagnoseRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the request.
+   * The source.
    * 
    * @example
    * ai

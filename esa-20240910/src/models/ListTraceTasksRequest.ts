@@ -21,7 +21,7 @@ export class ListTraceTasksRequest extends $dara.Model {
   diagnoseId?: string;
   /**
    * @remarks
-   * The domain name to diagnose.
+   * The domain name to be diagnosed.
    * 
    * @example
    * http://www.example.com
@@ -45,7 +45,7 @@ export class ListTraceTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Valid values: any integer from 1 to 1000.
+   * The number of entries per page. Valid values: any integer from 1 to 1000.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ListTraceTasksRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The diagnostic trace ID.
+   * The trace ID of the diagnostic task.
    * 
    * @example
    * 000000xxxxxxxxxxxxxxxxxxxxxx33427e

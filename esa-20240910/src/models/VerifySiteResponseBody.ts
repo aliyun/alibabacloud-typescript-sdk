@@ -7,8 +7,8 @@ export class VerifySiteResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the verification passed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The verification passed.
+   * - **false**: The verification failed.
    * 
    * @example
    * true

@@ -14,12 +14,12 @@ export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.M
   errMsg?: string;
   /**
    * @remarks
-   * The length limit for the value.
+   * The length limit of the value.
    */
   length?: WafQuotaInteger;
   /**
    * @remarks
-   * The regular expression pattern for the value.
+   * The regular expression pattern for the value, used for string validation.
    * 
    * @example
    * ^example$
@@ -27,7 +27,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.M
   pattern?: string;
   /**
    * @remarks
-   * The value range for numeric validation.
+   * The numeric range of the value, used for number validation.
    */
   range?: WafQuotaInteger;
   static names(): { [key: string]: string } {
@@ -66,7 +66,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.M
 export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   /**
    * @remarks
-   * Configurable attributes, such as case sensitivity.
+   * The configurable attributes, such as whether the match is case-sensitive.
    * 
    * @example
    * 1
@@ -74,7 +74,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   attributes?: number;
   /**
    * @remarks
-   * Indicates whether the current plan supports this operator.
+   * Indicates whether the current plan supports this match operator.
    * 
    * @example
    * false
@@ -82,15 +82,11 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The input type for the value. Valid values:
-   * 
-   * - `select:single`: A single-select input.
-   * 
-   * - `select:multi`: A multi-select input.
-   * 
-   * - `input:single`: A single-value text input.
-   * 
-   * - `input:multi`: A multi-value text input.
+   * The type of the value input field. Valid values:
+   * * select:single: single-select input field
+   * * select:multi: multi-select input field
+   * * input:single: single input field
+   * * input:multi: multi input field
    * 
    * @example
    * input:single
@@ -98,7 +94,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The minimum plan that supports this operator, provided the current plan does not.
+   * The minimum plan that supports this match operator, displayed when the current plan does not support it.
    * 
    * @example
    * high
@@ -106,12 +102,12 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   minPlan?: string;
   /**
    * @remarks
-   * Indicates whether to negate the match result.
+   * Indicates whether the match result is negated.
    */
   negative?: boolean;
   /**
    * @remarks
-   * The label for the operator.
+   * The display label of the match operator.
    * 
    * @example
    * Does not equal
@@ -119,7 +115,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The internal identifier for the operator.
+   * The parameter of the match operator used internally by the system.
    * 
    * @example
    * eq
@@ -127,7 +123,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   symbol?: string;
   /**
    * @remarks
-   * A hint for entering a valid value.
+   * The input hint that helps users provide valid values required by the rule.
    * 
    * @example
    * e.g. image/jpeg
@@ -136,14 +132,10 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   /**
    * @remarks
    * The type of the value. Valid values:
-   * 
-   * - `integer`: An integer.
-   * 
-   * - `integer_slice`: An integer array.
-   * 
-   * - `string`: A string.
-   * 
-   * - `string_slice`: A string array.
+   * * integer: integer
+   * * integer_slice: integer array
+   * * string: string
+   * * string_slice: string array
    * 
    * @example
    * string
@@ -151,7 +143,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The validator, which defines validation rules for the value.
+   * The validator object that defines the validation rules for values.
    */
   validator?: GetWafFilterResponseBodyFilterFieldsLogicsValidator;
   static names(): { [key: string]: string } {
@@ -199,7 +191,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
 export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $dara.Model {
   /**
    * @remarks
-   * The label for the data option.
+   * The display label of the available data.
    * 
    * @example
    * China
@@ -207,7 +199,7 @@ export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $dara.Mode
   label?: string;
   /**
    * @remarks
-   * The value of the data option.
+   * The parameter value of the available data.
    * 
    * @example
    * CN
@@ -239,12 +231,12 @@ export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $dara.Mode
 export class GetWafFilterResponseBodyFilterFieldsSelector extends $dara.Model {
   /**
    * @remarks
-   * A list of data options available when the selector `Kind` is `data`.
+   * The list of available data when the selector kind is data.
    */
   data?: GetWafFilterResponseBodyFilterFieldsSelectorData[];
   /**
    * @remarks
-   * The selector type, which indicates whether it targets data items or other entities.
+   * The kind of the selector, such as whether it is used for selecting data items or other purposes.
    * 
    * @example
    * data
@@ -276,6 +268,264 @@ export class GetWafFilterResponseBodyFilterFieldsSelector extends $dara.Model {
   }
 }
 
+export class GetWafFilterResponseBodyFilterFieldsSubsLogicsValidator extends $dara.Model {
+  /**
+   * @remarks
+   * The error message returned when validation fails.
+   * 
+   * @example
+   * Enter a valid expression
+   */
+  errMsg?: string;
+  /**
+   * @remarks
+   * The length limit of the value.
+   */
+  length?: WafQuotaInteger;
+  /**
+   * @remarks
+   * The regular expression pattern for the value, used for string validation.
+   * 
+   * @example
+   * ^example$
+   */
+  pattern?: string;
+  /**
+   * @remarks
+   * The numeric range of the value, used for number validation.
+   */
+  range?: WafQuotaInteger;
+  static names(): { [key: string]: string } {
+    return {
+      errMsg: 'ErrMsg',
+      length: 'Length',
+      pattern: 'Pattern',
+      range: 'Range',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMsg: 'string',
+      length: WafQuotaInteger,
+      pattern: 'string',
+      range: WafQuotaInteger,
+    };
+  }
+
+  validate() {
+    if(this.length && typeof (this.length as any).validate === 'function') {
+      (this.length as any).validate();
+    }
+    if(this.range && typeof (this.range as any).validate === 'function') {
+      (this.range as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWafFilterResponseBodyFilterFieldsSubsLogics extends $dara.Model {
+  /**
+   * @remarks
+   * The field attributes.
+   * 
+   * @example
+   * 0
+   */
+  attributes?: number;
+  /**
+   * @remarks
+   * Indicates whether the current plan supports this match operator.
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @remarks
+   * The type of the value input field. Valid values:
+   * * select:single: single-select input field
+   * * select:multi: multi-select input field
+   * * input:single: single input field
+   * * input:multi: multi input field
+   * 
+   * @example
+   * select:single
+   */
+  kind?: string;
+  /**
+   * @remarks
+   * The minimum plan that supports this match operator, displayed when the current plan does not support it.
+   * 
+   * @example
+   * high
+   */
+  minPlan?: string;
+  /**
+   * @remarks
+   * Indicates whether the match result is negated.
+   * 
+   * @example
+   * false
+   */
+  negative?: boolean;
+  /**
+   * @remarks
+   * The display label of the match operator.
+   * 
+   * @example
+   * Equal
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The parameter of the match operator used internally by the system.
+   * 
+   * @example
+   * eq
+   */
+  symbol?: string;
+  /**
+   * @remarks
+   * The input hint that helps users provide valid values required by the rule.
+   * 
+   * @example
+   * e.g. image/jpeg
+   */
+  tip?: string;
+  /**
+   * @remarks
+   * The type of the value. Valid values:
+   * * integer: integer
+   * * integer_slice: integer array
+   * * string: string
+   * * string_slice: string array
+   * 
+   * @example
+   * string
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The validator object that defines the validation rules for values.
+   */
+  validator?: GetWafFilterResponseBodyFilterFieldsSubsLogicsValidator;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      enable: 'Enable',
+      kind: 'Kind',
+      minPlan: 'MinPlan',
+      negative: 'Negative',
+      operator: 'Operator',
+      symbol: 'Symbol',
+      tip: 'Tip',
+      type: 'Type',
+      validator: 'Validator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: 'number',
+      enable: 'boolean',
+      kind: 'string',
+      minPlan: 'string',
+      negative: 'boolean',
+      operator: 'string',
+      symbol: 'string',
+      tip: 'string',
+      type: 'string',
+      validator: GetWafFilterResponseBodyFilterFieldsSubsLogicsValidator,
+    };
+  }
+
+  validate() {
+    if(this.validator && typeof (this.validator as any).validate === 'function') {
+      (this.validator as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWafFilterResponseBodyFilterFieldsSubs extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the current plan supports this match object.
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @remarks
+   * The parameter of the sub-item match object.
+   * 
+   * @example
+   * ali.websdk.umid
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The display label of the sub-item match object.
+   * 
+   * @example
+   * Web UMID
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The list of logical operator properties applicable to the sub-item (same structure as the parent Logics).
+   */
+  logics?: GetWafFilterResponseBodyFilterFieldsSubsLogics[];
+  /**
+   * @remarks
+   * The minimum plan that supports this match object, displayed when the current plan does not support it.
+   * 
+   * @example
+   * high
+   */
+  minPlan?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      key: 'Key',
+      label: 'Label',
+      logics: 'Logics',
+      minPlan: 'MinPlan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      key: 'string',
+      label: 'string',
+      logics: { 'type': 'array', 'itemType': GetWafFilterResponseBodyFilterFieldsSubsLogics },
+      minPlan: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.logics)) {
+      $dara.Model.validateArray(this.logics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   /**
    * @remarks
@@ -287,7 +537,7 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The internal key for the match object.
+   * The parameter of the match object used internally by the system.
    * 
    * @example
    * http.request.headers
@@ -295,7 +545,7 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The label for the match object.
+   * The display label of the match object.
    * 
    * @example
    * Header
@@ -303,12 +553,12 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * A list of logical operators that define the matching conditions.
+   * The list of logical operator properties that define the logical conditions used for matching.
    */
   logics?: GetWafFilterResponseBodyFilterFieldsLogics[];
   /**
    * @remarks
-   * The minimum plan that supports this match object, provided the current plan does not.
+   * The minimum plan that supports this match object, displayed when the current plan does not support it.
    * 
    * @example
    * high
@@ -316,12 +566,12 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   minPlan?: string;
   /**
    * @remarks
-   * The selector, which defines how to select the match object.
+   * The selector object that defines how to select the match object.
    */
   selector?: GetWafFilterResponseBodyFilterFieldsSelector;
   /**
    * @remarks
-   * Indicates whether the match object includes subfields.
+   * Indicates whether the match object contains subfields.
    * 
    * @example
    * true
@@ -329,12 +579,17 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   sub?: boolean;
   /**
    * @remarks
-   * A hint for entering the subfield value.
+   * The hint provided to users about how to enter subfields.
    * 
    * @example
    * e.g. Content-Type
    */
   subTip?: string;
+  /**
+   * @remarks
+   * The enumerated sub-item list (dropdown subfields for grouped fields such as ali.websdk). Top-level match objects populate this list. Sub-items that are flat fields can be used directly as the left-hand side of an expression.
+   */
+  subs?: GetWafFilterResponseBodyFilterFieldsSubs[];
   static names(): { [key: string]: string } {
     return {
       enable: 'Enable',
@@ -345,6 +600,7 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
       selector: 'Selector',
       sub: 'Sub',
       subTip: 'SubTip',
+      subs: 'Subs',
     };
   }
 
@@ -358,6 +614,7 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
       selector: GetWafFilterResponseBodyFilterFieldsSelector,
       sub: 'boolean',
       subTip: 'string',
+      subs: { 'type': 'array', 'itemType': GetWafFilterResponseBodyFilterFieldsSubs },
     };
   }
 
@@ -367,6 +624,9 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
     }
     if(this.selector && typeof (this.selector as any).validate === 'function') {
       (this.selector as any).validate();
+    }
+    if(Array.isArray(this.subs)) {
+      $dara.Model.validateArray(this.subs);
     }
     super.validate();
   }
@@ -379,12 +639,12 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
 export class GetWafFilterResponseBodyFilter extends $dara.Model {
   /**
    * @remarks
-   * A list of match objects and their properties.
+   * The list that describes match objects and their properties.
    */
   fields?: GetWafFilterResponseBodyFilterFields[];
   /**
    * @remarks
-   * The phase at which the WAF processes requests.
+   * The phase in which WAF processes the request.
    * 
    * @example
    * http_bot
@@ -392,7 +652,7 @@ export class GetWafFilterResponseBodyFilter extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The target of the matching engine.
+   * The target value of the matching engine.
    * 
    * @example
    * characteristics
@@ -439,7 +699,7 @@ export class GetWafFilterResponseBodyFilter extends $dara.Model {
 export class GetWafFilterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned matching engine configuration.
+   * The matching engine configuration information returned.
    */
   filter?: GetWafFilterResponseBodyFilter;
   /**

@@ -21,7 +21,7 @@ export class PurgeCachesRequestContentCacheKeys extends $dara.Model {
    * 
    * **UserLanguage: language**
    * 
-   * - Language codes follow the ISO 639-1 standard or the BCP47 standard. For example, entering zh indicates refreshing content in Chinese.
+   * - Language codes follow the ISO 639-1 or BCP 47 standard. For example, set this to zh to refresh content in Chinese.
    */
   headers?: { [key: string]: string };
   /**
@@ -61,37 +61,37 @@ export class PurgeCachesRequestContentCacheKeys extends $dara.Model {
 export class PurgeCachesRequestContent extends $dara.Model {
   /**
    * @remarks
-   * The list of cache keys to refresh. This parameter is required when the type is set to cachekey.
+   * The list of cache keys to refresh. This parameter is required when Type is set to cachekey.
    */
   cacheKeys?: PurgeCachesRequestContentCacheKeys[];
   /**
    * @remarks
-   * The list of cache tags to refresh. This parameter is required when the type is set to cachetag.
+   * The list of cache tags to refresh. This parameter is required when Type is set to cachetag.
    */
   cacheTags?: string[];
   /**
    * @remarks
-   * The list of directories to refresh. This parameter is required when the type is set to directory.
+   * The list of directories to refresh. This parameter is required when Type is set to directory.
    */
   directories?: string[];
   /**
    * @remarks
-   * The list of files to refresh. This parameter is required when the type is set to file.
+   * The list of files to refresh. This parameter is required when Type is set to file.
    */
   files?: any[];
   /**
    * @remarks
-   * The list of hostnames to refresh. This parameter is required when the type is set to hostname.
+   * The list of hostnames to refresh. This parameter is required when Type is set to hostname.
    */
   hostnames?: string[];
   /**
    * @remarks
-   * The list of files with parameters ignored. This parameter is required when the type is set to ignoreParams.
+   * The list of files with parameters ignored. This parameter is required when Type is set to ignoreParams.
    */
   ignoreParams?: string[];
   /**
    * @remarks
-   * The flag for refreshing the entire site. Default value: false. Set this parameter to true when the type is set to purgeall.
+   * The entire site refresh flag. Default value: false. Set this parameter to true when Type is set to purgeall.
    * 
    * @example
    * true
@@ -156,7 +156,7 @@ export class PurgeCachesRequest extends $dara.Model {
   content?: PurgeCachesRequestContent;
   /**
    * @remarks
-   * Specifies whether to refresh edge computing cached resources. For example, this allows refreshing content cached by the Edge Routine Cache API operation function.
+   * Specifies whether to refresh edge computing cached resources. For example, this allows refreshing content cached by the Edge Routine CacheAPI API operation using edge functions.
    * 
    * @example
    * true
@@ -169,7 +169,7 @@ export class PurgeCachesRequest extends $dara.Model {
    * - **false**: Refreshes only the changed resources under the corresponding directory.
    * 
    * > 
-   * >  Effective scope: directory refresh, cache tag refresh, parameter-ignored refresh, hostname refresh, and refreshing all cached content under the site.
+   * >  This parameter applies to directory refresh, cache tag refresh, parameter-ignored refresh, hostname refresh, and entire site cache refresh.
    * 
    * @example
    * true
@@ -192,7 +192,7 @@ export class PurgeCachesRequest extends $dara.Model {
    * - **cachekey**: cache key refresh.
    * - **cachetag**: cache label refresh.
    * - **directory**: folder refresh.
-   * - **ignoreParams**: parameter-ignored refresh. This refers to removing the question mark (?) and all parameters after it from the request URL. When you commit a parameter-stripped URL through this operation, the committed URL is matched against cached resource URLs after their parameters are stripped. If a cached resource URL matches the committed URL after parameter stripping, the point of presence executes the refresh on the cached resource.
+   * - **ignoreParams**: parameter-ignored refresh. This refers to removing the question mark (?) and all parameters after it from the request URL. When you commit a parameter-stripped URL through this API operation, the committed URL is matched against cached resource URLs after their parameters are stripped. If a cached resource URL matches the committed URL after parameter stripping, the point of presence executes the refresh on the cached resource.
    * - **hostname**: hostname refresh.
    * - **purgeall**: refreshes all cached content under the site.
    * 

@@ -7,7 +7,7 @@ export class CreateSiteRequest extends $dara.Model {
    * @remarks
    * The access type of the site. Valid values:
    * 
-   * - **NS**: access by using managed NS.
+   * - **NS**: access by using managed NS records.
    * - **CNAME**: access by configuring a CNAME record.
    * 
    * This parameter is required.
@@ -19,7 +19,7 @@ export class CreateSiteRequest extends $dara.Model {
   /**
    * @remarks
    * The acceleration region. Valid values:
-   * - **domestic**: the Chinese mainland only.
+   * - **domestic**: Chinese mainland only.
    * - **global**: global.
    * - **overseas**: global (excluding the Chinese mainland).
    * 
@@ -31,7 +31,7 @@ export class CreateSiteRequest extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * The instance ID. You can call the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation to obtain the instance ID. You must specify at least one of the instance ID and site ID. If both are specified, the instance ID takes precedence.
+   * The instance ID. You can obtain the instance ID by calling the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation. You must specify at least one of InstanceId and SiteId. If both are specified, InstanceId takes precedence.
    * 
    * This parameter is required.
    * 

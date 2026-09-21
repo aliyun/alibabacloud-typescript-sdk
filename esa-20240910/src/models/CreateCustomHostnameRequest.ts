@@ -15,7 +15,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
    * @remarks
    * The region of the SSL Certificates Service certificate. This parameter is required when CertType is set to cas.
    * - For Chinese site accounts, set this parameter to cn-hangzhou.
-   * - For International site accounts, set this parameter to ap-southeast-1.
+   * - For international site accounts, set this parameter to ap-southeast-1.
    * 
    * @example
    * cn-hangzhou
@@ -52,7 +52,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The certificate private key. This parameter is required when CertType is set to upload.
+   * The private key of the certificate. This parameter is required when CertType is set to upload.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----
@@ -60,7 +60,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   privateKey?: string;
   /**
    * @remarks
-   * The ID of the record to bind. You can call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to obtain the record ID.
+   * The ID of the record to bind. You can obtain this value by calling the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation.
    * 
    * This parameter is required.
    * 
@@ -70,7 +70,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

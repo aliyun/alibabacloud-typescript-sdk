@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WafRuleMatch extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the value is case-insensitive.
+   * The case-insensitive value setting.
    */
   convertToLower?: boolean;
   /**
@@ -15,7 +15,7 @@ export class WafRuleMatch extends $dara.Model {
   criteria?: WafRuleMatch[];
   /**
    * @remarks
-   * The logic relationship.
+   * The logical relationship.
    * 
    * @example
    * and
@@ -47,9 +47,17 @@ export class WafRuleMatch extends $dara.Model {
   matchValue?: any;
   /**
    * @remarks
-   * Specifies whether to negate the match result.
+   * The negation of the match result.
    */
   negate?: boolean;
+  /**
+   * @remarks
+   * The primary row key of the parent group. This is used for two-level drop-down positioning of enumeration subkey fields. For example, the Parent of ali.websdk.umid is ali.websdk.
+   * 
+   * @example
+   * ali.websdk
+   */
+  parent?: string;
   static names(): { [key: string]: string } {
     return {
       convertToLower: 'ConvertToLower',
@@ -59,6 +67,7 @@ export class WafRuleMatch extends $dara.Model {
       matchType: 'MatchType',
       matchValue: 'MatchValue',
       negate: 'Negate',
+      parent: 'Parent',
     };
   }
 
@@ -71,6 +80,7 @@ export class WafRuleMatch extends $dara.Model {
       matchType: 'string',
       matchValue: 'any',
       negate: 'boolean',
+      parent: 'string',
     };
   }
 

@@ -1823,10 +1823,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a SaaS domain name for a site.
+   * Creates a SaaS domain name under a site.
    * 
    * @remarks
-   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
    * - Each user can invoke this operation up to 100 times per hour.
    * 
    * @param request - CreateCustomHostnameRequest
@@ -1890,10 +1890,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a SaaS domain name for a site.
+   * Creates a SaaS domain name under a site.
    * 
    * @remarks
-   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
    * - Each user can invoke this operation up to 100 times per hour.
    * 
    * @param request - CreateCustomHostnameRequest
@@ -4401,7 +4401,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Before creating a site, you must have an active plan instance.
-   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
+   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
    * - Each user can invoke this operation up to 100 times per hour.
    * 
    * @param request - CreateSiteRequest
@@ -4457,7 +4457,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Before creating a site, you must have an active plan instance.
-   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
+   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
    * - Each user can invoke this operation up to 100 times per hour.
    * 
    * @param request - CreateSiteRequest
@@ -9853,10 +9853,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+   * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
    * 
    * @remarks
-   * >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+   * >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
    * 
    * @param request - DescribeTraceDiagnoseReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9891,10 +9891,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+   * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
    * 
    * @remarks
-   * >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+   * >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
    * 
    * @param request - DescribeTraceDiagnoseReportRequest
    * @returns DescribeTraceDiagnoseReportResponse
@@ -10331,7 +10331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a diagnosis link.
+   * Generates a diagnostic link.
    * 
    * @param request - GenerateTraceDiagnoseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10366,7 +10366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a diagnosis link.
+   * Generates a diagnostic link.
    * 
    * @param request - GenerateTraceDiagnoseRequest
    * @returns GenerateTraceDiagnoseResponse
@@ -14364,7 +14364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves matching engine information for a site at a given WAF phase, which defines how the WAF detects and handles various network requests.
+   * Retrieves the match engine information for a specified site at a specific WAF phase. This information defines how WAF detects and processes different types of network requests.
    * 
    * @param request - GetWafFilterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14407,7 +14407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves matching engine information for a site at a given WAF phase, which defines how the WAF detects and handles various network requests.
+   * Retrieves the match engine information for a specified site at a specific WAF phase. This information defines how WAF detects and processes different types of network requests.
    * 
    * @param request - GetWafFilterRequest
    * @returns GetWafFilterResponse
@@ -18861,7 +18861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prefetches cache content.
+   * Prefetches URLs to warm the cache.
    * 
    * @param tmpReq - PreloadCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18910,7 +18910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prefetches cache content.
+   * Prefetches URLs to warm the cache.
    * 
    * @param request - PreloadCachesRequest
    * @returns PreloadCachesResponse
@@ -19741,7 +19741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restores the status of a site that has been disabled.
+   * Restores the status of a site that has been deactivated.
    * 
    * @param request - RecoverSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19772,7 +19772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restores the status of a site that has been disabled.
+   * Restores the status of a site that has been deactivated.
    * 
    * @param request - RecoverSiteRequest
    * @returns RecoverSiteResponse
@@ -21493,7 +21493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the CNAME flattening configuration of a website.
+   * Modifies the CNAME flattening configuration of a site.
    * 
    * @param request - UpdateCnameFlatteningRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21528,7 +21528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the CNAME flattening configuration of a website.
+   * Modifies the CNAME flattening configuration of a site.
    * 
    * @param request - UpdateCnameFlatteningRequest
    * @returns UpdateCnameFlatteningResponse
@@ -21930,11 +21930,11 @@ export default class Client extends OpenApi {
    * Modifies the specifications of a DDoS instance.
    * 
    * @remarks
-   * - Use `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
-   * - Use `ListDDoSInstances` to query the list of DDoS instances.
+   * - Call `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
+   * - Call `ListDDoSInstances` to query the list of DDoS instances.
    * - Specification changes are not allowed within 31 days of purchase.
    * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
-   * - After a successful specification change, billing is based on the new specifications starting from the same day.
+   * - After a successful specification change, billing starts immediately on the same day based on the new instance specifications.
    * 
    * @param request - UpdateDDoSSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21980,11 +21980,11 @@ export default class Client extends OpenApi {
    * Modifies the specifications of a DDoS instance.
    * 
    * @remarks
-   * - Use `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
-   * - Use `ListDDoSInstances` to query the list of DDoS instances.
+   * - Call `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
+   * - Call `ListDDoSInstances` to query the list of DDoS instances.
    * - Specification changes are not allowed within 31 days of purchase.
    * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
-   * - After a successful specification change, billing is based on the new specifications starting from the same day.
+   * - After a successful specification change, billing starts immediately on the same day based on the new instance specifications.
    * 
    * @param request - UpdateDDoSSpecRequest
    * @returns UpdateDDoSSpecResponse
@@ -24331,7 +24331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to traffic distribution changes or improve the access experience for users in specific regions.
+   * Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
    * 
    * @param request - UpdateSiteCoverageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24366,7 +24366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to traffic distribution changes or improve the access experience for users in specific regions.
+   * Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
    * 
    * @param request - UpdateSiteCoverageRequest
    * @returns UpdateSiteCoverageResponse
@@ -26153,11 +26153,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+   * Verifies site ownership. A site that passes the verification is automatically activated.
    * 
    * @remarks
-   * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
-   * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+   * 1. For sites connected through NS, verifies whether the current NS servers of the site are the NS servers assigned by Alibaba Cloud.
+   * 2. For sites connected through CNAME, verifies whether the site has a TXT record with the name _esaauth.[site name] and the content set to the site verification code (see the VerifyCode field in the site information).
    * 
    * @param request - VerifySiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26188,11 +26188,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+   * Verifies site ownership. A site that passes the verification is automatically activated.
    * 
    * @remarks
-   * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
-   * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+   * 1. For sites connected through NS, verifies whether the current NS servers of the site are the NS servers assigned by Alibaba Cloud.
+   * 2. For sites connected through CNAME, verifies whether the site has a TXT record with the name _esaauth.[site name] and the content set to the site verification code (see the VerifyCode field in the site information).
    * 
    * @param request - VerifySiteRequest
    * @returns VerifySiteResponse

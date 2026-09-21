@@ -13,7 +13,7 @@ export class GenerateTraceDiagnoseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A diagnostic message.
+   * The tip.
    * 
    * @example
    * Origin IP x.x.x.x: Test URL returned HTTP 404 (non-2xx status).
@@ -22,7 +22,7 @@ export class GenerateTraceDiagnoseResponseBody extends $dara.Model {
   tip?: string;
   /**
    * @remarks
-   * The generated diagnostic link.
+   * The diagnostic link URL.
    * 
    * @example
    * http://cdn.dns-detect.alicdn.com/diagnose_v2?id=5d97ac9b&token=WFji65gy2mGNM11bD929%2BCMoyI6mbk2deRR9hOC6INH%2FoYbccQZQcvEn4wc%2FDPHlTshxRSAa5HokX%2BabItBpJ0FdnteROssomXqgIdjHpM46L%2BbaIeweZfsWG6QnbXT5n7O5APMyc%2Fe8d1o9PwwB429Ccks1FU1AfjNZfvBcLeo%3D

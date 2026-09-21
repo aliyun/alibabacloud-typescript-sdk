@@ -45,7 +45,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   diagnoseId?: string;
   /**
    * @remarks
-   * The diagnostic URL.
+   * The diagnose URL.
    * 
    * @example
    * http://cdn.dns-detect.alicdn.com/diagnose/xxxxxx
@@ -53,7 +53,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   diagnoseUrl?: string;
   /**
    * @remarks
-   * The domain name to diagnose.
+   * The domain name to be diagnosed.
    * 
    * @example
    * http://www.example.com
@@ -91,10 +91,10 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The status of the diagnostic URL. Valid values:
+   * The status of the diagnose URL. Valid values:
    * 
-   * - 1: active
-   * - 0: expired.
+   * - 1: Active.
+   * - 0: Expired.
    * 
    * @example
    * 1
@@ -118,7 +118,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   timeConsuming?: number;
   /**
    * @remarks
-   * The diagnostic trace ID.
+   * The trace ID of the diagnostic task.
    * 
    * @example
    * 000000xxxxxxxxxxxxxxxxxxxxxx25941e
@@ -195,7 +195,7 @@ export class ListTraceTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Valid values: any integer from 1 to 1000.
+   * The number of entries per page. Valid values: any integer from 1 to 1000.
    * 
    * @example
    * 6

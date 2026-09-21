@@ -176,7 +176,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The expiration time. Unit: seconds. The value is a UNIX timestamp.
+   * The expiration time. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1678701915
@@ -205,7 +205,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The report generation status. Valid values:
+   * The report generation status.
    * 
    * 0: succeeded.
    * 1: failed.
@@ -219,7 +219,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The status of the diagnostic link. Valid values:
+   * The status of the diagnostic link.
    * 
    * 1: active.
    * 0: expired.
