@@ -13,7 +13,7 @@ export class CreateUnknownThreatDetectStrategyRequest extends $dara.Model {
   assetSelectionType?: string;
   /**
    * @remarks
-   * The number of days after the model is initially created before learning ends.
+   * The number of days after the model is initially created before the learning phase ends.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class CreateUnknownThreatDetectStrategyRequest extends $dara.Model {
   durationDaysAfterInit?: number;
   /**
    * @remarks
-   * The number of days after no new processes are added to the model before learning ends.
+   * The number of days after which the model ends when no new processes are added.
    * 
    * @example
    * 1

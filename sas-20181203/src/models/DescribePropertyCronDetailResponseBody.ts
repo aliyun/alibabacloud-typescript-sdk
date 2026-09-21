@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of fingerprint information entries for scheduled task assets on the current page.
+   * The number of fingerprint entries of scheduled task assets displayed on the current page.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
   nextToken?: string;
   /**
    * @remarks
-   * The number of scheduled task asset fingerprint information entries displayed per page in a paging query. Default value: **10**, which indicates that 10 entries of scheduled task asset fingerprint information are displayed per page.
+   * The number of fingerprint entries of scheduled task assets displayed per page in a paging query. Default value: **10**, which indicates that 10 fingerprint entries of scheduled task assets are displayed per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The total number of fingerprint information entries for scheduled task assets.
+   * The total number of fingerprint entries of scheduled task assets returned.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
 export class DescribePropertyCronDetailResponseBodyPropertys extends $dara.Model {
   /**
    * @remarks
-   * The execution command of the scheduled task.
+   * The command executed by the scheduled task.
    * 
    * @example
    * /usr/lib64/sa/sa1 1 1
@@ -217,7 +217,7 @@ export class DescribePropertyCronDetailResponseBody extends $dara.Model {
   pageInfo?: DescribePropertyCronDetailResponseBodyPageInfo;
   /**
    * @remarks
-   * The details of the fingerprint information for scheduled task assets.
+   * The details of the fingerprint entries of scheduled task assets returned.
    */
   propertys?: DescribePropertyCronDetailResponseBodyPropertys[];
   /**

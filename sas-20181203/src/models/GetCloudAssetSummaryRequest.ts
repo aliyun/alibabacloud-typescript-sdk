@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetCloudAssetSummaryRequestCloudAssetTypes extends $dara.Model {
   /**
    * @remarks
-   * The subtype of the cloud service. The asset type-subtype. Valid values:
+   * The subtype of the cloud service. Asset type-subtype. Valid values:
    * 
    * - **0**: Elastic Compute Service (ECS) server
    *     *  **1**: Cloud disk (storage)
    *     *  **2**: Security group
    *     *  **100**: Instance
-   * - **1**: Load balancing
+   * - **1**: load balancing
    *     *  **0**: Classic Load Balancer (CLB)
    *     *  **1**: Application Load Balancer (ALB)
    * - **3**: ApsaraDB RDS database
@@ -44,7 +44,7 @@ export class GetCloudAssetSummaryRequestCloudAssetTypes extends $dara.Model {
    *     *  **0**: Domain name
    * - **18**: Object Storage Service (OSS)
    *     *  **0**: Bucket
-   * - **19**: Cloud-native relational database PolarDB
+   * - **19**: cloud-native relational database PolarDB
    *     *  **0**: Cluster
    * - **20**: ApsaraDB RDS for PostgreSQL database
    *     *  **0**: Instance
@@ -72,7 +72,7 @@ export class GetCloudAssetSummaryRequestCloudAssetTypes extends $dara.Model {
    * The type of the asset. Valid values:
    * 
    * - **0**: Elastic Compute Service (ECS) server
-   * - **1**: Load balancing
+   * - **1**: load balancing
    * - **3**: ApsaraDB RDS database
    * - **4**: ApsaraDB for MongoDB database
    * - **5**: Tair (Redis® OSS-Compatible) database
@@ -86,7 +86,7 @@ export class GetCloudAssetSummaryRequestCloudAssetTypes extends $dara.Model {
    * - **16**: Anti-DDoS
    * - **17**: Web Application Firewall (WAF)
    * - **18**: Object Storage Service (OSS)
-   * - **19**: Cloud-native relational database PolarDB
+   * - **19**: cloud-native relational database PolarDB
    * - **20**: ApsaraDB RDS for PostgreSQL database
    * - **21**: Microservices Engine (MSE)
    * - **22**: Apsara File Storage NAS
@@ -157,8 +157,11 @@ export class GetCloudAssetSummaryRequest extends $dara.Model {
   isSaleData?: boolean;
   /**
    * @remarks
-   * The ID of the member accounts in the resource folder.
-   * > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the Alibaba Cloud account of the resource directory member accounts.
+   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

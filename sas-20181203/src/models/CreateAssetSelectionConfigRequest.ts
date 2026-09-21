@@ -21,12 +21,12 @@ export class CreateAssetSelectionConfigRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
   /**
    * @remarks
-   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual operation. false: performs the actual request. Default value: false.
    */
   dryRun?: boolean;
   /**
@@ -49,12 +49,12 @@ export class CreateAssetSelectionConfigRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The target asset type. Valid values:
+   * The Asset Type of the target. Valid values:
    * 
    * - **all_instance**: all servers.
-   * - **instance**: select by server.
-   * - **group**: select by group.
-   * - **vpc**: select by VPC.
+   * - **instance**: selected by server.
+   * - **group**: selected by group.
+   * - **vpc**: selected by VPC.
    * 
    * This parameter is required.
    * 

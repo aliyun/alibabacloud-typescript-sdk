@@ -34,7 +34,7 @@ export class CreateHoneypotNodeRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The list of allowed CIDR blocks. This parameter is required. At least one allowed CIDR block must be specified (such as 0.0.0.0/0). If this parameter is not specified, the API returns InvalidParam (400).
+   * The list of allowed CIDR blocks. This parameter is required. At least one allowed CIDR block must be specified, such as 0.0.0.0/0. If this parameter is not specified, the API returns InvalidParam (400).
    */
   securityGroupProbeIpList?: string[];
   static names(): { [key: string]: string } {

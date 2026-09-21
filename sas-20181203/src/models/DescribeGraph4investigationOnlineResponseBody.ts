@@ -440,7 +440,7 @@ export class DescribeGraph4InvestigationOnlineResponseBody extends $dara.Model {
   data?: DescribeGraph4InvestigationOnlineResponseBodyData;
   /**
    * @remarks
-   * The message returned for the request.
+   * The returned message.
    * 
    * @example
    * successful
@@ -456,9 +456,9 @@ export class DescribeGraph4InvestigationOnlineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Valid values:
-   * - **true**: The API call was successful.
-   * - **false**: The API call failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

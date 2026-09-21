@@ -11,7 +11,7 @@ export class GetDataTrendRequest extends $dara.Model {
    * - **VUL_NEW**: number of new vulnerability risks
    * - **VUL_OPERATE**: number of handled vulnerability risks
    * - **SUSP_NEW**: number of new alert risks
-   * - **SUSP_OPERATE**: number of handled alert risks.
+   * - **SUSP_OPERATE**: number of handled alert risks
    * 
    * This parameter is required.
    * 
@@ -41,6 +41,14 @@ export class GetDataTrendRequest extends $dara.Model {
    * 86400000
    */
   interval?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory.
+   * > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks

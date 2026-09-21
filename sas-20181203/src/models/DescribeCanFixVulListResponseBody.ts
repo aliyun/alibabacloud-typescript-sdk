@@ -21,7 +21,7 @@ export class DescribeCanFixVulListResponseBodyVulRecordsExtendContentJsonRpmEnti
   layer?: string;
   /**
    * @remarks
-   * The detailed information about the vulnerability match.
+   * The details of the vulnerability match.
    * 
    * @example
    * python-perf version less than 0:3.10.0-693.21.1.el7
@@ -50,7 +50,7 @@ export class DescribeCanFixVulListResponseBodyVulRecordsExtendContentJsonRpmEnti
   path?: string;
   /**
    * @remarks
-   * The command used to fix the vulnerability.
+   * The command to fix the vulnerability.
    * 
    * @example
    * apt-get update && apt-get install libseccomp2  --only-upgrade
@@ -165,8 +165,8 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
    * @remarks
    * Indicates whether the vulnerability can be fixed in the console. Valid values:
    * 
-   * - **yes**: Fixable.
-   * - **no**: Not fixable.
+   * - **yes**: The vulnerability can be fixed.
+   * - **no**: The vulnerability cannot be fixed.
    * 
    * @example
    * yes
@@ -174,10 +174,10 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   canFix?: string;
   /**
    * @remarks
-   * Specifies whether the software package that causes the vulnerability can be upgraded through Security Center. Valid values:
+   * Indicates whether the software package that causes the vulnerability can be upgraded by using Security Center. Valid values:
    * 
-   * - **true**: Supported.
-   * - **false**: Not supported.
+   * - **true**: The upgrade is supported.
+   * - **false**: The upgrade is not supported.
    * 
    * @example
    * true
@@ -214,7 +214,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   extendContentJson?: DescribeCanFixVulListResponseBodyVulRecordsExtendContentJson;
   /**
    * @remarks
-   * The timestamp when the vulnerability was first detected, in milliseconds.
+   * The timestamp when the vulnerability was first detected. Unit: milliseconds.
    * 
    * @example
    * 1620752053000
@@ -264,7 +264,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp when the vulnerability was last detected, in milliseconds.
+   * The timestamp when the vulnerability was last detected. Unit: milliseconds.
    * 
    * @example
    * 1620404763000
@@ -289,7 +289,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   maliciousSource?: string;
   /**
    * @remarks
-   * The timestamp when the vulnerability status was modified, in milliseconds.
+   * The timestamp when the vulnerability status was modified. Unit: milliseconds.
    * 
    * @example
    * 1620404763000
@@ -315,11 +315,11 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
    * @remarks
    * The priority level of the vulnerability fix. Valid values:
    * 
-   * - **asap**: High.
-   * - **later**: Medium.
-   * - **nntf**: Low.
+   * - **asap**: high
+   * - **later**: medium
+   * - **nntf**: low
    * 
-   * > Fix vulnerabilities with the **High** priority level as soon as possible.
+   * > Fix vulnerabilities with the **high** priority level as soon as possible.
    * 
    * @example
    * asap,later,nntf
@@ -367,7 +367,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   repoNamespace?: string;
   /**
    * @remarks
-   * The timestamp of the scan, in milliseconds.
+   * The timestamp of the scan. Unit: milliseconds.
    * 
    * @example
    * 1649814050000
@@ -424,7 +424,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
    * @remarks
    * The vulnerability type. Valid values:
    * - **cve**: system vulnerability
-   * - **sca**: application vulnerability.
+   * - **sca**: application vulnerability
    * 
    * @example
    * cve
@@ -540,7 +540,7 @@ export class DescribeCanFixVulListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The vulnerability information returned.
+   * The vulnerability information returned by the query.
    */
   vulRecords?: DescribeCanFixVulListResponseBodyVulRecords[];
   static names(): { [key: string]: string } {

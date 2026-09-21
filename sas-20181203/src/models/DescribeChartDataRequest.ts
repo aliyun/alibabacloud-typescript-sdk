@@ -10,7 +10,7 @@ export class DescribeChartDataRequest extends $dara.Model {
    * > Call the [DescribeChartList](~~DescribeChartList~~) operation to obtain this parameter. This parameter is required if the report version is 1.0.0.
    * 
    * @example
-   * CID_ASSET_RISK_TREND
+   * BIZ_STAT_QUERY_SECURITY_SCORE
    */
   charId?: string;
   /**
@@ -20,15 +20,15 @@ export class DescribeChartDataRequest extends $dara.Model {
    * > Call the [DescribeChartList](~~DescribeChartList~~) operation to obtain this parameter. This parameter is required if the report version is 2.0.0.
    * 
    * @example
-   * CID_VUL_SUMMARY
+   * BIZ_STAT_QUERY_SECURITY_SCORE
    */
   chartId?: string;
   /**
    * @remarks
-   * The language type for the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -44,6 +44,14 @@ export class DescribeChartDataRequest extends $dara.Model {
    * 721734
    */
   reportId?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory.
+   * > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks

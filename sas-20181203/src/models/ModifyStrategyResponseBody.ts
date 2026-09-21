@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStrategyResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseline check policy.
+   * The policy ID.
    * 
    * @example
    * 8164239
@@ -35,7 +35,7 @@ export class ModifyStrategyResponseBodyResult extends $dara.Model {
 export class ModifyStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -43,7 +43,7 @@ export class ModifyStrategyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 8EFA2BD9-00CD-5D69-B6B0-4EE83EAF072E
@@ -51,15 +51,15 @@ export class ModifyStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result returned.
+   * The response result.
    */
   result?: ModifyStrategyResponseBodyResult;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

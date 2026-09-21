@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the baseline check policy. Valid values:
+   * The policy type. Valid values:
    * 
-   * *   **custom**: a custom baseline check policy
-   * *   **common**: a standard baseline check policy
+   * - **custom**: custom policy.
+   * - **common**: standard policy.
    * 
    * This parameter is required.
    * 
@@ -18,12 +18,12 @@ export class ModifyStrategyRequest extends $dara.Model {
   customType?: string;
   /**
    * @remarks
-   * The new interval of the baseline check. Valid values:
+   * The cycle of the baseline check. Valid values:
    * 
-   * *   **1**: every 2 days
-   * *   **3**: every 4 days
-   * *   **7**: every 8 days
-   * *   **30**: every 31 days
+   * - **1**: Every 1 day.
+   * - **3**: Every 3 days.
+   * - **7**: Every 7 days.
+   * - **30**: Every 30 days.
    * 
    * This parameter is required.
    * 
@@ -33,14 +33,16 @@ export class ModifyStrategyRequest extends $dara.Model {
   cycleDays?: string;
   /**
    * @remarks
-   * The new time range during which the baseline check starts. Valid values:
+   * The start time of the baseline check. Valid values:
    * 
-   * *   **0**: The baseline check starts within the time range from 00:00 to 06:00.
-   * *   **6**: The baseline check starts within the time range from 06:00 to 12:00.
-   * *   **12**: The baseline check starts within the time range from 12:00 to 18:00.
-   * *   **18**: The baseline check starts within the time range from 18:00 to 24:00.
+   * - **0**: The baseline check starts between 00:00 and 06:00.
+   * - **6**: The baseline check starts between 06:00 and 12:00.
+   * - **12**: The baseline check starts between 12:00 and 18:00.
+   * - **18**: The baseline check starts between 18:00 and 24:00.
    * 
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
+   * 
+   * The value indicates the start hour of the daily check period, in hours.
    * 
    * @example
    * 18
@@ -48,7 +50,7 @@ export class ModifyStrategyRequest extends $dara.Model {
   cycleStartTime?: string;
   /**
    * @remarks
-   * The time when the baseline check based on the baseline check policy ends. Specify the time in the hh:mm:ss format.
+   * The end time of the policy execution. Format: hh:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -66,7 +68,7 @@ export class ModifyStrategyRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The new name of the baseline check policy.
+   * The name of the baseline check policy.
    * 
    * This parameter is required.
    * 
@@ -76,22 +78,19 @@ export class ModifyStrategyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The custom configurations of the baseline. The value of this parameter is in the JSON format and contains the following fields:
+   * The custom configuration of baseline check items. The value is in JSON format and contains the following parameters:
    * 
-   * *   **typeName**: the name of the baseline.
+   * - **typeName**: The baseline name.
+   * - **checkDetails**: The check details. The value is in JSON format.
    * 
-   * *   **checkDetails**: the details of the baseline. The value is in the JSON format.
+   *     - **checkId**: The ID of the check item.
+   *     - **rules**: The policy configuration. The value is in JSON format.
    * 
-   *     *   **checkId**: the ID of the check item.
+   *         - **ruleId**: The ID of the policy configuration.
+   *         - **paramList**: The collection of policy parameter settings. The value is in JSON format.
    * 
-   *     *   **rules**: the rule configurations. The value is in the JSON format.
-   * 
-   *         *   **ruleId**: the ID of the rule.
-   * 
-   *         *   **paramList**: the list of parameters in the rule. The value is in the JSON format.
-   * 
-   *             *   **paramName**: the name of the parameter.
-   *             *   **value**: the value of the parameter.
+   *             - **paramName**: The parameter name.
+   *             - **value**: The parameter settings value.
    * 
    * @example
    * [{"typeName":"hc_centos_6_custom","checkDetails":[{"checkId":4,"rules":[{"ruleId":"pass_min_days_login_defs.must.cus","paramList":[{"paramName":"range_val","value":"7"}]}]}]}]
@@ -99,7 +98,7 @@ export class ModifyStrategyRequest extends $dara.Model {
   riskCustomParams?: string;
   /**
    * @remarks
-   * The subtype of the baselines. You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the subtypes of baselines.
+   * The subtype of the check item. You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain the subtype.
    * 
    * This parameter is required.
    * 
@@ -117,7 +116,7 @@ export class ModifyStrategyRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The time when the baseline check based on the baseline check policy starts. Specify the time in the hh:mm:ss format.
+   * The start time of the policy execution. Format: hh:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -127,10 +126,10 @@ export class ModifyStrategyRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The method that is used to apply the baseline check policy. Valid values:
+   * The scan method of the policy. Valid values:
    * 
-   * *   **groupId**: asset groups
-   * *   **uuid**: assets
+   * - **groupId**: group-based scan.
+   * - **uuid**: asset-based scan.
    * 
    * This parameter is required.
    * 

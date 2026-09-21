@@ -3,10 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitCheckRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * >You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The scan range. Valid values:
+   * The check scope. Valid values:
    * - **FULL**: scans all check items
    * - **POLICY**: scans custom-configured check items
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyCronDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
+   * The page number of the results to return. Default value: **1**, which indicates that the results start from page 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The pagination token that marks the position from which you want to start reading. Leave this parameter empty to read from the beginning.
+   * The token that marks the current position from which to start reading. Leave this parameter empty to start reading from the beginning.
    * 
    * > You do not need to specify this parameter for the first call. The response includes the NextToken value for the second call. Each subsequent response includes the NextToken value for the next call.
    * 
@@ -31,7 +31,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Settings the number of scheduled task asset fingerprint information entries displayed per page in a paging query. Default value: **10**, which indicates that 10 entries of scheduled task asset fingerprint information are displayed per page.
+   * Settings the number of entries per page in a paging query. Default value: **10**, which indicates that 10 fingerprint entries of scheduled task assets are displayed per page.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name or IP address of the server that you want to query.
+   * The name or IP address of the server to query.
    * 
    * @example
    * 192.168.XX.XX
@@ -49,11 +49,14 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member accounts in the resource folder.
    * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The task path that you want to query.
+   * The path of the scheduled task to query.
    * 
    * @example
    * /etc/cron.d/root
@@ -72,7 +75,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   useNextToken?: boolean;
   /**
    * @remarks
-   * The account name of the scheduled task that you want to query.
+   * The account name of the scheduled task to query.
    * 
    * @example
    * root
@@ -80,7 +83,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
   user?: string;
   /**
    * @remarks
-   * The UUID of the server that you want to query.
+   * The UUID of the server to query.
    * 
    * @example
    * 50d213b4-3a35-427a-b8a5-04b0c7e1****

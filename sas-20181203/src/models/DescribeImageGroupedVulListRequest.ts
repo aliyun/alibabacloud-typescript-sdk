@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageGroupedVulListRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to filter by agentless fix capability. true: queries only vulnerabilities that support agentless fix. false: queries vulnerabilities that are not marked as supporting agentless fix. If this parameter is not specified, no filtering is applied based on this condition.
+   * Specifies whether to filter by agentless fix capability. If set to true, only vulnerabilities that support agentless fix are returned. If set to false, only vulnerabilities that are not marked as supporting agentless fix are returned. If not specified, no filtering is applied based on this condition.
    */
   agentlessCanFix?: boolean;
   /**
@@ -75,7 +75,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * Specifies whether to query vulnerabilities only for the latest image. If this parameter is not set, vulnerabilities for all images are queried. Valid values:
+   * Specifies whether to query vulnerabilities only for the latest image. If this parameter is not specified, vulnerabilities for all images are queried. Valid values:
    * 
    * - **0**: No.
    * - **1**: Yes.
@@ -105,7 +105,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   /**
    * @remarks
    * The priority level for fixing the vulnerability. Valid values:
-   * - **asap**: High-priority vulnerability that must be fixed as soon as possible.
+   * - **asap**: High-priority vulnerability that requires immediate fixing.
    * - **later**: Medium-priority vulnerability that can be fixed later.
    * - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
    * 
@@ -115,7 +115,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The number of image vulnerabilities to display on each page in a paging query. Default value: **20**, which indicates 20 image vulnerabilities per page.
+   * Settings for the number of image vulnerabilities to display on each page in a paging query. Default value: **20**, which indicates that 20 image vulnerabilities are displayed on each page.
    * 
    * @example
    * 20
@@ -173,6 +173,9 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member accounts in the resource folder.
    * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

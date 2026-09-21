@@ -124,7 +124,7 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJson extends
   osRelease?: string;
   /**
    * @remarks
-   * The list of software packages that caused the vulnerability.
+   * The list of software packages that cause the vulnerability.
    */
   rpmEntityList?: DescribeImageVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList[];
   static names(): { [key: string]: string } {
@@ -171,7 +171,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * Indicates whether the vulnerability can be fixed in the console. Valid values:
+   * Indicates whether the vulnerability can be fixed from the console. Valid values:
    * 
    * - **yes**: Can be fixed.
    * - **no**: Cannot be fixed.
@@ -182,7 +182,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   canFix?: string;
   /**
    * @remarks
-   * Indicates whether the software package that caused the vulnerability can be upgraded through Security Center. Valid values:
+   * Indicates whether the software package that causes the vulnerability can be upgraded through Security Center. Valid values:
    * 
    * - **true**: Upgrade is supported.
    * - **false**: Upgrade is not supported.
@@ -201,7 +201,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * docker-law
@@ -209,7 +209,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The ID of the container.
+   * The container ID.
    * 
    * @example
    * 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
@@ -319,10 +319,10 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The priority level for fixing the vulnerability. Valid values:
-   * - **asap**: High-priority vulnerability that must be fixed as soon as possible.
-   * - **later**: Medium-priority vulnerability that can be fixed later.
-   * - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
+   * The priority of vulnerability fixing. Valid values:
+   * - **asap**: high-priority vulnerability
+   * - **later**: medium-priority vulnerability
+   * - **nntf**: low-priority vulnerability
    * 
    * @example
    * asap
@@ -346,7 +346,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
   primaryId?: number;
   /**
    * @remarks
-   * The details of the related vulnerability.
+   * The details of the associated vulnerability.
    * 
    * @example
    * CVE-2019-9893
@@ -545,7 +545,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $dara.Model {
 export class DescribeImageVulListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The page number of the current page when paging is used.
    * 
    * @example
    * 1
@@ -553,7 +553,7 @@ export class DescribeImageVulListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of vulnerabilities displayed per page in a paging query. Default value: **10**, which indicates that 10 vulnerabilities are displayed per page.
+   * The number of vulnerabilities displayed per page when paging is used. Default value: **10**, which indicates that 10 vulnerabilities are displayed per page.
    * 
    * @example
    * 10
@@ -561,7 +561,7 @@ export class DescribeImageVulListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * D6B20156-49B0-5CF0-B14D-7ECA4B50DAAB

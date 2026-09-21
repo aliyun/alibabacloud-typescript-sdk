@@ -10,12 +10,12 @@ export class AddPublishBatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 批次1
+   * Batch1
    */
   batchName?: string;
   /**
    * @remarks
-   * The interval between two release batches.
+   * The interval between release batches.
    * 
    * This parameter is required.
    * 
@@ -25,11 +25,11 @@ export class AddPublishBatchRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The dimension based on which the asset is selected. Valid values:
+   * The dimension for asset selection. Valid values:
    * 
-   * *   **0**: selects the asset by instance.
-   * *   **1**: selects the asset by machine group.
-   * *   **2**: selects the asset by the ID of the instance that is deployed in the virtual private cloud (VPC).
+   * - **0**: server instance
+   * - **1**: server group
+   * - **2**: VPC-connected instance ID
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class AddPublishBatchRequest extends $dara.Model {
   operationBase?: number;
   /**
    * @remarks
-   * The version to which you want to upgrade the agent.
+   * The target version to which you want to upgrade.
    * 
    * This parameter is required.
    * 

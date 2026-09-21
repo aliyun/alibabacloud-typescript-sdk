@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServerlessAppAuthDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The SAE application ID.
-   * 
-   * > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain this value.
+   * The SAE application ID. You can call [ListMachineApps](~~ListMachineApps~~) to obtain the ID. This parameter is required. If this parameter is not specified, the API returns HTTP 400 with the error code missingParams.
    * 
    * @example
    * 3de9f2ac-f***769226df

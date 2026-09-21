@@ -6,6 +6,10 @@ export class DescribeClusterScannerListRequest extends $dara.Model {
   /**
    * @remarks
    * The list of cluster IDs.
+   * 
+   * You must specify at least one of StatusList and ClusterIdList. If neither is specified, the API returns HTTP 400 with the error code InvalidParam.
+   * 
+   * Before calling this operation, make sure that an ACK cluster exists. You can obtain the cluster ID by calling the [DescribeClusters](https://api.aliyun.com/document/CS/2015-12-15/DescribeClusters) operation of Container Service.
    */
   clusterIdList?: string[];
   /**
@@ -21,9 +25,11 @@ export class DescribeClusterScannerListRequest extends $dara.Model {
   /**
    * @remarks
    * The list of scanner statuses. Valid values:
-   * - **online**: running
-   * - **offline**: offline
-   * - **not_installed**: not installed
+   * - **online**: Running.
+   * - **offline**: Offline.
+   * - **not_installed**: Not installed.
+   * 
+   * You must specify at least one of StatusList and ClusterIdList. If neither is specified, the API returns HTTP 400 with the error code InvalidParam.
    */
   statusList?: string[];
   static names(): { [key: string]: string } {

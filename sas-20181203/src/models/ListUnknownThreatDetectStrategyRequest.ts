@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUnknownThreatDetectStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The page number of the current page when using paged query. This is used for paging.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListUnknownThreatDetectStrategyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries to display on each page in a paging query.
+   * The number of entries to display on each page when using paged query. This is used for paging.
    * 
    * This parameter is required.
    * 

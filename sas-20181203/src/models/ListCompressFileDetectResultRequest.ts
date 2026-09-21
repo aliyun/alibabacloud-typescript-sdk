@@ -15,7 +15,7 @@ export class ListCompressFileDetectResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The unique identifier of the file. This parameter is required in practice. If this parameter is not specified, the API returns ServerError(400). The value must be the MD5 or SHA-256 hash of the file.
+   * The unique identifier of the file. This parameter is required in practice. If this parameter is not specified, the API returns ServerError (500). The value must be the MD5 or SHA-256 hash of the file.
    * 
    * @example
    * 0a212417e65c26ff133cfff28f6c****

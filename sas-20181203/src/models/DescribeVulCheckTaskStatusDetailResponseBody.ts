@@ -13,7 +13,7 @@ export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatusesTaskStatusL
   code?: string;
   /**
    * @remarks
-   * The completion status of the check. Valid values:
+   * The check completion status. Valid values:
    * 
    * - **0**: Unprocessed.
    * - **1**: Collecting.
@@ -31,7 +31,7 @@ export class DescribeVulCheckTaskStatusDetailResponseBodyTaskStatusesTaskStatusL
    * - **cve**: Linux software vulnerability
    * - **sys**: Windows system vulnerability
    * - **cms**: Web-CMS vulnerability
-   * - **sca**: sca vulnerability
+   * - **sca**: SCA vulnerability
    * 
    * @example
    * cve

@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInterceptionRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the container cluster.
+   * The ID of the container cluster to query.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
-   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+   * This parameter must be from an ACK cluster. You can call the DescribeClustersV1 operation of Container Service for Kubernetes (ACK) to query existing clusters, or call the CreateCluster operation to create a cluster, and then call the DescribeGroupedContainerInstances operation of Security Center to obtain the ID of a managed cluster.
    * 
    * This parameter is required.
    * 
@@ -27,10 +28,10 @@ export class CreateInterceptionRuleRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The information about the destination network object. The value of this parameter contains the following fields:
+   * The list of destination objects. The metric descriptions are as follows:
    * 
-   * *   targetId: the ID of the destination network object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
-   * *   ports: the destination port ranges.
+   * - targetId: The ID of the destination object. You can invoke the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain this parameter.
+   * - ports: The list of destination port ranges.
    * 
    * @example
    * [
@@ -45,11 +46,10 @@ export class CreateInterceptionRuleRequest extends $dara.Model {
   dstTargetList?: { [key: string]: any };
   /**
    * @remarks
-   * The action on traffic. Valid values:
-   * 
-   * *   **1**: blocks traffic.
-   * *   **2**: allows traffic and generates alerts.
-   * *   **3**: allows traffic and does not generate alerts.
+   * The interception mode. Valid values:
+   * - **1**: Block Mode.
+   * - **2**: Alert mode.
+   * - **3**: Allow mode.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class CreateInterceptionRuleRequest extends $dara.Model {
   interceptType?: number;
   /**
    * @remarks
-   * The priority of the defense rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
+   * The priority of the rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateInterceptionRuleRequest extends $dara.Model {
   orderIndex?: number;
   /**
    * @remarks
-   * The name of the defense rule.
+   * The name of the rule.
    * 
    * This parameter is required.
    * 
@@ -79,10 +79,9 @@ export class CreateInterceptionRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Specifies the status of the defense rule. Valid values:
-   * 
-   * *   **0**: disables the rule.
-   * *   **1**: enables the rule.
+   * Specifies whether to enable the rule. Valid values:
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * This parameter is required.
    * 
@@ -92,9 +91,8 @@ export class CreateInterceptionRuleRequest extends $dara.Model {
   ruleSwitch?: number;
   /**
    * @remarks
-   * The type of the defense rule. Valid values:
-   * 
-   * *   customize: custom rule
+   * The type of the rule. Valid values:
+   * - customize: user-defined rule
    * 
    * @example
    * customize
@@ -102,9 +100,9 @@ export class CreateInterceptionRuleRequest extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The source network object. The value of this parameter contains the following field:
+   * The source object. The metric description is as follows:
    * 
-   * *   targetId: the ID of the source network object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
+   * - targetId: The ID of the source object. You can invoke the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain this parameter.
    * 
    * @example
    * {"targetId":301940}

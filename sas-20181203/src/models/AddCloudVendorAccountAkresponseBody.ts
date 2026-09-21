@@ -43,7 +43,7 @@ export class AddCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Mo
    * @remarks
    * The module status. Valid values:
    * - **0**: In use.
-   * - **1**: Usage exception.
+   * - **1**: Abnormal.
    * - **2**: Validity verification in progress.
    * - **3**: Validity verification timed out.
    * 
@@ -53,7 +53,7 @@ export class AddCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Mo
   moduleServiceStatus?: number;
   /**
    * @remarks
-   * The description of permissions associated with the module.
+   * The associate permission description for the module.
    * 
    * @example
    * Read permission of the cloud server or virtual machine
@@ -145,7 +145,7 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
    * @remarks
    * The AK usage status. Valid values:
    * - **0**: In use.
-   * - **1**: Usage exception.
+   * - **1**: Abnormal.
    * - **2**: Validity verification in progress.
    * - **3**: Validity verification timed out.
    * 
@@ -234,7 +234,7 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
 export class AddCloudVendorAccountAKResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the added AK.
+   * The AK information that is added.
    */
   data?: AddCloudVendorAccountAKResponseBodyData;
   /**

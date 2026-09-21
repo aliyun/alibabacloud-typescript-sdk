@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupedInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the first page to return. Default value: **1**, which indicates that the query results are returned starting from page 1.
+   * The page number of the first page to return. Default value: **1**, which indicates that results are returned starting from page 1.
    * 
    * @example
    * 1
@@ -54,8 +54,8 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * Settings for whether to enable paged query. Default value: **true**. Valid values:
-   * - **true**: Paged query is enabled.
-   * - **false**: Paged query is disabled. Paging is not performed.
+   * - **true**: Paging is enabled.
+   * - **false**: Paging is disabled.
    * 
    * @example
    * true
@@ -71,8 +71,11 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is added as a member of a resource folder for member accounts.
+   * The ID of the Alibaba Cloud account that is associated with member accounts in a resource folder.
    * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

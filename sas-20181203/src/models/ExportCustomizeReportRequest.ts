@@ -29,8 +29,11 @@ export class ExportCustomizeReportRequest extends $dara.Model {
   reportId?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member accounts in the resource directory.
-   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * > You can call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {

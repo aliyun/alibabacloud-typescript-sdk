@@ -69,7 +69,11 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   * Specifies whether to perform only a dry run. Valid values:
+   * - true: performs only a dry run without executing the actual operation.
+   * - false: performs the actual operation.
+   * 
+   * Default value: false.
    */
   dryRun?: boolean;
   /**
@@ -84,7 +88,7 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
   instanceList?: AddCheckInstanceResultWhiteListRequestInstanceList[];
   /**
    * @remarks
-   * The remarks. Maximum length: 65535 bytes.
+   * The remarks. Maximum length: 65,535 bytes.
    * 
    * @example
    * test

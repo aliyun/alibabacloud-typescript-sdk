@@ -2573,6 +2573,9 @@ export { GetAegisContainerPluginRuleCriteriaResponse } from './GetAegisContainer
 export { GetAgentlessTaskCountRequest } from './GetAgentlessTaskCountRequest';
 export { GetAgentlessTaskCountResponseBody } from './GetAgentlessTaskCountResponseBody';
 export { GetAgentlessTaskCountResponse } from './GetAgentlessTaskCountResponse';
+export { GetAgentlessTaskCountBatchRequest } from './GetAgentlessTaskCountBatchRequest';
+export { GetAgentlessTaskCountBatchResponseBody } from './GetAgentlessTaskCountBatchResponseBody';
+export { GetAgentlessTaskCountBatchResponse } from './GetAgentlessTaskCountBatchResponse';
 export { GetAgentlessTaskUsedSizeEstimateRequest } from './GetAgentlessTaskUsedSizeEstimateRequest';
 export { GetAgentlessTaskUsedSizeEstimateResponseBody } from './GetAgentlessTaskUsedSizeEstimateResponseBody';
 export { GetAgentlessTaskUsedSizeEstimateResponse } from './GetAgentlessTaskUsedSizeEstimateResponse';

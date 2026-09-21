@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileDetectResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of file identifiers. A maximum of 100 elements can be specified.
+   * The list of file identifiers. A maximum of 200 elements can be specified.
    * 
    * This parameter is required.
    */

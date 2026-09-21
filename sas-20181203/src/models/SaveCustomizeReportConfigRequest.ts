@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SaveCustomizeReportConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The grouping type. Valid values:
-   * 
-   * *   **ALIYUN_RG**
-   * *   **SAS_GROUP**
-   * 
-   * >  This parameter is supported only in version 2.0.0.
+   * The group type. Valid values:
+   * - **ALIYUN_RG**: Alibaba Cloud resource group.
+   * - **SAS_GROUP**: Security Center group.
+   * > This parameter is supported only in version 2.0.0.
    * 
    * @example
    * SAS_GROUP
@@ -18,10 +16,10 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * Whether the new account is connected by default. Values: 
-   * - **true**: Yes. 
-   * - **false**: No. 
-   * > Only supported in version 2.0.0.
+   * Specifies whether newly added accounts are included by default. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
+   * > This parameter is supported only in version 2.0.0.
    * 
    * @example
    * true
@@ -29,9 +27,9 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   memberAccountSyncFlag?: boolean;
   /**
    * @remarks
-   * The time when the report is pinned. Unit: milliseconds.
+   * The pinned time. Unit: milliseconds.
    * 
-   * >  This parameter is supported only in version 2.0.0.
+   * > This parameter is supported only in version 2.0.0.
    * 
    * @example
    * 1717430400000
@@ -39,7 +37,7 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   pinnedTime?: number;
   /**
    * @remarks
-   * The email address of the recipient. Separate multiple email addresses with commas (,).
+   * The email addresses of contacts. Separate multiple email addresses with commas (,).
    * 
    * This parameter is required.
    * 
@@ -49,9 +47,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   recipients?: string;
   /**
    * @remarks
-   * The most recent days for report statistics.
-   * 
-   * >  This parameter is supported only in version 2.0.0.
+   * The number of recent days for report statistics.
+   * > This parameter is supported only in version 2.0.0.
    * 
    * @example
    * 7
@@ -59,9 +56,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   reportDays?: number;
   /**
    * @remarks
-   * The end date on which the report is sent. The value is in the yyyy-MM-dd format.
-   * 
-   * >  This parameter is required if the ReportType parameter is set to 3.
+   * The end date for report statistics. Format: yyyy-MM-dd.
+   * > This parameter is required when ReportType is set to 3.
    * 
    * @example
    * 2024-01-15
@@ -69,9 +65,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   reportEndDate?: string;
   /**
    * @remarks
-   * The ID of the report.
-   * 
-   * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+   * The report ID.
+   * >Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain this parameter.
    * 
    * @example
    * 123
@@ -80,9 +75,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the report. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -90,12 +84,11 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   reportLang?: string;
   /**
    * @remarks
-   * The time range in which the report is sent. Valid values:
-   * 
-   * *   **1**: 00:00 to 06:00.
-   * *   **2**: 06:00 to 12:00.
-   * *   **3**: 12:00 to 18:00.
-   * *   **4**: 18:00 to 24:00.
+   * The report sending type. Valid values:
+   * - **1**: 0:00 to 6:00.
+   * - **2**: 6:00 to 12:00.
+   * - **3**: 12:00 to 18:00.
+   * - **4**: 18:00 to 24:00.
    * 
    * @example
    * 2
@@ -103,9 +96,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   reportSendType?: number;
   /**
    * @remarks
-   * The start date on which the report is sent. The value is in the yyyy-MM-dd format.
-   * 
-   * >  This parameter is required if the ReportType parameter is set to 3.
+   * The start date for report statistics. Format: yyyy-MM-dd.
+   * > This parameter is required when ReportType is set to 3.
    * 
    * @example
    * 2024-01-01
@@ -113,10 +105,9 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   reportStartDate?: string;
   /**
    * @remarks
-   * The status of the report. Valid values:
-   * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
+   * The report status. Valid values:
+   *  - **0**: disabled.
+   *  - **1**: enabled.
    * 
    * This parameter is required.
    * 
@@ -126,13 +117,13 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   reportStatus?: number;
   /**
    * @remarks
-   * The type of the report. Valid values:
+   * The report type. Valid values:
    * 
-   * *   **0**: daily report.
-   * *   **1**: weekly report.
-   * *   **2**: monthly report.
-   * *   **3**: report whose statistics are collected within a custom time range.
-   * *   **4**: report of the most recent time range.
+   * - **0**: daily report.
+   * - **1**: weekly report.
+   * - **2**: monthly report.
+   * - **3**: custom period.
+   * - **4**: latest period.
    * 
    * This parameter is required.
    * 
@@ -142,21 +133,27 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   reportType?: number;
   /**
    * @remarks
-   * The version of the report. Valid values:
-   * 
-   * *   **1.0.0**
-   * *   **2.0.0**
+   * The security report version. Valid values:
+   * - **1.0.0**
+   * - **2.0.0**
    * 
    * @example
    * 2.0.0
    */
   reportVersion?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * >Invoke [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The end time at which the report is sent. The value is in the HH:mm:ss format.
-   * 
-   * >  This parameter is required if the ReportType parameter is set to 0, 1, 2, or 4.
+   * The send end time. Format: HH:mm:ss.
+   * > This parameter is required when ReportType is set to 0, 1, 2, or 4.
    * 
    * @example
    * 10:00:00
@@ -164,9 +161,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   sendEndTime?: string;
   /**
    * @remarks
-   * The exact day within the sending period.
-   * 
-   * >  This parameter is supported only in version 2.0.0.
+   * The specific execution dates within the send period.
+   * > This parameter is supported only in version 2.0.0.
    * 
    * @example
    * 12
@@ -174,13 +170,11 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   sendPeriodDays?: number;
   /**
    * @remarks
-   * The interval at which the report is sent. Valid values:
-   * 
-   * *   **DAY**
-   * *   **WEEK**
-   * *   **MONTH**
-   * 
-   * >  This parameter is supported only in version 2.0.0.
+   * The send period type. Valid values:
+   * - **DAY**: day.
+   * - **WEEK**: week.
+   * - **MONTH**: month.
+   * > This parameter is supported only in version 2.0.0.
    * 
    * @example
    * MONTH
@@ -188,9 +182,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   sendPeriodType?: string;
   /**
    * @remarks
-   * The start time at which the report is sent. The value is in the HH:mm:ss format.
-   * 
-   * >  This parameter is required if the ReportType parameter is set to 0, 1, 2, or 4.
+   * The send start time. Format: HH:mm:ss.
+   * > This parameter is required when ReportType is set to 0, 1, 2, or 4.
    * 
    * @example
    * 09:00:00
@@ -198,9 +191,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   sendStartTime?: string;
   /**
    * @remarks
-   * The groups.
-   * 
-   * >  This parameter is supported only in version 2.0.0.
+   * The targets within the group.
+   * > This parameter is supported only in version 2.0.0.
    * 
    * @example
    * 12,123
@@ -208,9 +200,8 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   targetGroups?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. Separate multiple IDs with commas (,).
-   * 
-   * >  This parameter is supported only in version 2.0.0.
+   * The list of target users. Separate multiple values with commas (,).
+   * > This parameter is supported only in version 2.0.0.
    * 
    * @example
    * 12,123
@@ -218,7 +209,7 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
   targetUids?: string;
   /**
    * @remarks
-   * The title of the report.
+   * The report name.
    * 
    * This parameter is required.
    * 

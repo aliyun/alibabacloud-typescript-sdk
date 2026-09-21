@@ -15,8 +15,11 @@ export class DescribeScreenScoreThreadRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member accounts in the resource directory folder.
-   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the Alibaba Cloud account of the member accounts in the resource directory.
+   * > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

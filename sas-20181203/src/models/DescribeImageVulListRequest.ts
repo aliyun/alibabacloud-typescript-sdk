@@ -21,7 +21,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * docker-law
@@ -29,7 +29,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The ID of the container.
+   * The container ID.
    * 
    * @example
    * c08d5fc1a329a4b88950a253d082f****
@@ -37,7 +37,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   containerId?: string;
   /**
    * @remarks
-   * The page number of the page to return in the query results. Default value: **1**, which indicates the first page.
+   * The page number of the page to return in the query results. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -68,7 +68,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   groupByAsset?: boolean;
   /**
    * @remarks
-   * The name of the container image.
+   * The container image name.
    * 
    * @example
    * registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
@@ -110,10 +110,10 @@ export class DescribeImageVulListRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The priority level for fixing the vulnerability. Valid values:
-   * - **asap**: High-priority vulnerability that must be fixed as soon as possible.
-   * - **later**: Medium-priority vulnerability that can be fixed later.
-   * - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
+   * The priority of vulnerability fixing. Valid values:
+   * - **asap**: high-priority vulnerability
+   * - **later**: medium-priority vulnerability
+   * - **nntf**: low-priority vulnerability
    * 
    * @example
    * asap
@@ -121,7 +121,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Default value: **10**, which indicates 10 vulnerability entries per page.
+   * Settings for paged query. The number of vulnerabilities to display on each page during paging. Default value: **10**, which indicates that 10 vulnerabilities are displayed on each page.
    * 
    * @example
    * 10
@@ -185,8 +185,11 @@ export class DescribeImageVulListRequest extends $dara.Model {
   repoRegionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member accounts in the resource directory.
-   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the Alibaba Cloud account that is added as one of the member accounts in a resource folder.
+   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**
@@ -225,7 +228,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The type of vulnerability to query. Set the value to **cve**, which indicates container image vulnerabilities.
+   * The type of the vulnerability to query. Set the value to **cve**, which indicates container image vulnerabilities.
    * 
    * This parameter is required.
    * 
@@ -235,7 +238,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUIDs of asset instances. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the asset instances. Separate multiple UUIDs with commas (,).
    * 
    * @example
    * 0004a32a0305a7f6ab5ff9600d47****

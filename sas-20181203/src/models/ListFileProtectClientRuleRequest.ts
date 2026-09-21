@@ -13,7 +13,7 @@ export class ListFileProtectClientRuleRequest extends $dara.Model {
    * 
    * - 2: suspicious
    * 
-   * - 3: high-risk.
+   * - 3: high-risk
    * 
    * @example
    * 0
@@ -40,7 +40,7 @@ export class ListFileProtectClientRuleRequest extends $dara.Model {
    * The operating system type. Valid values:
    * 
    * - **windows**: Windows
-   * - **linux**: Linux.
+   * - **linux**: Linux
    * 
    * @example
    * linux
@@ -50,11 +50,11 @@ export class ListFileProtectClientRuleRequest extends $dara.Model {
    * @remarks
    * The rule action. Valid values:
    * 
-   * - **block**: blocks the request.
+   * - **block**: Block.
    * 
-   * - **monitor**: monitors the request.
+   * - **monitor**: Monitor.
    * 
-   * - **pass**: allows the request.
+   * - **pass**: Allow.
    * 
    * @example
    * pass

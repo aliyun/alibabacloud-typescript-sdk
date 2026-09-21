@@ -16,8 +16,11 @@ export class DeleteSuspEventNodeRequest extends $dara.Model {
   noteId?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * The ID of the Alibaba Cloud account of the member accounts in the resource directory.
    * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {

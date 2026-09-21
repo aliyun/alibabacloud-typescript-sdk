@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the vulnerability is handled. Valid values:
+   * Specifies whether the vulnerability has been handled. Valid values:
    * - **y**: Handled.
    * - **n**: Not handled.
    * 
@@ -49,7 +49,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The vulnerability level. Separate multiple levels with commas (,). Valid values:
+   * The vulnerability severity level. Separate multiple levels with commas (,). Valid values:
    * 
    * - **high**: High.
    * - **medium**: Medium.
@@ -61,7 +61,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The priority level of the vulnerability fix. Separate multiple levels with commas (,). Valid values:
+   * The priority level of vulnerability fixing to query. Separate multiple levels with commas (,). Valid values:
    * 
    * - **asap**: High.
    * - **later**: Medium.
@@ -83,6 +83,9 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member accounts in the resource directory.
    * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

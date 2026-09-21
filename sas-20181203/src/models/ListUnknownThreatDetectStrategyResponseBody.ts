@@ -98,7 +98,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model
 export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries displayed on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 20
@@ -106,7 +106,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.M
   count?: number;
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The page number of the current page in a paged query. This is used for paging.
    * 
    * @example
    * 1
@@ -114,7 +114,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.M
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries displayed on each page in a paging query.
+   * The maximum number of entries per page in a paged query. This is used for paging.
    * 
    * @example
    * 20

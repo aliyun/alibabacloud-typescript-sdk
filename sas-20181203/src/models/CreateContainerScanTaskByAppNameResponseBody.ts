@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether more scan tasks can be created. Valid values:
+   * Indicates whether you can continue to create scan tasks. Valid values:
    * 
-   * - **true**: More scan tasks can be created.
-   * - **false**: No more scan tasks can be created.
+   * - **true**: You can continue to create scan tasks.
+   * - **false**: You cannot continue to create scan tasks.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
   canCreate?: boolean;
   /**
    * @remarks
-   * The timestamp when image information was collected, in milliseconds.
+   * The timestamp when image information was collected. Unit: milliseconds.
    * 
    * @example
    * 1644286364150
@@ -24,7 +24,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
   collectTime?: number;
   /**
    * @remarks
-   * The timestamp when the scan task started running, in milliseconds.
+   * The timestamp when the scan task started running. Unit: milliseconds.
    * 
    * @example
    * 1644286364150
@@ -53,7 +53,7 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
    * - **SUCCESS**: The scan task was executed successfully.
    * - **TASK_NOT_SUPPORT_REGION**: The image is in a region that does not support scanning.
    * 
-   * > For the regions that support image security scanning, refer to the table of supported regions after the response parameters table in this document.
+   * > For the regions that support image security scanning, see the table of supported regions after the response parameters table in this topic.
    * 
    * @example
    * SUCCESS
@@ -65,8 +65,8 @@ export class CreateContainerScanTaskByAppNameResponseBodyData extends $dara.Mode
    * 
    * - **INIT**: Initializing.
    * - **PRE_ANALYZER**: Pre-analyzing.
-   * - **SUCCESS**: Execution succeeded.
-   * - **FAIL**: Execution failed.
+   * - **SUCCESS**: Succeeded.
+   * - **FAIL**: Failed.
    * 
    * @example
    * SUCCESS

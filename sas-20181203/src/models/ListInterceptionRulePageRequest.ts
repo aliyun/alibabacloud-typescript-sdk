@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListInterceptionRulePageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the container cluster.
+   * The ID of the container cluster to query.
+   * 
+   * This parameter must be the ID of an ACK cluster that has the container firewall feature enabled. Call DescribeClusterInfoList with Type set to interceptionSwitch, or call ListClusterInterceptionConfig to query available clusters.
    * 
    * This parameter is required.
    * 
@@ -23,15 +25,14 @@ export class ListInterceptionRulePageRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The type of the query condition. Valid values:
-   * 
-   * *   **ID**
-   * *   **RULE_NAME**
-   * *   **SRC_TARGET**
-   * *   **DST_TARGET**
-   * *   **DST_PORT**
-   * *   **RULE_SWITCH**
-   * *   **INTERCEPTOR_TYPE**
+   * The type of the search condition. Valid values:
+   * - **ID** 
+   * - **RULE_NAME**
+   * - **SRC_TARGET**
+   * - **DST_TARGET**
+   * - **DST_PORT**
+   * - **RULE_SWITCH**
+   * - **INTERCEPTOR_TYPE**
    * 
    * @example
    * DST_PORT
@@ -39,7 +40,7 @@ export class ListInterceptionRulePageRequest extends $dara.Model {
   criteriaType?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page when using paging.
    * 
    * This parameter is required.
    * 
@@ -49,7 +50,7 @@ export class ListInterceptionRulePageRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page when using paging.
    * 
    * This parameter is required.
    * 

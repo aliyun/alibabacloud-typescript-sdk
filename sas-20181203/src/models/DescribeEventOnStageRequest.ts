@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventOnStageRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
    * - **en**: English
@@ -16,8 +16,11 @@ export class DescribeEventOnStageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * The Alibaba Cloud account ID of the member accounts in the resource directory folder.
    * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {

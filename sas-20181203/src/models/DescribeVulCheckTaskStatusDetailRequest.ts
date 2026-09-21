@@ -7,6 +7,9 @@ export class DescribeVulCheckTaskStatusDetailRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member accounts in the resource folder.
    * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**
@@ -22,6 +25,8 @@ export class DescribeVulCheckTaskStatusDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The UUID of the server to query.
+   * 
+   * This parameter is required. If this parameter is not specified, the API returns HTTP 503 with the error code ServiceUnavailable.
    * 
    * @example
    * 5d55af3c-35f3-4d4d-8ccc-8c5443b0****

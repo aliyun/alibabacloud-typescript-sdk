@@ -1,45 +1,36 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DataValue } from "./DataValue";
 
 
-export class AddCheckInstanceResultWhiteListResponseBody extends $dara.Model {
+export class GetAgentlessTaskCountBatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** The result of adding instances to the whitelist. This field is deprecated and can be ignored.
+   * The statistics grouped by resource UUID. The key of the map is the resource UUID.
    * 
    * @example
-   * xxx
+   * {"3bb30859-b3b5-4f28-868f-b0892c98****":{"RiskMachine":1,"ScanMachine":1}}
    */
-  data?: { [key: string]: any };
+  data?: { [key: string]: DataValue };
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
-   * ADE57832-9666-511C-9A80-B87DE2E8****
+   * D03DD0FD-6041-5107-AC00-383E28F1****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The rule ID of the whitelist.
-   * 
-   * @example
-   * 381049
-   */
-  ruleId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       requestId: 'RequestId',
-      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': DataValue },
       requestId: 'string',
-      ruleId: 'string',
     };
   }
 

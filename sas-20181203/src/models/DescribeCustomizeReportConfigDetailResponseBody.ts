@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of report chart configurations. Multiple IDs are separated by commas (,).
+   * The IDs of the report chart configurations. Multiple IDs are separated by commas (,).
    * 
    * @example
    * BIZ_STAT_QUERY_KEY_ATTACK,CUSTOM_VUL_CVE_LIST,CUSTOM_VUL_SYS_LIST,CUSTOM_VUL_WEBCMS_LIST,CUSTOM_AUTO_BREAKING_PIE,CUSTOM_AK_LEAK_LIST,KEY_HP_TAMPERPROOF,KEY_HP_DEFENCE
@@ -33,7 +33,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   isDefault?: number;
   /**
    * @remarks
-   * Indicates whether newly added accounts are included by default. Valid values:
+   * Indicates whether newly added accounts are connected by default. Valid values:
    * 
    * - **true**: Yes.
    * - **false**: No.

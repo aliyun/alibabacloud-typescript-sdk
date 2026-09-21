@@ -30,8 +30,8 @@ export class DescribeGroupedInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
    * The server group type. Valid values:
-   * - **0**: Default group.
-   * - **1**: Other group.
+   * - **0**: default group
+   * - **1**: other group
    * 
    * @example
    * 1
@@ -39,9 +39,9 @@ export class DescribeGroupedInstancesResponseBodyInstances extends $dara.Model {
   groupFlag?: number;
   /**
    * @remarks
-   * The total number of compute cores of all assets of the specified asset type.
+   * The total number of compute cores for all assets of the specified asset type.
    * 
-   * > If the request parameter **MachineTypes** is not set, this parameter returns the total number of compute cores of assets of all types.
+   * > If the **MachineTypes** request parameter is not set, this parameter returns the total number of compute cores for assets of all types.
    * 
    * @example
    * 610
@@ -51,7 +51,7 @@ export class DescribeGroupedInstancesResponseBodyInstances extends $dara.Model {
    * @remarks
    * The total number of assets of the specified asset type.
    * 
-   * > If the request parameter **MachineTypes** is not set, this parameter returns the total number of assets of all types.
+   * > If the **MachineTypes** request parameter is not set, this parameter returns the total number of assets of all types.
    * 
    * @example
    * 205

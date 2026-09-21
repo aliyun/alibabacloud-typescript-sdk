@@ -48,7 +48,7 @@ export class OperationCancelIgnoreSuspEventResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The time consumed by the task, in seconds.
+   * The time consumed by the task. Unit: seconds.
    * 
    * @example
    * 1

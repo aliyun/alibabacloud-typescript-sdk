@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddPublishBatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the release batch.
+   * The release batch ID.
    * 
    * @example
    * 1

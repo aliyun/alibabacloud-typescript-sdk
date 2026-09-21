@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizeReportListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * 
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -16,10 +17,9 @@ export class DescribeCustomizeReportListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to pin the report. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
+   * Specifies whether the report is pinned to the top. Valid values:
+   * - **false**: No.
+   * - **true**: Yes.
    * 
    * @example
    * false
@@ -27,10 +27,9 @@ export class DescribeCustomizeReportListRequest extends $dara.Model {
   pinned?: boolean;
   /**
    * @remarks
-   * The state of the report. Valid values:
-   * 
-   * *   **0**: disabled
-   * *   **1**: enabled
+   * The report status. Valid values:
+   *  - **0**: Disabled.
+   *  - **1**: Enabled.
    * 
    * @example
    * 1
@@ -38,12 +37,12 @@ export class DescribeCustomizeReportListRequest extends $dara.Model {
   reportStatus?: number;
   /**
    * @remarks
-   * The type of the report. Valid values:
+   * The report type. Valid values:
    * 
-   * *   **0**: daily report
-   * *   **1**: weekly report
-   * *   **2**: monthly report
-   * *   **3**: report whose statistics are collected in a custom time range
+   * - **0**: Daily report.
+   * - **1**: Weekly report.
+   * - **2**: Monthly report.
+   * - **3**: Custom period.
    * 
    * @example
    * 0
@@ -51,19 +50,26 @@ export class DescribeCustomizeReportListRequest extends $dara.Model {
   reportType?: number;
   /**
    * @remarks
-   * The report version. Valid values:
-   * 
-   * *   **1.0.0**
-   * *   **2.0.0**
+   * The security report version. Valid values:
+   * - **1.0.0**
+   * - **2.0.0**
    * 
    * @example
    * 2.0.0
    */
   reportVersion?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member accounts in the resource directory folder.
+   * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The name of the report.
+   * The report name.
    * 
    * @example
    * test

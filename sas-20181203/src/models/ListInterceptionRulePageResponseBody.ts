@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInterceptionRulePageResponseBodyInterceptionRuleListDstTarget extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * console
@@ -13,7 +13,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListDstTarget e
   appName?: string;
   /**
    * @remarks
-   * An array that consists of the affected images.
+   * The list of affected images.
    */
   imageList?: string[];
   /**
@@ -26,16 +26,15 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListDstTarget e
   namespace?: string;
   /**
    * @remarks
-   * An array that consists of information about the ports used by the destination server.
+   * The port information of the destination server.
    */
   ports?: string[];
   /**
    * @remarks
-   * The type of the defense rule. Valid values:
-   * 
-   * *   **suggest**: intelligently recommended rule
-   * *   **customize**: custom rule
-   * *   **system**: system rule
+   * The rule type. Valid values:
+   * - **suggest**: intelligent recommendation
+   * - **customize**: user-defined
+   * - **system**: system
    * 
    * @example
    * customize
@@ -43,7 +42,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListDstTarget e
   ruleType?: string;
   /**
    * @remarks
-   * An array that consists of tags added to the destination network object.
+   * The list of destination tags for the network object.
    */
   tagList?: string[];
   /**
@@ -119,7 +118,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListDstTarget e
 export class ListInterceptionRulePageResponseBodyInterceptionRuleListSrcTarget extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * ack-jenkins-lawr****
@@ -127,7 +126,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListSrcTarget e
   appName?: string;
   /**
    * @remarks
-   * An array that consists of the images of the network object.
+   * The list of associated images.
    */
   imageList?: string[];
   /**
@@ -140,11 +139,10 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListSrcTarget e
   namespace?: string;
   /**
    * @remarks
-   * The type of the defense rule. Valid values:
-   * 
-   * *   **suggest**: intelligently recommended rule
-   * *   **customize**: custom rule
-   * *   **system**: system rule
+   * The rule type. Valid values:
+   * - **suggest**: intelligent recommendation
+   * - **customize**: user-defined
+   * - **system**: system
    * 
    * @example
    * customize
@@ -152,7 +150,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListSrcTarget e
   ruleType?: string;
   /**
    * @remarks
-   * An array that consists of tags added to the source network object.
+   * The list of source tags for the network object.
    */
   tagList?: string[];
   /**
@@ -173,7 +171,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListSrcTarget e
   targetName?: string;
   /**
    * @remarks
-   * The type of the affected assets.
+   * The type of the affected asset.
    * 
    * @example
    * containerId
@@ -223,17 +221,16 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleListSrcTarget e
 export class ListInterceptionRulePageResponseBodyInterceptionRuleList extends $dara.Model {
   /**
    * @remarks
-   * The destination network object.
+   * The destination object.
    */
   dstTarget?: ListInterceptionRulePageResponseBodyInterceptionRuleListDstTarget;
   /**
    * @remarks
    * The interception mode. Valid values:
-   * 
-   * *   **0**: monitor
-   * *   **1**: block
-   * *   **2**: alert
-   * *   **3**: allow
+   * - **0**: monitor mode
+   * - **1**: Block Mode
+   * - **2**: alert mode
+   * - **3**: allow mode
    * 
    * @example
    * 1
@@ -241,7 +238,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleList extends $d
   interceptType?: number;
   /**
    * @remarks
-   * The order in which the entries are sorted.
+   * The sort order.
    * 
    * @example
    * 1
@@ -249,7 +246,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleList extends $d
   orderIndex?: number;
   /**
    * @remarks
-   * The ID of the defense rule.
+   * The rule ID.
    * 
    * @example
    * 30****
@@ -257,7 +254,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleList extends $d
   ruleId?: number;
   /**
    * @remarks
-   * The name of the defense rule.
+   * The rule name.
    * 
    * @example
    * test
@@ -265,10 +262,10 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleList extends $d
   ruleName?: string;
   /**
    * @remarks
-   * The status of the defense rule. Valid values:
+   * The switch status of the scheduling rule. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -276,7 +273,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleList extends $d
   ruleSwitch?: number;
   /**
    * @remarks
-   * The type of the defense rule.
+   * The rule type.
    * 
    * @example
    * customize
@@ -284,7 +281,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleList extends $d
   ruleType?: string;
   /**
    * @remarks
-   * The source network object.
+   * The source object.
    */
   srcTarget?: ListInterceptionRulePageResponseBodyInterceptionRuleListSrcTarget;
   static names(): { [key: string]: string } {
@@ -331,7 +328,7 @@ export class ListInterceptionRulePageResponseBodyInterceptionRuleList extends $d
 export class ListInterceptionRulePageResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page when using paging.
    * 
    * @example
    * 20
@@ -339,7 +336,7 @@ export class ListInterceptionRulePageResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page when using paging.
    * 
    * @example
    * 19
@@ -347,7 +344,7 @@ export class ListInterceptionRulePageResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page when using paging.
    * 
    * @example
    * 20
@@ -355,7 +352,7 @@ export class ListInterceptionRulePageResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records in the query result.
    * 
    * @example
    * 2
@@ -391,17 +388,17 @@ export class ListInterceptionRulePageResponseBodyPageInfo extends $dara.Model {
 export class ListInterceptionRulePageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of information about the defense rules.
+   * The list of queried rules.
    */
   interceptionRuleList?: ListInterceptionRulePageResponseBodyInterceptionRuleList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: ListInterceptionRulePageResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * ACF97412-FD09-4D1F-994F-34DF12BR****

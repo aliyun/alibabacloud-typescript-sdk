@@ -25,8 +25,11 @@ export class CreateSuspEventNoteRequest extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The ID of the member accounts in the resource folder.
-   * >Invoke [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * > Invoke [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {

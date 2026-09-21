@@ -13,7 +13,7 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The timestamp when the rule was modified. Unit: milliseconds.
+   * The timestamp when the rule was last modified. Unit: milliseconds.
    * 
    * @example
    * 1671607025000

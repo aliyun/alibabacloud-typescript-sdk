@@ -113,7 +113,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $dara.Model {
 export class DescribeVulWhitelistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page when paging.
+   * The number of entries on the current page in the paged query.
    * 
    * @example
    * 2
@@ -121,7 +121,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The current page number when paging.
+   * The page number of the current page in the paged query.
    * 
    * @example
    * 1
@@ -129,7 +129,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page when paging.
+   * The number of entries per page in the paged query.
    * 
    * @example
    * 10

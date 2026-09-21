@@ -24,10 +24,10 @@ export class OperationSuspEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the alert events are handled. Valid values:
+   * Indicates whether the alert event is handled. Valid values:
    * 
    * - **true**: Handled.
-   * - **false**: Not handled.
+   * - **false**: Failed to handle.
    * 
    * @example
    * true

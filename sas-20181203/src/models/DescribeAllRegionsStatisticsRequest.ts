@@ -33,7 +33,10 @@ export class DescribeAllRegionsStatisticsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Alibaba Cloud account of the member accounts in the resource folder.
-   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

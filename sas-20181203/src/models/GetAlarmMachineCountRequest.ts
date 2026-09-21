@@ -15,6 +15,9 @@ export class GetAlarmMachineCountRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member account in the resource directory.
    * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {

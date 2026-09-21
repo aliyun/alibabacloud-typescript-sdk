@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileProtectEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The severity of alerts. Valid values:
+   * The alert notification level. Valid values:
    * 
-   * - 0: does not generate alerts
+   * - 0: No alert.
    * 
-   * - 1: sends notifications
+   * - 1: Reminder.
    * 
-   * - 2: suspicious
+   * - 2: Suspicious.
    * 
-   * - 3: high-risk
+   * - 3: High-risk.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   cmdLine?: string;
   /**
    * @remarks
-   * The path to the file.
+   * The file path.
    * 
    * @example
    * /usr/local
@@ -37,7 +37,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The permissions to run the process.
+   * The process permissions.
    * 
    * @example
    * rwxr-xr-x
@@ -45,7 +45,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   filePermission?: string;
   /**
    * @remarks
-   * The timestamp at which the event was first detected.
+   * The timestamp when the event first occurred.
    * 
    * @example
    * 1694576692000
@@ -53,7 +53,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * The time when the event was handled.
+   * The time when the event was handled. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1694576692000
@@ -61,7 +61,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   handleTime?: number;
   /**
    * @remarks
-   * The ID of the event.
+   * The unique ID.
    * 
    * @example
    * 55037
@@ -69,7 +69,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * i-wz92q7m5hsbgfhdss***
@@ -93,7 +93,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The time when the event last occurred.
+   * The timestamp when the event most recently occurred. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1694576692000
@@ -101,7 +101,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   latestTime?: number;
   /**
    * @remarks
-   * The operation that the process performed on the file.
+   * The operation performed by the process on the file.
    * 
    * @example
    * DELETE
@@ -109,11 +109,10 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The type of the operating system. Valid values:
+   * The operating system type. Valid values:
    * 
-   * - **windows**: Windows
-   * 
-   * - **linux**: Linux
+   * - **windows**: Windows.
+   * - **linux**: Linux.
    * 
    * @example
    * linux
@@ -121,7 +120,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The path to the process.
+   * The process path.
    * 
    * @example
    * /bin/bash33
@@ -145,7 +144,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test-000
@@ -153,13 +152,12 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the event. Valid values:
+   * The event status. Valid values:
    * 
-   * - 0: not handled
-   * 
-   * - 1: handled
-   * 
-   * - 2: added to the whitelist
+   * - 0: Unhandled. 
+   * - 1: Manually handled.
+   * - 2: Whitelisted.
+   * - 3: Ignored.
    * 
    * @example
    * 1
@@ -167,7 +165,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * User ID of the user who started the current process.
+   * The user ID that started the current process.
    * 
    * @example
    * 1001
@@ -183,7 +181,7 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The UUID of the asset.
+   * The UUID of the asset instance.
    * 
    * @example
    * 49f1360f-62c8-4b48-a24c-5cc317656419
@@ -253,12 +251,12 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
 export class GetFileProtectEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the returned data.
+   * The returned data details.
    */
   data?: GetFileProtectEventResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF46038

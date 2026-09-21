@@ -9,8 +9,8 @@ export class AddAssetSelectionCriteriaRequestTargetOperationList extends $dara.M
    * @remarks
    * The operation type. Valid values:
    * 
-   * - **add**: adds the asset.
-   * - **del**: deletes the asset.
+   * - **add**: Add.
+   * - **del**: Delete.
    * 
    * @example
    * del
@@ -18,7 +18,7 @@ export class AddAssetSelectionCriteriaRequestTargetOperationList extends $dara.M
   operation?: string;
   /**
    * @remarks
-   * The asset ID. If you select assets by machine, the value is the UUID of the machine. If you select assets by group, the value is the group ID. If you select assets by VPC, the value is the VPC ID.
+   * The asset ID. If you select assets by server, set this parameter to the UUID of the server. If you select assets by group, set this parameter to the group ID. If you select assets by VPC, set this parameter to the VPC ID.
    * 
    * @example
    * 1188****
@@ -50,7 +50,7 @@ export class AddAssetSelectionCriteriaRequestTargetOperationList extends $dara.M
 export class AddAssetSelectionCriteriaRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
    */
   clientToken?: string;
   /**
@@ -64,7 +64,7 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The operation type for criteria. Valid values:
+   * The operation type for the criteria. Valid values:
    * 
    * - **add**: adds assets.
    * - **del**: deletes assets.
@@ -75,7 +75,7 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
   criteriaOperation?: string;
   /**
    * @remarks
-   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   * Specifies whether to perform only a dry run. true: performs only a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
    */
   dryRun?: boolean;
   /**

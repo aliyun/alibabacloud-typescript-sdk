@@ -43,7 +43,7 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The container IDs.
+   * The container ID.
    * 
    * @example
    * xxxxxx30389a10c28f6d38f2398f0dcexxxxxxx922b9e8290dc7c3019d4a8,48b87f2c0662e334820f436cb9133f1ae4e053d39b6fad42xxxxxxxxxx
@@ -71,6 +71,9 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member accounts in the resource folder.
    * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

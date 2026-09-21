@@ -36,7 +36,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. When the maximum number of decompressed files is exceeded, the decompression operation stops. The detection of files that have already been decompressed is not affected.
+   * The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. When the maximum number of decompressed files is exceeded, the decompression operation stops immediately. The scanning of files that have already been decompressed is not affected.
    * 
    * @example
    * 100
@@ -44,7 +44,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   decompressMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of decompression layers when multiple levels of nested compressed files exist. Minimum value: 1. Maximum value: 5. When the maximum number of decompression layers is exceeded, the decompression operation stops. The detection of files that have already been decompressed is not affected.
+   * The maximum number of decompression layers when nested compressed files exist. Minimum value: 1. Maximum value: 5. When the maximum number of decompression layers is exceeded, the decompression operation stops immediately. The scanning of files that have already been decompressed is not affected.
    * 
    * @example
    * 1
@@ -57,14 +57,14 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   decryptionList?: string[];
   /**
    * @remarks
-   * 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual request. false: performs the actual request. Default value: false.
    */
   dryRun?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the policy. Valid values:
-   * - **1**: Enabled.
-   * - **0**: Disabled.
+   * - **1**: Enable.
+   * - **0**: Disable.
    * 
    * @example
    * 1
@@ -90,7 +90,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   keySuffixList?: string[];
   /**
    * @remarks
-   * Specifies that only files whose last modification time is after the specified timestamp are scanned. Unit: milliseconds.
+   * Scans files whose last modification time is after the specified timestamp. Unit: milliseconds.
    * 
    * @example
    * 1724301769834
@@ -106,7 +106,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable real-time incremental detection. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
+   * Specifies whether to enable real-time incremental scanning. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
    * 
    * @example
    * true
@@ -114,7 +114,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   realTimeIncr?: boolean;
   /**
    * @remarks
-   * The scan schedule. The number represents the day of the week.
+   * The scan schedule. The number indicates the day of the week.
    */
   scanDayList?: number[];
   /**

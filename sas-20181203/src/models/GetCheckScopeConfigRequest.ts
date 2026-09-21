@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckScopeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration. This parameter is optional. If you do not specify this parameter, a default ID is generated.
+   * The ID of the configuration. This parameter is optional. If you do not specify this parameter, an ID is automatically generated.
    * 
    * @example
    * 435f626256ebf564cf5ba966a539****
    */
   configId?: number;
+  /**
+   * @remarks
+   * The ID of the member accounts in the resource directory.
+   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
+   */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {

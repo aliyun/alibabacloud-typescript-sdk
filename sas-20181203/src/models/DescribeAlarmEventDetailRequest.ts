@@ -27,7 +27,7 @@ export class DescribeAlarmEventDetailRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language type of the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
    * - **en**: English
@@ -40,6 +40,9 @@ export class DescribeAlarmEventDetailRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member accounts in the resource directory.
    * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

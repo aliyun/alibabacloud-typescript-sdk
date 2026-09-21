@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUniBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The username of the database account.
    * 
    * @example
    * admin
@@ -21,10 +21,10 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * Specifies whether the database is manually added. Valid values:
+   * Specifies whether the database is manually added by the user. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The database is manually added.
+   * - **false**: The database is not manually added.
    * 
    * @example
    * true
@@ -34,9 +34,9 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
    * @remarks
    * The type of the database. Valid values:
    * 
-   * *   **MYSQL**
-   * *   **ORACLE**
-   * *   **MSSQL**
+   * - **MYSQL**
+   * - **ORACLE**
+   * - **MSSQL**
    * 
    * This parameter is required.
    * 
@@ -46,12 +46,12 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The policy for full data backup. The value of this parameter is a JSON string. The JSON string contains the following fields:
+   * The full backup policy. The value is in JSON format and contains the following fields:
    * 
-   * *   **start**: the start time of a backup task.
-   * *   **interval**: the interval of backup tasks.
-   * *   **type**: the unit of the interval.
-   * *   **days**: the days of a week on which a backup task is performed.
+   * - **start**: the start time of the backup.
+   * - **interval**: the interval between backups.
+   * - **type**: the unit of the interval.
+   * - **days**: the days of the week on which backups are performed.
    * 
    * This parameter is required.
    * 
@@ -61,12 +61,11 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   fullPlan?: { [key: string]: any };
   /**
    * @remarks
-   * The policy for incremental data backup. The value of this parameter is a JSON string. The JSON string contains the following fields:
-   * 
-   * *   **start**: the start time of a backup task.
-   * *   **interval**: the interval of backup tasks.
-   * *   **type**: the unit of the interval.
-   * *   **days**: the days of a week on which a backup task is performed.
+   * The incremental backup policy. The value is in JSON format and contains the following fields:
+   * - **start**: the start time of the backup.
+   * - **interval**: the interval between backups.
+   * - **type**: the unit of the interval.
+   * - **days**: the days of the week on which backups are performed.
    * 
    * This parameter is required.
    * 
@@ -76,9 +75,8 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   incPlan?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the Elastic Compute Service (ECS) instance.
-   * 
-   * >  You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the IDs of ECS instances.
+   * The ID of the ECS instance.
+   * >You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -88,7 +86,7 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the anti-ransomware policy.
+   * The name of the anti-ransomware backup policy.
    * 
    * This parameter is required.
    * 
@@ -98,7 +96,7 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The retention period of backup data.
+   * The number of days for which backup data is retained.
    * 
    * This parameter is required.
    * 
@@ -108,7 +106,7 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * The maximum network bandwidth that is allowed during data backup. Unit: bytes.
+   * The network bandwidth throttling for backup network bandwidth. Unit: bytes.
    * 
    * This parameter is required.
    * 
@@ -118,7 +116,7 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   speedLimiter?: number;
   /**
    * @remarks
-   * The region in which the server resides.
+   * The region in which the server protected by the backup policy resides.
    * 
    * This parameter is required.
    * 
@@ -128,9 +126,8 @@ export class CreateUniBackupPolicyRequest extends $dara.Model {
   uniRegionId?: string;
   /**
    * @remarks
-   * The UUID of the server whose data is backed up based on the anti-ransomware policy.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+   * The UUID of the server that is backed up by the database anti-ransomware feature.
+   * > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to obtain the UUID of the server.
    * 
    * @example
    * 045cad48-eb08-4047-a70c-713aec7b****

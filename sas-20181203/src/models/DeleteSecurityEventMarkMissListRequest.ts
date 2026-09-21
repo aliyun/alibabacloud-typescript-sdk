@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityEventMarkMissListRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of alert whitelisting rule IDs.
+   * The list of alert whitelist rule IDs.
    */
   ids?: number[];
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member accounts in the resource folder.
    * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   resourceOwnerId?: number;

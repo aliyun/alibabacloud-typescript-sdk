@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccessKeyLeakDealRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AccessKey pair leak record.
-   * >Call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain this parameter. This parameter and the **IdList** parameter cannot both be empty.
+   * The ID of the AccessKey leak record.
+   * >Call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain this parameter. This parameter and **IdList** cannot both be empty.
    * 
    * @example
    * 123
@@ -14,12 +14,12 @@ export class ModifyAccessKeyLeakDealRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The IDs of the AccessKey pair leak records.
+   * The collection of AccessKey leak record IDs.
    */
   idList?: number[];
   /**
    * @remarks
-   * The remarks for handling the AccessKey pair leak record.
+   * The remarks for handling the AccessKey leak record.
    * 
    * @example
    * disabled.
@@ -27,7 +27,7 @@ export class ModifyAccessKeyLeakDealRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The method to handle the AccessKey pair leak information. Valid values:
+   * The method used to handle the AccessKey leak information. Valid values:
    * - **manual**: Manual handling.
    * - **disable**: Disable.
    * - **add-whitelist**: Add to whitelist.

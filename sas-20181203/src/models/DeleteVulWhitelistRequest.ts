@@ -16,6 +16,9 @@ export class DeleteVulWhitelistRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member account in the resource directory.
    * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

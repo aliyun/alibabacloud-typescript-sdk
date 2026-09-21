@@ -17,11 +17,11 @@ export class OperationSuspEventsRequest extends $dara.Model {
    * @remarks
    * The operation to perform on the alert. Valid values:
    * 
-   * - **deal**: handles the alert (quarantine).
-   * - **ignore**: ignores the alert.
-   * - **mark_mis_info**: marks the alert as a false positive (adds it to the whitelist).
-   * - **rm_mark_mis_info**: unmarks the alert as a false positive (removes it from the whitelist).
-   * - **offline_handled**: marks the alert as handled.
+   * - **deal**: Handle the alert (quarantine).
+   * - **ignore**: Ignore the alert.
+   * - **mark_mis_info**: Mark as false positive (add to whitelist).
+   * - **rm_mark_mis_info**: Unmark as false positive (remove from whitelist).
+   * - **offline_handled**: Mark as handled.
    * 
    * This parameter is required.
    * 
@@ -29,6 +29,14 @@ export class OperationSuspEventsRequest extends $dara.Model {
    * deal
    */
   operation?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of a member account in the resource directory.
+   * > You can call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+   * 
+   * @example
+   * 127608589417****
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
@@ -42,9 +50,9 @@ export class OperationSuspEventsRequest extends $dara.Model {
    * @remarks
    * The sub-operation type to perform when quarantining the alert event. Valid values:
    * 
-   * - **killAndQuaraFileByPidAndMd5andPath**: terminates the process by PID and quarantines the source file of the process.
-   * - **quaraFileByMd5andPath**: quarantines the source file of the process.
-   * - **killAndQuaraFileByMd5andPath**: terminates the process and quarantines the source file of the process.
+   * - **killAndQuaraFileByPidAndMd5andPath**: Terminate the process by PID and quarantine the source file of the process.
+   * - **quaraFileByMd5andPath**: Quarantine the source file of the process.
+   * - **killAndQuaraFileByMd5andPath**: Terminate the process and quarantine the source file of the process.
    * 
    * @example
    * killAndQuaraFileByPidAndMd5andPath
@@ -66,8 +74,8 @@ export class OperationSuspEventsRequest extends $dara.Model {
    * @remarks
    * The type of the exception event to handle. Valid values:
    * 
-   * - **alarm**: alert.
-   * - **Empty**: exception.
+   * - **alarm**: alert
+   * - **Empty**: exception
    * 
    * @example
    * alarm
