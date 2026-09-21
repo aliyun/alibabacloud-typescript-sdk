@@ -32,12 +32,12 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
    * The agent platform.
    * 
    * @example
-   * ENTERPRISE
+   * ENTERPRISE_AGENTIC_COMPUTER
    */
   agentPlatform?: string;
   /**
    * @remarks
-   * The list of agent platforms. If AgentPlatform is also specified, AgentPlatform takes precedence and this list is ignored.
+   * The list of agent platforms. If both AgentPlatformList and AgentPlatform are specified, AgentPlatform takes precedence and this list is ignored.
    * 
    * @example
    * ENTERPRISE
@@ -48,12 +48,12 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
    * The agent provider name.
    * 
    * @example
-   * OpenClaw
+   * AgenticComputer
    */
   agentProvider?: string;
   /**
    * @remarks
-   * The list of agent providers. If AgentProvider is also specified, AgentProvider takes precedence and this list is ignored.
+   * The list of agent providers. If both AgentProviderList and AgentProvider are specified, AgentProvider takes precedence and this list is ignored.
    * 
    * @example
    * OpenClaw
@@ -133,7 +133,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   desktopStatuses?: string[];
   /**
    * @remarks
-   * Indicates whether an authorized user exists for authorization.
+   * Indicates whether authorization is granted to an authorized user.
    * 
    * @example
    * true
@@ -141,9 +141,9 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   hasAuthUser?: boolean;
   /**
    * @remarks
-   * Specifies whether a risk exists. This parameter is used to filter Cloud Desktops with or without risks and takes effect only when IncludeRiskInfo is set to true.
+   * Specifies whether risks exist. This parameter is used to filter Cloud Desktops with or without risks. It takes effect only when IncludeRiskInfo is set to true.
    * 
-   * Set this parameter to true to return only records with risks. Set this parameter to false to return only records without risks. If you do not specify this parameter, no filtering is applied.
+   * Set this parameter to true to return only records with risks. Set this parameter to false to return only records without risks. If this parameter is not specified, no filtering is applied.
    * 
    * @example
    * true
@@ -151,7 +151,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   hasRisk?: boolean;
   /**
    * @remarks
-   * Specifies whether to query and return risk information. Default value: false. If set to true, the response includes the RiskInfo field, and the HasRisk filter takes effect.
+   * Specifies whether to query and return risk information. Default value: false. If this parameter is set to true, the RiskInfo field is included in the response, and the HasRisk filter takes effect.
    * 
    * @example
    * true
@@ -191,7 +191,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The page number. Starts from 1. Values 0 and 1 return the same result.
+   * The page number, starting from 1. Values 0 and 1 return the same result.
    * 
    * @example
    * 1

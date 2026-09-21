@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RestartWuyingServerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * @example
+   * WuyingServer
+   */
   productType?: string;
   /**
    * @remarks

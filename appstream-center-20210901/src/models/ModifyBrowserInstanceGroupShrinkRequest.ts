@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to send notification emails for authorization and deauthorization.
+   * 
+   * @example
+   * true
+   */
+  authNotificationEnabled?: boolean;
+  /**
+   * @remarks
    * The browser configuration.
    */
   browserConfigShrink?: string;
@@ -56,6 +64,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   timersShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      authNotificationEnabled: 'AuthNotificationEnabled',
       browserConfigShrink: 'BrowserConfig',
       browserInstanceGroupId: 'BrowserInstanceGroupId',
       cloudBrowserName: 'CloudBrowserName',
@@ -69,6 +78,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authNotificationEnabled: 'boolean',
       browserConfigShrink: 'string',
       browserInstanceGroupId: 'string',
       cloudBrowserName: 'string',

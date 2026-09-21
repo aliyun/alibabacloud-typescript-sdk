@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.Model {
+  /**
+   * @remarks
+   * The EIP ID.
+   * 
+   * @example
+   * eip-wz96s3j***mmau4pvv9
+   */
   eipId?: string;
   /**
    * @remarks
@@ -58,7 +65,7 @@ export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.M
 export class DescribeWuyingServerEipInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Elastic IP Address (EIP) information.
+   * The EIP information.
    */
   eipInfoModel?: DescribeWuyingServerEipInfoResponseBodyEipInfoModel;
   /**

@@ -6,6 +6,9 @@ export class ListModelTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The Agent platform (such as ENTERPRISE or ENTERPRISE_JVS).
+   * 
+   * @example
+   * ENTERPRISE_AGENTIC_COMPUTER
    */
   agentPlatform?: string;
   /**
@@ -49,6 +52,9 @@ export class ListModelTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The number of models in the model group, including referenced system provider models.
+   * 
+   * @example
+   * 8
    */
   modelCount?: number;
   /**
@@ -69,19 +75,26 @@ export class ListModelTemplatesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The group authorization scope. Valid values:
-   * - ALL_USER: all users.
-   * - USER_MIXED: user mixed (a mix of user groups and users, only for Common groups).
+   * The group authorization scope. Valid values: ALL_USER (all users) and USER_MIXED (a mix of user groups and users, only for Common groups).
+   * 
+   * @example
+   * ALL_USER
    */
   refScope?: string;
   /**
    * @remarks
-   * The number of authorized users in the group. Returned only when ListModelTemplates is called with refScope=USER_MIXED. Otherwise null.
+   * The number of authorized users in the group. This value is returned only when ListModelTemplates is called and refScope is USER_MIXED. Otherwise, the value is null.
+   * 
+   * @example
+   * 1
    */
   userCount?: number;
   /**
    * @remarks
-   * The number of authorized user groups in the group. Returned only when ListModelTemplates is called with refScope=USER_MIXED. Otherwise null.
+   * The number of authorized user groups in the group. This value is returned only when ListModelTemplates is called and refScope is USER_MIXED. Otherwise, the value is null.
+   * 
+   * @example
+   * 2
    */
   userGroupCount?: number;
   static names(): { [key: string]: string } {
@@ -133,7 +146,7 @@ export class ListModelTemplatesResponseBody extends $dara.Model {
   data?: ListModelTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The current page number of the query results.
+   * The page number of the current query results.
    * 
    * @example
    * 1

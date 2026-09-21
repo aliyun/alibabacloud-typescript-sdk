@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodePoolAmountShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID.
+   * The ID of the delivery group.
    * 
    * This parameter is required.
    * 

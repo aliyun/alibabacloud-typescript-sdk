@@ -23,7 +23,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The list of application instance IDs. Maximum length: 100.
+   * The list of application instance IDs. The maximum length is 100.
    * 
    * **if can be null:**
    * false
@@ -39,7 +39,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   includeDeleted?: boolean;
   /**
    * @remarks
-   * The page number of the query results to display. Default value: `1`. Specify this parameter.
+   * The page number of the query results to display. Default value: `1`. We recommend that you specify this parameter.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of query results per page. Maximum value: `100`. Default value: `20`. Specify this parameter.
+   * The number of query results per page. Maximum value: `100`. Default value: `20`. We recommend that you specify this parameter.
    * 
    * @example
    * 20
@@ -63,7 +63,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The list of user IDs. Maximum length: 100.
+   * The list of user IDs. The maximum length is 100.
    */
   userIdList?: string[];
   static names(): { [key: string]: string } {

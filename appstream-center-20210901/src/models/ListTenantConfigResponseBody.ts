@@ -12,10 +12,18 @@ export class ListTenantConfigResponseBodyTenantConfigModel extends $dara.Model {
    */
   appInstanceGroupExpireRemind?: boolean;
   /**
+   * @remarks
+   * The support type for creating shared session delivery groups.
+   * 
    * @example
    * None
    */
   multiSessionSupportType?: string;
+  /**
+   * @remarks
+   * The list of region IDs that support creating shared session delivery groups.
+   * Note: This field has a value only when the support type for creating shared session delivery groups is Specific.
+   */
   multiSessionSupportedRegions?: string[];
   static names(): { [key: string]: string } {
     return {

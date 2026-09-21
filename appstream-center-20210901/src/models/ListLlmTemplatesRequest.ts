@@ -6,11 +6,14 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The business type. This parameter is required when SmartModel is set to true.
+   * 
+   * @example
+   * 1
    */
   bizType?: number;
   /**
    * @remarks
-   * The model code filter. Fuzzy match is supported.
+   * The model code used for filtering. Fuzzy match is supported.
    * 
    * @example
    * qwen3.6-plus
@@ -31,7 +34,7 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Values 0 and 1 return the same result.
+   * The page number. Pages start from page 1. Both 0 and 1 return the same result.
    * 
    * @example
    * 1
@@ -55,7 +58,12 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   providerTemplateId?: string;
   /**
    * @remarks
-   * Specifies whether to query smart models. If set to true, only LLMs under system preset smart models are returned, and BizType is required. Default value: false.
+   * Specifies whether to query smart models. Valid values:
+   * 
+   * - true: Only LLMs under system preset smart models are returned. In this case, BizType is required.
+   * - false: Smart model filtering is not applied.
+   * 
+   * Default value: false.
    * 
    * @example
    * false

@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListLlmTemplatesResponseBodyDataCreditMultiplier extends $dara.Model {
   /**
    * @remarks
-   * The maximum multiplier. A null value indicates no upper limit. For example, Min=1 with Max as null is displayed as 1x and above.
+   * The maximum multiplier. An empty value indicates no upper limit. For example, Min=1 with an empty Max is displayed as 1x and above.
+   * 
+   * @example
+   * 3
    */
   max?: number;
   /**
    * @remarks
-   * The minimum multiplier. When equal to Max, it represents a fixed multiplier. For example, Min=Max=2 is displayed as 2x.
+   * The minimum multiplier. When equal to Max, it is a fixed multiplier. For example, Min=Max=2 is displayed as 2x.
+   * 
+   * @example
+   * 2
    */
   min?: number;
   static names(): { [key: string]: string } {
@@ -80,16 +86,25 @@ export class ListLlmTemplatesResponseBodyDataPricesPrices extends $dara.Model {
   /**
    * @remarks
    * The price in string format, such as 0.2.
+   * 
+   * @example
+   * 20
    */
   price?: string;
   /**
    * @remarks
    * The price name, such as Input, Output, or Image Generation.
+   * 
+   * @example
+   * Input
    */
   priceName?: string;
   /**
    * @remarks
    * The price unit, such as per image or per thousand tokens.
+   * 
+   * @example
+   * per million tokens
    */
   priceUnit?: string;
   static names(): { [key: string]: string } {
@@ -120,12 +135,15 @@ export class ListLlmTemplatesResponseBodyDataPricesPrices extends $dara.Model {
 export class ListLlmTemplatesResponseBodyDataPrices extends $dara.Model {
   /**
    * @remarks
-   * The list of prices within the range.
+   * The list of prices within this range.
    */
   prices?: ListLlmTemplatesResponseBodyDataPricesPrices[];
   /**
    * @remarks
    * The range name, such as Default or 0-1M tokens.
+   * 
+   * @example
+   * Default
    */
   rangeName?: string;
   static names(): { [key: string]: string } {
@@ -181,7 +199,7 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The credit consumption multiplier (rate). A null value indicates that the model does not participate in credit-based billing.
+   * The credit consumption multiplier (rate). An empty value indicates that the model does not participate in credit-based billing.
    */
   creditMultiplier?: ListLlmTemplatesResponseBodyDataCreditMultiplier;
   /**
@@ -228,7 +246,7 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   llmTemplateId?: string;
   /**
    * @remarks
-   * The model information, including context window size and maximum input/output tokens.
+   * The model information, such as context window size and maximum input/output tokens.
    */
   modelInfo?: { [key: string]: any };
   /**
@@ -241,7 +259,7 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of price information.
+   * The list of pricing information.
    */
   prices?: ListLlmTemplatesResponseBodyDataPrices[];
   /**
@@ -255,16 +273,25 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The publish time in ISO 8601 format, such as 2026-03-04T06:25:17.000+00:00.
+   * 
+   * @example
+   * 2026-03-04T06:25:17.000+00:00
    */
   publishedTime?: string;
   /**
    * @remarks
-   * The authorization scope of the associated model group. Valid values: ALL_USER (all users), USER_MIXED (specified users and user groups), RESOURCE_MIXED (specified resources). Returned only when SmartModel is set to true.
+   * The authorization scope of the model group. Valid values: ALL_USER (all users), USER_MIXED (specified users and user groups), and RESOURCE_MIXED (specified resources). Returned only when SmartModel is true.
+   * 
+   * @example
+   * ALL_USER
    */
   refScope?: string;
   /**
    * @remarks
-   * The number of route policies configured under this model tier. Returned only when SmartModel is set to true. Returns 0 for tiers without configured policies.
+   * The number of routing policies configured under this model tier. Returned only when SmartModel is true. Returns 0 for tiers with no configured policies.
+   * 
+   * @example
+   * 1
    */
   routePolicyCount?: number;
   static names(): { [key: string]: string } {
@@ -339,7 +366,7 @@ export class ListLlmTemplatesResponseBody extends $dara.Model {
   data?: ListLlmTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The current page number of the query results.
+   * The page number of the current query results.
    * 
    * @example
    * 1

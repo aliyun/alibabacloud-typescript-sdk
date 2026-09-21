@@ -13,7 +13,7 @@ export class CreateImageByInstanceResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The task ID for creating the image.
+   * The ID of the image creation task.
    * 
    * @example
    * tid-0abxi0lbih******
@@ -84,7 +84,7 @@ export class CreateImageByInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

@@ -7,6 +7,9 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
    * @remarks
    * The total number of subscription nodes after the upgrade.
    * 
+   * > 
+   * > - This value must be greater than the current number of purchased nodes (Amount) in the delivery group. Otherwise, the API returns InvalidAmount.UnIncrease.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,7 +18,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The subscription node modification mode.
+   * The modification mode for subscription nodes.
    * 
    * @example
    * EXPAND_FROM_POST_PAID_EXPLICIT
@@ -57,7 +60,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
 export class ModifyNodePoolAmountRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID.
+   * The ID of the delivery group.
    * 
    * This parameter is required.
    * 

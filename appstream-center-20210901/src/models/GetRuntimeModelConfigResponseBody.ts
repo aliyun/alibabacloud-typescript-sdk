@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCreditMultiplier extends $dara.Model {
   /**
    * @remarks
-   * The maximum multiplier. An empty value indicates no upper limit. For example, Min=1 with an empty Max is displayed as 1x and above.
+   * The maximum multiplier. A null value indicates no upper limit. For example, Min=1 with a null Max is displayed as 1x and above.
+   * 
+   * @example
+   * 3
    */
   max?: number;
   /**
    * @remarks
-   * The minimum multiplier. When equal to Max, it is a fixed multiplier. For example, Min=Max=2 is displayed as 2x.
+   * The minimum multiplier. When equal to Max, the multiplier is fixed. For example, Min=Max=2 is displayed as 2x.
+   * 
+   * @example
+   * 2
    */
   min?: number;
   static names(): { [key: string]: string } {
@@ -79,7 +85,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListIn
 export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList extends $dara.Model {
   /**
    * @remarks
-   * The credit consumption multiplier. An empty value indicates the model does not participate in credit-based billing.
+   * The credit consumption multiplier. A null value indicates that the model does not participate in credit-based billing.
    */
   creditMultiplier?: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCreditMultiplier;
   /**
@@ -87,7 +93,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
    * The model description.
    * 
    * @example
-   * Qwen3.6原生视觉语言系列Plus模型，展现出与当前顶尖前沿模型相媲美的卓越性能，模型效果相较3.5系列显著提升。模型在Agentic coding、前端编程、Vibe coding等代码能力、多模态万物识别、OCR、物体定位等能力上显著增强
+   * The Qwen3.6 native vision-language series Plus model demonstrates outstanding performance comparable to current top frontier models, with significant improvements over the 3.5 series. The model features significantly enhanced capabilities in agentic coding, frontend programming, vibe coding, multimodal universal recognition, OCR, and object localization
    */
   description?: string;
   /**
@@ -268,7 +274,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   modelTemplateName?: string;
   /**
    * @remarks
-   * The model template association type (returned only when present).
+   * The model template association type (only when present).
    * 
    * @example
    * Runtime

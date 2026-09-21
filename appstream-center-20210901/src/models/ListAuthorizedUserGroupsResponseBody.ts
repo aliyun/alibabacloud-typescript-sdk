@@ -13,6 +13,14 @@ export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model 
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The ID of the delivery group set.
+   * 
+   * @example
+   * set-3jm9d0abc00example
+   */
+  appInstanceGroupSetId?: string;
+  /**
+   * @remarks
    * The authorization mode.
    * 
    * @example
@@ -32,12 +40,13 @@ export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model 
    * The name of the user group.
    * 
    * @example
-   * 用户组001
+   * UserGroup001
    */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceGroupSetId: 'AppInstanceGroupSetId',
       authMode: 'AuthMode',
       groupId: 'GroupId',
       groupName: 'GroupName',
@@ -47,6 +56,7 @@ export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       appInstanceGroupId: 'string',
+      appInstanceGroupSetId: 'string',
       authMode: 'string',
       groupId: 'string',
       groupName: 'string',
@@ -89,7 +99,7 @@ export class ListAuthorizedUserGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 6

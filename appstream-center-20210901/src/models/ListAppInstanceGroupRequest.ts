@@ -45,7 +45,7 @@ export class ListAppInstanceGroupRequestTag extends $dara.Model {
 export class ListAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The application image ID. You can obtain this value from the Image Management page in the WUYING Cloud Application console.
+   * The application image ID. You can obtain this value from the Image Management page in the WUYING Workspace console.
    * 
    * @example
    * img-8z4nztpaqvay4****
@@ -61,10 +61,10 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The delivery group name. Fuzzy matching is used for the query. For example, if you set the delivery group name to `OfficeApp`, all delivery groups whose names contain `OfficeApp` are returned, such as `MyOfficeApp` and `OfficeAppA`.
+   * The delivery group name. Fuzzy match is used for the query. For example, if you set the delivery group name to `OfficeApp`, all delivery groups whose names contain `OfficeApp` are returned, such as `MyOfficeApp` and `OfficeAppA`.
    * 
    * @example
-   * 办公应用
+   * OfficeApp
    */
   appInstanceGroupName?: string;
   /**
@@ -76,6 +76,9 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
    */
   bizRegionId?: string;
   /**
+   * @remarks
+   * The list of excluded authorized user group IDs.
+   * 
    * **if can be null:**
    * true
    */
@@ -146,6 +149,9 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
    */
   tag?: ListAppInstanceGroupRequestTag[];
   /**
+   * @remarks
+   * The list of authorized user group IDs.
+   * 
    * **if can be null:**
    * true
    */

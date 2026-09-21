@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWuyingServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the development workstation.
+   * The ID of the development host.
    * 
    * This parameter is required.
    * 

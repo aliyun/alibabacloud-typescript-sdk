@@ -29,7 +29,7 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   gpuMemory?: number;
   /**
    * @remarks
-   * The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary by resource specification. The valid values for each resource specification are as follows:
+   * The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected at the same time, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
    * 
    * - appstreaming.general.2c4g: 1
    * - appstreaming.general.4c8g: 1 to 2
@@ -81,7 +81,7 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
    * The resource specification name.
    * 
    * @example
-   * WUYING-General-purpose_4vCPU8GB.
+   * WUYING-General-purpose_4vCPU8GB
    */
   nodeTypeName?: string;
   static names(): { [key: string]: string } {

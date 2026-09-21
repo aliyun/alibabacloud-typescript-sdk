@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOtaTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID.
+   * The delivery group ID. You can call ListAppInstanceGroup to obtain the ID.
    * 
    * This parameter is required.
    * 

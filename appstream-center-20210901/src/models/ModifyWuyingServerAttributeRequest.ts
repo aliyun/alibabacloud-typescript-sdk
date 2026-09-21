@@ -5,12 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWuyingServerAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable dedicated eRDMA network interfaces. Only true is supported.
+   * 
+   * @example
+   * true
+   */
+  erdmaEnabled?: boolean;
+  /**
+   * @remarks
    * The logon password of the workstation.
    * 
    * @example
    * yourPassword
    */
   password?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * @example
+   * WuyingServer
+   */
   productType?: string;
   /**
    * @remarks
@@ -30,6 +45,7 @@ export class ModifyWuyingServerAttributeRequest extends $dara.Model {
   wuyingServerName?: string;
   static names(): { [key: string]: string } {
     return {
+      erdmaEnabled: 'ErdmaEnabled',
       password: 'Password',
       productType: 'ProductType',
       wuyingServerId: 'WuyingServerId',
@@ -39,6 +55,7 @@ export class ModifyWuyingServerAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      erdmaEnabled: 'boolean',
       password: 'string',
       productType: 'string',
       wuyingServerId: 'string',

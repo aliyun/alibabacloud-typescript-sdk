@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelProviderTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The Agent platform.
+   * The agent platform.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class ListModelProviderTemplatesRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The Agent provider name.
+   * The name of the agent provider.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListModelProviderTemplatesRequest extends $dara.Model {
   agentProvider?: string;
   /**
    * @remarks
-   * The business type.
+   * The business type. Not all business types are supported. Only business types within the supported range are valid. Refer to the listed enumeration values.
    * 
    * This parameter is required.
    * 

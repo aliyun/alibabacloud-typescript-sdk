@@ -6,6 +6,9 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentImInfo extends $dara.Mo
   /**
    * @remarks
    * The agent IM online status (Online/Offline). Default value: Offline.
+   * 
+   * @example
+   * Online
    */
   agentImOnlineStatus?: string;
   /**
@@ -68,17 +71,23 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentInstanceInfoList extend
   agentInstanceVersion?: string;
   /**
    * @remarks
-   * The agent platform (enum name, such as ENTERPRISE, JVS, or ENTERPRISE_JVS).
+   * The agent platform.
+   * 
+   * @example
+   * ENTERPRISE_AGENTIC_COMPUTER
    */
   agentPlatform?: string;
   /**
    * @remarks
-   * The agent provider (enum name, such as OPEN_CLAW or HERMES_AGENT).
+   * The agent provider.
+   * 
+   * @example
+   * AgenticComputer
    */
   agentProvider?: string;
   /**
    * @remarks
-   * Indicates whether a third-party channel has been configured for the agent instance.
+   * Indicates whether the agent instance has a third-party channel configured.
    * 
    * @example
    * true
@@ -99,7 +108,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentInstanceInfoList extend
   deploymentSource?: string;
   /**
    * @remarks
-   * Indicates whether a model has been configured for the agent instance.
+   * Indicates whether the agent instance has a model configured.
    * 
    * @example
    * true
@@ -204,7 +213,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataRiskInfo extends $dara.Model
   agentUninstalled?: boolean;
   /**
    * @remarks
-   * Indicates whether the third-party channel configuration has been modified (inconsistent with the administrator-distributed configuration).
+   * Indicates whether the third-party channel configuration has been modified (inconsistent with the configuration distributed by the administrator).
    * 
    * @example
    * true
@@ -212,7 +221,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataRiskInfo extends $dara.Model
   channelModified?: boolean;
   /**
    * @remarks
-   * Indicates whether the model configuration has been modified (inconsistent with the administrator-distributed configuration).
+   * Indicates whether the model configuration has been modified (inconsistent with the configuration distributed by the administrator).
    * 
    * @example
    * true
@@ -261,7 +270,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   authUsers?: string[];
   /**
    * @remarks
-   * Indicates whether a third-party channel has been configured for the agent runtime.
+   * Indicates whether a third-party channel is configured for the agent runtime.
    * 
    * @example
    * true
@@ -306,12 +315,12 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   hasAuthUser?: boolean;
   /**
    * @remarks
-   * The management status list, parsed from the managementStatus composite value.
+   * The management status list, parsed from the managementStatus combined value.
    */
   managementStatuses?: string[];
   /**
    * @remarks
-   * Indicates whether a model has been configured for the agent runtime.
+   * Indicates whether a model is configured for the agent runtime.
    * 
    * @example
    * true
@@ -356,7 +365,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The region location (the Chinese mainland or outside China).
+   * The region location (the Chinese mainland or outside the Chinese mainland).
    * 
    * @example
    * Mainland

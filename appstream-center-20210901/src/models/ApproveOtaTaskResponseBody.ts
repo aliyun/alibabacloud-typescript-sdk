@@ -13,7 +13,7 @@ export class ApproveOtaTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This parameter is not returned when `Code` is `success`.
+   * The error message. This parameter is not returned if `Code` is `success`.
    * 
    * @example
    * The task is running and cannot be sumitted.

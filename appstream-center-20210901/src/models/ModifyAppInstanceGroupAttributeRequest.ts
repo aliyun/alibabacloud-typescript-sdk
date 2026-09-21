@@ -75,7 +75,7 @@ export class ModifyAppInstanceGroupAttributeRequestNetwork extends $dara.Model {
 export class ModifyAppInstanceGroupAttributeRequestNodePool extends $dara.Model {
   /**
    * @remarks
-   * The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid value range varies depending on the resource specification. You can call the ListNodeInstanceType operation to obtain the valid value range for each resource specification.
+   * The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. Too many simultaneous sessions may degrade the application experience. The valid value range varies depending on the resource specification. You can call the ListNodeInstanceType operation to obtain the valid value range for each resource specification.
    * 
    * @example
    * 2
@@ -123,7 +123,7 @@ export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $dara.
   resetAfterUnbind?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip user authorization verification.
+   * Specifies whether to skip user authorization check.
    * 
    * @example
    * false
@@ -193,7 +193,21 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile exte
 }
 
 export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow extends $dara.Model {
+  /**
+   * @remarks
+   * The file system ID.
+   * 
+   * @example
+   * file-0001
+   */
   fileSystemId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable user data roaming.
+   * 
+   * @example
+   * true
+   */
   profileFollowSwitch?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -229,6 +243,10 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $dara.M
    * The user data roaming configuration.
    */
   userProfile?: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile;
+  /**
+   * @remarks
+   * The user data roaming configuration.
+   */
   userProfileFollow?: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow;
   static names(): { [key: string]: string } {
     return {
@@ -280,7 +298,7 @@ export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
    * The delivery group name.
    * 
    * @example
-   * 办公应用
+   * OfficeApp
    */
   appInstanceGroupName?: string;
   /**
@@ -297,7 +315,7 @@ export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
   nodePool?: ModifyAppInstanceGroupAttributeRequestNodePool;
   /**
    * @remarks
-   * Specifies whether only one application can be opened per session.
+   * Specifies whether to allow only one application per session.
    * - If enabled, opening multiple applications within the delivery group allocates a separate session for each application, consuming more sessions.
    * 
    * @example
@@ -306,7 +324,7 @@ export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
   perSessionPerApp?: boolean;
   /**
    * @remarks
-   * The AppId of the pre-open application. If the `PreOpenMode` parameter is set to `SINGLE_APP`, the `PreOpenAppId` parameter cannot be an empty string.
+   * The AppId of the pre-open application. If the PreOpenMode parameter is set to `SINGLE_APP`, PreOpenAppId cannot be an empty string.
    * 
    * @example
    * ca-b2ronxxd****
@@ -337,7 +355,7 @@ export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
   securityPolicy?: ModifyAppInstanceGroupAttributeRequestSecurityPolicy;
   /**
    * @remarks
-   * The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the duration specified here before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
+   * The session retention duration after disconnection, in minutes. After an end user session is disconnected, the session is retained for the duration specified here before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
    * 
    * @example
    * 15

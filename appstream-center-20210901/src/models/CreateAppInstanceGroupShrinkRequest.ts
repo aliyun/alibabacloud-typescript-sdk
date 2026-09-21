@@ -18,7 +18,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    * The name of the delivery group.
    * 
    * @example
-   * 办公应用
+   * OfficeApp
    */
   appInstanceGroupName?: string;
   /**
@@ -66,7 +66,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The region ID of the delivery group. For information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
    * 
    * This parameter is required.
    * 
@@ -116,26 +116,26 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
   nodePoolShrink?: string;
   /**
    * @remarks
-   * The subscription duration of the resource when `ChargeType` is set to `PrePaid`. This parameter is required. The unit is specified by `PeriodUnit`.
+   * The duration for which you want to purchase resources when `ChargeType` is set to `PrePaid`. This parameter is required in this case. The unit is specified by `PeriodUnit`.
    * 
-   * - If `PeriodUnit` is set to `Week`, valid values:
+   * - If `PeriodUnit` is set to `Week`, valid values of this parameter:
    * 
    *    - 1
    * 
-   * - If `PeriodUnit` is set to `Month`, valid values:
+   * - If `PeriodUnit` is set to `Month`, valid values of this parameter:
    * 
    *    - 1
    *    - 2
    *    - 3
    *    - 6
    * 
-   * - If `PeriodUnit` is set to `Year`, valid values:
+   * - If `PeriodUnit` is set to `Year`, valid values of this parameter:
    * 
    *    - 1
    *    - 2
    *    - 3
    * 
-   * > If `ChargeType` is set to `PostPaid`, set this parameter to 1.
+   * > When `ChargeType` is set to `PostPaid`, set this parameter to the fixed value 1.
    * 
    * This parameter is required.
    * 
@@ -147,10 +147,10 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The unit of the subscription duration when `ChargeType` is set to `PrePaid`.
    * 
-   * > This parameter is case-sensitive. For example, `Week` is valid, but `week` is not.
-   * If the request parameters do not match the valid combinations, such as `2 Week`, the API call succeeds but an error occurs during the order placement.
+   * > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid.
+   * In addition, if the request parameters do not match the valid combinations, such as `2 Week`, the API call succeeds but an error occurs during the order placement phase.
    * 
-   * > If `ChargeType` is set to `PostPaid`, set this parameter to `Month`.
+   * > When `ChargeType` is set to `PostPaid`, set this parameter to the fixed value `Month`.
    * 
    * This parameter is required.
    * 
@@ -160,7 +160,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The pre-opened AppId.
+   * The pre-opened application ID.
    * 
    * @example
    * cag-b2ronxxd****
@@ -196,7 +196,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
   securityPolicyShrink?: string;
   /**
    * @remarks
-   * The application recycling time, in minutes. After an end user disconnects from the cloud application for a period of time, the cloud application process exits. This period is the application recycling time. Set this parameter to `-1` if you do not want to recycle the application. Valid values: -1 and 3 to 300 (integer). Default value: `15`.
+   * The application recycling time, in minutes. After an end user disconnects from a cloud application for a period of time, the cloud application process exits. This period is the application recycling time. Set this parameter to `-1` if you do not want to recycle the application. Valid values: -1 and 3 to 300 (integer). Default value: `15`.
    * 
    * This parameter is required.
    * 
@@ -232,12 +232,12 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
   userGroupIds?: string[];
   /**
    * @remarks
-   * The user information to be added to the delivery group as assigned users. This field is required if the `Users` parameter is specified.
+   * The information about the users to be added as assigned users of the delivery group. This parameter is required if the `Users` parameter is specified.
    */
   userInfoShrink?: string;
   /**
    * @remarks
-   * The list of usernames to be added to the delivery group as assigned users.
+   * The list of usernames to be added as assigned users of the delivery group.
    */
   users?: string[];
   /**

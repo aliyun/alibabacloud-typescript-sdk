@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateImageByInstanceRequestTagList extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Group
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,7 @@ export class CreateImageByInstanceRequestTagList extends $dara.Model {
 export class CreateImageByInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter applies only to Cloud Desktop scenarios. Specifies whether to clear user personal data. If set to true, the created image clears data in all directories under C:\\Users except Administrator and Public.
+   * This parameter is currently applicable only to cloud desktop scenarios. Specifies whether to clear user personal data. If you set this parameter to true, the created image clears data in all directories under C:\\Users except the Administrator and Public directories.
    * 
    * @example
    * false
@@ -45,6 +59,13 @@ export class CreateImageByInstanceRequest extends $dara.Model {
    * 1
    */
   bizType?: number;
+  /**
+   * @remarks
+   * Specifies whether to copy user profile data.
+   * 
+   * @example
+   * false
+   */
   copyProfile?: boolean;
   /**
    * @remarks
@@ -56,7 +77,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of disk data included in the image. By default, both the system cloud disk and data cloud disk of the instance are included.
+   * The type of disk data included in the image. By default, the image includes both the system cloud disk and data cloud disk of the instance.
    * 
    * @example
    * ALL
@@ -72,7 +93,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The WUYING instance ID. The instance can be a Cloud Desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before creating the image.
+   * The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before creating the image.
    * 
    * @example
    * ws-0buj1s9gm******
@@ -96,12 +117,16 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The sub-instance ID. This parameter does not apply to Cloud Desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
+   * The sub-instance ID. This parameter does not apply to cloud desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
    * 
    * @example
    * p-0cc7s3n1l*****
    */
   subInstanceId?: string;
+  /**
+   * @remarks
+   * The tag list.
+   */
   tagList?: CreateImageByInstanceRequestTagList[];
   static names(): { [key: string]: string } {
     return {

@@ -24,7 +24,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $
    * The application name.
    * 
    * @example
-   * 办公应用
+   * OfficeApp
    */
   appName?: string;
   /**
@@ -40,7 +40,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $
    * The application version name.
    * 
    * @example
-   * 初始版本
+   * InitialVersion
    */
   appVersionName?: string;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules extends $dara.Model {
   /**
    * @remarks
-   * The type of the policy execution cycle. You must specify both `RecurrenceType` and `RecurrenceValues`.
+   * The type of the policy execution cycle. You must specify both `RecurrenceType` and `RecurrenceValues` at the same time.
    * 
    * @example
    * Weekly
@@ -183,7 +183,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   amount?: number;
   /**
    * @remarks
-   * The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the idle sessions are considered sufficient and no automatic scale-out occurs. This parameter allows flexible control over elastic scaling behavior and helps reduce costs.
+   * The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the current delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the delivery group is considered to have sufficient idle sessions and automatic scale-out is not triggered. This parameter provides flexible control over elastic scaling behavior and helps reduce costs.
    * 
    * @example
    * 3
@@ -207,7 +207,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   nodeAmount?: number;
   /**
    * @remarks
-   * The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary by resource specification:
+   * The number of concurrent sessions, which is the number of sessions that a single resource can handle simultaneously. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
    * 
    * - appstreaming.general.4c8g: 1 to 2.
    * - appstreaming.general.8c16g: 1 to 4.
@@ -221,7 +221,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   nodeCapacity?: number;
   /**
    * @remarks
-   * The instance type ID of the purchased resource.
+   * The specification type ID of the purchased resource.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
@@ -240,7 +240,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
    * The resource specification name.
    * 
    * @example
-   * 无影-通用型_4核8G
+   * WUYING-General_4vCPU8GiB
    */
   nodeTypeName?: string;
   /**
@@ -282,7 +282,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   scalingNodeUsed?: number;
   /**
    * @remarks
-   * The number of resources created during each scale-out operation. Valid values: 1 to 10.
+   * The number of resources created per scale-out operation. Valid values: 1 to 10.
    * 
    * @example
    * 2
@@ -290,7 +290,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   scalingStep?: number;
   /**
    * @remarks
-   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: `Session usage = Current number of sessions ÷ (Total number of resources × Concurrent sessions per resource) × 100%`.
+   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The session usage is calculated as follows: `Session usage = Number of current sessions ÷ (Total number of resources × Concurrent sessions per resource) × 100%`.
    * 
    * @example
    * 85
@@ -536,12 +536,12 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    * The delivery group name.
    * 
    * @example
-   * 办公应用
+   * OfficeApp
    */
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The instance type of the delivery group.
+   * The specification type of the delivery group.
    * 
    * @example
    * __dynamic__
@@ -549,7 +549,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   appInstanceType?: string;
   /**
    * @remarks
-   * The name of the instance type of the delivery group.
+   * The name of the specification type of the delivery group.
    * 
    * @example
    * test001
@@ -594,10 +594,10 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   chargeType?: string;
   /**
    * @remarks
-   * The expiration time of the delivery group.
+   * The expiration time of the delivery group. The time is in ISO 8601 format, including milliseconds and time zone offset. Format: yyyy-MM-dd\\"T\\"HH:mm:ss.SSSXXX.
    * 
    * @example
-   * 2022-04-27T16:00:00.000+00:00
+   * 2026-09-24T16:00:00.000+00:00
    */
   expiredTime?: string;
   /**
@@ -708,7 +708,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   scalingDownAfterIdleMinutes?: number;
   /**
    * @remarks
-   * The number of sessions created during each scale-out operation. Minimum value: 1.
+   * The number of sessions created per scale-out operation. Minimum value: 1.
    * 
    * @example
    * 10
@@ -716,7 +716,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   scalingStep?: number;
   /**
    * @remarks
-   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: Session usage = Number of sessions in use ÷ Total number of sessions × 100%. Valid values: 0 to 99.
+   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The session usage is calculated as follows: Session usage = Number of sessions in use ÷ Total number of sessions × 100%. Valid values: 0 to 99.
    * 
    * @example
    * 85
@@ -724,7 +724,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   scalingUsageThreshold?: string;
   /**
    * @remarks
-   * The session disconnection retention duration, in minutes. After a session is disconnected from the end user, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
+   * The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
    * 
    * @example
    * 15
@@ -740,7 +740,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   sessionType?: string;
   /**
    * @remarks
-   * Specifies whether to skip user authorization verification.
+   * Indicates whether user authorization verification is skipped.
    * 
    * @example
    * false
@@ -762,6 +762,10 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    * PUBLISHED
    */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether mixed authorization of users and user groups is supported.
+   */
   supportUserGroupMixedAuth?: boolean;
   /**
    * @remarks
@@ -769,6 +773,9 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    */
   tags?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags[];
   /**
+   * @remarks
+   * The user and user group authorization mode.
+   * 
    * @example
    * Mixed
    */

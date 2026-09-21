@@ -30,6 +30,9 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   /**
    * @remarks
    * The avatar ID.
+   * 
+   * @example
+   * default
    */
   avatarId?: string;
   /**
@@ -82,8 +85,8 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The credentials for connecting to the cloud application.
-   * > This parameter is returned only on non-initial calls.
+   * The credential for connecting to the cloud application.
+   * > This parameter is returned only for non-initial calls.
    * 
    * @example
    * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDAva09ROW1FUTU3dU****

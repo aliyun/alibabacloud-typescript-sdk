@@ -11,6 +11,13 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * The billing type.
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
   /**
    * @remarks
@@ -30,12 +37,19 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   gpu?: number;
   /**
    * @remarks
-   * The GPU memory size. This parameter is meaningful for GPU-accelerated cloud desktops. Unit: MB.
+   * The GPU memory size. This value is meaningful for GPU-accelerated cloud desktops. Unit: MB.
    * 
    * @example
    * 2048
    */
   gpuMemory?: number;
+  /**
+   * @remarks
+   * The current specification of the instance for specification change.
+   * 
+   * @example
+   * eds.proworkstation_flagship_elite_ne.32c64g.48g1x
+   */
   instanceTypeForModify?: string;
   /**
    * @remarks
@@ -77,6 +91,13 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
    * CPU
    */
   orderBy?: string;
+  /**
+   * @remarks
+   * The specification change type.
+   * 
+   * @example
+   * UPGRADE
+   */
   orderType?: string;
   /**
    * @remarks

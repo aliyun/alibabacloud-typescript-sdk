@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * The access type. If you do not specify this parameter, both types are displayed.
-   * 
-   * Valid values:
-   * - INTERNET: Internet access.
-   * - VPC: Express Connect access.
+   * The access type.
    * 
    * @example
    * INTERNET
@@ -32,10 +28,18 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * @remarks
    * The list of delivery groups.
    * 
-   * > - If you specify this parameter, application instances are allocated only from the specified authorized delivery groups.
+   * > - If you specify this parameter, application instances are allocated only from the specified and authorized delivery groups.
    * > - If you specify the `AppInstanceId` or `AppInstancePersistentId` parameter, this parameter is required.
    */
   appInstanceGroupIdList?: string[];
+  /**
+   * @remarks
+   * The delivery group set ID used to obtain the connection credential.
+   * 
+   * @example
+   * set-3jm9d0abc00example
+   */
+  appInstanceGroupSetId?: string;
   /**
    * @remarks
    * The application instance ID.
@@ -56,10 +60,17 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * p-0bxls9m3cl7s****
    */
   appInstancePersistentId?: string;
+  /**
+   * @remarks
+   * The policy ID.
+   * 
+   * @example
+   * pg-0clfzcy0adpcf****
+   */
   appPolicyId?: string;
   /**
    * @remarks
-   * The application startup parameter. For information about how to obtain startup parameters, see [How to obtain application installation parameters and startup parameters](https://help.aliyun.com/document_detail/426045.html).
+   * The application startup parameter. This parameter is optional. You can refer to the method for specifying startup parameters in the image creation documentation and manually verify the startup parameters during image creation. This field is suitable for startup parameters with variable content, allowing API callers to set them flexibly. For more information about how to obtain startup parameters, see [How to obtain application installation parameters and startup parameters](https://help.aliyun.com/document_detail/426045.html).
    * 
    * @example
    * /q /n
@@ -96,6 +107,9 @@ export class GetConnectionTicketRequest extends $dara.Model {
   /**
    * @remarks
    * The environment configuration.
+   * 
+   * @example
+   * {"userConfigReenter":"NATIVE"}
    */
   environmentConfig?: string;
   /**
@@ -110,9 +124,9 @@ export class GetConnectionTicketRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The task ID.
+   * The node ID.
    * 
-   * > This parameter is required for non-initial calls. Use this parameter to query the task status and connection credentials.
+   * > This parameter is required for non-initial calls. Use this parameter query to invoke the node status and connection credential retrieval.
    * 
    * @example
    * 28778acb-a469-4bc0-8e0f****
@@ -123,6 +137,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
       accessType: 'AccessType',
       appId: 'AppId',
       appInstanceGroupIdList: 'AppInstanceGroupIdList',
+      appInstanceGroupSetId: 'AppInstanceGroupSetId',
       appInstanceId: 'AppInstanceId',
       appInstancePersistentId: 'AppInstancePersistentId',
       appPolicyId: 'AppPolicyId',
@@ -141,6 +156,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
       accessType: 'string',
       appId: 'string',
       appInstanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      appInstanceGroupSetId: 'string',
       appInstanceId: 'string',
       appInstancePersistentId: 'string',
       appPolicyId: 'string',

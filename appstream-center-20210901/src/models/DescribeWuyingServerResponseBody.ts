@@ -47,7 +47,7 @@ export class DescribeWuyingServerResponseBodyDataPrivateIpSets extends $dara.Mod
 export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth. Unit: Mbit/s.
+   * The bandwidth size, in Mbit/s.
    * 
    * @example
    * 10
@@ -71,15 +71,15 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the workstation was created.
+   * The creation time, in US English date and time format with a 12-hour clock.
    * 
    * @example
-   * 2026-01-01T00:00:00Z
+   * Sep 2, 2026 1:46:41 PM
    */
   createTime?: string;
   /**
    * @remarks
-   * The maximum number of private IP addresses per ENI, including the primary IP address.
+   * The maximum number of private IP addresses per NIC, including the primary IP address.
    * 
    * @example
    * 10
@@ -87,10 +87,10 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   eniPrivateIpAddressQuantity?: number;
   /**
    * @remarks
-   * The time when the workstation expires.
+   * The expiration time, in US English date and time format with a 12-hour clock.
    * 
    * @example
-   * 2027-01-01T00:00:00Z
+   * Oct 3, 2026 12:00:00 AM
    */
   expiredTime?: string;
   /**
@@ -130,7 +130,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
    * The workspace name.
    * 
    * @example
-   * Default Workspace.
+   * Default Workspace
    */
   officeSiteName?: string;
   /**
@@ -156,12 +156,20 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   privateIpSets?: DescribeWuyingServerResponseBodyDataPrivateIpSets[];
   /**
    * @remarks
-   * The status of the development workstation.
+   * The status of the development host.
    * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * Whether ASP streaming connection is supported.
+   * 
+   * @example
+   * true
+   */
+  supportASP?: boolean;
   /**
    * @remarks
    * The type of the system cloud disk.
@@ -172,7 +180,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The size of the system cloud disk. Unit: GB.
+   * The size of the system cloud disk, in GB.
    * 
    * @example
    * 80
@@ -180,7 +188,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * The ID of the development workstation.
+   * The ID of the development host.
    * 
    * @example
    * aig-bp1234567890abcde
@@ -188,7 +196,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   wuyingServerId?: string;
   /**
    * @remarks
-   * The name of the development workstation.
+   * The name of the development host.
    * 
    * @example
    * my-dev-server
@@ -211,6 +219,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
       osType: 'OsType',
       privateIpSets: 'PrivateIpSets',
       status: 'Status',
+      supportASP: 'SupportASP',
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskSize: 'SystemDiskSize',
       wuyingServerId: 'WuyingServerId',
@@ -235,6 +244,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
       osType: 'string',
       privateIpSets: { 'type': 'array', 'itemType': DescribeWuyingServerResponseBodyDataPrivateIpSets },
       status: 'string',
+      supportASP: 'boolean',
       systemDiskCategory: 'string',
       systemDiskSize: 'number',
       wuyingServerId: 'string',
@@ -257,7 +267,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
 export class DescribeWuyingServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the development workstation.
+   * The details of the development host.
    */
   data?: DescribeWuyingServerResponseBodyData;
   /**

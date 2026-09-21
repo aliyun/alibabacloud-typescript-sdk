@@ -65,7 +65,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
   providerType?: string;
   /**
    * @remarks
-   * The WUYING secure gateway proxy ProviderKey.
+   * The ProviderKey of the WUYING secure gateway proxy.
    * 
    * @example
    * wuying-key-12345
@@ -114,7 +114,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   data?: ListModelProviderTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The current page number of the query results.
+   * The page number of the current query result.
    * 
    * @example
    * 1
@@ -122,7 +122,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in the query result.
    * 
    * @example
    * 20

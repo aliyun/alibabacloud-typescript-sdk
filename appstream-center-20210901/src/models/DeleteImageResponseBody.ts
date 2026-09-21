@@ -7,8 +7,8 @@ export class DeleteImageResponseBody extends $dara.Model {
    * @remarks
    * The status code. Valid values:
    * 
-   * - `200`: Success.
-   * - `400`: Error.
+   * - `200`: Succeeded.
+   * - `400`: Failed.
    * 
    * @example
    * 200
@@ -16,10 +16,7 @@ export class DeleteImageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the deletion is successful. Valid values:
-   * 
-   * - true: Deletion succeeded.
-   * - false: Deletion failed.
+   * Indicates whether the deletion was successful.
    * 
    * @example
    * true
@@ -43,7 +40,7 @@ export class DeleteImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

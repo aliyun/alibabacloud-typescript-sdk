@@ -7,12 +7,18 @@ export class ListAuthorizedUserGroupsRequest extends $dara.Model {
    * @remarks
    * The ID of the delivery group.
    * 
-   * This parameter is required.
-   * 
    * @example
    * aig-9ciijz60n4xsv****
    */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the delivery group set. You must specify either AppInstanceGroupSetId or AppInstanceGroupId, but not both.
+   * 
+   * @example
+   * set-3jm9d0abc00example
+   */
+  appInstanceGroupSetId?: string;
   /**
    * @remarks
    * The ID of the user group. This parameter is used for exact match.
@@ -26,7 +32,7 @@ export class ListAuthorizedUserGroupsRequest extends $dara.Model {
    * The name of the user group. This parameter is used for fuzzy match.
    * 
    * @example
-   * 用户组001
+   * UserGroup001
    */
   groupName?: string;
   /**
@@ -62,6 +68,7 @@ export class ListAuthorizedUserGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceGroupSetId: 'AppInstanceGroupSetId',
       groupId: 'GroupId',
       groupName: 'GroupName',
       pageNumber: 'PageNumber',
@@ -73,6 +80,7 @@ export class ListAuthorizedUserGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appInstanceGroupId: 'string',
+      appInstanceGroupSetId: 'string',
       groupId: 'string',
       groupName: 'string',
       pageNumber: 'number',

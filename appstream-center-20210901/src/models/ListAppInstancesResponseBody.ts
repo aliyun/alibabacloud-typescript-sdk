@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $dara.Model {
   /**
    * @remarks
-   * The end user ID bound to the instance.
+   * The ID of the end user bound to the instance.
    * 
    * @example
    * app.test
@@ -66,9 +66,9 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   bindInfo?: ListAppInstancesResponseBodyAppInstanceModelsBindInfo;
   /**
    * @remarks
-   * The billing type of the instance. Valid values:
-   * - **PrePaid**: subscription (prepaid).
-   * - **PostPaid**: pay-as-you-go (postpaid).
+   * The billing method of the instance. Valid values:
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * > This parameter is returned only when the billing mode of the delivery group to which this instance belongs is resource-based billing (ChargeResourceMode=Node).
    * 
    * @example
@@ -99,7 +99,21 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
    * 10.13.13.211
    */
   mainEthPublicIp?: string;
+  /**
+   * @remarks
+   * The NIC ID of the instance.
+   * 
+   * @example
+   * eni-2ze1jetnxkm***qq7i
+   */
   networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The private IP address of the egress traffic NIC.
+   * 
+   * @example
+   * 192.168.12.32
+   */
   networkInterfaceIp?: string;
   /**
    * @remarks
@@ -180,7 +194,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   appInstanceModels?: ListAppInstancesResponseBodyAppInstanceModels[];
   /**
    * @remarks
-   * The page number of the query results to display. Specify this parameter.
+   * The page number of the query results to display. We recommend that you specify this parameter.
    * 
    * @example
    * 1
@@ -188,7 +202,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of query results per page. Maximum value: `100`. Specify this parameter.
+   * The number of query results per page. Maximum value: `100`. We recommend that you specify this parameter.
    * 
    * @example
    * 10

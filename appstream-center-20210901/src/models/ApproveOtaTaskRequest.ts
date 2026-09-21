@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApproveOtaTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain this value.
+   * The delivery group ID. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class ApproveOtaTaskRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The OTA upgrade task ID. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain this value.
+   * The OTA upgrade task ID. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the ID.
    * 
    * > Each successful call to `ApproveOtaTask` causes the `TaskId` to change. Therefore, before calling this operation again, call `ListAppInstanceGroup` again to obtain the latest `TaskId`.
    * 
