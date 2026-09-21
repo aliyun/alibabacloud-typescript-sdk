@@ -3231,6 +3231,10 @@ export default class Client extends OpenApi {
       body["description"] = request.description;
     }
 
+    if (!$dara.isNull(request.renames)) {
+      body["renames"] = request.renames;
+    }
+
     if (!$dara.isNull(request.schema)) {
       body["schema"] = request.schema;
     }

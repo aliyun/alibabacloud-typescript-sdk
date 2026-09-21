@@ -3,6 +3,46 @@ import * as $dara from '@darabonba/typescript';
 import { IndexKey } from "./IndexKey";
 
 
+export class UpdateDatasetRequestRenames extends $dara.Model {
+  /**
+   * @remarks
+   * The new field name.
+   * 
+   * @example
+   * t2
+   */
+  newName?: string;
+  /**
+   * @remarks
+   * The original field name.
+   * 
+   * @example
+   * t1
+   */
+  oldName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newName: 'newName',
+      oldName: 'oldName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newName: 'string',
+      oldName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDatasetRequest extends $dara.Model {
   /**
    * @remarks
@@ -12,6 +52,11 @@ export class UpdateDatasetRequest extends $dara.Model {
    * backend by serverless devs
    */
   description?: string;
+  /**
+   * @remarks
+   * The field renames for the dataset.
+   */
+  renames?: UpdateDatasetRequestRenames[];
   /**
    * @remarks
    * The table schema of the dataset.
@@ -28,6 +73,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      renames: 'renames',
       schema: 'schema',
       clientToken: 'clientToken',
     };
@@ -36,12 +82,16 @@ export class UpdateDatasetRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      renames: { 'type': 'array', 'itemType': UpdateDatasetRequestRenames },
       schema: { 'type': 'map', 'keyType': 'string', 'valueType': IndexKey },
       clientToken: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.renames)) {
+      $dara.Model.validateArray(this.renames);
+    }
     if(this.schema) {
       $dara.Model.validateMap(this.schema);
     }

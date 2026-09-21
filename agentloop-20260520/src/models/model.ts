@@ -86,6 +86,7 @@ export { PreviewPipelineResponseBodyMeta } from './PreviewPipelineResponseBody';
 export { RunPipelineRequestOutput } from './RunPipelineRequest';
 export { UpdateContextStoreRequestConfigSource } from './UpdateContextStoreRequest';
 export { UpdateContextStoreRequestConfig } from './UpdateContextStoreRequest';
+export { UpdateDatasetRequestRenames } from './UpdateDatasetRequest';
 export { UpdateEvaluatorSkillRequestFiles } from './UpdateEvaluatorSkillRequest';
 export { UpdatePipelineRequestExecutePolicyRunOnce } from './UpdatePipelineRequest';
 export { UpdatePipelineRequestExecutePolicyScheduled } from './UpdatePipelineRequest';
