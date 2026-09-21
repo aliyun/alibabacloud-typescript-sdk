@@ -4,20 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class DataQualityRuleCheckingConfigThresholdsCritical extends $dara.Model {
   /**
+   * @remarks
+   * The verification expression.
+   * 
    * @example
-   * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
+   * Used for fluctuation-type rules. The threshold is expressed through an expression. For example, fluctuation increase greater than 0.01: $checkValue > 0.01. Fluctuation decrease greater than 0.01: $checkValue < -0.01. Absolute value of fluctuation rate: abs($checkValue) > 0.01
    */
   expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
-   * 
-   * *   />
-   * *   />=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * - />
+   * - />=
+   * - <
+   * - <=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -58,20 +60,22 @@ export class DataQualityRuleCheckingConfigThresholdsCritical extends $dara.Model
 
 export class DataQualityRuleCheckingConfigThresholdsExpected extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
    * @example
-   * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
+   * Used for fluctuation-type rules. The threshold is expressed through an expression. For example, fluctuation increase greater than 0.01: $checkValue > 0.01. Fluctuation decrease greater than 0.01: $checkValue < -0.01. Absolute value of fluctuation rate: abs($checkValue) > 0.01
    */
   expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
-   * 
-   * *   />
-   * *   />=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * - />
+   * - />=
+   * - <
+   * - <=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -112,20 +116,22 @@ export class DataQualityRuleCheckingConfigThresholdsExpected extends $dara.Model
 
 export class DataQualityRuleCheckingConfigThresholdsWarned extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
    * @example
-   * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
+   * Used for fluctuation-type rules. The threshold is expressed through an expression. For example, fluctuation increase greater than 0.01: $checkValue > 0.01. Fluctuation decrease greater than 0.01: $checkValue < -0.01. Absolute value of fluctuation rate: abs($checkValue) > 0.01
    */
   expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
-   * 
-   * *   />
-   * *   />=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * - />
+   * - />=
+   * - <
+   * - <=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -167,17 +173,17 @@ export class DataQualityRuleCheckingConfigThresholdsWarned extends $dara.Model {
 export class DataQualityRuleCheckingConfigThresholds extends $dara.Model {
   /**
    * @remarks
-   * The threshold settings for critical alerts.
+   * The critical warning threshold settings.
    */
   critical?: DataQualityRuleCheckingConfigThresholdsCritical;
   /**
    * @remarks
-   * The expected threshold setting.
+   * The expected threshold settings.
    */
   expected?: DataQualityRuleCheckingConfigThresholdsExpected;
   /**
    * @remarks
-   * The threshold settings for normal alerts.
+   * The warning threshold settings.
    */
   warned?: DataQualityRuleCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
@@ -217,7 +223,7 @@ export class DataQualityRuleCheckingConfigThresholds extends $dara.Model {
 export class DataQualityRuleCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to indicate the query method of referenced samples.
+   * Some threshold types require querying reference samples and then aggregating the values of these samples to derive the comparison threshold. This parameter uses an expression to specify how to query the reference samples.
    * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
@@ -231,13 +237,12 @@ export class DataQualityRuleCheckingConfig extends $dara.Model {
   /**
    * @remarks
    * The threshold calculation method. Valid values:
-   * 
-   * *   Fixed
-   * *   Fluctation
-   * *   FluctationDiscreate
-   * *   Auto
-   * *   Average
-   * *   Variance
+   * - Fixed
+   * - Fluctation
+   * - FluctationDiscreate
+   * - Auto
+   * - Average
+   * - Variance
    * 
    * @example
    * Fixed
@@ -274,7 +279,7 @@ export class DataQualityRuleCheckingConfig extends $dara.Model {
 export class DataQualityRuleErrorHandlers extends $dara.Model {
   /**
    * @remarks
-   * The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * The SQL statement specified by the user to filter problematic data. This parameter is required for custom SQL rules.
    * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
@@ -282,9 +287,9 @@ export class DataQualityRuleErrorHandlers extends $dara.Model {
   errorDataFilter?: string;
   /**
    * @remarks
-   * The type of the operation. Valid values:
+   * The handler type. Valid values:
    * 
-   * *   SaveErrorData
+   * - SaveErrorData
    * 
    * @example
    * SaveErrorData
@@ -316,23 +321,22 @@ export class DataQualityRuleErrorHandlers extends $dara.Model {
 export class DataQualityRuleSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * The metrics used for sampling. Valid values:
-   * 
-   * *   Count: the number of rows in the table.
-   * *   Min: the minimum value of the field.
-   * *   Max: the maximum value of the field.
-   * *   Avg: the average value of the field.
-   * *   DistinctCount: the number of unique values of the field after deduplication.
-   * *   DistinctPercent: the percentage of the number of unique values of the field after deduplication to the number of rows in the table.
-   * *   DuplicatedCount: the number of duplicated values in the field.
-   * *   DuplicatedPercent: the percentage of the number of duplicated values of the field to the number of rows in the table.
-   * *   TableSize: the table size.
-   * *   NullValueCount: the number of rows in which the field is set to null.
-   * *   NullValuePercent: the percentage of the number of rows in which the field is set to null to the number of rows in the table.
-   * *   GroupCount: the field value and the number of rows for each field value.
-   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
-   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
-   * *   UserDefinedSql: indicates that the data is sampled by executing custom SQL statements.
+   * The sampling metric name. Valid values:
+   * - Count: the number of table rows.
+   * - Min: the minimum value of the field.
+   * - Max: the maximum value of the field.
+   * - Avg: the average value of the field.
+   * - DistinctCount: the number of unique values in the field.
+   * - DistinctPercent: the ratio of unique values to the total number of rows.
+   * - DuplicatedCount: the number of duplicate values in the field.
+   * - DuplicatedPercent: the ratio of duplicate values to the total number of rows.
+   * - TableSize: the table size.
+   * - NullValueCount: the number of rows where the field is null.
+   * - NullValuePercent: the percentage of rows where the field is null.
+   * - GroupCount: the number of rows for each value after aggregation by field value.
+   * - CountNotIn: the number of rows that do not match the enumerated values.
+   * - CountDistinctNotIn: the number of unique values that do not match the enumerated values.
+   * - UserDefinedSql: sample collection through a custom SQL statement.
    * 
    * @example
    * Min
@@ -340,7 +344,7 @@ export class DataQualityRuleSamplingConfig extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * The parameters required for sampling.
+   * The parameters required for sample collection.
    * 
    * @example
    * { "Columns": [ "id", "name" ] }
@@ -348,7 +352,7 @@ export class DataQualityRuleSamplingConfig extends $dara.Model {
   metricParameters?: string;
   /**
    * @remarks
-   * The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+   * The filter condition for secondary filtering of irrelevant data during sampling. The value can be up to 16,777,215 characters in length.
    * 
    * @example
    * id IS NULL
@@ -356,7 +360,7 @@ export class DataQualityRuleSamplingConfig extends $dara.Model {
   samplingFilter?: string;
   /**
    * @remarks
-   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * The runtime parameter setting statements to be executed before the sampling statement. The value can be up to 1000 characters in length. Currently, only MaxCompute is supported.
    * 
    * @example
    * SET odps.sql.udf.timeout=600s;
@@ -392,15 +396,14 @@ export class DataQualityRuleSamplingConfig extends $dara.Model {
 export class DataQualityRuleTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs. Valid values:
-   * 
-   * *   maxcompute
-   * *   emr
-   * *   cdh
-   * *   hologres
-   * *   analyticdb_for_postgresql
-   * *   analyticdb_for_mysql
-   * *   starrocks
+   * The database type of the table for a table-type dataset. Valid values:
+   * - maxcompute
+   * - emr
+   * - cdh
+   * - hologres
+   * - analyticdb_for_postgresql
+   * - analyticdb_for_mysql
+   * - starrocks
    * 
    * @example
    * maxcompute
@@ -408,7 +411,7 @@ export class DataQualityRuleTarget extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The configuration of the partitioned table.
+   * The partition settings of the partitioned table.
    * 
    * @example
    * ds=$[yyyymmdd-1]
@@ -416,7 +419,7 @@ export class DataQualityRuleTarget extends $dara.Model {
   partitionSpec?: string;
   /**
    * @remarks
-   * The ID of the table in Data Map.
+   * The unique ID of the table in Data Map.
    * 
    * @example
    * odps.unit_test.tb_unit_test
@@ -424,9 +427,8 @@ export class DataQualityRuleTarget extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The type of the monitored object. Valid values:
-   * 
-   * *   Table
+   * The monitored object type. Valid values:
+   * - Table
    * 
    * @example
    * Table
@@ -462,12 +464,12 @@ export class DataQualityRuleTarget extends $dara.Model {
 export class DataQualityRule extends $dara.Model {
   /**
    * @remarks
-   * The check settings for sample data.
+   * The sample verification settings.
    */
   checkingConfig?: DataQualityRuleCheckingConfig;
   /**
    * @remarks
-   * The description of the rule. The description can be up to 500 characters in length.
+   * The rule description. The description can be up to 500 characters in length.
    * 
    * @example
    * this is a odps _sql task
@@ -483,7 +485,7 @@ export class DataQualityRule extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The operations that you can perform after the rule-based check fails.
+   * The quality rule check issue handlers.
    */
   errorHandlers?: DataQualityRuleErrorHandlers[];
   /**
@@ -496,10 +498,10 @@ export class DataQualityRule extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The rule name. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * The rule name. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 255 characters in length.
    * 
    * @example
-   * 表不能为空
+   * Table cannot be empty
    */
   name?: string;
   /**
@@ -512,15 +514,14 @@ export class DataQualityRule extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The settings for sampling.
+   * The settings required for sample collection.
    */
   samplingConfig?: DataQualityRuleSamplingConfig;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
-   * 
-   * *   Normal
-   * *   High
+   * The severity level of the rule for business, which corresponds to strong and weak rules on the page. Valid values:
+   * - Normal
+   * - High
    * 
    * @example
    * High
@@ -528,15 +529,15 @@ export class DataQualityRule extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * The monitored object of the rule.
+   * The object monitored by the rule.
    */
   target?: DataQualityRuleTarget;
   /**
    * @remarks
-   * The template used by the rule.
+   * The rule template referenced when creating the rule.
    * 
    * @example
-   * system::user_defined
+   * SYSTEM:user_defined_sql
    */
   templateCode?: string;
   /**

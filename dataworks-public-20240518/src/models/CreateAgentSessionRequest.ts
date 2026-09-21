@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentSessionRequestParamsMetaAgent extends $dara.Model {
   /**
    * @remarks
-   * The name of the agent bound to the session. This parameter is required.
-   * * dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire pipeline of data integration, development, O&M, governance, and analytics.
-   * * dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visualization report output.
-   * * dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. A DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+   * The name of the agent to bind to the session. This parameter is required. Valid values:
+   * * dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire workflow of data integration, development, O&M, governance, and analytics.
+   * * dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visual report output.
+   * * dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. An enterprise-grade dedicated AI assistant for DataWorks built on open source frameworks such as OpenClaw and Hermes Agent.
    * 
    * @example
    * dataworks_data_agent
@@ -38,7 +38,7 @@ export class CreateAgentSessionRequestParamsMetaAgent extends $dara.Model {
 export class CreateAgentSessionRequestParamsMetaConfigSessionTags extends $dara.Model {
   /**
    * @remarks
-   * The session tag. You can filter sessions by tag. For example, if you use a fixed RAM user to call OpenAPI but your calling system has its own account system, you can pass the account ID of your calling system as this tag to filter the session list by account ID. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The session tag. You can filter sessions by tag. For example, if you use a fixed RAM user to call the OpenAPI but your system has its own account system, you can pass the account ID of your system as this tag to filter the session list by account ID. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * chatbi
@@ -68,7 +68,7 @@ export class CreateAgentSessionRequestParamsMetaConfigSessionTags extends $dara.
 export class CreateAgentSessionRequestParamsMetaConfig extends $dara.Model {
   /**
    * @remarks
-   * The session source identifier for retrieval by source. For example, if an agent is used on both page A and page B, and you want page A to display only sessions created on page A, you can filter by this parameter. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The session source identifier, which facilitates retrieval by source. For example, if an agent is used on both Page A and Page B, and you want Page A to display only sessions created on Page A, you can filter by this parameter. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * openapi_sdk
@@ -108,9 +108,9 @@ export class CreateAgentSessionRequestParamsMetaConfig extends $dara.Model {
 export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $dara.Model {
   /**
    * @remarks
-   * The execution pattern. Valid values:
-   * * chat: conversation mode only. Suitable for simple Q&A scenarios. Advantages: fast response and low token consumption. Disadvantages: cannot handle complex problems.
-   * * cli: sandbox pattern. Suitable for complex data analytics, data processing, and code writing scenarios. Advantages: can handle complex problems, and the model autonomously executes analysis and problem resolution. Disadvantages: slower processing speed and higher token consumption compared to chat pattern.
+   * The exec mode. Valid values:
+   * * chat: Conversation mode only. Suitable for simple Q&A scenarios. Advantages: fast response and low token consumption. Disadvantages: cannot handle complex problems.
+   * * cli: Sandbox mode. Suitable for complex data analytics, data processing, and code writing scenarios. Advantages: can handle complex problems, and the model autonomously performs analysis and problem resolution. Disadvantages: slower processing speed and higher token consumption compared to the conversation mode.
    * 
    * @example
    * chat，cli
@@ -119,12 +119,20 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
   /**
    * @remarks
    * The authorization mode for script execution. OpenAPI currently supports only the yolo mode. Valid values:
-   * * yolo: automatic authorization. No manual intervention is required, and the model can process tasks automatically.
+   * * yolo: Automatic authorization. No manual intervention is required, and the model processes tasks automatically.
    * 
    * @example
    * yolo
    */
   mode?: string;
+  /**
+   * @remarks
+   * The DataWorks workspace ID. Used to initialize the session project context. If omitted, the session is treated as having no project context. You can later correct or switch the project context by using PromptAgentSession.
+   * 
+   * @example
+   * 12345
+   */
+  projectId?: string;
   /**
    * @remarks
    * The ID of the resource group used for initialization.
@@ -135,7 +143,7 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
   resourceGroupId?: string;
   /**
    * @remarks
-   * The names of custom skills to load. Separate multiple names with commas (,).
+   * The names of custom skills to load. Separate multiple skill names with commas (,).
    * 
    * @example
    * skill-name-1,skill-name2,skill-name-3
@@ -145,6 +153,7 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
     return {
       executionLane: 'ExecutionLane',
       mode: 'Mode',
+      projectId: 'ProjectId',
       resourceGroupId: 'ResourceGroupId',
       skills: 'Skills',
     };
@@ -154,6 +163,7 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
     return {
       executionLane: 'string',
       mode: 'string',
+      projectId: 'string',
       resourceGroupId: 'string',
       skills: 'string',
     };
@@ -171,7 +181,7 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
 export class CreateAgentSessionRequestParamsMeta extends $dara.Model {
   /**
    * @remarks
-   * The agent configuration for the session. Valid values are the results returned by the ListAgents operation.
+   * The agent configuration for this session. Valid values are those returned by the ListAgents operation.
    */
   agent?: CreateAgentSessionRequestParamsMetaAgent;
   /**

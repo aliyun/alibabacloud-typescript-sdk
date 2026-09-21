@@ -1194,9 +1194,9 @@ export default class Client extends OpenApi {
    * ## Operation description
    * - This operation creates a new agent session.
    * - Use `_meta.agent.agentName` to specify the agent name to bind. This parameter is required.
-   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire pipeline of data integration, development, O&M, governance, and analytics.
-   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visualization report output.
-   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. A DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire workflow of data integration, development, O&M, governance, and analytics.
+   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visual report output.
+   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. An enterprise-grade dedicated AI assistant for DataWorks built on open source frameworks such as OpenClaw and Hermes Agent.
    * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
    * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
    * 
@@ -1249,9 +1249,9 @@ export default class Client extends OpenApi {
    * ## Operation description
    * - This operation creates a new agent session.
    * - Use `_meta.agent.agentName` to specify the agent name to bind. This parameter is required.
-   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire pipeline of data integration, development, O&M, governance, and analytics.
-   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visualization report output.
-   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. A DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire workflow of data integration, development, O&M, governance, and analytics.
+   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visual report output.
+   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. An enterprise-grade dedicated AI assistant for DataWorks built on open source frameworks such as OpenClaw and Hermes Agent.
    * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
    * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
    * 
@@ -17068,10 +17068,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a paginated list of roles in a workspace.
+   * Queries the details of workspace roles by paging.
    * 
    * @remarks
-   * This feature is available in DataWorks Basic Edition and higher.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param tmpReq - ListProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17132,10 +17132,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a paginated list of roles in a workspace.
+   * Queries the details of workspace roles by paging.
    * 
    * @remarks
-   * This feature is available in DataWorks Basic Edition and higher.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - ListProjectRolesRequest
    * @returns ListProjectRolesResponse

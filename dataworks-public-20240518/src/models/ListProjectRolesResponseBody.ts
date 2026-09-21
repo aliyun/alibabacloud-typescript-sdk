@@ -65,7 +65,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
    * @remarks
    * The ID of the DataWorks workspace.
    * 
-   * Note: For system-defined roles, this parameter returns -1.
+   * Note: For default system workspace roles, the ProjectId returns a fixed value of -1.
    * 
    * @example
    * 21229
@@ -114,7 +114,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
 export class ListProjectRolesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The returned page number.
+   * The page number. Used for paging.
    * 
    * @example
    * 1
@@ -130,12 +130,12 @@ export class ListProjectRolesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * A list of workspace roles.
+   * The list of workspace roles.
    */
   projectRoles?: ListProjectRolesResponseBodyPagingInfoProjectRoles[];
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 42
@@ -179,7 +179,7 @@ export class ListProjectRolesResponseBody extends $dara.Model {
   pagingInfo?: ListProjectRolesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. Use this ID to locate logs and troubleshoot issues.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * 61649187-0BCF-5E75-8D4B-64FDBEBBB447
