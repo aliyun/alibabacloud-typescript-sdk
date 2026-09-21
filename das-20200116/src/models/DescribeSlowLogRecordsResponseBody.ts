@@ -91,15 +91,29 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 100
    */
   CPUTimeSeconds?: number;
+  /**
+   * @remarks
+   * The client IP address connected to the Redis proxy.
+   * 
+   * @example
+   * 172.16.15.204
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The command executed at the Redis proxy layer.
+   * 
+   * @example
+   * GET
+   */
   cmd?: string;
   /**
    * @remarks
    * The slow query statement.
-   * > Only ApsaraDB for Tair (Redis® OSS-Compatible) database instances are supported.
+   * > Only ApsaraDB Tair (Redis® OSS-Compatible) database instances are supported.
    * 
    * @example
-   * SELECT
+   * GET async_c4d163675f44fe83f6214cf9ba5exxxx
    */
   command?: string;
   /**
@@ -110,6 +124,13 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * test
    */
   DBName?: string;
+  /**
+   * @remarks
+   * Redis Proxy DbId
+   * 
+   * @example
+   * r-uf6cfc5e1bcb1xxx-db-5
+   */
   dbId?: string;
   /**
    * @remarks
@@ -127,13 +148,26 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 100
    */
   docsExamined?: string;
+  /**
+   * @remarks
+   * The extension field that contains additional information about the SQL execution.
+   * > Only PolarDB for MySQL instances are supported.
+   */
   extText?: string;
+  /**
+   * @remarks
+   * Indicates whether the SQL execution was successful. 0 indicates success. A non-zero value indicates failure.
+   * > Only ApsaraDB for Lindorm instances are supported.
+   * 
+   * @example
+   * 1
+   */
   fail?: string;
   /**
    * @remarks
-   * The number of rows fetched by the compute node (CN) of the ApsaraDB PolarDB-X 2.0 database instance.
+   * The number of rows fetched by the compute node (CN) of the PolarDB-X 2.0 database.
    * 
-   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   * > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
    * 
    * @example
    * 10
@@ -141,7 +175,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
   frows?: number;
   /**
    * @remarks
-   * The source host address.
+   * The source address.
    * 
    * @example
    * 192.168.1.1
@@ -215,12 +249,39 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * > Only ApsaraDB for MongoDB instances are supported.
    * 
    * @example
-   * pro-test
+   * app.event
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * r-uf6cfc5e1xxx-proxy-11
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The operation type.
+   * > Only ApsaraDB for MongoDB instances are supported.
+   * 
+   * @example
+   * getMore
+   */
   opType?: string;
+  /**
+   * @remarks
+   * The execution time at the Redis proxy.
+   * 
+   * @example
+   * 2026-09-18 10:54:55.311
+   */
   originTime?: string;
+  /**
+   * @remarks
+   * The parameter values attached to the SQL statement in parameter query scenarios. Multiple parameters are separated by commas (,).
+   * > Only ApsaraDB for Lindorm database instances are supported.
+   */
   params?: string;
   /**
    * @remarks
@@ -246,7 +307,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * > Only ApsaraDB for MongoDB instances are supported.
    * 
    * @example
-   * sq-1pzcdMwRb
+   * d236d0c4ae8485f6ffe5fdbe5e1bdxxx
    */
   queryId?: string;
   /**
@@ -273,9 +334,39 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 100
    */
   queryTimeSeconds?: number;
+  /**
+   * @remarks
+   * The error message when the slow query execution fails.
+   * > Only ApsaraDB for Lindorm instances are supported.
+   * 
+   * @example
+   * create-by-mse-can-not-delete
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The unique identifier of the slow query log record.
+   * > Only ApsaraDB for Lindorm instances are supported.
+   * 
+   * @example
+   * hotspot-request-001
+   */
   reqId?: string;
+  /**
+   * @remarks
+   * The request packet size at the Redis proxy layer, in bytes.
+   * 
+   * @example
+   * 58
+   */
   requestSize?: number;
+  /**
+   * @remarks
+   * The response packet size at the Redis proxy layer, in bytes.
+   * 
+   * @example
+   * 1535916
+   */
   responseSize?: number;
   /**
    * @remarks
@@ -296,9 +387,9 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
   returnNum?: string;
   /**
    * @remarks
-   * The total number of rows updated or returned by the compute nodes of the ApsaraDB PolarDB-X 2.0 database instance.
+   * The total number of rows updated or returned by the compute nodes of the PolarDB-X 2.0 database instance.
    * 
-   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   * > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
    * 
    * @example
    * 20
@@ -330,6 +421,13 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 10
    */
   rowsSent?: number;
+  /**
+   * @remarks
+   * The total response time at the Redis proxy layer, in microseconds.
+   * 
+   * @example
+   * 2055
+   */
   rt?: number;
   /**
    * @remarks
@@ -349,9 +447,9 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
   scheme?: string;
   /**
    * @remarks
-   * The number of DN requests from the compute node (CN) of the ApsaraDB PolarDB-X 2.0 database instance.
+   * The number of data node (DN) requests from the compute node (CN) of the PolarDB-X 2.0 database.
    * 
-   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   * > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
    * 
    * @example
    * 10
@@ -372,7 +470,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
   sqlTag?: DescribeSlowLogRecordsResponseBodyDataLogsSqlTag;
   /**
    * @remarks
-   * The SQL statement type. Valid values:
+   * The type of the SQL statement. Valid values:
    * - **SELECT**
    * - **UPDATE**
    * - **DELETE**
@@ -383,7 +481,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
-   * The child instance ID.
+   * The sub-instance ID.
    * 
    * @example
    * r-8vb219d10038****
@@ -399,9 +497,9 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The template ID of the ApsaraDB PolarDB-X 2.0 database instance.
+   * The template ID of the PolarDB-X 2.0 database.
    * 
-   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   * > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
    * 
    * @example
    * 6a63b6ac4572abfaef7d1163f684****
@@ -425,9 +523,9 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The trace ID of PolarDB-X 2.0, which is the execute ID of the SQL statement on the ApsaraDB PolarDB-X 2.0 database node.
+   * The trace ID of PolarDB-X 2.0, which is the execute ID of the SQL statement on the database data node.
    * 
-   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   * > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
    * 
    * @example
    * 074ce334-5247-40b9-b0c1-158aea5d****
@@ -594,7 +692,7 @@ export class DescribeSlowLogRecordsResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of items in the query log list on the current page.
+   * The number of items in the log list on the current page.
    * 
    * @example
    * 10
@@ -623,7 +721,7 @@ export class DescribeSlowLogRecordsResponseBodyData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The page number for the paged query. Pages start from page 1. Default value: 1.
+   * The page number for the paged query. The value starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -720,11 +818,11 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
-   * - **true**: successful.
+   * - **true**: The request was successful.
    * 
-   * - **false**: failed.
+   * - **false**: The request failed.
    * 
    * @example
    * true

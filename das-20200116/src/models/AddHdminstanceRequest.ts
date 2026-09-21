@@ -8,21 +8,13 @@ export class AddHDMInstanceRequest extends $dara.Model {
    * The database engine. Valid values:
    * 
    * - **MySQL**
-   * 
    * - **PostgreSQL**
-   * 
    * - **SQLServer**
-   * 
    * - **PolarDBMySQL**
-   * 
    * - **PolarDBPostgreSQL**
-   * 
    * - **Redis**
-   * 
    * - **MongoDB**
-   * 
    * - **PolarDBOracle**
-   * 
    * - **PolarDBX**
    * 
    * @example
@@ -39,7 +31,7 @@ export class AddHDMInstanceRequest extends $dara.Model {
   flushAccount?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * yuecq--test****
@@ -47,15 +39,13 @@ export class AddHDMInstanceRequest extends $dara.Model {
   instanceAlias?: string;
   /**
    * @remarks
-   * The type of the instance on which the database is deployed. Valid values:
+   * The database product to which the instance belongs. Valid values:
    * 
-   * - **RDS**: an Alibaba Cloud database instance.
+   * - **RDS**: cloud instance.
+   * - **ECS**: self-managed instance on ECS.
+   * - **IDC**: self-managed instance not on a public cloud.
    * 
-   * - **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
-   * 
-   * - **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
-   * 
-   * > IDC refers to your data center.
+   * > IDC stands for Internet Data Center.
    * 
    * This parameter is required.
    * 
@@ -73,7 +63,7 @@ export class AddHDMInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The endpoint that is used to access the instance over internal networks.
+   * The internal endpoint of the instance to be connected.
    * 
    * @example
    * rm-2ze1jdv45i7l6****.mysql.rds.aliyuncs.com
@@ -89,7 +79,7 @@ export class AddHDMInstanceRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The password for the username.
+   * The password of the username.
    * 
    * @example
    * 122****
@@ -97,7 +87,7 @@ export class AddHDMInstanceRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The port that is used to access the instance over internal networks.
+   * The internal network connection port of the instance.
    * 
    * @example
    * 3306
@@ -105,7 +95,7 @@ export class AddHDMInstanceRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region in which the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -113,7 +103,7 @@ export class AddHDMInstanceRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The username that is used to log on to the database.
+   * The username.
    * 
    * @example
    * test****
@@ -121,7 +111,7 @@ export class AddHDMInstanceRequest extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * VPC ID。
    * 
    * @example
    * vpc-m5e666n89m2bx8jar****

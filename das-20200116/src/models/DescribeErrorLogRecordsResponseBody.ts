@@ -8,7 +8,7 @@ export class DescribeErrorLogRecordsResponseBodyDataLogs extends $dara.Model {
    * The log category. Valid values:
    * - **NETWORK**: network connectivity log.
    * - **ACCESS**: access control log.
-   * - **-**: common log.
+   * - **-**: general log.
    * - **COMMAND**: slow log.
    * - **SHARDING**: cluster log.
    * - **STORAGE**: storage engine log.
@@ -16,7 +16,7 @@ export class DescribeErrorLogRecordsResponseBodyDataLogs extends $dara.Model {
    * - **ASIO**: asynchronous I/O log.
    * - **WRITE**: slow update log.
    * 
-   * > This parameter is supported only for ApsaraDB for MongoDB instances.
+   * > Only ApsaraDB for MongoDB instances are supported.
    * 
    * @example
    * NETWORK
@@ -26,7 +26,7 @@ export class DescribeErrorLogRecordsResponseBodyDataLogs extends $dara.Model {
    * @remarks
    * The log connection information.
    * 
-   * > This parameter is supported only for ApsaraDB for MongoDB instances.
+   * > Only ApsaraDB for MongoDB instances are supported.
    * 
    * @example
    * conn18xxxxxx
@@ -54,12 +54,39 @@ export class DescribeErrorLogRecordsResponseBodyDataLogs extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * > This parameter is supported only for ApsaraDB for MongoDB instances.
+   * > Only ApsaraDB for MongoDB instances are supported.
    * 
    * @example
    * d-bp128a003436****
    */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The database name.
+   * > Only certain special logs of ApsaraDB RDS for PostgreSQL and PolarDB for PostgreSQL instances are supported.
+   * 
+   * @example
+   * db_name
+   */
+  db?: string;
+  /**
+   * @remarks
+   * The database account.
+   * > Only certain special logs of ApsaraDB RDS for PostgreSQL and PolarDB for PostgreSQL instances are supported.
+   * 
+   * @example
+   * db_user
+   */
+  user?: string;
+  /**
+   * @remarks
+   * The client IP address.
+   * > Only certain special logs of ApsaraDB RDS for PostgreSQL and PolarDB for PostgreSQL instances are supported.
+   * 
+   * @example
+   * x.x.x.x
+   */
+  userIp?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -67,6 +94,9 @@ export class DescribeErrorLogRecordsResponseBodyDataLogs extends $dara.Model {
       content: 'Content',
       createTime: 'CreateTime',
       DBInstanceName: 'DBInstanceName',
+      db: 'Db',
+      user: 'User',
+      userIp: 'UserIp',
     };
   }
 
@@ -77,6 +107,9 @@ export class DescribeErrorLogRecordsResponseBodyDataLogs extends $dara.Model {
       content: 'string',
       createTime: 'string',
       DBInstanceName: 'string',
+      db: 'string',
+      user: 'string',
+      userIp: 'string',
     };
   }
 
@@ -100,7 +133,7 @@ export class DescribeErrorLogRecordsResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The total number of log entries returned on the current page.
+   * The total number of log entries returned.
    * 
    * @example
    * 10
@@ -113,7 +146,7 @@ export class DescribeErrorLogRecordsResponseBodyData extends $dara.Model {
   logs?: DescribeErrorLogRecordsResponseBodyDataLogs[];
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of records per page.
    * 
    * @example
    * 10
@@ -121,7 +154,7 @@ export class DescribeErrorLogRecordsResponseBodyData extends $dara.Model {
   maxRecordsPerPage?: number;
   /**
    * @remarks
-   * The current page number.
+   * The page number of the current query.
    * 
    * @example
    * 1
@@ -137,7 +170,7 @@ export class DescribeErrorLogRecordsResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of log entries within the specified time range.
+   * The total number of log entries within the query time range.
    * 
    * @example
    * 100
@@ -196,7 +229,7 @@ export class DescribeErrorLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
-   * >  If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -214,8 +247,8 @@ export class DescribeErrorLogRecordsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**
-   * - **false**
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

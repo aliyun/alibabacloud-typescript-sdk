@@ -61,7 +61,9 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   effectRow?: number;
   /**
    * @remarks
-   * The execution status. Valid values: 0: failed. 1: succeeded.
+   * The execution status. Valid values:
+   * - 0: failed.
+   * - 1: succeeded.
    * 
    * @example
    * 1
@@ -93,7 +95,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   inWhiteList?: boolean;
   /**
    * @remarks
-   * The instance audit status.
+   * The audit status of the instance.
    * 
    * @example
    * 2
@@ -209,7 +211,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   ruleCategory?: string;
   /**
    * @remarks
-   * The ID of the audit policy.
+   * The audit policy ID.
    * 
    * @example
    * 9953411
@@ -258,9 +260,9 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The risk level. Valid values:
-   * - **1**: low-risk.
-   * - **2**: medium-risk.
-   * - **3**: high-risk.
+   * - **1**: low.
+   * - **2**: medium.
+   * - **3**: high.
    * 
    * @example
    * 1
@@ -268,10 +270,10 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   warnLevel?: string;
   /**
    * @remarks
-   * The name of the risk level. Valid values:
-   * - Low-risk.
-   * - Medium-risk.
-   * - High-risk.
+   * The risk level name. Valid values:
+   * - Low.
+   * - Medium.
+   * - High.
    * 
    * @example
    * 1
@@ -384,7 +386,7 @@ export class DescribeAuditLogsResponseBody extends $dara.Model {
   items?: DescribeAuditLogsResponseBodyItems[];
   /**
    * @remarks
-   * The page size for the paged query. This parameter indicates the number of entries per page for paging.
+   * The page size for the paged query. This value indicates the number of records per page for paging.
    * 
    * @example
    * 10

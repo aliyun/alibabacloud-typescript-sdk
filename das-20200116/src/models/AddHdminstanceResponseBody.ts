@@ -15,7 +15,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
   callerUid?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -23,7 +23,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * InvalidRequestURL
@@ -39,7 +39,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The endpoint of the instance.
+   * The IP endpoint of the instance.
    * 
    * @example
    * rm-de21209****.mysql.rds.aliyuncs.com
@@ -47,7 +47,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The ID of the instance owner.
+   * The owner ID.
    * 
    * @example
    * 325352345
@@ -55,7 +55,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The port number of the instance that you want to access.
+   * The port of the target instance.
    * 
    * @example
    * 3306
@@ -63,7 +63,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The role of the current API caller.
+   * The role information.
    * 
    * @example
    * master
@@ -79,7 +79,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token, which is a custom unique random string.
    * 
    * @example
    * tokenID
@@ -95,7 +95,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * VPC ID。
    * 
    * @example
    * vpc-m5e666n89m2bx8jar****
@@ -147,7 +147,7 @@ export class AddHDMInstanceResponseBodyData extends $dara.Model {
 export class AddHDMInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -155,14 +155,13 @@ export class AddHDMInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The detailed information, including the error codes and the number of entries that are returned.
+   * The details, including the total number of entries and error codes.
    */
   data?: AddHDMInstanceResponseBodyData;
   /**
    * @remarks
    * The returned message.
-   * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * >If the request is successful, **Successful** is returned. If the request fails, an error message is returned, such as an error code.
    * 
    * @example
    * Successful
@@ -178,11 +177,10 @@ export class AddHDMInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

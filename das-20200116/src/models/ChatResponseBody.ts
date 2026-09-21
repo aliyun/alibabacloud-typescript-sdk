@@ -11,6 +11,13 @@ export class ChatResponseBody extends $dara.Model {
    * waiting_for_agent_thinking
    */
   activityType?: string;
+  /**
+   * @remarks
+   * The agent ID.
+   * 
+   * @example
+   * agent-7f9c2a81
+   */
   agentId?: string;
   /**
    * @remarks
@@ -28,7 +35,21 @@ export class ChatResponseBody extends $dara.Model {
    * hello
    */
   delta?: string;
+  /**
+   * @remarks
+   * The step type of STEP_STARTED, such as task.
+   * 
+   * @example
+   * task
+   */
   kind?: string;
+  /**
+   * @remarks
+   * The display name of the sub-agent for STEP_STARTED.
+   * 
+   * @example
+   * SQL Performance Diagnostics
+   */
   label?: string;
   /**
    * @remarks
@@ -46,7 +67,21 @@ export class ChatResponseBody extends $dara.Model {
    * summary
    */
   name?: string;
+  /**
+   * @remarks
+   * The original ID of the tool call.
+   * 
+   * @example
+   * ag-xxxx
+   */
   originatingToolCallId?: string;
+  /**
+   * @remarks
+   * The parent agent ID.
+   * 
+   * @example
+   * agent-3a6f1c92
+   */
   parentAgentId?: string;
   /**
    * @remarks
@@ -80,10 +115,17 @@ export class ChatResponseBody extends $dara.Model {
    * sub_agent_performance_diagnose_mysql
    */
   stepName?: string;
+  /**
+   * @remarks
+   * The step status of STEP_FINISHED, such as completed.
+   * 
+   * @example
+   * completed
+   */
   stepStatus?: string;
   /**
    * @remarks
-   * The callback tool class.
+   * The callback utility class.
    * 
    * @example
    * das_api
@@ -97,11 +139,25 @@ export class ChatResponseBody extends $dara.Model {
    * 8e481be1-21d5-4a92-a2fb-fb54be0ab4f6
    */
   threadId?: string;
+  /**
+   * @remarks
+   * The event timestamp.
+   * 
+   * @example
+   * 1767225600000
+   */
   timestamp?: number;
+  /**
+   * @remarks
+   * The error that occurred during tool invocation.
+   * 
+   * @example
+   * error
+   */
   toolCallError?: string;
   /**
    * @remarks
-   * The tool calling invoke ID.
+   * The tool invocation ID.
    * 
    * @example
    * call_edf9cdb69e0e4c9796a6a5a6

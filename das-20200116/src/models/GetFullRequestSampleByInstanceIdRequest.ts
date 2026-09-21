@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetFullRequestSampleByInstanceIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end of the time range to query. Specify a UNIX timestamp in milliseconds.
    * 
-   * > The end time must be later than the start time. The interval between the start time and the end time must be equal to or greater than 1 hour.
+   * > The end time must be later than the start time, and the interval between the start time and end time cannot be less than 1 hour.
    * 
    * This parameter is required.
    * 
@@ -27,10 +27,9 @@ export class GetFullRequestSampleByInstanceIdRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The role of the PolarDB-X 2.0 node. Valid values:
+   * The node information of a PolarDB-X 2.0 database instance.
    * 
    * - **polarx_cn**: compute node.
-   * 
    * - **polarx_en**: data node.
    * 
    * @example
@@ -39,7 +38,7 @@ export class GetFullRequestSampleByInstanceIdRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The SQL statement ID.
+   * SQL ID。
    * 
    * This parameter is required.
    * 
@@ -49,9 +48,9 @@ export class GetFullRequestSampleByInstanceIdRequest extends $dara.Model {
   sqlId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The beginning of the time range to query. Specify a UNIX timestamp in milliseconds.
    * 
-   * > The start time must be within the storage duration of the SQL Explorer feature of the database instance, and can be up to 90 days earlier than the current time.
+   * > The start time must be within the storage duration of SQL Explorer for the database instance and cannot be earlier than 90 days before the current time.
    * 
    * This parameter is required.
    * 
@@ -59,16 +58,6 @@ export class GetFullRequestSampleByInstanceIdRequest extends $dara.Model {
    * 1660097421000
    */
   start?: number;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account that is used to create the database instance.
-   * 
-   * > This parameter is optional. The system can automatically obtain the account ID based on the value of InstanceId when you call this operation.
-   * 
-   * @example
-   * 196278346919****
-   */
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       end: 'End',
@@ -76,7 +65,6 @@ export class GetFullRequestSampleByInstanceIdRequest extends $dara.Model {
       role: 'Role',
       sqlId: 'SqlId',
       start: 'Start',
-      userId: 'UserId',
     };
   }
 
@@ -87,7 +75,6 @@ export class GetFullRequestSampleByInstanceIdRequest extends $dara.Model {
       role: 'string',
       sqlId: 'string',
       start: 'number',
-      userId: 'string',
     };
   }
 

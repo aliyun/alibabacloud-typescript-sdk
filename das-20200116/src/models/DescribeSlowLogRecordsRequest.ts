@@ -47,10 +47,10 @@ export class DescribeSlowLogRecordsRequestFilters extends $dara.Model {
 export class DescribeSlowLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort results in ascending order. Default value: **true**.
+   * Specifies whether to sort the results in ascending order. Default value: **true**.
    * 
-   * - **true**: ascending order.
-   * - **false**: descending order.
+   * - **true**: Sort in ascending order.
+   * - **false**: Sort in descending order.
    * 
    * @example
    * true
@@ -91,22 +91,32 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * - **MySQL** 
-   *   - QueryTimeSeconds: query duration in seconds.
-   *   - LockTimeSeconds: lock time in seconds.
-   *   - RowsSent: rows sent.
+   * - **Common to all engines** 
+   *   - QueryTimeSeconds: query duration (seconds).
+   *   - Timestamp: timestamp.
+   * 
+   * - **SQL-based engines (MySQL / PolarDB for MySQL / PostgreSQL / PolarDB for PostgreSQL / PolarDB for Oracle / PolarDB-X DN)**
+   *   - LockTimeSeconds: lock time (seconds).
    *   - RowsExamined: rows examined.
-   * - **Redis**
-   *   - QueryTime: query duration.
-   *   - Timestamp: execution end time.
+   *   - RowsSent: rows returned.
+   * 
    * - **MongoDB**
-   *   - QueryTime: query duration.
-   *   - Timestamp: execution end time.
-   *   - KeysExamined: keys examined.
-   *   - DocExamined: documents examined.
+   *   - KeysExamined: number of indexes scanned.
+   *   - DocExamined: number of documents scanned.
    *   - ReturnNum: rows returned.
    * 
-   * <notice>RDS PostgreSQL, PolarDB for PostgreSQL, and SQL Server do not support sorting.</notice>
+   * - **SQL Server**
+   *   - CPUTimeSeconds: CPU time.
+   *   - IOWrites: number of I/O writes.
+   *   - LastRowsCountAffected: last rows affected.
+   *   - LogicalIOReads: logical I/O reads.
+   *   - PhysicalIOReads: physical I/O reads.
+   *   - RowsCountAffected: rows affected.
+   * 
+   * - **PolarDB-X CN**
+   *   - RowsSent: rows returned or updated.
+   *   - Frows: rows fetched.
+   *   - Scnt: number of physical SQL statements.
    * 
    * @example
    * QueryTimeSeconds

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * dbtest
@@ -13,7 +13,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   database?: string;
   /**
    * @remarks
-   * The number of rows fetched by PolarDB-X 2.0 compute nodes.
+   * The number of rows fetched by the PolarDB-X 2.0 compute node (CN).
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   logicalRead?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The source of the access.
    * 
    * @example
    * 172.17.XX.XX
@@ -61,7 +61,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   physicalSyncRead?: number;
   /**
    * @remarks
-   * The number of rows updated or returned on PolarDB-X 2.0 compute nodes.
+   * The number of rows updated or returned by the PolarDB-X 2.0 compute node (CN).
    * 
    * @example
    * 0
@@ -69,9 +69,8 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   rows?: number;
   /**
    * @remarks
-   * The total number of scanned rows.
-   * 
-   * > This parameter is returned only for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL databases.
+   * The total number of rows examined.
+   * > Currently, the following databases support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
    * 
    * @example
    * 2048576
@@ -79,7 +78,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   rowsExamined?: number;
   /**
    * @remarks
-   * The number of rows returned by the SQL statement.
+   * The number of rows returned.
    * 
    * @example
    * 14
@@ -87,7 +86,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   rowsReturned?: number;
   /**
    * @remarks
-   * The amount of time consumed to execute the SQL statement. Unit: seconds.
+   * The execution duration. Unit: seconds.
    * 
    * @example
    * 0.409789
@@ -95,7 +94,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   rt?: number;
   /**
    * @remarks
-   * The number of scanned rows.
+   * The number of rows scanned.
    * 
    * @example
    * 0
@@ -103,7 +102,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   scanRows?: number;
   /**
    * @remarks
-   * The number of requests sent from PolarDB-X 2.0 compute nodes to data nodes.
+   * The number of DN requests from the PolarDB-X 2.0 compute node (CN).
    * 
    * @example
    * 0
@@ -111,7 +110,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   scnt?: number;
   /**
    * @remarks
-   * The sample SQL statement.
+   * The SQL sample.
    * 
    * @example
    * select * from testdb01 where ****
@@ -119,7 +118,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   sql?: string;
   /**
    * @remarks
-   * The SQL statement ID.
+   * SQL ID。
    * 
    * @example
    * 651b56fe9418d48edb8fdf0980ec****
@@ -135,7 +134,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   sqlType?: string;
   /**
    * @remarks
-   * The time when the SQL statement was executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the SQL statement was executed. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1660100753556
@@ -143,7 +142,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   timestamp?: number;
   /**
    * @remarks
-   * The number of updated rows.
+   * The number of rows updated.
    * 
    * @example
    * 0
@@ -151,7 +150,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
   updateRows?: number;
   /**
    * @remarks
-   * The name of the user who executes the SQL statement.
+   * The username that executed the SQL statement.
    * 
    * @example
    * testuser
@@ -217,7 +216,7 @@ export class GetFullRequestSampleByInstanceIdResponseBodyData extends $dara.Mode
 export class GetFullRequestSampleByInstanceIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The response status code.
    * 
    * @example
    * 200
@@ -232,7 +231,7 @@ export class GetFullRequestSampleByInstanceIdResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -250,9 +249,8 @@ export class GetFullRequestSampleByInstanceIdResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

@@ -7,7 +7,7 @@ export class CreateQueryOptimizeTagRequest extends $dara.Model {
    * @remarks
    * The remarks.
    * 
-   * The remarks can be 1 to 300 characters in length.
+   * The value must be 1 to 300 characters in length.
    * 
    * @example
    * Slow SQL from offline synchronization. No optimization needed.
@@ -17,11 +17,9 @@ export class CreateQueryOptimizeTagRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * - **MySQL**: ApsaraDB RDS for MySQL
-   * 
+   * - **MySQL**: RDS MySQL
    * - **PolarDBMySQL**: PolarDB for MySQL
-   * 
-   * - **PostgreSQL**: ApsaraDB RDS for PostgreSQL
+   * - **PostgreSQL**: RDS PostgreSQL
    * 
    * This parameter is required.
    * 
@@ -41,7 +39,7 @@ export class CreateQueryOptimizeTagRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The SQL template IDs. You can call the [GetQueryOptimizeExecErrorStats](https://help.aliyun.com/document_detail/405261.html) operation to obtain the SQL template ID. Separate multiple SQL template IDs with commas (,).
+   * The SQL template ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query SQL template IDs. You can specify multiple template IDs separated by commas (,) to add tags in batches.
    * 
    * This parameter is required.
    * 
@@ -51,11 +49,10 @@ export class CreateQueryOptimizeTagRequest extends $dara.Model {
   sqlIds?: string;
   /**
    * @remarks
-   * The status of **Tags**. Valid values:
+   * The status of the **Tags** request parameter.
    * 
-   * - **0**: removes all tags added to the SQL templates that are specified by **SqlIds** and leaves **Tags** empty.
-   * 
-   * - **1**: adds the tags specified by **Tags** to the SQL templates that are specified by **SqlIds**.
+   * - **0**: Clears all tags for the SQL template IDs specified by **SqlIds** and ignores the **Tags** parameter.
+   * - **1**: Sets the tags for the SQL template IDs specified by **SqlIds** to the values specified by **Tags**.
    * 
    * This parameter is required.
    * 
@@ -65,15 +62,12 @@ export class CreateQueryOptimizeTagRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The SQL tags. Separate multiple SQL tags with commas (,). Valid values:
+   * The SQL tag. You can specify multiple values separated by commas (,).
    * 
-   * - **DAS_IMPORTANT**: The SQL template is important.
-   * 
-   * - **DAS_NOT_IMPORTANT**: The SQL template is unimportant.
-   * 
-   * - **USER_IGNORE**: The scheduling of the SQL template does not need to be optimized.
-   * 
-   * - **DAS_IN_PLAN**: The scheduling of the SQL template needs to be optimized.
+   * - **DAS_IMPORTANT**: important SQL.
+   * - **DAS_NOT_IMPORTANT**: unimportant SQL.
+   * - **USER_IGNORE**: optimization not required.
+   * - **DAS_IN_PLAN**: scheduled for optimization.
    * 
    * This parameter is required.
    * 

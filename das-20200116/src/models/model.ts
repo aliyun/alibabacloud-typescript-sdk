@@ -80,6 +80,11 @@ export { DescribeSlowLogStatisticResponseBodyDataDataLogsTrend } from './Describ
 export { DescribeSlowLogStatisticResponseBodyDataDataLogs } from './DescribeSlowLogStatisticResponseBody';
 export { DescribeSlowLogStatisticResponseBodyDataData } from './DescribeSlowLogStatisticResponseBody';
 export { DescribeSlowLogStatisticResponseBodyData } from './DescribeSlowLogStatisticResponseBody';
+export { DescribeSqlInsightStatisticRequestFilters } from './DescribeSqlInsightStatisticRequest';
+export { DescribeSqlInsightStatisticResponseBodyDataDataListTrend } from './DescribeSqlInsightStatisticResponseBody';
+export { DescribeSqlInsightStatisticResponseBodyDataDataList } from './DescribeSqlInsightStatisticResponseBody';
+export { DescribeSqlInsightStatisticResponseBodyDataData } from './DescribeSqlInsightStatisticResponseBody';
+export { DescribeSqlInsightStatisticResponseBodyData } from './DescribeSqlInsightStatisticResponseBody';
 export { DescribeSqlLogConfigResponseBodyData } from './DescribeSqlLogConfigResponseBody';
 export { DescribeSqlLogRecordsRequestFilters } from './DescribeSqlLogRecordsRequest';
 export { DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord } from './DescribeSqlLogRecordsResponseBody';
@@ -337,6 +342,9 @@ export { DescribeSlowLogRecordsResponse } from './DescribeSlowLogRecordsResponse
 export { DescribeSlowLogStatisticRequest } from './DescribeSlowLogStatisticRequest';
 export { DescribeSlowLogStatisticResponseBody } from './DescribeSlowLogStatisticResponseBody';
 export { DescribeSlowLogStatisticResponse } from './DescribeSlowLogStatisticResponse';
+export { DescribeSqlInsightStatisticRequest } from './DescribeSqlInsightStatisticRequest';
+export { DescribeSqlInsightStatisticResponseBody } from './DescribeSqlInsightStatisticResponseBody';
+export { DescribeSqlInsightStatisticResponse } from './DescribeSqlInsightStatisticResponse';
 export { DescribeSqlLogConfigRequest } from './DescribeSqlLogConfigRequest';
 export { DescribeSqlLogConfigResponseBody } from './DescribeSqlLogConfigResponseBody';
 export { DescribeSqlLogConfigResponse } from './DescribeSqlLogConfigResponse';

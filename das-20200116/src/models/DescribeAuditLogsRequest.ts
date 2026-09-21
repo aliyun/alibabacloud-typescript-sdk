@@ -61,7 +61,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The range of execution time.
+   * The range of the execution time.
    * 
    * @example
    * in[1000 2000]
@@ -89,7 +89,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ipType?: string;
   /**
    * @remarks
-   * The language type for sending and receiving messages. Default value: zh_cn. Valid values:
+   * The language of the request and response. Default value: zh_cn. Valid values:
    * 
    * - zh_cn: Chinese.
    * - en_us: English.
@@ -165,7 +165,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * Specifies whether to perform an aggregate query.
+   * Specifies whether to use aggregate query.
    * 
    * @example
    * true
@@ -179,14 +179,6 @@ export class DescribeAuditLogsRequest extends $dara.Model {
    * 10
    */
   ruleCategory?: string;
-  /**
-   * @remarks
-   * The ID of the audit policy.
-   * 
-   * @example
-   * 9953411
-   */
-  ruleID?: string;
   /**
    * @remarks
    * The rule ID.
@@ -250,7 +242,6 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       productId: 'ProductId',
       ruleAggQuery: 'RuleAggQuery',
       ruleCategory: 'RuleCategory',
-      ruleID: 'RuleID',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
       sqlText: 'SqlText',
@@ -282,7 +273,6 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       productId: 'number',
       ruleAggQuery: 'boolean',
       ruleCategory: 'string',
-      ruleID: 'string',
       ruleId: 'string',
       ruleName: 'string',
       sqlText: 'string',
