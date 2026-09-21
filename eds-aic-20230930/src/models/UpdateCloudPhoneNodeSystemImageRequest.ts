@@ -2,38 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ImportImageResponseBody extends $dara.Model {
+export class UpdateCloudPhoneNodeSystemImageRequest extends $dara.Model {
   /**
    * @remarks
-   * ImageId
+   * The image ID.
    * 
    * @example
-   * imgc-06zyt9m93zwax****
+   * imgc-075cllfeuazh0****
    */
   imageId?: string;
   /**
    * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 425F351C-3F8E-5218-A520-B6311D0D****
+   * The list of cloud phone normal matrix IDs.
    */
-  requestId?: string;
+  nodeIds?: string[];
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
-      requestId: 'RequestId',
+      nodeIds: 'NodeIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageId: 'string',
-      requestId: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
     super.validate();
   }
 

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ImportImageRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the base image.
+   * 
+   * @example
+   * imgc-0aae4rgn0bk8f****
+   */
+  baseImageId?: string;
+  /**
+   * @remarks
    * The description of the image.
    * 
    * @example
@@ -13,7 +21,7 @@ export class ImportImageRequest extends $dara.Model {
   imageDescription?: string;
   /**
    * @remarks
-   * The URL of the image. This must be an Alibaba Cloud OSS address.
+   * The URL of the image. The URL must be an Alibaba Cloud Object Storage Service (OSS) address.
    * 
    * @example
    * https://xxx.oss-xxx/xxxx.tgz
@@ -29,6 +37,7 @@ export class ImportImageRequest extends $dara.Model {
   imageName?: string;
   static names(): { [key: string]: string } {
     return {
+      baseImageId: 'BaseImageId',
       imageDescription: 'ImageDescription',
       imageFileURL: 'ImageFileURL',
       imageName: 'ImageName',
@@ -37,6 +46,7 @@ export class ImportImageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseImageId: 'string',
       imageDescription: 'string',
       imageFileURL: 'string',
       imageName: 'string',

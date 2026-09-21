@@ -1548,10 +1548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a resource plan.
+   * Purchases a resource plan by placing an order.
    * 
    * @remarks
-   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
+   * This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
    * 
    * @param request - CreateMobileAgentPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1620,6 +1620,10 @@ export default class Client extends OpenApi {
       query["PromotionId"] = request.promotionId;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1638,10 +1642,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a resource plan.
+   * Purchases a resource plan by placing an order.
    * 
    * @remarks
-   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
+   * This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
    * 
    * @param request - CreateMobileAgentPackageRequest
    * @returns CreateMobileAgentPackageResponse
@@ -2066,7 +2070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a batch of backup files.
+   * Deletes backup files in batches.
    * 
    * @param request - DeleteBackupFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2097,7 +2101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a batch of backup files.
+   * Deletes backup files in batches.
    * 
    * @param request - DeleteBackupFileRequest
    * @returns DeleteBackupFileResponse
@@ -2929,7 +2933,7 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details of a cloud phone matrix.
-   * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
+   * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
    * 
    * @param request - DescribeCloudPhoneNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3009,7 +3013,7 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details of a cloud phone matrix.
-   * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
+   * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
    * 
    * @param request - DescribeCloudPhoneNodesRequest
    * @returns DescribeCloudPhoneNodesResponse
@@ -4855,10 +4859,10 @@ export default class Client extends OpenApi {
    * Imports a custom image.
    * 
    * @remarks
-   * 1. You can import a custom image to develop custom features or services.
-   * 2. First, obtain the required Android Open Source Project (AOSP) image baseline from the platform. Then, create a custom build. After the build is complete, import the image to the platform. For detailed instructions, contact Wuying technical support.
-   * 3. Ensure the image tar package is smaller than 2 GB. Otherwise, image parsing may fail.
-   * 4. Ensure the Object Storage Service (OSS) address is in mainland China. If the address is outside mainland China or in the Hong Kong region, the image file download may time out.
+   * 1. Importing a custom image is applicable to scenarios where you need to develop customized features or services.
+   * 2. Obtain the required AOSP base image from the platform, perform a custom build, and then import the built image to the platform for use. For detailed steps, contact Wuying technical support.
+   * 3. Ensure that the image TAR package is smaller than 2 GB. Otherwise, image parsing may fail.
+   * 4. Ensure that your OSS address is in the Chinese mainland. Addresses outside the Chinese mainland or in Hong Kong (China) may cause image file download timeouts.
    * 
    * @param request - ImportImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4867,6 +4871,10 @@ export default class Client extends OpenApi {
   async importImageWithOptions(request: $_model.ImportImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportImageResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.baseImageId)) {
+      query["BaseImageId"] = request.baseImageId;
+    }
+
     if (!$dara.isNull(request.imageDescription)) {
       query["ImageDescription"] = request.imageDescription;
     }
@@ -4900,10 +4908,10 @@ export default class Client extends OpenApi {
    * Imports a custom image.
    * 
    * @remarks
-   * 1. You can import a custom image to develop custom features or services.
-   * 2. First, obtain the required Android Open Source Project (AOSP) image baseline from the platform. Then, create a custom build. After the build is complete, import the image to the platform. For detailed instructions, contact Wuying technical support.
-   * 3. Ensure the image tar package is smaller than 2 GB. Otherwise, image parsing may fail.
-   * 4. Ensure the Object Storage Service (OSS) address is in mainland China. If the address is outside mainland China or in the Hong Kong region, the image file download may time out.
+   * 1. Importing a custom image is applicable to scenarios where you need to develop customized features or services.
+   * 2. Obtain the required AOSP base image from the platform, perform a custom build, and then import the built image to the platform for use. For detailed steps, contact Wuying technical support.
+   * 3. Ensure that the image TAR package is smaller than 2 GB. Otherwise, image parsing may fail.
+   * 4. Ensure that your OSS address is in the Chinese mainland. Addresses outside the Chinese mainland or in Hong Kong (China) may cause image file download timeouts.
    * 
    * @param request - ImportImageRequest
    * @returns ImportImageResponse
@@ -7725,6 +7733,58 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the system cloud disk image of a normal matrix node.
+   * 
+   * @remarks
+   * After changing the system cloud disk image, the instance may have compatibility issues. Verify compatibility before making the change.
+   * 
+   * @param request - UpdateCloudPhoneNodeSystemImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudPhoneNodeSystemImageResponse
+   */
+  async updateCloudPhoneNodeSystemImageWithOptions(request: $_model.UpdateCloudPhoneNodeSystemImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloudPhoneNodeSystemImageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.nodeIds)) {
+      query["NodeIds"] = request.nodeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCloudPhoneNodeSystemImage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCloudPhoneNodeSystemImageResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCloudPhoneNodeSystemImageResponse({}));
+  }
+
+  /**
+   * Changes the system cloud disk image of a normal matrix node.
+   * 
+   * @remarks
+   * After changing the system cloud disk image, the instance may have compatibility issues. Verify compatibility before making the change.
+   * 
+   * @param request - UpdateCloudPhoneNodeSystemImageRequest
+   * @returns UpdateCloudPhoneNodeSystemImageResponse
+   */
+  async updateCloudPhoneNodeSystemImage(request: $_model.UpdateCloudPhoneNodeSystemImageRequest): Promise<$_model.UpdateCloudPhoneNodeSystemImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCloudPhoneNodeSystemImageWithOptions(request, runtime);
   }
 
   /**

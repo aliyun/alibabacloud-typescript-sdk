@@ -181,7 +181,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelTags extends $dara.Mode
 export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth plan ID.
+   * The ID of the bandwidth plan.
    * 
    * @example
    * cbwp-7xvrl7axet2qg6yia******
@@ -189,10 +189,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The status of the bandwidth plan. Valid values:
-   * - 0: initializing
-   * - 1: normal
-   * - 2: deleted
+   * The status of the bandwidth plan. Valid values: 0: initializing. 1: normal. 2: deleted.
    * 
    * @example
    * 1
@@ -214,7 +211,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * PrePaid
@@ -246,7 +243,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   gmtExpired?: string;
   /**
    * @remarks
-   * The time when the matrix was last modified.
+   * The most recent modification time.
    * 
    * @example
    * 2025-02-13 02:03:14
@@ -308,7 +305,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   packageId?: string;
   /**
    * @remarks
-   * The number of instances provisioned under the cloud phone matrix.
+   * The number of instances under the cloud phone matrix.
    * 
    * @example
    * 25
@@ -477,9 +474,9 @@ export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Valid values:
-   * - If **NextToken** is empty, no more results exist.
-   * - If **NextToken** has a value, the value indicates the token from which the next query starts.
+   * Indicates whether a next query token exists. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** has a return value, the value is the token for the next query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

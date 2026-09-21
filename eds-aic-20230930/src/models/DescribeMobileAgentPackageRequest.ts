@@ -10,7 +10,7 @@ export class DescribeMobileAgentPackageRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The list of package IDs.
+   * The list of packages.
    */
   packageIds?: string[];
   /**

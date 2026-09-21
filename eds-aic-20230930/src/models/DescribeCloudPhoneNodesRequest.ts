@@ -47,7 +47,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing type. Only subscription is supported.
+   * The billing method. Only subscription is supported.
    * 
    * @example
    * PrePaid
@@ -63,7 +63,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token for the next query. If the results of a query are not completely returned, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue retrieving results.
+   * The pagination token for the next query. If the results of a query are not completely returned, the returned NextToken is not empty. You can include the returned NextToken in the next request to continue the query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****

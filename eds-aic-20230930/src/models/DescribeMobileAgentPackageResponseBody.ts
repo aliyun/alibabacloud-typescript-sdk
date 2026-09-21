@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeMobileAgentPackageResponseBodyPackageListTags extends $dara.Model {
+  /**
+   * @remarks
+   * The label key.
+   * 
+   * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The label value.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Model {
   /**
    * @remarks
@@ -53,6 +93,11 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   periodStartTime?: string;
   /**
    * @remarks
+   * The labels.
+   */
+  tags?: DescribeMobileAgentPackageResponseBodyPackageListTags[];
+  /**
+   * @remarks
    * The number of credits that have been used.
    * 
    * @example
@@ -70,6 +115,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
       packageStatus: 'PackageStatus',
       periodEndTime: 'PeriodEndTime',
       periodStartTime: 'PeriodStartTime',
+      tags: 'Tags',
       usedCredit: 'UsedCredit',
     };
   }
@@ -85,6 +131,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
       packageStatus: 'string',
       periodEndTime: 'string',
       periodStartTime: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeMobileAgentPackageResponseBodyPackageListTags },
       usedCredit: 'string',
     };
   }
@@ -92,6 +139,9 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   validate() {
     if(Array.isArray(this.instanceIds)) {
       $dara.Model.validateArray(this.instanceIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

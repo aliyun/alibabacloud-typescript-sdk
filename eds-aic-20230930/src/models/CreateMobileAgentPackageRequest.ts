@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateMobileAgentPackageRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. This parameter cannot be empty.
+   * 
+   * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMobileAgentPackageRequest extends $dara.Model {
   /**
    * @remarks
@@ -15,13 +55,13 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - **true**: enables automatic payment. Make sure that your account balance is sufficient.
-   * - **false** (default): generates an order without charging the account.
+   * - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
+   * - **false** (default): Only an order is generated. No payment is made.
    * 
    * 
    * 
    * 
-   * > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated. You can log on to the CloudPhone console to complete the payment.
+   * > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated. You can log on to the Elastic Cloud Phone console to complete the payment.
    * >
    * 
    * @example
@@ -32,8 +72,8 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the instance. Valid values:
    * 
-   * * **true**: enables auto-renewal.
-   * * **false** (default): disables auto-renewal.
+   * * **true**: Auto-renewal is enabled.
+   * * **false** (default): Auto-renewal is disabled.
    * 
    * @example
    * false
@@ -41,7 +81,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The region in which the instance resides. Currently, only cn-hangzhou is supported.
+   * The region where the instance resides. Currently, only cn-hangzhou is supported.
    * 
    * @example
    * cn-hangzhou
@@ -118,6 +158,11 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
    * 50003308011****
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tag?: CreateMobileAgentPackageRequestTag[];
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
@@ -135,6 +180,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
+      tag: 'Tag',
     };
   }
 
@@ -155,10 +201,14 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
       period: 'number',
       periodUnit: 'string',
       promotionId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateMobileAgentPackageRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 
