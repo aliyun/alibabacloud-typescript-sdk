@@ -14528,6 +14528,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 调用容器操作
+   * 
+   * @param request - InvokeContainerRequest
+   * @param tmpHeader - InvokeContainerHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeContainerResponse
+   */
+  async invokeContainerWithOptions(request: $_model.InvokeContainerRequest, tmpHeader: $_model.InvokeContainerHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeContainerResponse> {
+    request.validate();
+    let headers = new $_model.InvokeContainerShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "accountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.operationId)) {
+      body["operationId"] = request.operationId;
+    }
+
+    if (!$dara.isNull(request.params)) {
+      body["params"] = request.params;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["accountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeContainer",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/spi/ai/v1/container/invoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InvokeContainerResponse>(await this.callApi(params, req, runtime), new $_model.InvokeContainerResponse({}));
+  }
+
+  /**
+   * 调用容器操作
+   * 
+   * @param request - InvokeContainerRequest
+   * @returns InvokeContainerResponse
+   */
+  async invokeContainer(request: $_model.InvokeContainerRequest): Promise<$_model.InvokeContainerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.InvokeContainerHeaders({ });
+    return await this.invokeContainerWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 调用AI技能
    * 
    * @param tmpReq - InvokeSkillRequest

@@ -2,6 +2,195 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class InvokeAssistantResponseBodyMessagesContentA2uiMessagesAppendDataModel extends $dara.Model {
+  path?: string;
+  surfaceId?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'path',
+      surfaceId: 'surfaceId',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      surfaceId: 'string',
+      value: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentA2uiMessagesCreateSurface extends $dara.Model {
+  surfaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      surfaceId: 'surfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      surfaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentA2uiMessagesDeleteSurface extends $dara.Model {
+  surfaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      surfaceId: 'surfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      surfaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentA2uiMessagesUpdateComponents extends $dara.Model {
+  components?: any[];
+  surfaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      components: 'components',
+      surfaceId: 'surfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      components: { 'type': 'array', 'itemType': 'any' },
+      surfaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentA2uiMessagesUpdateDataModel extends $dara.Model {
+  path?: string;
+  surfaceId?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'path',
+      surfaceId: 'surfaceId',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      surfaceId: 'string',
+      value: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentA2uiMessages extends $dara.Model {
+  appendDataModel?: InvokeAssistantResponseBodyMessagesContentA2uiMessagesAppendDataModel;
+  createSurface?: InvokeAssistantResponseBodyMessagesContentA2uiMessagesCreateSurface;
+  deleteSurface?: InvokeAssistantResponseBodyMessagesContentA2uiMessagesDeleteSurface;
+  profile?: string;
+  updateComponents?: InvokeAssistantResponseBodyMessagesContentA2uiMessagesUpdateComponents;
+  updateDataModel?: InvokeAssistantResponseBodyMessagesContentA2uiMessagesUpdateDataModel;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appendDataModel: 'appendDataModel',
+      createSurface: 'createSurface',
+      deleteSurface: 'deleteSurface',
+      profile: 'profile',
+      updateComponents: 'updateComponents',
+      updateDataModel: 'updateDataModel',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appendDataModel: InvokeAssistantResponseBodyMessagesContentA2uiMessagesAppendDataModel,
+      createSurface: InvokeAssistantResponseBodyMessagesContentA2uiMessagesCreateSurface,
+      deleteSurface: InvokeAssistantResponseBodyMessagesContentA2uiMessagesDeleteSurface,
+      profile: 'string',
+      updateComponents: InvokeAssistantResponseBodyMessagesContentA2uiMessagesUpdateComponents,
+      updateDataModel: InvokeAssistantResponseBodyMessagesContentA2uiMessagesUpdateDataModel,
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appendDataModel && typeof (this.appendDataModel as any).validate === 'function') {
+      (this.appendDataModel as any).validate();
+    }
+    if(this.createSurface && typeof (this.createSurface as any).validate === 'function') {
+      (this.createSurface as any).validate();
+    }
+    if(this.deleteSurface && typeof (this.deleteSurface as any).validate === 'function') {
+      (this.deleteSurface as any).validate();
+    }
+    if(this.updateComponents && typeof (this.updateComponents as any).validate === 'function') {
+      (this.updateComponents as any).validate();
+    }
+    if(this.updateDataModel && typeof (this.updateDataModel as any).validate === 'function') {
+      (this.updateDataModel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvokeAssistantResponseBodyMessagesContentAguiContentAguiEventList extends $dara.Model {
   activityType?: string;
   content?: any;
@@ -768,6 +957,7 @@ export class InvokeAssistantResponseBodyMessagesContentText extends $dara.Model 
 }
 
 export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
+  a2uiMessages?: InvokeAssistantResponseBodyMessagesContentA2uiMessages[];
   aguiContent?: InvokeAssistantResponseBodyMessagesContentAguiContent;
   cardCallback?: InvokeAssistantResponseBodyMessagesContentCardCallback;
   dingCard?: InvokeAssistantResponseBodyMessagesContentDingCard;
@@ -789,6 +979,7 @@ export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      a2uiMessages: 'a2uiMessages',
       aguiContent: 'aguiContent',
       cardCallback: 'cardCallback',
       dingCard: 'dingCard',
@@ -802,6 +993,7 @@ export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      a2uiMessages: { 'type': 'array', 'itemType': InvokeAssistantResponseBodyMessagesContentA2uiMessages },
       aguiContent: InvokeAssistantResponseBodyMessagesContentAguiContent,
       cardCallback: InvokeAssistantResponseBodyMessagesContentCardCallback,
       dingCard: InvokeAssistantResponseBodyMessagesContentDingCard,
@@ -814,6 +1006,9 @@ export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.a2uiMessages)) {
+      $dara.Model.validateArray(this.a2uiMessages);
+    }
     if(this.aguiContent && typeof (this.aguiContent as any).validate === 'function') {
       (this.aguiContent as any).validate();
     }
