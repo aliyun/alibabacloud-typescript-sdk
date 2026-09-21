@@ -32,6 +32,49 @@ export class ListAgentSpecsResponseBodyDataPageItemsMcpServers extends $dara.Mod
   }
 }
 
+export class ListAgentSpecsResponseBodyDataPageItemsSkillsVersionSelector extends $dara.Model {
+  /**
+   * @remarks
+   * The version selector type. Valid values:
+   * 
+   * - LABEL: selects by label.
+   * - VERSION: selects by specific version.
+   * 
+   * @example
+   * LABEL
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The selector value. If the type is LABEL, this value is a label name such as latest. If the type is VERSION, this value is a specific version number.
+   * 
+   * @example
+   * latest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAgentSpecsResponseBodyDataPageItemsSkills extends $dara.Model {
   /**
    * @remarks
@@ -41,19 +84,42 @@ export class ListAgentSpecsResponseBodyDataPageItemsSkills extends $dara.Model {
    * agentspec-example
    */
   name?: string;
+  /**
+   * @remarks
+   * The Skill source type. Valid values:
+   * 
+   * - REFERENCE: references the AI Registry.
+   * - STATIC: statically bundled with the package.
+   * 
+   * @example
+   * REFERENCE
+   */
+  sourceType?: string;
+  /**
+   * @remarks
+   * The referenced version selector. If omitted, the default value is LABEL/latest.
+   */
+  versionSelector?: ListAgentSpecsResponseBodyDataPageItemsSkillsVersionSelector;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      sourceType: 'sourceType',
+      versionSelector: 'versionSelector',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      sourceType: 'string',
+      versionSelector: ListAgentSpecsResponseBodyDataPageItemsSkillsVersionSelector,
     };
   }
 
   validate() {
+    if(this.versionSelector && typeof (this.versionSelector as any).validate === 'function') {
+      (this.versionSelector as any).validate();
+    }
     super.validate();
   }
 
@@ -89,7 +155,7 @@ export class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The version currently being edited.
+   * The version that is currently being edited.
    * 
    * @example
    * 1.0.0
@@ -136,7 +202,7 @@ export class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model {
   onlineCnt?: number;
   /**
    * @remarks
-   * The version currently under review.
+   * The version that is currently under review.
    * 
    * @example
    * 1.0.0

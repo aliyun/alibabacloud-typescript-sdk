@@ -22,7 +22,7 @@ export class GetSkillVersionDetailResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource mapping (key is the resource name).
+   * The resource mapping in which the key is the resource name.
    */
   resource?: { [key: string]: DataResourceValue };
   /**

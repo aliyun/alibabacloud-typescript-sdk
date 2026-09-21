@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSpecsRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpec name used as a search keyword. Use this parameter together with the search parameter.
+   * The AgentSpec name used as a search keyword. This parameter is used together with the search parameter.
    * 
    * @example
    * my-worker
@@ -21,7 +21,7 @@ export class ListAgentSpecsRequest extends $dara.Model {
   bizTag?: string;
   /**
    * @remarks
-   * The field by which to sort results. Set this parameter to download_count to sort by download count. By default, results are sorted by update time.
+   * The field by which to sort the results. Set the value to download_count to sort by download count. By default, results are sorted by update time.
    * 
    * @example
    * download_count
@@ -29,7 +29,7 @@ export class ListAgentSpecsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The owner used to filter results.
+   * The owner used to filter the results.
    * 
    * @example
    * user1
@@ -53,7 +53,7 @@ export class ListAgentSpecsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The visibility scope used to filter results. Valid values:
+   * The visibility scope used to filter the results. Valid values:
    * 
    * - PUBLIC
    * - PRIVATE

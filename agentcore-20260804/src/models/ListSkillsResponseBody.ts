@@ -28,6 +28,11 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
    */
   downloadCount?: number;
   /**
+   * @example
+   * HEAD
+   */
+  draftMode?: string;
+  /**
    * @remarks
    * The version that is being edited.
    * 
@@ -119,6 +124,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
       bizTags: 'bizTags',
       description: 'description',
       downloadCount: 'downloadCount',
+      draftMode: 'draftMode',
       editingVersion: 'editingVersion',
       enable: 'enable',
       from: 'from',
@@ -139,6 +145,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
       bizTags: 'string',
       description: 'string',
       downloadCount: 'number',
+      draftMode: 'string',
       editingVersion: 'string',
       enable: 'boolean',
       from: 'string',

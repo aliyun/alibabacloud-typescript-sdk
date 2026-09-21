@@ -21,6 +21,14 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   commitMsg?: string;
   /**
    * @remarks
+   * The MD5 checksum of the Skill content package for this version, used to verify content consistency.
+   * 
+   * @example
+   * 9e107d9d372bb6826bd81d3542a419d6
+   */
+  contentMd5?: string;
+  /**
+   * @remarks
    * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
@@ -37,7 +45,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The download count.
+   * The number of downloads.
    * 
    * @example
    * 10
@@ -79,6 +87,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
     return {
       author: 'author',
       commitMsg: 'commitMsg',
+      contentMd5: 'contentMd5',
       createTime: 'createTime',
       description: 'description',
       downloadCount: 'downloadCount',
@@ -93,6 +102,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
     return {
       author: 'string',
       commitMsg: 'string',
+      contentMd5: 'string',
       createTime: 'number',
       description: 'string',
       downloadCount: 'number',
@@ -115,7 +125,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
 export class GetSkillDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The business tag JSON array string.
+   * The business label JSON array string.
    * 
    * @example
    * Sample property value
@@ -139,7 +149,15 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The version currently being edited.
+   * The draft pattern. HEAD indicates that the Skill has a persistent draft. VERSIONED indicates that each edit creates a draft with a version number. The server determines the pattern, and the invoker uses it for routing what to do next.
+   * 
+   * @example
+   * HEAD
+   */
+  draftMode?: string;
+  /**
+   * @remarks
+   * The version being edited.
    * 
    * @example
    * 1.0.0
@@ -189,7 +207,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The version currently under review.
+   * The version under review.
    * 
    * @example
    * 1.0.0
@@ -234,6 +252,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
       bizTags: 'bizTags',
       description: 'description',
       downloadCount: 'downloadCount',
+      draftMode: 'draftMode',
       editingVersion: 'editingVersion',
       enable: 'enable',
       from: 'from',
@@ -255,6 +274,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
       bizTags: 'string',
       description: 'string',
       downloadCount: 'number',
+      draftMode: 'string',
       editingVersion: 'string',
       enable: 'boolean',
       from: 'string',

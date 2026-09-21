@@ -31,7 +31,7 @@ export class UploadSkillViaOssRequestBody extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * The upload version number. This parameter is optional and used as a fallback when the ZIP package contains no version information.
+   * The target upload version number. This parameter is optional and serves as a fallback when the ZIP package does not contain version information.
    * 
    * @example
    * 1.0.0

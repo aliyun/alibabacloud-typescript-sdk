@@ -2,6 +2,66 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateManagedAgentRequestBodyAgenticFsMounts extends $dara.Model {
+  /**
+   * @remarks
+   * The subdirectory under /mnt/agenticfs/ in the container. Required for each mount entry as validated by the backend. Mount targets must not be duplicated or have parent-child overlaps.
+   * 
+   * @example
+   * /mnt/agenticfs/data
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * The non-empty relative directory that exists under the AccessPoint. Required for each mount entry as validated by the backend. Root directory, absolute paths, and parent directory segments are not allowed.
+   * 
+   * @example
+   * workspace/data
+   */
+  path?: string;
+  /**
+   * @remarks
+   * Specifies whether to mount in read-only mode. Default value: false. This is not the RAM role read-only policy.
+   * 
+   * @example
+   * false
+   */
+  readOnly?: boolean;
+  /**
+   * @remarks
+   * The AccessPoint domain name. Required for each mount entry as validated by the backend. Do not include the protocol, port, or path. Use the DomainName from the NAS ListAccessPoints response.
+   * 
+   * @example
+   * ap-0123456789abcdef0.0123456789-vlm36.cn-hangzhou.nas.aliyuncs.com
+   */
+  server?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'mountPath',
+      path: 'path',
+      readOnly: 'readOnly',
+      server: 'server',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      path: 'string',
+      readOnly: 'boolean',
+      server: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateManagedAgentRequestBodyEnvironmentCredentialReferences extends $dara.Model {
   /**
    * @remarks
@@ -161,12 +221,12 @@ export class UpdateManagedAgentRequestBodyHarnessConfiguration extends $dara.Mod
 export class UpdateManagedAgentRequestBodyHarness extends $dara.Model {
   /**
    * @remarks
-   * The harness configuration.
+   * The runtime harness configuration.
    */
   configuration?: UpdateManagedAgentRequestBodyHarnessConfiguration;
   /**
    * @remarks
-   * The harness type.
+   * The runtime harness type.
    * 
    * @example
    * qodercli
@@ -201,7 +261,7 @@ export class UpdateManagedAgentRequestBodyHarness extends $dara.Model {
 export class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the token quota is disabled and existing quota rules are deleted.
+   * Specifies whether to enable token quota. Default value: true. Set to false to disable and delete existing quota rules.
    * 
    * @example
    * true
@@ -209,7 +269,7 @@ export class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The quota limit type. This parameter is required by backend validation when the quota is enabled. Fixed value: token.
+   * The quota limit type. Required when quota is enabled, as validated by the backend. Fixed value: token.
    * 
    * @example
    * token
@@ -217,7 +277,7 @@ export class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model {
   limitType?: string;
   /**
    * @remarks
-   * The quota statistical period. This parameter is required by backend validation when the quota is enabled. Valid values:
+   * The quota statistical period. Required when quota is enabled, as validated by the backend. Valid values:
    * - day: daily.
    * - month: monthly.
    * 
@@ -227,7 +287,7 @@ export class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model {
   periodType?: string;
   /**
    * @remarks
-   * The maximum number of tokens that can be consumed within a single period. This parameter is required by backend validation when the quota is enabled. The value must be greater than 0.
+   * The maximum number of tokens allowed within a single period. Required when quota is enabled, as validated by the backend. The value must be greater than 0.
    * 
    * @example
    * 1000000
@@ -281,7 +341,7 @@ export class UpdateManagedAgentRequestBodyModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model token quota configuration. If this parameter is not specified, no quota is configured.
+   * The model token quota configuration. If not specified, no quota is configured.
    */
   quota?: UpdateManagedAgentRequestBodyModelQuota;
   static names(): { [key: string]: string } {
@@ -415,7 +475,7 @@ export class UpdateManagedAgentRequestBodyNetwork extends $dara.Model {
 export class UpdateManagedAgentRequestBodyOssMounts extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket name. This parameter is required by backend validation for each mount entry.
+   * The OSS bucket name. Required for each mount entry as validated by the backend.
    * 
    * @example
    * bucket-001
@@ -423,7 +483,7 @@ export class UpdateManagedAgentRequestBodyOssMounts extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path in the container. This parameter is required by backend validation for each mount entry.
+   * The absolute mount path in the container. Required for each mount entry as validated by the backend.
    * 
    * @example
    * /mnt/oss/datasets
@@ -431,7 +491,7 @@ export class UpdateManagedAgentRequestBodyOssMounts extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
+   * The relative object prefix within the bucket. If not specified, the entire bucket is mounted.
    * 
    * @example
    * datasets
@@ -472,7 +532,7 @@ export class UpdateManagedAgentRequestBodyOssMounts extends $dara.Model {
 export class UpdateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute specification.
+   * The compute class.
    * 
    * This parameter is required.
    * 
@@ -504,12 +564,12 @@ export class UpdateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
 export class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto scaling. This parameter is required by backend validation when hpa is specified.
+   * Specifies whether to enable auto scaling. Required when hpa is present, as validated by the backend.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is specified.
+   * The maximum number of active sessions per sandbox. Required when hpa is present, as validated by the backend.
    * 
    * @example
    * 5
@@ -517,7 +577,7 @@ export class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
+   * The maximum number of sandboxes. Required when HPA is enabled and must be no less than the minimum value.
    * 
    * @example
    * 3
@@ -525,7 +585,7 @@ export class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   maxSandboxCount?: number;
   /**
    * @remarks
-   * The minimum number of sandboxes. This parameter is required when HPA is enabled.
+   * The minimum number of sandboxes. Required when HPA is enabled.
    * 
    * @example
    * 1
@@ -533,7 +593,7 @@ export class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   minSandboxCount?: number;
   /**
    * @remarks
-   * The session reclamation time after inactivity, in seconds. This parameter is required by backend validation when hpa is specified.
+   * The time in seconds before an inactive session is reclaimed. Required when hpa is present, as validated by the backend.
    * 
    * @example
    * 3600
@@ -571,7 +631,7 @@ export class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
 export class UpdateManagedAgentRequestBodyRuntimeSessionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+   * The HTTP header name used for session affinity. Takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
    * 
    * @example
    * X-Session-Id
@@ -664,6 +724,48 @@ export class UpdateManagedAgentRequestBodyRuntime extends $dara.Model {
   }
 }
 
+export class UpdateManagedAgentRequestBodySkillsVersionSelector extends $dara.Model {
+  /**
+   * @remarks
+   * The version selector type. Valid values:
+   * - LABEL: selects by label.
+   * - VERSION: selects by specific version.
+   * 
+   * @example
+   * LABEL
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The selector value. If the type is LABEL, specify a label name such as latest. If the type is VERSION, specify a specific version number.
+   * 
+   * @example
+   * latest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateManagedAgentRequestBodySkills extends $dara.Model {
   /**
    * @remarks
@@ -677,27 +779,49 @@ export class UpdateManagedAgentRequestBodySkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The skill source type. Valid values:
+   * - REFERENCE: references AI Registry.
+   * - STATIC: statically bundled with the package.
+   * 
+   * @example
+   * REFERENCE
+   */
+  sourceType?: string;
+  /**
+   * @remarks
    * The skill version.
    * 
    * @example
    * 1.0.0
    */
   version?: string;
+  /**
+   * @remarks
+   * The referenced version selector. Defaults to LABEL/latest if omitted. Currently supports LABEL/latest.
+   */
+  versionSelector?: UpdateManagedAgentRequestBodySkillsVersionSelector;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      sourceType: 'sourceType',
       version: 'version',
+      versionSelector: 'versionSelector',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      sourceType: 'string',
       version: 'string',
+      versionSelector: UpdateManagedAgentRequestBodySkillsVersionSelector,
     };
   }
 
   validate() {
+    if(this.versionSelector && typeof (this.versionSelector as any).validate === 'function') {
+      (this.versionSelector as any).validate();
+    }
     super.validate();
   }
 
@@ -714,7 +838,7 @@ export class UpdateManagedAgentRequestBodySubAgents extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Review the code
+   * Please review the code
    */
   instruction?: string;
   /**
@@ -753,7 +877,7 @@ export class UpdateManagedAgentRequestBodySubAgents extends $dara.Model {
 export class UpdateManagedAgentRequestBodyTemplateAiRegistry extends $dara.Model {
   /**
    * @remarks
-   * The name of the template in the AI registry.
+   * The name of the template in AI Registry.
    * 
    * This parameter is required.
    * 
@@ -763,9 +887,7 @@ export class UpdateManagedAgentRequestBodyTemplateAiRegistry extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The version of the template in the AI registry.
-   * 
-   * This parameter is required.
+   * The version of the template in AI Registry.
    * 
    * @example
    * 1.0.0
@@ -797,7 +919,7 @@ export class UpdateManagedAgentRequestBodyTemplateAiRegistry extends $dara.Model
 export class UpdateManagedAgentRequestBodyTemplate extends $dara.Model {
   /**
    * @remarks
-   * The AI registry template configuration.
+   * The AI Registry template configuration.
    */
   aiRegistry?: UpdateManagedAgentRequestBodyTemplateAiRegistry;
   static names(): { [key: string]: string } {
@@ -871,6 +993,11 @@ export class UpdateManagedAgentRequestBodyTools extends $dara.Model {
 export class UpdateManagedAgentRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The AgenticFS mount list. Omit to retain existing values, pass [] to clear, or pass a non-empty array for full replacement. null is rejected. Combined with OSS mounts, a maximum of 10 entries are allowed.
+   */
+  agenticFsMounts?: UpdateManagedAgentRequestBodyAgenticFsMounts[];
+  /**
+   * @remarks
    * The description of the managed agent.
    * 
    * @example
@@ -884,7 +1011,7 @@ export class UpdateManagedAgentRequestBody extends $dara.Model {
   environment?: UpdateManagedAgentRequestBodyEnvironment;
   /**
    * @remarks
-   * The agent harness configuration.
+   * The agent runtime harness.
    */
   harness?: UpdateManagedAgentRequestBodyHarness;
   /**
@@ -915,7 +1042,7 @@ export class UpdateManagedAgentRequestBody extends $dara.Model {
   network?: UpdateManagedAgentRequestBodyNetwork;
   /**
    * @remarks
-   * The list of OSS mounts. A maximum of 10 entries are supported. Pass an empty array to clear existing mounts.
+   * The OSS mount list. A maximum of 10 entries are allowed. Pass an empty array to clear existing mounts.
    */
   ossMounts?: UpdateManagedAgentRequestBodyOssMounts[];
   /**
@@ -925,12 +1052,12 @@ export class UpdateManagedAgentRequestBody extends $dara.Model {
   runtime?: UpdateManagedAgentRequestBodyRuntime;
   /**
    * @remarks
-   * The list of skill configurations.
+   * The skill configuration list.
    */
   skills?: UpdateManagedAgentRequestBodySkills[];
   /**
    * @remarks
-   * The list of sub-agent configurations.
+   * The sub-agent configuration list.
    */
   subAgents?: UpdateManagedAgentRequestBodySubAgents[];
   /**
@@ -940,11 +1067,12 @@ export class UpdateManagedAgentRequestBody extends $dara.Model {
   template?: UpdateManagedAgentRequestBodyTemplate;
   /**
    * @remarks
-   * The list of tool configurations.
+   * The tool configuration list.
    */
   tools?: UpdateManagedAgentRequestBodyTools[];
   static names(): { [key: string]: string } {
     return {
+      agenticFsMounts: 'agenticFsMounts',
       description: 'description',
       environment: 'environment',
       harness: 'harness',
@@ -963,6 +1091,7 @@ export class UpdateManagedAgentRequestBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agenticFsMounts: { 'type': 'array', 'itemType': UpdateManagedAgentRequestBodyAgenticFsMounts },
       description: 'string',
       environment: UpdateManagedAgentRequestBodyEnvironment,
       harness: UpdateManagedAgentRequestBodyHarness,
@@ -980,6 +1109,9 @@ export class UpdateManagedAgentRequestBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agenticFsMounts)) {
+      $dara.Model.validateArray(this.agenticFsMounts);
+    }
     if(this.environment && typeof (this.environment as any).validate === 'function') {
       (this.environment as any).validate();
     }
@@ -1026,7 +1158,7 @@ export class UpdateManagedAgentRequest extends $dara.Model {
   body?: UpdateManagedAgentRequestBody;
   /**
    * @remarks
-   * The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
+   * The reserved idempotency token. The backend does not guarantee idempotency in the current release.
    * 
    * @example
    * client-token-1

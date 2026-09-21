@@ -33,6 +33,40 @@ export class GetAgentSpecLatestResponseBodyDataMcpServers extends $dara.Model {
   }
 }
 
+export class GetAgentSpecLatestResponseBodyDataSkillsVersionSelector extends $dara.Model {
+  /**
+   * @example
+   * LABEL
+   */
+  type?: string;
+  /**
+   * @example
+   * latest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgentSpecLatestResponseBodyDataSkills extends $dara.Model {
   /**
    * @remarks
@@ -42,19 +76,32 @@ export class GetAgentSpecLatestResponseBodyDataSkills extends $dara.Model {
    * agentspec-example
    */
   name?: string;
+  /**
+   * @example
+   * REFERENCE
+   */
+  sourceType?: string;
+  versionSelector?: GetAgentSpecLatestResponseBodyDataSkillsVersionSelector;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      sourceType: 'sourceType',
+      versionSelector: 'versionSelector',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      sourceType: 'string',
+      versionSelector: GetAgentSpecLatestResponseBodyDataSkillsVersionSelector,
     };
   }
 
   validate() {
+    if(this.versionSelector && typeof (this.versionSelector as any).validate === 'function') {
+      (this.versionSelector as any).validate();
+    }
     super.validate();
   }
 

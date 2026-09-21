@@ -1594,7 +1594,7 @@ export default class Client extends OpenApi {
    * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
    * 
    * @param request - DeleteSkillRequest
@@ -1625,7 +1625,7 @@ export default class Client extends OpenApi {
    * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
    * 
    * @param request - DeleteSkillRequest
@@ -2022,11 +2022,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Skips the regular review process and forcibly publishes the specified Skill version.
+   * Skips the regular review process and forcibly publishes a specified Skill version.
    * 
    * @remarks
-   * ## Request description
-   * Skips the regular review process and forcibly publishes the specified Skill version.
+   * ## Operation description
+   * Skips the regular review process and forcibly publishes a specified Skill version.
    * 
    * @param tmpReq - ForcePublishSkillVersionRequest
    * @param headers - map
@@ -2065,11 +2065,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Skips the regular review process and forcibly publishes the specified Skill version.
+   * Skips the regular review process and forcibly publishes a specified Skill version.
    * 
    * @remarks
-   * ## Request description
-   * Skips the regular review process and forcibly publishes the specified Skill version.
+   * ## Operation description
+   * Skips the regular review process and forcibly publishes a specified Skill version.
    * 
    * @param request - ForcePublishSkillVersionRequest
    * @returns ForcePublishSkillVersionResponse
@@ -3122,6 +3122,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the RAM authorization URL for mounting AgenticFS in a workspace.
+   * 
+   * @remarks
+   * The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+   * 
+   * @param request - GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
+   */
+  async getWorkspaceAgenticFsMountRamAuthorizeUrlWithOptions(workspaceId: string, request: $_model.GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessPointId)) {
+      query["accessPointId"] = request.accessPointId;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["fileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.server)) {
+      query["server"] = request.server;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspaceAgenticFsMountRamAuthorizeUrl",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/agentic-fs/authorize`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse({}));
+  }
+
+  /**
+   * Queries the RAM authorization URL for mounting AgenticFS in a workspace.
+   * 
+   * @remarks
+   * The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+   * 
+   * @param request - GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
+   * @returns GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
+   */
+  async getWorkspaceAgenticFsMountRamAuthorizeUrl(workspaceId: string, request: $_model.GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest): Promise<$_model.GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkspaceAgenticFsMountRamAuthorizeUrlWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the plug-in status of a specified workspace.
    * 
    * @remarks
@@ -3360,11 +3419,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+   * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
    * 
    * @remarks
    * ## Operation description
-   * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+   * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
    * 
    * @param request - ListAgentSpecsRequest
    * @param headers - map
@@ -3429,11 +3488,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+   * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
    * 
    * @remarks
    * ## Operation description
-   * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+   * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
    * 
    * @param request - ListAgentSpecsRequest
    * @returns ListAgentSpecsResponse
@@ -4444,6 +4503,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the reference relationships of a skill.
+   * 
+   * @param request - ListSkillReferencesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillReferencesResponse
+   */
+  async listSkillReferencesWithOptions(workspaceId: string, skillName: string, request: $_model.ListSkillReferencesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillReferencesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNo)) {
+      query["pageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.selectorType)) {
+      query["selectorType"] = request.selectorType;
+    }
+
+    if (!$dara.isNull(request.selectorValue)) {
+      query["selectorValue"] = request.selectorValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSkillReferences",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/skills/${$dara.URL.percentEncode(skillName)}/references`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSkillReferencesResponse>(await this.callApi(params, req, runtime), new $_model.ListSkillReferencesResponse({}));
+  }
+
+  /**
+   * Queries the reference relationships of a skill.
+   * 
+   * @param request - ListSkillReferencesRequest
+   * @returns ListSkillReferencesResponse
+   */
+  async listSkillReferences(workspaceId: string, skillName: string, request: $_model.ListSkillReferencesRequest): Promise<$_model.ListSkillReferencesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSkillReferencesWithOptions(workspaceId, skillName, request, headers, runtime);
+  }
+
+  /**
    * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
    * 
    * @remarks
@@ -4701,7 +4817,7 @@ export default class Client extends OpenApi {
    * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
    * 
    * @param tmpReq - OfflineSkillRequest
@@ -4744,7 +4860,7 @@ export default class Client extends OpenApi {
    * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
    * 
    * @param request - OfflineSkillRequest
@@ -4819,7 +4935,7 @@ export default class Client extends OpenApi {
    * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
    * 
    * @param tmpReq - PrecheckSkillUploadViaOssRequest
@@ -4862,7 +4978,7 @@ export default class Client extends OpenApi {
    * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
    * 
    * @param request - PrecheckSkillUploadViaOssRequest
@@ -4875,11 +4991,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a specified Skill version to change its state to published.
+   * Publishes a specified Skill version to transition it to the published state.
    * 
    * @remarks
    * ## Operation description
-   * Publishes a specified Skill version to change its state to published.
+   * Publishes a specified Skill version to transition it to the published state.
    * 
    * @param tmpReq - PublishSkillVersionRequest
    * @param headers - map
@@ -4918,11 +5034,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a specified Skill version to change its state to published.
+   * Publishes a specified Skill version to transition it to the published state.
    * 
    * @remarks
    * ## Operation description
-   * Publishes a specified Skill version to change its state to published.
+   * Publishes a specified Skill version to transition it to the published state.
    * 
    * @param request - PublishSkillVersionRequest
    * @returns PublishSkillVersionResponse
@@ -5956,7 +6072,7 @@ export default class Client extends OpenApi {
    * Updates the version labels and their mappings for a specified Skill.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Updates the version labels and their mappings for a specified Skill.
    * 
    * @param tmpReq - UpdateSkillLabelsRequest
@@ -5999,7 +6115,7 @@ export default class Client extends OpenApi {
    * Updates the version labels and their mappings for a specified Skill.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Updates the version labels and their mappings for a specified Skill.
    * 
    * @param request - UpdateSkillLabelsRequest
@@ -6479,6 +6595,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.verifyWorkspaceAcrRamAuthorizationWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the RAM authorization status of AgenticFS mounting for a workspace.
+   * 
+   * @remarks
+   * Determines the shared role and target access point based on the workspace and server, checks whether the role has a mounted policy with the expected name and a type of Custom, and returns AUTHORIZED or UNAUTHORIZED. Consistent with OSS/ACR, this operation does not verify the policy body, role trust, or actual mount read/write permissions. If the upstream query fails, an error is returned.
+   * 
+   * @param request - VerifyWorkspaceAgenticFsMountRamAuthorizationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyWorkspaceAgenticFsMountRamAuthorizationResponse
+   */
+  async verifyWorkspaceAgenticFsMountRamAuthorizationWithOptions(workspaceId: string, request: $_model.VerifyWorkspaceAgenticFsMountRamAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyWorkspaceAgenticFsMountRamAuthorizationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.server)) {
+      query["server"] = request.server;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyWorkspaceAgenticFsMountRamAuthorization",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/agentic-fs/authorize/verify`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyWorkspaceAgenticFsMountRamAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.VerifyWorkspaceAgenticFsMountRamAuthorizationResponse({}));
+  }
+
+  /**
+   * Queries the RAM authorization status of AgenticFS mounting for a workspace.
+   * 
+   * @remarks
+   * Determines the shared role and target access point based on the workspace and server, checks whether the role has a mounted policy with the expected name and a type of Custom, and returns AUTHORIZED or UNAUTHORIZED. Consistent with OSS/ACR, this operation does not verify the policy body, role trust, or actual mount read/write permissions. If the upstream query fails, an error is returned.
+   * 
+   * @param request - VerifyWorkspaceAgenticFsMountRamAuthorizationRequest
+   * @returns VerifyWorkspaceAgenticFsMountRamAuthorizationResponse
+   */
+  async verifyWorkspaceAgenticFsMountRamAuthorization(workspaceId: string, request: $_model.VerifyWorkspaceAgenticFsMountRamAuthorizationRequest): Promise<$_model.VerifyWorkspaceAgenticFsMountRamAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.verifyWorkspaceAgenticFsMountRamAuthorizationWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**

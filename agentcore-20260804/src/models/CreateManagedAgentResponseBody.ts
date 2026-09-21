@@ -2,6 +2,150 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Model {
+  /**
+   * @remarks
+   * The subdirectory under /mnt/agenticfs/ in the container. This field is validated as required by the backend for each mount entry. Mount targets must not be duplicated or have parent-child overlaps.
+   * 
+   * @example
+   * /mnt/agenticfs/data
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * A non-empty relative directory that exists under the AccessPoint. This field is validated as required by the backend for each mount entry. Root directories, absolute paths, and parent directory segments are not allowed.
+   * 
+   * @example
+   * workspace/data
+   */
+  path?: string;
+  /**
+   * @remarks
+   * Specifies whether to mount in read-only mode. Default value: false. This is not a RAM role read-only policy.
+   * 
+   * @example
+   * false
+   */
+  readOnly?: boolean;
+  /**
+   * @remarks
+   * The AccessPoint domain name. This field is validated as required by the backend for each mount entry. Do not include the protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
+   * 
+   * @example
+   * ap-0123456789abcdef0.0123456789-vlm36.cn-hangzhou.nas.aliyuncs.com
+   */
+  server?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'mountPath',
+      path: 'path',
+      readOnly: 'readOnly',
+      server: 'server',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      path: 'string',
+      readOnly: 'boolean',
+      server: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector extends $dara.Model {
+  /**
+   * @example
+   * LABEL
+   */
+  type?: string;
+  /**
+   * @example
+   * latest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateManagedAgentResponseBodyDataConfiguredSkills extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * web-search
+   */
+  name?: string;
+  /**
+   * @example
+   * REFERENCE
+   */
+  sourceType?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
+  version?: string;
+  versionSelector?: CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      sourceType: 'sourceType',
+      version: 'version',
+      versionSelector: 'versionSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      sourceType: 'string',
+      version: 'string',
+      versionSelector: CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector,
+    };
+  }
+
+  validate() {
+    if(this.versionSelector && typeof (this.versionSelector as any).validate === 'function') {
+      (this.versionSelector as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateManagedAgentResponseBodyDataEnvironmentCredentialReferences extends $dara.Model {
   /**
    * @remarks
@@ -161,12 +305,12 @@ export class CreateManagedAgentResponseBodyDataHarnessConfiguration extends $dar
 export class CreateManagedAgentResponseBodyDataHarness extends $dara.Model {
   /**
    * @remarks
-   * The harness configuration.
+   * The runtime harness configuration.
    */
   configuration?: CreateManagedAgentResponseBodyDataHarnessConfiguration;
   /**
    * @remarks
-   * The harness type.
+   * The runtime harness type.
    * 
    * @example
    * qodercli
@@ -225,7 +369,7 @@ export class CreateManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   overLimit?: boolean;
   /**
    * @remarks
-   * The quota statistical period. The value day indicates a daily period, and the value month indicates a monthly period.
+   * The quota statistical period. A value of day indicates daily and a value of month indicates monthly.
    * 
    * @example
    * day
@@ -307,7 +451,7 @@ export class CreateManagedAgentResponseBodyDataModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model token quota configuration and the quota usage status in the current period. This field is empty if no quota is configured.
+   * The model token quota configuration and quota usage status for the current period. This field is empty if no quota is configured.
    */
   quota?: CreateManagedAgentResponseBodyDataModelQuota;
   static names(): { [key: string]: string } {
@@ -441,7 +585,7 @@ export class CreateManagedAgentResponseBodyDataNetwork extends $dara.Model {
 export class CreateManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket name. This parameter is required by backend validation for each mount entry.
+   * The OSS bucket name. This field is validated as required by the backend for each mount entry.
    * 
    * @example
    * bucket-001
@@ -449,7 +593,7 @@ export class CreateManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path in the container. This parameter is required by backend validation for each mount entry.
+   * The absolute mount path in the container. This field is validated as required by the backend for each mount entry.
    * 
    * @example
    * /mnt/oss/datasets
@@ -457,7 +601,7 @@ export class CreateManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+   * The relative object prefix within the bucket. If not specified, the entire bucket is mounted.
    * 
    * @example
    * datasets
@@ -498,7 +642,7 @@ export class CreateManagedAgentResponseBodyDataOssMounts extends $dara.Model {
 export class CreateManagedAgentResponseBodyDataRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute specification.
+   * The compute class.
    * 
    * This parameter is required.
    * 
@@ -530,12 +674,12 @@ export class CreateManagedAgentResponseBodyDataRuntimeCompute extends $dara.Mode
 export class CreateManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto scaling. This parameter is required by backend validation when hpa is present.
+   * Specifies whether to enable auto-scaling. This field is validated as required by the backend when hpa is present.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is present.
+   * The maximum number of active sessions per sandbox. This field is validated as required by the backend when hpa is present.
    * 
    * @example
    * 5
@@ -543,7 +687,7 @@ export class CreateManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
+   * The maximum number of sandboxes. Required when HPA is enabled. The value must be greater than or equal to the minimum value.
    * 
    * @example
    * 3
@@ -551,7 +695,7 @@ export class CreateManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   maxSandboxCount?: number;
   /**
    * @remarks
-   * The minimum number of sandboxes. This parameter is required when HPA is enabled.
+   * The minimum number of sandboxes. Required when HPA is enabled.
    * 
    * @example
    * 1
@@ -559,7 +703,7 @@ export class CreateManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   minSandboxCount?: number;
   /**
    * @remarks
-   * The time in seconds before an inactive session is reclaimed. This parameter is required by backend validation when hpa is present.
+   * The time-to-live (TTL) for a session after inactivity, in seconds. This field is validated as required by the backend when hpa is present.
    * 
    * @example
    * 3600
@@ -646,7 +790,7 @@ export class CreateManagedAgentResponseBodyDataRuntime extends $dara.Model {
   compute?: CreateManagedAgentResponseBodyDataRuntimeCompute;
   /**
    * @remarks
-   * The sandbox auto scaling and session configuration.
+   * The sandbox auto-scaling and session configuration.
    */
   hpa?: CreateManagedAgentResponseBodyDataRuntimeHpa;
   /**
@@ -690,17 +834,69 @@ export class CreateManagedAgentResponseBodyDataRuntime extends $dara.Model {
   }
 }
 
+export class CreateManagedAgentResponseBodyDataSkillsVersionSelector extends $dara.Model {
+  /**
+   * @example
+   * LABEL
+   */
+  type?: string;
+  /**
+   * @example
+   * latest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateManagedAgentResponseBodyDataSkills extends $dara.Model {
+  /**
+   * @example
+   * 1.0.0
+   */
+  appliedVersion?: string;
+  /**
+   * @example
+   * false
+   */
+  fromTemplate?: boolean;
   /**
    * @remarks
    * The skill name.
-   * 
-   * This parameter is required.
    * 
    * @example
    * code-analysis
    */
   name?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
+  resolvedVersion?: string;
+  /**
+   * @example
+   * REFERENCE
+   */
+  sourceType?: string;
   /**
    * @remarks
    * The skill version.
@@ -709,21 +905,35 @@ export class CreateManagedAgentResponseBodyDataSkills extends $dara.Model {
    * 1.0.0
    */
   version?: string;
+  versionSelector?: CreateManagedAgentResponseBodyDataSkillsVersionSelector;
   static names(): { [key: string]: string } {
     return {
+      appliedVersion: 'appliedVersion',
+      fromTemplate: 'fromTemplate',
       name: 'name',
+      resolvedVersion: 'resolvedVersion',
+      sourceType: 'sourceType',
       version: 'version',
+      versionSelector: 'versionSelector',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appliedVersion: 'string',
+      fromTemplate: 'boolean',
       name: 'string',
+      resolvedVersion: 'string',
+      sourceType: 'string',
       version: 'string',
+      versionSelector: CreateManagedAgentResponseBodyDataSkillsVersionSelector,
     };
   }
 
   validate() {
+    if(this.versionSelector && typeof (this.versionSelector as any).validate === 'function') {
+      (this.versionSelector as any).validate();
+    }
     super.validate();
   }
 
@@ -790,8 +1000,6 @@ export class CreateManagedAgentResponseBodyDataTemplateAiRegistry extends $dara.
   /**
    * @remarks
    * The version of the template in the AI registry.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1.0.0
@@ -905,6 +1113,16 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
+   * The AgenticFS additional mount list. The total number of items combined with ossMounts cannot exceed 10.
+   */
+  agenticFsMounts?: CreateManagedAgentResponseBodyDataAgenticFsMounts[];
+  /**
+   * @remarks
+   * 仅包含用户追加或覆盖的 Skill，不包含模板继承项。资源模型读取此字段以保留更新语义；创建和更新仍使用请求中的 skills。
+   */
+  configuredSkills?: CreateManagedAgentResponseBodyDataConfiguredSkills[];
+  /**
+   * @remarks
    * The creation mode.
    * 
    * @example
@@ -942,7 +1160,7 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   environment?: CreateManagedAgentResponseBodyDataEnvironment;
   /**
    * @remarks
-   * The agent harness.
+   * The agent runtime harness.
    */
   harness?: CreateManagedAgentResponseBodyDataHarness;
   /**
@@ -989,7 +1207,7 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   network?: CreateManagedAgentResponseBodyDataNetwork;
   /**
    * @remarks
-   * The OSS mount list. A maximum of 10 entries are supported.
+   * The OSS mount list. A maximum of 10 entries are allowed.
    */
   ossMounts?: CreateManagedAgentResponseBodyDataOssMounts[];
   /**
@@ -1007,7 +1225,7 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   runtime?: CreateManagedAgentResponseBodyDataRuntime;
   /**
    * @remarks
-   * The number of managed agent instances grouped by sandbox phase. Current keys: PENDING (being created or initialized), RUNNING (running), HIBERNATING (entering hibernation), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (being terminated), and FAILED (runtime failure). Only phases that actually occur are returned. Missing keys should be treated as 0. This field is a dynamic map, and new keys may be added in the future. You can use FAILED > 0 to determine whether any instances have failed.
+   * The instance counts of the managed agent grouped by sandbox phase. Current keys: PENDING (being created or initialized), RUNNING (running), HIBERNATING (entering hibernation), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (being terminated), FAILED (runtime failure). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic mapping and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
    */
   sandboxPhaseCounts?: { [key: string]: number };
   /**
@@ -1040,7 +1258,7 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   tools?: CreateManagedAgentResponseBodyDataTools[];
   /**
    * @remarks
-   * The time when the managed agent was last updated, in RFC 3339 format.
+   * The update time in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -1057,6 +1275,8 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentId: 'agentId',
+      agenticFsMounts: 'agenticFsMounts',
+      configuredSkills: 'configuredSkills',
       createMode: 'createMode',
       createdAt: 'createdAt',
       deployType: 'deployType',
@@ -1086,6 +1306,8 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentId: 'string',
+      agenticFsMounts: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataAgenticFsMounts },
+      configuredSkills: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataConfiguredSkills },
       createMode: 'string',
       createdAt: 'string',
       deployType: 'string',
@@ -1113,6 +1335,12 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agenticFsMounts)) {
+      $dara.Model.validateArray(this.agenticFsMounts);
+    }
+    if(Array.isArray(this.configuredSkills)) {
+      $dara.Model.validateArray(this.configuredSkills);
+    }
     if(this.environment && typeof (this.environment as any).validate === 'function') {
       (this.environment as any).validate();
     }
@@ -1157,7 +1385,7 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
 export class CreateManagedAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS is returned if the operation is successful.
+   * The business status code. The value is SUCCESS when the operation succeeds.
    * 
    * @example
    * SUCCESS
@@ -1165,7 +1393,7 @@ export class CreateManagedAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the created managed agent.
+   * The information about the managed agent after creation.
    */
   data?: CreateManagedAgentResponseBodyData;
   /**
@@ -1178,7 +1406,7 @@ export class CreateManagedAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The message that indicates the result of the request.
    * 
    * @example
    * success

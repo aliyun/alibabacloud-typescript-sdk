@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class PublishSkillVersionRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The commit message recorded on the official version produced by this publish operation. Takes effect in HEAD draft mode. If left empty, the draft message is used. Ignored in version Draft mode.
+   * 
+   * @example
+   * First official version
+   */
+  commitMsg?: string;
+  /**
+   * @remarks
    * Specifies whether to update the latest label.
    * 
    * @example
@@ -13,12 +21,14 @@ export class PublishSkillVersionRequestBody extends $dara.Model {
   updateLatestLabel?: boolean;
   static names(): { [key: string]: string } {
     return {
+      commitMsg: 'commitMsg',
       updateLatestLabel: 'updateLatestLabel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      commitMsg: 'string',
       updateLatestLabel: 'boolean',
     };
   }

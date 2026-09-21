@@ -2,6 +2,66 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateManagedAgentRequestBodyAgenticFsMounts extends $dara.Model {
+  /**
+   * @remarks
+   * The subdirectory under /mnt/agenticfs/ in the container. This field is validated as required by the backend for each mount entry. Mount targets must not be duplicated or have parent-child overlaps.
+   * 
+   * @example
+   * /mnt/agenticfs/data
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * A non-empty relative directory that exists under the AccessPoint. This field is validated as required by the backend for each mount entry. Root directories, absolute paths, and parent directory segments are not allowed.
+   * 
+   * @example
+   * workspace/data
+   */
+  path?: string;
+  /**
+   * @remarks
+   * Specifies whether to mount in read-only mode. Default value: false. This is not a RAM role read-only policy.
+   * 
+   * @example
+   * false
+   */
+  readOnly?: boolean;
+  /**
+   * @remarks
+   * The AccessPoint domain name. This field is validated as required by the backend for each mount entry. Do not include the protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
+   * 
+   * @example
+   * ap-0123456789abcdef0.0123456789-vlm36.cn-hangzhou.nas.aliyuncs.com
+   */
+  server?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'mountPath',
+      path: 'path',
+      readOnly: 'readOnly',
+      server: 'server',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      path: 'string',
+      readOnly: 'boolean',
+      server: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateManagedAgentRequestBodyEnvironmentCredentialReferences extends $dara.Model {
   /**
    * @remarks
@@ -161,12 +221,12 @@ export class CreateManagedAgentRequestBodyHarnessConfiguration extends $dara.Mod
 export class CreateManagedAgentRequestBodyHarness extends $dara.Model {
   /**
    * @remarks
-   * The harness configuration.
+   * The runtime harness configuration.
    */
   configuration?: CreateManagedAgentRequestBodyHarnessConfiguration;
   /**
    * @remarks
-   * The harness type.
+   * The runtime harness type.
    * 
    * @example
    * qodercli
@@ -201,7 +261,7 @@ export class CreateManagedAgentRequestBodyHarness extends $dara.Model {
 export class CreateManagedAgentRequestBodyModelQuota extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the token quota is disabled and existing quota rules are deleted.
+   * Specifies whether to enable the token quota. Default value: true. Set to false to disable and delete existing quota rules.
    * 
    * @example
    * true
@@ -209,7 +269,7 @@ export class CreateManagedAgentRequestBodyModelQuota extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The quota limit type. This parameter is required by backend validation when the quota is enabled. Fixed value: token.
+   * The quota limit type. This field is validated as required by the backend when the quota is enabled. Fixed value: token.
    * 
    * @example
    * token
@@ -217,7 +277,7 @@ export class CreateManagedAgentRequestBodyModelQuota extends $dara.Model {
   limitType?: string;
   /**
    * @remarks
-   * The quota statistical period. This parameter is required by backend validation when the quota is enabled. Valid values:
+   * The statistical period of the quota. This field is validated as required by the backend when the quota is enabled. Valid values:
    * - day: daily.
    * - month: monthly.
    * 
@@ -227,7 +287,7 @@ export class CreateManagedAgentRequestBodyModelQuota extends $dara.Model {
   periodType?: string;
   /**
    * @remarks
-   * The maximum number of tokens that can be consumed within a single period. This parameter is required by backend validation when the quota is enabled. The value must be greater than 0.
+   * The maximum number of tokens that can be consumed within a single period. This field is validated as required by the backend when the quota is enabled. The value must be greater than 0.
    * 
    * @example
    * 1000000
@@ -415,7 +475,7 @@ export class CreateManagedAgentRequestBodyNetwork extends $dara.Model {
 export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket name. This parameter is required by backend validation for each mount entry.
+   * The OSS bucket name. This field is validated as required by the backend for each mount entry.
    * 
    * @example
    * bucket-001
@@ -423,7 +483,7 @@ export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path in the container. This parameter is required by backend validation for each mount entry.
+   * The absolute mount path in the container. This field is validated as required by the backend for each mount entry.
    * 
    * @example
    * /mnt/oss/datasets
@@ -431,7 +491,7 @@ export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+   * The relative object prefix within the bucket. If not specified, the entire bucket is mounted.
    * 
    * @example
    * datasets
@@ -472,7 +532,7 @@ export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
 export class CreateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute specification.
+   * The compute class.
    * 
    * This parameter is required.
    * 
@@ -504,12 +564,12 @@ export class CreateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
 export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto scaling. This parameter is required by backend validation when hpa is present.
+   * Specifies whether to enable auto-scaling. This field is validated as required by the backend when hpa is present.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is present.
+   * The maximum number of active sessions per sandbox. This field is validated as required by the backend when hpa is present.
    * 
    * @example
    * 5
@@ -517,7 +577,7 @@ export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
+   * The maximum number of sandboxes. Required when HPA is enabled. The value must be greater than or equal to the minimum value.
    * 
    * @example
    * 3
@@ -525,7 +585,7 @@ export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   maxSandboxCount?: number;
   /**
    * @remarks
-   * The minimum number of sandboxes. This parameter is required when HPA is enabled.
+   * The minimum number of sandboxes. Required when HPA is enabled.
    * 
    * @example
    * 1
@@ -533,7 +593,7 @@ export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   minSandboxCount?: number;
   /**
    * @remarks
-   * The time in seconds before an inactive session is reclaimed. This parameter is required by backend validation when hpa is present.
+   * The time-to-live (TTL) for a session after inactivity, in seconds. This field is validated as required by the backend when hpa is present.
    * 
    * @example
    * 3600
@@ -620,7 +680,7 @@ export class CreateManagedAgentRequestBodyRuntime extends $dara.Model {
   compute?: CreateManagedAgentRequestBodyRuntimeCompute;
   /**
    * @remarks
-   * The sandbox auto scaling and session configuration.
+   * The sandbox auto-scaling and session configuration.
    */
   hpa?: CreateManagedAgentRequestBodyRuntimeHpa;
   /**
@@ -664,6 +724,40 @@ export class CreateManagedAgentRequestBodyRuntime extends $dara.Model {
   }
 }
 
+export class CreateManagedAgentRequestBodySkillsVersionSelector extends $dara.Model {
+  /**
+   * @example
+   * LABEL
+   */
+  type?: string;
+  /**
+   * @example
+   * latest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateManagedAgentRequestBodySkills extends $dara.Model {
   /**
    * @remarks
@@ -676,6 +770,11 @@ export class CreateManagedAgentRequestBodySkills extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * REFERENCE
+   */
+  sourceType?: string;
+  /**
    * @remarks
    * The skill version.
    * 
@@ -683,21 +782,29 @@ export class CreateManagedAgentRequestBodySkills extends $dara.Model {
    * 1.0.0
    */
   version?: string;
+  versionSelector?: CreateManagedAgentRequestBodySkillsVersionSelector;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      sourceType: 'sourceType',
       version: 'version',
+      versionSelector: 'versionSelector',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      sourceType: 'string',
       version: 'string',
+      versionSelector: CreateManagedAgentRequestBodySkillsVersionSelector,
     };
   }
 
   validate() {
+    if(this.versionSelector && typeof (this.versionSelector as any).validate === 'function') {
+      (this.versionSelector as any).validate();
+    }
     super.validate();
   }
 
@@ -764,8 +871,6 @@ export class CreateManagedAgentRequestBodyTemplateAiRegistry extends $dara.Model
   /**
    * @remarks
    * The version of the template in the AI registry.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1.0.0
@@ -871,6 +976,11 @@ export class CreateManagedAgentRequestBodyTools extends $dara.Model {
 export class CreateManagedAgentRequestBody extends $dara.Model {
   /**
    * @remarks
+   * Omit or set to [] during creation to indicate no AFS mounts. Set to null to reject. The total number of AFS and OSS mounts cannot exceed 10.
+   */
+  agenticFsMounts?: CreateManagedAgentRequestBodyAgenticFsMounts[];
+  /**
+   * @remarks
    * The description of the managed agent.
    * 
    * @example
@@ -884,7 +994,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   environment?: CreateManagedAgentRequestBodyEnvironment;
   /**
    * @remarks
-   * The agent harness.
+   * The agent runtime harness.
    */
   harness?: CreateManagedAgentRequestBodyHarness;
   /**
@@ -919,7 +1029,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   network?: CreateManagedAgentRequestBodyNetwork;
   /**
    * @remarks
-   * The OSS mount list. A maximum of 10 entries are supported.
+   * The OSS mount list. A maximum of 10 entries are allowed.
    */
   ossMounts?: CreateManagedAgentRequestBodyOssMounts[];
   /**
@@ -951,6 +1061,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   tools?: CreateManagedAgentRequestBodyTools[];
   static names(): { [key: string]: string } {
     return {
+      agenticFsMounts: 'agenticFsMounts',
       description: 'description',
       environment: 'environment',
       harness: 'harness',
@@ -969,6 +1080,7 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agenticFsMounts: { 'type': 'array', 'itemType': CreateManagedAgentRequestBodyAgenticFsMounts },
       description: 'string',
       environment: CreateManagedAgentRequestBodyEnvironment,
       harness: CreateManagedAgentRequestBodyHarness,
@@ -986,6 +1098,9 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agenticFsMounts)) {
+      $dara.Model.validateArray(this.agenticFsMounts);
+    }
     if(this.environment && typeof (this.environment as any).validate === 'function') {
       (this.environment as any).validate();
     }

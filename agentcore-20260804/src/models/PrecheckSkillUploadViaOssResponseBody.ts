@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The draft mode: HEAD or VERSIONED, determined by the server.
+   * 
+   * @example
+   * HEAD
+   */
+  draftMode?: string;
+  /**
+   * @remarks
    * The version currently being edited.
    * 
    * @example
@@ -24,6 +32,22 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
    * Indicates whether the Skill already exists.
    */
   exists?: boolean;
+  /**
+   * @remarks
+   * The content revision identifier of the persistent draft, used to determine whether the local cache has expired. Returned only in HEAD draft mode.
+   * 
+   * @example
+   * rev-1a2b3c4d
+   */
+  headRevision?: string;
+  /**
+   * @remarks
+   * The status of the persistent draft: draft, reviewing, or reviewed. Returned only in HEAD draft mode.
+   * 
+   * @example
+   * draft
+   */
+  headStatus?: string;
   /**
    * @remarks
    * The highest published version.
@@ -50,7 +74,7 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   parsedVersion?: string;
   /**
    * @remarks
-   * The pre-check result code.
+   * The dry run result code.
    * 
    * @example
    * VALIDATION_FAILED
@@ -98,9 +122,12 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      draftMode: 'draftMode',
       editingVersion: 'editingVersion',
       entryPath: 'entryPath',
       exists: 'exists',
+      headRevision: 'headRevision',
+      headStatus: 'headStatus',
       maxPublishedVersion: 'maxPublishedVersion',
       owner: 'owner',
       parsedVersion: 'parsedVersion',
@@ -115,9 +142,12 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      draftMode: 'string',
       editingVersion: 'string',
       entryPath: 'string',
       exists: 'boolean',
+      headRevision: 'string',
+      headStatus: 'string',
       maxPublishedVersion: 'string',
       owner: 'string',
       parsedVersion: 'string',
@@ -142,7 +172,7 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
 export class PrecheckSkillUploadViaOssResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: PrecheckSkillUploadViaOssResponseBodyData[];
   /**

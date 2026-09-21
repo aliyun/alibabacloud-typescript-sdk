@@ -5,6 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DataResourceValue extends $dara.Model {
   /**
    * @remarks
+   * The content.
+   * 
+   * @example
+   * Sample content
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The metadata.
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @remarks
    * The name.
    * 
    * @example
@@ -19,34 +32,21 @@ export class DataResourceValue extends $dara.Model {
    * file
    */
   type?: string;
-  /**
-   * @remarks
-   * The content.
-   * 
-   * @example
-   * Sample content
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The metadata.
-   */
-  metadata?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      name: 'name',
-      type: 'type',
       content: 'content',
       metadata: 'metadata',
+      name: 'name',
+      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      type: 'string',
       content: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+      type: 'string',
     };
   }
 
