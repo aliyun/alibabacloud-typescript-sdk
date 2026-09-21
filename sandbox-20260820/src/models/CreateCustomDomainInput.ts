@@ -6,7 +6,15 @@ import { TLSConfig } from "./Tlsconfig";
 
 export class CreateCustomDomainInput extends $dara.Model {
   certConfig?: CertConfig;
+  /**
+   * @example
+   * 沙箱预览环境入口域名
+   */
   description?: string;
+  /**
+   * @example
+   * sandbox.example.com
+   */
   domainName?: string;
   tlsConfig?: TLSConfig;
   static names(): { [key: string]: string } {

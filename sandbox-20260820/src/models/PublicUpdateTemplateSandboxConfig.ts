@@ -4,13 +4,41 @@ import { PublicUpdateTemplateRegistryConfig } from "./PublicUpdateTemplateRegist
 
 
 export class PublicUpdateTemplateSandboxConfig extends $dara.Model {
+  /**
+   * @example
+   * cri-abc123
+   */
   acrInstanceId?: string;
+  /**
+   * @example
+   * 2
+   */
   generation?: number;
+  /**
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/my/ns:v1
+   */
   image?: string;
+  /**
+   * @example
+   * linux
+   */
   osType?: string;
+  /**
+   * @example
+   * /ready
+   */
   readyCommand?: string;
   registryConfig?: PublicUpdateTemplateRegistryConfig;
+  /**
+   * @example
+   * acr
+   */
   registryType?: string;
+  /**
+   * @example
+   * /start-coroutines.sh
+   */
   startCommand?: string;
   static names(): { [key: string]: string } {
     return {

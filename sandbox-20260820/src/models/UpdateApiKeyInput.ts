@@ -4,10 +4,22 @@ import { IPConfig } from "./Ipconfig";
 
 
 export class UpdateApiKeyInput extends $dara.Model {
+  /**
+   * @example
+   * ci-pipeline-key-v2
+   */
   apiKeyName?: string;
+  /**
+   * @example
+   * 2099-12-31T23:59:59Z
+   */
   expireTime?: string;
   ipBlacklist?: IPConfig[];
   ipWhitelist?: IPConfig[];
+  /**
+   * @example
+   * inactive
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

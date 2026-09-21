@@ -3,21 +3,81 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class E2BListedSandbox extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
   cpuCount?: number;
+  /**
+   * @example
+   * 10240
+   */
   diskSizeMB?: number;
+  /**
+   * @example
+   * 2026-09-03T02:06:37.932Z
+   */
   endAt?: string;
+  /**
+   * @example
+   * 2
+   */
   generation?: number;
+  /**
+   * @example
+   * 2
+   */
   memoryMB?: number;
   metadata?: { [key: string]: string };
+  /**
+   * @example
+   * rg-****
+   */
   resourceGroupID?: string;
+  /**
+   * @example
+   * sbx-xxxx
+   */
   sandboxID?: string;
+  /**
+   * @example
+   * 2026-09-03T02:05:37.932Z
+   */
   startedAt?: string;
+  /**
+   * @example
+   * running
+   */
   state?: string;
+  /**
+   * @example
+   * 9f5a1fe9-****
+   */
   teamID?: string;
+  /**
+   * @example
+   * default
+   */
   teamName?: string;
+  /**
+   * @example
+   * eco
+   */
   teamPlan?: string;
+  /**
+   * @example
+   * f1l97phhfw6ox18iwcfk
+   */
   templateID?: string;
+  /**
+   * @example
+   * base
+   */
   templateName?: string;
+  /**
+   * @example
+   * 2000****
+   */
   userID?: string;
   static names(): { [key: string]: string } {
     return {

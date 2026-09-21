@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTemplateCacheRequest extends $dara.Model {
+  /**
+   * @example
+   * 13b721e6-8cc8-5df2-af13-80316f7508af
+   */
   teamID?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,9 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublicTemplateVPCConfig extends $dara.Model {
+  /**
+   * @example
+   * acs:ram::1234567890123456:role/aliyunfcdefaultrole
+   */
   role?: string;
+  /**
+   * @example
+   * sg-****
+   */
   securityGroupId?: string;
   vSwitchIds?: string[];
+  /**
+   * @example
+   * vpc-****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

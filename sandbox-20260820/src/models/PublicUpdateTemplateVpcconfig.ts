@@ -3,9 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublicUpdateTemplateVPCConfig extends $dara.Model {
+  /**
+   * @example
+   * acs:ram::123456789012:role/sandbox-vpc-role
+   */
   role?: string;
+  /**
+   * @example
+   * sg-bp1abc123
+   */
   securityGroupId?: string;
   vSwitchIds?: string[];
+  /**
+   * @example
+   * vpc-bp1abc123
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

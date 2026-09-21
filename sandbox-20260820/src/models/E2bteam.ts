@@ -4,14 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class E2BTeam extends $dara.Model {
   allowUpdateTeamName?: boolean;
+  /**
+   * @example
+   * 2026-08-20T08:30:00Z
+   */
   createdTime?: string;
+  /**
+   * @example
+   * 算法团队的沙箱环境
+   */
   description?: string;
+  /**
+   * @example
+   * std
+   */
   plan?: string;
   readOnly?: boolean;
+  /**
+   * @example
+   * rg-****
+   */
   resourceGroupID?: string;
+  /**
+   * @example
+   * active
+   */
   status?: string;
+  /**
+   * @example
+   * 5f4a2c18-****
+   */
   teamID?: string;
+  /**
+   * @example
+   * sandbox-dev
+   */
   teamName?: string;
+  /**
+   * @example
+   * 9c1d4e72-****
+   */
   userID?: string;
   static names(): { [key: string]: string } {
     return {

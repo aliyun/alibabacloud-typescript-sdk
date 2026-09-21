@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublicTemplateStatusReason extends $dara.Model {
+  /**
+   * @example
+   * 拉取源镜像失败：认证信息无效
+   */
   message?: string;
+  /**
+   * @example
+   * build-context
+   */
   step?: string;
   static names(): { [key: string]: string } {
     return {

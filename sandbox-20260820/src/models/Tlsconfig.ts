@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TLSConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of allowed TLS cipher suites. If this parameter is not specified, the server default cipher suites are used.
+   */
   cipherSuites?: string[];
+  /**
+   * @remarks
+   * The maximum TLS protocol version allowed. Example values: TLSv1.2 and TLSv1.3. If this parameter is not specified, the server default value is used. Do not pass an empty string.
+   * 
+   * @example
+   * TLSv1.3
+   */
   maxVersion?: string;
+  /**
+   * @remarks
+   * The minimum TLS protocol version allowed. Example values: TLSv1.2 and TLSv1.3. If this parameter is not specified, the server default value is used. Do not pass an empty string.
+   * 
+   * @example
+   * TLSv1.2
+   */
   minVersion?: string;
   static names(): { [key: string]: string } {
     return {

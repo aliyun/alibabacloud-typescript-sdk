@@ -4,8 +4,16 @@ import { PublicTemplateStatusReason } from "./PublicTemplateStatusReason";
 
 
 export class PublicTemplateStatus extends $dara.Model {
+  /**
+   * @example
+   * 2026-08-20T08:35:12Z
+   */
   finishedAt?: string;
   reason?: PublicTemplateStatusReason;
+  /**
+   * @example
+   * ready
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {

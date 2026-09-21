@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ContainerConfigurationRegistryCredential extends $dara.Model {
+  /**
+   * @example
+   * Passw0rd****
+   */
   password?: string;
+  /**
+   * @example
+   * sandbox-puller
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +39,15 @@ export class ContainerConfigurationRegistryCredential extends $dara.Model {
 }
 
 export class ContainerConfiguration extends $dara.Model {
+  /**
+   * @example
+   * cri-****
+   */
   acrInstanceId?: string;
+  /**
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/sandbox-demo/python:3.12
+   */
   image?: string;
   registryCredential?: ContainerConfigurationRegistryCredential;
   static names(): { [key: string]: string } {

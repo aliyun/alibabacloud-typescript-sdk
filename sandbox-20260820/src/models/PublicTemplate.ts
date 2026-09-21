@@ -5,13 +5,37 @@ import { PublicTemplateStatus } from "./PublicTemplateStatus";
 
 
 export class PublicTemplate extends $dara.Model {
+  /**
+   * @example
+   * 2026-08-20T08:30:00Z
+   */
   createdTime?: string;
+  /**
+   * @example
+   * python-data-analysis
+   */
   name?: string;
+  /**
+   * @example
+   * rg-****
+   */
   resourceGroupID?: string;
   runtimeConfig?: PublicTemplateRuntimeConfig;
   status?: PublicTemplateStatus;
+  /**
+   * @example
+   * 5f4a2c18-****
+   */
   teamID?: string;
+  /**
+   * @example
+   * sandbox-dev
+   */
   teamName?: string;
+  /**
+   * @example
+   * tm-8f3a2c7b5e14d806
+   */
   templateID?: string;
   static names(): { [key: string]: string } {
     return {

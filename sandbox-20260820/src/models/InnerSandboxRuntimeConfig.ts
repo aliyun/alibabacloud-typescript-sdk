@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InnerSandboxRuntimeConfigVpcConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-xxxx
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-xxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +53,18 @@ export class InnerSandboxRuntimeConfigVpcConfig extends $dara.Model {
 }
 
 export class InnerSandboxRuntimeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The RAM role that grants the required permissions to the sandbox.
+   * 
+   * @example
+   * acs:ram::xxxx:role/xxx_role
+   */
   role?: string;
+  /**
+   * @remarks
+   * The VPC configuration.
+   */
   vpcConfig?: InnerSandboxRuntimeConfigVpcConfig;
   static names(): { [key: string]: string } {
     return {

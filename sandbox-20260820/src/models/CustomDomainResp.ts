@@ -6,10 +6,26 @@ import { TLSConfig } from "./Tlsconfig";
 
 export class CustomDomainResp extends $dara.Model {
   certConfig?: CertConfig;
+  /**
+   * @example
+   * 1755676800000
+   */
   createdAt?: number;
+  /**
+   * @example
+   * 沙箱预览环境入口域名
+   */
   description?: string;
+  /**
+   * @example
+   * sandbox.example.com
+   */
   domainName?: string;
   tlsConfig?: TLSConfig;
+  /**
+   * @example
+   * 1755763200000
+   */
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {

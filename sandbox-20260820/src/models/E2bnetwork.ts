@@ -6,6 +6,10 @@ export class E2BNetwork extends $dara.Model {
   allowOut?: string[];
   allowPublicTraffic?: boolean;
   denyOut?: string[];
+  /**
+   * @example
+   * sandbox.example.com
+   */
   maskRequestHost?: string;
   static names(): { [key: string]: string } {
     return {

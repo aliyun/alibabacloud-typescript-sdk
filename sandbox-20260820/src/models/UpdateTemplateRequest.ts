@@ -5,6 +5,10 @@ import { PublicUpdateTemplateInput } from "./PublicUpdateTemplateInput";
 
 export class UpdateTemplateRequest extends $dara.Model {
   body?: PublicUpdateTemplateInput;
+  /**
+   * @example
+   * team-a1b2c3d4e5f6
+   */
   teamID?: string;
   static names(): { [key: string]: string } {
     return {

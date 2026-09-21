@@ -4,10 +4,22 @@ import { PublicUpdateTemplateRegistryConfig } from "./PublicUpdateTemplateRegist
 
 
 export class PublicUpdateTemplateCopyAction extends $dara.Model {
+  /**
+   * @example
+   * cri-abc123
+   */
   acrInstanceId?: string;
   enabled?: boolean;
+  /**
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/my/ns:v2
+   */
   image?: string;
   registryConfig?: PublicUpdateTemplateRegistryConfig;
+  /**
+   * @example
+   * acr
+   */
   registryType?: string;
   static names(): { [key: string]: string } {
     return {

@@ -10,18 +10,58 @@ import { OSSVolumeConfig } from "./OssvolumeConfig";
 export class E2BVolume extends $dara.Model {
   agenticBucketVolumeConfig?: AgenticBucketVolumeConfig;
   agenticFSVolumeConfig?: AgenticFSVolumeConfig;
+  /**
+   * @example
+   * 2026-09-07T02:12:36.531000Z
+   */
   createdAt?: string;
   juiceFSVolumeConfig?: JuiceFSVolumeConfig;
   mountConfig?: VolumeMountConfig;
   ossVolumeConfig?: OSSVolumeConfig;
+  /**
+   * @example
+   * rg-****
+   */
   resourceGroupID?: string;
+  /**
+   * @example
+   * AVAILABLE
+   */
   status?: string;
+  /**
+   * @example
+   * 无
+   */
   statusReason?: string;
+  /**
+   * @example
+   * OSS
+   */
   storageClass?: string;
+  /**
+   * @example
+   * 9f5a1fe9-****
+   */
   teamID?: string;
+  /**
+   * @example
+   * 2026-09-07T03:48:05.274000Z
+   */
   updatedAt?: string;
+  /**
+   * @example
+   * 2000****
+   */
   userID?: string;
+  /**
+   * @example
+   * 25878d34-****
+   */
   volumeID?: string;
+  /**
+   * @example
+   * workspace
+   */
   volumeName?: string;
   static names(): { [key: string]: string } {
     return {

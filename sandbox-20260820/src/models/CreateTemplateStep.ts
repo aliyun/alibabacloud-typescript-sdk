@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTemplateStep extends $dara.Model {
   args?: string[];
+  /**
+   * @example
+   * RUN
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

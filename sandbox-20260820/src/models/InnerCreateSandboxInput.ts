@@ -6,16 +6,44 @@ import { InnerCreateSandboxVolumeMounts } from "./InnerCreateSandboxVolumeMounts
 
 
 export class InnerCreateSandboxInput extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   allowInternetAccess?: boolean;
+  /**
+   * @example
+   * true
+   */
   autoPause?: boolean;
+  /**
+   * @example
+   * true
+   */
   autoResume?: boolean;
   envVars?: { [key: string]: string };
   metadata?: { [key: string]: string };
   network?: E2BNetwork;
   runtime?: InnerSandboxRuntimeConfig;
+  /**
+   * @example
+   * true
+   */
   secure?: boolean;
+  /**
+   * @example
+   * 76eeecaa-****
+   */
   teamID?: string;
+  /**
+   * @example
+   * v9vjyzw64bsu83vw0dgs
+   */
   templateID?: string;
+  /**
+   * @example
+   * 180
+   */
   timeout?: number;
   volumeMounts?: InnerCreateSandboxVolumeMounts;
   static names(): { [key: string]: string } {

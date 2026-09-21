@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OSSVolumeConfig extends $dara.Model {
+  /**
+   * @example
+   * sandbox-shared-data
+   */
   bucketName?: string;
+  /**
+   * @example
+   * /workspace/
+   */
   bucketPath?: string;
+  /**
+   * @example
+   * oss-cn-hangzhou-internal.aliyuncs.com
+   */
   endpoint?: string;
   readOnly?: boolean;
   static names(): { [key: string]: string } {

@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InnerSandboxVolumeMountAgenticFsMountPoints extends $dara.Model {
+  /**
+   * @example
+   * ap-xxxx
+   */
   accessPointID?: string;
+  /**
+   * @example
+   * agentic-xxxx
+   */
   agenticSpaceID?: string;
+  /**
+   * @example
+   * 03204sl2qjiax4oxxxx
+   */
   fileSystemID?: string;
+  /**
+   * @example
+   * /mnt/agenticfs
+   */
   mountDir?: string;
+  /**
+   * @example
+   * ap-xxxx.xxxx-ljs60.cn-shanghai.nas.aliyuncs.com
+   */
   serverAddr?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,8 +58,16 @@ export class InnerSandboxVolumeMountAgenticFsMountPoints extends $dara.Model {
 }
 
 export class InnerSandboxVolumeMountAgenticFs extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
   groupID?: number;
   mountPoints?: InnerSandboxVolumeMountAgenticFsMountPoints[];
+  /**
+   * @example
+   * 1000
+   */
   userID?: number;
   static names(): { [key: string]: string } {
     return {
@@ -70,7 +98,15 @@ export class InnerSandboxVolumeMountAgenticFs extends $dara.Model {
 }
 
 export class InnerSandboxVolumeMountNamedMountPoints extends $dara.Model {
+  /**
+   * @example
+   * /mnt/named
+   */
   mountDir?: string;
+  /**
+   * @example
+   * workspace
+   */
   volumeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -122,10 +158,30 @@ export class InnerSandboxVolumeMountNamed extends $dara.Model {
 }
 
 export class InnerSandboxVolumeMountOssMountPoints extends $dara.Model {
+  /**
+   * @example
+   * oss-bucket-test
+   */
   bucketName?: string;
+  /**
+   * @example
+   * /
+   */
   bucketPath?: string;
+  /**
+   * @example
+   * oss-cn-shenzhen-internal.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * /mnt/oss
+   */
   mountDir?: string;
+  /**
+   * @example
+   * true
+   */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublicUpdateTemplateLogConfig extends $dara.Model {
+  /**
+   * @example
+   * my-logstore
+   */
   logstore?: string;
+  /**
+   * @example
+   * my-sls-project
+   */
   project?: string;
   static names(): { [key: string]: string } {
     return {

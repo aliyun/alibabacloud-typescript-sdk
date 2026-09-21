@@ -4,8 +4,20 @@ import { PublicTemplateCache } from "./PublicTemplateCache";
 
 
 export class DescribeTemplateCacheResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * B5AD8B54-4358-5F5B-ACAA-52F2016459C6
+   */
   requestId?: string;
   templateCache?: PublicTemplateCache;
   static names(): { [key: string]: string } {

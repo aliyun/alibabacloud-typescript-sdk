@@ -6,8 +6,16 @@ import { CreateTemplateRuntimeConfig } from "./CreateTemplateRuntimeConfig";
 
 export class CreateTemplateInput extends $dara.Model {
   buildConfig?: CreateTemplateBuildConfig;
+  /**
+   * @example
+   * python-data-analysis
+   */
   name?: string;
   runtimeConfig?: CreateTemplateRuntimeConfig;
+  /**
+   * @example
+   * 5f4a2c18-****
+   */
   teamID?: string;
   static names(): { [key: string]: string } {
     return {

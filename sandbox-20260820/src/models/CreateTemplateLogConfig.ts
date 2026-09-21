@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTemplateLogConfig extends $dara.Model {
+  /**
+   * @example
+   * sandbox-runtime
+   */
   logstore?: string;
+  /**
+   * @example
+   * sandbox-log-cn-hangzhou
+   */
   project?: string;
   static names(): { [key: string]: string } {
     return {

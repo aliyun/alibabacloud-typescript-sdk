@@ -5,16 +5,52 @@ import { PublicTemplateStatus } from "./PublicTemplateStatus";
 
 
 export class GetTemplateResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 2026-09-19T10:00:00Z
+   */
   createdTime?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * my-template
+   */
   name?: string;
+  /**
+   * @example
+   * B5AD8B54-4358-5F5B-ACAA-52F2016459C6
+   */
   requestId?: string;
+  /**
+   * @example
+   * rg-acfmxazb4ph6aiy
+   */
   resourceGroupID?: string;
   runtimeConfig?: PublicTemplateRuntimeConfig;
   status?: PublicTemplateStatus;
+  /**
+   * @example
+   * 13b721e6-8cc8-5df2-af13-80316f7508af
+   */
   teamID?: string;
+  /**
+   * @example
+   * my-team
+   */
   teamName?: string;
+  /**
+   * @example
+   * us7dxqaezw5uu7aa2cm5
+   */
   templateID?: string;
   static names(): { [key: string]: string } {
     return {

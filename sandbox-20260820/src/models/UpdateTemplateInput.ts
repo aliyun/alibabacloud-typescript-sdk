@@ -9,6 +9,10 @@ export class UpdateTemplateInput extends $dara.Model {
   containerConfiguration?: ContainerConfiguration;
   logConfiguration?: LogConfiguration;
   networkConfiguration?: NetworkConfiguration;
+  /**
+   * @example
+   * 5f4a2c18-****
+   */
   teamID?: string;
   static names(): { [key: string]: string } {
     return {

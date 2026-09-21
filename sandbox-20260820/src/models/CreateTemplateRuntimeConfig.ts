@@ -6,10 +6,22 @@ import { CreateTemplateVPCConfig } from "./CreateTemplateVpcconfig";
 
 
 export class CreateTemplateRuntimeConfig extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
   cpu?: number;
+  /**
+   * @example
+   * 10240
+   */
   diskSize?: number;
   internetAccess?: boolean;
   logConfig?: CreateTemplateLogConfig;
+  /**
+   * @example
+   * 2048
+   */
   memorySize?: number;
   sandboxConfig?: CreateTemplateSandboxConfig;
   vpcConfig?: CreateTemplateVPCConfig;

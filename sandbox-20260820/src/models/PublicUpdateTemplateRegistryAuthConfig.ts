@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublicUpdateTemplateRegistryAuthConfig extends $dara.Model {
+  /**
+   * @example
+   * ******
+   */
   password?: string;
+  /**
+   * @example
+   * my-user
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {

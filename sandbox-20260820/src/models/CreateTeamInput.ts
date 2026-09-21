@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTeamInput extends $dara.Model {
+  /**
+   * @example
+   * 算法团队的沙箱环境
+   */
   description?: string;
+  /**
+   * @example
+   * std
+   */
   plan?: string;
+  /**
+   * @example
+   * rg-****
+   */
   resourceGroupID?: string;
+  /**
+   * @example
+   * sandbox-dev
+   */
   teamName?: string;
   static names(): { [key: string]: string } {
     return {

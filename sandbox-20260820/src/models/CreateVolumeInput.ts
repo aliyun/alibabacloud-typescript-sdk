@@ -6,8 +6,29 @@ import { OSSVolumeConfig } from "./OssvolumeConfig";
 
 
 export class CreateVolumeInputAgenticFSVolumeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The groupID of the local directory.
+   * 
+   * @example
+   * 1000
+   */
   groupID?: number;
+  /**
+   * @remarks
+   * The Access Point endpoint address.
+   * 
+   * @example
+   * ap-xxxx.xxxx-jnk89.cn-hangzhou.nas.aliyuncs.com:/
+   */
   serverAddr?: string;
+  /**
+   * @remarks
+   * The userID of the local directory.
+   * 
+   * @example
+   * 1000
+   */
   userID?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35,8 +56,26 @@ export class CreateVolumeInputAgenticFSVolumeConfig extends $dara.Model {
 }
 
 export class CreateVolumeInputMountConfigVpcConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-xxxx
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,7 +106,18 @@ export class CreateVolumeInputMountConfigVpcConfig extends $dara.Model {
 }
 
 export class CreateVolumeInputMountConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The permission role.
+   * 
+   * @example
+   * acs:ram::1118555931230119:role/aliyunfcdefaultrole
+   */
   role?: string;
+  /**
+   * @remarks
+   * The VPC configuration.
+   */
   vpcConfig?: CreateVolumeInputMountConfigVpcConfig;
   static names(): { [key: string]: string } {
     return {
@@ -96,12 +146,46 @@ export class CreateVolumeInputMountConfig extends $dara.Model {
 }
 
 export class CreateVolumeInput extends $dara.Model {
+  /**
+   * @remarks
+   * The AgenticBucket Volume configuration.
+   */
   agenticBucketVolumeConfig?: AgenticBucketVolumeConfig;
+  /**
+   * @remarks
+   * The AgenticFS Volume configuration.
+   */
   agenticFSVolumeConfig?: CreateVolumeInputAgenticFSVolumeConfig;
+  /**
+   * @remarks
+   * The JuiceFS Volume configuration.
+   */
   juiceFSVolumeConfig?: JuiceFSVolumeConfig;
+  /**
+   * @remarks
+   * The mount configuration.
+   */
   mountConfig?: CreateVolumeInputMountConfig;
+  /**
+   * @remarks
+   * The OSS Volume configuration.
+   */
   ossVolumeConfig?: OSSVolumeConfig;
+  /**
+   * @remarks
+   * The unique identifier of the team.
+   * 
+   * @example
+   * 37ddc466-****
+   */
   teamID?: string;
+  /**
+   * @remarks
+   * The name, which must be unique within the team.
+   * 
+   * @example
+   * workspace
+   */
   volumeName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,8 +6,20 @@ import { OSSVolumeConfig } from "./OssvolumeConfig";
 
 
 export class UpdateVolumeInputAgenticFSVolumeConfig extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
   groupID?: number;
+  /**
+   * @example
+   * ap-xxx.xxx-jnk89.cn-hangzhou.nas.aliyuncs.com:/
+   */
   serverAddr?: string;
+  /**
+   * @example
+   * 1000
+   */
   userID?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35,8 +47,16 @@ export class UpdateVolumeInputAgenticFSVolumeConfig extends $dara.Model {
 }
 
 export class UpdateVolumeInputMountConfigVpcConfig extends $dara.Model {
+  /**
+   * @example
+   * sg-xxxx
+   */
   securityGroupId?: string;
   vSwitchIds?: string[];
+  /**
+   * @example
+   * vpc-xxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,6 +87,10 @@ export class UpdateVolumeInputMountConfigVpcConfig extends $dara.Model {
 }
 
 export class UpdateVolumeInputMountConfig extends $dara.Model {
+  /**
+   * @example
+   * acs:ram::1338904783509062:role/aliyunfcdefaultrole
+   */
   role?: string;
   vpcConfig?: UpdateVolumeInputMountConfigVpcConfig;
   static names(): { [key: string]: string } {

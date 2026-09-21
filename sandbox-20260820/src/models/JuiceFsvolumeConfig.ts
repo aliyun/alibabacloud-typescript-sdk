@@ -4,9 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class JuiceFSVolumeConfig extends $dara.Model {
   args?: string[];
+  /**
+   * @example
+   * http://127.0.0.1:8080
+   */
   baseURL?: string;
+  /**
+   * @example
+   * /sandbox/workspace
+   */
   remoteDir?: string;
+  /**
+   * @example
+   * xxxxxx
+   */
   token?: string;
+  /**
+   * @example
+   * data
+   */
   volumeName?: string;
   static names(): { [key: string]: string } {
     return {
