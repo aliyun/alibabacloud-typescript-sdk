@@ -61,6 +61,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   agenticDBBranchSpecShrink?: string;
   /**
    * @remarks
+   * The AgenticDB cluster ID.
+   * 
+   * @example
+   * pagc-xxx
+   */
+  agenticDBClusterId?: string;
+  /**
+   * @remarks
    * The application type. Valid values:
    * 
    * - supabase: Set this value to create a managed Supabase application.
@@ -103,7 +111,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   authProviderConfig?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic creation of an elastic IP address (EIP) and attach it to the instance. This is equivalent to associate with an EIP.
+   * Specifies whether to automatically create an elastic IP address (EIP) and associate it with the instance.
    * 
    * @example
    * qwen3-max
@@ -111,7 +119,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   autoAllocatePublicEip?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic creation of a cold storage Polarlakebase instance. Valid values:
+   * Specifies whether to enable automatic creation of a cold storage Polarlakebase. Valid values:
    * * false (default): Automatic creation is disabled.
    * * true: Automatic creation is enabled.
    * 
@@ -165,7 +173,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   dnatEntriesShrink?: string;
   /**
    * @remarks
-   * The DNAT-dedicated NAT IP address that has been allocated (separate from the SNAT IP address) for NAT mapping. The IP address must belong to the specified gateway and be in an available state. The vSwitch of the gateway must belong to a primary CIDR block that is reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: An SNAT entry has been bound to the vSwitch where the application resides.
+   * The DNAT-dedicated NAT IP address allocated by the customer, which must be separate from the SNAT IP address. The IP address must belong to the specified gateway and be in an available state. The vSwitch where the gateway resides must be in a primary CIDR block reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: The customer has bound an SNAT entry to the vSwitch where the application resides.
    * 
    * @example
    * 10.64.0.10
@@ -222,7 +230,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * @remarks
    * The model source. Valid values:
    * 
-   * * bailian: Alibaba Cloud Model Studio model.
+   * * bailian: Bailian model.
    * * custom: Custom model.
    * * maas: PolarDB model operator.
    * 
@@ -313,7 +321,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   securityIPArrayName?: string;
   /**
    * @remarks
-   * The IP whitelist. If you do not specify this parameter, the default value is `127.0.0.1`.
+   * The IP whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
    * 
    * @example
    * 127.0.0.1,172.17.0.0/24
@@ -382,7 +390,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in an active state.
+   * The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in active status.
    * 
    * @example
    * ngw-xxx
@@ -400,6 +408,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
     return {
       AIDBClusterId: 'AIDBClusterId',
       agenticDBBranchSpecShrink: 'AgenticDBBranchSpec',
+      agenticDBClusterId: 'AgenticDBClusterId',
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
       authProvider: 'AuthProvider',
@@ -449,6 +458,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
     return {
       AIDBClusterId: 'string',
       agenticDBBranchSpecShrink: 'string',
+      agenticDBClusterId: 'string',
       applicationType: 'string',
       architecture: 'string',
       authProvider: 'string',

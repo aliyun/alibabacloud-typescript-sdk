@@ -48,7 +48,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   components?: CreateApplicationResponseBodyComponents[];
   /**
    * @remarks
-   * The application description.
+   * The description of the application.
    * 
    * @example
    * myapp

@@ -93,7 +93,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   componentClass?: string;
   /**
    * @remarks
-   * The maximum number of replicas for the application subcomponent with the same specification. Default value: the value of ComponentReplica.
+   * The maximum number of application subcomponents with the same specification. Default value: the value of ComponentReplica.
    * 
    * - Only raycluster supports this parameter.
    * 
@@ -130,7 +130,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   componentType?: string;
   /**
    * @remarks
-   * The maximum number of replicas for component scaling.
+   * The upper limit for component scaling.
    * 
    * @example
    * 16
@@ -138,7 +138,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   scaleMax?: string;
   /**
    * @remarks
-   * The minimum number of replicas for component scaling.
+   * The lower limit for component scaling.
    * 
    * @example
    * 1
@@ -146,7 +146,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * The list of security groups for the application subcomponent, separated by commas (,).
+   * The list of security groups for the application subcomponent. Separate multiple security groups with commas (,).
    * 
    * @example
    * sg-********************
@@ -154,7 +154,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   securityGroups?: string;
   /**
    * @remarks
-   * The name of the whitelist IP address group for the application subcomponent. Default value: default.
+   * The name of the IP whitelist group for the application subcomponent. Default value: default.
    * 
    * @example
    * default
@@ -162,7 +162,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   securityIPArrayName?: string;
   /**
    * @remarks
-   * The whitelist IP addresses of the application subcomponent, separated by commas (,).
+   * The whitelisted IP addresses for the application subcomponent. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 127.0.0.1
@@ -170,7 +170,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The type of the whitelist IP addresses for the application subcomponent. Default value: ipv4.
+   * The type of the whitelisted IP addresses for the application subcomponent. Default value: ipv4.
    * 
    * @example
    * ipv4
@@ -218,7 +218,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
 export class CreateApplicationRequestDnatEntries extends $dara.Model {
   /**
    * @remarks
-   * The frontend port. This parameter is optional. If not specified, the system automatically assigns a port that does not conflict with ports already in use on the gateway. You can query the assignment result by calling the DescribeApplicationAttribute operation.
+   * The frontend port. This parameter is optional. If not specified, the control plane automatically assigns a port that does not conflict with ports already in use on the gateway. You can query the assignment result by calling the DescribeApplicationAttribute operation.
    * 
    * @example
    * 10001
@@ -226,7 +226,7 @@ export class CreateApplicationRequestDnatEntries extends $dara.Model {
   frontPort?: number;
   /**
    * @remarks
-   * The port name. Valid values: webui, hermesagent, dashboard, and ssh.
+   * The port name. Valid values: webui | hermesagent | dashboard | ssh.
    * 
    * @example
    * webui
@@ -308,7 +308,7 @@ export class CreateApplicationRequestKnowledgeApplicationSpec extends $dara.Mode
   dbPassword?: string;
   /**
    * @remarks
-   * Required for knowledge applications. The LLM model name, such as qwen3-max.
+   * The LLM model name. This parameter is required for knowledge applications, such as qwen3-max.
    */
   llmModel?: string;
   static names(): { [key: string]: string } {
@@ -363,7 +363,7 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   dbUser?: string;
   /**
    * @remarks
-   * Required for mem0 applications. The embedder model name, such as text-embedding-v4.
+   * The embedder model name. This parameter is required for mem0 applications, such as text-embedding-v4.
    * 
    * @example
    * text-embedding-v4
@@ -387,7 +387,7 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   graphLlmModel?: string;
   /**
    * @remarks
-   * Required for mem0 applications. The LLM model name, such as qwen3-max.
+   * The LLM model name. This parameter is required for mem0 applications, such as qwen3-max.
    * 
    * @example
    * qwen3-max
@@ -395,7 +395,7 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   llmModel?: string;
   /**
    * @remarks
-   * The project name, which corresponds to the database schema that stores project data.
+   * The project name, which corresponds to the schema in the database where project data is stored.
    * 
    * @example
    * test-project-name
@@ -403,7 +403,7 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Required for mem0 applications. The reranker model name, such as qwen3-rerank.
+   * The reranker model name. This parameter is required for mem0 applications, such as qwen3-rerank.
    * 
    * @example
    * qwen3-rerank
@@ -507,7 +507,7 @@ export class CreateApplicationRequestStorages extends $dara.Model {
   containerMountPath?: string;
   /**
    * @remarks
-   * The storage endpoint ID.
+   * The ID of the storage endpoint.
    * 
    * @example
    * pe-xxxx
@@ -531,7 +531,7 @@ export class CreateApplicationRequestStorages extends $dara.Model {
   storageCapacity?: string;
   /**
    * @remarks
-   * The storage access endpoint.
+   * The storage access address.
    * 
    * @example
    * polarfs.example.com
@@ -655,6 +655,14 @@ export class CreateApplicationRequest extends $dara.Model {
   agenticDBBranchSpec?: CreateApplicationRequestAgenticDBBranchSpec;
   /**
    * @remarks
+   * The AgenticDB cluster ID.
+   * 
+   * @example
+   * pagc-xxx
+   */
+  agenticDBClusterId?: string;
+  /**
+   * @remarks
    * The application type. Valid values:
    * 
    * - supabase: Set this value to create a managed Supabase application.
@@ -697,7 +705,7 @@ export class CreateApplicationRequest extends $dara.Model {
   authProviderConfig?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic creation of an elastic IP address (EIP) and attach it to the instance. This is equivalent to associate with an EIP.
+   * Specifies whether to automatically create an elastic IP address (EIP) and associate it with the instance.
    * 
    * @example
    * qwen3-max
@@ -705,7 +713,7 @@ export class CreateApplicationRequest extends $dara.Model {
   autoAllocatePublicEip?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic creation of a cold storage Polarlakebase instance. Valid values:
+   * Specifies whether to enable automatic creation of a cold storage Polarlakebase. Valid values:
    * * false (default): Automatic creation is disabled.
    * * true: Automatic creation is enabled.
    * 
@@ -759,7 +767,7 @@ export class CreateApplicationRequest extends $dara.Model {
   dnatEntries?: CreateApplicationRequestDnatEntries[];
   /**
    * @remarks
-   * The DNAT-dedicated NAT IP address that has been allocated (separate from the SNAT IP address) for NAT mapping. The IP address must belong to the specified gateway and be in an available state. The vSwitch of the gateway must belong to a primary CIDR block that is reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: An SNAT entry has been bound to the vSwitch where the application resides.
+   * The DNAT-dedicated NAT IP address allocated by the customer, which must be separate from the SNAT IP address. The IP address must belong to the specified gateway and be in an available state. The vSwitch where the gateway resides must be in a primary CIDR block reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: The customer has bound an SNAT entry to the vSwitch where the application resides.
    * 
    * @example
    * 10.64.0.10
@@ -816,7 +824,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * @remarks
    * The model source. Valid values:
    * 
-   * * bailian: Alibaba Cloud Model Studio model.
+   * * bailian: Bailian model.
    * * custom: Custom model.
    * * maas: PolarDB model operator.
    * 
@@ -907,7 +915,7 @@ export class CreateApplicationRequest extends $dara.Model {
   securityIPArrayName?: string;
   /**
    * @remarks
-   * The IP whitelist. If you do not specify this parameter, the default value is `127.0.0.1`.
+   * The IP whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
    * 
    * @example
    * 127.0.0.1,172.17.0.0/24
@@ -976,7 +984,7 @@ export class CreateApplicationRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in an active state.
+   * The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in active status.
    * 
    * @example
    * ngw-xxx
@@ -994,6 +1002,7 @@ export class CreateApplicationRequest extends $dara.Model {
     return {
       AIDBClusterId: 'AIDBClusterId',
       agenticDBBranchSpec: 'AgenticDBBranchSpec',
+      agenticDBClusterId: 'AgenticDBClusterId',
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
       authProvider: 'AuthProvider',
@@ -1043,6 +1052,7 @@ export class CreateApplicationRequest extends $dara.Model {
     return {
       AIDBClusterId: 'string',
       agenticDBBranchSpec: CreateApplicationRequestAgenticDBBranchSpec,
+      agenticDBClusterId: 'string',
       applicationType: 'string',
       architecture: 'string',
       authProvider: 'string',

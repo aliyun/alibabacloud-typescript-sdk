@@ -2933,7 +2933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application associated with a PolarDB instance.
+   * Creates an application that is associated with a PolarDB instance.
    * 
    * @param tmpReq - CreateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2982,6 +2982,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.agenticDBBranchSpecShrink)) {
       query["AgenticDBBranchSpec"] = request.agenticDBBranchSpecShrink;
+    }
+
+    if (!$dara.isNull(request.agenticDBClusterId)) {
+      query["AgenticDBClusterId"] = request.agenticDBClusterId;
     }
 
     if (!$dara.isNull(request.applicationType)) {
@@ -3170,7 +3174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application associated with a PolarDB instance.
+   * Creates an application that is associated with a PolarDB instance.
    * 
    * @param request - CreateApplicationRequest
    * @returns CreateApplicationResponse
