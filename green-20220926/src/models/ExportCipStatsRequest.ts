@@ -24,8 +24,8 @@ export class ExportCipStatsRequest extends $dara.Model {
   /**
    * @remarks
    * The export type. Valid values:
-   * - **level**: export by risk level.
-   * - **label**: export by label.
+   * - **level**: Export by risk level.
+   * - **label**: Export by label.
    * 
    * @example
    * label
@@ -39,6 +39,14 @@ export class ExportCipStatsRequest extends $dara.Model {
    * xx
    */
   label?: string;
+  /**
+   * @remarks
+   * The query condition.
+   * 
+   * @example
+   * {"Classify":"guard-scene"}
+   */
+  query?: string;
   /**
    * @remarks
    * The region ID.
@@ -82,11 +90,11 @@ export class ExportCipStatsRequest extends $dara.Model {
   /**
    * @remarks
    * The type. Valid values:
-   * - **cip**: Content Moderation invocation volume statistics.
-   * - **risk_level**: Content Moderation risk level statistics.
-   * - **content_moderation**: AI safety guardrail content compliance risk level and tag statistics.
-   * - **sensitive_data**: AI safety guardrail sensitive data risk level and tag statistics.
-   * - **prompt_attack**: AI safety guardrail prompt risk level and tag statistics.
+   * - **cip**: Content Moderation invoke volume statistics.
+   * - **risk_level**: Content Moderation security risk level statistics.
+   * - **content_moderation**: AI Safety Guardrail content compliance risk level and tag statistics.
+   * - **sensitive_data**: AI Safety Guardrail sensitive data risk level and tag statistics.
+   * - **prompt_attack**: AI Safety Guardrail prompt risk level and tag statistics.
    * 
    * @example
    * risk_level
@@ -98,6 +106,7 @@ export class ExportCipStatsRequest extends $dara.Model {
       endDate: 'EndDate',
       exportType: 'ExportType',
       label: 'Label',
+      query: 'Query',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       serviceCode: 'ServiceCode',
@@ -113,6 +122,7 @@ export class ExportCipStatsRequest extends $dara.Model {
       endDate: 'string',
       exportType: 'string',
       label: 'string',
+      query: 'string',
       regionId: 'string',
       resourceType: 'string',
       serviceCode: 'string',

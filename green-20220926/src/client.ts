@@ -1921,7 +1921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports call usage statistics.
+   * Exports call volume.
    * 
    * @param request - ExportCipStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1949,6 +1949,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.label)) {
       body["Label"] = request.label;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
     }
 
     if (!$dara.isNull(request.resourceType)) {
@@ -1990,7 +1994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports call usage statistics.
+   * Exports call volume.
    * 
    * @param request - ExportCipStatsRequest
    * @returns ExportCipStatsResponse
