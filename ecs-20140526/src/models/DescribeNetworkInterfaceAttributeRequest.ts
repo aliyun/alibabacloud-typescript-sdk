@@ -51,7 +51,7 @@ export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
    * 
    * connectionTrackingConfiguration: queries the network connectivity tracking configuration.
    * 
-   * Default value:
+   * Default value: empty.
    * 
    * @example
    * attachment
@@ -71,7 +71,7 @@ export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the network interface controller (NIC). You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

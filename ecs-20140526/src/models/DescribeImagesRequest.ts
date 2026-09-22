@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImagesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key used to query resources. Valid values:
+   * The filter key when querying resources. Valid values:
    * 
    * - When this parameter is set to `CreationStartTime`, you can query resources created after the specified time point (`Filter.N.Value`).
    * - When this parameter is set to `CreationEndTime`, you can query resources created before the specified time point (`Filter.N.Value`).
@@ -20,8 +20,8 @@ export class DescribeImagesRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The filter value used to query resources.
-   * - When `Filter.N.Key` is set to `CreationStartTime` or `CreationEndTime`, the format is `yyyy-MM-ddTHH:mmZ`, in UTC+0 time zone.
+   * The filter value when querying resources.
+   * - When `Filter.N.Key` is set to `CreationStartTime` or `CreationEndTime`, the format is `yyyy-MM-ddTHH:mmZ`, using the UTC+0 time zone.
    * - When `Filter.N.Key` is set to `NetworkType`, valid network type values include `vpc` and `classic`.
    * 
    * - When `Filter.N.Key` is set to `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, valid values are `supported` and `unsupported`.
@@ -60,7 +60,7 @@ export class DescribeImagesRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the image. Valid values of N: 1 to 20.
    * 
-   * If you use a single tag to filter resources, the resource count with this tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count that has all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+   * When you use a single tag to filter resources, the resource count with this tag cannot exceed 1000. When you use multiple tags to filter resources, the resource count that are attached to all specified tags cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
    * @example
    * TestKey
@@ -100,7 +100,7 @@ export class DescribeImagesRequestTag extends $dara.Model {
 export class DescribeImagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The scenario in which the image is used. Valid values:
+   * The scenario in which the image is to be used. Valid values:
    * 
    * - CreateEcs (default): instance creation.
    * - ChangeOS: system disk replacement or operating system replacement.
@@ -125,8 +125,8 @@ export class DescribeImagesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request.
    *          
-   * - true: Only a dry run is performed. The system checks whether your AccessKey pair is valid, whether Resource Access Management (RAM) user authorization is granted, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned. The request does not send the actual query.
-   * - false: A normal request is sent. If the check succeeds, a 2XX HTTP status code is returned and the resource status is directly queried. 
+   * - true: Only a dry run is performed. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is granted the required authorization, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned. No request is sent.
+   * - false: A normal request is sent. If the check succeeds, a 2XX HTTP status code is returned and the resource status is queried directly. 
    * 
    * Default value: false.
    * 
@@ -136,7 +136,7 @@ export class DescribeImagesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The list of filter conditions used to query resources.
+   * The list of filter conditions when querying resources.
    */
   filter?: DescribeImagesRequestFilter[];
   /**
@@ -169,7 +169,7 @@ export class DescribeImagesRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the image. Fuzzy search is supported.
+   * The image name. Fuzzy search is supported.
    * 
    * @example
    * testImageName
@@ -266,7 +266,7 @@ export class DescribeImagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paging query. Settings this parameter to specify the number of entries to return on each page.
+   * The number of entries per page for paging queries. Settings this parameter to specify the number of entries to return on each page.
    * 
    * Maximum value: 100.
    * 
@@ -341,7 +341,7 @@ export class DescribeImagesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the image is available.
-   * > An available image indicates that the image can be immediately used to create instances. For more availability scenarios, see [Image instant availability](https://help.aliyun.com/document_detail/3044728.html).
+   * > An available image indicates that the image can be used immediately to create an instance. For more availability scenarios, see [Image instant availability](https://help.aliyun.com/document_detail/3044728.html).
    * 
    * @example
    * true
@@ -351,8 +351,8 @@ export class DescribeImagesRequest extends $dara.Model {
    * @remarks
    * Specifies whether the image is running on ECS instances. Valid values:
    * 
-   * - instance: The image is in use and running on ECS instances.
-   * - none: The image is idle and not running on any ECS instances.
+   * - instance: The image is in use by ECS instances.
+   * - none: The image is idle and not used by any ECS instances.
    * 
    * @example
    * instance

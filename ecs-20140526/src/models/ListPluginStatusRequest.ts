@@ -22,7 +22,7 @@ export class ListPluginStatusRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The plugin name. The full character set is supported. The name can be up to 255 characters in length.
+   * The plugin name. Full character set is supported. The name can be up to 255 characters in length.
    * 
    * - If you do not specify this parameter, the status of all installed plugins on the instance is queried.
    * 
@@ -46,7 +46,7 @@ export class ListPluginStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is about to go offline. Use NextToken and MaxResults to perform a paging query instead.
+   * > This parameter will be offline soon. Use NextToken and MaxResults to complete paged query operations. Paging is handled by these parameters instead.
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class ListPluginStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to go offline. Use NextToken and MaxResults to perform a paging query instead.
+   * > This parameter will be offline soon. Use NextToken and MaxResults to complete paged query operations. Paging is handled by these parameters instead.
    * 
    * @example
    * 10

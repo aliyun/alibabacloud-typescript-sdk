@@ -43,9 +43,9 @@ export class CreateInstanceRequestPrivatePoolOptions extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The private pool option for launching the instance. A private pool is generated after an elasticity assurance or capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
+   * The private pool option for launching the instance. A private pool is generated when an elasticity assurance or a capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
    * 
-   * - Open: open mode. The system automatically matches an open private pool. If no matching private pool is available, the public pool is used to launch the instance. You do not need to specify `PrivatePoolOptions.Id`.
+   * - Open: open mode. The system automatically matches an open private pool. If no matching private pools are available, the public pool is used to launch the instance. You do not need to specify `PrivatePoolOptions.Id`.
    * - Target: specified mode. The instance is launched by using the capacity of the specified private pool. If the specified private pool is unavailable, the instance fails to be launched. In this mode, you must specify the private pool ID. Set `PrivatePoolOptions.Id` to the ID of the private pool.
    * - None: no private pool is used. The instance is not launched by using the capacity of a private pool.
    * 
@@ -113,7 +113,7 @@ export class CreateInstanceRequestSystemDisk extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the system disk. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the system disk. The name must be 2 to 128 characters in length and can contain letters in the Unicode letter category (including English and Chinese characters and digits). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * Default value: empty.
    * 
@@ -130,7 +130,7 @@ export class CreateInstanceRequestSystemDisk extends $dara.Model {
    * - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
    * - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
-   * For information about how to select an ESSD performance level, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * For information about how to select an ESSD performance level, see [Enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -154,7 +154,7 @@ export class CreateInstanceRequestSystemDisk extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The ID of the dedicated block storage cluster. To use a disk in a dedicated block storage cluster as the system disk when you create an ECS instance, specify this parameter.
+   * The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as the system disk when you create an ECS instance, specify this parameter.
    * 
    * @example
    * dbsc-j5e1sf2vaf5he8m2****
@@ -252,9 +252,9 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
    * - cloud: basic disk.
    * - cloud_auto: ESSD AutoPL disk.
    * - cloud_essd_entry: ESSD Entry disk.
-   *   > The cloud_essd_entry value is supported only when `InstanceType` is set to an `ecs.u1` or `ecs.e` instance type.
-   * - elastic_ephemeral_disk_standard: elastic ephemeral disk - standard.
-   * - elastic_ephemeral_disk_premium: elastic ephemeral disk - premium.
+   *   > The cloud_essd_entry value is supported only when `InstanceType` is set to an `ecs.u1` or `ecs.e` instance family.
+   * - elastic_ephemeral_disk_standard: elastic ephemeral disk - Standard.
+   * - elastic_ephemeral_disk_premium: elastic ephemeral disk - Premium Edition.
    * 
    * Default value for I/O optimized instances: cloud_efficiency. Default value for non-I/O optimized instances: cloud.
    * 
@@ -264,7 +264,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to release data disk N when the instance is released.
+   * Specifies whether to release the data disk when the instance is released.
    * 
    * - true: releases the data disk.
    * - false: does not release the data disk.
@@ -287,7 +287,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
    * @remarks
    * The mount point of the data disk.
    * 
-   * > This parameter is applicable only to full image (whole-machine image) scenarios. You can set this parameter to the mount point of the data disk in the full image and modify the corresponding `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of the data disk in the full image.
+   * > This parameter is applicable only to full image (system image) scenarios. You can set this parameter to the mount point of the data disk in the full image and modify the corresponding `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of the data disk in the full image.
    * 
    * @example
    * /dev/xvdb
@@ -295,7 +295,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters in the Unicode letter category (including English and Chinese characters and digits). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * DataDiskName
@@ -340,7 +340,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
    * - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
    * - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
-   * For information about how to select an ESSD performance level, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * For information about how to select an ESSD performance level, see [Enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL2
@@ -379,7 +379,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks when you create the ECS instance, specify this parameter.
+   * The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks when you create an ECS instance, specify this parameter.
    * 
    * @example
    * dbsc-j5e1sf2vaf5he8m2****
@@ -478,7 +478,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * 
    * - default: The instance is not associated with the dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance is deployed on another dedicated host in the automatic deployment resource pool if the resources of the original dedicated host are insufficient.
    * 
-   * - host: The instance is associated with the dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance is still deployed on the original dedicated host. If the resources of the original dedicated host are insufficient, the instance fails to restart.
+   * - host: The instance is associated with the dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance remains on the original dedicated host. If the resources of the original dedicated host are insufficient, the instance fails to restart.
    * 
    * Default value: default.
    * 
@@ -526,7 +526,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the cluster in which to create the instance.
    * 
-   * > This parameter will be deprecated. To improve compatibility, use other parameters instead.
+   * > This parameter will be deprecated. To improve compatibility, use other parameters.
    * 
    * @example
    * c-bp67acfmxazb4p****
@@ -563,7 +563,7 @@ export class CreateInstanceRequest extends $dara.Model {
   dedicatedHostId?: string;
   /**
    * @remarks
-   * The release protection attribute of the instance. Specifies whether the instance can be released from the ECS console or by calling [DeleteInstance](https://help.aliyun.com/document_detail/25507.html).
+   * The release protection attribute of the instance. Specifies whether the instance can be released from the ECS console or by calling the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation.
    * 
    * - true: enables release protection.
    * - false (default): disables release protection.
@@ -615,8 +615,8 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The hostname of the server.
    * 
-   * - The hostname cannot start or end with a period (.) or hyphen (-), and cannot contain consecutive periods or hyphens.
-   * - Windows instances: The hostname must be 2 to 15 characters in length and cannot contain periods (.) or consist entirely of digits. It can contain letters, digits, and hyphens (-).
+   * - A period (.) or a hyphen (-) cannot be used as the first or last character, or used consecutively.
+   * - Windows instances: The hostname must be 2 to 15 characters in length and cannot contain periods (.). The hostname cannot consist of only digits. It can contain letters, digits, and hyphens (-).
    * - Instances that run other operating systems such as Linux: The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment separated by a period can contain letters, digits, and hyphens (-).
    * 
    * @example
@@ -704,7 +704,7 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-). If this parameter is not specified, the default value is the instance ID.
+   * The name of the instance. The name must be 2 to 128 characters in length and can contain letters in the Unicode letter category (including English and Chinese characters) and digits. The name can contain colons (:), underscores (_), periods (.), or hyphens (-). If this parameter is not specified, the default value is the instance ID.
    * 
    * @example
    * k8s-node-[1,4]-alibabacloud
@@ -714,8 +714,8 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The instance type.
    * 
-   * - Instance type selection: See [Instance families](https://help.aliyun.com/document_detail/25378.html) or invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the performance data of the target instance type. You can also see [Best practices for instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
-   * - Check active resources: Invoke [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) to query active resources in a specific region or zone.
+   * - Instance type selection: See [Instance families](https://help.aliyun.com/document_detail/25378.html) or call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the performance data of the target instance type. You can also see [Best practices for instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
+   * - Check active resources: Call [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) to query active resources in a specific region or zone.
    * 
    * This parameter is required.
    * 
@@ -730,7 +730,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * - PayByBandwidth: pay-by-bandwidth.
    * - PayByTraffic (default): pay-by-traffic.
    * 
-   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are both upper limits and are not guaranteed. When resource contention occurs, the peak bandwidth may be throttled. If your workloads require guaranteed bandwidth, use **pay-by-bandwidth** mode.
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are both upper limits and are not guaranteed. When resource contention occurs, the peak bandwidth may be limited. If your workloads require guaranteed bandwidth, use **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -802,7 +802,7 @@ export class CreateInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The password of the instance. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+   * The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
    * 
    * ```
    * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
@@ -810,7 +810,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * 
    * Note the following items:
    * 
-   * - For security reasons, use HTTPS to send requests if the Password parameter is specified.
+   * - For security reasons, we recommend that you use HTTPS to send requests if the Password parameter is specified.
    * - For Windows instances, the password cannot start with a forward slash (/).
    * - For instances that run certain operating systems, passwords are not supported. Only key pairs are supported. Examples: Others Linux and Fedora CoreOS.
    * 
@@ -820,7 +820,7 @@ export class CreateInstanceRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether to use the preset password of the image. If you use this parameter, leave Password empty and make sure that the image has a preset password.
+   * Specifies whether to use the password preset in the image. If you set this parameter, the Password parameter must be empty. Make sure that the image you use has a password preset.
    * 
    * @example
    * false
@@ -923,11 +923,11 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The protection period of the spot instance, in hours. Default value: 1. Valid values:
    * 
-   * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
+   * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * 
    * > 
-   * > - This parameter supports only the values 0 and 1.
+   * > - This parameter supports only the value 0 or 1.
    * > - Spot instances are billed by second. Select an appropriate protection period based on the expected task execution duration.
    * > - Alibaba Cloud sends an ECS system event notification 5 minutes before the instance is released.
    * 
@@ -937,9 +937,9 @@ export class CreateInstanceRequest extends $dara.Model {
   spotDuration?: number;
   /**
    * @remarks
-   * The interruption pattern of the spot instance. Valid values:
+   * The break mode of the spot instance. Valid values:
    * 
-   * - Terminate: The instance is released.
+   * - Terminate: The instance is directly released.
    * 
    * - Stop: The instance enters economical mode.
    * 
@@ -1024,9 +1024,9 @@ export class CreateInstanceRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The ID of the vSwitch. This parameter is required if you are creating a VPC-type instance. You can invoke [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query active vSwitches.
+   * The ID of the vSwitch. This parameter is required if you are creating a VPC-connected instance. You can call [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query available vSwitches.
    * 
-   * > If you specify `VSwitchId`, the specified `ZoneId` must be in the same zone as the vSwitch. You can also leave `ZoneId` empty, and the system automatically selects the zone of the specified vSwitch.
+   * > If you specify `VSwitchId`, the specified `ZoneId` must be the same as the zone of the vSwitch. You can also leave `ZoneId` empty. The system then selects the zone of the specified vSwitch.
    * 
    * @example
    * vsw-bp1s5fnvk4gn2tws0****
@@ -1034,7 +1034,7 @@ export class CreateInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual local area network ID.
+   * The virtual local area network (VLAN) ID.
    * 
    * @example
    * 10
@@ -1044,7 +1044,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the zone in which to create the instance. For more information, call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the zone list.
    * 
-   * > If you specify `VSwitchId`, the specified `ZoneId` must be in the same zone as the vSwitch. You can also leave `ZoneId` empty, and the system automatically selects the zone of the specified vSwitch.
+   * > If you specify `VSwitchId`, the specified `ZoneId` must be the same as the zone of the vSwitch. You can also leave `ZoneId` empty. The system then selects the zone of the specified vSwitch.
    * 
    * Default value: empty. The system automatically selects a zone.
    * 

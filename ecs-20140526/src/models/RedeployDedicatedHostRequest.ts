@@ -19,7 +19,7 @@ export class RedeployDedicatedHostRequest extends $dara.Model {
    * 
    * - Reboot: stops ECS instance before migration.
    * 
-   * - LiveMigrationFirst: migrates ECS instance without stopping it. You must specify the DedicatedHostId parameter. This value does not support changing ECS instance type during migration. If live migration fails, cold migration is performed by default.
+   * - LiveMigrationFirst: migrates ECS instance without stopping it. You must specify the DedicatedHostId parameter. This value does not support changing ECS instance type during migration. If live migration fails, the system performs stop-and-migrate by default.
    * 
    * Default value: Reboot.
    * 

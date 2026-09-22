@@ -59,7 +59,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page for the paged query.
    * 
    * Maximum value: 50.
    * 
@@ -85,9 +85,9 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
    * @remarks
    * The deployment strategy. Valid values:
    * 
-   * - Availability: high availability.
-   * - AvailabilityGroup: high availability for deployment set groups.
-   * - LowLatency: low network latency.
+   * - Availability: high availability strategy.
+   * - AvailabilityGroup: high availability group strategy.
+   * - LowLatency: low network latency strategy.
    * 
    * @example
    * Availability
@@ -96,7 +96,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
   /**
    * @remarks
    * The deployment type. Valid values:
-   * - host: physical server
+   * - host: physical machine
    * - sw: vSwitch
    * - rack: rack
    * 

@@ -100,7 +100,7 @@ export class CopySnapshotRequest extends $dara.Model {
   arn?: CopySnapshotRequestArn[];
   /**
    * @remarks
-   * Guarantees the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. The value of ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * Ensures the idempotence of the request. The value is generated from your client and must be unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -108,7 +108,7 @@ export class CopySnapshotRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the destination region to which to copy the snapshot.
+   * The ID of the destination region for the new snapshot.
    * 
    * This parameter is required.
    * 
@@ -163,7 +163,7 @@ export class CopySnapshotRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The customer master key (CMK) in Key Management Service (KMS) in the destination region.
+   * The customer master key (CMK) in the destination region.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -192,7 +192,7 @@ export class CopySnapshotRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The retention period of the new snapshot, in days. The snapshot is automatically released when the retention period expires. Valid values: 1 to 65536.
+   * The retention period of the new snapshot, in days. The snapshot undergoes automatic release when the retention period expires. Valid values: 1 to 65536.
    * 
    * Default value: null, which indicates that the snapshot is not subject to automatic release.
    * 

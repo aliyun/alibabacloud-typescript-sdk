@@ -7,9 +7,9 @@ export class DescribeInvocationsRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the command execution. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count that are attached to all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, execute the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * If you use a single tag to filter resources, the number of resources with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the number of resources with all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call [ListTagResources](https://help.aliyun.com/document_detail/110425.html) to execute the query.
    * 
-   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -58,7 +58,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   commandId?: string;
   /**
    * @remarks
-   * The command name. If you also specify the `InstanceId` parameter, this parameter does not take effect.
+   * The command name. This parameter does not take effect if the `InstanceId` parameter is also specified.
    * 
    * @example
    * CommandTestName
@@ -93,8 +93,8 @@ export class DescribeInvocationsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return the command output in the results.
    * 
-   * - true: The output is returned. You must specify at least the `InvokeId` or `InstanceId` parameter.
-   * - false: The output is not returned.
+   * - true: Returns the output. You must specify at least the `InvokeId` or `InstanceId` parameter.
+   * - false: Does not return the output.
    * 
    * Default value: false.
    * 
@@ -120,24 +120,24 @@ export class DescribeInvocationsRequest extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The overall execution status of the command. The overall execution status depends on the common execution status across one or more instances in the execution. Valid values: 
+   * The overall execution status of the command. The overall execution status depends on the common execution status of one or more instances in the execution. Valid values: 
    *          
    * - Running:
    *     - Scheduled execution: The execution status remains Running until you manually stop the scheduled command.
-   *     - One-time execution: The overall execution status is Running as long as the command process is running on any instance.
+   *     - One-time execution: The overall execution status is Running as long as any command process is running.
    * - Finished:
-   *     - Scheduled execution: The command process cannot have a status of Finished.
-   *     - One-time execution: The command process has finished running on all instances, or the command process was manually stopped on some instances and finished running on the remaining instances.
-   * - Success: The command execution status on each instance is Stopped or Success, and the command execution status on at least one instance is Success. The overall execution status is Success.
+   *     - Scheduled execution: The command process never reaches the Finished state.
+   *     - One-time execution: All instances have completed execution, or you manually stopped the command process on some instances while the remaining instances completed execution.
+   * - Success: The command execution status on each instance is Stopped or Success, and the command execution status on at least one instance is Success. The overall execution status is then Success.
    *     - Immediate task: The command execution is complete and the exit code is 0.
-   *     - Scheduled task: The last execution was successful with an exit code of 0, and all specified execution times have elapsed.
+   *     - Scheduled task: The most recent execution succeeded with an exit code of 0, and all specified execution times have elapsed.
    * - Failed:
-   *     - Scheduled execution: The command process cannot have a status of Failed.
-   *     - One-time execution: The command process failed on all instances.
-   * - Stopped: The command has been stopped.
+   *     - Scheduled execution: The command process never reaches the Failed state.
+   *     - One-time execution: All instances failed to execute the command.
+   * - Stopped: The command is stopped.
    * - Stopping: The command is being stopped.
-   * - PartialFailed: The command succeeded on some instances but failed on others. This value does not take effect if you also specify the `InstanceId` parameter.
-   * - Pending: The system is verifying or sending the command. The overall execution status is Pending if the command execution status on at least one instance is Pending.
+   * - PartialFailed: Partial failure. This value does not take effect if the `InstanceId` parameter is also specified.
+   * - Pending: The system is validating or sending the command. The overall execution status is Pending if the command execution status on at least one instance is Pending.
    * - Scheduled: The scheduled command has been sent and is waiting to run. The overall execution status is Scheduled if the command execution status on at least one instance is Scheduled.
    * 
    * @example
@@ -168,7 +168,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging query operations.
    * 
    * @example
    * 1
@@ -176,7 +176,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging query operations.
    * 
    * @example
    * 10
@@ -194,12 +194,12 @@ export class DescribeInvocationsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The execution mode of the command. This parameter does not take effect if you also specify the `InstanceId` parameter. Valid values:
+   * The execution mode of the command. This parameter does not take effect if the `InstanceId` parameter is also specified. Valid values:
    * 
-   * - Once: The command is immediately run.
-   * - Period: The command is run on a schedule.
-   * - NextRebootOnly: The command is automatically run the next time the instance starts.
-   * - EveryReboot: The command is automatically run every time the instance starts.
+   * - Once: Runs the command immediately.
+   * - Period: Runs the command on a schedule.
+   * - NextRebootOnly: Runs the command automatically the next time the instance starts.
+   * - EveryReboot: Runs the command automatically every time the instance starts.
    * 
    * Default value: empty, which indicates that all execution modes are queried.
    * 
@@ -209,7 +209,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   repeatMode?: string;
   /**
    * @remarks
-   * The resource group ID of the command execution. After you specify this parameter, you must also specify ResourceGroupId when running the command to filter the corresponding command execution results.
+   * The resource group ID for command execution. After you specify this parameter, you must also specify ResourceGroupId when running the command. This parameter filters the corresponding command execution results.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -224,12 +224,12 @@ export class DescribeInvocationsRequest extends $dara.Model {
   tag?: DescribeInvocationsRequestTag[];
   /**
    * @remarks
-   * Specifies whether the command will be automatically run in the future. Valid values:
+   * Specifies whether the queried command is scheduled to run automatically in the future. Valid values:
    * 
-   * - true: The command is run with the `RepeatMode` parameter set to `Period`, `NextRebootOnly`, or `EveryReboot` when `RunCommand` or `InvokeCommand` is called.
+   * - true: Queries commands for which the `RepeatMode` parameter is set to `Period`, `NextRebootOnly`, or `EveryReboot` when `RunCommand` or `InvokeCommand` is called.
    * - false: Queries commands in the following two states:
-   *     - The command is run with the `RepeatMode` parameter set to `Once` when `RunCommand` or `InvokeCommand` is called.
-   *     - The command has been canceled, stopped, or completed.
+   *     - Commands for which the `RepeatMode` parameter is set to `Once` when `RunCommand` or `InvokeCommand` is called.
+   *     - Commands that have been canceled, stopped, or completed.
    * 
    * Default value: false.
    * 

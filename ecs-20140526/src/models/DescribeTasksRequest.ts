@@ -15,7 +15,7 @@ export class DescribeTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the results.
+   * The page number of the query results.
    * 
    * Minimum value: 1.
    * 
@@ -69,7 +69,7 @@ export class DescribeTasksRequest extends $dara.Model {
    * - ImportImage: import an image.
    * - ExportImage: export an image.
    * - RedeployInstance: redeploy an ECS instance.
-   * - ModifyDiskSpec: change the cloud disk type.
+   * - ModifyDiskSpec: change the type of a cloud disk.
    * - ArchiveSnapshot: archive a snapshot.
    * 
    * @example

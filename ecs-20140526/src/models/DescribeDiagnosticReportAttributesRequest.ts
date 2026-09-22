@@ -15,7 +15,7 @@ export class DescribeDiagnosticReportAttributesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The diagnostic report ID.
+   * The ID of the diagnostic report.
    * 
    * This parameter is required.
    * 

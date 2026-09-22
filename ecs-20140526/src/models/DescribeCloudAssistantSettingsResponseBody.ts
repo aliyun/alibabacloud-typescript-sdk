@@ -32,7 +32,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   allowedUpgradeWindows?: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowedUpgradeWindows;
   /**
    * @remarks
-   * Indicates whether Cloud Assistant Agent checks for and performs updates immediately upon startup.
+   * Indicates whether the Cloud Assistant Agent checks for and performs updates immediately upon startup.
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   bootstrapUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether Cloud Assistant Agent is prohibited from checking for and performing updates.
+   * Indicates whether the Cloud Assistant Agent is prohibited from checking for and performing updates.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   disableUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether the custom Agent upgrade configuration is enabled. If the value is false or empty, the default behavior is to attempt an upgrade every 30 minutes.
+   * Indicates whether the custom Agent upgrade configuration is enabled. If the query result is false or empty, the default behavior of attempting an upgrade every 30 minutes is retained.
    * 
    * @example
    * true
@@ -204,7 +204,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   memoryLimit?: string;
   /**
    * @remarks
-   * The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. When this limit is reached, Cloud Assistant Agent automatically stops running.
+   * The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. After this limit is reached, the Cloud Assistant Agent automatically stops running.
    * 
    * @example
    * 3
@@ -244,12 +244,12 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
 export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the Cloud Assistant session feature is enabled. Valid values:
+   * The toggle for the Cloud Assistant session feature. Valid values:
    * * true: Enabled.
    * * false: Disabled.
    * 
-   * Note:
-   * * Enabling or disabling the session feature takes effect across all regions.
+   * Precautions:
+   * * Enabling or disabling the session feature takes effect in all regions.
    * 
    * @example
    * true

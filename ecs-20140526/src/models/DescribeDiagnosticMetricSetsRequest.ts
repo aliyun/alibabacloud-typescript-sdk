@@ -23,7 +23,7 @@ export class DescribeDiagnosticMetricSetsRequest extends $dara.Model {
   metricSetIds?: string[];
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
+   * The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

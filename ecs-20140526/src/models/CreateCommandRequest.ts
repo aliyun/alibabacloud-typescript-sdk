@@ -7,7 +7,7 @@ export class CreateCommandRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the command. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count that have all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that are attached with all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call [ListTagResources](https://help.aliyun.com/document_detail/110425.html) to query the resources.
    * 
    * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
@@ -61,28 +61,28 @@ export class CreateCommandRequest extends $dara.Model {
    * @remarks
    * The Base64-encoded content of the command.
    * 
-   * - The value of this parameter must be Base64-encoded and cannot exceed 24 KB in size after Base64 encoding.
+   * - The value of this parameter must be Base64-encoded and cannot exceed 24 KB in size after encoding.
    * - The command content supports custom parameters. To enable the custom parameter feature, specify `EnableParameter=true`:
    *     - Custom parameters are defined by enclosing the parameter name in `{{}}`. Spaces and line breaks before and after the parameter name in `{{}}` are ignored.
    *     - The number of custom parameters cannot exceed 20.
-   *     - Custom parameter names can contain only letters (a-z, A-Z), digits (0-9), hyphens (-), and underscores (_). The acs:: prefix for specifying non-built-in environment parameters is not supported. Other characters are not supported. Parameter names are case-insensitive.
-   *     - Each parameter name cannot exceed 64 bytes in length.
+   *     - Custom parameter names can contain letters (a-z, A-Z), digits (0-9), hyphens (-), and underscores (_). The acs:: prefix for specifying non-built-in environment parameters is not supported. Other characters are not supported. Parameter names are case-insensitive.
+   *     - Each parameter name can be up to 64 bytes in length.
    * 
-   * - You can specify built-in environment parameters as custom parameters. When the command is run, Cloud Assistant automatically replaces the parameters with the corresponding values from the environment without requiring manual assignment. The following built-in environment parameters are supported:
+   * - You can specify built-in environment parameters as custom parameters. When the command is run, Cloud Assistant automatically replaces the parameters with the corresponding values from the environment. The following built-in environment parameters are supported:
    *     - `{{ACS::RegionId}}`: the region ID.
    *     - `{{ACS::AccountId}}`: the UID of the Alibaba Cloud account.
-   *     - `{{ACS::InstanceId}}`: the instance ID. When the command is sent to multiple instances and you want to use `{{ACS::InstanceId}}` as a built-in environment parameter, make sure that the Cloud Assistant Agent version is not earlier than the following:
+   *     - `{{ACS::InstanceId}}`: the instance ID. When the command is sent to multiple instances and you want to use `{{ACS::InstanceId}}` as a built-in environment parameter, make sure that the Cloud Assistant Agent version is not earlier than the following versions:
    *         - Linux: 2.2.3.309
    *         - Windows: 2.1.3.309
-   *     - `{{ACS::InstanceName}}`: the instance name. When the command is sent to multiple instances and you want to use `{{ACS::InstanceName}}` as a built-in environment parameter, make sure that the Cloud Assistant Agent version is not earlier than the following:
+   *     - `{{ACS::InstanceName}}`: the instance name. When the command is sent to multiple instances and you want to use `{{ACS::InstanceName}}` as a built-in environment parameter, make sure that the Cloud Assistant Agent version is not earlier than the following versions:
    *         - Linux: 2.2.3.344
    *         - Windows: 2.1.3.344
    * 
-   *     - `{{ACS::InvokeId}}`: the command execution ID. To use `{{ACS::InvokeId}}` as a built-in environment parameter, make sure that the Cloud Assistant Agent version is not earlier than the following:
+   *     - `{{ACS::InvokeId}}`: the command execution ID. To use `{{ACS::InvokeId}}` as a built-in environment parameter, make sure that the Cloud Assistant Agent version is not earlier than the following versions:
    *         - Linux: 2.2.3.309
    *         - Windows: 2.1.3.309
    *      
-   *     - `{{ACS::CommandId}}`: the command ID. When you run a command by calling the [RunCommand](https://help.aliyun.com/document_detail/141751.html) operation and want to use `{{ACS::CommandId}}` as a built-in environment parameter, make sure that the Cloud Assistant Agent version is not earlier than the following:
+   *     - `{{ACS::CommandId}}`: the command ID. When you run a command by calling [RunCommand](https://help.aliyun.com/document_detail/141751.html) and want to use `{{ACS::CommandId}}` as a built-in environment parameter, make sure that the Cloud Assistant Agent version is not earlier than the following versions:
    *         - Linux: 2.2.3.309
    *         - Windows: 2.1.3.309
    * 
@@ -110,7 +110,7 @@ export class CreateCommandRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * The command description. All character sets are supported. The description cannot exceed 512 characters in length.
+   * The command description. All character sets are supported. The description can be up to 512 characters in length.
    * 
    * @example
    * testDescription
@@ -136,7 +136,7 @@ export class CreateCommandRequest extends $dara.Model {
   launcher?: string;
   /**
    * @remarks
-   * The command name. All character sets are supported. The name cannot exceed 128 characters in length.
+   * The command name. All character sets are supported. The name can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -173,7 +173,7 @@ export class CreateCommandRequest extends $dara.Model {
   tag?: CreateCommandRequestTag[];
   /**
    * @remarks
-   * The maximum timeout period for the command to run on ECS instances. Unit: seconds. If the command cannot be run for some reason, a timeout occurs. After the timeout, the command process is forcefully terminated by canceling the PID of the command.
+   * The maximum timeout period for command execution on the ECS instance. Unit: seconds. If the command cannot be run for some reason, a timeout occurs. After the timeout, the command process is forcefully terminated by canceling the PID of the command.
    * 
    * Default value: 60.
    * 
@@ -197,7 +197,7 @@ export class CreateCommandRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The directory where the command is run on the ECS instance. The value cannot exceed 200 characters in length.
+   * The directory where the command is run on the ECS instance. The directory can be up to 200 characters in length.
    * 
    * Default value: 
    * - Linux instances: the home directory of the root user, which is `/root`.  

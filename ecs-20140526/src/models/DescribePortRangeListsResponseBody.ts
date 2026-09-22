@@ -53,7 +53,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
   associationCount?: number;
   /**
    * @remarks
-   * The time when the port range list was created.
+   * The time when the port range list was created. The time is in ISO 8601 format and displayed in UTC.
    * 
    * @example
    * 2024-12-04T07:11Z
@@ -145,7 +145,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
 export class DescribePortRangeListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token returned in this call. If this value is empty, no more data is available.
+   * The pagination token returned in this call. If the return value is empty, no more data is available.
    * 
    * @example
    * AAAAAdDWBF2

@@ -13,7 +13,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * The version number of Cloud Assistant Agent.
+   * The version number of the Cloud Assistant Agent.
    * 
    * @example
    * 2.2.0.102
@@ -61,7 +61,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The number of times that Cloud Assistant tasks were run on the managed instance.
+   * The number of times that Cloud Assistant tasks were executed on the managed instance.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   invocationCount?: number;
   /**
    * @remarks
-   * The time when the last Cloud Assistant task was run.
+   * The time when the last Cloud Assistant task was executed. The time is displayed in ISO 8601 format in UTC.
    * 
    * @example
    * 2021-01-20T09:00:40Z
@@ -77,7 +77,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   lastInvokedTime?: string;
   /**
    * @remarks
-   * The machine ID of the managed instance.
+   * The machine code of the managed instance.
    * 
    * @example
    * e03231b37ab14e53b5795ad625fc****
@@ -101,7 +101,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   osVersion?: string;
   /**
    * @remarks
-   * The time when the managed instance was registered.
+   * The time when the managed instance was registered. The time is displayed in ISO 8601 format in UTC.
    * 
    * @example
    * 2021-01-20T08:57:56Z

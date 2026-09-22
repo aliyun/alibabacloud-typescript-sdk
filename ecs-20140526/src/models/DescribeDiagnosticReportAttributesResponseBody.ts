@@ -141,7 +141,7 @@ export class DescribeDiagnosticReportAttributesResponseBody extends $dara.Model 
   attributes?: string;
   /**
    * @remarks
-   * The time when the diagnostic report was created.
+   * The time when the diagnostic report was created. The time is in ISO 8601 format in UTC.
    * 
    * @example
    * 2022-07-11T12:00:00Z
@@ -149,7 +149,7 @@ export class DescribeDiagnosticReportAttributesResponseBody extends $dara.Model 
   creationTime?: string;
   /**
    * @remarks
-   * The end time. This parameter was specified when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report.
+   * The end time. This is the parameter passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report. The time is in ISO 8601 format in UTC.
    * 
    * @example
    * 2022-07-11T14:00:00Z
@@ -157,7 +157,7 @@ export class DescribeDiagnosticReportAttributesResponseBody extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The time when the diagnostic report was completed.
+   * The time when the diagnostic report was completed. The time is in ISO 8601 format in UTC.
    * 
    * @example
    * 2022-07-11T14:00:00Z
@@ -174,7 +174,7 @@ export class DescribeDiagnosticReportAttributesResponseBody extends $dara.Model 
   metricSetId?: string;
   /**
    * @remarks
-   * The diagnostic report ID. The unique identifier of the resource diagnostic report.
+   * The ID of the diagnostic report. This is the unique identifier of the resource diagnostic report.
    * 
    * @example
    * dr-uf6i0tv2refv8wz*****
@@ -206,9 +206,9 @@ export class DescribeDiagnosticReportAttributesResponseBody extends $dara.Model 
   resourceType?: string;
   /**
    * @remarks
-   * The severity level of the report. This value represents the most severe level among all metrics. The severity levels in ascending order are:
+   * The severity level of the report. This is the most severe level among all metrics. The severity levels in ascending order are:
    * 
-   * - Unknown: The initial state, which indicates that the diagnosis has not started or the diagnosis process exited abnormally. No diagnostic conclusion is available.
+   * - Unknown: The initial state. The diagnosis has not started, or the diagnostic process exited abnormally. No diagnostic conclusion is available.
    * - Normal: The diagnosis is normal. No issues were found.
    * - Info: Related information is available and may be associated with an exception.
    * - Warn: Related information is available and may cause an exception.
@@ -220,7 +220,7 @@ export class DescribeDiagnosticReportAttributesResponseBody extends $dara.Model 
   severity?: string;
   /**
    * @remarks
-   * The start time. This parameter was specified when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report.
+   * The start time. This is the parameter passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report. The time is in ISO 8601 format in UTC.
    * 
    * @example
    * 2022-07-11T12:00:00Z

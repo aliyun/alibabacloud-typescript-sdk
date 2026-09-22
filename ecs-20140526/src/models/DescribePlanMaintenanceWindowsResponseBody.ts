@@ -53,7 +53,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type for which the O&M window is configured.
+   * The type of resource for which the O&M window is configured.
    * 
    * @example
    * Tag
@@ -95,7 +95,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
 export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriodRangeList extends $dara.Model {
   /**
    * @remarks
-   * The end time of the maintenance time window.
+   * The end time of the maintenance time window. Format: "Day of the week,HH:mm". Example: Monday,22:00.
    * 
    * @example
    * Monday,22:00
@@ -103,7 +103,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   endTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance time window.
+   * The start time of the maintenance time window. Format: "Day of the week,HH:mm". Example: Monday,22:00.
    * 
    * @example
    * Monday,22:00
@@ -135,7 +135,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
 export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * The cycle type. Valid values:
+   * The type of the recurrence cycle. Valid values:
    * - Daily: daily recurrence.
    * - Weekly: weekly recurrence.
    * 
@@ -145,7 +145,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   periodUnit?: string;
   /**
    * @remarks
-   * The time ranges within the recurring cycle of the O&M window (UTC time zone).
+   * The time ranges within the recurrence cycle of the O&M window (in UTC).
    */
   rangeList?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriodRangeList[];
   static names(): { [key: string]: string } {
@@ -222,7 +222,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   planWindowName?: string;
   /**
    * @remarks
-   * The supported maintenance actions.
+   * The supported maintenance action.
    * 
    * @example
    * Reboot
@@ -235,7 +235,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   targetResource?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTargetResource;
   /**
    * @remarks
-   * The recurring cycle of the window.
+   * The recurrence cycle of the window.
    */
   timePeriod?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriod;
   static names(): { [key: string]: string } {
@@ -284,7 +284,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
 export class DescribePlanMaintenanceWindowsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+   * The number of entries per page in a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
    * 
    * @example
    * 10
@@ -313,7 +313,7 @@ export class DescribePlanMaintenanceWindowsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the query conditions. This parameter is optional and may not be returned by default.
+   * The total number of entries that match the request conditions. This is an optional parameter and may not be returned by default.
    * 
    * @example
    * 1

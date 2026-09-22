@@ -15,9 +15,9 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query detailed template configuration information. Valid values:
    * 
-   * - true: Queries detailed template configuration information. In addition to basic template information, detailed configuration information is returned, such as the image ID and system disk size.
+   * - true: Queries detailed template configuration information. In addition to basic template information, detailed configuration information such as image ID and system disk size is returned.
    * 
-   * - false: Queries only basic template information, such as the template ID, template name, and default version.
+   * - false: Queries only basic template information, such as template ID, template name, and default version.
    * 
    * Default value: true.
    * 
@@ -55,7 +55,7 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   launchTemplateVersion?: number[];
   /**
    * @remarks
-   * The maximum version number used to filter query results. Use this parameter together with MinVersion to query version information within the range between the minimum and maximum version numbers.
+   * The maximum version number used to filter query results. Used together with MinVersion to query version information within the range between the minimum and maximum version numbers.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   maxVersion?: number;
   /**
    * @remarks
-   * The minimum version number used to filter query results. Use this parameter together with MaxVersion to query version information within the range between the minimum and maximum version numbers.
+   * The minimum version number used to filter query results. Used together with MaxVersion to query version information within the range between the minimum and maximum version numbers.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when paging is used. 
+   * The number of entries per page in a paged query. Settings the number of rows per page for paged queries. 
    * 
    * Default value: 10.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyImageSharePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID to which you want to grant authorization for the shared image. Valid values of N: 1 to 10. If you submit more than 10 Alibaba Cloud accounts in a single request, the system processes only the first 10 and ignores the rest.
+   * The Alibaba Cloud account ID that is authorized to use the shared image. Valid values of N: 1 to 10. If more than 10 Alibaba Cloud accounts are submitted in a single commit, the system processes only the first 10 and ignores the rest.
    * 
    * @example
    * 1234567890
@@ -16,7 +16,7 @@ export class ModifyImageSharePermissionRequest extends $dara.Model {
    * @remarks
    * The ID of the custom image to be shared.
    * 
-   * >Notice: Images encrypted with a service key can no longer be shared. Only images encrypted with a customer master key (CMK) can be shared. An error is returned if you attempt to share an image that is encrypted with a service key.
+   * >Notice: Images encrypted with a service key can no longer be shared. Only images encrypted with a customer master key (CMK) can be shared. An error is returned if you attempt to share an image encrypted with a service key.
    * 
    * This parameter is required.
    * 
@@ -26,10 +26,10 @@ export class ModifyImageSharePermissionRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Specifies whether to publish or delist the image as a community image. Valid values:
+   * Specifies whether to publish or unpublish the image as a community image. Valid values:
    * 
    * - true: Publishes the image as a community image.
-   * - false: Delists the image to a regular image. If the image is already a regular image, no change is made.
+   * - false: Unpublishes the image and converts it to a regular image. If the image is already a regular image, no changes are made.
    * 
    * Default value: false.
    * 
@@ -59,7 +59,7 @@ export class ModifyImageSharePermissionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID from which you want to delete image sharing. Valid values of N: 1 to 10. If you submit more than 10 Alibaba Cloud accounts in a single request, the system processes only the first 10 and ignores the rest.
+   * The Alibaba Cloud account ID from which you want to delete image sharing. Valid values of N: 1 to 10. If more than 10 Alibaba Cloud accounts are submitted in a single commit, the system processes only the first 10 and ignores the rest.
    * 
    * @example
    * 1234567890

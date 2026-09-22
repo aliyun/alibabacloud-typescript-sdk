@@ -13,7 +13,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. If **InstanceId** is specified, this parameter is ignored.
+   * The maximum number of entries per page for a paged query. If **InstanceId** is set, this parameter is ignored.
    * 
    * Maximum value: 50.
    * 

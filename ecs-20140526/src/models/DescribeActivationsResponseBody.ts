@@ -206,7 +206,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging.
+   * The number of entries per page.
    * 
    * @example
    * 10

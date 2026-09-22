@@ -13,7 +13,7 @@ export class CreateSnapshotGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the snapshot consistency group.
+   * The ID of the snapshot-consistent group.
    * 
    * @example
    * ssg-j6ciyh3k52qp7ovm****

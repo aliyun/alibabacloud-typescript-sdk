@@ -71,12 +71,16 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
    * active
    */
   autoProvisioningGroupStatus?: string[];
+  /**
+   * @remarks
+   * The type of the auto-provisioning group. Valid values: request, maintain, and candidate.
+   */
   autoProvisioningGroupTypes?: string[];
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the paging query to return.
+   * The page number of the list to return in a paging query.
    * 
    * Minimum value: 1.
    * 
@@ -88,7 +92,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the paging query. Settings:
+   * The number of entries per page in a paging query.
    * 
    * Maximum value: 100.
    * 

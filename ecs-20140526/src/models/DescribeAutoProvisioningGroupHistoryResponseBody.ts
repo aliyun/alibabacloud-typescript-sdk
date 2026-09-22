@@ -308,7 +308,7 @@ export class DescribeAutoProvisioningGroupHistoryResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of scheduling tasks queried.
+   * The total number of queried scheduling tasks.
    * 
    * @example
    * 10

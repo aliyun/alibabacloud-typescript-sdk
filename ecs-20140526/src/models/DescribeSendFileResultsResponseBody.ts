@@ -233,7 +233,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the query result.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -257,7 +257,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of scripts.
+   * The total number of entries.
    * 
    * @example
    * 2

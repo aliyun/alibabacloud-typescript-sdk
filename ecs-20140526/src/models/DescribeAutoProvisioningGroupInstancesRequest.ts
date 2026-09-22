@@ -29,7 +29,7 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Settings for the paging query.
+   * The number of entries per page when you use paging queries. Settings:
    * 
    * Maximum value: 100.
    * 
@@ -41,7 +41,7 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the auto-provisioning group. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The ID of the region in which the auto-provisioning group resides. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

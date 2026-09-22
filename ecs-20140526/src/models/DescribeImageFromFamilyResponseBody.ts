@@ -134,7 +134,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
-   * The time when the image was created.
+   * The time when the image was created. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2018-01-10T01:01:10Z
@@ -178,7 +178,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
    * The alias of the image owner. Valid values:
    * - system: public image.
    * - self: your custom image.
-   * - others: shared image from other users.
+   * - others: public image of another user.
    * - marketplace: Alibaba Cloud Marketplace image.
    * 
    * @example
@@ -227,7 +227,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   isSupportCloudinit?: boolean;
   /**
    * @remarks
-   * Indicates whether the image can run on an I/O optimized instance.
+   * Indicates whether the image can be used on I/O optimized instances.
    * 
    * @example
    * true
@@ -298,9 +298,9 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   tags?: DescribeImageFromFamilyResponseBodyImageTags;
   /**
    * @remarks
-   * The type of resource that references the image. Valid values:
-   * - instance: One or more ECS instances have been created from the image.
-   * - none: No ECS instances have been created from the image.
+   * The type of resource to which the image is associated. Valid values:
+   * - instance: one or more ECS instances have been created from the image.
+   * - none: no ECS instances have been created from the image.
    * 
    * @example
    * none

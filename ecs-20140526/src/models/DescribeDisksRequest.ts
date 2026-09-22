@@ -13,7 +13,7 @@ export class DescribeDisksRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The filter value used to query resources. When you specify this parameter, you must also specify the `Filter.1.Key` parameter. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC+0.
+   * The filter value used to query resources. When you specify this parameter, you must also specify the Filter.1.Key parameter. Specify the time in the `yyyy-MM-ddTHH:mmZ` format in UTC.
    * 
    * @example
    * 2017-12-05T22:40Z
@@ -47,7 +47,7 @@ export class DescribeDisksRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the disk. Valid values of N: 1 to 20.
    * 
-   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that are attached to all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
    * 
    * @example
    * TestKey
@@ -90,7 +90,7 @@ export class DescribeDisksRequest extends $dara.Model {
    * @remarks
    * The list of additional attribute values. The only valid value is `Placement`, which queries the data storage location of the disk.
    * 
-   * > Only regional ESSD (cloud_regional_disk_auto) disks have valid data storage locations.
+   * > Only regional disks have a data storage location.
    * 
    * @example
    * IOPS
@@ -116,8 +116,8 @@ export class DescribeDisksRequest extends $dara.Model {
    * - cloud_auto: ESSD AutoPL disk.
    * - cloud_regional_disk_auto: regional ESSD.
    * - cloud_essd_entry: ESSD Entry disk.
-   * - elastic_ephemeral_disk_standard: elastic ephemeral disk - standard.
-   * - elastic_ephemeral_disk_premium: elastic ephemeral disk - premium.
+   * - elastic_ephemeral_disk_standard: elastic ephemeral disk - Standard.
+   * - elastic_ephemeral_disk_premium: elastic ephemeral disk - Premium.
    * - local_ssd_pro: I/O-intensive local disk.
    * - local_hdd_pro: throughput-intensive local disk.
    * - ephemeral: (retired) local disk.
@@ -133,9 +133,9 @@ export class DescribeDisksRequest extends $dara.Model {
    * @remarks
    * Specifies whether automatic snapshots are released when the disk is released.
    * 
-   * - true: Automatic snapshots are released.
+   * - true: Yes.
    * 
-   * - false: Automatic snapshots are not released.
+   * - false: No.
    * 
    * Default value: false.
    * 
@@ -145,10 +145,10 @@ export class DescribeDisksRequest extends $dara.Model {
   deleteAutoSnapshot?: boolean;
   /**
    * @remarks
-   * Specifies whether the disk is released when the associated instance is released. Valid values:
+   * Specifies whether the disk is set to be released together with the instance. Valid values:
    * 
-   * - true: The disk is released when the associated instance is released.
-   * - false: The disk is retained and converted to a pay-as-you-go data disk when the associated instance is released.
+   * - true: The disk is released together with the instance.
+   * - false: The disk is retained and converted to a pay-as-you-go data disk when the instance is released.
    * 
    * Default value: false.
    * 
@@ -177,7 +177,7 @@ export class DescribeDisksRequest extends $dara.Model {
   diskIds?: string;
   /**
    * @remarks
-   * The name of the disk. The name must be 2 to 128 characters in length and can contain letters, digits, and characters categorized as letter in Unicode. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the disk. The name must be 2 to 128 characters in length and can contain Unicode characters under the letter category (including letters from various languages, digits, and other characters). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * testDiskName
@@ -202,8 +202,8 @@ export class DescribeDisksRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * - true: performs only a dry run. The system checks the request for potential issues, including whether the AccessKey is valid, the authorization of the Resource Access Management (RAM) user, and whether required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - false: performs a dry run and sends a Normal request. If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed.
+   * - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - false: performs a dry run and sends the request. If the request passes the dry run, a 2XX HTTP status code is returned and the resources are queried.
    * 
    * Default value: false.
    * 
@@ -218,7 +218,7 @@ export class DescribeDisksRequest extends $dara.Model {
    * - true: Enabled.
    * - false: Not enabled.
    * 
-   * > This parameter is deprecated. After a disk is created, the automatic snapshot policy feature is enabled by default. You only need to associate an automatic snapshot policy with the disk.
+   * > This parameter is deprecated. The automatic snapshot policy feature is enabled by default for disks after creation. You only need to associate an automatic snapshot policy with the disk.
    * 
    * @example
    * true
@@ -226,9 +226,9 @@ export class DescribeDisksRequest extends $dara.Model {
   enableAutoSnapshot?: boolean;
   /**
    * @remarks
-   * Specifies whether an automatic snapshot policy is applied to the disk.
-   * - true: An automatic snapshot policy is applied.
-   * - false: No automatic snapshot policy is applied.
+   * Specifies whether an automatic snapshot policy is configured for the disk.
+   * - true: Configured.
+   * - false: Not configured.
    * 
    * Default value: false.
    * 
@@ -248,9 +248,9 @@ export class DescribeDisksRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query only encrypted disks.
    * 
-   * - true: Queries only encrypted disks.
+   * - true: queries only encrypted disks.
    * 
-   * - false: Does not filter by encryption status.
+   * - false: does not filter disks by encryption status.
    * 
    * Default value: false.
    * 
@@ -278,7 +278,7 @@ export class DescribeDisksRequest extends $dara.Model {
    * @remarks
    * The reason why the disk is locked. Valid values:
    * 
-   * - financial: The disk is locked due to overdue payments.
+   * - financial: The disk is locked because of overdue payments.
    * - security: The disk is locked for security reasons.
    * 
    * @example
@@ -291,7 +291,7 @@ export class DescribeDisksRequest extends $dara.Model {
    * 
    * Default value:
    * - If this parameter is not specified or is set to a value less than 10, the default value is 10.
-   * - If this parameter is set to a value greater than 500, the default value is 500.
+   * - If the value is greater than 500, the default value is 500.
    * 
    * @example
    * 50
@@ -299,10 +299,10 @@ export class DescribeDisksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether the multi-attach feature is enabled for the disk. Valid values:
+   * Specifies whether the multi-attach feature is enabled. Valid values:
    * 
-   * - Disabled: The multi-attach feature is not enabled.
-   * - Enabled: The multi-attach feature is enabled.
+   * - Disabled: not enabled.
+   * - Enabled: enabled.
    * - LegacyShared: queries Shared Block Storage devices.
    * 
    * @example
@@ -323,7 +323,7 @@ export class DescribeDisksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter will be offline soon. Use NextToken and MaxResults for paging operations.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging operations.
    * 
    * @example
    * 1
@@ -331,7 +331,7 @@ export class DescribeDisksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be offline soon. Use NextToken and MaxResults for paging operations.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging operations.
    * 
    * @example
    * 10
@@ -341,9 +341,9 @@ export class DescribeDisksRequest extends $dara.Model {
    * @remarks
    * Specifies whether the disk is removable. Valid values:
    * 
-   * - true: The disk is removable. The disk can exist independently and can be freely attached to or detached from instances within the same zone.
+   * - true: The disk is removable. The disk can exist independently and can be attached to or detached from instances within the same zone.
    * 
-   * - false: The disk is not removable. The disk cannot exist independently and cannot be freely attached to or detached from instances within the same zone.
+   * - false: The disk is not removable. The disk cannot exist independently and cannot be attached to or detached from instances within the same zone.
    * 
    * The Portable attribute of the following types of block storage devices is false, and their lifecycle is the same as that of the associated instance:
    * 
@@ -404,7 +404,7 @@ export class DescribeDisksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of tags of the disk.
+   * The tags of the disk.
    */
   tag?: DescribeDisksRequestTag[];
   /**

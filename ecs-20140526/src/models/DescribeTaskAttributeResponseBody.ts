@@ -118,7 +118,7 @@ export class DescribeTaskAttributeResponseBodyOperationProgressSet extends $dara
 export class DescribeTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the task was created. The time is displayed in ISO 8601 format in UTC.
    * 
    * @example
    * 2015-11-23T02:13Z
@@ -134,7 +134,7 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The time when the task was completed.
+   * The time when the task was completed. The time is displayed in ISO 8601 format in UTC.
    * 
    * @example
    * 2015-11-23T02:19Z

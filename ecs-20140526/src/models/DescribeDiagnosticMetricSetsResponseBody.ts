@@ -8,7 +8,7 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * The description of the diagnostic metric set.
    * 
    * @example
-   * 远程连接问题诊断
+   * Remote connection diagnostics
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * The name of the diagnostic metric set.
    * 
    * @example
-   * 远程连接问题诊断
+   * Remote connection diagnostics
    */
   metricSetName?: string;
   /**

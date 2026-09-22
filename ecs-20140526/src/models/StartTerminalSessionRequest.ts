@@ -14,7 +14,7 @@ export class StartTerminalSessionRequestEncryptionOptions extends $dara.Model {
   /**
    * @remarks
    * The KMS key ID.
-   * Note:
+   * Precautions:
    * - Only KMS symmetric keys are supported.
    * - This parameter can be specified only when the encryption mode is set to Kms.
    * 
@@ -24,12 +24,12 @@ export class StartTerminalSessionRequestEncryptionOptions extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * The encryption pattern. Valid values:
-   * - Auto: Uses automatically negotiated secret key encryption for the session.
+   * The secret key encryption pattern. Valid values:
+   * - Auto: Uses an automatically negotiated key to encrypt the session.
    * - Kms: Uses a KMS key to encrypt the session.
    * - Default value: Auto.
    * 
-   * Note:
+   * Precautions:
    * - This parameter can be specified only when session encryption is enabled.
    * 
    * @example
@@ -64,7 +64,7 @@ export class StartTerminalSessionRequestEncryptionOptions extends $dara.Model {
 export class StartTerminalSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -82,8 +82,8 @@ export class StartTerminalSessionRequest extends $dara.Model {
   commandLine?: string;
   /**
    * @remarks
-   * The network type of the WebSocket URL required for the remote connection to the instance. Valid values:
-   * - Internet: public network. This is the default value.
+   * The network type of the WebSocket URL required for establishing a remote connection to the instance. Valid values:
+   * - Internet: Internet. This is the default value.
    * - Intranet: internal network.
    * 
    * @example
@@ -115,7 +115,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
   passwordName?: string;
   /**
    * @remarks
-   * The port number of the ECS instance for data forwarding. After this parameter is set, the Cloud Assistant Agent forwards data to the specified port number for port forwarding. For example, SSH uses port 22.
+   * The port number of the ECS instance for data forwarding. After this parameter is set, Cloud Assistant Agent forwards data to the specified port for port forwarding. For example, SSH uses port 22.
    * 
    * Default value: empty, which indicates that no port number is set for data forwarding.
    * 

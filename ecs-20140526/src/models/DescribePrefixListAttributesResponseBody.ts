@@ -59,8 +59,8 @@ export class DescribePrefixListAttributesResponseBody extends $dara.Model {
    * @remarks
    * The address family of the prefix list. Valid values:
    * 
-   * - IPv4
-   * - IPv6
+   * - IPv4.
+   * - IPv6.
    * 
    * @example
    * IPv4
@@ -68,7 +68,7 @@ export class DescribePrefixListAttributesResponseBody extends $dara.Model {
   addressFamily?: string;
   /**
    * @remarks
-   * The time when the prefix list was created.
+   * The time when the prefix list was created. The time is displayed in ISO 8601 format in UTC.
    * 
    * @example
    * 2021-02-20T07:11Z

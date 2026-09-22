@@ -71,7 +71,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of `NextToken` returned by the previous call. You do not need to set this parameter for the first request.
+   * The pagination token. Set the value to the `NextToken` value returned in the previous call to this operation. You do not need to set this parameter for the first request.
    * 
    * @example
    * AAAAAdDWBF2****

@@ -9,7 +9,7 @@ export class ModifyPrepayInstanceSpecRequestSystemDisk extends $dara.Model {
    * 
    * - cloud_efficiency: ultra disk.
    * - cloud_ssd: standard SSD.
-   * > This parameter is valid only when you upgrade from a [retired instance type](https://help.aliyun.com/document_detail/55263.html) to an [instance family that is available for purchase](https://help.aliyun.com/document_detail/25378.html) and change a non-I/O optimized instance to an I/O optimized instance.
+   * > This parameter is valid only when you upgrade from a [retired instance type](https://help.aliyun.com/document_detail/55263.html) to an [in-stock instance family](https://help.aliyun.com/document_detail/25378.html) and change a non-I/O optimized instance to an I/O optimized instance. For more information about how to change instance types, see [Increase Quota](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * cloud_efficiency
@@ -137,7 +137,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The target instance type for the Upgrade/Downgrade. For valid values, see [Instance family](https://help.aliyun.com/document_detail/25378.html) or invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html).
+   * The target instance type for the upgrade or downgrade. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html) or invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html).
    * 
    * This parameter is required.
    * 
@@ -147,7 +147,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Specifies whether to support cross-cluster Upgrade/Downgrade of instance types. Valid values:
+   * Specifies whether to support cross-cluster upgrade or downgrade of instance types. Valid values:
    * - true: Cross-cluster instance type changes are supported.
    * - false: Cross-cluster instance type changes are not supported.
    * 
@@ -155,7 +155,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
    * 
    * When the `MigrateAcrossZone` parameter is set to `true`, take note of the following items after you upgrade the Elastic Compute Service instance based on the response:
    * 
-   * VPC-type instances: For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is changed to an I/O optimized instance, the disk device names and software authorization codes of the server change. For Linux instances, basic disks (cloud) are identified as xvda or xvdb. Ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vda or vdb.
+   * VPC-type instances: For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is changed to an I/O optimized instance, the disk device names and software authorization codes of the server change. For Linux instances, basic disks (cloud) are identified as xvda or xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vda or vdb.
    * 
    * @example
    * false

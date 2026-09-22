@@ -73,7 +73,7 @@ export class CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration extends 
   encrypted?: boolean;
   /**
    * @remarks
-   * The key ID of the KMS key used for encrypted cross-region snapshot backup.
+   * The KMS key ID used for encrypted cross-region snapshot backup.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40826X
@@ -155,6 +155,9 @@ export class CreateAutoSnapshotPolicyRequestTargetTags extends $dara.Model {
    * Valid values of N: 1 to 5.
    * 
    * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
+   * 
+   * @example
+   * TestKey
    */
   key?: string;
   /**
@@ -166,6 +169,9 @@ export class CreateAutoSnapshotPolicyRequestTargetTags extends $dara.Model {
    * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
    * > If you pass in an empty value or an empty string, it indicates any value.
+   * 
+   * @example
+   * TestValue
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -194,14 +200,14 @@ export class CreateAutoSnapshotPolicyRequestTargetTags extends $dara.Model {
 export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The association type between the automatic snapshot policy and the target resource. Valid values:
-   * - AssociatedWithDisk: associated with a disk.
-   * - AssociatedWithInstanceTag: associated with an instance tag.
+   * The association type between the automatic snapshot policy and target resources. Valid values:
+   * - AssociatedWithDisk: associate with a disk.
+   * - AssociatedWithInstanceTag: associate with an instance tag.
    * 
    * Default value: AssociatedWithDisk.
    * 
    * 
-   * > Currently, association with instance tags is supported only in the Malaysia (Kuala Lumpur), Malaysia (Johor), Philippines (Manila), UK (London), France (Paris), Saudi Arabia (Riyadh) - Partner, UAE (Dubai), China North 5 (Hohhot), China Northwest 2 (Zhongwei), and China Southwest 1 (Chengdu) regions.
+   * > Currently, only the following regions support association with instance tags: Malaysia (Kuala Lumpur), Malaysia (Johor), Philippines (Manila), UK (London), France (Paris), Saudi Arabia (Riyadh) - Partner, UAE (Dubai), China North 5 (Hohhot), China Northwest 2 (Zhongwei), China Southwest 1 (Chengdu), Brazil (São Paulo), Thailand (Bangkok), China South 3 (Guangzhou), China South 2 (Heyuan), Hong Kong (China), Germany (Frankfurt), Mexico, US (Virginia), China East 1 (Hangzhou), China North 1 (Qingdao), China North 2 (Beijing), China East 2 (Shanghai), Singapore, Japan (Tokyo), South Korea (Seoul), China South 1 (Shenzhen), China North 6 (Ulanqab), and China North 3 (Zhangjiakou).
    * 
    * @example
    * AssociatedWithDisk
@@ -209,10 +215,10 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   associationType?: string;
   /**
    * @remarks
-   * The retention period of cross-region snapshot copies. Unit: days. Valid values:
+   * The retention period of cross-region snapshot replicas. Unit: days. Valid values:
    * 
-   * - -1: Snapshot copies are permanently retained.
-   * - 1 to 65535: Snapshot copies are retained for the specified number of days.
+   * - -1: Snapshot replicas are permanently retained.
+   * - 1 to 65535: Snapshot replicas are retained for the specified number of days.
    * 
    * Default value: -1.
    * 
@@ -227,7 +233,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   copyEncryptionConfiguration?: CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration;
   /**
    * @remarks
-   * Specifies whether to allow automatic cross-region replication.
+   * Specifies whether to allow automatic cross-region replication. Valid values:
    * 
    * - true: Allowed.
    * - false: Not allowed.
@@ -262,7 +268,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   tag?: CreateAutoSnapshotPolicyRequestTag[];
   /**
    * @remarks
-   * The destination region to which to copy snapshots. You can specify only one destination region.
+   * The destination region to which snapshots are replicated across regions. You can set only one destination region.
    * 
    * @example
    * ["cn-hangzhou"]
@@ -286,7 +292,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   autoSnapshotPolicyName?: string;
   /**
    * @remarks
-   * The region ID of the automatic snapshot policy. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region to which the automatic snapshot policy belongs. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -296,10 +302,10 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The days of the week on which automatic snapshots are created. Unit: day. The cycle is weekly. Valid values: 1 to 7. For example, 1 indicates Monday. Format description:
+   * The days of the week on which automatic snapshots are created. Unit: days. The cycle is weekly. Valid values: 1 to 7. For example, 1 indicates Monday. Format description:
    * 
    * - The parameter value must be a JSON array. For example, ["1"\\] indicates that automatic snapshots are created every Monday.
-   * - To create multiple automatic snapshots within a week, specify multiple days and separate them with commas (,). You can specify a maximum of 7 days. For example, ["1","3","5"\\] indicates that automatic snapshots are created every Monday, Wednesday, and Friday.
+   * - To create multiple automatic snapshots within a week, specify multiple days separated by commas (,). You can specify up to 7 days. For example, ["1","3","5"\\] indicates that automatic snapshots are created every Monday, Wednesday, and Friday.
    * 
    * This parameter is required.
    * 
@@ -324,12 +330,12 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   retentionDays?: number;
   /**
    * @remarks
-   * The points in time at which automatic snapshots are created. The time is displayed in UTC+8. Unit: hours. Valid values: 0 to 23, which represent the 24 points in time from 00:00 to 23:00. For example, 1 indicates 01:00. Format description:
+   * The points in time at which automatic snapshots are created. The time is displayed in UTC+8. Unit: hours. Valid values: 0 to 23, which represent 00:00 to 23:00 (a total of 24 points in time). For example, 1 indicates 01:00. Format description:
    * 
    * - The parameter value must be a JSON array. For example, ["1"\\] indicates that automatic snapshots are created at 01:00.
-   * - To create multiple automatic snapshots within a day, specify multiple points in time and separate them with commas (,). You can specify a maximum of 24 points in time. For example, ["1","3","5"\\] indicates that automatic snapshots are created at 01:00, 03:00, and 05:00.
+   * - To create multiple automatic snapshots within a day, specify multiple points in time separated by commas (,). You can specify up to 24 points in time. For example, ["1","3","5"\\] indicates that automatic snapshots are created at 01:00, 03:00, and 05:00.
    * 
-   * > If a disk contains a large amount of data and the time required to create a single automatic snapshot exceeds the interval between two consecutive points in time, the next point in time is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as the points in time for automatic snapshot creation. The snapshot creation starts at 09:00 and is completed at 10:20, which takes 80 minutes. The system skips the 10:00 point in time and creates the next automatic snapshot at 11:00.
+   * > If a disk contains a large amount of data and the time required to create a single automatic snapshot exceeds the interval between two consecutive points in time, the next point in time is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as the points in time for automatic snapshot creation. Because the disk contains a large amount of data, the snapshot creation starts at 09:00 and is completed at 10:20, which takes 80 minutes. The system skips the 10:00 point in time and creates the next automatic snapshot at 11:00.
    * 
    * This parameter is required.
    * 

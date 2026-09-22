@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is deprecated and does not take effect.
+   * > This parameter is deprecated and does not take effect even if specified.
    * 
    * @example
    * echo
@@ -61,7 +61,7 @@ export class ModifyCommandRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The maximum timeout period for the command to run on ECS instances. Unit: seconds. If the command cannot be completed within the specified timeout period, the command process is forcefully terminated by canceling the PID of the command.
+   * The maximum timeout period for the command to run on ECS instances. Unit: seconds. If the command cannot be completed within the specified timeout period, the command times out. When a timeout occurs, the command process is forcefully terminated by canceling the PID of the command.
    * 
    * @example
    * 120

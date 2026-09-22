@@ -7,7 +7,7 @@ export class SendFileRequestTag extends $dara.Model {
    * @remarks
    * The key of the tag for file sending. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count with all the specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call [ListTagResources](https://help.aliyun.com/document_detail/110425.html) to query the resources.
+   * If you use a single tag to filter resources, the resource count with the tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
    * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
@@ -59,9 +59,9 @@ export class SendFileRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The content of the file. The file content cannot exceed 32 KB after Base64 encoding.
+   * The content of the file. After Base64 encoding, the content cannot exceed 32 KB in size.
    * 
-   * - If `ContentType` is set to `PlainText`, this parameter specifies the plain text content.
+   * - If `ContentType` is set to `PlainText`, this parameter specifies the content in plaintext.
    * - If `ContentType` is set to `Base64`, this parameter specifies the Base64-encoded content.
    * 
    * This parameter is required.
@@ -74,7 +74,7 @@ export class SendFileRequest extends $dara.Model {
    * @remarks
    * The content type of the file. Valid values:
    * - PlainText: plain text.
-   * - Base64: Base64-encoded.
+   * - Base64: Base64 encoding.
    * 
    * Default value: PlainText.
    * 
@@ -84,7 +84,7 @@ export class SendFileRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The description of the file. The full character set is supported. The description cannot exceed 512 characters in length.
+   * The description. The full character set is supported. The description cannot exceed 512 characters in length.
    * 
    * @example
    * This is a test file.
@@ -92,9 +92,9 @@ export class SendFileRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The group of the file. This parameter takes effect only on Linux instances. Default value: root. The value cannot exceed 64 characters in length.
+   * The user group of the file. This parameter takes effect only on Linux instances. Default value: root. The value cannot exceed 64 characters in length.
    * 
-   * > If you specify a different user group, make sure that the user group exists on the instance.
+   * > If you specify another user group, make sure that the user group exists on the instance.
    * 
    * @example
    * test
@@ -114,7 +114,7 @@ export class SendFileRequest extends $dara.Model {
    * @remarks
    * The owner of the file. This parameter takes effect only on Linux instances. Default value: root. The value cannot exceed 64 characters in length.
    * 
-   * > If you specify a different user, make sure that the user exists on the instance.
+   * > If you specify another user, make sure that the user exists on the instance.
    * 
    * @example
    * test
@@ -168,7 +168,7 @@ export class SendFileRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group for file sending. If you specify this parameter:
    * 
-   * - The ECS instances specified by InstanceId must belong to this resource group.
+   * - The ECS instance specified by InstanceId must belong to this resource group.
    * 
    * - You can filter file sending results by specifying this parameter when you call [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html).
    * 
@@ -185,7 +185,7 @@ export class SendFileRequest extends $dara.Model {
   tag?: SendFileRequestTag[];
   /**
    * @remarks
-   * The destination directory on the target ECS instances where the file is sent. If the directory does not exist, it is automatically created. The directory path cannot exceed 255 characters in length.
+   * The destination folder on the target ECS instances for the file to be sent. If the folder does not exist, automatic creation is performed. The value cannot exceed 255 characters in length.
    * 
    * This parameter is required.
    * 

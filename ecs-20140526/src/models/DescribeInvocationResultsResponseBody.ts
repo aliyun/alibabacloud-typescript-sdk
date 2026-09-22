@@ -198,7 +198,7 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the paging query settings.
+   * The number of entries per page set for paging queries.
    * 
    * @example
    * 1

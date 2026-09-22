@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticityAssurancesRequestPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The list of elasticity assurance service IDs. The value can be a JSON array that consists of up to 100 IDs. Separate multiple IDs with commas (,).
+   * The list of elasticity assurance IDs. The value can be a JSON array that consists of up to 100 IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["eap-bp67acfmxazb4****", "eap-bp67acfmxazb5****"]
@@ -37,7 +37,7 @@ export class DescribeElasticityAssurancesRequestTag extends $dara.Model {
    * @remarks
    * The tag key. N indicates that you can set multiple tag keys for filtering. Valid values of N: 1 to 20.
    * 
-   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+   * If you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
    * @example
    * TestKey
@@ -45,7 +45,7 @@ export class DescribeElasticityAssurancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. N indicates that you can set multiple tag values for filtering. Valid values of N: 1 to 20.
+   * The tag value. N indicates that you can specify multiple tag keys for filtering. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -78,7 +78,7 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   privatePoolOptions?: DescribeElasticityAssurancesRequestPrivatePoolOptions;
   /**
    * @remarks
-   * The billing method of instances. Valid values: PostPaid. Only pay-as-you-go is supported.
+   * The billing method of the instance. Valid values: PostPaid. Only pay-as-you-go is supported.
    * 
    * Default value: PostPaid.
    * 
@@ -88,7 +88,7 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance type. You can use the instance type to query only active elasticity assurance services. Released services can only be queried by using `PrivatePoolOptions.Ids`.
+   * The instance type. You can use the instance type to query only active elasticity assurances. Released elasticity assurances can be queried only by using `PrivatePoolOptions.Ids`.
    * 
    * @example
    * ecs.c6.large
@@ -108,7 +108,7 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the elasticity assurance service query. Obtain the value from the result of the previous request.
+   * The pagination token for the elasticity assurance query. Obtain the value from the result of the previous request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -118,11 +118,11 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The type of the elasticity assurance service. Valid values:
+   * The type of the elasticity assurance. Valid values:
    * 
-   * - ElasticityAssurance: standard elasticity assurance (used when RecurrenceRules is not specified).
+   * - ElasticityAssurance: standard elasticity assurance. This is the type when RecurrenceRules is not specified.
    * 
-   * - TimeDivisionElasticityAssurance: time-division elasticity assurance (used when RecurrenceRules is specified).
+   * - TimeDivisionElasticityAssurance: time-division elasticity assurance. This is the type when RecurrenceRules is specified.
    * 
    * @example
    * ElasticityAssurance
@@ -138,7 +138,7 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The ID of the region to which the elasticity assurance service belongs. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The ID of the region to which the elasticity assurance belongs. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -148,7 +148,7 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+   * The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
    * >Filtering by the default resource group is not supported.
    * 
@@ -160,16 +160,16 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the elasticity assurance service. Valid values:
+   * The status of the elasticity assurance. Valid values:
    * 
    * - All: all states.
-   * - Deactived: pending activation (this state is in invitational preview).
+   * - Deactived: to be activated. This state is in invitational preview.
    * - Preparing: being prepared.
-   * - Prepared: pending effectiveness.
-   * - Active: active.
+   * - Prepared: to take effect.
+   * - Active: in effect.
    * - Released: released.
    * 
-   * If you do not specify this parameter, elasticity assurance services in all states except Pending and Released are queried.
+   * If you do not specify this parameter, elasticity assurances in all states except Pending and Released are queried.
    * 
    * @example
    * Active
@@ -177,12 +177,12 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of tag key-value pairs bound to the elasticity assurance service.
+   * The list of tag key-value pairs bound to the elasticity assurance.
    */
   tag?: DescribeElasticityAssurancesRequestTag[];
   /**
    * @remarks
-   * The zone ID in the region to which the elasticity assurance service belongs.
+   * The zone ID in the region to which the elasticity assurance belongs.
    * 
    * @example
    * cn-hangzhou-h

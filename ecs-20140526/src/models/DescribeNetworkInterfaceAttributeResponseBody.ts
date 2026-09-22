@@ -240,7 +240,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConf
   tcpClosedAndTimeWaitTimeout?: number;
   /**
    * @remarks
-   * The timeout period for TCP connections in the established state. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
+   * The timeout period for TCP connections in the ESTABLISHED state. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
    * 
    * @example
    * 910
@@ -483,7 +483,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets extends $dara
 export class DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTrafficConfig extends $dara.Model {
   /**
    * @remarks
-   * The communication pattern of the network interface controller (NIC).
+   * The communication mode of the network interface controller (NIC).
    * 
    * @example
    * HighPerformance
@@ -871,12 +871,12 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * 
    * Before you use this parameter, read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
    * 
-   * > This parameter is returned only when the `Attribute` input parameter is set to `connectionTrackingConfiguration`.
+   * > This parameter is returned only when the Attribute input parameter is set to connectionTrackingConfiguration.
    */
   connectionTrackingConfiguration?: DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration;
   /**
    * @remarks
-   * The time when the network interface controller (NIC) was created.
+   * The time when the network interface controller (NIC) was created. The time is in ISO 8601 format and displayed in UTC.
    * 
    * @example
    * 2019-12-25T12:31:31Z
@@ -911,7 +911,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The ID of the instance to which the network interface controller (NIC) is attached.
    * 
-   * > Network interface controllers (NICs) that are managed and controlled by other Alibaba Cloud services do not return an instance ID.
+   * > Network interface controllers (NICs) that are managed and controlled by other Alibaba Cloud services do not return instance IDs.
    * 
    * @example
    * i-bp1e2l6djkndyuli****
@@ -951,10 +951,10 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   networkInterfaceTrafficConfig?: DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTrafficConfig;
   /**
    * @remarks
-   * The communication pattern of the network interface controller (NIC). Valid values:
+   * The communication mode of the network interface controller (NIC). Valid values:
    * 
-   * - Standard: uses the TCP communication pattern.
-   * - HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the RDMA communication pattern.
+   * - Standard: TCP communication mode is used.
+   * - HighPerformance: Elastic RDMA Interface (ERI) is enabled and RDMA communication mode is used.
    * 
    * > The HighPerformance parameter value is supported only by the c7re RDMA enhanced instance family.
    * 
@@ -987,15 +987,15 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of queues for the Elastic Network Interface (ENI).
-   * * If the Elastic Network Interface (ENI) is a primary network interface controller (NIC): the default number of queues for the primary network interface controller (NIC) based on the instance type is returned.
+   * * If the ENI is a primary network interface controller (NIC): the default number of queues for the primary NIC that the instance type allows is returned.
    * 
-   * * If the Elastic Network Interface (ENI) is a secondary ENI:
+   * * If the ENI is a secondary ENI:
    *     * If the secondary ENI is in the InUse state:
-   *         * If the number of queues has not been modified, the default number of queues for the secondary ENI based on the instance type is returned.
-   *         * If the number of queues has been modified, the modified number of queues is returned.
+   *         * If the number of queues for the secondary ENI has not been modified, the default number of queues for the secondary ENI that the instance type allows is returned.
+   *         * If the number of queues for the secondary ENI has been modified, the modified number of queues is returned.
    *     * If the secondary ENI is in the active (Available) state:
-   *         * If the number of queues has not been modified, an empty value is returned.
-   *         * If the number of queues has been modified, the modified number of queues is returned.
+   *         * If the number of queues for the secondary ENI has not been modified, an empty value is returned.
+   *         * If the number of queues for the secondary ENI has been modified, the modified number of queues is returned.
    * 
    * @example
    * 8
@@ -1067,7 +1067,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * * Detaching: being detached.
    * * Deleting: being deleted.
    * 
-   * Default value: empty, which indicates that network interface controllers (NICs) in all statuses are queried.
+   * Default value: empty, which indicates that network interface controllers (NICs) in all states are queried.
    * 
    * @example
    * Available

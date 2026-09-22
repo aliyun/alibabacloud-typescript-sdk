@@ -13,9 +13,9 @@ export class CreateDiskResponseBody extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The generated order ID.
+   * The order ID.
    * 
-   * > An order ID is returned only when a subscription disk is created.
+   * > The order ID is returned only when you create a subscription disk.
    * 
    * @example
    * 20413515388****
