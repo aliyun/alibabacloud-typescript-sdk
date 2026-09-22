@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListSkillsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort field. The value download_count is supported. Default value: gmt_modified.
+   * The field by which to sort results. The value download_count is supported. Default value: gmt_modified.
    * 
    * @example
    * download_count

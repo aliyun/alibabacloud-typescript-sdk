@@ -39,7 +39,7 @@ export class CreateSkillDraftRequestBody extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The draft version number to assign. If not specified, the version number is automatically incremented.
+   * The draft version number. If not specified, the version number is automatically incremented.
    * 
    * @example
    * 0.0.2

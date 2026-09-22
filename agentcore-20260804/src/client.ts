@@ -1641,7 +1641,7 @@ export default class Client extends OpenApi {
    * Deletes the draft version currently being edited for a specified Skill.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Deletes the draft version currently being edited for a specified Skill.
    * 
    * @param request - DeleteSkillDraftRequest
@@ -1672,7 +1672,7 @@ export default class Client extends OpenApi {
    * Deletes the draft version currently being edited for a specified Skill.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Deletes the draft version currently being edited for a specified Skill.
    * 
    * @param request - DeleteSkillDraftRequest
@@ -1921,7 +1921,7 @@ export default class Client extends OpenApi {
    * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
    * 
    * @param request - DownloadSkillVersionViaOssRequest
@@ -1952,7 +1952,7 @@ export default class Client extends OpenApi {
    * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
    * 
    * @remarks
-   * ## Request description
+   * ## Operation description
    * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
    * 
    * @param request - DownloadSkillVersionViaOssRequest
@@ -4560,11 +4560,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+   * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
    * 
    * @remarks
    * ## Operation description
-   * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+   * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
    * 
    * @param request - ListSkillsRequest
    * @param headers - map
@@ -4629,11 +4629,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+   * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
    * 
    * @remarks
    * ## Operation description
-   * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+   * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
    * 
    * @param request - ListSkillsRequest
    * @returns ListSkillsResponse
@@ -5050,11 +5050,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts a specified Skill version back into an editable draft for further modifications.
+   * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
    * 
    * @remarks
-   * ## Operation description
-   * Converts a specified Skill version back into an editable draft for further modifications.
+   * ## Request description
+   * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
    * 
    * @param tmpReq - RedraftSkillVersionRequest
    * @param headers - map
@@ -5093,11 +5093,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts a specified Skill version back into an editable draft for further modifications.
+   * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
    * 
    * @remarks
-   * ## Operation description
-   * Converts a specified Skill version back into an editable draft for further modifications.
+   * ## Request description
+   * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
    * 
    * @param request - RedraftSkillVersionRequest
    * @returns RedraftSkillVersionResponse

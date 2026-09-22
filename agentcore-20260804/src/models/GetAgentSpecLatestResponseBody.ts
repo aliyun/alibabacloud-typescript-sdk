@@ -35,11 +35,19 @@ export class GetAgentSpecLatestResponseBodyDataMcpServers extends $dara.Model {
 
 export class GetAgentSpecLatestResponseBodyDataSkillsVersionSelector extends $dara.Model {
   /**
+   * @remarks
+   * The version selector type. Valid values:
+   * - LABEL: selects by label.
+   * - VERSION: selects by specific version.
+   * 
    * @example
    * LABEL
    */
   type?: string;
   /**
+   * @remarks
+   * The selector value. If the type is LABEL, this value is a label name such as latest. If the type is VERSION, this value is a specific version number.
+   * 
    * @example
    * latest
    */
@@ -77,10 +85,19 @@ export class GetAgentSpecLatestResponseBodyDataSkills extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The Skill source type. Valid values:
+   * - REFERENCE: references AI Registry.
+   * - STATIC: statically bundled with the package.
+   * 
    * @example
    * REFERENCE
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * The version selector for the reference. Defaults to LABEL/latest if omitted.
+   */
   versionSelector?: GetAgentSpecLatestResponseBodyDataSkillsVersionSelector;
   static names(): { [key: string]: string } {
     return {
@@ -137,7 +154,7 @@ export class GetAgentSpecLatestResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The download count.
+   * The number of downloads.
    * 
    * @example
    * 10
@@ -176,7 +193,7 @@ export class GetAgentSpecLatestResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The list of skill references.
+   * The list of Skill references.
    */
   skills?: GetAgentSpecLatestResponseBodyDataSkills[];
   /**

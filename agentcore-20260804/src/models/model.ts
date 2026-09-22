@@ -72,6 +72,7 @@ export { CreateManagedAgentRequestBodyRuntimeSessionPolicy } from './CreateManag
 export { CreateManagedAgentRequestBodyRuntime } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodySkillsVersionSelector } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodySkills } from './CreateManagedAgentRequest';
+export { CreateManagedAgentRequestBodySubAgentsSkills } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodySubAgents } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodyTemplateAiRegistry } from './CreateManagedAgentRequest';
 export { CreateManagedAgentRequestBodyTemplate } from './CreateManagedAgentRequest';
@@ -97,6 +98,7 @@ export { CreateManagedAgentResponseBodyDataRuntimeSessionPolicy } from './Create
 export { CreateManagedAgentResponseBodyDataRuntime } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataSkillsVersionSelector } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataSkills } from './CreateManagedAgentResponseBody';
+export { CreateManagedAgentResponseBodyDataSubAgentsSkills } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataSubAgents } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataTemplateAiRegistry } from './CreateManagedAgentResponseBody';
 export { CreateManagedAgentResponseBodyDataTemplate } from './CreateManagedAgentResponseBody';
@@ -231,6 +233,7 @@ export { GetManagedAgentResponseBodyDataRuntimeSessionPolicy } from './GetManage
 export { GetManagedAgentResponseBodyDataRuntime } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataSkillsVersionSelector } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataSkills } from './GetManagedAgentResponseBody';
+export { GetManagedAgentResponseBodyDataSubAgentsSkills } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataSubAgents } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataTemplateAiRegistry } from './GetManagedAgentResponseBody';
 export { GetManagedAgentResponseBodyDataTemplate } from './GetManagedAgentResponseBody';
@@ -464,6 +467,7 @@ export { UpdateManagedAgentRequestBodyRuntimeSessionPolicy } from './UpdateManag
 export { UpdateManagedAgentRequestBodyRuntime } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodySkillsVersionSelector } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodySkills } from './UpdateManagedAgentRequest';
+export { UpdateManagedAgentRequestBodySubAgentsSkills } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodySubAgents } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodyTemplateAiRegistry } from './UpdateManagedAgentRequest';
 export { UpdateManagedAgentRequestBodyTemplate } from './UpdateManagedAgentRequest';
@@ -489,6 +493,7 @@ export { UpdateManagedAgentResponseBodyDataRuntimeSessionPolicy } from './Update
 export { UpdateManagedAgentResponseBodyDataRuntime } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataSkillsVersionSelector } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataSkills } from './UpdateManagedAgentResponseBody';
+export { UpdateManagedAgentResponseBodyDataSubAgentsSkills } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataSubAgents } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataTemplateAiRegistry } from './UpdateManagedAgentResponseBody';
 export { UpdateManagedAgentResponseBodyDataTemplate } from './UpdateManagedAgentResponseBody';

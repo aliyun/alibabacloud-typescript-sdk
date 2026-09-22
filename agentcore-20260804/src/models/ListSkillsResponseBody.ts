@@ -28,13 +28,20 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
    */
   downloadCount?: number;
   /**
+   * @remarks
+   * The draft mode. Valid values:
+   * - HEAD: The Skill has a persistent draft.
+   * - VERSIONED: Each edit creates a versioned draft.
+   * 
+   * The value is determined by the server. The caller uses this value to render the status column.
+   * 
    * @example
    * HEAD
    */
   draftMode?: string;
   /**
    * @remarks
-   * The version that is being edited.
+   * The version that is being edited. In HEAD draft mode, the value is HEAD.
    * 
    * @example
    * 1.0.0
@@ -84,7 +91,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The version that is under review.
+   * The version that is under review. In HEAD draft mode, the value is HEAD.
    * 
    * @example
    * 1.0.0
@@ -241,7 +248,7 @@ export class ListSkillsResponseBody extends $dara.Model {
   data?: ListSkillsResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 20
