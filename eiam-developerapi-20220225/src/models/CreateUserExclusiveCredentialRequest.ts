@@ -72,6 +72,13 @@ export class CreateUserExclusiveCredentialRequest extends $dara.Model {
    * This parameter is required.
    */
   credentialContent?: CreateUserExclusiveCredentialRequestCredentialContent;
+  /**
+   * @remarks
+   * The external unique identifier of the credential.
+   * 
+   * @example
+   * YNWLVQAZMNRROYWKxxx
+   */
   credentialExternalId?: string;
   /**
    * @remarks
@@ -123,6 +130,13 @@ export class CreateUserExclusiveCredentialRequest extends $dara.Model {
    * credential_description
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the encrypted ciphertext of the credential.
+   * 
+   * @example
+   * true
+   */
   returnCiphertext?: boolean;
   static names(): { [key: string]: string } {
     return {

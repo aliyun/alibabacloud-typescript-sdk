@@ -21,7 +21,7 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
   accessKeySecret?: string;
   /**
    * @remarks
-   * The expiration time of the token (UTC).
+   * The token expiration time (UTC).
    * 
    * @example
    * 2021-10-20T04:27:09Z
@@ -73,7 +73,7 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
   accessKeyId?: string;
   /**
    * @remarks
-   * The expiration time of the STS Token (UTC).
+   * The STS Token expiration time (UTC).
    * 
    * @example
    * 2021-10-20T04:27:09Z
@@ -89,7 +89,7 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
   secretAccessKey?: string;
   /**
    * @remarks
-   * The session token of the temporary credentials.
+   * The session security token of the temporary credentials.
    * 
    * @example
    * FwoDYXdzEJzfSjIr5bSEsj4g7BihPWGWHz****
@@ -123,9 +123,37 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
 }
 
 export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialTencentCloudStsToken extends $dara.Model {
+  /**
+   * @remarks
+   * The STS Token expiration time (UTC).
+   * 
+   * @example
+   * 2021-10-20T04:27:09Z
+   */
   expiration?: string;
+  /**
+   * @remarks
+   * The access key ID.
+   * 
+   * @example
+   * AKIDq2UjXVflTbnaxpFl0RFdN9yj****
+   */
   tmpSecretId?: string;
+  /**
+   * @remarks
+   * The secret access key.
+   * 
+   * @example
+   * 3fGkJjyI+ZHWTxnq8VJHtYGRg****
+   */
   tmpSecretKey?: string;
+  /**
+   * @remarks
+   * The session security token of the temporary credentials.
+   * 
+   * @example
+   * aHv1Z6aO7sxRbV4G2vjAij50jdew5Kaa****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,7 +185,7 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
 export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredential extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the temporary access credentials for the cloud account role, in UNIX timestamp format and in seconds.
+   * The expiration time of the temporary access credentials for the cloud account role, in UNIX timestamp format (seconds).
    * 
    * @example
    * 1767196800
@@ -174,6 +202,10 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
    * The STS Token representing an AWS role.
    */
   awsStsToken?: ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialAwsStsToken;
+  /**
+   * @remarks
+   * The STS Token representing a Tencent Cloud role.
+   */
   tencentCloudStsToken?: ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialTencentCloudStsToken;
   static names(): { [key: string]: string } {
     return {

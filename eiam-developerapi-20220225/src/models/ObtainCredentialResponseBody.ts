@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainCredentialResponseBodyCredentialContentApiKeyContent extends $dara.Model {
   /**
    * @remarks
-   * The API key value.
+   * The value of the API Key.
    * 
    * @example
    * sk-nsklncmwizncxxxx
@@ -35,7 +35,7 @@ export class ObtainCredentialResponseBodyCredentialContentApiKeyContent extends 
 export class ObtainCredentialResponseBodyCredentialContentOauthClientContent extends $dara.Model {
   /**
    * @remarks
-   * The `client_id` for OAuth 2.0.
+   * The client_id of the OAuth protocol.
    * 
    * @example
    * dmvncmxersdxxxxxx
@@ -43,7 +43,7 @@ export class ObtainCredentialResponseBodyCredentialContentOauthClientContent ext
   clientId?: string;
   /**
    * @remarks
-   * The `client_secret` for OAuth 2.0.
+   * The client_secret of the OAuth protocol.
    * 
    * @example
    * nsklnertyt5ddwizncxxxx
@@ -75,12 +75,12 @@ export class ObtainCredentialResponseBodyCredentialContentOauthClientContent ext
 export class ObtainCredentialResponseBodyCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * Contains details for an API key credential. Returned only when `credentialType` is `api_key`.
+   * The credential content of the API Key credential type.
    */
   apiKeyContent?: ObtainCredentialResponseBodyCredentialContentApiKeyContent;
   /**
    * @remarks
-   * Contains details for an OAuth client credential. Returned only when `credentialType` is `oauth_client`.
+   * The credential content of the OAuth client authentication credential type.
    */
   oauthClientContent?: ObtainCredentialResponseBodyCredentialContentOauthClientContent;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class ObtainCredentialResponseBodyCredentialContent extends $dara.Model {
 export class ObtainCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the credential, formatted as a Unix timestamp in milliseconds.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830225000
@@ -123,21 +123,26 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The detailed content of the credential. The structure of this object depends on the value of `credentialType`.
+   * The credential content.
    */
   credentialContent?: ObtainCredentialResponseBodyCredentialContent;
   /**
    * @remarks
-   * Indicates how the credential was created. Valid values:
-   * 
-   * - `system_init`: System-initiated.
-   * 
-   * - `user_custom`: User-created.
+   * The creation type of the credential. Valid values:
+   * - system_init: Created by the system.
+   * - user_custom: Created by the user.
    * 
    * @example
    * user_custom
    */
   credentialCreationType?: string;
+  /**
+   * @remarks
+   * The external unique identifier of the credential.
+   * 
+   * @example
+   * 23528e9957304f57b98112c72788b5xxxxx
+   */
   credentialExternalId?: string;
   /**
    * @remarks
@@ -165,11 +170,9 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * The usage scenario for the credential. Valid values:
-   * 
-   * - `llm`: For use with a large language model.
-   * 
-   * - `saas`: For use with a third-party SaaS application.
+   * The Scenarios label of the credential. Valid values:
+   * - llm: Large language model.
+   * - saas: Third-party SaaS service.
    * 
    * @example
    * llm
@@ -177,7 +180,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialScenarioLabel?: string;
   /**
    * @remarks
-   * The sharing scope of the credential, such as whether it is exclusive to a specific account.
+   * The credential sharing scope.
    * 
    * @example
    * user_exclusive
@@ -185,7 +188,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialSharingScope?: string;
   /**
    * @remarks
-   * The ID of the credential\\"s subject.
+   * The subject ID that the credential belongs to.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -193,9 +196,8 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * The credential\\"s subject type. Valid values:
-   * 
-   * - `authentication_token_provider`: An authentication token provider.
+   * The subject type that the credential belongs to. Valid values:
+   * - authentication_token_provider: Authentication token provider.
    * 
    * @example
    * authentication_token_provider
@@ -204,10 +206,8 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
    * The credential type. Valid values:
-   * 
-   * - `api_key`: The credential is an API key.
-   * 
-   * - `oauth_client`: The credential represents an OAuth client.
+   * - api_key: API Key authentication credential.
+   * - oauth_client: OAuth client authentication credential.
    * 
    * @example
    * api_key
@@ -223,7 +223,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the account that exclusively owns the credential. This field is present only when `credentialSharingScope` is `user_exclusive`.
+   * The exclusive account ID of the credential.
    * 
    * @example
    * user_xxx
@@ -239,11 +239,9 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The status of the credential. Valid values:
-   * 
-   * - `enabled`: The credential can be used.
-   * 
-   * - `disabled`: The credential cannot be used.
+   * The credential status. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -251,7 +249,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last update time of the credential, formatted as a Unix timestamp in milliseconds.
+   * The update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830227000

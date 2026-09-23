@@ -12,14 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'eu-central-1': "eiam-developerapi.eu-central-1.aliyuncs.com",
-      'cn-hongkong': "eiam-developerapi.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "eiam-developerapi.cn-hangzhou.aliyuncs.com",
-      'ap-southeast-5': "eiam-developerapi.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-1': "eiam-developerapi.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "eiam-developerapi.ap-northeast-2.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eiam-developerapi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -376,7 +368,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
-   * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+   * Ensure that the Access Token you pass in has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
    * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
    * 
    * @param request - CreateUserExclusiveCredentialRequest
@@ -451,7 +443,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
-   * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+   * Ensure that the Access Token you pass in has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
    * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
    * 
    * @param request - CreateUserExclusiveCredentialRequest
@@ -2321,7 +2313,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
-   * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+   * Ensure that the Access Token you provide has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
    * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
    * 
    * @param request - ObtainCloudAccountRoleAccessCredentialRequest
@@ -2372,7 +2364,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
-   * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+   * Ensure that the Access Token you provide has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
    * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
    * 
    * @param request - ObtainCloudAccountRoleAccessCredentialRequest
@@ -2385,12 +2377,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the plaintext of a secret.
+   * Queries credential information and retrieves the credential plaintext.
    * 
    * @remarks
-   * This API uses an access token from IDaaS for authentication and authorization.
-   * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
-   * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
+   * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+   * Ensure that the Access Token you pass in has the "Obtain Static Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+   * > The corresponding scope is `urn:cloud:idaas:pam|credential:obtain`.
    * 
    * @param request - ObtainCredentialRequest
    * @param headers - ObtainCredentialHeaders
@@ -2432,12 +2424,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the plaintext of a secret.
+   * Queries credential information and retrieves the credential plaintext.
    * 
    * @remarks
-   * This API uses an access token from IDaaS for authentication and authorization.
-   * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
-   * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
+   * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+   * Ensure that the Access Token you pass in has the "Obtain Static Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+   * > The corresponding scope is `urn:cloud:idaas:pam|credential:obtain`.
    * 
    * @param request - ObtainCredentialRequest
    * @returns ObtainCredentialResponse
@@ -2677,6 +2669,60 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.PatchOrganizationalUnitHeaders({ });
     return await this.patchOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
+  }
+
+  /**
+   * Moves an organizational unit.
+   * 
+   * @param request - PatchOrganizationalUnitParentIdRequest
+   * @param headers - PatchOrganizationalUnitParentIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PatchOrganizationalUnitParentIdResponse
+   */
+  async patchOrganizationalUnitParentIdWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, request: $_model.PatchOrganizationalUnitParentIdRequest, headers: $_model.PatchOrganizationalUnitParentIdHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.PatchOrganizationalUnitParentIdResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.parentId)) {
+      body["parentId"] = request.parentId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PatchOrganizationalUnitParentId",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/${$dara.URL.percentEncode(applicationId)}/organizationalUnits/${$dara.URL.percentEncode(organizationalUnitId)}/parentId`,
+      method: "PATCH",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.PatchOrganizationalUnitParentIdResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.PatchOrganizationalUnitParentIdResponse({}));
+  }
+
+  /**
+   * Moves an organizational unit.
+   * 
+   * @param request - PatchOrganizationalUnitParentIdRequest
+   * @returns PatchOrganizationalUnitParentIdResponse
+   */
+  async patchOrganizationalUnitParentId(instanceId: string, applicationId: string, organizationalUnitId: string, request: $_model.PatchOrganizationalUnitParentIdRequest): Promise<$_model.PatchOrganizationalUnitParentIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.PatchOrganizationalUnitParentIdHeaders({ });
+    return await this.patchOrganizationalUnitParentIdWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
   }
 
   /**

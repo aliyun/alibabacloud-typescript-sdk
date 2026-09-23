@@ -2,26 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ObtainCredentialRequest extends $dara.Model {
+export class PatchOrganizationalUnitParentIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The credential identifier.
+   * The ID of the parent organizational unit.
    * 
    * This parameter is required.
    * 
    * @example
-   * credential_identifier_test
+   * ou_001
    */
-  credentialIdentifier?: string;
+  parentId?: string;
   static names(): { [key: string]: string } {
     return {
-      credentialIdentifier: 'credentialIdentifier',
+      parentId: 'parentId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      credentialIdentifier: 'string',
+      parentId: 'string',
     };
   }
 

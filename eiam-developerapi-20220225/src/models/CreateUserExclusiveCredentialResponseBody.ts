@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateUserExclusiveCredentialResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The encrypted ciphertext of the credential.
+   * 
+   * @example
+   * eyJraWQiOiJBVVRIU0tFWxxxxx
+   */
   credentialCiphertext?: string;
   /**
    * @remarks

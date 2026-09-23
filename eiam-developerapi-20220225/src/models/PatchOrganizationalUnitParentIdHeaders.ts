@@ -2,17 +2,16 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ObtainCredentialHeaders extends $dara.Model {
+export class PatchOrganizationalUnitParentIdHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication information. Format: Bearer ${access_token}. 
-   * > Enter the Access Token issued by IDaaS.
+   * The authentication information. Format: Bearer access_token.
    * 
    * This parameter is required.
    * 
    * @example
-   * Bearer xxxxxx
+   * Bearer xxxx
    */
   authorization?: string;
   static names(): { [key: string]: string } {
