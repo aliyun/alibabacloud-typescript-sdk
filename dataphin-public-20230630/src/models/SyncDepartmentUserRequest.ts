@@ -9,6 +9,11 @@ export class SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping e
    */
   departmentIdList?: string[];
   /**
+   * @example
+   * aliyun
+   */
+  sourceType?: string;
+  /**
    * @remarks
    * The user ID in the user system. This value is the unique identifier of the user.
    * 
@@ -21,6 +26,7 @@ export class SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping e
   static names(): { [key: string]: string } {
     return {
       departmentIdList: 'DepartmentIdList',
+      sourceType: 'SourceType',
       sourceUserId: 'SourceUserId',
     };
   }
@@ -28,6 +34,7 @@ export class SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping e
   static types(): { [key: string]: any } {
     return {
       departmentIdList: { 'type': 'array', 'itemType': 'string' },
+      sourceType: 'string',
       sourceUserId: 'string',
     };
   }

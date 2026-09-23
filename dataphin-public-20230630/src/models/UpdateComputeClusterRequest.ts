@@ -5,13 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeClusterRequestClusterConfigClusterSafetyControl extends $dara.Model {
   /**
    * @remarks
-   * 管控模式。CREATE_COMPUTE_SOURCE：有创建计算源权限即可使用；USER_DEFINE：仅白名单用户/用户组可用
+   * The control mode.
    * 
    * @example
    * CREATE_COMPUTE_SOURCE
    */
   clusterSafetyAuthType?: string;
+  /**
+   * @remarks
+   * The list of whitelist user group IDs.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * The list of whitelist user IDs.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -47,6 +55,8 @@ export class UpdateComputeClusterRequestClusterConfigClusterSafetyControl extend
 export class UpdateComputeClusterRequestClusterConfigConfigList extends $dara.Model {
   /**
    * @remarks
+   * The configuration item.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +65,8 @@ export class UpdateComputeClusterRequestClusterConfigConfigList extends $dara.Mo
   key?: string;
   /**
    * @remarks
+   * The value of the configuration item.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -85,20 +97,35 @@ export class UpdateComputeClusterRequestClusterConfigConfigList extends $dara.Mo
 }
 
 export class UpdateComputeClusterRequestClusterConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cluster administrator IDs.
+   */
   clusterAdmins?: string[];
+  /**
+   * @remarks
+   * The cluster security control configuration.
+   */
   clusterSafetyControl?: UpdateComputeClusterRequestClusterConfigClusterSafetyControl;
   /**
    * @remarks
+   * The connection configuration items.
+   * 
    * This parameter is required.
    */
   configList?: UpdateComputeClusterRequestClusterConfigConfigList[];
   /**
+   * @remarks
+   * The cluster description.
+   * 
    * @example
    * test
    */
   des?: string;
   /**
    * @remarks
+   * The cluster name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -107,6 +134,8 @@ export class UpdateComputeClusterRequestClusterConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The cluster type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -114,6 +143,9 @@ export class UpdateComputeClusterRequestClusterConfig extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The cluster version.
+   * 
    * @example
    * CDH6
    */
@@ -163,11 +195,15 @@ export class UpdateComputeClusterRequestClusterConfig extends $dara.Model {
 export class UpdateComputeClusterRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster configuration.
+   * 
    * This parameter is required.
    */
   clusterConfig?: UpdateComputeClusterRequestClusterConfig;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -176,6 +212,8 @@ export class UpdateComputeClusterRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -183,6 +221,9 @@ export class UpdateComputeClusterRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator user.
+   * 
    * @example
    * 30001011
    */

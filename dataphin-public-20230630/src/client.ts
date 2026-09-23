@@ -12,13 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-beijing': "dataphin-public.cn-beijing.aliyuncs.com",
-      'cn-chengdu': "dataphin-public.cn-chengdu.aliyuncs.com",
-      'cn-hangzhou': "dataphin-public.cn-hangzhou.aliyuncs.com",
-      'cn-shanghai': "dataphin-public.cn-shanghai.aliyuncs.com",
-      'cn-shenzhen': "dataphin-public.cn-shenzhen.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dataphin-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1833,14 +1826,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new dataset under a specified project. Available since v6.2.0.
+   * Creates a dataset in a specified project. Online version: v6.2.0.
    * 
    * @remarks
    * ## Operation description
-   * - This API creates a new dataset in a specified project.
+   * - This API operation creates a dataset in a specified project.
    * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
    * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-   * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+   * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
    * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
    * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
    * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
@@ -1894,14 +1887,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new dataset under a specified project. Available since v6.2.0.
+   * Creates a dataset in a specified project. Online version: v6.2.0.
    * 
    * @remarks
    * ## Operation description
-   * - This API creates a new dataset in a specified project.
+   * - This API operation creates a dataset in a specified project.
    * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
    * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-   * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+   * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
    * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
    * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
    * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
@@ -3707,7 +3700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群。
+   * Deletes a cluster. Online version: v6.3.0.
    * 
    * @param request - DeleteComputeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3746,7 +3739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群。
+   * Deletes a cluster. Online version: v6.3.0.
    * 
    * @param request - DeleteComputeClusterRequest
    * @returns DeleteComputeClusterResponse
@@ -8907,7 +8900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有大模型服务供应商和可用模型列表
+   * Queries all large language model service providers and available models. Available since v6.3.0.
    * 
    * @param request - GetLlmModelProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8942,7 +8935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有大模型服务供应商和可用模型列表
+   * Queries all large language model service providers and available models. Available since v6.3.0.
    * 
    * @param request - GetLlmModelProvidersRequest
    * @returns GetLlmModelProvidersResponse
@@ -11080,6 +11073,62 @@ export default class Client extends OpenApi {
   async getSecuritySecretKey(request: $_model.GetSecuritySecretKeyRequest): Promise<$_model.GetSecuritySecretKeyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSecuritySecretKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the Dataphin server version.
+   * 
+   * @remarks
+   * Queries the details of a published API based on the AppKey.
+   * 
+   * @param request - GetServerVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServerVersionResponse
+   */
+  async getServerVersionWithOptions(request: $_model.GetServerVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetServerVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServerVersion",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServerVersionResponse>(await this.callApi(params, req, runtime), new $_model.GetServerVersionResponse({}));
+  }
+
+  /**
+   * Retrieves the Dataphin server version.
+   * 
+   * @remarks
+   * Queries the details of a published API based on the AppKey.
+   * 
+   * @param request - GetServerVersionRequest
+   * @returns GetServerVersionResponse
+   */
+  async getServerVersion(request: $_model.GetServerVersionRequest): Promise<$_model.GetServerVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServerVersionWithOptions(request, runtime);
   }
 
   /**
@@ -16881,7 +16930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a tenant member. Only superusers and system administrators can call this API operation.
+   * Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
    * 
    * @param tmpReq - RemoveTenantMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16928,7 +16977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a tenant member. Only superusers and system administrators can call this API operation.
+   * Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
    * 
    * @param request - RemoveTenantMemberRequest
    * @returns RemoveTenantMemberResponse
@@ -18473,7 +18522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改集群。
+   * Modifies a cluster. Online version: v6.3.0.
    * 
    * @param tmpReq - UpdateComputeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18524,7 +18573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改集群。
+   * Modifies a cluster. Online version: v6.3.0.
    * 
    * @param request - UpdateComputeClusterRequest
    * @returns UpdateComputeClusterResponse
@@ -18593,11 +18642,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据治理项id，批量修改问题清单对象的状态。
+   * Batch updates the status of issue checklist objects by governance item ID. Online since v6.3.0.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+   * ## Operation description
+   * - This API operation updates the status of existing issue checklists under a specific project.
    * 
    * @param tmpReq - UpdateDataAssetsGovernObjectStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18644,11 +18693,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据治理项id，批量修改问题清单对象的状态。
+   * Batch updates the status of issue checklist objects by governance item ID. Online since v6.3.0.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+   * ## Operation description
+   * - This API operation updates the status of existing issue checklists under a specific project.
    * 
    * @param request - UpdateDataAssetsGovernObjectStatusRequest
    * @returns UpdateDataAssetsGovernObjectStatusResponse

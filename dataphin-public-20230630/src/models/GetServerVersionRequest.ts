@@ -2,7 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RemoveTenantMemberShrinkRequest extends $dara.Model {
+export class GetServerVersionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * **[Deprecated]** The environment identifier. Valid values:
+   * - DEV: Development environment. 
+   * - PROD (default): Production environment.
+   * 
+   * @example
+   * PROD
+   */
+  env?: string;
   /**
    * @remarks
    * The tenant ID.
@@ -15,32 +25,25 @@ export class RemoveTenantMemberShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operation user.
    * 
    * @example
-   * 30001011
+   * 30010012
    */
   opUserId?: string;
-  /**
-   * @remarks
-   * The request command.
-   * 
-   * This parameter is required.
-   */
-  removeCommandShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      env: 'Env',
       opTenantId: 'OpTenantId',
       opUserId: 'OpUserId',
-      removeCommandShrink: 'RemoveCommand',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      env: 'string',
       opTenantId: 'number',
       opUserId: 'string',
-      removeCommandShrink: 'string',
     };
   }
 

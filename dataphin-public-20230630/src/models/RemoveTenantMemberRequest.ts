@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveTenantMemberRequestRemoveCommand extends $dara.Model {
   /**
    * @remarks
-   * The source ID of the user.
+   * The user source ID.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,9 @@ export class RemoveTenantMemberRequestRemoveCommand extends $dara.Model {
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The source type.
+   * 
    * @example
    * aliyun
    */
@@ -53,6 +56,9 @@ export class RemoveTenantMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator user.
+   * 
    * @example
    * 30001011
    */

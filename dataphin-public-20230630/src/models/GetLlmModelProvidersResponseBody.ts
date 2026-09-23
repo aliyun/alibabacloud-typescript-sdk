@@ -4,42 +4,85 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLlmModelProvidersResponseBodyDataLlmModels extends $dara.Model {
   /**
+   * @remarks
+   * The Chinese name of the model.
+   * 
    * @example
    * 通义千问-Max
    */
   cnName?: string;
   /**
+   * @remarks
+   * The description of the model.
+   * 
    * @example
-   * 通用文本生成模型
+   * General text generation model
    */
   description?: string;
+  /**
+   * @remarks
+   * The list of available dimension values for the embedding model. This value is returned only for embedding models.
+   */
   embeddingDimensions?: number[];
   /**
+   * @remarks
+   * The enabling status.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The model invocation method. Valid values:
+   * - OPEN_AI
+   * - DASH_SCOPE
+   * 
    * @example
    * DASH_SCOPE
    */
   invokeType?: string;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * 1001
    */
   modelId?: number;
+  /**
+   * @remarks
+   * The list of model modality types. Valid values:
+   * - TEXT: text
+   * - IMAGE: image
+   * - AUDIO: audio
+   * - VIDEO: video
+   * - EMBEDDING: embedding
+   */
   modelTypes?: string[];
   /**
+   * @remarks
+   * The name of the model.
+   * 
    * @example
    * qwen-max
    */
   name?: string;
   /**
+   * @remarks
+   * The service provider.
+   * 
    * @example
    * bailian
    */
   serviceProvider?: string;
+  /**
+   * @remarks
+   * The list of model task capabilities. Valid values:
+   * - ASR: speech recognition
+   * - TTS: speech synthesis
+   * - TRANSLATION: speech translation
+   */
   tasks?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -91,32 +134,62 @@ export class GetLlmModelProvidersResponseBodyDataLlmModels extends $dara.Model {
 
 export class GetLlmModelProvidersResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The base URL of the model.
+   * 
    * @example
    * https://dashscope.aliyuncs.com
    */
   baseUrl?: string;
   /**
+   * @remarks
+   * The enabling status.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The ID of the model service provider.
+   * 
    * @example
    * 1
    */
   id?: number;
+  /**
+   * @remarks
+   * The list of models provided by the model service provider.
+   */
   llmModels?: GetLlmModelProvidersResponseBodyDataLlmModels[];
   /**
+   * @remarks
+   * The source of the model service provider. Valid values:
+   * - BUILTIN_MODEL: built-in
+   * - BYOM: user-provided
+   * 
    * @example
    * BUILTIN_MODEL
    */
   providerSource?: string;
   /**
+   * @remarks
+   * The provider type. Valid values:
+   * - BAILIAN
+   * - DEEPSEEK
+   * - AI_STACK
+   * - VLLM
+   * - AGENT_ONE
+   * - DATAPHIN
+   * 
    * @example
    * BAILIAN
    */
   providerType?: string;
   /**
+   * @remarks
+   * The name of the model service provider.
+   * 
    * @example
    * bailian
    */
@@ -159,26 +232,46 @@ export class GetLlmModelProvidersResponseBodyData extends $dara.Model {
 
 export class GetLlmModelProvidersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of large language model service providers and available models.
+   */
   data?: GetLlmModelProvidersResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

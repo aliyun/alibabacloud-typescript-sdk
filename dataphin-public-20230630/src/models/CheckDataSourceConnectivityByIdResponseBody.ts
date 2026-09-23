@@ -13,7 +13,7 @@ export class CheckDataSourceConnectivityByIdResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The connectivity check result of the data source.
+   * The result of the data source connectivity check.
    */
   data?: boolean;
   /**
@@ -26,7 +26,7 @@ export class CheckDataSourceConnectivityByIdResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * successful

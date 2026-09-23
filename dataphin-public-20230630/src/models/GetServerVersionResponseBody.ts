@@ -2,40 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateComputeClusterResponseBodyData extends $dara.Model {
+export class GetServerVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * 102111
-   */
-  dsId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dsId: 'DsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dsId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateComputeClusterResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The backend response code.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -43,9 +13,12 @@ export class UpdateComputeClusterResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The save result.
+   * The Dataphin server version number.
+   * 
+   * @example
+   * 6.4.0.994114
    */
-  data?: UpdateComputeClusterResponseBodyData;
+  data?: string;
   /**
    * @remarks
    * The HTTP status code.
@@ -56,10 +29,10 @@ export class UpdateComputeClusterResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The error message.
    * 
    * @example
-   * internal error
+   * successful
    */
   message?: string;
   /**
@@ -67,7 +40,7 @@ export class UpdateComputeClusterResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
@@ -92,7 +65,7 @@ export class UpdateComputeClusterResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: UpdateComputeClusterResponseBodyData,
+      data: 'string',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -101,9 +74,6 @@ export class UpdateComputeClusterResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
     super.validate();
   }
 

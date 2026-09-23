@@ -3,19 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateDataAssetsGovernObjectStatusRequestUpdateCommand extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to notify the owner. This parameter takes effect only when the status is reverted to NEW.
+   */
   alertOwners?: boolean;
   /**
    * @remarks
+   * The list of governance object IDs.
+   * 
    * This parameter is required.
    */
   governObjectIds?: number[];
   /**
+   * @remarks
+   * The operation description.
+   * 
    * @example
-   * 问题已修复
+   * Issue fixed
    */
   remark?: string;
   /**
    * @remarks
+   * The target status. Valid values: FINISHED / NEW / IGNORE / CANCEL_IGNORE.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +66,8 @@ export class UpdateDataAssetsGovernObjectStatusRequestUpdateCommand extends $dar
 export class UpdateDataAssetsGovernObjectStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,12 +75,17 @@ export class UpdateDataAssetsGovernObjectStatusRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator user.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
+   * The update command.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateDataAssetsGovernObjectStatusRequestUpdateCommand;
