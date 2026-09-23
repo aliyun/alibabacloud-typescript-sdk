@@ -20,6 +20,11 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
    */
   DBClusterId?: string;
   /**
+   * @example
+   * eni-2z******
+   */
+  eniId?: string;
+  /**
    * @remarks
    * The notes about the channel.
    * 
@@ -79,6 +84,7 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
     return {
       channelName: 'ChannelName',
       DBClusterId: 'DBClusterId',
+      eniId: 'EniId',
       notes: 'Notes',
       regionId: 'RegionId',
       targetDBClusterId: 'TargetDBClusterId',
@@ -93,6 +99,7 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
     return {
       channelName: 'string',
       DBClusterId: 'string',
+      eniId: 'string',
       notes: 'string',
       regionId: 'string',
       targetDBClusterId: 'string',

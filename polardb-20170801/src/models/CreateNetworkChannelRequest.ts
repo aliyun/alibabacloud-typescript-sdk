@@ -60,6 +60,11 @@ export class CreateNetworkChannelRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @example
+   * sg-2z********
+   */
+  securityGroupId?: string;
+  /**
    * @remarks
    * The name of the destination instance.
    * 
@@ -103,6 +108,7 @@ export class CreateNetworkChannelRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      securityGroupId: 'SecurityGroupId',
       targetDBClusterId: 'TargetDBClusterId',
       targetIp: 'TargetIp',
       targetPort: 'TargetPort',
@@ -122,6 +128,7 @@ export class CreateNetworkChannelRequest extends $dara.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      securityGroupId: 'string',
       targetDBClusterId: 'string',
       targetIp: 'string',
       targetPort: 'string',

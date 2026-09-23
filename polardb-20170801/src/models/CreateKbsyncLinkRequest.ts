@@ -53,7 +53,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   linkName?: string;
   /**
    * @remarks
-   * The MCP Server address for DingTalk documents.
+   * The MCP Server endpoint for DingTalk documents.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx789?key=d5e6fxxxxxx876
@@ -71,7 +71,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The MCP Server address for DingTalk sheets.
+   * The MCP Server endpoint for DingTalk spreadsheets.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx567?key=d5e6fxxxxxx543
@@ -79,7 +79,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   sheetMcpEndpoint?: string;
   /**
    * @remarks
-   * The source directory address for synchronization.
+   * The directory address of the synchronization source.
    * 
    * This parameter is required.
    * 

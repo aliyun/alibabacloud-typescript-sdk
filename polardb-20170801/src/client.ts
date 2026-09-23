@@ -6038,6 +6038,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
     if (!$dara.isNull(request.targetDBClusterId)) {
       query["TargetDBClusterId"] = request.targetDBClusterId;
     }
@@ -25871,7 +25875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
+   * Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
    * 
    * @param request - ModifyDBClusterEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25954,7 +25958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
+   * Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
    * 
    * @param request - ModifyDBClusterEndpointRequest
    * @returns ModifyDBClusterEndpointResponse
