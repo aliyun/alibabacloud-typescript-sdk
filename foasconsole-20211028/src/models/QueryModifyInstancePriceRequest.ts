@@ -13,7 +13,7 @@ export class QueryModifyInstancePriceRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The memory size for zone-disaster recovery.
+   * The active memory size for zone-disaster recovery.
    * 
    * @example
    * 80

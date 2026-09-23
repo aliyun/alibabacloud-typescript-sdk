@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends $dara.Model {
   /**
    * @remarks
-   * The price reduction rate.
+   * The price reduction ratio.
    */
   cheapRate?: string;
   /**
    * @remarks
-   * The standard total price after the price reduction.
+   * The total list price after the price reduction.
    */
   cheapStandAmount?: string;
   /**
@@ -25,7 +25,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends
   monthPrice?: string;
   /**
    * @remarks
-   * The original standard total price.
+   * The original total list price.
    */
   originalStandAmount?: string;
   /**
@@ -92,6 +92,8 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions ext
   /**
    * @remarks
    * Indicates whether the coupon is selected. Valid values:
+   * - true: Selected.
+   * - false: Not selected.
    * 
    * @example
    * true
@@ -127,10 +129,10 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions ext
 export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
    * @remarks
-   * The promotion rule description.
+   * The description of the promotion rule.
    * 
    * @example
-   * Get a 15% discount for a 1-year subscription
+   * Purchase for one year or longer and enjoy a 15% discount off the list price
    */
   description?: string;
   /**
@@ -196,7 +198,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   discountAmount?: number;
   /**
    * @remarks
-   * Indicates whether the enterprise customer discount is applied.
+   * Indicates whether an enterprise discount is applied.
    */
   isContractActivity?: boolean;
   /**
@@ -235,12 +237,12 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   rules?: QueryCreateInstancePriceResponseBodyPriceInfoRules[];
   /**
    * @remarks
-   * The promotional price based on the official website discount.
+   * The promotional price based on the standard discount from the official website.
    */
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The official website discounted price or direct sales contract discounted price.
+   * The standard discounted price on the official website or the direct sales contract discounted price.
    */
   standPrice?: string;
   /**

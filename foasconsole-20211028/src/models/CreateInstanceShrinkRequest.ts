@@ -66,7 +66,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   extra?: string;
   /**
    * @remarks
-   * Specifies whether to enable zone-disaster recovery resources.
+   * Specifies whether to use zone-disaster recovery resources.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The type of monitoring and alerting service. You can select Application Real-Time Monitoring Service (ARMS) or CloudMonitor.
+   * The type of the monitoring and alerting service. You can select ARMS or CloudMonitor.
    * 
    * @example
    * TAIHAO

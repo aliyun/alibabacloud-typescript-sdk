@@ -21,7 +21,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends 
   cheapStandAmount?: string;
   /**
    * @remarks
-   * Indicates whether to display the price reduction percentage.
+   * Indicates whether the price reduction percentage is displayed.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends 
   isShow?: boolean;
   /**
    * @remarks
-   * The monthly equivalent price.
+   * The equivalent monthly price.
    * 
    * @example
    * 1000
@@ -45,7 +45,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends 
   originalStandAmount?: string;
   /**
    * @remarks
-   * The start time of the price reduction.
+   * The start time of the price reduction, in ISO 8601 format.
    * 
    * @example
    * 2023-03-31T16:00:00Z
@@ -101,7 +101,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions exte
   promotionName?: string;
   /**
    * @remarks
-   * The coupon ID.
+   * The coupon number.
    * 
    * @example
    * 500011220010099
@@ -152,7 +152,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoRules extends $dara.Mod
    * The description of the promotion rule.
    * 
    * @example
-   * Purchase for 1 year or more to enjoy a 15% discount off the list price
+   * Purchase for 1 year or more and enjoy a 15% discount off the list price
    */
   description?: string;
   /**
@@ -255,12 +255,12 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
   originalAmount?: number;
   /**
    * @remarks
-   * The promotion rules.
+   * The promotion rule group.
    */
   rules?: QueryRenewInstancePriceResponseBodyPriceInfoRules[];
   /**
    * @remarks
-   * The promotional price based on the standard discount on the official website.
+   * The promotional price based on the standard website discount.
    * 
    * @example
    * 21321
@@ -268,7 +268,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The standard discounted price on the official website or the direct sales contract discounted price.
+   * The list price with the website discount or direct sales contract discount applied.
    * 
    * @example
    * 32432
@@ -339,7 +339,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
 export class QueryRenewInstancePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information, including the price and discount rules.
+   * The price information, including the price and promotion rules.
    */
   priceInfo?: QueryRenewInstancePriceResponseBodyPriceInfo;
   /**

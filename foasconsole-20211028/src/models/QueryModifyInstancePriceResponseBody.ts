@@ -13,7 +13,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo extends
   cheapRate?: string;
   /**
    * @remarks
-   * The reduced list price total.
+   * The list price total after the price reduction.
    * 
    * @example
    * 6000
@@ -45,7 +45,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo extends
   originalStandAmount?: string;
   /**
    * @remarks
-   * The price reduction start time.
+   * The price reduction start time in ISO 8601 format.
    * 
    * @example
    * 2023-10-04T21:10:26+08:00
@@ -101,7 +101,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions ext
   promotionName?: string;
   /**
    * @remarks
-   * The coupon ID.
+   * The coupon number.
    * 
    * @example
    * 500011220010099
@@ -152,7 +152,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoRules extends $dara.Mo
    * The promotion rule description.
    * 
    * @example
-   * Purchase for 1 year or more to enjoy a 15% discount off the list price
+   * Purchase for 1 year or more and enjoy a 15% discount off the list price
    */
   description?: string;
   /**
@@ -226,7 +226,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $dara.Model {
   isContractActivity?: boolean;
   /**
    * @remarks
-   * The Lingxiao request ID.
+   * The Lingxiao request ID of the call.
    * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
@@ -260,7 +260,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $dara.Model {
   rules?: QueryModifyInstancePriceResponseBodyPriceInfoRules[];
   /**
    * @remarks
-   * The discounted price based on the official website discount.
+   * The discounted price based on the list discount.
    * 
    * @example
    * 1231
@@ -268,7 +268,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $dara.Model {
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The official website discount price or direct sales contract discount price.
+   * The list discount price or direct sales contract discount price.
    * 
    * @example
    * 0.5

@@ -97,7 +97,7 @@ export class CreateInstanceRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The memory size for zone-disaster recovery. The value is active memory allocated for high availability (HA).
+   * The memory size for zone-disaster recovery high availability (HA).
    * 
    * @example
    * 40
@@ -208,11 +208,13 @@ export class CreateInstanceRequestStorage extends $dara.Model {
    * 
    * @example
    * false
+   * 
+   * @deprecated
    */
   fullyManaged?: boolean;
   /**
    * @remarks
-   * The Object Storage Service (OSS) storage.
+   * The OSS storage configurations.
    */
   oss?: CreateInstanceRequestStorageOss;
   static names(): { [key: string]: string } {
@@ -345,7 +347,7 @@ export class CreateInstanceRequest extends $dara.Model {
   extra?: string;
   /**
    * @remarks
-   * Specifies whether to enable zone-disaster recovery resources.
+   * Specifies whether to use zone-disaster recovery resources.
    * 
    * @example
    * true
@@ -382,7 +384,7 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The type of monitoring and alerting service. You can select Application Real-Time Monitoring Service (ARMS) or CloudMonitor.
+   * The type of the monitoring and alerting service. You can select ARMS or CloudMonitor.
    * 
    * @example
    * TAIHAO

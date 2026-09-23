@@ -25,7 +25,11 @@ export class RenewInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The subscription period.
+   * The subscription period. Valid values:
+   * - Month: month.
+   * - Year: year.
+   * - Hour: hour.
+   * - Day: day.
    * 
    * This parameter is required.
    * 

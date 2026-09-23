@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable zone-disaster recovery resources for the workspace.
+   * 
+   * @example
+   * true
+   * 
    * **if can be null:**
    * true
    */
   ha?: boolean;
   /**
+   * @remarks
+   * The resource specifications for zone-disaster recovery.
+   * 
    * **if can be null:**
    * true
    */
   haResourceSpecShrink?: string;
   /**
+   * @remarks
+   * The list of vSwitch IDs in the secondary zone for zone-disaster recovery.
+   * 
    * **if can be null:**
    * true
    */
   haVSwitchIdsShrink?: string;
   /**
+   * @remarks
+   * The ID of the secondary zone for zone-disaster recovery.
+   * 
    * **if can be null:**
    * true
    */
@@ -35,7 +50,7 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * This parameter is required.
    * 

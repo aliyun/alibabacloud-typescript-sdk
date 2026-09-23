@@ -13,7 +13,7 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo 
   cheapRate?: string;
   /**
    * @remarks
-   * The reduced list price total.
+   * The list price total after the price reduction.
    * 
    * @example
    * 8000
@@ -21,7 +21,7 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo 
   cheapStandAmount?: string;
   /**
    * @remarks
-   * Indicates whether to display the price reduction percentage.
+   * Indicates whether the price reduction is displayed.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo 
   originalStandAmount?: string;
   /**
    * @remarks
-   * The price reduction start time.
+   * The price reduction start time in ISO 8601 format.
    * 
    * @example
    * 2023-03-31T16:00:00Z
@@ -88,7 +88,7 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromoti
    * The coupon description.
    * 
    * @example
-   * ¥1,391.5 coupon (valid until 03/23/2022)
+   * ￥1,391.5 coupon (valid until 03/23/2022)
    */
   promotionDesc?: string;
   /**
@@ -96,7 +96,7 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromoti
    * The coupon name.
    * 
    * @example
-   * ¥1,391.5 coupon
+   * ￥1,391.5 coupon
    */
   promotionName?: string;
   /**
@@ -260,7 +260,7 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfo extends $dara.
   rules?: QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules[];
   /**
    * @remarks
-   * The discounted price based on the official website discount.
+   * The discounted price based on the list discount.
    * 
    * @example
    * 21321
@@ -268,7 +268,7 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfo extends $dara.
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The official website discount price or direct sales contract discount price.
+   * The list discount price or direct sales contract discount price.
    * 
    * @example
    * 32432

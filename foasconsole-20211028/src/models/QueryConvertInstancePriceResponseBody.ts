@@ -13,7 +13,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extend
   cheapRate?: string;
   /**
    * @remarks
-   * The standard total price after the price reduction.
+   * The total list price after the price reduction.
    * 
    * @example
    * 8000
@@ -37,7 +37,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extend
   monthPrice?: string;
   /**
    * @remarks
-   * The original standard total price.
+   * The original total list price.
    * 
    * @example
    * 12000
@@ -45,7 +45,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extend
   originalStandAmount?: string;
   /**
    * @remarks
-   * The start time of the price reduction.
+   * The start time of the price reduction, in ISO 8601 format.
    * 
    * @example
    * 2024-08-21T02:06:00Z
@@ -152,7 +152,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoRules extends $dara.M
    * The description of the promotion rule.
    * 
    * @example
-   * Purchase for 1 year or more and enjoy a 15% discount off the official price
+   * Purchase for 1 year or more and enjoy a 15% discount off the list price
    */
   description?: string;
   /**
@@ -218,7 +218,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
   discountAmount?: number;
   /**
    * @remarks
-   * Indicates whether the enterprise discount is applied.
+   * Indicates whether an enterprise discount is applied.
    * 
    * @example
    * true
@@ -237,7 +237,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
    * The error message.
    * 
    * @example
-   * An unpaid order exists. Pay or cancel the existing order first
+   * An unpaid order exists. Pay for or cancel the existing order first
    */
   message?: string;
   /**
@@ -260,7 +260,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
   rules?: QueryConvertInstancePriceResponseBodyPriceInfoRules[];
   /**
    * @remarks
-   * The discounted price based on the official website discount.
+   * The promotional price based on the standard discount from the official website.
    * 
    * @example
    * 21321
@@ -268,7 +268,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The official website discounted price or direct sales contract discounted price.
+   * The standard discounted price on the official website or the direct sales contract discounted price.
    * 
    * @example
    * 32432

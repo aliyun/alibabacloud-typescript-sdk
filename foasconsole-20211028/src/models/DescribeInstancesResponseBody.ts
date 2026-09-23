@@ -670,7 +670,7 @@ export class DescribeInstancesResponseBodyInstancesStorageOss extends $dara.Mode
 export class DescribeInstancesResponseBodyInstancesStorage extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether fully managed storage is selected. Valid values:
+   * Specifies whether fully managed storage is selected. Valid values:
    * - true: Used.
    * - false: Not used.
    * 
@@ -884,7 +884,7 @@ export class DescribeInstancesResponseBodyInstancesVpcInfo extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The VPC description.
+   * The description of the VPC.
    * 
    * @example
    * “”
@@ -1113,7 +1113,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1629879567394
@@ -1121,7 +1121,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   resourceCreateTime?: number;
   /**
    * @remarks
-   * The overdue time.
+   * The time when the instance expires. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1637337600000

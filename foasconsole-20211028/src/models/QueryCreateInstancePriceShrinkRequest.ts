@@ -15,10 +15,10 @@ export class QueryCreateInstancePriceShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * - **true**: enables auto-renewal.
-   * - **false**: does not enable auto-renewal. (Default)
+   * - **true**: Enabled.
+   * - **false**: Disabled (default).
    * 
-   * >This parameter is invalid for pay-as-you-go instances.
+   * > This parameter does not take effect for pay-as-you-go instances.
    * 
    * @example
    * true
@@ -26,7 +26,10 @@ export class QueryCreateInstancePriceShrinkRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The billing type. Valid values:
+   * The billing method. Valid values:
+   * 
+   * - POST: pay-as-you-go.
+   * - PRE: subscription.
    * 
    * This parameter is required.
    * 
@@ -37,6 +40,7 @@ export class QueryCreateInstancePriceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The number of billing cycles.
+   * > When ChargeType is set to PRE, the Duration parameter is required.
    * 
    * @example
    * 1
@@ -113,6 +117,9 @@ export class QueryCreateInstancePriceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use a coupon. Valid values:
+   * 
+   * - true: Use a coupon.
+   * - false: Do not use a coupon.
    * 
    * @example
    * true

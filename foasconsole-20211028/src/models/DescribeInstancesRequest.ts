@@ -53,7 +53,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   architectureType?: string;
   /**
    * @remarks
-   * The payment type.
+   * The billing method.
    * 
    * @example
    * PRE
