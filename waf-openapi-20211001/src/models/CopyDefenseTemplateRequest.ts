@@ -3,12 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CopyDefenseTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+   * - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
-   * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * The ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -18,7 +26,7 @@ export class CopyDefenseTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -30,7 +38,7 @@ export class CopyDefenseTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the WAF instance belongs.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -38,7 +46,7 @@ export class CopyDefenseTemplateRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the protection template that you want to copy.
+   * The ID of the mitigation template to copy.
    * 
    * This parameter is required.
    * 

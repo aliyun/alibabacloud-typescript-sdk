@@ -21,6 +21,11 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
+   * The list of API IDs.
+   */
+  apiIds?: string[];
+  /**
+   * @remarks
    * The request method of the API. Valid values:
    * - **GET**: GET request.
    * - **POST**: POST request.
@@ -38,9 +43,9 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the API. Valid values:
-   * - **NewbornInterface**: newly added.
-   * - **OfflineInterface**: inactive.
-   * - **normal**: normal.
+   * - **NewbornInterface**: New.
+   * - **OfflineInterface**: Inactive.
+   * - **normal**: Normal.
    * 
    * @example
    * OfflineInterface
@@ -59,9 +64,9 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The service object. Valid values:
-   * - **PublicAPI**: public service.
-   * - **ThirdpartAPI**: third-party collaboration.
-   * - **InternalAPI**: internal office.
+   * - **PublicAPI**: Public service.
+   * - **ThirdpartAPI**: Third-party collaboration.
+   * - **InternalAPI**: Internal office.
    * 
    * @example
    * innerAPI
@@ -70,8 +75,8 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the API has an authentication field. Valid values:
-   * - **0**: has authentication.
-   * - **1**: does not have authentication.
+   * - **0**: Has authentication.
+   * - **1**: Does not have authentication.
    * 
    * @example
    * 0
@@ -97,8 +102,8 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the API is followed. Valid values:
-   * - **1**: followed.
-   * - **0**: not followed.
+   * - **1**: Followed.
+   * - **0**: Not followed.
    * 
    * @example
    * 0
@@ -150,8 +155,8 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - **desc**: descending order (default).
-   * - **asc**: ascending order.
+   * - **desc**: Descending order (default).
+   * - **asc**: Ascending order.
    * 
    * @example
    * desc
@@ -159,7 +164,7 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   orderWay?: string;
   /**
    * @remarks
-   * The page number to return in a paging query. Default value: **1**, which indicates that the first page is returned.
+   * The page number of the page to return in a paged query. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -167,7 +172,7 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page in a paging query. Default value: **10**, which indicates that each page contains 10 entries.
+   * The number of entries to return on each page in a paged query. Default value: **10**, which indicates 10 entries per page.
    * 
    * @example
    * 10
@@ -175,7 +180,7 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -206,10 +211,10 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The sensitivity level of the API. Valid values:
-   * - **L1**: high sensitivity.
-   * - **L2**: medium sensitivity.
-   * - **L3**: low sensitivity.
-   * - **N**: not sensitive.
+   * - **L1**: High sensitivity.
+   * - **L2**: Medium sensitivity.
+   * - **L3**: Low sensitivity.
+   * - **N**: Not sensitive.
    * 
    * @example
    * L3
@@ -236,6 +241,7 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
     return {
       apiFormat: 'ApiFormat',
       apiId: 'ApiId',
+      apiIds: 'ApiIds',
       apiMethod: 'ApiMethod',
       apiStatus: 'ApiStatus',
       apiTag: 'ApiTag',
@@ -264,6 +270,7 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
     return {
       apiFormat: 'string',
       apiId: 'string',
+      apiIds: { 'type': 'array', 'itemType': 'string' },
       apiMethod: 'string',
       apiStatus: 'string',
       apiTag: 'string',
@@ -289,6 +296,9 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.apiIds)) {
+      $dara.Model.validateArray(this.apiIds);
+    }
     super.validate();
   }
 

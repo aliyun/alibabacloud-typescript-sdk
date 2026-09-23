@@ -11,6 +11,15 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
    * template
    */
   defenseType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the DryRun dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+   * - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -38,7 +47,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The protection object associated with the rule to delete.
+   * The protected object associated with the rule to delete.
    * > This parameter is required only when **DefenseType** is set to **resource**.
    * 
    * @example

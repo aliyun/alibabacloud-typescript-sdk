@@ -282,7 +282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies a protection template.
+   * Copies the current mitigation template and generates a new mitigation template.
    * 
    * @param request - CopyDefenseTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -329,7 +329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies a protection template.
+   * Copies the current mitigation template and generates a new mitigation template.
    * 
    * @param request - CopyDefenseTemplateRequest
    * @returns CopyDefenseTemplateResponse
@@ -3167,6 +3167,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.apiId)) {
       query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
     }
 
     if (!$dara.isNull(request.apiMethod)) {

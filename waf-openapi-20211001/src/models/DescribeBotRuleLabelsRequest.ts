@@ -25,7 +25,7 @@ export class DescribeBotRuleLabelsRequest extends $dara.Model {
   labelType?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Valid values: 1 to 200. Default value: 20. This parameter is used for paging.
+   * The number of entries per page in a paged query. Valid values: 1 to 200. Default value: 20.
    * 
    * @example
    * 20
@@ -33,9 +33,9 @@ export class DescribeBotRuleLabelsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. If a value is returned for this parameter, the next page exists.
+   * The pagination token for the next page. If a next page exists, this field returns a value.
    * 
-   * > If this parameter has a return value, the next page exists. Use the returned NextToken value as a request parameter to retrieve the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
+   * > If this parameter returns a value, a next page exists. Use the returned **NextToken** as a request parameter to retrieve the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -63,7 +63,7 @@ export class DescribeBotRuleLabelsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of bot management protection scenario.
+   * The bot management protection scenario type.
    * 
    * @example
    * app

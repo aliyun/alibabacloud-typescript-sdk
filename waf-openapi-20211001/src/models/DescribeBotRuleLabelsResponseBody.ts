@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   /**
    * @remarks
-   * The crawler behavior corresponding to the rule tag.
+   * The crawler behavior corresponding to the rule tag. Valid values:
    * 
    * - **malicious**: malicious crawler.
    * - **suspicious**: suspected crawler.
@@ -19,12 +19,12 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
    * @remarks
    * The default action. Valid values:
    * 
-   * - **block**: Block.
-   * - **monitor**: Monitor.
+   * - **block**: block.
+   * - **monitor**: monitor.
    * - **js**: JavaScript verification.
    * - **captcha**: slider CAPTCHA.
    * - **captcha_strict**: strict slider CAPTCHA.
-   * - **bypass**: Allow.
+   * - **bypass**: allow.
    * 
    * @example
    * block
@@ -40,10 +40,10 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   defaultConfig?: string;
   /**
    * @remarks
-   * The default status of the tag rule.
+   * The default status of the tag rule. Valid values:
    * 
-   * - **1**: The rule is enabled.
-   * - **0**: The rule is disabled.
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -59,10 +59,10 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   labelKey?: string;
   /**
    * @remarks
-   * The tag status.
+   * The tag status. Valid values:
    * 
-   * - **online**: Online.
-   * - **wait_offline**: Pending offline.
+   * - **online**: online.
+   * - **wait_offline**: pending offline.
    * 
    * @example
    * online
@@ -78,7 +78,7 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   labelType?: string;
   /**
    * @remarks
-   * The set of bot management protection scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
+   * The collection of bot management protection scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
    * 
    * - **web**: Web protection scenario.
    * - **app**: App protection scenario.
@@ -125,7 +125,7 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
 export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page in a paged query. Valid values: 1 to 200. Default value: 20. This parameter is used for paging.
+   * The number of entries per page in a paged query. Valid values: 1 to 200. Default value: 20.
    * 
    * @example
    * 20
@@ -133,9 +133,9 @@ export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. If a value is returned for this parameter, the next page exists.
+   * The pagination token for the next page. If a next page exists, this field returns a value.
    * 
-   * > If this parameter has a return value, the next page exists. Use the returned NextToken value as a request parameter to retrieve the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
+   * > If this parameter returns a value, a next page exists. Use the returned **NextToken** as a request parameter to retrieve the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -143,7 +143,7 @@ export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19****5EB0
