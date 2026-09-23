@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostCenterResourceRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * The list of accessed accounts. An empty value indicates that all accounts under the current entity ID are selected.
+   * The list of account IDs to access. If this parameter is empty, all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
    * @remarks
-   * The enterprise entity ID.
+   * The ID of the enterprise entity.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class QueryCostCenterResourceRequestEcIdAccountIds extends $dara.Model {
 export class QueryCostCenterResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cost center.
+   * The ID of the financial unit.
    * 
    * @example
    * 123456
@@ -55,12 +55,12 @@ export class QueryCostCenterResourceRequest extends $dara.Model {
   costCenterId?: number;
   /**
    * @remarks
-   * The list of enterprises and accounts. An empty value indicates querying the current account.
+   * The list of enterprises and accounts. If this parameter is empty, the current account is queried.
    */
   ecIdAccountIds?: QueryCostCenterResourceRequestEcIdAccountIds[];
   /**
    * @remarks
-   * The maximum number of records per query.
+   * The maximum number of records to return in a single query.
    * 
    * @example
    * 200
@@ -68,7 +68,7 @@ export class QueryCostCenterResourceRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The first-level marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The ID of the primary marketplace. If this parameter is empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -76,7 +76,7 @@ export class QueryCostCenterResourceRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * The token for the next query. An empty NextToken indicates that there are no more results.
+   * The token for the next query. If this parameter is empty, no more results exist.
    * 
    * @example
    * CAESEgoQCg4KCmd
@@ -84,7 +84,7 @@ export class QueryCostCenterResourceRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The owner user ID of the cost center.
+   * The ID of the owner of the financial unit.
    * 
    * @example
    * 1234567812345678

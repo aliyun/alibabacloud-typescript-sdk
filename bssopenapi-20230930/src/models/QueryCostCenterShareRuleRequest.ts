@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostCenterShareRuleRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * The list of accounts to access. If empty, all accounts under the current entity ID are selected.
+   * The list of accounts to access. An empty value indicates that all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
    * @remarks
-   * The ID of the enterprise entity.
+   * The enterprise entity ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class QueryCostCenterShareRuleRequestEcIdAccountIds extends $dara.Model {
 export class QueryCostCenterShareRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of enterprises and accounts. If empty, the current account is queried.
+   * The list of enterprises and accounts. An empty value indicates that the current account is queried.
    */
   ecIdAccountIds?: QueryCostCenterShareRuleRequestEcIdAccountIds[];
   /**

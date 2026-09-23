@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCostCenterRuleRequestFilterExpressionFilterValues extends $dara.Model {
   /**
    * @remarks
-   * Condition filter key
+   * The condition filter key.
    * 
    * @example
    * TAG-test-xxx-key
@@ -13,15 +13,15 @@ export class ModifyCostCenterRuleRequestFilterExpressionFilterValues extends $da
   code?: string;
   /**
    * @remarks
-   * Condition filter key name (deprecated)
+   * The condition filter key name. (Deprecated)
    * 
    * @example
-   * 无
+   * None
    */
   codeName?: string;
   /**
    * @remarks
-   * Association between code and value
+   * The association between the code and value.
    * 
    * @example
    * IN
@@ -29,7 +29,7 @@ export class ModifyCostCenterRuleRequestFilterExpressionFilterValues extends $da
   selectType?: string;
   /**
    * @remarks
-   * Condition filter value list
+   * The list of condition filter values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class ModifyCostCenterRuleRequestFilterExpressionFilterValues extends $da
 export class ModifyCostCenterRuleRequestFilterExpression extends $dara.Model {
   /**
    * @remarks
-   * Operation type
+   * The operation type.
    * 
    * @example
    * NARY
@@ -73,25 +73,25 @@ export class ModifyCostCenterRuleRequestFilterExpression extends $dara.Model {
   expressionType?: string;
   /**
    * @remarks
-   * Sub-condition filter
+   * The sub-condition filter.
    */
   filterValues?: ModifyCostCenterRuleRequestFilterExpressionFilterValues;
   /**
    * @remarks
-   * Filter condition (deprecated)
+   * The filter condition. (Deprecated)
    * 
    * @example
-   * 无
+   * None
    */
   operand?: any;
   /**
    * @remarks
-   * Condition expression
+   * The conditional expression.
    */
   operands?: any[];
   /**
    * @remarks
-   * Relational expression
+   * The relational expression.
    * 
    * @example
    * AND
@@ -135,7 +135,7 @@ export class ModifyCostCenterRuleRequestFilterExpression extends $dara.Model {
 export class ModifyCostCenterRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Financial unit ID
+   * The financial unit ID.
    * 
    * @example
    * 485938
@@ -143,12 +143,12 @@ export class ModifyCostCenterRuleRequest extends $dara.Model {
   costCenterId?: number;
   /**
    * @remarks
-   * Rule expression
+   * The rule expression.
    */
   filterExpression?: ModifyCostCenterRuleRequestFilterExpression;
   /**
    * @remarks
-   * Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The primary sales channel ID. If left empty, the channel ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -156,7 +156,7 @@ export class ModifyCostCenterRuleRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * Owner of the financial unit (deprecated)
+   * The owner of the financial unit. (Deprecated)
    * 
    * @example
    * 1234567812345678

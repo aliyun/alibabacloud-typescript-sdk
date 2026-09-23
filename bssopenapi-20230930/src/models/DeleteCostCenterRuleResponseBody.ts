@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCostCenterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the financial unit allocation rule.
+   * The ID of the cost center allocation rule.
    * 
    * @example
    * 37404
@@ -13,7 +13,7 @@ export class DeleteCostCenterRuleResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The response metadata.
+   * The response struct metadata.
    * 
    * @example
    * {}

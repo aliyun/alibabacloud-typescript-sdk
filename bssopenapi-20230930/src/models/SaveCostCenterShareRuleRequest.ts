@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SaveCostCenterShareRuleRequestCreateShareRuleList extends $dara.Model {
   /**
    * @remarks
-   * The list of source cost centers.
+   * The list of source financial units.
    */
   fromCostCenterList?: number[];
   /**
    * @remarks
-   * The list of sharing ratios.
+   * The list of allocation ratios.
    */
   shareRatioList?: number[];
   /**
    * @remarks
-   * The name of the sharing rule.
+   * The name of the allocation rule.
    * 
    * @example
    * test
@@ -23,7 +23,7 @@ export class SaveCostCenterShareRuleRequestCreateShareRuleList extends $dara.Mod
   shareRuleName?: string;
   /**
    * @remarks
-   * The type of the sharing rule.
+   * The type of the allocation rule.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class SaveCostCenterShareRuleRequestCreateShareRuleList extends $dara.Mod
   shareType?: string;
   /**
    * @remarks
-   * The list of target cost centers.
+   * The list of destination financial units.
    */
   toCostCenterList?: number[];
   static names(): { [key: string]: string } {
@@ -77,17 +77,17 @@ export class SaveCostCenterShareRuleRequestCreateShareRuleList extends $dara.Mod
 export class SaveCostCenterShareRuleRequestModifyShareRuleList extends $dara.Model {
   /**
    * @remarks
-   * The list of source cost centers.
+   * The list of source financial units.
    */
   fromCostCenterList?: number[];
   /**
    * @remarks
-   * The list of sharing ratios.
+   * The list of allocation ratios.
    */
   shareRatioList?: number[];
   /**
    * @remarks
-   * The ID of the sharing rule.
+   * The ID of the allocation rule.
    * 
    * This parameter is required.
    * 
@@ -97,7 +97,7 @@ export class SaveCostCenterShareRuleRequestModifyShareRuleList extends $dara.Mod
   shareRuleId?: number;
   /**
    * @remarks
-   * The name of the sharing rule.
+   * The name of the allocation rule.
    * 
    * @example
    * test
@@ -105,7 +105,7 @@ export class SaveCostCenterShareRuleRequestModifyShareRuleList extends $dara.Mod
   shareRuleName?: string;
   /**
    * @remarks
-   * The type of the sharing rule.
+   * The type of the allocation rule.
    * 
    * This parameter is required.
    * 
@@ -115,7 +115,7 @@ export class SaveCostCenterShareRuleRequestModifyShareRuleList extends $dara.Mod
   shareType?: string;
   /**
    * @remarks
-   * The list of target cost centers.
+   * The list of destination financial units.
    */
   toCostCenterList?: number[];
   static names(): { [key: string]: string } {
@@ -161,17 +161,17 @@ export class SaveCostCenterShareRuleRequestModifyShareRuleList extends $dara.Mod
 export class SaveCostCenterShareRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of sharing rules to create.
+   * The list of allocation rules to create.
    */
   createShareRuleList?: SaveCostCenterShareRuleRequestCreateShareRuleList[];
   /**
    * @remarks
-   * The list of sharing rules to modify.
+   * The list of allocation rules to update.
    */
   modifyShareRuleList?: SaveCostCenterShareRuleRequestModifyShareRuleList[];
   /**
    * @remarks
-   * The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
+   * The ID of the level-1 sales channel. If this parameter is left empty, the ID of the sales channel to which the current user belongs is used by default.
    * 
    * @example
    * 2684201000001
@@ -179,7 +179,7 @@ export class SaveCostCenterShareRuleRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * The user ID of the cost center owner.
+   * The ID of the user who owns the financial unit.
    * 
    * @example
    * 1977800748053695
@@ -187,7 +187,7 @@ export class SaveCostCenterShareRuleRequest extends $dara.Model {
   ownerAccountId?: number;
   /**
    * @remarks
-   * The list of sharing rules to delete.
+   * The list of allocation rules to delete.
    */
   removeShareRuleList?: number[];
   static names(): { [key: string]: string } {

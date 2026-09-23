@@ -280,7 +280,7 @@ export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   shareRuleType?: string;
   /**
    * @remarks
-   * The rule information of the destination financial unit.
+   * The rule information of the target financial unit.
    */
   toCostCenterShareRuleDetails?: QueryCostCenterShareRuleResponseBodyDataToCostCenterShareRuleDetails[];
   static names(): { [key: string]: string } {
@@ -338,7 +338,7 @@ export class QueryCostCenterShareRuleResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response struct metadata.
+   * The metadata of the response structure.
    * 
    * @example
    * {}

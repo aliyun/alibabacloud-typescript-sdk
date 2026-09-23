@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCostCenterRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Financial unit ID.
+   * The cost center ID.
    * 
    * @example
    * 637127
@@ -13,13 +13,13 @@ export class DeleteCostCenterRuleShrinkRequest extends $dara.Model {
   costCenterId?: number;
   /**
    * @remarks
-   * Rule expression.
-   * **This field does not need to be entered during the delete operation.**
+   * The rule expression.
+   * **This field does not need to be specified for delete operations.**
    */
   filterExpressionShrink?: string;
   /**
    * @remarks
-   * Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001

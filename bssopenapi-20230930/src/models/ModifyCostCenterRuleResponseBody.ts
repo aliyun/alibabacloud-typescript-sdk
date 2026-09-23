@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCostCenterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Financial unit allocation rule ID
+   * The allocation rule ID of the financial unit.
    * 
    * @example
    * 5632
@@ -13,7 +13,7 @@ export class ModifyCostCenterRuleResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * Response metadata
+   * The response struct metadata.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class ModifyCostCenterRuleResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4

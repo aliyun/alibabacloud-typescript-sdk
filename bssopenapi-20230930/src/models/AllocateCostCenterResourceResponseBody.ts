@@ -13,7 +13,7 @@ export class AllocateCostCenterResourceResponseBody extends $dara.Model {
   costCenterId?: number;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class AllocateCostCenterResourceResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The metadata of the response struct.
+   * The metadata of the response.
    * 
    * @example
    * {}

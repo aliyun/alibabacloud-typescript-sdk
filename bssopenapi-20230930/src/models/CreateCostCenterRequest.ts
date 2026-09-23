@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCostCenterRequestCostCenterEntityList extends $dara.Model {
   /**
    * @remarks
-   * Cost center name (must be unique within the same account)
+   * The cost center name. The name must be unique within the same account.
    * 
    * This parameter is required.
    * 
    * @example
-   * 资源组
+   * ResourceGroup
    */
   costCenterName?: string;
   /**
    * @remarks
-   * Owner user ID of the new cost center
+   * The owner user ID of the new cost center.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateCostCenterRequestCostCenterEntityList extends $dara.Model {
   ownerAccountId?: number;
   /**
    * @remarks
-   * Parent cost center ID. A value of -1 indicates the root cost center.
+   * The parent cost center ID. A value of -1 indicates the root cost center.
    * 
    * This parameter is required.
    * 
@@ -61,14 +61,14 @@ export class CreateCostCenterRequestCostCenterEntityList extends $dara.Model {
 export class CreateCostCenterRequest extends $dara.Model {
   /**
    * @remarks
-   * Cost center entity list
+   * The list of cost center entities.
    * 
    * This parameter is required.
    */
   costCenterEntityList?: CreateCostCenterRequestCostCenterEntityList[];
   /**
    * @remarks
-   * Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2084210001

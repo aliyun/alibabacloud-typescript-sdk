@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   /**
    * @remarks
-   * The code of the financial unit.
+   * The code of the cost center.
    * 
    * @example
    * 15945703968#
@@ -13,7 +13,7 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   costCenterCode?: string;
   /**
    * @remarks
-   * The ID of the financial unit.
+   * The ID of the cost center.
    * 
    * @example
    * 485938
@@ -21,15 +21,15 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   costCenterId?: number;
   /**
    * @remarks
-   * The name of the financial unit. The name must be unique within the same account.
+   * The name of the cost center. The name must be unique within the same account.
    * 
    * @example
-   * 资源组
+   * ResourceGroup
    */
   costCenterName?: string;
   /**
    * @remarks
-   * The level of the financial unit node.
+   * The level of the cost center node.
    * 
    * @example
    * loose
@@ -37,7 +37,7 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The ID of the user who owns the financial unit.
+   * The ID of the user who owns the cost center.
    * 
    * @example
    * 1314839403940987
@@ -45,7 +45,7 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   ownerAccountId?: number;
   /**
    * @remarks
-   * The ID of the parent financial unit.
+   * The ID of the parent cost center.
    * 
    * @example
    * -1
@@ -53,12 +53,16 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   parentCostCenterId?: number;
   /**
    * @remarks
-   * The ID of the previous financial unit.
+   * The ID of the previous cost center.
    * 
    * @example
    * 485996
    */
   prevCostCenterId?: number;
+  /**
+   * @remarks
+   * The priority of the cost center.
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -98,7 +102,7 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
 export class QueryCostCenterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of financial unit data.
+   * The list of cost center data.
    */
   costCenterDtoList?: QueryCostCenterResponseBodyCostCenterDtoList[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMonthlySlaListRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * The list of accounts to access. If this parameter is empty, all accounts under the current entity ID are selected.
+   * The list of accounts to access. If this parameter is left empty, all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
@@ -53,12 +53,12 @@ export class QueryMonthlySlaListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The enterprise and account list. If this parameter is empty, the current account is queried.
+   * The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIds?: QueryMonthlySlaListRequestEcIdAccountIds[];
   /**
    * @remarks
-   * Optional. Filter by instance ID.
+   * Optional. The instance IDs used for filtering.
    * 
    * @example
    * ["instance_1","instance_2"]
@@ -66,7 +66,7 @@ export class QueryMonthlySlaListRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * Optional. List of months in yyyyMM format.
+   * Optional. The list of months in the yyyyMM format.
    * 
    * @example
    * [202602,202603]
@@ -74,7 +74,7 @@ export class QueryMonthlySlaListRequest extends $dara.Model {
   months?: number[];
   /**
    * @remarks
-   * The primary marketplace ID. If this parameter is empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -90,12 +90,12 @@ export class QueryMonthlySlaListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Optional. Filter by compensation status. Valid values: 0 and 1.
+   * Optional. The compensation statuses used for filtering. Valid values: 0 and 1.
    */
   payStatuses?: number[];
   /**
    * @remarks
-   * Optional. Filter by product code.
+   * Optional. The product codes used for filtering.
    * 
    * @example
    * ["ecs","oss"]

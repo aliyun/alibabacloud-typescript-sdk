@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SaveCostCenterShareRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of sharing rules to create.
+   * The list of allocation rules to create.
    */
   createShareRuleListShrink?: string;
   /**
    * @remarks
-   * The list of sharing rules to modify.
+   * The list of allocation rules to update.
    */
   modifyShareRuleListShrink?: string;
   /**
    * @remarks
-   * The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
+   * The ID of the level-1 sales channel. If this parameter is left empty, the ID of the sales channel to which the current user belongs is used by default.
    * 
    * @example
    * 2684201000001
@@ -23,7 +23,7 @@ export class SaveCostCenterShareRuleShrinkRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * The user ID of the cost center owner.
+   * The ID of the user who owns the financial unit.
    * 
    * @example
    * 1977800748053695
@@ -31,7 +31,7 @@ export class SaveCostCenterShareRuleShrinkRequest extends $dara.Model {
   ownerAccountId?: number;
   /**
    * @remarks
-   * The list of sharing rules to delete.
+   * The list of allocation rules to delete.
    */
   removeShareRuleListShrink?: string;
   static names(): { [key: string]: string } {

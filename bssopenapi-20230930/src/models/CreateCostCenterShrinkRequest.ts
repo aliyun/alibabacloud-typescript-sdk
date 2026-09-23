@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCostCenterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Cost center entity list
+   * The list of cost center entities.
    * 
    * This parameter is required.
    */
   costCenterEntityListShrink?: string;
   /**
    * @remarks
-   * Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2084210001

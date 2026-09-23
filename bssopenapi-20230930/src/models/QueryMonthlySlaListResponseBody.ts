@@ -13,7 +13,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   availableRate?: number;
   /**
    * @remarks
-   * The unique ID of the damage record, used for targeted claims.
+   * The unique identifier of the damaged record, which is used to call the applyCoupon operation for targeted claim.
    * 
    * @example
    * 9b7***9413
@@ -29,7 +29,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The month in yyyyMM format.
+   * The month in the yyyyMM format.
    * 
    * @example
    * 202603
@@ -37,7 +37,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   month?: number;
   /**
    * @remarks
-   * The monthly service fee.
+   * The monthly service charge.
    * 
    * @example
    * 365.00
@@ -141,7 +141,7 @@ export class QueryMonthlySlaListResponseBody extends $dara.Model {
   data?: QueryMonthlySlaListResponseBodyData[];
   /**
    * @remarks
-   * The response struct metadata.
+   * The response metadata.
    * 
    * @example
    * {}

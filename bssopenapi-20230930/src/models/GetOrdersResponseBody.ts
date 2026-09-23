@@ -119,7 +119,7 @@ export class GetOrdersResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. A maximum of 20 entries per page is recommended. A larger number may cause a timeout.
+   * The number of entries per page. A maximum of 20 entries per page is recommended. Excessive entries may cause a timeout.
    * 
    * @example
    * 20

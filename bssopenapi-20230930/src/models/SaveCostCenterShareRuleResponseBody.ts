@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveCostCenterShareRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The metadata of the response.
+   * The response struct metadata.
    * 
    * @example
    * {}

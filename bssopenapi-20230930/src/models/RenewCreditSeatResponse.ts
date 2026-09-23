@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CheckBudgetNameExistsResponseBody } from "./CheckBudgetNameExistsResponseBody";
+import { RenewCreditSeatResponseBody } from "./RenewCreditSeatResponseBody";
 
 
-export class CheckBudgetNameExistsResponse extends $dara.Model {
+export class RenewCreditSeatResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: CheckBudgetNameExistsResponseBody;
+  body?: RenewCreditSeatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class CheckBudgetNameExistsResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: CheckBudgetNameExistsResponseBody,
+      body: RenewCreditSeatResponseBody,
     };
   }
 

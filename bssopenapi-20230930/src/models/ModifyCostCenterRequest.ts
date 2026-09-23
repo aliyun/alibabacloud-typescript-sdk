@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCostCenterRequestCostCenterEntityList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cost center.
+   * The cost center ID.
    * 
    * This parameter is required.
    * 
@@ -20,12 +20,12 @@ export class ModifyCostCenterRequestCostCenterEntityList extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 资源组
+   * ResourceGroup
    */
   costCenterName?: string;
   /**
    * @remarks
-   * The ID of the owner to which the cost center belongs.
+   * The ID of the user who owns the cost center.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class ModifyCostCenterRequest extends $dara.Model {
   costCenterEntityList?: ModifyCostCenterRequestCostCenterEntityList[];
   /**
    * @remarks
-   * The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001

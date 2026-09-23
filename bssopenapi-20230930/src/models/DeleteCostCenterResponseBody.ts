@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCostCenterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cost center ID.
+   * The cost center ID.
    * 
    * @example
    * 485938
@@ -21,7 +21,7 @@ export class DeleteCostCenterResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * Response metadata.
+   * The metadata of the response struct.
    * 
    * @example
    * {}
@@ -29,7 +29,7 @@ export class DeleteCostCenterResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * User ID of the cost center owner.
+   * The ID of the user who owns the cost center.
    * 
    * @example
    * 1314839403940987
@@ -37,7 +37,7 @@ export class DeleteCostCenterResponseBody extends $dara.Model {
   ownerAccountId?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * C1BD134E-D914-6AE0-1901-AEB2A99FA205

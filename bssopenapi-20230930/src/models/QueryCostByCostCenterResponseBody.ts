@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Model {
   /**
    * @remarks
-   * Shared allocation amount
+   * The apportioned amount.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   allocatedAmount?: string;
   /**
    * @remarks
-   * Cost center code
+   * The financial unit code.
    * 
    * @example
    * 15945703968#
@@ -21,7 +21,7 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   costCenterCode?: string;
   /**
    * @remarks
-   * Cost center ID
+   * The financial unit ID.
    * 
    * @example
    * 530658
@@ -29,15 +29,15 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   costCenterId?: number;
   /**
    * @remarks
-   * Cost center name
+   * The financial unit name.
    * 
    * @example
-   * 项目组A
+   * Project Team A
    */
   costCenterName?: string;
   /**
    * @remarks
-   * Cost type amount
+   * The cost type amount.
    * 
    * @example
    * 80
@@ -45,7 +45,7 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   directAmount?: string;
   /**
    * @remarks
-   * Level
+   * The level.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   level?: number;
   /**
    * @remarks
-   * Account ID that owns the resource
+   * The account ID of the resource ownership.
    * 
    * @example
    * 1857464601594004
@@ -61,15 +61,15 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   ownerAccountId?: number;
   /**
    * @remarks
-   * Account name that owns the resource
+   * The account name of the resource ownership.
    * 
    * @example
-   * 研发团队测试账号
+   * R&D Team Test Account
    */
   ownerAccountName?: string;
   /**
    * @remarks
-   * Parent cost center ID
+   * The parent financial unit ID.
    * 
    * @example
    * 637537
@@ -77,7 +77,7 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   parentCostCenterId?: number;
   /**
    * @remarks
-   * Previous cost center ID
+   * The preceding financial unit ID.
    * 
    * @example
    * 6375371
@@ -85,7 +85,7 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   preCostCenterId?: number;
   /**
    * @remarks
-   * Total (sum of cost type amount and shared allocation amount)
+   * The total amount (the sum of the cost type amount and the apportioned amount).
    * 
    * @example
    * 100
@@ -93,7 +93,7 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
   totalAllocatedAmount?: string;
   /**
    * @remarks
-   * Cost type amount percentage
+   * The percentage of the cost type amount.
    * 
    * @example
    * 0.01
@@ -145,12 +145,12 @@ export class QueryCostByCostCenterResponseBodyConsumeAmountList extends $dara.Mo
 export class QueryCostByCostCenterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cost center consumption amount details list
+   * The list of cost center consumption amount details.
    */
   consumeAmountList?: QueryCostByCostCenterResponseBodyConsumeAmountList[];
   /**
    * @remarks
-   * Response structure metadata
+   * The response structure metadata.
    * 
    * @example
    * {}
@@ -158,7 +158,7 @@ export class QueryCostByCostCenterResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
@@ -166,7 +166,7 @@ export class QueryCostByCostCenterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Sum of totalAllocatedAmount across all cost centers
+   * The sum of totalAllocatedAmount across all cost centers.
    * 
    * @example
    * 130296.64

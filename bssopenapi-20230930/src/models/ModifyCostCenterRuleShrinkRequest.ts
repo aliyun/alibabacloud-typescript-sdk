@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCostCenterRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Financial unit ID
+   * The financial unit ID.
    * 
    * @example
    * 485938
@@ -13,12 +13,12 @@ export class ModifyCostCenterRuleShrinkRequest extends $dara.Model {
   costCenterId?: number;
   /**
    * @remarks
-   * Rule expression
+   * The rule expression.
    */
   filterExpressionShrink?: string;
   /**
    * @remarks
-   * Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The primary sales channel ID. If left empty, the channel ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -26,7 +26,7 @@ export class ModifyCostCenterRuleShrinkRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * Owner of the financial unit (deprecated)
+   * The owner of the financial unit. (Deprecated)
    * 
    * @example
    * 1234567812345678

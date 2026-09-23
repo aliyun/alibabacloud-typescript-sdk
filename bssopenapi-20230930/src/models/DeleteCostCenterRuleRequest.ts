@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCostCenterRuleRequestFilterExpressionFilterValues extends $dara.Model {
   /**
    * @remarks
-   * The condition filter key.
+   * The filter condition key.
    * 
    * @example
    * TAG-test-xxx-key
@@ -13,15 +13,15 @@ export class DeleteCostCenterRuleRequestFilterExpressionFilterValues extends $da
   code?: string;
   /**
    * @remarks
-   * The condition filter key name.
+   * The name of the filter condition key.
    * 
    * @example
-   * 无
+   * None
    */
   codeName?: string;
   /**
    * @remarks
-   * The association between Code and value.
+   * The association between code and value.
    * 
    * @example
    * IN
@@ -29,7 +29,7 @@ export class DeleteCostCenterRuleRequestFilterExpressionFilterValues extends $da
   selectType?: string;
   /**
    * @remarks
-   * The condition filter values.
+   * The filter condition values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -81,7 +81,7 @@ export class DeleteCostCenterRuleRequestFilterExpression extends $dara.Model {
    * The filter condition (no longer used).
    * 
    * @example
-   * 无
+   * None
    */
   operand?: any;
   /**
@@ -135,7 +135,7 @@ export class DeleteCostCenterRuleRequestFilterExpression extends $dara.Model {
 export class DeleteCostCenterRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Financial unit ID.
+   * The cost center ID.
    * 
    * @example
    * 637127
@@ -143,13 +143,13 @@ export class DeleteCostCenterRuleRequest extends $dara.Model {
   costCenterId?: number;
   /**
    * @remarks
-   * Rule expression.
-   * **This field does not need to be entered during the delete operation.**
+   * The rule expression.
+   * **This field does not need to be specified for delete operations.**
    */
   filterExpression?: DeleteCostCenterRuleRequestFilterExpression;
   /**
    * @remarks
-   * Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001

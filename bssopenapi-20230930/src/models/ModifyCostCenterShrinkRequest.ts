@@ -12,7 +12,7 @@ export class ModifyCostCenterShrinkRequest extends $dara.Model {
   costCenterEntityListShrink?: string;
   /**
    * @remarks
-   * The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001

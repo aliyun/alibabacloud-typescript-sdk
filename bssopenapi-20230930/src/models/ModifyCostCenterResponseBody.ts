@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCostCenterResponseBodyCostCenterOperateDto extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cost center.
+   * The cost center ID.
    * 
    * @example
    * 485938
@@ -21,7 +21,7 @@ export class ModifyCostCenterResponseBodyCostCenterOperateDto extends $dara.Mode
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the owner to which the cost center belongs.
+   * The ID of the user who owns the cost center.
    * 
    * @example
    * 1314839403940987
@@ -55,12 +55,12 @@ export class ModifyCostCenterResponseBodyCostCenterOperateDto extends $dara.Mode
 export class ModifyCostCenterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of data entries.
+   * The data list.
    */
   costCenterOperateDto?: ModifyCostCenterResponseBodyCostCenterOperateDto[];
   /**
    * @remarks
-   * The metadata of the response.
+   * The response struct metadata.
    * 
    * @example
    * {}

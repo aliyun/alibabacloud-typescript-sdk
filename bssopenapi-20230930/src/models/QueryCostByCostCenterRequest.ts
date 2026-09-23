@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostByCostCenterRequest extends $dara.Model {
   /**
    * @remarks
-   * Billing month (format: YYYYMM)
+   * The billing cycle month in the format of YYYYMM.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryCostByCostCenterRequest extends $dara.Model {
   billingMonth?: number;
   /**
    * @remarks
-   * Whether to display data rows with zero payable amount
+   * Specifies whether to display data rows with a payable amount of 0.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class QueryCostByCostCenterRequest extends $dara.Model {
   displayZeroAmountBills?: boolean;
   /**
    * @remarks
-   * Whether to aggregate and display by cost center level
+   * Specifies whether to display results grouped by financial unit level.
    * 
    * @example
    * false
@@ -31,7 +31,7 @@ export class QueryCostByCostCenterRequest extends $dara.Model {
   groupByCostCenterLevel?: boolean;
   /**
    * @remarks
-   * Cost type
+   * The cost type.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class QueryCostByCostCenterRequest extends $dara.Model {
   metrics?: string;
   /**
    * @remarks
-   * Account ID that owns the resource
+   * The account ID of the resource ownership.
    * 
    * @example
    * 1374729705039203

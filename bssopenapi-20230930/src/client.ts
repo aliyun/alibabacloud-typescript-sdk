@@ -154,6 +154,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 席位新增
+   * 
+   * @param request - AddCreditSeatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCreditSeatsResponse
+   */
+  async addCreditSeatsWithOptions(request: $_model.AddCreditSeatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddCreditSeatsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configs)) {
+      query["Configs"] = request.configs;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.seats)) {
+      query["Seats"] = request.seats;
+    }
+
+    if (!$dara.isNull(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddCreditSeats",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddCreditSeatsResponse>(await this.callApi(params, req, runtime), new $_model.AddCreditSeatsResponse({}));
+  }
+
+  /**
+   * 席位新增
+   * 
+   * @param request - AddCreditSeatsRequest
+   * @returns AddCreditSeatsResponse
+   */
+  async addCreditSeats(request: $_model.AddCreditSeatsRequest): Promise<$_model.AddCreditSeatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addCreditSeatsWithOptions(request, runtime);
+  }
+
+  /**
    * Allocates resource instances (instance-based and attached-resource-based) from a source cost center to a destination cost center.
    * 
    * @param tmpReq - AllocateCostCenterResourceRequest
@@ -324,169 +386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a specified budgetName exists.
-   * 
-   * @param request - CheckBudgetNameExistsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CheckBudgetNameExistsResponse
-   */
-  async checkBudgetNameExistsWithOptions(request: $_model.CheckBudgetNameExistsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckBudgetNameExistsResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.nbid)) {
-      query["Nbid"] = request.nbid;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.budgetName)) {
-      body["BudgetName"] = request.budgetName;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "CheckBudgetNameExists",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.CheckBudgetNameExistsResponse>(await this.callApi(params, req, runtime), new $_model.CheckBudgetNameExistsResponse({}));
-  }
-
-  /**
-   * Checks whether a specified budgetName exists.
-   * 
-   * @param request - CheckBudgetNameExistsRequest
-   * @returns CheckBudgetNameExistsResponse
-   */
-  async checkBudgetNameExists(request: $_model.CheckBudgetNameExistsRequest): Promise<$_model.CheckBudgetNameExistsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.checkBudgetNameExistsWithOptions(request, runtime);
-  }
-
-  /**
-   * Creates a budget.
-   * 
-   * @param tmpReq - CreateBudgetRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateBudgetResponse
-   */
-  async createBudgetWithOptions(tmpReq: $_model.CreateBudgetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBudgetResponse> {
-    tmpReq.validate();
-    let request = new $_model.CreateBudgetShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.cycleQuota)) {
-      request.cycleQuotaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cycleQuota, "CycleQuota", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
-      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.queryFilter)) {
-      request.queryFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryFilter, "QueryFilter", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.warnConfs)) {
-      request.warnConfsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.warnConfs, "WarnConfs", "json");
-    }
-
-    let query = { };
-    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
-      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
-    }
-
-    if (!$dara.isNull(request.nbid)) {
-      query["Nbid"] = request.nbid;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.budgetName)) {
-      body["BudgetName"] = request.budgetName;
-    }
-
-    if (!$dara.isNull(request.budgetType)) {
-      body["BudgetType"] = request.budgetType;
-    }
-
-    if (!$dara.isNull(request.comment)) {
-      body["Comment"] = request.comment;
-    }
-
-    if (!$dara.isNull(request.cycleEndPeriod)) {
-      body["CycleEndPeriod"] = request.cycleEndPeriod;
-    }
-
-    if (!$dara.isNull(request.cycleQuotaShrink)) {
-      body["CycleQuota"] = request.cycleQuotaShrink;
-    }
-
-    if (!$dara.isNull(request.cycleStartPeriod)) {
-      body["CycleStartPeriod"] = request.cycleStartPeriod;
-    }
-
-    if (!$dara.isNull(request.cycleType)) {
-      body["CycleType"] = request.cycleType;
-    }
-
-    if (!$dara.isNull(request.metric)) {
-      body["Metric"] = request.metric;
-    }
-
-    if (!$dara.isNull(request.queryFilterShrink)) {
-      body["QueryFilter"] = request.queryFilterShrink;
-    }
-
-    if (!$dara.isNull(request.quota)) {
-      body["Quota"] = request.quota;
-    }
-
-    if (!$dara.isNull(request.quotaType)) {
-      body["QuotaType"] = request.quotaType;
-    }
-
-    if (!$dara.isNull(request.warnConfsShrink)) {
-      body["WarnConfs"] = request.warnConfsShrink;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "CreateBudget",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.CreateBudgetResponse>(await this.callApi(params, req, runtime), new $_model.CreateBudgetResponse({}));
-  }
-
-  /**
-   * Creates a budget.
-   * 
-   * @param request - CreateBudgetRequest
-   * @returns CreateBudgetResponse
-   */
-  async createBudget(request: $_model.CreateBudgetRequest): Promise<$_model.CreateBudgetResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.createBudgetWithOptions(request, runtime);
-  }
-
-  /**
-   * Create Cost Center
+   * Creates cost centers.
    * 
    * @remarks
    * Creates one or more cost centers.
@@ -530,7 +430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Cost Center
+   * Creates cost centers.
    * 
    * @remarks
    * Creates one or more cost centers.
@@ -544,7 +444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a financial unit auto-allocation rule
+   * Creates an automatic allocation rule for a financial unit.
    * 
    * @param tmpReq - CreateCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -591,7 +491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a financial unit auto-allocation rule
+   * Creates an automatic allocation rule for a financial unit.
    * 
    * @param request - CreateCostCenterRuleRequest
    * @returns CreateCostCenterRuleResponse
@@ -599,6 +499,76 @@ export default class Client extends OpenApi {
   async createCostCenterRule(request: $_model.CreateCostCenterRuleRequest): Promise<$_model.CreateCostCenterRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCostCenterRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建坐席
+   * 
+   * @param request - CreateCreditSeatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCreditSeatResponse
+   */
+  async createCreditSeatWithOptions(request: $_model.CreateCreditSeatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCreditSeatResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.subscriptionConfigs)) {
+      query["SubscriptionConfigs"] = request.subscriptionConfigs;
+    }
+
+    if (!$dara.isNull(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCreditSeat",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCreditSeatResponse>(await this.callApi(params, req, runtime), new $_model.CreateCreditSeatResponse({}));
+  }
+
+  /**
+   * 创建坐席
+   * 
+   * @param request - CreateCreditSeatRequest
+   * @returns CreateCreditSeatResponse
+   */
+  async createCreditSeat(request: $_model.CreateCreditSeatRequest): Promise<$_model.CreateCreditSeatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCreditSeatWithOptions(request, runtime);
   }
 
   /**
@@ -817,16 +787,16 @@ export default class Client extends OpenApi {
    * Creates a bill report subscription.
    * 
    * @remarks
-   * When calling this operation, note the following:
-   * - A user can subscribe to one type of bill file at a time.
-   * - Except for monthly bill PDFs, after subscription, starting from the next day, the system pushes a bill file that contains full detailed data from the beginning of the current month to date. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
+   * When you call this operation, note the following items:
+   * - You can subscribe to one type of bill file at a time.
+   * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
    * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
-   * - Bill files generated on a daily basis may have latency. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. Pull the full file for the previous month at the beginning of each month.
-   * > Apply for permissions as described in the documentation: [Bill subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription)
-   * - This subscription is the same feature as Expenses and Costs - Bill Subscription. Subscriptions are shared between the two.
-   * - When subscribing to a directory under a bucket, ensure the directory name complies with the naming conventions:
+   * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+   * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+   * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
+   * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
    *     - Emojis are not allowed. Use valid UTF-8 characters.
-   *     - / is used to separate paths and can quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+   *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
    *     - Subdirectories named .. are not allowed.
    *     - The total length must be 1 to 254 characters.
    * - File names:
@@ -835,7 +805,7 @@ export default class Client extends OpenApi {
    *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
    *     
    *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
-   * - Monthly bill PDF type files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format is the same.
+   * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
    * 
    * @param tmpReq - CreateReportDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -929,16 +899,16 @@ export default class Client extends OpenApi {
    * Creates a bill report subscription.
    * 
    * @remarks
-   * When calling this operation, note the following:
-   * - A user can subscribe to one type of bill file at a time.
-   * - Except for monthly bill PDFs, after subscription, starting from the next day, the system pushes a bill file that contains full detailed data from the beginning of the current month to date. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
+   * When you call this operation, note the following items:
+   * - You can subscribe to one type of bill file at a time.
+   * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
    * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
-   * - Bill files generated on a daily basis may have latency. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. Pull the full file for the previous month at the beginning of each month.
-   * > Apply for permissions as described in the documentation: [Bill subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription)
-   * - This subscription is the same feature as Expenses and Costs - Bill Subscription. Subscriptions are shared between the two.
-   * - When subscribing to a directory under a bucket, ensure the directory name complies with the naming conventions:
+   * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+   * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+   * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
+   * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
    *     - Emojis are not allowed. Use valid UTF-8 characters.
-   *     - / is used to separate paths and can quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+   *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
    *     - Subdirectories named .. are not allowed.
    *     - The total length must be 1 to 254 characters.
    * - File names:
@@ -947,7 +917,7 @@ export default class Client extends OpenApi {
    *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
    *     
    *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
-   * - Monthly bill PDF type files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format is the same.
+   * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
    * 
    * @param request - CreateReportDefinitionRequest
    * @returns CreateReportDefinitionResponse
@@ -958,58 +928,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a budget.
-   * 
-   * @param request - DeleteBudgetRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteBudgetResponse
-   */
-  async deleteBudgetWithOptions(request: $_model.DeleteBudgetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBudgetResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.nbid)) {
-      query["Nbid"] = request.nbid;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.budgetName)) {
-      body["BudgetName"] = request.budgetName;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DeleteBudget",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DeleteBudgetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBudgetResponse({}));
-  }
-
-  /**
-   * Deletes a budget.
-   * 
-   * @param request - DeleteBudgetRequest
-   * @returns DeleteBudgetResponse
-   */
-  async deleteBudget(request: $_model.DeleteBudgetRequest): Promise<$_model.DeleteBudgetResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.deleteBudgetWithOptions(request, runtime);
-  }
-
-  /**
-   * Delete Cost Center
+   * Deletes a cost center.
    * 
    * @remarks
-   * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+   * This operation is in canary release and is available only to specific whitelisted users. Calling this operation too frequently may cause performance issues such as response timeouts.
    * 
    * @param request - DeleteCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1048,10 +970,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Cost Center
+   * Deletes a cost center.
    * 
    * @remarks
-   * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+   * This operation is in canary release and is available only to specific whitelisted users. Calling this operation too frequently may cause performance issues such as response timeouts.
    * 
    * @param request - DeleteCostCenterRequest
    * @returns DeleteCostCenterResponse
@@ -1062,10 +984,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete financial unit automatic allocation rule
+   * Deletes an automatic allocation rule for a cost center.
    * 
    * @remarks
-   * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+   * This API is in canary release and is available only to specific whitelisted users. Calling this API too frequently may cause performance issues such as response timeouts.
    * 
    * @param tmpReq - DeleteCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1112,10 +1034,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete financial unit automatic allocation rule
+   * Deletes an automatic allocation rule for a cost center.
    * 
    * @remarks
-   * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+   * This API is in canary release and is available only to specific whitelisted users. Calling this API too frequently may cause performance issues such as response timeouts.
    * 
    * @param request - DeleteCostCenterRuleRequest
    * @returns DeleteCostCenterRuleResponse
@@ -1233,118 +1155,6 @@ export default class Client extends OpenApi {
   async deleteReportDefinition(request: $_model.DeleteReportDefinitionRequest): Promise<$_model.DeleteReportDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteReportDefinitionWithOptions(request, runtime);
-  }
-
-  /**
-   * Query a Single Budget
-   * 
-   * @param request - DescribeBudgetRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeBudgetResponse
-   */
-  async describeBudgetWithOptions(request: $_model.DescribeBudgetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBudgetResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.nbid)) {
-      query["Nbid"] = request.nbid;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.budgetName)) {
-      body["BudgetName"] = request.budgetName;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeBudget",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeBudgetResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBudgetResponse({}));
-  }
-
-  /**
-   * Query a Single Budget
-   * 
-   * @param request - DescribeBudgetRequest
-   * @returns DescribeBudgetResponse
-   */
-  async describeBudget(request: $_model.DescribeBudgetRequest): Promise<$_model.DescribeBudgetResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeBudgetWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries a list of budgets.
-   * 
-   * @param request - DescribeBudgetsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeBudgetsResponse
-   */
-  async describeBudgetsWithOptions(request: $_model.DescribeBudgetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBudgetsResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.nbid)) {
-      query["Nbid"] = request.nbid;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.budgetName)) {
-      body["BudgetName"] = request.budgetName;
-    }
-
-    if (!$dara.isNull(request.budgetType)) {
-      body["BudgetType"] = request.budgetType;
-    }
-
-    if (!$dara.isNull(request.expireStatus)) {
-      body["ExpireStatus"] = request.expireStatus;
-    }
-
-    if (!$dara.isNull(request.pageNo)) {
-      body["PageNo"] = request.pageNo;
-    }
-
-    if (!$dara.isNull(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeBudgets",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeBudgetsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBudgetsResponse({}));
-  }
-
-  /**
-   * Queries a list of budgets.
-   * 
-   * @param request - DescribeBudgetsRequest
-   * @returns DescribeBudgetsResponse
-   */
-  async describeBudgets(request: $_model.DescribeBudgetsRequest): Promise<$_model.DescribeBudgetsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeBudgetsWithOptions(request, runtime);
   }
 
   /**
@@ -2158,7 +1968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific order for a user or a reseller\\"s customer.
+   * Queries the details of a specific order for a user or a reseller customer.
    * 
    * @param request - GetOrderDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2197,7 +2007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific order for a user or a reseller\\"s customer.
+   * Queries the details of a specific order for a user or a reseller customer.
    * 
    * @param request - GetOrderDetailRequest
    * @returns GetOrderDetailResponse
@@ -2208,7 +2018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+   * Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
    * 
    * @param request - GetOrdersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2279,7 +2089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+   * Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
    * 
    * @param request - GetOrdersRequest
    * @returns GetOrdersResponse
@@ -2819,7 +2629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify cost centers
+   * Modifies one or more cost centers.
    * 
    * @remarks
    * Modifies one or more cost centers.
@@ -2863,7 +2673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify cost centers
+   * Modifies one or more cost centers.
    * 
    * @remarks
    * Modifies one or more cost centers.
@@ -2877,10 +2687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify financial unit rules
+   * Modifies the automatic allocation rule of a financial unit.
    * 
    * @remarks
-   * Modify one or more financial units
+   * Modifies one or more financial units.
    * 
    * @param tmpReq - ModifyCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2931,10 +2741,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify financial unit rules
+   * Modifies the automatic allocation rule of a financial unit.
    * 
    * @remarks
-   * Modify one or more financial units
+   * Modifies one or more financial units.
    * 
    * @param request - ModifyCostCenterRuleRequest
    * @returns ModifyCostCenterRuleResponse
@@ -3011,10 +2821,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query cost center expense overview
+   * Queries the cost overview of financial units.
    * 
    * @remarks
-   * Query cost center expense overview results for a specified billing period
+   * Queries the cost overview results of a financial unit for a specified billing cycle.
    * 
    * @param request - QueryCostByCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3061,10 +2871,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query cost center expense overview
+   * Queries the cost overview of financial units.
    * 
    * @remarks
-   * Query cost center expense overview results for a specified billing period
+   * Queries the cost overview results of a financial unit for a specified billing cycle.
    * 
    * @param request - QueryCostByCostCenterRequest
    * @returns QueryCostByCostCenterResponse
@@ -3075,10 +2885,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries financial units.
+   * Queries cost centers.
    * 
    * @remarks
-   * Queries a parent financial unit and its child financial units.
+   * Queries a parent cost center and its child cost centers.
    * 
    * @param tmpReq - QueryCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3135,10 +2945,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries financial units.
+   * Queries cost centers.
    * 
    * @remarks
-   * Queries a parent financial unit and its child financial units.
+   * Queries a parent cost center and its child cost centers.
    * 
    * @param request - QueryCostCenterRequest
    * @returns QueryCostCenterResponse
@@ -3149,7 +2959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
+   * Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
    * 
    * @param request - QueryCostCenterResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3202,7 +3012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
+   * Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
    * 
    * @param request - QueryCostCenterResourceRequest
    * @returns QueryCostCenterResourceResponse
@@ -3213,10 +3023,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query cost center rules
+   * Queries the automatic allocation rules of a cost center.
    * 
    * @remarks
-   * Query parent cost center and its child cost centers.
+   * Queries a parent cost center and its child cost centers.
    * 
    * @param request - QueryCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3257,10 +3067,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query cost center rules
+   * Queries the automatic allocation rules of a cost center.
    * 
    * @remarks
-   * Query parent cost center and its child cost centers.
+   * Queries a parent cost center and its child cost centers.
    * 
    * @param request - QueryCostCenterRuleRequest
    * @returns QueryCostCenterRuleResponse
@@ -3338,7 +3148,7 @@ export default class Client extends OpenApi {
    * Queries the SLA compensation list for a user.
    * 
    * @remarks
-   * Provides the SLA compensation details list for a user. Only data from the last two months is available.
+   * Queries the SLA compensation details list for a user. Only data from the last two months is available.
    * 
    * @param request - QueryMonthlySlaListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3402,7 +3212,7 @@ export default class Client extends OpenApi {
    * Queries the SLA compensation list for a user.
    * 
    * @remarks
-   * Provides the SLA compensation details list for a user. Only data from the last two months is available.
+   * Queries the SLA compensation details list for a user. Only data from the last two months is available.
    * 
    * @param request - QueryMonthlySlaListRequest
    * @returns QueryMonthlySlaListResponse
@@ -3413,7 +3223,131 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
+   * 减席位
+   * 
+   * @param request - ReduceCreditSeatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReduceCreditSeatsResponse
+   */
+  async reduceCreditSeatsWithOptions(request: $_model.ReduceCreditSeatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReduceCreditSeatsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReduceCreditSeats",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReduceCreditSeatsResponse>(await this.callApi(params, req, runtime), new $_model.ReduceCreditSeatsResponse({}));
+  }
+
+  /**
+   * 减席位
+   * 
+   * @param request - ReduceCreditSeatsRequest
+   * @returns ReduceCreditSeatsResponse
+   */
+  async reduceCreditSeats(request: $_model.ReduceCreditSeatsRequest): Promise<$_model.ReduceCreditSeatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.reduceCreditSeatsWithOptions(request, runtime);
+  }
+
+  /**
+   * 整体续费席位
+   * 
+   * @param request - RenewCreditSeatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewCreditSeatResponse
+   */
+  async renewCreditSeatWithOptions(request: $_model.RenewCreditSeatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewCreditSeatResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewCreditSeat",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenewCreditSeatResponse>(await this.callApi(params, req, runtime), new $_model.RenewCreditSeatResponse({}));
+  }
+
+  /**
+   * 整体续费席位
+   * 
+   * @param request - RenewCreditSeatRequest
+   * @returns RenewCreditSeatResponse
+   */
+  async renewCreditSeat(request: $_model.RenewCreditSeatRequest): Promise<$_model.RenewCreditSeatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renewCreditSeatWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies cost allocation rules for financial units, including creating, updating, and deleting allocation rules.
    * 
    * @param tmpReq - SaveCostCenterShareRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3474,7 +3408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
+   * Modifies cost allocation rules for financial units, including creating, updating, and deleting allocation rules.
    * 
    * @param request - SaveCostCenterShareRuleRequest
    * @returns SaveCostCenterShareRuleResponse
@@ -3651,10 +3585,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * User claims coupons for the last two months.
+   * Claims SLA compensation coupons for the last two months.
    * 
    * @remarks
-   * 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+   * 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
    * 2. Claim by month or by record.
    * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
    * 
@@ -3701,10 +3635,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * User claims coupons for the last two months.
+   * Claims SLA compensation coupons for the last two months.
    * 
    * @remarks
-   * 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+   * 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
    * 2. Claim by month or by record.
    * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
    * 
@@ -3717,100 +3651,44 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a budget.
+   * 升级席位
    * 
-   * @param tmpReq - UpdateBudgetRequest
+   * @param request - UpgradeCreditSeatRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateBudgetResponse
+   * @returns UpgradeCreditSeatResponse
    */
-  async updateBudgetWithOptions(tmpReq: $_model.UpdateBudgetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBudgetResponse> {
-    tmpReq.validate();
-    let request = new $_model.UpdateBudgetShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.cycleQuota)) {
-      request.cycleQuotaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cycleQuota, "CycleQuota", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
-      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.queryFilter)) {
-      request.queryFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryFilter, "QueryFilter", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.warnConfs)) {
-      request.warnConfsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.warnConfs, "WarnConfs", "json");
-    }
-
+  async upgradeCreditSeatWithOptions(request: $_model.UpgradeCreditSeatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeCreditSeatResponse> {
+    request.validate();
     let query = { };
-    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
-      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.nbid)) {
-      query["Nbid"] = request.nbid;
+    if (!$dara.isNull(request.configs)) {
+      query["Configs"] = request.configs;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.budgetName)) {
-      body["BudgetName"] = request.budgetName;
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
     }
 
-    if (!$dara.isNull(request.budgetType)) {
-      body["BudgetType"] = request.budgetType;
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
     }
 
-    if (!$dara.isNull(request.comment)) {
-      body["Comment"] = request.comment;
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.cycleEndPeriod)) {
-      body["CycleEndPeriod"] = request.cycleEndPeriod;
-    }
-
-    if (!$dara.isNull(request.cycleQuotaShrink)) {
-      body["CycleQuota"] = request.cycleQuotaShrink;
-    }
-
-    if (!$dara.isNull(request.cycleStartPeriod)) {
-      body["CycleStartPeriod"] = request.cycleStartPeriod;
-    }
-
-    if (!$dara.isNull(request.cycleType)) {
-      body["CycleType"] = request.cycleType;
-    }
-
-    if (!$dara.isNull(request.metric)) {
-      body["Metric"] = request.metric;
-    }
-
-    if (!$dara.isNull(request.originalBudgetName)) {
-      body["OriginalBudgetName"] = request.originalBudgetName;
-    }
-
-    if (!$dara.isNull(request.queryFilterShrink)) {
-      body["QueryFilter"] = request.queryFilterShrink;
-    }
-
-    if (!$dara.isNull(request.quota)) {
-      body["Quota"] = request.quota;
-    }
-
-    if (!$dara.isNull(request.quotaType)) {
-      body["QuotaType"] = request.quotaType;
-    }
-
-    if (!$dara.isNull(request.warnConfsShrink)) {
-      body["WarnConfs"] = request.warnConfsShrink;
+    if (!$dara.isNull(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
-      action: "UpdateBudget",
+      action: "UpgradeCreditSeat",
       version: "2023-09-30",
       protocol: "HTTPS",
       pathname: "/",
@@ -3820,18 +3698,18 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.UpdateBudgetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBudgetResponse({}));
+    return $dara.cast<$_model.UpgradeCreditSeatResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeCreditSeatResponse({}));
   }
 
   /**
-   * Updates a budget.
+   * 升级席位
    * 
-   * @param request - UpdateBudgetRequest
-   * @returns UpdateBudgetResponse
+   * @param request - UpgradeCreditSeatRequest
+   * @returns UpgradeCreditSeatResponse
    */
-  async updateBudget(request: $_model.UpdateBudgetRequest): Promise<$_model.UpdateBudgetResponse> {
+  async upgradeCreditSeat(request: $_model.UpgradeCreditSeatRequest): Promise<$_model.UpgradeCreditSeatResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.updateBudgetWithOptions(request, runtime);
+    return await this.upgradeCreditSeatWithOptions(request, runtime);
   }
 
 }

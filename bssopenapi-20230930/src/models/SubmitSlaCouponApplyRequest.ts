@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSlaCouponApplyRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * List of accounts to access. If empty, all accounts under the current entity ID are selected.
+   * The list of accounts to access. If this parameter is left empty, all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
    * @remarks
-   * Enterprise entity ID.
+   * The enterprise entity ID.
    * 
    * @example
    * 1501603440974415
@@ -45,17 +45,17 @@ export class SubmitSlaCouponApplyRequestEcIdAccountIds extends $dara.Model {
 export class SubmitSlaCouponApplyRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. Damaged record IDs.
+   * The IDs of the damaged records. This parameter is optional.
    */
   damagedIds?: string[];
   /**
    * @remarks
-   * Enterprise and account list. If empty, the current account itself is queried.
+   * The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIds?: SubmitSlaCouponApplyRequestEcIdAccountIds[];
   /**
    * @remarks
-   * Required. Application month in the yyyyMM format.
+   * The claim month. This parameter is required. Format: yyyyMM.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class SubmitSlaCouponApplyRequest extends $dara.Model {
   month?: number;
   /**
    * @remarks
-   * Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2084210001

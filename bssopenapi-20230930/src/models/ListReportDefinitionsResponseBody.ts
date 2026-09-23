@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Model {
   /**
    * @remarks
-   * The start billing cycle for push. After the subscription is created, the system automatically pushes data from the start billing cycle to the current time. This parameter does not take effect for monthly bill PDF subscriptions, and historical data is not re-pushed. Data within the last year can be pushed.
+   * The start billing cycle for push. After the subscription is created, the system automatically pushes data from the start billing cycle to the current time. This parameter does not take effect for monthly bill PDF subscriptions, and historical data is not re-pushed. Data within the last year can be pushed at most.
    * 
    * @example
    * 2025-05
@@ -13,7 +13,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   beginBillingCycle?: string;
   /**
    * @remarks
-   * The name of the OSS bucket that stores the files.
+   * The name of the OSS bucket for file storage.
    * 
    * @example
    * oss-bill
@@ -21,7 +21,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   ossBucketName?: string;
   /**
    * @remarks
-   * The UID of the OSS bucket owner that stores the files. Specify this parameter when a Bid/Reseller subscription needs to push data to the OSS bucket of a sub-account. The specified account must be a sub-account of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. The calling account is used by default.
+   * The UID of the OSS owner that stores the files. If a Bid/Reseller subscription is used and data needs to be pushed to the OSS bucket of a sub-account, specify this parameter. The specified account must be a sub-account of the calling account, and the AliyunConsumeDump2OSSRole permission must be granted to this account. Regular users do not need to specify this parameter. The calling account is used by default.
    * 
    * @example
    * 1234567812345678
@@ -37,7 +37,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   ossBucketPath?: string;
   /**
    * @remarks
-   * The subscription source name.
+   * The name of the subscription source.
    * 
    * @example
    * OSS
@@ -53,7 +53,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   reportSourceType?: string;
   /**
    * @remarks
-   * The bill subscription task ID.
+   * The ID of the bill subscription task.
    * 
    * @example
    * 123321
@@ -62,14 +62,18 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   /**
    * @remarks
    * The subscription type. Valid values:
-   * - BillingItemDetailForBillingPeriod: billable item consumption details.
+   * - BillingItemDetailForBillingPeriod: billing item consumption details.
    * - InstanceDetailForBillingPeriod: instance consumption details.
-   * - BillingItemDetailMonthly: billable item consumption summary by billing cycle.
+   * - BillingItemDetailMonthly: billing item consumption summary by billing cycle.
    * 
    * @example
    * BillingItemDetailForBillingPeriod
    */
   reportType?: string;
+  /**
+   * @remarks
+   * The fields specified by the user for the subscription.
+   */
   selectedFields?: string[];
   /**
    * @remarks
@@ -129,7 +133,7 @@ export class ListReportDefinitionsResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The data list.
+   * The list of report definitions.
    */
   reportDefinitions?: ListReportDefinitionsResponseBodyReportDefinitions[];
   /**

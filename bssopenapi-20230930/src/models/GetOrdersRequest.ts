@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOrdersRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the order creation time range. If not specified, orders created within the most recent hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
+   * The end of the time range for order creation. By default, orders created within the most recent 1 hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
    * 
    * @example
    * 2016-05-23T12:00:00Z
@@ -13,7 +13,7 @@ export class GetOrdersRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The start of the order creation time range. If not specified, orders created within the most recent hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
+   * The start of the time range for order creation. By default, orders created within the most recent 1 hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
    * 
    * @example
    * 2016-05-23T13:00:00Z
@@ -21,7 +21,7 @@ export class GetOrdersRequest extends $dara.Model {
   createTimeStart?: string;
   /**
    * @remarks
-   * The UID of a member account in an enterprise with multiple member accounts. Leave this parameter empty if this scenario does not apply.
+   * The UID of a member account in the enterprise multi-account management. Leave this parameter empty if this scenario does not apply.
    * 
    * @example
    * 1779628988149763
@@ -69,9 +69,9 @@ export class GetOrdersRequest extends $dara.Model {
    * The payment status. For non-refund orders, valid values:
    * - Unpaid: unpaid.
    * - Paid: paid.
-   * - Cancelled: canceled.
+   * - Cancelled: cancelled.
    * 
-   * > For refund orders, set this parameter to NULL.
+   * > For refund orders, this parameter can be set to NULL.
    * 
    * @example
    * Paid

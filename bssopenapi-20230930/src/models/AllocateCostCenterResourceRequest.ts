@@ -7,7 +7,7 @@ export class AllocateCostCenterResourceRequestResourceInstanceList extends $dara
    * @remarks
    * The attached resource type of the attached-resource instance. This parameter is required only for attached-resource product instances.
    * - Currently, eight commodities support attached resources. The commodity codes are oss, dcdn, snapshot, vod, cdn, live, and cbwp.
-   * - You can call the QueryCostUnitResource operation to obtain all billing instances (including attached-resource instances with their attached resources) under a specific cost center (including the unallocated cost center) of a user.
+   * - You can call the QueryCostUnitResource operation to retrieve all billing instances (including attached-resource instances with their attached resource types) under a specific cost center (including the unallocated cost center) of a user.
    * 
    * @example
    * qwer1-cn-beijing
@@ -15,7 +15,7 @@ export class AllocateCostCenterResourceRequestResourceInstanceList extends $dara
   apportionCode?: string;
   /**
    * @remarks
-   * The attached resource name.
+   * The name of the attached resource.
    * 
    * @example
    * split-item-test1
@@ -87,7 +87,7 @@ export class AllocateCostCenterResourceRequestResourceInstanceList extends $dara
   resourceNick?: string;
   /**
    * @remarks
-   * The resource source. Valid values:
+   * The source of the resource. Valid values:
    * - AUTO_ALLOCATE: automatic allocation.
    * - MANUAL_ALLOCATE: manual allocation.
    * 
@@ -129,7 +129,7 @@ export class AllocateCostCenterResourceRequestResourceInstanceList extends $dara
   resourceUserId?: number;
   /**
    * @remarks
-   * The resource ownership username.
+   * The username of the resource ownership user.
    * 
    * @example
    * test
@@ -191,7 +191,7 @@ export class AllocateCostCenterResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the source cost center. This parameter is required.
    * 
-   * - 0 indicates that the cost center is unallocated.
+   * - 0 indicates the unallocated cost center.
    * - A value greater than 0 indicates an allocated cost center ID.
    * 
    * @example
@@ -225,8 +225,8 @@ export class AllocateCostCenterResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the destination cost center. Valid values:
    * 
-   * - -1: moves the allocated resource to the unallocated state.
-   * - A value greater than 0: allocates the resource to the specified cost center.
+   * - -1: moves allocated resources back to the unallocated state.
+   * - A value greater than 0: allocates resources to the specified cost center.
    * 
    * @example
    * 638288
