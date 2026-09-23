@@ -17,7 +17,7 @@ export class SetAccessKeyPolicyRequest extends $dara.Model {
   accessKeyPolicy?: string;
   /**
    * @remarks
-   * The AccessKey ID.
+   * The access key ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class SetAccessKeyPolicyRequest extends $dara.Model {
    * @remarks
    * The logon name of the RAM user. 
    * 
-   * If this parameter is left empty, the network access restriction policy is set for the specified AccessKey pair of the current user by default.
+   * If this parameter is left empty, the network access restriction policy is set for the specified access key of the current user by default.
    * 
    * @example
    * test@example.onaliyun.com

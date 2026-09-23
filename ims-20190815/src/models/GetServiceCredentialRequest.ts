@@ -16,7 +16,7 @@ export class GetServiceCredentialRequest extends $dara.Model {
   /**
    * @remarks
    * The logon name of the Resource Access Management (RAM) user.
-   * If not specified, the service credential of the current caller identity that invokes this operation is retrieved.
+   * If not specified, the service credential of the current identity that invokes this operation is retrieved.
    * 
    * @example
    * test@example.onaliyun.com

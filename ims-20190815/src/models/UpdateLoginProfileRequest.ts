@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoginProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enforce multi-factor authentication (MFA) for the RAM user. Valid values:
+   * Specifies whether the Resource Access Management (RAM) user is required to enable multi-factor authentication (MFA). Valid values:
    * 
-   * - true: Enforce MFA. The RAM user must attach an MFA device at the next logon.
-   * 
-   * - false: Do not enforce MFA.
+   * - true: MFA is required. The RAM user must attach an MFA device at the next logon.
+   * - false: MFA is not required.
    * 
    * @example
    * false
@@ -17,9 +16,9 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * The new console logon password for the RAM user.
+   * The new console logon password of the Resource Access Management (RAM) user.
    * 
-   * The password must meet the password policy.
+   * The password must meet the password strength requirements.
    * 
    * @example
    * mypassword
@@ -27,10 +26,9 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether the RAM user must reset the password at the next logon. Valid values:
+   * Specifies whether the Resource Access Management (RAM) user is required to reset the password at the next logon. Valid values:
    * 
    * - true
-   * 
    * - false
    * 
    * @example
@@ -39,11 +37,10 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable password-based logon to the console. Valid values:
+   * Enables or disables console password logon. Valid values:
    * 
-   * - Active: Enable
-   * 
-   * - Inactive: Disable
+   * - Active: enables console password logon.
+   * - Inactive: disables console password logon.
    * 
    * @example
    * Active
@@ -51,7 +48,7 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
    * This parameter is required.
    * 

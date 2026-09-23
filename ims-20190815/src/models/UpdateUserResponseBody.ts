@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * The description.
+   * The comments.
    * 
    * @example
    * This is a cloud computing engineer.
@@ -13,7 +13,9 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   comments?: string;
   /**
    * @remarks
-   * The time when the RAM user was created.
+   * The time when the Resource Access Management (RAM) user was created.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-12T09:12:00Z.
    * 
    * @example
    * 2020-10-12T09:12:00Z
@@ -21,7 +23,7 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The display name of the RAM user.
+   * The display name of the Resource Access Management (RAM) user.
    * 
    * @example
    * new
@@ -29,9 +31,9 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The email address of the RAM user.
+   * The email address of the Resource Access Management (RAM) user.
    * 
-   * > This parameter is valid only on the China site (aliyun.com).
+   * > This parameter is applicable only to China site (aliyun.com).
    * 
    * @example
    * alice@example.com
@@ -39,7 +41,9 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The last time when the RAM user logged on to the Alibaba Cloud Management Console.
+   * The most recent time when the Resource Access Management (RAM) user logged on to the console.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-12T09:12:00Z.
    * 
    * @example
    * 2020-10-12T09:12:00Z
@@ -47,9 +51,9 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   lastLoginDate?: string;
   /**
    * @remarks
-   * The mobile phone number of the RAM user.
+   * The mobile phone number of the Resource Access Management (RAM) user.
    * 
-   * > This parameter is valid only on the China site (aliyun.com).
+   * > This parameter is applicable only to China site (aliyun.com).
    * 
    * @example
    * 86-1868888****
@@ -57,13 +61,10 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   mobilePhone?: string;
   /**
    * @remarks
-   * The source of the RAM user. Valid values:
-   * 
-   * - Manual: The RAM user is manually created in the RAM console.
-   * 
-   * - SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
-   * 
-   * - CloudSSO: The RAM user is mapped from a CloudSSO user.
+   * The synchronization type. Valid values:
+   * - Manual: The Resource Access Management (RAM) user was manually created in RAM.
+   * - SCIM: The Resource Access Management (RAM) user was created by using the System for Cross-domain Identity Management protocol.
+   * - CloudSSO: The user was created by using CloudSSO.
    * 
    * @example
    * Manual
@@ -71,7 +72,9 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   provisionType?: string;
   /**
    * @remarks
-   * The time when the information about the RAM user was updated.
+   * The time when the Resource Access Management (RAM) user was last updated.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-13T09:19:49Z.
    * 
    * @example
    * 2020-10-13T09:19:49Z
@@ -79,7 +82,7 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   updateDate?: string;
   /**
    * @remarks
-   * The ID of the RAM user.
+   * The ID of the Resource Access Management (RAM) user.
    * 
    * @example
    * 20732900249392****
@@ -87,7 +90,7 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
    * @example
    * new@example.onaliyun.com
@@ -143,7 +146,7 @@ export class UpdateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the RAM user.
+   * The Resource Access Management (RAM) user information.
    */
   user?: UpdateUserResponseBodyUser;
   static names(): { [key: string]: string } {

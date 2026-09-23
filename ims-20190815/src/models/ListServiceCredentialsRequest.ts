@@ -7,7 +7,7 @@ export class ListServiceCredentialsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query service credentials for all Resource Access Management (RAM) users under the Alibaba Cloud account.
    * 
-   * If this parameter is set to true, you cannot specify UserPrincipalName at the same time.
+   * When the value is true, you cannot specify UserPrincipalName at the same time.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListServiceCredentialsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first API call.
+   * The token used to retrieve the next page of results. This parameter is not required for the first API call.
    * 
    * @example
    * EXAMPLE*******
@@ -40,7 +40,7 @@ export class ListServiceCredentialsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The service name of the Alibaba Cloud service.
+   * The Alibaba Cloud service name.
    * 
    * @example
    * xxx.aliyuncs.com

@@ -90,6 +90,11 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
    */
   accountId?: string;
   /**
+   * @example
+   * ThirdParty
+   */
+  appCategory?: string;
+  /**
    * @remarks
    * The ID of the application.
    * 
@@ -105,6 +110,11 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
    * GiteePrd
    */
   appName?: string;
+  /**
+   * @example
+   * AllowAll
+   */
+  assignmentType?: string;
   /**
    * @remarks
    * The time when the application was installed. The value is a timestamp.
@@ -127,6 +137,11 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
    */
   displayName?: string;
   /**
+   * @example
+   * true
+   */
+  needPrincipalConsent?: boolean;
+  /**
    * @remarks
    * The update time. The value is a timestamp.
    * 
@@ -137,11 +152,14 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      appCategory: 'AppCategory',
       appId: 'AppId',
       appName: 'AppName',
+      assignmentType: 'AssignmentType',
       createDate: 'CreateDate',
       delegatedScope: 'DelegatedScope',
       displayName: 'DisplayName',
+      needPrincipalConsent: 'NeedPrincipalConsent',
       updateDate: 'UpdateDate',
     };
   }
@@ -149,11 +167,14 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+      appCategory: 'string',
       appId: 'string',
       appName: 'string',
+      assignmentType: 'string',
       createDate: 'string',
       delegatedScope: GetApplicationProvisionInfoResponseBodyApplicationProvisionInfoDelegatedScope,
       displayName: 'string',
+      needPrincipalConsent: 'boolean',
       updateDate: 'string',
     };
   }

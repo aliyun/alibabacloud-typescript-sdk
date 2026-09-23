@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of access keys that a RAM user can have.
+   * The maximum number of AccessKey pairs that each Resource Access Management (RAM) user can have.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   accessKeysPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of access keys that an Alibaba Cloud account can have.
+   * The maximum number of AccessKey pairs for the Alibaba Cloud account.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   accountAccessKeysPerAccountQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be attached to a user group.
+   * The maximum number of custom policies that can be attached to each user group.
    * 
    * @example
    * 5
@@ -29,7 +29,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerGroupQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be attached to a RAM role.
+   * The maximum number of custom policies that can be attached to each RAM role.
    * 
    * @example
    * 5
@@ -37,7 +37,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerRoleQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be attached to a RAM user.
+   * The maximum number of custom policies that can be attached to each RAM user.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be attached to a user group.
+   * The maximum number of system policies that can be attached to each user group.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedSystemPoliciesPerGroupQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be attached to a RAM role.
+   * The maximum number of system policies that can be attached to each RAM role.
    * 
    * @example
    * 20
@@ -61,16 +61,23 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedSystemPoliciesPerRoleQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be attached to a RAM user.
+   * The maximum number of system policies that can be attached to each RAM user.
    * 
    * @example
    * 20
    */
   attachedSystemPoliciesPerUserQuota?: number;
+  /**
+   * @remarks
+   * The maximum number of authorized clients that each RAM user can have.
+   * 
+   * @example
+   * 0
+   */
   authorizedClientPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of conditions allowed in a network access control policy for an account or an access key.
+   * The maximum number of policy entries that can be specified in an account-level or AccessKey-level network access restriction policy.
    * 
    * @example
    * 8
@@ -86,7 +93,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   groups?: number;
   /**
    * @remarks
-   * The maximum number of user groups to which a RAM user can be added.
+   * The maximum number of user groups that each Resource Access Management (RAM) user can join.
    * 
    * @example
    * 5
@@ -102,7 +109,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   groupsQuota?: number;
   /**
    * @remarks
-   * The maximum number of IP addresses or CIDR blocks allowed in a network access control policy for an account or an access key.
+   * The maximum number of IP addresses that can be specified in an account-level or AccessKey-level network access restriction policy.
    * 
    * @example
    * 50
@@ -110,7 +117,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   IPItemsPerAKPolicyQuota?: number;
   /**
    * @remarks
-   * The number of virtual MFA devices.
+   * The number of virtual multi-factor authentication devices.
    * 
    * @example
    * 13
@@ -118,7 +125,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   MFADevices?: number;
   /**
    * @remarks
-   * The number of virtual MFA devices in use.
+   * The number of virtual multi-factor authentication devices in use.
    * 
    * @example
    * 2
@@ -142,7 +149,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   policiesQuota?: number;
   /**
    * @remarks
-   * The maximum character length of a policy document.
+   * The maximum length of the access policy content.
    * 
    * @example
    * 2048
@@ -166,7 +173,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   rolesQuota?: number;
   /**
    * @remarks
-   * The maximum number of service-specific credentials that a RAM user can create for each service.
+   * The maximum number of API keys that each user can create for each service.
    * 
    * @example
    * 2
@@ -174,7 +181,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   serviceCredentialsPerUserPerServiceQuota?: number;
   /**
    * @remarks
-   * The number of RAM users.
+   * The number of Resource Access Management (RAM) users.
    * 
    * @example
    * 9
@@ -182,7 +189,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   users?: number;
   /**
    * @remarks
-   * The maximum number of RAM users that can be created.
+   * The maximum number of Resource Access Management (RAM) users that can be created.
    * 
    * @example
    * 1000
@@ -190,7 +197,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   usersQuota?: number;
   /**
    * @remarks
-   * The maximum number of versions that can be created for a policy.
+   * The maximum number of access policy versions.
    * 
    * @example
    * 5
@@ -198,7 +205,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   versionsPerPolicyQuota?: number;
   /**
    * @remarks
-   * The maximum number of virtual MFA devices that can be created.
+   * The maximum number of virtual multi-factor authentication devices that can be created.
    * 
    * @example
    * 1000
@@ -278,7 +285,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
 export class GetAccountSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 81313F5E-3C85-478F-BCC9-E1B70E4556DB
@@ -286,7 +293,7 @@ export class GetAccountSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An overview of the Alibaba Cloud account.
+   * The overview information of the Alibaba Cloud account.
    */
   summaryMap?: GetAccountSummaryResponseBodySummaryMap;
   static names(): { [key: string]: string } {

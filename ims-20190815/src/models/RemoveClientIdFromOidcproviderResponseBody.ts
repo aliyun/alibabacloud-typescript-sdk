@@ -13,7 +13,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   arn?: string;
   /**
    * @remarks
-   * The ID of the client. If multiple client IDs are returned, the client IDs are separated by commas (,).
+   * The client IDs. Multiple client IDs are separated by commas (,).
    * 
    * @example
    * 598469743454717****
@@ -37,7 +37,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   description?: string;
   /**
    * @remarks
-   * The fingerprint of the HTTPS certificate. If multiple fingerprints are returned, the fingerprints are separated by commas (,).
+   * The fingerprints of the HTTPS CA certificate. Multiple fingerprints are separated by commas (,).
    * 
    * @example
    * 902ef2deeb3c5b13ea4c3d5193629309e231****
@@ -45,7 +45,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   fingerprints?: string;
   /**
    * @remarks
-   * The timestamp when the OIDC IdP was created.
+   * The time when the OIDC IdP was created. The value is a UNIX timestamp.
    * 
    * @example
    * 1636613763000
@@ -53,7 +53,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   gmtCreate?: string;
   /**
    * @remarks
-   * The timestamp when the OIDC IdP was modified.
+   * The time when the OIDC IdP was last modified. The value is a UNIX timestamp.
    * 
    * @example
    * 1636706309000
@@ -61,7 +61,8 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   gmtModified?: string;
   /**
    * @remarks
-   * The earliest time when an external IdP can issue an ID token. If the value of the iat field in the ID token is later than the current time, the request is rejected. Unit: hours. Valid values: 1 to 168.
+   * The earliest time when an external IdP is allowed to issue an ID token. If the iat field in the ID token indicates a time earlier than the current time by more than this value, the request is rejected.
+   * Unit: hours. Valid values: 1 to 168.
    * 
    * @example
    * 12
@@ -69,7 +70,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   issuanceLimitTime?: number;
   /**
    * @remarks
-   * The URL of the issuer.
+   * The issuer URL.
    * 
    * @example
    * https://xxxxxx.example.com
@@ -85,7 +86,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   OIDCProviderName?: string;
   /**
    * @remarks
-   * The time when the OIDC IdP was modified. The time is displayed in UTC.
+   * The time when the OIDC IdP was last modified. The time is displayed in UTC.
    * 
    * @example
    * 2021-11-12T08:38:29Z

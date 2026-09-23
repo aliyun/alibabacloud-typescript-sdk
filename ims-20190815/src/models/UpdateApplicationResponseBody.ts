@@ -58,10 +58,6 @@ export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
 }
 
 export class UpdateApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the permissions that are granted on the application.
-   */
   predefinedScopes?: UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -124,7 +120,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   accessTokenValidity?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the application belongs.
+   * The Alibaba Cloud account ID to which the application belongs.
    * 
    * @example
    * 177242285274****
@@ -156,7 +152,9 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The time when the application was created.
+   * The creation time.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-23T08:06:57Z.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -164,7 +162,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The information about the permissions that are granted on the application.
+   * The permission scope information of the application.
    */
   delegatedScope?: UpdateApplicationResponseBodyApplicationDelegatedScope;
   /**
@@ -177,7 +175,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the application can be installed by using other Alibaba Cloud accounts.
+   * Indicates whether the application is allowed to be installed by other accounts.
    * 
    * @example
    * true
@@ -186,19 +184,13 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
    * The OAuth protocol version of the application. Valid values:
-   * 
-   * - `2.0`: OAuth 2.0
-   * 
-   * - `2.1`: OAuth 2.1
+   * + `2.0`: OAuth 2.0 protocol.
+   * + `2.1`: OAuth 2.1 protocol.
    * 
    * @example
    * 2.0
    */
   protocolVersion?: string;
-  /**
-   * @remarks
-   * The redirect URLs.
-   */
   redirectUris?: UpdateApplicationResponseBodyApplicationRedirectUris;
   /**
    * @remarks
@@ -210,7 +202,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   refreshTokenValidity?: number;
   /**
    * @remarks
-   * Indicates whether a secret is required.
+   * Indicates whether an application secret is required.
    * 
    * @example
    * true
@@ -218,7 +210,9 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   secretRequired?: boolean;
   /**
    * @remarks
-   * The time when the application was updated.
+   * The update time.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-23T08:06:57Z.
    * 
    * @example
    * 2020-10-23T08:06:57Z

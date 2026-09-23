@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the service credential, in days.
-   * Valid values: 1 to 36600.
-   * If this parameter is not specified, the service credential is permanently valid.
+   * The expiration period of the service credential, in days. Valid values: 1 to 36600. If this parameter is not specified, the service credential never expires.
    * 
    * @example
    * 30
@@ -18,8 +16,7 @@ export class CreateServiceCredentialRequest extends $dara.Model {
   credentialAgeDays?: number;
   /**
    * @remarks
-   * The service credential name.
-   * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+   * The name of the service credential. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -29,7 +26,7 @@ export class CreateServiceCredentialRequest extends $dara.Model {
   serviceCredentialName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud service name.
+   * The service name of the Alibaba Cloud service.
    * 
    * This parameter is required.
    * 
@@ -39,8 +36,7 @@ export class CreateServiceCredentialRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
-   * If this parameter is left empty, a service credential is created for the current user by default.
+   * The logon name of the RAM user. If this parameter is left empty, the service credential is created for the current user by default.
    * 
    * @example
    * test@example.onaliyun.com

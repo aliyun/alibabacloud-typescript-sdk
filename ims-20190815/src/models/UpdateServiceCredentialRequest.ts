@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * The service credential ID.
+   * The ID of the service credential.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateServiceCredentialRequest extends $dara.Model {
   serviceCredentialId?: string;
   /**
    * @remarks
-   * The name of the service credential. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). Specify at least one of Status and ServiceCredentialName.
+   * The name of the service credential. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). You must specify at least one of Status and ServiceCredentialName.
    * 
    * @example
    * yourServiceCredentialName
@@ -23,11 +23,7 @@ export class UpdateServiceCredentialRequest extends $dara.Model {
   serviceCredentialName?: string;
   /**
    * @remarks
-   * The status of the service credential. Valid values:
-   * - Active
-   * - Inactive
-   * 
-   * Specify at least one of Status and ServiceCredentialName.
+   * The status of the service credential. Valid values: Active, Inactive. You must specify at least one of Status and ServiceCredentialName.
    * 
    * @example
    * Active
@@ -35,7 +31,7 @@ export class UpdateServiceCredentialRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The logon name of the Resource Access Management (RAM) user. If this parameter is not specified, the service credential of the identity that invokes this operation is modified.
+   * The logon name of the Resource Access Management (RAM) user. If not specified, the service credential of the current invoke identity is updated.
    * 
    * @example
    * test@example.onaliyun.com

@@ -83,7 +83,7 @@ export class ProvisionExternalApplicationResponseBodyExternalApplicationDelegate
 export class ProvisionExternalApplicationResponseBodyExternalApplication extends $dara.Model {
   /**
    * @remarks
-   * The name of the application principal. The value is in the `<app_name>@app.<account_id>.onaliyun.com` format.
+   * The application principal name in the format of `<app_name>@app.<account_id>.onaliyun.com`.
    * 
    * @example
    * GiteePrd@app.177242285274****.onaliyun.com
@@ -91,7 +91,7 @@ export class ProvisionExternalApplicationResponseBodyExternalApplication extends
   appPrincipalName?: string;
   /**
    * @remarks
-   * The time when the application was installed. The value is a timestamp.
+   * The installation timestamp.
    * 
    * @example
    * 1603693518000
@@ -99,12 +99,12 @@ export class ProvisionExternalApplicationResponseBodyExternalApplication extends
   createDate?: string;
   /**
    * @remarks
-   * The information about the scopes of permissions that are granted to the application.
+   * The permission scope information of the application.
    */
   delegatedScope?: ProvisionExternalApplicationResponseBodyExternalApplicationDelegatedScope;
   /**
    * @remarks
-   * The display name of the application.
+   * The display name.
    * 
    * @example
    * GiteeAliyun
@@ -112,7 +112,7 @@ export class ProvisionExternalApplicationResponseBodyExternalApplication extends
   displayName?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The external application ID.
    * 
    * @example
    * 403550611646604****
@@ -120,7 +120,7 @@ export class ProvisionExternalApplicationResponseBodyExternalApplication extends
   foreignAppId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the external application belongs.
+   * The Alibaba Cloud account ID to which the external application is installed.
    * 
    * @example
    * 157242285274****
@@ -128,7 +128,7 @@ export class ProvisionExternalApplicationResponseBodyExternalApplication extends
   tenantId?: string;
   /**
    * @remarks
-   * The update time. The value is a timestamp.
+   * The update timestamp.
    * 
    * @example
    * 1603693518000
@@ -173,7 +173,7 @@ export class ProvisionExternalApplicationResponseBodyExternalApplication extends
 export class ProvisionExternalApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the external application.
+   * The external application information.
    */
   externalApplication?: ProvisionExternalApplicationResponseBodyExternalApplication;
   /**

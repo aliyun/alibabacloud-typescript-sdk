@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetAccessKeyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID.
+   * The access key ID.
    * 
    * @example
    * LTAI*******************

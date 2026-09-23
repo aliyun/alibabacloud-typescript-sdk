@@ -82,20 +82,26 @@ export class ListApplicationProvisionInfosResponseBodyApplicationProvisionInfosA
 
 export class ListApplicationProvisionInfosResponseBodyApplicationProvisionInfosApplicationProvisionInfo extends $dara.Model {
   accountId?: string;
+  appCategory?: string;
   appId?: string;
   appName?: string;
+  assignmentType?: string;
   createDate?: string;
   delegatedScope?: ListApplicationProvisionInfosResponseBodyApplicationProvisionInfosApplicationProvisionInfoDelegatedScope;
   displayName?: string;
+  needPrincipalConsent?: boolean;
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      appCategory: 'AppCategory',
       appId: 'AppId',
       appName: 'AppName',
+      assignmentType: 'AssignmentType',
       createDate: 'CreateDate',
       delegatedScope: 'DelegatedScope',
       displayName: 'DisplayName',
+      needPrincipalConsent: 'NeedPrincipalConsent',
       updateDate: 'UpdateDate',
     };
   }
@@ -103,11 +109,14 @@ export class ListApplicationProvisionInfosResponseBodyApplicationProvisionInfosA
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+      appCategory: 'string',
       appId: 'string',
       appName: 'string',
+      assignmentType: 'string',
       createDate: 'string',
       delegatedScope: ListApplicationProvisionInfosResponseBodyApplicationProvisionInfosApplicationProvisionInfoDelegatedScope,
       displayName: 'string',
+      needPrincipalConsent: 'boolean',
       updateDate: 'string',
     };
   }

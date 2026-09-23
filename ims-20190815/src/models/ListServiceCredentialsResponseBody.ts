@@ -7,6 +7,8 @@ export class ListServiceCredentialsResponseBodyServiceCredentials extends $dara.
    * @remarks
    * The time when the service credential was created.
    * 
+   * Format: RFC 3339 (UTC). Example: 2026-05-07T05:49:57Z.
+   * 
    * @example
    * 2026-05-07T05:49:57Z
    */
@@ -14,6 +16,8 @@ export class ListServiceCredentialsResponseBodyServiceCredentials extends $dara.
   /**
    * @remarks
    * The expiration time. This field is not returned for permanent service credentials.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2026-06-07T05:49:57Z.
    * 
    * @example
    * 2026-06-07T05:49:57Z
@@ -40,7 +44,7 @@ export class ListServiceCredentialsResponseBodyServiceCredentials extends $dara.
   serviceCredentialName?: string;
   /**
    * @remarks
-   * The service name of the Alibaba Cloud service.
+   * The Alibaba Cloud service name.
    * 
    * @example
    * xxx.aliyuncs.com
@@ -98,7 +102,7 @@ export class ListServiceCredentialsResponseBodyServiceCredentials extends $dara.
 export class ListServiceCredentialsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether there is a next page of results.
+   * Indicates whether there is a next page.
    * 
    * @example
    * true
@@ -114,7 +118,7 @@ export class ListServiceCredentialsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The token used to retrieve the next page of results.
    * 
    * @example
    * EXAMPLE*******

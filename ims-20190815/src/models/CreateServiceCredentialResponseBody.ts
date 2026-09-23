@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceCredentialResponseBodyServiceCredential extends $dara.Model {
   /**
    * @remarks
-   * The time when the service credential was created.
+   * The time when the service credential was created. The time follows RFC 3339 (UTC). Example: 2026-01-01T10:05:24Z.
    * 
    * @example
    * 2026-01-01T10:05:24Z
@@ -13,8 +13,7 @@ export class CreateServiceCredentialResponseBodyServiceCredential extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The expiration time of the service credential.
-   * This field is not returned for permanently valid service credentials.
+   * The expiration time of the service credential. This field is not returned for service credentials that never expire. The time follows RFC 3339 (UTC). Example: 2026-02-01T10:05:24Z.
    * 
    * @example
    * 2026-02-01T10:05:24Z
@@ -25,7 +24,7 @@ export class CreateServiceCredentialResponseBodyServiceCredential extends $dara.
   expirationTime?: string;
   /**
    * @remarks
-   * The service credential ID.
+   * The ID of the service credential.
    * 
    * @example
    * SC*************
@@ -33,7 +32,7 @@ export class CreateServiceCredentialResponseBodyServiceCredential extends $dara.
   serviceCredentialId?: string;
   /**
    * @remarks
-   * The service credential name.
+   * The name of the service credential.
    * 
    * @example
    * yourServiceCredentialName
@@ -49,7 +48,7 @@ export class CreateServiceCredentialResponseBodyServiceCredential extends $dara.
   serviceCredentialSecret?: string;
   /**
    * @remarks
-   * The Alibaba Cloud service name.
+   * The service name of the Alibaba Cloud service.
    * 
    * @example
    * xxx.aliyuncs.com
@@ -57,7 +56,10 @@ export class CreateServiceCredentialResponseBodyServiceCredential extends $dara.
   serviceName?: string;
   /**
    * @remarks
-   * The status of the service credential.
+   * The status of the service credential. Valid values:
+   * - Active: enabled.
+   * - Inactive: disabled.
+   * - Expired: expired.
    * 
    * @example
    * Active

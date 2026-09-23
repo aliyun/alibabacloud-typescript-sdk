@@ -11,10 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-hangzhou': "ims.aliyuncs.com",
-    };
+    this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ims", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -703,7 +700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+   * Creates a service credential for a Resource Access Management (RAM) user in a specified Alibaba Cloud service.
    * 
    * @param request - CreateServiceCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -746,7 +743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+   * Creates a service credential for a Resource Access Management (RAM) user in a specified Alibaba Cloud service.
    * 
    * @param request - CreateServiceCredentialRequest
    * @returns CreateServiceCredentialResponse
@@ -1187,7 +1184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a passkey for a Resource Access Management (RAM) user.
+   * Deletes a passkey of a RAM user.
    * 
    * @param request - DeletePasskeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1222,7 +1219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a passkey for a Resource Access Management (RAM) user.
+   * Deletes a passkey of a RAM user.
    * 
    * @param request - DeletePasskeyRequest
    * @returns DeletePasskeyResponse
@@ -1275,7 +1272,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service credential of a Resource Access Management (RAM) user.
+   * Deletes the service credential of a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * ### 使用说明
+   * 删除服务凭证前，必须先调用 `UpdateServiceCredential` 将目标服务凭证的 `Status` 设置为 `Inactive`，再调用本接口。`Active` 状态的服务凭证不能直接删除。
    * 
    * @param request - DeleteServiceCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1310,7 +1311,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service credential of a Resource Access Management (RAM) user.
+   * Deletes the service credential of a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * ### 使用说明
+   * 删除服务凭证前，必须先调用 `UpdateServiceCredential` 将目标服务凭证的 `Status` 设置为 `Inactive`，再调用本接口。`Active` 状态的服务凭证不能直接删除。
    * 
    * @param request - DeleteServiceCredentialRequest
    * @returns DeleteServiceCredentialResponse
@@ -1843,7 +1848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the overview for an Alibaba Cloud account (root account).
+   * Queries the overview information of an Alibaba Cloud account.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountSummaryResponse
@@ -1865,7 +1870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the overview for an Alibaba Cloud account (root account).
+   * Queries the overview information of an Alibaba Cloud account.
    * @returns GetAccountSummaryResponse
    */
   async getAccountSummary(): Promise<$_model.GetAccountSummaryResponse> {
@@ -1970,6 +1975,9 @@ export default class Client extends OpenApi {
   /**
    * Queries installation information about a specified installed application.
    * 
+   * @remarks
+   * 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+   * 
    * @param request - GetApplicationProvisionInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetApplicationProvisionInfoResponse
@@ -2000,6 +2008,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries installation information about a specified installed application.
+   * 
+   * @remarks
+   * 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
    * 
    * @param request - GetApplicationProvisionInfoRequest
    * @returns GetApplicationProvisionInfoResponse
@@ -2089,6 +2100,9 @@ export default class Client extends OpenApi {
   /**
    * Queries information about an installed external application.
    * 
+   * @remarks
+   * 调用本接口时，`AppId` 必须来自当前账号已安装的外部应用。可先调用 `ListExternalApplications` 获取；如果账号中没有已安装的外部应用，需先调用 `ProvisionExternalApplication` 安装。
+   * 
    * @param request - GetExternalApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetExternalApplicationResponse
@@ -2119,6 +2133,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries information about an installed external application.
+   * 
+   * @remarks
+   * 调用本接口时，`AppId` 必须来自当前账号已安装的外部应用。可先调用 `ListExternalApplications` 获取；如果账号中没有已安装的外部应用，需先调用 `ProvisionExternalApplication` 安装。
    * 
    * @param request - GetExternalApplicationRequest
    * @returns GetExternalApplicationResponse
@@ -2254,6 +2271,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the console logon settings for a Resource Access Management (RAM) user.
    * 
+   * @remarks
+   * 查询前，目标 RAM 用户必须已有控制台登录配置（`LoginProfile`）；如果尚未配置，需先调用 `CreateLoginProfile` 创建登录配置。
+   * 
    * @param request - GetLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLoginProfileResponse
@@ -2284,6 +2304,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the console logon settings for a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * 查询前，目标 RAM 用户必须已有控制台登录配置（`LoginProfile`）；如果尚未配置，需先调用 `CreateLoginProfile` 创建登录配置。
    * 
    * @param request - GetLoginProfileRequest
    * @returns GetLoginProfileResponse
@@ -2831,7 +2854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries installation information about all installed applications.
+   * Queries the installation information of all installed applications.
    * 
    * @param request - ListApplicationProvisionInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2862,7 +2885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries installation information about all installed applications.
+   * Queries the installation information of all installed applications.
    * 
    * @param request - ListApplicationProvisionInfosRequest
    * @returns ListApplicationProvisionInfosResponse
@@ -3244,7 +3267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+   * Retrieves the list of service credentials for a Resource Access Management (RAM) user or all Resource Access Management (RAM) users under an Alibaba Cloud account.
    * 
    * @param request - ListServiceCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3291,7 +3314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+   * Retrieves the list of service credentials for a Resource Access Management (RAM) user or all Resource Access Management (RAM) users under an Alibaba Cloud account.
    * 
    * @param request - ListServiceCredentialsRequest
    * @returns ListServiceCredentialsResponse
@@ -3608,7 +3631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multi-factor authentication (MFA) devices.
+   * Queries the list of multi-factor authentication devices.
    * 
    * @param request - ListVirtualMFADevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3643,7 +3666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multi-factor authentication (MFA) devices.
+   * Queries the list of multi-factor authentication devices.
    * 
    * @param request - ListVirtualMFADevicesRequest
    * @returns ListVirtualMFADevicesResponse
@@ -3746,10 +3769,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+   * Invokes RemoveClientIdFromOIDCProvider to remove a specified client ID from an OIDC IdP.
    * 
    * @remarks
-   * ###
+   * ### Usage notes
    * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - RemoveClientIdFromOIDCProviderRequest
@@ -3785,10 +3808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+   * Invokes RemoveClientIdFromOIDCProvider to remove a specified client ID from an OIDC IdP.
    * 
    * @remarks
-   * ###
+   * ### Usage notes
    * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - RemoveClientIdFromOIDCProviderRequest
@@ -3988,7 +4011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+   * Settings the network access restriction policy for an access key of an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - SetAccessKeyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4027,7 +4050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+   * Settings the network access restriction policy for an access key of an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - SetAccessKeyPolicyRequest
    * @returns SetAccessKeyPolicyResponse
@@ -4640,7 +4663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration information of an application.
+   * Modifies the configuration of a specified application.
    * 
    * @param request - UpdateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4703,7 +4726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration information of an application.
+   * Modifies the configuration of a specified application.
    * 
    * @param request - UpdateApplicationRequest
    * @returns UpdateApplicationResponse
@@ -4714,7 +4737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies information about a Resource Access Management (RAM) user group.
+   * Modifies the basic information of a specified user group.
    * 
    * @param request - UpdateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4757,7 +4780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies information about a Resource Access Management (RAM) user group.
+   * Modifies the basic information of a specified user group.
    * 
    * @param request - UpdateGroupRequest
    * @returns UpdateGroupResponse
@@ -4768,7 +4791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the console logon settings for a Resource Access Management (RAM) user.
+   * Modifies the console logon information of a specified Resource Access Management (RAM) user.
    * 
    * @param request - UpdateLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4815,7 +4838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the console logon settings for a Resource Access Management (RAM) user.
+   * Modifies the console logon information of a specified Resource Access Management (RAM) user.
    * 
    * @param request - UpdateLoginProfileRequest
    * @returns UpdateLoginProfileResponse
@@ -4888,7 +4911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name of a passkey.
+   * Updates a passkey.
    * 
    * @param request - UpdatePasskeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4927,7 +4950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name of a passkey.
+   * Updates a passkey.
    * 
    * @param request - UpdatePasskeyRequest
    * @returns UpdatePasskeyResponse
@@ -4998,7 +5021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+   * Updates the status or name of a service credential for a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateServiceCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5041,7 +5064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+   * Updates the status or name of a service credential for a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateServiceCredentialRequest
    * @returns UpdateServiceCredentialResponse
@@ -5052,10 +5075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a RAM user.
-   * 
-   * @remarks
-   * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+   * Invokes UpdateUser to modify the information of a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5110,10 +5130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a RAM user.
-   * 
-   * @remarks
-   * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+   * Invokes UpdateUser to modify the information of a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse

@@ -92,10 +92,9 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $dara.Mo
 export class ListVirtualMFADevicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the response is truncated. Valid values:
+   * Indicates whether the returned results are truncated. Valid values:
    * 
    * - true
-   * 
    * - false
    * 
    * @example
@@ -104,8 +103,7 @@ export class ListVirtualMFADevicesResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
+   * The token for querying the next page of results.
    * > This parameter is returned only when `IsTruncated` is `true`.
    * 
    * @example

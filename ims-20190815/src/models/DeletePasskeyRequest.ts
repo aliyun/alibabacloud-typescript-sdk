@@ -13,7 +13,7 @@ export class DeletePasskeyRequest extends $dara.Model {
   passkeyId?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
    * @example
    * test@example.onaliyun.com

@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationProvisionInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the applications. Valid values:
+   * The source type of the application. Valid values:
    * 
-   * - inner: The applications are from the current account.
-   * 
-   * - external: The applications are from other accounts.
+   * - inner: applications from the current account.
+   * - external: applications from other accounts.
    * 
    * @example
    * external
