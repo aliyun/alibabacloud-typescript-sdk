@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ImageTranslationPlusResponseBodyData extends $dara.Model {
+export class DiduiAreaDeductionProResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID. Use this ID to poll for results through the queryTaskResult operation.
+   * The ID of the asynchronous task, which is used to call QueryAsyncTaskResult to query the task result.
    * 
    * @example
-   * task-abc123
+   * task_778xxxxxxxxxxx
    */
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -32,41 +32,39 @@ export class ImageTranslationPlusResponseBodyData extends $dara.Model {
   }
 }
 
-export class ImageTranslationPlusResponseBody extends $dara.Model {
+export class DiduiAreaDeductionProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code.
    * 
    * @example
-   * 200
+   * success
    */
   code?: string;
   /**
    * @remarks
-   * The asynchronous task submit status.
+   * The submit status of the asynchronous task.
    */
-  data?: ImageTranslationPlusResponseBodyData;
+  data?: DiduiAreaDeductionProResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The response message or failure description.
    * 
    * @example
-   * OK
+   * Task submitted
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
+   * 70CBEFDF-BB17-1EB3-8A21-569F3124738F
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call failed.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True
@@ -85,7 +83,7 @@ export class ImageTranslationPlusResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: ImageTranslationPlusResponseBodyData,
+      data: DiduiAreaDeductionProResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

@@ -2,48 +2,48 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TextTranslateResponseBodyDataTranslations extends $dara.Model {
+export class MerchandisePlacementDetectionProResponseBodyDataData extends $dara.Model {
   /**
    * @remarks
-   * The number of characters in the source text.
-   * 
-   * @example
-   * 11
+   * The normalized bounding box coordinates [x1,y1,x2,y2], with values in the range 0–1000.
    */
-  characters?: number;
+  bbox2d?: number[];
   /**
    * @remarks
-   * The automatically detected source language code.
+   * The detected product name. The value is unknown if the name cannot be determined.
    * 
    * @example
-   * en
+   * unknown
    */
-  detectedLanguage?: string;
+  detectedSkuName?: string;
   /**
    * @remarks
-   * The translated text.
+   * The bounding box index, starting from 1.
    * 
    * @example
-   * Hello World
+   * 1
    */
-  translatedText?: string;
+  idx?: number;
   static names(): { [key: string]: string } {
     return {
-      characters: 'Characters',
-      detectedLanguage: 'DetectedLanguage',
-      translatedText: 'TranslatedText',
+      bbox2d: 'Bbox2d',
+      detectedSkuName: 'DetectedSkuName',
+      idx: 'Idx',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      characters: 'number',
-      detectedLanguage: 'string',
-      translatedText: 'string',
+      bbox2d: { 'type': 'array', 'itemType': 'number' },
+      detectedSkuName: 'string',
+      idx: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.bbox2d)) {
+      $dara.Model.validateArray(this.bbox2d);
+    }
     super.validate();
   }
 
@@ -52,37 +52,47 @@ export class TextTranslateResponseBodyDataTranslations extends $dara.Model {
   }
 }
 
-export class TextTranslateResponseBodyData extends $dara.Model {
+export class MerchandisePlacementDetectionProResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The translation result list. Each element corresponds to a translation result for an entry in the input text list.
-   */
-  translations?: TextTranslateResponseBodyDataTranslations[];
-  /**
-   * @remarks
-   * The usage information, including the number of input characters.
+   * The number of valid bounding boxes.
    * 
    * @example
-   * {"InputCharacterCount":5}
+   * 3
+   */
+  boxCount?: number;
+  /**
+   * @remarks
+   * The list of per-box detection details.
+   */
+  data?: MerchandisePlacementDetectionProResponseBodyDataData[];
+  /**
+   * @remarks
+   * The usage information.
+   * 
+   * @example
+   * {"ProcessingCount":1}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
     return {
-      translations: 'Translations',
+      boxCount: 'BoxCount',
+      data: 'Data',
       usageMap: 'UsageMap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      translations: { 'type': 'array', 'itemType': TextTranslateResponseBodyDataTranslations },
+      boxCount: 'number',
+      data: { 'type': 'array', 'itemType': MerchandisePlacementDetectionProResponseBodyDataData },
       usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
     };
   }
 
   validate() {
-    if(Array.isArray(this.translations)) {
-      $dara.Model.validateArray(this.translations);
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
     }
     if(this.usageMap) {
       $dara.Model.validateMap(this.usageMap);
@@ -95,10 +105,10 @@ export class TextTranslateResponseBodyData extends $dara.Model {
   }
 }
 
-export class TextTranslateResponseBody extends $dara.Model {
+export class MerchandisePlacementDetectionProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value "success" is returned for successful calls.
+   * The error code.
    * 
    * @example
    * success
@@ -106,12 +116,12 @@ export class TextTranslateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The translation result data, including the translation list and usage information.
+   * The detection result of product display detection Pro.
    */
-  data?: TextTranslateResponseBodyData;
+  data?: MerchandisePlacementDetectionProResponseBodyData;
   /**
    * @remarks
-   * The error message. The value "Success" is returned for successful calls. For failed calls, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
+   * The response message or failure description.
    * 
    * @example
    * Success
@@ -119,18 +129,18 @@ export class TextTranslateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies a single request.
+   * The request ID.
    * 
    * @example
-   * 922E43BB-EE0E-1A29-B143-BB91BB3EA6AB
+   * 70CBEFDF-BB17-1EB3-8A21-569F3124738F
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful.
    * 
    * @example
-   * true
+   * True
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -146,7 +156,7 @@ export class TextTranslateResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: TextTranslateResponseBodyData,
+      data: MerchandisePlacementDetectionProResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

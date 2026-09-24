@@ -55,7 +55,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTop1 extends $dara
 export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara.Model {
   /**
    * @remarks
-   * The recall rank of the product.
+   * The recall rank.
    * 
    * @example
    * 1
@@ -115,15 +115,15 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
 export class MerchandisePlacementDetectionResponseBodyDataData extends $dara.Model {
   /**
    * @remarks
-   * The position coordinates of the detection box in the format [x1,y1,x2,y2].
+   * The detection box position coordinates in the format [x1,y1,x2,y2].
    */
   bbox?: number[];
   /**
    * @remarks
-   * The failure reason for the detection box. The value is null if the detection is successful.
+   * The failure reason for a single detection box. The value is null if the detection is successful.
    * 
    * @example
-   * "Embedding failed"
+   * "embedding failed"
    */
   error?: string;
   /**
@@ -193,7 +193,7 @@ export class MerchandisePlacementDetectionResponseBodyData extends $dara.Model {
   boxCount?: number;
   /**
    * @remarks
-   * The list of recall details for each detection box.
+   * The list of retrieval details for each detection box.
    */
   data?: MerchandisePlacementDetectionResponseBodyDataData[];
   /**
@@ -238,7 +238,7 @@ export class MerchandisePlacementDetectionResponseBodyData extends $dara.Model {
 export class MerchandisePlacementDetectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * 200
@@ -251,7 +251,7 @@ export class MerchandisePlacementDetectionResponseBody extends $dara.Model {
   data?: MerchandisePlacementDetectionResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * OK

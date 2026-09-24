@@ -207,7 +207,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
   language?: string;
   /**
    * @remarks
-   * The line count.
+   * The number of lines.
    * 
    * @example
    * 1
@@ -322,7 +322,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreas extends $
   horizontalLayout?: string;
   /**
    * @remarks
-   * The line count.
+   * The number of lines.
    * 
    * @example
    * 2
@@ -388,12 +388,12 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   font?: string[];
   /**
    * @remarks
-   * The product area rectangles.
+   * The rectangle of the product area.
    */
   goodsRects?: ImageTranslationStandardResponseBodyDataEditInfoGoodsRects;
   /**
    * @remarks
-   * The product image URL.
+   * The URL of the product image.
    * 
    * @example
    * https://xiuxiu-pro.meitudata.com/posters/34d78f9157e5560a4d612949ca6f6485.jpg
@@ -409,7 +409,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   languages?: string[];
   /**
    * @remarks
-   * The original image URL.
+   * The URL of the original image.
    * 
    * @example
    * https://xiuxiu-pro.meitudata.com/posters/34d78f9157e5560a4d612949ca6f6485.jpg
@@ -417,7 +417,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   pictUrl?: string;
   /**
    * @remarks
-   * The repaired image URL.
+   * The URL of the repaired image.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.png
@@ -568,7 +568,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
 export class ImageTranslationStandardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
+   * The response code. 200 indicates a successful call. For other response codes, refer to the error code information.
    * 
    * @example
    * 200
@@ -576,7 +576,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The translation result data, including the translated image URL and usage information.
+   * The translation result data, including the URL of the translated image and usage information.
    */
   data?: ImageTranslationStandardResponseBodyData;
   /**
