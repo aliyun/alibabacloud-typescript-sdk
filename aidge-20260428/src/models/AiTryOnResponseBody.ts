@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AiTryOnResponseBodyDataUsageMap extends $dara.Model {
   /**
+   * @remarks
+   * The number of processed images.
+   * 
    * @example
    * 1
    */
   processedImageCount?: number;
   /**
+   * @remarks
+   * The resolution of the processed image.
+   * 
    * @example
    * 1K
    */
@@ -40,21 +46,33 @@ export class AiTryOnResponseBodyDataUsageMap extends $dara.Model {
 
 export class AiTryOnResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The height of the result image, in pixels.
+   * 
    * @example
    * 1360
    */
   imageHeight?: string;
   /**
+   * @remarks
+   * The URL of the virtual try-on result image.
+   * 
    * @example
    * https://example.com/virtual-try-on-result.png
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The width of the result image, in pixels.
+   * 
    * @example
    * 768
    */
   imageWidth?: string;
   /**
+   * @remarks
+   * The usage details.
+   * 
    * @example
    * {"ProcessedImageCount":1,"Resolution":"1K"}
    */
@@ -91,22 +109,38 @@ export class AiTryOnResponseBodyData extends $dara.Model {
 
 export class AiTryOnResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. This parameter is not returned if the call is successful.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The result struct.
+   */
   data?: AiTryOnResponseBodyData;
   /**
+   * @remarks
+   * The error message. This parameter is not returned if the call is successful.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. Used to uniquely identify a request.
+   * 
    * @example
-   * 2728332e-72c1-9c0d-8869-5781b2cd25d4
+   * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values: true and false.
+   * 
    * @example
    * True
    */

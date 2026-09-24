@@ -29,6 +29,7 @@ export class MerchandisePlacementDetectionRequest extends $dara.Model {
    * rag_xxx
    */
   ragId?: string;
+  rule?: string;
   /**
    * @remarks
    * The business type (reserved for future routing by business line). The current release supports skincare.
@@ -42,6 +43,7 @@ export class MerchandisePlacementDetectionRequest extends $dara.Model {
       apiId: 'ApiId',
       imageUrl: 'ImageUrl',
       ragId: 'RagId',
+      rule: 'Rule',
       type: 'Type',
     };
   }
@@ -51,6 +53,7 @@ export class MerchandisePlacementDetectionRequest extends $dara.Model {
       apiId: 'string',
       imageUrl: 'string',
       ragId: 'string',
+      rule: 'string',
       type: 'string',
     };
   }
