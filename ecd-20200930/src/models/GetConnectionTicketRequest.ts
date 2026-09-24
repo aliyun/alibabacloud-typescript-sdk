@@ -5,10 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies a custom user-mode application that is automatically started after the credential is obtained.
+   * The client type.
    * 
-   * - appPath: a value of the String type that specifies the application startup file path, such as `"C:\\Program Files (x86)\\000\\000.exe"`. Use double backslashes (\\\\) as path separators.
-   * - appParameter: a value of the String type that specifies the application startup parameters, such as `"meetingid 000 meetingname aaa"`. Separate parameters with spaces.
+   * @example
+   * macos
+   */
+  clientType?: string;
+  /**
+   * @remarks
+   * The custom user-mode application to configure. After the credential is obtained, the application is automatically started.
+   * 
+   * - appPath: a value of the STRING type that specifies the path of the application startup file. Example: `"C:\\Program Files (x86)\\000\\000.exe"`. Use double backslashes (\\\\) as path separators.
+   * - appParameter: a value of the STRING type that specifies the application startup parameters. Example: `"meetingid 000 meetingname aaa"`. Separate parameters with spaces.
    * 
    * @example
    * {
@@ -30,7 +38,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   commandContent?: string;
   /**
    * @remarks
-   * The ID of the cloud computer for which to generate a connection credential. This parameter is required to generate the credential.
+   * The ID of the cloud computer for which you want to generate a connection credential. This parameter is required to generate the credential.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -83,6 +91,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      clientType: 'ClientType',
       commandContent: 'CommandContent',
       desktopId: 'DesktopId',
       endUserId: 'EndUserId',
@@ -98,6 +107,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientType: 'string',
       commandContent: 'string',
       desktopId: 'string',
       endUserId: 'string',

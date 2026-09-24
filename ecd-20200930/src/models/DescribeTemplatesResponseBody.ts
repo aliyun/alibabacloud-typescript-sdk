@@ -13,7 +13,7 @@ export class DescribeTemplatesResponseBodyDataDataDiskList extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The data cloud disk size. Unit: GiB.
+   * The size of the data cloud disk. Unit: GiB.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   cpuCount?: number;
   /**
    * @remarks
-   * The GPU memory information. This field is displayed only when the specification is a graphics-accelerated type.
+   * The GPU memory information. This field is displayed only when the specification is a graphics type.
    * 
    * @example
    * 4GiB
@@ -109,6 +109,14 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   subnetId?: string;
   /**
    * @remarks
+   * The virtual node pool ID.
+   * 
+   * @example
+   * vnp-0bw*******
+   */
+  virtualNodePoolId?: string;
+  /**
+   * @remarks
    * Indicates whether disk encryption is enabled.
    * 
    * @example
@@ -133,6 +141,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
       resourceInstanceType: 'ResourceInstanceType',
       snapshotPolicyId: 'SnapshotPolicyId',
       subnetId: 'SubnetId',
+      virtualNodePoolId: 'VirtualNodePoolId',
       volumeEncryptionEnable: 'VolumeEncryptionEnable',
       volumeEncryptionKey: 'VolumeEncryptionKey',
     };
@@ -148,6 +157,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
       resourceInstanceType: 'string',
       snapshotPolicyId: 'string',
       subnetId: 'string',
+      virtualNodePoolId: 'string',
       volumeEncryptionEnable: 'boolean',
       volumeEncryptionKey: 'string',
     };
@@ -250,7 +260,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Indicates whether auto-renewal is enabled for the subscription shared cloud computer.
+   * Indicates whether auto-renewal is enabled for subscription shared cloud computers.
    */
   autoRenew?: boolean;
   /**
@@ -284,7 +294,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The creation time of the template (UTC).
+   * The time when the template was created (UTC).
    * 
    * @example
    * 2025-04-25T05:18:46.000+00:00
@@ -292,7 +302,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time of the template (UTC).
+   * The time when the template was last updated (UTC).
    * 
    * @example
    * 2025-04-25T05:18:46.000+00:00
@@ -316,7 +326,26 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The subscription duration of the subscription shared cloud computer. This parameter takes effect only when ChargeType is set to PrePaid, and is required in that case. The unit is specified by PeriodUnit.
+   * The instance name.
+   * 
+   * @example
+   * myHost
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The subscription duration of the subscription shared cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
+   * - If `PeriodUnit` is set to `Month`, valid values:
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 6
+   * - If `PeriodUnit` is set to `Year`, valid values:
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 4
+   *     - 5
    * 
    * @example
    * 1
@@ -324,7 +353,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription billing duration. Billable methods use this parameter to specify the time unit.
+   * The unit of the duration for the subscription billable methods.
    * 
    * @example
    * Month
@@ -332,7 +361,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The policy group ID.
+   * The policy ID.
    * 
    * @example
    * pg-0caoeogkhz*****
@@ -340,7 +369,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the cloud computer automatically switches to pay-as-you-go billing after the duration plan is exhausted.
+   * Indicates whether the cloud computer automatically switches to pay-as-you-go billing after the duration package is exhausted.
    */
   postPaidAfterUsedUp?: boolean;
   /**
@@ -432,7 +461,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   timerGroupId?: string;
   /**
    * @remarks
-   * The per-user usage duration plan.
+   * The per-user duration package.
    * 
    * @example
    * 120
@@ -450,6 +479,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
       gmtModified: 'GmtModified',
       imageId: 'ImageId',
       imageType: 'ImageType',
+      instanceName: 'InstanceName',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
@@ -482,6 +512,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
       gmtModified: 'string',
       imageId: 'string',
       imageType: 'string',
+      instanceName: 'string',
       period: 'number',
       periodUnit: 'string',
       policyGroupId: 'string',
@@ -526,7 +557,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
 export class DescribeTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
+   * The modification result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -579,7 +610,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * True

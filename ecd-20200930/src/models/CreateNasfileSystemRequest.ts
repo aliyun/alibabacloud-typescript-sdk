@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNASFileSystemRequest extends $dara.Model {
   /**
    * @remarks
+   * The capacity.
+   * 
+   * @example
+   * 3600
+   */
+  capacity?: number;
+  /**
+   * @remarks
    * The description of the NAS file system.
    * 
    * @example
@@ -13,12 +21,20 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to use a Key Management Service (KMS) managed key to encrypt data stored in the file system. Encrypted data does not need to be decrypted during read and write operations.
+   * Specifies whether the file system uses a key managed by Key Management Service (KMS) to encrypt data stored on the file system. Encrypted data does not need to be decrypted during read and write operations.
    * 
    * @example
    * 0
    */
   encryptType?: string;
+  /**
+   * @remarks
+   * The file system type.
+   * 
+   * @example
+   * standard
+   */
+  fileSystemType?: string;
   /**
    * @remarks
    * The name of the NAS file system. The name must meet the following requirements: The name must be 2 to 128 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, underscores (_), or hyphens (-).
@@ -42,7 +58,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
    * The protocol type.
    * 
    * @example
-   * ASP
+   * SMB
    */
   protocolType?: string;
   /**
@@ -65,8 +81,10 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
+      capacity: 'Capacity',
       description: 'Description',
       encryptType: 'EncryptType',
+      fileSystemType: 'FileSystemType',
       name: 'Name',
       officeSiteId: 'OfficeSiteId',
       protocolType: 'ProtocolType',
@@ -77,8 +95,10 @@ export class CreateNASFileSystemRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      capacity: 'number',
       description: 'string',
       encryptType: 'string',
+      fileSystemType: 'string',
       name: 'string',
       officeSiteId: 'string',
       protocolType: 'string',

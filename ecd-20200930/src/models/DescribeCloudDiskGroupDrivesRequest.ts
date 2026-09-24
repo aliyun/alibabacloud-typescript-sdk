@@ -25,8 +25,8 @@ export class DescribeCloudDiskGroupDrivesRequest extends $dara.Model {
    * @remarks
    * The number of entries per page for a paged query.
    * 
-   * - Maximum value: 100
-   * - Default value: 20
+   * - Maximum value: 100.
+   * - Default value: 20.
    * 
    * @example
    * 20
@@ -34,7 +34,7 @@ export class DescribeCloudDiskGroupDrivesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results are available.
+   * The pagination token for the next query. If this parameter is empty, no more results are available.
    * 
    * @example
    * MTA0MjA=

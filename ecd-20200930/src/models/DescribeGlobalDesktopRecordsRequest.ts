@@ -6,8 +6,8 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The business channel. Valid values:
-   * Enterprise: Enterprise Edition.
-   * Business: Business Edition.
+   * - Enterprise: Enterprise Edition.
+   * - Business: Business Edition.
    * 
    * @example
    * Enterprise
@@ -33,7 +33,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   desktopStatusList?: string[];
   /**
    * @remarks
-   * The cloud desktop specifications. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported specification IDs for cloud desktops.
+   * The cloud desktop specifications. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by cloud desktops.
    * 
    * @example
    * eds.enterprise_office.2c4g
@@ -41,7 +41,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The end time. The maximum interval between the start time and end time is 30 days. Supported format:
+   * The end time. The interval between the start time and end time cannot exceed 30 days. Supported format:
    * - Format: YYYY-MM-DDThh:mm:ssZ.
    * 
    * @example
@@ -71,7 +71,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The sort field. If not specified, results are sorted by creation time in descending order. Valid values:
+   * The sort field. If this parameter is not specified, results are sorted by creation time in descending order. Valid values:
    * 
    * - uptime: sorts by cloud desktop uptime.
    * 
@@ -81,7 +81,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number of the current page when using paging.    
+   * The page number of the current page in a paged query.    
    * Default value: 1.
    * 
    * @example
@@ -128,7 +128,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The sort order. Default value: ascending order. Valid values:
+   * The sort order. Default value: Asc. Valid values:
    * - Asc: ascending order.
    * - Desc: descending order.
    * 

@@ -5,6 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecordFileRequest extends $dara.Model {
   /**
    * @remarks
+   * The audit status. Valid values:
+   * 
+   * - AI_ANALYZED: AI analysis completed.
+   * - REVIEWING: Under review.
+   * - REVIEWED: Reviewed.
+   * - UNREVIEWED: Not reviewed.
+   * 
+   * @example
+   * REVIEWING
+   */
+  auditStatus?: string;
+  /**
+   * @remarks
    * The Cloud Desktop ID.
    * 
    * @example
@@ -37,9 +50,9 @@ export class DescribeRecordFileRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The field used for sorting. If this parameter is not specified, the results are sorted by recording start time in descending order. Valid values:
+   * The field used for sorting. If not specified, results are sorted by recording start time in descending order. Valid values:
    * 
-   * - startTime: recording start time.
+   * - startTime: the recording start time.
    * 
    * @example
    * startTime
@@ -66,7 +79,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of rows per page in a paging query.
+   * The maximum number of rows per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 20
@@ -115,8 +128,8 @@ export class DescribeRecordFileRequest extends $dara.Model {
    * @remarks
    * The status of the screen recording file. Valid values:
    * 
-   * - 0: uploaded.
-   * - 1: uploading.
+   * - 0: Upload succeeded.
+   * - 1: Uploading.
    * 
    * @example
    * 1
@@ -124,6 +137,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      auditStatus: 'AuditStatus',
       desktopId: 'DesktopId',
       endTime: 'EndTime',
       endUserId: 'EndUserId',
@@ -142,6 +156,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      auditStatus: 'string',
       desktopId: 'string',
       endTime: 'string',
       endUserId: 'string',

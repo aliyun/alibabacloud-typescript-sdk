@@ -3714,17 +3714,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
+   * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
    * 
    * @remarks
-   * Before creating cloud computers, complete the following preparations:
-   * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
-   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+   * Before creating cloud desktops, complete the following preparations:
+   * - Create an office network (formerly workspace) and users. For more information about the related API operations or documentation, see:
+   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
    * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
    * **Call examples:**
    * <details>
-   * <summary>Example of creating with a template</summary>
+   * <summary>Example of creating a cloud desktop by using a template</summary>
    * ```
    * {
    *   "RegionId": "cn-hangzhou",
@@ -3738,7 +3738,7 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>Example of creating without a template</summary>
+   * <summary>Example of creating a cloud desktop without a template</summary>
    * ```
    * {
    *   "RegionId": "cn-hangzhou",
@@ -3758,7 +3758,7 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>Example of creating a monthly hourly package</summary>
+   * <summary>Example of creating a cloud desktop with a monthly hourly package</summary>
    * ```
    * {
    *   "RegionId": "cn-hangzhou",
@@ -3783,7 +3783,7 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>Example of creating an Agent resource</summary>
+   * <summary>Example of creating an agent resource</summary>
    * ```
    * {
    *   "RegionId": "cn-hangzhou",
@@ -3803,7 +3803,7 @@ export default class Client extends OpenApi {
    * }
    * ```
    * </details>
-   * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+   * To have the cloud desktop automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
    * 
    * @param tmpReq - CreateDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3946,6 +3946,10 @@ export default class Client extends OpenApi {
       query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
+    if (!$dara.isNull(request.reservePoolId)) {
+      query["ReservePoolId"] = request.reservePoolId;
+    }
+
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -4016,17 +4020,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
+   * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
    * 
    * @remarks
-   * Before creating cloud computers, complete the following preparations:
-   * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
-   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+   * Before creating cloud desktops, complete the following preparations:
+   * - Create an office network (formerly workspace) and users. For more information about the related API operations or documentation, see:
+   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
    * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
    * **Call examples:**
    * <details>
-   * <summary>Example of creating with a template</summary>
+   * <summary>Example of creating a cloud desktop by using a template</summary>
    * ```
    * {
    *   "RegionId": "cn-hangzhou",
@@ -4040,7 +4044,7 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>Example of creating without a template</summary>
+   * <summary>Example of creating a cloud desktop without a template</summary>
    * ```
    * {
    *   "RegionId": "cn-hangzhou",
@@ -4060,7 +4064,7 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>Example of creating a monthly hourly package</summary>
+   * <summary>Example of creating a cloud desktop with a monthly hourly package</summary>
    * ```
    * {
    *   "RegionId": "cn-hangzhou",
@@ -4085,7 +4089,7 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>Example of creating an Agent resource</summary>
+   * <summary>Example of creating an agent resource</summary>
    * ```
    * {
    *   "RegionId": "cn-hangzhou",
@@ -4105,7 +4109,7 @@ export default class Client extends OpenApi {
    * }
    * ```
    * </details>
-   * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+   * To have the cloud desktop automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
    * 
    * @param request - CreateDesktopsRequest
    * @returns CreateDesktopsResponse
@@ -4461,12 +4465,20 @@ export default class Client extends OpenApi {
   async createNASFileSystemWithOptions(request: $_model.CreateNASFileSystemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNASFileSystemResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.capacity)) {
+      query["Capacity"] = request.capacity;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
     if (!$dara.isNull(request.encryptType)) {
       query["EncryptType"] = request.encryptType;
+    }
+
+    if (!$dara.isNull(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -5581,9 +5593,9 @@ export default class Client extends OpenApi {
    * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
    * 
    * @remarks
-   * When you call this operation, note the following items:
+   * When you call this operation, take note of the following items:
    * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
-   * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+   * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
    * 
    * @param request - CreateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5623,6 +5635,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.imageId)) {
       body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
     }
 
     if (!$dara.isNull(request.period)) {
@@ -5706,9 +5722,9 @@ export default class Client extends OpenApi {
    * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
    * 
    * @remarks
-   * When you call this operation, note the following items:
+   * When you call this operation, take note of the following items:
    * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
-   * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+   * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -7174,7 +7190,7 @@ export default class Client extends OpenApi {
    * Deletes a custom cloud computer template.
    * 
    * @remarks
-   * After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+   * After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
    * 
    * @param request - DeleteTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7212,7 +7228,7 @@ export default class Client extends OpenApi {
    * Deletes a custom cloud computer template.
    * 
    * @remarks
-   * After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+   * After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
    * 
    * @param request - DeleteTemplatesRequest
    * @returns DeleteTemplatesResponse
@@ -7868,7 +7884,7 @@ export default class Client extends OpenApi {
    * Queries the list of cloud disk team spaces.
    * 
    * @remarks
-   * The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
+   * The cloud disk team list is obtained through synchronization from the Wuying client > User Management > organization structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
    * 
    * @param request - DescribeCloudDiskGroupDrivesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7918,7 +7934,7 @@ export default class Client extends OpenApi {
    * Queries the list of cloud disk team spaces.
    * 
    * @remarks
-   * The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
+   * The cloud disk team list is obtained through synchronization from the Wuying client > User Management > organization structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
    * 
    * @param request - DescribeCloudDiskGroupDrivesRequest
    * @returns DescribeCloudDiskGroupDrivesResponse
@@ -9230,6 +9246,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.reservePoolId)) {
+      query["ReservePoolId"] = request.reservePoolId;
+    }
+
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -9877,10 +9897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
+   * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
    * 
    * @remarks
-   * - China site users should select Shanghai as the site. International site users should select Singapore.
+   * - China site users must select Shanghai as the site. International site users must select Singapore.
    * - By default, both deleted and non-deleted cloud desktops are queried.
    * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
    * - Sort conditions cannot be used together with other conditions.
@@ -9986,10 +10006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
+   * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
    * 
    * @remarks
-   * - China site users should select Shanghai as the site. International site users should select Singapore.
+   * - China site users must select Shanghai as the site. International site users must select Singapore.
    * - By default, both deleted and non-deleted cloud desktops are queried.
    * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
    * - Sort conditions cannot be used together with other conditions.
@@ -10426,7 +10446,7 @@ export default class Client extends OpenApi {
    * Queries the execution list and status of Cloud Assistant scripts.
    * 
    * @remarks
-   * - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
+   * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
    * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
    * 
    * @param request - DescribeInvocationsRequest
@@ -10505,7 +10525,7 @@ export default class Client extends OpenApi {
    * Queries the execution list and status of Cloud Assistant scripts.
    * 
    * @remarks
-   * - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
+   * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
    * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
    * 
    * @param request - DescribeInvocationsRequest
@@ -11796,6 +11816,10 @@ export default class Client extends OpenApi {
   async describeRecordFileWithOptions(request: $_model.DescribeRecordFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRecordFileResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
     if (!$dara.isNull(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
     }
@@ -12059,7 +12083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the renewal price of a Wuying product.
+   * Queries the renewal price of an Elastic Desktop Service product.
    * 
    * @param request - DescribeRenewalPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12118,7 +12142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the renewal price of a Wuying product.
+   * Queries the renewal price of an Elastic Desktop Service product.
    * 
    * @param request - DescribeRenewalPriceRequest
    * @returns DescribeRenewalPriceResponse
@@ -13157,11 +13181,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves cloud computer information for a vulnerability.
+   * Retrieves cloud desktop information for a vulnerability.
    * 
    * @remarks
-   * - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
-   * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+   * - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
+   * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
    * 
    * @param request - DescribeVulDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13170,12 +13194,20 @@ export default class Client extends OpenApi {
   async describeVulDesktopsWithOptions(request: $_model.DescribeVulDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVulDesktopsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.connectionStatus)) {
+      query["ConnectionStatus"] = request.connectionStatus;
+    }
+
     if (!$dara.isNull(request.cveId)) {
       query["CveId"] = request.cveId;
     }
 
     if (!$dara.isNull(request.desktopIdList)) {
       query["DesktopIdList"] = request.desktopIdList;
+    }
+
+    if (!$dara.isNull(request.desktopStatus)) {
+      query["DesktopStatus"] = request.desktopStatus;
     }
 
     if (!$dara.isNull(request.includeFixResult)) {
@@ -13248,11 +13280,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves cloud computer information for a vulnerability.
+   * Retrieves cloud desktop information for a vulnerability.
    * 
    * @remarks
-   * - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
-   * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+   * - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
+   * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
    * 
    * @param request - DescribeVulDesktopsRequest
    * @returns DescribeVulDesktopsResponse
@@ -14053,6 +14085,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries desktop data statistics by different dimensions.
+   * 
+   * @param request - GetAggregatedDesktopsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregatedDesktopsResponse
+   */
+  async getAggregatedDesktopsWithOptions(request: $_model.GetAggregatedDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAggregatedDesktopsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aggregationFactor)) {
+      query["AggregationFactor"] = request.aggregationFactor;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAggregatedDesktops",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAggregatedDesktopsResponse>(await this.callApi(params, req, runtime), new $_model.GetAggregatedDesktopsResponse({}));
+  }
+
+  /**
+   * Queries desktop data statistics by different dimensions.
+   * 
+   * @param request - GetAggregatedDesktopsRequest
+   * @returns GetAggregatedDesktopsResponse
+   */
+  async getAggregatedDesktops(request: $_model.GetAggregatedDesktopsRequest): Promise<$_model.GetAggregatedDesktopsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAggregatedDesktopsWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
    * 
    * @param request - GetAsyncTaskRequest
@@ -14102,7 +14184,7 @@ export default class Client extends OpenApi {
    * Retrieves the connection credential for a cloud computer.
    * 
    * @remarks
-   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
+   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
    * 
    * @param request - GetConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14111,6 +14193,10 @@ export default class Client extends OpenApi {
   async getConnectionTicketWithOptions(request: $_model.GetConnectionTicketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConnectionTicketResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientType)) {
+      query["ClientType"] = request.clientType;
+    }
+
     if (!$dara.isNull(request.commandContent)) {
       query["CommandContent"] = request.commandContent;
     }
@@ -14172,7 +14258,7 @@ export default class Client extends OpenApi {
    * Retrieves the connection credential for a cloud computer.
    * 
    * @remarks
-   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
+   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
    * 
    * @param request - GetConnectionTicketRequest
    * @returns GetConnectionTicketResponse
@@ -18836,7 +18922,7 @@ export default class Client extends OpenApi {
    * Modifies all parameters of a custom cloud computer template.
    * 
    * @remarks
-   * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+   * >Warning: To ensure compatibility with unset parameters and default upgrade logic in the template, this operation uses full parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
    * 
    * @param request - ModifyTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18872,6 +18958,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.imageId)) {
       body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
     }
 
     if (!$dara.isNull(request.period)) {
@@ -18955,7 +19045,7 @@ export default class Client extends OpenApi {
    * Modifies all parameters of a custom cloud computer template.
    * 
    * @remarks
-   * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+   * >Warning: To ensure compatibility with unset parameters and default upgrade logic in the template, this operation uses full parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
    * 
    * @param request - ModifyTemplateRequest
    * @returns ModifyTemplateResponse
@@ -18966,10 +19056,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic information of a custom cloud computer template, including the template name and description.
+   * Modifies the basic information of a custom cloud computer template, including the template name and template description.
    * 
    * @remarks
-   * This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
+   * This operation is used only to modify the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
    * 
    * @param request - ModifyTemplateBaseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18980,6 +19070,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
     }
 
     if (!$dara.isNull(request.templateId)) {
@@ -19008,10 +19102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic information of a custom cloud computer template, including the template name and description.
+   * Modifies the basic information of a custom cloud computer template, including the template name and template description.
    * 
    * @remarks
-   * This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
+   * This operation is used only to modify the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
    * 
    * @param request - ModifyTemplateBaseInfoRequest
    * @returns ModifyTemplateBaseInfoResponse
@@ -19451,6 +19545,84 @@ export default class Client extends OpenApi {
   async queryActiveUserStatistic(request: $_model.QueryActiveUserStatisticRequest): Promise<$_model.QueryActiveUserStatisticResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryActiveUserStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the connection duration statistics of authorized users based on specified conditions. Statistics can be collected by daily cumulative duration or by individual session details.
+   * 
+   * @param request - QueryAuthUserConnectDurationListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAuthUserConnectDurationListResponse
+   */
+  async queryAuthUserConnectDurationListWithOptions(request: $_model.QueryAuthUserConnectDurationListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAuthUserConnectDurationListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.comparisonOperator)) {
+      query["ComparisonOperator"] = request.comparisonOperator;
+    }
+
+    if (!$dara.isNull(request.dataDate)) {
+      query["DataDate"] = request.dataDate;
+    }
+
+    if (!$dara.isNull(request.isAdUser)) {
+      query["IsAdUser"] = request.isAdUser;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.statisticType)) {
+      query["StatisticType"] = request.statisticType;
+    }
+
+    if (!$dara.isNull(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.withDetail)) {
+      query["WithDetail"] = request.withDetail;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAuthUserConnectDurationList",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAuthUserConnectDurationListResponse>(await this.callApi(params, req, runtime), new $_model.QueryAuthUserConnectDurationListResponse({}));
+  }
+
+  /**
+   * Queries the connection duration statistics of authorized users based on specified conditions. Statistics can be collected by daily cumulative duration or by individual session details.
+   * 
+   * @param request - QueryAuthUserConnectDurationListRequest
+   * @returns QueryAuthUserConnectDurationListResponse
+   */
+  async queryAuthUserConnectDurationList(request: $_model.QueryAuthUserConnectDurationListRequest): Promise<$_model.QueryAuthUserConnectDurationListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAuthUserConnectDurationListWithOptions(request, runtime);
   }
 
   /**

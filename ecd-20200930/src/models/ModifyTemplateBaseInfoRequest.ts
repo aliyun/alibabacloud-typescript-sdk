@@ -13,6 +13,14 @@ export class ModifyTemplateBaseInfoRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The instance name.
+   * 
+   * @example
+   * myHost
+   */
+  instanceName?: string;
+  /**
+   * @remarks
    * The template ID.
    * 
    * This parameter is required.
@@ -26,12 +34,13 @@ export class ModifyTemplateBaseInfoRequest extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Shanghai template1
+   * ShanghaiTemplate1
    */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      instanceName: 'InstanceName',
       templateId: 'TemplateId',
       templateName: 'TemplateName',
     };
@@ -40,6 +49,7 @@ export class ModifyTemplateBaseInfoRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      instanceName: 'string',
       templateId: 'string',
       templateName: 'string',
     };

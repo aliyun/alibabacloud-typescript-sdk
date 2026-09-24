@@ -13,9 +13,9 @@ export class CreateTemplateRequestDataDiskList extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040. The value must be a multiple of 10.
+   * The data cloud disk size. Unit: GiB. Valid values: 40 to 2040, in increments of 10 GiB.
    * 
-   * >Notice: The larger the ESSD cloud disk capacity, the higher the performance level (PL) available (for example, PL2 is available for capacities of 460 GiB or more). Higher performance levels (PLs) incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements. Note: Only standard SSD and ESSD cloud disks are supported.
+   * >Notice: The larger the ESSD cloud disk capacity, the higher the available performance level (PL) (for example, PL2 is available for capacities of 460 GiB or more). Higher performance levels (PLs) incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements.
    * 
    * @example
    * 40
@@ -55,7 +55,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
+   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
    * 
    * @example
    * cn-hangzhou
@@ -71,7 +71,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   resourceInstanceType?: string;
   /**
    * @remarks
-   * The ID of the automatic snapshot policy.
+   * The automatic snapshot policy ID.
    * 
    * @example
    * sp-35fvn8m21pnx2****
@@ -87,6 +87,14 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   subnetId?: string;
   /**
    * @remarks
+   * The virtual node pool, used in workstation scenarios.
+   * 
+   * @example
+   * vnp-0bydg********
+   */
+  virtualNodePoolId?: string;
+  /**
+   * @remarks
    * Specifies whether to enable disk encryption.
    * 
    * @example
@@ -95,7 +103,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   volumeEncryptionEnable?: boolean;
   /**
    * @remarks
-   * The ID of the KMS key used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+   * The KMS key ID used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
    * 
    * @example
    * a7b3c0c8-b3a2-4876-b1cc-*********
@@ -108,6 +116,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
       resourceInstanceType: 'ResourceInstanceType',
       snapshotPolicyId: 'SnapshotPolicyId',
       subnetId: 'SubnetId',
+      virtualNodePoolId: 'VirtualNodePoolId',
       volumeEncryptionEnable: 'VolumeEncryptionEnable',
       volumeEncryptionKey: 'VolumeEncryptionKey',
     };
@@ -120,6 +129,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
       resourceInstanceType: 'string',
       snapshotPolicyId: 'string',
       subnetId: 'string',
+      virtualNodePoolId: 'string',
       volumeEncryptionEnable: 'boolean',
       volumeEncryptionKey: 'string',
     };
@@ -217,7 +227,7 @@ export class CreateTemplateRequestSiteConfigList extends $dara.Model {
 export class CreateTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic payment is enabled for the subscription order.
+   * Specifies whether automatic payment is enabled for the subscription order.
    */
   autoPay?: boolean;
   /**
@@ -243,7 +253,7 @@ export class CreateTemplateRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The size and specification configurations of data disks.
+   * The data disk size and specification configurations.
    */
   dataDiskList?: CreateTemplateRequestDataDiskList[];
   /**
@@ -258,8 +268,8 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The description of the template. The description must meet the following requirements:
    * 
-   * - The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
-   * - The description can contain Chinese characters, letters, digits, spaces, and special characters. Line breaks are supported.
+   * - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * - The description can contain Chinese characters, letters, digits, spaces, and special characters, and supports line breaks.
    * 
    * @example
    * DesignDepartmentTemplate
@@ -267,12 +277,20 @@ export class CreateTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the cloud computer image. You can query the ID on the image management page. System images and custom images are supported.
+   * The cloud computer image ID. You can query the ID on the image management page. System images, custom images, and other image types are supported.
    * 
    * @example
    * desktopimage-windows-server-2022-64-asp
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * myHost
+   */
+  instanceName?: string;
   /**
    * @remarks
    * The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
@@ -323,9 +341,9 @@ export class CreateTemplateRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The region-specific template configurations. You can specify multiple configurations. The configuration that matches the specific region is used.
+   * The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
    * 
-   * > You can specify configurations for up to 20 regions.
+   * > You can configure up to 20 regions.
    */
   regionConfigList?: CreateTemplateRequestRegionConfigList[];
   /**
@@ -338,7 +356,7 @@ export class CreateTemplateRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the cloud computer in key-value format. You can specify up to 20 tags.
+   * The cloud computer tags in key-value format. You can specify up to 20 tags.
    */
   resourceTagList?: CreateTemplateRequestResourceTagList[];
   /**
@@ -348,9 +366,9 @@ export class CreateTemplateRequest extends $dara.Model {
   siteConfigList?: CreateTemplateRequestSiteConfigList[];
   /**
    * @remarks
-   * The type of the system disk.
+   * The system disk type.
    * 
-   * > Only high-frequency and GPU-accelerated cloud computer specifications support ESSD disks.
+   * > Only high frequency and graphics cloud computer specifications support ESSD disks.
    * 
    * @example
    * AutoPL
@@ -358,9 +376,9 @@ export class CreateTemplateRequest extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
+   * The system disk size. Unit: GiB. Valid values: 40 to 500, in increments of 10 GiB.
    * 
-   * > The system disk size cannot be smaller than the image size.
+   * > The system disk size cannot be smaller than the size of the configured image.
    * 
    * @example
    * 80
@@ -370,7 +388,7 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The name of the template. The name must meet the following requirements:
    * 
-   * - The name must be 2 to 126 characters in length.
+   * - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
    * - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
    * 
@@ -406,6 +424,7 @@ export class CreateTemplateRequest extends $dara.Model {
       defaultLanguage: 'DefaultLanguage',
       description: 'Description',
       imageId: 'ImageId',
+      instanceName: 'InstanceName',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
@@ -433,6 +452,7 @@ export class CreateTemplateRequest extends $dara.Model {
       defaultLanguage: 'string',
       description: 'string',
       imageId: 'string',
+      instanceName: 'string',
       period: 'number',
       periodUnit: 'string',
       policyGroupId: 'string',

@@ -13,7 +13,7 @@ export class DeleteTemplatesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The operation result. The value `success` indicates success. Otherwise, an error message is returned.
+   * The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class DeleteTemplatesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message. This parameter is not returned when Code is `success`.
+   * The error message. This parameter is not returned if Code is `success`.
    * 
    * @example
    * success
@@ -45,10 +45,7 @@ export class DeleteTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

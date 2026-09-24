@@ -13,7 +13,7 @@ export class ModifyTemplateRequestDataDiskList extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040. The value must be a multiple of 10.
+   * The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040, in increments of 10 GiB.
    * 
    * @example
    * 40
@@ -69,7 +69,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   resourceInstanceType?: string;
   /**
    * @remarks
-   * The ID of the automatic snapshot policy.
+   * The automatic snapshot policy ID.
    * 
    * @example
    * sp-35fvn8m2*****
@@ -83,6 +83,14 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
    * vsw-adjrehad1****
    */
   subnetId?: string;
+  /**
+   * @remarks
+   * The virtual node pool ID.
+   * 
+   * @example
+   * vnp-0bz55ic*******
+   */
+  virtualNodePoolId?: string;
   /**
    * @remarks
    * Specifies whether to enable disk encryption.
@@ -106,6 +114,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
       resourceInstanceType: 'ResourceInstanceType',
       snapshotPolicyId: 'SnapshotPolicyId',
       subnetId: 'SubnetId',
+      virtualNodePoolId: 'VirtualNodePoolId',
       volumeEncryptionEnable: 'VolumeEncryptionEnable',
       volumeEncryptionKey: 'VolumeEncryptionKey',
     };
@@ -118,6 +127,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
       resourceInstanceType: 'string',
       snapshotPolicyId: 'string',
       subnetId: 'string',
+      virtualNodePoolId: 'string',
       volumeEncryptionEnable: 'boolean',
       volumeEncryptionKey: 'string',
     };
@@ -248,7 +258,7 @@ export class ModifyTemplateRequest extends $dara.Model {
    * @remarks
    * The description of the template. The description must meet the following requirements:
    * 
-   * - The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+   * - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * - The description can contain Chinese characters, letters, digits, spaces, and special characters. Line breaks are supported.
    * 
    * @example
@@ -257,12 +267,20 @@ export class ModifyTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the cloud computer image. You can query the ID on the Image Management page. System images and custom images are supported.
+   * The cloud computer image ID. You can query the ID on the image management page. System images, custom images, and other image types are supported.
    * 
    * @example
    * m-gx2x1dhsmusr2****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * wework-aim-test
+   */
+  instanceName?: string;
   /**
    * @remarks
    * The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
@@ -320,7 +338,7 @@ export class ModifyTemplateRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the cloud computer in key-value format. You can specify up to 20 tags.
+   * The cloud computer tags in key-value format. You can specify up to 20 tags.
    */
   resourceTagList?: ModifyTemplateRequestResourceTagList[];
   /**
@@ -332,7 +350,7 @@ export class ModifyTemplateRequest extends $dara.Model {
    * @remarks
    * The type of the system cloud disk.
    * 
-   * > Only high frequency and graphics cloud computer specifications support ESSD cloud disks.
+   * > Only high frequency and GPU-accelerated cloud computer specifications support ESSD cloud disks.
    * 
    * @example
    * AutoPL
@@ -340,7 +358,7 @@ export class ModifyTemplateRequest extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The size of the system cloud disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
+   * The size of the system cloud disk. Unit: GiB. Valid values: 40 to 500, in increments of 10 GiB.
    * 
    * > The system cloud disk size cannot be smaller than the size of the configured image.
    * 
@@ -362,8 +380,8 @@ export class ModifyTemplateRequest extends $dara.Model {
    * @remarks
    * The name of the template. The name must meet the following requirements:
    * 
-   * - The name must be 2 to 126 characters in length.
-   * - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
+   * - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
+   * - The name must start with a letter or a Chinese character. The name cannot start with `http://` or `https://`.
    * - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
    * 
    * @example
@@ -380,7 +398,7 @@ export class ModifyTemplateRequest extends $dara.Model {
   timerGroupId?: string;
   /**
    * @remarks
-   * The per-user usage duration plan.
+   * The duration plan for a single user.
    * 
    * @example
    * 120
@@ -395,6 +413,7 @@ export class ModifyTemplateRequest extends $dara.Model {
       defaultLanguage: 'DefaultLanguage',
       description: 'Description',
       imageId: 'ImageId',
+      instanceName: 'InstanceName',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
@@ -421,6 +440,7 @@ export class ModifyTemplateRequest extends $dara.Model {
       defaultLanguage: 'string',
       description: 'string',
       imageId: 'string',
+      instanceName: 'string',
       period: 'number',
       periodUnit: 'string',
       policyGroupId: 'string',

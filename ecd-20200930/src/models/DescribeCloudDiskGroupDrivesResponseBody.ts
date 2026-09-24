@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $dara.Model {
   /**
    * @remarks
+   * The authorization dimension.
+   * 
+   * @example
+   * ROSTER
+   */
+  authDimension?: string;
+  /**
+   * @remarks
    * The creation time. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
@@ -77,6 +85,7 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
   usedSize?: string;
   static names(): { [key: string]: string } {
     return {
+      authDimension: 'AuthDimension',
       createTime: 'CreateTime',
       directoryId: 'DirectoryId',
       driveId: 'DriveId',
@@ -91,6 +100,7 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
 
   static types(): { [key: string]: any } {
     return {
+      authDimension: 'string',
       createTime: 'string',
       directoryId: 'string',
       driveId: 'string',
@@ -120,7 +130,7 @@ export class DescribeCloudDiskGroupDrivesResponseBody extends $dara.Model {
   cloudDriveGroups?: DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 1
@@ -128,7 +138,7 @@ export class DescribeCloudDiskGroupDrivesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results are available.
+   * The pagination token for the next query. If this parameter is empty, no more results are available.
    * 
    * @example
    * MTA0MjA=
@@ -144,7 +154,7 @@ export class DescribeCloudDiskGroupDrivesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True

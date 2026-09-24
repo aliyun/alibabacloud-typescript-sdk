@@ -32,7 +32,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -48,7 +48,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

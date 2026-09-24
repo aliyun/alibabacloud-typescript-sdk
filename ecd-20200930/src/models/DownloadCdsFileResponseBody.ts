@@ -29,7 +29,7 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
   expirationSecond?: string;
   /**
    * @remarks
-   * The expiration time of the file download URL.
+   * The expiration time of the file download URL. The time follows the ISO 8601 standard in UTC and is accurate to milliseconds. Format: yyyy-MM-ddTHH:mm:ss.SSSZ.
    * 
    * @example
    * 2024-07-18T02:55:49.795Z

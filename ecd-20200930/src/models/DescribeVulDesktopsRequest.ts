@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The CVE ID.
+   * The connection status of the cloud desktop. Valid values: CONNECTED and DISCONNECTED.
+   * 
+   * @example
+   * Connected
+   */
+  connectionStatus?: string;
+  /**
+   * @remarks
+   * The CVE ID of the vulnerability.
    * 
    * @example
    * CVE-2026-43284
@@ -13,9 +21,17 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   cveId?: string;
   /**
    * @remarks
-   * The list of cloud computer IDs.
+   * The list of cloud desktop IDs.
    */
   desktopIdList?: string[];
+  /**
+   * @remarks
+   * The running status of the cloud desktop.
+   * 
+   * @example
+   * Running
+   */
+  desktopStatus?: string;
   /**
    * @remarks
    * Specifies whether to include patch update results.
@@ -26,7 +42,10 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   includeFixResult?: boolean;
   /**
    * @remarks
-   * The language type of the returned information.
+   * The language of the returned information. Valid values:
+   * 
+   * - **ch**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * ch
@@ -54,7 +73,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Specifies whether to include only cloud computers on which fix tasks were executed in the current month.
+   * Specifies whether to include only cloud desktops that have had fix tasks executed in the current month.
    * 
    * @example
    * false
@@ -102,7 +121,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The region ID used to filter cloud computer information for a specific region.
+   * The region ID used to filter cloud desktop information for a specific region.
    * 
    * @example
    * cn-shanghai
@@ -115,13 +134,13 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   statusList?: string[];
   /**
    * @remarks
-   * The security level of the intrusion prevention event. Valid values:
+   * The severity level of the intrusion prevention event. Valid values:
    * 
-   * - **low**: Low risk.
-   * - **medium**: Medium risk.
-   * - **critical**: High risk.
+   * - **low**: Low.
+   * - **medium**: Medium.
+   * - **critical**: Critical.
    * 
-   * > If you do not set this parameter, vulnerabilities of all security levels are queried.
+   * > If you do not set this parameter, vulnerabilities of all severity levels are queried.
    * 
    * @example
    * low
@@ -129,8 +148,10 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   vulLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionStatus: 'ConnectionStatus',
       cveId: 'CveId',
       desktopIdList: 'DesktopIdList',
+      desktopStatus: 'DesktopStatus',
       includeFixResult: 'IncludeFixResult',
       language: 'Language',
       maxResults: 'MaxResults',
@@ -149,8 +170,10 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectionStatus: 'string',
       cveId: 'string',
       desktopIdList: { 'type': 'array', 'itemType': 'string' },
+      desktopStatus: 'string',
       includeFixResult: 'boolean',
       language: 'string',
       maxResults: 'number',

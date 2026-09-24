@@ -225,6 +225,7 @@ export { DisconnectDesktopSessionsResponseBodyInvalidSessions } from './Disconne
 export { DownloadCdsFileResponseBodyDownloadFileModel } from './DownloadCdsFileResponseBody';
 export { ExportDesktopGroupInfoRequestTag } from './ExportDesktopGroupInfoRequest';
 export { ExportDesktopListInfoRequestTag } from './ExportDesktopListInfoRequest';
+export { GetAggregatedDesktopsResponseBodyAggregations } from './GetAggregatedDesktopsResponseBody';
 export { GetAsyncTaskResponseBodyData } from './GetAsyncTaskResponseBody';
 export { GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos } from './GetDesktopGroupDetailResponseBody';
 export { GetDesktopGroupDetailResponseBodyDesktopsTimerInfos } from './GetDesktopGroupDetailResponseBody';
@@ -282,6 +283,7 @@ export { ModifyTimerGroupRequestConfigTimersSegmentTimers } from './ModifyTimerG
 export { ModifyTimerGroupRequestConfigTimers } from './ModifyTimerGroupRequest';
 export { MoveCdsFileResponseBodyMoveCdsFileModel } from './MoveCdsFileResponseBody';
 export { QueryActiveUserStatisticResponseBodyUserStatisticList } from './QueryActiveUserStatisticResponseBody';
+export { QueryAuthUserConnectDurationListResponseBodyAuthUserConnectDurationList } from './QueryAuthUserConnectDurationListResponseBody';
 export { QueryEndUserHistoryUsageResponseBodyUserUsageInfoListDesktopUsageList } from './QueryEndUserHistoryUsageResponseBody';
 export { QueryEndUserHistoryUsageResponseBodyUserUsageInfoListUserGroupList } from './QueryEndUserHistoryUsageResponseBody';
 export { QueryEndUserHistoryUsageResponseBodyUserUsageInfoList } from './QueryEndUserHistoryUsageResponseBody';
@@ -870,6 +872,9 @@ export { ExportDesktopGroupInfoResponse } from './ExportDesktopGroupInfoResponse
 export { ExportDesktopListInfoRequest } from './ExportDesktopListInfoRequest';
 export { ExportDesktopListInfoResponseBody } from './ExportDesktopListInfoResponseBody';
 export { ExportDesktopListInfoResponse } from './ExportDesktopListInfoResponse';
+export { GetAggregatedDesktopsRequest } from './GetAggregatedDesktopsRequest';
+export { GetAggregatedDesktopsResponseBody } from './GetAggregatedDesktopsResponseBody';
+export { GetAggregatedDesktopsResponse } from './GetAggregatedDesktopsResponse';
 export { GetAsyncTaskRequest } from './GetAsyncTaskRequest';
 export { GetAsyncTaskResponseBody } from './GetAsyncTaskResponseBody';
 export { GetAsyncTaskResponse } from './GetAsyncTaskResponse';
@@ -1084,6 +1089,9 @@ export { MoveCdsFileResponse } from './MoveCdsFileResponse';
 export { QueryActiveUserStatisticRequest } from './QueryActiveUserStatisticRequest';
 export { QueryActiveUserStatisticResponseBody } from './QueryActiveUserStatisticResponseBody';
 export { QueryActiveUserStatisticResponse } from './QueryActiveUserStatisticResponse';
+export { QueryAuthUserConnectDurationListRequest } from './QueryAuthUserConnectDurationListRequest';
+export { QueryAuthUserConnectDurationListResponseBody } from './QueryAuthUserConnectDurationListResponseBody';
+export { QueryAuthUserConnectDurationListResponse } from './QueryAuthUserConnectDurationListResponse';
 export { QueryEndUserHistoryUsageRequest } from './QueryEndUserHistoryUsageRequest';
 export { QueryEndUserHistoryUsageResponseBody } from './QueryEndUserHistoryUsageResponseBody';
 export { QueryEndUserHistoryUsageResponse } from './QueryEndUserHistoryUsageResponse';

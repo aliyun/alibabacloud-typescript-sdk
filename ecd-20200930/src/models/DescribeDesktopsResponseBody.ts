@@ -64,7 +64,7 @@ export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
    * The disk category.
    * - cloud_efficiency (ultra cloud disk)
    *    - cloud_auto (ultra-fast cloud disk)
-   *    - cloud_essd (enhanced standard SSD cloud disk. Only specific types are supported.)
+   *    - cloud_essd (enhanced standard SSD. Only specific types are supported.)
    * 
    * @example
    * cloud_auto
@@ -216,7 +216,7 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
 export class DescribeDesktopsResponseBodyDesktopsOsUpdatePackages extends $dara.Model {
   /**
    * @remarks
-   * The NAS file system description.
+   * The description of the NAS file system.
    * 
    * @example
    * newDescription
@@ -356,7 +356,7 @@ export class DescribeDesktopsResponseBodyDesktopsResourceGroups extends $dara.Mo
 export class DescribeDesktopsResponseBodyDesktopsSessions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user connected to the cloud desktop.
+   * The ID of the user who is connected to the cloud desktop.
    * 
    * @example
    * 29615820929547****
@@ -757,7 +757,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The ID of the secondary ENI created by the cloud desktop service for the RAM or AD user. This value cannot be modified.
+   * The ID of the secondary network interface controller (NIC) created by the cloud desktop service for the RAM or AD user. This value cannot be modified.
    * 
    * @example
    * 123456
@@ -765,7 +765,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The IP address of the secondary ENI created by the cloud desktop service for the RAM or AD user.
+   * The IP address of the secondary NIC created by the cloud desktop service for the RAM or AD user.
    * 
    * @example
    * 192.168.XX.XX
@@ -867,6 +867,16 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    */
   protocolType?: string;
   /**
+   * @example
+   * rp-xxx
+   */
+  reservePoolId?: string;
+  /**
+   * @example
+   * reserve-pool
+   */
+  reservePoolName?: string;
+  /**
    * @remarks
    * The list of enterprise resource group information.
    */
@@ -910,7 +920,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   snapshotPolicyName?: string;
   /**
    * @remarks
-   * The start time of the query. The time is in the ISO 8601 standard and in UTC+0, in the format of `yyyy-mm-ddthh:mm:ssz`.
+   * The start time of the query. The time is in the ISO 8601 standard and in UTC+0. Format: `yyyy-mm-ddthh:mm:ssz`.
    * 
    * @example
    * 2025-01-27T02:20:10Z
@@ -978,6 +988,11 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    */
   volumeEncryptionKey?: string;
   /**
+   * @example
+   * cn-hangzhou-i
+   */
+  zoneId?: string;
+  /**
    * @remarks
    * The type of the zone. Default value: `AvailabilityZone`, which indicates a regular cloud zone.
    * 
@@ -1044,6 +1059,8 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       policyGroupNameList: 'PolicyGroupNameList',
       progress: 'Progress',
       protocolType: 'ProtocolType',
+      reservePoolId: 'ReservePoolId',
+      reservePoolName: 'ReservePoolName',
       resourceGroups: 'ResourceGroups',
       serialNumber: 'SerialNumber',
       sessionType: 'SessionType',
@@ -1059,6 +1076,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       tags: 'Tags',
       volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
       volumeEncryptionKey: 'VolumeEncryptionKey',
+      zoneId: 'ZoneId',
       zoneType: 'ZoneType',
     };
   }
@@ -1122,6 +1140,8 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       policyGroupNameList: { 'type': 'array', 'itemType': 'string' },
       progress: 'string',
       protocolType: 'string',
+      reservePoolId: 'string',
+      reservePoolName: 'string',
       resourceGroups: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsResourceGroups },
       serialNumber: 'string',
       sessionType: 'string',
@@ -1137,6 +1157,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       tags: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsTags },
       volumeEncryptionEnabled: 'boolean',
       volumeEncryptionKey: 'string',
+      zoneId: 'string',
       zoneType: 'string',
     };
   }
@@ -1194,7 +1215,7 @@ export class DescribeDesktopsResponseBody extends $dara.Model {
   desktops?: DescribeDesktopsResponseBodyDesktops[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token for the next query. If this parameter is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

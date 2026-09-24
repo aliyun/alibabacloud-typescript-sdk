@@ -37,6 +37,14 @@ export class CreateNASFileSystemResponseBody extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
+   * The protocol type.
+   * 
+   * @example
+   * SMB
+   */
+  protocolType?: string;
+  /**
+   * @remarks
    * The request ID.
    * 
    * @example
@@ -49,6 +57,7 @@ export class CreateNASFileSystemResponseBody extends $dara.Model {
       fileSystemName: 'FileSystemName',
       mountTargetDomain: 'MountTargetDomain',
       officeSiteId: 'OfficeSiteId',
+      protocolType: 'ProtocolType',
       requestId: 'RequestId',
     };
   }
@@ -59,6 +68,7 @@ export class CreateNASFileSystemResponseBody extends $dara.Model {
       fileSystemName: 'string',
       mountTargetDomain: 'string',
       officeSiteId: 'string',
+      protocolType: 'string',
       requestId: 'string',
     };
   }

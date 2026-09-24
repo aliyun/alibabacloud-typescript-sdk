@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer ID.
+   * The ID of the cloud computer.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -21,7 +21,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ticket used to connect to the user instance. Before you use the ticket, Base64-decode its content and save it as an xxx.ica file, and then open the file. The following Python code provides an example:
+   * The ticket used to connect to the user instance. Before you use the ticket, Base64-decode its content, save the decoded content as an xxx.ica file, and then open the file. Python code example:
    * 
    * ```
    * import base64
@@ -65,7 +65,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The connection credential for the cloud computer.
+   * The connection credential of the cloud computer.
    * 
    * @example
    * W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********

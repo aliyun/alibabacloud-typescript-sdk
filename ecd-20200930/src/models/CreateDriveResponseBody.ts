@@ -89,7 +89,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
    * > This parameter is deprecated.
    * 
    * @example
-   * -
+   * true
    */
   profileRoaming?: boolean;
   /**

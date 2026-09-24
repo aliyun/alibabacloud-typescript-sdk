@@ -138,6 +138,14 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   appInstanceGroups?: DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups[];
   /**
    * @remarks
+   * The bandwidth.
+   * 
+   * @example
+   * 720
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
    * The total capacity of the NAS file system. Unit: GiB.
    * 
    * - If the storage type is Capacity, the capacity is fixed at 10 PiB (10485760 GiB).
@@ -149,7 +157,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The time when the NAS file system was created.
+   * The time when the NAS file system was created. The time is in the ISO 8601 format in UTC.
    * 
    * @example
    * 2021-05-10T11:39Z
@@ -253,6 +261,10 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
    * The list of office networks.
    */
   officeSites?: DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites[];
+  /**
+   * @remarks
+   * The product type of the NAS file system.
+   */
   productType?: string;
   /**
    * @remarks
@@ -289,6 +301,13 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
    * Upm
    */
   scene?: string;
+  /**
+   * @remarks
+   * The capacity quota of the NAS file system.
+   * 
+   * @example
+   * 0
+   */
   sizeQuota?: number;
   /**
    * @remarks
@@ -308,7 +327,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   supportAcl?: boolean;
   /**
    * @remarks
-   * The zone ID.
+   * The zone.
    * 
    * @example
    * cn-hangzhou-f
@@ -318,6 +337,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
     return {
       allowOperateUserDrive: 'AllowOperateUserDrive',
       appInstanceGroups: 'AppInstanceGroups',
+      bandwidth: 'Bandwidth',
       capacity: 'Capacity',
       createTime: 'CreateTime',
       description: 'Description',
@@ -349,6 +369,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
     return {
       allowOperateUserDrive: 'boolean',
       appInstanceGroups: { 'type': 'array', 'itemType': DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups },
+      bandwidth: 'number',
       capacity: 'number',
       createTime: 'string',
       description: 'string',
@@ -397,12 +418,12 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
 export class DescribeNASFileSystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The NAS file system information.
+   * The NAS file system information list.
    */
   fileSystems?: DescribeNASFileSystemsResponseBodyFileSystems[];
   /**
    * @remarks
-   * The pagination token for the next query. If NextToken is empty, no more results exist.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

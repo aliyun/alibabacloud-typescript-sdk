@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
   /**
    * @remarks
-   * The promotion rule description.
+   * The description of the promotion rule.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $d
   optionCode?: string;
   /**
    * @remarks
-   * The promotion description.
+   * The description of the promotion.
    * 
    * @example
    * New product launch, enjoy discounts now
@@ -159,7 +159,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRules extends $dara.Model 
    * The rule description.
    * 
    * @example
-   * Get 15% off the list price when you purchase a 1-year subscription
+   * Purchase for 1 year or more and enjoy a 15% discount off the list price
    */
   description?: string;
   /**

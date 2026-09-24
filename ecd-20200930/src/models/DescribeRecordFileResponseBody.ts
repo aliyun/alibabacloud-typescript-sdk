@@ -55,6 +55,11 @@ export class DescribeRecordFileResponseBodyRecordFilesEventDetails extends $dara
 export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   /**
    * @remarks
+   * The audit status list.
+   */
+  auditStatus?: string[];
+  /**
+   * @remarks
    * The Cloud Desktop ID.
    * 
    * @example
@@ -63,7 +68,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the Cloud Desktop.
+   * The Cloud Desktop name.
    * 
    * @example
    * fvt-ecd
@@ -84,7 +89,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   eventDetails?: DescribeRecordFileResponseBodyRecordFilesEventDetails[];
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * Task3
@@ -92,7 +97,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The size of the file. Unit: bytes.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 139
@@ -108,7 +113,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The time when the recording ended. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The recording end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2025-12-18T06:02:25Z
@@ -124,7 +129,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   recordExpire?: number;
   /**
    * @remarks
-   * The time when the recording started. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The recording start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2025-12-18T06:02:25Z
@@ -171,8 +176,8 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
    * @remarks
    * The status of the screen recording file. Valid values:
    * 
-   * - 0: uploaded.
-   * - 1: uploading.
+   * - 0: Upload succeeded.
+   * - 1: Uploading.
    * 
    * @example
    * 1
@@ -180,6 +185,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      auditStatus: 'AuditStatus',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
       endUserId: 'EndUserId',
@@ -200,6 +206,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      auditStatus: { 'type': 'array', 'itemType': 'string' },
       desktopId: 'string',
       desktopName: 'string',
       endUserId: 'string',
@@ -219,6 +226,9 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.auditStatus)) {
+      $dara.Model.validateArray(this.auditStatus);
+    }
     if(Array.isArray(this.eventDetails)) {
       $dara.Model.validateArray(this.eventDetails);
     }
@@ -233,7 +243,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
 export class DescribeRecordFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the recording files.
+   * The details of the recording file list.
    */
   recordFiles?: DescribeRecordFileResponseBodyRecordFiles[];
   /**
@@ -246,7 +256,7 @@ export class DescribeRecordFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

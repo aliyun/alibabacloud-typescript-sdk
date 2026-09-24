@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. If you specify `Tag`, `Key` is required. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, contain `http://` or `https://`, or consist of only spaces.
+   * The tag key. If you specify `Tag`, `Key` is required. The tag key cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. It also cannot consist of only spaces.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeDesktopsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+   * The tag value. The tag value cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -63,7 +63,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The cloud computer pool ID. If `DesktopId` is specified, `DesktopGroupId` is ignored. If `DesktopId` is empty, the system retrieves the IDs of all cloud computers in the cloud computer pool specified by `DesktopGroupId`.
+   * The cloud computer pool ID. If `DesktopId` is specified, `DesktopGroupId` is ignored. If `DesktopId` is empty, the system retrieves the DesktopId values of all cloud computers in the cloud computer pool specified by `DesktopGroupId`.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -95,7 +95,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * The cloud computer status list.
+   * The list of cloud computer statuses.
    */
   desktopStatusList?: string[];
   /**
@@ -180,6 +180,9 @@ export class DescribeDesktopsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to include automatic snapshot policy information in the response.
+   * 
+   * @example
+   * false
    */
   includeAutoSnapshotPolicy?: boolean;
   /**
@@ -192,7 +195,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   managementFlag?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The number of entries per page for a paged query.
    * 
    * - Maximum value: 100.
    * - Default value: 10.
@@ -203,16 +206,23 @@ export class DescribeDesktopsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether multiple resources exist.
+   * Specifies whether there are multiple resources.
    * 
    * @example
    * false
    */
   multiResource?: boolean;
+  /**
+   * @remarks
+   * The private IP address.
+   * 
+   * @example
+   * 192.168.1.1
+   */
   networkInterfaceIp?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token for the next query. If this parameter is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -279,6 +289,13 @@ export class DescribeDesktopsRequest extends $dara.Model {
    * ASP
    */
   protocolType?: string;
+  /**
+   * @remarks
+   * The public IP address of the instance to query.
+   * 
+   * @example
+   * 121.199.28.39
+   */
   publicIp?: string;
   /**
    * @remarks
@@ -306,6 +323,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  reservePoolId?: string;
   /**
    * @remarks
    * The resource group ID.
@@ -332,7 +350,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   subPayType?: string;
   /**
    * @remarks
-   * The tags. A tag is a key-value pair that is used to mark resources. You can use tags to group and manage cloud computers for easy searching and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
+   * The tags. A tag consists of a key-value pair and is used to mark resources. You can use tags to group and manage cloud computers for easy searching and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
    */
   tag?: DescribeDesktopsRequestTag[];
   /**
@@ -380,6 +398,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
       qosRuleId: 'QosRuleId',
       queryFotaUpdate: 'QueryFotaUpdate',
       regionId: 'RegionId',
+      reservePoolId: 'ReservePoolId',
       resourceGroupId: 'ResourceGroupId',
       snapshotPolicyId: 'SnapshotPolicyId',
       subPayType: 'SubPayType',
@@ -425,6 +444,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
       qosRuleId: 'string',
       queryFotaUpdate: 'boolean',
       regionId: 'string',
+      reservePoolId: 'string',
       resourceGroupId: 'string',
       snapshotPolicyId: 'string',
       subPayType: 'string',

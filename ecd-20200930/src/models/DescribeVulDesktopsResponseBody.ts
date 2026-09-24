@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulDesktopsResponseBodyVulDesktopsCves extends $dara.Model {
   /**
    * @remarks
-   * The CVE ID.
+   * The CVE ID of the vulnerability.
    * 
    * @example
    * CVE-2026-62690
@@ -45,7 +45,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsCves extends $dara.Model 
   impactScore?: string;
   /**
    * @remarks
-   * The reference URL.
+   * The reference URL for the vulnerability details.
    * 
    * @example
    * https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62690
@@ -53,7 +53,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsCves extends $dara.Model 
   referenceUrl?: string;
   /**
    * @remarks
-   * The release time. The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+   * The release time. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-08-11 07:00:00
@@ -173,6 +173,14 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   configGroupId?: string;
   /**
    * @remarks
+   * The connection status of the cloud desktop.
+   * 
+   * @example
+   * Connected
+   */
+  connectionStatus?: string;
+  /**
+   * @remarks
    * The number of vulnerabilities.
    * 
    * @example
@@ -181,17 +189,25 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   cveCount?: number;
   /**
    * @remarks
-   * The list of vulnerability details.
+   * The vulnerability details.
    */
   cves?: DescribeVulDesktopsResponseBodyVulDesktopsCves[];
   /**
    * @remarks
-   * The ID of the cloud computer affected by the vulnerability.
+   * The ID of the cloud desktop affected by the vulnerability.
    * 
    * @example
    * ecd-0jtd4z5binubxe32e
    */
   desktopId?: string;
+  /**
+   * @remarks
+   * The running status of the cloud desktop.
+   * 
+   * @example
+   * Running
+   */
+  desktopStatus?: string;
   /**
    * @remarks
    * Indicates whether the activation code is disabled.
@@ -202,7 +218,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The time when the vulnerability was first discovered.
+   * The time when the vulnerability was first detected. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-08-05 00:00:00
@@ -210,12 +226,12 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   firstFoundTime?: string;
   /**
    * @remarks
-   * The list of fix records for the cloud computer.
+   * The fix records of the cloud desktop.
    */
   fixRecords?: DescribeVulDesktopsResponseBodyVulDesktopsFixRecords[];
   /**
    * @remarks
-   * The list of patch IDs.
+   * The patch IDs.
    */
   patchIds?: string[];
   /**
@@ -253,9 +269,11 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       configGroupId: 'ConfigGroupId',
+      connectionStatus: 'ConnectionStatus',
       cveCount: 'CveCount',
       cves: 'Cves',
       desktopId: 'DesktopId',
+      desktopStatus: 'DesktopStatus',
       disabled: 'Disabled',
       firstFoundTime: 'FirstFoundTime',
       fixRecords: 'FixRecords',
@@ -270,9 +288,11 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       configGroupId: 'string',
+      connectionStatus: 'string',
       cveCount: 'number',
       cves: { 'type': 'array', 'itemType': DescribeVulDesktopsResponseBodyVulDesktopsCves },
       desktopId: 'string',
+      desktopStatus: 'string',
       disabled: 'boolean',
       firstFoundTime: 'string',
       fixRecords: { 'type': 'array', 'itemType': DescribeVulDesktopsResponseBodyVulDesktopsFixRecords },
@@ -333,7 +353,7 @@ export class DescribeVulDesktopsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 20
@@ -341,7 +361,7 @@ export class DescribeVulDesktopsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of cloud computers affected by the vulnerability.
+   * The details of cloud desktops affected by the vulnerability.
    */
   vulDesktops?: DescribeVulDesktopsResponseBodyVulDesktops[];
   static names(): { [key: string]: string } {

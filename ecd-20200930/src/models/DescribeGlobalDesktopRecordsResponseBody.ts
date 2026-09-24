@@ -53,8 +53,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $d
   endUserId?: string;
   /**
    * @remarks
-   * The session creation time.
-   * The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the session was created. The time is in the ISO 8601 standard (UTC): yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-08-31T06:56:45Z
@@ -102,7 +101,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   cpu?: number;
   /**
    * @remarks
-   * The creation time of the cloud desktop. The time is in the ISO 8601 standard (UTC).
+   * The time when the cloud desktop was created. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -179,6 +178,14 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   latestConnectionTime?: number;
   /**
    * @remarks
+   * The latest end time of the current session. The time is in the ISO 8601 standard (UTC): yyyy-MM-ddTHH:mm:ssZ.
+   * 
+   * @example
+   * 2026-09-14T05:01:12Z
+   */
+  latestSessionEndTime?: string;
+  /**
+   * @remarks
    * The memory of the cloud desktop. Unit: MiB.
    * 
    * @example
@@ -222,7 +229,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   osType?: string;
   /**
    * @remarks
-   * The specific operating system model.
+   * The specific operating system version.
    * 
    * @example
    * Windows 10
@@ -267,7 +274,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   sessions?: DescribeGlobalDesktopRecordsResponseBodySessionsSessions[];
   /**
    * @remarks
-   * The UNIX timestamp of the cloud desktop status change. Unit: milliseconds.
+   * The UNIX timestamp when the cloud desktop status changed. Unit: milliseconds.
    * 
    * @example
    * 1760583xxxx
@@ -315,6 +322,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
       endUserIds: 'EndUserIds',
       gpuSpec: 'GpuSpec',
       latestConnectionTime: 'LatestConnectionTime',
+      latestSessionEndTime: 'LatestSessionEndTime',
       memory: 'Memory',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
@@ -347,6 +355,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       gpuSpec: 'string',
       latestConnectionTime: 'number',
+      latestSessionEndTime: 'string',
       memory: 'number',
       officeSiteId: 'string',
       officeSiteName: 'string',
