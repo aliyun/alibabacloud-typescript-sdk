@@ -16,7 +16,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * 测试智能体
+   * TestAgent
    */
   agentName?: string;
   /**
@@ -29,18 +29,18 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
   applicationCode?: string;
   /**
    * @remarks
-   * The reason for the review failure.
+   * The reason for review failure.
    * 
    * @example
-   * 请补充流程说明
+   * Provide additional process description
    */
   auditReason?: string;
   /**
    * @remarks
-   * The reason for the build failure.
+   * The reason for build failure.
    * 
    * @example
-   * 系统错误
+   * System error
    */
   buildFailReason?: string;
   /**
@@ -48,12 +48,12 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    * The business scenario name.
    * 
    * @example
-   * 个人客户线索转化
+   * Personal customer lead conversion
    */
   businessTypeName?: string;
   /**
    * @remarks
-   * The time the agent was created.
+   * The creation time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-10-28 17:10:17
@@ -64,12 +64,12 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    * The agent description.
    * 
    * @example
-   * 用于日常测试
+   * Used for daily testing
    */
   description?: string;
   /**
    * @remarks
-   * The time the agent was last online.
+   * The most recent online time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-10-28 14:38:15
@@ -77,7 +77,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
   lastOnlineTime?: string;
   /**
    * @remarks
-   * The time the agent was last modified.
+   * The most recent modification time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-10-28 17:10:17
@@ -152,7 +152,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
 export class PageQueryAgentListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of agents.
+   * The list of agent data.
    */
   list?: PageQueryAgentListResponseBodyDataList[];
   /**
@@ -165,7 +165,7 @@ export class PageQueryAgentListResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -173,7 +173,7 @@ export class PageQueryAgentListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total count of entries.
+   * The total number of entries.
    * 
    * @example
    * 14
@@ -212,7 +212,7 @@ export class PageQueryAgentListResponseBodyData extends $dara.Model {
 export class PageQueryAgentListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for the access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * Access Denied
@@ -233,10 +233,10 @@ export class PageQueryAgentListResponseBody extends $dara.Model {
   data?: PageQueryAgentListResponseBodyData;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
-   * 成功
+   * Succeeded
    */
   message?: string;
   /**
@@ -249,11 +249,9 @@ export class PageQueryAgentListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * false

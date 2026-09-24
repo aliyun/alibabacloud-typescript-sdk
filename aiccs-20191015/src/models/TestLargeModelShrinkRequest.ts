@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class TestLargeModelShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The base models.
+   * The foundation model.
    */
   baseModelShrink?: string;
   /**
    * @remarks
-   * The ID of the test scenario.
+   * The scenario ID.
    * 
    * @example
    * 1232
@@ -24,7 +24,7 @@ export class TestLargeModelShrinkRequest extends $dara.Model {
    * The user dialog content.
    * 
    * @example
-   * 你好。
+   * Hello
    */
   userDialogContent?: string;
   static names(): { [key: string]: string } {

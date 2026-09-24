@@ -280,7 +280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a model application
+   * Creates a large language model application.
    * 
    * @param tmpReq - AddModelApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -405,7 +405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a model application
+   * Creates a large language model application.
    * 
    * @param request - AddModelApplicationRequest
    * @returns AddModelApplicationResponse
@@ -492,7 +492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke the AiccsSmartCall API to initiate an Intelligent Speech Interaction call.
+   * Invokes the AiccsSmartCall operation to initiate an intelligent interactive voice response call.
    * 
    * @param request - AiccsSmartCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -647,7 +647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke the AiccsSmartCall API to initiate an Intelligent Speech Interaction call.
+   * Invokes the AiccsSmartCall operation to initiate an intelligent interactive voice response call.
    * 
    * @param request - AiccsSmartCallRequest
    * @returns AiccsSmartCallResponse
@@ -1437,15 +1437,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an Intelligent Outbound Call Job. You can configure the Task Type, job name, outbound caller ID, callee number deduplication policy, and other settings when creating the job.
+   * Creates an intelligent outbound call task. You can set the task type, task name, outbound caller numbers, callee number deduplication policy, and more when creating the task.
    * 
    * @remarks
-   * - The **Data** field in the response parameters of this API is the job ID.  
-   * - After creating an Intelligent Outbound Call Job, if you need to make updates, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API to update the outbound call job.
-   * ### Queries per second (QPS) Limit
-   * - Per-user invocation frequency: No Rate Limiting.
-   * - API frequency: 20 queries per second (QPS).
-   * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+   * - The **Data** parameter in the response is the task ID.
+   * - After you create an intelligent outbound call task, you can call the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) operation to update the task.
+   * ### QPS limit
+   * - Per-user call frequency: not throttled.
+   * - API frequency: 20 calls per second.
+   * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
    * 
    * @param tmpReq - CreateAiOutboundTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1526,15 +1526,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an Intelligent Outbound Call Job. You can configure the Task Type, job name, outbound caller ID, callee number deduplication policy, and other settings when creating the job.
+   * Creates an intelligent outbound call task. You can set the task type, task name, outbound caller numbers, callee number deduplication policy, and more when creating the task.
    * 
    * @remarks
-   * - The **Data** field in the response parameters of this API is the job ID.  
-   * - After creating an Intelligent Outbound Call Job, if you need to make updates, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API to update the outbound call job.
-   * ### Queries per second (QPS) Limit
-   * - Per-user invocation frequency: No Rate Limiting.
-   * - API frequency: 20 queries per second (QPS).
-   * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+   * - The **Data** parameter in the response is the task ID.
+   * - After you create an intelligent outbound call task, you can call the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) operation to update the task.
+   * ### QPS limit
+   * - Per-user call frequency: not throttled.
+   * - API frequency: 20 calls per second.
+   * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
    * 
    * @param request - CreateAiOutboundTaskRequest
    * @returns CreateAiOutboundTaskResponse
@@ -3586,14 +3586,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the outbound call job details by instance ID and job ID.
+   * Retrieves the details of an outbound call task based on the instance ID and task ID.
    * 
    * @remarks
-   * The outbound call job details include the job ID, job status, task type, outbound caller number, callee number repetition policy, and other information. For more information, see [Response parameters](#api-detail-40).  
-   * ### Queries per second (QPS) limits  
-   * - Per-user invocation frequency: 100 times per second.  
-   * - API invocation frequency: 100 times per second.  
-   * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+   * The outbound call task details include the task ID, task status, task type, outbound caller number, callee number deduplication policy, and other information. For more information, see [Response elements](#api-detail-40).
+   * ### QPS limit
+   * - Per-user call rate: 100 calls per second.
+   * - API call rate: 100 calls per second.
+   * > If the total calls from multiple users exceed the API call rate, throttling is triggered.
    * 
    * @param request - GetAiOutboundTaskDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3620,14 +3620,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the outbound call job details by instance ID and job ID.
+   * Retrieves the details of an outbound call task based on the instance ID and task ID.
    * 
    * @remarks
-   * The outbound call job details include the job ID, job status, task type, outbound caller number, callee number repetition policy, and other information. For more information, see [Response parameters](#api-detail-40).  
-   * ### Queries per second (QPS) limits  
-   * - Per-user invocation frequency: 100 times per second.  
-   * - API invocation frequency: 100 times per second.  
-   * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+   * The outbound call task details include the task ID, task status, task type, outbound caller number, callee number deduplication policy, and other information. For more information, see [Response elements](#api-detail-40).
+   * ### QPS limit
+   * - Per-user call rate: 100 calls per second.
+   * - API call rate: 100 calls per second.
+   * > If the total calls from multiple users exceed the API call rate, throttling is triggered.
    * 
    * @param request - GetAiOutboundTaskDetailRequest
    * @returns GetAiOutboundTaskDetailResponse
@@ -6443,7 +6443,7 @@ export default class Client extends OpenApi {
    * @remarks
    * Call details include the total number of records, call results, agent names, call time, and other information.
    * ### QPS limit
-   * - Per-user call frequency: not throttled.
+   * - Single-user call frequency: not throttled.
    * - API frequency: 80 calls per second.
    * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
    * 
@@ -6585,7 +6585,7 @@ export default class Client extends OpenApi {
    * @remarks
    * Call details include the total number of records, call results, agent names, call time, and other information.
    * ### QPS limit
-   * - Per-user call frequency: not throttled.
+   * - Single-user call frequency: not throttled.
    * - API frequency: 80 calls per second.
    * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
    * 
@@ -6678,13 +6678,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports callee data for a call task.
+   * Imports callee data for a voice call task.
    * 
    * @remarks
-   * - You can import callee data by calling this operation. Alternatively, go to the **call task management** page, click **Import Callee Data**, download the template, and then upload your file.
-   * - This API operation currently supports only the JSON data type for importing callee data.
-   * - Ensure that you have created a call task before you call this operation.
-   * - To create a call task, go to the **call task management** page and click **Create Call Task**, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+   * - You can call this operation to import callee data, or import callee data on the **Call Task Management** page by clicking Import Callee Data, downloading the template, and uploading the file.
+   * - This operation currently supports only the JSON data type for importing callee data.
+   * - Before calling this operation, make sure that you have a successfully created call task.
+   * - If you do not have a successfully created call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
    * 
    * @param tmpReq - ImportTaskNumberDatasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6751,13 +6751,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports callee data for a call task.
+   * Imports callee data for a voice call task.
    * 
    * @remarks
-   * - You can import callee data by calling this operation. Alternatively, go to the **call task management** page, click **Import Callee Data**, download the template, and then upload your file.
-   * - This API operation currently supports only the JSON data type for importing callee data.
-   * - Ensure that you have created a call task before you call this operation.
-   * - To create a call task, go to the **call task management** page and click **Create Call Task**, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+   * - You can call this operation to import callee data, or import callee data on the **Call Task Management** page by clicking Import Callee Data, downloading the template, and uploading the file.
+   * - This operation currently supports only the JSON data type for importing callee data.
+   * - Before calling this operation, make sure that you have a successfully created call task.
+   * - If you do not have a successfully created call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
    * 
    * @param request - ImportTaskNumberDatasRequest
    * @returns ImportTaskNumberDatasResponse
@@ -7813,9 +7813,9 @@ export default class Client extends OpenApi {
    * Retrieves the details of a call task for an intelligent contact robot.
    * 
    * @remarks
-   * - Call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
-   * - Before calling this operation, make sure that the intelligent contact robot you created has successfully started a task.
-   * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
+   * - You can call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
+   * - Before calling this operation, make sure that your intelligent contact robot has been created and the task has been started.
+   * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page, or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
    * - The optional parameters in this operation are filter conditions for the call task details. If you do not specify them, all task details are returned.
    * ### QPS limit
    * - Per-user call frequency: not throttled.
@@ -7890,9 +7890,9 @@ export default class Client extends OpenApi {
    * Retrieves the details of a call task for an intelligent contact robot.
    * 
    * @remarks
-   * - Call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
-   * - Before calling this operation, make sure that the intelligent contact robot you created has successfully started a task.
-   * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
+   * - You can call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
+   * - Before calling this operation, make sure that your intelligent contact robot has been created and the task has been started.
+   * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page, or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
    * - The optional parameters in this operation are filter conditions for the call task details. If you do not specify them, all task details are returned.
    * ### QPS limit
    * - Per-user call frequency: not throttled.
@@ -8386,7 +8386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a paginated list of agents.
+   * Queries the list of communication agents.
    * 
    * @param request - PageQueryAgentListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8445,7 +8445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a paginated list of agents.
+   * Queries the list of communication agents.
    * 
    * @param request - PageQueryAgentListRequest
    * @returns PageQueryAgentListResponse
@@ -8456,7 +8456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a paginated list of agents (agency mode V2)
+   * Queries agents by paging (managed pattern V2).
    * 
    * @param request - PageQueryAgentListNewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8473,6 +8473,10 @@ export default class Client extends OpenApi {
       query["AgentName"] = request.agentName;
     }
 
+    if (!$dara.isNull(request.inboundConfigurableOnly)) {
+      query["InboundConfigurableOnly"] = request.inboundConfigurableOnly;
+    }
+
     if (!$dara.isNull(request.isAvailable)) {
       query["IsAvailable"] = request.isAvailable;
     }
@@ -8487,6 +8491,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.serviceDirection)) {
+      query["ServiceDirection"] = request.serviceDirection;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8507,7 +8519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a paginated list of agents (agency mode V2)
+   * Queries agents by paging (managed pattern V2).
    * 
    * @param request - PageQueryAgentListNewRequest
    * @returns PageQueryAgentListNewResponse
@@ -8518,11 +8530,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries call task details by page.
+   * Queries the details of voice call tasks by page.
    * 
    * @remarks
-   * - Before querying call task details, make sure that you have created a call task.
-   * - If you have not created a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+   * - Before querying voice call task details, make sure that you have created a voice call task.
+   * - If you have not created a voice call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
    * 
    * @param tmpReq - QueryAiCallDetailPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8635,11 +8647,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries call task details by page.
+   * Queries the details of voice call tasks by page.
    * 
    * @remarks
-   * - Before querying call task details, make sure that you have created a call task.
-   * - If you have not created a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+   * - Before querying voice call task details, make sure that you have created a voice call task.
+   * - If you have not created a voice call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
    * 
    * @param request - QueryAiCallDetailPageRequest
    * @returns QueryAiCallDetailPageResponse
@@ -8650,7 +8662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of a call task.
+   * Queries the basic information of a voice call task.
    * 
    * @param request - QueryAiCallTaskDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8693,7 +8705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of a call task.
+   * Queries the basic information of a voice call task.
    * 
    * @param request - QueryAiCallTaskDetailRequest
    * @returns QueryAiCallTaskDetailResponse
@@ -8786,7 +8798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the details of a communication agent.
+   * Queries the details of a communication agent.
    * 
    * @param request - QueryAiVoiceAgentDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8829,7 +8841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the details of a communication agent.
+   * Queries the details of a communication agent.
    * 
    * @param request - QueryAiVoiceAgentDetailRequest
    * @returns QueryAiVoiceAgentDetailResponse
@@ -8840,15 +8852,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets details for a specified agent, including its basic, branch, and version information.
+   * Queries the details of a specified agent, including basic information, branch information, and version information.
    * 
    * @remarks
-   * ## Usage notes
-   * - This API retrieves the details of a communication agent.
-   * - If you do not specify `BranchId` and `VersionId`, the API returns the configuration for the latest published version on the effective branch. If the effective branch only contains a draft version, no configuration is returned.
-   * - If you specify only `BranchId`, the API returns the configuration for the latest published version on the specified branch. If the specified branch only contains a draft version, no configuration is returned.
-   * - If you specify both `BranchId` and `VersionId`, the API returns the configuration for the specified version.
-   * - When `BranchDeployStatus` is `1` (branch deployed) and `VersionPublishStatus` is `1` (version published), imported outbound tasks use the configuration of this branch.
+   * ## Operation description
+   * - This operation queries the details of a communication agent.
+   * - If both `BranchId` and `VersionId` are empty, the latest published version configuration of the currently active branch is returned. If the active branch has only a draft version, no configuration is returned.
+   * - If only `BranchId` has a value, the latest published version configuration of the specified branch is returned. If the branch has only a draft version, no configuration is returned.
+   * - If both `BranchId` and `VersionId` have values, the configuration of the specified version is returned.
+   * - When `BranchDeployStatus = 1` (branch is deployed and online) and `VersionPublishStatus = 1` (version is published), the branch configuration is the one used by imported outbound call tasks.
    * 
    * @param request - QueryAiVoiceAgentDetailNewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8887,15 +8899,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets details for a specified agent, including its basic, branch, and version information.
+   * Queries the details of a specified agent, including basic information, branch information, and version information.
    * 
    * @remarks
-   * ## Usage notes
-   * - This API retrieves the details of a communication agent.
-   * - If you do not specify `BranchId` and `VersionId`, the API returns the configuration for the latest published version on the effective branch. If the effective branch only contains a draft version, no configuration is returned.
-   * - If you specify only `BranchId`, the API returns the configuration for the latest published version on the specified branch. If the specified branch only contains a draft version, no configuration is returned.
-   * - If you specify both `BranchId` and `VersionId`, the API returns the configuration for the specified version.
-   * - When `BranchDeployStatus` is `1` (branch deployed) and `VersionPublishStatus` is `1` (version published), imported outbound tasks use the configuration of this branch.
+   * ## Operation description
+   * - This operation queries the details of a communication agent.
+   * - If both `BranchId` and `VersionId` are empty, the latest published version configuration of the currently active branch is returned. If the active branch has only a draft version, no configuration is returned.
+   * - If only `BranchId` has a value, the latest published version configuration of the specified branch is returned. If the branch has only a draft version, no configuration is returned.
+   * - If both `BranchId` and `VersionId` have values, the configuration of the specified version is returned.
+   * - When `BranchDeployStatus = 1` (branch is deployed and online) and `VersionPublishStatus = 1` (version is published), the branch configuration is the one used by imported outbound call tasks.
    * 
    * @param request - QueryAiVoiceAgentDetailNewRequest
    * @returns QueryAiVoiceAgentDetailNewResponse
@@ -8906,12 +8918,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets call details.
+   * Queries the details of a call.
    * 
    * @remarks
-   * - This API retrieves call details. You can also view these details on the **call task management** > **details** > **execution history** > **completed** > **call details** page.
-   * - Before calling this API, make sure you have created a call task and imported called number data.
-   * - You can create a call task and import called number data either on the **call task management** page or by using the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) APIs.
+   * - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page.
+   * - Before calling this operation, make sure that you have created a call task and imported callee data.
+   * - If you do not have a created call task, create a call task and import callee data on the **Call Task Management** page, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
    * 
    * @param request - QueryConversationDetailInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8962,12 +8974,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets call details.
+   * Queries the details of a call.
    * 
    * @remarks
-   * - This API retrieves call details. You can also view these details on the **call task management** > **details** > **execution history** > **completed** > **call details** page.
-   * - Before calling this API, make sure you have created a call task and imported called number data.
-   * - You can create a call task and import called number data either on the **call task management** page or by using the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) APIs.
+   * - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page.
+   * - Before calling this operation, make sure that you have created a call task and imported callee data.
+   * - If you do not have a created call task, create a call task and import callee data on the **Call Task Management** page, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
    * 
    * @param request - QueryConversationDetailInfoRequest
    * @returns QueryConversationDetailInfoResponse
@@ -9305,11 +9317,11 @@ export default class Client extends OpenApi {
    * Queries the skill group list of the Cloud Customer Service System by instance ID.
    * 
    * @remarks
-   * This API allows you to query information such as the display name, description, channel type, and ID of skill groups. For details, see [Response Parameters](#api-detail-40).
-   * ### Queries per second (QPS) limit
-   * - Per-user invocation frequency: No rate limiting.
-   * - API frequency: 1000 queries per second.
-   * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+   * This operation queries information about skill groups, such as the display name, description, channel type, and ID. For more information, see [Response elements](#api-detail-40).
+   * ### QPS limit
+   * - Single-user call frequency: not throttled.
+   * - API frequency: 1,000 calls per second.
+   * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
    * 
    * @param request - QuerySkillGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9363,11 +9375,11 @@ export default class Client extends OpenApi {
    * Queries the skill group list of the Cloud Customer Service System by instance ID.
    * 
    * @remarks
-   * This API allows you to query information such as the display name, description, channel type, and ID of skill groups. For details, see [Response Parameters](#api-detail-40).
-   * ### Queries per second (QPS) limit
-   * - Per-user invocation frequency: No rate limiting.
-   * - API frequency: 1000 queries per second.
-   * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+   * This operation queries information about skill groups, such as the display name, description, channel type, and ID. For more information, see [Response elements](#api-detail-40).
+   * ### QPS limit
+   * - Single-user call frequency: not throttled.
+   * - API frequency: 1,000 calls per second.
+   * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
    * 
    * @param request - QuerySkillGroupsRequest
    * @returns QuerySkillGroupsResponse
@@ -9568,14 +9580,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query contact data by instance, list of contact IDs, list of session IDs, and so on.
+   * Queries contact data based on instance, contact ID list, session ID list, and other conditions.
    * 
    * @remarks
-   * This API allows you to query contact data such as contact status, session recipient, agent name, contact channel, satisfaction rating, and evaluation status. For details, see [Response parameters](#api-detail-40).  
-   * ### Queries per second (QPS) limit  
-   * - Per-user invocation frequency: No Rate Limiting.  
-   * - API frequency: 50 queries per second (QPS).  
-   * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+   * This operation queries contact data, including contact status, session acceptor, agent name, contact channel, satisfaction score, and evaluation status. For more information, see [Response elements](#api-detail-40).
+   * ### QPS limit
+   * - Per-user call frequency: not throttled.
+   * - API frequency: 50 calls per second.
+   * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
    * 
    * @param request - QueryTouchListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9678,14 +9690,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query contact data by instance, list of contact IDs, list of session IDs, and so on.
+   * Queries contact data based on instance, contact ID list, session ID list, and other conditions.
    * 
    * @remarks
-   * This API allows you to query contact data such as contact status, session recipient, agent name, contact channel, satisfaction rating, and evaluation status. For details, see [Response parameters](#api-detail-40).  
-   * ### Queries per second (QPS) limit  
-   * - Per-user invocation frequency: No Rate Limiting.  
-   * - API frequency: 50 queries per second (QPS).  
-   * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+   * This operation queries contact data, including contact status, session acceptor, agent name, contact channel, satisfaction score, and evaluation status. For more information, see [Response elements](#api-detail-40).
+   * ### QPS limit
+   * - Per-user call frequency: not throttled.
+   * - API frequency: 50 calls per second.
+   * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
    * 
    * @param request - QueryTouchListRequest
    * @returns QueryTouchListResponse
@@ -11334,7 +11346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * TestLargeModel
+   * Tests a gateway large language model.
    * 
    * @param tmpReq - TestLargeModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11391,7 +11403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * TestLargeModel
+   * Tests a gateway large language model.
    * 
    * @param request - TestLargeModelRequest
    * @returns TestLargeModelResponse
@@ -11563,7 +11575,7 @@ export default class Client extends OpenApi {
    * Updates the configuration of a voice call task.
    * 
    * @remarks
-   * Before updating the configuration of a call task, make sure that the task status is stopped.
+   * Before updating the configuration of a call task, make sure that the task is in the Stopped state.
    * 
    * @param tmpReq - UpdateAiCallTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11703,7 +11715,7 @@ export default class Client extends OpenApi {
    * Updates the configuration of a voice call task.
    * 
    * @remarks
-   * Before updating the configuration of a call task, make sure that the task status is stopped.
+   * Before updating the configuration of a call task, make sure that the task is in the Stopped state.
    * 
    * @param request - UpdateAiCallTaskRequest
    * @returns UpdateAiCallTaskResponse
@@ -11714,14 +11726,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update an outbound call job by instance ID and job ID.
+   * Updates an outbound call task based on the instance ID and task ID.
    * 
    * @remarks
-   * This API supports updating information such as the task name, task description, outbound caller number, and skill group ID. For details, see [Request Parameters](#api-detail-35).
-   * ### Queries per second (QPS) limit
-   * - Per-user invocation frequency: No rate limiting.
-   * - API frequency: 20 times per second.
-   * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
+   * This operation allows you to update the task name, task description, outbound caller number, skill group ID, and other information. For more details, refer to [Request parameters](#api-detail-35).
+   * ### QPS limit
+   * - Per-user call frequency: not throttled.
+   * - API frequency: 20 calls per second.
+   * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
    * 
    * @param tmpReq - UpdateAiOutboundTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11802,14 +11814,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update an outbound call job by instance ID and job ID.
+   * Updates an outbound call task based on the instance ID and task ID.
    * 
    * @remarks
-   * This API supports updating information such as the task name, task description, outbound caller number, and skill group ID. For details, see [Request Parameters](#api-detail-35).
-   * ### Queries per second (QPS) limit
-   * - Per-user invocation frequency: No rate limiting.
-   * - API frequency: 20 times per second.
-   * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
+   * This operation allows you to update the task name, task description, outbound caller number, skill group ID, and other information. For more details, refer to [Request parameters](#api-detail-35).
+   * ### QPS limit
+   * - Per-user call frequency: not throttled.
+   * - API frequency: 20 calls per second.
+   * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
    * 
    * @param request - UpdateAiOutboundTaskRequest
    * @returns UpdateAiOutboundTaskResponse

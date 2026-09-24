@@ -40,7 +40,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The end time.
+   * The end time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2021-05-20 00:03:00
@@ -64,7 +64,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   retryCurTimes?: number;
   /**
    * @remarks
-   * The retry count.
+   * The total number of retries.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
   retryTimes?: number;
   /**
    * @remarks
-   * The start time.
+   * The start time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2021-05-20 00:00:00
@@ -174,7 +174,7 @@ export class ListTaskDetailResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of task details.
+   * The list of task records.
    */
   record?: ListTaskDetailResponseBodyDataRecord[];
   /**
@@ -247,9 +247,9 @@ export class ListTaskDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
-   * - **true**: The operation was successful.
-   * - **false**: The operation failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

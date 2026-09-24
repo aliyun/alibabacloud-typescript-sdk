@@ -20,15 +20,15 @@ export class HotlineSessionQueryRequest extends $dara.Model {
    * @remarks
    * The call result. Valid values:
    * 
-   * - **normal**: The call ended normally.
-   * - **touchRouteError**: The call was terminated in the queue.
-   * - **touchInQueue**: The call was terminated in the queue.
-   * - **touchInLoss**: The call was terminated in the queue.
-   * - **userHangup**: The user hung up or the call was terminated in the IVR.
-   * - **sysHangup**: The system hung up or the call was terminated in the IVR.
-   * - **transferAgent**: The user hung up or the call was terminated in the IVR.
-   * - **dailing**: The agent hung up or the call was terminated during ringing.
-   * - **TouchRingCallLoss**: The call was terminated in the queue or during ringing.
+   * - **normal**: normal hangup.
+   * - **touchRouteError**: queue hangup.
+   * - **touchInQueue**: queue hangup.
+   * - **touchInLoss**: queue hangup.
+   * - **userHangup**: user hangup or IVR hangup.
+   * - **sysHangup**: system hangup or IVR hangup.
+   * - **transferAgent**: user hangup or IVR hangup.
+   * - **dailing**: agent hangup or ringing hangup.
+   * - **TouchRingCallLoss**: queue hangup or ringing hangup.
    * 
    * @example
    * normal
@@ -57,7 +57,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   callTypeList?: number[];
   /**
    * @remarks
-   * The number of the caller. For example, a mobile phone number, an agent number, or a robot number.
+   * The number of the caller. For example, a mobile phone number of a user, an agent number, or a robot number.
    * 
    * @example
    * 135615****
@@ -70,7 +70,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   calledNumberList?: string[];
   /**
    * @remarks
-   * The number of the callee. For example, a mobile phone number, an agent number, or a robot number.
+   * The number of the callee. For example, a mobile phone number of a user, an agent number, or a robot number.
    * 
    * @example
    * 057177****
@@ -113,7 +113,7 @@ export class HotlineSessionQueryRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
-   * You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * You can obtain the instance ID from <b>Instance Management</b> in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiOutboundTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Concurrent call rate for automated outbound calls.
+   * The call concurrency for automatic outbound calls.
    * 
    * @example
    * 10
@@ -13,17 +13,17 @@ export class CreateAiOutboundTaskShrinkRequest extends $dara.Model {
   concurrentRate?: number;
   /**
    * @remarks
-   * Job description. Length: 0 to 100 characters.
+   * The task description. The description can be up to 100 characters in length.
    * 
    * @example
-   * 房产销售
+   * RealEstateSales
    */
   description?: string;
   /**
    * @remarks
-   * Job execution time, in JSON format.
+   * The task execution time. The value is in JSON format.
    * 
-   * > The end time must be later than the start time.
+   * > The end time (end) must be later than the start time (start).
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateAiOutboundTaskShrinkRequest extends $dara.Model {
   executionTime?: string;
   /**
    * @remarks
-   * Fixed outbound ratio for predictive dialing. Valid values: **≥1**.
+   * The fixed call ratio for predictive outbound calls. Valid values: **≥ 1**.
    * 
    * @example
    * 1.5
@@ -41,7 +41,7 @@ export class CreateAiOutboundTaskShrinkRequest extends $dara.Model {
   forecastCallRate?: number;
   /**
    * @remarks
-   * The skill group ID (for predictive outbound calls) or IVR ID (for automated outbound calls). You can obtain this information in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The skill group ID (for predictive outbound calls) or IVR ID (for automatic outbound calls). You can obtain this information from the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -51,8 +51,8 @@ export class CreateAiOutboundTaskShrinkRequest extends $dara.Model {
   handlerId?: number;
   /**
    * @remarks
-   * AICCS instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
+   * You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -62,19 +62,19 @@ export class CreateAiOutboundTaskShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Job name. Length: 1 to 15 characters.
+   * The task name. The name must be 1 to 15 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试任务
+   * TestTask
    */
   name?: string;
   /**
    * @remarks
-   * Called number deduplication policy. Valid values:
-   * - **0**: Remove duplicates within the job.
-   * - **1**: Do not remove duplicates.
+   * The callee number deduplication policy. Valid values:
+   * - **0**: deduplicate within the task.
+   * - **1**: no deduplication.
    * 
    * This parameter is required.
    * 
@@ -84,25 +84,25 @@ export class CreateAiOutboundTaskShrinkRequest extends $dara.Model {
   numRepeated?: number;
   /**
    * @remarks
-   * Outbound caller numbers.  
+   * The outbound caller numbers.
    * 
-   * > Must be purchased numbers. Separate multiple numbers with commas (,).
+   * > The numbers must be purchased numbers. Separate multiple numbers with commas (,).
    * 
    * This parameter is required.
    */
   outboundNumsShrink?: string;
   /**
    * @remarks
-   * Failed call retry policy.  
+   * The failed call retry policy.
    * 
-   * > If empty, no retries are performed.
+   * > If the value is empty, no retry is performed.
    */
   recallRuleShrink?: string;
   /**
    * @remarks
-   * Task Type. Valid values:  
-   * - **2**: Predictive outbound call.  
-   * - **3**: Automated outbound call.
+   * The task type. Valid values:
+   * - **2**: predictive outbound call.
+   * - **3**: automatic outbound call.
    * 
    * This parameter is required.
    * 

@@ -16,7 +16,7 @@ export class QueryConversationDetailInfoNewResponseBodyDataOutputTags extends $d
    * The tag description.
    * 
    * @example
-   * Evaluate the customer\\"s interest in the model and purchase likelihood.
+   * Evaluate the customer\\"s interest in the vehicle model and purchase likelihood
    */
   outputTagDescription?: string;
   /**
@@ -24,7 +24,7 @@ export class QueryConversationDetailInfoNewResponseBodyDataOutputTags extends $d
    * The tag name.
    * 
    * @example
-   * Customer intent level.
+   * Customer intent level
    */
   outputTagName?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryConversationDetailInfoNewResponseBodyDataOutputTags extends $d
    * The tag value.
    * 
    * @example
-   * ["High (very positive, high probability of conversion)"]
+   * ["High (very positive, high conversion probability)"]
    */
   outputTagValue?: string;
   static names(): { [key: string]: string } {
@@ -152,6 +152,9 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
    */
   batchId?: string;
   /**
+   * @remarks
+   * The branch ID.
+   * 
    * @example
    * 68
    */
@@ -170,14 +173,14 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
    * - CALL_FORWARDING: Call forwarding.
    * - INCOMING_CALL_BARRED: Incoming call barred.
    * - CALL_REJECTED: Call rejected.
-   * - ANSWERED: User answered.
+   * - ANSWERED: Answered by the user.
    * - USER_BUSY: Callee busy.
    * - POWERED_OFF: Powered off.
    * - NO_USER_RESPONSE: Out of service area.
-   * - OPERATOR_BLOCK: Operator blocked.
+   * - OPERATOR_BLOCK: Blocked by the carrier.
    * - OTHERS: Other status.
    * - SUSPEND: Service suspended.
-   * - CANCEL: Caller canceled.
+   * - CANCEL: Canceled by the caller.
    * - INVALID_NUMBER: Invalid number.
    * - UNAVAILABLE: Temporarily unavailable.
    * - NETWORK_BUSY: Network busy.
@@ -205,7 +208,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   callerPhone?: string;
   /**
    * @remarks
-   * The chat record information. The structure is a JSON array, sorted in chronological order. The format is as follows:
+   * The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The format is as follows:
    * ```json
    * [
    *     {
@@ -218,7 +221,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
    * @example
    * [
    *   {
-   *     "content": "111Hello, age 222, gender male, I am the official consultant of ** Auto, we have a new model **; ** is now available, starting at ** yuan, ** minutes to break * units, would you like to learn more?",
+   *     "content": "111Hello, age 222, gender male, I am the official consultant of ** Auto. We have a new model called **; ** is now available, starting at ** RMB. It sold * units in ** minutes. Would you like to learn more?",
    *     "role": "assistant"
    *   },
    *   {
@@ -249,7 +252,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   detailId?: string;
   /**
    * @remarks
-   * The call duration in seconds. The value is 0 if the call is not connected.
+   * The call duration. The value is 0 if the call is not connected. Unit: seconds.
    * 
    * @example
    * 30
@@ -265,7 +268,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
    * The failure reason.
    * 
    * @example
-   * Actively canceled.
+   * Actively canceled
    */
   failedReason?: string;
   /**
@@ -297,7 +300,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   majorIntent?: string;
   /**
    * @remarks
-   * The variable information used at runtime, stored in this field as key-value pairs.
+   * The variable information used at runtime, stored in key-value format in this field.
    * 
    * @example
    * {
@@ -305,7 +308,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
    *   "phoneNumber": "777",
    *   "distance": "555",
    *   "mendian": "444",
-   *   "sex": "male",
+   *   "sex": "Male",
    *   "name": "111",
    *   "age": "222"
    * }
@@ -475,7 +478,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
 export class QueryConversationDetailInfoNewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * None
@@ -491,7 +494,7 @@ export class QueryConversationDetailInfoNewResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result data.
+   * The returned data.
    */
   data?: QueryConversationDetailInfoNewResponseBodyData;
   /**

@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The available call days.
+   * The callable days.
    * 
    * This parameter is required.
    */
   callDayShrink?: string;
   /**
    * @remarks
-   * The expiration date of outbound call details (the specific deadline).
+   * The expiration date of outbound call details (the specific deadline). Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-07-30 20:00:20
@@ -30,9 +30,9 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The outbound call validity type. Valid values:
    * 
-   * 0: permanently valid.
-   * 1: valid for a specified duration after import.
-   * 2: valid until a specified date.
+   * 0: Permanently valid.
+   * 1: Valid for a specified period after import.
+   * 2: Valid until a specified date.
    * 
    * @example
    * 0
@@ -40,7 +40,7 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   callExpireType?: number;
   /**
    * @remarks
-   * The retry interval. Unit: minutes. The maximum value is 120 minutes.
+   * The retry interval. Unit: minutes. The maximum value is 120.
    * 
    * @example
    * 25
@@ -48,7 +48,7 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   callRetryInterval?: number;
   /**
    * @remarks
-   * The reasons for retry upon failure.
+   * The reasons for retrying failed calls.
    */
   callRetryReasonShrink?: string;
   /**
@@ -61,7 +61,7 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   callRetryTimes?: number;
   /**
    * @remarks
-   * The available call time periods.
+   * The callable time periods.
    * 
    * This parameter is required.
    */
@@ -114,21 +114,21 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The creation source. Valid values:
    * 
-   * 0: created by agent.
+   * 0: Created by agent.
    * 
-   * 1: created by engine.
+   * 1: Created by engine.
    * 
    * @example
-   * Cannot be modified. Leave this parameter empty
+   * Cannot be modified. You do not need to specify this parameter
    */
   source?: number;
   /**
    * @remarks
    * The start mode. Valid values:
    * 
-   * - IMMEDIATE: starts immediately.
+   * - IMMEDIATE: Starts immediately.
    * 
-   * - SCHEDULE: starts at a scheduled time.
+   * - SCHEDULE: Starts at a scheduled time.
    * 
    * This parameter is required.
    * 
@@ -168,7 +168,7 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
+   * The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when StartType is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
    * 
    * @example
    * 1748923429000

@@ -45,7 +45,7 @@ export class UpdateModelApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * - **true**: Successful.
    * - **false**: Failed.
    * 

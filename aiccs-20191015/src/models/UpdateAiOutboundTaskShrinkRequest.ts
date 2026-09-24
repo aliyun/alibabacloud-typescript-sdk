@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiOutboundTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The concurrent rate for automated outbound calls.
+   * The concurrency for automatic outbound calls.
    * 
    * @example
    * 10
@@ -13,17 +13,15 @@ export class UpdateAiOutboundTaskShrinkRequest extends $dara.Model {
   concurrentRate?: number;
   /**
    * @remarks
-   * The job description. It can contain 0 to 100 characters.
+   * The task description. The description can be up to 100 characters in length.
    * 
    * @example
-   * 房产销售
+   * PropertySales
    */
   description?: string;
   /**
    * @remarks
-   * The job execution time.
-   * 
-   * > The end time must be later than the start time.
+   * The task execution time. Use a JSON object to configure time periods by day of the week. The start and end values must be in the HH:mm format. The end time must be later than the start time.
    * 
    * This parameter is required.
    * 
@@ -33,7 +31,7 @@ export class UpdateAiOutboundTaskShrinkRequest extends $dara.Model {
   executionTime?: string;
   /**
    * @remarks
-   * Fixed dialing ratio for predictive outbound calls. Valid values: **≥1**.
+   * The fixed call ratio for predictive outbound calls. Valid values: **≥ 1**.
    * 
    * @example
    * 1.2
@@ -41,7 +39,7 @@ export class UpdateAiOutboundTaskShrinkRequest extends $dara.Model {
   forecastCallRate?: number;
   /**
    * @remarks
-   * The skill group ID (for predictive outbound calls) or IVR ID (for automated outbound calls).
+   * The skill group ID for predictive outbound calls, or the IVR ID for automatic outbound calls.
    * 
    * This parameter is required.
    * 
@@ -51,8 +49,8 @@ export class UpdateAiOutboundTaskShrinkRequest extends $dara.Model {
   handlerId?: number;
   /**
    * @remarks
-   * AICCS instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
+   * You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -62,19 +60,19 @@ export class UpdateAiOutboundTaskShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Job name. Length: 1 to 15 characters.
+   * The task name. The name must be 1 to 15 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * xxxx外呼
+   * SampleOutboundCall
    */
   name?: string;
   /**
    * @remarks
-   * The policy for handling duplicate callee numbers.
-   * - **0**: Remove duplicates within the job.
-   * - **1**: Do not remove duplicates within the job.
+   * The called number deduplication policy. Valid values:
+   * - **0**: Deduplicate within the task.
+   * - **1**: Do not deduplicate within the task.
    * 
    * This parameter is required.
    * 
@@ -84,23 +82,23 @@ export class UpdateAiOutboundTaskShrinkRequest extends $dara.Model {
   numRepeated?: number;
   /**
    * @remarks
-   * Outbound caller numbers.
+   * The outbound caller numbers.
    * 
    * This parameter is required.
    */
   outboundNumsShrink?: string;
   /**
    * @remarks
-   * Failed-call retry policy.
+   * The failed recall policy.
    * 
-   * > If empty, no retry is performed when an outbound call fails.
+   * > If this parameter is left empty, the system does not recall when an outbound call fails.
    */
   recallRuleShrink?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
-   * You can invoke the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API and check the **Data** field in the response, or invoke the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API and check the **TaskId** field in the response.
+   * You can call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) operation and check the **Data** parameter in the response, or call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) operation and check the **TaskId** parameter in the response.
    * 
    * This parameter is required.
    * 

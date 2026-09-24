@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The application code.
+   * The code of the application.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
    * The name of the model application.
    * 
    * @example
-   * 测试应用
+   * TestApplication
    */
   applicationName?: string;
   /**
@@ -47,7 +47,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   callAssistantRecognize?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable call-connected event push. Disabled by default.
+   * Specifies whether to enable call-connected event push. This feature is disabled by default.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   callConnectedTriggerModel?: boolean;
   /**
    * @remarks
-   * The enumeration of allowed key digits, separated by commas, such as 1,2,3. Maximum of 20 values.
+   * The enumeration of allowed key digits, specified as comma-separated text such as 1,2,3. A maximum of 20 values are supported.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfAllowedDigits?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic validation of key values.
+   * Specifies whether to enable automatic key value validation.
    * 
    * @example
    * true
@@ -88,8 +88,8 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The action to take when the input is out of range. Valid values:
-   * - RETURN_MODEL: return to the model
-   * - AUTO_RETRY: automatically retry
+   * - RETURN_MODEL
+   * - AUTO_RETRY
    * 
    * @example
    * RETURN_MODEL
@@ -97,7 +97,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfOutOfRangeAction?: string;
   /**
    * @remarks
-   * The number of retry attempts (PlayTimes). Valid values: 1 to 3. Takes effect only when DtmfOutOfRangeAction is set to AUTO_RETRY.
+   * The number of retry attempts (PlayTimes). Valid values: 1 to 3. This parameter takes effect only when DtmfOutOfRangeAction is set to AUTO_RETRY.
    * 
    * @example
    * 1
@@ -105,28 +105,34 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   dtmfRetryPlayTimes?: number;
   /**
    * @remarks
-   * The custom retry prompt text. Maximum length: 50 characters. If left empty, the default message is used.
+   * The custom retry prompt text. The maximum length is 50 characters. If this parameter is left empty, the default prompt "Invalid input. Enter again." is used.
    * 
    * @example
-   * 测试文本
+   * Sample text
    */
   dtmfRetryPromptText?: string;
   /**
+   * @remarks
+   * The maximum number of DTMF key sending attempts.
+   * 
    * @example
    * 90
    */
   dtmfSendMaxCount?: number;
   /**
+   * @remarks
+   * The timeout period for waiting for DTMF key sending.
+   * 
    * @example
    * 58
    */
   dtmfSendWaitTimeout?: number;
   /**
    * @remarks
-   * The scenario name.
+   * The name of the scenario.
    * 
    * @example
-   * 测试场景
+   * TestScenario
    */
   dyvmsSceneName?: string;
   /**
@@ -138,13 +144,16 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
    */
   enableDtmfReceive?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable DTMF key sending.
+   * 
    * @example
    * true
    */
   enableDtmfSend?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable Morse code configuration. Disabled by default.
+   * Specifies whether to enable Morse code configuration. This feature is disabled by default.
    * 
    * @example
    * false
@@ -157,7 +166,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   interruptConfigShrink?: string;
   /**
    * @remarks
-   * The model code.
+   * The code of the model.
    * 
    * @example
    * 1231
@@ -165,7 +174,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   modelCode?: string;
   /**
    * @remarks
-   * The model version.
+   * The version of the model.
    * 
    * @example
    * 1
@@ -189,7 +198,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   muteDuration?: number;
   /**
    * @remarks
-   * The number of consecutive mute events after which the system proactively hangs up.
+   * The number of consecutive mute events before the system proactively hangs up.
    * 
    * @example
    * 70
@@ -217,12 +226,12 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
    * The prompt.
    * 
    * @example
-   * 测试提示词
+   * TestPrompt
    */
   prompt?: string;
   /**
    * @remarks
-   * The qualification ID.
+   * The ID of the qualification.
    * 
    * @example
    * 61
@@ -230,10 +239,10 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   qualificationId?: number;
   /**
    * @remarks
-   * The qualification name.
+   * The name of the qualification.
    * 
    * @example
-   * 测试质检
+   * TestQualification
    */
   qualificationName?: string;
   /**
@@ -264,15 +273,15 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The speech script content.
+   * The content of the speech script.
    * 
    * @example
-   * 测试话术
+   * TestSpeechScript
    */
   speechContent?: string;
   /**
    * @remarks
-   * The speech script ID.
+   * The ID of the speech script.
    * 
    * @example
    * 15
@@ -283,7 +292,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
    * The opening statement.
    * 
    * @example
-   * 你好，这是个测试开场白
+   * Hello, this is a test opening statement
    */
   startWord?: string;
   /**
@@ -291,8 +300,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
    * The type of the opening statement.
    * 
    * @example
-   * 0：文本
-   * 1：录音
+   * 0
    */
   startWordType?: number;
   /**
@@ -305,7 +313,7 @@ export class UpdateModelApplicationShrinkRequest extends $dara.Model {
    * The usage description.
    * 
    * @example
-   * 测试用途
+   * TestUsage
    */
   usageDesc?: string;
   static names(): { [key: string]: string } {

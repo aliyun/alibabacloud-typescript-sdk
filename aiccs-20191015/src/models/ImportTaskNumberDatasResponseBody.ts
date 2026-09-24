@@ -13,7 +13,7 @@ export class ImportTaskNumberDatasResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code. `OK` indicates that the request was successful.
+   * The request status code. OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class ImportTaskNumberDatasResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The response message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -45,11 +45,9 @@ export class ImportTaskNumberDatasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

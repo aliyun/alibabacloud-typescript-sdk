@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Model {
   /**
    * @remarks
-   * Inbound call caller number.
+   * The calling number for inbound calls.
    * 
    * @example
    * 187****0000
@@ -13,7 +13,7 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
   ani?: string;
   /**
    * @remarks
-   * For outbound calls, this is the called number. For inbound calls, this is also the called number.
+   * The called number for both outbound and inbound calls.
    * 
    * @example
    * 05712688****
@@ -21,11 +21,11 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
   dnis?: string;
   /**
    * @remarks
-   * Satisfaction Level. Valid values:  
-   * - **2**: Level 2 satisfaction.  
-   * - **3**: Level 3 satisfaction.  
-   * - **4**: Level 4 satisfaction.  
-   * - **5**: Level 5 satisfaction.
+   * The satisfaction level. Valid values:
+   * - **2**: 2-level satisfaction.
+   * - **3**: 3-level satisfaction.
+   * - **4**: 4-level satisfaction.
+   * - **5**: 5-level satisfaction.
    * 
    * @example
    * 2
@@ -33,7 +33,7 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
   evaluationLevel?: number;
   /**
    * @remarks
-   * Satisfaction rating. Valid values:
+   * The satisfaction score. Valid values:
    * - **1**: Very dissatisfied.
    * - **2**: Dissatisfied.
    * - **3**: Neutral.
@@ -46,7 +46,7 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
   evaluationScore?: number;
   /**
    * @remarks
-   * Evaluation solution.
+   * The evaluation Solutions.
    * 
    * @example
    * 0
@@ -54,7 +54,7 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
   evaluationSolution?: number;
   /**
    * @remarks
-   * Evaluation status. Valid values:
+   * The evaluation status. Valid values:
    * - **-1**: Evaluation not initiated.
    * - **0**: Not evaluated.
    * - **1**: Evaluated.
@@ -65,7 +65,7 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
   evaluationStatus?: number;
   /**
    * @remarks
-   * Duration until first response (unit: seconds).
+   * The first response duration, in seconds.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
   onlineJoinRespInterval?: number;
   /**
    * @remarks
-   * Online session source.
+   * The online session source.
    * 
    * @example
    * 0
@@ -81,7 +81,7 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
   onlineSessionSource?: number;
   /**
    * @remarks
-   * Outbound call caller number.
+   * The calling number for outbound calls.
    * 
    * @example
    * 05712688****
@@ -127,7 +127,7 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Mode
 export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * @example
    * 905
@@ -135,7 +135,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   buId?: number;
   /**
    * @remarks
-   * Session ID.
+   * The session ID.
    * 
    * @example
    * 4f8807a9de024507a3090b5b66a8****
@@ -143,7 +143,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * Contact channel.
+   * The touch channel.
    * 
    * @example
    * 1
@@ -151,7 +151,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   channelType?: number;
   /**
    * @remarks
-   * Session end time. UNIX timestamp format (unit: milliseconds).
+   * The session end time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1611207976000
@@ -159,15 +159,15 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   closeTime?: number;
   /**
    * @remarks
-   * Skill group name.
+   * The skill group name.
    * 
    * @example
-   * 测试1
+   * Test1
    */
   commonQueueName?: string;
   /**
    * @remarks
-   * Department ID.
+   * The department ID.
    * 
    * @example
    * 100
@@ -175,17 +175,17 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   depId?: number;
   /**
    * @remarks
-   * Extension fields.
+   * The extended fields.
    */
   extAttrs?: QueryTouchListResponseBodyResultDataDataExtAttrs;
   /**
    * @remarks
-   * Large object.
+   * The large field.
    */
   extAttrsString?: { [key: string]: any };
   /**
    * @remarks
-   * Feedback.
+   * The feedback.
    * 
    * @example
    * xxxx
@@ -193,7 +193,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   feedback?: string;
   /**
    * @remarks
-   * Conversation pickup time, in UNIX timestamp format (unit: milliseconds).
+   * The session pickup time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1611209971000
@@ -201,7 +201,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * Conversation initiator.
+   * The session initiator.
    * 
    * @example
    * 6400665****
@@ -209,7 +209,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   fromId?: number;
   /**
    * @remarks
-   * Creation Time, in UNIX timestamp format (unit: milliseconds).
+   * The creation time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1611209971000
@@ -217,7 +217,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Update Time. UNIX timestamp format (unit: milliseconds).
+   * The update time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1611207979000
@@ -225,7 +225,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * Membership ID.
+   * The member ID.
    * 
    * @example
    * 6400665****
@@ -233,15 +233,15 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   memberId?: number;
   /**
    * @remarks
-   * Membership name.
+   * The member name.
    * 
    * @example
-   * 访客
+   * Visitor
    */
   memberName?: string;
   /**
    * @remarks
-   * Parent contact ID.
+   * The parent touch ID.
    * 
    * @example
    * 0
@@ -249,7 +249,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   parentTouchId?: number;
   /**
    * @remarks
-   * Skill group ID.
+   * The skill group ID.
    * 
    * @example
    * 111
@@ -257,7 +257,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   queueId?: number;
   /**
    * @remarks
-   * Service agent ID.
+   * The agent ID.
    * 
    * @example
    * 67****
@@ -265,7 +265,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   servicerId?: number;
   /**
    * @remarks
-   * Service agent name.
+   * The agent name.
    * 
    * @example
    * 1390000****
@@ -273,10 +273,10 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   servicerName?: string;
   /**
    * @remarks
-   * Contact status. Valid values:  
-   * - **1**: Incoming call received.  
-   * - **2**: Agent has joined.  
-   * - **3**: In conversation.  
+   * The touch status. Valid values:
+   * - **1**: Queued.
+   * - **2**: Agent connected.
+   * - **3**: In call.
    * - **4**: Ended.
    * 
    * @example
@@ -285,7 +285,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Change owner list.
+   * The transfer list.
    * 
    * @example
    * null
@@ -293,7 +293,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   switchUser?: string;
   /**
    * @remarks
-   * Conversation recipient.
+   * The session receiver.
    * 
    * @example
    * 67****
@@ -301,14 +301,14 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   toId?: number;
   /**
    * @remarks
-   * The reason why the session ended. Valid values:  
-   * - **0**: Unknown.  
-   * - **1**: Contact failed.  
-   * - **2**: Terminated by customer.  
-   * - **3**: Terminated by agent.  
-   * - **4**: Call abnormally interrupted.  
-   * - **5**: Terminated due to change owner.  
-   * - **6**: Terminated by system.
+   * The session end reason. Valid values:
+   * - **0**: Unknown.
+   * - **1**: Touch unsuccessful.
+   * - **2**: Customer terminated.
+   * - **3**: Agent terminated.
+   * - **4**: Call abnormally interrupted.
+   * - **5**: Transfer terminated.
+   * - **6**: System terminated.
    * 
    * @example
    * 1
@@ -316,7 +316,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   touchContent?: string;
   /**
    * @remarks
-   * End reason.
+   * The end reason.
    * 
    * @example
    * 2
@@ -324,7 +324,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   touchEndReason?: number;
   /**
    * @remarks
-   * Touch ID.
+   * The contact ID.
    * 
    * @example
    * 1386****
@@ -332,7 +332,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   touchId?: string;
   /**
    * @remarks
-   * Conversation duration (unit: seconds).
+   * The session duration, in seconds.
    * 
    * @example
    * 111
@@ -340,7 +340,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   touchTime?: string;
   /**
    * @remarks
-   * Touch type. Valid values:
+   * The touch type. Valid values:
    * - **1**: Active touch.
    * - **2**: Passive touch.
    * 
@@ -350,7 +350,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   touchType?: number;
   /**
    * @remarks
-   * User touch ID.
+   * The user touch ID.
    * 
    * @example
    * 1386****
@@ -440,7 +440,7 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
 export class QueryTouchListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -448,7 +448,7 @@ export class QueryTouchListResponseBodyResultData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Data.
+   * The data.
    */
   data?: QueryTouchListResponseBodyResultDataData[];
   /**
@@ -461,7 +461,7 @@ export class QueryTouchListResponseBodyResultData extends $dara.Model {
   empty?: boolean;
   /**
    * @remarks
-   * The page number of the next page.
+   * The next page number.
    * 
    * @example
    * 2
@@ -469,7 +469,7 @@ export class QueryTouchListResponseBodyResultData extends $dara.Model {
   nextPage?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 2
@@ -477,7 +477,7 @@ export class QueryTouchListResponseBodyResultData extends $dara.Model {
   onePageSize?: number;
   /**
    * @remarks
-   * Previous page number.
+   * The previous page number.
    * 
    * @example
    * 2
@@ -485,7 +485,7 @@ export class QueryTouchListResponseBodyResultData extends $dara.Model {
   previousPage?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 4
@@ -493,7 +493,7 @@ export class QueryTouchListResponseBodyResultData extends $dara.Model {
   totalPage?: number;
   /**
    * @remarks
-   * Total number of query results.
+   * The total number of results.
    * 
    * @example
    * 100
@@ -540,7 +540,7 @@ export class QueryTouchListResponseBodyResultData extends $dara.Model {
 export class QueryTouchListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -548,7 +548,7 @@ export class QueryTouchListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * Success
@@ -556,7 +556,7 @@ export class QueryTouchListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 865658FD-80DE-5D49-ABEB-F3CC9863F4F1
@@ -564,13 +564,13 @@ export class QueryTouchListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Data result.
+   * The data result.
    */
   resultData?: QueryTouchListResponseBodyResultData;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:  
-   * - **true**: Succeeded.  
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

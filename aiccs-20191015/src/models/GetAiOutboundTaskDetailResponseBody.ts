@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiOutboundTaskDetailResponseBodyDataRecallRule extends $dara.Model {
   /**
    * @remarks
-   * Number of retries.
+   * The number of recall attempts.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class GetAiOutboundTaskDetailResponseBodyDataRecallRule extends $dara.Mod
   count?: number;
   /**
    * @remarks
-   * Recall interval. Unit: minutes.
+   * The recall interval. Unit: minutes.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class GetAiOutboundTaskDetailResponseBodyDataRecallRule extends $dara.Mod
 export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Concurrency for automated outbound calls.
+   * The concurrency for automatic outbound calls.
    * 
    * @example
    * 10
@@ -53,15 +53,15 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
   concurrentRate?: number;
   /**
    * @remarks
-   * Job description.
+   * The task description.
    * 
    * @example
-   * 房产销售
+   * Real estate sales
    */
   description?: string;
   /**
    * @remarks
-   * Task execution time.
+   * The task execution time. Time periods are configured by day of the week using a JSON object. The start and end values are in the HH:mm format.
    * 
    * @example
    * {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
@@ -69,7 +69,7 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
   executionTime?: string;
   /**
    * @remarks
-   * Fixed outbound call ratio for predictive dialing.
+   * The fixed call rate for predictive outbound calls.
    * 
    * @example
    * 1.2
@@ -77,7 +77,7 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
   forecastCallRate?: number;
   /**
    * @remarks
-   * Skill group ID (for predictive outbound calls) or IVR ID (for automated outbound calls).
+   * The skill group ID (for predictive outbound calls) or IVR ID (for automatic outbound calls).
    * 
    * @example
    * 123456
@@ -85,26 +85,26 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
   handlerId?: number;
   /**
    * @remarks
-   * Skill group name or IVR name.
+   * The skill group name or IVR name.
    * 
    * @example
-   * 热线技能组
+   * Hotline skill group
    */
   handlerName?: string;
   /**
    * @remarks
-   * Job name.
+   * The task name.
    * 
    * @example
-   * xxxxx外呼
+   * xxxxx outbound call
    */
   name?: string;
   /**
    * @remarks
-   * Called number deduplication policy.
+   * The callee number deduplication policy.
    * 
-   * - **0**: Remove duplicates.
-   * - **1**: Do not remove duplicates.
+   * - **0**: Deduplicate.
+   * - **1**: Do not deduplicate.
    * 
    * @example
    * 0
@@ -112,23 +112,23 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
   numRepeated?: number;
   /**
    * @remarks
-   * Outbound caller numbers.
+   * The outbound caller numbers.
    */
   outboundNums?: string[];
   /**
    * @remarks
-   * Failed-call retry policy.
+   * The failed recall policy.
    */
   recallRule?: GetAiOutboundTaskDetailResponseBodyDataRecallRule;
   /**
    * @remarks
-   * Job status. Valid values:  
+   * The task status. Valid values:
    * 
-   * - **0**: Not started.  
-   * - **1**: In progress.  
-   * - **2**: System paused.  
-   * - **3**: Manually paused.  
-   * - **4**: Completed.  
+   * - **0**: Not started.
+   * - **1**: In progress.
+   * - **2**: System paused.
+   * - **3**: Manually paused.
+   * - **4**: Completed.
    * - **5**: Stopped.
    * 
    * @example
@@ -137,15 +137,15 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Task status description.
+   * The task status description.
    * 
    * @example
-   * 未开始
+   * Not started
    */
   statusDesc?: string;
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * 123
@@ -153,10 +153,10 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * Task Type. Valid values:
+   * The task type. Valid values:
    * 
    * - **2**: Predictive outbound call.
-   * - **3**: Automated outbound call.
+   * - **3**: Automatic outbound call.
    * 
    * @example
    * 2
@@ -218,7 +218,7 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
 export class GetAiOutboundTaskDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * OK
@@ -226,12 +226,12 @@ export class GetAiOutboundTaskDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Outbound call job details.
+   * The details of the outbound call task.
    */
   data?: GetAiOutboundTaskDetailResponseBodyData;
   /**
    * @remarks
-   * Status code description.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -239,7 +239,7 @@ export class GetAiOutboundTaskDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
@@ -247,8 +247,8 @@ export class GetAiOutboundTaskDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API was invoked successfully.  
-   * - **true**: Succeeded.  
+   * Indicates whether the call was successful.
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

@@ -24,7 +24,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
    * @remarks
    * The call duration. Unit: seconds.
    * 
-   * > No call duration is available for unanswered calls.
+   * > No call duration is available in scenarios where the call is not connected.
    * 
    * @example
    * 37
@@ -34,15 +34,15 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
    * @remarks
    * The call result. Valid values:
    * 
-   * - **normal**: The call ended normally.
-   * - **touchRouteError**: The call was terminated in the queue.
-   * - **touchInQueue**: The call was terminated in the queue.
-   * - **touchInLoss**: The call was terminated in the queue.
-   * - **userHangup**: The user hung up or the call was terminated in the IVR.
-   * - **sysHangup**: The system hung up or the call was terminated in the IVR.
-   * - **transferAgent**: The user hung up or the call was terminated in the IVR.
-   * - **dailing**: The agent hung up or the call was terminated during ringing.
-   * - **TouchRingCallLoss**: The call was terminated in the queue or during ringing.
+   * - **normal**: normal hangup.
+   * - **touchRouteError**: queue hangup.
+   * - **touchInQueue**: queue hangup.
+   * - **touchInLoss**: queue hangup.
+   * - **userHangup**: user hangup or IVR hangup.
+   * - **sysHangup**: system hangup or IVR hangup.
+   * - **transferAgent**: user hangup or IVR hangup.
+   * - **dailing**: agent hangup or ringing hangup.
+   * - **TouchRingCallLoss**: queue hangup or ringing hangup.
    * 
    * @example
    * normal
@@ -69,7 +69,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   calledNumber?: string;
   /**
    * @remarks
-   * The number of the caller. For example, a mobile phone number, an agent number, or a robot number.
+   * The number of the caller. For example, a mobile phone number of a user, an agent number, or a robot number.
    * 
    * @example
    * 0571773
@@ -77,10 +77,10 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   callingNumber?: string;
   /**
    * @remarks
-   * The time when the call was created.
+   * The time when the call was created. Format: YYYY-MM-DD HH:mm:ss.
    * 
-   * > - For outbound calls, this is the time when the outbound call was initiated.
-   * - For inbound calls, this is the time when the call entered the ACC system.
+   * > - For outbound call scenarios, this is the time when the outbound call was initiated.
+   * - For inbound call scenarios, this is the time when the call entered the ACC system.
    * 
    * @example
    * 2020-10-02 22:32:55
@@ -90,12 +90,12 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
    * @remarks
    * The satisfaction rating level. Valid values:
    * 
-   * - **2**: level-2 satisfaction
-   * - **3**: level-3 satisfaction
-   * - **4**: level-4 satisfaction
-   * - **5**: level-5 satisfaction
+   * - **2**: 2-level satisfaction
+   * - **3**: 3-level satisfaction
+   * - **4**: 4-level satisfaction
+   * - **5**: 5-level satisfaction
    * 
-   * > No data is available for outbound calls or unanswered calls.
+   * > No data is available for outbound call scenarios or scenarios where the call is not connected.
    * 
    * @example
    * 4
@@ -103,14 +103,14 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   evaluationLevel?: number;
   /**
    * @remarks
-   * The satisfaction score. Valid values:
+   * The satisfaction rating score. Valid values:
    * - **1**: Very dissatisfied.
    * - **2**: Dissatisfied.
    * - **3**: Average.
    * - **4**: Satisfied.
    * - **5**: Very satisfied.
    * 
-   * > No data is available for outbound calls or unanswered calls.
+   * > No data is available for outbound call scenarios or scenarios where the call is not connected.
    * 
    * @example
    * 4
@@ -120,7 +120,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
    * @remarks
    * The skill group ID.
    * 
-   * > When CallType is set to **1**, no skill group information is available for outbound calls.
+   * > When CallType is set to **1**, no skill group information is available for outbound call scenarios.
    * 
    * @example
    * 123456
@@ -129,7 +129,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   /**
    * @remarks
    * The skill group name.
-   * > When CallType is set to **1**, no skill group information is available for outbound calls.
+   * > When CallType is set to **1**, no skill group information is available for outbound call scenarios.
    * 
    * @example
    * AutomationSkillGroup
@@ -150,7 +150,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   hangUpRole?: string;
   /**
    * @remarks
-   * The hang-up time.
+   * The hang-up time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2020-10-02 22:33:46
@@ -166,8 +166,8 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   id?: string;
   /**
    * @remarks
-   * The time when the call entered the queue for hotline assignment.
-   * > No queue entry time is available for outbound calls.
+   * The time when the call entered the queue for hotline assignment. Format: YYYY-MM-DD HH:mm:ss.
+   * > No queue entry time is available for outbound call scenarios.
    * 
    * @example
    * 2020-10-02 22:32:55
@@ -191,9 +191,9 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   memberName?: string;
   /**
    * @remarks
-   * The time when the call left the queue for hotline assignment.
+   * The time when the call left the queue for hotline assignment. Format: YYYY-MM-DD HH:mm:ss.
    * 
-   * > No queue exit time is available for outbound calls.
+   * > No queue exit time is available for outbound call scenarios.
    * 
    * @example
    * 2020-10-02 22:32:59
@@ -222,7 +222,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   passiveTransferIdType?: string;
   /**
    * @remarks
-   * The time when the call was answered.
+   * The time when the call was answered. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2020-10-02 22:33:09
@@ -230,7 +230,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   pickUpTime?: string;
   /**
    * @remarks
-   * The queue wait duration.
+   * The queue waiting duration.
    * 
    * @example
    * 4
@@ -240,7 +240,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
    * @remarks
    * The ringing duration. Unit: seconds.
    * 
-   * > No ringing duration is available for outbound calls.
+   * > No ringing duration is available for outbound call scenarios.
    * 
    * @example
    * 10
@@ -248,9 +248,9 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   ringContinueTime?: number;
   /**
    * @remarks
-   * The time when ringing ended.
+   * The time when ringing ended. Format: YYYY-MM-DD HH:mm:ss.
    * 
-   * > No ringing end time is available for outbound calls.
+   * > No ringing end time is available for outbound call scenarios.
    * 
    * @example
    * 2020-10-02 22:33:09
@@ -258,9 +258,9 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   ringEndTime?: string;
   /**
    * @remarks
-   * The time when ringing started.
+   * The time when ringing started. Format: YYYY-MM-DD HH:mm:ss.
    * 
-   * > No ringing start time is available for outbound calls.
+   * > No ringing start time is available for outbound call scenarios.
    * 
    * @example
    * 2020-10-02 22:32:59
@@ -269,7 +269,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   /**
    * @remarks
    * The agent ID.
-   * > No agent information is available before an agent is assigned for inbound calls.
+   * > No agent information is available before the call is assigned to an agent in inbound call scenarios.
    * 
    * @example
    * 555555
@@ -278,7 +278,7 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.M
   /**
    * @remarks
    * The agent name.
-   * > No agent information is available before an agent is assigned for inbound calls.
+   * > No agent information is available before the call is assigned to an agent in inbound call scenarios.
    * 
    * @example
    * TestAgent

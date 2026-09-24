@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiCallTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the agent that is already online.
+   * The code of the agent that has been published.
    * 
    * @example
    * 1180**************
@@ -28,7 +28,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callDay?: string[];
   /**
    * @remarks
-   * The expiration date of outbound call details (specific deadline).
+   * The expiration date of outbound call details (specific deadline). Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-07-30 20:00:20
@@ -46,9 +46,9 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    * @remarks
    * The outbound call validity type. Valid values:
    * 
-   * 0: permanently valid.
-   * 1: valid for a specified duration after import.
-   * 2: valid until a specified date.
+   * 0: Permanently valid.
+   * 1: Valid for a specified duration after import.
+   * 2: Valid until a specified date.
    * 
    * @example
    * 0
@@ -64,7 +64,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callRetryInterval?: number;
   /**
    * @remarks
-   * The list of failure retry reasons.
+   * The list of retry reasons for failed calls.
    */
   callRetryReason?: string[];
   /**
@@ -103,9 +103,9 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable retry. Valid values:
    * 
-   * - true: enabled.
+   * - true: Enabled.
    * 
-   * - false (default): disabled.
+   * - false (default): Disabled.
    * 
    * @example
    * false
@@ -118,7 +118,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    * 
    * - 0: Alibaba Cloud number.
    * 
-   * - 1: customer-provided line.
+   * - 1: Customer-provided line.
    * 
    * @example
    * 0
@@ -130,9 +130,9 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    * @remarks
    * The creation source. Valid values:
    * 
-   * - 0: created by agent.
+   * - 0: Created by an agent.
    * 
-   * - 1: created by engine.
+   * - 1: Created by an engine.
    * 
    * @example
    * 0
@@ -140,11 +140,11 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   source?: number;
   /**
    * @remarks
-   * The start mode. Valid values:
+   * The start type. Valid values:
    * 
-   * - IMMEDIATE: starts immediately.
+   * - IMMEDIATE: Start immediately.
    * 
-   * - SCHEDULE: starts at a scheduled time.
+   * - SCHEDULE: Start at a scheduled time.
    * 
    * This parameter is required.
    * 
@@ -172,7 +172,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
+   * The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when StartType is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
    * 
    * @example
    * 12313123133

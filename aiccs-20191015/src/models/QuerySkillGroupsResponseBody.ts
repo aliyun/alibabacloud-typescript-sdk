@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySkillGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Skill group channel type.
+   * The channel type of the skill group.
    * 
    * @example
    * 2
@@ -13,23 +13,23 @@ export class QuerySkillGroupsResponseBodyData extends $dara.Model {
   channelType?: number;
   /**
    * @remarks
-   * Skill group description.
+   * The description of the skill group.
    * 
    * @example
-   * 自动化技能组
+   * Automation skill group
    */
   description?: string;
   /**
    * @remarks
-   * Skill group display name.
+   * The display name of the skill group.
    * 
    * @example
-   * 自动化技能组
+   * Automation skill group
    */
   displayName?: string;
   /**
    * @remarks
-   * Skill group ID.
+   * The ID of the skill group.
    * 
    * @example
    * 123456
@@ -37,10 +37,10 @@ export class QuerySkillGroupsResponseBodyData extends $dara.Model {
   skillGroupId?: number;
   /**
    * @remarks
-   * Skill group name.
+   * The name of the skill group.
    * 
    * @example
-   * 自动化技能组
+   * Automation skill group
    */
   skillGroupName?: string;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class QuerySkillGroupsResponseBodyData extends $dara.Model {
 export class QuerySkillGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -83,12 +83,12 @@ export class QuerySkillGroupsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Data.
+   * The data.
    */
   data?: QuerySkillGroupsResponseBodyData[];
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -96,7 +96,7 @@ export class QuerySkillGroupsResponseBody extends $dara.Model {
   onePageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -104,7 +104,7 @@ export class QuerySkillGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 4
@@ -112,7 +112,7 @@ export class QuerySkillGroupsResponseBody extends $dara.Model {
   totalPage?: number;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 76

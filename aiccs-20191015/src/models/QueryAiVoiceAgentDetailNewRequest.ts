@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAiVoiceAgentDetailNewRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent.
+   * The agent ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryAiVoiceAgentDetailNewRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The ID of the branch. If you do not specify this parameter, the active branch is used.
+   * The branch ID. If this parameter is left empty, the currently active branch is automatically used.
    * 
    * @example
    * 12
@@ -23,7 +23,7 @@ export class QueryAiVoiceAgentDetailNewRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The ID of the version. If you do not specify this parameter, the system uses the latest published version for the specified branch. You must specify BranchId when you use this parameter.
+   * The version ID. If this parameter is left empty, the latest published version of the corresponding branch is used. This parameter must be used together with BranchId.
    * 
    * @example
    * 21

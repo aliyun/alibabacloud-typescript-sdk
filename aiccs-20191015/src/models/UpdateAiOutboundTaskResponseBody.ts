@@ -13,7 +13,7 @@ export class UpdateAiOutboundTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * ok
@@ -29,9 +29,9 @@ export class UpdateAiOutboundTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API invocation succeeded.
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

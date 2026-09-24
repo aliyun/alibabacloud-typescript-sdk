@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAiCallTaskDetailResponseBodyDataCallTimes extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time in the format of HH:mm:ss.
    * 
    * @example
    * 09:00:00
@@ -13,7 +13,7 @@ export class QueryAiCallTaskDetailResponseBodyDataCallTimes extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time in the format of HH:mm:ss.
    * 
    * @example
    * 12:00:00
@@ -45,7 +45,7 @@ export class QueryAiCallTaskDetailResponseBodyDataCallTimes extends $dara.Model 
 export class QueryAiCallTaskDetailResponseBodyDataCallableTimes extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time in the format of HH:mm:ss.
    * 
    * @example
    * 18:00:00
@@ -53,7 +53,7 @@ export class QueryAiCallTaskDetailResponseBodyDataCallableTimes extends $dara.Mo
   endTime?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time in the format of HH:mm:ss.
    * 
    * @example
    * 10:00:00
@@ -85,7 +85,7 @@ export class QueryAiCallTaskDetailResponseBodyDataCallableTimes extends $dara.Mo
 export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the published agent.
+   * The code of the published agent.
    * 
    * @example
    * 1180**************
@@ -96,17 +96,23 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * TestAgent
+   * Test agent
    */
   agentName?: string;
   /**
+   * @remarks
+   * The application code.
+   * 
    * @example
-   * SampleValue
+   * Sample value
    */
   applicationCode?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
-   * SampleValue
+   * Sample value
    */
   applicationName?: string;
   /**
@@ -116,7 +122,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   callDays?: string[];
   /**
    * @remarks
-   * The expiration date of outbound call details (specific deadline).
+   * The expiration date of outbound call details (specific deadline) in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-07-30 20:00:20
@@ -124,7 +130,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   callExpireDate?: string;
   /**
    * @remarks
-   * The expiration duration of outbound call details, in minutes.
+   * The expiration duration of outbound call details. Unit: minutes.
    * 
    * @example
    * 20
@@ -132,11 +138,11 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   callExpireMinutes?: number;
   /**
    * @remarks
-   * The outbound call validity type. Valid values:
+   * The expiration type of outbound calls. Valid values:
    * 
-   * 0: Permanently valid.
-   * 1: Valid for a period of time after import.
-   * 2: Valid until a specified time.
+   * 0: permanently valid.
+   * 1: valid for a period of time after import.
+   * 2: valid until a specified time.
    * 
    * @example
    * 0
@@ -149,7 +155,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   callTimes?: QueryAiCallTaskDetailResponseBodyDataCallTimes[];
   /**
    * @remarks
-   * The callable time periods for the current outbound call instance.
+   * The callable time periods of the current outbound call instance.
    */
   callableTimes?: QueryAiCallTaskDetailResponseBodyDataCallableTimes[];
   /**
@@ -169,16 +175,25 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
    */
   concurrentCount?: number;
   /**
+   * @remarks
+   * The line encoding.
+   * 
    * @example
-   * SampleValue
+   * Sample value
    */
   lineEncoding?: string;
   /**
+   * @remarks
+   * The phone number of the custom line.
+   * 
    * @example
-   * SampleValue
+   * Sample value
    */
   linePhoneNum?: string;
   /**
+   * @remarks
+   * The phone number type. Valid values: 0 indicates an Alibaba Cloud number. 1 indicates a custom line provided by the customer.
+   * 
    * @example
    * 17
    */
@@ -219,7 +234,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   retryInterval?: number;
   /**
    * @remarks
-   * The list of reasons that allow retry on failure.
+   * The list of failure reasons that allow retry.
    */
   retryReasons?: string[];
   /**
@@ -232,7 +247,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The start type. Valid values:
+   * The start mode. Valid values:
    * 
    * - IMMEDIATE: Start immediately.
    * 
@@ -255,7 +270,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
    * The task name.
    * 
    * @example
-   * TestTask
+   * Test task
    */
   taskName?: string;
   static names(): { [key: string]: string } {
@@ -340,7 +355,7 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
 export class QueryAiCallTaskDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details. This field is returned only when RAM authentication fails.
+   * The details about the access denial. This parameter is returned only when the RAM permission verification fails.
    * 
    * @example
    * None
@@ -361,7 +376,7 @@ export class QueryAiCallTaskDetailResponseBody extends $dara.Model {
   data?: QueryAiCallTaskDetailResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned if the call is successful.
    * 
    * @example
    * Invalid parameter
@@ -377,7 +392,7 @@ export class QueryAiCallTaskDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * - **true**: Successful.
    * - **false**: Failed.
    * 

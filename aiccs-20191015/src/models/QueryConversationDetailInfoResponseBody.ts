@@ -16,7 +16,7 @@ export class QueryConversationDetailInfoResponseBodyDataOutputTags extends $dara
    * The tag description.
    * 
    * @example
-   * 评估客户对车型的兴趣和购买可能性
+   * Evaluate the customer\\"s interest in the vehicle model and purchase likelihood
    */
   outputTagDescription?: string;
   /**
@@ -24,7 +24,7 @@ export class QueryConversationDetailInfoResponseBodyDataOutputTags extends $dara
    * The tag name.
    * 
    * @example
-   * 客户意向度
+   * Customer intent level
    */
   outputTagName?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryConversationDetailInfoResponseBodyDataOutputTags extends $dara
    * The tag value.
    * 
    * @example
-   * ["高（非常积极，大概率转化）"]
+   * ["High (very positive, high conversion probability)"]
    */
   outputTagValue?: string;
   static names(): { [key: string]: string } {
@@ -84,24 +84,27 @@ export class QueryConversationDetailInfoResponseBodyDataVariables extends $dara.
    * The variable name.
    * 
    * @example
-   * 姓名
+   * Name
    */
   name?: string;
   /**
    * @remarks
    * Indicates whether the variable is required. Valid values:
    * 
-   * - `true`: The variable is required.
+   * - true: Required.
    * 
-   * - `false`: The variable is optional.
+   * - false: Not required.
    * 
    * @example
    * false
    */
   required?: boolean;
   /**
+   * @remarks
+   * The variable source.
+   * 
    * @example
-   * 示例值
+   * Sample value
    */
   source?: string;
   /**
@@ -109,7 +112,7 @@ export class QueryConversationDetailInfoResponseBodyDataVariables extends $dara.
    * The variable value.
    * 
    * @example
-   * 张三
+   * John
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -146,7 +149,7 @@ export class QueryConversationDetailInfoResponseBodyDataVariables extends $dara.
 export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique call ID.
+   * The unique ID of the call.
    * 
    * @example
    * 1231231231213^11231231231
@@ -155,36 +158,21 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The call result. Valid values:
-   * 
-   * - `CALL_FORWARDING`: Call forwarding.
-   * 
-   * - `INCOMING_CALL_BARRED`: Incoming call barred.
-   * 
-   * - `CALL_REJECTED`: Call rejected.
-   * 
-   * - `ANSWERED`: Answered by user.
-   * 
-   * - `USER_BUSY`: Called party busy.
-   * 
-   * - `POWERED_OFF`: Powered off.
-   * 
-   * - `NO_USER_RESPONSE`: Out of service area.
-   * 
-   * - `OPERATOR_BLOCK`: Blocked by carrier.
-   * 
-   * - `OTHERS`: Other.
-   * 
-   * - `SUSPEND`: Suspended.
-   * 
-   * - `CANCEL`: Canceled by caller.
-   * 
-   * - `INVALID_NUMBER`: Invalid number.
-   * 
-   * - `UNAVAILABLE`: Temporarily unavailable.
-   * 
-   * - `NETWORK_BUSY`: Network busy.
-   * 
-   * - `NO_ANSWER`: No answer.
+   * - CALL_FORWARDING: Call forwarding.
+   * - INCOMING_CALL_BARRED: Incoming call barred.
+   * - CALL_REJECTED: Call rejected.
+   * - ANSWERED: Answered by user.
+   * - USER_BUSY: Callee busy.
+   * - POWERED_OFF: Powered off.
+   * - NO_USER_RESPONSE: Out of service area.
+   * - OPERATOR_BLOCK: Blocked by carrier.
+   * - OTHERS: Other status.
+   * - SUSPEND: Service suspended.
+   * - CANCEL: Canceled by caller.
+   * - INVALID_NUMBER: Invalid number.
+   * - UNAVAILABLE: Temporarily unavailable.
+   * - NETWORK_BUSY: Network busy.
+   * - NO_ANSWER: No answer.
    * 
    * @example
    * ANSWERED
@@ -192,7 +180,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   callResult?: string;
   /**
    * @remarks
-   * The called number.
+   * The callee number.
    * 
    * @example
    * 186******
@@ -208,13 +196,12 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   callerPhone?: string;
   /**
    * @remarks
-   * The conversation record. The structure is a JSON array in which entries are sorted by time. Example:
-   * 
+   * The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The format is as follows:
    * ```json
    * [
    *     {
-   *         "content":"Conversation content",
-   *         "role":"Role", // Valid values: user, assistant
+   *         "content":"Chat content",
+   *         "role":"Role",//Valid values: user, assistant (robot)
    *     }
    * ]
    * ```
@@ -274,7 +261,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   conversationRecord?: string;
   /**
    * @remarks
-   * The duration of the call, in seconds. If the call was not connected, the value is 0.
+   * The call duration, in seconds. The value is 0 if the call is not connected.
    * 
    * @example
    * 16
@@ -290,24 +277,23 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
    * The failure reason.
    * 
    * @example
-   * 主动取消
+   * Actively canceled
    */
   failedReason?: string;
   /**
    * @remarks
-   * The party that hung up. Valid values:
+   * The hangup direction. Valid values:
    * 
-   * - **0**: user.
-   * 
-   * - **1**: assistant.
+   * - **0**: User.
+   * - **1**: Robot.
    * 
    * @example
-   * 用户
+   * User
    */
   hangupDirection?: string;
   /**
    * @remarks
-   * The primary intent.
+   * The major intent.
    * 
    * @example
    * D
@@ -315,7 +301,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   majorIntent?: string;
   /**
    * @remarks
-   * The business-specific ID that is passed in. You can use this unique ID to associate the call with your business.
+   * The external business serial number. You can use a unique ID for business association.
    * 
    * @example
    * bb3bc32d-54b8-49c4-80d3-61583417d22e
@@ -323,12 +309,12 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   outId?: string;
   /**
    * @remarks
-   * A list of output tags.
+   * The list of output tags.
    */
   outputTags?: QueryConversationDetailInfoResponseBodyDataOutputTags[];
   /**
    * @remarks
-   * The timestamp when the call was answered, in milliseconds.
+   * The time when the call was answered. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754617273000
@@ -336,7 +322,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   pickUpTime?: number;
   /**
    * @remarks
-   * The download URL for the recording file. This parameter is returned only after the recording file is generated.
+   * The download URL of the recording file. This field is available only after a recording file is generated.
    * 
    * @example
    * https://********
@@ -344,7 +330,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   recordingFileDownloadUrl?: string;
   /**
    * @remarks
-   * The timestamp when the call ended, in milliseconds.
+   * The time when the call ended. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 98
@@ -352,7 +338,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   releaseTime?: number;
   /**
    * @remarks
-   * The timestamp when the call was initiated, in milliseconds.
+   * The time when the call started. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 123123123123123
@@ -360,7 +346,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   startCallTime?: number;
   /**
    * @remarks
-   * The call status code. For more information, see [Call status codes](https://help.aliyun.com/document_detail/112804.html) for the voice service.
+   * The call status code. For more information, see [Call status codes](https://help.aliyun.com/document_detail/112804.html) in Voice Messaging.
    * 
    * @example
    * 200005
@@ -368,15 +354,15 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * The status message returned by the carrier.
+   * The call status information returned by the carrier.
    * 
    * @example
-   * 呼叫结束（双呼）
+   * Call ended (dual call)
    */
   statusMsg?: string;
   /**
    * @remarks
-   * A list of variables associated with the call task.
+   * The list of call variables. These are the call variables associated with the call task you created.
    */
   variables?: QueryConversationDetailInfoResponseBodyDataVariables[];
   static names(): { [key: string]: string } {
@@ -445,7 +431,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
 export class QueryConversationDetailInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    * 
    * @example
    * None
@@ -461,15 +447,15 @@ export class QueryConversationDetailInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: QueryConversationDetailInfoResponseBodyData;
   /**
    * @remarks
-   * The status code message.
+   * The description of the status code.
    * 
    * @example
-   * 成功
+   * OK
    */
   message?: string;
   /**
@@ -482,11 +468,9 @@ export class QueryConversationDetailInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

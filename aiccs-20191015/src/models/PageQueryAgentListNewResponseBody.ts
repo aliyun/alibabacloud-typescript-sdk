@@ -13,8 +13,10 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   agentId?: number;
   /**
    * @remarks
-   * The agent creation mode. Valid values:<br>
-   * `0`: Prompt mode (`PROMPT`). `1`: Conversation flow mode (`CONVERSATION`).<br>
+   * The agent building mode. Valid values:
+   * 
+   * - 0: prompt mode (PROMPT).
+   * - 1: dialog flow mode (CONVERSATION).
    * 
    * @example
    * 0
@@ -25,7 +27,7 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * 智能客服助手
+   * Intelligent Customer Service Assistant
    */
   agentName?: string;
   /**
@@ -38,7 +40,7 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   applicationCode?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-20 12:00:00
@@ -46,7 +48,7 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The deployment branch ID.
+   * The ID of the branch being deployed.
    * 
    * @example
    * 24
@@ -54,7 +56,7 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   deployBranchId?: number;
   /**
    * @remarks
-   * The effective branch name.
+   * The name of the active branch.
    * 
    * @example
    * master
@@ -65,12 +67,12 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
    * The agent description.
    * 
    * @example
-   * 智能客服助手，提供自动化的客户服务支持
+   * Intelligent customer service assistant that provides automated customer service support
    */
   description?: string;
   /**
    * @remarks
-   * The effective version ID.
+   * The ID of the active version.
    * 
    * @example
    * 71
@@ -78,7 +80,7 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   effectiveVersionId?: number;
   /**
    * @remarks
-   * The effective version name.
+   * The name of the active version.
    * 
    * @example
    * v1.0.0
@@ -86,7 +88,7 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   effectiveVersionName?: string;
   /**
    * @remarks
-   * Specifies whether the agent can be used for outbound calls. A value of `true` means the agent\\"s current deployment branch has a published version.
+   * Indicates whether the agent is available for outbound calls. A value of True indicates that the current deployment branch of the agent has a published version and is available for outbound calls.
    * 
    * @example
    * true
@@ -94,7 +96,7 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   isAvailable?: boolean;
   /**
    * @remarks
-   * The most recent publish time.
+   * The latest version publish time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-20 12:00:00
@@ -102,7 +104,7 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   latestPublishTime?: string;
   /**
    * @remarks
-   * The last modified time.
+   * The last modification time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-15 10:30:00
@@ -110,12 +112,36 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The scene.
+   * The scenario.
    * 
    * @example
-   * 个人线索转化
+   * Personal lead conversion
    */
   scene?: string;
+  /**
+   * @remarks
+   * The service direction.
+   * 
+   * @example
+   * Sample value
+   */
+  serviceDirection?: string;
+  /**
+   * @remarks
+   * The source template ID.
+   * 
+   * @example
+   * 62
+   */
+  templateId?: number;
+  /**
+   * @remarks
+   * The source template name.
+   * 
+   * @example
+   * Sample value
+   */
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
@@ -132,6 +158,9 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
       latestPublishTime: 'LatestPublishTime',
       modifyTime: 'ModifyTime',
       scene: 'Scene',
+      serviceDirection: 'ServiceDirection',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
     };
   }
 
@@ -151,6 +180,9 @@ export class PageQueryAgentListNewResponseBodyDataList extends $dara.Model {
       latestPublishTime: 'string',
       modifyTime: 'string',
       scene: 'string',
+      serviceDirection: 'string',
+      templateId: 'number',
+      templateName: 'string',
     };
   }
 
@@ -187,7 +219,7 @@ export class PageQueryAgentListNewResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total count.
+   * The total number of records.
    * 
    * @example
    * 6
@@ -226,7 +258,7 @@ export class PageQueryAgentListNewResponseBodyData extends $dara.Model {
 export class PageQueryAgentListNewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied detail.
+   * The details about the access denial.
    * 
    * @example
    * Access denied due to insufficient permissions
@@ -242,12 +274,12 @@ export class PageQueryAgentListNewResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: PageQueryAgentListNewResponseBodyData;
   /**
    * @remarks
-   * The message that describes the status code.
+   * The status code description.
    * 
    * @example
    * success
@@ -263,11 +295,9 @@ export class PageQueryAgentListNewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the request succeeded.
-   * 
-   * - **`true`**: The request succeeded.
-   * 
-   * - **`false`**: The request failed.
+   * Indicates whether the API call was successful.
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * false

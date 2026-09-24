@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiOutboundTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request status code.
+   * The request status code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class CreateAiOutboundTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class CreateAiOutboundTaskResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class CreateAiOutboundTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -37,9 +37,9 @@ export class CreateAiOutboundTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API invocation succeeded. Valid values:  
-   * - **true**: Succeeded.  
-   * - **false**: Failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

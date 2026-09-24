@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddModelApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of concurrent requests per second (CPS).
+   * The number of concurrent requests for the application.
    * 
    * This parameter is required.
    * 
@@ -20,12 +20,12 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试应用
+   * TestApplication
    */
   applicationName?: string;
   /**
    * @remarks
-   * Specifies whether to push an event notification when a call is connected. The default value is false.
+   * Specifies whether to enable call-connected event push. Disabled by default.
    * 
    * @example
    * false
@@ -33,10 +33,10 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   callConnectedTriggerModel?: boolean;
   /**
    * @remarks
-   * The scene name.
+   * The scenario name.
    * 
    * @example
-   * 测试场景
+   * TestScenario
    */
   dyvmsSceneName?: string;
   /**
@@ -75,7 +75,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   muteDuration?: number;
   /**
    * @remarks
-   * The number of consecutive mute events that trigger an automatic hang-up.
+   * The number of consecutive mute events before the system proactively hangs up the call.
    * 
    * @example
    * 5
@@ -87,7 +87,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
    * The prompt.
    * 
    * @example
-   * 测试提示词。
+   * Test prompt
    */
   prompt?: string;
   /**
@@ -100,15 +100,15 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   qualificationId?: number;
   /**
    * @remarks
-   * The name of the qualification.
+   * The qualification name.
    * 
    * @example
-   * 测试资质
+   * TestQualification
    */
   qualificationName?: string;
   /**
    * @remarks
-   * The URL of the audio file for the opening line. This parameter is required if `StartWordType` is set to `1`.
+   * The URL of the recorded audio file for the opening statement. This parameter is required when the opening statement type is set to 1.
    * 
    * @example
    * https://xxxxxxxx.wav
@@ -118,7 +118,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source. The value must be `USER`.
+   * The source. Fixed value: USER.
    * 
    * @example
    * USER
@@ -129,7 +129,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
    * The speech script content.
    * 
    * @example
-   * 测试话术。
+   * Test speech script
    */
   speechContent?: string;
   /**
@@ -142,36 +142,35 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   speechId?: number;
   /**
    * @remarks
-   * The opening line.
+   * The opening statement.
    * 
    * This parameter is required.
    * 
    * @example
-   * 你好，这是一句开场白。
+   * Hello, this is an opening statement
    */
   startWord?: string;
   /**
    * @remarks
-   * The type of the opening line.
+   * The type of the opening statement.
    * 
    * @example
-   * 0：文本
-   * 1：录音
+   * 0
    */
   startWordType?: number;
   /**
    * @remarks
-   * The TTS configuration, including voice, volume, speech speed, and more.
+   * The text-to-speech (TTS) configuration, including voice, volume, and speed.
    * 
    * This parameter is required.
    */
   ttsConfigShrink?: string;
   /**
    * @remarks
-   * The purpose of the application.
+   * The usage description.
    * 
    * @example
-   * 测试用途
+   * TestUsage
    */
   usageDesc?: string;
   static names(): { [key: string]: string } {

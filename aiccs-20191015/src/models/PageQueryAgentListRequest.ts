@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PageQueryAgentListRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier for the agent.
+   * The agent ID.
    * 
    * @example
    * 1231*******
@@ -13,16 +13,16 @@ export class PageQueryAgentListRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The name of the agent.
+   * The agent name.
    * 
    * @example
-   * 测试智能体
+   * TestAgent
    */
   agentName?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from 1. The default value is 1.
+   * The page number, starting from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -30,7 +30,7 @@ export class PageQueryAgentListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return per page. The default value is 10.
+   * The page size. Default value: 10.
    * 
    * @example
    * 10
@@ -40,7 +40,7 @@ export class PageQueryAgentListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the agent.
+   * The agent status.
    * 
    * @example
    * 7

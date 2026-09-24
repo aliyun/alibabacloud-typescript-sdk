@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTouchListRequest extends $dara.Model {
   /**
    * @remarks
-   * List of session IDs for term query.
+   * The list of session IDs to query exactly.
    */
   channelId?: string[];
   /**
    * @remarks
-   * Channel Type.
+   * The channel type.
    */
   channelType?: number[];
   /**
    * @remarks
-   * The right boundary of the time range for session end. The value is a UNIX timestamp in milliseconds.
+   * The end of the time range for session end time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1614600500000
@@ -23,7 +23,7 @@ export class QueryTouchListRequest extends $dara.Model {
   closeTimeEnd?: number;
   /**
    * @remarks
-   * The left boundary of the time range for session end. The value is a UNIX timestamp in milliseconds.
+   * The start of the time range for session end time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1614600400000
@@ -31,7 +31,7 @@ export class QueryTouchListRequest extends $dara.Model {
   closeTimeStart?: number;
   /**
    * @remarks
-   * Current page. The value must be greater than **0**. Default Value: **1**.
+   * The current page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -39,22 +39,22 @@ export class QueryTouchListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Satisfaction level.
+   * The satisfaction level.
    */
   evaluationLevel?: number[];
   /**
    * @remarks
-   * Satisfaction score.
+   * The satisfaction score.
    */
   evaluationScore?: number[];
   /**
    * @remarks
-   * Evaluation status.
+   * The evaluation status.
    */
   evaluationStatus?: number[];
   /**
    * @remarks
-   * The right boundary of the time range for session start. The value is a UNIX timestamp in milliseconds.
+   * The end of the time range for session start time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1614599400000
@@ -62,7 +62,7 @@ export class QueryTouchListRequest extends $dara.Model {
   firstTimeEnd?: number;
   /**
    * @remarks
-   * The left boundary of the time range for session start. UNIX timestamp format (unit: ms).
+   * The start of the time range for session start time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1614596400000
@@ -70,8 +70,8 @@ export class QueryTouchListRequest extends $dara.Model {
   firstTimeStart?: number;
   /**
    * @remarks
-   * Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
+   * You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -81,17 +81,17 @@ export class QueryTouchListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * List of membership IDs to query.
+   * The list of member IDs to query.
    */
   memberId?: number[];
   /**
    * @remarks
-   * A list of membership names to query.
+   * The list of member names to query.
    */
   memberName?: string[];
   /**
    * @remarks
-   * Number of entries per page. The value must be greater than **0**. Default value: **20**.
+   * The number of entries per page. The value must be greater than **0**. Default value: **20**.
    * 
    * @example
    * 20
@@ -99,27 +99,27 @@ export class QueryTouchListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of inbound skill group IDs.
+   * The list of inbound skill group IDs.
    */
   queueId?: number[];
   /**
    * @remarks
-   * A list of service agent IDs to query.
+   * The list of agent IDs to query.
    */
   servicerId?: number[];
   /**
    * @remarks
-   * List of service agent names to query.
+   * The list of agent names to query.
    */
   servicerName?: string[];
   /**
    * @remarks
-   * List of touch IDs for term query.
+   * The list of contact IDs to query exactly.
    */
   touchId?: number[];
   /**
    * @remarks
-   * Touch type.
+   * The contact type.
    */
   touchType?: number[];
   static names(): { [key: string]: string } {

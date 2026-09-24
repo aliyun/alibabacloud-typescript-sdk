@@ -37,7 +37,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   branchVersionId?: number;
   /**
    * @remarks
-   * The expiration time of the outbound call detail.
+   * The expiration time of the outbound call detail. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-07-30 20:00:20
@@ -69,7 +69,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * The calling time. This value is a timestamp in milliseconds.
+   * The calling time. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1748948749000
@@ -77,7 +77,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   callingTime?: number;
   /**
    * @remarks
-   * The conversation duration. Unit: seconds.
+   * The call duration. Unit: seconds.
    * 
    * @example
    * 100
@@ -85,12 +85,12 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   conversationDuration?: number;
   /**
    * @remarks
-   * The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The format is as follows:
+   * The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The structure is as follows:
    * ```json
    * [
    *     {
    *         "content":"Chat content",
-   *         "role":"Role",//Valid values: user, assistant (bot)
+   *         "role":"Role",//Valid values: user and assistant (bot).
    *     }
    * ]
    * ```
@@ -174,7 +174,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   encryptionType?: number;
   /**
    * @remarks
-   * The reason for call failure. This field is available only when the call fails.
+   * The reason for the call failure. This field is returned only when the call fails.
    * 
    * @example
    * Account suspended
@@ -182,7 +182,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   failedReason?: string;
   /**
    * @remarks
-   * The import time. This value is a timestamp in milliseconds.
+   * The import time. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1748948749000
@@ -198,7 +198,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   majorIntent?: string;
   /**
    * @remarks
-   * The variable information used at runtime, stored in this field as key-value pairs.
+   * The variable information used at runtime. The information is stored in this field as key-value pairs.
    * 
    * @example
    * {
@@ -206,7 +206,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    *   "phoneNumber": "777",
    *   "distance": "555",
    *   "mendian": "444",
-   *   "sex": "male",
+   *   "sex": "Male",
    *   "name": "111",
    *   "age": "222"
    * }
@@ -214,7 +214,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The external business serial number reserved for external input. A unique ID can be used for business association.
+   * The external business serial number reserved for external input. You can use a unique ID for business association.
    * 
    * @example
    * outId
@@ -222,7 +222,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   outId?: string;
   /**
    * @remarks
-   * The download path of the recording file. This field is available only after the recording file is generated.
+   * The download path of the recording file. This field is returned only after the recording file is generated.
    * 
    * @example
    * https://*******
@@ -231,12 +231,12 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The task detail status. Valid values:
-   * - 0: initialized.
-   * - 1: waiting to call.
-   * - 2: waiting to retry.
-   * - 3: calling.
-   * - 4: call ended.
-   * - 5: call failed.
+   * - 0: Initialization.
+   * - 1: Waiting for call.
+   * - 2: Waiting for retry.
+   * - 3: Calling.
+   * - 4: Call ended.
+   * - 5: Call failed.
    * 
    * Only 4 and 5 are desired states.
    * 
@@ -398,7 +398,7 @@ export class QueryAiCallDetailPageResponseBodyData extends $dara.Model {
 export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * None
@@ -419,10 +419,10 @@ export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   data?: QueryAiCallDetailPageResponseBodyData;
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
-   * OK
+   * Success
    */
   message?: string;
   /**
@@ -436,8 +436,8 @@ export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - **true**: successful.
-   * - **false**: failed.
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

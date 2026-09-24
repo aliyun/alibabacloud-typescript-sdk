@@ -23,9 +23,9 @@ export class UpdateAiCallTaskResponseBody extends $dara.Model {
    * @remarks
    * The update result. Valid values:
    * 
-   * - **true**: Updated.
+   * - **true**: The update is successful.
    * 
-   * - **false**: Failed to update.
+   * - **false**: The update failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigEventConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to hang up the call if an answering machine is detected.
+   * Specifies whether to hang up when an intelligent answering service is detected.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigEventC
   callAssistantHangup?: boolean;
   /**
    * @remarks
-   * Whether answering machine detection is enabled.
+   * Specifies whether intelligent answering service detection is enabled.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigEventC
   callAssistantRecognize?: boolean;
   /**
    * @remarks
-   * Specifies whether to trigger the model on the first silence event.
+   * Specifies whether the first silence triggers the model.
    * 
    * @example
    * false
@@ -29,11 +29,10 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigEventC
   muteActive?: boolean;
   /**
    * @remarks
-   * Silence duration.
-   * 
-   * > - Maximum value: 15 s.
+   * The silence duration.
    * >
-   * > - Minimum value: 3 s.
+   * >- Maximum value: 15s.
+   * >- Minimum value: 3s.
    * 
    * @example
    * 10
@@ -41,11 +40,10 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigEventC
   muteDuration?: number;
   /**
    * @remarks
-   * The system automatically disconnects the call after a specified number of consecutive silence events.
-   * 
-   * > - Maximum value: 5.
+   * The number of consecutive silence events before the system proactively hangs up.
    * >
-   * > - Minimum value: 1.
+   * >- Maximum value: 5.
+   * >- Minimum value: 1.
    * 
    * @example
    * 1
@@ -53,11 +51,10 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigEventC
   muteHangupNum?: number;
   /**
    * @remarks
-   * The maximum call duration, in seconds. The call automatically disconnects when this duration is exceeded.
-   * 
-   * > - Maximum value: 3600.
+   * The maximum call duration. The call is automatically hung up after the timeout. Unit: seconds.
    * >
-   * > - Minimum value: 600.
+   * >- Maximum value: 3600.
+   * >- Minimum value: 600.
    * 
    * @example
    * 600
@@ -96,37 +93,52 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigEventC
 
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigTtsConfig extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether background sound is enabled.
+   * 
    * @example
    * true
    */
   backgroundEnabled?: boolean;
   /**
+   * @remarks
+   * The background sound ID.
+   * 
    * @example
    * 1
    */
   backgroundSound?: number;
   /**
+   * @remarks
+   * The background sound volume. Valid values: 0: low. 1: medium. 2: high.
+   * 
    * @example
    * 1
    */
   backgroundVolume?: number;
   /**
+   * @remarks
+   * Indicates whether audio mixing is enabled.
+   * 
    * @example
    * true
    */
   mixingEnabled?: boolean;
   /**
+   * @remarks
+   * The mixing template ID.
+   * 
    * @example
    * 1
    */
   mixingTemplate?: number;
   /**
    * @remarks
-   * The TTS speech rate.
+   * The voice speed during TTS playback.
    * 
+   * > 
    * > - Valid values: -200 to 200. Default value: 0.
-   * >
-   * > - If this parameter is not specified, the speech rate configured for the large model application is used.
+   * > - If no value is specified, the voice speed configured in the large model application is used by default.
    * 
    * @example
    * 34
@@ -143,23 +155,28 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigTtsCon
   /**
    * @remarks
    * The TTS playback volume.
-   * 
+   * > 
    * > - Valid values: 0 to 100. Default value: 0.
-   * >
-   * > - If this parameter is not specified, the volume configured for the large model application is used.
+   * > - If no value is specified, the volume configured in the large model application is used by default.
    * 
    * @example
    * 72
    */
   ttsVolume?: number;
   /**
+   * @remarks
+   * The voice code.
+   * 
    * @example
-   * 示例值
+   * Sample value
    */
   voiceCode?: string;
   /**
+   * @remarks
+   * The voice type. Valid values: SYSTEM: system voice. COSYCLONE: cloned voice. BL-CUSTOM: custom premium cloned voice.
+   * 
    * @example
-   * 示例值
+   * Sample value
    */
   voiceType?: string;
   static names(): { [key: string]: string } {
@@ -214,7 +231,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfig exten
   ttsConfig?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigTtsConfig;
   /**
    * @remarks
-   * The ID of the hotword.
+   * The hot word ID.
    * 
    * @example
    * afb2c43**********83e6df30551c11f7
@@ -254,7 +271,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfig exten
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigChildTaskList extends $dara.Model {
   /**
    * @remarks
-   * The description of the subtask.
+   * The subtask description.
    * 
    * @example
    * 新用户邀约: \\"喂，家长您好！我是*****的王老师，我们现在有**课程100个试听名额，想帮宝贝安排一下体验，您看什么时候比较方便呢？\\
@@ -262,10 +279,10 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigChild
   childTaskDescription?: string;
   /**
    * @remarks
-   * The name of the subtask.
+   * The subtask name.
    * 
    * @example
-   * 开场与邀约
+   * Opening and invitation
    */
   childTaskName?: string;
   /**
@@ -304,7 +321,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigChild
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigCustomExceptionList extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to output the content as an exception tag.
+   * Specifies whether to output as an exception tag.
    * 
    * @example
    * true
@@ -320,7 +337,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigCusto
   exceptionType?: string;
   /**
    * @remarks
-   * The reply.
+   * The reply content.
    * 
    * @example
    * -
@@ -364,15 +381,15 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigCusto
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainPurposeMainPurposeEnum extends $dara.Model {
   /**
    * @remarks
-   * The description of the value.
+   * The description of the valid value.
    * 
    * @example
-   * 意向强烈。
+   * Strong intent
    */
   description?: string;
   /**
    * @remarks
-   * The unique ID of the value.
+   * The unique ID of the valid value.
    * 
    * @example
    * d5606d80-7625-dcea-xxxx-17f66fbb564a
@@ -380,7 +397,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainP
   id?: string;
   /**
    * @remarks
-   * The value.
+   * The valid value.
    * 
    * @example
    * A
@@ -414,7 +431,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainP
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainPurpose extends $dara.Model {
   /**
    * @remarks
-   * The ID of the main intent.
+   * The main intent ID.
    * 
    * @example
    * 1ee6e994-08e0-xxxx-f662-1659cc54d409
@@ -425,7 +442,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainP
    * The description of the main intent.
    * 
    * @example
-   * 通话效果评级：A、B、C、D，（A最好）
+   * Call effectiveness rating: A, B, C, D (A is the best)
    */
   mainPurposeDescription?: string;
   /**
@@ -435,15 +452,15 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainP
   mainPurposeEnum?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainPurposeMainPurposeEnum[];
   /**
    * @remarks
-   * The name of the main intent.
+   * The main intent name.
    * 
    * @example
-   * 通话效果评级
+   * Call effectiveness rating
    */
   mainPurposeName?: string;
   /**
    * @remarks
-   * The value type of the main intent. Currently, only the `ENUM` type is supported.
+   * The value type of the main intent. Currently, only the ENUM type is supported.
    * 
    * @example
    * ENUM
@@ -484,15 +501,15 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainP
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigOutputTagConfigOutputTagEnum extends $dara.Model {
   /**
    * @remarks
-   * The description of the enumerated value.
+   * The description of the tag enum value.
    * 
    * @example
-   * 高（非常积极，大概率转化）
+   * High (very positive, high probability of conversion)
    */
   description?: string;
   /**
    * @remarks
-   * The unique ID of the enumerated value.
+   * The unique ID of the tag enum value.
    * 
    * @example
    * 8757************2c499fa
@@ -500,10 +517,10 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigOutpu
   id?: string;
   /**
    * @remarks
-   * The enumerated value.
+   * The tag enum value.
    * 
    * @example
-   * 高
+   * High
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -542,28 +559,28 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigOutpu
   id?: string;
   /**
    * @remarks
-   * The description of the tag.
+   * The tag description.
    * 
    * @example
-   * 记录本次通话的最终状态
+   * Records the final status of this call
    */
   outputTagDescription?: string;
   /**
    * @remarks
-   * The enumerated values for the tag. This parameter is returned only if the value of `OutputTagType` is `ENUM`.
+   * The tag enum values. This field is available only when the tag value type is ENUM.
    */
   outputTagEnum?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigOutputTagConfigOutputTagEnum[];
   /**
    * @remarks
-   * The name of the tag.
+   * The tag name.
    * 
    * @example
-   * 客户意向度
+   * Customer intent level
    */
   outputTagName?: string;
   /**
    * @remarks
-   * The data type of the tag.
+   * The tag value type.
    * 
    * @example
    * ENUM
@@ -604,15 +621,15 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigOutpu
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhoneTagConfigPhoneTagEnum extends $dara.Model {
   /**
    * @remarks
-   * The description of the enumerated value.
+   * The description of the enumeration value.
    * 
    * @example
-   * 客户完全不接受挽留
+   * The customer completely rejects retention
    */
   description?: string;
   /**
    * @remarks
-   * The unique ID of the enumerated value.
+   * The unique ID of the enum value.
    * 
    * @example
    * c3d4ff4e-*********bc26dc044682
@@ -620,10 +637,10 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhone
   id?: string;
   /**
    * @remarks
-   * The enumerated value.
+   * The enumeration value.
    * 
    * @example
-   * 完全不接受
+   * Completely unacceptable
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -662,20 +679,20 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhone
   id?: string;
   /**
    * @remarks
-   * The description of the variable.
+   * The variable description.
    * 
    * @example
-   * 用户感兴趣的车系。
+   * The car series the user is interested in
    */
   phoneTagDescription?: string;
   /**
    * @remarks
-   * A list of enumerated values for the variable. This parameter is returned only if the value of `PhoneTagType` is `ENUM`.
+   * The list of enumeration values for the variable. This field is present only when the variable value type is ENUM.
    */
   phoneTagEnum?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhoneTagConfigPhoneTagEnum[];
   /**
    * @remarks
-   * The key of the variable.
+   * The variable key name.
    * 
    * @example
    * testParam
@@ -683,7 +700,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhone
   phoneTagKey?: string;
   /**
    * @remarks
-   * The name of the variable.
+   * The Chinese name of the variable.
    * 
    * @example
    * 意向车系
@@ -691,20 +708,23 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhone
   phoneTagName?: string;
   /**
    * @remarks
-   * Specifies whether the variable is required.
+   * Indicates whether the variable is required.
    * 
    * @example
    * true
    */
   phoneTagRequired?: boolean;
   /**
+   * @remarks
+   * The source of the call variable.
+   * 
    * @example
-   * 示例值
+   * Sample value
    */
   phoneTagSource?: string;
   /**
    * @remarks
-   * The data type of the variable.
+   * The variable value type.
    * 
    * @example
    * ENUM
@@ -751,10 +771,10 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhone
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the basic task.
+   * The basic task configuration.
    * 
    * @example
-   * 任务描述。
+   * Task description
    */
   basicTaskDescription?: string;
   /**
@@ -772,7 +792,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
   childTaskList?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigChildTaskList[];
   /**
    * @remarks
-   * Specifies whether custom exception handling is enabled.
+   * Indicates whether custom exception handling is enabled.
    * 
    * @example
    * false
@@ -780,7 +800,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
   customExceptionEnable?: boolean;
   /**
    * @remarks
-   * The ID of the custom exception file.
+   * The custom exception file ID.
    * 
    * @example
    * OSS文件ID
@@ -796,12 +816,12 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
   customExceptionFileName?: string;
   /**
    * @remarks
-   * This parameter is deprecated and will be removed in a future release.
+   * **[Deprecated]** This field is deprecated and will be removed in the future.
    */
   customExceptionList?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigCustomExceptionList[];
   /**
    * @remarks
-   * This parameter is deprecated and will be removed in a future release.
+   * **[Deprecated]** This field is deprecated and will be removed in the future.
    * 
    * @example
    * -
@@ -809,7 +829,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
   customExceptionUrlPath?: string;
   /**
    * @remarks
-   * The voice style.
+   * The language style.
    * 
    * @example
    * 2
@@ -820,7 +840,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
    * The description of the advanced task flow.
    * 
    * @example
-   * 这次外呼通过三个核心步骤与家长沟通，........ 3. 用户需求 > 主动介绍
+   * This outbound call communicates with parents through three core steps, ........ 3. User needs > Proactive introduction
    */
   flowDesc?: string;
   /**
@@ -835,12 +855,12 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
   knowledgeDocNameList?: string[];
   /**
    * @remarks
-   * A list of original file names for the knowledge base documents.
+   * The list of original file names of knowledge base documents.
    */
   knowledgeDocOriginalNameList?: string[];
   /**
    * @remarks
-   * Specifies whether the agent is associated with a knowledge base.
+   * Indicates whether a knowledge base is associated.
    * 
    * @example
    * false
@@ -848,7 +868,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
   knowledgeEnable?: boolean;
   /**
    * @remarks
-   * The ID of the knowledge base.
+   * The knowledge base ID.
    * 
    * @example
    * 1232131*******
@@ -861,7 +881,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
   mainPurpose?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigMainPurpose;
   /**
    * @remarks
-   * The output tag configuration.
+   * The output tag configurations.
    */
   outputTagConfig?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigOutputTagConfig[];
   /**
@@ -874,15 +894,21 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
    * The opening statement.
    * 
    * @example
-   * 你好，这里是******。
+   * Hello, this is ******
    */
   prologue?: string;
   /**
+   * @remarks
+   * The URL of the opening greeting recording audio file. This field has a value only when StartWordType is set to 1.
+   * 
    * @example
-   * 示例值
+   * Sample value
    */
   recordingFile?: string;
   /**
+   * @remarks
+   * The opening statement type. Valid values: 0: text. 1: recording.
+   * 
    * @example
    * 1
    */
@@ -892,7 +918,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
    * The system role.
    * 
    * @example
-   * 课程销售
+   * Course sales
    */
   sysRole?: string;
   /**
@@ -908,7 +934,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
    * The user role.
    * 
    * @example
-   * 急需课程的新用户
+   * New user in urgent need of courses
    */
   userRole?: string;
   static names(): { [key: string]: string } {
@@ -1005,7 +1031,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
 export class QueryAiVoiceAgentDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent.
+   * The agent ID.
    * 
    * @example
    * 12311212******
@@ -1013,49 +1039,49 @@ export class QueryAiVoiceAgentDetailResponseBodyData extends $dara.Model {
   agentId?: number;
   /**
    * @remarks
-   * The name of the agent.
+   * The agent name.
    * 
    * @example
-   * 测试智能体
+   * Test agent
    */
   agentName?: string;
   /**
    * @remarks
-   * The voice configuration for AI-powered outbound calls.
+   * The intelligent outbound call voice configuration.
    */
   aiVoiceAgentCallConfig?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfig;
   /**
    * @remarks
-   * The model configuration for the agent.
+   * The agent model configuration.
    */
   aiVoiceAgentModelConfig?: QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig;
   /**
    * @remarks
-   * The name of the business scenario.
+   * The business scenario name.
    * 
    * @example
-   * 个人线索转化
+   * Personal lead conversion
    */
   businessTypeName?: string;
   /**
    * @remarks
-   * The description of the agent.
+   * The agent description.
    * 
    * @example
-   * 日常测试使用。
+   * Used for daily testing
    */
   description?: string;
   /**
    * @remarks
-   * The name of the knowledge base.
+   * The knowledge base name.
    * 
    * @example
-   * 测试知识库
+   * Test knowledge base
    */
   knowledgeName?: string;
   /**
    * @remarks
-   * The status of the agent.
+   * The agent status.
    * 
    * @example
    * 7
@@ -1063,10 +1089,10 @@ export class QueryAiVoiceAgentDetailResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The name of the voice style.
+   * The language style name.
    * 
    * @example
-   * 亲切
+   * Friendly
    */
   voiceStyleName?: string;
   static names(): { [key: string]: string } {
@@ -1115,7 +1141,7 @@ export class QueryAiVoiceAgentDetailResponseBodyData extends $dara.Model {
 export class QueryAiVoiceAgentDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why the access was denied.
+   * The detailed reason why access was denied.
    * 
    * @example
    * None
@@ -1123,7 +1149,7 @@ export class QueryAiVoiceAgentDetailResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * OK
@@ -1131,15 +1157,15 @@ export class QueryAiVoiceAgentDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the agent.
+   * The agent details.
    */
   data?: QueryAiVoiceAgentDetailResponseBodyData;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
@@ -1152,10 +1178,8 @@ export class QueryAiVoiceAgentDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful. Possible values:
-   * 
-   * - **true**: The operation was successful.
-   * 
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

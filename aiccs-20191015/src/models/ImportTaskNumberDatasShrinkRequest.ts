@@ -6,15 +6,9 @@ export class ImportTaskNumberDatasShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The data type. Valid values:
-   * 
    * - EXCEL
-   * 
    * - JSON
-   * 
-   * 
-   *   >Notice: 
-   * 
-   *   API calls currently support only the JSON data type.
+   * >Notice: API calls currently support only the JSON data type.
    * 
    * This parameter is required.
    * 
@@ -30,8 +24,7 @@ export class ImportTaskNumberDatasShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The OSS file path. This parameter is optional.
-   * 
-   * > Importing data by specifying an OSS file path is not available because API calls currently support only the JSON data type.
+   * > API calls do not currently support the Excel data type. Therefore, uploading an OSS file path is currently unavailable.
    * 
    * @example
    * 123dsdfsdfsdf.xlsx
@@ -40,14 +33,14 @@ export class ImportTaskNumberDatasShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * If `DataType` is set to `JSON`, you must use this parameter to upload the data. You can import up to 1,000 records per request.
+   * If DataType is set to JSON, upload data through this field. A maximum of 1000 records can be uploaded at a time.
    */
   phoneNumberListShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the call task.
+   * The task ID.
    * 
    * This parameter is required.
    * 
