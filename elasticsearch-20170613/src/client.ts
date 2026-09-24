@@ -12,33 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'us-west-1': "elasticsearch.us-west-1.aliyuncs.com",
-      'us-east-1': "elasticsearch.us-east-1.aliyuncs.com",
-      'na-south-1': "elasticsearch.na-south-1.aliyuncs.com",
-      'eu-west-1': "elasticsearch.eu-west-1.aliyuncs.com",
-      'eu-central-1': "elasticsearch.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "elasticsearch.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu-gic-1': "elasticsearch.cn-wulanchabu-gic-1.aliyuncs.com",
-      'cn-wulanchabu': "elasticsearch.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "elasticsearch.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "elasticsearch.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "elasticsearch.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "elasticsearch.cn-qingdao.aliyuncs.com",
-      'cn-north-2-gov-1': "elasticsearch.cn-north-2-gov-1.aliyuncs.com",
-      'cn-hongkong': "elasticsearch.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou-finance': "elasticsearch.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou': "elasticsearch.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "elasticsearch.cn-guangzhou.aliyuncs.com",
-      'cn-chengdu': "elasticsearch.cn-chengdu.aliyuncs.com",
-      'cn-beijing': "elasticsearch.cn-beijing.aliyuncs.com",
-      'ap-southeast-7': "elasticsearch.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-5': "elasticsearch.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "elasticsearch.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "elasticsearch.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "elasticsearch.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "elasticsearch.ap-northeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("elasticsearch", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -3790,6 +3763,196 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the Alibaba Cloud Elasticsearch Agent service based on the JSON-RPC 2.0 protocol. Supports creating and managing Agent sessions, sending messages and receiving SSE streaming responses, resuming from breakpoints, canceling in-progress tasks, and handling human-in-the-loop (HITL) interactions initiated by the Agent. Currently available only in the Shanghai region.
+   * 
+   * @param request - InvokeEsAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeEsAgentResponse
+   */
+  async *invokeEsAgentWithSSE(request: $_model.InvokeEsAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.InvokeEsAgentResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      body["body"] = request.body;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeEsAgent",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/agent/acp`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.InvokeEsAgentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.InvokeEsAgentResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Calls the Alibaba Cloud Elasticsearch Agent service based on the JSON-RPC 2.0 protocol. Supports creating and managing Agent sessions, sending messages and receiving SSE streaming responses, resuming from breakpoints, canceling in-progress tasks, and handling human-in-the-loop (HITL) interactions initiated by the Agent. Currently available only in the Shanghai region.
+   * 
+   * @param request - InvokeEsAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeEsAgentResponse
+   */
+  async invokeEsAgentWithOptions(request: $_model.InvokeEsAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeEsAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      body["body"] = request.body;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeEsAgent",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/agent/acp`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InvokeEsAgentResponse>(await this.callApi(params, req, runtime), new $_model.InvokeEsAgentResponse({}));
+  }
+
+  /**
+   * Calls the Alibaba Cloud Elasticsearch Agent service based on the JSON-RPC 2.0 protocol. Supports creating and managing Agent sessions, sending messages and receiving SSE streaming responses, resuming from breakpoints, canceling in-progress tasks, and handling human-in-the-loop (HITL) interactions initiated by the Agent. Currently available only in the Shanghai region.
+   * 
+   * @param request - InvokeEsAgentRequest
+   * @returns InvokeEsAgentResponse
+   */
+  async invokeEsAgent(request: $_model.InvokeEsAgentRequest): Promise<$_model.InvokeEsAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.invokeEsAgentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Uses a registered managed credential to proxy access to the native ES API. The accessible scope is determined by the permissions of the credential on the ES side. When calling this operation through a RAM user with a managed credential, the caller must have both the permission for this operation and the elasticsearch:UseCredential permission for the credential being used.
+   * 
+   * @remarks
+   * Refer to the following example for RAM user authorization. Replace the region, account, and other information as needed.
+   * ```
+   * {
+   *     "Version": "1",
+   *     "Statement": [
+   *         {
+   *             "Effect": "Allow",
+   *             "Action": "elasticsearch:InvokeEsRequest",
+   *             "Resource": "*"
+   *         },
+   *         {
+   *             "Effect": "Allow",
+   *             "Action": "elasticsearch:UseCredential",
+   *             "Resource": "acs:elasticsearch:{#regionId}:{#accountId}:instances/{#instanceId}/credentials/{#credentialId}"
+   *         }
+   *     ]
+   * }
+   * ```
+   * 
+   * @param request - InvokeEsRequestRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeEsRequestResponse
+   */
+  async invokeEsRequestWithOptions(instanceId: string, request: $_model.InvokeEsRequestRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeEsRequestResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialId)) {
+      query["credentialId"] = request.credentialId;
+    }
+
+    if (!$dara.isNull(request.method)) {
+      query["method"] = request.method;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.system)) {
+      query["system"] = request.system;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: request.body,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeEsRequest",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(instanceId)}/es-request`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InvokeEsRequestResponse>(await this.callApi(params, req, runtime), new $_model.InvokeEsRequestResponse({}));
+  }
+
+  /**
+   * Uses a registered managed credential to proxy access to the native ES API. The accessible scope is determined by the permissions of the credential on the ES side. When calling this operation through a RAM user with a managed credential, the caller must have both the permission for this operation and the elasticsearch:UseCredential permission for the credential being used.
+   * 
+   * @remarks
+   * Refer to the following example for RAM user authorization. Replace the region, account, and other information as needed.
+   * ```
+   * {
+   *     "Version": "1",
+   *     "Statement": [
+   *         {
+   *             "Effect": "Allow",
+   *             "Action": "elasticsearch:InvokeEsRequest",
+   *             "Resource": "*"
+   *         },
+   *         {
+   *             "Effect": "Allow",
+   *             "Action": "elasticsearch:UseCredential",
+   *             "Resource": "acs:elasticsearch:{#regionId}:{#accountId}:instances/{#instanceId}/credentials/{#credentialId}"
+   *         }
+   *     ]
+   * }
+   * ```
+   * 
+   * @param request - InvokeEsRequestRequest
+   * @returns InvokeEsRequestResponse
+   */
+  async invokeEsRequest(instanceId: string, request: $_model.InvokeEsRequestRequest): Promise<$_model.InvokeEsRequestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.invokeEsRequestWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the list of Container Service for Kubernetes (ACK) clusters.
    * 
    * @param request - ListAckClustersRequest
@@ -4646,6 +4809,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.level)) {
+      query["level"] = request.level;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8954,17 +9121,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades an Elasticsearch cluster by increasing the number of nodes, roles, specifications, or disk configurations.
+   * Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
-   * - You cannot change the configurations of an instance when the instance status is activating, invalid, or freeze (inactive).
-   * - If the cluster is under heavy load, indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeouts may occur. Configure a retry mechanism on the client side before you change the cluster configurations to minimize the impact on your business.
+   * - You cannot change the configuration when the instance status is activating, invalid, or inactive (freeze).
+   * - If the cluster has a high load and indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeout may occur. Configure a retry mechanism on the client before you change the cluster configuration to reduce the impact on your business.
    * - You can change the configuration of only one type of node at a time (data node, dedicated master node, warm node, client node, Kibana node, or elastic node).
-   * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of instances with 1 vCPU and 2 GB of memory, dedicated master nodes with 2 vCPUs and 2 GB of memory, or instances of version 7.4. If you have confirmed that purchased specifications you purchased are no longer available for sale, perform the following operations first:
-   *   - For instances with 1 vCPU and 2 GB of memory or 2 vCPUs and 2 GB of memory, upgrade purchased specifications to a stable specification that is available on the buy page. For available specifications on the buy page, see <props="china"><ph>[Parameters on the buy page (Commercial Edition)](https://help.aliyun.com/document_detail/97672.html) or [Parameters on the buy page (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Parameters on the buy page](https://help.aliyun.com/document_detail/163243.html).
-   *   - For version 7.4, purchase a new instance of version 7.10 and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
-   * For more precautions, see [Upgrade cluster configurations](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configurations](https://help.aliyun.com/document_detail/198887.html).
+   * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of 1-vCPU 2 GiB instances, 2-vCPU 2 GiB dedicated master nodes, or version 7.4 instances. If you have confirmed that the purchased specifications are no longer available for sale, perform the following operations first:
+   *   - For 1-vCPU 2 GiB and 2-vCPU 2 GiB specifications, upgrade to a stable specification available on the buy page in advance. For available specifications on the buy page, see <props="china"><ph>[Buy page parameters (commercial edition)](https://help.aliyun.com/document_detail/97672.html) or [Buy page parameters (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Buy page parameters](https://help.aliyun.com/document_detail/163243.html).
+   *   - For version 7.4, purchase a version 7.10 instance and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
+   * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
    * 
    * @param request - UpdateInstanceRequest
    * @param headers - map
@@ -9043,17 +9210,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades an Elasticsearch cluster by increasing the number of nodes, roles, specifications, or disk configurations.
+   * Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
-   * - You cannot change the configurations of an instance when the instance status is activating, invalid, or freeze (inactive).
-   * - If the cluster is under heavy load, indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeouts may occur. Configure a retry mechanism on the client side before you change the cluster configurations to minimize the impact on your business.
+   * - You cannot change the configuration when the instance status is activating, invalid, or inactive (freeze).
+   * - If the cluster has a high load and indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeout may occur. Configure a retry mechanism on the client before you change the cluster configuration to reduce the impact on your business.
    * - You can change the configuration of only one type of node at a time (data node, dedicated master node, warm node, client node, Kibana node, or elastic node).
-   * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of instances with 1 vCPU and 2 GB of memory, dedicated master nodes with 2 vCPUs and 2 GB of memory, or instances of version 7.4. If you have confirmed that purchased specifications you purchased are no longer available for sale, perform the following operations first:
-   *   - For instances with 1 vCPU and 2 GB of memory or 2 vCPUs and 2 GB of memory, upgrade purchased specifications to a stable specification that is available on the buy page. For available specifications on the buy page, see <props="china"><ph>[Parameters on the buy page (Commercial Edition)](https://help.aliyun.com/document_detail/97672.html) or [Parameters on the buy page (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Parameters on the buy page](https://help.aliyun.com/document_detail/163243.html).
-   *   - For version 7.4, purchase a new instance of version 7.10 and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
-   * For more precautions, see [Upgrade cluster configurations](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configurations](https://help.aliyun.com/document_detail/198887.html).
+   * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of 1-vCPU 2 GiB instances, 2-vCPU 2 GiB dedicated master nodes, or version 7.4 instances. If you have confirmed that the purchased specifications are no longer available for sale, perform the following operations first:
+   *   - For 1-vCPU 2 GiB and 2-vCPU 2 GiB specifications, upgrade to a stable specification available on the buy page in advance. For available specifications on the buy page, see <props="china"><ph>[Buy page parameters (commercial edition)](https://help.aliyun.com/document_detail/97672.html) or [Buy page parameters (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Buy page parameters](https://help.aliyun.com/document_detail/163243.html).
+   *   - For version 7.4, purchase a version 7.10 instance and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
+   * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
    * 
    * @param request - UpdateInstanceRequest
    * @returns UpdateInstanceResponse
@@ -10654,8 +10821,8 @@ export default class Client extends OpenApi {
    * Creates an Elasticsearch instance.
    * 
    * @remarks
-   * ### Before you begin
-   * - Make sure that you fully understand the billing and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+   * ### Precautions
+   * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch billing rules](https://help.aliyun.com/document_detail/260947.html).
    * - You must complete real-name verification before creating an instance.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
    * - You do not need to specify a zone when creating an instance. The instance is created in the same zone as the selected VPC by default.
    * 
@@ -10763,8 +10930,8 @@ export default class Client extends OpenApi {
    * Creates an Elasticsearch instance.
    * 
    * @remarks
-   * ### Before you begin
-   * - Make sure that you fully understand the billing and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+   * ### Precautions
+   * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch billing rules](https://help.aliyun.com/document_detail/260947.html).
    * - You must complete real-name verification before creating an instance.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
    * - You do not need to specify a zone when creating an instance. The instance is created in the same zone as the selected VPC by default.
    * 

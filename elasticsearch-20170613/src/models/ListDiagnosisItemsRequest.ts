@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDiagnosisItemsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * es-cn-v0h14zdee000mimee
+   */
   instanceId?: string;
   /**
    * @remarks
-   * The language of the request. Default value: the browser language. Valid values:
+   * The supported request language. Default value: the browser request language. Valid values:
    * 
    * - en: English
    * - zh: Simplified Chinese
@@ -18,10 +25,24 @@ export class ListDiagnosisItemsRequest extends $dara.Model {
    * en
    */
   lang?: string;
+  /**
+   * @remarks
+   * The diagnostic item level. Valid values:
+   * 
+   * - BASIC: basic inspection item (free).
+   * - ADVANCED: advanced inspection item (consumes billable tokens).
+   * 
+   * If this parameter is not specified, diagnostic items of all levels are returned.
+   * 
+   * @example
+   * BASIC
+   */
+  level?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'instanceId',
       lang: 'lang',
+      level: 'level',
     };
   }
 
@@ -29,6 +50,7 @@ export class ListDiagnosisItemsRequest extends $dara.Model {
     return {
       instanceId: 'string',
       lang: 'string',
+      level: 'string',
     };
   }
 

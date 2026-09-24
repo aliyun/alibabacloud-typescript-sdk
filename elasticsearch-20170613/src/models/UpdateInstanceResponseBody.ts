@@ -194,7 +194,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The internal-facing access endpoint of the instance for private network access.
+   * The internal-facing access domain name of the instance for private network access.
    * 
    * @example
    * es-cn-abc.elasticsearch.aliyuncs.com
@@ -243,8 +243,8 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - prepaid: subscription.
-   * - postpaid: pay-as-you-go.
+   * - prepaid: Subscription.
+   * - postpaid: Pay-as-you-go.
    * 
    * @example
    * postpaid
@@ -314,7 +314,21 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
 }
 
 export class UpdateInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code. This parameter is returned only when an exception occurs.
+   * 
+   * @example
+   * InstanceNotFound
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error message. This parameter is returned only when an exception occurs.
+   * 
+   * @example
+   * The specified cluster does not exist. Check the cluster status and try again.
+   */
   message?: string;
   /**
    * @remarks

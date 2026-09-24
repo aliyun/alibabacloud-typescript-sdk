@@ -532,6 +532,12 @@ export { InterruptElasticsearchTaskResponse } from './InterruptElasticsearchTask
 export { InterruptLogstashTaskRequest } from './InterruptLogstashTaskRequest';
 export { InterruptLogstashTaskResponseBody } from './InterruptLogstashTaskResponseBody';
 export { InterruptLogstashTaskResponse } from './InterruptLogstashTaskResponse';
+export { InvokeEsAgentRequest } from './InvokeEsAgentRequest';
+export { InvokeEsAgentResponseBody } from './InvokeEsAgentResponseBody';
+export { InvokeEsAgentResponse } from './InvokeEsAgentResponse';
+export { InvokeEsRequestRequest } from './InvokeEsRequestRequest';
+export { InvokeEsRequestResponseBody } from './InvokeEsRequestResponseBody';
+export { InvokeEsRequestResponse } from './InvokeEsRequestResponse';
 export { ListAckClustersRequest } from './ListAckClustersRequest';
 export { ListAckClustersResponseBody } from './ListAckClustersResponseBody';
 export { ListAckClustersResponse } from './ListAckClustersResponse';

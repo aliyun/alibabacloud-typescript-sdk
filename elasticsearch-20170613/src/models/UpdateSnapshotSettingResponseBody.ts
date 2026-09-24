@@ -13,6 +13,11 @@ export class UpdateSnapshotSettingResponseBodyResult extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
+   * The list of indexes to back up.
+   */
+  indices?: string[];
+  /**
+   * @remarks
    * The automatic backup start time.
    * 
    * @example
@@ -22,6 +27,7 @@ export class UpdateSnapshotSettingResponseBodyResult extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enable: 'enable',
+      indices: 'indices',
       quartzRegex: 'quartzRegex',
     };
   }
@@ -29,11 +35,15 @@ export class UpdateSnapshotSettingResponseBodyResult extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enable: 'boolean',
+      indices: { 'type': 'array', 'itemType': 'string' },
       quartzRegex: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.indices)) {
+      $dara.Model.validateArray(this.indices);
+    }
     super.validate();
   }
 

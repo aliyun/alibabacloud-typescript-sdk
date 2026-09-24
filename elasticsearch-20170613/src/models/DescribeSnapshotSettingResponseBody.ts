@@ -13,7 +13,12 @@ export class DescribeSnapshotSettingResponseBodyResult extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The automatic backup time configuration, which uses a Quartz Cron expression.
+   * The list of indexes to back up.
+   */
+  indices?: string[];
+  /**
+   * @remarks
+   * The automatic backup time configuration, specified as a Quartz Cron expression.
    * 
    * @example
    * 0 0 01 ? * * *
@@ -22,6 +27,7 @@ export class DescribeSnapshotSettingResponseBodyResult extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enable: 'Enable',
+      indices: 'Indices',
       quartzRegex: 'QuartzRegex',
     };
   }
@@ -29,11 +35,15 @@ export class DescribeSnapshotSettingResponseBodyResult extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enable: 'boolean',
+      indices: { 'type': 'array', 'itemType': 'string' },
       quartzRegex: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.indices)) {
+      $dara.Model.validateArray(this.indices);
+    }
     super.validate();
   }
 

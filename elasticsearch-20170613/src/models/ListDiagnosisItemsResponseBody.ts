@@ -5,16 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnosisItemsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The description of the diagnostic item.
+   * Indicates whether billable tokens are consumed. The value is true when level is ADVANCED.
    * 
    * @example
-   * 诊断集群写数据是否有堆积当集群的数据写入存在堆积时，会造成BulkReject异常，可能会导致数据丢失，且会造成系统资源消耗严重
+   * true
+   */
+  billable?: boolean;
+  /**
+   * @remarks
+   * The category code. You can use this value to group diagnostic items by category.
+   * 
+   * @example
+   * CLUSTER_HEALTH
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The diagnostic item description.
+   * 
+   * @example
+   * Diagnoses whether data write operations are backlogged in the cluster. When data write operations are backlogged, BulkReject exceptions occur, which may cause data loss and severe system resource consumption
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the cluster API is accessed.
+   * 
+   * @example
+   * true
+   */
   esApiRequired?: boolean;
   /**
    * @remarks
-   * The identifier of the diagnostic item.
+   * The diagnostic item identifier.
    * 
    * @example
    * ClusterBulkRejectDiagnostic
@@ -22,31 +45,68 @@ export class ListDiagnosisItemsResponseBodyResult extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The name of the diagnostic item.
+   * The diagnostic item level. Valid values:
+   * 
+   * - BASIC: basic inspection item (free).
+   * - ADVANCED: advanced inspection item (consumes billable tokens).
    * 
    * @example
-   * 索引写入BulkReject诊断
+   * BASIC
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The diagnostic item name.
+   * 
+   * @example
+   * Index Write BulkReject Diagnostics
    */
   name?: string;
+  /**
+   * @remarks
+   * The sort order number for display.
+   * 
+   * @example
+   * 1
+   */
+  sortOrder?: number;
+  /**
+   * @remarks
+   * The supported execution modes. Basic items support RULE and AGENT. Advanced items support only AGENT.
+   */
+  supportedModes?: string[];
   static names(): { [key: string]: string } {
     return {
+      billable: 'billable',
+      category: 'category',
       description: 'description',
       esApiRequired: 'esApiRequired',
       key: 'key',
+      level: 'level',
       name: 'name',
+      sortOrder: 'sortOrder',
+      supportedModes: 'supportedModes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billable: 'boolean',
+      category: 'string',
       description: 'string',
       esApiRequired: 'boolean',
       key: 'string',
+      level: 'string',
       name: 'string',
+      sortOrder: 'number',
+      supportedModes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.supportedModes)) {
+      $dara.Model.validateArray(this.supportedModes);
+    }
     super.validate();
   }
 
