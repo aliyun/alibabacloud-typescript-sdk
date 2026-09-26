@@ -779,6 +779,40 @@ export class TicketQueryProductResponseBodyDataProductRegion extends $dara.Model
   }
 }
 
+export class TicketQueryProductResponseBodyDataProductSellerAgent extends $dara.Model {
+  /**
+   * @example
+   * 飞猪景区乐园旗舰店
+   */
+  agentName?: string;
+  /**
+   * @example
+   * 1
+   */
+  agentType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentName: 'AgentName',
+      agentType: 'AgentType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentName: 'string',
+      agentType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TicketQueryProductResponseBodyDataProductSession extends $dara.Model {
   /**
    * @example
@@ -1396,6 +1430,7 @@ export class TicketQueryProductResponseBodyDataProduct extends $dara.Model {
    * 123456
    */
   scenicId?: number;
+  sellerAgent?: TicketQueryProductResponseBodyDataProductSellerAgent;
   session?: TicketQueryProductResponseBodyDataProductSession;
   /**
    * @example
@@ -1403,11 +1438,6 @@ export class TicketQueryProductResponseBodyDataProduct extends $dara.Model {
    */
   settlePriceCalculateType?: number;
   spu?: TicketQueryProductResponseBodyDataProductSpu;
-  /**
-   * @example
-   * 飞猪景区乐园旗舰店
-   */
-  supplierName?: string;
   ticketKind?: TicketQueryProductResponseBodyDataProductTicketKind;
   useRule?: TicketQueryProductResponseBodyDataProductUseRule;
   static names(): { [key: string]: string } {
@@ -1424,10 +1454,10 @@ export class TicketQueryProductResponseBodyDataProduct extends $dara.Model {
       refundRule: 'RefundRule',
       region: 'Region',
       scenicId: 'ScenicId',
+      sellerAgent: 'SellerAgent',
       session: 'Session',
       settlePriceCalculateType: 'SettlePriceCalculateType',
       spu: 'Spu',
-      supplierName: 'SupplierName',
       ticketKind: 'TicketKind',
       useRule: 'UseRule',
     };
@@ -1447,10 +1477,10 @@ export class TicketQueryProductResponseBodyDataProduct extends $dara.Model {
       refundRule: TicketQueryProductResponseBodyDataProductRefundRule,
       region: TicketQueryProductResponseBodyDataProductRegion,
       scenicId: 'number',
+      sellerAgent: TicketQueryProductResponseBodyDataProductSellerAgent,
       session: TicketQueryProductResponseBodyDataProductSession,
       settlePriceCalculateType: 'number',
       spu: TicketQueryProductResponseBodyDataProductSpu,
-      supplierName: 'string',
       ticketKind: TicketQueryProductResponseBodyDataProductTicketKind,
       useRule: TicketQueryProductResponseBodyDataProductUseRule,
     };
@@ -1468,6 +1498,9 @@ export class TicketQueryProductResponseBodyDataProduct extends $dara.Model {
     }
     if(this.region && typeof (this.region as any).validate === 'function') {
       (this.region as any).validate();
+    }
+    if(this.sellerAgent && typeof (this.sellerAgent as any).validate === 'function') {
+      (this.sellerAgent as any).validate();
     }
     if(this.session && typeof (this.session as any).validate === 'function') {
       (this.session as any).validate();

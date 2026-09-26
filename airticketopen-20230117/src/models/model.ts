@@ -207,6 +207,7 @@ export { TicketPageQueryProductResponseBodyDataProductsRefundRuleRefundStageRule
 export { TicketPageQueryProductResponseBodyDataProductsRefundRuleRefundStageRules } from './TicketPageQueryProductResponseBody';
 export { TicketPageQueryProductResponseBodyDataProductsRefundRule } from './TicketPageQueryProductResponseBody';
 export { TicketPageQueryProductResponseBodyDataProductsRegion } from './TicketPageQueryProductResponseBody';
+export { TicketPageQueryProductResponseBodyDataProductsSellerAgent } from './TicketPageQueryProductResponseBody';
 export { TicketPageQueryProductResponseBodyDataProductsSession } from './TicketPageQueryProductResponseBody';
 export { TicketPageQueryProductResponseBodyDataProductsSpu } from './TicketPageQueryProductResponseBody';
 export { TicketPageQueryProductResponseBodyDataProductsTicketKind } from './TicketPageQueryProductResponseBody';
@@ -249,6 +250,7 @@ export { TicketQueryProductResponseBodyDataProductRefundRuleRefundStageRulesTo }
 export { TicketQueryProductResponseBodyDataProductRefundRuleRefundStageRules } from './TicketQueryProductResponseBody';
 export { TicketQueryProductResponseBodyDataProductRefundRule } from './TicketQueryProductResponseBody';
 export { TicketQueryProductResponseBodyDataProductRegion } from './TicketQueryProductResponseBody';
+export { TicketQueryProductResponseBodyDataProductSellerAgent } from './TicketQueryProductResponseBody';
 export { TicketQueryProductResponseBodyDataProductSession } from './TicketQueryProductResponseBody';
 export { TicketQueryProductResponseBodyDataProductSpu } from './TicketQueryProductResponseBody';
 export { TicketQueryProductResponseBodyDataProductTicketKind } from './TicketQueryProductResponseBody';
