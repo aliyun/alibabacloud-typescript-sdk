@@ -12,12 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'eu-central-1': "governance.eu-central-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "governance.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-hangzhou': "governance.cn-hangzhou.aliyuncs.com",
-      'ap-southeast-1': "governance.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("governance", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -149,6 +143,48 @@ export default class Client extends OpenApi {
   async createAccountFactoryBaseline(request: $_model.CreateAccountFactoryBaselineRequest): Promise<$_model.CreateAccountFactoryBaselineResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAccountFactoryBaselineWithOptions(request, runtime);
+  }
+
+  /**
+   * Disables and unsubscribes from Cloud Governance Center.
+   * 
+   * @param request - DecommissionGovernanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DecommissionGovernanceResponse
+   */
+  async decommissionGovernanceWithOptions(request: $_model.DecommissionGovernanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DecommissionGovernanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DecommissionGovernance",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DecommissionGovernanceResponse>(await this.callApi(params, req, runtime), new $_model.DecommissionGovernanceResponse({}));
+  }
+
+  /**
+   * Disables and unsubscribes from Cloud Governance Center.
+   * 
+   * @param request - DecommissionGovernanceRequest
+   * @returns DecommissionGovernanceResponse
+   */
+  async decommissionGovernance(request: $_model.DecommissionGovernanceRequest): Promise<$_model.DecommissionGovernanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.decommissionGovernanceWithOptions(request, runtime);
   }
 
   /**
@@ -875,6 +911,48 @@ export default class Client extends OpenApi {
   async listEvaluationScoreHistory(request: $_model.ListEvaluationScoreHistoryRequest): Promise<$_model.ListEvaluationScoreHistoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listEvaluationScoreHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * Activates Cloud Governance Center.
+   * 
+   * @param request - OpenGovernanceServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenGovernanceServiceResponse
+   */
+  async openGovernanceServiceWithOptions(request: $_model.OpenGovernanceServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenGovernanceServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OpenGovernanceService",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OpenGovernanceServiceResponse>(await this.callApi(params, req, runtime), new $_model.OpenGovernanceServiceResponse({}));
+  }
+
+  /**
+   * Activates Cloud Governance Center.
+   * 
+   * @param request - OpenGovernanceServiceRequest
+   * @returns OpenGovernanceServiceResponse
+   */
+  async openGovernanceService(request: $_model.OpenGovernanceServiceRequest): Promise<$_model.OpenGovernanceServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.openGovernanceServiceWithOptions(request, runtime);
   }
 
   /**
