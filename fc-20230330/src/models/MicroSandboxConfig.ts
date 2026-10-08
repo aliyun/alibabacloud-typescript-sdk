@@ -6,7 +6,7 @@ import { RegistryConfig } from "./RegistryConfig";
 export class MicroSandboxConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACR Enterprise Edition image repository instance. Used in pair with MicroSandbox images. This parameter is optional. If not provided, the server resolves it as needed.
+   * The instance ID of the Container Registry (ACR) Enterprise Edition image repository. This parameter is used together with MicroSandbox images. This parameter is optional. If not provided, the server resolves it as needed.
    */
   acrInstanceId?: string;
   /**
@@ -14,13 +14,25 @@ export class MicroSandboxConfig extends $dara.Model {
    * The image address.
    */
   image?: string;
+  /**
+   * @remarks
+   * The operating system type.
+   */
   osType?: string;
+  /**
+   * @remarks
+   * The ready command.
+   */
   readyCommand?: string;
   /**
    * @remarks
    * The image repository configuration.
    */
   registryConfig?: RegistryConfig;
+  /**
+   * @remarks
+   * The start command.
+   */
   startCommand?: string;
   static names(): { [key: string]: string } {
     return {
