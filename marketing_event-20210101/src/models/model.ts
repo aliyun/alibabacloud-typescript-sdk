@@ -38,6 +38,9 @@ export { FindGuestCredentialsRecordResponse } from './FindGuestCredentialsRecord
 export { FindGuestTicketRecordRequest } from './FindGuestTicketRecordRequest';
 export { FindGuestTicketRecordResponseBody } from './FindGuestTicketRecordResponseBody';
 export { FindGuestTicketRecordResponse } from './FindGuestTicketRecordResponse';
+export { MosCheckInRequest } from './MosCheckInRequest';
+export { MosCheckInResponseBody } from './MosCheckInResponseBody';
+export { MosCheckInResponse } from './MosCheckInResponse';
 export { QueryAllActivityInfoRequest } from './QueryAllActivityInfoRequest';
 export { QueryAllActivityInfoResponseBody } from './QueryAllActivityInfoResponseBody';
 export { QueryAllActivityInfoResponse } from './QueryAllActivityInfoResponse';

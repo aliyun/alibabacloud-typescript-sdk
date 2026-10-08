@@ -444,6 +444,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * MOS活动签到
+   * 
+   * @param request - MosCheckInRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MosCheckInResponse
+   */
+  async mosCheckInWithOptions(request: $_model.MosCheckInRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MosCheckInResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.activityId)) {
+      body["ActivityId"] = request.activityId;
+    }
+
+    if (!$dara.isNull(request.extParam)) {
+      body["ExtParam"] = request.extParam;
+    }
+
+    if (!$dara.isNull(request.qrCode)) {
+      body["QrCode"] = request.qrCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MosCheckIn",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MosCheckInResponse>(await this.callApi(params, req, runtime), new $_model.MosCheckInResponse({}));
+  }
+
+  /**
+   * MOS活动签到
+   * 
+   * @param request - MosCheckInRequest
+   * @returns MosCheckInResponse
+   */
+  async mosCheckIn(request: $_model.MosCheckInRequest): Promise<$_model.MosCheckInResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.mosCheckInWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryAllActivityInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryAllActivityInfoResponse
