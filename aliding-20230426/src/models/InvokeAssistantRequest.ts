@@ -381,6 +381,79 @@ export class InvokeAssistantRequestMessagesContentMarkdown extends $dara.Model {
   }
 }
 
+export class InvokeAssistantRequestMessagesContentPartsFile extends $dara.Model {
+  bytes?: string;
+  mimeType?: string;
+  name?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bytes: 'bytes',
+      mimeType: 'mimeType',
+      name: 'name',
+      uri: 'uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bytes: 'string',
+      mimeType: 'string',
+      name: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantRequestMessagesContentParts extends $dara.Model {
+  data?: any;
+  file?: InvokeAssistantRequestMessagesContentPartsFile;
+  kind?: string;
+  metadata?: { [key: string]: any };
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      file: 'file',
+      kind: 'kind',
+      metadata: 'metadata',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      file: InvokeAssistantRequestMessagesContentPartsFile,
+      kind: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      text: 'string',
+    };
+  }
+
+  validate() {
+    if(this.file && typeof (this.file as any).validate === 'function') {
+      (this.file as any).validate();
+    }
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvokeAssistantRequestMessagesContentStructViewPartsDataPart extends $dara.Model {
   data?: any;
   static names(): { [key: string]: string } {
@@ -765,7 +838,10 @@ export class InvokeAssistantRequestMessagesContent extends $dara.Model {
    * {}
    */
   dingNormalCard?: InvokeAssistantRequestMessagesContentDingNormalCard;
+  extensions?: string[];
   markdown?: InvokeAssistantRequestMessagesContentMarkdown;
+  metadata?: { [key: string]: any };
+  parts?: InvokeAssistantRequestMessagesContentParts[];
   structView?: InvokeAssistantRequestMessagesContentStructView;
   text?: InvokeAssistantRequestMessagesContentText;
   /**
@@ -781,7 +857,10 @@ export class InvokeAssistantRequestMessagesContent extends $dara.Model {
       cardCallback: 'cardCallback',
       dingCard: 'dingCard',
       dingNormalCard: 'dingNormalCard',
+      extensions: 'extensions',
       markdown: 'markdown',
+      metadata: 'metadata',
+      parts: 'parts',
       structView: 'structView',
       text: 'text',
       type: 'type',
@@ -793,7 +872,10 @@ export class InvokeAssistantRequestMessagesContent extends $dara.Model {
       cardCallback: InvokeAssistantRequestMessagesContentCardCallback,
       dingCard: InvokeAssistantRequestMessagesContentDingCard,
       dingNormalCard: InvokeAssistantRequestMessagesContentDingNormalCard,
+      extensions: { 'type': 'array', 'itemType': 'string' },
       markdown: InvokeAssistantRequestMessagesContentMarkdown,
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parts: { 'type': 'array', 'itemType': InvokeAssistantRequestMessagesContentParts },
       structView: InvokeAssistantRequestMessagesContentStructView,
       text: InvokeAssistantRequestMessagesContentText,
       type: 'string',
@@ -810,8 +892,17 @@ export class InvokeAssistantRequestMessagesContent extends $dara.Model {
     if(this.dingNormalCard && typeof (this.dingNormalCard as any).validate === 'function') {
       (this.dingNormalCard as any).validate();
     }
+    if(Array.isArray(this.extensions)) {
+      $dara.Model.validateArray(this.extensions);
+    }
     if(this.markdown && typeof (this.markdown as any).validate === 'function') {
       (this.markdown as any).validate();
+    }
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    if(Array.isArray(this.parts)) {
+      $dara.Model.validateArray(this.parts);
     }
     if(this.structView && typeof (this.structView as any).validate === 'function') {
       (this.structView as any).validate();

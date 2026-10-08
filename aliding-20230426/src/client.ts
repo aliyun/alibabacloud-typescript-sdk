@@ -14592,6 +14592,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 调用页面操作
+   * 
+   * @param request - InvokePageRequest
+   * @param tmpHeader - InvokePageHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokePageResponse
+   */
+  async invokePageWithOptions(request: $_model.InvokePageRequest, tmpHeader: $_model.InvokePageHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.InvokePageResponse> {
+    request.validate();
+    let headers = new $_model.InvokePageShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "accountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.operationId)) {
+      body["operationId"] = request.operationId;
+    }
+
+    if (!$dara.isNull(request.params)) {
+      body["params"] = request.params;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["accountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokePage",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/spi/ai/v1/page/invoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InvokePageResponse>(await this.callApi(params, req, runtime), new $_model.InvokePageResponse({}));
+  }
+
+  /**
+   * 调用页面操作
+   * 
+   * @param request - InvokePageRequest
+   * @returns InvokePageResponse
+   */
+  async invokePage(request: $_model.InvokePageRequest): Promise<$_model.InvokePageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.InvokePageHeaders({ });
+    return await this.invokePageWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 调用AI技能
    * 
    * @param tmpReq - InvokeSkillRequest
@@ -16191,6 +16255,74 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.ListTicketOperateRecordHeaders({ });
     return await this.listTicketOperateRecordWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询当前登录用户在指定权限点、指定资源类型下已授权的资源列表
+   * 
+   * @param request - ListUserAuthorizedResourcesRequest
+   * @param tmpHeader - ListUserAuthorizedResourcesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserAuthorizedResourcesResponse
+   */
+  async listUserAuthorizedResourcesWithOptions(request: $_model.ListUserAuthorizedResourcesRequest, tmpHeader: $_model.ListUserAuthorizedResourcesHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserAuthorizedResourcesResponse> {
+    request.validate();
+    let headers = new $_model.ListUserAuthorizedResourcesShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.permissionCode)) {
+      body["PermissionCode"] = request.permissionCode;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserAuthorizedResources",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/skill/listUserAuthorizedResources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserAuthorizedResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListUserAuthorizedResourcesResponse({}));
+  }
+
+  /**
+   * 查询当前登录用户在指定权限点、指定资源类型下已授权的资源列表
+   * 
+   * @param request - ListUserAuthorizedResourcesRequest
+   * @returns ListUserAuthorizedResourcesResponse
+   */
+  async listUserAuthorizedResources(request: $_model.ListUserAuthorizedResourcesRequest): Promise<$_model.ListUserAuthorizedResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ListUserAuthorizedResourcesHeaders({ });
+    return await this.listUserAuthorizedResourcesWithOptions(request, headers, runtime);
   }
 
   /**
