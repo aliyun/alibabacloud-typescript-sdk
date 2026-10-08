@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveSingleTaskForDeletingDSRecordRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SaveSingleTaskForDeletingDSRecordRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
+   * Key tag, used to identify DNSSEC records. It is an integer value less than 65536.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,21 @@ export class SaveSingleTaskForDeletingDSRecordRequest extends $dara.Model {
    */
   keyTag?: number;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

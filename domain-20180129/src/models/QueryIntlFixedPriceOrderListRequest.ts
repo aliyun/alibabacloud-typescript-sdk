@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryIntlFixedPriceOrderListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business ID.
+   * 
    * @example
    * T2024061115213700****
    */
   bizId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The order status.
+   * 
    * @example
    * 6
    */

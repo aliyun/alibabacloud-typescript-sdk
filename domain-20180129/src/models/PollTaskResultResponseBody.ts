@@ -89,37 +89,58 @@ export class PollTaskResultResponseBodyData extends $dara.Model {
 
 export class PollTaskResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPageNum?: number;
   data?: PollTaskResultResponseBodyData;
   /**
+   * @remarks
+   * Indicates whether there is a next page.
+   * 
    * @example
    * false
    */
   nextPage?: boolean;
   /**
+   * @remarks
+   * Paging size.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Indicates whether a previous page exists.
+   * 
    * @example
    * false
    */
   prePage?: boolean;
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * E879DC07-38EE-4408-9F33-73B30CD965CD
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of items.
+   * 
    * @example
    * 10
    */
   totalItemNum?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 10
    */

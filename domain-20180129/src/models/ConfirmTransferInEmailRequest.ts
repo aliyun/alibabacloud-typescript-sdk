@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConfirmTransferInEmailRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name list
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ConfirmTransferInEmailRequest extends $dara.Model {
   domainName?: string[];
   /**
    * @remarks
+   * Mailbox
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class ConfirmTransferInEmailRequest extends $dara.Model {
    */
   email?: string;
   /**
+   * @remarks
+   * Language of the error message returned by the API. Valid enumeration values: zh (Chinese); en (English). Default value is en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP
+   * 
    * @example
    * 127.0.0.1
    */

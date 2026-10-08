@@ -3,13 +3,74 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryIntlFixedPriceOrderListResponseBodyModuleData extends $dara.Model {
+  /**
+   * @remarks
+   * The business ID.
+   * 
+   * @example
+   * T2023122019031400****
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1715134456000
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * jslxv.cn
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The order type. Valid values:
+   * - 11: international fixed-price.
+   * 
+   * @example
+   * 11
+   */
   orderType?: number;
+  /**
+   * @remarks
+   * The price.
+   * 
+   * @example
+   * 15000
+   */
   price?: number;
+  /**
+   * @remarks
+   * The order status. Valid values:
+   * - 5: Transaction closed.
+   * - 6: Paid.
+   * - 7: Pending production.
+   * - 9: Transaction completed.
+   * 
+   * @example
+   * 6
+   */
   status?: number;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 1715134456000
+   */
   updateTime?: number;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 545684317770****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,10 +108,42 @@ export class QueryIntlFixedPriceOrderListResponseBodyModuleData extends $dara.Mo
 }
 
 export class QueryIntlFixedPriceOrderListResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * The current page number.
+   * 
+   * @example
+   * 1
+   */
   currentPageNum?: number;
+  /**
+   * @remarks
+   * The order list data.
+   */
   data?: QueryIntlFixedPriceOrderListResponseBodyModuleData[];
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 294
+   */
   totalItemNum?: number;
+  /**
+   * @remarks
+   * The total number of pages.
+   * 
+   * @example
+   * 4
+   */
   totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -85,8 +178,15 @@ export class QueryIntlFixedPriceOrderListResponseBodyModule extends $dara.Model 
 }
 
 export class QueryIntlFixedPriceOrderListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response object.
+   */
   module?: QueryIntlFixedPriceOrderListResponseBodyModule;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D6CB3623-4726-4947-AC2B-2C6E673B447C
    */

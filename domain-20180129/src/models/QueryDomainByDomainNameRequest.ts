@@ -15,10 +15,11 @@ export class QueryDomainByDomainNameRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language of the error message to return if the request fails. Valid values:
+   * The language of the error message that is returned. Valid values:
    * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
    * 
    * Default value: **en**.
    * 
@@ -28,7 +29,7 @@ export class QueryDomainByDomainNameRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The IP address of the user.
    * 
    * @example
    * 127.0.0.1

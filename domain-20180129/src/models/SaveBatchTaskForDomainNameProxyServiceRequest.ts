@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveBatchTaskForDomainNameProxyServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * List of domain names, separated by commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,13 @@ export class SaveBatchTaskForDomainNameProxyServiceRequest extends $dara.Model {
    */
   domainName?: string[];
   /**
+   * @remarks
+   * Language for error messages returned by the API. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
@@ -23,6 +32,10 @@ export class SaveBatchTaskForDomainNameProxyServiceRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
+   * Enabled or shutdown status. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Shutdown.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +43,9 @@ export class SaveBatchTaskForDomainNameProxyServiceRequest extends $dara.Model {
    */
   status?: boolean;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

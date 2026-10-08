@@ -207,7 +207,7 @@ export class QueryDomainListResponseBodyData extends $dara.Model {
 export class QueryDomainListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 0
@@ -216,7 +216,7 @@ export class QueryDomainListResponseBody extends $dara.Model {
   data?: QueryDomainListResponseBodyData;
   /**
    * @remarks
-   * Indicates whether the current page is followed by a page.
+   * Indicates whether a next page is available.
    * 
    * @example
    * false
@@ -224,7 +224,7 @@ export class QueryDomainListResponseBody extends $dara.Model {
   nextPage?: boolean;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of domain names per page.
    * 
    * @example
    * 5
@@ -232,7 +232,7 @@ export class QueryDomainListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether the current page is preceded by a page.
+   * Indicates whether a previous page is available.
    * 
    * @example
    * false
@@ -240,7 +240,7 @@ export class QueryDomainListResponseBody extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * B7AB5469-5E38-4AA9-A920-C65B7A9C8E6E
@@ -248,7 +248,7 @@ export class QueryDomainListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of domain names returned.
+   * The total number of domain names.
    * 
    * @example
    * 1
@@ -256,7 +256,7 @@ export class QueryDomainListResponseBody extends $dara.Model {
   totalItemNum?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

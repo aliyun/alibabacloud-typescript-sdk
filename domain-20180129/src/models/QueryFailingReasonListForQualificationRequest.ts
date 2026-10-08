@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryFailingReasonListForQualificationRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,22 @@ export class QueryFailingReasonListForQualificationRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:
+   * 
+   * - zh: Chinese  
+   * - en: English  
+   * 
+   * Default value: en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * Number of records to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +38,8 @@ export class QueryFailingReasonListForQualificationRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
+   * Qualification verification API type. Fixed value: **knet**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +47,9 @@ export class QueryFailingReasonListForQualificationRequest extends $dara.Model {
    */
   qualificationType?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

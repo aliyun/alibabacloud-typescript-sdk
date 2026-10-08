@@ -6,20 +6,9 @@ export class EmailVerifiedRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * abc@aliyun.com
    */
   email?: string;
-  /**
-   * @example
-   * en
-   */
   lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {

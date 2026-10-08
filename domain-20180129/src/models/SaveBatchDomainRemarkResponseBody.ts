@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveBatchDomainRemarkResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * 4189E320-961E-4786-8E15-0000
    */

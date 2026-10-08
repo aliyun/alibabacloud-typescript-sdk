@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetQualificationUploadPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Access ID.
+   * 
    * @example
    * hObpgEXoca42****
    */
   accessid?: string;
   /**
+   * @remarks
+   * File path.
+   * 
    * @example
    * 20211220/131953297274****_4de3db85-4f98-488d-845b-d75bf035b13d
    */
   dir?: string;
   /**
+   * @remarks
+   * Expiration time.
+   * 
    * @example
    * 1593688811881
    */
   expire?: string;
   /**
+   * @remarks
+   * OSS Endpoint.
+   * 
    * @example
    * https://********-review.oss-cn-********.aliyuncs.com
    */
   host?: string;
   /**
+   * @remarks
+   * Encryption policy.
+   * 
    * @example
    * eyJleHBpcmF0aW9uIjoiMjAaMC0wNy0wMlQxKToyMDoxMS44ODRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsNTI0Mjg4MDBdLFsic3RhcnRzLXdpdGgiLCIka2V5IiwiMTIxOTU0MTE2MTIxMzA1Ny9PRkZMSU5FX1RSQU5TRkVSLzE1OTM2ODg1MTE4ODMi****
    */
   policy?: string;
   /**
+   * @remarks
+   * File prefix.
+   * 
    * @example
    * 20211220/131953297274****_4de3db85-4f98-488d-845b-d75bf035b13d_${filename}
    */
   prefix?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
    */
   requestId?: string;
   /**
+   * @remarks
+   * Signature data.
+   * 
    * @example
    * pNVECGkyL0tl4bKXekV5ErZ****
    */

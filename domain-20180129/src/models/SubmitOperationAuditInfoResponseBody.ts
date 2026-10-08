@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitOperationAuditInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The system-generated record ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9DKCF6F8-243C-40EC-8035-4B12FEFD7C22
    */

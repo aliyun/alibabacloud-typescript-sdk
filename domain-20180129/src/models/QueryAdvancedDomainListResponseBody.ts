@@ -203,37 +203,58 @@ export class QueryAdvancedDomainListResponseBodyData extends $dara.Model {
 
 export class QueryAdvancedDomainListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPageNum?: number;
   data?: QueryAdvancedDomainListResponseBodyData;
   /**
+   * @remarks
+   * Indicates whether a next page exists.
+   * 
    * @example
    * true
    */
   nextPage?: boolean;
   /**
+   * @remarks
+   * Paging size.
+   * 
    * @example
    * 2
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Indicates whether a previous page exists.
+   * 
    * @example
    * false
    */
   prePage?: boolean;
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * D200000-C0B9-4CD3-B92A-9B44A000000
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 549
    */
   totalItemNum?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 275
    */

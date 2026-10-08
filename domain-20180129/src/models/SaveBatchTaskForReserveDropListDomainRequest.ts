@@ -3,10 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SaveBatchTaskForReserveDropListDomainRequestDomains extends $dara.Model {
+  /**
+   * @remarks
+   * The first custom DNS server.
+   * 
+   * > - This parameter is required only if you set **AliyunDns** to **false**.
+   * 
+   * - Make sure that your custom DNS servers are valid. Otherwise, the domain reservation may fail.
+   * 
+   * @example
+   * ns11.bigwww.com
+   */
   dns1?: string;
+  /**
+   * @remarks
+   * The second custom DNS server.
+   * 
+   * > - This parameter is required only if you set **AliyunDns** to **false**.
+   * 
+   * - Make sure that your custom DNS servers are valid. Otherwise, the domain reservation may fail.
+   * 
+   * @example
+   * nsb.263idc.net
+   */
   dns2?: string;
   /**
    * @remarks
+   * The domain name to reserve.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +65,8 @@ export class SaveBatchTaskForReserveDropListDomainRequestDomains extends $dara.M
 export class SaveBatchTaskForReserveDropListDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The contact template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +75,8 @@ export class SaveBatchTaskForReserveDropListDomainRequest extends $dara.Model {
   contactTemplateId?: string;
   /**
    * @remarks
+   * The domain list.
+   * 
    * This parameter is required.
    */
   domains?: SaveBatchTaskForReserveDropListDomainRequestDomains[];

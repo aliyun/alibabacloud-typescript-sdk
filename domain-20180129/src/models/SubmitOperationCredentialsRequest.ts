@@ -4,22 +4,45 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitOperationCredentialsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Review record ID.
+   * 
    * @example
    * 1
    */
   auditRecordId?: number;
   /**
+   * @remarks
+   * Review type. Valid value:  
+   * **1**: Offline domain name transfer.
+   * 
    * @example
    * 1
    */
   auditType?: number;
+  /**
+   * @remarks
+   * Certificate materials pending review.
+   */
   credentials?: string;
   /**
+   * @remarks
+   * Language of the error message returned by the API. Valid values:  
+   * - **zh**: Chinese.  
+   * - **en**: English.  
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * Registrant type. Valid values:  
+   * - **1**: Individual.  
+   * - **2**: Enterprise.
+   * 
    * @example
    * 1
    */

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResendEmailVerificationResponseBodyFailList extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * SendTokenQuotaExceeded
    */
   code?: string;
   /**
+   * @remarks
+   * Verified mailbox.
+   * 
    * @example
    * test1@aliyun.com
    */
   email?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * The maximum number of attempts allowed to send the email verification link is exceeded.
    */
@@ -45,16 +54,25 @@ export class ResendEmailVerificationResponseBodyFailList extends $dara.Model {
 
 export class ResendEmailVerificationResponseBodySuccessList extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Verified mailbox.
+   * 
    * @example
    * test2@aliyun.com
    */
   email?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * Success
    */
@@ -85,12 +103,23 @@ export class ResendEmailVerificationResponseBodySuccessList extends $dara.Model 
 }
 
 export class ResendEmailVerificationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of failed verification email sends.
+   */
   failList?: ResendEmailVerificationResponseBodyFailList[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0EA54E99-DB48-4CE3-A099-6ED8E451B8AC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of successfully sent verification emails.
+   */
   successList?: ResendEmailVerificationResponseBodySuccessList[];
   static names(): { [key: string]: string } {
     return {

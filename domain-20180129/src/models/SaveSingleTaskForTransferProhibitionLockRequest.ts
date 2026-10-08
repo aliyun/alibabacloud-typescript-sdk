@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveSingleTaskForTransferProhibitionLockRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,23 @@ export class SaveSingleTaskForTransferProhibitionLockRequest extends $dara.Model
    */
   domainName?: string;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:
+   * - **zh**: Chinese;
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * Enabled or shutdown status. Valid values:
+   * - **true**: Enabled;
+   * - **false**: shutdown.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +38,9 @@ export class SaveSingleTaskForTransferProhibitionLockRequest extends $dara.Model
    */
   status?: boolean;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

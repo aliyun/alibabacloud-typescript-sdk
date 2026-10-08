@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveBatchTaskForTransferProhibitionLockRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain names for which you want to enable or disable the transfer prohibition lock.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,27 @@ export class SaveBatchTaskForTransferProhibitionLockRequest extends $dara.Model 
    */
   domainName?: string[];
   /**
+   * @remarks
+   * The language of the error message that is returned if the request fails. Valid values:
+   * 
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * Specifies whether to enable or disable the transfer prohibition lock. Valid values:
+   * 
+   * - **true**: Enable the transfer prohibition lock.
+   * 
+   * - **false**: Disable the transfer prohibition lock.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +42,9 @@ export class SaveBatchTaskForTransferProhibitionLockRequest extends $dara.Model 
    */
   status?: boolean;
   /**
+   * @remarks
+   * The client IP address.
+   * 
    * @example
    * 127.0.0.1
    */

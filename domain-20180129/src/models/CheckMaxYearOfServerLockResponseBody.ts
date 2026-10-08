@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckMaxYearOfServerLockResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Maximum number of years that can be purchased.
+   * 
    * @example
    * 10
    */
   maxYear?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDomainByInstanceIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain instance ID. Call the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) API to get this ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,23 @@ export class QueryDomainByInstanceIdRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The language of API error messages. Valid values:
+   * 
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * The user\\"s IP address. You can use **127.0.0.1**.
+   * 
    * @example
    * 127.0.0.1
    */

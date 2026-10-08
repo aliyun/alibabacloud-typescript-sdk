@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitEmailVerificationResponseBodyExistList extends $dara.Model {
   /**
+   * @remarks
+   * Returned code.
+   * 
    * @example
    * SendTokenQuotaExceeded
    */
   code?: string;
   /**
+   * @remarks
+   * Email address for verification.
+   * 
    * @example
    * username@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * Returned message.
+   * 
    * @example
    * The maximum number of attempts allowed to send the email verification link is exceeded.
    */
@@ -45,16 +54,25 @@ export class SubmitEmailVerificationResponseBodyExistList extends $dara.Model {
 
 export class SubmitEmailVerificationResponseBodyFailList extends $dara.Model {
   /**
+   * @remarks
+   * The returned code.
+   * 
    * @example
    * SendTokenQuotaExceeded
    */
   code?: string;
   /**
+   * @remarks
+   * Email address for verification.
+   * 
    * @example
    * username@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * The maximum number of attempts allowed to send the email verification link is exceeded
    */
@@ -86,16 +104,25 @@ export class SubmitEmailVerificationResponseBodyFailList extends $dara.Model {
 
 export class SubmitEmailVerificationResponseBodySuccessList extends $dara.Model {
   /**
+   * @remarks
+   * Returned code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Email address for verification.
+   * 
    * @example
    * username@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * Returned message.
+   * 
    * @example
    * Success
    */
@@ -126,13 +153,28 @@ export class SubmitEmailVerificationResponseBodySuccessList extends $dara.Model 
 }
 
 export class SubmitEmailVerificationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of emails for which verification messages already exist.
+   */
   existList?: SubmitEmailVerificationResponseBodyExistList[];
+  /**
+   * @remarks
+   * List of emails for which verification messages failed to send.
+   */
   failList?: SubmitEmailVerificationResponseBodyFailList[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * E2A8A5EF-DF8A-4C48-8FD4-9F6BD71AB26D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of emails for which verification messages were sent successfully.
+   */
   successList?: SubmitEmailVerificationResponseBodySuccessList[];
   static names(): { [key: string]: string } {
     return {

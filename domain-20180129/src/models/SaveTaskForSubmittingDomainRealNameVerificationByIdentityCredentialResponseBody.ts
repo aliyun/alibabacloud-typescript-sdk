@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   */
   taskNo?: string;
   static names(): { [key: string]: string } {
     return {

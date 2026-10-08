@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * 464AF466-CA8E-43A8-B61D-test
    */
   requestId?: string;
   /**
+   * @remarks
+   * Job number.
+   * 
    * @example
    * 65de2165-ca09-491f-9fe0-test
    */

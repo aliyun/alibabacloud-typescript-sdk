@@ -12,6 +12,9 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
+    this._endpointMap = {
+      'ap-southeast-1': "domain-intl.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("domain", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +33,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 确认任务结果
+   * Invoke AcknowledgeTaskResult to confirm the task detail result.
+   * 
+   * @remarks
+   * After the task detail result is confirmed, it can no longer be queried from the [PollTaskResult](https://help.aliyun.com/document_detail/69361.html) API.
    * 
    * @param request - AcknowledgeTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -69,7 +75,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 确认任务结果
+   * Invoke AcknowledgeTaskResult to confirm the task detail result.
+   * 
+   * @remarks
+   * After the task detail result is confirmed, it can no longer be queried from the [PollTaskResult](https://help.aliyun.com/document_detail/69361.html) API.
    * 
    * @param request - AcknowledgeTaskResultRequest
    * @returns AcknowledgeTaskResultResponse
@@ -80,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过关键字进行批量模糊匹配
+   * You can invoke BatchFuzzyMatchDomainSensitiveWord to batch check whether domain names contain sensitive words.
    * 
    * @param request - BatchFuzzyMatchDomainSensitiveWordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -119,7 +128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过关键字进行批量模糊匹配
+   * You can invoke BatchFuzzyMatchDomainSensitiveWord to batch check whether domain names contain sensitive words.
    * 
    * @param request - BatchFuzzyMatchDomainSensitiveWordRequest
    * @returns BatchFuzzyMatchDomainSensitiveWordResponse
@@ -184,7 +193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消审核
+   * Invoke the CancelOperationAudit API to cancel a self-service operation audit.
    * 
    * @param request - CancelOperationAuditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -219,7 +228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消审核
+   * Invoke the CancelOperationAudit API to cancel a self-service operation audit.
    * 
    * @param request - CancelOperationAuditRequest
    * @returns CancelOperationAuditResponse
@@ -230,6 +239,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancel the qualification verification for ".restaurant" and ".trademark" domain names.
+   * 
    * @param request - CancelQualificationVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelQualificationVerificationResponse
@@ -271,6 +282,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancel the qualification verification for ".restaurant" and ".trademark" domain names.
+   * 
    * @param request - CancelQualificationVerificationRequest
    * @returns CancelQualificationVerificationResponse
    */
@@ -280,6 +293,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke CancelTask to cancel an ongoing job.
+   * 
    * @param request - CancelTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelTaskResponse
@@ -317,6 +332,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke CancelTask to cancel an ongoing job.
+   * 
    * @param request - CancelTaskRequest
    * @returns CancelTaskResponse
    */
@@ -326,7 +343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ChangeResourceGroup
+   * Modify the resource group to which a domain name belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -373,7 +390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ChangeResourceGroup
+   * Modify the resource group to which a domain name belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -384,7 +401,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a domain name can be registered.
+   * Invoke the CheckDomain API to check whether a domain name can be registered.
+   * 
+   * @remarks
+   * For the legitimacy requirements of domain names, see [Domain Name Legitimacy](https://help.aliyun.com/document_detail/67788.html).
+   * > The CheckDomain API has a frequency limit. The combined queries per second (QPS) limit for an Alibaba Cloud account and its RAM users is 10, and the total QPS limit for this API is 100.
    * 
    * @param request - CheckDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -431,7 +452,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a domain name can be registered.
+   * Invoke the CheckDomain API to check whether a domain name can be registered.
+   * 
+   * @remarks
+   * For the legitimacy requirements of domain names, see [Domain Name Legitimacy](https://help.aliyun.com/document_detail/67788.html).
+   * > The CheckDomain API has a frequency limit. The combined queries per second (QPS) limit for an Alibaba Cloud account and its RAM users is 10, and the total QPS limit for this API is 100.
    * 
    * @param request - CheckDomainRequest
    * @returns CheckDomainResponse
@@ -442,6 +467,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the trademark keyword key based on the provided domain name.
+   * 
    * @param request - CheckDomainSunriseClaimRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckDomainSunriseClaimResponse
@@ -479,6 +506,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the trademark keyword key based on the provided domain name.
+   * 
    * @param request - CheckDomainSunriseClaimRequest
    * @returns CheckDomainSunriseClaimResponse
    */
@@ -488,7 +517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
+   * Calls CheckIntlFixPriceDomainStatus to check the status and price of an international fixed-price domain name that is on sale.
    * 
    * @param request - CheckIntlFixPriceDomainStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -519,7 +548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
+   * Calls CheckIntlFixPriceDomainStatus to check the status and price of an international fixed-price domain name that is on sale.
    * 
    * @param request - CheckIntlFixPriceDomainStatusRequest
    * @returns CheckIntlFixPriceDomainStatusResponse
@@ -530,6 +559,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Detects the maximum number of years for which a domain name can be purchased or renewed.
+   * 
    * @param request - CheckMaxYearOfServerLockRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckMaxYearOfServerLockResponse
@@ -571,6 +602,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Detects the maximum number of years for which a domain name can be purchased or renewed.
+   * 
    * @param request - CheckMaxYearOfServerLockRequest
    * @returns CheckMaxYearOfServerLockResponse
    */
@@ -580,6 +613,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks whether the domain name has a registry lock service request with the **Processing** status at the domain name registry.
+   * 
    * @param request - CheckProcessingServerLockApplyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckProcessingServerLockApplyResponse
@@ -621,6 +656,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks whether the domain name has a registry lock service request with the **Processing** status at the domain name registry.
+   * 
    * @param request - CheckProcessingServerLockApplyRequest
    * @returns CheckProcessingServerLockApplyResponse
    */
@@ -630,6 +667,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the CheckTransferInFeasibility API to validate whether a domain name can be transferred in.
+   * 
    * @param request - CheckTransferInFeasibilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckTransferInFeasibilityResponse
@@ -671,6 +710,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the CheckTransferInFeasibility API to validate whether a domain name can be transferred in.
+   * 
    * @param request - CheckTransferInFeasibilityRequest
    * @returns CheckTransferInFeasibilityResponse
    */
@@ -680,6 +721,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke ConfirmTransferInEmail to confirm the transfer-in mailbox.
+   * 
+   * @remarks
+   * Directly confirm the transfer-in mailbox.
+   * 
    * @param request - ConfirmTransferInEmailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfirmTransferInEmailResponse
@@ -721,6 +767,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke ConfirmTransferInEmail to confirm the transfer-in mailbox.
+   * 
+   * @remarks
+   * Directly confirm the transfer-in mailbox.
+   * 
    * @param request - ConfirmTransferInEmailRequest
    * @returns ConfirmTransferInEmailResponse
    */
@@ -730,7 +781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a fixed-price order at the international site (alibabacloud.com).
+   * Creates an international fixed-price domain name order by calling CreateIntlFixedPriceDomainOrder.
    * 
    * @param request - CreateIntlFixedPriceDomainOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -777,7 +828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a fixed-price order at the international site (alibabacloud.com).
+   * Creates an international fixed-price domain name order by calling CreateIntlFixedPriceDomainOrder.
    * 
    * @param request - CreateIntlFixedPriceDomainOrderRequest
    * @returns CreateIntlFixedPriceDomainOrderResponse
@@ -788,7 +839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除联系人模板
+   * Batch delete domain contact templates.
    * 
    * @param request - DeleteContactTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -823,7 +874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除联系人模板
+   * Batch delete domain contact templates.
    * 
    * @param request - DeleteContactTemplatesRequest
    * @returns DeleteContactTemplatesResponse
@@ -834,7 +885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除域名分组
+   * Deleting a group containing more than 1,000 domain names is an asynchronous procedure. You must wait for the system to process the request.
    * 
    * @param request - DeleteDomainGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -873,7 +924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除域名分组
+   * Deleting a group containing more than 1,000 domain names is an asynchronous procedure. You must wait for the system to process the request.
    * 
    * @param request - DeleteDomainGroupRequest
    * @returns DeleteDomainGroupResponse
@@ -884,7 +935,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除邮箱验证
+   * Invoke the DeleteEmailVerification API to delete an email address that has passed verification.
+   * 
+   * @remarks
+   * > If you want to use the email address again after deletion, you must complete email verification again.
    * 
    * @param request - DeleteEmailVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -923,7 +977,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除邮箱验证
+   * Invoke the DeleteEmailVerification API to delete an email address that has passed verification.
+   * 
+   * @remarks
+   * > If you want to use the email address again after deletion, you must complete email verification again.
    * 
    * @param request - DeleteEmailVerificationRequest
    * @returns DeleteEmailVerificationResponse
@@ -934,7 +991,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除联系人模板
+   * Invoke the DeleteRegistrantProfile API to delete a specified domain name registrant profile.
+   * 
+   * @remarks
+   * > If the API call succeeds, the System immediately deletes the corresponding domain name registrant profile.
    * 
    * @param request - DeleteRegistrantProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -973,7 +1033,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除联系人模板
+   * Invoke the DeleteRegistrantProfile API to delete a specified domain name registrant profile.
+   * 
+   * @remarks
+   * > If the API call succeeds, the System immediately deletes the corresponding domain name registrant profile.
    * 
    * @param request - DeleteRegistrantProfileRequest
    * @returns DeleteRegistrantProfileResponse
@@ -984,7 +1047,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消域名特殊业务流程
+   * Retrieves information from the domain name knowledge base.
+   * 
+   * @param request - DomainKnowledgeRetrieveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DomainKnowledgeRetrieveResponse
+   */
+  async domainKnowledgeRetrieveWithOptions(request: $_model.DomainKnowledgeRetrieveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DomainKnowledgeRetrieveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.globalTopN)) {
+      query["GlobalTopN"] = request.globalTopN;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.site)) {
+      query["Site"] = request.site;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DomainKnowledgeRetrieve",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DomainKnowledgeRetrieveResponse>(await this.callApi(params, req, runtime), new $_model.DomainKnowledgeRetrieveResponse({}));
+  }
+
+  /**
+   * Retrieves information from the domain name knowledge base.
+   * 
+   * @param request - DomainKnowledgeRetrieveRequest
+   * @returns DomainKnowledgeRetrieveResponse
+   */
+  async domainKnowledgeRetrieve(request: $_model.DomainKnowledgeRetrieveRequest): Promise<$_model.DomainKnowledgeRetrieveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.domainKnowledgeRetrieveWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancel the special business process for a domain name
    * 
    * @param request - DomainSpecialBizCancelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1021,7 +1134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消域名特殊业务流程
+   * Cancel the special business process for a domain name
    * 
    * @param request - DomainSpecialBizCancelRequest
    * @returns DomainSpecialBizCancelResponse
@@ -1082,7 +1195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过关键字进行模糊匹配
+   * Invoke FuzzyMatchDomainSensitiveWord to check whether a domain name contains sensitive words.
    * 
    * @param request - FuzzyMatchDomainSensitiveWordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1121,7 +1234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过关键字进行模糊匹配
+   * Invoke FuzzyMatchDomainSensitiveWord to check whether a domain name contains sensitive words.
    * 
    * @param request - FuzzyMatchDomainSensitiveWordRequest
    * @returns FuzzyMatchDomainSensitiveWordResponse
@@ -1174,6 +1287,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke GetOperationOssUploadPolicy to obtain the storage information for review materials.
+   * 
    * @param request - GetOperationOssUploadPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOperationOssUploadPolicyResponse
@@ -1207,6 +1322,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke GetOperationOssUploadPolicy to obtain the storage information for review materials.
+   * 
    * @param request - GetOperationOssUploadPolicyRequest
    * @returns GetOperationOssUploadPolicyResponse
    */
@@ -1216,6 +1333,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtain the authorization policy corresponding to the ".restaurant" and ".trademark" domain names.
+   * 
    * @param request - GetQualificationUploadPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualificationUploadPolicyResponse
@@ -1249,6 +1368,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtain the authorization policy corresponding to the ".restaurant" and ".trademark" domain names.
+   * 
    * @param request - GetQualificationUploadPolicyRequest
    * @returns GetQualificationUploadPolicyResponse
    */
@@ -1258,6 +1379,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the ListEmailVerification API to query the email verification list.
+   * 
    * @param request - ListEmailVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEmailVerificationResponse
@@ -1315,6 +1438,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the ListEmailVerification API to query the email verification list.
+   * 
    * @param request - ListEmailVerificationRequest
    * @returns ListEmailVerificationResponse
    */
@@ -1414,6 +1539,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call `LookupTmchNotice` to look up a trademark term from the TMCH by passing it as the `key`.
+   * 
    * @param request - LookupTmchNoticeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LookupTmchNoticeResponse
@@ -1451,6 +1578,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call `LookupTmchNotice` to look up a trademark term from the TMCH by passing it as the `key`.
+   * 
    * @param request - LookupTmchNoticeRequest
    * @returns LookupTmchNoticeResponse
    */
@@ -1460,6 +1589,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke PollTaskResult to obtain a list of domain name job details that have completed execution (including jobs that succeeded or failed and exceeded the retry count).
+   * 
+   * @remarks
+   * This API must be used together with [AcknowledgeTaskResult](~~AcknowledgeTaskResult~~) to confirm job results. Once a job result is confirmed, the corresponding job record can no longer be queried through this API.
+   * 
    * @param request - PollTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PollTaskResultResponse
@@ -1517,6 +1651,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke PollTaskResult to obtain a list of domain name job details that have completed execution (including jobs that succeeded or failed and exceeded the retry count).
+   * 
+   * @remarks
+   * This API must be used together with [AcknowledgeTaskResult](~~AcknowledgeTaskResult~~) to confirm job results. Once a job result is confirmed, the corresponding job record can no longer be queried through this API.
+   * 
    * @param request - PollTaskResultRequest
    * @returns PollTaskResultResponse
    */
@@ -1526,7 +1665,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches for domain names by using the advanced search feature.
+   * Invoke QueryAdvancedDomainList to perform an advanced search of the domain name list.
+   * 
+   * @remarks
+   * Search for domain names under your current Alibaba Cloud account that meet specific conditions. A maximum of **5000** entries are displayed. If the result reaches **5000** entries, narrow your search scope.
    * 
    * @param request - QueryAdvancedDomainListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1669,7 +1811,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches for domain names by using the advanced search feature.
+   * Invoke QueryAdvancedDomainList to perform an advanced search of the domain name list.
+   * 
+   * @remarks
+   * Search for domain names under your current Alibaba Cloud account that meet specific conditions. A maximum of **5000** entries are displayed. If the result reaches **5000** entries, narrow your search scope.
    * 
    * @param request - QueryAdvancedDomainListRequest
    * @returns QueryAdvancedDomainListResponse
@@ -1680,6 +1825,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryArtExtension API to query Art extension information.
+   * 
    * @param request - QueryArtExtensionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryArtExtensionResponse
@@ -1717,6 +1864,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryArtExtension API to query Art extension information.
+   * 
    * @param request - QueryArtExtensionRequest
    * @returns QueryArtExtensionResponse
    */
@@ -1726,7 +1875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operations logs of a domain name.
+   * Call QueryChangeLogList to get a paginated list of the operation logs.
    * 
    * @param request - QueryChangeLogListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1781,7 +1930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operations logs of a domain name.
+   * Call QueryChangeLogList to get a paginated list of the operation logs.
    * 
    * @param request - QueryChangeLogListRequest
    * @returns QueryChangeLogListResponse
@@ -1792,6 +1941,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryContactInfo to query domain contact information.
+   * 
    * @param request - QueryContactInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryContactInfoResponse
@@ -1833,6 +1984,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryContactInfo to query domain contact information.
+   * 
    * @param request - QueryContactInfoRequest
    * @returns QueryContactInfoResponse
    */
@@ -1842,6 +1995,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryDSRecord to query the DS records of a domain name.
+   * 
    * @param request - QueryDSRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDSRecordResponse
@@ -1879,6 +2034,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryDSRecord to query the DS records of a domain name.
+   * 
    * @param request - QueryDSRecordRequest
    * @returns QueryDSRecordResponse
    */
@@ -1888,6 +2045,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the DNS host for a domain name.
+   * 
    * @param request - QueryDnsHostRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDnsHostResponse
@@ -1925,6 +2084,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the DNS host for a domain name.
+   * 
    * @param request - QueryDnsHostRequest
    * @returns QueryDnsHostResponse
    */
@@ -1934,6 +2095,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryDomainAdminDivision API to query Chinese administrative regions.
+   * 
    * @param request - QueryDomainAdminDivisionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainAdminDivisionResponse
@@ -1967,6 +2130,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryDomainAdminDivision API to query Chinese administrative regions.
+   * 
    * @param request - QueryDomainAdminDivisionRequest
    * @returns QueryDomainAdminDivisionResponse
    */
@@ -1976,7 +2141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a domain name.
+   * Call `QueryDomainByDomainName` to retrieve information about a domain name.
    * 
    * @param request - QueryDomainByDomainNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2015,7 +2180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a domain name.
+   * Call `QueryDomainByDomainName` to retrieve information about a domain name.
    * 
    * @param request - QueryDomainByDomainNameRequest
    * @returns QueryDomainByDomainNameResponse
@@ -2026,7 +2191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about a domain name based on the instance ID.
+   * Call `QueryDomainByInstanceId` to retrieve the basic information of a domain name by instance ID.
    * 
    * @param request - QueryDomainByInstanceIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2065,7 +2230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about a domain name based on the instance ID.
+   * Call `QueryDomainByInstanceId` to retrieve the basic information of a domain name by instance ID.
    * 
    * @param request - QueryDomainByInstanceIdRequest
    * @returns QueryDomainByInstanceIdResponse
@@ -2076,7 +2241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain name groups.
+   * Queries a list of domain groups.
    * 
    * @param request - QueryDomainGroupListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2127,7 +2292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain name groups.
+   * Queries a list of domain groups.
    * 
    * @param request - QueryDomainGroupListRequest
    * @returns QueryDomainGroupListResponse
@@ -2138,7 +2303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain names within your Alibaba Cloud account by page.
+   * Returns a paginated list of domain names in your account.
    * 
    * @param request - QueryDomainListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2245,7 +2410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain names within your Alibaba Cloud account by page.
+   * Returns a paginated list of domain names in your account.
    * 
    * @param request - QueryDomainListRequest
    * @returns QueryDomainListResponse
@@ -2256,6 +2421,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryDomainRealNameVerificationInfo to query real-name verification information for a domain name.
+   * 
    * @param request - QueryDomainRealNameVerificationInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainRealNameVerificationInfoResponse
@@ -2297,6 +2464,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryDomainRealNameVerificationInfo to query real-name verification information for a domain name.
+   * 
    * @param request - QueryDomainRealNameVerificationInfoRequest
    * @returns QueryDomainRealNameVerificationInfoResponse
    */
@@ -2358,7 +2527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名特殊业务详情
+   * Query domain name special business details
    * 
    * @param request - QueryDomainSpecialBizDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2395,7 +2564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名特殊业务详情
+   * Query domain name special business details
    * 
    * @param request - QueryDomainSpecialBizDetailRequest
    * @returns QueryDomainSpecialBizDetailResponse
@@ -2406,7 +2575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过域名查询域名特殊业务详情
+   * Query domain special business details by domain name
    * 
    * @param request - QueryDomainSpecialBizInfoByDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2447,7 +2616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过域名查询域名特殊业务详情
+   * Query domain special business details by domain name
    * 
    * @param request - QueryDomainSpecialBizInfoByDomainRequest
    * @returns QueryDomainSpecialBizInfoByDomainResponse
@@ -2458,6 +2627,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the available domain name suffixes.
+   * 
    * @param request - QueryDomainSuffixRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainSuffixResponse
@@ -2491,6 +2662,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the available domain name suffixes.
+   * 
    * @param request - QueryDomainSuffixRequest
    * @returns QueryDomainSuffixResponse
    */
@@ -2500,7 +2673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询邮箱验证状态
+   * Invoke the QueryEmailVerification API to query the email verification result.
    * 
    * @param request - QueryEmailVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2539,7 +2712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询邮箱验证状态
+   * Invoke the QueryEmailVerification API to query the email verification result.
    * 
    * @param request - QueryEmailVerificationRequest
    * @returns QueryEmailVerificationResponse
@@ -2550,6 +2723,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryEnsAssociation API to query the wallet address attached in the ENS system.
+   * 
    * @param request - QueryEnsAssociationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryEnsAssociationResponse
@@ -2587,6 +2762,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryEnsAssociation API to query the wallet address attached in the ENS system.
+   * 
    * @param request - QueryEnsAssociationRequest
    * @returns QueryEnsAssociationResponse
    */
@@ -2596,6 +2773,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the reasons for real-name verification (including naming review) failure for a domain name.
+   * 
    * @param request - QueryFailReasonForDomainRealNameVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryFailReasonForDomainRealNameVerificationResponse
@@ -2637,6 +2816,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the reasons for real-name verification (including naming review) failure for a domain name.
+   * 
    * @param request - QueryFailReasonForDomainRealNameVerificationRequest
    * @returns QueryFailReasonForDomainRealNameVerificationResponse
    */
@@ -2646,6 +2827,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryFailReasonForRegistrantProfileRealNameVerification API to query the reasons why identity verification for an information template failed the Review.
+   * 
    * @param request - QueryFailReasonForRegistrantProfileRealNameVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryFailReasonForRegistrantProfileRealNameVerificationResponse
@@ -2683,6 +2866,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryFailReasonForRegistrantProfileRealNameVerification API to query the reasons why identity verification for an information template failed the Review.
+   * 
    * @param request - QueryFailReasonForRegistrantProfileRealNameVerificationRequest
    * @returns QueryFailReasonForRegistrantProfileRealNameVerificationResponse
    */
@@ -2692,6 +2877,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the reasons for qualification verification failure for ".restaurant" and ".trademark" domain names.
+   * 
    * @param request - QueryFailingReasonListForQualificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryFailingReasonListForQualificationResponse
@@ -2737,6 +2924,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the reasons for qualification verification failure for ".restaurant" and ".trademark" domain names.
+   * 
    * @param request - QueryFailingReasonListForQualificationRequest
    * @returns QueryFailingReasonListForQualificationResponse
    */
@@ -2746,7 +2935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of fixed-price orders at the international site (alibabacloud.com).
+   * Queries the list of international fixed-price orders by calling QueryIntlFixedPriceOrderList.
    * 
    * @param request - QueryIntlFixedPriceOrderListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2789,7 +2978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of fixed-price orders at the international site (alibabacloud.com).
+   * Queries the list of international fixed-price orders by calling QueryIntlFixedPriceOrderList.
    * 
    * @param request - QueryIntlFixedPriceOrderListRequest
    * @returns QueryIntlFixedPriceOrderListResponse
@@ -2800,6 +2989,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryLocalEnsAssociation to query the ENS binding address recorded in the Alibaba Cloud system.
+   * 
    * @param request - QueryLocalEnsAssociationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryLocalEnsAssociationResponse
@@ -2837,6 +3028,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryLocalEnsAssociation to query the ENS binding address recorded in the Alibaba Cloud system.
+   * 
    * @param request - QueryLocalEnsAssociationRequest
    * @returns QueryLocalEnsAssociationResponse
    */
@@ -2846,6 +3039,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryOperationAuditInfoDetail API to query the details of a self-service operation review record.
+   * 
    * @param request - QueryOperationAuditInfoDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryOperationAuditInfoDetailResponse
@@ -2879,6 +3074,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryOperationAuditInfoDetail API to query the details of a self-service operation review record.
+   * 
    * @param request - QueryOperationAuditInfoDetailRequest
    * @returns QueryOperationAuditInfoDetailResponse
    */
@@ -2888,6 +3085,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can invoke QueryOperationAuditInfoList to query the list of review records for self-service operations.
+   * 
    * @param request - QueryOperationAuditInfoListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryOperationAuditInfoListResponse
@@ -2937,6 +3136,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can invoke QueryOperationAuditInfoList to query the list of review records for self-service operations.
+   * 
    * @param request - QueryOperationAuditInfoListRequest
    * @returns QueryOperationAuditInfoListResponse
    */
@@ -2946,6 +3147,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the qualification verification details of ".restaurant" and ".trademark" domain names.
+   * 
    * @param request - QueryQualificationDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryQualificationDetailResponse
@@ -2987,6 +3190,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the qualification verification details of ".restaurant" and ".trademark" domain names.
+   * 
    * @param request - QueryQualificationDetailRequest
    * @returns QueryQualificationDetailResponse
    */
@@ -2996,6 +3201,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryRegistrantProfileRealNameVerificationInfo API to query the identity verification documents of an information template.
+   * 
    * @param request - QueryRegistrantProfileRealNameVerificationInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryRegistrantProfileRealNameVerificationInfoResponse
@@ -3037,6 +3244,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the QueryRegistrantProfileRealNameVerificationInfo API to query the identity verification documents of an information template.
+   * 
    * @param request - QueryRegistrantProfileRealNameVerificationInfoRequest
    * @returns QueryRegistrantProfileRealNameVerificationInfoResponse
    */
@@ -3046,12 +3255,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the registrant profiles that belong to your Alibaba Cloud account.
+   * Queries the domain name registrant profiles under the current account.
    * 
    * @remarks
-   * You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
-   * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
-   * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+   * You can pass in optional parameters to help you find registrant profiles more precisely. For example:
+   * - If you already know the ID of a registrant profile, you can pass in the registrant profile ID to query detailed profile information.
+   * - If you do not know the ID of a registrant profile, you can pass in parameters such as the domain name registrant name to query detailed profile information.
    * 
    * @param request - QueryRegistrantProfilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3130,12 +3339,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the registrant profiles that belong to your Alibaba Cloud account.
+   * Queries the domain name registrant profiles under the current account.
    * 
    * @remarks
-   * You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
-   * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
-   * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+   * You can pass in optional parameters to help you find registrant profiles more precisely. For example:
+   * - If you already know the ID of a registrant profile, you can pass in the registrant profile ID to query detailed profile information.
+   * - If you do not know the ID of a registrant profile, you can pass in parameters such as the domain name registrant name to query detailed profile information.
    * 
    * @param request - QueryRegistrantProfilesRequest
    * @returns QueryRegistrantProfilesResponse
@@ -3146,6 +3355,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the registry lock details of a domain name.
+   * 
    * @param request - QueryServerLockRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryServerLockResponse
@@ -3183,6 +3394,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the registry lock details of a domain name.
+   * 
    * @param request - QueryServerLockRequest
    * @returns QueryServerLockResponse
    */
@@ -3192,6 +3405,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can invoke QueryTaskDetailHistory to perform a paged query on the detail history list of a specified domain name job.
+   * 
    * @param request - QueryTaskDetailHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTaskDetailHistoryResponse
@@ -3249,6 +3464,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can invoke QueryTaskDetailHistory to perform a paged query on the detail history list of a specified domain name job.
+   * 
    * @param request - QueryTaskDetailHistoryRequest
    * @returns QueryTaskDetailHistoryResponse
    */
@@ -3258,7 +3475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific domain name task by page.
+   * Queries the details list of a specified domain name task by paging.
    * 
    * @param request - QueryTaskDetailListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3317,7 +3534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific domain name task by page.
+   * Queries the details list of a specified domain name task by paging.
    * 
    * @param request - QueryTaskDetailListRequest
    * @returns QueryTaskDetailListResponse
@@ -3328,6 +3545,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can invoke QueryTaskInfoHistory to perform a paged query of the domain name job history list under your account.
+   * 
    * @param request - QueryTaskInfoHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTaskInfoHistoryResponse
@@ -3381,6 +3600,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can invoke QueryTaskInfoHistory to perform a paged query of the domain name job history list under your account.
+   * 
    * @param request - QueryTaskInfoHistoryRequest
    * @returns QueryTaskInfoHistoryResponse
    */
@@ -3390,7 +3611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain name tasks under your account by page.
+   * Invoke QueryTaskList to perform a paged query of the domain name job list under your account.
    * 
    * @param request - QueryTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3441,7 +3662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain name tasks under your account by page.
+   * Invoke QueryTaskList to perform a paged query of the domain name job list under your account.
    * 
    * @param request - QueryTaskListRequest
    * @returns QueryTaskListResponse
@@ -3452,6 +3673,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryTransferInByInstanceId to query domain name transfer-in information by instance ID.
+   * 
    * @param request - QueryTransferInByInstanceIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTransferInByInstanceIdResponse
@@ -3489,6 +3712,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryTransferInByInstanceId to query domain name transfer-in information by instance ID.
+   * 
    * @param request - QueryTransferInByInstanceIdRequest
    * @returns QueryTransferInByInstanceIdResponse
    */
@@ -3498,7 +3723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that are transferred to Alibaba Cloud.
+   * Invoke QueryTransferInList to query the domain name transfer-in list.
    * 
    * @param request - QueryTransferInListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3557,7 +3782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that are transferred to Alibaba Cloud.
+   * Invoke QueryTransferInList to query the domain name transfer-in list.
    * 
    * @param request - QueryTransferInListRequest
    * @returns QueryTransferInListResponse
@@ -3568,6 +3793,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryTransferOutInfo to query domain name transfer-out information.
+   * 
    * @param request - QueryTransferOutInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTransferOutInfoResponse
@@ -3605,6 +3832,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke QueryTransferOutInfo to query domain name transfer-out information.
+   * 
    * @param request - QueryTransferOutInfoRequest
    * @returns QueryTransferOutInfoResponse
    */
@@ -3614,7 +3843,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存联系人模板实名资料
+   * Invoke the RegistrantProfileRealNameVerification API to submit real-name verification for an information template.
+   * 
+   * @remarks
+   * - Identity verification document review takes 3 to 5 business days. After the authority completes the review, you can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the identity verification result.  
+   * - If identity verification fails, refer to [Reasons for Identity Verification Failure and Solutions](https://help.aliyun.com/document_detail/35885.html) for troubleshooting and resolution.
+   * > You must invoke this API using the POST method; otherwise, the invocation will fail. When using a software development kit (SDK), set the **method** parameter of the request object to **POST**.
    * 
    * @param request - RegistrantProfileRealNameVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3667,7 +3901,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存联系人模板实名资料
+   * Invoke the RegistrantProfileRealNameVerification API to submit real-name verification for an information template.
+   * 
+   * @remarks
+   * - Identity verification document review takes 3 to 5 business days. After the authority completes the review, you can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the identity verification result.  
+   * - If identity verification fails, refer to [Reasons for Identity Verification Failure and Solutions](https://help.aliyun.com/document_detail/35885.html) for troubleshooting and resolution.
+   * > You must invoke this API using the POST method; otherwise, the invocation will fail. When using a software development kit (SDK), set the **method** parameter of the request object to **POST**.
    * 
    * @param request - RegistrantProfileRealNameVerificationRequest
    * @returns RegistrantProfileRealNameVerificationResponse
@@ -3678,7 +3917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新发送验证邮件
+   * Invoke the ResendEmailVerification API to resend the verification email.
    * 
    * @param request - ResendEmailVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3717,7 +3956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新发送验证邮件
+   * Invoke the ResendEmailVerification API to resend the verification email.
    * 
    * @param request - ResendEmailVerificationRequest
    * @returns ResendEmailVerificationResponse
@@ -3728,7 +3967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置资质审核状态
+   * Reset the qualification verification status for .restaurant and .trademark domain names.
    * 
    * @param request - ResetQualificationVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3767,7 +4006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置资质审核状态
+   * Reset the qualification verification status for .restaurant and .trademark domain names.
    * 
    * @param request - ResetQualificationVerificationRequest
    * @returns ResetQualificationVerificationResponse
@@ -3778,7 +4017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量保存域名备注信息
+   * Invoke SaveBatchDomainRemark to batch save domain name remarks.
    * 
    * @param request - SaveBatchDomainRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3821,7 +4060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量保存域名备注信息
+   * Invoke SaveBatchDomainRemark to batch save domain name remarks.
    * 
    * @param request - SaveBatchDomainRemarkRequest
    * @returns SaveBatchDomainRemarkResponse
@@ -3832,7 +4071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量申请域名快速转出
+   * Submits a batch task to quickly transfer out domain names.
+   * 
+   * @remarks
+   * This is an asynchronous operation. To query the result of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
    * 
    * @param request - SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3871,7 +4113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量申请域名快速转出
+   * Submits a batch task to quickly transfer out domain names.
+   * 
+   * @remarks
+   * This is an asynchronous operation. To query the result of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
    * 
    * @param request - SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
    * @returns SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
@@ -3882,7 +4127,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a task to register multiple domain names at a time.
+   * Submits a batch domain name registration task.
+   * 
+   * @remarks
+   * Starting from March 1, 2022, domain names can only be registered by using real-name verified domain name registrant profiles. Passing registrant information directly to register domain names is no longer supported.
+   * To register a domain name, you must specify associated domain name to be registered, associated domain name registrant information, and the DNS servers. You must associate associated domain name registrant information by using the ID of a real-name verified domain name registrant profile. For DNS servers, you can use the default Alibaba Cloud DNS or specify custom DNS servers.
+   * > - The total number of domain names registered per week cannot exceed 100,000.
+   * > - Registration payments can only be made by using the account cash balance. Credit limits are not supported.
+   * - The request parameter format for the **SaveBatchTaskForCreatingOrderActivate** operation is OrderActivateParam.N.*, where N represents the sequence number of associated domain name.
+   * To query the task execution result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
    * 
    * @param request - SaveBatchTaskForCreatingOrderActivateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3937,7 +4190,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a task to register multiple domain names at a time.
+   * Submits a batch domain name registration task.
+   * 
+   * @remarks
+   * Starting from March 1, 2022, domain names can only be registered by using real-name verified domain name registrant profiles. Passing registrant information directly to register domain names is no longer supported.
+   * To register a domain name, you must specify associated domain name to be registered, associated domain name registrant information, and the DNS servers. You must associate associated domain name registrant information by using the ID of a real-name verified domain name registrant profile. For DNS servers, you can use the default Alibaba Cloud DNS or specify custom DNS servers.
+   * > - The total number of domain names registered per week cannot exceed 100,000.
+   * > - Registration payments can only be made by using the account cash balance. Credit limits are not supported.
+   * - The request parameter format for the **SaveBatchTaskForCreatingOrderActivate** operation is OrderActivateParam.N.*, where N represents the sequence number of associated domain name.
+   * To query the task execution result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
    * 
    * @param request - SaveBatchTaskForCreatingOrderActivateRequest
    * @returns SaveBatchTaskForCreatingOrderActivateResponse
@@ -3948,6 +4209,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveBatchTaskForCreatingOrderRedeem API to submit a batch domain redeem job.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
+   * 
    * @param request - SaveBatchTaskForCreatingOrderRedeemRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForCreatingOrderRedeemResponse
@@ -4001,6 +4267,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveBatchTaskForCreatingOrderRedeem API to submit a batch domain redeem job.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
+   * 
    * @param request - SaveBatchTaskForCreatingOrderRedeemRequest
    * @returns SaveBatchTaskForCreatingOrderRedeemResponse
    */
@@ -4010,7 +4281,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存批量任务-续费订单
+   * Submits a batch domain name renewal task.
+   * 
+   * @remarks
+   * To query the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
    * 
    * @param request - SaveBatchTaskForCreatingOrderRenewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4065,7 +4339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存批量任务-续费订单
+   * Submits a batch domain name renewal task.
+   * 
+   * @remarks
+   * To query the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
    * 
    * @param request - SaveBatchTaskForCreatingOrderRenewRequest
    * @returns SaveBatchTaskForCreatingOrderRenewResponse
@@ -4076,6 +4353,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveBatchTaskForCreatingOrderTransfer API to submit a batch domain name transfer-in job.
+   * 
+   * @remarks
+   * You can query the job execution result by invoking the QueryTaskDetailList API. For more information, see [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.5096389cgV6sng).
+   * 
    * @param request - SaveBatchTaskForCreatingOrderTransferRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForCreatingOrderTransferResponse
@@ -4129,6 +4411,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveBatchTaskForCreatingOrderTransfer API to submit a batch domain name transfer-in job.
+   * 
+   * @remarks
+   * You can query the job execution result by invoking the QueryTaskDetailList API. For more information, see [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.5096389cgV6sng).
+   * 
    * @param request - SaveBatchTaskForCreatingOrderTransferRequest
    * @returns SaveBatchTaskForCreatingOrderTransferResponse
    */
@@ -4138,7 +4425,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存批量任务-开启/关闭whois隐私保护锁
+   * Invoke the SaveBatchTaskForDomainNameProxyService API to submit a batch domain name proxy service job.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveBatchTaskForDomainNameProxyServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4185,7 +4475,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存批量任务-开启/关闭whois隐私保护锁
+   * Invoke the SaveBatchTaskForDomainNameProxyService API to submit a batch domain name proxy service job.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveBatchTaskForDomainNameProxyServiceRequest
    * @returns SaveBatchTaskForDomainNameProxyServiceResponse
@@ -4252,7 +4545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量修改dns
+   * Submits a batch task to modify the DNS servers for the specified domain names.
+   * 
+   * @remarks
+   * To query the task result, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveBatchTaskForModifyingDomainDnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4299,7 +4595,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量修改dns
+   * Submits a batch task to modify the DNS servers for the specified domain names.
+   * 
+   * @remarks
+   * To query the task result, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveBatchTaskForModifyingDomainDnsRequest
    * @returns SaveBatchTaskForModifyingDomainDnsResponse
@@ -4310,7 +4609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a task to reserve multiple domain names that are provided by HiChina.
+   * Call the SaveBatchTaskForReserveDropListDomain API to submit a batch task for domain reservation.
+   * 
+   * @remarks
+   * To query task execution results, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveBatchTaskForReserveDropListDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4345,7 +4647,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a task to reserve multiple domain names that are provided by HiChina.
+   * Call the SaveBatchTaskForReserveDropListDomain API to submit a batch task for domain reservation.
+   * 
+   * @remarks
+   * To query task execution results, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveBatchTaskForReserveDropListDomainRequest
    * @returns SaveBatchTaskForReserveDropListDomainResponse
@@ -4356,7 +4661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits multiple transfer-out tasks based on the transfer keys of domain names.
+   * Submits a batch transfer-out task for multiple domain names using their authorization codes.
+   * 
+   * @remarks
+   * This is an asynchronous operation. After submitting the task, call `QueryTaskDetailList` to check its status.
    * 
    * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4387,7 +4695,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits multiple transfer-out tasks based on the transfer keys of domain names.
+   * Submits a batch transfer-out task for multiple domain names using their authorization codes.
+   * 
+   * @remarks
+   * This is an asynchronous operation. After submitting the task, call `QueryTaskDetailList` to check its status.
    * 
    * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
    * @returns SaveBatchTaskForTransferOutByAuthorizationCodeResponse
@@ -4398,7 +4709,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存批量任务-开启/关闭禁止转移锁
+   * Call SaveBatchTaskForTransferProhibitionLock to enable or disable the transfer prohibition lock for multiple domain names.
+   * 
+   * @remarks
+   * To check the result of the task, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveBatchTaskForTransferProhibitionLockRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4441,7 +4755,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存批量任务-开启/关闭禁止转移锁
+   * Call SaveBatchTaskForTransferProhibitionLock to enable or disable the transfer prohibition lock for multiple domain names.
+   * 
+   * @remarks
+   * To check the result of the task, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveBatchTaskForTransferProhibitionLockRequest
    * @returns SaveBatchTaskForTransferProhibitionLockResponse
@@ -4452,6 +4769,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a batch task to enable or disable the update prohibition lock for one or more domain names.
+   * 
+   * @remarks
+   * To check the status of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
+   * 
    * @param request - SaveBatchTaskForUpdateProhibitionLockRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForUpdateProhibitionLockResponse
@@ -4493,6 +4815,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a batch task to enable or disable the update prohibition lock for one or more domain names.
+   * 
+   * @remarks
+   * To check the status of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
+   * 
    * @param request - SaveBatchTaskForUpdateProhibitionLockRequest
    * @returns SaveBatchTaskForUpdateProhibitionLockResponse
    */
@@ -4502,7 +4829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用联系人信息修改联系人的批量任务
+   * Submit a domain information modification job with new contact information.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveBatchTaskForUpdatingContactInfoByNewContactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4617,7 +4947,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用联系人信息修改联系人的批量任务
+   * Submit a domain information modification job with new contact information.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveBatchTaskForUpdatingContactInfoByNewContactRequest
    * @returns SaveBatchTaskForUpdatingContactInfoByNewContactResponse
@@ -4628,7 +4961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用模板修改联系人的批量任务
+   * Call SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId to update the contact information of one or more domain names by using a registrant profile.
+   * 
+   * @remarks
+   * To check the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
    * 
    * @param request - SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4679,7 +5015,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用模板修改联系人的批量任务
+   * Call SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId to update the contact information of one or more domain names by using a registrant profile.
+   * 
+   * @remarks
+   * To check the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
    * 
    * @param request - SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
    * @returns SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
@@ -4690,7 +5029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建/更新域名分组
+   * Invoke the SaveDomainGroup API to create or update a domain name group.
    * 
    * @param request - SaveDomainGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4733,7 +5072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建/更新域名分组
+   * Invoke the SaveDomainGroup API to create or update a domain name group.
    * 
    * @param request - SaveDomainGroupRequest
    * @returns SaveDomainGroupResponse
@@ -4744,7 +5083,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存联系人模板
+   * Invoke the SaveRegistrantProfile API to create or update a domain name registrant profile.
+   * 
+   * @remarks
+   * The domain name registrant profile contains registrant information. When you create or update a registrant profile, we recommend that you fill in all registrant information according to your actual situation and ensure consistency between the Chinese and English versions. To avoid faults during domain name registry review, we recommend entering all English registrant information in lowercase letters. For specific requirements, see the parameter descriptions below.
    * 
    * @param request - SaveRegistrantProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4859,7 +5201,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存联系人模板
+   * Invoke the SaveRegistrantProfile API to create or update a domain name registrant profile.
+   * 
+   * @remarks
+   * The domain name registrant profile contains registrant information. When you create or update a registrant profile, we recommend that you fill in all registrant information according to your actual situation and ensure consistency between the Chinese and English versions. To avoid faults during domain name registry review, we recommend entering all English registrant information in lowercase letters. For specific requirements, see the parameter descriptions below.
    * 
    * @param request - SaveRegistrantProfileRequest
    * @returns SaveRegistrantProfileResponse
@@ -4870,7 +5215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存联系人模板和凭据
+   * Invoke the SaveRegistrantProfileRealNameVerification API to save domain contact and certificate information.
    * 
    * @param request - SaveRegistrantProfileRealNameVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4993,7 +5338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存联系人模板和凭据
+   * Invoke the SaveRegistrantProfileRealNameVerification API to save domain contact and certificate information.
    * 
    * @param request - SaveRegistrantProfileRealNameVerificationRequest
    * @returns SaveRegistrantProfileRealNameVerificationResponse
@@ -5004,7 +5349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加dnsSec记录
+   * Invoke the SaveSingleTaskForAddingDSRecord API to submit a job for creating a DS record.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForAddingDSRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5059,7 +5407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加dnsSec记录
+   * Invoke the SaveSingleTaskForAddingDSRecord API to submit a job for creating a DS record.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForAddingDSRecordRequest
    * @returns SaveSingleTaskForAddingDSRecordResponse
@@ -5070,7 +5421,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请域名快速转出
+   * Submits a task for a quick transfer-out of a domain name.
+   * 
+   * @remarks
+   * This is an asynchronous operation. To check the task\\"s status, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5109,7 +5463,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请域名快速转出
+   * Submits a task for a quick transfer-out of a domain name.
+   * 
+   * @remarks
+   * This is an asynchronous operation. To check the task\\"s status, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
    * @returns SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
@@ -5170,6 +5527,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submit a job to attach an ENS address.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+   * 
    * @param request - SaveSingleTaskForAssociatingEnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForAssociatingEnsResponse
@@ -5211,6 +5573,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submit a job to attach an ENS address.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+   * 
    * @param request - SaveSingleTaskForAssociatingEnsRequest
    * @returns SaveSingleTaskForAssociatingEnsResponse
    */
@@ -5220,6 +5587,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveSingleTaskForCancelingTransferIn API to submit a job to cancel a domain name transfer-in.
+   * 
+   * @remarks
+   * You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
+   * 
    * @param request - SaveSingleTaskForCancelingTransferInRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCancelingTransferInResponse
@@ -5257,6 +5629,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveSingleTaskForCancelingTransferIn API to submit a job to cancel a domain name transfer-in.
+   * 
+   * @remarks
+   * You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
+   * 
    * @param request - SaveSingleTaskForCancelingTransferInRequest
    * @returns SaveSingleTaskForCancelingTransferInResponse
    */
@@ -5266,7 +5643,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消转出
+   * Invoke the SaveSingleTaskForCancelingTransferOut API to submit a job to cancel a domain name transfer-out.
+   * 
+   * @remarks
+   * You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
    * 
    * @param request - SaveSingleTaskForCancelingTransferOutRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5305,7 +5685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消转出
+   * Invoke the SaveSingleTaskForCancelingTransferOut API to submit a job to cancel a domain name transfer-out.
+   * 
+   * @remarks
+   * You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
    * 
    * @param request - SaveSingleTaskForCancelingTransferOutRequest
    * @returns SaveSingleTaskForCancelingTransferOutResponse
@@ -5316,7 +5699,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存创建dns服务器的任务请求
+   * Invoke SaveSingleTaskForCreatingDnsHost to submit a single job for creating a DNS host.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForCreatingDnsHostRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5363,7 +5749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存创建dns服务器的任务请求
+   * Invoke SaveSingleTaskForCreatingDnsHost to submit a single job for creating a DNS host.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForCreatingDnsHostRequest
    * @returns SaveSingleTaskForCreatingDnsHostResponse
@@ -5374,7 +5763,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-注册订单
+   * Submits a domain name registration task.
+   * 
+   * @remarks
+   * Starting from March 1, 2022, you can associated domain names only by using real-name verified domain name registrant profiles. Passing registrant information directly to associated domain names is no longer supported.
+   * To register a domain name, you must specify the domain name, registrant information, and DNS servers. You must associate the registrant information with a real-name verified domain name registrant profile by specifying the profile ID. You can use the default Alibaba Cloud DNS servers or specify custom DNS servers.
+   * You can call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation to query the task execution result.
    * 
    * @param request - SaveSingleTaskForCreatingOrderActivateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5421,6 +5815,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableDomainProxy)) {
       query["EnableDomainProxy"] = request.enableDomainProxy;
+    }
+
+    if (!$dara.isNull(request.expectedPunycode)) {
+      query["ExpectedPunycode"] = request.expectedPunycode;
     }
 
     if (!$dara.isNull(request.lang)) {
@@ -5533,7 +5931,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-注册订单
+   * Submits a domain name registration task.
+   * 
+   * @remarks
+   * Starting from March 1, 2022, you can associated domain names only by using real-name verified domain name registrant profiles. Passing registrant information directly to associated domain names is no longer supported.
+   * To register a domain name, you must specify the domain name, registrant information, and DNS servers. You must associate the registrant information with a real-name verified domain name registrant profile by specifying the profile ID. You can use the default Alibaba Cloud DNS servers or specify custom DNS servers.
+   * You can call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation to query the task execution result.
    * 
    * @param request - SaveSingleTaskForCreatingOrderActivateRequest
    * @returns SaveSingleTaskForCreatingOrderActivateResponse
@@ -5544,6 +5947,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke SaveSingleTaskForCreatingOrderRedeem to submit a domain redeem job.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+   * 
    * @param request - SaveSingleTaskForCreatingOrderRedeemRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCreatingOrderRedeemResponse
@@ -5601,6 +6009,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke SaveSingleTaskForCreatingOrderRedeem to submit a domain redeem job.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+   * 
    * @param request - SaveSingleTaskForCreatingOrderRedeemRequest
    * @returns SaveSingleTaskForCreatingOrderRedeemResponse
    */
@@ -5610,7 +6023,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-续费订单
+   * Use SaveSingleTaskForCreatingOrderRenew to submit a domain name renewal task.
+   * 
+   * @remarks
+   * To check the execution results of the task, call [QueryTaskDetailList](~~QueryTaskDetailList~~).
    * 
    * @param request - SaveSingleTaskForCreatingOrderRenewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5677,7 +6093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-续费订单
+   * Use SaveSingleTaskForCreatingOrderRenew to submit a domain name renewal task.
+   * 
+   * @remarks
+   * To check the execution results of the task, call [QueryTaskDetailList](~~QueryTaskDetailList~~).
    * 
    * @param request - SaveSingleTaskForCreatingOrderRenewRequest
    * @returns SaveSingleTaskForCreatingOrderRenewResponse
@@ -5688,6 +6107,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveSingleTaskForCreatingOrderTransfer API to submit a domain name transfer-in job.
+   * 
+   * @remarks
+   * You can query the task execution result by calling the QueryTaskDetailList API (~~67710~~).
+   * 
    * @param request - SaveSingleTaskForCreatingOrderTransferRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCreatingOrderTransferResponse
@@ -5753,6 +6177,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveSingleTaskForCreatingOrderTransfer API to submit a domain name transfer-in job.
+   * 
+   * @remarks
+   * You can query the task execution result by calling the QueryTaskDetailList API (~~67710~~).
+   * 
    * @param request - SaveSingleTaskForCreatingOrderTransferRequest
    * @returns SaveSingleTaskForCreatingOrderTransferResponse
    */
@@ -5762,7 +6191,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除dnsSec记录
+   * Invoke the SaveSingleTaskForDeletingDSRecord API to submit a job for deleting a DS record.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForDeletingDSRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5805,7 +6237,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除dnsSec记录
+   * Invoke the SaveSingleTaskForDeletingDSRecord API to submit a job for deleting a DS record.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForDeletingDSRecordRequest
    * @returns SaveSingleTaskForDeletingDSRecordResponse
@@ -5816,7 +6251,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DNS HOST任务
+   * Invoke the SaveSingleTaskForDeletingDnsHost API to submit a job for deleting a DNS host.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForDeletingDnsHostRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5859,7 +6297,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DNS HOST任务
+   * Invoke the SaveSingleTaskForDeletingDnsHost API to submit a job for deleting a DNS host.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForDeletingDnsHostRequest
    * @returns SaveSingleTaskForDeletingDnsHostResponse
@@ -5870,6 +6311,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveSingleTaskForDisassociatingEns API to submit a job for detaching an ENS address.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+   * 
    * @param request - SaveSingleTaskForDisassociatingEnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForDisassociatingEnsResponse
@@ -5907,6 +6353,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the SaveSingleTaskForDisassociatingEns API to submit a job for detaching an ENS address.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+   * 
    * @param request - SaveSingleTaskForDisassociatingEnsRequest
    * @returns SaveSingleTaskForDisassociatingEnsResponse
    */
@@ -5916,7 +6367,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-开启/关闭whois隐私保护锁
+   * Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
+   * 
+   * @remarks
+   * Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
    * 
    * @param request - SaveSingleTaskForDomainNameProxyServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5959,7 +6413,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-开启/关闭whois隐私保护锁
+   * Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
+   * 
+   * @remarks
+   * Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
    * 
    * @param request - SaveSingleTaskForDomainNameProxyServiceRequest
    * @returns SaveSingleTaskForDomainNameProxyServiceResponse
@@ -6020,7 +6477,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改DnsSec记录
+   * Invoke SaveSingleTaskForModifyingDSRecord to submit a job for modifying a DS record.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForModifyingDSRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6075,7 +6535,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改DnsSec记录
+   * Invoke SaveSingleTaskForModifyingDSRecord to submit a job for modifying a DS record.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForModifyingDSRecordRequest
    * @returns SaveSingleTaskForModifyingDSRecordResponse
@@ -6086,7 +6549,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存修改dns服务器的任务请求
+   * Invoke the SaveSingleTaskForModifyingDnsHost API to submit a job for modifying a DNS host.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForModifyingDnsHostRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6133,7 +6599,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存修改dns服务器的任务请求
+   * Invoke the SaveSingleTaskForModifyingDnsHost API to submit a job for modifying a DNS host.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForModifyingDnsHostRequest
    * @returns SaveSingleTaskForModifyingDnsHostResponse
@@ -6144,7 +6613,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发送转移码
+   * Invoke the SaveSingleTaskForQueryingTransferAuthorizationCode API to submit a job for retrieving the domain name transfer password.
+   * 
+   * @remarks
+   * You can query the job execution result by calling the QueryTaskDetailList API (~~67710~~). The transfer password is returned in the TaskResult field of the corresponding job.
    * 
    * @param request - SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6183,7 +6655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发送转移码
+   * Invoke the SaveSingleTaskForQueryingTransferAuthorizationCode API to submit a job for retrieving the domain name transfer password.
+   * 
+   * @remarks
+   * You can query the job execution result by calling the QueryTaskDetailList API (~~67710~~). The transfer password is returned in the TaskResult field of the corresponding job.
    * 
    * @param request - SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
    * @returns SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
@@ -6248,7 +6723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存art扩展信息任务
+   * Invoke the SaveSingleTaskForSaveArtExtension API to submit a job for creating Art extension information.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForSaveArtExtensionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6323,7 +6801,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存art扩展信息任务
+   * Invoke the SaveSingleTaskForSaveArtExtension API to submit a job for creating Art extension information.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForSaveArtExtensionRequest
    * @returns SaveSingleTaskForSaveArtExtensionResponse
@@ -6334,7 +6815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步DnsSec记录
+   * Invoke the SaveSingleTaskForSynchronizingDSRecord API to submit a job for synchronizing a DS record.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForSynchronizingDSRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6373,7 +6857,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步DnsSec记录
+   * Invoke the SaveSingleTaskForSynchronizingDSRecord API to submit a job for synchronizing a DS record.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForSynchronizingDSRecordRequest
    * @returns SaveSingleTaskForSynchronizingDSRecordResponse
@@ -6384,7 +6871,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存同步dns服务器的任务请求
+   * Invoke the SaveSingleTaskForSynchronizingDnsHost API to submit a DNS host synchronization job. This is used to handle cases such as missing or inconsistent DNS hosts.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForSynchronizingDnsHostRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6423,7 +6913,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存同步dns服务器的任务请求
+   * Invoke the SaveSingleTaskForSynchronizingDnsHost API to submit a DNS host synchronization job. This is used to handle cases such as missing or inconsistent DNS hosts.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForSynchronizingDnsHostRequest
    * @returns SaveSingleTaskForSynchronizingDnsHostResponse
@@ -6486,7 +6979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-开启/关闭禁止转移锁
+   * Invoke the SaveSingleTaskForTransferProhibitionLock API to submit a transfer prohibition lock job.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [List Task Details](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForTransferProhibitionLockRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6529,7 +7025,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-开启/关闭禁止转移锁
+   * Invoke the SaveSingleTaskForTransferProhibitionLock API to submit a transfer prohibition lock job.
+   * 
+   * @remarks
+   * You can query the task execution result by using the [List Task Details](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForTransferProhibitionLockRequest
    * @returns SaveSingleTaskForTransferProhibitionLockResponse
@@ -6540,7 +7039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-开启/关闭信息安全锁
+   * Invoke the SaveSingleTaskForUpdateProhibitionLock API to submit a task for the Update Prohibition Lock.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForUpdateProhibitionLockRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6583,7 +7085,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存单个任务-开启/关闭信息安全锁
+   * Invoke the SaveSingleTaskForUpdateProhibitionLock API to submit a task for the Update Prohibition Lock.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
    * 
    * @param request - SaveSingleTaskForUpdateProhibitionLockRequest
    * @returns SaveSingleTaskForUpdateProhibitionLockResponse
@@ -6594,7 +7099,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存修改联系人的任务
+   * Invoke the SaveSingleTaskForUpdatingContactInfo API to submit a domain contact information update job.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForUpdatingContactInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6649,7 +7157,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存修改联系人的任务
+   * Invoke the SaveSingleTaskForUpdatingContactInfo API to submit a domain contact information update job.
+   * 
+   * @remarks
+   * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveSingleTaskForUpdatingContactInfoRequest
    * @returns SaveSingleTaskForUpdatingContactInfoResponse
@@ -6660,7 +7171,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存删除域名的任务
+   * Submit a domain deletion job. Only whitelist users can access this API.
+   * 
+   * @remarks
+   * Invoke SaveTaskForSubmittingDomainDelete to submit a domain deletion job.
    * 
    * @param request - SaveTaskForSubmittingDomainDeleteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6699,7 +7213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存删除域名的任务
+   * Submit a domain deletion job. Only whitelist users can access this API.
+   * 
+   * @remarks
+   * Invoke SaveTaskForSubmittingDomainDelete to submit a domain deletion job.
    * 
    * @param request - SaveTaskForSubmittingDomainDeleteRequest
    * @returns SaveTaskForSubmittingDomainDeleteResponse
@@ -6710,7 +7227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量提交域名资料
+   * Submits real-name verification information for one or more domain names in bulk.
    * 
    * @param request - SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6763,7 +7280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量提交域名资料
+   * Submits real-name verification information for one or more domain names in bulk.
    * 
    * @param request - SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
    * @returns SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
@@ -6774,7 +7291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据模板保存域名的实名认证信息
+   * Creates a task to submit real-name verification information for a domain name by using a specified registrant profile.
    * 
    * @param request - SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6821,7 +7338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据模板保存域名的实名认证信息
+   * Creates a task to submit real-name verification information for a domain name by using a specified registrant profile.
    * 
    * @param request - SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
    * @returns SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
@@ -6832,7 +7349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据联系人信息批量修改注册联系人信息
+   * Invoke the SaveTaskForUpdatingRegistrantInfoByIdentityCredential API to submit a batch job for updating registrant contact information by providing contact details and required documentation. You must provide the corresponding documentation as required.
+   * 
+   * @remarks
+   * Query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6957,7 +7477,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据联系人信息批量修改注册联系人信息
+   * Invoke the SaveTaskForUpdatingRegistrantInfoByIdentityCredential API to submit a batch job for updating registrant contact information by providing contact details and required documentation. You must provide the corresponding documentation as required.
+   * 
+   * @remarks
+   * Query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
    * 
    * @param request - SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
    * @returns SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
@@ -6968,7 +7491,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据模板批量修改注册联系人
+   * Submits a task to update registrant information using a registrant profile ID.
+   * 
+   * @remarks
+   * Call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.33f47edeV0nkFx) API to check the task result. After a successful update, the registrant information for the domain name is updated to match the registrant profile. If the domain name requires real-name verification, it becomes verified.
    * 
    * @param request - SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7015,7 +7541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据模板批量修改注册联系人
+   * Submits a task to update registrant information using a registrant profile ID.
+   * 
+   * @remarks
+   * Call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.33f47edeV0nkFx) API to check the task result. After a successful update, the registrant information for the domain name is updated to match the registrant profile. If the domain name requires real-name verification, it becomes verified.
    * 
    * @param request - SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
    * @returns SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
@@ -7162,7 +7691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置默认模板
+   * Invoke the SetDefaultRegistrantProfile API to set the default contact template for a domain name.
    * 
    * @param request - SetDefaultRegistrantProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7197,7 +7726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置默认模板
+   * Invoke the SetDefaultRegistrantProfile API to set the default contact template for a domain name.
    * 
    * @param request - SetDefaultRegistrantProfileRequest
    * @returns SetDefaultRegistrantProfileResponse
@@ -7208,7 +7737,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 域名设置自动续费
+   * Sets or cancels auto-renewal for a domain name.
+   * 
+   * @remarks
+   * This operation currently supports only domain names registered on the China site (aliyun.com).
+   * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) of domain name services.**
    * 
    * @param request - SetupDomainAutoRenewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7243,7 +7776,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 域名设置自动续费
+   * Sets or cancels auto-renewal for a domain name.
+   * 
+   * @remarks
+   * This operation currently supports only domain names registered on the China site (aliyun.com).
+   * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) of domain name services.**
    * 
    * @param request - SetupDomainAutoRenewRequest
    * @returns SetupDomainAutoRenewResponse
@@ -7254,7 +7791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 域名特殊业务提交资料
+   * Submit documentation for special domain name services
    * 
    * @param request - SubmitDomainSpecialBizCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7299,7 +7836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 域名特殊业务提交资料
+   * Submit documentation for special domain name services
    * 
    * @param request - SubmitDomainSpecialBizCredentialsRequest
    * @returns SubmitDomainSpecialBizCredentialsResponse
@@ -7310,7 +7847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交邮箱验证
+   * Invoke the SubmitEmailVerification API to send an email verification message.
+   * 
+   * @remarks
+   * After receiving the verification email, you must log on to your mailbox and complete verification within 3 days. If the verification email has expired, you can invoke the [ResendEmailVerification](https://help.aliyun.com/document_detail/67734.html) API to resend the verification email.
    * 
    * @param request - SubmitEmailVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7353,7 +7893,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交邮箱验证
+   * Invoke the SubmitEmailVerification API to send an email verification message.
+   * 
+   * @remarks
+   * After receiving the verification email, you must log on to your mailbox and complete verification within 3 days. If the verification email has expired, you can invoke the [ResendEmailVerification](https://help.aliyun.com/document_detail/67734.html) API to resend the verification email.
    * 
    * @param request - SubmitEmailVerificationRequest
    * @returns SubmitEmailVerificationResponse
@@ -7364,7 +7907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交申请信息
+   * Invoke the SubmitOperationAuditInfo API to submit self-service business review information.
    * 
    * @param request - SubmitOperationAuditInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7411,7 +7954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交申请信息
+   * Invoke the SubmitOperationAuditInfo API to submit self-service business review information.
    * 
    * @param request - SubmitOperationAuditInfoRequest
    * @returns SubmitOperationAuditInfoResponse
@@ -7422,7 +7965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交证件资料
+   * Invoke the SubmitOperationCredentials API to submit certificate materials for self-service operations pending review.
    * 
    * @param request - SubmitOperationCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7469,7 +8012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交证件资料
+   * Invoke the SubmitOperationCredentials API to submit certificate materials for self-service operations pending review.
    * 
    * @param request - SubmitOperationCredentialsRequest
    * @returns SubmitOperationCredentialsResponse
@@ -7480,6 +8023,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the TransferInCheckMailToken operation to verify the email token of a domain name registrant.
+   * 
    * @param request - TransferInCheckMailTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferInCheckMailTokenResponse
@@ -7517,6 +8062,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the TransferInCheckMailToken operation to verify the email token of a domain name registrant.
+   * 
    * @param request - TransferInCheckMailTokenRequest
    * @returns TransferInCheckMailTokenResponse
    */
@@ -7526,6 +8073,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the TransferInReenterTransferAuthorizationCode API to re-enter the transfer password for domain name transfer-in.
+   * 
    * @param request - TransferInReenterTransferAuthorizationCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferInReenterTransferAuthorizationCodeResponse
@@ -7567,6 +8116,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the TransferInReenterTransferAuthorizationCode API to re-enter the transfer password for domain name transfer-in.
+   * 
    * @param request - TransferInReenterTransferAuthorizationCodeRequest
    * @returns TransferInReenterTransferAuthorizationCodeResponse
    */
@@ -7576,6 +8127,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke TransferInRefetchWhoisEmail to perform email verification for domain transfer-in.
+   * 
+   * @remarks
+   * The system automatically retrieves the registrant\\"s email address from WHOIS. If the email address is incorrect or cannot be retrieved, the system will re-scrape the WHOIS email address.
+   * 
    * @param request - TransferInRefetchWhoisEmailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferInRefetchWhoisEmailResponse
@@ -7613,6 +8169,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke TransferInRefetchWhoisEmail to perform email verification for domain transfer-in.
+   * 
+   * @remarks
+   * The system automatically retrieves the registrant\\"s email address from WHOIS. If the email address is incorrect or cannot be retrieved, the system will re-scrape the WHOIS email address.
+   * 
    * @param request - TransferInRefetchWhoisEmailRequest
    * @returns TransferInRefetchWhoisEmailResponse
    */
@@ -7622,6 +8183,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the TransferInResendMailToken API to resend the verification email for domain transfer-in.
+   * 
    * @param request - TransferInResendMailTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferInResendMailTokenResponse
@@ -7659,6 +8222,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke the TransferInResendMailToken API to resend the verification email for domain transfer-in.
+   * 
    * @param request - TransferInResendMailTokenRequest
    * @returns TransferInResendMailTokenResponse
    */
@@ -7668,7 +8233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 向分组设置域名
+   * If you use file upload to replace more than 1,000 domain names in a domain name group, the operation is asynchronous. The result is available only after the request is processed.
    * 
    * @param request - UpdateDomainToDomainGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7725,7 +8290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 向分组设置域名
+   * If you use file upload to replace more than 1,000 domain names in a domain name group, the operation is asynchronous. The result is available only after the request is processed.
    * 
    * @param request - UpdateDomainToDomainGroupRequest
    * @returns UpdateDomainToDomainGroupResponse
@@ -7736,7 +8301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验联系人信息
+   * Whether some parameters are required depends on the requirements of the domain name registry. This API validates the compliance and validity of the input parameters and does not perform validation against actual domain information.
    * 
    * @param request - VerifyContactFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7843,7 +8408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验联系人信息
+   * Whether some parameters are required depends on the requirements of the domain name registry. This API validates the compliance and validity of the input parameters and does not perform validation against actual domain information.
    * 
    * @param request - VerifyContactFieldRequest
    * @returns VerifyContactFieldResponse
@@ -7854,7 +8419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证邮箱Token
+   * Invoke the VerifyEmail API to submit email verification.
    * 
    * @param request - VerifyEmailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7893,7 +8458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证邮箱Token
+   * Invoke the VerifyEmail API to submit email verification.
    * 
    * @param request - VerifyEmailRequest
    * @returns VerifyEmailResponse

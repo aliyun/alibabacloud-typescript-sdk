@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryOperationAuditInfoDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * Review record ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,13 @@ export class QueryOperationAuditInfoDetailRequest extends $dara.Model {
    */
   auditRecordId?: number;
   /**
+   * @remarks
+   * Language for error messages in API responses. Valid values:  
+   * - **zh**: Chinese.  
+   * - **en**: English.  
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */

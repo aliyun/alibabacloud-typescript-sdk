@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CheckMaxYearOfServerLockRequest extends $dara.Model {
   /**
    * @remarks
+   * Type of purchase operation. Valid values:
+   * 
+   * - activate: new registration
+   * - renew: renewal
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +18,8 @@ export class CheckMaxYearOfServerLockRequest extends $dara.Model {
   checkAction?: string;
   /**
    * @remarks
+   * The domain name to be checked.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +27,22 @@ export class CheckMaxYearOfServerLockRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:
+   * 
+   * - zh: Chinese
+   * - en: English
+   * 
+   * Default value: en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveSingleTaskForSynchronizingDSRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * E2598CAF-DBFE-494E-95EF-B42A33C178AA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Job number.
+   * 
    * @example
    * e893148f-6343-4ae1-9eba-6e2a4116e142
    */

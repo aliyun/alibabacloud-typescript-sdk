@@ -4,12 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language in which error messages are returned by the API. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
+   * 
+   * Default value: **zh**.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The ID of the resource group to which you want to shift the domain name.
+   * 
+   * You can view the resource group ID in the [Resource Management Console](https://resourcemanager.console.aliyun.com/resource-groups).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +29,8 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   newResourceGroupId?: string;
   /**
    * @remarks
+   * The resource ID of the domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,11 +38,17 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type of the domain name. This parameter is fixed to “Domain” and does not need to be specified.
+   * 
    * @example
    * Domain
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The IP address of the user client.
+   * 
    * @example
    * 127.0.0.1
    */

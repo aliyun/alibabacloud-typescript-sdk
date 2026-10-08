@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetupDomainAutoRenewResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8fc97e44-837a-447d-ac61-ea28d2fe8a38
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * true
    */

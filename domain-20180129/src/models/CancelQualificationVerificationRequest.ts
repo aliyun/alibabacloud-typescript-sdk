@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelQualificationVerificationRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,22 @@ export class CancelQualificationVerificationRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Language of the error message returned by the API. Valid values:
+   * 
+   * - zh: Chinese
+   * - en: English
+   * 
+   * Default value: en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * Qualification verification API type. The value is fixed as **knet**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +37,9 @@ export class CancelQualificationVerificationRequest extends $dara.Model {
    */
   qualificationType?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

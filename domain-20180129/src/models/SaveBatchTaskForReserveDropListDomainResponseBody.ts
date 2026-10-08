@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveBatchTaskForReserveDropListDomainResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B7AB5469-5E38-4AA9-A920-C65B7A9C8E6E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
    */

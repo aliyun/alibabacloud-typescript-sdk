@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetupDomainAutoRenewRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SetupDomainAutoRenewRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The operation type.
+   * 
    * This parameter is required.
    * 
    * @example

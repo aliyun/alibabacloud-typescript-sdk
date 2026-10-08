@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckIntlFixPriceDomainStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * appp16.com
    */

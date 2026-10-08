@@ -4,12 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class VerifyEmailRequest extends $dara.Model {
   /**
+   * @remarks
+   * Language of the error message returned by the API. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * Token code included in the email verification link.
+   * 
+   * After the verification email is sent successfully, you can log on to the mailbox to be verified and view the token code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +28,9 @@ export class VerifyEmailRequest extends $dara.Model {
    */
   token?: string;
   /**
+   * @remarks
+   * User IP address. You can set it to 127.0.0.1.
+   * 
    * @example
    * 127.0.0.1
    */

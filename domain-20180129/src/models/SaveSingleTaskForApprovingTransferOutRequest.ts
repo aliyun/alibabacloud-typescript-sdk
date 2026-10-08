@@ -8,15 +8,7 @@ export class SaveSingleTaskForApprovingTransferOutRequest extends $dara.Model {
    * This parameter is required.
    */
   domainName?: string;
-  /**
-   * @example
-   * en
-   */
   lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {

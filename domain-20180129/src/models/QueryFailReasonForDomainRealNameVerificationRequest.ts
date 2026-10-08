@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryFailReasonForDomainRealNameVerificationRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,24 @@ export class QueryFailReasonForDomainRealNameVerificationRequest extends $dara.M
    */
   domainName?: string;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:  
+   * - **zh**: Chinese.  
+   * - **en**: English.  
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * Review Type. Valid values:  
+   * - **ACTIVATE**: New registration.  
+   * - **CHGHOLDER**: Change of holder.  
+   * - **TRANSFER**: Transfer-in.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +39,9 @@ export class QueryFailReasonForDomainRealNameVerificationRequest extends $dara.M
    */
   realNameVerificationAction?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

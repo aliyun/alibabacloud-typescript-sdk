@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryDnsHostResponseBodyDnsHostList extends $dara.Model {
   /**
+   * @remarks
+   * The DNS name.
+   * 
    * @example
    * ns3
    */
   dnsName?: string;
+  /**
+   * @remarks
+   * A list of IP addresses.
+   */
   ipList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,8 +43,15 @@ export class QueryDnsHostResponseBodyDnsHostList extends $dara.Model {
 }
 
 export class QueryDnsHostResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of DNS hosts.
+   */
   dnsHostList?: QueryDnsHostResponseBodyDnsHostList[];
   /**
+   * @remarks
+   * A unique ID for the request.
+   * 
    * @example
    * 18A313DD-3AF3-40AA-84F9-56BA45DC511F
    */

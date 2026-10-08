@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveSingleTaskForModifyingDnsHostRequest extends $dara.Model {
   /**
    * @remarks
+   * DNS name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SaveSingleTaskForModifyingDnsHostRequest extends $dara.Model {
   dnsName?: string;
   /**
    * @remarks
+   * Domain instance ID, which can be obtained by invoking the QueryDomainList API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class SaveSingleTaskForModifyingDnsHostRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * List of IP addresses.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,11 +34,21 @@ export class SaveSingleTaskForModifyingDnsHostRequest extends $dara.Model {
    */
   ip?: string[];
   /**
+   * @remarks
+   * Language for error messages returned by the API. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

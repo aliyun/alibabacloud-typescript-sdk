@@ -4,12 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class AcknowledgeTaskResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Language of the error message returned by the API. Valid values:
+   * - **zh**: Chinese;
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * List of task detail numbers.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +26,9 @@ export class AcknowledgeTaskResultRequest extends $dara.Model {
    */
   taskDetailNo?: string[];
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

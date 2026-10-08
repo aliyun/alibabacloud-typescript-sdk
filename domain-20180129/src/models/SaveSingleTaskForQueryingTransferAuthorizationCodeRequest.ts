@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveSingleTaskForQueryingTransferAuthorizationCodeRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,21 @@ export class SaveSingleTaskForQueryingTransferAuthorizationCodeRequest extends $
    */
   domainName?: string;
   /**
+   * @remarks
+   * Language for error messages returned by the API. Valid values:  
+   * - **zh**: Chinese  
+   * - **en**: English  
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

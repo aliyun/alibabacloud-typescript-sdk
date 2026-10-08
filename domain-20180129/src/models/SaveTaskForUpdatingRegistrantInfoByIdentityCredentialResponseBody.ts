@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * EDC28FEC-6BE0-4583-95BC-test
    */
   requestId?: string;
   /**
+   * @remarks
+   * Job number.
+   * 
    * @example
    * 880f1579-be51-4dd3-a69d-test
    */

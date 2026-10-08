@@ -43,6 +43,9 @@ export class DomainSpecialBizCancelResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code.
+   * 
+   * @example
+   * 参数错误
    */
   errorCode?: string;
   /**

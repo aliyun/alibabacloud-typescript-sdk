@@ -135,7 +135,7 @@ export class QueryRegistrantProfilesResponseBodyRegistrantProfiles extends $dara
 export class QueryRegistrantProfilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number returned.
+   * The current page number.
    * 
    * @example
    * 1
@@ -143,10 +143,9 @@ export class QueryRegistrantProfilesResponseBody extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * Indicates whether the current page is followed by a page. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether there is a next page. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -154,7 +153,7 @@ export class QueryRegistrantProfilesResponseBody extends $dara.Model {
   nextPage?: boolean;
   /**
    * @remarks
-   * The number of entries returned on each page. Default value: **0**. Maximum value: **5000**.
+   * The number of records per page. Default value: **0**. Maximum value: **5000**.
    * 
    * @example
    * 2
@@ -162,10 +161,9 @@ export class QueryRegistrantProfilesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether the current page is preceded by a page. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether there is a previous page. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -182,9 +180,9 @@ export class QueryRegistrantProfilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
-   * >  This parameter indicates the total number of queried registrant profiles. If multiple registrant profiles are queried, the information about these profiles is returned in sequence by profile.
+   * > The total number of records refers to the number of registrant profiles returned by the query. When there are multiple registrant profiles, the next profile is displayed after the previous one.
    * 
    * @example
    * 9
@@ -192,7 +190,7 @@ export class QueryRegistrantProfilesResponseBody extends $dara.Model {
   totalItemNum?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 1

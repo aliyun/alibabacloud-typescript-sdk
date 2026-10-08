@@ -89,37 +89,58 @@ export class QueryTaskListResponseBodyData extends $dara.Model {
 
 export class QueryTaskListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPageNum?: number;
   data?: QueryTaskListResponseBodyData;
   /**
+   * @remarks
+   * Indicates whether a next page exists.
+   * 
    * @example
    * true
    */
   nextPage?: boolean;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 2
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Indicates whether there is a previous page.
+   * 
    * @example
    * false
    */
   prePage?: boolean;
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * 8D7D294A-8E99-481F-B64C-017EFC793059
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of entries.
+   * 
    * @example
    * 43
    */
   totalItemNum?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 22
    */

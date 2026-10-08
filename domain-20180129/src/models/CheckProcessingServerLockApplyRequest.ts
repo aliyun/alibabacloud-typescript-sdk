@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckProcessingServerLockApplyRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain name to be checked.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,30 @@ export class CheckProcessingServerLockApplyRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * Registration period in years. Unit: **year(s)**. Valid range: **1 to 10** years.
+   * 
    * @example
    * 1
    */
   feePeriod?: number;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:
+   * 
+   * - zh: Chinese
+   * - en: English
+   * 
+   * Default value: en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address. You can set it to **127.0.0.1**.
+   * 
    * @example
    * 127.0.0.1
    */

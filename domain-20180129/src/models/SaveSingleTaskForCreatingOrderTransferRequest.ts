@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveSingleTaskForCreatingOrderTransferRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name transfer-in password.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class SaveSingleTaskForCreatingOrderTransferRequest extends $dara.Model {
    */
   authorizationCode?: string;
   /**
+   * @remarks
+   * Coupon number.
+   * 
    * @example
    * 123456
    */
   couponNo?: string;
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,22 +32,37 @@ export class SaveSingleTaskForCreatingOrderTransferRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * Language for error messages returned by the API. Valid values:
+   * - **zh**: Chinese;
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * Is transfer-in of premium domain names allowed. Default value: **false**.
+   * 
    * @example
    * false
    */
   permitPremiumTransfer?: boolean;
   /**
+   * @remarks
+   * Coupon number.
+   * 
    * @example
    * 123456
    */
   promotionNo?: string;
   /**
    * @remarks
+   * ID of the domain name registrant profile that has passed identity verification.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,16 +70,25 @@ export class SaveSingleTaskForCreatingOrderTransferRequest extends $dara.Model {
    */
   registrantProfileId?: number;
   /**
+   * @remarks
+   * Is a coupon used.
+   * 
    * @example
    * false
    */
   useCoupon?: boolean;
   /**
+   * @remarks
+   * Is a coupon used.
+   * 
    * @example
    * false
    */
   usePromotion?: boolean;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

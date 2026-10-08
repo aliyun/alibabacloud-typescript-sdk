@@ -82,6 +82,9 @@ export class QueryDomainByDomainNameResponseBodyTag extends $dara.Model {
 
 export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status of the privacy protection service for .cn domain names.
+   * 
    * @example
    * UN_SUPPORT
    */
@@ -89,7 +92,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   dnsList?: QueryDomainByDomainNameResponseBodyDnsList;
   /**
    * @remarks
-   * The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to query the ID of the domain name group.
+   * The ID of the domain group. You can obtain the ID by calling the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation.
    * 
    * @example
    * 123456
@@ -97,7 +100,10 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   domainGroupId?: number;
   /**
    * @remarks
-   * The name of the domain name group.
+   * The name of the domain group.
+   * 
+   * @example
+   * 测试分组
    */
   domainGroupName?: string;
   /**
@@ -110,7 +116,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Indicates whether privacy protection is enabled for the domain name.
+   * Indicates whether privacy protection is enabled.
    * 
    * @example
    * false
@@ -118,12 +124,15 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   domainNameProxyService?: boolean;
   /**
    * @remarks
-   * The status of name auditing for the domain name. Valid values:
+   * The status of the domain name review. Valid values:
    * 
-   * *   **NONAUDIT**: The name auditing for the domain name is not performed.
-   * *   **SUCCEED**: The name auditing for the domain name is successful.
-   * *   **FAILED**: The name auditing for the domain name fails.
-   * *   **AUDITING**: The name auditing for the domain name is in progress.
+   * - **NONAUDIT**: Not reviewed.
+   * 
+   * - **SUCCEED**: Successful.
+   * 
+   * - **FAILED**: Failed.
+   * 
+   * - **AUDITING**: In review.
    * 
    * @example
    * SUCCEED
@@ -133,9 +142,11 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
    * @remarks
    * The status of the domain name. Valid values:
    * 
-   * *   1: The domain name needs to be renewed.
-   * *   2: The domain name needs to be redeemed.
-   * *   3: The domain name is normal.
+   * - **1**: Renewal required.
+   * 
+   * - **2**: Redemption required.
+   * 
+   * - **3**: Active.
    * 
    * @example
    * 3
@@ -145,9 +156,11 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
    * @remarks
    * The type of the domain name. Valid values:
    * 
-   * *   New gTLD
-   * *   gTLD
-   * *   ccTLD
+   * - New gTLD
+   * 
+   * - gTLD
+   * 
+   * - ccTLD
    * 
    * @example
    * gTLD
@@ -155,7 +168,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   domainType?: string;
   /**
    * @remarks
-   * The email address of the domain name registrant.
+   * The registrant\\"s email.
    * 
    * @example
    * username@example.com
@@ -163,7 +176,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Indicates whether the domain name is in the ClientHold state.
+   * Indicates whether the domain name has a `clientHold` status due to email verification failure.
    * 
    * @example
    * false
@@ -171,10 +184,11 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   emailVerificationClientHold?: boolean;
   /**
    * @remarks
-   * Indicates whether the email address passes verification. Valid values:
+   * The email verification status. Valid values:
    * 
-   * *   **0**: The email address fails the verification.
-   * *   **1**: The email address passes the verification.
+   * - **0**: Not verified.
+   * 
+   * - **1**: Verified.
    * 
    * @example
    * 1
@@ -182,7 +196,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   emailVerificationStatus?: number;
   /**
    * @remarks
-   * The number of days from the expiration date of the domain name to the current date.
+   * The number of days until the expiration date.
    * 
    * @example
    * 356
@@ -190,7 +204,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   expirationCurrDateDiff?: number;
   /**
    * @remarks
-   * The expiration date.
+   * The expiration date of the domain name.
    * 
    * @example
    * 2019-12-07 17:02:13
@@ -198,7 +212,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   expirationDate?: string;
   /**
    * @remarks
-   * The timestamp generated when the domain name expired.
+   * The timestamp of the expiration date.
    * 
    * @example
    * 1625111915000
@@ -206,10 +220,11 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   expirationDateLong?: number;
   /**
    * @remarks
-   * Indicates whether the domain name expires. Valid values:
+   * The expiration status of the domain name. Valid values:
    * 
-   * *   **1**: The domain name does not expire.
-   * *   **2**: The domain name expires.
+   * - **1**: The domain name has not expired.
+   * 
+   * - **2**: The domain name has expired.
    * 
    * @example
    * 1
@@ -225,25 +240,31 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the domain name is a premium domain name.
+   * Indicates whether the domain name is a premium domain.
    * 
    * @example
    * false
    */
   premium?: boolean;
   /**
+   * @remarks
+   * The status of the privacy protection service.
+   * 
    * @example
    * UN_SUPPORT
    */
   privacyServiceStatus?: string;
   /**
    * @remarks
-   * The status of real-name verification for the domain name. Valid values:
+   * The real-name verification status of the domain name. Valid values:
    * 
-   * *   **NONAUDIT**: The real-name verification is not performed.
-   * *   **SUCCEED**: The real-name verification is successful.
-   * *   **FAILED**: The real-name verification fails.
-   * *   **AUDITING**: The real-name verification is in progress.
+   * - **NONAUDIT**: Not verified.
+   * 
+   * - **SUCCEED**: Successful.
+   * 
+   * - **FAILED**: Failed.
+   * 
+   * - **AUDITING**: In review.
    * 
    * @example
    * NONAUDIT
@@ -251,7 +272,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   realNameStatus?: string;
   /**
    * @remarks
-   * The name of the contact.
+   * The name of the individual registrant or the contact person for an organization.
    * 
    * @example
    * Test litm
@@ -259,7 +280,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   registrantName?: string;
   /**
    * @remarks
-   * The registrant of the domain name.
+   * The name of the registrant organization.
    * 
    * @example
    * Test litm
@@ -267,10 +288,11 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   registrantOrganization?: string;
   /**
    * @remarks
-   * The type of contact who registers the domain name. Valid values:
+   * The type of the registrant. Valid values:
    * 
-   * *   **1**: individual.
-   * *   **2**: enterprise.
+   * - **1**: Individual.
+   * 
+   * - **2**: Enterprise.
    * 
    * @example
    * 1
@@ -278,19 +300,24 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   registrantType?: string;
   /**
    * @remarks
-   * The status of the information about the domain name registrant. Valid values:
+   * The status of registrant information updates. Valid values:
    * 
-   * *   **PENDING**: The information about the domain name registrant is being modified.
-   * *   **NORMAL**: normal.
+   * - **PENDING**: The registrant information is being updated.
+   * 
+   * - **NORMAL**: No update is in progress.
    * 
    * @example
    * NORMAL
    */
   registrantUpdatingStatus?: string;
+  /**
+   * @remarks
+   * The registrar of the domain name.
+   */
   registrar?: string;
   /**
    * @remarks
-   * The time when the domain name was registered.
+   * The registration date of the domain name.
    * 
    * @example
    * 2017-12-07 17:02:13
@@ -298,7 +325,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   registrationDate?: string;
   /**
    * @remarks
-   * The timestamp generated when the domain name was registered.
+   * The timestamp of the registration date.
    * 
    * @example
    * 1584675448000
@@ -306,12 +333,15 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   registrationDateLong?: number;
   /**
    * @remarks
-   * The remarks on the domain name.
+   * The user-provided remark for the domain name.
+   * 
+   * @example
+   * 测试备注
    */
   remark?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 44101664-3E70-4F0E-89E5-CCB74BF*****
@@ -325,13 +355,18 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
    * rg-acfmw6bpc6n7zai
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags attached to the domain name.
+   */
   tag?: QueryDomainByDomainNameResponseBodyTag;
   /**
    * @remarks
-   * The transfer status of the domain name. Valid values:
+   * The status of the domain transfer out. Valid values:
    * 
-   * *   **NORMAL**: The domain name is normal.
-   * *   **PENDING**: The domain name is being transferred out from Alibaba Cloud.
+   * - **NORMAL**: The domain name is not being transferred out.
+   * 
+   * - **PENDING**: The domain name is being transferred out from HiChina.
    * 
    * @example
    * NORMAL
@@ -339,11 +374,13 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   transferOutStatus?: string;
   /**
    * @remarks
-   * The status of the transfer lock for the domain name. Valid values:
+   * The status of the domain transfer lock. Valid values:
    * 
-   * *   **NONE_SETTING**: No transfer lock is configured.
-   * *   **OPEN**: The transfer lock is enabled.
-   * *   **CLOSE**: The transfer lock is disabled.
+   * - **NONE_SETTING**: Not set.
+   * 
+   * - **OPEN**: Enabled.
+   * 
+   * - **CLOSE**: Disabled.
    * 
    * @example
    * CLOSE
@@ -351,11 +388,13 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   transferProhibitionLock?: string;
   /**
    * @remarks
-   * The status of the security lock for the domain name. Valid values:
+   * The status of the domain name security lock. Valid values:
    * 
-   * *   **NONE_SETTING**: No security lock is configured.
-   * *   **OPEN**: The security lock is enabled.
-   * *   **CLOSE**: The security lock is disabled.
+   * - **NONE_SETTING**: Not set.
+   * 
+   * - **OPEN**: Enabled.
+   * 
+   * - **CLOSE**: Disabled.
    * 
    * @example
    * CLOSE
@@ -363,7 +402,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   updateProhibitionLock?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 121000000****
@@ -371,12 +410,18 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The Chinese name of the domain name contact.
+   * The name of the contact person in Chinese.
+   * 
+   * @example
+   * 王先生
    */
   zhRegistrantName?: string;
   /**
    * @remarks
-   * The Chinese name of the domain name registrant.
+   * The name of the registrant in Chinese.
+   * 
+   * @example
+   * 王先生
    */
   zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {

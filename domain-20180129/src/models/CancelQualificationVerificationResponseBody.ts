@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelQualificationVerificationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
    */

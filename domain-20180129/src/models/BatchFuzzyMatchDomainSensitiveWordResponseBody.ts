@@ -113,6 +113,9 @@ export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchRes
 
 export class BatchFuzzyMatchDomainSensitiveWordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C560A803-B975-481D-A66B-A4395EA863A1
    */

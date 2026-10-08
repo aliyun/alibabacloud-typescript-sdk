@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList extends $dara.Model {
   /**
+   * @remarks
+   * The authorization code for the domain name.
+   * 
    * @example
    * Test2o#Lck
    */
   authorizationCode?: string;
   /**
+   * @remarks
+   * The domain name to transfer out.
+   * 
    * @example
    * example.com
    */
@@ -39,7 +45,12 @@ export class SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutPar
 export class SaveBatchTaskForTransferOutByAuthorizationCodeRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of domain names to transfer out, each with its authorization code.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * SaveBatchTaskForTransferOutByAuthorizationCode
    */
   transferOutParamList?: SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList[];
   static names(): { [key: string]: string } {

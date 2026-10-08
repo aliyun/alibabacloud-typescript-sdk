@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryLocalEnsAssociationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ENS address recorded in the Alibaba Cloud system.
+   * 
    * @example
    * 3ECD5439-39A2-477D-9A19-64FCA1F77EEB
    */
   address?: string;
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * 0x1234567890123456789012345678901234567890
    */

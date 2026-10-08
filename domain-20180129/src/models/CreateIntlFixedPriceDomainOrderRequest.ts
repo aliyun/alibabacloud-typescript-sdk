@@ -4,21 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateIntlFixedPriceDomainOrderRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Valid values:
+   * 
+   * - false (default): manual payment.
+   * 
+   *  - true: automatic payment.
+   * 
    * @example
    * true
    */
   autoPay?: boolean;
   /**
+   * @remarks
+   * The contact ID.
+   * 
    * @example
    * 13350500
    */
   contactId?: number;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * appp16.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The expected price.
+   * 
    * @example
    * 58.00
    */

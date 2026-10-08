@@ -415,26 +415,41 @@ export class LookupTmchNoticeResponseBodyClaims extends $dara.Model {
 export class LookupTmchNoticeResponseBody extends $dara.Model {
   claims?: LookupTmchNoticeResponseBodyClaims;
   /**
+   * @remarks
+   * The TMCH notification ID.
+   * 
    * @example
    * 586608000000
    */
   id?: number;
   /**
+   * @remarks
+   * The trademark label.
+   * 
    * @example
    * noted
    */
   label?: string;
   /**
+   * @remarks
+   * The end time of the trademark notice.
+   * 
    * @example
    * 2018-10-15T00:00:00.0Z
    */
   notAfter?: string;
   /**
+   * @remarks
+   * The start time of the trademark notice.
+   * 
    * @example
    * 2018-10-13T00:00:00.0Z
    */
   notBefore?: string;
   /**
+   * @remarks
+   * A unique identifier for the request.
+   * 
    * @example
    * 01C10C8E-0468-468C-BCD9-E709BDD0AE8F
    */

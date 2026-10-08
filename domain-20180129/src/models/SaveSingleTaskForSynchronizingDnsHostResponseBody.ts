@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveSingleTaskForSynchronizingDnsHostResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * 0F1B3547-BE50-4206-8F78-9540FFB85BC1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Job number.
+   * 
    * @example
    * e9b8e8b4-7334-4548-9cec-c30b6891f292
    */

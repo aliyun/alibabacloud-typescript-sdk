@@ -72,6 +72,9 @@ export class QueryDomainGroupListResponseBodyData extends $dara.Model {
 export class QueryDomainGroupListResponseBody extends $dara.Model {
   data?: QueryDomainGroupListResponseBodyData;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 80011ABC-F573-4795-B0E8-377BFBBA3422
    */

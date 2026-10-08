@@ -93,7 +93,7 @@ export class QueryTaskDetailListResponseBodyData extends $dara.Model {
 export class QueryTaskDetailListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number returned.
+   * The current page number.
    * 
    * @example
    * 1
@@ -102,7 +102,7 @@ export class QueryTaskDetailListResponseBody extends $dara.Model {
   data?: QueryTaskDetailListResponseBodyData;
   /**
    * @remarks
-   * Indicates whether the current page is followed by a page.
+   * Indicates whether a next page exists.
    * 
    * @example
    * true
@@ -118,7 +118,7 @@ export class QueryTaskDetailListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether the current page is preceded by a page.
+   * Indicates whether a previous page exists.
    * 
    * @example
    * false

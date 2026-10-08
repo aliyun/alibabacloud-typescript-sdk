@@ -13,7 +13,9 @@ export class QueryTaskDetailListRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The instance ID of the domain name.
+   * The domain name instance ID.
+   * 
+   * > You can call <props="china">[QueryDomainByDomainName](https://help.aliyun.com/document_detail/442021.html)<props="intl">[QueryDomainByDomainName](https://help.aliyun.com/document_detail/121704.html) to query the domain name instance ID.
    * 
    * @example
    * S20179H1BBI9test
@@ -21,10 +23,9 @@ export class QueryTaskDetailListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the error message to return if the request fails. Valid value:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the error message returned by the operation. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * Default value: **en**.
    * 
@@ -44,7 +45,7 @@ export class QueryTaskDetailListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **1000**.
+   * The number of entries per page. Maximum value: **1000**.
    * 
    * This parameter is required.
    * 
@@ -54,7 +55,7 @@ export class QueryTaskDetailListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The task ID.
+   * The task number. This is the TaskNo value returned by a successfully executed task.
    * 
    * This parameter is required.
    * 
@@ -64,12 +65,11 @@ export class QueryTaskDetailListRequest extends $dara.Model {
   taskNo?: string;
   /**
    * @remarks
-   * The task status. Valid value:
-   * 
-   * *   **0**: waiting for execution
-   * *   **1**: being executed
-   * *   **2**: successful
-   * *   **3**: failed
+   * The task status. Valid values:
+   * - **0**: Waiting to be executed.
+   * - **1**: Executing.
+   * - **2**: Successful.
+   * - **3**: Failed.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class QueryTaskDetailListRequest extends $dara.Model {
   taskStatus?: number;
   /**
    * @remarks
-   * The IP address of the client. Set the value to **127.0.0.1**.
+   * The user IP address. You can set this parameter to **127.0.0.1**.
    * 
    * @example
    * 127.0.0.0

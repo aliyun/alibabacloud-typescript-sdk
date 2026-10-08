@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetDefaultRegistrantProfileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4D73432C-7600-4779-ACBB-C3B5CA145D32
    */

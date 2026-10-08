@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveBatchTaskForModifyingDomainDnsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A862A8A-E7AB-4C4E-8946-A74122D9CC4B
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 35fb2fb7-d4d6-4478-9408-22cb63696b86
    */

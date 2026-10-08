@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveSingleTaskForApplyQuickTransferOutOpenlyRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class SaveSingleTaskForApplyQuickTransferOutOpenlyRequest extends $dara.M
    */
   domainName?: string;
   /**
+   * @remarks
+   * The language of the returned error message. Valid values: zh (Chinese) and en (English). The default is en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * The user\\"s client IP.
+   * 
    * @example
    * 127.0.0.1
    */

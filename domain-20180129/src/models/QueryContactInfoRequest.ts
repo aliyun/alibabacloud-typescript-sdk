@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryContactInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The contact type. Valid values:  
+   * - **registrant**: Domain name registrant.  
+   * - **tech**: Technical contact.  
+   * - **admin**: Administrative contact.  
+   * - **billing**: Billing contact.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,8 @@ export class QueryContactInfoRequest extends $dara.Model {
   contactType?: string;
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +28,21 @@ export class QueryContactInfoRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:  
+   * - **zh**: Chinese.  
+   * - **en**: English.  
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

@@ -4,21 +4,39 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveDomainGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Domain group ID. If this parameter is not provided, a new group is created. If it is provided, the domain group name is updated.
+   * 
    * @example
    * 123456
    */
   domainGroupId?: number;
   /**
    * @remarks
+   * Domain Name Group Name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 测试分组
    */
   domainGroupName?: string;
   /**
+   * @remarks
+   * Language for error messages returned by the API. Valid values:  
+   * - **zh**: Chinese;  
+   * - **en**: English.  
+   * 
+   * Default value is **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

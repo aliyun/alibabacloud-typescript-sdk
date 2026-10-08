@@ -59,17 +59,32 @@ export class QueryQualificationDetailResponseBodyCredentials extends $dara.Model
 
 export class QueryQualificationDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Review Status. Valid values:  
+   * 
+   * - 0: Information pending completion.  
+   * - 1, 2, 3, 4: Under review.  
+   * - 5: Review failed.  
+   * - 6: Review succeeded.  
+   * - 7: Review canceled.
+   * 
    * @example
    * 1
    */
   auditStatus?: number;
   credentials?: QueryQualificationDetailResponseBodyCredentials;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
    */
   requestId?: string;
   /**
+   * @remarks
+   * Business trail ID for qualification verification.
+   * 
    * @example
    * 943a1662898a****0acbdbeca91
    */

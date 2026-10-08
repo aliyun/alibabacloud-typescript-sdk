@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class VerifyContactFieldResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABAC3BAC-FCFA-4DAE-B47C-FA4105CB07C6
    */

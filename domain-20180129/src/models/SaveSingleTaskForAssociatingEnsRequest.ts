@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveSingleTaskForAssociatingEnsRequest extends $dara.Model {
   /**
    * @remarks
+   * ENS address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SaveSingleTaskForAssociatingEnsRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,21 @@ export class SaveSingleTaskForAssociatingEnsRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * Language of the error message returned by the API. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

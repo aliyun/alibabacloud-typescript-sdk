@@ -109,6 +109,9 @@ export class QueryDomainAdminDivisionResponseBodyAdminDivisions extends $dara.Mo
 export class QueryDomainAdminDivisionResponseBody extends $dara.Model {
   adminDivisions?: QueryDomainAdminDivisionResponseBodyAdminDivisions;
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * 4EA05A10-D4BC-47EA-AD9E-370A46BB4FB9
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryEnsAssociationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The wallet address in the ENS system.
+   * 
    * @example
    * 0x123456789012345678901234567890123456****
    */
   address?: string;
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * 3ECD5439-39A2-477D-9A19-64FCA1F77EEB
    */

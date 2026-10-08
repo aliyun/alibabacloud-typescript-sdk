@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class VerifyEmailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * FD3AD289-83EE-4E32-803A-CF1B3A8EEE64
    */

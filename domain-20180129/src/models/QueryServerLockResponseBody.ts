@@ -4,56 +4,93 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryServerLockResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Domain instance ID.
+   * 
    * @example
    * S20190N1DAI4****
    */
   domainInstanceId?: string;
   /**
+   * @remarks
+   * The queried domain name.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * Expiration Time.
+   * 
    * @example
    * 2030-07-10 17:37:36
    */
   expireDate?: string;
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 2021-07-10 17:37:36
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Updated At.
+   * 
    * @example
    * 2021-07-10 17:37:36
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Registry lock instance ID.
+   * 
    * @example
    * S2021591IQ28****
    */
   lockInstanceId?: string;
   /**
+   * @remarks
+   * Lock product ID.
+   * 
    * @example
    * 1807**
    */
   lockProductId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
    */
   requestId?: string;
   /**
+   * @remarks
+   * Registry lock status. Valid values:
+   * 
+   * - 1: Disabled
+   * - 2: Enabled
+   * - 3: Shutdown
+   * 
    * @example
    * 2
    */
   serverLockStatus?: number;
   /**
+   * @remarks
+   * The time when the lock takes effect.
+   * 
    * @example
    * 2021-07-10 17:37:36
    */
   startDate?: string;
   /**
+   * @remarks
+   * User UID.
+   * 
    * @example
    * 121000000****
    */

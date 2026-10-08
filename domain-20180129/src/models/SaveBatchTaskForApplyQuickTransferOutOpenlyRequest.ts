@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SaveBatchTaskForApplyQuickTransferOutOpenlyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The domain names to transfer out.
+   */
   domainNames?: string[];
   /**
+   * @remarks
+   * The language of returned error messages. Valid values: zh (Chinese) and en (English). Default value: en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * The IP address of the user\\"s client.
+   * 
    * @example
    * 127.0.0.1
    */

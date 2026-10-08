@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveTaskForSubmittingDomainDeleteRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,22 @@ export class SaveTaskForSubmittingDomainDeleteRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The language of the error message returned by the API. Valid values:
+   * 
+   * - zh: Chinese.
+   * - en: English.
+   * 
+   * Default value: en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * The user IP address.
+   * 
    * @example
    * 127.0.0.1
    */

@@ -71,42 +71,66 @@ export class QueryChangeLogListResponseBodyData extends $dara.Model {
 
 export class QueryChangeLogListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPageNum?: number;
   data?: QueryChangeLogListResponseBodyData;
   /**
+   * @remarks
+   * Indicates whether a next page exists.
+   * 
    * @example
    * true
    */
   nextPage?: boolean;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Indicates whether a previous page exists.
+   * 
    * @example
    * false
    */
   prePage?: boolean;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 2DEDFF32-7827-46B1-BE90-3DB8ABD91A58
    */
   requestId?: string;
   /**
+   * @remarks
+   * The API returns a maximum of 1,000 recent records per query, regardless of the specified page size. If your query matches more than 1,000 records, **ResultLimit** is **true**. To retrieve all results, narrow the time range and query again. Otherwise, **ResultLimit** is **false**.
+   * 
    * @example
    * true
    */
   resultLimit?: boolean;
   /**
+   * @remarks
+   * The total number of items.
+   * 
    * @example
    * 1000
    */
   totalItemNum?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1000
    */

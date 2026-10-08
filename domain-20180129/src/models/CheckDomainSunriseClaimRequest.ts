@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDomainSunriseClaimRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain name to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,21 @@ export class CheckDomainSunriseClaimRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:
+   * - **zh**: Chinese;
+   * - **en**: English.
+   * 
+   * Default value is **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address. You can set it to **127.0.0.1**.
+   * 
    * @example
    * 127.0.0.1
    */

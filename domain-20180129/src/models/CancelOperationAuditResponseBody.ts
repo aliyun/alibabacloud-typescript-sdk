@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelOperationAuditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9KFCF6F8-243C-40EC-8035-4B12KKFD7D90
    */

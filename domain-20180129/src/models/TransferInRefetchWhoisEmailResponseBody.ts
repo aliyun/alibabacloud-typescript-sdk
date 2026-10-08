@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class TransferInRefetchWhoisEmailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Unique Request ID.
+   * 
    * @example
    * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
    */

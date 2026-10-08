@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * A unique ID for the request.
+   * 
    * @example
    * EDC28FEC-6BE0-4583-95BC
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
    * @example
    * 880f1579-be51-4dd3-a69d
    */

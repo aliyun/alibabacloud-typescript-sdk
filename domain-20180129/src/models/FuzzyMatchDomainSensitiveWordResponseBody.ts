@@ -53,17 +53,28 @@ export class FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords extend
 
 export class FuzzyMatchDomainSensitiveWordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the domain name contains sensitive words. Valid values:  
+   * - **true**: The domain name contains sensitive words.  
+   * - **false**: The domain name does not contain sensitive words.
+   * 
    * @example
    * true
    */
   exist?: boolean;
   /**
+   * @remarks
+   * The domain name keyword that was passed in.
+   * 
    * @example
-   * xxx**.cn
+   * xxx**
    */
   keyword?: string;
   matchedSentiveWords?: FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D15F91FD-0B34-4E48-8CBF-EFA5D2A31586
    */

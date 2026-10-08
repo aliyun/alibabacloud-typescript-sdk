@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDnsHostRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the domain name instance. Call the QueryDomainList API to obtain this ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,23 @@ export class QueryDnsHostRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The language for returned error messages. Valid values:
+   * 
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * The user\\"s IP address.
+   * 
    * @example
    * 127.0.0.1
    */

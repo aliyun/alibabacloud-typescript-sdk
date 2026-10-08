@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,21 +14,41 @@ export class CheckDomainRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * Operation command. Valid values:  
+   * - **create**: Purchase.  
+   * - **renew**: Renewal.  
+   * - **transfer**: Transfer-in.  
+   * - **restore**: Redeem.
+   * 
    * @example
    * create
    */
   feeCommand?: string;
   /**
+   * @remarks
+   * Currency type. Valid value: **USD** (US Dollar).
+   * 
    * @example
    * USD
    */
   feeCurrency?: string;
   /**
+   * @remarks
+   * Registration period in years. Unit: **year**. Valid range: **1** to **10** years.
+   * 
    * @example
    * 1
    */
   feePeriod?: number;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:  
+   * - **zh**: Chinese.  
+   * - **en**: English.  
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */

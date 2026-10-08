@@ -30,6 +30,9 @@ export class QueryDomainSuffixResponseBodySuffixList extends $dara.Model {
 
 export class QueryDomainSuffixResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1C9DE44-1D7F-4F66-9653-00000
    */

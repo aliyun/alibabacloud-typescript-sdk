@@ -4,12 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class TransferInCheckMailTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the error message returned by the operation. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * The token received in the email.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +26,9 @@ export class TransferInCheckMailTokenRequest extends $dara.Model {
    */
   token?: string;
   /**
+   * @remarks
+   * The IP address of the user.
+   * 
    * @example
    * 127.0.0.1
    */

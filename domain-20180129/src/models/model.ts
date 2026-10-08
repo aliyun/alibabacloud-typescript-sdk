@@ -10,6 +10,7 @@ export { ConfirmTransferInEmailResponseBodySuccessList } from './ConfirmTransfer
 export { CreateIntlFixedPriceDomainOrderResponseBodyModule } from './CreateIntlFixedPriceDomainOrderResponseBody';
 export { DeleteEmailVerificationResponseBodyFailList } from './DeleteEmailVerificationResponseBody';
 export { DeleteEmailVerificationResponseBodySuccessList } from './DeleteEmailVerificationResponseBody';
+export { DomainKnowledgeRetrieveResponseBodyData } from './DomainKnowledgeRetrieveResponseBody';
 export { FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWordsMatchedSensitiveWord } from './FuzzyMatchDomainSensitiveWordResponseBody';
 export { FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords } from './FuzzyMatchDomainSensitiveWordResponseBody';
 export { GetIntlFixPriceDomainListUrlResponseBodyModule } from './GetIntlFixPriceDomainListUrlResponseBody';
@@ -168,6 +169,9 @@ export { DeleteEmailVerificationResponse } from './DeleteEmailVerificationRespon
 export { DeleteRegistrantProfileRequest } from './DeleteRegistrantProfileRequest';
 export { DeleteRegistrantProfileResponseBody } from './DeleteRegistrantProfileResponseBody';
 export { DeleteRegistrantProfileResponse } from './DeleteRegistrantProfileResponse';
+export { DomainKnowledgeRetrieveRequest } from './DomainKnowledgeRetrieveRequest';
+export { DomainKnowledgeRetrieveResponseBody } from './DomainKnowledgeRetrieveResponseBody';
+export { DomainKnowledgeRetrieveResponse } from './DomainKnowledgeRetrieveResponse';
 export { DomainSpecialBizCancelRequest } from './DomainSpecialBizCancelRequest';
 export { DomainSpecialBizCancelResponseBody } from './DomainSpecialBizCancelResponseBody';
 export { DomainSpecialBizCancelResponse } from './DomainSpecialBizCancelResponse';

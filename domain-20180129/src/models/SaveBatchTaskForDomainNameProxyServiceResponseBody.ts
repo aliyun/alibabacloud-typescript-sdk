@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveBatchTaskForDomainNameProxyServiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
    */
   requestId?: string;
   /**
+   * @remarks
+   * Job number.
+   * 
    * @example
    * d3babb0a-c939-4c25-8c65-c47b65f54923
    */

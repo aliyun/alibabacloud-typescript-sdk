@@ -4,22 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryTaskListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Start time of the creation date range for the query, expressed as the number of milliseconds since 00:00 on January 1, 1970, UTC. Currently, queries are supported only by day.
+   * 
    * @example
    * 1522080000000
    */
   beginCreateTime?: number;
   /**
+   * @remarks
+   * End time of the creation date range for the query, expressed as the number of milliseconds since 00:00 on January 1, 1970, UTC. Currently, queries are supported only by day.
+   * 
    * @example
    * 1522080000000
    */
   endCreateTime?: number;
   /**
+   * @remarks
+   * Language for API error messages. Valid values:  
+   * - **zh**: Chinese.  
+   * - **en**: English.  
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * Page number for paging.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +43,8 @@ export class QueryTaskListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
+   * Page size for paging.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +52,9 @@ export class QueryTaskListRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

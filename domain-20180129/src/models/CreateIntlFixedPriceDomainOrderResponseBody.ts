@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateIntlFixedPriceDomainOrderResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The order number.
+   * 
    * @example
    * 31199295f2074ce895645d386cb2****
    */
   orderNo?: string;
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 100.00
    */
   payPrice?: number;
   /**
+   * @remarks
+   * The payment URL.
+   * 
    * @example
    * https://
    */
@@ -51,8 +63,15 @@ export class CreateIntlFixedPriceDomainOrderResponseBodyModule extends $dara.Mod
 }
 
 export class CreateIntlFixedPriceDomainOrderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned object.
+   */
   module?: CreateIntlFixedPriceDomainOrderResponseBodyModule;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E879DC07-38EE-4408-9F33-73B30CD965CD
    */

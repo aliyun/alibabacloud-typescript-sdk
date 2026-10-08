@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveSingleTaskForSynchronizingDnsHostRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain instance ID, which can be obtained by invoking the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,21 @@ export class SaveSingleTaskForSynchronizingDnsHostRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Language for error messages returned by the API. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address.
+   * 
    * @example
    * 127.0.0.1
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveRegistrantProfileRealNameVerificationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the retrieved information template.
+   * 
    * @example
    * 1234567
    */
   registrantProfileId?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4D73432C-7600-****-ACBB-C3B5CA145D32
    */

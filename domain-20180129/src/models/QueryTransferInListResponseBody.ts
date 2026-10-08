@@ -113,37 +113,58 @@ export class QueryTransferInListResponseBodyData extends $dara.Model {
 
 export class QueryTransferInListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the current domain name list.
+   * 
    * @example
    * 1
    */
   currentPageNum?: number;
   data?: QueryTransferInListResponseBodyData;
   /**
+   * @remarks
+   * Indicates whether a next page exists.
+   * 
    * @example
    * true
    */
   nextPage?: boolean;
   /**
+   * @remarks
+   * The paging size of the domain name list.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Indicates whether a previous page exists.
+   * 
    * @example
    * false
    */
   prePage?: boolean;
   /**
+   * @remarks
+   * The unique request access token.
+   * 
    * @example
    * AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of entries.
+   * 
    * @example
    * 40
    */
   totalItemNum?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 2
    */

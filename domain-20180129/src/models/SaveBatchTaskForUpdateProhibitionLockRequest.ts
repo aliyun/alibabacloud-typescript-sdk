@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveBatchTaskForUpdateProhibitionLockRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain names.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,27 @@ export class SaveBatchTaskForUpdateProhibitionLockRequest extends $dara.Model {
    */
   domainName?: string[];
   /**
+   * @remarks
+   * The language of the error message to be returned. Valid values:
+   * 
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * Specifies whether to enable or disable the update prohibition lock. Valid values:
+   * 
+   * - **true**: enables the lock.
+   * 
+   * - **false**: disables the lock.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +42,9 @@ export class SaveBatchTaskForUpdateProhibitionLockRequest extends $dara.Model {
    */
   status?: boolean;
   /**
+   * @remarks
+   * The user IP address.
+   * 
    * @example
    * 127.0.0.1
    */

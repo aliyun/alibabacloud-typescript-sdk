@@ -4,15 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryFailReasonForDomainRealNameVerificationResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Date.
+   * 
    * @example
    * 2017-03-17 11:08:02
    */
   date?: string;
   /**
+   * @remarks
+   * Review Status. Valid values:  
+   * - **NONAUDIT**: Not authenticated.  
+   * - **SUCCEED**: Succeeded.  
+   * - **FAILED**: Review failed.  
+   * - **AUDITING**: Under review.
+   * 
    * @example
    * SUCCEED
    */
   domainNameVerificationStatus?: string;
+  /**
+   * @remarks
+   * Reason for real-name verification failure.
+   * 
+   * @example
+   * 审核失败，所有者（中文）字段必须包含中文字符。
+   */
   failReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,8 +57,15 @@ export class QueryFailReasonForDomainRealNameVerificationResponseBodyData extend
 }
 
 export class QueryFailReasonForDomainRealNameVerificationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of reasons for identity verification failure.
+   */
   data?: QueryFailReasonForDomainRealNameVerificationResponseBodyData[];
   /**
+   * @remarks
+   * Unique request access token.
+   * 
    * @example
    * 1F1BA893-AD33-4248-8CB8-1657E3733052
    */

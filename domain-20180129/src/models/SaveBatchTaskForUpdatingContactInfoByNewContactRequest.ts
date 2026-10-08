@@ -4,17 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specific address.
+   * 
    * @example
    * chao yang qu
    */
   address?: string;
   /**
+   * @remarks
+   * City.
+   * 
    * @example
    * bei jing shi
    */
   city?: string;
   /**
    * @remarks
+   * Contact type. Valid values:  
+   * - **registrant**: Registrant.  
+   * - **admin**: Administrator.  
+   * - **billing**: Billing contact.  
+   * - **tech**: Technical contact.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +34,17 @@ export class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends $dar
    */
   contactType?: string;
   /**
+   * @remarks
+   * Country code, such as **CN** or **US**.
+   * 
    * @example
    * CN
    */
   country?: string;
   /**
    * @remarks
+   * Domain name list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,37 +52,63 @@ export class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends $dar
    */
   domainName?: string[];
   /**
+   * @remarks
+   * Mailbox.
+   * 
    * @example
    * test@aliyun.com
    */
   email?: string;
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values:  
+   * - **zh**: Chinese.  
+   * - **en**: English.  
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * Postal code.
+   * 
    * @example
    * 123456
    */
   postalCode?: string;
   /**
+   * @remarks
+   * Province.
+   * 
    * @example
    * bei jing
    */
   province?: string;
   /**
+   * @remarks
+   * Contact name.
+   * 
    * @example
    * ce shi
    */
   registrantName?: string;
   /**
+   * @remarks
+   * Registrant organization name.
+   * 
    * @example
    * ce shi
    */
   registrantOrganization?: string;
   /**
    * @remarks
+   * Domain registrant type. Valid values:  
+   * - **1**: Individual.  
+   * - **2**: Enterprise.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,34 +116,84 @@ export class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends $dar
    */
   registrantType?: string;
   /**
+   * @remarks
+   * Telephone country code.
+   * 
    * @example
    * 86
    */
   telArea?: string;
   /**
+   * @remarks
+   * Extension number.
+   * 
    * @example
    * 1235
    */
   telExt?: string;
   /**
+   * @remarks
+   * Telephone number.
+   * 
    * @example
    * 1234567890
    */
   telephone?: string;
   /**
+   * @remarks
+   * Whether to add a transfer-out prohibition restriction. This parameter only takes effect when **ContactType** is **registrant**, indicating whether the domain name is restricted from transfer-out for 60 days after the registrant is modified. The default value is **false**, which means transfer-out is not restricted.
+   * 
    * @example
    * false
    */
   transferOutProhibited?: boolean;
   /**
+   * @remarks
+   * User IP.
+   * 
    * @example
    * 127.0.0.1
    */
   userClientIp?: string;
+  /**
+   * @remarks
+   * Chinese address.
+   * 
+   * @example
+   * 朝阳区
+   */
   zhAddress?: string;
+  /**
+   * @remarks
+   * Chinese city.
+   * 
+   * @example
+   * 北京市
+   */
   zhCity?: string;
+  /**
+   * @remarks
+   * Chinese province.
+   * 
+   * @example
+   * 北京
+   */
   zhProvince?: string;
+  /**
+   * @remarks
+   * Chinese contact name.
+   * 
+   * @example
+   * 测试
+   */
   zhRegistrantName?: string;
+  /**
+   * @remarks
+   * Chinese registrant organization name.
+   * 
+   * @example
+   * 测试
+   */
   zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {

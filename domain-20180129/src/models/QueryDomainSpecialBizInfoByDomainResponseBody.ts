@@ -14,11 +14,17 @@ export class QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBiz
   /**
    * @remarks
    * The city.
+   * 
+   * @example
+   * 鞍山市
    */
   CCity?: string;
   /**
    * @remarks
    * The organization name.
+   * 
+   * @example
+   * 河北易迪管道制造有限公司
    */
   CCompany?: string;
   /**
@@ -32,16 +38,25 @@ export class QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBiz
   /**
    * @remarks
    * The contact name.
+   * 
+   * @example
+   * 佟大伟
    */
   CName?: string;
   /**
    * @remarks
    * The province.
+   * 
+   * @example
+   * 辽宁
    */
   CProvince?: string;
   /**
    * @remarks
    * The address.
+   * 
+   * @example
+   * 铁西区新开街59栋1单元4号
    */
   CVenu?: string;
   /**
@@ -351,11 +366,17 @@ export class QueryDomainSpecialBizInfoByDomainResponseBodyModule extends $dara.M
   /**
    * @remarks
    * The review information.
+   * 
+   * @example
+   * 审核通过
    */
   auditMsg?: string;
   /**
    * @remarks
    * The business name.
+   * 
+   * @example
+   * GOV.CN域名注册(test003.cn)
    */
   bizName?: string;
   /**
@@ -467,6 +488,9 @@ export class QueryDomainSpecialBizInfoByDomainResponseBodyModule extends $dara.M
   /**
    * @remarks
    * The description of business status.
+   * 
+   * @example
+   * 信息审核成功
    */
   statusDesc?: string;
   /**
@@ -589,6 +613,9 @@ export class QueryDomainSpecialBizInfoByDomainResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code.
+   * 
+   * @example
+   * 参数错误
    */
   errorCode?: string;
   /**

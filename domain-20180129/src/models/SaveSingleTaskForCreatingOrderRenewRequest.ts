@@ -4,20 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveSingleTaskForCreatingOrderRenewRequest extends $dara.Model {
   /**
+   * @remarks
+   * The coupon number.
+   * 
    * @example
    * 123123
    */
   couponNo?: string;
   /**
    * @remarks
+   * The current expiration date of the domain name. This value is a Unix timestamp in milliseconds, representing the time elapsed since 00:00:00 UTC on January 1, 1970.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0000
+   * 1522080000000
    */
   currentExpirationDate?: number;
   /**
    * @remarks
+   * The domain name to renew.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,18 +32,32 @@ export class SaveSingleTaskForCreatingOrderRenewRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * The language of error messages returned by the API. Valid values:
+   * 
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
+   * 
+   * The default value is **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   permitPremiumRenew?: boolean;
   /**
+   * @remarks
+   * The promotion number.
+   * 
    * @example
    * 123132
    */
   promotionNo?: string;
   /**
    * @remarks
+   * The renewal period, in years. The value must be an integer from **1** to **10**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,16 +65,33 @@ export class SaveSingleTaskForCreatingOrderRenewRequest extends $dara.Model {
    */
   subscriptionDuration?: number;
   /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * 
+   * - **false**: Do not use a coupon.
+   * 
+   * - **true**: Use a coupon.
+   * 
    * @example
    * false
    */
   useCoupon?: boolean;
   /**
+   * @remarks
+   * Specifies whether to use a promotion. Valid values:
+   * 
+   * - **false**: Do not use a promotion.
+   * 
+   * - **true**: Use a promotion.
+   * 
    * @example
    * false
    */
   usePromotion?: boolean;
   /**
+   * @remarks
+   * The user\\"s IP address. You can set this parameter to **127.0.0.1**.
+   * 
    * @example
    * 127.0.0.1
    */

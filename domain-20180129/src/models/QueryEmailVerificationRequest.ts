@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryEmailVerificationRequest extends $dara.Model {
   /**
    * @remarks
+   * The Email to be queried.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,21 @@ export class QueryEmailVerificationRequest extends $dara.Model {
    */
   email?: string;
   /**
+   * @remarks
+   * Language of the error message returned by the API. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
+   * 
+   * Default Value is **en**.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * User IP address, which can be set to **127.0.0.1**.
+   * 
    * @example
    * 127.0.0.1
    */

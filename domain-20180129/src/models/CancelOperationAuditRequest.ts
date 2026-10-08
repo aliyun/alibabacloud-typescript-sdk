@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelOperationAuditRequest extends $dara.Model {
   /**
    * @remarks
+   * The audit record ID. You can query the audit record ID by using the [QueryOperationAuditInfoList](https://help.aliyun.com/document_detail/172568.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,13 @@ export class CancelOperationAuditRequest extends $dara.Model {
    */
   auditRecordId?: number;
   /**
+   * @remarks
+   * The language of the error message returned by the API. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
+   * 
+   * Default value: **en**.
+   * 
    * @example
    * en
    */
