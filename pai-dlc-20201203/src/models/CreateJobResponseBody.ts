@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job created by this request.
+   * The ID of the job created by this call.
    * 
    * @example
    * dlc7*******
