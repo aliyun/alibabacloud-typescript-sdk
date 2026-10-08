@@ -6,7 +6,7 @@ import { Story } from "./Story";
 export class QueryStoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token. An empty value indicates that all data has been read.
    * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3Qx****
@@ -14,7 +14,7 @@ export class QueryStoriesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
@@ -22,7 +22,7 @@ export class QueryStoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The stories.
+   * The list of queried stories.
    */
   stories?: Story[];
   static names(): { [key: string]: string } {

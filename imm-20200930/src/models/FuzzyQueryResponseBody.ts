@@ -6,16 +6,16 @@ import { File } from "./File";
 export class FuzzyQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The files.
+   * The list of file information.
    */
   files?: File[];
   /**
    * @remarks
-   * A pagination token.
+   * The token used for pagination when the total number of files exceeds the value of MaxResults.
    * 
-   * It can be used in the next request to retrieve a new page of results.
+   * When you list file information next time, set NextToken to this value to return the remaining results.
    * 
-   * If NextToken is empty, no next page exists.
+   * This parameter is returned only when not all files are returned.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class FuzzyQueryResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
@@ -33,7 +33,7 @@ export class FuzzyQueryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of hits.
+   * The number of matched records.
    * 
    * @example
    * 10

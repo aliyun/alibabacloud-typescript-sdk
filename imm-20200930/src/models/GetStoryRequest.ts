@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the dataset.[](~~478160~~)
+   * The name of the dataset. For more information about how to obtain the dataset name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetStoryRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The ID of the story.
+   * The ID of the story object whose information you want to retrieve.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetStoryRequest extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The name of the project.[](~~478153~~)
+   * The name of the project. For more information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 

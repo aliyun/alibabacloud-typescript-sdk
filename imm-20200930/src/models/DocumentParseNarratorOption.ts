@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DocumentParseNarratorOption extends $dara.Model {
   /**
    * @remarks
-   * The summary of the document.
+   * The article reading guide.
    */
   narrate?: boolean;
   static names(): { [key: string]: string } {

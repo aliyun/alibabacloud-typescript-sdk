@@ -40,7 +40,7 @@ export class Address extends $dara.Model {
    * The BCP 47 language code.
    * 
    * @example
-   * zh-Hans
+   * zh-hans
    */
   language?: string;
   /**

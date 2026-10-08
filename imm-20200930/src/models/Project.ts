@@ -173,7 +173,7 @@ export class Project extends $dara.Model {
    * The workflow template ID.
    * 
    * @example
-   * Official:ImageManagement
+   * DefaultId
    */
   templateId?: string;
   /**

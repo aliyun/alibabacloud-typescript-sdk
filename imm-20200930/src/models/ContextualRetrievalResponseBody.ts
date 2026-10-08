@@ -6,7 +6,7 @@ import { File } from "./File";
 export class ContextualRetrievalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
@@ -14,7 +14,7 @@ export class ContextualRetrievalResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of files retrieved. The document structure and content are contained in File.Elements.
+   * The list of retrieved files. The document-related structural content is included in File.Elements.
    */
   results?: File[];
   static names(): { [key: string]: string } {

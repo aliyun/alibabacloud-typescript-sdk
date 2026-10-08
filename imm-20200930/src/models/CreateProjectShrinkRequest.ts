@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of bindings per dataset. Valid values: 1 to 10. Default value: 10.
+   * The maximum number of bindings for each dataset. Valid values: 1 to 10. Default value: 10.
    * 
    * @example
    * 10
@@ -13,8 +13,8 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities per dataset. Default value: 10000000000.
-   * >This parameter is reserved for future use and is not enforced.
+   * The maximum number of metadata entities in each dataset. Default value: 10000000000.
+   * > This parameter is reserved for future use and does not impose actual limits.
    * 
    * @example
    * 10000000000
@@ -22,7 +22,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files per dataset. Valid values: 1 to 100000000. Default value: 10000000000.
+   * The maximum number of files in each dataset. Valid values: 1 to 100000000. Default value: 10000000000.
    * 
    * @example
    * 100000000
@@ -30,8 +30,8 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships per dataset. Default value: 100000000000.
-   * >This parameter is reserved for future use and is not enforced.
+   * The maximum number of metadata relations in each dataset. Default value: 100000000000.
+   * > This parameter is reserved for future use and does not impose actual limits.
    * 
    * @example
    * 100000000000
@@ -39,7 +39,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total file size per dataset. After this limit is reached, no more indexes can be added. Unit: bytes. Default value: 90000000000000000.
+   * The maximum total size of files in each dataset. If the limit is exceeded, no more indexes can be added. Unit: bytes. Default value: 90000000000000000.
    * 
    * @example
    * 90000000000000000
@@ -47,7 +47,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The project description. The description can be 1 to 256 characters in length. Default value: empty.
+   * The description of the project. The description must be 1 to 256 characters in length. Default value: empty.
    * 
    * @example
    * immtest
@@ -63,11 +63,11 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   projectMaxDatasetCount?: number;
   /**
    * @remarks
-   * The project name. The following naming rules apply:
+   * The name of the project. The naming rules are as follows:
    * 
    * - The name must be 1 to 128 characters in length.
    * 
-   * - The name can contain letters, digits, hyphens (-), and underscores (_).
+   * - The name can contain only letters, digits, hyphens (-), and underscores (_).
    * 
    * - The name must start with a letter or an underscore (_).
    * 
@@ -79,9 +79,9 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The service role that grants IMM permissions to access other Alibaba Cloud resources such as Object Storage Service (OSS). Default value: `AliyunIMMDefaultRole`.
+   * The service role that is authorized to allow IMM to access other cloud resources such as Object Storage Service (OSS). Default value: `AliyunIMMDefaultRole`.
    * 
-   * To customize a service role, create a regular service role in the Resource Access Management (RAM) console and grant permissions to the role. For more information, see [Grant permissions to a role](https://help.aliyun.com/document_detail/477258.html).
+   * To use a custom service role, you can create a standard service role in the Resource Access Management (RAM) console and grant permissions to the role. For more information, see [Grant permissions to a RAM role](https://help.aliyun.com/document_detail/477258.html).
    * 
    * @example
    * AliyunIMMDefaultRole
@@ -94,7 +94,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
-   * The workflow template ID. Default value: empty. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * The ID of the workflow template. Default value: empty. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
    * 
    * @example
    * Official:ImageManagement

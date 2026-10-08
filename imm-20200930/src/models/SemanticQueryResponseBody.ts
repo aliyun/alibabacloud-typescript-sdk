@@ -6,12 +6,12 @@ import { File } from "./File";
 export class SemanticQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The files.
+   * The list of files.
    */
   files?: File[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****

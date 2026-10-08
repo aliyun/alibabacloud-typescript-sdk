@@ -6,7 +6,7 @@ import { Story } from "./Story";
 export class GetStoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
@@ -14,7 +14,7 @@ export class GetStoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the story.
+   * The detailed information about the story.
    */
   story?: Story;
   static names(): { [key: string]: string } {

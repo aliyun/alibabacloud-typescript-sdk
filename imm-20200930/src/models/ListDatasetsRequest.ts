@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of datasets to return. Valid values: 0 to 200.
-   * 
-   * If this parameter is left empty or set to 0, 100 datasets are returned.
+   * The maximum number of datasets to return. Valid values: 0 to 200. If you do not specify this parameter or set it to 0, the default value 100 is used.
    * 
    * @example
    * 1
@@ -17,9 +15,9 @@ export class ListDatasetsRequest extends $dara.Model {
    * @remarks
    * The pagination token.
    * 
-   * If the total number of datasets is greater than the value of MaxResults, you must specify this parameter. The list is returned in lexicographic order starting from the value of NextToken.
+   * If the total number of datasets exceeds the value of MaxResults, this token is used for pagination. The list of dataset information is returned in lexicographical order starting from NextToken.
    * 
-   * >  The first time you call this operation in a query, set this parameter to null.
+   * > When you call this operation for the first time in a query, leave this parameter empty.
    * 
    * @example
    * 12345678:immtest:dataset002
@@ -27,7 +25,7 @@ export class ListDatasetsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The dataset prefix.
+   * The prefix of the dataset name.
    * 
    * @example
    * dataset
@@ -35,7 +33,7 @@ export class ListDatasetsRequest extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * The name of the project. For more information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 

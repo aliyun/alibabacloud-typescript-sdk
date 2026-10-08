@@ -1,36 +1,29 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { MultilingualContentEntry } from "./MultilingualContentEntry";
 
 
 export class ImageInsight extends $dara.Model {
   /**
-   * @remarks
-   * Image summary.
-   * 
-   * >  Not supported.
-   * 
-   * @example
-   * 无。
-   * 
    * **if can be null:**
    * true
    */
   caption?: string;
   /**
-   * @remarks
-   * The description of the image.
-   * 
-   * @example
-   * 图片中有一人，穿着深色西装外套，内搭白色衬衫。背景为渐变的浅蓝色至灰色。
-   * 
    * **if can be null:**
    * true
    */
   description?: string;
+  /**
+   * @remarks
+   * The multilingual image content.
+   */
+  multilingualContent?: { [key: string]: MultilingualContentEntry };
   static names(): { [key: string]: string } {
     return {
       caption: 'Caption',
       description: 'Description',
+      multilingualContent: 'MultilingualContent',
     };
   }
 
@@ -38,10 +31,14 @@ export class ImageInsight extends $dara.Model {
     return {
       caption: 'string',
       description: 'string',
+      multilingualContent: { 'type': 'map', 'keyType': 'string', 'valueType': MultilingualContentEntry },
     };
   }
 
   validate() {
+    if(this.multilingualContent) {
+      $dara.Model.validateMap(this.multilingualContent);
+    }
     super.validate();
   }
 

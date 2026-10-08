@@ -6,12 +6,12 @@ import { Project } from "./Project";
 export class CreateProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The project information. Click Project to view details.
+   * The project information. For more information, see Project.
    */
   project?: Project;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7F7D235C-76FF-4B65-800C-8238AE3F****

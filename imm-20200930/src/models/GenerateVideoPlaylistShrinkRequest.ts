@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * **Leave this parameter empty unless you have specific requirements.**
+   * **Leave this parameter empty unless you have special requirements.**
    * 
-   * The China authorization configuration. This parameter is optional. For more information, see [Use Chinese authorization to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   * The China authorization configuration. This parameter is optional. For more information, see [Use chained authorization to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfigShrink?: string;
   /**
@@ -28,10 +28,10 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   notificationShrink?: string;
   /**
    * @remarks
-   * The overwrite policy when a Media Playlist already exists. Valid values:
+   * The overwrite policy when the Media Playlist already exists. Valid values:
    * 
-   * - overwrite (default): overwrites the existing Media Playlist.
-   * - skip-existing: skips generation and retains the existing Media Playlist.
+   * - overwrite (default): Overwrites the existing Media Playlist.
+   * - skip-existing: Skips generation and retains the existing Media Playlist.
    * 
    * @example
    * overwrite
@@ -53,7 +53,7 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
    * 
    * - 0 (default) or empty: continues until the end of the source video.
    * 
-   * - A value greater than 0: continues for the specified duration from the start time of the playlist.
+   * - Greater than 0: continues for the specified duration from the start time of the playlist generation.
    * 
    * > If the time point corresponding to the specified parameter exceeds the end of the source video, the default value is used.
    * 
@@ -67,9 +67,9 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
    * 
    * - 0 (default) or empty: starts from the beginning of the source video.
    * 
-   * - A value greater than 0: starts from the specified time point in the source video.
+   * - Greater than 0: starts from the specified time point in the source video.
    * 
-   * > You can set this parameter together with **SourceDuration** to generate a playlist for a specific portion of the source video.
+   * >You can use this parameter together with **SourceDuration** to generate a playlist for a specific portion of the source video.
    * 
    * @example
    * 0
@@ -77,16 +77,16 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   sourceStartTime?: number;
   /**
    * @remarks
-   * The list of subtitles to add. This parameter is empty by default. A maximum of two subtitles are supported.
+   * The list of subtitles to add. Default value: empty. Maximum number of subtitles: 2.
    */
   sourceSubtitlesShrink?: string;
   /**
    * @remarks
    * The OSS URI of the video.
    * 
-   * The OSS URI follows the format oss://${Bucket}/${Object}, where ${Bucket} is the name of the OSS bucket in the same region as the current project, and ${Object} is the full path of the file including the file name extension.
+   * The OSS URI follows the format oss://${Bucket}/${Object}, where ${Bucket} is the name of the OSS bucket in the same area (Region) as the current project, and ${Object} is the full path of the file including the file name extension.
    * > Only OSS buckets with Standard storage class are supported.
-   * > Buckets with hotlink protection whitelist configured are not supported.
+   * > Buckets with hotlink protection whitelist access settings are not supported.
    * 
    * This parameter is required.
    * 
@@ -104,7 +104,7 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The array of just-in-time transcoding playlists. The maximum array length is 6. Each Target corresponds to at most one video Media Playlist and one or more subtitle Media Playlists.
+   * The array of just-in-time transcoding playlists. Maximum array length: 6. Each Target corresponds to at most one video Media Playlist and one or more subtitle Media Playlists.
    * > If more than one Target is configured, the **MasterURI** parameter must not be empty.
    * 
    * This parameter is required.
@@ -112,7 +112,7 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   targetsShrink?: string;
   /**
    * @remarks
-   * The custom information, which is returned in asynchronous message notifications. This allows you to associate message notifications with specific processes in your system. Maximum length: 2,048 bytes.
+   * The custom information that is returned in asynchronous message notifications, which helps you associate message notifications within your system. Maximum length: 2,048 bytes.
    * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}

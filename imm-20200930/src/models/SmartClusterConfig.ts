@@ -4,6 +4,10 @@ import { FigureClusterConfig } from "./FigureClusterConfig";
 
 
 export class SmartClusterConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The figure clustering configuration.
+   */
   figure?: FigureClusterConfig;
   static names(): { [key: string]: string } {
     return {

@@ -14,7 +14,7 @@ export class Body extends $dara.Model {
    * The confidence level of the result. A higher value indicates greater confidence. Specifically, a value exceeding 0.8 signifies a high degree of confidence in the result.
    * 
    * @example
-   * 0.82
+   * 0.75
    */
   confidence?: number;
   static names(): { [key: string]: string } {

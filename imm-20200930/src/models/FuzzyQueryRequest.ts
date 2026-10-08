@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FuzzyQueryRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * The name of the dataset. For more information about how to obtain the dataset name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class FuzzyQueryRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The maximum number of entries to return. Valid values: 0 to 200.
+   * The maximum number of files to return. Valid values: 0 to 200.
    * 
-   * Default value: 100.
+   * If you do not set this parameter or set it to 0, the default value is 100.
    * 
    * @example
    * 1
@@ -25,11 +25,11 @@ export class FuzzyQueryRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the total number of files is greater than the value of MaxResults, you must specify NextToken.
+   * The token used for pagination when the total number of files exceeds the value of MaxResults.
    * 
-   * The file information is returned in alphabetical order starting from the value of NextToken.
+   * The list of file information is returned in lexicographical order starting from NextToken.
    * 
-   * You do not need to specify this parameter for the first request.
+   * Set this parameter to empty when you call this operation for the first time.
    * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
@@ -37,19 +37,15 @@ export class FuzzyQueryRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sorting method. Valid values:
+   * The sort order of the sort fields. Valid values:
    * 
-   * - asc: ascending order.
+   * - asc: Ascending order.
    * 
-   * - desc (default): descending order.
+   * - desc: Descending order. This is the default value.
    * 
-   * >
-   * 
-   * - Separate multiple sorting methods with commas (,). Example: asc,desc.
-   * 
-   * - The number of values for Order must be less than or equal to the number of values for Sort. For example, if you set Sort to Size,Filename, you can set Order only to desc or asc.
-   * 
-   * - If the number of values for Order is less than the number of values for Sort, the unsorted fields are default to the value of asc. For example, if you set Sort to Size,Filename and Order to asc, the Filename field is default to the value of asc.
+   * > - You can separate multiple sort orders with commas (,), such as asc,desc.
+   * > - The number of sort orders cannot exceed the number of sort fields. That is, the number of elements in the Order parameter must be less than or equal to the number of elements in the Sort parameter. For example, if Sort is set to Size,Filename, Order can be set to desc or asc.
+   * > - If the number of sort orders is less than the number of sort fields, the default sort order for the unspecified fields is asc. For example, if Sort is set to Size,Filename and Order is set to asc, the default sort order for Filename is asc, which means ascending order.
    * 
    * @example
    * asc,desc
@@ -57,7 +53,7 @@ export class FuzzyQueryRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * The name of the project. For more information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -67,23 +63,23 @@ export class FuzzyQueryRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The query content. The value can be up to 1 MB in size.
+   * The string used for the query. The string cannot exceed 1 MB in size.
    * 
    * This parameter is required.
    * 
    * @example
-   * 阿里云
+   * Alibaba Cloud
    */
   query?: string;
   /**
    * @remarks
-   * The sort fields. For more information, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
+   * The list of fields by which to sort the results. For more information, see the [list of supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
    * 
-   * - Separate multiple sort fields with commas (,). Example: `Size,Filename`.
+   * - You can separate multiple sort fields with commas (,), such as `Size,Filename`.
    * 
-   * - You can specify up to five sort fields.
+   * - You can specify up to 5 sort fields.
    * 
-   * - The priority order of sorting is determined based on the order of the sort fields.
+   * - The order of the sort fields determines the sorting priority.
    * 
    * @example
    * Size,Filename
@@ -91,9 +87,9 @@ export class FuzzyQueryRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The fields that you want to include in the response. To help reduce the size of the response, include only necessary metadata fields.
+   * Specifies the fields to return. Only the values of the specified fields are returned instead of all existing metadata fields. You can use this parameter to reduce the size of the returned struct.
    * 
-   * If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
+   * If you do not specify this parameter or leave it empty, all fields are returned.
    */
   withFields?: string[];
   static names(): { [key: string]: string } {

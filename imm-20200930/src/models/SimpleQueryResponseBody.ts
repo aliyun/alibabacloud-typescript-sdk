@@ -6,7 +6,7 @@ import { File } from "./File";
 export class SimpleQueryResponseBodyAggregationsGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of results in the grouped aggregation.
+   * The total count of the grouping and aggregation.
    * 
    * @example
    * 5
@@ -14,7 +14,7 @@ export class SimpleQueryResponseBodyAggregationsGroups extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The value for the grouped aggregation.
+   * The value of the grouping and aggregation.
    * 
    * @example
    * 100
@@ -46,7 +46,7 @@ export class SimpleQueryResponseBodyAggregationsGroups extends $dara.Model {
 export class SimpleQueryResponseBodyAggregations extends $dara.Model {
   /**
    * @remarks
-   * The name of the field.
+   * The name of the aggregation field.
    * 
    * @example
    * Size
@@ -54,12 +54,12 @@ export class SimpleQueryResponseBodyAggregations extends $dara.Model {
   field?: string;
   /**
    * @remarks
-   * The grouped aggregations. This parameter is returned only when the group operator is specified in the Aggregations request parameter.
+   * The list of grouping and aggregation results. This parameter is returned only when an Operation of the group type exists in Aggregations of the request.
    */
   groups?: SimpleQueryResponseBodyAggregationsGroups[];
   /**
    * @remarks
-   * The operator.
+   * The aggregation operation for the aggregation field.
    * 
    * @example
    * sum
@@ -67,7 +67,7 @@ export class SimpleQueryResponseBodyAggregations extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The statistical result.
+   * The statistical result of the aggregation.
    * 
    * @example
    * 200
@@ -106,21 +106,21 @@ export class SimpleQueryResponseBodyAggregations extends $dara.Model {
 export class SimpleQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The aggregations. This parameter is returned only when the value of the Aggregations request parameter is not empty.
+   * The list of aggregation field information. This parameter is returned only when Aggregations in the request is not empty.
    */
   aggregations?: SimpleQueryResponseBodyAggregations[];
   /**
    * @remarks
-   * The files. This parameter is returned only when the value of the Aggregations request parameter is empty.
+   * The list of file information. This parameter is returned only when Aggregations in the request is empty.
    */
   files?: File[];
   /**
    * @remarks
-   * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
+   * The token used for pagination when the total number of files exceeds the value of MaxResults.
    * 
-   * It can be used in the next request to retrieve a new page of results.
+   * When you list file information next time, set NextToken to this value to return the remaining results.
    * 
-   * If NextToken is empty, no next page exists.
+   * This parameter has a value only when not all files are returned.
    * 
    * This parameter is required.
    * 
@@ -138,7 +138,7 @@ export class SimpleQueryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of total hits.
+   * The number of matched records.
    * 
    * @example
    * 10

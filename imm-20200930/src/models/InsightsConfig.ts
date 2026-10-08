@@ -5,6 +5,10 @@ import { VideoInsightsConfig } from "./VideoInsightsConfig";
 
 
 export class InsightsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The image content-aware configuration.
+   */
   image?: ImageInsightsConfig;
   /**
    * @remarks

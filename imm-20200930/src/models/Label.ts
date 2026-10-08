@@ -9,7 +9,7 @@ export class Label extends $dara.Model {
    * The centric score of the tag. This indicates whether the tag is the main subject in the image. The value ranges from 0 to 1. A higher value indicates higher confidence that the tag is the main subject of the image.
    * 
    * @example
-   * 0.877
+   * 0.7319999933242798
    */
   centricScore?: number;
   /**
@@ -30,7 +30,7 @@ export class Label extends $dara.Model {
    * The tag confidence level. The value ranges from 0 (lowest confidence) to 1 (highest confidence).
    * 
    * @example
-   * 0.95
+   * 0.9891784601980591
    */
   labelConfidence?: number;
   /**
@@ -38,7 +38,7 @@ export class Label extends $dara.Model {
    * The tag level. Valid values are 1, 2, and 3, representing first-level, second-level, and third-level tags, respectively.
    * 
    * @example
-   * 2
+   * 1
    */
   labelLevel?: number;
   /**

@@ -11,6 +11,10 @@ export class DatasetConfig extends $dara.Model {
    * The content awareness configuration.
    */
   insights?: InsightsConfig;
+  /**
+   * @remarks
+   * The reverse image search configuration.
+   */
   reverseImage?: ReverseImageConfig;
   /**
    * @remarks

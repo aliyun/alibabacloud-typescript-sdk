@@ -158,6 +158,7 @@ export { MNS } from './Mns';
 export { Message } from './Message';
 export { MetaData } from './MetaData';
 export { ModelSpecification } from './ModelSpecification';
+export { MultilingualContentEntry } from './MultilingualContentEntry';
 export { Notification } from './Notification';
 export { OCRContents } from './Ocrcontents';
 export { OctreeOption } from './OctreeOption';

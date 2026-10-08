@@ -15,7 +15,7 @@ export class TargetImageAnimations extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * Animation frame rate, in frames per second
+   * FrameRate
    * 
    * @example
    * 25
@@ -31,7 +31,7 @@ export class TargetImageAnimations extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * Time interval between animation frames, in seconds
+   * Interval
    * 
    * @example
    * 0.5
@@ -39,7 +39,7 @@ export class TargetImageAnimations extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * Total number of animation frames to generate
+   * Number
    * 
    * @example
    * 100
@@ -47,7 +47,7 @@ export class TargetImageAnimations extends $dara.Model {
   number?: number;
   /**
    * @remarks
-   * Scaling method
+   * ScaleType
    * 
    * @example
    * crop
@@ -63,7 +63,7 @@ export class TargetImageAnimations extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The URI of the animation.
+   * URI
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class TargetImageAnimations extends $dara.Model {
   URI?: string;
   /**
    * @remarks
-   * Output width, in pixels
+   * Width
    * 
    * @example
    * 1280
@@ -119,7 +119,7 @@ export class TargetImageAnimations extends $dara.Model {
 export class TargetImageSnapshots extends $dara.Model {
   /**
    * @remarks
-   * Image format
+   * Format
    * 
    * This parameter is required.
    * 
@@ -129,7 +129,7 @@ export class TargetImageSnapshots extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * Output height, in pixels
+   * Height
    * 
    * @example
    * 960
@@ -137,7 +137,7 @@ export class TargetImageSnapshots extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * Time interval between snapshots, in seconds
+   * Interval
    * 
    * @example
    * 0.5
@@ -150,7 +150,7 @@ export class TargetImageSnapshots extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The sequence number of the snapshot.
+   * Number
    * 
    * @example
    * 10
@@ -158,7 +158,7 @@ export class TargetImageSnapshots extends $dara.Model {
   number?: number;
   /**
    * @remarks
-   * Scaling method
+   * ScaleType
    * 
    * @example
    * crop
@@ -166,7 +166,7 @@ export class TargetImageSnapshots extends $dara.Model {
   scaleType?: string;
   /**
    * @remarks
-   * The start time of the snapshot.
+   * StartTime
    * 
    * @example
    * 0
@@ -179,7 +179,7 @@ export class TargetImageSnapshots extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * OSS URI where snapshots are stored
+   * URI
    * 
    * This parameter is required.
    * 
@@ -189,7 +189,7 @@ export class TargetImageSnapshots extends $dara.Model {
   URI?: string;
   /**
    * @remarks
-   * The width of the snapshot.
+   * Width
    * 
    * @example
    * 1280
@@ -237,7 +237,7 @@ export class TargetImageSnapshots extends $dara.Model {
 export class TargetImageSprites extends $dara.Model {
   /**
    * @remarks
-   * Image format
+   * Format
    * 
    * This parameter is required.
    * 
@@ -247,7 +247,7 @@ export class TargetImageSprites extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * Time interval between sprites, in seconds
+   * Interval
    * 
    * @example
    * 1
@@ -255,7 +255,7 @@ export class TargetImageSprites extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * Margin around the sprite grid, in pixels
+   * Margin
    * 
    * @example
    * 2
@@ -268,7 +268,7 @@ export class TargetImageSprites extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * Total number of sprites to generate
+   * Number
    * 
    * @example
    * 0
@@ -276,7 +276,7 @@ export class TargetImageSprites extends $dara.Model {
   number?: number;
   /**
    * @remarks
-   * Padding between sprite tiles, in pixels
+   * Pad
    * 
    * @example
    * 2
@@ -284,7 +284,7 @@ export class TargetImageSprites extends $dara.Model {
   pad?: number;
   /**
    * @remarks
-   * Output height after scaling, in pixels
+   * ScaleHeight
    * 
    * @example
    * 960
@@ -292,7 +292,7 @@ export class TargetImageSprites extends $dara.Model {
   scaleHeight?: number;
   /**
    * @remarks
-   * Scaling method
+   * ScaleType
    * 
    * @example
    * crop
@@ -300,7 +300,7 @@ export class TargetImageSprites extends $dara.Model {
   scaleType?: string;
   /**
    * @remarks
-   * Output width after scaling, in pixels
+   * ScaleWidth
    * 
    * @example
    * 1280
@@ -321,7 +321,7 @@ export class TargetImageSprites extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * Height of each sprite tile, in pixels
+   * TileHeight
    * 
    * @example
    * 6
@@ -329,7 +329,7 @@ export class TargetImageSprites extends $dara.Model {
   tileHeight?: number;
   /**
    * @remarks
-   * Width of each sprite tile, in pixels
+   * TileWidth
    * 
    * @example
    * 6

@@ -15,7 +15,7 @@ export class BatchGetFigureClusterRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The cluster IDs.
+   * The array of group object IDs.
    * 
    * This parameter is required.
    */

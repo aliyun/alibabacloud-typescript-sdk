@@ -6,7 +6,7 @@ import { File } from "./File";
 export class BatchGetFileMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The metadata returned.
+   * The file metadata.
    */
   files?: File[];
   /**

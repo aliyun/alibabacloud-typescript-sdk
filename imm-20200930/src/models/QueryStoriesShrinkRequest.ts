@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryStoriesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The time range in which stories were created.
+   * The creation time range of the story.
    */
   createTimeRangeShrink?: string;
   /**
    * @remarks
-   * The custom labels in key-value pairs.
+   * The custom label key-value pairs. Only stories that match the specified label pairs are returned.
    * 
    * @example
    * key=value
@@ -18,7 +18,7 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   customLabels?: string;
   /**
    * @remarks
-   * The name of the dataset.[](~~478160~~)
+   * The name of the dataset. For more information about how to obtain the name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * This parameter is required.
    * 
@@ -28,12 +28,12 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The IDs of the face clusters.
+   * The IDs of the figure clusters.
    */
   figureClusterIdsShrink?: string;
   /**
    * @remarks
-   * The maximum number of entries to return. Valid values: 1 to 100. Default value: 100.
+   * The maximum number of entries to return in a single call. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 10
@@ -41,7 +41,7 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If you do not specify this token in the next request, results are returned from the beginning.
+   * The pagination token. If this parameter is left empty, the query starts from the beginning. To query the next page, set this parameter to the NextToken value returned in the previous call.
    * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
@@ -49,7 +49,7 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the story.
+   * The ID of the story object.
    * 
    * @example
    * id1
@@ -57,11 +57,11 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * The sorting order. Valid values:
    * 
-   * - asc: in ascending order.
+   * - asc: Ascending order.
    * 
-   * - desc: in descending order.
+   * - desc: Descending order.
    * 
    * @example
    * asc
@@ -69,7 +69,7 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The name of the project.[](~~478153~~)
+   * The name of the project. For more information about how to obtain the name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -79,15 +79,15 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The sort field. Valid values:
+   * The field used for sorting. Valid values:
    * 
-   * - CreateTime: sorts by story creation time.
+   * - CreateTime: Sorts by story creation time.
    * 
-   * - StoryName: sorts by story name.
+   * - StoryName: Sorts by story name.
    * 
-   * - StoryStartTime: sorts by story start time.
+   * - StoryStartTime: Sorts by story start time.
    * 
-   * - StoryEndTime: sorts by story end time.
+   * - StoryEndTime: Sorts by story end time.
    * 
    * @example
    * CreateTime
@@ -95,7 +95,7 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The time range for the creation time of the last photo or video in the story.
+   * The end time range of the photos or videos in the story.
    */
   storyEndTimeRangeShrink?: string;
   /**
@@ -108,12 +108,12 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   storyName?: string;
   /**
    * @remarks
-   * The time range for the creation time of the first photo or video in the story.
+   * The start time range of the photos or videos in the story.
    */
   storyStartTimeRangeShrink?: string;
   /**
    * @remarks
-   * The subtype of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * The subtype of the story. For valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
    * 
    * @example
    * SeasonHighlights
@@ -121,7 +121,7 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
   storySubType?: string;
   /**
    * @remarks
-   * The type of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * The type of the story. For valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
    * 
    * @example
    * TimeMemory
@@ -131,9 +131,9 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return empty stories. Valid values:
    * 
-   * - true (The default value)
+   * - true: Returns empty stories. This is the default value.
    * 
-   * - false
+   * - false: Does not return empty stories.
    * 
    * @example
    * true

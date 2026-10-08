@@ -24,7 +24,7 @@ export class Resource extends $dara.Model {
    * The GPU.
    * 
    * @example
-   * NVIDIA_P4
+   * string	NVIDIA_P4
    */
   GPUModel?: string;
   /**
@@ -40,7 +40,7 @@ export class Resource extends $dara.Model {
    * The displayed name of the resource.
    * 
    * @example
-   * ecs.gn5i-c2g1.large-2vCPU-8GB-1*NVIDIA_P4
+   * string	ecs.gn5i-c2g1.large-2vCPU-8GB-1*NVIDIA_P4
    */
   name?: string;
   /**

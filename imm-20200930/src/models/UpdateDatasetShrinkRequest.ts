@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of bindings for each dataset. Valid values: 1 to 10.
+   * The maximum number of bindings per dataset. Valid values: 1 to 10.
    * 
    * @example
    * 10
@@ -14,7 +14,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of metadata entities (including data files, file relationships, and clustering groups) in each dataset. The maximum value is 2^63-1.
-   * >This is a reserved parameter and is not enforced during use.
+   * > This is a reserved parameter and no actual limits are enforced.
    * 
    * @example
    * 10000000000
@@ -31,7 +31,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of metadata relationships in each dataset. The maximum value is 2^63-1.
-   * >This is a reserved parameter and is not enforced during use.
+   * > This is a reserved parameter and no actual limits are enforced.
    * 
    * @example
    * 100000000000
@@ -39,7 +39,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total file size in each dataset. After this limit is exceeded, no more indexes can be added. The maximum value is 2^63-1. Unit: bytes.
+   * The maximum total size of files in each dataset. If the limit is exceeded, no more indexes can be added. The maximum value is 2^63-1. Unit: bytes.
    * 
    * @example
    * 90000000000000000
@@ -47,7 +47,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The dataset name. For information about how to obtain the dataset name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * The name of the dataset. For more information about how to obtain the dataset name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
+   * The name of the project. For more information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
    * 
    * @example
    * Official:ImageManagement

@@ -45,7 +45,7 @@ export class ListProjectsRequestTag extends $dara.Model {
 export class ListProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of projects to return. Valid values: 0 to 200. If you do not set this parameter or set it to 0, the default value 100 is used.
+   * The maximum number of projects to return. Valid values: 0 to 200. If this parameter is not set or is set to 0, the default value is 100.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class ListProjectsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call. Project information is returned in alphabetical order starting from the NextToken position. Leave this parameter empty for the first call.
+   * The query token. Set the value to the NextToken value returned from the previous API call. The list of projects is returned in lexicographical order starting from the NextToken value. Leave this parameter empty when you call this API operation for the first time.
    * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDAx
@@ -61,7 +61,7 @@ export class ListProjectsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The prefix used to list projects. The value can be 0 to 128 characters in length.
+   * The prefix used to filter projects. The length is limited to 0 to 128 characters.
    * 
    * @example
    * immtest
@@ -69,7 +69,7 @@ export class ListProjectsRequest extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    */
   tag?: ListProjectsRequestTag[];
   static names(): { [key: string]: string } {

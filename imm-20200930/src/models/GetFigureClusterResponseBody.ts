@@ -6,12 +6,12 @@ import { FigureCluster } from "./FigureCluster";
 export class GetFigureClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the face cluster.
+   * The detailed information of the clustering group.
    */
   figureCluster?: FigureCluster;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5F74C5C9-5AC0-49F9-914D-E01589D3****

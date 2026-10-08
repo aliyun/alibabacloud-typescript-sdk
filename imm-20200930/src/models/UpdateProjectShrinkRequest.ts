@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of bindings for each dataset. Valid values: 1 to 10.
+   * The maximum number of bindings per dataset. Valid values: 1 to 10.
    * 
    * @example
    * 10
@@ -13,8 +13,8 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities in each dataset.
-   * >This is a reserved parameter and is not enforced during use.
+   * The maximum number of metadata entities per dataset.
+   * > Reserved parameter. No actual limit is imposed during use.
    * 
    * @example
    * 10000000000
@@ -22,7 +22,7 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files in each dataset. Valid values: 1 to 100000000.
+   * The maximum number of files per dataset. Valid values: 1 to 100000000.
    * 
    * @example
    * 100000000
@@ -30,8 +30,8 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships in each dataset.
-   * >This is a reserved parameter and is not enforced during use.
+   * The maximum number of metadata relations per dataset.
+   * > Reserved parameter. No actual limit is imposed during use.
    * 
    * @example
    * 100000000000
@@ -39,7 +39,7 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total file size in each dataset. After the limit is exceeded, no more indexes can be added. Unit: bytes.
+   * The maximum total size of files in each dataset. If the limit is exceeded, no more indexes can be added. Unit: bytes.
    * 
    * @example
    * 90000000000000000
@@ -47,7 +47,7 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The project description. The description must be 1 to 256 characters in length.
+   * The description of the project. The description must be 1 to 256 characters in length.
    * 
    * @example
    * immtest
@@ -63,7 +63,7 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   projectMaxDatasetCount?: number;
   /**
    * @remarks
-   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
+   * The name of the project. For more information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -73,9 +73,9 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The service role that grants Intelligent Media Management (IMM) permissions to access other cloud resources such as Object Storage Service (OSS).
+   * The service role that is authorized for Intelligent Media Management (IMM) to access other cloud resources such as Object Storage Service (OSS).
    * 
-   * To customize a service role, create a regular service role in the Resource Access Management (RAM) console and grant permissions to the role. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * To use a custom service role, you can create a regular service role in the Resource Access Management (RAM) console and grant permissions to the role. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a RAM role](https://help.aliyun.com/document_detail/116147.html).
    * 
    * @example
    * AliyunIMMDefaultRole
@@ -88,7 +88,7 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
-   * The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
    * 
    * @example
    * Official:ImageManagement

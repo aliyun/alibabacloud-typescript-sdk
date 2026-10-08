@@ -5,22 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class FigureClusterConfig extends $dara.Model {
   /**
    * @remarks
-   * Whether to automatically group similar figures into clusters.
+   * Specifies whether to allow IMM to perform classification tasks on files in the dataset. Default value: False.
    */
   autoClustering?: boolean;
   /**
    * @remarks
-   * Whether to automatically generate metadata for each cluster, such as a representative cover image.
+   * Indicates whether IMM is allowed to perform automatic creation of new groups. Default value: False.
    */
   autoGenerate?: boolean;
   /**
    * @remarks
-   * An array of strings specifying the clustering strategies to use.
+   * The features supported by figure clustering.
    */
   enabledFeatures?: string[];
   /**
    * @remarks
-   * The minimum number of figures required to form a cluster.
+   * The minimum threshold for the number of entities when automatic generation of new groups is allowed. Default value: 3.
+   * 
+   * @example
+   * 3
    */
   minEntityCount?: number;
   static names(): { [key: string]: string } {

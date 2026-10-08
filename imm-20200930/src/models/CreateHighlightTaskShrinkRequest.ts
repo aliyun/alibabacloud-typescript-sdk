@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**
+   * The chained authorization configuration. **Leave this parameter empty unless otherwise required.**
    */
   credentialConfigShrink?: string;
   /**
@@ -21,10 +21,9 @@ export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The highlight recognition mode. Valid values:
-   * 
-   * - Scene: scene and frame recognition.
-   * 
-   * - Average (default): average slice recognition.
+   * - Scene: scene and frame recognition
+   * - Average: average clip recognition
+   * Default value: Average.
    * 
    * @example
    * Average
@@ -32,7 +31,7 @@ export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The message notification configuration. For more information, click Notification. For the format of asynchronous notification messages, see [Asynchronous notification message format](https://www.alibabacloud.com/help/en/imm/developer-reference/asynchronous-notification-message-examples).
+   * The message notification configuration. For more information, see Notification. For the format of asynchronous notification messages, see [Asynchronous notification message format](https://www.alibabacloud.com/help/en/imm/developer-reference/asynchronous-notification-message-examples).
    */
   notificationShrink?: string;
   /**
@@ -44,7 +43,7 @@ export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   outputShrink?: string;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * This parameter is required.
    * 
@@ -54,15 +53,14 @@ export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The list of media resources to process.
-   * A maximum of 10 videos are supported.
+   * The list of media resources to be processed. You can specify up to 10 videos.
    * 
    * This parameter is required.
    */
   sourcesShrink?: string;
   /**
    * @remarks
-   * The custom tags used to search for and filter asynchronous tasks.
+   * The custom tags used to search and filter asynchronous tasks.
    * 
    * @example
    * {"test":"val1"}
@@ -71,12 +69,9 @@ export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The processing type. Valid values:
-   * 
-   * - Retrieval: highlight extraction.
-   * 
-   * - Concat: video composition.
-   * 
-   * - Compose: one-click video production.
+   * - Retrieval: highlight extraction
+   * - Concat: video composition
+   * - Compose: one-click video creation
    * 
    * This parameter is required.
    * 
@@ -86,7 +81,7 @@ export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The custom information, which is returned in asynchronous message notifications.
+   * The custom user data, which is returned in asynchronous message notifications.
    * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}

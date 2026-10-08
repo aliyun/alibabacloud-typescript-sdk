@@ -6,12 +6,12 @@ import { FigureCluster } from "./FigureCluster";
 export class BatchGetFigureClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The clusters.
+   * The list of figure clusters.
    */
   figureClusters?: FigureCluster[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFF****

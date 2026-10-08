@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PersonReferenceConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable person referencing. Set to `true` to enable this feature. The default value is `false`.
+   * Specifies whether to enable character reference configuration. Default value: false.
    */
   enable?: boolean;
   static names(): { [key: string]: string } {
