@@ -39,8 +39,9 @@ export class CreateK8sSecretRequest extends $dara.Model {
    * @remarks
    * The data of the Secret. The value must be a JSON array that contains the following information:
    * 
-   * *   Key: Secret key
-   * *   Value: Secret value
+   * - Key: Secret key
+   * 
+   * - Value: Secret value
    * 
    * @example
    * [{"Key":"name","Value":"william"},{"Key":"age","Value":"12"}]
@@ -66,8 +67,9 @@ export class CreateK8sSecretRequest extends $dara.Model {
    * @remarks
    * The Secret type. Valid values:
    * 
-   * *   Opaque: user-defined data
-   * *   kubernetes.io/tls: Transport Layer Security (TLS) certificate
+   * - Opaque: user-defined data
+   * 
+   * - kubernetes.io/tls: Transport Layer Security (TLS) certificate
    * 
    * @example
    * Opaque

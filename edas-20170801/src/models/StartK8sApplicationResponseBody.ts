@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartK8sApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The ID of the change process for the operation.
    * 
    * @example
    * *********d237-4827-a4f4-ed2ae98de18d
@@ -13,7 +13,7 @@ export class StartK8sApplicationResponseBody extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The response code. A 200 response indicates that the request was successful.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class StartK8sApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The returned message.
    * 
    * @example
    * success

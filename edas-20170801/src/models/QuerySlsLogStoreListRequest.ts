@@ -33,8 +33,9 @@ export class QuerySlsLogStoreListRequest extends $dara.Model {
    * @remarks
    * The type of data that is collected by Log Service. Valid values:
    * 
-   * *   file: the file type
-   * *   stdout: the standard output type
+   * - file: the file type
+   * 
+   * - stdout: the standard output type
    * 
    * This parameter is required.
    * 

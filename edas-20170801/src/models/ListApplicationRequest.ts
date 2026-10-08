@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The application IDs.
+   * The list of application IDs.
    * 
    * @example
    * [
@@ -16,7 +16,7 @@ export class ListApplicationRequest extends $dara.Model {
   appIds?: string;
   /**
    * @remarks
-   * The name of the application. Specify this parameter if you want to filter applications by application name.
+   * Filters the application list by application name.
    * 
    * @example
    * testapp
@@ -24,7 +24,7 @@ export class ListApplicationRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The cluster ID. Specify this parameter if you want to filter applications by cluster.
+   * Filters the application list by cluster.
    * 
    * @example
    * c37aec2a-bcca-4ec1-****-************
@@ -32,7 +32,7 @@ export class ListApplicationRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The number of the page to return in a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -40,7 +40,7 @@ export class ListApplicationRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The namespace ID. Specify this parameter if you want to filter applications by namespace.
+   * Filters the application list by microservices namespace.
    * 
    * @example
    * cn-beijing:test
@@ -48,7 +48,7 @@ export class ListApplicationRequest extends $dara.Model {
   logicalRegionId?: string;
   /**
    * @remarks
-   * The ID of the namespace that you use in the exact search to filter applications.
+   * Filters applications by exact match of the microservices namespace.
    * 
    * @example
    * cn-beijing:test
@@ -56,7 +56,7 @@ export class ListApplicationRequest extends $dara.Model {
   logicalRegionIdFilter?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page in a paged query.
    * 
    * @example
    * 20
@@ -64,7 +64,7 @@ export class ListApplicationRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group. Specify this parameter if you want to filter applications by resource group.
+   * Filters the application list by resource group.
    * 
    * @example
    * rg-aek24j4s4b*****

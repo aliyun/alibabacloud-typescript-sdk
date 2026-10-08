@@ -15,11 +15,15 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
    * @remarks
    * The import status of the cluster. Valid values:
    * 
-   * *   1: The cluster is imported.
-   * *   2: The cluster fails to be imported.
-   * *   3: The cluster is being imported.
-   * *   4: The cluster is deleted.
-   * *   0: The cluster is not imported.
+   * - 1: The cluster is imported.
+   * 
+   * - 2: The cluster fails to be imported.
+   * 
+   * - 3: The cluster is being imported.
+   * 
+   * - 4: The cluster is deleted.
+   * 
+   * - 0: The cluster is not imported.
    * 
    * @example
    * 0
@@ -37,12 +41,17 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
    * @remarks
    * The type of the cluster. Valid values:
    * 
-   * *   0: regular Docker cluster
-   * *   1: Swarm cluster
-   * *   2: Elastic Compute Service (ECS) cluster
-   * *   3: self-managed Kubernetes cluster in EDAS
-   * *   4: cluster in which Pandora automatically registers applications
-   * *   5: ACK cluster
+   * - 0: regular Docker cluster
+   * 
+   * - 1: Swarm cluster
+   * 
+   * - 2: Elastic Compute Service (ECS) cluster
+   * 
+   * - 3: self-managed Kubernetes cluster in EDAS
+   * 
+   * - 4: cluster in which Pandora automatically registers applications
+   * 
+   * - 5: ACK cluster
    * 
    * @example
    * 2
@@ -116,8 +125,9 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
    * @remarks
    * The network type of the cluster. Valid values:
    * 
-   * *   1: classic network
-   * *   2: virtual private cloud (VPC)
+   * - 1: classic network
+   * 
+   * - 2: virtual private cloud (VPC)
    * 
    * @example
    * 2
@@ -135,10 +145,13 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
    * @remarks
    * The overcommit ratio supported by a Docker cluster. Valid values:
    * 
-   * *   1: 1:1, which means that resources are not overcommitted.
-   * *   2: 1:2, which means that resources are overcommitted by 1:2.
-   * *   4: 1:4, which means that resources are overcommitted by 1:4.
-   * *   8: 1:8, which means that resources are overcommitted by 1:8.
+   * - 1: 1:1, which means that resources are not overcommitted.
+   * 
+   * - 2: 1:2, which means that resources are overcommitted by 1:2.
+   * 
+   * - 4: 1:4, which means that resources are overcommitted by 1:4.
+   * 
+   * - 8: 1:8, which means that resources are overcommitted by 1:8.
    * 
    * @example
    * 2

@@ -113,7 +113,7 @@ export class QueryRegionConfigResponseBodyRegionConfig extends $dara.Model {
    * The configured name of the region.
    * 
    * @example
-   * China (Beijing)
+   * 华北2
    */
   name?: string;
   /**

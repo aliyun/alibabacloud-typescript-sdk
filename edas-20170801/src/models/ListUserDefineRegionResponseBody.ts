@@ -3,82 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserDefineRegionResponseBodyUserDefineRegionListUserDefineRegionEntity extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region to which the namespace belongs.
-   * 
-   * @example
-   * cn-shenzhen
-   */
   belongRegion?: string;
-  /**
-   * @remarks
-   * Indicates whether remote debugging is allowed.
-   * 
-   * @example
-   * false
-   */
   debugEnable?: boolean;
-  /**
-   * @remarks
-   * The description of the namespace.
-   * 
-   * @example
-   * betaappManager
-   */
   description?: string;
-  /**
-   * @remarks
-   * The unique identifier of the namespace.
-   * 
-   * @example
-   * 1330
-   */
   id?: number;
-  /**
-   * @remarks
-   * The type of the registry. Valid values:
-   * 
-   * *   default: shared service registry of Enterprise Distributed Application Service (EDAS)
-   * *   exclusive_mse: Microservices Engine (MSE) Nacos registry
-   * 
-   * @example
-   * default: EDAS
-   */
   mseInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the namespace.
-   * 
-   * > The ID cannot be changed after the namespace is created. The ID is in the `Physical region ID:Logical region identifier` format .
-   * 
-   * @example
-   * cn-shenzhen:betaappManager
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The name of the namespace.
-   * 
-   * @example
-   * betaappManager
-   */
   regionName?: string;
-  /**
-   * @remarks
-   * The ID of the MSE instance.
-   * 
-   * @example
-   * mse_prepaid_public_cn-tl32n******
-   */
   registryType?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the namespace belongs.
-   * 
-   * @example
-   * edas_****_test@aliyun-****.com
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -146,7 +78,7 @@ export class ListUserDefineRegionResponseBodyUserDefineRegionList extends $dara.
 export class ListUserDefineRegionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status of the API call or a POP error code.
    * 
    * @example
    * 200
@@ -154,7 +86,7 @@ export class ListUserDefineRegionResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * Additional information.
    * 
    * @example
    * success
@@ -168,10 +100,6 @@ export class ListUserDefineRegionResponseBody extends $dara.Model {
    * b197-40ab-9155-****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The namespaces.
-   */
   userDefineRegionList?: ListUserDefineRegionResponseBodyUserDefineRegionList;
   static names(): { [key: string]: string } {
     return {

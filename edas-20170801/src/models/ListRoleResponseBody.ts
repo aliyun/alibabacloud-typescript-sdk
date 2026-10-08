@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRoleResponseBodyRoleListRoleItemActionListAction extends $dara.Model {
-  /**
-   * @remarks
-   * The serial number of the permission that is granted to the role.
-   * 
-   * @example
-   * 1
-   */
   code?: string;
-  /**
-   * @remarks
-   * The description of the permission to be granted to the role.
-   * 
-   * @example
-   * Operations in operation records
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the permission group to which the permission that is granted to the role belongs.
-   * 
-   * @example
-   * 31
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the permission to be granted to the role.
-   * 
-   * @example
-   * Operation records
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,53 +61,11 @@ export class ListRoleResponseBodyRoleListRoleItemActionList extends $dara.Model 
 }
 
 export class ListRoleResponseBodyRoleListRoleItemRole extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * test**@aliyun.com
-   */
   adminUserId?: string;
-  /**
-   * @remarks
-   * The timestamp when the role was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1542717260156
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The ID of the role.
-   * 
-   * @example
-   * 1
-   */
   id?: number;
-  /**
-   * @remarks
-   * Indicates whether the role is a default role.
-   * 
-   * @example
-   * false
-   */
   isDefault?: boolean;
-  /**
-   * @remarks
-   * The name of the role.
-   * 
-   * @example
-   * Super Admin(All privileges)
-   */
   name?: string;
-  /**
-   * @remarks
-   * The timestamp when the role was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1542717260156
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -169,15 +99,7 @@ export class ListRoleResponseBodyRoleListRoleItemRole extends $dara.Model {
 }
 
 export class ListRoleResponseBodyRoleListRoleItem extends $dara.Model {
-  /**
-   * @remarks
-   * The set of permissions to be granted to the role.
-   */
   actionList?: ListRoleResponseBodyRoleListRoleItemActionList;
-  /**
-   * @remarks
-   * The roles.
-   */
   role?: ListRoleResponseBodyRoleListRoleItemRole;
   static names(): { [key: string]: string } {
     return {
@@ -259,10 +181,6 @@ export class ListRoleResponseBody extends $dara.Model {
    * 57609587-DFA2-41EC-****-*********
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The roles.
-   */
   roleList?: ListRoleResponseBodyRoleList;
   static names(): { [key: string]: string } {
     return {

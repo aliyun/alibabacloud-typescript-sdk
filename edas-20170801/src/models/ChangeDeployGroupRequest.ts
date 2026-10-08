@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeDeployGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ChangeDeployGroupRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the elastic compute component (ECC) that corresponds to the ECS instance for which you want to change the application instance group. You can call the ListApplicationEcc operation to query the ECC ID. For more information, see [ListApplicationEcc](https://help.aliyun.com/document_detail/199277.html).
+   * The Elastic Compute Container (ECC) ID of the ECS instance whose group you want to change. Call the ListApplicationEcc operation to query the ECC ID of an application. For more information, see [ListApplicationEcc](https://help.aliyun.com/document_detail/199277.html).
    * 
-   * > You can change the application instance group for only one ECS instance at a time.
+   * > You can change the group for only one ECS instance at a time.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class ChangeDeployGroupRequest extends $dara.Model {
   eccInfo?: string;
   /**
    * @remarks
-   * Specifies whether to forcibly change the application instance group if the deployment package version of the ECC is different from that of the application instance group.
+   * Specifies whether to force the change when the deployment package version of the ECC is different from the deployment package version of the application group.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class ChangeDeployGroupRequest extends $dara.Model {
   forceStatus?: boolean;
   /**
    * @remarks
-   * The name of the application instance group. Examples: group_a and group_b. The parameter value for the default application instance group is `_DEFAULT_GROUP`. The name can be up to 64 characters in length.
+   * The name of the application group, such as \\`group_a\\` and \\`group_b\\`. The GroupName for the default group is `_DEFAULT_GROUP`. The name can be up to 64 characters long.
    * 
    * This parameter is required.
    * 

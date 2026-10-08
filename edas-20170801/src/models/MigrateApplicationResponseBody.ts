@@ -2,31 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StartK8sAppPrecheckResponseBodyData extends $dara.Model {
+export class MigrateApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The jobs and the details about the jobs.
+   * The migration ID.
    * 
    * @example
-   * Cluster health check.
+   * a3de82d7-83a4-4cca-8d1e-63f87651ce78
    */
-  jobs?: string[];
+  migrationId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobs: 'Jobs',
+      migrationId: 'migrationId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobs: { 'type': 'array', 'itemType': 'string' },
+      migrationId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.jobs)) {
-      $dara.Model.validateArray(this.jobs);
-    }
     super.validate();
   }
 
@@ -35,10 +32,10 @@ export class StartK8sAppPrecheckResponseBodyData extends $dara.Model {
   }
 }
 
-export class StartK8sAppPrecheckResponseBody extends $dara.Model {
+export class MigrateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -46,12 +43,7 @@ export class StartK8sAppPrecheckResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
-   */
-  data?: StartK8sAppPrecheckResponseBodyData;
-  /**
-   * @remarks
-   * The returned message.
+   * The additional information.
    * 
    * @example
    * success
@@ -59,27 +51,22 @@ export class StartK8sAppPrecheckResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7638276F-****-****-884F-54CC0BC84A8D
+   * The API information.
    */
-  requestId?: string;
+  data?: MigrateApplicationResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      data: 'data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: StartK8sAppPrecheckResponseBodyData,
       message: 'string',
-      requestId: 'string',
+      data: MigrateApplicationResponseBodyData,
     };
   }
 

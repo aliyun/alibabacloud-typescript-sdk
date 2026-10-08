@@ -96,7 +96,7 @@ export class QueryApplicationStatusResponseBodyAppInfoApplication extends $dara.
    * The name of the application.
    * 
    * @example
-   * EDAS-scaled-cluster:default cluster
+   * EDAS-scaled-cluster：默认集群
    */
   name?: string;
   /**
@@ -203,53 +203,11 @@ export class QueryApplicationStatusResponseBodyAppInfoApplication extends $dara.
 }
 
 export class QueryApplicationStatusResponseBodyAppInfoDeployRecordListDeployRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the deployment record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573626226691
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The ID of the deployment record.
-   * 
-   * @example
-   * bbc6c0d5-d792-4907-****-************
-   */
   deployRecordId?: string;
-  /**
-   * @remarks
-   * The unique ID of the ECC.
-   * 
-   * @example
-   * 0cf49a6c-95a8-4aa8-****-************
-   */
   eccId?: string;
-  /**
-   * @remarks
-   * The unique ID of the ECU.
-   * 
-   * @example
-   * 07bd417a-b863-477d-****-************
-   */
   ecuId?: string;
-  /**
-   * @remarks
-   * The MD5 hash value of the deployment package.
-   * 
-   * @example
-   * d0db5bcb442e492104d0f00e10a03dd9
-   */
   packageMd5?: string;
-  /**
-   * @remarks
-   * The version of the deployment package that was used to deploy an application in the instance group.
-   * 
-   * @example
-   * 441beb18-da42-44dc-****-************
-   */
   packageVersionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -309,103 +267,16 @@ export class QueryApplicationStatusResponseBodyAppInfoDeployRecordList extends $
 }
 
 export class QueryApplicationStatusResponseBodyAppInfoEccListEcc extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 3616cdca-4f92-4413-****-************
-   */
   appId?: string;
-  /**
-   * @remarks
-   * The status of the application instance. Valid values:
-   * 
-   * *   0: AGENT_OFF: indicates that the agent is offline.
-   * *   1: STOPPED: indicates that the application is stopped.
-   * *   3: RUNNING_BUT_URL_FAILED: indicates that the health check failed.
-   * *   7: RUNNING: indicates that the application is running.
-   * 
-   * @example
-   * 7
-   */
   appState?: number;
-  /**
-   * @remarks
-   * The status of the container.
-   * 
-   * @example
-   * “”
-   */
   containerStatus?: string;
-  /**
-   * @remarks
-   * The time when the ECC was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573626226691
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The unique ID of the ECC.
-   * 
-   * @example
-   * 0cf49a6c-95a8-4aa8-****-************
-   */
   eccId?: string;
-  /**
-   * @remarks
-   * The unique ID of the ECU.
-   * 
-   * @example
-   * 07bd417a-b863-477d-****-************
-   */
   ecuId?: string;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * 8123db90-880f-486f-****-************
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The private IP address of the ECU.
-   * 
-   * @example
-   * 172.16.*.***
-   */
   ip?: string;
-  /**
-   * @remarks
-   * The state of the latest task initiated on the application instance. Valid values:
-   * 
-   * *   0: UNKNOWN: indicates that the state of the latest task is unknown.
-   * *   1: PROCESSING: indicates that the latest task is being processed.
-   * *   2: SUCCESS: indicates that the latest task is executed.
-   * *   3: FAILED: indicates that the latest task failed.
-   * 
-   * @example
-   * 3
-   */
   taskState?: number;
-  /**
-   * @remarks
-   * The time when the ECC was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573635952012
-   */
   updateTime?: number;
-  /**
-   * @remarks
-   * The ID of the VPC.
-   * 
-   * @example
-   * vpc-wz9b246zg************
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -475,133 +346,21 @@ export class QueryApplicationStatusResponseBodyAppInfoEccList extends $dara.Mode
 }
 
 export class QueryApplicationStatusResponseBodyAppInfoEcuListEcu extends $dara.Model {
-  /**
-   * @remarks
-   * The number of available CPU cores.
-   * 
-   * @example
-   * 0
-   */
   availableCpu?: number;
-  /**
-   * @remarks
-   * The size of the available memory.
-   * 
-   * @example
-   * 0
-   */
   availableMem?: number;
-  /**
-   * @remarks
-   * The time when the ECU was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573626207270
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * Indicates whether Docker is installed.
-   * 
-   * @example
-   * false
-   */
   dockerEnv?: boolean;
-  /**
-   * @remarks
-   * The unique ID of the ECU. You can run the `dmidecode` command on the ECS instance to query the ECU ID.
-   * 
-   * @example
-   * 07bd417a-b863-477d-****-************
-   */
   ecuId?: string;
-  /**
-   * @remarks
-   * The ID of the group.
-   * 
-   * @example
-   * 8123db90-880f-486f-****-************
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The time when the last heartbeat detection was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573635952012
-   */
   heartbeatTime?: number;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-wz9fp1ljg***********
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The private IP address of the ECU.
-   * 
-   * @example
-   * 172.16.*.**
-   */
   ipAddr?: string;
-  /**
-   * @remarks
-   * The name of the ECU.
-   * 
-   * @example
-   * EDAS-scaled-cluster: default cluster
-   */
   name?: string;
-  /**
-   * @remarks
-   * Indicates whether the ECU is online.
-   * 
-   * @example
-   * true
-   */
   online?: boolean;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-shen****-*
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The time when the ECU was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573635952012
-   */
   updateTime?: number;
-  /**
-   * @remarks
-   * The ID of the user associated with the ECU.
-   * 
-   * @example
-   * edas_com***_****@******-*****.***
-   */
   userId?: string;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC).
-   * 
-   * @example
-   * vpc-wz9b246zg************
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The ID of the zone.
-   * 
-   * @example
-   * cn-shen****-*
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -681,81 +440,14 @@ export class QueryApplicationStatusResponseBodyAppInfoEcuList extends $dara.Mode
 }
 
 export class QueryApplicationStatusResponseBodyAppInfoGroupListGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 3616cdca-4f92-4413-****-************
-   */
   appId?: string;
-  /**
-   * @remarks
-   * The ID of the change process for application deployment in the instance group.
-   * 
-   * @example
-   * changeorder_a**_*******_**
-   */
   appVersionId?: string;
-  /**
-   * @remarks
-   * The ID of the cluster.
-   * 
-   * @example
-   * 0d247b93-8d62-4e34-****-************
-   */
   clusterId?: string;
-  /**
-   * @remarks
-   * The time when the instance group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573626155185
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * 8123db90-880f-486f-****-************
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the instance group.
-   * 
-   * @example
-   * _DEFAULT_GROUP
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The type of the instance group. Valid values:
-   * 
-   * *   0: default group
-   * *   1: self-managed group
-   * *   2: canary release group
-   * 
-   * @example
-   * 0
-   */
   groupType?: number;
-  /**
-   * @remarks
-   * The version of the deployment package that was used to deploy an application in the instance group.
-   * 
-   * @example
-   * 441beb18-da42-44dc-****-************
-   */
   packageVersionId?: string;
-  /**
-   * @remarks
-   * The time when the instance group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573627441388
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -826,25 +518,9 @@ export class QueryApplicationStatusResponseBodyAppInfo extends $dara.Model {
    * The basic information about the application.
    */
   application?: QueryApplicationStatusResponseBodyAppInfoApplication;
-  /**
-   * @remarks
-   * The information about deployment records.
-   */
   deployRecordList?: QueryApplicationStatusResponseBodyAppInfoDeployRecordList;
-  /**
-   * @remarks
-   * The information about elastic compute containers (ECCs).
-   */
   eccList?: QueryApplicationStatusResponseBodyAppInfoEccList;
-  /**
-   * @remarks
-   * The information about elastic compute units (ECUs).
-   */
   ecuList?: QueryApplicationStatusResponseBodyAppInfoEcuList;
-  /**
-   * @remarks
-   * The information about the instance groups.
-   */
   groupList?: QueryApplicationStatusResponseBodyAppInfoGroupList;
   static names(): { [key: string]: string } {
     return {

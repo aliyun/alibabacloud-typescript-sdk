@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * cfac****-847e-4325-ad56-b5c2bc54****
@@ -13,14 +13,17 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The current status of the Kubernetes application, which is used to determine whether the application is in a stable state. If the application is in an unstable state, related configuration operations are prohibited. Valid values:
+   * The current phase of the Kubernetes application. This helps determine if the application is stable. Configuration operations are prohibited when the application is in an unstable state.
    * 
-   * *   ready: The application is in the ready state and can be changed.
-   * *   progressive: The application is being changed.
-   * *   pending: The application change is blocked.
-   * *   failed: The application fails to be changed.
+   * - ready: The application is ready and can be changed.
    * 
-   * In these states, ready is a stable state and other states are unstable.
+   * - progressing: The application is being changed.
+   * 
+   * - pending: The application change is blocked.
+   * 
+   * - failed: The application change failed.
+   * 
+   * The ready phase is stable. Other phases are unstable.
    * 
    * @example
    * ready
@@ -28,11 +31,13 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appPhase?: string;
   /**
    * @remarks
-   * The deployment type of the application. Valid values:
+   * The deployment type of the application:
    * 
-   * *   War: The application is deployed by using a WAR package.
-   * *   FatJar: The application is deployed by using a JAR package.
-   * *   Empty: The application is not deployed.
+   * - War: The application is deployed from a WAR package.
+   * 
+   * - FatJar: The application is deployed from a JAR package.
+   * 
+   * - Empty: The application is not deployed.
    * 
    * @example
    * FatJar
@@ -40,7 +45,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * The build package number of Enterprise Distributed Application Service (EDAS) Container.
+   * The ID of the container version.
    * 
    * @example
    * 59
@@ -48,7 +53,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   buildPackageId?: number;
   /**
    * @remarks
-   * The ID of the ECS cluster in which the application is deployed.
+   * The ID of the ECS cluster where the application is deployed.
    * 
    * @example
    * 5ffc5895-****-b03a-c223c6c3****
@@ -56,13 +61,17 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values:
+   * The type of the application cluster:
    * 
-   * *   0: regular Docker cluster
-   * *   1: Swarm cluster
-   * *   2: ECS cluster
-   * *   3: Kubernetes cluster
-   * *   4: cluster in which Pandora automatically registers applications
+   * - 0: A regular Docker cluster.
+   * 
+   * - 1: A Swarm cluster.
+   * 
+   * - 2: An ECS cluster.
+   * 
+   * - 3: A Kubernetes cluster.
+   * 
+   * - 4: A Pandora application cluster that supports automatic registration.
    * 
    * @example
    * 2
@@ -78,7 +87,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The time when the application was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp when the application was created.
    * 
    * @example
    * 1610550324226
@@ -94,10 +103,11 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the application is a Docker application. Valid values:
+   * Indicates whether the application is a Docker application:
    * 
-   * *   false: The application is not a Docker application.
-   * *   true: The application is a Docker application.
+   * - false: The application is not a Docker application.
+   * 
+   * - true: The application is a Docker application.
    * 
    * @example
    * false
@@ -105,20 +115,21 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   dockerize?: boolean;
   /**
    * @remarks
-   * The email address of the account.
+   * The email address.
    * 
    * @example
-   * xxxx@gmail.com
+   * ****@***.com
    */
   email?: string;
   /**
    * @remarks
-   * Indicates whether the port health check is enabled. Valid values:
+   * Indicates whether the port health check is enabled:
    * 
-   * *   true: The port health check is enabled.
-   * *   false: The port health check is disabled.
+   * - true: Enabled.
    * 
-   * If the port health check is enabled, EDAS checks whether a port exists during application startup. If the port exists, the application is considered to have started.
+   * - false: Disabled.
+   * 
+   * If enabled, EDAS checks if the port is in use during application startup. If the port is in use, the application is considered started.
    * 
    * @example
    * false
@@ -126,12 +137,13 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   enablePortCheck?: boolean;
   /**
    * @remarks
-   * Indicates whether the URL health check is enabled. Valid values:
+   * Indicates whether the URL health check is enabled:
    * 
-   * *   true: The URL health check is enabled.
-   * *   false: The URL health check is disabled.
+   * - true: Enabled.
    * 
-   * If the URL health check is enabled, EDAS attempts to detect the specified URL during application startup. If EDAS detects the specified URL, the application is considered to have started.
+   * - false: Disabled.
+   * 
+   * If enabled, EDAS probes the specified URL during application startup. If the URL is accessible, the application is considered started.
    * 
    * @example
    * false
@@ -139,7 +151,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   enableUrlCheck?: boolean;
   /**
    * @remarks
-   * The ID of the Internet-facing SLB instance that is bound to the application.
+   * The ID of the public-facing SLB instance attached to the application.
    * 
    * @example
    * lb-bp1vceck3s3b9xs6x****
@@ -147,7 +159,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   extSlbId?: string;
   /**
    * @remarks
-   * The IP address of the Internet-facing Server Load Balancer (SLB) instance that is bound to the application.
+   * The public IP address of the SLB instance attached to the application.
    * 
    * @example
    * 47.114.xxx.xx
@@ -155,12 +167,19 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   extSlbIp?: string;
   /**
    * @remarks
-   * The name of the Internet-facing SLB instance that is bound to the application.
+   * The name of the public-facing SLB instance attached to the application.
    * 
    * @example
    * aa8eee383db084f42aebc4d9f52c****
    */
   extSlbName?: string;
+  /**
+   * @remarks
+   * Indicates whether the current user has management permissions on the application. This parameter is available only in RAM authentication mode.
+   * 
+   * @example
+   * true
+   */
   haveManageAccess?: string;
   /**
    * @remarks
@@ -172,7 +191,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   healthCheckUrl?: string;
   /**
    * @remarks
-   * The number of instances deployed with the application.
+   * The number of instances in the application.
    * 
    * @example
    * 1
@@ -180,7 +199,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The memory size of the application instance. Unit: MB.
+   * The memory size for the application instance, in MB.
    * 
    * @example
    * 0
@@ -204,7 +223,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   nameSpace?: string;
   /**
    * @remarks
-   * The ID of the user who created the application.
+   * The creator of the application.
    * 
    * @example
    * ouou@117274586608****
@@ -220,16 +239,23 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The ID of the region in which the application is deployed.
+   * The ID of the region where the application is located.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aekz****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of running instances for the application.
+   * The number of running application instances.
    * 
    * @example
    * 1
@@ -237,7 +263,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   runningInstanceCount?: number;
   /**
    * @remarks
-   * The ID of the internal-facing SLB instance that is bound to the application.
+   * The ID of the internal-facing SLB instance attached to the application.
    * 
    * @example
    * lb-bp****ck3s3b9xs6x****
@@ -245,7 +271,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The information about the internal-facing SLB instance that is bound to the application.
+   * Information about the internal-facing SLB instance attached to the application.
    * 
    * @example
    * test
@@ -253,15 +279,15 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   slbInfo?: string;
   /**
    * @remarks
-   * The IP address of the internal-facing SLB instance that is bound to the application.
+   * The IP address of the internal-facing SLB instance attached to the application.
    * 
    * @example
-   * 192.168.0.100
+   * 192.***.***.***
    */
   slbIp?: string;
   /**
    * @remarks
-   * The name of the internal-facing SLB instance that is bound to the application.
+   * The name of the internal-facing SLB instance attached to the application.
    * 
    * @example
    * test
@@ -269,7 +295,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   slbName?: string;
   /**
    * @remarks
-   * The port of the internal-facing SLB instance that is bound to the application.
+   * The port of the internal-facing SLB instance attached to the application.
    * 
    * @example
    * 80
@@ -283,6 +309,13 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * test@dd******
    */
   userId?: string;
+  /**
+   * @remarks
+   * The workload type used to create the application. Supported types are Deployment and StatefulSet. This parameter does not apply to ECS applications.
+   * 
+   * @example
+   * StatefulSet
+   */
   workloadType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -374,12 +407,12 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
 export class GetApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the application.
+   * The application information.
    */
   application?: GetApplicationResponseBodyApplication;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -387,7 +420,7 @@ export class GetApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The additional information.
    * 
    * @example
    * success
@@ -395,7 +428,7 @@ export class GetApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F8DFGED-K98***************

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSwimmingLaneRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of applications that are related to the lane.
+   * A list of applications associated with the swimming lane.
    * 
    * @example
    * [{"appId":"8e7689af-6ddd-4676-8ee6-5fbecdf2****"},{"appId":"f72deaac-26ba-429a-948d-5fa47c4a****"},{"appId":"99a2d4b5-99a5-4e25-a964-1bd03a17****"}]
@@ -13,7 +13,7 @@ export class UpdateSwimmingLaneRequest extends $dara.Model {
   appInfos?: string;
   /**
    * @remarks
-   * Specifies whether to enable the throttling rule.
+   * Specifies whether the throttling rule is enabled.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class UpdateSwimmingLaneRequest extends $dara.Model {
   entryRules?: string;
   /**
    * @remarks
-   * The ID of the lane.
+   * The ID of the swimming lane.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateSwimmingLaneRequest extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The name of the lane.
+   * The name of the swimming lane.
    * 
    * @example
    * test-swimlane

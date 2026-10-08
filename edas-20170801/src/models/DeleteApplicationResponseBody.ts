@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The ID of the change flow.
    * 
    * @example
    * 0b8e3c0b-5818-430*************
@@ -13,7 +13,7 @@ export class DeleteApplicationResponseBody extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status of the call or a POP error code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeleteApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * Additional information.
    * 
    * @example
    * success

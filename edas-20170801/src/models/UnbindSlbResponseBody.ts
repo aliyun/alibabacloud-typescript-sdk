@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindSlbResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UnbindSlbResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * This parameter is left empty. It has no meaning.
+   * This parameter is not used.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class UnbindSlbResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message that is returned.
+   * The message returned.
    * 
    * @example
    * Unbind slb success

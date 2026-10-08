@@ -17,11 +17,11 @@ export class UpdateJvmConfigurationRequest extends $dara.Model {
    * @remarks
    * The ID of the instance group where the application is deployed. You can call the ListDeployGroup operation to query the group ID. For more information, see [ListDeployGroup](https://help.aliyun.com/document_detail/62077.html).
    * 
-   * > 
+   * >
    * 
-   * *   To configure the JVM parameters for an instance group, set this parameter to a specific ID.
+   * - To configure the JVM parameters for an instance group, set this parameter to a specific ID.
    * 
-   * *   To configure the JVM parameters for an application, leave this parameter empty.
+   * - To configure the JVM parameters for an application, leave this parameter empty.
    * 
    * @example
    * 0afc726e-077e-4357-98b2-db9f7145****
@@ -31,11 +31,11 @@ export class UpdateJvmConfigurationRequest extends $dara.Model {
    * @remarks
    * The maximum size of the heap memory. Unit: MB.
    * 
-   * > 
+   * >
    * 
-   * *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+   * - If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
    * 
-   * *   If this parameter is not specified in the application configuration, the default value is used.
+   * - If this parameter is not specified in the application configuration, the default value is used.
    * 
    * @example
    * 500
@@ -45,11 +45,11 @@ export class UpdateJvmConfigurationRequest extends $dara.Model {
    * @remarks
    * The size of the permanent generation heap memory. Unit: MB.
    * 
-   * > 
+   * >
    * 
-   * *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+   * - If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
    * 
-   * *   If this parameter is not specified in the application configuration, the default value is used.
+   * - If this parameter is not specified in the application configuration, the default value is used.
    * 
    * @example
    * 1000
@@ -59,11 +59,11 @@ export class UpdateJvmConfigurationRequest extends $dara.Model {
    * @remarks
    * The initial size of the heap memory. Unit: MB.
    * 
-   * > 
+   * >
    * 
-   * *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+   * - If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
    * 
-   * *   If this parameter is not specified in the application configuration, the default value is used.
+   * - If this parameter is not specified in the application configuration, the default value is used.
    * 
    * @example
    * 500
@@ -73,11 +73,11 @@ export class UpdateJvmConfigurationRequest extends $dara.Model {
    * @remarks
    * The custom JVM parameters.
    * 
-   * > 
+   * >
    * 
-   * *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+   * - If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
    * 
-   * *   If this parameter is not specified in the application configuration, the default value is used.
+   * - If this parameter is not specified in the application configuration, the default value is used.
    * 
    * @example
    * -Dproperty=value

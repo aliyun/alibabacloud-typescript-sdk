@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeployK8sApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process. You can call the GetChangeOrderInfo operation to query the change process ID. For more information, see [GetChangeOrderInfo](https://help.aliyun.com/document_detail/62072.html).
+   * The ID of the change process. You can call the GetChangeOrderInfo operation to obtain it. For more information, see [GetChangeOrderInfo](https://help.aliyun.com/document_detail/62072.html).
    * 
    * @example
    * cd65b247-****-475b-ad4b-7039040d625c
@@ -13,7 +13,7 @@ export class DeployK8sApplicationResponseBody extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status of the interface or a POP error code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeployK8sApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * Additional information.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class DeployK8sApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * a5281053-08e4-47a5-b2ab-5c0323de*****

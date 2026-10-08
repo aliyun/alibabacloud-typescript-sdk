@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMigrateRegionListResponseBodyRegionEntityListRegionEntity extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the namespace.
-   * 
-   * @example
-   * Beta
-   */
   regionName?: string;
-  /**
-   * @remarks
-   * The ID of the namespace.
-   * 
-   * @example
-   * cn-beijing:beta
-   */
   regionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,10 +71,6 @@ export class QueryMigrateRegionListResponseBody extends $dara.Model {
    * success
    */
   message?: string;
-  /**
-   * @remarks
-   * The namespaces.
-   */
   regionEntityList?: QueryMigrateRegionListResponseBodyRegionEntityList;
   /**
    * @remarks

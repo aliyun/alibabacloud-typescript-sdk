@@ -17,8 +17,9 @@ export class DescribeAppInstanceListRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return the information about the node in which the pod resides.
    * 
-   * *   `true`: returns the information about the node in which the pod resides
-   * *   `false`: does not return the information about the node in which the pod resides
+   * - `true`: returns the information about the node in which the pod resides
+   * 
+   * - `false`: does not return the information about the node in which the pod resides
    * 
    * @example
    * true

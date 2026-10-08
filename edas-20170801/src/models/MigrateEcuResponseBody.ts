@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateEcuResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code of the API call.
    * 
    * @example
    * 200
@@ -13,10 +13,11 @@ export class MigrateEcuResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * The data returned.
    * 
-   * *   true: The request is successful.
-   * *   false: The request fails.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class MigrateEcuResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -32,7 +33,7 @@ export class MigrateEcuResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04B0ABAF-95F2-42B6-A7B1****

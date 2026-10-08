@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserDefineRegionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether remote debugging is allowed.
+   * Indicates whether remote debugging is allowed.
    * 
    * @example
    * false

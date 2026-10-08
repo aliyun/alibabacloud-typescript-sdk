@@ -15,8 +15,9 @@ export class InsertOrUpdateRegionResponseBodyUserDefineRegionEntity extends $dar
    * @remarks
    * Indicates whether remote debugging is enabled. Valid values:
    * 
-   * *   true: Remote debugging is enabled.
-   * *   false: Remote debugging is disabled.
+   * - true: Remote debugging is enabled.
+   * 
+   * - false: Remote debugging is disabled.
    * 
    * @example
    * false
@@ -42,8 +43,9 @@ export class InsertOrUpdateRegionResponseBodyUserDefineRegionEntity extends $dar
    * @remarks
    * The ID of the namespace.
    * 
-   * *   The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: cn-beijing:tdy218.
-   * *   The ID of the default namespace is in the `region ID` format. Example: cn-beijing.
+   * - The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: cn-beijing:tdy218.
+   * 
+   * - The ID of the default namespace is in the `region ID` format. Example: cn-beijing.
    * 
    * @example
    * cn-beijing:test

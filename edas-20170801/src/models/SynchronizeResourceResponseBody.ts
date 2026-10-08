@@ -39,8 +39,9 @@ export class SynchronizeResourceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the resources are synchronized. Valid values:
    * 
-   * *   **true**: The resources are synchronized.
-   * *   **false**: The resources fail to be synchronized.
+   * - **true**: The resources are synchronized.
+   * 
+   * - **false**: The resources fail to be synchronized.
    * 
    * @example
    * true

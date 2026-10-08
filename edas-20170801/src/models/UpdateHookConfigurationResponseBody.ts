@@ -7,8 +7,9 @@ export class UpdateHookConfigurationResponseBodyHooksConfiguration extends $dara
    * @remarks
    * Indicates whether a mount failure is ignored. Valid values:
    * 
-   * *   **true**: A mount failure is ignored.
-   * *   **false**: A mount failure is not ignored.
+   * - **true**: A mount failure is ignored.
+   * 
+   * - **false**: A mount failure is not ignored.
    * 
    * @example
    * true

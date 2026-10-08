@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetK8sClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the Kubernetes cluster. Valid values:
+   * The type of the Kubernetes cluster:
    * 
-   * *   5: ACK cluster
-   * *   7: self-managed Kubernetes cluster
+   * - 5: an ACK cluster.
+   * 
+   * - 7: a self-managed Kubernetes cluster.
    * 
    * @example
    * 5
@@ -16,7 +17,7 @@ export class GetK8sClusterRequest extends $dara.Model {
   clusterType?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The number of the page to return for a paged query. The default value is 1.
    * 
    * @example
    * 1
@@ -24,7 +25,7 @@ export class GetK8sClusterRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 1000.
+   * The number of entries to return on each page for a paged query. The default value is 1000.
    * 
    * @example
    * 10
@@ -32,7 +33,7 @@ export class GetK8sClusterRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region.
    * 
    * This parameter is required.
    * 
@@ -42,10 +43,11 @@ export class GetK8sClusterRequest extends $dara.Model {
   regionTag?: string;
   /**
    * @remarks
-   * The subtype of the cluster. Valid values:
+   * The subtype of the cluster:
    * 
-   * *   Ask: Serverless Kubernetes cluster
-   * *   ManagedKubernetes: ACK cluster
+   * - Ask: an ASK cluster.
+   * 
+   * - ManagedKubernetes: an ACK cluster.
    * 
    * @example
    * Ask

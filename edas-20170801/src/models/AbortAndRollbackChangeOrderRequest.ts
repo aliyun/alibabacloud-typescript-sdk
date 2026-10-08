@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AbortAndRollbackChangeOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The ID of the change order.
    * 
    * This parameter is required.
    * 

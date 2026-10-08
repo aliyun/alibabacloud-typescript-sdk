@@ -17,8 +17,9 @@ export class GetContainerConfigurationRequest extends $dara.Model {
    * @remarks
    * The ID of the instance group.
    * 
-   * *   If this parameter is specified, this operation queries the Tomcat configuration of the instance group.
-   * *   If this parameter is not specified, this operation queries the Tomcat configuration of the application.
+   * - If this parameter is specified, this operation queries the Tomcat configuration of the instance group.
+   * 
+   * - If this parameter is not specified, this operation queries the Tomcat configuration of the application.
    * 
    * @example
    * 8123db90-880f-**************

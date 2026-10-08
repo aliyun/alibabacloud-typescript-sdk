@@ -215,6 +215,7 @@ export { ListUserDefineRegionResponseBodyUserDefineRegionListUserDefineRegionEnt
 export { ListUserDefineRegionResponseBodyUserDefineRegionList } from './ListUserDefineRegionResponseBody';
 export { ListVpcResponseBodyVpcListVpcEntity } from './ListVpcResponseBody';
 export { ListVpcResponseBodyVpcList } from './ListVpcResponseBody';
+export { MigrateApplicationResponseBodyData } from './MigrateApplicationResponseBody';
 export { QueryApplicationStatusResponseBodyAppInfoApplication } from './QueryApplicationStatusResponseBody';
 export { QueryApplicationStatusResponseBodyAppInfoDeployRecordListDeployRecord } from './QueryApplicationStatusResponseBody';
 export { QueryApplicationStatusResponseBodyAppInfoDeployRecordList } from './QueryApplicationStatusResponseBody';
@@ -570,6 +571,9 @@ export { ListUserDefineRegionResponseBody } from './ListUserDefineRegionResponse
 export { ListUserDefineRegionResponse } from './ListUserDefineRegionResponse';
 export { ListVpcResponseBody } from './ListVpcResponseBody';
 export { ListVpcResponse } from './ListVpcResponse';
+export { MigrateApplicationRequest } from './MigrateApplicationRequest';
+export { MigrateApplicationResponseBody } from './MigrateApplicationResponseBody';
+export { MigrateApplicationResponse } from './MigrateApplicationResponse';
 export { MigrateEcuRequest } from './MigrateEcuRequest';
 export { MigrateEcuResponseBody } from './MigrateEcuResponseBody';
 export { MigrateEcuResponse } from './MigrateEcuResponse';

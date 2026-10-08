@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeDeployGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The ID of the change flow.
    * 
    * @example
    * 435f-regfr4********************
@@ -13,7 +13,7 @@ export class ChangeDeployGroupResponseBody extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ChangeDeployGroupResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class ChangeDeployGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F9E4-FDS4-****************

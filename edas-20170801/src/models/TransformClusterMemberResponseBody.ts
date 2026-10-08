@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransformClusterMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code of the response.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class TransformClusterMemberResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * `Transform submit success!` is returned if the request is successful.
+   * The data returned. If the request is successful, `Transform submit success!` is returned.
    * 
    * @example
    * Transform submit success!
@@ -21,7 +21,7 @@ export class TransformClusterMemberResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The returned message.
    * 
    * @example
    * success

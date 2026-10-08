@@ -33,8 +33,9 @@ export class UnbindK8sSlbRequest extends $dara.Model {
    * @remarks
    * The type of the SLB instance. Valid values:
    * 
-   * *   **internet**: Internet-facing SLB instance
-   * *   **intranet**: internal-facing SLB instance
+   * - **internet**: Internet-facing SLB instance
+   * 
+   * - **intranet**: internal-facing SLB instance
    * 
    * This parameter is required.
    * 

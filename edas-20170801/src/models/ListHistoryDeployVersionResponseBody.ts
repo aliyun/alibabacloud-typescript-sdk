@@ -3,74 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListHistoryDeployVersionResponseBodyPackageVersionListPackageVersion extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 3616cdca-4f92-4413-****-************
-   */
   appId?: string;
-  /**
-   * @remarks
-   * The time when the deployment package was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573627440892
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The description of the deployment package.
-   * 
-   * @example
-   * deploy
-   */
   description?: string;
-  /**
-   * @remarks
-   * The unique ID of the deployment package.
-   * 
-   * @example
-   * 441beb18-da42-44dc-****-************
-   */
   id?: string;
-  /**
-   * @remarks
-   * The version of the application that was released by using the deployment package. This version can be used to call the RollbackApplication operation.
-   * 
-   * @example
-   * 1.0
-   */
   packageVersion?: string;
-  /**
-   * @remarks
-   * The URL of the deployment package.
-   */
   publicUrl?: string;
-  /**
-   * @remarks
-   * The deployment mode of the application. Valid values:
-   * 
-   * *   url: The application is deployed by using a JAR or WAR package.
-   * *   image: The application is deployed by using an image.
-   * 
-   * @example
-   * url
-   */
   type?: string;
-  /**
-   * @remarks
-   * The time when the deployment package was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573627440892
-   */
   updateTime?: number;
-  /**
-   * @remarks
-   * The URL of the deployment package.
-   */
   warUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -152,10 +92,6 @@ export class ListHistoryDeployVersionResponseBody extends $dara.Model {
    * success
    */
   message?: string;
-  /**
-   * @remarks
-   * The information about historical deployment packages.
-   */
   packageVersionList?: ListHistoryDeployVersionResponseBodyPackageVersionList;
   /**
    * @remarks

@@ -7,8 +7,9 @@ export class GetK8sAppPrecheckResultResponseBodyDataJobResults extends $dara.Mod
    * @remarks
    * Specifies whether the precheck of the item was interrupted:
    * 
-   * *   true: The precheck of the item was interrupted.
-   * *   false: The precheck of the item was not interrupted.
+   * - true: The precheck of the item was interrupted.
+   * 
+   * - false: The precheck of the item was not interrupted.
    * 
    * @example
    * false
@@ -26,8 +27,9 @@ export class GetK8sAppPrecheckResultResponseBodyDataJobResults extends $dara.Mod
    * @remarks
    * Indicates whether the precheck item passed the precheck:
    * 
-   * *   true: The precheck item passed the precheck.
-   * *   false: The precheck item failed the precheck.
+   * - true: The precheck item passed the precheck.
+   * 
+   * - false: The precheck item failed the precheck.
    * 
    * @example
    * true
@@ -38,7 +40,7 @@ export class GetK8sAppPrecheckResultResponseBodyDataJobResults extends $dara.Mod
    * The reason why the precheck item failed the precheck or the precheck of the item was interrupted. This parameter is left empty when the application passed the precheck.
    * 
    * @example
-   * The Kubernetes cluster is disconnected from the EDAS control plane.
+   * K8s集群失联。
    */
   reason?: string;
   static names(): { [key: string]: string } {
@@ -79,16 +81,18 @@ export class GetK8sAppPrecheckResultResponseBodyData extends $dara.Model {
    * The reason why the application failed the precheck. This parameter is left empty when the application passed the precheck.
    * 
    * @example
-   * The Kubernetes cluster is disconnected from the EDAS control plane.
+   * K8s cluster disconnected.
    */
   reason?: string;
   /**
    * @remarks
    * The precheck state for the application change. Valid values:
    * 
-   * *   checking: The application is being prechecked.
-   * *   pass: The application passed the precheck.
-   * *   failed: The application failed the precheck.
+   * - checking: The application is being prechecked.
+   * 
+   * - pass: The application passed the precheck.
+   * 
+   * - failed: The application failed the precheck.
    * 
    * @example
    * checking

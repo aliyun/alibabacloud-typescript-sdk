@@ -13,7 +13,7 @@ export class BindK8sSlbResponseBody extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class BindK8sSlbResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The message that is returned.
    * 
    * @example
    * success

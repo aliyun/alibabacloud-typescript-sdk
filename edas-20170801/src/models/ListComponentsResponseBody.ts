@@ -3,60 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListComponentsResponseBodyComponentListComponent extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the component.
-   * 
-   * @example
-   * 1
-   */
   componentId?: string;
-  /**
-   * @remarks
-   * The key of the component.
-   * 
-   * @example
-   * JDK 7
-   */
   componentKey?: string;
-  /**
-   * @remarks
-   * The description of the component.
-   * 
-   * @example
-   * JDK 7
-   */
   desc?: string;
-  /**
-   * @remarks
-   * Indicates whether the component has expired. Valid values:
-   * 
-   * *   false: The component has not expired.
-   * *   true: The component has expired.
-   * 
-   * @example
-   * false
-   */
   expired?: boolean;
-  /**
-   * @remarks
-   * The type of the component. Valid values:
-   * 
-   * *   JDK
-   * *   TOMCAT
-   * *   TENGINE
-   * 
-   * @example
-   * JDK
-   */
   type?: string;
-  /**
-   * @remarks
-   * The version of the component.
-   * 
-   * @example
-   * oraclejdk7
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -124,10 +75,6 @@ export class ListComponentsResponseBody extends $dara.Model {
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * The components.
-   */
   componentList?: ListComponentsResponseBodyComponentList;
   /**
    * @remarks

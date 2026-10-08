@@ -13,7 +13,7 @@ export class RetryChangeOrderTaskRequest extends $dara.Model {
   retryStatus?: boolean;
   /**
    * @remarks
-   * The ID of the process.
+   * The ID of the change order task.
    * 
    * This parameter is required.
    * 

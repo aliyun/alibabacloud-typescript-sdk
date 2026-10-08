@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InsertApplicationResponseBodyApplicationInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. The ID is the unique identifier of the application in EDAS.
+   * The ID of the application. This ID is the unique identifier of an EDAS application.
    * 
    * @example
    * 6c733bcd-6efb-47a1-8226-cf722c******
@@ -31,8 +31,9 @@ export class InsertApplicationResponseBodyApplicationInfo extends $dara.Model {
    * @remarks
    * Indicates whether the application is a Docker application. Valid values:
    * 
-   * *   **true**: The application is a Docker application.
-   * *   **false**: The application is not a Docker application.
+   * - **true**: The application is a Docker application.
+   * 
+   * - **false**: The application is not a Docker application.
    * 
    * @example
    * false
@@ -40,7 +41,7 @@ export class InsertApplicationResponseBodyApplicationInfo extends $dara.Model {
   dockerize?: boolean;
   /**
    * @remarks
-   * The owner of the application. The owner is the user who created the application.
+   * The owner of the application. This is the user who created the application.
    * 
    * @example
    * 249763358688********
@@ -48,7 +49,7 @@ export class InsertApplicationResponseBodyApplicationInfo extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The port used by the created application. Default value: 8080. You can call the UpdateContainerConfiguration operation to change the port. For more information, see [UpdateContainerConfiguration](https://help.aliyun.com/document_detail/149403.html).
+   * The default port of the application is 8080. You can call the UpdateContainerConfiguration operation to change the port. For more information, see [UpdateContainerConfiguration](https://help.aliyun.com/document_detail/149403.html).
    * 
    * @example
    * 8080
@@ -64,7 +65,7 @@ export class InsertApplicationResponseBodyApplicationInfo extends $dara.Model {
   regionName?: string;
   /**
    * @remarks
-   * The ID of the user who created the application.
+   * The user ID of the application owner.
    * 
    * @example
    * tdy218@1362469756xxxxxx
@@ -108,12 +109,12 @@ export class InsertApplicationResponseBodyApplicationInfo extends $dara.Model {
 export class InsertApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the created application.
+   * The application object that is returned after the application is created.
    */
   applicationInfo?: InsertApplicationResponseBodyApplicationInfo;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -121,7 +122,7 @@ export class InsertApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * The application name test-hsy-C5039-paas-6 had been created successfully.

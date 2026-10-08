@@ -23,8 +23,9 @@ export class GetContainerConfigurationResponseBodyContainerConfiguration extends
    * @remarks
    * The maximum number of threads in the Tomcat container.
    * 
-   * *   If no instance group is specified, the configuration of the application is returned.
-   * *   If no application is specified, the default configuration is returned.
+   * - If no instance group is specified, the configuration of the application is returned.
+   * 
+   * - If no application is specified, the default configuration is returned.
    * 
    * @example
    * 400
@@ -34,8 +35,9 @@ export class GetContainerConfigurationResponseBodyContainerConfiguration extends
    * @remarks
    * The Uniform Resource Identifier (URI) encoding scheme. Valid values: ISO-8859-1, GBK, GB2312, and UTF-8.
    * 
-   * *   If no instance group is specified, the configuration of the application is returned.
-   * *   If no application is specified, the default configuration is returned.
+   * - If no instance group is specified, the configuration of the application is returned.
+   * 
+   * - If no application is specified, the default configuration is returned.
    * 
    * @example
    * ISO-8859-1
@@ -45,8 +47,9 @@ export class GetContainerConfigurationResponseBodyContainerConfiguration extends
    * @remarks
    * Indicates whether useBodyEncodingForURI is enabled in the Tomcat container.
    * 
-   * *   If no instance group is specified, the configuration of the application is returned.
-   * *   If no application is specified, the default configuration is returned.
+   * - If no instance group is specified, the configuration of the application is returned.
+   * 
+   * - If no application is specified, the default configuration is returned.
    * 
    * @example
    * true

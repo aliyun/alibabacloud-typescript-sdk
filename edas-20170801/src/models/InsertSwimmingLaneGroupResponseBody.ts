@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsertSwimmingLaneGroupResponseBodyDataApplicationListApplication extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * bdb251cc-02a6-48dd-891b-2ab21b25****
-   */
   appId?: string;
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * test-app
-   */
   appName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,10 +95,6 @@ export class InsertSwimmingLaneGroupResponseBodyDataEntryApplication extends $da
 }
 
 export class InsertSwimmingLaneGroupResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The list of all applications that are related to the lane group.
-   */
   applicationList?: InsertSwimmingLaneGroupResponseBodyDataApplicationList;
   /**
    * @remarks

@@ -7,7 +7,7 @@ export class DeleteApplicationScalingRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 5d6fa0bc-cc3**********

@@ -55,39 +55,11 @@ export class ListMethodsResponseBodyServiceMethodListServiceMethodParamTypes ext
 }
 
 export class ListMethodsResponseBodyServiceMethodListServiceMethod extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * App
-   */
   appName?: string;
   inputParams?: ListMethodsResponseBodyServiceMethodListServiceMethodInputParams;
-  /**
-   * @remarks
-   * The name of the service method.
-   * 
-   * @example
-   * echo
-   */
   methodName?: string;
-  /**
-   * @remarks
-   * The return type of the service method.
-   * 
-   * @example
-   * java.lang.string
-   */
   output?: string;
   paramTypes?: ListMethodsResponseBodyServiceMethodListServiceMethodParamTypes;
-  /**
-   * @remarks
-   * The name of the service.
-   * 
-   * @example
-   * com.alibaba.edas.demo.EchoService
-   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,7 +127,7 @@ export class ListMethodsResponseBodyServiceMethodList extends $dara.Model {
 export class ListMethodsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -163,7 +135,7 @@ export class ListMethodsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message that indicates whether the request is successful.
+   * The returned message.
    * 
    * @example
    * success
@@ -177,10 +149,6 @@ export class ListMethodsResponseBody extends $dara.Model {
    * 69AD2AA7-DB47-449B-941B-B14409DF****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about service methods.
-   */
   serviceMethodList?: ListMethodsResponseBodyServiceMethodList;
   static names(): { [key: string]: string } {
     return {

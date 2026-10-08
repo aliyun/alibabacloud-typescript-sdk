@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InsertApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application. The name can contain only digits, letters, hyphens (-), and underscores (_) and must start with a letter. The name can be up to 36 characters in length.
+   * The name of the application. The name can contain only digits, letters, hyphens (-), and underscores (_). It must start with a letter and can be up to 36 characters in length.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class InsertApplicationRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The build package number of EDAS Container. This parameter is required if you create a High-Speed Service Framework (HSF) application. You can query the build package number by using one of the following methods:
+   * The build package number of EDAS-Container. This parameter is required when you create a High-speed Service Framework (HSF) application. You can obtain the build package number in one of the following ways:
    * 
-   * *   Call the ListBuildPack operation. For more information, see [ListBuildPack](https://help.aliyun.com/document_detail/149391.html).
-   * *   Obtain the value in the **Build package number** column of the [Release notes for EDAS Container](https://help.aliyun.com/document_detail/92614.html) topic.
+   * - Call the ListBuildPack operation. For more information, see [ListBuildPack](https://help.aliyun.com/document_detail/149391.html).
+   * 
+   * - Obtain the build package number from the **Build Package Number** column in the [Container versions](https://help.aliyun.com/document_detail/92614.html) table.
    * 
    * @example
    * 59
@@ -26,7 +27,7 @@ export class InsertApplicationRequest extends $dara.Model {
   buildPackId?: number;
   /**
    * @remarks
-   * The ID of the ECS cluster in which you want to create the application. If you specify an ID, the application is created in the specified ECS cluster. If you leave this parameter empty, the application is created in the default cluster. We recommend that you specify this parameter.
+   * The ID of the ECS cluster. Specify this parameter to create the application in a specific ECS cluster. If you leave this parameter empty, the application is created in the default cluster. We recommend that you specify this parameter.
    * 
    * @example
    * 13136119-f384-4f50-b76e-xxxxxxxxxxx
@@ -34,18 +35,21 @@ export class InsertApplicationRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the application component. You can call the ListComponents operation to query the component IDs. For more information, see [ListComponents](https://help.aliyun.com/document_detail/97502.html).
+   * The ID of the application component. You can call the ListComponents operation to query the component ID. For more information, see [ListComponents](https://help.aliyun.com/document_detail/97502.html).
    * 
-   * This parameter is required if the application runs in Apache Tomcat or in a standard Java application runtime environment. The Apache Tomcat application runtime environment is applicable to Dubbo applications that are deployed by using WAR packages. A standard Java application runtime environment is applicable to Spring Boot or Spring Cloud applications that are deployed by using JAR packages.
+   * This parameter is required if the application runs in an Apache Tomcat container (for Dubbo applications that are deployed in a WAR package) or a standard Java application runtime environment (for Spring Boot or Spring Cloud applications that are deployed in a JAR package).
    * 
-   * Valid values for common application components:
+   * The following application component IDs are commonly used:
    * 
-   * *   4: Apache Tomcat 7.0.91
-   * *   7: Apache Tomcat 8.5.42
-   * *   5: OpenJDK 1.8.x
-   * *   6: OpenJDK 1.7.x
+   * - 4: Apache Tomcat 7.0.91
    * 
-   * This parameter is available only for Java SDK 2.57.3 or later, or Python SDK 2.57.3 or later. Assume that you use an SDK that is not provided by EDAS, for example, aliyun-python-sdk-core, aliyun-java-sdk-core, and Alibaba Cloud CLI. In this case, you can directly specify this parameter.
+   * - 7: Apache Tomcat 8.5.42
+   * 
+   * - 5: OpenJDK 1.8.x
+   * 
+   * - 6: OpenJDK 1.7.x
+   * 
+   * To set this parameter, you must update the Java or Python software development kit (SDK) to version 2.57.3 or later. If you do not use an EDAS SDK, such as aliyun-python-sdk-core, aliyun-java-sdk-core, or Alibaba Cloud CLI, you can set this parameter.
    * 
    * @example
    * 7
@@ -53,7 +57,7 @@ export class InsertApplicationRequest extends $dara.Model {
   componentIds?: string;
   /**
    * @remarks
-   * The number of CPU cores that can be used by the application container in a Swarm cluster. \\*\\*This parameter is deprecated.\\*\\*
+   * \\*\\*(Deprecated)\\*\\* The number of CPU cores for the application container in a Swarm cluster.
    * 
    * @example
    * 2
@@ -69,7 +73,7 @@ export class InsertApplicationRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The value of `ecu_id` of the ECS instance to be added during scale-out. The ECU ID is the unique identity for an ECS instance that is imported to EDAS. Separate multiple values of `ecu_id` with commas (,). You can call the ListScaleOutEcu operation to query the value of `ecu_id`. For more information, see [ListScaleOutEcu](https://help.aliyun.com/document_detail/149371.html).
+   * The \\`ecu_id\\` of the ECS instance to which you want to scale out the application. The \\`ecu_id\\` is the unique ID of an ECS instance that is imported to EDAS. To specify multiple \\`ecu_id\\`s, separate them with commas (,). You can call the ListScaleOutEcu operation to query the \\`ecu_id\\`. For more information, see [ListScaleOutEcu](https://help.aliyun.com/document_detail/149371.html).
    * 
    * @example
    * 07bd417a-b863-477d-****-************
@@ -79,8 +83,9 @@ export class InsertApplicationRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the port health check. Valid values:
    * 
-   * *   **true**: enable the port health check.
-   * *   **false**: does not enable the port health check.
+   * - **true**: Enabled
+   * 
+   * - **false**: Disabled
    * 
    * @example
    * true
@@ -88,10 +93,11 @@ export class InsertApplicationRequest extends $dara.Model {
   enablePortCheck?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the URL health check. Valid values:
+   * Specifies whether to enable the health check URL. Valid values:
    * 
-   * *   **true**: enables the URL health check.
-   * *   **false**: does not enable the URL health check.
+   * - **true**: Enabled
+   * 
+   * - **false**: Disabled
    * 
    * @example
    * true
@@ -107,7 +113,8 @@ export class InsertApplicationRequest extends $dara.Model {
   healthCheckUrl?: string;
   /**
    * @remarks
-   * The script to mount. Set the value in the JSON format. Example: `[{"ignoreFail":false,"name":"postprepareInstanceEnvironmentOnScaleOut","script":"ls"},{"ignoreFail":true,"name":"postdeleteInstanceDataOnScaleIn","script":""},{"ignoreFail":true,"name":"prestartInstance","script":""},{"ignoreFail":true,"name":"poststartInstance","script":""},{"ignoreFail":true,"name":"prestopInstance","script":""},{"ignoreFail":true,"name":"poststopInstance","script":""}]`
+   * The configuration of the mounted script. The value is a JSON string. Example:
+   * `[{"ignoreFail":false,"name":"postprepareInstanceEnvironmentOnScaleOut","script":"ls"},{"ignoreFail":true,"name":"postdeleteInstanceDataOnScaleIn","script":""},{"ignoreFail":true,"name":"prestartInstance","script":""},{"ignoreFail":true,"name":"poststartInstance","script":""},{"ignoreFail":true,"name":"prestopInstance","script":""},{"ignoreFail":true,"name":"poststopInstance","script":""}]`
    * 
    * @example
    * [{"ignoreFail":false,"name":"postprepareInstanceEnvironmentOnScaleOut","script":"ls"}]
@@ -115,7 +122,7 @@ export class InsertApplicationRequest extends $dara.Model {
   hooks?: string;
   /**
    * @remarks
-   * The version of the Java Development Kit (JDK) used to deploy the application. **This parameter is deprecated.
+   * **(Deprecated)** The version of the Java Development Kit (JDK) that the application uses.
    * 
    * @example
    * 8
@@ -131,10 +138,11 @@ export class InsertApplicationRequest extends $dara.Model {
   jvmOptions?: string;
   /**
    * @remarks
-   * The ID of the microservices namespace. To query the ID of a microservices namespace, you can choose **Resource Management** > **Microservice Namespaces** in the left-side navigation pane of the EDAS console or call the ListUserDefineRegion operation. For more information, see [ListUserDefineRegion](https://help.aliyun.com/document_detail/149377.html).
+   * The ID of the microservices namespace. In the EDAS console, choose **Resource Management** > **Microservices Namespace** in the navigation pane on the left to view the ID of the microservices namespace. You can also call the ListUserDefineRegion operation to query the ID. For more information, see [ListUserDefineRegion](https://help.aliyun.com/document_detail/149377.html).
    * 
-   * *   This parameter is required if the cluster you specify is not deployed in the default microservices namespace. Otherwise, the message `application regionId is different with cluster regionId!` appears.
-   * *   If the cluster you specify is deployed in the default microservices namespace, you do not need to specify this parameter. Set this parameter to the ID of the microservices namespace in which the cluster you specify is deployed.
+   * - If the specified cluster is not in the default microservices namespace, you must specify this parameter. Otherwise, the \\`application regionId is different with cluster regionId!\\` error is reported.
+   * 
+   * - If the cluster is in the default microservices namespace, you do not need to specify this parameter. The microservices namespace of the application must be the same as the microservices namespace of the specified cluster.
    * 
    * @example
    * cn-beijing:prod
@@ -150,7 +158,7 @@ export class InsertApplicationRequest extends $dara.Model {
   maxHeapSize?: number;
   /**
    * @remarks
-   * The size of the permanent generation heap memory. Unit: MB.
+   * The size of the permanent generation memory. Unit: MB.
    * 
    * @example
    * 200
@@ -158,7 +166,7 @@ export class InsertApplicationRequest extends $dara.Model {
   maxPermSize?: number;
   /**
    * @remarks
-   * The memory size that can be used by the application container in a Swarm cluster. \\*\\*This parameter is deprecated.\\*\\*
+   * \\*\\*(Deprecated)\\*\\* The memory size for the application container in a Swarm cluster.
    * 
    * @example
    * 2048
@@ -174,7 +182,7 @@ export class InsertApplicationRequest extends $dara.Model {
   minHeapSize?: number;
   /**
    * @remarks
-   * The type of the application deployment package. Valid values: war and jar.
+   * The format of the application deployment package. Valid values: war and jar.
    * 
    * @example
    * war
@@ -182,7 +190,7 @@ export class InsertApplicationRequest extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The reserved port for the application. This parameter is deprecated.
+   * \\*\\*(Deprecated)\\*\\* The reserved port of the application.
    * 
    * @example
    * 8090
@@ -198,7 +206,7 @@ export class InsertApplicationRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The version of Apache Tomcat. **This parameter is deprecated.
+   * **(Deprecated)** The version of Apache Tomcat.
    * 
    * @example
    * 4

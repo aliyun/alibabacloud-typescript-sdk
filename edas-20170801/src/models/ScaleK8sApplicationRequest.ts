@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ScaleK8sApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
+   * The ID of the application. Call the [ListApplication](https://help.aliyun.com/document_detail/149390.html) operation to obtain the application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ScaleK8sApplicationRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The expected number of application instances after the scale-out or scale-in. The minimum number is 0.
+   * The target number of application instances. The minimum value is 0.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ScaleK8sApplicationRequest extends $dara.Model {
   replicas?: number;
   /**
    * @remarks
-   * The timeout period of the change process. Unit: seconds.
+   * The timeout period for the change process, in seconds.
    * 
    * @example
    * 60

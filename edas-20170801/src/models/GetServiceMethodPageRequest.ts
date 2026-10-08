@@ -55,8 +55,9 @@ export class GetServiceMethodPageRequest extends $dara.Model {
    * @remarks
    * The source of the data. Valid values:
    * 
-   * *   agent: Use this value if you use the service query feature of the latest version to pass the query result.
-   * *   registry: Use this value if you use the service query feature of the earlier version to pass the query result.
+   * - agent: Use this value if you use the service query feature of the latest version to pass the query result.
+   * 
+   * - registry: Use this value if you use the service query feature of the earlier version to pass the query result.
    * 
    * @example
    * agent
@@ -122,9 +123,11 @@ export class GetServiceMethodPageRequest extends $dara.Model {
    * @remarks
    * The type of the service. Valid values:
    * 
-   * *   dubbo: Dubbo service
-   * *   springCloud: Spring Cloud service
-   * *   hsf: High-speed Service Framework (HSF) service
+   * - dubbo: Dubbo service
+   * 
+   * - springCloud: Spring Cloud service
+   * 
+   * - hsf: High-speed Service Framework (HSF) service
    * 
    * @example
    * springCloud

@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstallAgentResponseBodyExecutionResultListExecutionResult extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the installation was complete.
-   * 
-   * @example
-   * 20**-11-10T07:02:17Z
-   */
   finishedTime?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-2ze7s2v0b789k*******
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The state of the installation.
-   * 
-   * @example
-   * Finished
-   */
   invokeRecordStatus?: string;
-  /**
-   * @remarks
-   * The state of the installation command.
-   * 
-   * @example
-   * OK
-   */
   status?: string;
-  /**
-   * @remarks
-   * Indicates whether the installation was successful.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +72,6 @@ export class InstallAgentResponseBody extends $dara.Model {
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * The execution result.
-   */
   executionResultList?: InstallAgentResponseBodyExecutionResultList;
   /**
    * @remarks

@@ -35,8 +35,9 @@ export class ModifyScalingRuleRequest extends $dara.Model {
    * @remarks
    * The relationship among the conditions that trigger a scale-in.
    * 
-   * *   OR: one of the conditions
-   * *   AND: all conditions
+   * - OR: one of the conditions
+   * 
+   * - AND: all conditions
    * 
    * @example
    * "OR"
@@ -62,8 +63,9 @@ export class ModifyScalingRuleRequest extends $dara.Model {
    * @remarks
    * Specifies whether to allow scale-ins.
    * 
-   * *   true: allows scale-ins.
-   * *   false: does not allow scale-ins.
+   * - true: allows scale-ins.
+   * 
+   * - false: does not allow scale-ins.
    * 
    * @example
    * true
@@ -113,8 +115,9 @@ export class ModifyScalingRuleRequest extends $dara.Model {
    * @remarks
    * The multi-zone scaling policy. Valid values:
    * 
-   * *   PRIORITY: The vSwitch that is first selected has the highest priority.
-   * *   BALANCE: This policy evenly distributes instances across zones in which the vSwitches reside.
+   * - PRIORITY: The vSwitch that is first selected has the highest priority.
+   * 
+   * - BALANCE: This policy evenly distributes instances across zones in which the vSwitches reside.
    * 
    * @example
    * "PRIORITY"
@@ -132,8 +135,9 @@ export class ModifyScalingRuleRequest extends $dara.Model {
    * @remarks
    * The relationship among the conditions that trigger a scale-out.
    * 
-   * *   OR: one of the conditions
-   * *   AND: all conditions
+   * - OR: one of the conditions
+   * 
+   * - AND: all conditions
    * 
    * @example
    * "OR"
@@ -199,8 +203,9 @@ export class ModifyScalingRuleRequest extends $dara.Model {
    * @remarks
    * The source of the instance to be added during a scale-out. Valid values:
    * 
-   * *   NEW: elastic resources
-   * *   AVAILABLE: existing resources If you prefer existing resources to elastic resources, set this parameter to AVAILABLE_FIRST.
+   * - NEW: elastic resources
+   * 
+   * - AVAILABLE: existing resources If you prefer existing resources to elastic resources, set this parameter to AVAILABLE_FIRST.
    * 
    * If you set this parameter to NEW or AVAILABLE_FIRST, you must specify the auto-scaling parameters. If you set this parameter to NEW, instances are created based on a launch template or the specifications of an existing instance.
    * 
@@ -212,8 +217,9 @@ export class ModifyScalingRuleRequest extends $dara.Model {
    * @remarks
    * The instance handling mode during a scale-in. Valid values:
    * 
-   * *   release: When a scale-in is performed, instances that are no longer used are released.
-   * *   recycle: When a scale-in is performed, instances that are no longer used are stopped and reclaimed.
+   * - release: When a scale-in is performed, instances that are no longer used are released.
+   * 
+   * - recycle: When a scale-in is performed, instances that are no longer used are stopped and reclaimed.
    * 
    * @example
    * "release"

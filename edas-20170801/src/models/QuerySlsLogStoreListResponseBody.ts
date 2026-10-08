@@ -8,7 +8,7 @@ export class QuerySlsLogStoreListResponseBodyResult extends $dara.Model {
    * The type of the logging service.
    * 
    * @example
-   * Log Service
+   * SLS log service
    */
   consumerSide?: string;
   /**
@@ -44,8 +44,9 @@ export class QuerySlsLogStoreListResponseBodyResult extends $dara.Model {
    * @remarks
    * The source of logs. Valid values:
    * 
-   * *   Standard output: stdout.log
-   * *   File log: the directory that stores logs
+   * - Standard output: stdout.log
+   * 
+   * - File log: the directory that stores logs
    * 
    * @example
    * /var/log/*

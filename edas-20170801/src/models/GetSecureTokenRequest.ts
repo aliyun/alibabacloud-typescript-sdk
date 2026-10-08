@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecureTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the namespace, such as cn-beijing or cn-beijing:prod````.
+   * The ID of the namespace, such as cn-beijing or cn-beijing:prod\\`\\`\\`\\`.
    * 
    * This parameter is required.
    * 

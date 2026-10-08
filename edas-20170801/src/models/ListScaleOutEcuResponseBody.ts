@@ -3,131 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListScaleOutEcuResponseBodyEcuInfoListEcuInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The number of available CPU cores for the ECU.
-   * 
-   * @example
-   * 2
-   */
   availableCpu?: number;
-  /**
-   * @remarks
-   * The size of available memory for the ECU. Unit: MB.
-   * 
-   * @example
-   * 111
-   */
   availableMem?: number;
-  /**
-   * @remarks
-   * The time when the ECU was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573281040819
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * Indicates whether Docker is installed. Valid values:
-   * 
-   * *   true: Docker is installed.
-   * *   false: Docker is not installed.
-   * 
-   * @example
-   * false
-   */
   dockerEnv?: boolean;
-  /**
-   * @remarks
-   * The unique ID of the ECU. To query the ID, you can run the `dmidecode` command on the ECS instance that corresponds to the ECU.
-   * 
-   * @example
-   * 0de2ebdb-9490-4fc4-be41***************
-   */
   ecuId?: string;
-  /**
-   * @remarks
-   * The time when the last heartbeat detection was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573281040819
-   */
   heartbeatTime?: number;
-  /**
-   * @remarks
-   * The ID of the ECU.
-   * 
-   * @example
-   * i-2zej4i2jdf*********
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The private IP address of the ECU.
-   * 
-   * @example
-   * 192.168.XX.XX
-   */
   ipAddr?: string;
-  /**
-   * @remarks
-   * The name of the ECU.
-   * 
-   * @example
-   * test
-   */
   name?: string;
-  /**
-   * @remarks
-   * Indicates whether the ECU is online. If the ECU is online, its corresponding ECS instance is managed in EDAS. Valid values:
-   * 
-   * *   true: The ECU is online.
-   * *   false: The ECU is offline.
-   * 
-   * @example
-   * true
-   */
   online?: boolean;
-  /**
-   * @remarks
-   * The ID of the region where the ECU is located.
-   * 
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The time when the ECU was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573281040827
-   */
   updateTime?: number;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the ECU belongs.
-   * 
-   * @example
-   * 1172****6608****
-   */
   userId?: string;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC) where the ECU is located.
-   * 
-   * @example
-   * vpc-2zef6ob8**********
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The ID of the zone where the ECU resides.
-   * 
-   * @example
-   * cn-beijing-h
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,10 +102,6 @@ export class ListScaleOutEcuResponseBody extends $dara.Model {
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * The ECUs.
-   */
   ecuInfoList?: ListScaleOutEcuResponseBodyEcuInfoList;
   /**
    * @remarks

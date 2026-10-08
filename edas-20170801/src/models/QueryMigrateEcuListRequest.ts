@@ -7,8 +7,9 @@ export class QueryMigrateEcuListRequest extends $dara.Model {
    * @remarks
    * The ID of the namespace.
    * 
-   * *   The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: `cn-beijing:test`.
-   * *   The ID of the default namespace is in the `region ID` format. Example: `cn-beijing`.
+   * - The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: `cn-beijing:test`.
+   * 
+   * - The ID of the default namespace is in the `region ID` format. Example: `cn-beijing`.
    * 
    * @example
    * cn-hangzhou or cn-hangzhou:test

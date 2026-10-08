@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDownPolicies extends $dara.Model {
   /**
    * @remarks
-   * The period during which the check is performed. Valid values: 0 to 1800. Unit: seconds.
+   * The period in which the policy is checked for execution. Unit: seconds. Valid values: 0 to 1800.
    * 
    * @example
    * 15
@@ -13,7 +13,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScal
   periodSeconds?: number;
   /**
    * @remarks
-   * The type of the policy. The value can be Pods or Percent.
+   * The type of the policy. Valid values: Pods and Percent.
    * 
    * @example
    * Pods
@@ -21,7 +21,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScal
   type?: string;
   /**
    * @remarks
-   * The value of the auto scaling policy. The value of this parameter is an integer greater than 0. If the policy type is Pods, the value indicates the number of pods. If the policy type is Percent, the value indicates a percentage. The value is allowed to exceed 100%.
+   * The value for the scaling behavior policy. This must be an integer greater than 0. If the policy type is Pods, the value specifies the number of pods. If the policy type is Percent, the value specifies a percentage, which can exceed 100%.
    * 
    * @example
    * 10
@@ -55,15 +55,21 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScal
 export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDown extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the auto scaling policy.
+   * The policy configuration.
    */
   policies?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDownPolicies[];
   /**
+   * @remarks
+   * The policy for the scale-in step size. Valid values: Max, Min, and Disable.
+   * 
    * @example
    * Max
    */
   selectPolicy?: string;
   /**
+   * @remarks
+   * The cooldown period for scale-in events. Unit: seconds. Valid values: 0 to 3600. Default value: 300.
+   * 
    * @example
    * 300
    */
@@ -99,7 +105,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScal
 export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUpPolicies extends $dara.Model {
   /**
    * @remarks
-   * The period during which the check is performed. Valid values: 0 to 1800. Unit: seconds.
+   * The period in which the policy is checked for execution. Unit: seconds. Valid values: 0 to 1800.
    * 
    * @example
    * 15
@@ -107,7 +113,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScal
   periodSeconds?: number;
   /**
    * @remarks
-   * The type of the policy. The value can be Pods or Percent.
+   * The type of the policy. Valid values: Pods and Percent.
    * 
    * @example
    * Pods
@@ -115,7 +121,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScal
   type?: string;
   /**
    * @remarks
-   * The value of the auto scaling policy. The value of this parameter is an integer greater than 0. If the policy type is Pods, the value indicates the number of pods. If the policy type is Percent, the value indicates a percentage. The value is allowed to exceed 100%.
+   * The value for the scaling behavior policy. This must be an integer greater than 0. If the policy type is Pods, the value specifies the number of pods. If the policy type is Percent, the value specifies a percentage, which can exceed 100%.
    * 
    * @example
    * 10
@@ -149,15 +155,21 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScal
 export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUp extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the auto scaling policy.
+   * The policy configuration.
    */
   policies?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUpPolicies[];
   /**
+   * @remarks
+   * The policy for the scale-out step size. Valid values: Max, Min, and Disable.
+   * 
    * @example
    * Max
    */
   selectPolicy?: string;
   /**
+   * @remarks
+   * The cooldown period for scale-out events. Unit: seconds. Valid values: 0 to 3600. Default value: 0.
+   * 
    * @example
    * 0
    */
@@ -193,12 +205,12 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScal
 export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviour extends $dara.Model {
   /**
    * @remarks
-   * The behavior configurations of the scale-in.
+   * The configuration of the scale-in behavior.
    */
   scaleDown?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDown;
   /**
    * @remarks
-   * The behavior configurations of the scale-out.
+   * The configuration of the scale-out behavior.
    */
   scaleUp?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUp;
   static names(): { [key: string]: string } {
@@ -339,7 +351,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleTriggerTrigge
   name?: string;
   /**
    * @remarks
-   * The type of the trigger. Only cron and app_metric are supported.
+   * The type of the trigger. Valid values: cron and app_metric.
    * 
    * @example
    * cron
@@ -373,7 +385,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleTriggerTrigge
 export class CreateApplicationScalingRuleResponseBodyAppScalingRuleTrigger extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of replicas. The maximum value is 1000.
+   * The maximum number of replicas. The value cannot exceed 1,000.
    * 
    * @example
    * 122
@@ -381,7 +393,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleTrigger exten
   maxReplicas?: number;
   /**
    * @remarks
-   * The minimum number of replicas. The minimum value is 0.
+   * The minimum number of replicas. The value cannot be less than 0.
    * 
    * @example
    * 2
@@ -389,7 +401,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleTrigger exten
   minReplicas?: number;
   /**
    * @remarks
-   * The triggers.
+   * A list of triggers.
    */
   triggers?: CreateApplicationScalingRuleResponseBodyAppScalingRuleTriggerTriggers[];
   static names(): { [key: string]: string } {
@@ -423,7 +435,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleTrigger exten
 export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application to which the auto scaling policy belongs.
+   * The ID of the application for the Auto Scaling rule.
    * 
    * @example
    * 78194c76-3dca-418e-a263-cccd1ab4****
@@ -436,7 +448,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $dar
   behaviour?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviour;
   /**
    * @remarks
-   * The timestamp when the auto scaling policy was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp when the Auto Scaling rule was created.
    * 
    * @example
    * 23212323123
@@ -444,7 +456,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $dar
   createTime?: number;
   /**
    * @remarks
-   * The timestamp when the auto scaling policy was last disabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp when the Auto Scaling rule was last disabled.
    * 
    * @example
    * 23212323123
@@ -473,10 +485,11 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $dar
   minReplicas?: number;
   /**
    * @remarks
-   * Indicates whether the auto scaling policy is enabled. Valid values:
+   * The state of the Auto Scaling rule.
    * 
-   * *   **true**: The auto scaling policy is enabled.
-   * *   **false**: The auto scaling policy is disabled.
+   * - **true**: enabled
+   * 
+   * - **false**: disabled
    * 
    * @example
    * true
@@ -484,7 +497,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $dar
   scaleRuleEnabled?: boolean;
   /**
    * @remarks
-   * The name of the auto scaling policy.
+   * The name of the Auto Scaling rule.
    * 
    * @example
    * cpu
@@ -500,12 +513,12 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $dar
   scaleRuleType?: string;
   /**
    * @remarks
-   * The configurations of the trigger.
+   * The trigger configuration.
    */
   trigger?: CreateApplicationScalingRuleResponseBodyAppScalingRuleTrigger;
   /**
    * @remarks
-   * The timestamp when the auto scaling policy was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp when the Auto Scaling rule was updated.
    * 
    * @example
    * 23212323123
@@ -566,12 +579,12 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $dar
 export class CreateApplicationScalingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the auto scaling policy.
+   * The Auto Scaling rule.
    */
   appScalingRule?: CreateApplicationScalingRuleResponseBodyAppScalingRule;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -579,7 +592,7 @@ export class CreateApplicationScalingRuleResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * success

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAliyunRegionResponseBodyRegionEntityListRegionEntity extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   id?: string;
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * China East 1 (Hangzhou)
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,10 +71,6 @@ export class ListAliyunRegionResponseBody extends $dara.Model {
    * success
    */
   message?: string;
-  /**
-   * @remarks
-   * The details of the regions.
-   */
   regionEntityList?: ListAliyunRegionResponseBodyRegionEntityList;
   /**
    * @remarks

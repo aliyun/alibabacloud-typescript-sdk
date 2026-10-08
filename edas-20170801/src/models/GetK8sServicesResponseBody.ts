@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetK8sServicesResponseBodyServicesServicePorts extends $dara.Model {
   /**
    * @remarks
-   * The port of the node.
+   * The node port.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class GetK8sServicesResponseBodyServicesServicePorts extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * The protocol of the service.
+   * The service protocol.
    * 
    * @example
    * TCP
@@ -65,7 +65,7 @@ export class GetK8sServicesResponseBodyServicesServicePorts extends $dara.Model 
 export class GetK8sServicesResponseBodyServices extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the service in the Kubernetes cluster.
+   * The IP address of the Kubernetes Service.
    * 
    * @example
    * 104.23.xx.xx
@@ -73,7 +73,7 @@ export class GetK8sServicesResponseBodyServices extends $dara.Model {
   clusterIP?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * service-http
@@ -81,12 +81,12 @@ export class GetK8sServicesResponseBodyServices extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The mapping of service ports.
+   * The list of port mappings.
    */
   servicePorts?: GetK8sServicesResponseBodyServicesServicePorts[];
   /**
    * @remarks
-   * The type of the service.
+   * The service type.
    * 
    * @example
    * ClusterIP
@@ -125,7 +125,7 @@ export class GetK8sServicesResponseBodyServices extends $dara.Model {
 export class GetK8sServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -133,7 +133,7 @@ export class GetK8sServicesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * Additional information.
    * 
    * @example
    * success
@@ -141,7 +141,7 @@ export class GetK8sServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4823-bhjf-23u4-eiufh
@@ -149,7 +149,7 @@ export class GetK8sServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of services in the Kubernetes cluster.
+   * The list of Kubernetes Services.
    */
   services?: GetK8sServicesResponseBodyServices[];
   static names(): { [key: string]: string } {

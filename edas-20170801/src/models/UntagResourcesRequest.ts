@@ -7,8 +7,9 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to remove all existing tags from the specified resources. Default value: false. Valid values:
    * 
-   * *   **true**: removes all existing tags from the specified resources.
-   * *   **false**: does not remove all existing tags from the specified resources.
+   * - **true**: removes all existing tags from the specified resources.
+   * 
+   * - **false**: does not remove all existing tags from the specified resources.
    * 
    * > All existing tags of a resource are removed only if the **tagKeys** parameter is left empty and the **DeleteAll** parameter is set to true.
    * 
@@ -40,8 +41,9 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   **application**: Enterprise Distributed Application Service (EDAS) application
-   * *   **cluster**: EDAS cluster
+   * - **application**: Enterprise Distributed Application Service (EDAS) application
+   * 
+   * - **cluster**: EDAS cluster
    * 
    * This parameter is required.
    * 

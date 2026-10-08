@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ScaleK8sApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process. You can call the GetChangeOrderInfo operation to query the progress of this scaling operation. For more information, see [GetChangeOrderInfo](https://help.aliyun.com/document_detail/62072.html).
+   * The ID of the change process. Call the [GetChangeOrderInfo](https://help.aliyun.com/document_detail/62072.html) operation to query the progress of the scaling task.
    * 
    * @example
    * 9d7232b2-****-****-b9d9-7e17695779ab
@@ -13,7 +13,7 @@ export class ScaleK8sApplicationResponseBody extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ScaleK8sApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class ScaleK8sApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * a5281053-08e4-47a5-b2ab-5c0323de7b5a

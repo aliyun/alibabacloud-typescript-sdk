@@ -37,7 +37,7 @@ export class BindSlbResponseBodyData extends $dara.Model {
   extVServerGroupId?: string;
   /**
    * @remarks
-   * The ID of the internal-facing SLB instance.
+   * The ID of the internal SLB instance.
    * 
    * @example
    * lb-wz96ph63r************
@@ -45,7 +45,7 @@ export class BindSlbResponseBodyData extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The IP address of the internal-facing SLB instance.
+   * The IP address of the internal SLB instance.
    * 
    * @example
    * 192.16*.*.*
@@ -53,7 +53,7 @@ export class BindSlbResponseBodyData extends $dara.Model {
   slbIp?: string;
   /**
    * @remarks
-   * The name of the internal-facing SLB instance.
+   * The name of the internal SLB instance.
    * 
    * @example
    * test**********
@@ -61,7 +61,7 @@ export class BindSlbResponseBodyData extends $dara.Model {
   slbName?: string;
   /**
    * @remarks
-   * The listener port for the SLB instance.
+   * The listener port of the SLB instance.
    * 
    * @example
    * 80
@@ -69,7 +69,7 @@ export class BindSlbResponseBodyData extends $dara.Model {
   slbPort?: number;
   /**
    * @remarks
-   * The ID of the vServer group for the internal-facing SLB instance.
+   * The ID of the internal vServer group.
    * 
    * @example
    * “”
@@ -115,7 +115,7 @@ export class BindSlbResponseBodyData extends $dara.Model {
 export class BindSlbResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -123,12 +123,12 @@ export class BindSlbResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data that is returned.
+   * The returned data.
    */
   data?: BindSlbResponseBodyData;
   /**
    * @remarks
-   * The additional information that is returned.
+   * Additional information.
    * 
    * @example
    * bind slb success
@@ -136,7 +136,7 @@ export class BindSlbResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 23DR4FDXXXXXXXXXX

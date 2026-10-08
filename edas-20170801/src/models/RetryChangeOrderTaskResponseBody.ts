@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetryChangeOrderTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status of the API call or a POP error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class RetryChangeOrderTaskResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The retry information.
+   * Information about the retry.
    * 
    * @example
    * success retry task
@@ -21,7 +21,7 @@ export class RetryChangeOrderTaskResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * success

@@ -23,12 +23,17 @@ export class CreateConfigTemplateRequest extends $dara.Model {
    * @remarks
    * The data format of the configuration template. Valid values:
    * 
-   * *   JSON: JSON format
-   * *   XML: XML format
-   * *   YAML: YAML format
-   * *   Properties: .properties format
-   * *   KeyValue: key-value pairs
-   * *   Custom: custom format
+   * - JSON: JSON format
+   * 
+   * - XML: XML format
+   * 
+   * - YAML: YAML format
+   * 
+   * - Properties: .properties format
+   * 
+   * - KeyValue: key-value pairs
+   * 
+   * - Custom: custom format
    * 
    * @example
    * JSON

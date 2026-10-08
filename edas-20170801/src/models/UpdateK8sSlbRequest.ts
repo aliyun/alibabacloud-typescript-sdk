@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateK8sSlbRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can query the application ID by calling the ListApplication operation. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
+   * The ID of the application. Call [ListApplication](https://help.aliyun.com/document_detail/149390.html) to get this ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the cluster. You can query the cluster ID by calling the GetK8sCluster operation. For more information, see [GetK8sCluster](https://help.aliyun.com/document_detail/181437.html).
+   * The ID of the cluster. Call [GetK8sCluster](https://help.aliyun.com/document_detail/181437.html) to get this ID.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,11 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to disable listener configuration overriding.
+   * Specifies whether to disable overwriting the SLB listener configuration.
    * 
-   * *   true: disables listener configuration overriding.
-   * *   false: enables listener configuration overriding.
+   * - true: Disables overwriting.
+   * 
+   * - false: Allows overwriting.
    * 
    * @example
    * true
@@ -36,7 +37,7 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   disableForceOverride?: boolean;
   /**
    * @remarks
-   * The frontend port. Valid values: 1 to 65535.
+   * The frontend port. The value ranges from 1 to 65535.
    * 
    * @example
    * 80
@@ -44,10 +45,11 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The scheduling algorithm for the SLB instance. If you do not specify this parameter, the default value rr is used. SLB supports the following scheduling algorithms: round-robin and weighted round-robin. Valid values:
+   * The scheduling algorithm of the SLB instance. If you do not set this parameter, rr is used. The supported algorithms are round-robin (rr) and weighted round-robin (wrr).
    * 
-   * *   wrr: weighted round-robin scheduling. Backend servers that have higher weights receive more requests than those that have lower weights.
-   * *   rr: round-robin scheduling. Requests are sequentially distributed to backend servers.
+   * - Weighted round-robin (wrr): Backend servers with higher weights receive more requests.
+   * 
+   * - Round-robin (rr): Requests are distributed to backend servers in sequence.
    * 
    * @example
    * wrr
@@ -55,13 +57,18 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   scheduler?: string;
   /**
    * @remarks
-   * The information about the ports. This parameter is required if you want to configure multi-port mappings or use a protocol other than TCP. You must set this parameter to a JSON array. Example: [{"targetPort":8080,"port":82,"loadBalancerProtocol":"TCP"},{"port":81,"certId":"1362469756373809_16c185d6fa2_1914500329_-xxxxxxx","targetPort":8181,"lo adBalancerProtocol":"HTTPS"}]
+   * This parameter is used for scenarios that involve multiple ports or protocols other than TCP. The value must be a JSON array. For example:
+   * [{"targetPort":8080,"port":82,"loadBalancerProtocol":"TCP"},{"port":81,"certId":"1362469756373809_16c185d6fa2_1914500329_-xxxxxxx","targetPort":8181,"loadBalancerProtocol":"HTTPS"}]
    * 
-   * *   port: required. The frontend port. Valid values: 1 to 65535. Each port must be unique.
-   * *   targetPort: required. The backend port. Valid values: 1 to 65535.
-   * *   loadBalancerProtocol: required. Valid values: TCP and HTTPS. If the HTTP protocol is used, set this parameter to TCP.
-   * *   certId: the ID of the certificate. This parameter is required if the HTTPS protocol is used. You can purchase an SLB instance in the SLB console.
-   * *   Note: The ServicePortInfos parameter is specified to support multi-port mappings. If you want this parameter to take effect, make sure that you specify the AppId, ClusterId, Type, and SlbId parameters.
+   * - port: Required. The frontend port. The value ranges from 1 to 65535. Each port number must be unique.
+   * 
+   * - targetPort: Required. The backend port. The value ranges from 1 to 65535.
+   * 
+   * - loadBalancerProtocol: Required. Only TCP and HTTPS are supported. For HTTP listeners, set this parameter to TCP.
+   * 
+   * - certId: This parameter is required for HTTPS listeners. It specifies the ID of a certificate that you can purchase in the SLB console.
+   * 
+   * - Note: This parameter is used to support multiple ports and must be used with the appId, clusterId, type, and slbId parameters.
    * 
    * @example
    * {"targetPort":8080,"port":82,"loadBalancerProtocol":"TCP"},{"port":81,"certId":"136246975637380916c185d6fa21914500329_-xxxxxxx","targetPort":8181,"lo adBalancerProtocol":"HTTPS"}
@@ -77,7 +84,7 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   slbName?: string;
   /**
    * @remarks
-   * The protocol used by the SLB instance. Set the value to TCP.
+   * The protocol of the SLB instance. Currently, only TCP is supported.
    * 
    * @example
    * TCP
@@ -85,16 +92,21 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   slbProtocol?: string;
   /**
    * @remarks
-   * The specifications of the SLB instance.
+   * The specification of the SLB instance. The following specifications are supported:
    * 
-   * *   slb.s1.small
-   * *   slb.s2.small
-   * *   slb.s2.medium
-   * *   slb.s3.small
-   * *   slb.s3.medium
-   * *   slb.s3.large
+   * - slb.s1.small
    * 
-   * If you do not specify this parameter, the default value slb.s1.small is used.
+   * - slb.s2.small
+   * 
+   * - slb.s2.medium
+   * 
+   * - slb.s3.small
+   * 
+   * - slb.s3.medium
+   * 
+   * - slb.s3.large
+   * 
+   * If you do not set this parameter, the default value is slb.s1.small.
    * 
    * @example
    * slb.s1.small
@@ -102,7 +114,7 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   specification?: string;
   /**
    * @remarks
-   * The backend port, which is also the service port of the application. Valid values: 1 to 65535.
+   * The backend port, which is the service port of the application. The value ranges from 1 to 65535.
    * 
    * @example
    * 8082
@@ -110,10 +122,11 @@ export class UpdateK8sSlbRequest extends $dara.Model {
   targetPort?: string;
   /**
    * @remarks
-   * The type of the SLB instance. Valid values:
+   * The type of the SLB instance.
    * 
-   * *   Internet: an Internet-facing SLB instance
-   * *   Intranet: an internal-facing SLB instance
+   * - Internet: An Internet-facing instance.
+   * 
+   * - Intranet: An internal-facing instance.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindSlbRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EDAS application.
+   * The ID of the Enterprise Distributed Application Service (EDAS) application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BindSlbRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The listener port for the SLB instance.
+   * The listener port.
    * 
    * @example
    * 80
@@ -43,10 +43,11 @@ export class BindSlbRequest extends $dara.Model {
   slbIp?: string;
   /**
    * @remarks
-   * The type of the SLB instance. Valid values:
+   * The network type of the SLB instance. Valid values:
    * 
-   * *   internet: Internet-facing SLB instance
-   * *   intranet: internal-facing SLB instance
+   * - internet: an Internet-facing instance.
+   * 
+   * - intranet: an internal-facing instance.
    * 
    * This parameter is required.
    * 

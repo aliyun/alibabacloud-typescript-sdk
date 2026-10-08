@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListSlbRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the IP addresses. Valid values:
-   * 
-   * *   Internet: Users can connect to the SLB instance over the Internet.
-   * *   Intranet: Users can connect to the SLB instance over the internal network.
+   * The address type. Valid values:
+   * - Internet: public address.
+   * - Intranet: private network address.
    * 
    * @example
    * internet
@@ -16,10 +15,9 @@ export class ListSlbRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The type of the SLB instance. Valid values:
-   * 
-   * *   clb: Classic Load Balancer (CLB)
-   * *   alb: Application Load Balancer (ALB)
+   * The SLB type. Valid values:
+   * - clb: classic load balancing.
+   * - alb: application load balancing.
    * 
    * @example
    * clb
@@ -27,7 +25,7 @@ export class ListSlbRequest extends $dara.Model {
   slbType?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1f90rfybszjogyw****

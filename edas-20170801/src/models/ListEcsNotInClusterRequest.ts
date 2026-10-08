@@ -7,8 +7,9 @@ export class ListEcsNotInClusterRequest extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * 
-   * *   1: classic network
-   * *   2: virtual private cloud (VPC)
+   * - 1: classic network
+   * 
+   * - 2: virtual private cloud (VPC)
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateEcuRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ECS instance. Separate multiple IDs with commas (,).
+   * The IDs of the instances. To specify multiple instances, separate the IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class MigrateEcuRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The ID of the custom namespace.
+   * The ID of the namespace.
    * 
-   * *   The ID of a custom namespace is in the `region ID:custom namespace ID` format. Example: cn-beijing:tdy218.
-   * *   The ID of the default namespace is in the `region ID` format. Example: cn-beijing.
+   * - A custom namespace ID is in the format `Region ID:Namespace identifier`. Example: cn-beijing:tdy218.
+   * 
+   * - A default namespace ID is the same as its region ID. Example: cn-beijing.
    * 
    * @example
    * cn-hangzhou:test_region

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLocalitySettingRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application. To obtain the application ID, call the ListApplication operation. For more information, see [ListApplication](https://help.aliyun.com/document_detail/423162.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeLocalitySettingRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of the microservices namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DescribeLocalitySettingRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example

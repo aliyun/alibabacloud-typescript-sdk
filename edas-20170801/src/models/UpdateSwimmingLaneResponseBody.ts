@@ -21,7 +21,7 @@ export class UpdateSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList e
   appName?: string;
   /**
    * @remarks
-   * The ID of the lane.
+   * The ID of the swimming lane.
    * 
    * @example
    * 321
@@ -65,7 +65,7 @@ export class UpdateSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList e
 export class UpdateSwimmingLaneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The rule of the lane.
+   * The rule of the swimming lane.
    * 
    * @example
    * [{\\"condition\\":\\"AND\\",\\"enable\\":true,\\"path\\":\\"/traffictest\\",\\"priority\\":1,\\"restItems\\":[{\\"cond\\":\\"==\\",\\"datum\\":\\"testheadervalue\\",\\"name\\":\\"testheader\\",\\"operator\\":\\"rawvalue\\",\\"type\\":\\"header\\",\\"value\\":\\"testheadervalue\\"}]}]"
@@ -73,7 +73,7 @@ export class UpdateSwimmingLaneResponseBodyData extends $dara.Model {
   entryRule?: string;
   /**
    * @remarks
-   * The ID of the lane group.
+   * The ID of the swimming lane group.
    * 
    * @example
    * 171
@@ -81,7 +81,7 @@ export class UpdateSwimmingLaneResponseBodyData extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the lane.
+   * The ID of the swimming lane.
    * 
    * @example
    * 321
@@ -89,7 +89,7 @@ export class UpdateSwimmingLaneResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the lane.
+   * The name of the swimming lane.
    * 
    * @example
    * test-swimlane
@@ -105,12 +105,12 @@ export class UpdateSwimmingLaneResponseBodyData extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The list of associations between the lane and the related application.
+   * A list of relationships between applications and the swimming lane.
    */
   swimmingLaneAppRelationShipList?: UpdateSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList[];
   /**
    * @remarks
-   * The tag of the lane.
+   * The tag of the swimming lane.
    * 
    * @example
    * 2cb6b8a
@@ -155,7 +155,7 @@ export class UpdateSwimmingLaneResponseBodyData extends $dara.Model {
 export class UpdateSwimmingLaneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -163,12 +163,12 @@ export class UpdateSwimmingLaneResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data that is returned.
+   * The returned data.
    */
   data?: UpdateSwimmingLaneResponseBodyData;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -176,7 +176,7 @@ export class UpdateSwimmingLaneResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6CB46AEA-309C-5041-9EC7-FCF4478F****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetK8sApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
+   * The ID of the application. You can call the [ListApplication](https://help.aliyun.com/document_detail/149390.html) operation to obtain the application ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class GetK8sApplicationRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The source from which data is queried.
+   * The source of the query.
    * 
-   * *   If you leave this parameter empty, a common query is performed.
-   * *   If you set the value to deploy, you query application information from the deployment page.
+   * - If this parameter is empty, a regular query is performed.
+   * 
+   * - deploy: The query is initiated from the deployment page.
    * 
    * @example
    * deploy

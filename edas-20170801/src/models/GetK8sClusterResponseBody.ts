@@ -3,171 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetK8sClusterResponseBodyClusterPageClusterListCluster extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cluster.
-   * 
-   * @example
-   * 81453e4b-4df0-4592-****-b835a2ee****
-   */
   clusterId?: string;
-  /**
-   * @remarks
-   * The import state of the cluster. Valid values:
-   * 
-   * *   0: The cluster is not imported.
-   * *   1: The cluster is imported.
-   * *   2: The cluster fails to be imported.
-   * *   3: The cluster is being imported.
-   * *   4: The cluster is deleted.
-   * 
-   * @example
-   * 1
-   */
   clusterImportStatus?: number;
-  /**
-   * @remarks
-   * The name of the cluster.
-   * 
-   * @example
-   * test
-   */
   clusterName?: string;
-  /**
-   * @remarks
-   * The status of the cluster. Valid values:
-   * 
-   * *   1: The cluster runs as expected.
-   * *   2: The cluster does not run as expected.
-   * *   3: The cluster is offline.
-   * 
-   * @example
-   * 1
-   */
   clusterStatus?: number;
-  /**
-   * @remarks
-   * The type of the cluster. Valid values:
-   * 
-   * *   2: Elastic Compute Service (ECS) cluster
-   * *   5: ACK cluster or Serverless Kubernetes cluster
-   * 
-   * @example
-   * 5
-   */
   clusterType?: number;
-  /**
-   * @remarks
-   * The total number of CPU cores.
-   * 
-   * @example
-   * 4
-   */
   cpu?: number;
-  /**
-   * @remarks
-   * The ID of the ACK cluster.
-   * 
-   * @example
-   * 2ce62869f4d4466b920312315f05****
-   */
   csClusterId?: string;
-  /**
-   * @remarks
-   * The state of the ACK cluster. Valid values:
-   * 
-   * *   initial: The cluster is being initialized.
-   * *   failed: The cluster fails to be created.
-   * *   running: The cluster is running.
-   * *   updating: The cluster is being updated.
-   * *   scaling: The cluster is being scaled out.
-   * *   removing: Nodes are being removed from the cluster.
-   * *   upgrading: The cluster is being upgraded.
-   * *   deleting: The cluster is being deleted.
-   * *   delete_failed: The cluster fails to be deleted.
-   * *   deleted: The cluster is deleted. The deleted cluster is invisible to users.
-   * 
-   * @example
-   * running
-   */
   csClusterStatus?: string;
-  /**
-   * @remarks
-   * The description of the cluster.
-   * 
-   * @example
-   * test
-   */
   description?: string;
-  /**
-   * @remarks
-   * The total size of memory. Unit: MB.
-   * 
-   * @example
-   * 2048
-   */
   mem?: number;
-  /**
-   * @remarks
-   * The network type of the cluster. Valid values:
-   * 
-   * *   1: classic network
-   * *   2: VPC
-   * 
-   * @example
-   * 2
-   */
   networkMode?: number;
-  /**
-   * @remarks
-   * The number of nodes.
-   * 
-   * @example
-   * 4
-   */
   nodeNum?: number;
-  /**
-   * @remarks
-   * The ID of the namespace.
-   * 
-   * @example
-   * test
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The subtype of the cluster. Valid values:
-   * 
-   * *   Ask: Serverless Kubernetes cluster
-   * *   ManagedKubernetes: ACK cluster
-   * 
-   * @example
-   * Ask
-   */
   subClusterType?: string;
-  /**
-   * @remarks
-   * The CIDR block of the subnet.
-   * 
-   * @example
-   * 172.20.0.0/16
-   */
   subNetCidr?: string;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC).
-   * 
-   * @example
-   * vpc-**z1mlwpbjx3e9m**
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
-   * @example
-   * vsw-bp1uf97****xjxgip****
-   */
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -249,14 +100,10 @@ export class GetK8sClusterResponseBodyClusterPageClusterList extends $dara.Model
 }
 
 export class GetK8sClusterResponseBodyClusterPage extends $dara.Model {
-  /**
-   * @remarks
-   * The list of clusters.
-   */
   clusterList?: GetK8sClusterResponseBodyClusterPageClusterList;
   /**
    * @remarks
-   * The number of the returned page. Default value: 1.
+   * The number of the returned page. The default value is 1.
    * 
    * @example
    * 1
@@ -264,7 +111,7 @@ export class GetK8sClusterResponseBodyClusterPage extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 1000.
+   * The number of entries returned per page. The default value is 1000.
    * 
    * @example
    * 10
@@ -272,7 +119,7 @@ export class GetK8sClusterResponseBodyClusterPage extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of pages that are returned.
+   * The total number of pages.
    * 
    * @example
    * 5
@@ -311,12 +158,12 @@ export class GetK8sClusterResponseBodyClusterPage extends $dara.Model {
 export class GetK8sClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster data that is returned by page.
+   * The paginated list of clusters.
    */
   clusterPage?: GetK8sClusterResponseBodyClusterPage;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status of the call or a POP error code.
    * 
    * @example
    * 200
@@ -324,7 +171,7 @@ export class GetK8sClusterResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The additional information.
    * 
    * @example
    * success
@@ -332,7 +179,7 @@ export class GetK8sClusterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C3CE915C-0C83-4AA5-8D66-E8BEED62939E

@@ -3,179 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApplicationResponseBodyApplicationListApplication extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 00ee517d-dd7d-4d4e-****-************
-   */
   appId?: string;
-  /**
-   * @remarks
-   * The deployment type of the application. Valid values:
-   * 
-   * *   War: The application is deployed by using a WAR package.
-   * *   FatJar: The application is deployed by using a JAR package.
-   * *   Image: The application is deployed by using an image.
-   * *   If this parameter is empty, the application is not deployed.
-   * 
-   * @example
-   * FatJar
-   */
   applicationType?: string;
-  /**
-   * @remarks
-   * The build package number of Enterprise Distributed Application Service (EDAS) Container.
-   * 
-   * @example
-   * 58
-   */
   buildPackageId?: number;
-  /**
-   * @remarks
-   * The ID of the cluster.
-   * 
-   * @example
-   * c37aec2a-bcca-4ec1-****-************
-   */
   clusterId?: string;
-  /**
-   * @remarks
-   * The type of the cluster in which the application is deployed. Valid values:
-   * 
-   * *   **2**: Elastic Compute Service (ECS) cluster
-   * *   **3**: self-managed Kubernetes cluster in EDAS
-   * *   **5**: Container Service for Kubernetes (ACK) cluster
-   * 
-   * @example
-   * 2
-   */
   clusterType?: number;
-  /**
-   * @remarks
-   * The time when the application was created.
-   * 
-   * @example
-   * 1664208000000
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The IP address of the Internet-facing SLB instance.
-   * 
-   * @example
-   * 100.100.70.***
-   */
   extSlbIp?: string;
-  /**
-   * @remarks
-   * The listener port of the Internet-facing SLB instance.
-   * 
-   * @example
-   * 8080
-   */
   extSlbListenerPort?: number;
-  /**
-   * @remarks
-   * The number of application instances.
-   * 
-   * @example
-   * 5
-   */
   instances?: number;
-  /**
-   * @remarks
-   * The namespace of the Kubernetes cluster.
-   * 
-   * @example
-   * default
-   */
   k8sNamespace?: string;
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * doc-test-consumer
-   */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the microservices namespace.
-   * 
-   * @example
-   * cn-hangzhou:test
-   */
   namespaceId?: string;
-  /**
-   * @remarks
-   * The service port of the application.
-   * 
-   * @example
-   * 8080
-   */
   port?: number;
-  /**
-   * @remarks
-   * The region ID of the application.
-   * 
-   * @example
-   * cn-beijing:docTes
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aek24j4s4b*****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The number of running application instances.
-   * 
-   * @example
-   * 0
-   */
   runningInstanceCount?: number;
-  /**
-   * @remarks
-   * The IP address of the internal-facing Server Load Balancer (SLB) instance.
-   * 
-   * @example
-   * 192.168.0.***
-   */
   slbIp?: string;
-  /**
-   * @remarks
-   * The listener port of the internal-facing SLB instance.
-   * 
-   * @example
-   * 8088
-   */
   slbListenerPort?: number;
-  /**
-   * @remarks
-   * The port of the internal-facing SLB instance.
-   * 
-   * @example
-   * 80
-   */
   slbPort?: number;
-  /**
-   * @remarks
-   * The state of the application. Valid values:
-   * 
-   * *   RUNNING: The application is running.
-   * *   STOPPED: The application is stopped.
-   * *   DEPLOYING: The application is being deployed.
-   * *   DELETING: The application is being deleted.
-   * 
-   * @example
-   * RUNNING
-   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -263,14 +109,10 @@ export class ListApplicationResponseBodyApplicationList extends $dara.Model {
 }
 
 export class ListApplicationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about applications.
-   */
   applicationList?: ListApplicationResponseBodyApplicationList;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code of the response.
    * 
    * @example
    * 200
@@ -278,7 +120,7 @@ export class ListApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The additional information.
    * 
    * @example
    * success

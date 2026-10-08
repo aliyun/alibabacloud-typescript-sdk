@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AbortAndRollbackChangeOrderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The ID of the change order.
    * 
    * @example
    * 4f40e616-cdcd-4250-a018-efd459******
@@ -35,7 +35,7 @@ export class AbortAndRollbackChangeOrderResponseBodyData extends $dara.Model {
 export class AbortAndRollbackChangeOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class AbortAndRollbackChangeOrderResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The information about the change process.
+   * The information about the change order.
    */
   data?: AbortAndRollbackChangeOrderResponseBodyData;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
    * @example
    * success
@@ -56,7 +56,7 @@ export class AbortAndRollbackChangeOrderResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -72,7 +72,7 @@ export class AbortAndRollbackChangeOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the trace.
+   * The ID of the call chain.
    * 
    * @example
    * 210f07bf1640239405712621******

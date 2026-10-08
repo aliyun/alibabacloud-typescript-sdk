@@ -15,8 +15,9 @@ export class DescribeAppInstanceListResponseBodyInstanceList extends $dara.Model
    * @remarks
    * Indicates whether the application was released in canary release mode.
    * 
-   * *   `true`: The application was released in canary release mode.
-   * *   `false`: The application was not released in canary release mode
+   * - `true`: The application was released in canary release mode.
+   * 
+   * - `false`: The application was not released in canary release mode
    * 
    * @example
    * false

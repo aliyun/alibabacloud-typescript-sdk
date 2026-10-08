@@ -43,10 +43,13 @@ export class StartK8sAppPrecheckRequest extends $dara.Model {
    * 
    * Valid values for regular application component IDs:
    * 
-   * *   4: Apache Tomcat 7.0.91
-   * *   5: OpenJDK 1.8.x
-   * *   6: OpenJDK 1.7.x
-   * *   7: Apache Tomcat 8.5.42
+   * - 4: Apache Tomcat 7.0.91
+   * 
+   * - 5: OpenJDK 1.8.x
+   * 
+   * - 6: OpenJDK 1.7.x
+   * 
+   * - 7: Apache Tomcat 8.5.42
    * 
    * This parameter is available only for Java SDK 2.57.3 or later, or Python SDK 2.57.3 or later. Assume that you use an SDK that is not provided by Enterprise Distributed Application Service (EDAS), such as aliyun-python-sdk-core, aliyun-java-sdk-core, and Alibaba Cloud CLI. In this case, you can directly specify this parameter.
    * 
@@ -58,9 +61,11 @@ export class StartK8sAppPrecheckRequest extends $dara.Model {
    * @remarks
    * The configuration for mounting a Kubernetes ConfigMap or Secret to a directory in an elastic container instance. The following parameters are included in the configuration:
    * 
-   * *   name: the name of the Kubernetes ConfigMap or Secret.
-   * *   type: the type of the API object that you want to mount. You can mount a Kubernetes ConfigMap or Secret.
-   * *   mountPath: the mount path. The mount path must be an absolute path that starts with a forward slash (/).
+   * - name: the name of the Kubernetes ConfigMap or Secret.
+   * 
+   * - type: the type of the API object that you want to mount. You can mount a Kubernetes ConfigMap or Secret.
+   * 
+   * - mountPath: the mount path. The mount path must be an absolute path that starts with a forward slash (/).
    * 
    * @example
    * [{"name":"nginx-config","type":"ConfigMap","mountPath":"/etc/nginx"},{"name":"tls-secret","type":"secret","mountPath":"/etc/ssh"}]
@@ -70,9 +75,11 @@ export class StartK8sAppPrecheckRequest extends $dara.Model {
    * @remarks
    * The configuration for mounting a Kubernetes emptyDir volume to a directory in an elastic container instance. The following parameters are included in the configuration:
    * 
-   * *   mountPath: The mount path in the container. This parameter is required.
-   * *   readOnly: (Optional) The mount mode. The value true indicates the read-only mode. The value false indicates the read and write mode. Default value: false.
-   * *   subPathExpr: (Optional) The regular expression that is used to match the subdirectory.
+   * - mountPath: The mount path in the container. This parameter is required.
+   * 
+   * - readOnly: (Optional) The mount mode. The value true indicates the read-only mode. The value false indicates the read and write mode. Default value: false.
+   * 
+   * - subPathExpr: (Optional) The regular expression that is used to match the subdirectory.
    * 
    * @example
    * [{"mountPath":"/app-log","subPathExpr":"$(POD_IP)"},{"readOnly":true,"mountPath":"/etc/nginx"}]
@@ -84,16 +91,25 @@ export class StartK8sAppPrecheckRequest extends $dara.Model {
    * 
    * The following parameters are included in the configuration of the EnvFroms parameter:
    * 
-   * *   configMapRef: the ConfigMap that is referenced. The following parameter is included:
+   * - configMapRef: the ConfigMap that is referenced. The following parameter is included:
    * 
-   *     name: the name of the ConfigMap.
+   *   name: the name of the ConfigMap.
    * 
-   * *   secretRef: the Secret that is referenced. The following parameter is included:
+   * - secretRef: the Secret that is referenced. The following parameter is included:
    * 
-   *     name: the name of the Secret.
+   *   name: the name of the Secret.
    * 
    * @example
-   * [{"name":"appname","valueFrom":{"configMapKeyRef":{"name":"appconf","key":"name"}}}]
+   * [
+   *       {
+   *             "name": "appname",
+   *             "valueFrom": {
+   *                   "configMapKeyRef": {
+   *                         "name": "appconf"
+   *                   }
+   *             }
+   *       }
+   * ]
    */
   envFroms?: string;
   /**
@@ -128,10 +144,13 @@ export class StartK8sAppPrecheckRequest extends $dara.Model {
    * @remarks
    * The configuration of Java startup parameters for a Java application. These startup parameters involve the memory, application, garbage collection (GC) policy, tools, service registration and discovery, and custom configurations. Proper parameter settings help reduce the GC overheads, shorten the server response time, and improve the throughput. Set this parameter to a JSON string. In the example, original indicates the configuration value, and startup indicates a startup parameter. The system automatically concatenates all startup values as the settings of Java startup parameters for the application. To delete this configuration, leave the parameter value empty by entering `""` or `"{}"`. The following parameters are included in the configuration:
    * 
-   * *   InitialHeapSize: the initial size of the heap memory.
-   * *   MaxHeapSize: the maximum size of the heap memory.
-   * *   CustomParams: the custom parameters, such as JVM -D parameters.
-   * *   Other parameters: You can view the JSON structure submitted by the frontend.
+   * - InitialHeapSize: the initial size of the heap memory.
+   * 
+   * - MaxHeapSize: the maximum size of the heap memory.
+   * 
+   * - CustomParams: the custom parameters, such as JVM -D parameters.
+   * 
+   * - Other parameters: You can view the JSON structure submitted by the frontend.
    * 
    * @example
    * {"InitialHeapSize":{"original":512,"startup":"-Xms512m"},"MaxHeapSize":{"original":1024,"startup":"-Xmx1024m"}}
@@ -173,9 +192,11 @@ export class StartK8sAppPrecheckRequest extends $dara.Model {
    * @remarks
    * The configurations that are used when the host files are mounted to the container on which the application is running. Example: `[{"type":"","nodePath":"/localfiles","mountPath":"/app/files"},{"type":"Directory","nodePath":"/mnt","mountPath":"/app/storage"}\\]`. Description:
    * 
-   * *   `nodePath`: the host path.
-   * *   `mountPath`: the path in the container.
-   * *   `type`: the mounting type.
+   * - `nodePath`: the host path.
+   * 
+   * - `mountPath`: the path in the container.
+   * 
+   * - `type`: the mounting type.
    * 
    * @example
    * [{"type":"","nodePath":"/localfiles","mountPath":"/app/files"},{"type":"Directory","nodePath":"/mnt","mountPath":"/app/storage"}]
@@ -203,12 +224,13 @@ export class StartK8sAppPrecheckRequest extends $dara.Model {
    * @remarks
    * The configuration for mounting a Kubernetes PersistentVolumeClaim (PVC) to a directory in an elastic container instance. The following parameters are included in the configuration:
    * 
-   * *   pvcName: the name of the PVC. Make sure that the volume exists and is in the Bound state.
+   * - pvcName: the name of the PVC. Make sure that the volume exists and is in the Bound state.
    * 
-   * *   mountPaths: the directory to which you want to mount the PVC. You can configure multiple directories. You can set the following two parameters for each mount directory:
+   * - mountPaths: the directory to which you want to mount the PVC. You can configure multiple directories. You can set the following two parameters for each mount directory:
    * 
-   *     *   mountPath: the mount path. The mount path must be an absolute path that starts with a forward slash (/).
-   *     *   readOnly: the mount mode. The value true indicates the read-only mode. The value false indicates the read and write mode. Default value: false.
+   *   - mountPath: the mount path. The mount path must be an absolute path that starts with a forward slash (/).
+   * 
+   *   - readOnly: the mount mode. The value true indicates the read-only mode. The value false indicates the read and write mode. Default value: false.
    * 
    * @example
    * [{"pvcName":"nas-pvc-1","mountPaths":[{"mountPath":"/usr/share/nginx/data"},{"mountPath":"/usr/share/nginx/html","readOnly":true}]}]

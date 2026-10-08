@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLocalitySettingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the feature is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The threshold.
+   * 
    * @example
    * 15
    */
@@ -38,27 +44,50 @@ export class DescribeLocalitySettingResponseBodyData extends $dara.Model {
 
 export class DescribeLocalitySettingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * This parameter is not in use.
+   */
   data?: DescribeLocalitySettingResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1053-08e4-47a5-b2ab-5c0323de****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result of the request.
+   * 
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
+   * 
    * @example
    * True
    */

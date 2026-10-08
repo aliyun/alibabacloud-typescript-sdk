@@ -15,10 +15,11 @@ export class UnbindSlbRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Specifies whether to remove the configured listeners. Valid values:
+   * Specifies whether to delete the listener.
    * 
-   * *   true: removes the configured listeners.
-   * *   false: does not remove the configured listeners.
+   * - true: Delete the listener.
+   * 
+   * - false: Do not delete the listener.
    * 
    * @example
    * false
@@ -36,10 +37,11 @@ export class UnbindSlbRequest extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The network type of the SLB instance. Valid values:
+   * The network type of the SLB instance.
    * 
-   * *   **internet**: Internet-facing SLB instance
-   * *   **intranet**: internal-facing SLB instance
+   * - **internet**: an internet-facing instance.
+   * 
+   * - **intranet**: an internal-facing instance.
    * 
    * This parameter is required.
    * 

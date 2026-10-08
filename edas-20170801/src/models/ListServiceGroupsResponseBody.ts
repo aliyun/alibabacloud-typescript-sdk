@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListServiceGroupsResponseBodyServiceGroupsListListServiceGroups extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the service group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1575357165770
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The ID of the service group.
-   * 
-   * @example
-   * 789d9cda-74b1-****-****-05e21a0a7661
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the service group.
-   * 
-   * @example
-   * edas-test-group
-   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +82,6 @@ export class ListServiceGroupsResponseBody extends $dara.Model {
    * a5281053-08e4-47a5-b2ab-5c0323de7b5a
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about service groups.
-   */
   serviceGroupsList?: ListServiceGroupsResponseBodyServiceGroupsList;
   static names(): { [key: string]: string } {
     return {

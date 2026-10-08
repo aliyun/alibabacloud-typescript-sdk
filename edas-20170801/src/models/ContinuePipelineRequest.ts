@@ -7,8 +7,9 @@ export class ContinuePipelineRequest extends $dara.Model {
    * @remarks
    * Specifies whether to release the next batch. Valid values:
    * 
-   * *   true: releases the next batch.
-   * *   false: does not release the next batch.
+   * - true: releases the next batch.
+   * 
+   * - false: does not release the next batch.
    * 
    * @example
    * true

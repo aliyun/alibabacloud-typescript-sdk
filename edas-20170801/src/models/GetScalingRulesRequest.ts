@@ -27,8 +27,9 @@ export class GetScalingRulesRequest extends $dara.Model {
    * @remarks
    * The type of the scaling rule. You can leave this parameter empty. Valid values:
    * 
-   * *   SCALE_IN: scale-in rules
-   * *   SCALE_OUT: scale-out rules
+   * - SCALE_IN: scale-in rules
+   * 
+   * - SCALE_OUT: scale-out rules
    * 
    * @example
    * SCALE_IN

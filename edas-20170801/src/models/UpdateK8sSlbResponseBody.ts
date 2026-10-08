@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateK8sSlbResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The ID of the change order.
    * 
    * @example
    * 9a1dcdee-****-****-ad37-cbf9dc91fba9
@@ -13,7 +13,7 @@ export class UpdateK8sSlbResponseBody extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class UpdateK8sSlbResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * success

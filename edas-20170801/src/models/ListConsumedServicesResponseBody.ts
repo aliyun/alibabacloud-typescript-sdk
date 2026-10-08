@@ -55,58 +55,13 @@ export class ListConsumedServicesResponseBodyConsumedServicesListListConsumedSer
 }
 
 export class ListConsumedServicesResponseBodyConsumedServicesListListConsumedServices extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * a5281053-08e4-47a5-b2ab-5c0323de7b5a
-   */
   appId?: string;
-  /**
-   * @remarks
-   * Indicates whether the application runs in a Docker container. Valid values:
-   * 
-   * *   true: The application runs in a Docker container.
-   * *   false: The application does not run in a Docker container.
-   * 
-   * @example
-   * true
-   */
   dockerApplication?: boolean;
-  /**
-   * @remarks
-   * A reserved parameter.
-   * 
-   * @example
-   * ""
-   */
   group2Ip?: string;
   groups?: ListConsumedServicesResponseBodyConsumedServicesListListConsumedServicesGroups;
   ips?: ListConsumedServicesResponseBodyConsumedServicesListListConsumedServicesIps;
-  /**
-   * @remarks
-   * The name of the consumed service.
-   * 
-   * @example
-   * service
-   */
   name?: string;
-  /**
-   * @remarks
-   * The type of the consumed service.
-   * 
-   * @example
-   * HSF
-   */
   type?: string;
-  /**
-   * @remarks
-   * The version of the consumed service.
-   * 
-   * @example
-   * 1.0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,20 +133,16 @@ export class ListConsumedServicesResponseBodyConsumedServicesList extends $dara.
 export class ListConsumedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * The information about consumed services.
-   */
   consumedServicesList?: ListConsumedServicesResponseBodyConsumedServicesList;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -199,7 +150,7 @@ export class ListConsumedServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * a5281053-08e4-47a5-b2ab-5c0323de7b5a

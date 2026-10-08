@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublishedServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 

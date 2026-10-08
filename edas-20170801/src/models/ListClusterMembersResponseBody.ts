@@ -3,74 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterMembersResponseBodyClusterMemberPageClusterMemberListClusterMember extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cluster.
-   * 
-   * @example
-   * 52984524-6d48-4bbd-85f2-a34b0e5b****
-   */
   clusterId?: string;
-  /**
-   * @remarks
-   * The ID of the ECS instance in the cluster.
-   * 
-   * @example
-   * adb03eeb-3adf-4d7e-afe1-03d1ad45****
-   */
   clusterMemberId?: string;
-  /**
-   * @remarks
-   * The timestamp when the ECS instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573281038175
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The ID of the ECS instance.
-   * 
-   * @example
-   * i-2zej4i2jdf3ntwhj****
-   */
   ecsId?: string;
-  /**
-   * @remarks
-   * The unique ID of the elastic compute unit (ECU). You can run the `dmidecode` command on the ECS instance to query the ECU ID.
-   * 
-   * @example
-   * 70ed3f59-b476-49aa-be09-9e6c375d****
-   */
   ecuId?: string;
-  /**
-   * @remarks
-   * The private IP address for the ECS instance.
-   * 
-   * @example
-   * 172.16.XX.XX
-   */
   privateIp?: string;
-  /**
-   * @remarks
-   * The state of the ECS instance. Valid values:
-   * 
-   * *   1: The instance is running.
-   * *   0: The instance is being converted.
-   * *   \\-1: The instance fails to be converted.
-   * *   \\-2: The instance is offline.
-   * 
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @remarks
-   * The timestamp when the ECS instance was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1573281041113
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -134,10 +73,6 @@ export class ListClusterMembersResponseBodyClusterMemberPageClusterMemberList ex
 }
 
 export class ListClusterMembersResponseBodyClusterMemberPage extends $dara.Model {
-  /**
-   * @remarks
-   * The list of ECS instances in the cluster.
-   */
   clusterMemberList?: ListClusterMembersResponseBodyClusterMemberPageClusterMemberList;
   /**
    * @remarks

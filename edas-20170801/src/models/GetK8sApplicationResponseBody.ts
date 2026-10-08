@@ -29,21 +29,7 @@ export class GetK8sApplicationResponseBodyApplcationAppCmdArgs extends $dara.Mod
 }
 
 export class GetK8sApplicationResponseBodyApplcationAppEnvListEnv extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the environment variable.
-   * 
-   * @example
-   * CATALINA_OPTS
-   */
   name?: string;
-  /**
-   * @remarks
-   * The value of the environment variable.
-   * 
-   * @example
-   * -Xmx 1024m -Dhsf.default.tid=false $(EDAS_CATALINA_OPTS)
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,7 +83,7 @@ export class GetK8sApplicationResponseBodyApplcationAppEnvList extends $dara.Mod
 export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   /**
    * @remarks
-   * The annotation of an application pod.
+   * The annotations of the application pod.
    * 
    * @example
    * {"test-annokey":"test-annovalue"}
@@ -105,7 +91,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   annotations?: string;
   /**
    * @remarks
-   * The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
+   * The ID of the application. You can call the [ListApplication](https://help.aliyun.com/document_detail/149390.html) operation to obtain the application ID.
    * 
    * @example
    * 00ee517d-dd7d-4d4e-****-****
@@ -121,7 +107,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The type of the application.
+   * The application type.
    * 
    * @example
    * War
@@ -129,7 +115,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * The build package number of Enterprise Distributed Application Service (EDAS) Container.
+   * The ID of the application build type.
    * 
    * @example
    * 57
@@ -137,7 +123,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   buildpackId?: number;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c37aec2a-bcca-4ec1-****-****
@@ -151,14 +137,10 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
    * ls
    */
   cmd?: string;
-  /**
-   * @remarks
-   * The list of commands.
-   */
   cmdArgs?: GetK8sApplicationResponseBodyApplcationAppCmdArgs;
   /**
    * @remarks
-   * The ID of the cluster to which the container belongs.
+   * The ID of the container cluster.
    * 
    * @example
    * c383bc813c1974e****451b50c0c8****
@@ -166,7 +148,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   csClusterId?: string;
   /**
    * @remarks
-   * The deployment type of the application. Example: Image.
+   * The deployment type. The value is Image.
    * 
    * @example
    * Image
@@ -174,11 +156,13 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The application type. Valid values:
+   * The application type:
    * 
-   * *   General: native Java application
-   * *   Pandora: Pandora application
-   * *   Multilingual: multilingual application
+   * - General: a native Java application.
+   * 
+   * - Pandora: a Pandora application.
+   * 
+   * - Multilingual: a multilingual application.
    * 
    * @example
    * General
@@ -186,7 +170,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   developType?: string;
   /**
    * @remarks
-   * The version of EDAS Container.
+   * The version of the EDAS container.
    * 
    * @example
    * 3.60.0
@@ -194,7 +178,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   edasContainerVersion?: string;
   /**
    * @remarks
-   * Indicates whether the Empty List Protection feature is enabled for the application.
+   * Indicates whether empty-push protection is enabled for the application.
    * 
    * @example
    * true
@@ -202,25 +186,24 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   enableEmptyPushReject?: boolean;
   /**
    * @remarks
-   * Indicates whether the Graceful Release feature is enabled for the application.
+   * Indicates whether graceful start is enabled for the application.
    * 
    * @example
    * true
    */
   enableLosslessRule?: boolean;
-  /**
-   * @remarks
-   * The list of environment variables.
-   */
   envList?: GetK8sApplicationResponseBodyApplcationAppEnvList;
   /**
    * @remarks
-   * The feature annotations. Possible values:
+   * The tags of advanced configurations for the current application. This parameter indicates the features that are enabled. Valid values:
    * 
-   * *   base.combination.edas: enables EDAS integrated management solution.
-   * *   base.combination.arms: enables ARMS monitoring.
-   * *   base.combination.mse: enables MSE microservices governance.
-   * *   base.combination.none: enables lifecycle management.
+   * - base.combination.edas: the EDAS integrated management solution.
+   * 
+   * - base.combination.arms: ARMS monitoring is enabled.
+   * 
+   * - base.combination.mse: MSE is enabled.
+   * 
+   * - base.combination.none: Only lifecycle management is enabled.
    * 
    * @example
    * base.combination.edas
@@ -236,7 +219,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   instances?: number;
   /**
    * @remarks
-   * The number of application instances before the last auto scaling operation.
+   * The number of application instances before the last scaling event.
    * 
    * @example
    * 10
@@ -244,7 +227,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   instancesBeforeScaling?: number;
   /**
    * @remarks
-   * The namespace of the Kubernetes cluster.
+   * The Kubernetes namespace.
    * 
    * @example
    * default
@@ -252,7 +235,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   k8sNamespace?: string;
   /**
    * @remarks
-   * The label of an application pod.
+   * The labels of the application pod.
    * 
    * @example
    * {"test-labelkey":"test-labelvalue"}
@@ -260,7 +243,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The maximum number of CPU cores allowed. Unit: millicores. 1,000 millicores equal one CPU core.
+   * The CPU limit. Unit: millicores. 1,000 millicores are equal to one CPU core.
    * 
    * @example
    * 1000
@@ -268,7 +251,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   limitCpuM?: number;
   /**
    * @remarks
-   * The maximum size of space required by ephemeral storage. Unit: GB. Value 0 indicates that no limit is set on the space size.
+   * The limit of ephemeral storage resources. Unit: GB. A value of 0 indicates that no limit is set.
    * 
    * @example
    * 4
@@ -276,7 +259,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   limitEphemeralStorage?: string;
   /**
    * @remarks
-   * The maximum size of the memory allowed. Unit: MiB.
+   * The memory limit. Unit: MiB.
    * 
    * @example
    * 1024
@@ -284,7 +267,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   limitMem?: number;
   /**
    * @remarks
-   * Indicates whether the Graceful Rolling Release and Configure Complete Service Registration before Readiness Probing feature is enabled for the application.
+   * Indicates whether the application, in graceful rolling deployment mode, is configured to complete service registration before it passes the readiness probe.
    * 
    * @example
    * true
@@ -292,7 +275,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   losslessRuleAligned?: boolean;
   /**
    * @remarks
-   * The delay of service registration. Unit: seconds.
+   * The duration of delayed service registration that is configured for the application. Unit: seconds.
    * 
    * @example
    * 120
@@ -300,7 +283,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   losslessRuleDelayTime?: number;
   /**
    * @remarks
-   * The number of prefetching curves.
+   * The service prefetch curve that is set for the application.
    * 
    * @example
    * 2
@@ -308,7 +291,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   losslessRuleFuncType?: number;
   /**
    * @remarks
-   * Indicates whether the Graceful Rolling Release and Configure Complete Service Prefetching before Readiness Probing feature is enabled for the application.
+   * Indicates whether the application, in graceful rolling deployment mode, is configured to complete service prefetch before it passes the readiness probe.
    * 
    * @example
    * true
@@ -316,7 +299,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   losslessRuleRelated?: boolean;
   /**
    * @remarks
-   * The service prefetching duration. Unit: seconds.
+   * The service prefetch duration that is set for the application. Unit: seconds.
    * 
    * @example
    * 120
@@ -324,7 +307,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   losslessRuleWarmupTime?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -332,7 +315,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of requested CPU cores. Unit: millicores. 1,000 millicores equal one CPU core.
+   * The number of CPU cores that are requested. Unit: millicores. 1,000 millicores are equal to one CPU core.
    * 
    * @example
    * 1000
@@ -340,7 +323,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   requestCpuM?: number;
   /**
    * @remarks
-   * The size of space reserved for ephemeral storage resources. Unit: GB. Value 0 indicates that no limit is set on the space size.
+   * The amount of ephemeral storage resources to reserve. Unit: GB. A value of 0 indicates that no limit is set.
    * 
    * @example
    * 2
@@ -348,16 +331,23 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   requestEphemeralStorage?: string;
   /**
    * @remarks
-   * The size of the reserved memory. Unit: MiB.
+   * The amount of memory that is reserved. Unit: MiB.
    * 
    * @example
    * 1024
    */
   requestMem?: number;
+  /**
+   * @remarks
+   * The SecurityContext properties of the application pod container.
+   * 
+   * @example
+   * {\\"runAsUser\\":0,\\"runAsGroup\\":0}
+   */
   securityContext?: string;
   /**
    * @remarks
-   * The configuration information about the Server Load Balancer (SLB).
+   * The SLB configurations.
    * 
    * @example
    * [
@@ -396,7 +386,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
   tomcatVersion?: string;
   /**
    * @remarks
-   * The workload type. Valid values: Deployment and StatefulSet. If you do not specify this parameter, Deployment is used.
+   * The type of the workload that is used to create the application. Valid values: Deployment and StatefulSet. If you leave this parameter empty, Deployment is used.
    * 
    * @example
    * Deployment
@@ -502,7 +492,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
 export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   /**
    * @remarks
-   * The affinity configuration of the pod.
+   * The pod affinity configuration.
    * 
    * @example
    * "{\\"nodeAffinity\\":{\\"requiredDuringSchedulingIgnoredDuringExecution\\":{\\"nodeSelectorTerms\\":[{\\"matchExpressions\\":[{\\"key\\":\\"beta.kubernetes.io/arch\\",\\"operator\\":\\"NotIn\\",\\"values\\":[\\"arm64\\",\\"arm32\\"]}]}]},\\"preferredDuringSchedulingIgnoredDuringExecution\\":[{\\"weight\\":5,\\"preference\\":{\\"matchExpressions\\":[{\\"key\\":\\"kubernetes.io/os\\",\\"operator\\":\\"In\\",\\"values\\":[\\"linux\\"]}]}}]},\\"podAffinity\\":{\\"requiredDuringSchedulingIgnoredDuringExecution\\":[{\\"labelSelector\\":{\\"matchExpressions\\":[{\\"key\\":\\"edas.oam.acname\\",\\"operator\\":\\"NotIn\\",\\"values\\":[\\"edas-test-app\\"]}]},\\"namespaces\\":[\\"default\\"],\\"topologyKey\\":\\"kubernetes.io/hostname\\"}]},\\"podAntiAffinity\\":{\\"preferredDuringSchedulingIgnoredDuringExecution\\":[{\\"weight\\":15,\\"podAffinityTerm\\":{\\"labelSelector\\":{\\"matchExpressions\\":[{\\"key\\":\\"edas.oam.acname\\",\\"operator\\":\\"In\\",\\"values\\":[\\"edas-test-app-2\\"]}]},\\"namespaces\\":[\\"default\\"],\\"topologyKey\\":\\"failure-domain.beta.kubernetes.io/zone\\"}}]}}"
@@ -510,7 +500,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   affinity?: string;
   /**
    * @remarks
-   * Indicates whether the application is connected to Application High Availability Service (AHAS).
+   * Indicates whether the application is connected to AHAS.
    * 
    * @example
    * true
@@ -518,10 +508,11 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   ahasEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the application instances are deployed across nodes.
+   * Indicates whether to distribute application instances across multiple nodes:
    * 
-   * *   Value `true` indicates that the application instances are deployed across nodes.
-   * *   Other values indicate that the application instances are not deployed across nodes.
+   * - `true`: The application instances are distributed across multiple nodes.
+   * 
+   * - Other values: The application instances are not distributed across multiple nodes.
    * 
    * @example
    * true
@@ -529,10 +520,11 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   deployAcrossNodes?: string;
   /**
    * @remarks
-   * Indicates whether the application instances are deployed across zones.
+   * Indicates whether to distribute application instances across multiple zones:
    * 
-   * *   Value `true` indicates that the application instances are deployed across zones.
-   * *   Other values indicate that the application instances are not deployed across zones.
+   * - `true`: The application instances are distributed across multiple zones.
+   * 
+   * - Other values: The application instances are not distributed across multiple zones.
    * 
    * @example
    * true
@@ -540,7 +532,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   deployAcrossZones?: string;
   /**
    * @remarks
-   * The startup parameters for a JAR application. This parameter is deprecated.
+   * The startup parameters of the JAR package. This parameter is deprecated.
    * 
    * @example
    * -lh
@@ -548,7 +540,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   jarStartArgs?: string;
   /**
    * @remarks
-   * The startup options for a JAR application. This parameter is deprecated.
+   * The startup options of the JAR package. This parameter is deprecated.
    * 
    * @example
    * -h
@@ -572,7 +564,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   k8sCmdArgs?: string;
   /**
    * @remarks
-   * The information about the local storage.
+   * The local storage information.
    * 
    * @example
    * [{"type":"","nodePath":"/mnt/","mountPath":"/mnt/"}]
@@ -580,7 +572,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   k8sLocalvolumeInfo?: string;
   /**
    * @remarks
-   * The information about the File Storage NAS (NAS) storage.
+   * The NAS storage information.
    * 
    * @example
    * [{"nasPath":"/mnt/","mountPath":"/mnt/"}]
@@ -588,7 +580,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   k8sNasInfo?: string;
   /**
    * @remarks
-   * The information about the storage.
+   * The storage information.
    * 
    * @example
    * "{\\"hostPaths\\":\\"[]\\",\\"emptyDirs\\":\\"[]\\"}"
@@ -596,7 +588,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   k8sVolumeInfo?: string;
   /**
    * @remarks
-   * The information about the liveness check on the container.
+   * The information about the liveness probe of the Kubernetes container.
    * 
    * @example
    * {"failureThreshold": 3,"initialDelaySeconds": 5,"successThreshold": 1,"timeoutSeconds": 1,"tcpSocket":{"host":"", "port":8080}}
@@ -604,7 +596,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   liveness?: string;
   /**
    * @remarks
-   * The script executed after the container is started.
+   * The information about the post-start execution of the Kubernetes container.
    * 
    * @example
    * {\\"exec\\":{\\"command\\":[\\"ls\\",\\"/\\"]}}"
@@ -612,7 +604,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   postStart?: string;
   /**
    * @remarks
-   * The script executed before the container is stopped.
+   * The information about the pre-stop execution of the Kubernetes container.
    * 
    * @example
    * {\\"exec\\":{\\"command\\":[\\"ls\\",\\"/\\"]}}"
@@ -620,7 +612,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   preStop?: string;
   /**
    * @remarks
-   * The information about the readiness check on the container.
+   * The information about the readiness probe of the Kubernetes container.
    * 
    * @example
    * {"failureThreshold": 3,"initialDelaySeconds": 5,"successThreshold": 1,"timeoutSeconds": 1,"httpGet": {"path": "/consumer","port": 8080,"scheme": "HTTP","httpHeaders": [{"name": "test","value": "testvalue"}\\]}}
@@ -628,7 +620,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   readiness?: string;
   /**
    * @remarks
-   * The type of the container runtime. This parameter is applicable only to clusters that use sandboxed containers.
+   * The pod runtime class. This parameter is applicable only to clusters that use sandboxed containers.
    * 
    * @example
    * runc
@@ -636,7 +628,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   runtimeClassName?: string;
   /**
    * @remarks
-   * The scheduling tolerance configuration of the pod.
+   * The pod scheduling toleration configuration.
    * 
    * @example
    * "[{\\"key\\":\\"edas-taint-key2\\",\\"operator\\":\\"Exists\\",\\"effect\\":\\"NoExecute\\",\\"tolerationSeconds\\":50},{\\"key\\":\\"edas-taint-key\\",\\"operator\\":\\"Equal\\",\\"value\\":\\"edas-taint-value\\",\\"effect\\":\\"PreferNoSchedule\\"}]"
@@ -644,7 +636,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
   tolerations?: string;
   /**
    * @remarks
-   * The URL of the base image. If you use a custom Java Development Kit (JDK) runtime, you must specify this parameter.
+   * The URL of the base image. This parameter is configured when a custom OpenJDK runtime is used.
    * 
    * @example
    * openjdk:8u302
@@ -706,29 +698,8 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $dara.Model {
 }
 
 export class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupComponentsComponents extends $dara.Model {
-  /**
-   * @remarks
-   * The component ID.
-   * 
-   * @example
-   * 5
-   */
   componentId?: string;
-  /**
-   * @remarks
-   * The keyword that is included in the component name.
-   * 
-   * @example
-   * Open JDK 8
-   */
   componentKey?: string;
-  /**
-   * @remarks
-   * The component type. Valid values:
-   * 
-   * @example
-   * JDK
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -782,26 +753,8 @@ export class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupCompo
 }
 
 export class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the component.
-   */
   components?: GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupComponents;
-  /**
-   * @remarks
-   * The environment variable. This parameter is different from the EnvList parameter. This parameter specifies the referenced configuration of the ConfigMap or Secret.
-   * 
-   * @example
-   * "["{\\"name\\":\\"test1\\",\\"valueFrom\\":{\\"configMapKeyRef\\":{\\"name\\":\\"edas-demo-configmap\\",\\"key\\":\\"key1\\"}}}","{\\"name\\":\\"k2\\",\\"value\\":\\"v2\\"}","{\\"name\\":\\"s1\\",\\"valueFrom\\":{\\"secretKeyRef\\":{\\"name\\":\\"edas-demo-secret\\",\\"key\\":\\"k1\\"}}}"]"
-   */
   env?: string;
-  /**
-   * @remarks
-   * The source of the environment variable.
-   * 
-   * @example
-   * [{"configMapRef":{"name":"test-cm"}}]
-   */
   envFrom?: string;
   static names(): { [key: string]: string } {
     return {
@@ -865,7 +818,7 @@ export class GetK8sApplicationResponseBodyApplcationImageInfo extends $dara.Mode
   imageUrl?: string;
   /**
    * @remarks
-   * The region ID of the image repository.
+   * The ID of the region where the image is located.
    * 
    * @example
    * cn-beijing
@@ -889,7 +842,7 @@ export class GetK8sApplicationResponseBodyApplcationImageInfo extends $dara.Mode
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * edas-server****-user
@@ -897,7 +850,7 @@ export class GetK8sApplicationResponseBodyApplcationImageInfo extends $dara.Mode
   repoNamespace?: string;
   /**
    * @remarks
-   * The source type of the image repository.
+   * The type of the source of the image repository.
    * 
    * @example
    * ALI_HUB
@@ -947,7 +900,7 @@ export class GetK8sApplicationResponseBodyApplcationImageInfo extends $dara.Mode
 export class GetK8sApplicationResponseBodyApplcationLatestVersion extends $dara.Model {
   /**
    * @remarks
-   * The version of the deployment package.
+   * The version number of the deployment package.
    * 
    * @example
    * 20200720
@@ -955,7 +908,7 @@ export class GetK8sApplicationResponseBodyApplcationLatestVersion extends $dara.
   packageVersion?: string;
   /**
    * @remarks
-   * The URL of the deployment package. This parameter is required if you use a FatJar or WAR package to deploy the application.
+   * The URL of the deployment package. This parameter is required for applications that are deployed using a FatJar or WAR package.
    * 
    * @example
    * https://e***.oss-cn-beijing.aliyuncs.com/s***-1.0-SNAPSHOT-spring-boot.jar
@@ -963,7 +916,7 @@ export class GetK8sApplicationResponseBodyApplcationLatestVersion extends $dara.
   url?: string;
   /**
    * @remarks
-   * The URL of the deployment package. This parameter is required if you use a FatJar or WAR package to deploy the application.
+   * The URL of the deployment package. This parameter is required for applications that are deployed using a FatJar or WAR package.
    * 
    * @example
    * https://e***.oss-cn-beijing.aliyuncs.com/s***-1.0-SNAPSHOT-spring-boot.jar
@@ -1002,7 +955,7 @@ export class GetK8sApplicationResponseBodyApplcation extends $dara.Model {
   app?: GetK8sApplicationResponseBodyApplcationApp;
   /**
    * @remarks
-   * The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
+   * The ID of the application. You can call the [ListApplication](https://help.aliyun.com/document_detail/149390.html) operation to obtain the application ID.
    * 
    * @example
    * a5281053-****-47a5-b2ab-5c0323de****
@@ -1010,17 +963,13 @@ export class GetK8sApplicationResponseBodyApplcation extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The configurations.
+   * The configuration information.
    */
   conf?: GetK8sApplicationResponseBodyApplcationConf;
-  /**
-   * @remarks
-   * The information about the instance group in which the application is deployed.
-   */
   deployGroups?: GetK8sApplicationResponseBodyApplcationDeployGroups;
   /**
    * @remarks
-   * The information about the image.
+   * The image information.
    */
   imageInfo?: GetK8sApplicationResponseBodyApplcationImageInfo;
   /**
@@ -1077,12 +1026,12 @@ export class GetK8sApplicationResponseBodyApplcation extends $dara.Model {
 export class GetK8sApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the application.
+   * The application information.
    */
   applcation?: GetK8sApplicationResponseBodyApplcation;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -1090,7 +1039,7 @@ export class GetK8sApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The additional information.
    * 
    * @example
    * success
@@ -1098,7 +1047,7 @@ export class GetK8sApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1053-08e4-47a5-b2ab-5c0323de7b5a

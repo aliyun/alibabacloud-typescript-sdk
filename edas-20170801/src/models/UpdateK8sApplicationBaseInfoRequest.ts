@@ -34,7 +34,7 @@ export class UpdateK8sApplicationBaseInfoRequest extends $dara.Model {
    * The owner of the application. The value can be up to 128 characters in length.
    * 
    * @example
-   * Tom
+   * John Doe
    */
   owner?: string;
   /**

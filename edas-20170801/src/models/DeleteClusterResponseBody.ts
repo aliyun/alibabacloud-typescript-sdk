@@ -15,8 +15,9 @@ export class DeleteClusterResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the cluster is deleted. Valid values:
    * 
-   * *   true: The cluster is deleted.
-   * *   false: The cluster is not deleted.
+   * - true: The cluster is deleted.
+   * 
+   * - false: The cluster is not deleted.
    * 
    * @example
    * true

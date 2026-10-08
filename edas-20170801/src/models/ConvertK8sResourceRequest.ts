@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertK8sResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster. You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](https://help.aliyun.com/document_detail/154995.html).
+   * The ID of the cluster. For more information, see [ListCluster](https://help.aliyun.com/document_detail/154995.html).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ConvertK8sResourceRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource that is used. Set the value to deployment.
+   * The resource type. Only deployment is supported.
    * 
    * This parameter is required.
    * 

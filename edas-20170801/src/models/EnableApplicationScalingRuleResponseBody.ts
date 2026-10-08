@@ -242,8 +242,9 @@ export class EnableApplicationScalingRuleResponseBodyAppScalingRule extends $dar
    * @remarks
    * Indicates whether the auto scaling policy is enabled. Valid values:
    * 
-   * *   **true**: The auto scaling policy is enabled.
-   * *   **false**: The auto scaling policy is disabled.
+   * - **true**: The auto scaling policy is enabled.
+   * 
+   * - **false**: The auto scaling policy is disabled.
    * 
    * @example
    * true

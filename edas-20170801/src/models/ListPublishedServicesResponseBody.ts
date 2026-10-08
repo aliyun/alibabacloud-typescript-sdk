@@ -55,58 +55,13 @@ export class ListPublishedServicesResponseBodyPublishedServicesListListPublished
 }
 
 export class ListPublishedServicesResponseBodyPublishedServicesListListPublishedServices extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * ECD1D6FC-4307-4583-BA6F-215F3857E****
-   */
   appId?: string;
-  /**
-   * @remarks
-   * Indicates whether the application runs in a Docker container. Valid values:
-   * 
-   * *   true: The application runs in a Docker container.
-   * *   false: The application does not run in a Docker container.
-   * 
-   * @example
-   * false
-   */
   dockerApplication?: boolean;
-  /**
-   * @remarks
-   * A reserved parameter.
-   * 
-   * @example
-   * ""
-   */
   group2Ip?: string;
   groups?: ListPublishedServicesResponseBodyPublishedServicesListListPublishedServicesGroups;
   ips?: ListPublishedServicesResponseBodyPublishedServicesListListPublishedServicesIps;
-  /**
-   * @remarks
-   * The name of the published service.
-   * 
-   * @example
-   * providers:com.****
-   */
   name?: string;
-  /**
-   * @remarks
-   * The type of the published service.
-   * 
-   * @example
-   * RESTful
-   */
   type?: string;
-  /**
-   * @remarks
-   * The version of the published services.
-   * 
-   * @example
-   * --
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,7 +133,7 @@ export class ListPublishedServicesResponseBodyPublishedServicesList extends $dar
 export class ListPublishedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -186,20 +141,16 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * success
    */
   message?: string;
-  /**
-   * @remarks
-   * The published services.
-   */
   publishedServicesList?: ListPublishedServicesResponseBodyPublishedServicesList;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 1D6FC-4307-4583-BA6F-215F3857E****

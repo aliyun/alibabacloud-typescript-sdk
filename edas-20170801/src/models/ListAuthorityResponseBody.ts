@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAuthorityResponseBodyAuthorityListAuthorityActionListAction extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the permission.
-   * 
-   * @example
-   * 1
-   */
   code?: string;
-  /**
-   * @remarks
-   * The description of the permission.
-   * 
-   * @example
-   * Create an application
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the permission group.
-   * 
-   * @example
-   * 1
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the permission.
-   * 
-   * @example
-   * Create an application
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,34 +61,9 @@ export class ListAuthorityResponseBodyAuthorityListAuthorityActionList extends $
 }
 
 export class ListAuthorityResponseBodyAuthorityListAuthority extends $dara.Model {
-  /**
-   * @remarks
-   * The set of permissions.
-   */
   actionList?: ListAuthorityResponseBodyAuthorityListAuthorityActionList;
-  /**
-   * @remarks
-   * The description of the permission group.
-   * 
-   * @example
-   * Operations on applications
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the permission group.
-   * 
-   * @example
-   * 1
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the permission group.
-   * 
-   * @example
-   * Application management
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,10 +122,6 @@ export class ListAuthorityResponseBodyAuthorityList extends $dara.Model {
 }
 
 export class ListAuthorityResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The permissions.
-   */
   authorityList?: ListAuthorityResponseBodyAuthorityList;
   /**
    * @remarks

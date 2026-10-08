@@ -17,8 +17,9 @@ export class StopApplicationRequest extends $dara.Model {
    * @remarks
    * The ID of the elastic compute container (ECC) that corresponds to the Elastic Compute Service (ECS) instance on which you want to stop the application. You can call the QueryApplicationStatus operation to query the ECC ID. For more information, see [QueryApplicationStatus](https://help.aliyun.com/document_detail/149394.html).
    * 
-   * *   If you want to stop the application on multiple ECS instances, separate the ECC IDs with commas (,).
-   * *   If you leave this parameter empty, the application will be stopped on all ECS instances.
+   * - If you want to stop the application on multiple ECS instances, separate the ECC IDs with commas (,).
+   * 
+   * - If you leave this parameter empty, the application will be stopped on all ECS instances.
    * 
    * @example
    * 74ee9166-****1f6-bcb60e5b****

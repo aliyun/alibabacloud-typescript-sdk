@@ -3,92 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageDetailListStageDetailDTOTaskListTaskInfoDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the retry policy. Value 0 indicates no retry, value 1 indicates automatic retry, and value 2 indicates manual retry.
-   * 
-   * @example
-   * 0
-   */
   retryType?: number;
-  /**
-   * @remarks
-   * Indicates whether errors that occur in the change process are ignored. Valid values:``
-   * 
-   * *   true: Errors that occur in the change process are ignored. This parameter can be set to true only when URL health checks are performed.
-   * *   false: Errors that occur in the change process are not ignored.
-   * 
-   * @example
-   * false
-   */
   showManualIgnorance?: boolean;
-  /**
-   * @remarks
-   * Error codes
-   * 
-   * @example
-   * 400
-   */
   taskErrorCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the task is error-tolerant. If the task can tolerate errors, the errors that occur in the change process are ignored and the next task is executed.
-   * 
-   * *   0: The task is not error-tolerant.
-   * *   1: The task is error-tolerant.
-   * 
-   * @example
-   * 0
-   */
   taskErrorIgnorance?: number;
-  /**
-   * @remarks
-   * The error message for the task.
-   * 
-   * @example
-   * 400
-   */
   taskErrorMessage?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * d6d3b934-90a1-4ae8-8cbd-2446003d****
-   */
   taskId?: string;
-  /**
-   * @remarks
-   * Task information
-   * 
-   * @example
-   * [CALLBACK] 2020-03-11 15:28:44.781  requestId: c952ab99-8c5b-4ff1-9412-ae3bf9b1****, message: success
-   */
   taskMessage?: string;
-  /**
-   * @remarks
-   * The name of the task.
-   * 
-   * @example
-   * Build Image
-   */
   taskName?: string;
-  /**
-   * @remarks
-   * The state of the task. Valid values:
-   * 
-   * *   0: ready
-   * *   1: in progress
-   * *   2: successful
-   * *   3: failed
-   * *   6: terminated
-   * *   8: wait for manual confirmation to trigger the next batch during a manual phased release
-   * *   9: wait to trigger the next batch during an automatic phased release
-   * *   10: failed due to a system exception
-   * 
-   * @example
-   * 2
-   */
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -154,43 +76,9 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipeli
 }
 
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageDetailListStageDetailDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the stage.
-   * 
-   * @example
-   * d7561440-10a6-452f-8a90-62f6e7ec****
-   */
   stageId?: string;
-  /**
-   * @remarks
-   * The name of the stage.
-   * 
-   * @example
-   * Process Start
-   */
   stageName?: string;
-  /**
-   * @remarks
-   * The status of the stage. Valid values:
-   * 
-   * *   0: ready
-   * *   1: in progress
-   * *   2: successful
-   * *   3: failed
-   * *   6: terminated
-   * *   8: wait for manual confirmation to trigger the next batch during a manual phased release
-   * *   9: wait to trigger the next batch during an automatic phased release
-   * *   10: failed due to a system exception
-   * 
-   * @example
-   * 2
-   */
   stageStatus?: number;
-  /**
-   * @remarks
-   * The information about the task.
-   */
   taskList?: GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageDetailListStageDetailDTOTaskList;
   static names(): { [key: string]: string } {
     return {
@@ -249,62 +137,11 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipeli
 }
 
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTOStageResultDTOInstanceDTOListInstanceDTOInstanceStageDTOListInstanceStageDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the execution stopped.
-   * 
-   * @example
-   * 2020-03-11T07:28:52Z
-   */
   finishTime?: string;
-  /**
-   * @remarks
-   * The ID of the stage.
-   * 
-   * @example
-   * 5dd4c0f2-d81a-406f-****-************
-   */
   stageId?: string;
-  /**
-   * @remarks
-   * The information about the stage.
-   * 
-   * @example
-   * Pulling image \\"registry-vpc.cn-hangzhou.aliyuncs.com****-user/1172745****_shared_repo:428084d6-265f-****-911a-7eb0d2c3****_15839117****\\
-   */
   stageMessage?: string;
-  /**
-   * @remarks
-   * The name of the stage.
-   * 
-   * @example
-   * scale out
-   */
   stageName?: string;
-  /**
-   * @remarks
-   * The time when the execution was started.
-   * 
-   * @example
-   * 2020-03-11T07:28:49Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The state of the stage. Valid values:
-   * 
-   * *   0: ready
-   * *   1: in progress
-   * *   2: successful
-   * *   3: failed
-   * *   6: terminated
-   * *   8: wait for manual confirmation to trigger the next batch during a manual phased release
-   * *   9: wait to trigger the next batch during an automatic phased release
-   * *   10: failed due to a system exception
-   * 
-   * @example
-   * 2
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -364,59 +201,11 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipeli
 }
 
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTOStageResultDTOInstanceDTOListInstanceDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The IP address of the ECS instance.
-   * 
-   * @example
-   * 47.XX.XX.12 (Public)<br>***.**.*.*** (*******)
-   */
   instanceIp?: string;
-  /**
-   * @remarks
-   * The name of the ECS instance.
-   * 
-   * @example
-   * EDAS-scaled
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The results of the task executed on the ECS instance in each stage.
-   */
   instanceStageDTOList?: GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTOStageResultDTOInstanceDTOListInstanceDTOInstanceStageDTOList;
-  /**
-   * @remarks
-   * The name of the node.
-   * 
-   * @example
-   * canary-test
-   */
   podName?: string;
-  /**
-   * @remarks
-   * The state of the pod.
-   * 
-   * @example
-   * In progress
-   */
   podStatus?: string;
-  /**
-   * @remarks
-   * The running state. Valid values:
-   * 
-   * *   0: ready
-   * *   1: in progress
-   * *   2: successful
-   * *   3: failed
-   * *   6: terminated
-   * *   8: wait for manual confirmation to trigger the next batch during a manual phased release
-   * *   9: wait to trigger the next batch during an automatic phased release
-   * *   10: failed due to a system exception
-   * 
-   * @example
-   * 2
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -479,46 +268,9 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipeli
 }
 
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTOStageResultDTOServiceStage extends $dara.Model {
-  /**
-   * @remarks
-   * The execution result in the stage.
-   * 
-   * @example
-   * Success
-   */
   message?: string;
-  /**
-   * @remarks
-   * The ID of the stage.
-   * 
-   * @example
-   * 358a143f-09a0-45e0-****-************
-   */
   stageId?: string;
-  /**
-   * @remarks
-   * Phase Name
-   * 
-   * @example
-   * Enable Tengine
-   */
   stageName?: string;
-  /**
-   * @remarks
-   * The running state. Valid values:
-   * 
-   * *   0: ready
-   * *   1: in progress
-   * *   2: successful
-   * *   3: failed
-   * *   6: terminated
-   * *   8: wait for manual confirmation to trigger the next batch during a manual phased release
-   * *   9: wait to trigger the next batch during an automatic phased release
-   * *   10: failed due to a system exception
-   * 
-   * @example
-   * 2
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -548,15 +300,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipeli
 }
 
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTOStageResultDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The results of the task executed on each Elastic Compute Service (ECS) instance in each stage.
-   */
   instanceDTOList?: GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTOStageResultDTOInstanceDTOList;
-  /**
-   * @remarks
-   * The results of tasks executed in each service-oriented stage.
-   */
   serviceStage?: GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTOStageResultDTOServiceStage;
   static names(): { [key: string]: string } {
     return {
@@ -588,43 +332,9 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipeli
 }
 
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the stage.
-   * 
-   * @example
-   * 358a143f-09a0-45e0-****-************@**_*******_*****
-   */
   stageId?: string;
-  /**
-   * @remarks
-   * The name of the stage.
-   * 
-   * @example
-   * Scale Out
-   */
   stageName?: string;
-  /**
-   * @remarks
-   * The results of the task executed in the stage.
-   */
   stageResultDTO?: GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageListStageInfoDTOStageResultDTO;
-  /**
-   * @remarks
-   * The state of the stage. Valid values:
-   * 
-   * *   0: ready
-   * *   1: in progress
-   * *   2: successful
-   * *   3: failed
-   * *   6: terminated
-   * *   8: wait for manual confirmation to trigger the next batch during a manual phased release
-   * *   9: wait to trigger the next batch during an automatic phased release
-   * *   10: failed due to a system exception
-   * 
-   * @example
-   * 2
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -683,64 +393,12 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipeli
 }
 
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of each batch for the change during the phased release.
-   * 
-   * @example
-   * 4c4ee320-5e47-4a48-****-************
-   */
   pipelineId?: string;
-  /**
-   * @remarks
-   * The name of the batch.
-   * 
-   * @example
-   * Batch: 1
-   */
   pipelineName?: string;
-  /**
-   * @remarks
-   * The state of the change task. Valid values:
-   * 
-   * *   0: ready
-   * *   1: in progress
-   * *   2: successful
-   * *   3: failed
-   * *   6: terminated
-   * *   8: wait for manual confirmation to trigger the next batch during a manual phased release
-   * *   9: wait to trigger the next batch during an automatic phased release
-   * *   10: failed due to a system exception
-   * 
-   * @example
-   * 2
-   */
   pipelineStatus?: number;
-  /**
-   * @remarks
-   * The execution results in each stage.
-   */
   stageDetailList?: GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageDetailList;
-  /**
-   * @remarks
-   * The stages of the change process.
-   */
   stageList?: GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoListPipelineInfoStageList;
-  /**
-   * @remarks
-   * The time when the change task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1583911702158
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The time when the change task was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1583911743633
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -836,7 +494,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoTargets extends $dara.
 export class GetChangeOrderInfoResponseBodyChangeOrderInfoTrafficControl extends $dara.Model {
   /**
    * @remarks
-   * The route forwarding policy.
+   * The traffic forwarding rule.
    * 
    * @example
    * [{"app":"9c8247da-91b6-42bb-8f99-92a0b9c6f****","type":"GROUP"}]
@@ -844,7 +502,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoTrafficControl extends
   routes?: string;
   /**
    * @remarks
-   * The traffic routing rules.
+   * The routing rule for traffic.
    * 
    * @example
    * [{"conditionType":"content","conditions":[{"key":"name","operator":"EQ","strategy":"PARAM","values":["jim"]},{"key":"name","operator":"EQ","strategy":"COOKIE","values":["jim"]}],"percent":100,"protocol":"SPRINGCLOUD","triggerPolicy":"AND"}]
@@ -852,10 +510,10 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfoTrafficControl extends
   rules?: string;
   /**
    * @remarks
-   * The description of throttling rules.
+   * The description of the traffic rule.
    * 
    * @example
-   * This canary release batch is complete, and the user has confirmed to proceed to the next batch.
+   * Canary batch release completed. Confirmed to proceed to the next batch.
    */
   tips?: string;
   static names(): { [key: string]: string } {
@@ -894,10 +552,11 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
   batchCount?: number;
   /**
    * @remarks
-   * Indicates whether the change for the next batch is automatically or manually triggered when phased release is performed. Valid values:
+   * The execution mode for the next batch in a phased release.
    * 
-   * *   Automatic: The change for the next batch is automatically triggered.
-   * *   Manual: The change for the next batch is manually triggered.
+   * - Automatic: The next batch is automatically executed.
+   * 
+   * - Manual: The next batch is manually executed.
    * 
    * @example
    * Automatic
@@ -908,7 +567,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
    * The description of the change process.
    * 
    * @example
-   * Application scale-out
+   * Application scale-up
    */
   changeOrderDescription?: string;
   /**
@@ -921,7 +580,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The type of the change process.
+   * The classification of the change process.
    * 
    * @example
    * Application Scale Out
@@ -929,7 +588,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
   coType?: string;
   /**
    * @remarks
-   * The time when the change process is created.
+   * The time when the change process was created.
    * 
    * @example
    * 2019-11-13 14:23:46
@@ -937,7 +596,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The person in charge of the change process.
+   * The owner of the change process.
    * 
    * @example
    * edas_com***_****@******-*****.***
@@ -951,24 +610,28 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
    * IP of Scale-Out Instance: 47.107.XX.XX
    */
   desc?: string;
-  /**
-   * @remarks
-   * The information about the batches of the change task.
-   */
   pipelineInfoList?: GetChangeOrderInfoResponseBodyChangeOrderInfoPipelineInfoList;
   /**
    * @remarks
-   * The state of the change process. Valid values:
+   * The status of the change.
    * 
-   * *   0: ready
-   * *   1: in progress
-   * *   2: successful
-   * *   3: failed
-   * *   6: terminated
-   * *   7: partially executed
-   * *   8: wait for manual confirmation to trigger the next batch during a manual phased release
-   * *   9: wait to trigger the next batch during an automatic phased release
-   * *   10: failed due to a system exception
+   * - 0: ready
+   * 
+   * - 1: in progress
+   * 
+   * - 2: successful
+   * 
+   * - 3: failed
+   * 
+   * - 6: stopped
+   * 
+   * - 7: partially successful
+   * 
+   * - 8: waiting for manual confirmation to proceed with the next batch in manual phased release mode
+   * 
+   * - 9: waiting for the next batch to be executed in automatic phased release mode
+   * 
+   * - 10: failed due to a system exception
    * 
    * @example
    * 2
@@ -976,10 +639,11 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Indicates whether rollbacks are allowed. Valid values:
+   * Indicates whether rollback is supported.
    * 
-   * *   true: Rollbacks are allowed.
-   * *   false: Rollbacks are not allowed.
+   * - true: Rollback is supported.
+   * 
+   * - false: Rollback is not supported.
    * 
    * @example
    * false
@@ -988,7 +652,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
   targets?: GetChangeOrderInfoResponseBodyChangeOrderInfoTargets;
   /**
    * @remarks
-   * The throttling rules.
+   * The throttling rule.
    */
   trafficControl?: GetChangeOrderInfoResponseBodyChangeOrderInfoTrafficControl;
   static names(): { [key: string]: string } {
@@ -1048,7 +712,7 @@ export class GetChangeOrderInfoResponseBodyChangeOrderInfo extends $dara.Model {
 export class GetChangeOrderInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status of the API call or a POP error code.
    * 
    * @example
    * 200
@@ -1056,7 +720,7 @@ export class GetChangeOrderInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * Additional information.
    * 
    * @example
    * success
@@ -1064,7 +728,7 @@ export class GetChangeOrderInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4JFR-FV9F***************
@@ -1072,7 +736,7 @@ export class GetChangeOrderInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details about the change process.
+   * The details of the change process.
    */
   changeOrderInfo?: GetChangeOrderInfoResponseBodyChangeOrderInfo;
   static names(): { [key: string]: string } {

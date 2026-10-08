@@ -79,8 +79,9 @@ export class GetSecureTokenResponseBodySecureToken extends $dara.Model {
    * @remarks
    * The type of the Microservices Engine (MSE) registry.
    * 
-   * *   default: the shared registry of EDAS
-   * *   exclusive_mse: MSE Nacos registry
+   * - default: the shared registry of EDAS
+   * 
+   * - exclusive_mse: MSE Nacos registry
    * 
    * @example
    * exclusive_mse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartK8sApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The ID of the change process for this operation.
    * 
    * @example
    * *********-ed2ae98de18d
@@ -13,7 +13,7 @@ export class RestartK8sApplicationResponseBody extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status of the API call or a POP error code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class RestartK8sApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * Additional information.
    * 
    * @example
    * success

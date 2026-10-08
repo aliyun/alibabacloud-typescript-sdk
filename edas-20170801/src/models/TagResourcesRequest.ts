@@ -27,8 +27,9 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   **application**: Enterprise Distributed Application Service (EDAS) application
-   * *   **cluster**: EDAS cluster
+   * - **application**: Enterprise Distributed Application Service (EDAS) application
+   * 
+   * - **cluster**: EDAS cluster
    * 
    * This parameter is required.
    * 
@@ -40,10 +41,13 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The key-value pairs. When you set this parameter, take note of the following limits:
    * 
-   * *   You can add up to 20 tags to a resource.
-   * *   The tag key cannot start with **aliyun** or **acs:**. It cannot contain **http://** or **https://**.
-   * *   The tag key or tag value can be up to 128 characters in length, and can contain letters, digits, hyphens (-), commas (,), asterisks (\\*), forward slashes (/), question marks (?), and colons (:).
-   * *   Set this parameter to a JSON array.
+   * - You can add up to 20 tags to a resource.
+   * 
+   * - The tag key cannot start with **aliyun** or **acs:**. It cannot contain **http\\://** or **https\\://**.
+   * 
+   * - The tag key or tag value can be up to 128 characters in length, and can contain letters, digits, hyphens (-), commas (,), asterisks (\\*), forward slashes (/), question marks (?), and colons (:).
+   * 
+   * - Set this parameter to a JSON array.
    * 
    * This parameter is required.
    * 

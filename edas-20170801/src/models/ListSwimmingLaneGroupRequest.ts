@@ -15,7 +15,7 @@ export class ListSwimmingLaneGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the namespace.
    * 
-   * The ID of a custom namespace is in the region ID:namespace identifier format. Example: cn-beijing:test.\\
+   * The ID of a custom namespace is in the region ID:namespace identifier format. Example: cn-beijing:test.<br>
    * The ID of the default namespace is in the region ID format. Example: cn-beijing.
    * 
    * This parameter is required.

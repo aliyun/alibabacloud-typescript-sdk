@@ -17,11 +17,15 @@ export class AddLogPathRequest extends $dara.Model {
    * @remarks
    * The absolute path of the log directory that you want to add. The value must start and end with a forward slash (`/`) and must contain `/log` or `/logs`. The following directories are the default log directories in Enterprise Distributed Application Service (EDAS):
    * 
-   * *   /home/admin/edas-container/logs/
-   * *   /home/admin/taobao-tomcat-7.0.59/logs/
-   * *   /home/admin/taobao-tomcat-production-7.0.59.3/logs/
-   * *   /home/admin/taobao-tomcat-production-7.0.70/logs/
-   * *   /home/admin/edas-agent/logs/
+   * - /home/admin/edas-container/logs/
+   * 
+   * - /home/admin/taobao-tomcat-7.0.59/logs/
+   * 
+   * - /home/admin/taobao-tomcat-production-7.0.59.3/logs/
+   * 
+   * - /home/admin/taobao-tomcat-production-7.0.70/logs/
+   * 
+   * - /home/admin/edas-agent/logs/
    * 
    * This parameter is required.
    * 

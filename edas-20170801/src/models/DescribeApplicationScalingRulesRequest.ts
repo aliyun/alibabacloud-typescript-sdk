@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationScalingRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
+   * The ID of the application. Call the [ListApplication](https://help.aliyun.com/document_detail/149390.html) operation to get the application ID.
    * 
    * @example
    * 78194c76-3dca-418e-a263-cccd1ab4****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertK8sResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ConvertK8sResourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * convert success

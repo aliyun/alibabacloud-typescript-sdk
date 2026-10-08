@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class TransformClusterMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance that you want to import or migrate. Separate multiple IDs with commas (,).
+   * The IDs of the ECS instances. Separate multiple IDs with a comma (,).
    * 
-   * *   An instance may not belong to a cluster, but an instance can belong to only one cluster at most.
-   * *   The ECS instances and the destination cluster must be in the same virtual private cloud (VPC).
+   * - The instances must be in the same VPC as the target cluster.
+   * 
+   * - An instance can belong to only one cluster at a time.
    * 
    * This parameter is required.
    * 
@@ -18,7 +19,7 @@ export class TransformClusterMemberRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The logon password of the ECS instance that you want to import or migrate to the cluster.
+   * The logon password to set for the instances.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class TransformClusterMemberRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The ID of the destination cluster.
+   * The ID of the target cluster.
    * 
    * This parameter is required.
    * 

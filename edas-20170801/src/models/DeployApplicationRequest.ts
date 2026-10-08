@@ -25,8 +25,9 @@ export class DeployApplicationRequest extends $dara.Model {
    * @remarks
    * The number of batches per instance group.
    * 
-   * *   If you specify an ID when you set the GroupId parameter, the application is deployed to the specified instance group. The minimum number of batches that can be specified is 1. The maximum number of batches is the maximum number of ECS instances in the Normal state in the instance group. The actual value falls in the range of [1, specified number]. The specified number of batches equals the number of ECS instances in the specified instance group.
-   * *   If you set the GroupId parameter to all, the application is deployed to all instance groups. The minimum number of batches that can be specified is 1. The maximum number of batches is the number of ECS instances in the instance group that has the largest number of ECS instances in the Normal state.
+   * - If you specify an ID when you set the GroupId parameter, the application is deployed to the specified instance group. The minimum number of batches that can be specified is 1. The maximum number of batches is the maximum number of ECS instances in the Normal state in the instance group. The actual value falls in the range of [1, specified number]. The specified number of batches equals the number of ECS instances in the specified instance group.
+   * 
+   * - If you set the GroupId parameter to all, the application is deployed to all instance groups. The minimum number of batches that can be specified is 1. The maximum number of batches is the number of ECS instances in the instance group that has the largest number of ECS instances in the Normal state.
    * 
    * @example
    * 1
@@ -36,8 +37,9 @@ export class DeployApplicationRequest extends $dara.Model {
    * @remarks
    * The wait time between deployment batches for the application. Unit: minutes.
    * 
-   * *   Default value: 0. If no wait time between deployment batches is needed, set this parameter to 0.
-   * *   Maximum value: 5.
+   * - Default value: 0. If no wait time between deployment batches is needed, set this parameter to 0.
+   * 
+   * - Maximum value: 5.
    * 
    * If many deployment batches are needed, we recommend that you specify a small value for this parameter. Otherwise, the application deployment is time-consuming.
    * 
@@ -49,13 +51,15 @@ export class DeployApplicationRequest extends $dara.Model {
    * @remarks
    * The build package number of EDAS Container.
    * 
-   * *   You do not need to set the parameter if you do not need to change the EDAS Container version during the deployment.
-   * *   Set the parameter if you need to update the EDAS Container version of the application during the deployment.
+   * - You do not need to set the parameter if you do not need to change the EDAS Container version during the deployment.
+   * 
+   * - Set the parameter if you need to update the EDAS Container version of the application during the deployment.
    * 
    * You can query the build package number by using one of the following methods:
    * 
-   * *   Call the ListBuildPack operation. For more information, see [ListBuildPack](https://help.aliyun.com/document_detail/149391.html).
-   * *   Obtain the value in the **Build package number** column of the [Release notes for EDAS Container](https://help.aliyun.com/document_detail/92614.html) topic. For example, `59` indicates `EDAS Container 3.5.8`.
+   * - Call the ListBuildPack operation. For more information, see [ListBuildPack](https://help.aliyun.com/document_detail/149391.html).
+   * 
+   * - Obtain the value in the **Build package number** column of the [Release notes for EDAS Container](https://help.aliyun.com/document_detail/92614.html) topic. For example, `59` indicates `EDAS Container 3.5.8`.
    * 
    * @example
    * 59
@@ -65,15 +69,19 @@ export class DeployApplicationRequest extends $dara.Model {
    * @remarks
    * The IDs of the components used by the application. The parameter is not applicable to High-Speed Framework (HSF) applications. You can call the ListComponents operation to query the component IDs. For more information, see [ListComponents](https://help.aliyun.com/document_detail/423223.html).
    * 
-   * *   If you have specified the component IDs when you create the application, you do not need to set the parameter when you deploy the application.
-   * *   Set the parameter if you need to update the component versions for the application during the deployment.
+   * - If you have specified the component IDs when you create the application, you do not need to set the parameter when you deploy the application.
+   * 
+   * - Set the parameter if you need to update the component versions for the application during the deployment.
    * 
    * Valid values for common application components:
    * 
-   * *   4: Apache Tomcat 7.0.91
-   * *   7: Apache Tomcat 8.5.42
-   * *   5: OpenJDK 1.8.x
-   * *   6: OpenJDK 1.7.x
+   * - 4: Apache Tomcat 7.0.91
+   * 
+   * - 7: Apache Tomcat 8.5.42
+   * 
+   * - 5: OpenJDK 1.8.x
+   * 
+   * - 6: OpenJDK 1.7.x
    * 
    * For more information, see the Common application parameters section of the [InsertApplication](https://help.aliyun.com/document_detail/423185.html) topic.
    * 
@@ -83,7 +91,7 @@ export class DeployApplicationRequest extends $dara.Model {
   componentIds?: string;
   /**
    * @remarks
-   * The deployment mode of the application. Valid values: `url` and `image`. The image value is deprecated. You can deploy an application to a Swarm cluster only by using an image.``
+   * The deployment mode of the application. Valid values: `url` and `image`. The image value is deprecated. You can deploy an application to a Swarm cluster only by using an image.\\`\\`
    * 
    * This parameter is required.
    * 
@@ -103,13 +111,15 @@ export class DeployApplicationRequest extends $dara.Model {
    * @remarks
    * Specifies whether canary release is selected as the deployment method. Valid values:
    * 
-   * *   true: Canary release is selected.
+   * - true: Canary release is selected.
    * 
-   *     *   To implement a canary release, specify the GroupId parameter, which specifies the ID of the instance group for the canary release.
-   *     *   Canary release can be selected as the deployment method for only one batch.
-   *     *   After the canary release is complete, the application is released in regular mode. The Batch parameter specifies the number of batches.
+   *   - To implement a canary release, specify the GroupId parameter, which specifies the ID of the instance group for the canary release.
    * 
-   * *   false: Single-batch release or phased release is selected.
+   *   - Canary release can be selected as the deployment method for only one batch.
+   * 
+   *   - After the canary release is complete, the application is released in regular mode. The Batch parameter specifies the number of batches.
+   * 
+   * - false: Single-batch release or phased release is selected.
    * 
    * @example
    * true
@@ -149,8 +159,9 @@ export class DeployApplicationRequest extends $dara.Model {
    * @remarks
    * The mode in which the deployment batches are triggered. Valid values:
    * 
-   * *   0: automatic.
-   * *   1: You must manually trigger the next batch. You can manually click **Proceed to Next Batch** in the console or call the ContinuePipeline operation to proceed to the next batch. We recommend that you choose the automatic mode when you call an API operation to deploy the application. For more information, see [ContinuePipeline](https://help.aliyun.com/document_detail/126990.html).
+   * - 0: automatic.
+   * 
+   * - 1: You must manually trigger the next batch. You can manually click **Proceed to Next Batch** in the console or call the ContinuePipeline operation to proceed to the next batch. We recommend that you choose the automatic mode when you call an API operation to deploy the application. For more information, see [ContinuePipeline](https://help.aliyun.com/document_detail/126990.html).
    * 
    * @example
    * 0

@@ -3,118 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEcsNotInClusterResponseBodyEcsEntityListEcsEntity extends $dara.Model {
-  /**
-   * @remarks
-   * The number of CPU cores.
-   * 
-   * @example
-   * 2
-   */
   cpu?: number;
-  /**
-   * @remarks
-   * The elastic IP address (EIP) associated with the ECS instance.
-   * 
-   * @example
-   * 139.30.xxx.xx
-   */
   eip?: string;
-  /**
-   * @remarks
-   * Indicates whether the ECS instance has expired. Valid values:
-   * 
-   * *   **true**: The ECS instance has expired.
-   * *   **false**: The ECS instance has not expired.
-   * 
-   * @example
-   * false
-   */
   expired?: boolean;
-  /**
-   * @remarks
-   * The private IP address of the ECS instance.
-   * 
-   * @example
-   * 192.168.20.113
-   */
   innerIp?: string;
-  /**
-   * @remarks
-   * The ID of the ECS instance.
-   * 
-   * @example
-   * i-2ze7s2v0b***********
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the ECS instance.
-   * 
-   * @example
-   * worker-k8s-for-cs-c9dfa009a5e7c4faab2010b87cae4****
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The size of memory. Unit: bytes.
-   * 
-   * @example
-   * 4096
-   */
   mem?: number;
-  /**
-   * @remarks
-   * The private IP address of the ECS instance.
-   * 
-   * @example
-   * 192.168.*.**
-   */
   privateIp?: string;
-  /**
-   * @remarks
-   * The public IP address of the ECS instance.
-   * 
-   * @example
-   * 131.30.xxx.xx
-   */
   publicIp?: string;
-  /**
-   * @remarks
-   * The ID of the region where the ECS instance is located.
-   * 
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The status of the ECS instance. Valid values:
-   * 
-   * *   **Pending**: The ECS instance is being created.
-   * *   **Running**: The ECS instance is running.
-   * *   **Starting**: The ECS instance is being started.
-   * *   **Stopping**: The ECS instance is being stopped.
-   * *   **Stopped**: The ECS instance is stopped.
-   * 
-   * @example
-   * Running
-   */
   status?: string;
-  /**
-   * @remarks
-   * The ID of the VPC.
-   * 
-   * @example
-   * vpc-2zef6ob8mrlzv8x3q****
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The name of the VPC.
-   * 
-   * @example
-   * test
-   */
   vpcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -196,10 +96,6 @@ export class ListEcsNotInClusterResponseBody extends $dara.Model {
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * The information about ECS instances.
-   */
   ecsEntityList?: ListEcsNotInClusterResponseBodyEcsEntityList;
   /**
    * @remarks

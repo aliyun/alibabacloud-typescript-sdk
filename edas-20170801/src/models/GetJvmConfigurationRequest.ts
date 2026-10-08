@@ -17,8 +17,9 @@ export class GetJvmConfigurationRequest extends $dara.Model {
    * @remarks
    * The ID of the instance group.
    * 
-   * *   If an ID is specified, this operation queries the JVM configuration information of the instance group.
-   * *   If an ID is not specified, this operation queries the JVM configuration information of the application.
+   * - If an ID is specified, this operation queries the JVM configuration information of the instance group.
+   * 
+   * - If an ID is not specified, this operation queries the JVM configuration information of the application.
    * 
    * @example
    * 8123db90-880f-48**************

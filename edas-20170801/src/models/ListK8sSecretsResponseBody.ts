@@ -36,11 +36,15 @@ export class ListK8sSecretsResponseBodyResultSecretsCertDetail extends $dara.Mod
    * @remarks
    * The state of the SSL certificate. Valid values:
    * 
-   * *   normal: The SSL certificate is valid.
-   * *   invalid: The SSL certificate is invalid.
-   * *   expired: The SSL certificate has expired.
-   * *   not_yet_valid: The SSL certificate is currently invalid.
-   * *   about_to_expire: The SSL certificate is about to expire.
+   * - normal: The SSL certificate is valid.
+   * 
+   * - invalid: The SSL certificate is invalid.
+   * 
+   * - expired: The SSL certificate has expired.
+   * 
+   * - not_yet_valid: The SSL certificate is currently invalid.
+   * 
+   * - about_to_expire: The SSL certificate is about to expire.
    * 
    * @example
    * normal
@@ -253,8 +257,9 @@ export class ListK8sSecretsResponseBodyResultSecrets extends $dara.Model {
    * @remarks
    * Indicates whether the data is Base64-encoded. Valid values:
    * 
-   * *   true: The data is Base64-encoded.
-   * *   false: The data is not Base64-encoded.
+   * - true: The data is Base64-encoded.
+   * 
+   * - false: The data is not Base64-encoded.
    * 
    * @example
    * false
@@ -340,8 +345,9 @@ export class ListK8sSecretsResponseBodyResultSecrets extends $dara.Model {
    * @remarks
    * The type of the Secret. Valid values:
    * 
-   * *   Opaque: user-defined data
-   * *   kubernetes.io/tls: Transport Layer Security (TLS) certificate
+   * - Opaque: user-defined data
+   * 
+   * - kubernetes.io/tls: Transport Layer Security (TLS) certificate
    * 
    * @example
    * Opaque

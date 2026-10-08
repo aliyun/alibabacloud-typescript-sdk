@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartK8sApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can query the application ID by calling the ListApplication operation. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
+   * The ID of the application. You can call the ListApplication operation to obtain the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StartK8sApplicationRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The number of instances on which you want to start the application.
+   * The number of application instances to start.
    * 
    * @example
    * 2
@@ -23,7 +23,7 @@ export class StartK8sApplicationRequest extends $dara.Model {
   replicas?: number;
   /**
    * @remarks
-   * The timeout period of the change process. Valid values: 1 to 1800. Default value: 600. Unit: seconds.
+   * The timeout period for the change process, in seconds. Valid values: 1 to 1800. Default value: 600.
    * 
    * @example
    * 60

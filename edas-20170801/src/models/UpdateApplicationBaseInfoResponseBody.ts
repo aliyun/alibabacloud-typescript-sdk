@@ -15,10 +15,13 @@ export class UpdateApplicationBaseInfoResponseBodyApplcation extends $dara.Model
    * @remarks
    * The deployment type of the application. Valid values:
    * 
-   * *   War: The application is deployed by using a WAR package.
-   * *   FatJar: The application is deployed by using a JAR package.
-   * *   Image: The application is deployed by using an image.
-   * *   If this parameter is empty, the application is not deployed.
+   * - War: The application is deployed by using a WAR package.
+   * 
+   * - FatJar: The application is deployed by using a JAR package.
+   * 
+   * - Image: The application is deployed by using an image.
+   * 
+   * - If this parameter is empty, the application is not deployed.
    * 
    * @example
    * FatJar
@@ -44,12 +47,17 @@ export class UpdateApplicationBaseInfoResponseBodyApplcation extends $dara.Model
    * @remarks
    * The type of the cluster. Valid values:
    * 
-   * *   0: normal Docker cluster
-   * *   1: Swarm cluster
-   * *   2: ECS cluster
-   * *   3: self-managed Kubernetes cluster in EDAS
-   * *   4: cluster in which Pandora automatically registers applications
-   * *   5: Container Service for Kubernetes (ACK) clusters
+   * - 0: normal Docker cluster
+   * 
+   * - 1: Swarm cluster
+   * 
+   * - 2: ECS cluster
+   * 
+   * - 3: self-managed Kubernetes cluster in EDAS
+   * 
+   * - 4: cluster in which Pandora automatically registers applications
+   * 
+   * - 5: Container Service for Kubernetes (ACK) clusters
    * 
    * @example
    * 2
