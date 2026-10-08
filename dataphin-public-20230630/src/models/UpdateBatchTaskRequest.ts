@@ -2,6 +2,116 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateBatchTaskRequestUpdateCommandConditionScheduleParamList extends $dara.Model {
+  /**
+   * @example
+   * condition1
+   */
+  conditionName?: string;
+  /**
+   * @example
+   * 0 0 1 * * ?
+   */
+  cronExpression?: string;
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * true
+   */
+  followScheduleParam?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  nodeStatus?: number;
+  /**
+   * @example
+   * {"type":"EXPRESSION","operator":"or"}
+   */
+  scheduleConditionJson?: string;
+  /**
+   * @example
+   * 01:00
+   */
+  scheduleTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionName: 'ConditionName',
+      cronExpression: 'CronExpression',
+      enable: 'Enable',
+      followScheduleParam: 'FollowScheduleParam',
+      nodeStatus: 'NodeStatus',
+      scheduleConditionJson: 'ScheduleConditionJson',
+      scheduleTime: 'ScheduleTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionName: 'string',
+      cronExpression: 'string',
+      enable: 'boolean',
+      followScheduleParam: 'boolean',
+      nodeStatus: 'number',
+      scheduleConditionJson: 'string',
+      scheduleTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequestUpdateCommandContextParamList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  defaultValue?: string;
+  /**
+   * @example
+   * 测试参数
+   */
+  desc?: string;
+  /**
+   * @example
+   * param1
+   */
+  paramKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      desc: 'Desc',
+      paramKey: 'ParamKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      desc: 'string',
+      paramKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $dara.Model {
   /**
    * @remarks
@@ -331,6 +441,11 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
 
 export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   /**
+   * @example
+   * 7305621095333696
+   */
+  baseScheduleTemplateId?: number;
+  /**
    * @remarks
    * The code of the node.
    * 
@@ -340,6 +455,18 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * show tables;
    */
   code?: string;
+  /**
+   * @example
+   * true
+   */
+  conditionScheduleEnable?: boolean;
+  conditionScheduleParamList?: UpdateBatchTaskRequestUpdateCommandConditionScheduleParamList[];
+  /**
+   * @example
+   * 7305621095333697
+   */
+  conditionScheduleTemplateId?: number;
+  contextParamList?: UpdateBatchTaskRequestUpdateCommandContextParamList[];
   /**
    * @remarks
    * The cron expression for automatic scheduling. Refer to Linux cron expressions.
@@ -377,6 +504,16 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * erp
    */
   dataSourceSchema?: string;
+  /**
+   * @example
+   * /sql/protocolv1/o/xxx
+   */
+  devHttpPath?: string;
+  /**
+   * @example
+   * rg-def456
+   */
+  devResourceGroupId?: string;
   /**
    * @remarks
    * The list of development owner IDs.
@@ -437,6 +574,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * 1
    */
   nodeStatus?: number;
+  opsOwnerIdList?: string[];
   /**
    * @remarks
    * The list of custom parameters.
@@ -450,6 +588,11 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * 1
    */
   priority?: number;
+  /**
+   * @example
+   * /sql/protocolv1/o/yyy
+   */
+  prodHttpPath?: string;
   /**
    * @remarks
    * The ID of the project to which the node belongs.
@@ -465,6 +608,11 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * The third-party Python packages required by the node.
    */
   pythonModuleList?: string[];
+  /**
+   * @example
+   * rg-abc123
+   */
+  resourceGroupId?: string;
   /**
    * @remarks
    * The schedule period. Valid values:
@@ -484,6 +632,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * The Spark client information.
    */
   sparkClientInfo?: UpdateBatchTaskRequestUpdateCommandSparkClientInfo;
+  taskTagList?: string[];
   /**
    * @remarks
    * The node type. Valid values:
@@ -503,14 +652,31 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * The upstream dependencies.
    */
   upStreamList?: UpdateBatchTaskRequestUpdateCommandUpStreamList[];
+  /**
+   * @example
+   * 9999-12-31
+   */
+  validEndDate?: string;
+  /**
+   * @example
+   * 2026-01-01
+   */
+  validStartDate?: string;
   static names(): { [key: string]: string } {
     return {
+      baseScheduleTemplateId: 'BaseScheduleTemplateId',
       code: 'Code',
+      conditionScheduleEnable: 'ConditionScheduleEnable',
+      conditionScheduleParamList: 'ConditionScheduleParamList',
+      conditionScheduleTemplateId: 'ConditionScheduleTemplateId',
+      contextParamList: 'ContextParamList',
       cronExpression: 'CronExpression',
       customScheduleConfig: 'CustomScheduleConfig',
       dataSourceCatalog: 'DataSourceCatalog',
       dataSourceId: 'DataSourceId',
       dataSourceSchema: 'DataSourceSchema',
+      devHttpPath: 'DevHttpPath',
+      devResourceGroupId: 'DevResourceGroupId',
       developOwnerIdList: 'DevelopOwnerIdList',
       engine: 'Engine',
       fileId: 'FileId',
@@ -518,25 +684,38 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       nodeDescription: 'NodeDescription',
       nodeOutputNameList: 'NodeOutputNameList',
       nodeStatus: 'NodeStatus',
+      opsOwnerIdList: 'OpsOwnerIdList',
       paramList: 'ParamList',
       priority: 'Priority',
+      prodHttpPath: 'ProdHttpPath',
       projectId: 'ProjectId',
       pythonModuleList: 'PythonModuleList',
+      resourceGroupId: 'ResourceGroupId',
       schedulePeriod: 'SchedulePeriod',
       sparkClientInfo: 'SparkClientInfo',
+      taskTagList: 'TaskTagList',
       taskType: 'TaskType',
       upStreamList: 'UpStreamList',
+      validEndDate: 'ValidEndDate',
+      validStartDate: 'ValidStartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseScheduleTemplateId: 'number',
       code: 'string',
+      conditionScheduleEnable: 'boolean',
+      conditionScheduleParamList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandConditionScheduleParamList },
+      conditionScheduleTemplateId: 'number',
+      contextParamList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandContextParamList },
       cronExpression: 'string',
       customScheduleConfig: UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig,
       dataSourceCatalog: 'string',
       dataSourceId: 'string',
       dataSourceSchema: 'string',
+      devHttpPath: 'string',
+      devResourceGroupId: 'string',
       developOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       engine: 'string',
       fileId: 'number',
@@ -544,18 +723,30 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       nodeDescription: 'string',
       nodeOutputNameList: { 'type': 'array', 'itemType': 'string' },
       nodeStatus: 'number',
+      opsOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       paramList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandParamList },
       priority: 'number',
+      prodHttpPath: 'string',
       projectId: 'number',
       pythonModuleList: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupId: 'string',
       schedulePeriod: 'string',
       sparkClientInfo: UpdateBatchTaskRequestUpdateCommandSparkClientInfo,
+      taskTagList: { 'type': 'array', 'itemType': 'string' },
       taskType: 'number',
       upStreamList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandUpStreamList },
+      validEndDate: 'string',
+      validStartDate: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.conditionScheduleParamList)) {
+      $dara.Model.validateArray(this.conditionScheduleParamList);
+    }
+    if(Array.isArray(this.contextParamList)) {
+      $dara.Model.validateArray(this.contextParamList);
+    }
     if(this.customScheduleConfig && typeof (this.customScheduleConfig as any).validate === 'function') {
       (this.customScheduleConfig as any).validate();
     }
@@ -565,6 +756,9 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
     if(Array.isArray(this.nodeOutputNameList)) {
       $dara.Model.validateArray(this.nodeOutputNameList);
     }
+    if(Array.isArray(this.opsOwnerIdList)) {
+      $dara.Model.validateArray(this.opsOwnerIdList);
+    }
     if(Array.isArray(this.paramList)) {
       $dara.Model.validateArray(this.paramList);
     }
@@ -573,6 +767,9 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
     }
     if(this.sparkClientInfo && typeof (this.sparkClientInfo as any).validate === 'function') {
       (this.sparkClientInfo as any).validate();
+    }
+    if(Array.isArray(this.taskTagList)) {
+      $dara.Model.validateArray(this.taskTagList);
     }
     if(Array.isArray(this.upStreamList)) {
       $dara.Model.validateArray(this.upStreamList);

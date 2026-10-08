@@ -750,6 +750,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量交接资产。
+   * 
+   * @param tmpReq - BatchHandoverAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchHandoverAssetResponse
+   */
+  async batchHandoverAssetWithOptions(tmpReq: $_model.BatchHandoverAssetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchHandoverAssetResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchHandoverAssetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.handoverCommand)) {
+      request.handoverCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.handoverCommand, "HandoverCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.handoverCommandShrink)) {
+      body["HandoverCommand"] = request.handoverCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchHandoverAsset",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchHandoverAssetResponse>(await this.callApi(params, req, runtime), new $_model.BatchHandoverAssetResponse({}));
+  }
+
+  /**
+   * 批量交接资产。
+   * 
+   * @param request - BatchHandoverAssetRequest
+   * @returns BatchHandoverAssetResponse
+   */
+  async batchHandoverAsset(request: $_model.BatchHandoverAssetRequest): Promise<$_model.BatchHandoverAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchHandoverAssetWithOptions(request, runtime);
+  }
+
+  /**
    * Checks the connectivity of a compute source.
    * 
    * @param tmpReq - CheckComputeSourceConnectivityRequest
@@ -963,6 +1021,70 @@ export default class Client extends OpenApi {
   async checkDataSourceConnectivityById(request: $_model.CheckDataSourceConnectivityByIdRequest): Promise<$_model.CheckDataSourceConnectivityByIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkDataSourceConnectivityByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 在指定调度资源组上检查数据源连通性
+   * 
+   * @remarks
+   * 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+   * 
+   * @param tmpReq - CheckDataSourceConnectivityOnResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDataSourceConnectivityOnResourceGroupResponse
+   */
+  async checkDataSourceConnectivityOnResourceGroupWithOptions(tmpReq: $_model.CheckDataSourceConnectivityOnResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDataSourceConnectivityOnResourceGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.CheckDataSourceConnectivityOnResourceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.checkCommand)) {
+      request.checkCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.checkCommand, "CheckCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.checkCommandShrink)) {
+      body["CheckCommand"] = request.checkCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckDataSourceConnectivityOnResourceGroup",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckDataSourceConnectivityOnResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.CheckDataSourceConnectivityOnResourceGroupResponse({}));
+  }
+
+  /**
+   * 在指定调度资源组上检查数据源连通性
+   * 
+   * @remarks
+   * 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+   * 
+   * @param request - CheckDataSourceConnectivityOnResourceGroupRequest
+   * @returns CheckDataSourceConnectivityOnResourceGroupResponse
+   */
+  async checkDataSourceConnectivityOnResourceGroup(request: $_model.CheckDataSourceConnectivityOnResourceGroupRequest): Promise<$_model.CheckDataSourceConnectivityOnResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkDataSourceConnectivityOnResourceGroupWithOptions(request, runtime);
   }
 
   /**
@@ -1826,17 +1948,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dataset in a specified project. Online version: v6.2.0.
+   * Creates a new dataset in the specified project. Available since v6.2.0.
    * 
    * @remarks
-   * ## Operation description
-   * - This API operation creates a dataset in a specified project.
+   * ## Request description
+   * - This API creates a new dataset in the specified project.
    * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
    * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
    * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
    * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-   * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
-   * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+   * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
+   * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
    * 
    * @param tmpReq - CreateDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1887,17 +2009,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dataset in a specified project. Online version: v6.2.0.
+   * Creates a new dataset in the specified project. Available since v6.2.0.
    * 
    * @remarks
-   * ## Operation description
-   * - This API operation creates a dataset in a specified project.
+   * ## Request description
+   * - This API creates a new dataset in the specified project.
    * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
    * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
    * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
    * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-   * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
-   * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+   * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
+   * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
    * 
    * @param request - CreateDatasetRequest
    * @returns CreateDatasetResponse
@@ -2465,7 +2587,7 @@ export default class Client extends OpenApi {
    * Creates a row-level permission.
    * 
    * @remarks
-   * Queries the details of published APIs by appKey.
+   * Queries the details of published APIs based on the appKey.
    * 
    * @param tmpReq - CreateRowPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2515,7 +2637,7 @@ export default class Client extends OpenApi {
    * Creates a row-level permission.
    * 
    * @remarks
-   * Queries the details of published APIs by appKey.
+   * Queries the details of published APIs based on the appKey.
    * 
    * @param request - CreateRowPermissionRequest
    * @returns CreateRowPermissionResponse
@@ -7006,6 +7128,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 按任务ID查询数据源连通性检查任务
+   * 
+   * @remarks
+   * 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+   * 
+   * @param request - GetCheckConnectivityJobByJobIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCheckConnectivityJobByJobIdResponse
+   */
+  async getCheckConnectivityJobByJobIdWithOptions(request: $_model.GetCheckConnectivityJobByJobIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCheckConnectivityJobByJobIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCheckConnectivityJobByJobId",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCheckConnectivityJobByJobIdResponse>(await this.callApi(params, req, runtime), new $_model.GetCheckConnectivityJobByJobIdResponse({}));
+  }
+
+  /**
+   * 按任务ID查询数据源连通性检查任务
+   * 
+   * @remarks
+   * 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+   * 
+   * @param request - GetCheckConnectivityJobByJobIdRequest
+   * @returns GetCheckConnectivityJobByJobIdResponse
+   */
+  async getCheckConnectivityJobByJobId(request: $_model.GetCheckConnectivityJobByJobIdRequest): Promise<$_model.GetCheckConnectivityJobByJobIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCheckConnectivityJobByJobIdWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
    * Release version: v5.5.0.
    * 
@@ -11132,6 +11310,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+   * 
+   * @param tmpReq - GetSourceTableMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSourceTableMetaResponse
+   */
+  async getSourceTableMetaWithOptions(tmpReq: $_model.GetSourceTableMetaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSourceTableMetaResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetSourceTableMetaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.query)) {
+      request.queryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.query, "Query", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.queryShrink)) {
+      body["Query"] = request.queryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSourceTableMeta",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSourceTableMetaResponse>(await this.callApi(params, req, runtime), new $_model.GetSourceTableMetaResponse({}));
+  }
+
+  /**
+   * 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+   * 
+   * @param request - GetSourceTableMetaRequest
+   * @returns GetSourceTableMetaResponse
+   */
+  async getSourceTableMeta(request: $_model.GetSourceTableMetaRequest): Promise<$_model.GetSourceTableMetaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSourceTableMetaWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the Spark client information of the cluster associated with a compute source.
    * 
    * @param request - GetSparkLocalClientInfoRequest
@@ -11701,6 +11945,56 @@ export default class Client extends OpenApi {
   async getSupplementDagrunInstance(request: $_model.GetSupplementDagrunInstanceRequest): Promise<$_model.GetSupplementDagrunInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSupplementDagrunInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询表资产清单详情。
+   * 
+   * @param request - GetTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableResponse
+   */
+  async getTableWithOptions(request: $_model.GetTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTable",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableResponse>(await this.callApi(params, req, runtime), new $_model.GetTableResponse({}));
+  }
+
+  /**
+   * 查询表资产清单详情。
+   * 
+   * @param request - GetTableRequest
+   * @returns GetTableResponse
+   */
+  async getTable(request: $_model.GetTableRequest): Promise<$_model.GetTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableWithOptions(request, runtime);
   }
 
   /**
@@ -13073,6 +13367,64 @@ export default class Client extends OpenApi {
   async listAuthorizedDataServiceApiDetails(request: $_model.ListAuthorizedDataServiceApiDetailsRequest): Promise<$_model.ListAuthorizedDataServiceApiDetailsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAuthorizedDataServiceApiDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+   * 
+   * @param tmpReq - ListBatchTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBatchTasksResponse
+   */
+  async listBatchTasksWithOptions(tmpReq: $_model.ListBatchTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBatchTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListBatchTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.batchTaskQuery)) {
+      request.batchTaskQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.batchTaskQuery, "BatchTaskQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.batchTaskQueryShrink)) {
+      body["BatchTaskQuery"] = request.batchTaskQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBatchTasks",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBatchTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListBatchTasksResponse({}));
+  }
+
+  /**
+   * 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+   * 
+   * @param request - ListBatchTasksRequest
+   * @returns ListBatchTasksResponse
+   */
+  async listBatchTasks(request: $_model.ListBatchTasksRequest): Promise<$_model.ListBatchTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBatchTasksWithOptions(request, runtime);
   }
 
   /**
@@ -14738,6 +15090,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取项目角色列表
+   * 
+   * @remarks
+   * 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
+   * - BUILD_IN：内置角色
+   * - CUSTOM：自定义角色
+   * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+   * 
+   * @param request - ListProjectRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectRolesResponse
+   */
+  async listProjectRolesWithOptions(request: $_model.ListProjectRolesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectRolesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectType)) {
+      query["ProjectType"] = request.projectType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjectRoles",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectRolesResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectRolesResponse({}));
+  }
+
+  /**
+   * 获取项目角色列表
+   * 
+   * @remarks
+   * 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
+   * - BUILD_IN：内置角色
+   * - CUSTOM：自定义角色
+   * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+   * 
+   * @param request - ListProjectRolesRequest
+   * @returns ListProjectRolesResponse
+   */
+  async listProjectRoles(request: $_model.ListProjectRolesRequest): Promise<$_model.ListProjectRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProjectRolesWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves a list of projects.
    * 
    * @param tmpReq - ListProjectsRequest
@@ -15436,6 +15850,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询租户下的调度模板列表
+   * 
+   * @param tmpReq - ListScheduleTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScheduleTemplatesResponse
+   */
+  async listScheduleTemplatesWithOptions(tmpReq: $_model.ListScheduleTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListScheduleTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListScheduleTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listScheduleTemplatesCommand)) {
+      request.listScheduleTemplatesCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listScheduleTemplatesCommand, "ListScheduleTemplatesCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listScheduleTemplatesCommandShrink)) {
+      body["ListScheduleTemplatesCommand"] = request.listScheduleTemplatesCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScheduleTemplates",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScheduleTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListScheduleTemplatesResponse({}));
+  }
+
+  /**
+   * 查询租户下的调度模板列表
+   * 
+   * @param request - ListScheduleTemplatesRequest
+   * @returns ListScheduleTemplatesResponse
+   */
+  async listScheduleTemplates(request: $_model.ListScheduleTemplatesRequest): Promise<$_model.ListScheduleTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listScheduleTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the data classification list by paging.
    * 
    * @param tmpReq - ListSecurityClassifyRequest
@@ -15843,6 +16315,64 @@ export default class Client extends OpenApi {
   async listTenantMembers(request: $_model.ListTenantMembersRequest): Promise<$_model.ListTenantMembersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTenantMembersWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取租户角色列表
+   * 
+   * @remarks
+   * 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
+   * - BUILD_IN：内置角色
+   * - CUSTOM：自定义角色（即租户自定义创建的角色）
+   * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+   * 
+   * @param request - ListTenantRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTenantRolesResponse
+   */
+  async listTenantRolesWithOptions(request: $_model.ListTenantRolesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTenantRolesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTenantRoles",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTenantRolesResponse>(await this.callApi(params, req, runtime), new $_model.ListTenantRolesResponse({}));
+  }
+
+  /**
+   * 获取租户角色列表
+   * 
+   * @remarks
+   * 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
+   * - BUILD_IN：内置角色
+   * - CUSTOM：自定义角色（即租户自定义创建的角色）
+   * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+   * 
+   * @param request - ListTenantRolesRequest
+   * @returns ListTenantRolesResponse
+   */
+  async listTenantRoles(request: $_model.ListTenantRolesRequest): Promise<$_model.ListTenantRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTenantRolesWithOptions(request, runtime);
   }
 
   /**
@@ -17466,6 +17996,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动增全量一体化实例。
+   * 
+   * @param tmpReq - StartPipelineIntegratedTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartPipelineIntegratedTaskResponse
+   */
+  async startPipelineIntegratedTaskWithOptions(tmpReq: $_model.StartPipelineIntegratedTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartPipelineIntegratedTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.StartPipelineIntegratedTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.startCommand)) {
+      request.startCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.startCommand, "StartCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.startCommandShrink)) {
+      body["StartCommand"] = request.startCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartPipelineIntegratedTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartPipelineIntegratedTaskResponse>(await this.callApi(params, req, runtime), new $_model.StartPipelineIntegratedTaskResponse({}));
+  }
+
+  /**
+   * 启动增全量一体化实例。
+   * 
+   * @param request - StartPipelineIntegratedTaskRequest
+   * @returns StartPipelineIntegratedTaskResponse
+   */
+  async startPipelineIntegratedTask(request: $_model.StartPipelineIntegratedTaskRequest): Promise<$_model.StartPipelineIntegratedTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startPipelineIntegratedTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Stops an ad hoc query task.
    * 
    * @param request - StopAdHocTaskRequest
@@ -17517,6 +18113,72 @@ export default class Client extends OpenApi {
   async stopAdHocTask(request: $_model.StopAdHocTaskRequest): Promise<$_model.StopAdHocTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopAdHocTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量停止增全量一体化实例。
+   * 
+   * @param tmpReq - StopPipelineIntegratedTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopPipelineIntegratedTaskResponse
+   */
+  async stopPipelineIntegratedTaskWithOptions(tmpReq: $_model.StopPipelineIntegratedTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopPipelineIntegratedTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.StopPipelineIntegratedTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.stopCommand)) {
+      request.stopCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stopCommand, "StopCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.stopCommandShrink)) {
+      body["StopCommand"] = request.stopCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopPipelineIntegratedTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopPipelineIntegratedTaskResponse>(await this.callApi(params, req, runtime), new $_model.StopPipelineIntegratedTaskResponse({}));
+  }
+
+  /**
+   * 批量停止增全量一体化实例。
+   * 
+   * @param request - StopPipelineIntegratedTaskRequest
+   * @returns StopPipelineIntegratedTaskResponse
+   */
+  async stopPipelineIntegratedTask(request: $_model.StopPipelineIntegratedTaskRequest): Promise<$_model.StopPipelineIntegratedTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopPipelineIntegratedTaskWithOptions(request, runtime);
   }
 
   /**
@@ -17942,6 +18604,13 @@ export default class Client extends OpenApi {
   /**
    * Synchronizes department member information.
    * 
+   * @remarks
+   * 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
+   * 使用说明：
+   * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
+   * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
+   * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
+   * 
    * @param tmpReq - SyncDepartmentUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SyncDepartmentUserResponse
@@ -17988,6 +18657,13 @@ export default class Client extends OpenApi {
 
   /**
    * Synchronizes department member information.
+   * 
+   * @remarks
+   * 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
+   * 使用说明：
+   * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
+   * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
+   * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
    * 
    * @param request - SyncDepartmentUserRequest
    * @returns SyncDepartmentUserResponse

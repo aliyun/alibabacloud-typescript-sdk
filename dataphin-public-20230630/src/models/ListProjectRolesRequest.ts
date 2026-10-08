@@ -2,18 +2,9 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRowPermissionShrinkRequest extends $dara.Model {
+export class ListProjectRolesRequest extends $dara.Model {
   /**
    * @remarks
-   * The request command.
-   * 
-   * This parameter is required.
-   */
-  createRowPermissionCommandShrink?: string;
-  /**
-   * @remarks
-   * The tenant ID.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -21,26 +12,33 @@ export class CreateRowPermissionShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
-   * @remarks
-   * The ID of the operator.
-   * 
    * @example
    * 30001011
    */
   opUserId?: string;
+  /**
+   * @remarks
+   * 项目类型，BASIC-基础模式项目，DEV-开发环境项目，PROD-生产环境项目，TAG-标签平台项目，可选值：BASIC、DEV、PROD、TAG
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DEV
+   */
+  projectType?: string;
   static names(): { [key: string]: string } {
     return {
-      createRowPermissionCommandShrink: 'CreateRowPermissionCommand',
       opTenantId: 'OpTenantId',
       opUserId: 'OpUserId',
+      projectType: 'ProjectType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createRowPermissionCommandShrink: 'string',
       opTenantId: 'number',
       opUserId: 'string',
+      projectType: 'string',
     };
   }
 

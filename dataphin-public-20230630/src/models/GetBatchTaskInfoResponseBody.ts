@@ -2,6 +2,146 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 失败重跑
+   */
+  conditionName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 30 * * * ?
+   */
+  cronExpression?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  followScheduleParam?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  nodeStatus?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"type":"EXPRESSION_GROUP","operator":"or"}
+   */
+  scheduleConditionJson?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 00:30
+   */
+  scheduleTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionName: 'ConditionName',
+      cronExpression: 'CronExpression',
+      enable: 'Enable',
+      followScheduleParam: 'FollowScheduleParam',
+      nodeStatus: 'NodeStatus',
+      scheduleConditionJson: 'ScheduleConditionJson',
+      scheduleTime: 'ScheduleTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionName: 'string',
+      cronExpression: 'string',
+      enable: 'boolean',
+      followScheduleParam: 'boolean',
+      nodeStatus: 'number',
+      scheduleConditionJson: 'string',
+      scheduleTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoContextParamList extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  defaultValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 输出条数
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cnt
+   */
+  paramKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      desc: 'Desc',
+      paramKey: 'ParamKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      desc: 'string',
+      paramKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $dara.Model {
   /**
    * @remarks
@@ -317,6 +457,16 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
 
 export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   /**
+   * @example
+   * 7305621095333696
+   */
+  baseScheduleTemplateId?: number;
+  /**
+   * @example
+   * 天级调度模板
+   */
+  baseScheduleTemplateName?: string;
+  /**
    * @remarks
    * The task code.
    * 
@@ -324,6 +474,23 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    * show tables;
    */
   code?: string;
+  /**
+   * @example
+   * true
+   */
+  conditionScheduleEnable?: boolean;
+  conditionScheduleParamList?: GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList[];
+  /**
+   * @example
+   * 7305621095333697
+   */
+  conditionScheduleTemplateId?: number;
+  /**
+   * @example
+   * 条件调度模板
+   */
+  conditionScheduleTemplateName?: string;
+  contextParamList?: GetBatchTaskInfoResponseBodyTaskInfoContextParamList[];
   /**
    * @remarks
    * The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
@@ -369,6 +536,21 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    * erp
    */
   dataSourceSchema?: string;
+  /**
+   * @example
+   * /sql/protocolv1/o/xxx
+   */
+  devHttpPath?: string;
+  /**
+   * @example
+   * rg-def456
+   */
+  devResourceGroupId?: string;
+  /**
+   * @example
+   * 默认资源组
+   */
+  devResourceGroupName?: string;
   /**
    * @remarks
    * The user ID of the development owner.
@@ -538,6 +720,11 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    */
   priority?: number;
   /**
+   * @example
+   * /sql/protocolv1/o/yyy
+   */
+  prodHttpPath?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -563,6 +750,16 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    * Indicates whether the node can be rerun.
    */
   rerunable?: boolean;
+  /**
+   * @example
+   * rg-abc123
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * 默认资源组
+   */
+  resourceGroupName?: string;
   /**
    * @remarks
    * The scheduling period. Valid values:
@@ -603,6 +800,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    * TestTask1
    */
   status?: string;
+  taskTagList?: string[];
   /**
    * @remarks
    * The task type. For more information, refer to the API operation for creating a batch task.
@@ -616,15 +814,35 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    * The upstream dependencies.
    */
   upStreamList?: GetBatchTaskInfoResponseBodyTaskInfoUpStreamList[];
+  /**
+   * @example
+   * 9999-12-31
+   */
+  validEndDate?: string;
+  /**
+   * @example
+   * 2026-01-01
+   */
+  validStartDate?: string;
   static names(): { [key: string]: string } {
     return {
+      baseScheduleTemplateId: 'BaseScheduleTemplateId',
+      baseScheduleTemplateName: 'BaseScheduleTemplateName',
       code: 'Code',
+      conditionScheduleEnable: 'ConditionScheduleEnable',
+      conditionScheduleParamList: 'ConditionScheduleParamList',
+      conditionScheduleTemplateId: 'ConditionScheduleTemplateId',
+      conditionScheduleTemplateName: 'ConditionScheduleTemplateName',
+      contextParamList: 'ContextParamList',
       cronExpression: 'CronExpression',
       customScheduleConfig: 'CustomScheduleConfig',
       dagId: 'DagId',
       dataSourceCatalog: 'DataSourceCatalog',
       dataSourceId: 'DataSourceId',
       dataSourceSchema: 'DataSourceSchema',
+      devHttpPath: 'DevHttpPath',
+      devResourceGroupId: 'DevResourceGroupId',
+      devResourceGroupName: 'DevResourceGroupName',
       developOwnerId: 'DevelopOwnerId',
       developOwnerIdList: 'DevelopOwnerIdList',
       developOwnerName: 'DevelopOwnerName',
@@ -649,28 +867,44 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       paramList: 'ParamList',
       paused: 'Paused',
       priority: 'Priority',
+      prodHttpPath: 'ProdHttpPath',
       projectId: 'ProjectId',
       published: 'Published',
       remark: 'Remark',
       rerunable: 'Rerunable',
+      resourceGroupId: 'ResourceGroupId',
+      resourceGroupName: 'ResourceGroupName',
       schedulePeriod: 'SchedulePeriod',
       scheduleType: 'ScheduleType',
       sparkClientInfo: 'SparkClientInfo',
       status: 'Status',
+      taskTagList: 'TaskTagList',
       taskType: 'TaskType',
       upStreamList: 'UpStreamList',
+      validEndDate: 'ValidEndDate',
+      validStartDate: 'ValidStartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseScheduleTemplateId: 'number',
+      baseScheduleTemplateName: 'string',
       code: 'string',
+      conditionScheduleEnable: 'boolean',
+      conditionScheduleParamList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList },
+      conditionScheduleTemplateId: 'number',
+      conditionScheduleTemplateName: 'string',
+      contextParamList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoContextParamList },
       cronExpression: 'string',
       customScheduleConfig: GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig,
       dagId: 'string',
       dataSourceCatalog: 'string',
       dataSourceId: 'string',
       dataSourceSchema: 'string',
+      devHttpPath: 'string',
+      devResourceGroupId: 'string',
+      devResourceGroupName: 'string',
       developOwnerId: 'string',
       developOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       developOwnerName: 'string',
@@ -695,20 +929,32 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       paramList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoParamList },
       paused: 'boolean',
       priority: 'number',
+      prodHttpPath: 'string',
       projectId: 'number',
       published: 'boolean',
       remark: 'string',
       rerunable: 'boolean',
+      resourceGroupId: 'string',
+      resourceGroupName: 'string',
       schedulePeriod: 'string',
       scheduleType: 'number',
       sparkClientInfo: GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo,
       status: 'string',
+      taskTagList: { 'type': 'array', 'itemType': 'string' },
       taskType: 'number',
       upStreamList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoUpStreamList },
+      validEndDate: 'string',
+      validStartDate: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.conditionScheduleParamList)) {
+      $dara.Model.validateArray(this.conditionScheduleParamList);
+    }
+    if(Array.isArray(this.contextParamList)) {
+      $dara.Model.validateArray(this.contextParamList);
+    }
     if(this.customScheduleConfig && typeof (this.customScheduleConfig as any).validate === 'function') {
       (this.customScheduleConfig as any).validate();
     }
@@ -732,6 +978,9 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
     }
     if(this.sparkClientInfo && typeof (this.sparkClientInfo as any).validate === 'function') {
       (this.sparkClientInfo as any).validate();
+    }
+    if(Array.isArray(this.taskTagList)) {
+      $dara.Model.validateArray(this.taskTagList);
     }
     if(Array.isArray(this.upStreamList)) {
       $dara.Model.validateArray(this.upStreamList);

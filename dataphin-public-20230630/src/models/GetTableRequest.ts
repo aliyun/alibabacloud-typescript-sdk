@@ -2,18 +2,9 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRowPermissionShrinkRequest extends $dara.Model {
+export class GetTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The request command.
-   * 
-   * This parameter is required.
-   */
-  createRowPermissionCommandShrink?: string;
-  /**
-   * @remarks
-   * The tenant ID.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -21,26 +12,28 @@ export class CreateRowPermissionShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
-   * @remarks
-   * The ID of the operator.
-   * 
    * @example
    * 30001011
    */
   opUserId?: string;
+  /**
+   * @example
+   * dp_ds_table.123.12344.db.table
+   */
+  tableGuid?: string;
   static names(): { [key: string]: string } {
     return {
-      createRowPermissionCommandShrink: 'CreateRowPermissionCommand',
       opTenantId: 'OpTenantId',
       opUserId: 'OpUserId',
+      tableGuid: 'TableGuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createRowPermissionCommandShrink: 'string',
       opTenantId: 'number',
       opUserId: 'string',
+      tableGuid: 'string',
     };
   }
 

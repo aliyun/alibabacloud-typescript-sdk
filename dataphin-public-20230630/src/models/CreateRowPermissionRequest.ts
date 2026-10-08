@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns extends $dara.Model {
   /**
    * @remarks
-   * The description of the mapping field.
+   * The description of the mapping column.
    * 
    * @example
-   * Controls the business ID field.
+   * Control the business ID field
    */
   columnDesc?: string;
   /**
    * @remarks
-   * The name of the mapping field.
+   * The name of the mapping column.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns 
   columnName?: string;
   /**
    * @remarks
-   * The type of the mapping field.
+   * The type of the mapping column.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns 
 export class CreateRowPermissionRequestCreateRowPermissionCommandRulesExpressions extends $dara.Model {
   /**
    * @remarks
-   * The name of the mapping field.
+   * The name of the mapping column.
    * 
    * This parameter is required.
    * 
@@ -223,7 +223,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
   expressions?: CreateRowPermissionRequestCreateRowPermissionCommandRulesExpressions[];
   /**
    * @remarks
-   * Specifies whether the rule is deleted.
+   * Specifies whether to delete the rule.
    * 
    * @example
    * 1
@@ -236,7 +236,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
    * This parameter is required.
    * 
    * @example
-   * MiddlePlatform.
+   * Mid-end
    */
   ruleName?: string;
   /**
@@ -302,7 +302,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
 export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends $dara.Model {
   /**
    * @remarks
-   * The field of the table.
+   * The table column.
    * 
    * This parameter is required.
    * 
@@ -312,7 +312,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends 
   columnName?: string;
   /**
    * @remarks
-   * The name of the mapping field.
+   * The name of the mapping column.
    * 
    * This parameter is required.
    * 
@@ -358,7 +358,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends 
 export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.Model {
   /**
    * @remarks
-   * The mapping fields.
+   * The mapping columns.
    * 
    * This parameter is required.
    */
@@ -368,7 +368,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.
    * The description of the row-level permission.
    * 
    * @example
-   * Control business data.
+   * Manage business data
    */
   rowPermissionDesc?: string;
   /**
@@ -378,7 +378,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.
    * This parameter is required.
    * 
    * @example
-   * BusinessControl.
+   * Business control
    */
   rowPermissionName?: string;
   /**
@@ -448,6 +448,9 @@ export class CreateRowPermissionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

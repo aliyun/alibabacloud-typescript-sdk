@@ -2,51 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRowPermissionResponseBody extends $dara.Model {
+export class CheckDataSourceConnectivityOnResourceGroupResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The error code. OK indicates that the request is successful.
-   * 
    * @example
    * OK
    */
   code?: string;
   /**
-   * @remarks
-   * The creation result.
-   * 
    * @example
-   * true
+   * 129837xxxx
    */
-  data?: number;
+  data?: string;
   /**
-   * @remarks
-   * The HTTP status code returned by the backend.
-   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
-   * @remarks
-   * The error message.
-   * 
    * @example
    * successful
    */
   message?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the request is successful.
-   * 
    * @example
    * true
    */
@@ -65,7 +47,7 @@ export class CreateRowPermissionResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'number',
+      data: 'string',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',

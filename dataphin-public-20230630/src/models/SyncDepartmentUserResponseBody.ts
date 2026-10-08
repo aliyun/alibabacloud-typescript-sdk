@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncDepartmentUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The request error code. OK indicates a successful request.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class SyncDepartmentUserResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The response result.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class SyncDepartmentUserResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned for the request.
+   * The request error message.
    * 
    * @example
    * successful

@@ -7,8 +7,6 @@ export class ListTablesRequestListQuery extends $dara.Model {
    * @remarks
    * The asset catalog, such as the project name or business unit name.
    * 
-   * This parameter is required.
-   * 
    * @example
    * LD_test01_dev
    */
@@ -21,6 +19,11 @@ export class ListTablesRequestListQuery extends $dara.Model {
    * test
    */
   keyword?: string;
+  /**
+   * @example
+   * 30012011
+   */
+  ownerId?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -37,12 +40,15 @@ export class ListTablesRequestListQuery extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  subTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       catalog: 'Catalog',
       keyword: 'Keyword',
+      ownerId: 'OwnerId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      subTypes: 'SubTypes',
     };
   }
 
@@ -50,12 +56,17 @@ export class ListTablesRequestListQuery extends $dara.Model {
     return {
       catalog: 'string',
       keyword: 'string',
+      ownerId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      subTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.subTypes)) {
+      $dara.Model.validateArray(this.subTypes);
+    }
     super.validate();
   }
 

@@ -198,7 +198,7 @@ export class CreateDatasetRequestCreateCommandApiInfo extends $dara.Model {
 export class CreateDatasetRequestCreateCommandVersionConfigFileStorageConfig extends $dara.Model {
   /**
    * @remarks
-   * The data source ID.
+   * The datasource config ID.
    * 
    * This parameter is required.
    * 
@@ -208,10 +208,10 @@ export class CreateDatasetRequestCreateCommandVersionConfigFileStorageConfig ext
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source name.
+   * The datasource config name.
    * 
    * @example
-   * Test data source
+   * Test datasource
    */
   dataSourceName?: string;
   /**
@@ -294,7 +294,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   embeddingModel?: string;
   /**
    * @remarks
-   * The index build parameters, which vary by index type. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
+   * The index build parameters. Varies by index type. For example, HNSW requires {M:30, efConstruction:360} and IVF_FLAT requires {nlist:128}.
    * 
    * @example
    * {M:30, efConstruction:360}
@@ -302,7 +302,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   indexParams?: { [key: string]: any };
   /**
    * @remarks
-   * The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all index types.
+   * The index type. PG supports IVFFlat and HNSW. Milvus supports all types.
    * 
    * This parameter is required.
    * 
@@ -312,7 +312,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   indexType?: string;
   /**
    * @remarks
-   * The similarity type. Default value: COSINE. Valid values: COSINE, L2, and IP.
+   * The similarity type. Default value: COSINE. Valid values: COSINE, L2, IP.
    * 
    * This parameter is required.
    * 
@@ -363,7 +363,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   comment?: string;
   /**
    * @remarks
-   * The child class of the array element. This parameter is valid only when type is set to ARRAY.
+   * The array element subtype. Valid only when type is ARRAY.
    * 
    * @example
    * INT64
@@ -371,7 +371,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   elementType?: string;
   /**
    * @remarks
-   * The maximum capacity of the array. This parameter is valid only when type is set to ARRAY. Default value: 4096.
+   * The maximum array capacity. Valid only when type is ARRAY. Default value: 4096.
    * 
    * @example
    * 35
@@ -389,7 +389,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field is a primary key.
+   * Specifies whether the field is a primary key.
    * 
    * @example
    * true
@@ -407,7 +407,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   type?: string;
   /**
    * @remarks
-   * Indicates whether the field is a URL.
+   * Specifies whether the field is a URL.
    * 
    * @example
    * false
@@ -459,7 +459,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
 export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The list of fields.
+   * The column list.
    */
   columns?: CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -489,7 +489,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
 export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig extends $dara.Model {
   /**
    * @remarks
-   * The data source ID.
+   * The datasource config ID.
    * 
    * This parameter is required.
    * 
@@ -499,10 +499,10 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source name.
+   * The datasource config name.
    * 
    * @example
-   * Test data source
+   * Test datasource
    */
   dataSourceName?: string;
   /**
@@ -515,7 +515,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig
   devSchema?: string;
   /**
    * @remarks
-   * The storage destination (new table or existing table).
+   * Specifies whether to store metadata in a new table or an existing table.
    * 
    * This parameter is required.
    * 
@@ -617,7 +617,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   embeddingModel?: string;
   /**
    * @remarks
-   * The index build parameters, which vary by index type. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
+   * The index build parameters. Varies by index type. For example, HNSW requires {M:30, efConstruction:360} and IVF_FLAT requires {nlist:128}.
    * 
    * @example
    * {M:30, efConstruction:360}
@@ -625,7 +625,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   indexParams?: { [key: string]: any };
   /**
    * @remarks
-   * The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all index types.
+   * The index type. PG supports IVFFlat and HNSW. Milvus supports all types.
    * 
    * This parameter is required.
    * 
@@ -635,7 +635,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   indexType?: string;
   /**
    * @remarks
-   * The similarity type. Default value: COSINE. Valid values: COSINE, L2, and IP.
+   * The similarity type. Default value: COSINE. Valid values: COSINE, L2, IP.
    * 
    * This parameter is required.
    * 
@@ -686,7 +686,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   comment?: string;
   /**
    * @remarks
-   * The child class of the array element. This parameter is valid only when type is set to ARRAY.
+   * The array element subtype. Valid only when type is ARRAY.
    * 
    * @example
    * INT64
@@ -694,7 +694,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   elementType?: string;
   /**
    * @remarks
-   * The maximum capacity of the array. This parameter is valid only when type is set to ARRAY. Default value: 4096.
+   * The maximum array capacity. Valid only when type is ARRAY. Default value: 4096.
    * 
    * @example
    * 35
@@ -712,7 +712,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field is a primary key.
+   * Specifies whether the field is a primary key.
    * 
    * @example
    * false
@@ -730,7 +730,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   type?: string;
   /**
    * @remarks
-   * Indicates whether the field is a URL.
+   * Specifies whether the field is a URL.
    * 
    * @example
    * false
@@ -738,7 +738,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   url?: boolean;
   /**
    * @remarks
-   * The vector index configuration. Configure this parameter when the field type is FLOAT_VECTOR, FLOAT16_VECTOR, or BFLOAT16_VECTOR. This parameter is used to specify the vector dimensions, index type, and similarity metric.
+   * The vector index configuration. Configure this parameter when the field type is FLOAT_VECTOR, FLOAT16_VECTOR, or BFLOAT16_VECTOR. Use it to set the dimensions, index type, and similarity metric.
    */
   vectorIndexConfig?: CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConfigTableSchemaColumnsVectorIndexConfig;
   static names(): { [key: string]: string } {
@@ -782,7 +782,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
 export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The list of fields.
+   * The column list.
    */
   columns?: CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -812,7 +812,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
 export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConfig extends $dara.Model {
   /**
    * @remarks
-   * The data source type of the meta table. Currently, only KAFKA is supported.
+   * The meta table datasource config type. Only KAFKA is supported in this release.
    * 
    * This parameter is required.
    * 
@@ -832,7 +832,7 @@ export class CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConf
   metaTableName?: string;
   /**
    * @remarks
-   * The project ID to which the meta table belongs. Cross-project references are supported.
+   * The project ID of the meta table. Cross-project access is supported.
    * 
    * This parameter is required.
    * 
@@ -888,12 +888,12 @@ export class CreateDatasetRequestCreateCommandVersionConfig extends $dara.Model 
   metadataStorageConfig?: CreateDatasetRequestCreateCommandVersionConfigMetadataStorageConfig;
   /**
    * @remarks
-   * The real-time meta table configuration. This parameter takes effect when metadataStorageType is set to STREAM_TABLE.
+   * The real-time meta table configuration. Takes effect when metadataStorageType is STREAM_TABLE.
    */
   realtimeMetaTableConfig?: CreateDatasetRequestCreateCommandVersionConfigRealtimeMetaTableConfig;
   /**
    * @remarks
-   * **Version description.**
+   * **The version description.**
    * 
    * @example
    * Test dataset version
@@ -939,7 +939,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   apiInfo?: CreateDatasetRequestCreateCommandApiInfo;
   /**
    * @remarks
-   * The dataset content type. Valid values: GENERAL, TEXT, AUDIO, VIDEO, IMAGE, TABLE, and INDEX.
+   * The dataset content type. Valid values: GENERAL, TEXT, AUDIO, VIDEO, IMAGE, TABLE, INDEX.
    * 
    * This parameter is required.
    * 
@@ -949,7 +949,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The data domain ID.
+   * **The subject domain ID.**
    * 
    * @example
    * 78201
@@ -957,7 +957,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   dataCellId?: string;
   /**
    * @remarks
-   * The description.
+   * **The description.**
    * 
    * @example
    * Test dataset
@@ -965,7 +965,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory. Obtained from the file service by using the fileId.
+   * **The folder (retrieved from the file service using fileId).**
    * 
    * This parameter is required.
    * 
@@ -975,7 +975,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   dirName?: string;
   /**
    * @remarks
-   * The file ID.
+   * **The file ID.**
    * 
    * @example
    * 7255018404650688
@@ -983,7 +983,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The metastore type.
+   * The metastore type. Valid values: POSTGRESQL, MYSQL, STREAM_TABLE, MILVUS.
    * 
    * @example
    * POSTGRESQL
@@ -996,12 +996,12 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * xxTest
+   * xx_test
    */
   name?: string;
   /**
    * @remarks
-   * The list of owner IDs, separated by commas.
+   * The list of owner IDs. Separate multiple IDs with commas.
    * 
    * @example
    * 300000913
@@ -1009,9 +1009,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The dataset scenarios. Valid values:
-   * - OFFLINE: Offline. This is the default value.
-   * - REALTIME: Real-time.
+   * The dataset scenarios. Valid values: OFFLINE (offline, default), REALTIME (real-time).
    * 
    * This parameter is required.
    * 
@@ -1021,7 +1019,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   scenario?: string;
   /**
    * @remarks
-   * The storage type.
+   * The storage type. Valid values: OSS, S3.
    * 
    * @example
    * OSS
@@ -1029,7 +1027,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The dataset type. Valid values: FILE, TABLE, and HYBRID.
+   * The dataset type. Valid values: FILE, TABLE, HYBRID.
    * 
    * This parameter is required.
    * 
@@ -1039,7 +1037,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version number. If this parameter is not specified, the default version V1 is used.
+   * The version number. If not specified, the default version V1 is used.
    * 
    * @example
    * V1
