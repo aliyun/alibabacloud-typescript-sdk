@@ -104,7 +104,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The functional module to which the file belongs. Valid values: NORMAL (DataStudio), MANUAL (manual node), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in DataStudio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
+   * The functional module to which the file belongs. Valid values: NORMAL (Data Studio), MANUAL (manual node), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in Data Studio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
    * 
    * @example
    * NORMAL

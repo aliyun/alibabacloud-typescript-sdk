@@ -640,7 +640,10 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * @remarks
    * The timeout period for task execution. Unit: seconds.
    * 
-   * Note: The scheduling system rounds the configured value to the nearest hour.
+   * 
+   * 
+   * 
+   * Note: The scheduling system rounds the configured value to whole hours.
    * 
    * @example
    * 3600

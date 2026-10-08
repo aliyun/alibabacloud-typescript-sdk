@@ -15,6 +15,11 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
    * @remarks
    * The ID of the workflow.
    * 
+   * 
+   * 
+   * 
+   * > This field is of type Long in SDK versions earlier than 8.0.0 and String in SDK version 8.0.0 and later. This change does not affect normal SDK usage; the parameter is still returned according to the type defined in the SDK. Upgrading the SDK across version 8.0.0 may cause compilation failures due to the type change. In this case, manually update the data type.
+   * 
    * @example
    * 463497880880954XXXX
    */
@@ -134,7 +139,7 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
   spec?: string;
   /**
    * @remarks
-   * The ID of the workflow on the scheduling side after publishing.
+   * The ID of the workflow on the scheduling side after deployment.
    * 
    * @example
    * 700006657495

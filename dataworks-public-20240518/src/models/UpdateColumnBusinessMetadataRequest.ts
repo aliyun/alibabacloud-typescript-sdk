@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateColumnBusinessMetadataRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom attributes of the column, specified as key-value pairs. The key is the attribute identifier, and the value is an array that can contain at most one element. An empty array deletes the attribute\\"s value. To avoid overwriting the column\\"s business description, omit the `Description` parameter from the request. An empty object (`{}`) indicates that no custom attributes are updated.
+   * The custom attributes of the column, specified as key-value pairs. The key is the attribute identifier, and the value is an array that can contain at most one element. An empty array deletes the attribute\\"s value. When Description is omitted, providing this parameter can prevent the column\\"s business description from being cleared. An empty object (`{}`) indicates that no custom attributes are updated.
    * 
    * @example
-   * {"biz_owner":["张三"]}
+   * {"biz_owner":["Zhang San"]}
    */
   customAttributes?: { [key: string]: string[] };
   /**

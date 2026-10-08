@@ -21,7 +21,7 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileFilePropertyCo
   currentVersion?: number;
   /**
    * @remarks
-   * The name of the data source with which the file is associated.
+   * The unique identifier of the data source with which the file is associated.
    * 
    * @example
    * odps_source
@@ -87,7 +87,10 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
    * @remarks
    * The output name of the parent file on which the current file depends.
    * 
-   * This parameter corresponds to the Output Name of Ancestor Node parameter under Parent Nodes in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Output Name of Ancestor Node parameter under Parent Nodes in the Dependencies section of the Properties tab on the Data Studio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * dw_project_root
@@ -133,7 +136,10 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
    * @remarks
    * The output name of the current file.
    * 
-   * This parameter corresponds to the Output Name parameter under Output Name of Current Node in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Output Name parameter under Output Name of Current Node in the Dependencies section of the Properties tab on the Data Studio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * dw_project.002_out
@@ -143,7 +149,10 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
    * @remarks
    * The output table name of the current file.
    * 
-   * This parameter corresponds to the Output Table Name parameter under Output Name of Current Node in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Output Table Name parameter under Output Name of Current Node in the Dependencies section of the Properties tab on the Data Studio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * ods_user_info_d
@@ -175,7 +184,7 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
 export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The interval at which the node corresponding to the file is rerun. Unit: milliseconds.
+   * The interval at which the node corresponding to the file is automatically rerun. Unit: milliseconds.
    * 
    * @example
    * 120000
@@ -183,7 +192,7 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
   autoRerunIntervalMillis?: number;
   /**
    * @remarks
-   * The number of times that the node corresponding to the file can be rerun.
+   * The number of automatic reruns.
    * 
    * @example
    * 3
@@ -201,7 +210,10 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
    * @remarks
    * The type of the scheduling cycle of the node that corresponds to the file. Valid values: NOT_DAY and DAY. The value NOT_DAY indicates that the node is scheduled to run by minute or hour. The value DAY indicates that the node is scheduled to run by day, week, or month.
    * 
-   * This parameter corresponds to the Scheduling Cycle parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Scheduling Cycle parameter in the Schedule section of the Properties tab on the Data Studio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * DAY
@@ -211,7 +223,10 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
    * @remarks
    * The ID of the node on which the node that corresponds to the file depends when the DependentType parameter is set to USER_DEFINE. Multiple IDs are separated by commas (,).
    * 
-   * The value of this parameter is equivalent to the ID of the node that you specified after you select Other Nodes for Cross-Cycle Dependency (Original Previous-Cycle Dependency) in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * The value of this parameter is equivalent to the ID of the node that you specified after you select Other Nodes for Cross-Cycle Dependency (Original Previous-Cycle Dependency) in the Dependencies section of the Properties tab on the Data Studio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * 5,10,15,20
@@ -247,7 +262,10 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
    * @remarks
    * The scheduling parameters of the node.
    * 
-   * This parameter corresponds to the Scheduling Parameter section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of scheduling parameters, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Scheduling Parameter section of the Properties tab on the Data Studio page in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of scheduling parameters, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
    * 
    * @example
    * a=x b=y
@@ -257,13 +275,17 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurat
    * @remarks
    * Indicates whether the node that corresponds to the file can be rerun. Valid values:
    * 
+   * 
+   * 
+   * 
    * - ALL_ALLOWED: The node can be rerun regardless of whether it is successfully run or fails to run.
-   * 
    * - FAILURE_ALLOWED: The node can be rerun only after it fails to run.
-   * 
    * - ALL_DENIED: The node cannot be rerun regardless of whether it is successfully run or fails to run.
    * 
-   * This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab on the Data Studio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * ALL_ALLOWED
@@ -421,17 +443,15 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFile extends $dara
    * @remarks
    * The module to which the file belongs. Valid values:
    * 
-   * - NORMAL: The file is used for DataStudio.
    * 
+   * 
+   * 
+   * - NORMAL: The file is used for Data Studio.
    * - MANUAL: The file is used for a manually triggered node.
-   * 
    * - MANUAL_BIZ: The file is used for a manually triggered workflow.
-   * 
-   * - SKIP: The file is used for a dry-run node in DataStudio.
-   * 
+   * - SKIP: The file is used for a dry-run node in Data Studio.
    * - ADHOCQUERY: The file is used for an ad hoc query.
-   * 
-   * - COMPONENT: The file is used for a script template.
+   * - COMPONENT: The file is used for component management.
    * 
    * @example
    * NORMAL
@@ -511,7 +531,7 @@ export class GetIDEEventDetailResponseBodyEventDetailDeletedFile extends $dara.M
   currentVersion?: number;
   /**
    * @remarks
-   * The name of the data source with which the file is associated.
+   * The unique identifier of the data source with which the file is associated.
    * 
    * @example
    * odps_source
@@ -577,17 +597,15 @@ export class GetIDEEventDetailResponseBodyEventDetailDeletedFile extends $dara.M
    * @remarks
    * The module to which the file belongs. Valid values:
    * 
-   * - NORMAL: The file is used for DataStudio.
    * 
+   * 
+   * 
+   * - NORMAL: The file is used for Data Studio.
    * - MANUAL: The file is used for a manually triggered node.
-   * 
    * - MANUAL_BIZ: The file is used for a manually triggered workflow.
-   * 
-   * - SKIP: The file is used for a dry-run node in DataStudio.
-   * 
+   * - SKIP: The file is used for a dry-run node in Data Studio.
    * - ADHOCQUERY: The file is used for an ad hoc query.
-   * 
-   * - COMPONENT: The file is used for a script template.
+   * - COMPONENT: The file is used for component management.
    * 
    * @example
    * NORMAL
@@ -647,7 +665,7 @@ export class GetIDEEventDetailResponseBodyEventDetailFileExecutionCommand extend
   content?: string;
   /**
    * @remarks
-   * The name of the data source with which the file is associated.
+   * The unique identifier of the data source with which the file is associated.
    * 
    * @example
    * odps_source
@@ -776,7 +794,7 @@ export class GetIDEEventDetailResponseBodyEventDetailTableModel extends $dara.Mo
   comment?: string;
   /**
    * @remarks
-   * The name of the data source to which the table belongs.
+   * The unique identifier of the data source to which the table belongs.
    * 
    * @example
    * odps_source
@@ -804,7 +822,7 @@ export class GetIDEEventDetailResponseBodyEventDetailTableModel extends $dara.Mo
   lifeCycle?: number;
   /**
    * @remarks
-   * The path of the table.
+   * The Location information of the external table.
    * 
    * @example
    * hdfs://path/to/object

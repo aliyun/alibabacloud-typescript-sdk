@@ -8,7 +8,7 @@ export class UpdateResourceGroupRequest extends $dara.Model {
    * The ID of the new Alibaba Cloud resource group.
    * 
    * @example
-   * rg-aek2kqofrg****
+   * rg-aek2kqofrgXXXXX
    */
   aliyunResourceGroupId?: string;
   /**

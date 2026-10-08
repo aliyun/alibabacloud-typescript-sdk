@@ -21,7 +21,7 @@ export class UpdateProcessDefinitionShrinkRequest extends $dara.Model {
    * The description of the process definition.
    * 
    * @example
-   * lwt_ide_simple 项目 MaxCompute 表审批策略
+   * MaxCompute table approval policy for the lwt_ide_simple project
    */
   description?: string;
   /**
@@ -39,7 +39,7 @@ export class UpdateProcessDefinitionShrinkRequest extends $dara.Model {
    * The name of the process definition.
    * 
    * @example
-   * MaxCompute 表审批
+   * MaxCompute table approval
    */
   name?: string;
   /**

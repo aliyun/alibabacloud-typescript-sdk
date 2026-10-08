@@ -207,9 +207,9 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * The workflow parameters.
    * 
    * @example
-   * Periodic workflow:
+   * Scheduled workflow:
    * key1=value1 key2=value2
-   * Manual workflow:
+   * Manual business flow:
    * {"key1":"value1", "key2": "value2"}
    */
   workflowParameters?: string;

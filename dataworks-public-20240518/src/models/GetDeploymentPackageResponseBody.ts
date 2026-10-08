@@ -23,13 +23,16 @@ export class GetDeploymentPackageResponseBodyDataDeployedItems extends $dara.Mod
    * @remarks
    * The status of the deployed item. Valid values:
    * 
-   * - UNPUBLISHED(0): not published
-   * - SUCCESS(1): published successfully
-   * - ERROR(2): publishing failed
+   * 
+   * 
+   * 
+   * - UNPUBLISHED(0): not deployed
+   * - SUCCESS(1): deployed successfully
+   * - ERROR(2): deployment failed
    * - CLONED(3): cloned successfully
-   * - DEPLOY_ERROR(4): publishing failed
+   * - DEPLOY_ERROR(4): deployment failed
    * - CLONING(5): cloning in progress
-   * - REJECT(6): publishing rejected
+   * - REJECT(6): deployment rejected
    * 
    * @example
    * 1
@@ -63,7 +66,10 @@ export class GetDeploymentPackageResponseBodyDataDeployedItems extends $dara.Mod
 export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model {
   /**
    * @remarks
-   * The check status of the nodes involved in the deployment package. When the target environment is the development environment (toEnvironment=1), you can publish the file to the production environment only when the Status of the deployment package is 1 and CheckingStatus is empty.
+   * The check status of the nodes involved in the deployment package. When the target environment is the development environment (toEnvironment=1), you can deploy the file to the production environment only when the Status of the deployment package is 1 and CheckingStatus is empty.
+   * 
+   * 
+   * 
    * 
    * - 7: The check failed.
    * - 8: The check is in progress.
@@ -145,7 +151,10 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   status?: number;
   /**
    * @remarks
-   * The target environment to which the file information is published. Valid values:
+   * The target environment to which the file information is deployed. Valid values:
+   * 
+   * 
+   * 
    * 
    * - 1: development environment
    * - 2: production environment

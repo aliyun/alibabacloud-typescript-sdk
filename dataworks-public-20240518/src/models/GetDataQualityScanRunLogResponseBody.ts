@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataQualityScanRunLogResponseBodyLogSegment extends $dara.Model {
   /**
    * @remarks
-   * The node task logs.
+   * The task logs.
    * 
    * @example
    * Running on Serverless_resource_group_xxxxx
@@ -46,7 +46,7 @@ export class GetDataQualityScanRunLogResponseBodyLogSegment extends $dara.Model 
 export class GetDataQualityScanRunLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node task logs information.
+   * The task log information.
    */
   logSegment?: GetDataQualityScanRunLogResponseBodyLogSegment;
   /**

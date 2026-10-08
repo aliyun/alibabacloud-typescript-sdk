@@ -29,7 +29,7 @@ export class ListCertificatesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The order in which you want to sort the certificate files. Valid values: Desc: descending order ASC: ascending order Default value: Asc
+   * The order in which you want to sort the certificate files. Valid values: Desc: descending order Asc: ascending order Default value: Asc
    * 
    * @example
    * Asc

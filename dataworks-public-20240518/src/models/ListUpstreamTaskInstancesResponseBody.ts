@@ -135,6 +135,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The business date.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
@@ -142,6 +147,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The creation time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -172,6 +182,12 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The project environment.
    * 
+   * 
+   * 
+   * 
+   * - Prod: production.
+   * - Dev: development.
+   * 
    * @example
    * Prod
    */
@@ -179,6 +195,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The time when the instance finished running.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -195,6 +216,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The modification time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -235,6 +261,12 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The project environment.
+   * 
+   * 
+   * 
+   * 
+   * - Prod: production.
+   * - Dev: development.
    * 
    * @example
    * Prod
@@ -283,6 +315,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The time when the instance started running.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
@@ -291,6 +328,23 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The instance running status.
    * 
+   * 
+   * 
+   * 
+   * Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - NotRun: not run.
+   * - Running: running.
+   * - WaitTime: waiting for TriggerTime.
+   * - CheckingCondition: checking branch conditions.
+   * - WaitResource: waiting for resources.
+   * - Failure: execution failed.
+   * - Success: execution succeeded.
+   * - Checking: submitted for data quality checking.
+   * 
    * @example
    * Success
    */
@@ -298,6 +352,17 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The dependency type.
+   * 
+   * 
+   * 
+   * 
+   * Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Normal: same-cycle dependency.
+   * - CrossCycle: cross-cycle dependency.
    * 
    * @example
    * Normal
@@ -331,6 +396,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The timeout period for task execution, in seconds.
    * 
+   * 
+   * 
+   * 
+   * Note: The scheduling system rounds the configured value to whole hours.
+   * 
    * @example
    * 3600
    */
@@ -352,6 +422,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The scheduled trigger time.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
@@ -359,6 +434,17 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The trigger type.
+   * 
+   * 
+   * 
+   * 
+   * Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Scheduler: triggered by a scheduling cycle.
+   * - Manual: triggered manually.
    * 
    * @example
    * Scheduler
@@ -383,6 +469,21 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The type of the workflow instance to which the instance belongs.
+   * 
+   * 
+   * 
+   * 
+   * Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - SmokeTest: test.
+   * - SupplementData: data backfill.
+   * - Manual: manual.
+   * - ManualWorkflow: manual workflow.
+   * - Normal: scheduled run.
+   * - ManualFlow: manually executed business workflow.
    * 
    * @example
    * Normal
@@ -625,6 +726,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The business date.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
@@ -632,6 +738,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   /**
    * @remarks
    * The creation time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -662,6 +773,12 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The environment of the target data source. Valid values:
    * 
+   * 
+   * 
+   * 
+   * - Dev: development environment.
+   * - Prod: production environment.
+   * 
    * @example
    * Prod
    */
@@ -669,6 +786,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   /**
    * @remarks
    * The time when the instance finished running.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -685,6 +807,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   /**
    * @remarks
    * The modification time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -760,6 +887,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The time when the instance started running.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
@@ -767,6 +899,24 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   /**
    * @remarks
    * The instance running status.
+   * 
+   * 
+   * 
+   * 
+   * Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - NotRun: not run.
+   * - Running: running.
+   * - WaitTime: waiting for TriggerTime.
+   * - CheckingCondition: checking branch conditions.
+   * - WaitResource: waiting for resources.
+   * - Failure: execution failed.
+   * - Success: execution succeeded.
+   * - Checking: submitted for data quality checking.
+   * - WaitTrigger: waiting for an external trigger. Trigger-based nodes enter this state after the waiting period.
    * 
    * @example
    * Success
@@ -800,6 +950,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The timeout period for task execution, in seconds.
    * 
+   * 
+   * 
+   * 
+   * Note: The scheduling system rounds the configured value to whole hours.
+   * 
    * @example
    * 3600
    */
@@ -821,6 +976,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The scheduled trigger time.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, for example, 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
@@ -828,6 +988,17 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   /**
    * @remarks
    * The trigger type.
+   * 
+   * 
+   * 
+   * 
+   * Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Scheduler: triggered by a scheduling cycle.
+   * - Manual: triggered manually.
    * 
    * @example
    * Scheduler
@@ -852,6 +1023,20 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   /**
    * @remarks
    * The type of the workflow instance to which the instance belongs.
+   * 
+   * 
+   * 
+   * 
+   * Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Normal: scheduled run.
+   * - Manual: manual task.
+   * - SmokeTest: test.
+   * - SupplementData: data backfill.
+   * - ManualWorkflow: manual workflow.
    * 
    * @example
    * Normal
@@ -961,6 +1146,17 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   /**
    * @remarks
    * The dependency type.
+   * 
+   * 
+   * 
+   * 
+   * Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Normal: same-cycle dependency.
+   * - CrossCycle: cross-cycle dependency.
    * 
    * @example
    * Normal

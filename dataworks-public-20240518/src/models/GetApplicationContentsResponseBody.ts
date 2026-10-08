@@ -341,7 +341,7 @@ export class GetApplicationContentsResponseBodyData extends $dara.Model {
    * The application reason.
    * 
    * @example
-   * 业务需要
+   * Business requirement
    */
   reason?: string;
   /**

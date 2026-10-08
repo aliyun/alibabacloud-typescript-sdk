@@ -216,7 +216,7 @@ export class ListDIJobRunDetailsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 131

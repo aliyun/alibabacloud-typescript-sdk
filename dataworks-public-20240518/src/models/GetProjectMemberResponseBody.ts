@@ -96,9 +96,11 @@ export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
    * @remarks
    * The status of the Workspace member.
    * 
-   * - Normal: The member is active.
    * 
-   * - Disabled: The member is disabled.
+   * 
+   * 
+   * - Normal: The member is active.
+   * - Forbidden: The member is disabled.
    * 
    * @example
    * Normal

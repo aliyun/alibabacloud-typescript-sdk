@@ -86,7 +86,11 @@ export class UpdateImageRequestSupported extends $dara.Model {
   /**
    * @remarks
    * The image sub-module. Valid values:
-   * - Scheduler: data development.
+   * 
+   * 
+   * 
+   * 
+   * - Scheduler: Data Studio.
    * 
    * @example
    * Scheduler

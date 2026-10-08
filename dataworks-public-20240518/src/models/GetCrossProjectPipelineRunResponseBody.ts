@@ -117,7 +117,7 @@ export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   objectName?: string;
   /**
    * @remarks
-   * The object type of the publish object.
+   * The type of the deployment object.
    * 
    * @example
    * ODPS_SQL

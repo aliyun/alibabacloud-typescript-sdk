@@ -44,7 +44,7 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
    * The rule name. The name can be a combination of digits, English letters, Chinese characters, and half-width or full-width punctuation. The maximum length is 255 characters.
    * 
    * @example
-   * The table cannot be empty.
+   * The table cannot be empty
    */
   name?: string;
   /**

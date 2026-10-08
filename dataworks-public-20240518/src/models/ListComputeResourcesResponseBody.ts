@@ -15,9 +15,16 @@ export class ListComputeResourcesResponseBodyPagingInfoComputeResourcesComputeRe
    * @remarks
    * The specific connection configuration details for the computing resource, including the connection address, access identity, and environment information. envType, which specifies the computing resource environment, is a property of this object. Valid values:
    * 
-   * - Dev
    * 
-   * - Prod Different types of computing resources have different attribute specifications under different configuration modes (ConnectionPropertiesMode).
+   * 
+   * 
+   * - Dev: development environment.
+   * - Prod: production environment.
+   * 
+   * 
+   * 
+   * 
+   * Different types of computing resources have different attribute specifications under different configuration modes (ConnectionPropertiesMode).
    * 
    * @example
    * UrlMode

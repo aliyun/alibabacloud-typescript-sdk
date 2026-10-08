@@ -135,6 +135,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
    * @remarks
    * The business date.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
@@ -142,6 +147,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
   /**
    * @remarks
    * The creation time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -172,6 +182,12 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
    * @remarks
    * The environment of the target data source. Valid values:
    * 
+   * 
+   * 
+   * 
+   * - Dev: development environment.
+   * - Prod: production environment.
+   * 
    * @example
    * Prod
    */
@@ -179,6 +195,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
   /**
    * @remarks
    * The time when the instance finished running.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -195,6 +216,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
   /**
    * @remarks
    * The modification time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -270,13 +296,31 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
    * @remarks
    * The time when the instance started running.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
   startedTime?: number;
   /**
    * @remarks
-   * The run status of the instance.
+   * The run status of the instance. Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - NotRun: not run.
+   * - Running: running.
+   * - WaitTime: waiting for TriggerTime to arrive.
+   * - CheckingCondition: checking branch conditions.
+   * - WaitResource: waiting for resources.
+   * - Failure: execution failed.
+   * - Success: execution succeeded.
+   * - Checking: submitted for data quality check.
+   * - WaitTrigger: waiting for an external trigger. Trigger-based nodes enter this status after the waiting time elapses.
    * 
    * @example
    * Success
@@ -310,6 +354,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
    * @remarks
    * The timeout period for node execution. Unit: seconds.
    * 
+   * 
+   * 
+   * 
+   * Note: The scheduling system rounds the configured value to whole hours.
+   * 
    * @example
    * 3600
    */
@@ -329,13 +378,24 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
    * @remarks
    * The scheduled trigger time.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
   triggerTime?: number;
   /**
    * @remarks
-   * The trigger type.
+   * The trigger type. Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Scheduler: triggered by a scheduling cycle.
+   * - Manual: manually triggered.
    * 
    * @example
    * Scheduler
@@ -359,7 +419,16 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance to which the instance belongs.
+   * The type of the workflow instance to which the instance belongs. Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Normal: scheduled execution.
+   * - Manual: manual task.
+   * - SmokeTest: test.
+   * - SupplementData: data backfill.
+   * - ManualWorkflow: manual workflow.
    * 
    * @example
    * Normal
@@ -468,7 +537,13 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstances extends $dara.Model {
   /**
    * @remarks
-   * The dependency type.
+   * The dependency type. Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Normal: dependency within the same scheduling cycle.
+   * - CrossCycle: cross-cycle dependency.
    * 
    * @example
    * Normal
@@ -638,6 +713,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
    * @remarks
    * The business date.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
@@ -645,6 +725,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   /**
    * @remarks
    * The creation time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -675,6 +760,12 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
    * @remarks
    * The environment of the target data source. Valid values:
    * 
+   * 
+   * 
+   * 
+   * - Dev: development environment.
+   * - Prod: production environment.
+   * 
    * @example
    * Prod
    */
@@ -682,6 +773,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   /**
    * @remarks
    * The time when the instance finished running.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -698,6 +794,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   /**
    * @remarks
    * The modification time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
    * 
    * @example
    * 1710239005403
@@ -783,13 +884,31 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
    * @remarks
    * The time when the instance started running.
    * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
+   * 
    * @example
    * 1710239005403
    */
   startedTime?: number;
   /**
    * @remarks
-   * The run status of the instance.
+   * The run status of the instance. Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - NotRun: not run.
+   * - Running: running.
+   * - WaitTime: waiting for TriggerTime to arrive.
+   * - CheckingCondition: checking branch conditions.
+   * - WaitResource: waiting for resources.
+   * - Failure: execution failed.
+   * - Success: execution succeeded.
+   * - Checking: submitted for data quality check.
+   * - WaitTrigger: waiting for an external trigger. Trigger-based nodes enter this status after the waiting time elapses.
    * 
    * @example
    * Success
@@ -797,7 +916,13 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   status?: string;
   /**
    * @remarks
-   * The dependency type.
+   * The dependency type. Valid values:
+   * 
+   * 
+   * 
+   * 
+   * - Normal: dependency within the same scheduling cycle.
+   * - CrossCycle: cross-cycle dependency.
    * 
    * @example
    * Normal
@@ -831,6 +956,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
    * @remarks
    * The timeout period for node execution. Unit: seconds.
    * 
+   * 
+   * 
+   * 
+   * Note: The scheduling system rounds the configured value to whole hours.
+   * 
    * @example
    * 3600
    */
@@ -846,6 +976,11 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   /**
    * @remarks
    * The scheduled trigger time.
+   * 
+   * 
+   * 
+   * 
+   * The value is a 13-digit number, such as 1710239005403.
    * 
    * @example
    * 1710239005403

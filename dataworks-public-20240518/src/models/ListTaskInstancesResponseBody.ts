@@ -308,6 +308,10 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   /**
    * @remarks
    * The run status of the instance. Valid values:
+   * 
+   * 
+   * 
+   * 
    * - NotRun: not run.
    * - Running: running.
    * - WaitTime: waiting for the TriggerTime to arrive.
@@ -315,7 +319,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * - WaitResource: waiting for resources.
    * - Failure: execution failed.
    * - Success: execution succeeded.
-   * - Checking: submitted for qualityrule check.
+   * - Checking: submitted for data quality check.
    * - WaitTrigger: waiting for an external trigger. Trigger-based nodes enter this status after the waiting period.
    * 
    * @example
@@ -350,7 +354,10 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * @remarks
    * The timeout period for node execution, in seconds.
    * 
-   * Note: The scheduling system rounds the configured value to the nearest hour.
+   * 
+   * 
+   * 
+   * Note: The scheduling system rounds the configured value to whole hours.
    * 
    * @example
    * 3600
@@ -432,12 +439,16 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   /**
    * @remarks
    * The type of the workflow instance to which the instance belongs. Valid values:
+   * 
+   * 
+   * 
+   * 
    * - SmokeTest: smoke test.
    * - SupplementData: data backfill.
    * - Manual: manually triggered.
    * - ManualWorkflow: manual workflow.
    * - Normal: periodic scheduling.
-   * - ManualFlow: manually triggered workflow.
+   * - ManualFlow: manually executed business flow.
    * 
    * @example
    * Normal

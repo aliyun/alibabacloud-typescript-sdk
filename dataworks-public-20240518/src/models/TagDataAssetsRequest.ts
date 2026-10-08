@@ -62,11 +62,7 @@ export class TagDataAssetsRequest extends $dara.Model {
   dataAssetIds?: string[];
   /**
    * @remarks
-   * The type of the data asset. Valid values:
-   * 
-   * - ACS::DataWorks::Table
-   * 
-   * - ACS::DataWorks::Task
+   * The type of the data asset. Valid values: ACS::DataWorks::Table (data table) and ACS::DataWorks::Task (scheduled task).
    * 
    * This parameter is required.
    * 

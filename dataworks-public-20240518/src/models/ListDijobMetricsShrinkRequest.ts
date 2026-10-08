@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDIJobMetricsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The instance ID.
    * 
    * @example
    * 11265

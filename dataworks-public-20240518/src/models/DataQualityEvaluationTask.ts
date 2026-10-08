@@ -13,9 +13,7 @@ export class DataQualityEvaluationTaskHooks extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The type of the callback event. Valid values:
-   * 
-   * *   BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+   * The subsequent action type. BlockTaskInstance: blocks execution of a DataWorks task instance.
    * 
    * @example
    * BlockTaskInstance
@@ -280,7 +278,7 @@ export class DataQualityEvaluationTaskTarget extends $dara.Model {
 export class DataQualityEvaluationTaskTrigger extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the auto triggered nodes of which the instances are successfully run. This parameter takes effect only if the Type parameter is set to ByScheduledTaskInstance.
+   * Specifies the scheduled nodes whose instances can trigger the quality evaluation task after running successfully. This setting takes effect when type is ByScheduledTaskInstance.
    */
   taskIds?: number[];
   /**
@@ -338,7 +336,7 @@ export class DataQualityEvaluationTask extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
+   * The callback settings during the lifecycle of the data quality evaluation task instance. Currently, only one hook that blocks a scheduled task is supported.
    */
   hooks?: DataQualityEvaluationTaskHooks[];
   /**
@@ -351,10 +349,10 @@ export class DataQualityEvaluationTask extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks.
    * 
    * @example
-   * 质量校验任务
+   * Data quality evaluation task
    */
   name?: string;
   /**
@@ -372,7 +370,7 @@ export class DataQualityEvaluationTask extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
+   * The settings used when accessing the data source. Currently, only the EMR YARN queue and the SQL engine used to collect EMR tables can be specified. Supported SQL engines: SPARK_SQL, KYUUBI, PRESTO_SQL, and HIVE_SQL.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }

@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityScanRequestComputeResourceRuntime extends $dara.Model {
   /**
    * @remarks
-   * The engine type. These settings are only supported for the EMR compute engine.This setting? Valid values:
+   * The engine type. These settings are only supported for the EMR compute engine. Valid values:
+   * 
+   * 
+   * 
    * 
    * - Hive: Hive SQL
-   * 
    * - Spark: Spark SQL
-   * 
    * - Kyuubi
    * 
    * @example
@@ -19,7 +20,7 @@ export class UpdateDataQualityScanRequestComputeResourceRuntime extends $dara.Mo
   engine?: string;
   /**
    * @remarks
-   * Additional Hive engine parameters. Currently, only the mapreduce.job.queuename parameter is supported.
+   * Additional Hive engine parameters. Currently, only the mapreduce.job.queuename parameter is supported to configure the queue.
    * 
    * @example
    * mapreduce.job.queuename=dq_queue
@@ -27,7 +28,7 @@ export class UpdateDataQualityScanRequestComputeResourceRuntime extends $dara.Mo
   hiveConf?: { [key: string]: any };
   /**
    * @remarks
-   * Additional Spark engine parameters. Currently, only the spark.yarn.queue parameter is supported.
+   * Additional Spark engine parameters. Currently, only the spark.yarn.queue parameter is supported to configure the queue.
    * 
    * @example
    * spark.yarn.queue=dq_queue
@@ -205,7 +206,7 @@ export class UpdateDataQualityScanRequestParameters extends $dara.Model {
 export class UpdateDataQualityScanRequestRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of CUs configured for task running.
+   * The CU consumption configured for task execution.
    * 
    * @example
    * 0.25

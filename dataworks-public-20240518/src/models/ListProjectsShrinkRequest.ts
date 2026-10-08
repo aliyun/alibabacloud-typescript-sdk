@@ -10,12 +10,12 @@ export class ListProjectsShrinkRequest extends $dara.Model {
    * This parameter is used to query the information about workspaces that belong to a specific resource group.
    * 
    * @example
-   * rg-acfmzbn****
+   * rg-acfmzbn7pti3zff
    */
   aliyunResourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags. This parameter queries workspaces that have any of the specified tag key-value pairs.
    */
   aliyunResourceTagsShrink?: string;
   /**
@@ -32,11 +32,7 @@ export class ListProjectsShrinkRequest extends $dara.Model {
   devEnvironmentEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether the Develop role is disabled. Valid values:
-   * 
-   * - false (default)
-   * 
-   * - true
+   * Specifies whether the developer role is disabled. Valid values: false (enabled, default) and true (disabled). This parameter filters workspaces by whether the developer role is enabled or disabled.
    * 
    * @example
    * false
@@ -82,25 +78,7 @@ export class ListProjectsShrinkRequest extends $dara.Model {
   paiTaskEnabled?: boolean;
   /**
    * @remarks
-   * The status of the workspaces. Valid values:
-   * 
-   * - Available
-   * 
-   * - Initializing
-   * 
-   * - InitFailed
-   * 
-   * - Forbidden
-   * 
-   * - Deleting
-   * 
-   * - DeleteFailed
-   * 
-   * - Frozen
-   * 
-   * - Updating
-   * 
-   * - UpdateFailed
+   * The status of the workspaces. Valid values: Available (running normally), Initializing (initializing), InitFailed (initialization failed), Forbidden (manually disabled), Deleting (being deleted), DeleteFailed (deletion failed), Frozen (frozen due to overdue payments), Updating (being updated), and UpdateFailed (update failed). This parameter filters workspaces by the specified status.
    * 
    * @example
    * Available

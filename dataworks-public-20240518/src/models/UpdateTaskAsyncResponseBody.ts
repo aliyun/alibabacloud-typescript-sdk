@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTaskAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation ID, which is used to obtain the result of the asynchronous node update. You can call the UpdateTaskAsync operation to obtain the result.
+   * The operation ID, used to retrieve the result of the asynchronous node update. You can obtain this value from the `UpdateTaskAsync` operation.
    * 
    * @example
    * e15ad21c-b0e9-4792-8f55-b037xxxxxxxx
@@ -13,7 +13,7 @@ export class UpdateTaskAsyncResponseBody extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The request ID. You can use this ID to troubleshoot issues.
+   * The unique ID of this request. If an error occurs, you can use this ID to troubleshoot the issue.
    * 
    * @example
    * 10000001

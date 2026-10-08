@@ -61,7 +61,10 @@ export class ListPendingApprovalsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by resource with exact or fuzzy matching. Resource descriptions are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+   * Filters by resource with exact or generalized matching. Resource descriptions are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+   * 
+   * 
+   * 
    * 
    * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */

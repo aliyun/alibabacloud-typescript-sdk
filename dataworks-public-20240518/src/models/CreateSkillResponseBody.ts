@@ -64,7 +64,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
    * The Skill description.
    * 
    * @example
-   * 数据分析技能
+   * Data analytics skill.
    */
   description?: string;
   /**

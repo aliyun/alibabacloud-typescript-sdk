@@ -133,10 +133,13 @@ export class ListFilesRequest extends $dara.Model {
    * @remarks
    * The functional module to which the file belongs. Valid values:
    * 
-   * - NORMAL: DataStudio.
+   * 
+   * 
+   * 
+   * - NORMAL: Data Studio.
    * - MANUAL: manual node.
    * - MANUAL_BIZ: manual workflow.
-   * - SKIP: dry-run scheduling in DataStudio.
+   * - SKIP: dry-run scheduling in Data Studio.
    * - ADHOCQUERY: ad hoc query.
    * - COMPONENT: component management.
    * 

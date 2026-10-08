@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecCrossProjectPipelineRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cross-workspace publish flow.
+   * The ID of the cross-workspace deployment flow.
    * 
    * This parameter is required.
    * 

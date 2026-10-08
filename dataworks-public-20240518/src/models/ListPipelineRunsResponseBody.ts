@@ -150,7 +150,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
    * The description of the deployment pipeline run.
    * 
    * @example
-   * Release process description
+   * 发布流程描述信息
    */
   description?: string;
   /**

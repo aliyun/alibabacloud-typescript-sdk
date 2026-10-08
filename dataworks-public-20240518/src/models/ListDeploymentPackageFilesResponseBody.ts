@@ -207,10 +207,14 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   /**
    * @remarks
    * The functional module to which the file belongs. Valid values:
-   * - NORMAL: data development.
+   * 
+   * 
+   * 
+   * 
+   * - NORMAL: Data Studio.
    * - MANUAL: manual task.
    * - MANUAL_BIZ: manual workflow.
-   * - SKIP: dry-run scheduling in data development.
+   * - SKIP: dry-run scheduling in Data Studio.
    * - ADHOCQUERY: ad hoc query.
    * - COMPONENT: component management.
    * 

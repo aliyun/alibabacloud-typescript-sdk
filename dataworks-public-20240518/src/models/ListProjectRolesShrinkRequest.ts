@@ -15,7 +15,7 @@ export class ListProjectRolesShrinkRequest extends $dara.Model {
   namesShrink?: string;
   /**
    * @remarks
-   * The page number. Used for paging.
+   * The requested page number. Used for pagination.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListProjectRolesShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
    * 
-   * This parameter specifies the DataWorks workspace for this API invoke operation.
+   * This parameter specifies the DataWorks workspace to use for this API call.
    * 
    * This parameter is required.
    * 
@@ -43,9 +43,9 @@ export class ListProjectRolesShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the workspace role. Valid values:
-   * - UserCustom: user-defined role.
-   * - System: system role.
+   * The role type of the workspace. Valid values:
+   * - UserCustom: user-defined role
+   * - System: system role
    * 
    * @example
    * System

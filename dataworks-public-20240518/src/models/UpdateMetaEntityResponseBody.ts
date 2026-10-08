@@ -53,7 +53,7 @@ export class UpdateMetaEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the update operation.
+   * The updated entity or the result of the write operation.
    */
   result?: UpdateMetaEntityResponseBodyResult;
   /**

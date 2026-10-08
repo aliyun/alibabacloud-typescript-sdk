@@ -154,7 +154,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The effective period of the epoch trigger. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
+   * The time when the periodic trigger takes effect. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 1970-01-01 00:00:00

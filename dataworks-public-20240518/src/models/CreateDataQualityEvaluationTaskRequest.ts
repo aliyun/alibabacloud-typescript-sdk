@@ -23,6 +23,16 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
    * @remarks
    * The comparison operator.
    * 
+   * 
+   * 
+   * 
+   * - &gt;
+   * - &gt;=
+   * - &lt;
+   * - &lt;=
+   * - !=
+   * - =
+   * 
    * @example
    * >
    */
@@ -81,6 +91,16 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
    * @remarks
    * The comparison operator.
    * 
+   * 
+   * 
+   * 
+   * - &gt;
+   * - &gt;=
+   * - &lt;
+   * - &lt;=
+   * - !=
+   * - =
+   * 
    * @example
    * =
    */
@@ -138,6 +158,16 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   /**
    * @remarks
    * The comparison operator.
+   * 
+   * 
+   * 
+   * 
+   * - &gt;
+   * - &gt;=
+   * - &lt;
+   * - &lt;=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -244,6 +274,15 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
    * @remarks
    * The threshold calculation method.
    * 
+   * 
+   * 
+   * 
+   * - Fixed
+   * - Fluctation
+   * - FluctationDiscreate
+   * - Auto
+   * - Average
+   * 
    * @example
    * Fixed
    */
@@ -288,6 +327,11 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers
   /**
    * @remarks
    * The handler type:
+   * 
+   * 
+   * 
+   * 
+   * - SaveErrorData: Retains problematic data.
    * 
    * @example
    * SaveErrorData
@@ -443,6 +487,12 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
    * @remarks
    * The severity level of the rule for the business (corresponding to strong or weak rules on the page). Valid values:
    * 
+   * 
+   * 
+   * 
+   * - Normal
+   * - High
+   * 
    * @example
    * High
    */
@@ -516,6 +566,11 @@ export class CreateDataQualityEvaluationTaskRequestHooks extends $dara.Model {
    * @remarks
    * The hook type. Currently, only one type is supported:
    * 
+   * 
+   * 
+   * 
+   * - BlockTaskInstance: Blocks the scheduling task from continuing to run. If the data quality monitor is triggered by a scheduling task, Hook.Condition is evaluated after quality monitoring completes to determine whether the scheduling task is blocked from continuing.
+   * 
    * @example
    * BlockTaskInstance
    */
@@ -578,6 +633,11 @@ export class CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
    * @remarks
    * The additional parameter settings for sending alerts. The value is in JSON format. The following keys are supported:
    * 
+   * 
+   * 
+   * 
+   * - atAll: Specifies whether to mention all members in the group when sending DingTalk alerts. This setting takes effect when ReceiverType is DingdingUrl.
+   * 
    * @example
    * {  "atAll": true }
    */
@@ -585,6 +645,15 @@ export class CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
   /**
    * @remarks
    * The type of the alert recipient.
+   * 
+   * 
+   * 
+   * 
+   * - WebhookUrl: Custom webhook URL.
+   * - FeishuUrl: Lark alert URL.
+   * - DingdingUrl: DingTalk alert URL.
+   * - WeixinUrl: WeCom alert URL.
+   * - AliUid: Alibaba Cloud user ID.
    * 
    * @example
    * DingdingUrl
@@ -867,6 +936,12 @@ export class CreateDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The extended configuration. The value is a JSON-formatted string. This parameter takes effect only for EMR-type data quality monitors.
+   * 
+   * 
+   * 
+   * 
+   * - queue: The YARN queue used for EMR data quality checks. By default, the queue configured for the current project is used.
+   * - sqlEngine: The SQL engine used for EMR data quality checks. Valid values: HIVE_SQL and SPARK_SQL.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }

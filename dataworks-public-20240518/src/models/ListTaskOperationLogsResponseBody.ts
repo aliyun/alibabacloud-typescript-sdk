@@ -5,12 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $dara.Model {
   /**
    * @remarks
-   * The time when the operation log was generated.
+   * The time when the operation logs are generated.
+   * 
+   * The format is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The object type. Valid values:
+   * - Task: node
+   * - TaskInstance: node instance
+   * 
+   * @example
+   * TaskInstance
+   */
+  objectType?: string;
   /**
    * @remarks
    * The operation content.
@@ -21,7 +33,7 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   operationContent?: string;
   /**
    * @remarks
-   * The serial number of the operation.
+   * The operation sequence number.
    * 
    * @example
    * 1111
@@ -29,7 +41,7 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   operationSeq?: number;
   /**
    * @remarks
-   * The ID of the task on which the operation was performed.
+   * The ID of the node on which the operation was performed.
    * 
    * @example
    * 1234
@@ -37,7 +49,15 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   taskId?: number;
   /**
    * @remarks
-   * The account ID of the operator.
+   * The ID of the node instance on which the operation was performed.
+   * 
+   * @example
+   * 1234
+   */
+  taskInstanceId?: number;
+  /**
+   * @remarks
+   * The account ID of the user who performed the operation.
    * 
    * @example
    * 1000
@@ -46,9 +66,11 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      objectType: 'ObjectType',
       operationContent: 'OperationContent',
       operationSeq: 'OperationSeq',
       taskId: 'TaskId',
+      taskInstanceId: 'TaskInstanceId',
       user: 'User',
     };
   }
@@ -56,9 +78,11 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
+      objectType: 'string',
       operationContent: 'string',
       operationSeq: 'number',
       taskId: 'number',
+      taskInstanceId: 'number',
       user: 'string',
     };
   }
@@ -75,7 +99,7 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
 export class ListTaskOperationLogsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The operation logs.
+   * The list of operation logs.
    */
   operationLogs?: ListTaskOperationLogsResponseBodyPagingInfoOperationLogs[];
   /**
@@ -96,7 +120,7 @@ export class ListTaskOperationLogsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -140,7 +164,7 @@ export class ListTaskOperationLogsResponseBody extends $dara.Model {
   pagingInfo?: ListTaskOperationLogsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX

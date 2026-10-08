@@ -13,7 +13,7 @@ export class RerunWorkflowInstancesShrinkRequest extends $dara.Model {
   bizdate?: number;
   /**
    * @remarks
-   * The end trigger time of the manual workflow instance used for matching. This parameter must be used together with the StartTriggerTime.
+   * The end trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with the StartTriggerTime.
    * 
    * @example
    * 1710239005403
@@ -21,9 +21,7 @@ export class RerunWorkflowInstancesShrinkRequest extends $dara.Model {
   endTriggerTime?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * Prod Dev
+   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
    * 
    * @example
    * Prod
@@ -69,21 +67,13 @@ export class RerunWorkflowInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The status used for matching manual workflow instances.
    * 
-   * Valid values:
-   * 
-   * - Success
-   * 
-   * - Failure
-   * 
    * @example
    * Failure
    */
   status?: string;
   /**
    * @remarks
-   * The type of the workflow instance. Valid values:
-   * 
-   * ManualWorkflow.
+   * The type of the workflow instance. Valid value: ManualWorkflow (manual workflow).
    * 
    * This parameter is required.
    * 

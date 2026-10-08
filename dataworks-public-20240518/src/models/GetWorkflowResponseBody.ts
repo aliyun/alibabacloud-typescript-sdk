@@ -29,7 +29,7 @@ export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
   upstreamOutput?: string;
   /**
    * @remarks
-   * The ancestor task ID. This parameter is returned only if `cross-cycle scheduling dependencies` or `same-cycle scheduling dependencies` and the node input are not configured.
+   * The ID of the upstream task. This field is returned for cross-cycle dependencies on other nodes, or for same-cycle dependencies when input content is not specified. It is not returned in other cases.
    * 
    * @example
    * 1234
@@ -193,7 +193,7 @@ export class GetWorkflowResponseBodyWorkflowTasksDataSource extends $dara.Model 
 export class GetWorkflowResponseBodyWorkflowTasksRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The number of compute units (CUs) configured for task running.
    * 
    * @example
    * 0.25
@@ -288,11 +288,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
    * 
    * @example
    * Prod
@@ -399,13 +395,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The running mode of the task after it is triggered. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
    * 
    * @example
    * Normal
@@ -515,13 +505,7 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
    * 
    * @example
    * Normal

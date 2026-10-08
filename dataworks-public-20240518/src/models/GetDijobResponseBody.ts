@@ -902,7 +902,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   destinationDataSourceSettings?: GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings[];
   /**
    * @remarks
-   * The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB for MySQL`, `Kafka`, and `Hive`.
+   * The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB_For_MySQL`, `Kafka`, and `Hive`.
    * 
    * @example
    * Hologres
@@ -933,16 +933,14 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
    * @remarks
    * The status of the job. Valid values:
    * 
-   * - `Finished`: The job is complete.
    * 
+   * 
+   * 
+   * - `Finished`: The job completed successfully.
    * - `Failed`: The job failed.
-   * 
    * - `Running`: The job is running.
-   * 
    * - `Initialized`: The job is initialized but has not started.
-   * 
    * - `Stopping`: The job is being stopped.
-   * 
    * - `Stop`: The job is stopped.
    * 
    * @example

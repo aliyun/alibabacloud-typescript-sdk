@@ -13,7 +13,7 @@ export class CreateMetaCollectionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the collection.
+   * The name of the collection.
    * 
    * This parameter is required.
    * 
@@ -31,13 +31,13 @@ export class CreateMetaCollectionRequest extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The collection name.
+   * The collection type. Valid values:
    * 
-   * - Category
    * 
-   * - Album
    * 
-   * - AlbumCategory: Album subcategory.
+   * - Category: category.
+   * - Album: data album.
+   * - AlbumCategory: album subcategory.
    * 
    * This parameter is required.
    * 

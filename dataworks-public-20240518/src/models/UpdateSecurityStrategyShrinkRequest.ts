@@ -23,7 +23,7 @@ export class UpdateSecurityStrategyShrinkRequest extends $dara.Model {
    * **The policy description.**
    * 
    * @example
-   * 控制数据分析模块的查询结果安全行为
+   * Controls the security behavior of query results in the Data Analysis module
    */
   description?: string;
   /**
@@ -41,7 +41,7 @@ export class UpdateSecurityStrategyShrinkRequest extends $dara.Model {
    * **The policy name.**
    * 
    * @example
-   * 默认数据分析策略
+   * Default data analysis policy
    */
   name?: string;
   /**

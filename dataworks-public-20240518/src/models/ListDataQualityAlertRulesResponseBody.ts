@@ -242,7 +242,7 @@ export class ListDataQualityAlertRulesResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 335

@@ -35,7 +35,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksDataSource extends $dara.Mo
 export class ExecuteAdhocWorkflowInstanceRequestTasksDependencies extends $dara.Model {
   /**
    * @remarks
-   * The output identifier of the dependent task.
+   * The output identifier of the upstream task.
    * 
    * @example
    * pre.odps_sql_demo_0

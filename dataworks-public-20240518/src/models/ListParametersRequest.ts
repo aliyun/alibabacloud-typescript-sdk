@@ -55,12 +55,13 @@ export class ListParametersRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The field to sort the parameters by. Specify the value in the "FieldName SortOrder" format. The Asc sort order is optional. Supported values are:
+   * The list of fields to sort the parameters by. Specify the value in the "FieldName SortOrder" format. The Asc sort order is optional. Supported values are:
+   * 
+   * 
+   * 
    * 
    * - ModifyTime (Desc/Asc)
-   * 
    * - CreateTime (Desc/Asc)
-   * 
    * - Name (Desc/Asc)
    * 
    * @example

@@ -48,7 +48,7 @@ export class UpdateServerIdeInstanceRequestCredentialConfigConfigsRolesUserInfo 
 export class UpdateServerIdeInstanceRequestCredentialConfigConfigsRoles extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the principal that assumes the role.
+   * The Alibaba Cloud account ID of the principal that owns the role to be assumed.
    * 
    * @example
    * 123456789012****

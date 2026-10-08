@@ -399,7 +399,7 @@ export class GetDataQualityScanResponseBodyDataQualityScan extends $dara.Model {
   runtimeResource?: GetDataQualityScanResponseBodyDataQualityScanRuntimeResource;
   /**
    * @remarks
-   * Spec code for the content of the data quality monitoring.
+   * Spec code for the content of the data quality monitoring. For more information, see [Data quality Spec configuration description](https://help.aliyun.com/document_detail/2963394.html).
    * 
    * @example
    * {

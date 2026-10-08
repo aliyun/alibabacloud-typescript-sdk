@@ -23,7 +23,7 @@ export class UpdateComputeResourceRequest extends $dara.Model {
   connectionProperties?: string;
   /**
    * @remarks
-   * The category of the computing resource to be added. Different types have different subtypes and corresponding parameter schema constraints. Examples: InstanceMode and UrlMode.
+   * The category of the computing resource to be added. Different types have different subtypes and corresponding parameter schema constraints. Examples: InstanceMode (instance mode) and UrlMode (connection string mode).
    * 
    * @example
    * InstanceMode
@@ -34,7 +34,7 @@ export class UpdateComputeResourceRequest extends $dara.Model {
    * The description of the computing resource. The maximum length is 3000 characters.
    * 
    * @example
-   * Level description
+   * Table level description
    */
   description?: string;
   /**

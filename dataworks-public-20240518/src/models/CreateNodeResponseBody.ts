@@ -5,9 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the data development node.
+   * The unique identifier of the Data Studio node.
    * 
-   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
+   * 
+   * 
+   * 
+   * > &lt;notice&gt;This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.&gt;&lt;/notice&gt;
    * 
    * @example
    * 860438872620113XXXX

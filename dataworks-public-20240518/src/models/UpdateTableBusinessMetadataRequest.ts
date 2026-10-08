@@ -8,7 +8,7 @@ export class UpdateTableBusinessMetadataRequest extends $dara.Model {
    * The custom attribute values. The key is the custom attribute identifier, and the value contains at most one element. An empty list indicates that the attribute value is deleted. Passing this parameter without Readme prevents the usage description from being cleared. An empty object indicates that custom attributes are not updated.
    * 
    * @example
-   * {"biz_owner":["张三"]}
+   * {"biz_owner":["Zhang San"]}
    */
   customAttributes?: { [key: string]: string[] };
   /**

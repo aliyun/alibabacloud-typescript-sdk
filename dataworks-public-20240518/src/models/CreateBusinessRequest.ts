@@ -39,7 +39,7 @@ export class CreateBusinessRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the DataStudio page. You must specify either this parameter or ProjectId to determine the DataWorks workspace on which the API operation is performed.
+   * The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the Data Studio page. You must specify either this parameter or ProjectId to determine the DataWorks workspace on which the API operation is performed.
    * 
    * @example
    * dw_project
@@ -49,7 +49,10 @@ export class CreateBusinessRequest extends $dara.Model {
    * @remarks
    * The functional module to which the business process belongs. Valid values:
    * 
-   * - NORMAL: DataStudio.
+   * 
+   * 
+   * 
+   * - NORMAL: Data Studio.
    * - MANUAL_BIZ: Manual business process.
    * 
    * @example

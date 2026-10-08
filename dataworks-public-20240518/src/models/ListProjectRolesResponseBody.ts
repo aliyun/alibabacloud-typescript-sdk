@@ -46,7 +46,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRolesModulePermissions
 export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Model {
   /**
    * @remarks
-   * The code of the workspace role.
+   * The role code of the workspace.
    * 
    * @example
    * role_project_guest
@@ -55,7 +55,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
   modulePermissions?: ListProjectRolesResponseBodyPagingInfoProjectRolesModulePermissions[];
   /**
    * @remarks
-   * The name of the workspace role.
+   * The role name of the workspace.
    * 
    * @example
    * Visitors
@@ -65,7 +65,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
    * @remarks
    * The ID of the DataWorks workspace.
    * 
-   * Note: For default system workspace roles, the ProjectId returns a fixed value of -1.
+   * Note: For system default workspace roles, ProjectId returns a fixed value of -1.
    * 
    * @example
    * 21229
@@ -73,7 +73,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
   projectId?: number;
   /**
    * @remarks
-   * The type of the workspace role.
+   * The role type of the workspace.
    * 
    * @example
    * System
@@ -114,7 +114,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
 export class ListProjectRolesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number. Used for paging.
+   * The requested page number. Used for pagination.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class ListProjectRolesResponseBodyPagingInfo extends $dara.Model {
   projectRoles?: ListProjectRolesResponseBodyPagingInfoProjectRoles[];
   /**
    * @remarks
-   * The total number of entries that meet the conditions.
+   * The total number of entries that meet the filter conditions.
    * 
    * @example
    * 42
@@ -179,7 +179,7 @@ export class ListProjectRolesResponseBody extends $dara.Model {
   pagingInfo?: ListProjectRolesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. Used for locating logs and troubleshooting issues.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * 61649187-0BCF-5E75-8D4B-64FDBEBBB447

@@ -56,7 +56,7 @@ export class CreateSkillRequest extends $dara.Model {
    * The **Skill description**.
    * 
    * @example
-   * 数据分析技能
+   * Data analytics skill.
    */
   description?: string;
   /**
@@ -90,7 +90,7 @@ export class CreateSkillRequest extends $dara.Model {
    * The **version note**.
    * 
    * @example
-   * 初版
+   * Initial version.
    */
   versionNote?: string;
   /**

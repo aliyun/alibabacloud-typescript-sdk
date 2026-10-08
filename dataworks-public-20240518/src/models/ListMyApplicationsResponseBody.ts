@@ -309,7 +309,7 @@ export class ListMyApplicationsResponseBodyDataData extends $dara.Model {
    * The reason for the application.
    * 
    * @example
-   * 业务需要
+   * Business requirement
    */
   reason?: string;
   /**

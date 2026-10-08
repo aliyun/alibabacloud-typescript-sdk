@@ -45,7 +45,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstanceTags extends $dara.M
 export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp.
+   * The business date.
    * 
    * @example
    * 1710239005403
@@ -71,9 +71,11 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * - Prod
    * 
-   * - Dev
+   * 
+   * 
+   * - Prod: production environment
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -194,7 +196,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
   type?: string;
   /**
    * @remarks
-   * The unified pipeline instance ID. For all pipeline instances triggered under the same data timestamp in a single trigger, this field value is identical.
+   * The unified workflow instance ID. This field has the same value for all workflow instances for the same business date within a single trigger.
    * 
    * @example
    * 1234
@@ -213,9 +215,9 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * The workflow parameters.
    * 
    * @example
-   * 周期工作流：
+   * Scheduled workflow：
    * key1=value1 key2=value2
-   * 手动业务流程：
+   * Manual workflow：
    * {"key1":"value1", "key2": "value2"}
    */
   workflowParameters?: string;

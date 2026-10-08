@@ -16,7 +16,7 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
    * A description of the custom agent.
    * 
    * @example
-   * 数据分析助手
+   * Data analysis assistant
    */
   description?: string;
   /**
@@ -24,7 +24,7 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
    * The display name of the custom agent.
    * 
    * @example
-   * 我的助手
+   * My assistant
    */
   displayName?: string;
   /**

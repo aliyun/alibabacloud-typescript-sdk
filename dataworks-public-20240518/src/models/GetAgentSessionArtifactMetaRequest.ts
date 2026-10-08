@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentSessionArtifactMetaRequestParams extends $dara.Model {
   /**
    * @remarks
-   * The path of the artifact.
+   * The path of the artifact. Required.
    * 
    * @example
    * mock/mock_report.md
@@ -13,7 +13,7 @@ export class GetAgentSessionArtifactMetaRequestParams extends $dara.Model {
   artifactPath?: string;
   /**
    * @remarks
-   * The ID of the session.
+   * The ID of the session. Required.
    * 
    * @example
    * sess_0f12abc34

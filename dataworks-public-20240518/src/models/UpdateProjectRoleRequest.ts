@@ -6,6 +6,10 @@ export class UpdateProjectRoleRequestModulePermissions extends $dara.Model {
   /**
    * @remarks
    * The DataWorks module ID. Valid values:
+   * 
+   * 
+   * 
+   * 
    * - 2: HoloStudio
    * - 3: StreamStudio
    * - 4: Deploy Management
@@ -14,7 +18,7 @@ export class UpdateProjectRoleRequestModulePermissions extends $dara.Model {
    * - 8: DataService Studio
    * - 9: Data Integration
    * - 10: Data Modeling (DataBlau DDM)
-   * - 11: DataStudio
+   * - 11: Data Studio
    * - 12: Data Quality
    * - 13: Data Governance Center
    * - 14: Operation Center
@@ -91,7 +95,10 @@ export class UpdateProjectRoleRequest extends $dara.Model {
   modulePermissions?: UpdateProjectRoleRequestModulePermissions[];
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Storage Management page to obtain the ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace Management page to obtain the ID.
+   * 
+   * 
+   * 
    * 
    * This parameter specifies the DataWorks workspace for this API invocation.
    * 

@@ -41,7 +41,7 @@ export class GetComponentResponseBodyComponent extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * Parameter
+   * The name.
    * 
    * @example
    * dim_whse_epet_warehouse_jz_storage_stock_lot_relation_id
@@ -65,7 +65,7 @@ export class GetComponentResponseBodyComponent extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The region ID, such as ap-southeast-1. The region ID is automatically parsed from your endpoint.
+   * The region information, usually the region where the service is located. For example, cn-shanghai specifies China (Shanghai), and cn-zhangjiakou specifies China (Zhangjiakou). You do not need to specify RegionId because it is automatically parsed from the endpoint that you call.
    * 
    * @example
    * cn-hangzhou

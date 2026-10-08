@@ -542,7 +542,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. You must have purchased DataWorks Basic Edition or a higher edition to use this operation.
    * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
+   * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
    * 
    * @param request - AssociateProjectToResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -582,7 +582,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. You must have purchased DataWorks Basic Edition or a higher edition to use this operation.
    * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
+   * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
    * 
    * @param request - AssociateProjectToResourceGroupRequest
    * @returns AssociateProjectToResourceGroupResponse
@@ -1013,7 +1013,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. You must have purchased DataWorks Basic Edition or a higher edition.
    * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
+   * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
    * 
    * @param request - CloneDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1053,7 +1053,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. You must have purchased DataWorks Basic Edition or a higher edition.
    * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
+   * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
    * 
    * @param request - CloneDataSourceRequest
    * @returns CloneDataSourceResponse
@@ -1332,7 +1332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a business process in DataStudio for data development.
+   * Creates a business process in Data Studio for data development.
    * 
    * @param request - CreateBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1383,7 +1383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a business process in DataStudio for data development.
+   * Creates a business process in Data Studio for data development.
    * 
    * @param request - CreateBusinessRequest
    * @returns CreateBusinessResponse
@@ -1834,7 +1834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data integration task.
+   * Creates a task in the new version of Data Integration.
    * 
    * @remarks
    * - You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -1957,7 +1957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data integration task.
+   * Creates a task in the new version of Data Integration.
    * 
    * @remarks
    * - You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -2729,7 +2729,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. You must have purchased DataWorks Basic Edition or a higher edition.
    * 2. You must have at least one of the following roles in the DataWorks project workspace:
-   * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M
+   * - Tenant Owner, workspace administrator, Project Owner, or O&amp;M
    * 
    * @param request - CreateDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2785,7 +2785,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. You must have purchased DataWorks Basic Edition or a higher edition.
    * 2. You must have at least one of the following roles in the DataWorks project workspace:
-   * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M
+   * - Tenant Owner, workspace administrator, Project Owner, or O&amp;M
    * 
    * @param request - CreateDataSourceRequest
    * @returns CreateDataSourceResponse
@@ -2799,7 +2799,7 @@ export default class Client extends OpenApi {
    * Creates a sharing rule for a data source to share it with other workspaces or RAM users.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. To share a data source from Workspace A to Workspace B, you must have the data source sharing permissions in both workspaces. You must have one of the following roles in DataWorks:
    * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
@@ -2847,7 +2847,7 @@ export default class Client extends OpenApi {
    * Creates a sharing rule for a data source to share it with other workspaces or RAM users.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. To share a data source from Workspace A to Workspace B, you must have the data source sharing permissions in both workspaces. You must have one of the following roles in DataWorks:
    * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
@@ -2996,7 +2996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file in DataStudio. This operation does not support creating Data Integration nodes.
+   * Creates a file in Data Studio. This operation does not support creating Data Integration nodes.
    * 
    * @param request - CreateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3163,7 +3163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file in DataStudio. This operation does not support creating Data Integration nodes.
+   * Creates a file in Data Studio. This operation does not support creating Data Integration nodes.
    * 
    * @param request - CreateFileRequest
    * @returns CreateFileResponse
@@ -3224,7 +3224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a UDF function in DataStudio. The UDF function information is described in FlowSpec format.
+   * Creates a UDF function in Data Studio. The UDF function information is described in FlowSpec format.
    * 
    * @remarks
    * >Notice: This operation does not support batch operations. If more than one UDF function is defined in the FlowSpec, all functions after the first one are ignored.
@@ -3262,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a UDF function in DataStudio. The UDF function information is described in FlowSpec format.
+   * Creates a UDF function in Data Studio. The UDF function information is described in FlowSpec format.
    * 
    * @remarks
    * >Notice: This operation does not support batch operations. If more than one UDF function is defined in the FlowSpec, all functions after the first one are ignored.
@@ -3723,7 +3723,7 @@ export default class Client extends OpenApi {
    * Creates a network and associates the network with a general resource group.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - CreateNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3769,7 +3769,7 @@ export default class Client extends OpenApi {
    * Creates a network and associates the network with a general resource group.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - CreateNetworkRequest
    * @returns CreateNetworkResponse
@@ -3780,7 +3780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data development node in the new version of DataStudio.
+   * Creates a Data Studio node in the new version of Data Studio.
    * 
    * @remarks
    * >Notice: This operation does not support batch operations. If more than one node is defined in FlowSpec, all nodes after the first one are ignored.
@@ -3826,7 +3826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data development node in the new version of DataStudio.
+   * Creates a Data Studio node in the new version of Data Studio.
    * 
    * @remarks
    * >Notice: This operation does not support batch operations. If more than one node is defined in FlowSpec, all nodes after the first one are ignored.
@@ -3918,11 +3918,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a publish process for an entity in the new-version DataStudio.
+   * Creates a deployment process for an entity in the new-version Data Studio.
    * 
    * @remarks
-   * >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
-   * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.
+   * > &lt;notice&gt;This operation does not support batch operations. If you specify multiple entities to deploy in the parameters, all entities except the first one are ignored.&gt;&lt;/notice&gt;
+   * > &lt;notice&gt;This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.&gt;&lt;/notice&gt;
    * 
    * @param tmpReq - CreatePipelineRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3979,11 +3979,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a publish process for an entity in the new-version DataStudio.
+   * Creates a deployment process for an entity in the new-version Data Studio.
    * 
    * @remarks
-   * >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
-   * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.
+   * > &lt;notice&gt;This operation does not support batch operations. If you specify multiple entities to deploy in the parameters, all entities except the first one are ignored.&gt;&lt;/notice&gt;
+   * > &lt;notice&gt;This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.&gt;&lt;/notice&gt;
    * 
    * @param request - CreatePipelineRunRequest
    * @returns CreatePipelineRunResponse
@@ -4306,7 +4306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file resource for data development. The file resource information is defined in FlowSpec format.
+   * Creates a file resource for Data Studio. The file resource information is defined in FlowSpec format.
    * 
    * @remarks
    * >Notice: This operation does not support batch operations. If more than one resource file is defined in the FlowSpec, all resource files after the first one are ignored.
@@ -4348,7 +4348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file resource for data development. The file resource information is defined in FlowSpec format.
+   * Creates a file resource for Data Studio. The file resource information is defined in FlowSpec format.
    * 
    * @remarks
    * >Notice: This operation does not support batch operations. If more than one resource file is defined in the FlowSpec, all resource files after the first one are ignored.
@@ -4448,7 +4448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Supports users in specifying their own files (such as JAR, PY, archive, or file) to create Data Development resource files.
+   * Supports users in specifying their own files (such as JAR, PY, archive, or file) to create Data Studio resource files.
    * 
    * @param request - CreateResourceFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4523,7 +4523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Supports users in specifying their own files (such as JAR, PY, archive, or file) to create Data Development resource files.
+   * Supports users in specifying their own files (such as JAR, PY, archive, or file) to create Data Studio resource files.
    * 
    * @param request - CreateResourceFileRequest
    * @returns CreateResourceFileResponse
@@ -4725,7 +4725,7 @@ export default class Client extends OpenApi {
    * Creates a route for a network.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - CreateRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4767,7 +4767,7 @@ export default class Client extends OpenApi {
    * Creates a route for a network.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - CreateRouteRequest
    * @returns CreateRouteResponse
@@ -5174,7 +5174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file for a function in DataStudio.
+   * Creates a file for a function in Data Studio.
    * 
    * @param request - CreateUdfFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5253,7 +5253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file for a function in DataStudio.
+   * Creates a file for a function in Data Studio.
    * 
    * @param request - CreateUdfFileRequest
    * @returns CreateUdfFileResponse
@@ -5264,7 +5264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow in a specified folder in DataStudio.
+   * Creates a workflow in a specified folder in Data Studio.
    * 
    * @remarks
    * >Notice: This operation does not support batch operations. If more than one workflow is defined in FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also ignored. Call the CreateNode operation to create internal nodes one by one.
@@ -5302,7 +5302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow in a specified folder in DataStudio.
+   * Creates a workflow in a specified folder in Data Studio.
    * 
    * @remarks
    * >Notice: This operation does not support batch operations. If more than one workflow is defined in FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also ignored. Call the CreateNode operation to create internal nodes one by one.
@@ -5572,7 +5572,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-   * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, storage management administrator, project owner, or O&M engineer.
+   * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, workspace administrator, project owner, or O&amp;M engineer.
    * 
    * @param request - DeleteCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5611,7 +5611,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-   * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, storage management administrator, project owner, or O&M engineer.
+   * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, workspace administrator, project owner, or O&amp;M engineer.
    * 
    * @param request - DeleteCertificateRequest
    * @returns DeleteCertificateResponse
@@ -5625,7 +5625,7 @@ export default class Client extends OpenApi {
    * Deletes a component.
    * 
    * @remarks
-   * >Notice: After a UDF function is published, it cannot be deleted. You must offline the function before deleting it.
+   * > &lt;notice&gt;After a UDF function is published, it cannot be deleted. You must undeploy the function before deleting it.&gt;&lt;/notice&gt;
    * 
    * @param request - DeleteComponentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5663,7 +5663,7 @@ export default class Client extends OpenApi {
    * Deletes a component.
    * 
    * @remarks
-   * >Notice: After a UDF function is published, it cannot be deleted. You must offline the function before deleting it.
+   * > &lt;notice&gt;After a UDF function is published, it cannot be deleted. You must undeploy the function before deleting it.&gt;&lt;/notice&gt;
    * 
    * @param request - DeleteComponentRequest
    * @returns DeleteComponentResponse
@@ -5838,6 +5838,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes an alert rule configured for a synchronization task.
    * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 
    * @param request - DeleteDIAlarmRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDIAlarmRuleResponse
@@ -5865,6 +5868,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes an alert rule configured for a synchronization task.
    * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 
    * @param request - DeleteDIAlarmRuleRequest
    * @returns DeleteDIAlarmRuleResponse
    */
@@ -5877,7 +5883,7 @@ export default class Client extends OpenApi {
    * Deletes a new-version synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - DeleteDIJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5907,7 +5913,7 @@ export default class Client extends OpenApi {
    * Deletes a new-version synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - DeleteDIJobRequest
    * @returns DeleteDIJobResponse
@@ -6299,9 +6305,9 @@ export default class Client extends OpenApi {
    * Deletes a data source by data source ID.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. To call this operation, you must have one of the following roles in DataWorks:
-   * - Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
+   * - Tenant Owner, Workspace Administrator, Workspace Owner, and O&amp;M
    * 
    * @param request - DeleteDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6331,9 +6337,9 @@ export default class Client extends OpenApi {
    * Deletes a data source by data source ID.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. To call this operation, you must have one of the following roles in DataWorks:
-   * - Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
+   * - Tenant Owner, Workspace Administrator, Workspace Owner, and O&amp;M
    * 
    * @param request - DeleteDataSourceRequest
    * @returns DeleteDataSourceResponse
@@ -6347,7 +6353,7 @@ export default class Client extends OpenApi {
    * Deletes a data source sharing rule by rule ID.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. To delete a sharing rule of a data source from Workspace A to Workspace B, you must have the data source sharing permissions in Workspace A or Workspace B. You must have one of the following roles in DataWorks:
    * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
@@ -6383,7 +6389,7 @@ export default class Client extends OpenApi {
    * Deletes a data source sharing rule by rule ID.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. To delete a sharing rule of a data source from Workspace A to Workspace B, you must have the data source sharing permissions in Workspace A or Workspace B. You must have one of the following roles in DataWorks:
    * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
@@ -6480,7 +6486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+   * Deletes a file from Data Studio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
    * 
    * @param request - DeleteFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6519,7 +6525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+   * Deletes a file from Data Studio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
    * 
    * @param request - DeleteFileRequest
    * @returns DeleteFileResponse
@@ -6530,7 +6536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke DeleteFolder to delete a folder on the Data Development page.
+   * Invoke DeleteFolder to delete a folder on the Data Studio page.
    * 
    * @param request - DeleteFolderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6569,7 +6575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke DeleteFolder to delete a folder on the Data Development page.
+   * Invoke DeleteFolder to delete a folder on the Data Studio page.
    * 
    * @param request - DeleteFolderRequest
    * @returns DeleteFolderResponse
@@ -6580,7 +6586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a user-defined function (UDF) in DataStudio.
+   * Deletes a user-defined function (UDF) in Data Studio.
    * 
    * @remarks
    * >Notice: 
@@ -6619,7 +6625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a user-defined function (UDF) in DataStudio.
+   * Deletes a user-defined function (UDF) in Data Studio.
    * 
    * @remarks
    * >Notice: 
@@ -6938,10 +6944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified data development node.
+   * Deletes a specified Data Studio node.
    * 
    * @remarks
-   * >Notice: After a node is published, it cannot be deleted. You must offline the node before deleting it.
+   * > &lt;notice&gt;After a node is deployed, it cannot be deleted. You must undeploy the node before deleting it.&gt;&lt;/notice&gt;
    * 
    * @param request - DeleteNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6976,10 +6982,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified data development node.
+   * Deletes a specified Data Studio node.
    * 
    * @remarks
-   * >Notice: After a node is published, it cannot be deleted. You must offline the node before deleting it.
+   * > &lt;notice&gt;After a node is deployed, it cannot be deleted. You must undeploy the node before deleting it.&gt;&lt;/notice&gt;
    * 
    * @param request - DeleteNodeRequest
    * @returns DeleteNodeResponse
@@ -6993,7 +6999,7 @@ export default class Client extends OpenApi {
    * Deletes a specified parameter.
    * 
    * @remarks
-   * This operation is available only in DataWorks professional edition and later versions.
+   * This operation is available only in DataWorks Professional Edition and later versions.
    * 
    * @param request - DeleteParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7027,7 +7033,7 @@ export default class Client extends OpenApi {
    * Deletes a specified parameter.
    * 
    * @remarks
-   * This operation is available only in DataWorks professional edition and later versions.
+   * This operation is available only in DataWorks Professional Edition and later versions.
    * 
    * @param request - DeleteParameterRequest
    * @returns DeleteParameterResponse
@@ -7240,7 +7246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file resource from DataStudio.
+   * Deletes a file resource from Data Studio.
    * 
    * @remarks
    * >Notice: 
@@ -7279,7 +7285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file resource from DataStudio.
+   * Deletes a file resource from Data Studio.
    * 
    * @remarks
    * >Notice: 
@@ -7294,11 +7300,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource group.
+   * Deletes a general-purpose resource group.
    * 
    * @remarks
    * 1. This operation requires DataWorks Basic Edition or a later version.
-   * 2. **Before you use this operation, ensure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/2680173.html) for DataWorks resource groups.**
+   * 2. **Before you use this operation, ensure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/2680173.html) for DataWorks general-purpose resource groups.**
    * 3. **Before you use this operation, ensure you have created the Service-Linked Role AliyunServiceRoleForDataWorks.**
    * 
    * @param request - DeleteResourceGroupRequest
@@ -7330,11 +7336,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource group.
+   * Deletes a general-purpose resource group.
    * 
    * @remarks
    * 1. This operation requires DataWorks Basic Edition or a later version.
-   * 2. **Before you use this operation, ensure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/2680173.html) for DataWorks resource groups.**
+   * 2. **Before you use this operation, ensure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/2680173.html) for DataWorks general-purpose resource groups.**
    * 3. **Before you use this operation, ensure you have created the Service-Linked Role AliyunServiceRoleForDataWorks.**
    * 
    * @param request - DeleteResourceGroupRequest
@@ -7349,7 +7355,7 @@ export default class Client extends OpenApi {
    * Deletes a route from a network resource.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - DeleteRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7383,7 +7389,7 @@ export default class Client extends OpenApi {
    * Deletes a route from a network resource.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - DeleteRouteRequest
    * @returns DeleteRouteResponse
@@ -7615,7 +7621,7 @@ export default class Client extends OpenApi {
    * Deletes a task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - DeleteTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7653,7 +7659,7 @@ export default class Client extends OpenApi {
    * Deletes a task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - DeleteTaskRequest
    * @returns DeleteTaskResponse
@@ -7722,10 +7728,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified workflow in data development.
+   * Deletes a specified workflow in Data Studio.
    * 
    * @remarks
-   * >Notice: After a workflow is published, it cannot be deleted. You must offline the workflow before deleting it.
+   * > &lt;notice&gt;After a workflow is published, it cannot be deleted. You must undeploy the workflow before deleting it.&gt;&lt;/notice&gt;
    * 
    * @param request - DeleteWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7760,10 +7766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified workflow in data development.
+   * Deletes a specified workflow in Data Studio.
    * 
    * @remarks
-   * >Notice: After a workflow is published, it cannot be deleted. You must offline the workflow before deleting it.
+   * > &lt;notice&gt;After a workflow is published, it cannot be deleted. You must undeploy the workflow before deleting it.&gt;&lt;/notice&gt;
    * 
    * @param request - DeleteWorkflowDefinitionRequest
    * @returns DeleteWorkflowDefinitionResponse
@@ -8287,7 +8293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+   * Imports a table to a workflow. Calling this operation is equivalent to right-clicking a workflow on the Data Studio page and selecting Import Table.
    * 
    * @param request - EstablishRelationTableToBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8334,7 +8340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+   * Imports a table to a workflow. Calling this operation is equivalent to right-clicking a workflow on the Data Studio page and selecting Import Table.
    * 
    * @param request - EstablishRelationTableToBusinessRequest
    * @returns EstablishRelationTableToBusinessResponse
@@ -8345,7 +8351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a cross-workspace publish flow.
+   * Executes a cross-workspace deployment flow.
    * 
    * @param request - ExecCrossProjectPipelineRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8380,7 +8386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a cross-workspace publish flow.
+   * Executes a cross-workspace deployment flow.
    * 
    * @param request - ExecCrossProjectPipelineRunRequest
    * @returns ExecCrossProjectPipelineRunResponse
@@ -8391,12 +8397,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a specified stage of a publish flow.
+   * Executes a specified stage of a deployment process.
    * 
    * @remarks
-   * >Notice: The stages of a publish flow are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.
-   * >Notice: The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.
-   * >Notice: This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.
+   * > &lt;notice&gt;The stages of a deployment process are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.&gt;&lt;/notice&gt;
+   * > &lt;notice&gt;The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.&gt;&lt;/notice&gt;
+   * > &lt;notice&gt;This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.&gt;&lt;/notice&gt;
    * 
    * @param request - ExecPipelineRunStageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8437,12 +8443,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a specified stage of a publish flow.
+   * Executes a specified stage of a deployment process.
    * 
    * @remarks
-   * >Notice: The stages of a publish flow are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.
-   * >Notice: The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.
-   * >Notice: This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.
+   * > &lt;notice&gt;The stages of a deployment process are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.&gt;&lt;/notice&gt;
+   * > &lt;notice&gt;The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.&gt;&lt;/notice&gt;
+   * > &lt;notice&gt;This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.&gt;&lt;/notice&gt;
    * 
    * @param request - ExecPipelineRunStageRequest
    * @returns ExecPipelineRunStageResponse
@@ -8589,7 +8595,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request
-   * This API uses an agent\\"s name, provided as a parameter, to retrieve its detailed configuration, including the model configuration, system prompt, and tool list.
+   * This API retrieves detailed configuration information for the specified agent name, including but not limited to the model configuration, system prompt, and tool list. You must provide the exact agent name as a request parameter.
    * 
    * @param request - GetAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8624,7 +8630,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request
-   * This API uses an agent\\"s name, provided as a parameter, to retrieve its detailed configuration, including the model configuration, system prompt, and tool list.
+   * This API retrieves detailed configuration information for the specified agent name, including but not limited to the model configuration, system prompt, and tool list. You must provide the exact agent name as a request parameter.
    * 
    * @param request - GetAgentRequest
    * @returns GetAgentResponse
@@ -8998,8 +9004,8 @@ export default class Client extends OpenApi {
    * You can view authentication files.
    * 
    * @remarks
-   * 1. This feature is available only in DataWorks Basic Edition and later versions.
-   * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O\\&M.
+   * 1. This feature is available only in DataWorks Basic Edition or a higher edition.
+   * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O&amp;M.
    * 
    * @param request - GetCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9029,8 +9035,8 @@ export default class Client extends OpenApi {
    * You can view authentication files.
    * 
    * @remarks
-   * 1. This feature is available only in DataWorks Basic Edition and later versions.
-   * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O\\&M.
+   * 1. This feature is available only in DataWorks Basic Edition or a higher edition.
+   * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O&amp;M.
    * 
    * @param request - GetCertificateRequest
    * @returns GetCertificateResponse
@@ -9198,7 +9204,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+   * - Tenant Owner, Workspace Administrator, Deployment, Developer, Project Owner, or O&amp;M Engineer
    * 
    * @param request - GetComputeResourceAuthUserMappingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9238,7 +9244,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+   * - Tenant Owner, Workspace Administrator, Deployment, Developer, Project Owner, or O&amp;M Engineer
    * 
    * @param request - GetComputeResourceAuthUserMappingsRequest
    * @returns GetComputeResourceAuthUserMappingsResponse
@@ -9548,7 +9554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the task logs of a data integration node.
+   * Retrieves the logs of a data integration task.
    * 
    * @remarks
    * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
@@ -9578,7 +9584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the task logs of a data integration node.
+   * Retrieves the logs of a data integration task.
    * 
    * @remarks
    * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
@@ -9884,7 +9890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data quality monitoring run instance.
+   * Queries the run details of a data quality scan task by its ID.
    * 
    * @remarks
    * DataWorks Basic Edition or a higher edition is required.
@@ -9918,7 +9924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data quality monitoring run instance.
+   * Queries the run details of a data quality scan task by its ID.
    * 
    * @remarks
    * DataWorks Basic Edition or a higher edition is required.
@@ -10420,7 +10426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a user-defined function (UDF) in DataStudio.
+   * Queries the information about a user-defined function (UDF) in Data Studio.
    * 
    * @param request - GetFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10447,7 +10453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a user-defined function (UDF) in DataStudio.
+   * Queries the information about a user-defined function (UDF) in Data Studio.
    * 
    * @param request - GetFunctionRequest
    * @returns GetFunctionResponse
@@ -10794,7 +10800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a custom entity.
+   * Retrieves metadata entity details. Currently, only pure custom entity types are supported.
    * 
    * @param request - GetMetaEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10825,7 +10831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a custom entity.
+   * Retrieves metadata entity details. Currently, only pure custom entity types are supported.
    * 
    * @param request - GetMetaEntityRequest
    * @returns GetMetaEntityResponse
@@ -10881,7 +10887,7 @@ export default class Client extends OpenApi {
    * Queries the information about a network resource.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10911,7 +10917,7 @@ export default class Client extends OpenApi {
    * Queries the information about a network resource.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetNetworkRequest
    * @returns GetNetworkResponse
@@ -10922,7 +10928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a node in DataStudio.
+   * Queries the information about a node in Data Studio.
    * 
    * @param request - GetNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10949,7 +10955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a node in DataStudio.
+   * Queries the information about a node in Data Studio.
    * 
    * @param request - GetNodeRequest
    * @returns GetNodeResponse
@@ -11479,7 +11485,7 @@ export default class Client extends OpenApi {
    * Queries the information about a route based on its ID.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11509,7 +11515,7 @@ export default class Client extends OpenApi {
    * Queries the information about a route based on its ID.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetRouteRequest
    * @returns GetRouteResponse
@@ -11520,7 +11526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the schema details of a specified table in Data Map. Only MaxCompute and Hologres schemas are supported.
+   * Retrieves the details of a specified schema in Data Map. Only MaxCompute and Hologres schemas are supported.
    * 
    * @remarks
    * 1. DataWorks Basic Edition or a higher edition is required.
@@ -11551,7 +11557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the schema details of a specified table in Data Map. Only MaxCompute and Hologres schemas are supported.
+   * Retrieves the details of a specified schema in Data Map. Only MaxCompute and Hologres schemas are supported.
    * 
    * @remarks
    * 1. DataWorks Basic Edition or a higher edition is required.
@@ -11944,6 +11950,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about a task.
    * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 
    * @param request - GetTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTaskResponse
@@ -11970,6 +11979,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about a task.
+   * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetTaskRequest
    * @returns GetTaskResponse
@@ -12027,7 +12039,7 @@ export default class Client extends OpenApi {
    * Queries the run log generated during a specific run of an instance.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetTaskInstanceLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12057,7 +12069,7 @@ export default class Client extends OpenApi {
    * Queries the run log generated during a specific run of an instance.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetTaskInstanceLogRequest
    * @returns GetTaskInstanceLogResponse
@@ -12119,7 +12131,7 @@ export default class Client extends OpenApi {
    * Queries the information about a workflow.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12149,7 +12161,7 @@ export default class Client extends OpenApi {
    * Queries the information about a workflow.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetWorkflowRequest
    * @returns GetWorkflowResponse
@@ -12245,7 +12257,7 @@ export default class Client extends OpenApi {
    * Assigns roles to members in a workspace.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - GrantMemberProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12293,7 +12305,7 @@ export default class Client extends OpenApi {
    * Assigns roles to members in a workspace.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GrantMemberProjectRolesRequest
    * @returns GrantMemberProjectRolesResponse
@@ -12307,8 +12319,8 @@ export default class Client extends OpenApi {
    * Imports a certificate file.
    * 
    * @remarks
-   * 1. This feature requires DataWorks Basic Edition or a later version.
-   * 2. You must be assigned one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Project Owner, or O\\&M.
+   * 1. This feature requires DataWorks Basic Edition or a higher edition.
+   * 2. You must be assigned one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Project Owner, or O&amp;M.
    * 
    * @param request - ImportCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12354,8 +12366,8 @@ export default class Client extends OpenApi {
    * Imports a certificate file.
    * 
    * @remarks
-   * 1. This feature requires DataWorks Basic Edition or a later version.
-   * 2. You must be assigned one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Project Owner, or O\\&M.
+   * 1. This feature requires DataWorks Basic Edition or a higher edition.
+   * 2. You must be assigned one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Project Owner, or O&amp;M.
    * 
    * @param request - ImportCertificateRequest
    * @returns ImportCertificateResponse
@@ -12452,7 +12464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a workflow node defined by FlowSpec and its internal child nodes into DataStudio.
+   * Imports a workflow node defined by FlowSpec and its internal child nodes into Data Studio.
    * 
    * @remarks
    * >Notice: 
@@ -12496,7 +12508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a workflow node defined by FlowSpec and its internal child nodes into DataStudio.
+   * Imports a workflow node defined by FlowSpec and its internal child nodes into Data Studio.
    * 
    * @remarks
    * >Notice: 
@@ -12522,7 +12534,7 @@ export default class Client extends OpenApi {
    * 2. Optionally specify `RetryTimes`.
    * 3. After the call, poll the final status by calling `GetSemanticJobDetail`. If necessary, call `GetSemanticJobLog` for diagnostics.
    * ## Precautions
-   * A successful response indicates only that the stop request has been processed. It does not mean that the job has reached a desired state.
+   * A successful response indicates only that the stop request has been processed. It does not mean that the job has reached a terminal state.
    * 
    * @param request - KillSemanticJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12571,7 +12583,7 @@ export default class Client extends OpenApi {
    * 2. Optionally specify `RetryTimes`.
    * 3. After the call, poll the final status by calling `GetSemanticJobDetail`. If necessary, call `GetSemanticJobLog` for diagnostics.
    * ## Precautions
-   * A successful response indicates only that the stop request has been processed. It does not mean that the job has reached a desired state.
+   * A successful response indicates only that the stop request has been processed. It does not mean that the job has reached a terminal state.
    * 
    * @param request - KillSemanticJobRequest
    * @returns KillSemanticJobResponse
@@ -12975,8 +12987,8 @@ export default class Client extends OpenApi {
    * Retrieves a list of certificate files.
    * 
    * @remarks
-   * 1. This API operation is available for all DataWorks editions.
-   * 2. You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator.
+   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 2. You must have at least one of the following roles in the DataWorks workspace: Tenant Owner, Workspace Administrator, Deployer, Developer, Guest, Project Owner, Operator, Model Designer, Security Administrator, Data Analyst, Open Platform Administrator, or Data Governance Administrator.
    * 
    * @param request - ListCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13006,8 +13018,8 @@ export default class Client extends OpenApi {
    * Retrieves a list of certificate files.
    * 
    * @remarks
-   * 1. This API operation is available for all DataWorks editions.
-   * 2. You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator.
+   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 2. You must have at least one of the following roles in the DataWorks workspace: Tenant Owner, Workspace Administrator, Deployer, Developer, Guest, Project Owner, Operator, Model Designer, Security Administrator, Data Analyst, Open Platform Administrator, or Data Governance Administrator.
    * 
    * @param request - ListCertificatesRequest
    * @returns ListCertificatesResponse
@@ -13125,9 +13137,8 @@ export default class Client extends OpenApi {
    * Queries the list of computing resources that meet the specified business information.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a more advanced edition is required.
-   * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * 3. Tenant Owner, Workspace Administrator, Deploy, Developer, Visitor, Project Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, Development Platform Administrator, Data Governance Administrator
+   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 2. You must have at least one of the following roles in the DataWorks workspace: Tenant Owner, Workspace Administrator, Deployer, Developer, Guest, Project Owner, Operator, Model Designer, Security Administrator, Data Analyst, Open Platform Administrator, or Data Governance Administrator.
    * 
    * @param tmpReq - ListComputeResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13195,9 +13206,8 @@ export default class Client extends OpenApi {
    * Queries the list of computing resources that meet the specified business information.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a more advanced edition is required.
-   * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * 3. Tenant Owner, Workspace Administrator, Deploy, Developer, Visitor, Project Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, Development Platform Administrator, Data Governance Administrator
+   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 2. You must have at least one of the following roles in the DataWorks workspace: Tenant Owner, Workspace Administrator, Deployer, Developer, Guest, Project Owner, Operator, Model Designer, Security Administrator, Data Analyst, Open Platform Administrator, or Data Governance Administrator.
    * 
    * @param request - ListComputeResourcesRequest
    * @returns ListComputeResourcesResponse
@@ -13839,6 +13849,9 @@ export default class Client extends OpenApi {
   /**
    * Views alert rules configured for a synchronization task.
    * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 
    * @param request - ListDIAlarmRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDIAlarmRulesResponse
@@ -13866,6 +13879,9 @@ export default class Client extends OpenApi {
   /**
    * Views alert rules configured for a synchronization task.
    * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 
    * @param request - ListDIAlarmRulesRequest
    * @returns ListDIAlarmRulesResponse
    */
@@ -13878,7 +13894,7 @@ export default class Client extends OpenApi {
    * Queries events for a synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * DataWorks Basic Edition or a higher edition is required.
    * 
    * @param request - ListDIJobEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13908,7 +13924,7 @@ export default class Client extends OpenApi {
    * Queries events for a synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * DataWorks Basic Edition or a higher edition is required.
    * 
    * @param request - ListDIJobEventsRequest
    * @returns ListDIJobEventsResponse
@@ -13922,7 +13938,7 @@ export default class Client extends OpenApi {
    * Queries metrics for a synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - ListDIJobMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13958,7 +13974,7 @@ export default class Client extends OpenApi {
    * Queries metrics for a synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListDIJobMetricsRequest
    * @returns ListDIJobMetricsResponse
@@ -13972,7 +13988,7 @@ export default class Client extends OpenApi {
    * Queries the running information about a synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListDIJobRunDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14002,7 +14018,7 @@ export default class Client extends OpenApi {
    * Queries the running information about a synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListDIJobRunDetailsRequest
    * @returns ListDIJobRunDetailsResponse
@@ -14013,7 +14029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Data Integration jobs.
+   * Lists new-version Data Integration tasks, including real-time database synchronization tasks, batch database synchronization tasks, and real-time single-table synchronization tasks.
    * 
    * @remarks
    * This operation requires DataWorks Basic Edition or a later edition.
@@ -14043,7 +14059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Data Integration jobs.
+   * Lists new-version Data Integration tasks, including real-time database synchronization tasks, batch database synchronization tasks, and real-time single-table synchronization tasks.
    * 
    * @remarks
    * This operation requires DataWorks Basic Edition or a later edition.
@@ -14268,7 +14284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a paged list of quality monitoring nodes by using paging.
+   * Queries a paginated list of quality monitoring tasks.
    * 
    * @remarks
    * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -14300,7 +14316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a paged list of quality monitoring nodes by using paging.
+   * Queries a paginated list of quality monitoring tasks.
    * 
    * @remarks
    * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -14685,7 +14701,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of sharing rules for a data source.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. DataWorks Basic Edition or a higher edition is required.
    * 2. To query the sharing rules of a data source associated with a workspace, you must have the data source sharing permissions in that workspace. You must have one of the following roles in DataWorks:
    * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
@@ -14717,7 +14733,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of sharing rules for a data source.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. DataWorks Basic Edition or a higher edition is required.
    * 2. To query the sharing rules of a data source associated with a workspace, you must have the data source sharing permissions in that workspace. You must have one of the following roles in DataWorks:
    * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
@@ -14733,9 +14749,9 @@ export default class Client extends OpenApi {
    * Retrieves a list of data sources that match the specified filter conditions.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. To call this operation, you must have one of the following roles in DataWorks:
-   * - Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
+   * - Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O&amp;M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
    * 
    * @param tmpReq - ListDataSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14771,9 +14787,9 @@ export default class Client extends OpenApi {
    * Retrieves a list of data sources that match the specified filter conditions.
    * 
    * @remarks
-   * 1. This operation is available for all DataWorks editions.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 2. To call this operation, you must have one of the following roles in DataWorks:
-   * - Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
+   * - Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O&amp;M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
    * 
    * @param request - ListDataSourcesRequest
    * @returns ListDataSourcesResponse
@@ -14784,7 +14800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
+   * Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases only in the Internal Catalog. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
    * 
    * @remarks
    * 1. DataWorks Basic Edition or a higher edition is required.
@@ -14815,7 +14831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
+   * Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases only in the Internal Catalog. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
    * 
    * @remarks
    * 1. DataWorks Basic Edition or a higher edition is required.
@@ -15196,6 +15212,9 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of descendant tasks of a task by page.
    * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 
    * @param request - ListDownstreamTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDownstreamTasksResponse
@@ -15222,6 +15241,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of descendant tasks of a task by page.
+   * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListDownstreamTasksRequest
    * @returns ListDownstreamTasksResponse
@@ -15494,7 +15516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of UDF functions in DataStudio. You can also use filter conditions to filter UDF functions.
+   * Retrieves a paginated list of UDF functions in Data Studio. You can also use filter conditions to filter UDF functions.
    * 
    * @param request - ListFunctionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15521,7 +15543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of UDF functions in DataStudio. You can also use filter conditions to filter UDF functions.
+   * Retrieves a paginated list of UDF functions in Data Studio. You can also use filter conditions to filter UDF functions.
    * 
    * @param request - ListFunctionsRequest
    * @returns ListFunctionsResponse
@@ -15918,7 +15940,7 @@ export default class Client extends OpenApi {
    * ## Request
    * This operation retrieves a paginated list of all MCP Servers within your account. You can filter the list by search keyword and visibility level, and control pagination by specifying the maximum number of results and a next page token.
    * - **Q**: Optional. The search keyword for a fuzzy search on MCP Server names.
-   * - **Visibility**: Optional. The visibility level for filtering the results.
+   * - **Visibility**: Optional. The visibility levels for filtering the results. You can specify multiple levels, such as TENANT, PROJECT, or USER.
    * - **MaxResults**: Optional. The maximum number of results to return per page. By default, no limit is applied.
    * - **NextToken**: Optional. The next page token from a previous response. Use this parameter to retrieve the next page of results.
    * 
@@ -15977,7 +15999,7 @@ export default class Client extends OpenApi {
    * ## Request
    * This operation retrieves a paginated list of all MCP Servers within your account. You can filter the list by search keyword and visibility level, and control pagination by specifying the maximum number of results and a next page token.
    * - **Q**: Optional. The search keyword for a fuzzy search on MCP Server names.
-   * - **Visibility**: Optional. The visibility level for filtering the results.
+   * - **Visibility**: Optional. The visibility levels for filtering the results. You can specify multiple levels, such as TENANT, PROJECT, or USER.
    * - **MaxResults**: Optional. The maximum number of results to return per page. By default, no limit is applied.
    * - **NextToken**: Optional. The next page token from a previous response. Use this parameter to retrieve the next page of results.
    * 
@@ -16405,7 +16427,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of network resources for a serverless resource group.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListNetworksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16435,7 +16457,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of network resources for a serverless resource group.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListNetworksRequest
    * @returns ListNetworksResponse
@@ -16446,7 +16468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the dependency nodes of a specified DataStudio node with pagination.
+   * Retrieves the dependency nodes of a specified Data Studio node with pagination.
    * 
    * @param request - ListNodeDependenciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16473,7 +16495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the dependency nodes of a specified DataStudio node with pagination.
+   * Retrieves the dependency nodes of a specified Data Studio node with pagination.
    * 
    * @param request - ListNodeDependenciesRequest
    * @returns ListNodeDependenciesResponse
@@ -16484,7 +16506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of data development nodes with paging, and supports filtered query by specified conditions.
+   * Retrieves a list of Data Studio nodes with paging, and supports filtered query by specified conditions.
    * 
    * @param request - ListNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16511,7 +16533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of data development nodes with paging, and supports filtered query by specified conditions.
+   * Retrieves a list of Data Studio nodes with paging, and supports filtered query by specified conditions.
    * 
    * @param request - ListNodesRequest
    * @returns ListNodesResponse
@@ -17068,10 +17090,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of workspace roles by paging.
+   * Queries the details of workspace roles with pagination.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - ListProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17132,10 +17154,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of workspace roles by paging.
+   * Queries the details of workspace roles with pagination.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListProjectRolesRequest
    * @returns ListProjectRolesResponse
@@ -17147,6 +17169,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of DataWorks workspaces of the tenant to which your account belongs.
+   * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - ListProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17228,6 +17253,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of DataWorks workspaces of the tenant to which your account belongs.
+   * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListProjectsRequest
    * @returns ListProjectsResponse
@@ -17893,7 +17921,7 @@ export default class Client extends OpenApi {
    * Queries a paged query list of personal development environment instances with paging support.
    * 
    * @remarks
-   * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+   * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance subtype.
    * 
    * @param request - ListServerIdeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17959,7 +17987,7 @@ export default class Client extends OpenApi {
    * Queries a paged query list of personal development environment instances with paging support.
    * 
    * @remarks
-   * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+   * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance subtype.
    * 
    * @param request - ListServerIdeInstancesRequest
    * @returns ListServerIdeInstancesResponse
@@ -18159,7 +18187,7 @@ export default class Client extends OpenApi {
    * Retrieves a paginated list of operation logs for a task instance.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * DataWorks Basic Edition or a higher edition is required.
    * Only operation logs generated within the previous 31 days can be queried.
    * 
    * @param request - ListTaskInstanceOperationLogsRequest
@@ -18190,7 +18218,7 @@ export default class Client extends OpenApi {
    * Retrieves a paginated list of operation logs for a task instance.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * DataWorks Basic Edition or a higher edition is required.
    * Only operation logs generated within the previous 31 days can be queried.
    * 
    * @param request - ListTaskInstanceOperationLogsRequest
@@ -18344,11 +18372,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of operation logs for a task.
+   * Queries a paginated list of operation logs for a specified node.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
-   * Only operation logs generated within the previous 31 days can be queried.
+   * You must purchase DataWorks Basic Edition or later to use this API.
+   * You can only query operation logs from the past 31 days.
    * 
    * @param request - ListTaskOperationLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18375,11 +18403,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of operation logs for a task.
+   * Queries a paginated list of operation logs for a specified node.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
-   * Only operation logs generated within the previous 31 days can be queried.
+   * You must purchase DataWorks Basic Edition or later to use this API.
+   * You can only query operation logs from the past 31 days.
    * 
    * @param request - ListTaskOperationLogsRequest
    * @returns ListTaskOperationLogsResponse
@@ -18539,7 +18567,7 @@ export default class Client extends OpenApi {
    * Queries a list of ancestor tasks of a task by page.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListUpstreamTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18569,7 +18597,7 @@ export default class Client extends OpenApi {
    * Queries a list of ancestor tasks of a task by page.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListUpstreamTasksRequest
    * @returns ListUpstreamTasksResponse
@@ -18580,7 +18608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
+   * Queries a list of workflows in Data Studio. You can also specify filter conditions to query specific workflows.
    * 
    * @param request - ListWorkflowDefinitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18607,7 +18635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
+   * Queries a list of workflows in Data Studio. You can also specify filter conditions to query specific workflows.
    * 
    * @param request - ListWorkflowDefinitionsRequest
    * @returns ListWorkflowDefinitionsResponse
@@ -18961,7 +18989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a user-defined function (UDF) to a path in DataStudio.
+   * Moves a user-defined function (UDF) to a path in Data Studio.
    * 
    * @param request - MoveFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19000,7 +19028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a user-defined function (UDF) to a path in DataStudio.
+   * Moves a user-defined function (UDF) to a path in Data Studio.
    * 
    * @param request - MoveFunctionRequest
    * @returns MoveFunctionResponse
@@ -19011,7 +19039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a node to a path in DataStudio.
+   * Moves a node to a path in Data Studio.
    * 
    * @param request - MoveNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19050,7 +19078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a node to a path in DataStudio.
+   * Moves a node to a path in Data Studio.
    * 
    * @param request - MoveNodeRequest
    * @returns MoveNodeResponse
@@ -19061,7 +19089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a file resource to a path in DataStudio.
+   * Moves a file resource to a path in Data Studio.
    * 
    * @param request - MoveResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19100,7 +19128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a file resource to a path in DataStudio.
+   * Moves a file resource to a path in Data Studio.
    * 
    * @param request - MoveResourceRequest
    * @returns MoveResourceResponse
@@ -19111,7 +19139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a workflow to a path in DataStudio.
+   * Moves a workflow to a path in Data Studio.
    * 
    * @param request - MoveWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19150,7 +19178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a workflow to a path in DataStudio.
+   * Moves a workflow to a path in Data Studio.
    * 
    * @param request - MoveWorkflowDefinitionRequest
    * @returns MoveWorkflowDefinitionResponse
@@ -19462,7 +19490,7 @@ export default class Client extends OpenApi {
    * Removes multiple upstream dependencies of an instance at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - RemoveTaskInstanceDependenciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19512,7 +19540,7 @@ export default class Client extends OpenApi {
    * Removes multiple upstream dependencies of an instance at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - RemoveTaskInstanceDependenciesRequest
    * @returns RemoveTaskInstanceDependenciesResponse
@@ -19523,7 +19551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a user-defined function (UDF) in DataStudio.
+   * Renames a user-defined function (UDF) in Data Studio.
    * 
    * @param request - RenameFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19562,7 +19590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a user-defined function (UDF) in DataStudio.
+   * Renames a user-defined function (UDF) in Data Studio.
    * 
    * @param request - RenameFunctionRequest
    * @returns RenameFunctionResponse
@@ -19573,7 +19601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a node in DataStudio.
+   * Renames a node in Data Studio.
    * 
    * @param request - RenameNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19612,7 +19640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a node in DataStudio.
+   * Renames a node in Data Studio.
    * 
    * @param request - RenameNodeRequest
    * @returns RenameNodeResponse
@@ -19623,7 +19651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a file resource in DataStudio.
+   * Renames a file resource in Data Studio.
    * 
    * @param request - RenameResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19662,7 +19690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a file resource in DataStudio.
+   * Renames a file resource in Data Studio.
    * 
    * @param request - RenameResourceRequest
    * @returns RenameResourceResponse
@@ -19673,7 +19701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a workflow in DataStudio.
+   * Renames a workflow in Data Studio.
    * 
    * @param request - RenameWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19712,7 +19740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a workflow in DataStudio.
+   * Renames a workflow in Data Studio.
    * 
    * @param request - RenameWorkflowDefinitionRequest
    * @returns RenameWorkflowDefinitionResponse
@@ -19942,7 +19970,7 @@ export default class Client extends OpenApi {
    * Resumes multiple suspended instances at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - ResumeTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19986,7 +20014,7 @@ export default class Client extends OpenApi {
    * Resumes multiple suspended instances at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ResumeTaskInstancesRequest
    * @returns ResumeTaskInstancesResponse
@@ -20165,7 +20193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers a specified metadata crawler to run and returns the submit status and associated task instance information.
+   * Triggers a specified metadata crawler to run and returns the acceptance status and associated task instance information.
    * 
    * @remarks
    * ## Scenarios
@@ -20211,7 +20239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers a specified metadata crawler to run and returns the submit status and associated task instance information.
+   * Triggers a specified metadata crawler to run and returns the acceptance status and associated task instance information.
    * 
    * @remarks
    * ## Scenarios
@@ -20364,7 +20392,7 @@ export default class Client extends OpenApi {
    * Sets the statuses of multiple instances to successful at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - SetSuccessTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20408,7 +20436,7 @@ export default class Client extends OpenApi {
    * Sets the statuses of multiple instances to successful at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - SetSuccessTaskInstancesRequest
    * @returns SetSuccessTaskInstancesResponse
@@ -20422,7 +20450,7 @@ export default class Client extends OpenApi {
    * Starts a new-version synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - StartDIJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20458,7 +20486,7 @@ export default class Client extends OpenApi {
    * Starts a new-version synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - StartDIJobRequest
    * @returns StartDIJobResponse
@@ -20852,7 +20880,7 @@ export default class Client extends OpenApi {
    * Stops multiple workflow instances at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - StopWorkflowInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20896,7 +20924,7 @@ export default class Client extends OpenApi {
    * Stops multiple workflow instances at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - StopWorkflowInstancesRequest
    * @returns StopWorkflowInstancesResponse
@@ -21024,7 +21052,7 @@ export default class Client extends OpenApi {
    * Suspends multiple instances at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param tmpReq - SuspendTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21068,7 +21096,7 @@ export default class Client extends OpenApi {
    * Suspends multiple instances at a time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - SuspendTaskInstancesRequest
    * @returns SuspendTaskInstancesResponse
@@ -21161,8 +21189,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-   * 2. You must have at least one of the following roles in the DataWorks project space:
-   *    Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O\\&M.
+   * 2. You must have at least one of the following roles in the DataWorks project space:&lt;br&gt;
+   *     Tenant Owner, Workspace Administrator, Deployer, Developer, Project Owner, or Operator.
    * 
    * @param request - TestDataSourceConnectivityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21205,8 +21233,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-   * 2. You must have at least one of the following roles in the DataWorks project space:
-   *    Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O\\&M.
+   * 2. You must have at least one of the following roles in the DataWorks project space:&lt;br&gt;
+   *     Tenant Owner, Workspace Administrator, Deployer, Developer, Project Owner, or Operator.
    * 
    * @param request - TestDataSourceConnectivityRequest
    * @returns TestDataSourceConnectivityResponse
@@ -21220,7 +21248,7 @@ export default class Client extends OpenApi {
    * Triggers a task to run by using an HTTP Trigger node at a specified time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - TriggerSchedulerTaskInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21264,7 +21292,7 @@ export default class Client extends OpenApi {
    * Triggers a task to run by using an HTTP Trigger node at a specified time.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - TriggerSchedulerTaskInstanceRequest
    * @returns TriggerSchedulerTaskInstanceResponse
@@ -21609,8 +21637,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-   * 2. You must have at least one of the following roles in the DataWorks project space:
-   * 3. Tenant Owner, tenant administrator, Space Administrator, Project Owner, or O\\&M
+   * 2. You must have at least one of the following roles in the DataWorks workspace:
+   * 3. Tenant Owner, tenant administrator, Workspace Administrator, Project Owner, or Operator
    * 
    * @param request - UpdateComputeResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21661,8 +21689,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-   * 2. You must have at least one of the following roles in the DataWorks project space:
-   * 3. Tenant Owner, tenant administrator, Space Administrator, Project Owner, or O\\&M
+   * 2. You must have at least one of the following roles in the DataWorks workspace:
+   * 3. Tenant Owner, tenant administrator, Workspace Administrator, Project Owner, or Operator
    * 
    * @param request - UpdateComputeResourceRequest
    * @returns UpdateComputeResourceResponse
@@ -21678,7 +21706,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. DataWorks Basic Edition or a higher edition is required.
    * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+   * 3. Tenant owner, tenant administrator, workspace administrator, project owner, or O&amp;M engineer.
    * 
    * @param tmpReq - UpdateComputeResourceAuthUserMappingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21736,7 +21764,7 @@ export default class Client extends OpenApi {
    * @remarks
    * 1. DataWorks Basic Edition or a higher edition is required.
    * 2. You must have at least one of the following roles in the DataWorks workspace:
-   * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+   * 3. Tenant owner, tenant administrator, workspace administrator, project owner, or O&amp;M engineer.
    * 
    * @param request - UpdateComputeResourceAuthUserMappingsRequest
    * @returns UpdateComputeResourceAuthUserMappingsResponse
@@ -21925,6 +21953,9 @@ export default class Client extends OpenApi {
   /**
    * Updates an alert rule configured for a synchronization task.
    * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 
    * @param tmpReq - UpdateDIAlarmRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDIAlarmRuleResponse
@@ -21961,6 +21992,9 @@ export default class Client extends OpenApi {
 
   /**
    * Updates an alert rule configured for a synchronization task.
+   * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - UpdateDIAlarmRuleRequest
    * @returns UpdateDIAlarmRuleResponse
@@ -22698,6 +22732,10 @@ export default class Client extends OpenApi {
   /**
    * Modifies a data source by ID.
    * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * You must have at least one of the following roles in the DataWorks workspace: tenant owner, tenant administrator, workspace administrator, project owner, or operator.
+   * 
    * @param request - UpdateDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDataSourceResponse
@@ -22744,6 +22782,10 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies a data source by ID.
+   * 
+   * @remarks
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * You must have at least one of the following roles in the DataWorks workspace: tenant owner, tenant administrator, workspace administrator, project owner, or operator.
    * 
    * @param request - UpdateDataSourceRequest
    * @returns UpdateDataSourceResponse
@@ -23078,7 +23120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+   * Updates the basic information about a user-defined function (UDF) in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23117,7 +23159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+   * Updates the basic information about a user-defined function (UDF) in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateFunctionRequest
    * @returns UpdateFunctionResponse
@@ -23128,7 +23170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the check result of an extension point event message.
+   * Reports the check result of an extension point event message through a callback.
    * 
    * @param request - UpdateIDEEventResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23171,7 +23213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the check result of an extension point event message.
+   * Reports the check result of an extension point event message through a callback.
    * 
    * @param request - UpdateIDEEventResultRequest
    * @returns UpdateIDEEventResultResponse
@@ -23582,7 +23624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+   * Updates the basic information about a node in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23621,7 +23663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+   * Updates the basic information about a node in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateNodeRequest
    * @returns UpdateNodeResponse
@@ -23926,7 +23968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+   * Updates the basic information about a file resource in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23969,7 +24011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+   * Updates the basic information about a file resource in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateResourceRequest
    * @returns UpdateResourceResponse
@@ -24129,7 +24171,7 @@ export default class Client extends OpenApi {
    * Updates the information about a route.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - UpdateRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24167,7 +24209,7 @@ export default class Client extends OpenApi {
    * Updates the information about a route.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - UpdateRouteRequest
    * @returns UpdateRouteResponse
@@ -24512,7 +24554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified node. The modifications are synchronized to DataStudio, where a new saved version is created.
+   * Updates a specified node. The modifications are synchronized to Data Studio, where a new saved version is created.
    * 
    * @param tmpReq - UpdateTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24649,7 +24691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified node. The modifications are synchronized to DataStudio, where a new saved version is created.
+   * Updates a specified node. The modifications are synchronized to Data Studio, where a new saved version is created.
    * 
    * @param request - UpdateTaskRequest
    * @returns UpdateTaskResponse
@@ -24660,13 +24702,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified node and synchronizes the changes to DataStudio to create a new saved version.
+   * Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
    * 
    * @remarks
    * ## Operation description
-   * - This API operation updates the information of a specified node, including but not limited to the node name, description, and owner.
-   * - The changes are synchronized to DataStudio, and DataStudio creates a new saved version.
-   * - You can set detailed parameters such as the trigger method, runtime environment configuration, and dependencies of the node.
+   * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
+   * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
+   * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
+   * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
    * 
    * @param tmpReq - UpdateTaskAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24803,13 +24846,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified node and synchronizes the changes to DataStudio to create a new saved version.
+   * Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
    * 
    * @remarks
    * ## Operation description
-   * - This API operation updates the information of a specified node, including but not limited to the node name, description, and owner.
-   * - The changes are synchronized to DataStudio, and DataStudio creates a new saved version.
-   * - You can set detailed parameters such as the trigger method, runtime environment configuration, and dependencies of the node.
+   * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
+   * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
+   * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
+   * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
    * 
    * @param request - UpdateTaskAsyncRequest
    * @returns UpdateTaskAsyncResponse
@@ -24964,7 +25008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified workflow by using the full update method. Fields that can be synchronously updated to DataStudio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
+   * Updates a specified workflow by using the full update method. Fields that can be synchronously updated to Data Studio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
    * 
    * @remarks
    * DataWorks Basic Edition or a more advanced edition is required.
@@ -25068,7 +25112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified workflow by using the full update method. Fields that can be synchronously updated to DataStudio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
+   * Updates a specified workflow by using the full update method. Fields that can be synchronously updated to Data Studio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
    * 
    * @remarks
    * DataWorks Basic Edition or a more advanced edition is required.
@@ -25082,7 +25126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+   * Updates the basic information about a workflow in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @remarks
    * >Notice: 
@@ -25125,7 +25169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+   * Updates the basic information about a workflow in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @remarks
    * >Notice: 

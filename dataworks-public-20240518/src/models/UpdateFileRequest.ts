@@ -17,7 +17,7 @@ export class UpdateFileRequest extends $dara.Model {
   advancedSettings?: string;
   /**
    * @remarks
-   * Specifies whether to apply the scheduling configuration immediately after the file is published.
+   * Specifies whether to apply the scheduling configuration immediately after the file is deployed.
    * 
    * @example
    * true
@@ -27,11 +27,16 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic parsing for the file. Valid values:
    * 
-   * - true
    * 
+   * 
+   * 
+   * - true
    * - false
    * 
-   * This parameter corresponds to the Analyze Code setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Analyze Code setting in Properties &gt; Dependencies for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * true
@@ -41,7 +46,10 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The interval at which the node is automatically rerun after a failure. Unit: milliseconds. Maximum value: 1800000 milliseconds (30 minutes).
    * 
-   * This parameter corresponds to the Rerun interval parameter in Properties > Schedule > Auto Rerun upon Failure for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). In the console, the unit of the rerun interval is minutes. Convert the time unit when you call this operation.
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Rerun interval parameter in Properties &gt; Schedule &gt; Auto Rerun upon Failure for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). In the console, the unit of the rerun interval is minutes. Convert the time unit when you call this operation.
    * 
    * @example
    * 120000
@@ -115,7 +123,10 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The IDs of the nodes on which the current node depends. This parameter takes effect only when the DependentType parameter is set to USER_DEFINE. Separate multiple node IDs with commas (,).
    * 
-   * This parameter corresponds to the Other Nodes option in Properties > Dependencies > Cross-cycle Dependency (Original Previous-cycle Dependency) for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Other Nodes option in Properties &gt; Dependencies &gt; Cross-cycle Dependency (Original Previous-cycle Dependency) for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * 5,10,15,20
@@ -125,12 +136,12 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The dependency mode on the previous cycle. Valid values:
    * 
+   * 
+   * 
+   * 
    * - SELF: Depends on the current node.
-   * 
-   * - CHILD: Depends on the child nodes.
-   * 
+   * - CHILD: Depends on the level-1 child nodes.
    * - USER_DEFINE: Depends on other nodes.
-   * 
    * - NONE: No dependencies. Does not depend on the previous cycle.
    * 
    * @example
@@ -183,7 +194,7 @@ export class UpdateFileRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * This parameter corresponds to the Skip The Dry-Run Property Of The Ancestor Node option in Properties > Dependencies > Cross-cycle Dependency (Original Previous-cycle Dependency) when Instances of Current Node or Level-1 Child Node is selected for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the Skip The Dry-Run Property Of The Ancestor Node option in Properties &gt; Dependencies &gt; Cross-cycle Dependency (Original Previous-cycle Dependency) when Instances of Current Node or Level-1 Child Node is selected for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * true
@@ -201,7 +212,13 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The output names of the ancestor nodes on which the current node depends. Separate multiple output names with commas (,).
    * 
-   * This parameter corresponds to the Output Name of Ancestor Node setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Output Name of Ancestor Node setting in Properties &gt; Dependencies for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
    * 
    * > This parameter is required when you call the CreateDISyncTask or UpdateFile operation to create a batch synchronization node.
    * 
@@ -213,7 +230,10 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The input context parameters of the node. The value must be in the JSON format. For more information about the parameter structure, see the InputContextParameterList parameter in the response parameters of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
    * 
-   * This parameter corresponds to the Input Parameters setting in Properties > Input and Output Parameters for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Input Parameters setting in Properties &gt; Input and Output Parameters for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * [{"ValueSource": "project_001.first_node:bizdate_param","ParameterName": "bizdate_input"}]
@@ -223,7 +243,10 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The outputs of the node.
    * 
-   * This parameter corresponds to the Output Name setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Output Name setting in Properties &gt; Dependencies for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * dw_project.ods_user_info_d
@@ -233,7 +256,10 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The output context parameters of the node. The value must be in the JSON format. For more information about the parameter structure, see the OutputContextParameterList parameter in the response parameters of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
    * 
-   * This parameter corresponds to the Output Parameters setting in Properties > Input and Output Parameters for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Output Parameters setting in Properties &gt; Input and Output Parameters for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * [{"Type": 1,"Value": "${bizdate}","ParameterName": "bizdate_param"}]
@@ -251,7 +277,10 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The scheduling parameters of the node.
    * 
-   * This parameter corresponds to the Scheduling Parameter setting in Properties for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Scheduling Parameter setting in Properties for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
    * 
    * @example
    * x=a y=b z=c
@@ -279,23 +308,17 @@ export class UpdateFileRequest extends $dara.Model {
    * @remarks
    * The rerun policy. Valid values:
    * 
+   * 
+   * 
+   * 
    * - ALL_ALLOWED: Reruns are allowed regardless of whether the task succeeds or fails.
-   * 
    * - FAILURE_ALLOWED: Reruns are allowed only when the task fails.
-   * 
    * - ALL_DENIED: Reruns are not allowed regardless of whether the task succeeds or fails.
    * 
-   * This parameter corresponds to the Support for Rerun setting in Scheduling > Scheduling Policies for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
-   * Valid values:
    * 
-   * - ALL_ALLOWD
    * 
-   * - FAILURE_ALLOWED
-   * 
-   * - ALL_DENIED
-   * 
-   * - ALL_ALLOWED
+   * This parameter corresponds to the Support for Rerun setting in Scheduling &gt; Scheduling Policies for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * ALL_ALLOWED
@@ -303,7 +326,7 @@ export class UpdateFileRequest extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The resource group for the task published from the file. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
+   * The resource group for the task deployed from the file. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
    * 
    * @example
    * default_group
@@ -337,13 +360,18 @@ export class UpdateFileRequest extends $dara.Model {
   startEffectDate?: number;
   /**
    * @remarks
-   * Specifies whether to start the task immediately after it is published. Valid values:
+   * Specifies whether to start the task immediately after it is deployed. Valid values:
    * 
-   * - true: Start the task immediately after it is published.
    * 
-   * - false: Do not start the task immediately after it is published.
    * 
-   * This parameter corresponds to the Start Method setting in Configuration > Scheduling Policies in the right-side navigation pane on the editing page for EMR Spark Streaming and EMR Streaming SQL tasks in Data Studio in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * - true: Start the task immediately after it is deployed.
+   * - false: Do not start the task immediately after it is deployed.
+   * 
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Start Method setting in Configuration &gt; Scheduling Policies in the right-side navigation pane on the editing page for EMR Spark Streaming and EMR Streaming SQL tasks in Data Studio in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * true
@@ -351,13 +379,18 @@ export class UpdateFileRequest extends $dara.Model {
   startImmediately?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip execution. Valid values:
+   * Specifies whether to pause scheduling. Valid values:
    * 
-   * - true
    * 
-   * - false
    * 
-   * This parameter corresponds to the Skip Execution option in Properties > Schedule > Recurrence for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * - true: Pause scheduling.
+   * - false: Do not pause scheduling.
+   * 
+   * 
+   * 
+   * 
+   * This parameter corresponds to the Pause Scheduling option in Properties &gt; Schedule &gt; Recurrence for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * false

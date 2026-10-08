@@ -37,7 +37,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
    * Display name.
    * 
    * @example
-   * 查询结果-单次展示记录值上限
+   * Query Results - Single Display Record Limit
    */
   displayName?: string;
   /**
@@ -199,7 +199,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
    * **Display name**
    * 
    * @example
-   * 数据分析
+   * Data Analysis
    */
   displayName?: string;
   /**
@@ -325,7 +325,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
    * **Policy description**
    * 
    * @example
-   * 控制数据分析模块的查询结果安全行为
+   * Controls the security behavior of query results in the Data Analysis module.
    */
   description?: string;
   /**
@@ -349,7 +349,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
    * **Policy name**
    * 
    * @example
-   * 默认数据分析策略
+   * Default Data Analysis Policy
    */
   name?: string;
   /**
@@ -458,7 +458,7 @@ export class FindBestMatchSecurityStrategyResponseBodyData extends $dara.Model {
    * Purchased DataWorks edition name.
    * 
    * @example
-   * 标准版
+   * Standard Edition
    */
   editionDisplayName?: string;
   /**

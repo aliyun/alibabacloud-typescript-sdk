@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the publish process.
+   * The unique identifier of the deployment process.
    * 
    * @example
    * a7ef0634-20ec-4a7c-a214-54020f91XXXX

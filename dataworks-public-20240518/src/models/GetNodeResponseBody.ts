@@ -146,7 +146,7 @@ export class GetNodeResponseBodyNode extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The ID of the corresponding scheduling task after the node is published.
+   * The ID of the corresponding scheduling task after the node is deployed.
    * 
    * @example
    * 700006680527

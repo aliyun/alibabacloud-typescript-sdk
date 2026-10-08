@@ -136,7 +136,7 @@ export class GetProjectRoleResponseBody extends $dara.Model {
   projectRole?: GetProjectRoleResponseBodyProjectRole;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 82F28E60-CF48-5EDF-AB25-D806847B97D1

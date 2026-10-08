@@ -113,7 +113,7 @@ export class StartDIJobRequest extends $dara.Model {
   forceToRerun?: boolean;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The instance ID.
    * 
    * @example
    * 10000

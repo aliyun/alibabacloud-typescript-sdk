@@ -52,7 +52,7 @@ export class CreateParameterRequest extends $dara.Model {
    * The description of the parameter.
    * 
    * @example
-   * This is a test parameter.
+   * 这是一个测试参数
    */
   description?: string;
   /**

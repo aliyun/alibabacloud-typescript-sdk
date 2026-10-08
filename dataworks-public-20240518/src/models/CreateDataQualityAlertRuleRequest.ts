@@ -13,7 +13,11 @@ export class CreateDataQualityAlertRuleRequestNotificationReceivers extends $dar
   extension?: string;
   /**
    * @remarks
-   * The object type of the alerting accept object.
+   * The alert recipient type.
+   * 
+   * 
+   * 
+   * 
    * - AliUid
    * - WebhookUrl
    * - DingdingUrl

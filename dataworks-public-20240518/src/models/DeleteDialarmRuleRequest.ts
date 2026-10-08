@@ -23,7 +23,7 @@ export class DeleteDIAlarmRuleRequest extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The alert rule ID.
    * 
    * @example
    * 2

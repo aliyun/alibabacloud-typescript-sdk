@@ -90,7 +90,7 @@ export class CreateProjectRoleRequest extends $dara.Model {
    * The client token.
    * 
    * @example
-   * 保留字段
+   * Reserved field
    */
   clientToken?: string;
   /**

@@ -30,7 +30,7 @@ export class MetaEntityDef extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 业务API
+   * Business API
    */
   displayName?: string;
   /**
@@ -38,7 +38,7 @@ export class MetaEntityDef extends $dara.Model {
    * The entity type.
    * 
    * @example
-   * custom_entity-biz_api
+   * custom_entity-customer_api
    */
   entityType?: string;
   /**
@@ -62,7 +62,7 @@ export class MetaEntityDef extends $dara.Model {
    * The name of the type definition.
    * 
    * @example
-   * biz_api
+   * customer_api
    */
   name?: string;
   static names(): { [key: string]: string } {

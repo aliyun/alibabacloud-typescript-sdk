@@ -26,7 +26,7 @@ export class UpdateDIAlarmRuleShrinkRequest extends $dara.Model {
    * The description of the alert rule.
    * 
    * @example
-   * Alert rule description.
+   * The description of the alert rule.
    */
   description?: string;
   /**
@@ -49,15 +49,14 @@ export class UpdateDIAlarmRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The metric type in the alert rule. Valid values:
    * 
-   * - Heartbeat
    * 
-   * - FailoverCount
    * 
-   * - Delay
    * 
-   * - DdlReport
-   * 
-   * - ResourceUtilization
+   * - Heartbeat: task status alert
+   * - FailoverCount: failover count alert
+   * - Delay: task latency alert
+   * - DdlReport: DDL notification
+   * - ResourceUtilization: resource group utilization
    * 
    * @example
    * Heartbeat

@@ -13,11 +13,7 @@ export class UnTagDataAssetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the request was successful. Valid values: true (successful) and false (failed).
    * 
    * @example
    * true

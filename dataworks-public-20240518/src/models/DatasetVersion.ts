@@ -9,12 +9,12 @@ export class DatasetVersion extends $dara.Model {
    * The dataset version description.
    * 
    * @example
-   * 初始版本
+   * Initial version
    */
   comment?: string;
   /**
    * @remarks
-   * Creation time (milliseconds)
+   * Creation time, represented by a timestamp in milliseconds
    * 
    * @example
    * 1736756055000
@@ -46,19 +46,24 @@ export class DatasetVersion extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The storage import configuration for the dataset; required configuration varies by storage type.
+   * The storage import configuration for the dataset. The required configuration varies by storage type.
    * 
-   * **NAS**
    * 
-   * Refer to the return values from the file storage API DescribeFileSystems.
+   * <details>
+   * <summary>NAS</summary>
+   * For values, see the response of the File Storage NAS DescribeFileSystems API.
+   * 
    * 
    * ```JSON
    * {
-   * "fileSystemId": "3b6XXX89c9", // The file system ID.
-   * "fileSystemStorageType":  "Performance" // The file system storage type.
-   * "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount point.
+   *   "fileSystemId": "3b6XXX89c9", // The file system ID.
+   *   "fileSystemStorageType": "Performance", // The file system storage type.
+   *   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount point.
    * }
    * ```
+   * 
+   * 
+   * </details>
    */
   importInfo?: { [key: string]: string };
   /**
@@ -68,7 +73,7 @@ export class DatasetVersion extends $dara.Model {
   labels?: DatasetLabel[];
   /**
    * @remarks
-   * Modification time (milliseconds)
+   * Modification time, represented by a timestamp in milliseconds
    * 
    * @example
    * 1736756055000

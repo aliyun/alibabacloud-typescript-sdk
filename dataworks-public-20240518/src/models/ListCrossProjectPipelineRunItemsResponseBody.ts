@@ -141,7 +141,7 @@ export class ListCrossProjectPipelineRunItemsResponseBodyData extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The list of publish items for the root objects and their child objects that are included in the cross-workspace publish pipeline.
+   * The list of publish items for the root objects and their child objects that are fixed in the cross-workspace publish pipeline.
    * 
    * @example
    * [{"ObjectId":"1","ObjectType":"ODPS_SQL","ObjectName":"object-1","ObjectVersion":"7","ChangeType":"ADD","IsRoot":true,"Status":"Ready"}]

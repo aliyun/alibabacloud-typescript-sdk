@@ -23,7 +23,7 @@ export class GetDIJobLogRequest extends $dara.Model {
   failoverId?: number;
   /**
    * @remarks
-   * The node ID.
+   * The task ID.
    * 
    * @example
    * 10000

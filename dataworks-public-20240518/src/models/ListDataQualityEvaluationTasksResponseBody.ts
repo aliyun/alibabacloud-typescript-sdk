@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks extends $dara.Model {
   /**
    * @remarks
-   * The cause that triggers the hook.
+   * The condition that triggers the hook.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -171,7 +171,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications extends $dara.Model {
   /**
    * @remarks
-   * The cause that triggers the notification.
+   * The condition that triggers the notification.
    * 
    * @example
    * ${severity} == "High"
@@ -331,7 +331,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   description?: string;
   /**
    * @remarks
-   * The callback settings during the epoch of data quality evaluation task instances. Currently, only one hook that blocks a scheduling node instance is supported.
+   * The callback settings during the lifecycle of data quality evaluation task instances. Currently, only one hook that blocks a scheduling node instance is supported.
    */
   hooks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks[];
   /**
@@ -344,7 +344,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   id?: number;
   /**
    * @remarks
-   * The name of the data quality evaluation task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 255 characters in length.
+   * The name of the data quality evaluation task. The name can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 255 characters in length.
    * 
    * @example
    * Data quality verification task
@@ -495,7 +495,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
 export class ListDataQualityEvaluationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paged query result of quality evaluation nodes.
+   * The paged query result of quality evaluation tasks.
    */
   pagingInfo?: ListDataQualityEvaluationTasksResponseBodyPagingInfo;
   /**

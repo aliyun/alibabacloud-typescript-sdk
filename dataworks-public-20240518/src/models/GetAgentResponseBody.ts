@@ -8,7 +8,7 @@ export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
    * The sub-agent display name.
    * 
    * @example
-   * 子助手
+   * Sub-assistant
    */
   displayName?: string;
   /**
@@ -304,7 +304,7 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
    * **The description.**
    * 
    * @example
-   * 数据分析助手
+   * Data analysis assistant
    */
   description?: string;
   /**
@@ -312,7 +312,7 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
    * **The display name.**
    * 
    * @example
-   * 我的助手
+   * My assistant
    */
   displayName?: string;
   /**
@@ -379,7 +379,7 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
    * **The system prompt.**
    * 
    * @example
-   * 你是一个数据分析助手。
+   * You are a data analysis assistant.
    */
   systemPrompt?: string;
   /**

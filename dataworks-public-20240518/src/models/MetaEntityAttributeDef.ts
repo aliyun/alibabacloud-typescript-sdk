@@ -13,12 +13,12 @@ export class MetaEntityAttributeDef extends $dara.Model {
    * Attribute description
    * 
    * @example
-   * 层级描述
+   * Hierarchy description
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the attribute appears on the product page. Default is true.
+   * Indicates whether the attribute appears on the details page. Default is true.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class MetaEntityAttributeDef extends $dara.Model {
    * Display name. It can be up to 32 characters long.
    * 
    * @example
-   * API编码
+   * API code
    */
   displayName?: string;
   /**

@@ -53,7 +53,7 @@ export class ListDIJobMetricsResponseBodyPagingInfoJobMetrics extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The metric data.
+   * The metric series, consisting of sampling times and sampled values at different points in time.
    */
   seriesList?: ListDIJobMetricsResponseBodyPagingInfoJobMetricsSeriesList[];
   static names(): { [key: string]: string } {

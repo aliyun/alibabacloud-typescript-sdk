@@ -86,7 +86,11 @@ export class CreateImageRequestSupported extends $dara.Model {
   /**
    * @remarks
    * The image sub-module. Valid values:
-   * - Scheduler: DataStudio.
+   * 
+   * 
+   * 
+   * 
+   * - Scheduler: Data Studio.
    * 
    * @example
    * Scheduler
@@ -219,7 +223,10 @@ export class CreateImageRequest extends $dara.Model {
   providerImageId?: string;
   /**
    * @remarks
-   * The image reference data type. Valid values:
+   * The image reference type. Valid values:
+   * 
+   * 
+   * 
    * 
    * - ACR: ACR image repository.
    * - DataWorks: DataWorks official image.

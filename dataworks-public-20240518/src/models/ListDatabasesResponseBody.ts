@@ -27,7 +27,7 @@ export class ListDatabasesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records returned.
+   * The total number of records.
    * 
    * @example
    * 1

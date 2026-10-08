@@ -146,7 +146,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   name?: string;
   /**
    * @remarks
-   * The ID of the order for the resource group.
+   * The order instance ID for the resource group.
    * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
@@ -165,7 +165,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
    * The description of the resource group.
    * 
    * @example
-   * Create a general-purpose resource group for common tasks.
+   * 创建用于普通任务的通用资源组
    */
   remark?: string;
   /**

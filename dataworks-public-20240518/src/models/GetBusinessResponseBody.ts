@@ -45,7 +45,7 @@ export class GetBusinessResponseBodyData extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The functional module to which the business process belongs. Valid values: NORMAL (DataStudio) and MANUAL_BIZ (manual business process).
+   * The functional module to which the business process belongs. Valid values: NORMAL (Data Studio) and MANUAL_BIZ (manual business process).
    * 
    * @example
    * NORMAL

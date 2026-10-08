@@ -89,7 +89,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The unique identifier of the DataWorks workspace, which is the identifier at the top of the Data Studio page where you switch workspaces.
+   * The unique identifier of the DataWorks workspace, which is the English identifier at the top of the Data Studio page where you switch workspaces.
    * 
    * @example
    * dw_project

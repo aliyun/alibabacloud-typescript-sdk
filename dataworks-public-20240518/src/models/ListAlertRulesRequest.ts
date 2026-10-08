@@ -54,7 +54,7 @@ export class ListAlertRulesRequest extends $dara.Model {
   taskIds?: number[];
   /**
    * @remarks
-   * The alert triggering condition.
+   * The list of alert types.
    */
   types?: string[];
   static names(): { [key: string]: string } {

@@ -283,7 +283,7 @@ export class ListPendingApprovalsResponseBodyDataData extends $dara.Model {
    * Time when the request was submitted.
    * 
    * @example
-   * 申请时间
+   * Application time
    */
   applicationTime?: number;
   /**
@@ -312,7 +312,7 @@ export class ListPendingApprovalsResponseBodyDataData extends $dara.Model {
    * Reason for the request.
    * 
    * @example
-   * 业务需要
+   * Business requirement
    */
   reason?: string;
   /**

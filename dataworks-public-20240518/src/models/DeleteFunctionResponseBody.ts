@@ -15,9 +15,11 @@ export class DeleteFunctionResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true
    * 
-   * - false
+   * 
+   * 
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

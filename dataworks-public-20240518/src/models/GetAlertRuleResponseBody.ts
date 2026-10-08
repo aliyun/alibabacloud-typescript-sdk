@@ -15,6 +15,9 @@ export class GetAlertRuleResponseBodyAlertRuleNotificationReceivers extends $dar
    * @remarks
    * The type of the alert recipient. Valid values:
    * 
+   * 
+   * 
+   * 
    * - AliUid: Alibaba Cloud UID.
    * - ShiftSchedule: shift schedule.
    * - TaskOwner: node owner. Applicable to custom alerting and event alerting.
@@ -22,7 +25,7 @@ export class GetAlertRuleResponseBodyAlertRuleNotificationReceivers extends $dar
    * - WebhookUrl: custom webhook URL.
    * - DingdingUrl: DingTalk webhook URL.
    * - FeishuUrl: Lark webhook URL.
-   * - WeixinUrl: WeChat webhook URL.
+   * - WeixinUrl: WeCom webhook URL.
    * 
    * @example
    * WebhookUrl
@@ -575,6 +578,9 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerCondition extends $dara.Mod
    * @remarks
    * The type of the alert trigger. Valid values:
    * 
+   * 
+   * 
+   * 
    * - Finished: instance completed.
    * - UnFinished: instance not completed.
    * - Error: instance failed.
@@ -586,8 +592,8 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerCondition extends $dara.Mod
    * - InstanceKeyword: failed instance contains keyword.
    * - InstanceErrorCount: number of failed instances.
    * - InstanceErrorPercentage: percentage of failed instances.
-   * - ResourceGroupPercentage: schedule resource utilization.
-   * - ResourceGroupWaitCount: number of instances waiting for schedule resources.
+   * - ResourceGroupPercentage: resource group utilization.
+   * - ResourceGroupWaitCount: number of instances waiting for resource group resources.
    * 
    * @example
    * Error

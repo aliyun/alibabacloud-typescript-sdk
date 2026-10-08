@@ -69,11 +69,17 @@ export class GetPipelineRunResponseBodyPipelineStages extends $dara.Model {
    * @remarks
    * The type of the deployment stage.
    * 
+   * 
+   * 
+   * 
    * Valid values:
+   * 
+   * 
+   * 
    * 
    * - Deploy: deploy operation
    * - Check: check operation
-   * - Offline: offline operation
+   * - Offline: undeploy operation
    * - Build: build operation
    * - Delete: delete operation
    * 

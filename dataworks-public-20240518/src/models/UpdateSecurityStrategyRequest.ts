@@ -37,7 +37,7 @@ export class UpdateSecurityStrategyRequestContentControllers extends $dara.Model
    * The display name.
    * 
    * @example
-   * 查询结果-单次展示记录值上限
+   * Query results - Maximum number of records per display
    */
   displayName?: string;
   /**
@@ -217,7 +217,7 @@ export class UpdateSecurityStrategyRequest extends $dara.Model {
    * **The policy description.**
    * 
    * @example
-   * 控制数据分析模块的查询结果安全行为
+   * Controls the security behavior of query results in the Data Analysis module
    */
   description?: string;
   /**
@@ -235,7 +235,7 @@ export class UpdateSecurityStrategyRequest extends $dara.Model {
    * **The policy name.**
    * 
    * @example
-   * 默认数据分析策略
+   * Default data analysis policy
    */
   name?: string;
   /**

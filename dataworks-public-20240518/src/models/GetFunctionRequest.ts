@@ -17,7 +17,10 @@ export class GetFunctionRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to query the ID.
+   * 
+   * 
+   * 
    * 
    * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
    * 

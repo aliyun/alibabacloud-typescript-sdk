@@ -32,7 +32,7 @@ export class CreateDataSourceSharedRuleRequest extends $dara.Model {
    * The user with which you want to share the data source. If you do not configure this parameter, the data source is shared to an entire workspace.
    * 
    * @example
-   * 110755000****
+   * 1107550004253538
    */
   sharedUser?: string;
   /**

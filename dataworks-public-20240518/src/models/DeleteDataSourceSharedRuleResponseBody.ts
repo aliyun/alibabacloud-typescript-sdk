@@ -8,7 +8,7 @@ export class DeleteDataSourceSharedRuleResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * 64B-587A-8CED-969E1973887F****
+   * 64B-587A-8CED-969E1973887FXXX-TT
    */
   requestId?: string;
   /**

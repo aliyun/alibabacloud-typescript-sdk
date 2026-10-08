@@ -96,7 +96,7 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfo extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

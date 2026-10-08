@@ -29,7 +29,7 @@ export class ListRoutesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the general quota.
+   * The unique identifier of the general-purpose resource group.
    * 
    * This parameter is required.
    * 

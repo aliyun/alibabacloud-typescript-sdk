@@ -16,7 +16,7 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
    * **The Skill description.**
    * 
    * @example
-   * 数据分析技能
+   * Data analysis skill
    */
   description?: string;
   /**

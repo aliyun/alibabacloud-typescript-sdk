@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The new description for the custom attribute. It must be 256 characters or less.
+   * The new description for the custom attribute. It must be less than 256 characters.
    * 
    * @example
    * test comment
@@ -21,10 +21,10 @@ export class UpdateCustomAttributeRequest extends $dara.Model {
   displayEnabled?: boolean;
   /**
    * @remarks
-   * The new display name for the custom attribute. It must be 128 characters or less.
+   * The new display name for the custom attribute. It must be less than 128 characters.
    * 
    * @example
-   * 业务负责人
+   * Business owner
    */
   displayName?: string;
   /**

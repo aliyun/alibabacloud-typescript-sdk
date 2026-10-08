@@ -98,7 +98,10 @@ export class CreateImageShrinkRequest extends $dara.Model {
   providerImageId?: string;
   /**
    * @remarks
-   * The image reference data type. Valid values:
+   * The image reference type. Valid values:
+   * 
+   * 
+   * 
    * 
    * - ACR: ACR image repository.
    * - DataWorks: DataWorks official image.

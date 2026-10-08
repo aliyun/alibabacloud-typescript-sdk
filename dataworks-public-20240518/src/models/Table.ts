@@ -16,7 +16,7 @@ export class TableBusinessMetadataCategories extends $dara.Model {
    * The name.
    * 
    * @example
-   * 测试类目
+   * Test category
    */
   name?: string;
   /**
@@ -229,7 +229,7 @@ export class TableBusinessMetadata extends $dara.Model {
    * The usage instructions.
    * 
    * @example
-   * ## 使用说明
+   * ## Usage instructions
    */
   readme?: string;
   /**
@@ -389,7 +389,7 @@ export class Table extends $dara.Model {
    * The comment.
    * 
    * @example
-   * 测试表
+   * Test table
    */
   comment?: string;
   /**
@@ -404,37 +404,72 @@ export class Table extends $dara.Model {
    * @remarks
    * The ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
    * 
-   * The format is `${EntityType}:${instance ID or encoded URL}:${DataFolderIdentity}:${DatabaseName}:${PatternName}:${TableName}`. Use an empty character as a placeholder for levels that do not exist.
+   * 
+   * 
+   * 
+   * The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}:${SchemaName}:${TableName}`. Use an empty character as a placeholder for levels that do not exist.
+   * 
+   * 
+   * 
    * 
    * > For maxcompute and dlf types, use an empty string as a placeholder for the instance ID. For the maxcompute type, the database name is the MaxCompute project name. Projects with the three-layer model enabled require a schema name. For projects without the three-layer model enabled, use an empty string as a placeholder for the schema name.
    * 
+   * 
+   * 
+   * 
    * > For the starrocks type, the data catalog identifier is the catalog name. For the dlf type, the data catalog identifier is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
+   * 
+   * 
+   * 
    * 
    * The following examples show the ID formats for common types:
    * 
+   * 
+   * 
+   * 
    * `maxcompute-table:::project_name:[schema_name]:table_name`
+   * 
+   * 
+   * 
    * 
    * `dlf-table::catalog_id:database_name::table_name`
    * 
+   * 
+   * 
+   * 
    * `hms-table:instance_id::database_name::table_name`
+   * 
+   * 
+   * 
    * 
    * `holo-table:instance_id::database_name:schema_name:table_name`
    * 
+   * 
+   * 
+   * 
    * `mysql-table:(instance_id|encoded_jdbc_url)::database_name::table_name`
+   * 
+   * 
+   * 
+   * 
    * > Where  
-   * `instance_id`: The instance ID. This is required when the data source is registered in instance mode.  
-   * `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.  
-   * `catalog_id`: The DLF catalog ID.  
-   * `project_name`: The MaxCompute project name.   
-   * `database_name`: The database name.   
-   * `schema_name`: The schema name. For the maxcompute type, this is required only when the three-layer model is enabled for the project. If the three-layer model is not enabled, use an empty string as a placeholder.   
-   * `table_name`: The table name.
+   * > 
+   * > `instance_id`: The instance ID. This is required when the data source is registered in instance mode.  
+   * > 
+   * > `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.  
+   * > 
+   * > `catalog_id`: The DLF catalog ID.  
+   * > 
+   * > `project_name`: The MaxCompute project name.  
+   * > 
+   * > `database_name`: The database name.  
+   * > 
+   * > `schema_name`: The schema name. For the maxcompute type, this is required only when the three-layer model is enabled for the project. If the three-layer model is not enabled, use an empty string as a placeholder.  
+   * > 
+   * > `table_name`: The table name.
    * 
    * @example
-   * maxcompute-table:123456XXX::test_project::test_tbl
-   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
-   * hms-table:c-abc123xxx::test_db::test_tbl
-   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
+   * dlf-table::catalog_id:database_name::table_name
    */
   id?: string;
   /**
@@ -450,49 +485,83 @@ export class Table extends $dara.Model {
    * The name.
    * 
    * @example
-   * test_tbl
+   * table_name
    */
   name?: string;
   /**
    * @remarks
    * The parent-level metadata entity ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
    * 
-   * - For types that support schemas (`maxcompute/holo/postgresql/sqlserver/hybriddb_for_postgresql/oracle, where the maxcompute type requires the Layer 3 model to be enabled for the project`), ParentMetaEntityId is the database pattern to which the table belongs. The format is `${EntityType}:${instance ID or encoded URL}:${DataFolderIdentity}:${DatabaseName}:${PatternName}`. Use an empty character as a placeholder for levels that do not exist.
    * 
-   * - For other types, ParentMetaEntityId is the database to which the table belongs. The format is `${EntityType}:${instance ID or encoded URL}:${DataFolderIdentity}:${DatabaseName}`. Use an empty character as a placeholder for levels that do not exist.
+   * 
+   * 
+   * - For types that support schemas (`maxcompute/holo/postgresql/sqlserver/hybriddb_for_postgresql/oracle, where the maxcompute type requires the three-layer model to be enabled for the project`), ParentMetaEntityId is the database schema to which the table belongs. The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}:${SchemaName}`. Use an empty character as a placeholder for levels that do not exist.
+   * - For other types, ParentMetaEntityId is the database to which the table belongs. The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}`. Use an empty character as a placeholder for levels that do not exist.
+   * 
+   * 
+   * 
    * 
    * > For maxcompute and dlf types, use an empty string as a placeholder for the instance ID. For the maxcompute type, the database name is the MaxCompute project name.
    * 
+   * 
+   * 
+   * 
    * > For the starrocks type, the data catalog identifier is the catalog name. For the dlf type, the data catalog identifier is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
    * 
+   * 
+   * 
+   * 
    * The following examples show the ParentMetaEntityId formats for common types:
-   * 	
+   * 
+   * 
+   * 
+   * 
    * `maxcompute-project:::project_name`
+   * 
+   * 
+   * 
    * 
    * `maxcompute-schema:::project_name:schema_name` (only when the three-layer model is enabled for the project)
    * 
+   * 
+   * 
+   * 
    * `dlf-database::catalog_id:database_name`
+   * 
+   * 
+   * 
    * 
    * `hms-database:instance_id::database_name`
    * 
+   * 
+   * 
+   * 
    * `holo-schema:instance_id::database_name:schema_name`
+   * 
+   * 
+   * 
    * 
    * `mysql-database:(instance_id|encoded_jdbc_url)::database_name`
    * 
+   * 
+   * 
+   * 
    * > Where  
-   * `instance_id`: The instance ID. This is required when the data source is registered in instance mode.   
-   * `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.   
-   * `catalog_id`: The DLF catalog ID.   
-   * `project_name`: The MaxCompute project name.   
-   * `database_name`: The database name.   
-   * `schema_name`: The schema name.
+   * > 
+   * > `instance_id`: The instance ID. This is required when the data source is registered in instance mode.  
+   * > 
+   * > `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.  
+   * > 
+   * > `catalog_id`: The DLF catalog ID.  
+   * > 
+   * > `project_name`: The MaxCompute project name.  
+   * > 
+   * > `database_name`: The database name.  
+   * > 
+   * > `schema_name`: The schema name.
    * 
    * @example
-   * maxcompute-schema:123456XXX::test_project_with_schema:default
-   * maxcompute-project:123456XXX::test_project_without_schema
-   * dlf-database:123456XXX:test_catalog:test_db
-   * hms-database:c-abc123xxx::test_db
-   * holo-schema:h-abc123xxx::test_db:test_schema
+   * dlf-database::catalog_id:database_name
    */
   parentMetaEntityId?: string;
   /**

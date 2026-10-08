@@ -48,7 +48,7 @@ export class GetSkillResponseBodySkill extends $dara.Model {
    * **The content of the SKILL.md file.**
    * 
    * @example
-   * 把大象装冰箱需要3步，把冰箱门打开，把大象放进去，把冰箱门关上。
+   * Putting an elephant in a refrigerator takes three steps: open the refrigerator door, put the elephant inside, and close the door.
    */
   body?: string;
   /**
@@ -72,7 +72,7 @@ export class GetSkillResponseBodySkill extends $dara.Model {
    * **The Skill description.**
    * 
    * @example
-   * 数据分析技能
+   * Data analysis skill
    */
   description?: string;
   /**

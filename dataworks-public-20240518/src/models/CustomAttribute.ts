@@ -32,7 +32,7 @@ export class CustomAttribute extends $dara.Model {
    * Display name for the custom attribute. It must be fewer than 128 characters.
    * 
    * @example
-   * 业务负责人
+   * Business owner
    */
   displayName?: string;
   /**

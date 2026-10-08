@@ -35,7 +35,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskDataSou
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The number of compute units (CUs) configured for task running.
    * 
    * @example
    * 0.25
@@ -101,13 +101,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
    * 
    * @example
    * Normal
@@ -212,11 +206,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
    * 
    * @example
    * Prod
@@ -232,11 +222,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   id?: number;
   /**
    * @remarks
-   * The instance generation mode. Valid values:
-   * 
-   * - T+1
-   * 
-   * - Immediately
+   * The instance generation mode. Valid values: T+1 (generate the next day) and Immediately (generate immediately).
    * 
    * @example
    * T+1
@@ -503,7 +489,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksDataSource extends $d
 export class ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The number of compute units (CUs) configured for task running.
    * 
    * @example
    * 0.25
@@ -684,11 +670,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
    * 
    * @example
    * Prod
@@ -704,11 +686,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * The instance generation mode. Valid values:
-   * 
-   * - T+1
-   * 
-   * - Immediately
+   * The instance generation mode. Valid values: T+1 (generate the next day) and Immediately (generate immediately).
    * 
    * @example
    * T+1

@@ -281,15 +281,14 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules extends $dara
    * @remarks
    * The metric type in the alert rule. Valid values:
    * 
-   * - Heartbeat
    * 
-   * - FailoverCount
    * 
-   * - Delay
    * 
-   * - DdlReport
-   * 
-   * - ResourceUtilization
+   * - Heartbeat: task status alert
+   * - FailoverCount: failover count alert
+   * - Delay: task latency alert
+   * - DdlReport: DDL notification
+   * - ResourceUtilization: resource group utilization
    * 
    * @example
    * Heartbeat
@@ -380,7 +379,7 @@ export class ListDIAlarmRulesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 90

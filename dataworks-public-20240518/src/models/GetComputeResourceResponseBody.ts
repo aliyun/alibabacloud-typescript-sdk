@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetComputeResourceResponseBodyComputeResource extends $dara.Model {
   /**
    * @remarks
-   * The specific connection configuration details for the computing resource, including the connection address, access identity, and environment information. envType, which specifies the computing resource environment, is a property of this object. Valid values:
-   * 
-   * - Dev
-   * 
-   * - Prod Different types of computing resources have different attribute specifications under various configuration modes (ConnectionPropertiesMode).
+   * The specific connection configuration details for the computing resource, including the connection address, access identity, and environment information. envType, which specifies the computing resource environment, is a property of this object. Valid values: Dev: development environment; Prod: production environment. Different types of computing resources have different attribute specifications under various configuration modes (ConnectionPropertiesMode).
    * 
    * @example
    * {

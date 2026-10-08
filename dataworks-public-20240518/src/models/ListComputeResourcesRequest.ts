@@ -7,9 +7,11 @@ export class ListComputeResourcesRequest extends $dara.Model {
    * @remarks
    * The environment type of the computing resource. Valid values:
    * 
-   * - Dev
    * 
-   * - Prod
+   * 
+   * 
+   * - Dev: development environment.
+   * - Prod: production environment.
    * 
    * @example
    * Dev

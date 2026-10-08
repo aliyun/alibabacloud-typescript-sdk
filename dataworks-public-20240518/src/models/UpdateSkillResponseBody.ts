@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSkillResponseBodySkillVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of visible project IDs.
+   * The IDs of the projects in which the Skill is visible.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of visible user IDs.
+   * The IDs of the users to whom the Skill is visible.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

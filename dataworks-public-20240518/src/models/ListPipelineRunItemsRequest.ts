@@ -13,7 +13,7 @@ export class ListPipelineRunItemsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The requested page number, used for pagination.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10

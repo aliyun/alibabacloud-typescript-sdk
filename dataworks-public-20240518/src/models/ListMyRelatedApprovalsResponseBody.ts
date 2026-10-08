@@ -313,7 +313,7 @@ export class ListMyRelatedApprovalsResponseBodyDataData extends $dara.Model {
    * Application reason
    * 
    * @example
-   * 业务需要
+   * Business requirement
    */
   reason?: string;
   /**

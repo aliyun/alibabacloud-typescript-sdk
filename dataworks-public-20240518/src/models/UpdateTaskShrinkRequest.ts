@@ -57,8 +57,12 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The instance generation mode. Valid values:
+   * 
+   * 
+   * 
+   * 
    * - T+1: The instance is generated the next day.
-   * - Immediately: The instance is generated immediately. Note: Only periodic instances whose scheduled time is at least ten minutes after the node publish time are generated normally. During the full instance generation period (22:00 to 24:00), real-time instance generation is not available. You can submit and publish nodes, but new nodes do not automatically generate instances.
+   * - Immediately: The instance is generated immediately. Note: Only periodic instances whose scheduled time is at least ten minutes after the node deployment time are generated normally. During the full instance generation period (22:00 to 24:00), real-time instance generation is not available. You can submit and deploy nodes, but new nodes do not automatically generate instances.
    * 
    * @example
    * T+1

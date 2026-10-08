@@ -25,7 +25,7 @@ export class CreateProcessDefinitionShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 这是一个示例策略
+   * This is a sample policy
    */
   description?: string;
   /**
@@ -40,7 +40,7 @@ export class CreateProcessDefinitionShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 我的审批策略
+   * My Approval Policy
    */
   name?: string;
   /**

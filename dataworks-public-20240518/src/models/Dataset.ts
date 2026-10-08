@@ -7,10 +7,10 @@ import { DatasetVersion } from "./DatasetVersion";
 export class Dataset extends $dara.Model {
   /**
    * @remarks
-   * The description of the dataset. The length cannot exceed 1024 characters.
+   * The description of the dataset. The length must be less than 1024 characters.
    * 
    * @example
-   * 测试数据集
+   * Test dataset
    */
   comment?: string;
   /**
@@ -33,13 +33,16 @@ export class Dataset extends $dara.Model {
    * @remarks
    * The data type. Valid values:
    * 
-   * *   COMMON
-   * *   PIC
-   * *   TEXT
-   * *   TABLE
-   * *   VIDEO
-   * *   AUDIO
-   * *   INDEX
+   * 
+   * 
+   * 
+   * - COMMON: general
+   * - PIC: image
+   * - TEXT: text
+   * - TABLE: table
+   * - VIDEO: video
+   * - AUDIO: audio
+   * - INDEX: index
    * 
    * @example
    * COMMON
@@ -73,7 +76,7 @@ export class Dataset extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The dataset name. It must be a non-empty string and cannot exceed 128 characters.
+   * The dataset name. It must be a non-empty string and must be less than 128 characters.
    * 
    * @example
    * test_dataset

@@ -35,7 +35,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasksDataSource extends $dar
 export class ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The number of compute units (CUs) configured for task running.
    * 
    * @example
    * 0.25
@@ -216,11 +216,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
    * 
    * @example
    * Prod
@@ -236,11 +232,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The instance generation mode. Valid values:
-   * 
-   * - T+1
-   * 
-   * - Immediately
+   * The instance generation mode. Valid values: T+1 (generate the next day) and Immediately (generate immediately).
    * 
    * @example
    * T+1
@@ -497,7 +489,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskDataSource 
 export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The number of compute units (CUs) configured for task running.
    * 
    * @example
    * 0.25
@@ -563,13 +555,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskTrigger ext
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
    * 
    * @example
    * Normal
@@ -674,11 +660,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTask extends $d
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
    * 
    * @example
    * Prod

@@ -13,7 +13,7 @@ export class UpdateDataQualityTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the rule template is updated.
+   * Indicates whether the rule template is updated successfully.
    * 
    * @example
    * true

@@ -7,28 +7,20 @@ export class UpdateProcessDefinitionRequestApprovalNodes extends $dara.Model {
    * @remarks
    * The approver type for the node. Valid values:
    * 
+   * 
+   * 
+   * 
    * - `DataWorksProjectRole`: A workspace role.
-   * 
    * - `DataWorksProjectMember`: A workspace member.
-   * 
-   * - `TableAdministrator`: A table administrator.
-   * 
-   * - `TableOrProjectAdministrator`: The administrator of the table or project.
-   * 
+   * - `TableAdministrator`: A table owner.
+   * - `TableOrProjectAdministrator`: The administrator of the table or workspace.
    * - `AliyunResourceOwner`: An Alibaba Cloud account.
-   * 
    * - `MaxComputeRole`: A MaxCompute administrator.
-   * 
    * - `DLFAdmin`: A DlfLegacy administrator.
-   * 
    * - `DLFNextAdmin`: A DLFNext administrator.
-   * 
    * - `TenantRole`: A tenant role.
-   * 
    * - `EmrAdministrator`: An EMR administrator.
-   * 
    * - `LindormAdministrator`: A Lindorm administrator.
-   * 
    * - `AliyunRamUser`: A RAM user.
    * 
    * @example
@@ -241,7 +233,7 @@ export class UpdateProcessDefinitionRequest extends $dara.Model {
    * The description of the process definition.
    * 
    * @example
-   * lwt_ide_simple 项目 MaxCompute 表审批策略
+   * MaxCompute table approval policy for the lwt_ide_simple project
    */
   description?: string;
   /**
@@ -259,7 +251,7 @@ export class UpdateProcessDefinitionRequest extends $dara.Model {
    * The name of the process definition.
    * 
    * @example
-   * MaxCompute 表审批
+   * MaxCompute table approval
    */
   name?: string;
   /**

@@ -45,7 +45,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The status of the network resource. Valid values: Pending, Creating, Running, Deleting, and Deleted.
+   * The status of the network resource. Valid values: Pending: waiting; Creating: being created; Running: running normally; Deleting: being deleted; Deleted: deleted.
    * 
    * @example
    * Running
@@ -126,7 +126,7 @@ export class ListNetworksResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 100

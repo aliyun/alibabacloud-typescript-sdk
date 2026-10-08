@@ -110,10 +110,14 @@ export class GetFileVersionResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The functional module to which the file belongs. Valid values:
-   * - 0: NORMAL (DataStudio)
+   * 
+   * 
+   * 
+   * 
+   * - 0: NORMAL (Data Studio)
    * - 1: MANUAL (manual node)
    * - 2: MANUAL_BIZ (manual workflow)
-   * - 3: SKIP (dry-run scheduling in DataStudio)
+   * - 3: SKIP (dry-run scheduling in Data Studio)
    * - 10: ADHOCQUERY (ad hoc query)
    * - 30: COMPONENT (component management)
    * 

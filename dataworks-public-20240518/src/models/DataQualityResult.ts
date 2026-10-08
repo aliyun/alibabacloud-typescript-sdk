@@ -246,7 +246,7 @@ export class DataQualityResultRuleCheckingConfigThresholds extends $dara.Model {
 export class DataQualityResultRuleCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to indicate the query method of referenced samples.
+   * Some types of thresholds require querying reference samples and aggregating their values to calculate the comparison threshold. An expression specifies how to query these reference samples.
    * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
@@ -303,7 +303,7 @@ export class DataQualityResultRuleCheckingConfig extends $dara.Model {
 export class DataQualityResultRuleErrorHandlers extends $dara.Model {
   /**
    * @remarks
-   * The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * For a custom SQL rule, you must specify an SQL statement to filter problematic data.
    * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
@@ -523,10 +523,10 @@ export class DataQualityResultRule extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * The name of the rule. The name can be up to 255 characters in length and can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks.
    * 
    * @example
-   * 表不能为空
+   * The table must not be empty
    */
   name?: string;
   /**
@@ -560,7 +560,7 @@ export class DataQualityResultRule extends $dara.Model {
    * The template used by the rule.
    * 
    * @example
-   * system::user_defined
+   * SYSTEM:user_defined_sql
    */
   templateCode?: string;
   /**

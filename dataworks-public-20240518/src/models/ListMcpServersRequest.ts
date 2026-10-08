@@ -29,7 +29,7 @@ export class ListMcpServersRequest extends $dara.Model {
   q?: string;
   /**
    * @remarks
-   * The visibility level for filtering the results.
+   * The visibility levels for filtering the results. You can specify multiple levels.
    * 
    * @example
    * -

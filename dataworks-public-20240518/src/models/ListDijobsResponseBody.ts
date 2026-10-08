@@ -15,7 +15,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB_For_MySQL`, `Kafka`, and `Hive`.
+   * The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `Loghub`, `STARROCKS`, `DataHub`, `ANALYTICDB_FOR_MYSQL`, `Kafka`, and `Hive`.
    * 
    * @example
    * Hologres
@@ -86,7 +86,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SQLServer`, `Doris`, and `ClickHouse`.
+   * The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `Loghub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SqlServer`, `Doris`, and `ClickHouse`.
    * 
    * @example
    * Mysql

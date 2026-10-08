@@ -54,7 +54,7 @@ export class ListAlertRulesShrinkRequest extends $dara.Model {
   taskIdsShrink?: string;
   /**
    * @remarks
-   * The alert triggering condition.
+   * The list of alert types.
    */
   typesShrink?: string;
   static names(): { [key: string]: string } {

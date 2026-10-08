@@ -7,13 +7,13 @@ export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels ex
    * @remarks
    * The alert notification method. Valid values:
    * 
-   * - Mail
    * 
-   * - Phone
    * 
-   * - Sms
    * 
-   * - Ding
+   * - Mail: email
+   * - Phone: phone call
+   * - Sms: SMS
+   * - Ding: DingTalk
    */
   channels?: string[];
   /**
@@ -170,7 +170,7 @@ export class UpdateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
   ddlReportTags?: string[];
   /**
    * @remarks
-   * The types of DDL operations for which the alert rule takes effect.
+   * The types of DDL operations for which the alert rule takes effect. This setting takes effect only for DDL notifications.
    */
   ddlTypes?: string[];
   /**
@@ -266,7 +266,7 @@ export class UpdateDIAlarmRuleRequest extends $dara.Model {
    * The description of the alert rule.
    * 
    * @example
-   * Alert rule description.
+   * The description of the alert rule.
    */
   description?: string;
   /**
@@ -289,15 +289,14 @@ export class UpdateDIAlarmRuleRequest extends $dara.Model {
    * @remarks
    * The metric type in the alert rule. Valid values:
    * 
-   * - Heartbeat
    * 
-   * - FailoverCount
    * 
-   * - Delay
    * 
-   * - DdlReport
-   * 
-   * - ResourceUtilization
+   * - Heartbeat: task status alert
+   * - FailoverCount: failover count alert
+   * - Delay: task latency alert
+   * - DdlReport: DDL notification
+   * - ResourceUtilization: resource group utilization
    * 
    * @example
    * Heartbeat
