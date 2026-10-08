@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBInstanceMajorVersionPrecheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -16,14 +16,25 @@ export class UpgradeDBInstanceMajorVersionPrecheckRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new major engine version of the instance. The new major engine version must be later than the original major engine version.
+   * The major engine version of the target instance. The version must be later than the current major engine version of the instance.
    * 
    * This parameter is required.
    * 
    * @example
-   * 12.0
+   * 17.0
    */
   targetMajorVersion?: string;
+  /**
+   * @remarks
+   * The upgrade mode. Valid values:
+   * 
+   * - **zeroDownTimeUpgrade**: zero-downtime upgrade.
+   * - **inPlaceUpgrade**: in-place upgrade.
+   * - **greenBlueDeployment**: blue-green deployment.
+   * 
+   * @example
+   * zeroDownTimeUpgrade
+   */
   upgradeMode?: string;
   static names(): { [key: string]: string } {
     return {

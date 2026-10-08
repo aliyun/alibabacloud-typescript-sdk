@@ -8,27 +8,26 @@ export class DescribeDBInstanceNetInfoRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOC*****
+   * ETnLKlblzczshOTUbOC****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5*****
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
    * The type of the endpoint. Valid values:
+   * * **Normal**: regular endpoint.
+   * * **ReadWriteSplitting**: read/write splitting endpoint.
    * 
-   * *   **Normal**: regular endpoint
-   * *   **ReadWriteSplitting**: read/write splitting endpoint
-   * 
-   * > By default, the system returns both types of endpoints.
+   * > By default, endpoints of all types are returned.
    * 
    * @example
    * Normal
@@ -39,15 +38,15 @@ export class DescribeDBInstanceNetInfoRequest extends $dara.Model {
    * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
-   * None
+   * test
    */
   flag?: number;
   /**
    * @remarks
-   * The name of the dedicated cluster to which the instance belongs. This parameter takes effect only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster.
+   * The name of the group to which the general-purpose ApsaraDB RDS for MySQL instance in a dedicated cluster belongs.
    * 
    * @example
-   * rgc-2ze*****
+   * rgc-2ze****
    */
   generalGroupName?: string;
   ownerAccount?: string;

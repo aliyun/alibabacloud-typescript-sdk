@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceNetworkExpireTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The retention days of the classic network endpoint. Valid values: **1 to 120**. Unit: days.
+   * The number of days for the classic network endpoint reservation. Valid values: **1 to 120**. Unit: days.
    * 
    * This parameter is required.
    * 
@@ -15,25 +15,24 @@ export class ModifyDBInstanceNetworkExpireTimeRequest extends $dara.Model {
   classicExpiredDays?: number;
   /**
    * @remarks
-   * The classic network endpoint whose expiration time you want to extend. Two types of classic network endpoints are supported:
-   * 
-   * *   The internal endpoint of the classic network.
-   * *   The read/write splitting endpoint of the classic network.
+   * The classic network connectivity endpoint to be extended. Two types of classic network endpoints are supported:
+   * * Classic network internal network endpoint
+   * * Classic network read/write splitting endpoint
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxx.mysql.rds.aliyuncs.com
+   * rm-uf6wjk5****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceSecurityGroupRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,12 +13,12 @@ export class DescribeDBInstanceSecurityGroupRuleResponseBody extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * The details of the security group rule.
+   * The details of the security group rules.
    */
   data?: string;
   /**
    * @remarks
-   * The information about the status code.
+   * The response message.
    * 
    * @example
    * successful

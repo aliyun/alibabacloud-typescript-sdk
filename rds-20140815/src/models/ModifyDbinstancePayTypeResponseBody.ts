@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstancePayTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
-   * 100789370230206
+   * 10078937023****
    */
   orderId?: number;
   static names(): { [key: string]: string } {

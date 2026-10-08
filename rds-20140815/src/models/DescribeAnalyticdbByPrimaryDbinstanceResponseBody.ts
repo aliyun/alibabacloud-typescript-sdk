@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAnalyticdbByPrimaryDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of associated analytic instances.
+   * The number of associated analytical instances.
    * 
    * @example
    * 0

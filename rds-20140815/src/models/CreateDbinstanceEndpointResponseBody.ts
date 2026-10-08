@@ -21,7 +21,7 @@ export class CreateDBInstanceEndpointResponseBodyData extends $dara.Model {
   DBInstanceEndpointId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-****
@@ -55,12 +55,12 @@ export class CreateDBInstanceEndpointResponseBodyData extends $dara.Model {
 export class CreateDBInstanceEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: CreateDBInstanceEndpointResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C8E88DED-533F-4B3C-9207-731FBF394CCA

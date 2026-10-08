@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActivateMigrationTargetInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The ID of the target instance. You can invoke the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ActivateMigrationTargetInstanceRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully perform a switchover. Set the value to 1. The value 1 specifies a forceful switchover.
+   * Set this parameter to 1, which specifies a forced switchover.
    * 
    * @example
    * 1
@@ -32,9 +32,9 @@ export class ActivateMigrationTargetInstanceRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The time when you want to perform the switchover.
+   * The switchover time mode for cloud migration.
    * 
-   * Set the value to 0. The value 0 specifies an immediate switchover.
+   * Set this parameter to 0, which specifies an immediate switchover.
    * 
    * @example
    * 0

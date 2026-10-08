@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHADiagnoseConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to obtain the region ID.
    * 
    * This parameter is required.
    * 

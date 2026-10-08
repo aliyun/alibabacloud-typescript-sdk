@@ -5,18 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ApsaraDB RDS instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The result of the IP address whitelist configuration. Valid values:
-   * 
-   * *   **Success**
-   * *   **Fail**
+   * The result of configuring the whitelist. Valid values:
+   * * **Success**: The configuration is successful.
+   * * **Fail**: The configuration failed.
    * 
    * @example
    * Success
@@ -32,7 +31,7 @@ export class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The task ID of the configuration task.
    * 
    * @example
    * 178968983

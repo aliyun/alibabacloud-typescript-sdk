@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically create database proxies. Valid values:
+   * Specifies whether to automatically create a database proxy. Valid values:
    * 
-   * *   **true**: automatically creates database proxies. By default, general-purpose database proxies are created.
-   * *   **false**: does not automatically create database proxies.
+   * - **true**: enables automatic creation. By default, a general-purpose database proxy is created.
+   * 
+   * - **false**: does not enable automatic creation of a database proxy.
    * 
    * @example
    * false
@@ -16,12 +17,16 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   autoCreateProxy?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically complete the payment. Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
-   * 1.  **true**: automatically completes the payment. Make sure that your account balance is sufficient.
-   * 2.  **false**: does not automatically complete the payment. An unpaid order is generated.
+   * - **true**: enables automatic payment. Make sure that your account balance is sufficient.
+   * - **false**: generates an order without charging your account.
    * 
-   * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * 
+   * 
+   * 
+   * > The default value is true. If your payment method has an insufficient balance, set AutoPay to false. In this case, an unpaid order is generated. You can log on to the ApsaraDB RDS console to complete the payment.
+   * >
    * 
    * @example
    * false
@@ -29,13 +34,12 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the auto-renewal feature for the read-only instance. If you set the PayType parameter to Prepaid, you must also specify this parameter. Valid values:
+   * Specifies whether to enable auto-renewal. This parameter is required only for subscription instances. Valid values:
+   * * **true**: enables auto-renewal.
+   * * **false**: disables auto-renewal.
    * 
-   * *   **true**: enables the feature.
-   * *   **false**: disables the feature.
-   * 
-   * > * If you set the Period parameter to Month, the auto-renewal cycle is one month.
-   * > * If you set the Period parameter to Year, the auto-renewal cycle is one year.
+   * > * If you purchase the instance on a monthly basis, the auto-renewal cycle is one month.
+   * > * If you purchase the instance on a yearly basis, the auto-renewal cycle is one year.
    * 
    * @example
    * true
@@ -43,26 +47,20 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * Specifies whether to use a coupon. Valid values:
-   * 
-   * *   **true**: uses a coupon.
-   * *   **false** (default): does not use a coupon.
+   * Specifies whether to use coupons. Valid values:
+   * * **true**: uses coupons.
+   * * **false** (default): does not use coupons.
    * 
    * @example
    * true
    */
   autoUseCoupon?: boolean;
-  /**
-   * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
-   * 
-   * @example
-   * false
-   */
   bpeEnabled?: string;
   /**
    * @remarks
-   * An invalid parameter. You do not need to specify this parameter.
+   * Specifies whether to enable the I/O performance burst feature for [Premium ESSDs](https://help.aliyun.com/document_detail/2340501.html). Valid values:
+   * * **true**: enables the feature.
+   * * **false**: disables the feature.
    * 
    * @example
    * false
@@ -70,13 +68,15 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * The RDS edition of the instance. Valid values:
+   * The instance edition. Valid values:
    * 
-   * *   **Basic**: RDS Basic Edition
-   * *   **HighAvailability** (default): RDS High-availability Edition
-   * *   **AlwaysOn**: RDS Cluster Edition
+   * * **Basic**: Basic Edition
+   * * **HighAvailability**: High-availability Edition (default)
+   * * **AlwaysOn**: Cluster Edition
    * 
-   * >  The read-only instances of the primary instance that run PostgreSQL and use cloud disks run RDS Basic Edition. Therefore, set this parameter to **Basic**.
+   * <props="china">* **Finance**: Finance Edition
+   * 
+   * > The read-only instances of ApsaraDB RDS for PostgreSQL cloud disk instances use the Basic Edition. You must set this parameter to **Basic**.
    * 
    * @example
    * HighAvailability
@@ -90,30 +90,36 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOC****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * A reserved parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * None
+   */
   customExtraInfo?: string;
   /**
    * @remarks
-   * The instance type of the read-only instance. For more information, see [Read-only instance types](https://help.aliyun.com/document_detail/145759.html). We recommend that you specify an instance type whose specifications are higher than or equal to the specifications of the instance type of the primary instance. If the specifications of the read-only instance are lower than the specifications of the primary instance, the read-only instance may encounter issues such as high latency and heavy load.
+   * The instance type. For more information, see [Read-only instance types](https://help.aliyun.com/document_detail/145759.html). We recommend that the specifications of the read-only instance be equal to or higher than those of the primary instance. Otherwise, the read-only instance may experience high latency and heavy loads.
    * 
    * This parameter is required.
    * 
    * @example
-   * rds.mys2.small
+   * mysqlro.n2.small.1c
    */
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The description of the read-only instance. The description must be 2 to 256 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The value must start with a letter
-   * 
-   * > The value cannot start with [http:// or https://.](http://https://。)
+   * The instance description. The description must be 2 to 256 characters in length and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter or a Chinese character.
+   * > The description cannot start with http:// or https://.
    * 
    * @example
-   * Test read-only instance
+   * testReadOnly
    */
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The primary instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The primary instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -123,7 +129,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The storage capacity of the read-only instance. The storage capacity of the read-only instance must be greater than or equal to that of the primary instance. For more information, see the **Storage capacity** column in [Read-only instance types](https://help.aliyun.com/document_detail/145759.html). This value must be a multiple of 5. Unit: GB.
+   * Instance storage capacity. Instance storage capacity of the read-only instance must be greater than or equal to that of the primary instance. For more information, see the **Storage capacity** column in [Read-only instance types](https://help.aliyun.com/document_detail/145759.html). The value is incremented in units of 5 GB. Unit: GB.
    * 
    * This parameter is required.
    * 
@@ -134,15 +140,16 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The storage type of the instance. Valid values:
+   * * **local_ssd**: Premium Local SSDs
+   * * **cloud_ssd**: standard SSDs
+   * * **cloud_essd**: PL1 ESSDs
+   * * **cloud_essd2**: PL2 ESSDs
+   * * **cloud_essd3**: PL3 ESSDs
+   * * **general_essd**: Premium ESSDs
    * 
-   * *   **local_ssd**: local SSDs
-   * *   **cloud_ssd**: standard SSDs
-   * *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
-   * *   **cloud_essd2**: ESSDs of PL2
-   * *   **cloud_essd3**: ESSDs of PL3
    * 
-   * > *   If the primary instance runs MySQL with local disks, you must set this parameter to **local_ssd**. If the primary instance runs MySQL with cloud disks, you must set this parameter to cloud_ssd, cloud_essd, cloud_essd2, or cloud_essd3.
-   * > *   If the primary instance runs SQL Server, you must set this parameter to cloud_ssd, cloud_essd, cloud_essd2, or cloud_essd3.
+   * > * If the primary ApsaraDB RDS for MySQL instance uses Premium Local SSDs, only **local_ssd** is supported. If the primary ApsaraDB RDS for MySQL instance uses cloud disks, premium performance disk storage types are supported.
+   * > * ApsaraDB RDS for SQL Server supports premium performance disk storage types.
    * 
    * @example
    * local_ssd
@@ -150,7 +157,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   DBInstanceStorageType?: string;
   /**
    * @remarks
-   * The ID of the dedicated cluster to which the read-only instance belongs. This parameter is valid when you create the read-only instance in a dedicated cluster.
+   * The dedicated cluster ID. This parameter is required when you create a read-only instance in a dedicated cluster.
    * 
    * @example
    * dhg-4n****
@@ -158,12 +165,11 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the release protection feature for the read-only instance. Valid values:
+   * Specifies whether to enable the release protection feature for the instance. Valid values:
+   * * **true**: enables release protection.
+   * * **false**: disables release protection. (default)
    * 
-   * *   **true**
-   * *   **false** (default)
-   * 
-   * >  You can enable the release protection feature for the read-only instance only when you set the **PayType** parameter to **Postpaid**.
+   * > This feature is supported only when the **billing method** is **pay-as-you-go**.
    * 
    * @example
    * true
@@ -171,11 +177,11 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The version of the database engine. The read-only instance and the primary instance must run the same major engine version.
+   * The database engine version. The version must be the same as that of the primary instance.
    * 
-   * *   If the read-only instance runs MySQL, set this parameter to **5.6**, **5.7**, or **8.0**.
-   * *   If the read-only instance runs MySQL, set this parameter to **2017_ent, 2019_ent, or 2022_ent**.
-   * *   If the read-only instance runs PostgreSQL, set this parameter to **10.0, 11.0, 12.0, 13.0, 14.0, or 15.0**.
+   * * Valid values for MySQL: **5.6**, **5.7**, and **8.0**.
+   * * Valid values for SQL Server: **2017_ent, 2019_ent, and 2022_ent**.
+   * * Valid values for PostgreSQL: **10.0, 11.0, 12.0, 13.0, 14.0, and 15.0**.
    * 
    * This parameter is required.
    * 
@@ -185,22 +191,21 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
-   * None
+   * test
    */
   gdnInstanceName?: string;
   /**
    * @remarks
    * The network type of the read-only instance. Valid values:
    * 
-   * *   **VPC**
-   * *   **Classic**
+   * * **VPC**: virtual private cloud (VPC)
+   * * **Classic**: classic network
    * 
-   * Default value: VPC. If you set this parameter to VPC, you must also specify the **VPCId** and **VSwitchId** parameters.
-   * 
-   * >  The network type of the read-only instance can be different from the network type of the primary instance.
+   * By default, a VPC-connected instance is created. You must also specify **VPCId** and **VSwitchId**.
+   * > The network type of the read-only instance can be different from that of the primary instance.
    * 
    * @example
    * Classic
@@ -208,29 +213,40 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
-   * None
+   * test
    */
   instructionSetArch?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * Specifies whether to enable the [Buffer Pool Extension (BPE)](https://help.aliyun.com/document_detail/2527067.html) feature for Premium ESSDs. Valid values:
+   * 
+   *  - **1**: enables the feature.
+   *  - **0**: does not enable the feature.
    * 
    * @example
-   * None
+   * 0
    */
   ioAccelerationEnabled?: string;
+  /**
+   * @remarks
+   * Specifies whether to create a DuckDB-based analytical instance. Valid values:
+   * 
+   * - **true**: creates a DuckDB-based analytical instance.
+   * - **false**: does not create a DuckDB-based analytical instance.
+   * 
+   * > Only ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL support DuckDB-based analytical instances.
+   */
   isAnalyticReadOnlyIns?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The billing method of the read-only instance. Valid values:
-   * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription
+   * The billing method. Valid values:
+   * * **Postpaid**: pay-as-you-go
+   * * **Prepaid**: subscription
    * 
    * This parameter is required.
    * 
@@ -240,10 +256,9 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The renewal cycle of the read-only instance. Valid values:
-   * 
-   * *   **Year**
-   * *   **Month**
+   * The subscription type of the instance. Valid values:
+   * * **Year**: yearly subscription
+   * * **Month**: monthly subscription
    * 
    * @example
    * Month
@@ -251,7 +266,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The port that can be initialized when you create a read-only ApsaraDB RDS for MySQL instance.
+   * The port that is initialized when you create a read-only instance for an ApsaraDB RDS for MySQL primary instance.
    * 
    * Valid values: 1000 to 65534.
    * 
@@ -261,7 +276,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The private IP address of the read-only instance. The private IP address must be within the CIDR block that is supported by the specified vSwitch. The system assigns a private IP address to the read-only instance based on the values of the **VPCId** and **VSwitchId** parameters.
+   * The internal IP address of the read-only instance. The IP address must be within the address range of the specified vSwitch. The system automatically allocates an internal IP address based on the values of **VPCId** and **VSwitchId** by default.
    * 
    * @example
    * 172.16.XX.XX
@@ -272,12 +287,12 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * The coupon code.
    * 
    * @example
-   * 717446260784
+   * 71744626****
    */
   promotionCode?: string;
   /**
    * @remarks
-   * The region ID. The read-only instance and the primary instance must reside in the same region. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. The read-only instance must reside in the same region as the primary instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -287,7 +302,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy****
@@ -297,7 +312,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the host on which the primary instance resides. This parameter is valid when you create the read-only instance in a dedicated cluster.
+   * The host ID of the primary instance in the dedicated cluster. This parameter is required when you create a read-only instance in a dedicated cluster.
    * 
    * @example
    * i-bp****
@@ -305,28 +320,27 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   targetDedicatedHostIdForMaster?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
-   * None
+   * test
    */
   tddlBizType?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
-   * None
+   * test
    */
   tddlRegionConfig?: string;
   /**
    * @remarks
-   * The subscription duration of the read-only instance. Valid values:
+   * The subscription duration. Valid values:
+   * * If **Period** is set to **Year**, the valid values of **UsedTime** are **1** to **5**.
+   * * If **Period** is set to **Month**, the valid values of **UsedTime** are **1** to **9**.
    * 
-   * *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1** to **5**.
-   * *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from **1** to **9**.
-   * 
-   * > If you set the **PayType** parameter to **Prepaid**, you must specify the UsedTime parameter.
+   * > This parameter is required when **PayType** is set to **Prepaid**.
    * 
    * @example
    * 1
@@ -334,10 +348,10 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the read-only instance. If you leave the **InstanceNetworkType** parameter empty or set it to **VPC**, you must also specify this parameter.
+   * The VPC ID of the read-only instance. This parameter is required when **InstanceNetworkType** is left empty or set to **VPC**.
    * 
-   * > * If the primary instance uses local disks, the read-only instance and the primary instance can belong to the same VPC or different VPCs.
-   * > * If the primary instance uses cloud disks, the read-only instance and the primary instance must belong to the same VPC.
+   * > * If the storage type of the primary instance is Premium Local SSDs, the read-only instance can use any VPC.
+   * > * If the storage type of the primary instance is cloud disks, the VPC of the read-only instance must be the same as that of the primary instance.
    * 
    * @example
    * vpc-uf6f7l4fg90****
@@ -345,7 +359,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the read-only instance. If you leave the **InstanceNetworkType** parameter empty or set it to **VPC**, you must specify the VSwitchId parameter.
+   * The vSwitch ID of the read-only instance. This parameter is required when **InstanceNetworkType** is left empty or set to **VPC**.
    * 
    * @example
    * vsw-uf6adz52c2p****
@@ -353,11 +367,11 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID. You can call the DescribeRegions operation to query the zone ID.
+   * The zone ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) to query the most recent zone list.
    * 
-   * *   If you use the single-zone deployment method, set this parameter to the ID of one zone. Example: `cn-hangzhou-b`.
-   * *   If you use the multi-zone deployment method, set this parameter to the IDs of multiple zones and separate the IDs with colons (:). Example: `cn-hangzhou-b:cn-hangzhou-c`.
-   * *   The number of zone IDs that you specify must be less than or equal to the number of nodes created for the read-only instance. If you create a read-only instance that runs RDS Basic Edition, only one node is provisioned. If you create a read-only instance that runs RDS High-availability Edition, one primary node and one secondary node are provisioned.
+   * - For single-zone deployment, specify one zone ID, such as `cn-hangzhou-b`.
+   * - For multi-zone deployment, specify multiple zone IDs separated by colons (:), such as `cn-hangzhou-b:cn-hangzhou-c`.
+   * - The number of specified zones must be less than or equal to the number of nodes in the read-only instance. A Basic Edition read-only instance contains only one node. A High-availability Edition read-only instance contains two nodes (one primary node and one secondary node).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceLinkedRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether an SLR is created.
+   * Indicates whether the service-linked role (SLR) has been created.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CheckServiceLinkedRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the service-linked role is required. Default value: true.
+   * Indicates whether the service-linked role is required in the current scenario. Default value: true.
    * 
    * @example
    * true

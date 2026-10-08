@@ -5,30 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseInstanceConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The public endpoint of the instance.
+   * The current public endpoint.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxx.mysql.rds.aliyuncs.com
+   * rm-uf6wjk5****.mysql.rds.aliyuncs.com
    */
   currentConnectionString?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
    * The network type of the instance. Valid values:
-   * 
-   * *   **0**: virtual private cloud (VPC)
-   * *   **1**: classic network
+   * - **0**: VPC
+   * - **1**: classic network
    * 
    * This parameter is required.
    * 

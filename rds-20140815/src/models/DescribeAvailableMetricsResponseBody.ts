@@ -5,18 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The description of the Enhanced Monitoring metric.
+   * The description of the enhanced monitoring metric.
    * 
    * @example
-   * OS CPU utilization, equal to the number of OS-consumed CPUs divided by the total number of CPUs
+   * sys cpu usage, sys cpu usage / total cpu
    */
   description?: string;
   /**
    * @remarks
-   * The category of the Enhanced Monitoring metric. Valid values:
-   * 
-   * *   **os**: OS metric
-   * *   **db**: database metric
+   * The category of the enhanced monitoring metric. Valid values:
+   * - **os**: operating system metric.
+   * - **db**: database metric.
    * 
    * @example
    * os
@@ -24,7 +23,7 @@ export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
   dimension?: string;
   /**
    * @remarks
-   * The key of the group to which the Enhanced Monitoring metric belongs.
+   * The key of the group to which the enhanced monitoring metric belongs.
    * 
    * @example
    * os.cpu_usage
@@ -32,19 +31,18 @@ export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
   groupKey?: string;
   /**
    * @remarks
-   * The name of the group to which the Enhanced Monitoring metric belongs.
+   * The name of the group to which the enhanced monitoring metric belongs.
    * 
    * @example
-   * CPU Utilization Rate
+   * CPU Usage
    */
   groupKeyType?: string;
   /**
    * @remarks
-   * The method that is used to aggregate the monitoring data of the Enhanced Monitoring metric. Valid values:
-   * 
-   * *   **avg**: The system calculates the average value of the Enhanced Monitoring metric.
-   * *   **min**: The system calculates the minimum value of the Enhanced Monitoring metric.
-   * *   **max**: The system calculates the maximum value of the Enhanced Monitoring metric.
+   * The statistical method of the enhanced monitoring metric. Valid values:
+   * - **avg**: average value.
+   * - **min**: minimum value.
+   * - **max**: maximum value.
    * 
    * @example
    * avg
@@ -52,7 +50,7 @@ export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The key of the Enhanced Monitoring metric.
+   * The key of the enhanced monitoring metric.
    * 
    * @example
    * os.cpu_usage.sys.avg
@@ -60,7 +58,7 @@ export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
   metricsKey?: string;
   /**
    * @remarks
-   * The alias of the Enhanced Monitoring metric.
+   * The alias of the enhanced monitoring metric.
    * 
    * @example
    * cpu_sys_per_core
@@ -68,7 +66,7 @@ export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
   metricsKeyAlias?: string;
   /**
    * @remarks
-   * The serial number of the Enhanced Monitoring metric.
+   * The sequence number of the enhanced monitoring metric.
    * 
    * @example
    * 1
@@ -76,7 +74,7 @@ export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
   sortRule?: number;
   /**
    * @remarks
-   * The unit of the Enhanced Monitoring metric.
+   * The unit of the enhanced monitoring metric.
    * 
    * @example
    * %
@@ -125,17 +123,17 @@ export class DescribeAvailableMetricsResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-bp1*****
+   * rm-bp1****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * Details of the Enhanced Monitoring metric.
+   * The list of enhanced monitoring metrics.
    */
   items?: DescribeAvailableMetricsResponseBodyItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5CD61041-35F7-10F7-BE94-33A48B221218
@@ -143,7 +141,7 @@ export class DescribeAvailableMetricsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of enhanced monitoring metrics that are available for the instance.
+   * The total number of enhanced monitoring metrics supported by the instance.
    * 
    * @example
    * 4

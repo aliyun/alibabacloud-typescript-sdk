@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGADInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The number of unit nodes that are created by calling this operation.
+   * The number of nodes created by this call.
    * 
    * @example
    * 2
@@ -13,10 +13,10 @@ export class CreateGADInstanceResponseBodyResult extends $dara.Model {
   createMemberCount?: string;
   /**
    * @remarks
-   * The ID of the global active database cluster.
+   * The GAD cluster ID.
    * 
    * @example
-   * gad-rm-bp1npi2j8********
+   * gad-rm-bp1npi2j8****
    */
   gadInstanceName?: string;
   /**
@@ -24,7 +24,7 @@ export class CreateGADInstanceResponseBodyResult extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 5374xxxx
+   * 5374****
    */
   taskID?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class CreateGADInstanceResponseBodyResult extends $dara.Model {
 export class CreateGADInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
@@ -63,7 +63,7 @@ export class CreateGADInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data returned.
+   * The array of returned information.
    */
   result?: CreateGADInstanceResponseBodyResult;
   static names(): { [key: string]: string } {

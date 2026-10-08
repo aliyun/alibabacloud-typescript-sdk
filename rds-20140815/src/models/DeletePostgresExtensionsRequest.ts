@@ -13,7 +13,7 @@ export class DeletePostgresExtensionsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DeletePostgresExtensionsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database on which the extension is installed. If you want to specify multiple databases, separate the databases with commas (,).
+   * The database in which the extension is installed. Separate multiple databases with commas (,).
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DeletePostgresExtensionsRequest extends $dara.Model {
   DBNames?: string;
   /**
    * @remarks
-   * The name of the extension. If you want to specify multiple extensions, separate the extension names with commas (,).
+   * The extension name. Separate multiple extensions with commas (,).
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DeletePostgresExtensionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy****

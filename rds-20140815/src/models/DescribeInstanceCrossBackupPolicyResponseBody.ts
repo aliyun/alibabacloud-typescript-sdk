@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the cross-region backup feature on the instance. Valid values:
-   * 
-   * *   **Disable**
-   * *   **Enable**
+   * The status of the cross-region backup feature. Valid values:
+   * * **Disable**: disabled.
+   * * **Enable**: enabled.
    * 
    * @example
    * Enable
@@ -16,7 +15,7 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   backupEnabled?: string;
   /**
    * @remarks
-   * The point in time at which the cross-region backup feature is enabled. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when cross-region backup was enabled. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2019-06-12T05:44:21Z
@@ -24,7 +23,7 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   backupEnabledTime?: string;
   /**
    * @remarks
-   * The ID of the destination region where the cross-region backup files of the instance are stored.
+   * The ID of the destination region for cross-region backup.
    * 
    * @example
    * cn-shanghai
@@ -32,7 +31,7 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   crossBackupRegion?: string;
   /**
    * @remarks
-   * The policy that is used to save the cross-region backup files of the instance. Default value: **1**. The value 1 indicates that all cross-region backup files are saved.
+   * The storage type for cross-region backup. Default value: **1**, which indicates that each backup is retained.
    * 
    * @example
    * 1
@@ -40,12 +39,11 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   crossBackupType?: string;
   /**
    * @remarks
-   * The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (_), and hyphens (-), and must start with a letter.
-   * 
-   * >  The value cannot start with http:// or https://.
+   * The instance name. The name is 2 to 256 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter or a Chinese character.
+   * >The name cannot start with http:// or https://.
    * 
    * @example
-   * Test database
+   * testdb
    */
   DBInstanceDescription?: string;
   /**
@@ -53,12 +51,12 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/26315.html).
+   * The instance status. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
    * 
    * @example
    * Running
@@ -66,7 +64,7 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   DBInstanceStatus?: string;
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine.
    * 
    * @example
    * mysql
@@ -83,12 +81,11 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The lock status of the instance. Valid values:
-   * 
-   * *   **Unlock**: The instance is not locked.
-   * *   **ManualLock**: The instance is manually locked.
-   * *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-   * *   **LockByRestoration**: The instance is automatically locked before a rollback.
-   * *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
+   * * **Unlock**: The instance is not locked.
+   * * **ManualLock**: The instance is manually locked.
+   * * **LockByExpiration**: The instance is automatically locked due to instance expiration.
+   * * **LockByRestoration**: The instance is automatically locked before a rollback.
+   * * **LockByDiskQuota**: The instance is automatically locked because the storage space is exhausted. The instance is inaccessible.
    * 
    * @example
    * Unlock
@@ -96,10 +93,9 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The status of the cross-region log backup feature on the instance. Valid values:
-   * 
-   * *   **Disable**
-   * *   **Enable**
+   * The status of the cross-region log backup feature. Valid values:
+   * * **Disable**: disabled.
+   * * **Enable**: enabled.
    * 
    * @example
    * Enable
@@ -107,7 +103,7 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   logBackupEnabled?: string;
   /**
    * @remarks
-   * The time when cross-region log backup was enabled on the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when cross-region log backup was enabled. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2019-06-12T05:44:21Z
@@ -131,7 +127,7 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The policy that is used to retain the cross-region backup files of the instance. Default value: **1**. The value 1 indicates that the cross-region backup files of the instance are retained based on the specified retention period.
+   * The retention method for cross-region backup. Default value: **1**, which indicates that backups are retained based on the specified retention period.
    * 
    * @example
    * 1
@@ -139,7 +135,7 @@ export class DescribeInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   retentType?: number;
   /**
    * @remarks
-   * The number of days for which the cross-region backup files of the instance are retained. Valid values: **7 to 1825**.
+   * The number of days for which cross-region backups are retained. Valid values: **7 to 1825**.
    * 
    * @example
    * 15

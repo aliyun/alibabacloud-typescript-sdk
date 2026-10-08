@@ -13,12 +13,12 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The connection mode of the instance. Valid values:
+   * The access mode of the instance. Valid values:
    * 
-   * *   **Standard**: standard mode
-   * *   **Safe**: database proxy mode
+   * - **Standard**: standard access mode
+   * - **Safe**: database proxy mode
    * 
-   * By default, this operation queries the instances that use any of the supported connection modes.
+   * By default, instances in all access modes are returned.
    * 
    * @example
    * Standard
@@ -26,7 +26,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   connectionMode?: string;
   /**
    * @remarks
-   * The ID of the current instance.
+   * The current instance ID.
    * 
    * @example
    * rm-uf6wjk5xxxxxxxxxx
@@ -34,7 +34,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   currentInstanceId?: string;
   /**
    * @remarks
-   * The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
+   * The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
    * 
    * @example
    * mysql.n1.micro.1
@@ -42,7 +42,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-uf6wjk5xxxxxxxxxx
@@ -50,7 +50,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/26315.html).
+   * The instance status. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
    * 
    * @example
    * Running
@@ -58,14 +58,14 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   DBInstanceStatus?: string;
   /**
    * @remarks
-   * The role of the instance that you want to query. Valid values:
+   * The instance type. Valid values:
    * 
-   * *   **Primary**: primary instance
-   * *   **Readonly**: read-only instance
-   * *   **Guard**: disaster recovery instance
-   * *   **Temp**: temporary instance
+   * - **Primary**: primary instance
+   * - **Readonly**: read-only instance
+   * - **Guard**: disaster recovery instance
+   * - **Temp**: temporary instance
    * 
-   * By default, this operation queries the instances of all roles.
+   * By default, instances of all types are returned.
    * 
    * @example
    * Primary
@@ -73,15 +73,13 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   DBInstanceType?: string;
   /**
    * @remarks
-   * The database engine of the instance. Valid values:
+   * The database engine. Valid values:
+   * - MySQL
+   * - SQLServer
+   * - PostgreSQL
+   * - MariaDB
    * 
-   * *   MySQL
-   * *   SQLServer
-   * *   PostgreSQL
-   * *   PPAS
-   * *   MariaDB
-   * 
-   * By default, this operation queries the instances that run any of the supported database engine types.
+   * > If you do not specify this parameter, instances of all database engines are returned.
    * 
    * @example
    * MySQL
@@ -89,7 +87,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * @example
    * 5.7
@@ -97,10 +95,10 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * Specifies whether the instance expires. Valid values:
+   * Specifies whether the instance has expired. Valid values:
    * 
-   * *   **True**: queries the instances that have expired.
-   * *   **False**: does not query instances that have expired.
+   * - **True**: The instance has expired.
+   * - **False**: The instance has not expired.
    * 
    * @example
    * True
@@ -110,8 +108,8 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * *   **Classic**
-   * *   **VPC**
+   * - **Classic**: classic network
+   * - **VPC**: virtual private cloud (VPC)
    * 
    * @example
    * Classic
@@ -120,9 +118,8 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the database node. Valid values:
-   * 
-   * *   **Master**: the primary node
-   * *   **Slave**: the secondary node
+   * - **Master**: primary node
+   * - **Slave**: secondary node
    * 
    * @example
    * Master
@@ -132,7 +129,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -140,7 +137,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1 to 100**.
+   * The number of entries per page. Valid values: **1 to 100**.
    * 
    * Default value: **30**.
    * 
@@ -152,10 +149,10 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
-   * By default, this operation queries the instances that use any of the supported billing methods.
+   * By default, instances of all billing methods are returned.
    * 
    * @example
    * Postpaid
@@ -163,7 +160,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -173,7 +170,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy*****
@@ -183,7 +180,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The keyword that is used for the search. The keyword can be part of an instance ID or an instance description.
+   * The search keyword. You can perform a fuzzy search by instance ID or instance description.
    * 
    * @example
    * rm-uf6w
@@ -191,7 +188,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-j6csw46bgrgkxxxxxxxxxx
@@ -199,7 +196,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-j6cjvqms29yxxxxxxxxxx
@@ -207,7 +204,7 @@ export class DescribeDBInstancesForCloneRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-h

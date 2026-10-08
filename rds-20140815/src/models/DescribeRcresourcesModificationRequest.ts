@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRCResourcesModificationRequest extends $dara.Model {
   conditionss?: string[];
-  /**
-   * @example
-   * 2
-   */
   cores?: number;
   /**
    * @remarks
@@ -20,20 +16,9 @@ export class DescribeRCResourcesModificationRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * rc-pd5c*******89u25ai
    */
   instanceId?: string;
-  /**
-   * @example
-   * mysql.x4.4xlarge.7cm
-   */
   instanceType?: string;
-  /**
-   * @example
-   * 8.0
-   */
   memory?: number;
   /**
    * @example
@@ -43,15 +28,8 @@ export class DescribeRCResourcesModificationRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @example
-   * cn-hangzhou-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

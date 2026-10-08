@@ -5,20 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDdrInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The endpoint that is used to connect to the destination instance.
-   * 
-   * >  The **DBInstanceNetType** parameter indicates whether the endpoint is internal or public.
+   * The endpoint of the new instance.
+   * > The **DBInstanceNetType** parameter determines whether this endpoint is an internal endpoint or a public endpoint.
    * 
    * @example
-   * rm-xxxxx.mysql.rds.aliyuncs.com
+   * rm-****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
-   * The destination instance ID.
+   * The instance ID of the new instance.
    * 
    * @example
-   * rm-xxxxx
+   * rm-****
    */
   DBInstanceId?: string;
   /**
@@ -26,14 +25,13 @@ export class CreateDdrInstanceResponseBody extends $dara.Model {
    * The order ID.
    * 
    * @example
-   * 2038691xxxxx
+   * 2038691****
    */
   orderId?: string;
   /**
    * @remarks
-   * The port number that is used to connect to the destination instance.
-   * 
-   * > **DBInstanceNetType** indicates whether the port is internal or public.
+   * The port of the new instance.
+   * > The **DBInstanceNetType** parameter determines whether this port is an internal port or a public port.
    * 
    * @example
    * 3306
@@ -41,7 +39,7 @@ export class CreateDdrInstanceResponseBody extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E52666CC-330E-418A-8E5B-A19E3FB42D13

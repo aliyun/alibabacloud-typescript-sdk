@@ -10,12 +10,12 @@ export class DescribeTasksRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
    * 
    * @example
    * 2020-11-20T02:00Z
@@ -25,7 +25,7 @@ export class DescribeTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class DescribeTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: **30 to 100**. Default value: **30**.
+   * The number of entries per page. Valid values: **30 to 100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -43,7 +43,7 @@ export class DescribeTasksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
    * 
    * @example
    * 2020-11-20T01:00Z
@@ -51,7 +51,7 @@ export class DescribeTasksRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the task. This parameter is invalid.
+   * The task status. This parameter is invalid.
    * 
    * @example
    * 2
@@ -59,7 +59,7 @@ export class DescribeTasksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The operation that is used by the task.
+   * The API operation used by the task.
    * 
    * @example
    * CreateInstance

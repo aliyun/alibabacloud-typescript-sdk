@@ -8,24 +8,24 @@ export class RestartDBInstanceRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The node ID, which can be used to restart a specified node. You can call the [DescribeDBInstanceHAConfig](https://help.aliyun.com/document_detail/610434.html) operation to obtain the node ID.
+   * The unique ID of the node. This parameter is used to restart a specified node. You can call DescribeDBInstanceHAConfig to query the node ID.
    * 
-   * > : The secondary instance restart feature is supported for RDS instances that run SQL Server EE on RDS Cluster Edition. For more information, see [Restart a secondary database](https://help.aliyun.com/document_detail/2411880.html).
+   * > Currently, only ApsaraDB RDS for SQL Server instances that run Enterprise Edition with the cluster architecture support restarting secondary nodes. For more information, see [Restart a secondary node](https://help.aliyun.com/document_detail/2411880.html).
    * 
    * @example
    * 2614****

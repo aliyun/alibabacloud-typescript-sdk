@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReceiveDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the primary instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the ID of the primary instance.
+   * The ID of the primary instance. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ReceiveDBInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the disaster recovery instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the ID of the disaster recovery instance.
+   * The ID of the disaster recovery instance. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) to query the instance ID.
    * 
    * This parameter is required.
    * 

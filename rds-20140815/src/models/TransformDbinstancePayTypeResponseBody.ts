@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class TransformDBInstancePayTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The payment type.
-   * 
-   * *   Valid value if the new billing method is pay-as-you-go: POSTPAY
-   * *   Valid value if the new billing method is subscription: PREPAY
+   * The billing method. Valid values:
+   * - POSTPAY: pay-as-you-go
+   * - PREPAY: subscription
    * 
    * @example
-   * Prepaid
+   * POSTPAY
    */
   chargeType?: string;
   /**
@@ -19,14 +18,13 @@ export class TransformDBInstancePayTypeResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
    * The expiration time.
-   * 
-   * > If you call this operation to change the billing method of an instance from subscription to pay-as-you-go, this parameter is not returned.
+   * > This parameter is not returned if the billing method is changed to pay-as-you-go.
    * 
    * @example
    * 2020-04-20T10:00:00Z
@@ -37,12 +35,12 @@ export class TransformDBInstancePayTypeResponseBody extends $dara.Model {
    * The order ID.
    * 
    * @example
-   * 205157600280623
+   * 20515760028****
    */
   orderId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5E6E09DE-5B12-4BFF-A55E-1C86EDE06D9A

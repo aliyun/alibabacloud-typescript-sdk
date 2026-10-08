@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceSSLRequest extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to verify the identities of clients. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
+   * The authentication method for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+   * - **cert**
+   * - **prefer**
+   * - **verify-ca**
+   * - **verify-full** (supported for ApsaraDB RDS for PostgreSQL 12 and later)
    * 
-   * *   **cert**
-   * *   **prefer**
-   * *   **verify-ca**
-   * *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
+   * > This parameter can be configured only when ClientCAEnabled is set to **1**.
    * 
    * @example
    * cert
@@ -18,10 +19,10 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   ACL?: string;
   /**
    * @remarks
-   * The type of the server certificate. This parameter is supported only when the instance runs MySQL or PostgreSQL with cloud disks. If you set SSLEnabled to **1**, the default value of this parameter is **aliyun**. Valid values:
-   * 
-   * *   **aliyun**: a cloud certificate
-   * *   **custom**: a custom certificate
+   * The type of certificate for ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances with cloud disks. Valid values:
+   * - **aliyun** (default): Alibaba Cloud certificate.
+   * - **custom**: Custom certificate.
+   * > This parameter is required when SSLEnabled is set to **1**.
    * 
    * @example
    * aliyun
@@ -29,10 +30,9 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   CAType?: string;
   /**
    * @remarks
-   * The custom certificate. The custom certificate is in the `PFX` format.
-   * 
-   * *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the certificate file (The file name contains the extension.)>`
-   * *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the certificate file (The file name contains the extension.)>`
+   * The custom certificate content for an ApsaraDB RDS for SQL Server instance. Only the `pfx` certificate format is supported.
+   * - Public endpoint: `oss-<RegionId>.aliyuncs.com:<BucketName>:<CertificateFileName (certificate file extension)>`
+   * - Internal endpoint: `oss-<RegionId>-internal.aliyuncs.com:<BucketName>:<CertificateFileName (certificate file extension)>`
    * 
    * @example
    * oss-cn-beijing-internal.aliyuncs.com:zhttest:test.pfx
@@ -40,7 +40,9 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * The public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when ClientCAEbabled is set to **1**.
+   * The client certificate authorization authority public key for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
+   * 
+   * > This parameter is required when ClientCAEnabled is set to **1**.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----MIID*****viXk=-----END CERTIFICATE-----
@@ -48,10 +50,9 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * Specifies whether to enable the public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
-   * 
-   * *   **1**: enables the public key.
-   * *   **0**: disables the public key.
+   * Specifies whether to enable the client certification authority (CA) public key for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+   * - **1**: Enable.
+   * - **0**: Disable.
    * 
    * @example
    * 1
@@ -59,7 +60,9 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   clientCAEnabled?: number;
   /**
    * @remarks
-   * The CRL that contains revoked client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when ClientCrlEnabled is set to **1**.
+   * The client certificate revocation certificate file for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
+   * 
+   * > This parameter is required when ClientCrlEnabled is set to **1**.
    * 
    * @example
    * -----BEGIN X509 CRL-----MIIB****19mg==-----END X509 CRL-----
@@ -67,10 +70,11 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   clientCertRevocationList?: string;
   /**
    * @remarks
-   * Specifies whether to enable a certificate revocation list (CRL) that contains revoked client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
+   * Specifies whether to enable the client certificate revocation list (CRL) for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+   * - **1**: Enable.
+   * - **0**: Disable.
    * 
-   * *   **1**: enables the CRL.
-   * *   **0**: disables the CRL.
+   * > This parameter can be configured only when ClientCAEnabled is set to **1**.
    * 
    * @example
    * 1
@@ -78,30 +82,30 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   clientCrlEnabled?: number;
   /**
    * @remarks
-   * The internal or public endpoint for which the server certificate needs to be created or updated.
+   * The internal or public endpoint for which you want to create or update the server certificate.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxx.mysql.rds.aliyuncs.com
+   * rm-uf6wjk5****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the forceful SSL encryption feature. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html). Valid values:
+   * The [SSL forced encryption switch](https://help.aliyun.com/document_detail/95715.html) for ApsaraDB RDS for MySQL and ApsaraDB RDS for SQL Server instances. Valid values:
    * 
-   * *   **1**: enables the feature.
-   * *   **0**: disables the feature.
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -111,7 +115,7 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The password of the certificate.
+   * The password of the custom certificate for an ApsaraDB RDS for SQL Server instance.
    * 
    * @example
    * zht123456
@@ -119,12 +123,12 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   passWord?: string;
   /**
    * @remarks
-   * The method that is used to verify the replication permission. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
-   * 
-   * *   **cert**
-   * *   **prefer**
-   * *   **verify-ca**
-   * *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
+   * The authentication method for replication permissions on an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+   * - **cert**
+   * - **prefer**
+   * - **verify-ca**
+   * - **verify-full** (supported for ApsaraDB RDS for PostgreSQL 12 and later)
+   * > This parameter can be configured only when ClientCAEnabled is set to **1**.
    * 
    * @example
    * cert
@@ -134,10 +138,9 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable or disable the SSL encryption feature. Valid values:
-   * 
-   * *   **1**: enables the feature.
-   * *   **0**: disables the feature.
+   * Specifies whether to enable or disable SSL. Valid values:
+   * * **1**: Enable.
+   * * **0**: Disable.
    * 
    * @example
    * 1
@@ -145,7 +148,9 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   SSLEnabled?: number;
   /**
    * @remarks
-   * The content of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when CAType is set to **custom**.
+   * The custom certificate content of the server for ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances with cloud disks.
+   * 
+   * > This parameter is required when CAType is set to **custom**.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----MIID*****QqEP-----END CERTIFICATE-----
@@ -153,7 +158,9 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   serverCert?: string;
   /**
    * @remarks
-   * The private key of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when CAType is set to **custom**.
+   * The private key of the server certificate for ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances with cloud disks.
+   * 
+   * > This parameter is required when CAType is set to **custom**.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----MIIE****ihfg==-----END PRIVATE KEY-----
@@ -161,7 +168,9 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   serverKey?: string;
   /**
    * @remarks
-   * The minimum Transport Layer Security (TLS) version. Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html).
+   * The [minimum TLS version](https://help.aliyun.com/document_detail/95715.html) for an ApsaraDB RDS for SQL Server instance. Connection requests from clients with a TLS version lower than the specified version are rejected. Valid values: 1.0, 1.1, and 1.2.
+   * 
+   * For example, if you set this parameter to 1.1, the server accepts only connection requests from clients that use TLS 1.1 or TLS 1.2. Connection requests from clients that use TLS 1.0 are rejected.
    * 
    * @example
    * 1.1

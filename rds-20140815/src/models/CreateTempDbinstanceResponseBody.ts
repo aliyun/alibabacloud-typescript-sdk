@@ -8,7 +8,7 @@ export class CreateTempDBInstanceResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 248DE93F-8647-4B9D-8287-4A4A0FE56AD5
+   * 069EB9B1-DE12-54B9-8C20-822****
    */
   requestId?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateTempDBInstanceResponseBody extends $dara.Model {
    * The temporary instance ID.
    * 
    * @example
-   * sub138****_rm-******
+   * sub16****_rm-bp13****
    */
   tempDBInstanceId?: string;
   static names(): { [key: string]: string } {

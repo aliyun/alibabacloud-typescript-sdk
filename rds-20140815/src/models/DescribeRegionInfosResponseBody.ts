@@ -58,7 +58,7 @@ export class DescribeRegionInfosResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 5414A4E5-4C36-4461-95FC-************
+   * 5414A4E5-4C36-4461-95FC-****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

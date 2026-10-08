@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatabaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5A77D650-27A1-4E08-AD9E-59008EDB6927

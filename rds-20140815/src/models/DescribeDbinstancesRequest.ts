@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The RDS edition of the instance. Valid values:
-   * 
-   * *   **Basic**: RDS Basic Edition
-   * *   **HighAvailability**: RDS High-availability Edition
-   * *   **cluster**: RDS Cluster Edition
-   * *   **serverless_basic**: RDS Serverless Basic Edition
+   * The instance edition. Valid values:
+   * - **Basic**: Basic Edition
+   * - **HighAvailability**: High-availability Edition
+   * - **cluster**: Cluster Edition
+   * - **serverless_basic**: Serverless
    * 
    * @example
    * cluster
@@ -21,17 +20,16 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The connection mode of the instance. Valid values:
+   * The access mode of the instance. Valid values:
+   * * **Standard**: standard access mode
+   * * **Safe**: database proxy mode
    * 
-   * *   **Standard**: standard mode
-   * *   **Safe**: database proxy mode
-   * 
-   * By default, this operation queries the instances that use any of the supported connection modes.
+   * By default, instances in all access modes are returned.
    * 
    * @example
    * Standard
@@ -39,15 +37,15 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   connectionMode?: string;
   /**
    * @remarks
-   * The endpoint of the instance. You must specify this parameter only when you want to query a single instance.
+   * The endpoint of the instance. Use this endpoint to query the corresponding instance.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx.mysql.rds.aliyuncs.com
+   * rm-uf6wjk5****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
-   * The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
+   * The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
    * 
    * @example
    * rds.mys2.small
@@ -58,12 +56,12 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
+   * The instance status. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
    * 
    * @example
    * Running
@@ -71,14 +69,13 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceStatus?: string;
   /**
    * @remarks
-   * The role of the instance. Valid values:
+   * The instance type. Valid values:
+   * * **Primary**: primary instance
+   * * **Readonly**: read-only instance
+   * * **Guard**: disaster recovery instance
+   * * **Temp**: temporary instance
    * 
-   * *   **Primary**: primary instance
-   * *   **Readonly**: read-only instance
-   * *   **Guard**: disaster recovery instance
-   * *   **Temp**: temporary instance
-   * 
-   * By default, this operation returns the instances that assume any of the supported roles.
+   * By default, instances of all types are returned.
    * 
    * @example
    * Primary
@@ -89,27 +86,26 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The dedicated cluster ID.
    * 
    * @example
-   * dhg-7a9xxxxxxxx
+   * dhg-7a9****
    */
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * The host ID of the instance in the dedicated cluster.
+   * The host ID in the dedicated cluster.
    * 
    * @example
-   * i-bpxxxxxxx
+   * i-bp****
    */
   dedicatedHostId?: string;
   /**
    * @remarks
-   * The database engine of the instance. Valid values:
+   * The database engine. Valid values:
+   * * **MySQL**
+   * * **SQLServer**
+   * * **PostgreSQL**
+   * * **MariaDB**
    * 
-   * *   **MySQL**
-   * *   **SQLServer**
-   * *   **PostgreSQL**
-   * *   **MariaDB**
-   * 
-   * By default, this operation returns the instances that run any of the supported database engines.
+   * By default, instances of all database engines are returned.
    * 
    * @example
    * MySQL
@@ -120,15 +116,14 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The database engine version.
    * 
    * @example
-   * 5.7
+   * 8.0
    */
   engineVersion?: string;
   /**
    * @remarks
-   * Specifies whether the instances have expired. Valid values:
-   * 
-   * *   **True**
-   * *   **False**
+   * The expiration status of the instance. Valid values:
+   * * **True**: The instance has expired.
+   * * **False**: The instance has not expired.
    * 
    * @example
    * True
@@ -136,7 +131,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   expired?: string;
   /**
    * @remarks
-   * The JSON string that consists of filter condition parameters and their values.
+   * The JSON string that contains the instance filter conditions and their values.
    * 
    * @example
    * {"babelfishEnabled":"true"}
@@ -144,10 +139,9 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * Specifies whether to return the RDS edition of the instance by using the Category parameter. Valid values:
-   * 
-   * *   **0**: returns the RDS edition of the instance.
-   * *   **1**: does not return the RDS edition of the instance.
+   * Specifies whether to return the instance edition (Category) information. Valid values:
+   * * **0**: does not return the information
+   * * **1**: returns the information
    * 
    * @example
    * 0
@@ -156,11 +150,10 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The network type of the instance. Valid values:
+   * * **VPC**: an instance in a virtual private cloud (VPC)
+   * * **Classic**: an instance in the classic network
    * 
-   * *   **VPC**
-   * *   **Classic**
-   * 
-   * By default, this operation returns the instances that reside in any of the supported network types.
+   * By default, instances of all network types are returned.
    * 
    * @example
    * Classic
@@ -168,11 +161,10 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: **1 to 100**.
+   * The number of entries per page. Valid values: **1** to **100**.
    * 
    * Default value: **30**.
-   * 
-   * > If you specify this parameter, **PageSize** and **PageNumber** are unavailable.
+   * >If you specify this parameter, the **PageSize** and **PageNumber** parameters are unavailable.
    * 
    * @example
    * 30
@@ -180,17 +172,17 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to display the next page. You must set this parameter to the value that is returned from the most recent call of the **DescribeDBInstances** operation for **NextToken**. If the returned entries are displayed on multiple pages, the next page can be displayed when you call this operation again with this parameter specified.
+   * The pagination token. Set this parameter to the value of **NextToken** that is returned from the last call to the **DescribeDBInstances** operation. If the results span multiple pages, pass in this value to retrieve the next page.
    * 
    * @example
-   * o7PORW5o2TJg**********
+   * o7PORW5o2TJg****
    */
   nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from 1.
+   * The page number. Valid values: any value greater than 0 that does not exceed the maximum value of Integer.
    * 
    * Default value: **1**.
    * 
@@ -200,7 +192,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**.
+   * The number of entries per page. Valid values: **1** to **100**.
    * 
    * Default value: **30**.
    * 
@@ -210,19 +202,25 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription
+   * The billing method. Valid values:
+   * * **Postpaid**: pay-as-you-go
+   * * **Prepaid**: subscription
    * 
    * @example
    * Postpaid
    */
   payType?: string;
+  /**
+   * @remarks
+   * A reserved parameter. You do not need to configure this parameter.
+   * 
+   * @example
+   * test
+   */
   queryAutoRenewal?: boolean;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the available regions.
    * 
    * This parameter is required.
    * 
@@ -232,17 +230,17 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
-   * rg-acfmyxxxxx
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The keyword that is used for fuzzy search. The keyword can be part of an instance ID or an instance description.
+   * The keyword for fuzzy search based on the instance ID or instance description.
    * 
    * @example
    * rm-uf6w
@@ -250,7 +248,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The tag that is added to the instance. Each tag is a key-value pair that consists of two fields: TagKey and TagValue. You can specify a maximum of five tags in the following format for each request: {"key1":"value1","key2":"value2"...}.
+   * The tags that are bound to the instance, including TagKey and TagValue. You can specify up to five pairs of tags at a time. Format: {"key1":"value1","key2":"value2"...}. If the instance matches any of the specified tags, the instance information is returned.
    * 
    * @example
    * {"key1":"value1"}
@@ -261,20 +259,20 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The vSwitch ID.
    * 
    * @example
-   * vsw-uf6adz52c2pxxxxxxxxxx
+   * vsw-uf6adz52c2p****
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * VPC ID。
    * 
    * @example
-   * vpc-uf6f7l4fg90xxxxxxxxxx
+   * vpc-uf6f7l4fg90****
    */
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-a

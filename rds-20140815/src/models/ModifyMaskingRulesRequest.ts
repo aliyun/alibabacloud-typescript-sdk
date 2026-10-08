@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyMaskingRulesRequestRuleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of columns.
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * The list of databases.
+   */
   databases?: string[];
+  /**
+   * @remarks
+   * The list of tables.
+   */
   tables?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -43,6 +55,8 @@ export class ModifyMaskingRulesRequestRuleConfig extends $dara.Model {
 export class ModifyMaskingRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,21 +64,33 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * myDB
    */
   DBName?: string;
   /**
+   * @remarks
+   * The name of the default encryption or masking algorithm.
+   * 
    * @example
    * sm4-128-gcm
    */
   defaultAlgo?: string;
   /**
+   * @remarks
+   * Specifies whether the rule is enabled. Valid values: true and false.
+   * 
    * @example
    * true
    */
   enabled?: string;
   /**
+   * @remarks
+   * The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, encryption length}}.
+   * 
    * @example
    * [{"name": "sha256"},
    *         {"name":"sm4-128-gcm"}]
@@ -72,15 +98,24 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
   maskingAlgo?: string;
   ownerId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * ap-southeast-1
    */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The rule configuration in JSON string format.
+   */
   ruleConfig?: ModifyMaskingRulesRequestRuleConfig;
   /**
    * @remarks
+   * The name of the rule to modify.
+   * 
    * This parameter is required.
    * 
    * @example

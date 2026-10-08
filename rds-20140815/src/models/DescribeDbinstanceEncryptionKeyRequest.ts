@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the IDs of instances.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the custom key.
+   * The custom key ID.
    * 
    * @example
-   * 749c1df7-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   * 749c1df7-****-****-****-****
    */
   encryptionKey?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID of the instance. You can call the DescribeRegions operation to query the available regions.
    * 
    * @example
    * cn-hangzhou
@@ -34,7 +34,7 @@ export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The ID of the destination region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The destination region ID. You can call the DescribeRegions operation to query the available regions.
    * 
    * @example
    * cn-qingdao

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRCNodePoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance IDs.
+   * The list of instance IDs.
    */
   instanceIdSets?: string[];
   /**

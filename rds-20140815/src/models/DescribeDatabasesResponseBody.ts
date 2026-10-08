@@ -251,7 +251,7 @@ export class DescribeDatabasesResponseBody extends $dara.Model {
   databases?: DescribeDatabasesResponseBodyDatabases;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2603CA96-B17D-4903-BC04-61A2C829CD94

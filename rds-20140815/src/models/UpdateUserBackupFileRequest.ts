@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserBackupFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup ID. You can call the ListUserBackupFiles operation to query the backup ID.
+   * The user backup ID. You can call ListUserBackupFiles to obtain the ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * b-kwwvr7v8t7of********
+   * b-g14d0m772f7b****
    */
   backupId?: string;
   /**
    * @remarks
-   * The new description of the full backup file.
+   * The new description to set for the user backup.
    * 
    * @example
    * CommentTest
@@ -24,7 +24,7 @@ export class UpdateUserBackupFileRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -34,17 +34,17 @@ export class UpdateUserBackupFileRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new retention period of the full backup file. Unit: days. Valid values: any non-zero positive integer.
+   * The new retention period of the user backup. Unit: days. The value must be an integer greater than 0.
    * 
    * @example
    * 30

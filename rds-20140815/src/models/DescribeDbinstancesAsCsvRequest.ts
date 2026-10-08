@@ -13,10 +13,10 @@ export class DescribeDBInstancesAsCsvRequest extends $dara.Model {
   cachedAsync?: boolean;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the IDs of instances.
+   * The instance ID. You can call DescribeDBInstances to query instance IDs.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
@@ -30,7 +30,7 @@ export class DescribeDBInstancesAsCsvRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -40,10 +40,10 @@ export class DescribeDBInstancesAsCsvRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetDBInstanceTopologyResponseBodyDataConnections extends $dara.Model {
   /**
    * @remarks
-   * The endpoint that is used to connect to the database instance.
+   * The database endpoint.
    * 
    * @example
-   * rm-m5ezban**********.mysql.rds.aliyuncs.com
+   * rm-m5ezban****mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
@@ -16,15 +16,15 @@ export class GetDBInstanceTopologyResponseBodyDataConnections extends $dara.Mode
    * The instance ID.
    * 
    * @example
-   * rm-m5ezban**********
+   * rm-m5ezban****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The network type of the endpoint. Valid values:
+   * The network endpoint type of the instance. Valid values:
    * 
-   * *   **vpc**
-   * *   **public**
+   * * **vpc**: internal endpoint.
+   * * **public**: public endpoint.
    * 
    * @example
    * vpc
@@ -32,7 +32,7 @@ export class GetDBInstanceTopologyResponseBodyDataConnections extends $dara.Mode
   netType?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The zone ID.
    * 
    * @example
    * cn-qingdao-c
@@ -68,37 +68,34 @@ export class GetDBInstanceTopologyResponseBodyDataConnections extends $dara.Mode
 export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
-   * rm-m5ezban**********
+   * rm-m5ezban****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the dedicated cluster.
-   * 
-   * > : If the instance does not reside in the specified dedicated cluster, no value is returned.
+   * The dedicated cluster ID.
+   * >This parameter is empty for non-dedicated cluster instances.
    * 
    * @example
-   * dhg-4n*****
+   * dhg-4n****
    */
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * The host ID of the instance in the dedicated cluster.
-   * 
-   * > : If the instance does not reside in the specified dedicated cluster, no value is returned.
+   * The host ID in the dedicated cluster.
+   * >This parameter is empty for non-dedicated cluster instances.
    * 
    * @example
-   * i-bpxxxxxxx
+   * i-bp****
    */
   dedicatedHostId?: string;
   /**
    * @remarks
-   * The ID of the instance.
-   * 
-   * > : The value \\*\\*-1\\*\\* is returned for an instance that does not reside in a dedicated cluster.
+   * The unique identifier of the instance.
+   * >This parameter returns **-1** for non-dedicated cluster instances.
    * 
    * @example
    * 349054
@@ -106,10 +103,9 @@ export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The type of the node. The following result is returned:
-   * 
-   * *   **Master**: a primary node
-   * *   **Slave**: a secondary node
+   * The node type. Valid values:
+   * * **Master**: primary node.
+   * * **Slave**: secondary node.
    * 
    * @example
    * master
@@ -117,7 +113,7 @@ export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The zone ID.
    * 
    * @example
    * cn-qingdao-c
@@ -157,7 +153,7 @@ export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
 export class GetDBInstanceTopologyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The network connection information of the instance.
+   * The network connectivity information of the instance.
    */
   connections?: GetDBInstanceTopologyResponseBodyDataConnections[];
   /**
@@ -165,12 +161,12 @@ export class GetDBInstanceTopologyResponseBodyData extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-m5ezban**********
+   * rm-m5ezban****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The queried nodes.
+   * The node list.
    */
   nodes?: GetDBInstanceTopologyResponseBodyDataNodes[];
   static names(): { [key: string]: string } {
@@ -215,7 +211,7 @@ export class GetDBInstanceTopologyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details about the topology.
+   * The topology details.
    */
   data?: GetDBInstanceTopologyResponseBodyData;
   /**
@@ -228,7 +224,7 @@ export class GetDBInstanceTopologyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7430AB1A-6D49-5B6D-B9E5-920250076074

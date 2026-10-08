@@ -84,12 +84,12 @@ export class DescribeCrossRegionLogBackupFilesResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2019-06-15T12:10:00Z
@@ -98,7 +98,7 @@ export class DescribeCrossRegionLogBackupFilesResponseBody extends $dara.Model {
   items?: DescribeCrossRegionLogBackupFilesResponseBodyItems;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -108,7 +108,7 @@ export class DescribeCrossRegionLogBackupFilesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of cross-region backup files on the current page.
+   * The number of backup files on the current page.
    * 
    * @example
    * 30
@@ -132,7 +132,7 @@ export class DescribeCrossRegionLogBackupFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2019-05-30T12:10:00Z
@@ -140,7 +140,7 @@ export class DescribeCrossRegionLogBackupFilesResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of records.
    * 
    * @example
    * 100

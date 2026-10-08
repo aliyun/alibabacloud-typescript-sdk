@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block for outbound access control. CIDR blocks and IPv4 addresses are supported.
+   * The destination IP address range for outbound authorization. CIDR format and IPv4 IP address ranges are supported.
    * 
    * @example
    * 192.168.0.1/12
@@ -13,13 +13,13 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   destCidrIp?: string;
   /**
    * @remarks
-   * The protocol type supported by the rule. The value is not case-sensitive. Valid values:
-   * 
-   * *   **ICMP**
-   * *   **GRE**
-   * *   **TCP**
-   * *   **UDP**
-   * *   **ALL**: All protocols are supported.
+   * The protocol type. This parameter is case-insensitive. Valid values: 
+   *          
+   * - **ICMP**
+   * - **GRE**
+   * - **TCP**
+   * - **UDP**
+   * - **ALL**: all protocols.
    * 
    * @example
    * TCP
@@ -27,7 +27,7 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   ipProtocol?: string;
   /**
    * @remarks
-   * The action that you want to specify in the rule.
+   * The authorization policy.
    * 
    * @example
    * Accept
@@ -35,12 +35,11 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the transport layer protocol of the destination security group. Valid values:
-   * 
-   * *   The value is in the X/Y format when IpProtocol is set to TCP or UDP. X specifies the start port number and Y specifies the end port number. X and Y range from **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
-   * *   Valid value when IpProtocol is set to ICMP: **-1/-1**.
-   * *   Valid value when IpProtocol is set to GRE: **-1/-1**.
-   * *   Valid value when IpProtocol is set to ALL: **-1/-1**.
+   * The range of destination ports for the transport layer protocol. Valid values:
+   * - TCP/UDP: valid values are **1** to **65535**. Separate the start port and the end port with a forward slash (/). Example of a valid value: **1/200**. Example of an invalid value: **200/1**.
+   * - ICMP: **-1/-1**.
+   * - GRE: **-1/-1**.
+   * - If IpProtocol is set to all: **-1/-1**.
    * 
    * @example
    * 80/80
@@ -48,7 +47,7 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   portRange?: string;
   /**
    * @remarks
-   * The priority of the rule. Valid values: 1 to 100. A smaller value indicates a higher priority. When multiple security group rules have the same priority, drop rules take precedence.
+   * The priority of the rule. Valid values: 1 to 100. A smaller value indicates a higher priority. If two security group rules have the same priority, the deny rule takes precedence.
    * 
    * @example
    * 1
@@ -56,7 +55,7 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   priority?: number;
   /**
    * @remarks
-   * The source CIDR block for inbound access control. CIDR blocks and IPv4 addresses are supported.
+   * The source IP address range for inbound authorization. CIDR format and IPv4 IP address ranges are supported.
    * 
    * @example
    * 192.168.0.1/12
@@ -64,12 +63,12 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The range of port numbers that correspond to the transport layer protocol for the source security group. Valid values:
+   * The range of source ports for the transport layer protocol. Valid values:
    * 
-   * *   The value is in the X/Y format when IpProtocol is set to TCP or UDP. X specifies the start port number and Y specifies the end port number. X and Y range from **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
-   * *   Valid value when IpProtocol is set to ICMP: **-1/-1**.
-   * *   Valid value when IpProtocol is set to GRE: **-1/-1**.
-   * *   Valid value when IpProtocol is set to ALL: **-1/-1**.
+   * - TCP/UDP: valid values are **1** to **65535**. Separate the start port and the end port with a forward slash (/). Example of a valid value: **1/200**. Example of an invalid value: **200/1**.
+   * - ICMP: **-1/-1**.
+   * - GRE: **-1/-1**.
+   * - If IpProtocol is set to all: **-1/-1**.
    * 
    * @example
    * 80/80
@@ -113,8 +112,8 @@ export class AuthorizeRCSecurityGroupPermissionRequest extends $dara.Model {
    * @remarks
    * The direction of the rule. Valid values:
    * 
-   * *   **ingress**: the inbound security group rule.
-   * *   **egress**: the outbound security group rule.
+   * - **ingress**: inbound.
+   * - **egress**: outbound.
    * 
    * @example
    * ingress
@@ -130,7 +129,7 @@ export class AuthorizeRCSecurityGroupPermissionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-2ze27hs990o2hn9****
@@ -138,7 +137,7 @@ export class AuthorizeRCSecurityGroupPermissionRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The information about the security group.
+   * The security group information.
    */
   securityGroupPermissions?: AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions[];
   static names(): { [key: string]: string } {

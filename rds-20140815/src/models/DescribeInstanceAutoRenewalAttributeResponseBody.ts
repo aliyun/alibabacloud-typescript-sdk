@@ -91,7 +91,7 @@ export class DescribeInstanceAutoRenewalAttributeResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

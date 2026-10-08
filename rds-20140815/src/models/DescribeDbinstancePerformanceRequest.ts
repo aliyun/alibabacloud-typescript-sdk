@@ -5,19 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-   * 
-   * >  The time span between the beginning time and the end time must be longer than the monitoring frequency. Otherwise, this operation may return an empty array.
+   * The end time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * > The interval between the start time and end time must be greater than the monitoring frequency of your instance. Otherwise, an empty list may be returned.
    * 
    * This parameter is required.
    * 
@@ -27,19 +26,18 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The performance metrics that you want to query. Separate multiple values with commas (,). You can specify up to 30 values. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/26316.html).
-   * 
-   * >  If you set **Key** to **MySQL_SpaceUsage** or **SQLServer_SpaceUsage**, you can query the monitoring data within only one day.
+   * The performance metrics that you want to query. Separate multiple values with commas (,). You can specify up to 30 metrics. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/26316.html).
+   * > If **Key** is set to **MySQL_SpaceUsage** or **SQLServer_SpaceUsage**, only monitoring data within the last day can be queried.
    * 
    * This parameter is required.
    * 
    * @example
-   * MySQL_Sessions
+   * MySQL_NetworkTraffic
    */
   key?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The unique identifier of the instance.
    * 
    * @example
    * 339****
@@ -48,9 +46,8 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-   * 
-   * >  The time span between the beginning time and the end time must be longer than the monitoring frequency. Otherwise, this operation may return an empty array.
+   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * > The interval between the start time and end time must be greater than the monitoring frequency of your instance. Otherwise, an empty list may be returned.
    * 
    * This parameter is required.
    * 

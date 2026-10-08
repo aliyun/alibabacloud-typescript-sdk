@@ -6,9 +6,8 @@ export class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends $dara.Model 
   /**
    * @remarks
    * The method that is used to update the minor engine version of the instance. Valid values:
-   * 
-   * *   **Auto:** automatic update.
-   * *   **Manual**: manual update. ApsaraDB RDS automatically updates the current minor engine version of the instance only when the current minor engine version is phased out.
+   * * **Auto**: Minor engine versions are automatically updated.
+   * * **Manual**: Minor engine versions are not automatically updated. A minor engine version is forcefully updated only when the current version is discontinued.
    * 
    * This parameter is required.
    * 
@@ -21,17 +20,17 @@ export class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends $dara.Model 
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerId?: number;

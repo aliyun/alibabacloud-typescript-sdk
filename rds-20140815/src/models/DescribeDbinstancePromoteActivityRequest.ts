@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancePromoteActivityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the current Alibaba Cloud account.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class DescribeDBInstancePromoteActivityRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5******
    */
   dbInstanceName?: string;
   ownerId?: number;
@@ -29,7 +29,7 @@ export class DescribeDBInstancePromoteActivityRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * 111
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

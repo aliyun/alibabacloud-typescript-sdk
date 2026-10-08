@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,17 +13,17 @@ export class DescribeRCMetricListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The monitoring data.
+   * The list of monitoring data.
    * 
    * @example
-   * [{\\"timestamp\\":1722909960000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988087373\\",\\"Minimum\\":0.097,\\"Maximum\\":0.097,\\"Average\\":0.097},{\\"timestamp\\":1722910020000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988087373\\",\\"Minimum\\":0.093,\\"Maximum\\":0.093,\\"Average\\":0.093}]
+   * [{\\"timestamp\\":1722909960000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988******\\",\\"Minimum\\":0.097,\\"Maximum\\":0.097,\\"Average\\":0.097},{\\"timestamp\\":1722910020000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988******\\",\\"Minimum\\":0.093,\\"Maximum\\":0.093,\\"Average\\":0.093}]
    */
   datapoints?: string;
   /**
    * @remarks
-   * The message that is returned for the request.
+   * The returned message.
    * 
-   * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * > This parameter returns **Successful** if the request is successful. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * successful
@@ -34,7 +34,7 @@ export class DescribeRCMetricListResponseBody extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * 6178f1825f9fb76ce0b5e8707e68181f
+   * 6178f1825f9fb76ce0b5e8707e******
    */
   nextToken?: string;
   /**
@@ -57,8 +57,8 @@ export class DescribeRCMetricListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

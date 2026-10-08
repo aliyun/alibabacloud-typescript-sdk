@@ -281,17 +281,16 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   items?: DescribeDBInstancesResponseBodyItems;
   /**
    * @remarks
-   * The token that is used to display the next page. If the returned entries are displayed on multiple pages, the next page can be displayed when you call this operation again with **NextToken** specified.
+   * The pagination token. If the results are displayed on multiple pages, pass this value in the **NextToken** parameter in the next request to display the next page.
    * 
    * @example
-   * o7PORW5o2TJg**********
+   * o7PORW5o2TJg****
    */
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the returned page.
-   * 
-   * > If you specify **MaxResults** or **NextToken**, only the value **1** is returned. You can ignore the value 1.
+   * The page number.
+   * > If you specify the **MaxResults** or **NextToken** parameter, only **1** is returned for this parameter. You can ignore this return value.
    * 
    * @example
    * 1
@@ -299,7 +298,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of instances on the current page.
    * 
    * @example
    * 10
@@ -307,7 +306,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -315,9 +314,8 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
-   * 
-   * > If you specify **MaxResults** or **NextToken**, only the number of entries on the current page is returned. You can ignore the number.
+   * The total number of records.
+   * > If you specify the **MaxResults** or **NextToken** parameter, only the number of records on the current page is returned for this parameter. You can ignore this return value.
    * 
    * @example
    * 100

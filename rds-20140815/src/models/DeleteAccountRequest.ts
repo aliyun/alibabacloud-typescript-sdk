@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the account.
+   * The name of the database account that you want to delete.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 

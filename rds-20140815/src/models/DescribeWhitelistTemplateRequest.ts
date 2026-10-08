@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWhitelistTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class DescribeWhitelistTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the whitelist template. You can call the [DescribeAllWhitelistTemplate](https://help.aliyun.com/document_detail/2412075.html) operation to obtain the ID of the whitelist template.
+   * The whitelist template ID. You can call [DescribeAllWhitelistTemplate](~~2aboralibabacloud~~) to obtain the ID.
    * 
    * This parameter is required.
    * 

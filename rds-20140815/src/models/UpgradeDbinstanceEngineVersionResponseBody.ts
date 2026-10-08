@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBInstanceEngineVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 65BDA532-28AF-4122-AA39-B382721EEE64
@@ -13,7 +13,7 @@ export class UpgradeDBInstanceEngineVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 10254125

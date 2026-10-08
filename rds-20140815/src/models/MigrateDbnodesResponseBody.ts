@@ -13,7 +13,7 @@ export class MigrateDBNodesResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
@@ -23,8 +23,8 @@ export class MigrateDBNodesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

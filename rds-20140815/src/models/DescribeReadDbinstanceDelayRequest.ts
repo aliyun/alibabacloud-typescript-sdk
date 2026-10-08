@@ -5,29 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeReadDBInstanceDelayRequest extends $dara.Model {
   /**
    * @remarks
-   * The primary instance ID. You can call the DescribeDBInstances operation to query the primary instance ID.
+   * The primary instance ID. You can invoke DescribeDBInstances to obtain this value.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-bp*****
+   * rm-bp****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The read-only instance ID. You can call the DescribeDBInstances operation to query the read-only instance ID.
+   * The read-only instance ID. You can invoke DescribeDBInstances to obtain this value.
    * 
    * This parameter is required.
    * 
    * @example
-   * rr-bp*****
+   * rr-bp****
    */
   readInstanceId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to obtain this value.
    * 
    * @example
    * cn-hangzhou

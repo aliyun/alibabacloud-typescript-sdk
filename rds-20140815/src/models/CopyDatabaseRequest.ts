@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CopyDatabaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The instance name. **This parameter is required**.
    * 
    * @example
-   * rm-uf6wjk5******
+   * rm-wz9s06u4drm******
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The destination database name.
+   * The destination database name. **This parameter is required**.
    * 
    * @example
    * db2***
@@ -30,7 +30,7 @@ export class CopyDatabaseRequest extends $dara.Model {
   reserveAccount?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy*****
@@ -40,7 +40,7 @@ export class CopyDatabaseRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source database name.
+   * The source database name. **This parameter is required**.
    * 
    * @example
    * db1***

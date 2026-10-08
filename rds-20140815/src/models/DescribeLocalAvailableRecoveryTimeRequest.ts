@@ -10,13 +10,13 @@ export class DescribeLocalAvailableRecoveryTimeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-bp1f****
    */
   DBInstanceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to obtain the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -27,7 +27,7 @@ export class DescribeLocalAvailableRecoveryTimeRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfm****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

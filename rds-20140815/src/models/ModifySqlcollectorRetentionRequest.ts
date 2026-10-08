@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySQLCollectorRetentionRequest extends $dara.Model {
   /**
    * @remarks
-   * The log retention period that is allowed by the SQL Explorer feature on the instance. Valid values:
-   * 
-   * *   30: 30 days
-   * *   180: 180 days
-   * *   365: one year
-   * *   1095: three years
-   * *   1825: five years
+   * The log retention period of SQL Explorer. Valid values:
+   * - 30: 30 days
+   * - 180: 180 days
+   * - 365: 1 year
+   * - 1095: 3 years
+   * - 1825: 5 years
    * 
    * This parameter is required.
    * 
@@ -21,22 +20,22 @@ export class ModifySQLCollectorRetentionRequest extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the resource group ID.
+   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
    * 
    * @example
-   * rg-acfmyxxxx
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

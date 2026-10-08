@@ -13,7 +13,7 @@ export class ModifyTaskInfoResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the failed task. This parameter is returned when a task fails.
+   * The ID of the failed task. The first failed task ID is returned.
    * 
    * @example
    * t-83br18hlw11ue610yo
@@ -29,7 +29,7 @@ export class ModifyTaskInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of completed tasks.
+   * The number of successful tasks.
    * 
    * @example
    * 5

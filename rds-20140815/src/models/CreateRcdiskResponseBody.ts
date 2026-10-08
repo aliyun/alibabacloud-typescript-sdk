@@ -8,7 +8,7 @@ export class CreateRCDiskResponseBody extends $dara.Model {
    * The cloud disk ID.
    * 
    * @example
-   * rcd-2zegrjtnkp6dqbe1egca
+   * rcd-2zegrjtnkp6dqbe1****
    */
   diskId?: string;
   /**

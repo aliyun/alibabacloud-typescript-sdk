@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogBackupFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeLogBackupFilesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: any non-zero positive integer.
+   * The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -37,7 +37,7 @@ export class DescribeLogBackupFilesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30** to **1000**. Default value: **30**.
+   * The number of entries per page. Valid values: **30** to **1000**. Default value: **30**.
    * 
    * @example
    * 30
@@ -47,7 +47,7 @@ export class DescribeLogBackupFilesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
    * 
    * This parameter is required.
    * 

@@ -10,13 +10,13 @@ export class EvaluateLocalExtendDiskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-m5e999iqm65******
+   * rm-wz9s06u4drm******
    */
   DBInstanceName?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) to query available regions.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class EvaluateLocalExtendDiskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new storage capacity. Unit: GB.
+   * The storage capacity after the expansion. Unit: GB.
    * 
    * @example
    * 1000

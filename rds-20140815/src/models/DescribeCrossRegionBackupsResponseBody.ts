@@ -137,7 +137,7 @@ export class DescribeCrossRegionBackupsResponseBodyItems extends $dara.Model {
 export class DescribeCrossRegionBackupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query.
    * 
    * @example
    * 2019-06-15T12:10:00Z
@@ -146,7 +146,7 @@ export class DescribeCrossRegionBackupsResponseBody extends $dara.Model {
   items?: DescribeCrossRegionBackupsResponseBodyItems;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -156,7 +156,7 @@ export class DescribeCrossRegionBackupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of cross-region data backup files on the current page.
+   * The number of backup files on the current page.
    * 
    * @example
    * 30
@@ -180,7 +180,7 @@ export class DescribeCrossRegionBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query.
    * 
    * @example
    * 2019-05-30T12:10:00Z
@@ -188,7 +188,7 @@ export class DescribeCrossRegionBackupsResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of records.
    * 
    * @example
    * 100

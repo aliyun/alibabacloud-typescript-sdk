@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStorageRange extends $dara.Model {
   /**
    * @remarks
-   * The maximum storage capacity that is supported for the instance. Unit: GB.
+   * The maximum storage capacity. Unit: GB.
    * 
    * @example
    * 2000
@@ -13,7 +13,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStor
   maxValue?: number;
   /**
    * @remarks
-   * The minimum storage capacity that is supported for the instance. Unit: GB.
+   * The minimum storage capacity. Unit: GB.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStor
   minValue?: number;
   /**
    * @remarks
-   * The minimum step size at which you can adjust the storage capacity of the instance. The minimum step size is 5 GB.
+   * The minimum granularity for storage capacity adjustment. The value is fixed at 5 GB increments.
    * 
    * @example
    * 5
@@ -55,7 +55,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStor
 export class DescribeAvailableClassesResponseBodyDBInstanceClasses extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the instance.
+   * The instance type.
    * 
    * @example
    * rds.mysql.c1.large
@@ -63,7 +63,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClasses extends $dara
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The storage capacity range that is supported for the instance.
+   * The instance storage capacity range.
    */
   DBInstanceStorageRange?: DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStorageRange;
   static names(): { [key: string]: string } {
@@ -95,12 +95,12 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClasses extends $dara
 export class DescribeAvailableClassesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the instance types available for the instance.
+   * The available instance types for the instance.
    */
   DBInstanceClasses?: DescribeAvailableClassesResponseBodyDBInstanceClasses[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7E4448A6-9FE6-4474-A0C1-AA7CFC772CAC

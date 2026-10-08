@@ -104,6 +104,35 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeDBCl
   }
 }
 
+export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeDrReplicaInfo extends $dara.Model {
+  insName?: string;
+  region?: string;
+  unitCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      insName: 'InsName',
+      region: 'Region',
+      unitCode: 'UnitCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insName: 'string',
+      region: 'string',
+      unitCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds extends $dara.Model {
   DBInstanceId?: string[];
   static names(): { [key: string]: string } {
@@ -292,6 +321,35 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeSlav
   }
 }
 
+export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeWarmStandbyInfo extends $dara.Model {
+  insName?: string;
+  region?: string;
+  unitCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      insName: 'InsName',
+      region: 'Region',
+      unitCode: 'UnitCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insName: 'string',
+      region: 'string',
+      unitCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute extends $dara.Model {
   accountMaxQuantity?: number;
   advancedFeatures?: string;
@@ -332,6 +390,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   deletionProtection?: boolean;
   disasterRecoveryInfo?: string;
   disasterRecoveryInstances?: string;
+  drReplicaInfo?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeDrReplicaInfo;
   engine?: string;
   engineVersion?: string;
   expireTime?: string;
@@ -356,6 +415,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   maxIOMBPS?: number;
   maxIOPS?: number;
   multipleTempUpgrade?: boolean;
+  nodePerformance?: string;
   optimizedWritesInfo?: string;
   PGBouncerEnabled?: string;
   payType?: string;
@@ -386,6 +446,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   vectorSupportStatus?: string;
   vpcCloudInstanceId?: string;
   vpcId?: string;
+  warmStandbyInfo?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeWarmStandbyInfo;
   zoneId?: string;
   kindCode?: string;
   static names(): { [key: string]: string } {
@@ -429,6 +490,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       deletionProtection: 'DeletionProtection',
       disasterRecoveryInfo: 'DisasterRecoveryInfo',
       disasterRecoveryInstances: 'DisasterRecoveryInstances',
+      drReplicaInfo: 'DrReplicaInfo',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
@@ -453,6 +515,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       maxIOMBPS: 'MaxIOMBPS',
       maxIOPS: 'MaxIOPS',
       multipleTempUpgrade: 'MultipleTempUpgrade',
+      nodePerformance: 'NodePerformance',
       optimizedWritesInfo: 'OptimizedWritesInfo',
       PGBouncerEnabled: 'PGBouncerEnabled',
       payType: 'PayType',
@@ -479,6 +542,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       vectorSupportStatus: 'VectorSupportStatus',
       vpcCloudInstanceId: 'VpcCloudInstanceId',
       vpcId: 'VpcId',
+      warmStandbyInfo: 'WarmStandbyInfo',
       zoneId: 'ZoneId',
       kindCode: 'kindCode',
     };
@@ -525,6 +589,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       deletionProtection: 'boolean',
       disasterRecoveryInfo: 'string',
       disasterRecoveryInstances: 'string',
+      drReplicaInfo: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeDrReplicaInfo,
       engine: 'string',
       engineVersion: 'string',
       expireTime: 'string',
@@ -549,6 +614,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       maxIOMBPS: 'number',
       maxIOPS: 'number',
       multipleTempUpgrade: 'boolean',
+      nodePerformance: 'string',
       optimizedWritesInfo: 'string',
       PGBouncerEnabled: 'string',
       payType: 'string',
@@ -575,6 +641,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       vectorSupportStatus: 'string',
       vpcCloudInstanceId: 'string',
       vpcId: 'string',
+      warmStandbyInfo: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeWarmStandbyInfo,
       zoneId: 'string',
       kindCode: 'string',
     };
@@ -587,6 +654,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
     if(this.DBClusterNodes && typeof (this.DBClusterNodes as any).validate === 'function') {
       (this.DBClusterNodes as any).validate();
     }
+    if(this.drReplicaInfo && typeof (this.drReplicaInfo as any).validate === 'function') {
+      (this.drReplicaInfo as any).validate();
+    }
     if(this.extra && typeof (this.extra as any).validate === 'function') {
       (this.extra as any).validate();
     }
@@ -598,6 +668,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
     }
     if(this.slaveZones && typeof (this.slaveZones as any).validate === 'function') {
       (this.slaveZones as any).validate();
+    }
+    if(this.warmStandbyInfo && typeof (this.warmStandbyInfo as any).validate === 'function') {
+      (this.warmStandbyInfo as any).validate();
     }
     super.validate();
   }
@@ -637,7 +710,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   items?: DescribeDBInstanceAttributeResponseBodyItems;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

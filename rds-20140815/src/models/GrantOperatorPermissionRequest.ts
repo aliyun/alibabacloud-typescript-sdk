@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class GrantOperatorPermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The expiration time of the permissions. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The expiration time of the permissions. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * This parameter is required.
    * 
@@ -27,10 +27,9 @@ export class GrantOperatorPermissionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The permissions that you want to grant to the service account. Valid values:
-   * 
-   * *   **Control**: the configuration permissions, which allow you to view and modify configurations of the instance.
-   * *   **Data**: the data permissions, which allow you to view schemas, indexes, and SQL statements of the instance.
+   * The authorization type. Valid values:
+   * - **Control**: configuration permissions. You can view and modify instance configurations.
+   * - **Data**: database permissions. You can view table schemas, indexes, and SQL statements.
    * 
    * This parameter is required.
    * 

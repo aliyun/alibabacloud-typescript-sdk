@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance is in the active state.
+   * The activation state.
    * 
    * @example
    * Invalid
@@ -13,7 +13,7 @@ export class DescribeDBInstanceDetailResponseBody extends $dara.Model {
   activationState?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-bp6wjk5xxxxxxxxxx
@@ -21,7 +21,7 @@ export class DescribeDBInstanceDetailResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The type of the license.
+   * The license type.
    * 
    * @example
    * Normal
@@ -29,7 +29,7 @@ export class DescribeDBInstanceDetailResponseBody extends $dara.Model {
   licenseType?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +37,7 @@ export class DescribeDBInstanceDetailResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 06B220E2-EAC5-4DBE-A1FC-1B62DB6A****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateYouhuiForOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The response message.
    * 
    * @example
    * Successful
@@ -24,7 +24,7 @@ export class CreateYouhuiForOrderResponseBody extends $dara.Model {
    * The coupon ID.
    * 
    * @example
-   * 221201******
+   * 22120151****
    */
   youhuiId?: string;
   static names(): { [key: string]: string } {

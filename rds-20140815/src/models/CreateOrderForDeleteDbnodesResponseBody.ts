@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrderForDeleteDBNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID
+   * The instance ID.
    * 
    * @example
-   * rm-7xv******
+   * rm-7x******
    */
   DBInstanceId?: string;
   /**

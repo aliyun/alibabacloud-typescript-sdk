@@ -8,23 +8,23 @@ export class DescribeLocalAvailableRecoveryTimeResponseBody extends $dara.Model 
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-bp1f****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The start of the time range to which the instance can be restored.
+   * The start time of the restorable time range for backups.
    * 
    * @example
-   * 2020-03-16T07:59:18Z
+   * 2023-09-11T09:48:52Z
    */
   recoveryBeginTime?: string;
   /**
    * @remarks
-   * The end of the time range to which the instance can be restored.
+   * The end time of the restorable time range for backups.
    * 
    * @example
-   * 2020-03-20T08:41:29Z
+   * 2023-09-18T08:03:09Z
    */
   recoveryEndTime?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeLocalAvailableRecoveryTimeResponseBody extends $dara.Model 
    * The request ID.
    * 
    * @example
-   * 14E986AC-0F27-4FFB-8EED-9A8A3A2A0309
+   * 291534CC-922B-55D5-8657-B29****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

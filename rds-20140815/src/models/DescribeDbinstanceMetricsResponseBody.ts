@@ -8,15 +8,14 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
    * The description of the enhanced monitoring metric.
    * 
    * @example
-   * OS CPU utilization, equal to the number of OS-consumed CPUs divided by the total number of CPUs
+   * sys cpu使用率，sys cpu使用量 / cpu总量
    */
   description?: string;
   /**
    * @remarks
    * The category of the enhanced monitoring metric. Valid values:
-   * 
-   * *   **os**: OS metric
-   * *   **db**: database metric
+   * - **os**: operating system metric.
+   * - **db**: database metric.
    * 
    * @example
    * os
@@ -35,16 +34,15 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
    * The name of the group to which the enhanced monitoring metric belongs.
    * 
    * @example
-   * CPU Utilization Rate
+   * CPU使用率
    */
   groupKeyType?: string;
   /**
    * @remarks
-   * The method that is used to aggregate the monitoring data of the enhanced monitoring metric. Valid values:
-   * 
-   * *   **avg**: The system calculates the average value of the enhanced monitoring metric.
-   * *   **min**: The system calculates the minimum value of the enhanced monitoring metric.
-   * *   **max**: The system calculates the maximum value of the enhanced monitoring metric.
+   * The statistical method of the enhanced monitoring metric. Valid values:
+   * - **avg**: average value.
+   * - **min**: minimum value.
+   * - **max**: maximum value.
    * 
    * @example
    * avg
@@ -68,7 +66,7 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
   metricsKeyAlias?: string;
   /**
    * @remarks
-   * The serial number of the enhanced monitoring metric.
+   * The sequence number of the enhanced monitoring metric.
    * 
    * @example
    * 1
@@ -125,17 +123,17 @@ export class DescribeDBInstanceMetricsResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-bp1*****
+   * rm-bp1****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * An array consisting of the Enhanced Monitoring metrics that are enabled for the instance.
+   * The list of enhanced monitoring metrics that are enabled for the instance.
    */
   items?: DescribeDBInstanceMetricsResponseBodyItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 318C3754-F6D0-54BB-A55C-23EAA04708B7

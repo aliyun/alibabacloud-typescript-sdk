@@ -5,27 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the node in the cluster.
    * 
    * @example
-   * rm-bp1npi2j8********
+   * rm-bp1npi2j8****
    */
   DBInstanceID?: string;
   /**
    * @remarks
-   * A JSON array that consists of the details about the Data Transmission Service (DTS) synchronization task.
-   * 
-   * >  Each unit node (secondary node) synchronizes data from the central node (primary node) by using DTS. This parameter contains the synchronization link ID and request ID of DTS.
+   * A JSON array that contains DTS synchronization information.
+   * >Each unit node (secondary node) synchronizes data with the central node (primary node) through DTS. This parameter contains the synchronization task ID and request ID of DTS.
    * 
    * @example
-   * {\\"dtsInstanceId\\":\\"dtsm9t107c********\\",\\"dtsRequestId\\":\\"190F0C6C-4BE6-5676-989B-DBDE6D34CD9C\\"}
+   * {\\"dtsInstanceId\\":\\"dtsm9t107c****\\",\\"dtsRequestId\\":\\"190F0C6C-4BE6-5676-989B-DBDE6D34CD9C\\"}
    */
   dtsInstance?: string;
   /**
    * @remarks
-   * The database engine that is run by the node.
-   * 
-   * >  The value of this parameter is fixed as **mysql**.
+   * The database engine of the node in the cluster.
+   * >Only **mysql** is supported.
    * 
    * @example
    * mysql
@@ -33,7 +31,7 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
   engine?: string;
   /**
    * @remarks
-   * The database engine version that is run by the node.
+   * The database engine version of the node in the cluster.
    * 
    * @example
    * 8.0
@@ -41,7 +39,7 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
   engineVersion?: string;
   /**
    * @remarks
-   * The ID of the region where the node resides.
+   * The region ID of the node in the cluster.
    * 
    * @example
    * cn-hangzhou
@@ -52,15 +50,14 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
    * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of the node. Valid values:
-   * 
-   * *   **CENTRAL**: The node is a central node. Each global active database cluster has only one central node. All unit nodes synchronize data from the central node.
-   * *   **UNIT**: The node is a unit node. Each global active database cluster can have up to 10 unit nodes. All unit nodes synchronize data from the central node.
+   * The node type in the active geo-redundancy database cluster. Valid values:
+   * * **CENTRAL**: central node. The only primary node in the cluster. All unit nodes synchronize data from this node.
+   * * **UNIT**: unit node. A cluster can contain up to 10 unit nodes. All unit nodes synchronize data from the central node.
    * 
    * @example
    * CENTRAL
@@ -69,9 +66,8 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
   /**
    * @remarks
    * The node status. Valid values:
-   * 
-   * *   **activation**: The node is running.
-   * *   **creating**: The node is being created.
+   * * **activation**: running.
+   * * **creating**: being created.
    * 
    * @example
    * activation
@@ -115,7 +111,7 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
 export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the global active database cluster was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the cluster was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2021-10-21T02:57:08Z
@@ -123,7 +119,7 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * GadTest
@@ -131,20 +127,20 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The information about each node in the cluster.
+   * The list of nodes in the cluster.
    */
   gadInstanceMembers?: DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers[];
   /**
    * @remarks
-   * The ID of the global active database cluster.
+   * The ID of the active geo-redundancy database cluster.
    * 
    * @example
-   * gad-rm-bp1npi2j8********
+   * gad-rm-bp1npi2j8****
    */
   gadInstanceName?: string;
   /**
    * @remarks
-   * The time when the most recent modification was made to the global active database cluster. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the cluster was last modified. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2021-10-21T03:01:20Z
@@ -152,9 +148,8 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The database engine that is run by the global active database cluster.
-   * 
-   * >  The value of this parameter is fixed as **mysql**.
+   * The engine of the active geo-redundancy database cluster.
+   * >Only **mysql** is supported.
    * 
    * @example
    * mysql
@@ -162,11 +157,10 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
-   * 
-   * *   **activation**: The cluster is running.
-   * *   **creating**: The cluster is being created.
-   * *   **replica_adding**: Nodes are being added to the cluster.
+   * The cluster status. Valid values:
+   * * **activation**: running.
+   * * **creating**: being created.
+   * * **replica_adding**: a node is being added.
    * 
    * @example
    * activation
@@ -211,7 +205,7 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
 export class DescribeGadInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the global active database cluster.
+   * The list of active geo-redundancy database clusters.
    */
   gadInstances?: DescribeGadInstancesResponseBodyGadInstances[];
   /**

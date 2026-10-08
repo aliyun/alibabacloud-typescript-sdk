@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the system collects the statistics.
+   * The statistics information collection pattern.
    * 
    * Valid values:
-   * 
-   * *   **After**: The system collects the statistics after a switchover.
-   * *   **Before**: The system collects the statistics before a switchover.
+   * - **After**: Upgrade after the cutover.
+   * - **Before**: Upgrade before the cutover.
    * 
    * @example
    * After
@@ -18,7 +17,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   collectStatMode?: string;
   /**
    * @remarks
-   * The details of the task.
+   * The detailed information about the task.
    * 
    * @example
    * 2021-10-27 15:03:05 --- do upgrade precheck on slave succcess.\\n2021-10-27 15:03:11 --- begin to upgrade major version, source instance will locked in readonly mode.\\n2021-10-27 15:03:21 --- upgrade master success.\\n2021-10-27 15:06:10 --- exchange source and target instance dns success.\\n
@@ -26,9 +25,9 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   detail?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The end time of the major engine version upgrade.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1614237779000
@@ -36,11 +35,10 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   endTime?: string;
   /**
    * @remarks
-   * The status of the task.
-   * 
-   * *   **Success**: The task is successful.
-   * *   **Failed**: The task failed.
-   * *   **Running**: The task is in the phase in which data is being migrated to a new instance.
+   * The final result of the task. Valid values:
+   * * **Success**: The task is successful.
+   * * **Failed**: The task failed.
+   * * **Running**: The migration is in progress.
    * 
    * @example
    * Success
@@ -48,7 +46,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   result?: string;
   /**
    * @remarks
-   * The ID of the original instance.
+   * The ID of the original instance before the upgrade.
    * 
    * @example
    * pgm-bp1i3kkq7321****
@@ -56,7 +54,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   sourceInsName?: string;
   /**
    * @remarks
-   * The major engine version of the original instance.
+   * The version of the original instance before the upgrade.
    * 
    * @example
    * 11.0
@@ -64,9 +62,9 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   sourceMajorVersion?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The start time of the major engine version upgrade.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1614236007000
@@ -74,9 +72,9 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   startTime?: string;
   /**
    * @remarks
-   * The end time of the switching from the original instance to the new instance.
+   * The end time of the instance switchover from the original instance to the new instance.
    * 
-   * Expressed in Unix timestamp. Unit: milliseconds.
+   * The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1714237539000
@@ -84,9 +82,9 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   switchEndTime?: string;
   /**
    * @remarks
-   * The time at which your workloads are switched over from the original instance to the new instance.
+   * The time of the instance switchover from the original instance to the new instance.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1614237539000
@@ -94,7 +92,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   switchTime?: string;
   /**
    * @remarks
-   * The ID of the new instance.
+   * The ID of the new instance after the upgrade.
    * 
    * @example
    * pgm-bp1c0v6d8092****
@@ -102,14 +100,13 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   targetInsName?: string;
   /**
    * @remarks
-   * The major engine version of the new instance. Valid values:
-   * 
-   * *   **10.0**
-   * *   **11.0**
-   * *   **12.0**
-   * *   **13.0**
-   * *   **14.0**
-   * *   **15.0**
+   * The major engine version after the upgrade. Valid values:
+   * * **10.0**
+   * * **11.0**
+   * * **12.0**
+   * * **13.0**
+   * * **14.0**
+   * * **15.0**
    * 
    * @example
    * 12.0
@@ -128,18 +125,60 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
    * The upgrade mode.
    * 
    * Valid values:
-   * 
-   * *   **clone**: The system does not migrate data to the new instance and does not switch your workloads over to the new instance.
-   * *   **switch**: The system migrates data to the new instance and switches your workloads over to the new instance.
+   * - **clone**: no cutover
+   * - **switch**: cutover
    * 
    * @example
    * switch
    */
   upgradeMode?: string;
+  /**
+   * @remarks
+   * Indicates whether a cutover is performed.
+   * 
+   * - **true**: A cutover is performed.
+   * - **false**: No cutover is performed.
+   * 
+   * @example
+   * true
+   */
   cutOver?: boolean;
+  /**
+   * @remarks
+   * The estimated synchronization time for the logical replication lag. Unit: seconds.
+   * > This parameter is used only for **zero-downtime** major engine version upgrades.
+   * 
+   * @example
+   * 10
+   */
   totalLogicRepDelayTime?: number;
+  /**
+   * @remarks
+   * The size of the logical replication lag. Unit: MB.
+   * 
+   * > This parameter is used only for **zero-downtime** major engine version upgrades.
+   * 
+   * @example
+   * 1
+   */
   totalLogicRepLatencyMB?: number;
+  /**
+   * @remarks
+   * The temporary internal endpoint of the higher-version instance for the zero-downtime major engine version upgrade. The format is `****.pg.rds.aliyuncs.com`.
+   * > This parameter is used only for **zero-downtime** major engine version upgrades.
+   * 
+   * @example
+   * ****.pg.rds.aliyuncs.com
+   */
   zeroDownTimeConnectionString?: string;
+  /**
+   * @remarks
+   * The port of the higher-version instance, which is the same as the port of the source instance.
+   * > This parameter is used only for **zero-downtime** major engine version upgrades.
+   * 
+   * @example
+   * 5432
+   */
   zeroDownTimePort?: number;
   static names(): { [key: string]: string } {
     return {
@@ -199,7 +238,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
 export class DescribeUpgradeMajorVersionTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tasks for major engine version upgrades.
+   * The list of major engine version upgrade tasks.
    */
   items?: DescribeUpgradeMajorVersionTasksResponseBodyItems[];
   /**
@@ -228,7 +267,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHostWebShellRequest extends $dara.Model {
   /**
    * @remarks
-   * The username of the account that is used to log on to the host of the instance.
+   * The name of the account that is used to log on to the host of the RDS instance.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class DescribeHostWebShellRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ***
+   * ****
    */
   accountPassword?: string;
   /**
@@ -30,12 +30,12 @@ export class DescribeHostWebShellRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The instance hostname. You can call the DescribeDBInstanceIpHostname operation to query the hostname.
+   * The hostname of the instance. You can call the DescribeDBInstanceIpHostname operation to query the hostname.
    * 
    * This parameter is required.
    * 

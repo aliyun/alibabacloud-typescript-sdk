@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days for which you want to retain the classic network endpoint. Valid values: **1 to 120**. Default value: **7**.
-   * 
-   * > If you set the **RetainClassic** parameter to **True**, you must also specify this parameter.
+   * The number of days for which the classic network address reservation is retained. Valid values: **1 to 120**. Unit: days. Default value: **7**.
+   * >This parameter is required if **RetainClassic** is set to **True**.
    * 
    * @example
    * 7
@@ -15,17 +14,17 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   classicExpiredDays?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The network type after the modification. Set the value to **VPC**.
+   * The target network type. Set the value to **VPC**.
    * 
    * This parameter is required.
    * 
@@ -37,17 +36,16 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The internal IP address of the instance. The internal IP address must be within the CIDR block supported by the specified vSwitch. The system automatically assigns a private IP address to an instance based on the values of **VPCId** and **VSwitchId**.
+   * Settings for the internal network IP address of the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the values of **VPCId** and **VSwitchId**.
    * 
    * @example
-   * 172.10.40.25
+   * 172.10.XX.XX
    */
   privateIpAddress?: string;
   /**
    * @remarks
-   * The number of days for which you want to retain the read/write splitting endpoint of the classic network type. Valid values: **1 to 120**. Default value: **7**.
-   * 
-   * >  This parameter takes effect only when a read/write splitting endpoint of the classic network type exists and the **RetainClassic** parameter is set to **True**.
+   * The number of days for which the read/write splitting endpoint of the classic network type is retained for address reservation. Valid values: **1 to 120**. Unit: days. Default value: **7**.
+   * >This parameter takes effect only when the instance has a classic network type read/write splitting endpoint and **RetainClassic** is set to **True**.
    * 
    * @example
    * 7
@@ -55,12 +53,12 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   readWriteSplittingClassicExpiredDays?: number;
   /**
    * @remarks
-   * The internal IP address that corresponds to the read/write splitting endpoint of the instance. The internal IP address must be within the CIDR block supported by the specified vSwitch. The system automatically assigns a private IP address to an instance based on the values of **VPCId** and **VSwitchId**.
+   * Settings for the internal network read/write splitting IP address of the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the values of **VPCId** and **VSwitchId**.
    * 
-   * >  This parameter is valid when a read/write splitting endpoint of the classic network type exists.
+   * >This parameter takes effect only when the instance has a classic network type read/write splitting endpoint.
    * 
    * @example
-   * 192.168.0.22
+   * 192.168.XX.XX
    */
   readWriteSplittingPrivateIpAddress?: string;
   resourceOwnerAccount?: string;
@@ -68,9 +66,8 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to retain the classic network endpoint. Valid values:
-   * 
-   * *   **True**: retains the classic network endpoint.
-   * *   **False** (default): does not retain the classic network endpoint.
+   * * **True**: The classic network endpoint is retained.
+   * * **False** (default): The classic network endpoint is not retained.
    * 
    * @example
    * True
@@ -78,18 +75,18 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   retainClassic?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * VPC ID。
    * 
    * @example
-   * vpc-uf6f7l4fg90xxxxxx
+   * vpc-uf6f7l4fg90****
    */
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch. This parameter is required if the **VPCId** parameter is specified.
+   * The vSwitch ID. This parameter is required if **VPCId** is specified.
    * 
    * @example
-   * vsw-uf6adz52c2pxxxxx
+   * vsw-uf6adz52c2p****
    */
   vSwitchId?: string;
   static names(): { [key: string]: string } {

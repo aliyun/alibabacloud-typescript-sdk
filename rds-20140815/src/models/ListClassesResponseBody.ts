@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClassesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The code of the instance type. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html) and [Read-only ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/145759.html).
+   * The instance type code. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html) and [Read-only instance types](https://help.aliyun.com/document_detail/145759.html).
    * 
    * @example
    * mysql.n1.micro.1
@@ -13,15 +13,15 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The instance family. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/57184.html).
+   * The instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/57184.html).
    * 
    * @example
-   * General
+   * general-purpose
    */
   classGroup?: string;
   /**
    * @remarks
-   * The number of CPU cores that are supported by the instance type. Unit: cores.
+   * The number of CPU cores for the instance type. Unit: cores.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The size of the encrypted memory that is supported by the security-enhanced instance type. Unit: GB.
+   * The encrypted memory size for the security-enhanced instance family. Unit: GB.
    * 
    * @example
    * 4
@@ -37,10 +37,10 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   encryptedMemory?: string;
   /**
    * @remarks
-   * The architecture of the instance type. Valid values:
+   * The architecture type of the instance type. Valid values:
    * 
-   * *   If the architecture of the instance type is **x86**, an empty string is returned by default.
-   * *   If the architecture of the instance type is **ARM**, **arm** is returned.
+   * - If the instance uses the **x86** architecture, this parameter is empty by default.
+   * - If the instance uses the **arm** architecture, **arm** is returned.
    * 
    * @example
    * arm
@@ -48,7 +48,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   instructionSetArch?: string;
   /**
    * @remarks
-   * The maximum number of connections that are supported by the instance type. Unit: connections.
+   * The maximum number of connections for the instance type.
    * 
    * @example
    * 2000
@@ -56,7 +56,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   maxConnections?: string;
   /**
    * @remarks
-   * The maximum I/O bandwidth that is supported by the instance type. Unit: Mbit/s.
+   * The maximum I/O bandwidth for the instance type. Unit: Mbit/s.
    * 
    * @example
    * 1024Mbps
@@ -64,7 +64,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   maxIOMBPS?: string;
   /**
    * @remarks
-   * The maximum input/output operations per second (IOPS) that is supported by the instance type. Unit: operations per second.
+   * The maximum IOPS for the instance type.
    * 
    * @example
    * 10000
@@ -72,20 +72,25 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   maxIOPS?: string;
   /**
    * @remarks
-   * The memory size that is supported by the instance type. Unit: GB.
+   * The memory size for the instance type. Unit: GB.
    * 
    * @example
-   * 1 GB (RDS Basic Edition)
+   * 1GB
    */
   memoryClass?: string;
   /**
    * @remarks
-   * The fee that you must pay for the instance type.
+   * The price for the instance type.
    * 
-   * *   Unit: cents (USD).
+   * <props="china">
+   * * Unit: cents (CNY).
    * 
-   * > *   If you set **CommodityCode** to a value that indicates the pay-as-you-go billing method, the ReferencePrice parameter specifies the hourly fee that you must pay.
-   * > *   If you set **CommodityCode** to a value that indicates the subscription billing method, the ReferencePrice parameter specifies the monthly fee that you must pay.
+   * <props="intl">
+   * * Unit: cents (USD).
+   * 
+   * 
+   * > * If you set the **CommodityCode** parameter to a pay-as-you-go commodity code, this parameter indicates the hourly price.
+   * > * If you set the **CommodityCode** parameter to a subscription commodity code, this parameter indicates the monthly price.
    * 
    * @example
    * 2500
@@ -93,21 +98,17 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   referencePrice?: string;
   /**
    * @remarks
-   * The RDS edition of the instance. Valid values:
-   * 
-   * *   Regular instance
-   * 
-   *     *   **Basic**: RDS Basic Edition
-   *     *   **HighAvailability**: RDS High-availability Edition
-   *     *   **cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL or PostgreSQL
-   *     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server
-   *     *   **Finance**: RDS Basic Edition for serverless instances
-   * 
-   * *   Serverless instance
-   * 
-   *     *   **serverless_basic**: RDS Basic Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
-   *     *   **serverless_standard**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
-   *     *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
+   * The instance edition. Valid values:
+   * * Regular instances
+   *     * **Basic**: Basic Edition.
+   *     * **HighAvailability**: High availability series.
+   *     * **cluster**: MySQL or PostgreSQL Cluster Edition.
+   *     * **AlwaysOn**: SQL Server Cluster Edition.
+   *     * **Finance**: RDS Enterprise Edition.
+   * * Serverless instances
+   *     * **serverless_basic**: Serverless Basic Edition. (Applicable only to MySQL and PostgreSQL)
+   *     * **serverless_standard**: Serverless high availability series. (Applicable only to MySQL and PostgreSQL)
+   *     * **serverless_ha**: SQL Server Serverless high availability series.
    * 
    * @example
    * Basic
@@ -115,7 +116,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The storage type of the instance.
+   * The instance storage type.
    * 
    * @example
    * cloud_essd
@@ -167,12 +168,12 @@ export class ListClassesResponseBodyItems extends $dara.Model {
 export class ListClassesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of instance specifications.
+   * The list of instance type information.
    */
   items?: ListClassesResponseBodyItems[];
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -180,7 +181,7 @@ export class ListClassesResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CF8D35BF-263D-4F7B-883A-1163B79A9EC6

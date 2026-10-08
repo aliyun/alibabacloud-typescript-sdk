@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCloudResourceAuthorizedRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * @example
-   * rm-t4n7j9eb52y7c1960
+   * rm-t4n****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the available regions.
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +26,7 @@ export class CheckCloudResourceAuthorizedRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmy**********
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -34,7 +34,7 @@ export class CheckCloudResourceAuthorizedRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The destination region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The ID of the target region. You can call DescribeRegions to query the available regions.
    * 
    * @example
    * us-east-1

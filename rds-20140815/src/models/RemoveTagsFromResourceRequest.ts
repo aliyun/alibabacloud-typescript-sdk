@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveTagsFromResourceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The TagKey of the first tag that you want to unbind. Each tag consists of a TagKey and a TagValue. You can specify up to five tags in a single request. You cannot specify an empty string as the tag key. You can specify an empty string as the tag value.
+   * The TagKey of the first tag to unbind. The tags to unbind include TagKey and TagValue. You can specify up to 5 pairs at a time. TagKey cannot be empty. TagValue can be empty.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class RemoveTagsFromResourceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The TagValue of the first tag that you want to unbind. Each tag consists of a TagKey and a TagValue. You can specify up to five tags in a single request. You cannot specify an empty string as the tag key. You can specify an empty string as the tag value.
+   * The TagValue of the first tag to unbind. The tags to unbind include TagKey and TagValue. You can specify up to 5 pairs at a time. TagKey cannot be empty. TagValue can be empty.
    * 
    * @example
    * value1
@@ -49,7 +49,7 @@ export class RemoveTagsFromResourceRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
@@ -59,14 +59,14 @@ export class RemoveTagsFromResourceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -76,19 +76,18 @@ export class RemoveTagsFromResourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the ListResourceGroups operation to query the resource group ID.
+   * The resource group ID. You can call the ListResourceGroups operation to obtain the resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * A set of a TagKey and a TagValue that you use to unbind the tag. Format: {"key1":"value1"}.
-   * 
-   * >  You cannot specify an empty string for TagKey. You can specify an empty string for TagValue.
+   * The tags to unbind, including TagKey and TagValue. Format: {"key1":"value1"}.
+   * >TagKey cannot be empty. TagValue can be empty.
    * 
    * @example
    * {"key1":"value1"}
@@ -96,7 +95,7 @@ export class RemoveTagsFromResourceRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The ID of the proxy mode.
+   * The proxy mode ID.
    * 
    * @example
    * API

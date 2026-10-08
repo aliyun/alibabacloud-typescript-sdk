@@ -70,7 +70,7 @@ export class DescribeDBInstancesByExpireTimeResponseBody extends $dara.Model {
   items?: DescribeDBInstancesByExpireTimeResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page. Valid values: any **non-zero** positive integer.
+   * The page number. The value must be greater than **0** and must not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -80,7 +80,7 @@ export class DescribeDBInstancesByExpireTimeResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of instances returned on the current page.
+   * The number of instances on the current page.
    * 
    * @example
    * 2
@@ -88,7 +88,7 @@ export class DescribeDBInstancesByExpireTimeResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -96,7 +96,7 @@ export class DescribeDBInstancesByExpireTimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of records.
    * 
    * @example
    * 200

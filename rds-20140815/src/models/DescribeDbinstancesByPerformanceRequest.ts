@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesByPerformanceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag 1 that is added to the instances.
+   * Queries instances that are bound to the tag Tag.1.key.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class DescribeDBInstancesByPerformanceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag 1 that is added to the instances.
+   * Queries instances that are bound to the tag Tag.1.value.
    * 
    * @example
    * value1
@@ -46,7 +46,7 @@ export class DescribeDBInstancesByPerformanceRequest extends $dara.Model {
   tag?: DescribeDBInstancesByPerformanceRequestTag[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxx
@@ -54,7 +54,7 @@ export class DescribeDBInstancesByPerformanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-uf6wjk5xxxxxx
@@ -64,7 +64,7 @@ export class DescribeDBInstancesByPerformanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Valid values: any non-zero positive integer.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -74,7 +74,7 @@ export class DescribeDBInstancesByPerformanceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **5** to **100**.
+   * The number of entries per page. Valid values: **5** to **100**.
    * 
    * Default value: **30**.
    * 
@@ -84,7 +84,7 @@ export class DescribeDBInstancesByPerformanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the available regions.
    * 
    * @example
    * cn-hangzhou
@@ -92,7 +92,7 @@ export class DescribeDBInstancesByPerformanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy*****
@@ -102,7 +102,7 @@ export class DescribeDBInstancesByPerformanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The sorting basis.
+   * The sorting criterion.
    * 
    * @example
    * CPU_Usage
@@ -118,7 +118,7 @@ export class DescribeDBInstancesByPerformanceRequest extends $dara.Model {
   sortMethod?: string;
   /**
    * @remarks
-   * The tags that are added to the instances. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. Format: `{"key1":"value1"}`.
+   * The tags that are bound to the instances you want to query. The tags include TagKey and TagValue. Format: `{"key1":"value1"}`.
    * 
    * @example
    * {"key1":"value1"}

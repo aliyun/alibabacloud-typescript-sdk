@@ -6,11 +6,10 @@ export class CreateTempDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The backup set ID. You can call the DescribeBackups operation to query the backup set ID.
-   * 
-   * >  You must specify at least one of **BackupId** and **RestoreTime** parameters.
+   * >You must specify at least one of **BackupId** and **RestoreTime**.
    * 
    * @example
-   * 603******
+   * 1883****
    */
   backupId?: number;
   /**
@@ -20,7 +19,7 @@ export class CreateTempDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5******
+   * rm-bp13****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
@@ -30,20 +29,20 @@ export class CreateTempDBInstanceRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The specified point in time within the backup retention period. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * A point in time within the backup retention period. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
-   * > *   The time can be set to a point in time within the last seven days and must be more than 30 minutes earlier than the current time. The default time zone is UTC.
-   * > *   You must specify at least one of the **BackupId** and **RestoreTime** parameters.
+   * > * You can specify any point in time within the last 7 days that is at least 30 minutes earlier than the current time. The default time zone is UTC.
+   * > * You must specify at least one of **BackupId** and **RestoreTime**.
    * 
    * @example
-   * 2011-06-11T16:00:00Z
+   * 2023-06-11T16:00:00Z
    */
   restoreTime?: string;
   static names(): { [key: string]: string } {

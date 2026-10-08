@@ -8,7 +8,7 @@ export class ModifyRCDiskSpecResponseBody extends $dara.Model {
    * The order ID.
    * 
    * @example
-   * 245053924720608
+   * 24505392472****
    */
   orderId?: number;
   /**

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserBackupFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deleted full backup file.
+   * The ID of the deleted user backup.
    * 
    * @example
-   * b-w1haya7e4i25********
+   * b-w1haya7e4i25****
    */
   backupId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F28AE40B-203B-4CFE-B81F-FD981CD97B17

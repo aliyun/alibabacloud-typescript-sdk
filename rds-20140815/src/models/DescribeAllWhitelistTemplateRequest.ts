@@ -7,8 +7,8 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable fuzzy search. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   fuzzySearch?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page. Enumerated valid values: 10, 30, and 50.
+   * The number of records per page. Valid values: 10, 30, and 50.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   pageNumbers?: number;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the available regions.
    * 
    * @example
    * cn-hangzhou
@@ -44,17 +44,17 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. For more information about resource groups, see related documentation.
+   * The resource group ID. For more information about resource groups, see What is a resource group.
    * 
    * @example
-   * rg-acfmyhigxskzysy
+   * rg-acfmyhigx******
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the IP whitelist template. If you specify this parameter when you perform a fuzzy search, you can call the DescribeWhitelistTemplate operation to query the name of the whitelist template during the fuzzy search.
+   * The name of the whitelist template. Specify this parameter for fuzzy search. Fuzzy match is supported for template names. You can call the DescribeWhitelistTemplate operation to obtain the template name.
    * 
    * @example
    * template

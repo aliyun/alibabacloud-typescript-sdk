@@ -69,12 +69,12 @@ export class DescribeModifyParameterLogResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine type.
    * 
    * @example
    * mysql
@@ -82,7 +82,7 @@ export class DescribeModifyParameterLogResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * The database engine version.
    * 
    * @example
    * 5.6
@@ -115,7 +115,7 @@ export class DescribeModifyParameterLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of log records.
    * 
    * @example
    * 1

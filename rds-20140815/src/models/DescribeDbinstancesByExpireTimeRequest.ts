@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of remaining days for which the instances are available. Valid values: **0 to 180**.
+   * The remaining available days of the instance. Valid values: **0** to **180**.
    * 
    * @example
    * 180
@@ -13,10 +13,10 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   expirePeriod?: number;
   /**
    * @remarks
-   * Specifies whether to query instances that have expired. Valid values:
+   * The expiration status of the instance. Valid values:
    * 
-   * *   **True**: queries instances that have expired.
-   * *   **False**: does not query instances that have expired.
+   * - **True**: The instance has expired.
+   * - **False**: The instance has not expired.
    * 
    * @example
    * True
@@ -26,7 +26,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Valid values: any **non-zero** positive integer.
+   * The page number. The value must be greater than **0** and must not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -36,7 +36,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1 to 100**.
+   * The number of entries per page. Valid values: **1** to **100**.
    * 
    * Default value: **30**.
    * 
@@ -46,7 +46,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to obtain the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -54,7 +54,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the resource group ID.
+   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
    * 
    * @example
    * rg-acfmy****
@@ -64,7 +64,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tag that is added to the instance. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. You can specify a maximum of five tags in the following format for each request: `{"key1":"value1","key2":"value2"...}`.
+   * The tags that are bound to the instance, including TagKey and TagValue. You can specify up to 5 tag pairs at a time. Format: `{"key1":"value1","key2":"value2"...}`.
    * 
    * @example
    * {"key1":"value1"}
@@ -75,7 +75,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
    * A deprecated parameter. You do not need to configure this parameter.
    * 
    * @example
-   * None
+   * API
    */
   proxyId?: string;
   static names(): { [key: string]: string } {

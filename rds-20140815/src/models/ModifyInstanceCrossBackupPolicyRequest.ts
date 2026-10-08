@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceCrossBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the cross-region backup feature on the instance. This parameter specifies whether you can back up data and logs. Valid values:
+   * Specifies whether to enable the cross-region backup feature, which includes data backup and log backup. Valid values:
+   * * **0**: Disabled.
+   * * **1**: Enabled.
    * 
-   * *   **0**: disables the feature.
-   * *   **1:** enables the feature.
-   * 
-   * > Before you enable the cross-region backup feature, you must configure the CrossBackupRegion parameter.
+   * >When you enable the cross-region backup feature, you must specify the destination region ID.
    * 
    * @example
    * 1
@@ -18,7 +17,7 @@ export class ModifyInstanceCrossBackupPolicyRequest extends $dara.Model {
   backupEnabled?: string;
   /**
    * @remarks
-   * The ID of the region in which the cross-region backup files of the instance are stored.
+   * The ID of the destination region for cross-region backup.
    * 
    * @example
    * cn-shanghai
@@ -26,7 +25,7 @@ export class ModifyInstanceCrossBackupPolicyRequest extends $dara.Model {
   crossBackupRegion?: string;
   /**
    * @remarks
-   * The policy that is used to save the cross-region backup files of the instance. Set the value to **1**. The value 1 specifies that all cross-region backup files are saved.
+   * The type of cross-region backup retention. The only valid value is **1**, which indicates that all backups are retained.
    * 
    * @example
    * 1
@@ -39,17 +38,16 @@ export class ModifyInstanceCrossBackupPolicyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the cross-region log backup feature on the instance. Valid values:
+   * Specifies whether to enable cross-region log backup. Valid values:
+   * * **0**: Disabled.
+   * * **1**: Enabled.
    * 
-   * *   **0**: disables the feature.
-   * *   **1:** enables the feature.
-   * 
-   * > You can enable the cross-region log backup feature only when the cross-region backup feature is enabled.
+   * >You can enable cross-region log backup only when the cross-region backup feature is enabled.
    * 
    * @example
    * 1
@@ -58,7 +56,7 @@ export class ModifyInstanceCrossBackupPolicyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the source instance. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID of the source instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -70,7 +68,7 @@ export class ModifyInstanceCrossBackupPolicyRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The policy that is used to retain the cross-region backup files of the instance. Set the value to 1. The value **1** specifies that the cross-region backup files of the instance are retained based on the specified retention period.
+   * The cross-region backup retention method. The only valid value is **1**, which indicates retention by duration.
    * 
    * @example
    * 1
@@ -78,7 +76,7 @@ export class ModifyInstanceCrossBackupPolicyRequest extends $dara.Model {
   retentType?: number;
   /**
    * @remarks
-   * The number of days for which the cross-region backup files of the instance are retained. Valid values: **7 to 1825**.
+   * The number of days for which cross-region backups are retained. Valid values: **7 to 1825**.
    * 
    * @example
    * 7

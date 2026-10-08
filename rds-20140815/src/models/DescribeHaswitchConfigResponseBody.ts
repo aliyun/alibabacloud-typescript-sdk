@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHASwitchConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the automatic primary/secondary switchover feature. Valid values:
-   * 
-   * *   **Auto:** The automatic primary/secondary switchover feature is enabled. The system automatically switches your workloads over from the instance to its secondary instance in the event of a fault.
-   * *   **Manual:** The automatic primary/secondary switchover feature is temporarily disabled.
+   * The automatic primary/secondary switchover setting. Valid values:
+   * * **Auto**: The system automatically switches over between the primary and secondary instances upon a fault.
+   * * **Manual**: Automatic switchover has been temporarily disabled.
    * 
    * @example
    * Manual
@@ -16,7 +15,7 @@ export class DescribeHASwitchConfigResponseBody extends $dara.Model {
   HAConfig?: string;
   /**
    * @remarks
-   * The time when the automatic primary/secondary switchover feature is enabled again. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The deadline for the temporary disabling of automatic switchover. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2019-08-29T15:00:00Z
@@ -24,7 +23,7 @@ export class DescribeHASwitchConfigResponseBody extends $dara.Model {
   manualHATime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4FDF4B79-2741-4C5F-8C76-4B953FC5C2B1

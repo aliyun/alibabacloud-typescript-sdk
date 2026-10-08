@@ -90,7 +90,7 @@ export class DescribeTagsResponseBody extends $dara.Model {
   items?: DescribeTagsResponseBodyItems;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of records per page.
    * 
    * @example
    * 30
@@ -31,7 +31,7 @@ export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The task ID. You must set this parameter to the ID of the task that you create by calling the **CreateReplicationLink** operation for the disaster recovery instance.
+   * The task ID. The task ID returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
    * 
    * @example
    * 8413252
@@ -39,7 +39,7 @@ export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The task name. You must set this parameter to the name of the task that you create by calling the **CreateReplicationLink** operation for the disaster recovery instance.
+   * The task name. The task name returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
    * 
    * @example
    * test01
@@ -47,15 +47,9 @@ export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
-   * 
-   * *   **create**: creates a synchronization link.
-   * *   **create-dryrun**: performs a precheck before a synchronization link is created.
-   * 
-   * Valid values:
-   * 
-   * *   create: creates a replication link.
-   * *   create-dryrun: performs a precheck before a replication link is created.
+   * The task type. Valid values:
+   * - **create**: Create a replication link.
+   * - **create-dryrun**: Dry run for creating a replication link.
    * 
    * This parameter is required.
    * 

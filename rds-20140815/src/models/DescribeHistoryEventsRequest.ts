@@ -5,15 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource status. Valid values: **importing**, failed, checksuccess, and deleted.
+   * The event status. Valid values:
+   * - **Archived**: archived.
+   * - **UnArchived**: not archived.
+   * - **All**: all.
    * 
    * @example
-   * deleted
+   * All
    */
   archiveStatus?: string;
   /**
    * @remarks
-   * The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
+   * The system event categorization. Valid values:
+   * - **Exception**: abnormal event.
+   * - **Optimize**: optimization events.
+   * - **Notification**: notification event.
+   * - **Maintenance**: scheduled maintenance event.
    * 
    * @example
    * Exception
@@ -29,44 +36,44 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The event level. Valid values: ***high***, **medium**, and **low**.
+   * The event level. Valid values:
+   * - **INFO**: notification.
+   * - **WARN**: warning.
+   * - **CRITICAL**: critical.
    * 
    * @example
-   * high
+   * INFO
    */
   eventLevel?: string;
   /**
    * @remarks
-   * The status of the exception. Valid values:
-   * 
-   * *   1: pending
-   * *   2: ignored
-   * *   4: confirmed
-   * *   8: marked as false positive
-   * *   16: handling
-   * *   32: handled
-   * *   64: expired
+   * The event status. Valid values:
+   * - **Inquiring**: inquiring.
+   * - **Scheduled**: scheduled.
+   * - **Running**: running.
+   * - **Succeed**: completed.
+   * - **Failed**: failed.
+   * - **Canceled**: canceled.
+   * > To query multiple statuses, separate them with commas (,).
    * 
    * @example
-   * 1
+   * Scheduled
    */
   eventStatus?: string;
   /**
    * @remarks
-   * The system event type. This parameter takes effect only when InstanceEventType.N is not specified. Valid values:
-   * 
-   * *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
-   * *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
-   * *   SystemFailure.Reboot: The instance is restarted due to a system error.
-   * *   SystemFailure.Redeploy: The instance is redeployed due to a system error.
-   * *   SystemFailure.Delete: The instance is released due to an instance creation failure.
-   * *   InstanceFailure.Reboot: The instance is restarted due to an instance error.
-   * *   InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
-   * *   InstanceExpiration.Delete: The subscription instance is released due to expiration.
-   * *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
-   * *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
-   * 
-   * >  For more information, see Overview. The values of this parameter are applicable only to instance system events, but not to disk system events.
+   * The system event type. This parameter takes effect only when InstanceEventType.N is not specified. Valid values: 
+   * - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
+   * - **SystemMaintenance.Redeploy**: The instance is redeployed due to system maintenance.
+   * - **SystemFailure.Reboot**: The instance is restarted due to a system error.
+   * - **SystemFailure.Redeploy**: The instance is redeployed due to a system error.
+   * - **SystemFailure.Delete**: The instance is released due to an instance creation failure.
+   * - **InstanceFailure.Reboot**: The instance is restarted due to an instance error.
+   * - **InstanceExpiration.Stop**: The instance is stopped due to subscription expiration.
+   * - **InstanceExpiration.Delete**: The instance is released due to subscription expiration.
+   * - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
+   * - **AccountUnbalanced.Delete**: The pay-as-you-go instance is released due to an overdue payment.
+   * > The value of this parameter can only be an instance system event, not a cloud disk system event.
    * 
    * @example
    * SystemFailure.Reboot
@@ -74,7 +81,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Only tasks that have a start time later than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The start time can be up to 30 days earlier than the current time. If you set this parameter to a time more than 30 days earlier than the current time, this time is automatically converted to a time that is exactly 30 days earlier than the current time.
+   * The beginning of the time range for the task start time. Tasks whose start time is later than this time are queried. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in `UTC +0`. The earliest supported time is 30 days before the current time. If the specified time is more than 30 days before the current time, it is automatically converted to 30 days before the current time.
    * 
    * This parameter is required.
    * 
@@ -84,7 +91,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   fromStartTime?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ApsaraDB RDS instance ID.
    * 
    * @example
    * rm-uf62br2491p5l****
@@ -92,7 +99,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the integer type. Default value: **1**.
    * 
    * @example
    * 1
@@ -100,7 +107,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 30.
+   * The number of entries per page. Default value: **30**.
    * 
    * @example
    * 10
@@ -108,7 +115,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to query the most recent region list.
    * 
    * @example
    * cn-beijing
@@ -124,16 +131,20 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type. Set the value to **INSTANCE**.
+   * The resource type. Valid values:
+   * - **Instance**: instance resource.
+   * - **Host**: host resource.
+   * - **User**: user resource.
+   * > If this parameter is not specified, all resource types are queried.
    * 
    * @example
-   * INSTANCE
+   * Instance
    */
   resourceType?: string;
   securityToken?: string;
   /**
    * @remarks
-   * The task ID. This value is used to query the data of a specific task.
+   * The task ID. Specify this parameter to retrieve data for a specific task.
    * 
    * @example
    * 241535739
@@ -141,7 +152,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range for the task start time. Tasks whose start time is earlier than this time are queried. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in `UTC +0`.
    * 
    * This parameter is required.
    * 

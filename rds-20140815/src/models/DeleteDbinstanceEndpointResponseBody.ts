@@ -13,7 +13,7 @@ export class DeleteDBInstanceEndpointResponseBodyData extends $dara.Model {
   DBInstanceEndpointId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-****
@@ -45,12 +45,12 @@ export class DeleteDBInstanceEndpointResponseBodyData extends $dara.Model {
 export class DeleteDBInstanceEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DeleteDBInstanceEndpointResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 224DB9F7-3100-4899-AB9C-C938BCCB43E7

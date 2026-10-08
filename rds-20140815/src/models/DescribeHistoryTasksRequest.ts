@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The minimum execution duration of the task. This parameter is used to filter tasks whose execution duration is longer than the minimum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
+   * The minimum execution duration used to filter tasks. Only tasks whose execution duration is greater than this value are returned. Unit: seconds. Default value: 0, which indicates no restriction.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   fromExecTime?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Only tasks that have a start time later than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The start time can be up to 30 days earlier than the current time. If you set this parameter to a time more than 30 days earlier than the current time, the specified time is automatically converted to a time that is exactly 30 days earlier than the current time.
+   * The beginning of the time range to query based on task start time. Only tasks that started after this time are returned. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0. The earliest supported time is 30 days before the current time. If a time earlier than 30 days is specified, it is automatically converted to 30 days before the current time.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   fromStartTime?: string;
   /**
    * @remarks
-   * The instance ID. Separate multiple instance IDs with commas (,). You can specify up to 30 instance IDs. This parameter is empty by default, which indicates that you can specify an unlimited number of instance IDs.
+   * The instance ID. Separate multiple instance IDs with commas (,). A maximum of 30 instance IDs are supported. Default value: empty, which indicates no restriction.
    * 
    * @example
    * rm-uf62br2491p5l****
@@ -31,7 +31,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Only Instance is supported.
+   * Currently, only Instance is supported.
    * 
    * @example
    * Instance
@@ -40,7 +40,8 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. Valid values: positive integers.
+   * Default value: **1**.
    * 
    * @example
    * 1
@@ -64,10 +65,10 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
-   * rg-aekzbvctytru7ua
+   * rg-ae****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -76,16 +77,15 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
+   * - **Scheduled**: Waiting to be executed.
+   * - **Running**: Running.
+   * - **Succeed**: Succeeded.
+   * - **Failed**: Failed.
+   * - **Cancelling**: Being terminated.
+   * - **Canceled**: Terminated.
+   * - **Waiting**: Waiting for the scheduled time.
    * 
-   * *   **Scheduled**
-   * *   **Running**
-   * *   **Succeed**
-   * *   **Failed**
-   * *   **Cancelling**
-   * *   **Canceled**
-   * *   **Waiting**
-   * 
-   * Separate multiple values with commas (,). By default, this parameter is left empty, which indicates that tasks in all statuses are queried.
+   * To query multiple statuses, separate them with commas (,). Default value: empty, which indicates all statuses.
    * 
    * @example
    * Scheduled
@@ -93,7 +93,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID. You can call the DescribeTasks operation to query the task ID. If multiple task IDs exist, separate them with commas (,). You can specify up to 30 task IDs. By default, this parameter is left empty, which indicates that all tasks are queried.
+   * The task ID. You can call the DescribeTasks operation to obtain the task ID. Separate multiple task IDs with commas (,). A maximum of 30 task IDs are supported. Default value: empty, which indicates no restriction.
    * 
    * @example
    * t-83br18hloy3faf****
@@ -101,7 +101,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task type. Separate multiple task types with commas (,). You can specify up to 30 task types. This parameter is empty by default, which indicates that you can specify an unlimited number of task types.
+   * The task type. Separate multiple task types with commas (,). A maximum of 30 task types are supported. Default value: empty, which indicates no restriction.
    * 
    * @example
    * autotest_dispatch_cases
@@ -109,7 +109,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The maximum execution duration of a task. This parameter is used to filter tasks whose execution duration is shorter than or equal to the maximum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
+   * The maximum execution duration used to filter tasks. Only tasks whose execution duration is not less than this value are returned. Unit: seconds. Default value: 0, which indicates no restriction.
    * 
    * @example
    * 0
@@ -117,7 +117,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   toExecTime?: number;
   /**
    * @remarks
-   * The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range to query based on task start time. Only tasks that started before this time are returned. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * This parameter is required.
    * 

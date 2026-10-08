@@ -13,7 +13,7 @@ export class ModifyDBInstanceEndpointAddressResponseBodyData extends $dara.Model
   DBInstanceEndpointId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-****
@@ -45,12 +45,12 @@ export class ModifyDBInstanceEndpointAddressResponseBodyData extends $dara.Model
 export class ModifyDBInstanceEndpointAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned fields.
    */
   data?: ModifyDBInstanceEndpointAddressResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90496720-2319-42A8-87CD-FCE4DF95EBED

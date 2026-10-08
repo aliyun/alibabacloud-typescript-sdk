@@ -6,26 +6,41 @@ export class DescribeVpcsRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The cloud product type.
+   * 
    * @example
    * rds
    */
   product?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfmxxtz*****
    */
@@ -34,11 +49,17 @@ export class DescribeVpcsRequest extends $dara.Model {
   resourceOwnerId?: number;
   securityToken?: string;
   /**
+   * @remarks
+   * The ID of the VPC. Specify this parameter to query a specific VPC.
+   * 
    * @example
    * vpc-bp1bva4qkmvqt******
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-beijing-g
    */

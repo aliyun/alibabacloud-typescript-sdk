@@ -13,7 +13,7 @@ export class UpdatePostgresExtensionsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdatePostgresExtensionsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database name. You can call the DescribeDatabases operation to obtain the database name.
+   * The database name of the instance. You can call DescribeDatabases to query the database name.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdatePostgresExtensionsRequest extends $dara.Model {
   DBNames?: string;
   /**
    * @remarks
-   * The name of the extension. Separate multiple extensions with commas (,).
+   * The extension name. Separate multiple extensions with commas (,).
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class UpdatePostgresExtensionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy****

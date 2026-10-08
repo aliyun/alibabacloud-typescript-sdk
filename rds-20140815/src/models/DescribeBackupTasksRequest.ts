@@ -5,20 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup task.
+   * The backup task ID.
    * 
    * @example
-   * 4762614
+   * 476****
    */
   backupJobId?: number;
   /**
    * @remarks
-   * The status of the backup task. Valid values:
+   * The backup task status. Valid values:
+   * * **NoStart**: not started
+   * * **Progressing**: in progress
    * 
-   * *   **NoStart**
-   * *   **Progressing**
-   * 
-   * By default, this operation returns backup tasks in both states.
+   * Default value: all statuses.
    * 
    * @example
    * NoStart
@@ -27,9 +26,8 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values:
-   * 
-   * *   **Automated**
-   * *   **Manual**
+   * * **Automated**: automatic backup
+   * * **Manual**: manual backup
    * 
    * @example
    * Automated
@@ -37,20 +35,20 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * Specifies the client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**

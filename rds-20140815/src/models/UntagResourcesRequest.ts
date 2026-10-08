@@ -5,14 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete all tags of the instance. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Specifies whether to unbind all tags from the instance. Valid values:
+   * * **true**
+   * * **false**
    * 
    * Default value: **false**.
-   * 
-   * > This parameter is valid if parameters that contain **TagKey.N** are not specified.
+   * > This parameter takes effect only when **TagKey.N** is not specified.
    * 
    * @example
    * false
@@ -21,7 +19,7 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -31,7 +29,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The instance ID. You can remove tags from N instances at a time. Valid values of N: **1** to **50**.
+   * The list of instance IDs. You can unbind tags from up to N instances at a time. Valid values of N: **1** to **50**.
    * 
    * This parameter is required.
    * 
@@ -43,7 +41,13 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to **INSTANCE**.
+   * The resource type. Valid values:
+   * 
+   * - **INSTANCE**: regular ApsaraDB RDS instance.
+   * - **CUSTOM**: RDS Custom instance.
+   * - **CUSTOMDEPLOYMENTSET**: RDS Custom deployment set.
+   * - **CUSTOMDISK**: RDS Custom cloud disk.
+   * - **CUSTOMSNAPSHOT**: RDS Custom snapshot.
    * 
    * This parameter is required.
    * 
@@ -53,7 +57,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys. You can delete N tag keys at a time. Valid values of N: **1** to **20**. The value of this parameter cannot be an empty string.
+   * The list of tag keys. You can remove up to N tag keys at a time. Valid values of N: **1** to **20**. Empty strings are not allowed.
    * 
    * @example
    * testkey1

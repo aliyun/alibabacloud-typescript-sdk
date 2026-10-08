@@ -15,10 +15,10 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
   availableIpAddressCount?: string;
   /**
    * @remarks
-   * The CIDR block of the vSwitch.
+   * The vSwitch CIDR block.
    * 
    * @example
-   * 172.16.0.0/24
+   * 172.16.XX.XX/24
    */
   cidrBlock?: string;
   /**
@@ -31,10 +31,10 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the vSwitch is the default vSwitch. Valid values:
+   * Indicates whether the vSwitch is the default vSwitch.
    * 
-   * *   **true**
-   * *   **false**
+   * * **true**: The vSwitch is the default vSwitch.
+   * * **false**: The vSwitch is not the default vSwitch.
    * 
    * @example
    * true
@@ -45,15 +45,15 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
    * The ID of the zone to which the vSwitch belongs.
    * 
    * @example
-   * cn-hangzhou-h
+   * cn-hangzhou-j
    */
   izNo?: string;
   /**
    * @remarks
    * The status of the vSwitch. Valid values:
    * 
-   * *   **Pending**: The vSwitch is being specified.
-   * *   **Available**: The vSwitch is available.
+   * * **Pending**: The vSwitch is being configured.
+   * * **Available**: The vSwitch is available.
    * 
    * @example
    * Available
@@ -64,7 +64,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
    * The vSwitch ID.
    * 
    * @example
-   * vsw-bp1pnaz94xc**********
+   * vsw-bp1pnaz94xc****
    */
   vSwitchId?: string;
   /**
@@ -113,7 +113,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
 export class DescribeVSwitchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page. The value of this parameter is the same as the value of the **PageSize** parameter in the request parameters.
+   * The number of entries per page. This value corresponds to the value specified for the **PageSize** request parameter.
    * 
    * @example
    * 30
@@ -137,7 +137,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries returned.
    * 
    * @example
    * 2
@@ -145,7 +145,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Details of the vSwitches.
+   * The list of vSwitch information.
    */
   vSwitchs?: DescribeVSwitchesResponseBodyVSwitchs[];
   static names(): { [key: string]: string } {

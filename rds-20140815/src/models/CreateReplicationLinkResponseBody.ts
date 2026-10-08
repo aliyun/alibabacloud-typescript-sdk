@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateReplicationLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DR instance.
+   * The instance ID of the disaster recovery instance.
    * 
    * @example
-   * pgm-****.pg.rds.aliyuncs.com
+   * PostgreSQL：pgm-****.pg.rds.aliyuncs.com
+   * SQL Server：92****
    */
   DBInstanceId?: string;
   /**
@@ -16,7 +17,7 @@ export class CreateReplicationLinkResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
+   * 442FC501-C4DD-1349-B70A-DE13D189072E
    */
   requestId?: string;
   /**
@@ -24,7 +25,7 @@ export class CreateReplicationLinkResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 564532302
+   * 159****
    */
   taskId?: number;
   /**
@@ -32,7 +33,7 @@ export class CreateReplicationLinkResponseBody extends $dara.Model {
    * The task name.
    * 
    * @example
-   * test01
+   * zbtest
    */
   taskName?: string;
   static names(): { [key: string]: string } {

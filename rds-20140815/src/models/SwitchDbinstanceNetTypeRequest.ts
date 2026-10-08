@@ -8,27 +8,26 @@ export class SwitchDBInstanceNetTypeRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The prefix of the custom endpoint. The prefix must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter. A valid endpoint is in the following format: Prefix.Database engine.rds.aliyuncs.com. Example: test1234.mysql.rds.aliyuncs.com.
+   * The prefix of the custom endpoint. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix must be 8 to 64 characters in length. The complete endpoint is in the format of prefix.engine.rds.aliyuncs.com. Example: test1234.mysql.rds.aliyuncs.com.
    * 
    * This parameter is required.
    * 
    * @example
-   * new**********
+   * new****
    */
   connectionStringPrefix?: string;
   /**
    * @remarks
    * The type of the endpoint. Valid values:
+   * * **Normal**: standard endpoint.
+   * * **ReadWriteSplitting**: read/write splitting connection.
    * 
-   * *   **Normal**
-   * *   **ReadWriteSplitting**
-   * 
-   * By default, the system returns both types of endpoints.
+   * By default, all endpoints are returned.
    * 
    * @example
    * Normal
@@ -36,19 +35,19 @@ export class SwitchDBInstanceNetTypeRequest extends $dara.Model {
   connectionStringType?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-bp1**************
+   * rm-bp1****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The number of the port that is used to connect to the instance. Valid values: **3001 to 3999**.
+   * The port number. Valid values: **3001 to 3999**.
    * 
    * @example
    * 3306

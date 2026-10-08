@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyComputeBurstConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is set to **disabled** if the assured serverless feature is disabled.
+   * Set this parameter to **disabled** to disable the committed serverless feature.
    * 
    * @example
    * disabled
@@ -13,7 +13,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   burstStatus?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of requests and prevent repeated requests from being submitted. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCziJZNwH****
@@ -21,7 +21,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The CPU utilization threshold for **scale-out**. Valid values: 60 to 90. Unit: %.
+   * The CPU utilization threshold for elastic **scale-out**. Valid values: 60 to 90. Unit: %.
    * 
    * @example
    * 80
@@ -29,7 +29,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   cpuEnlargeThreshold?: string;
   /**
    * @remarks
-   * The CPU utilization threshold for **scale-in**. Valid values: 30 to 55. Unit: %.
+   * The CPU utilization threshold for elastic **scale-in**. Valid values: 30 to 55. Unit: %.
    * 
    * @example
    * 50
@@ -37,7 +37,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   cpuShrinkThreshold?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * A reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -55,7 +55,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The memory usage threshold for **scale-out**. Valid values: 60 to 90. Unit: %.
+   * The memory utilization threshold for elastic **scale-out**. Valid values: 60 to 90. Unit: %.
    * 
    * @example
    * 80
@@ -63,7 +63,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   memoryEnlargeThreshold?: string;
   /**
    * @remarks
-   * The memory usage threshold for **scale-in**. Valid values: 30 to 55. Unit: %.
+   * The memory utilization threshold for elastic **scale-in**. Valid values: 30 to 55. Unit: %.
    * 
    * @example
    * 50
@@ -82,7 +82,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The maximum number of CPU cores for elastic scaling. The maximum value cannot exceed twice the initial CPU configuration.
+   * The maximum number of CPUs for elastic scale-out. The value can be up to twice the initial CPU configuration of the instance.
    * 
    * @example
    * 2
@@ -90,17 +90,18 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   scaleMaxCpus?: string;
   /**
    * @remarks
-   * The maximum memory for elastic scaling. The value cannot exceed twice the instance\\"s initial memory size. Unit: GB. Step size: 2 GB.
+   * The maximum memory for elastic scale-out. The value can be up to twice the initial memory configuration of the instance. Unit: GB. The value is adjusted in increments of 2 GB.
    * 
    * @example
    * 4
    */
   scaleMaxMemory?: string;
+  scaleMaxRcu?: number;
+  scaleMinRcu?: number;
   /**
    * @remarks
-   * The time when the specified entry takes effect. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
-   * 
-   * >  This parameter is required only if **SwitchTimeMode** is set to **2**.
+   * The specified time at which the modification takes effect. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC).
+   * > This parameter is required when **SwitchTimeMode** is set to **2**.
    * 
    * @example
    * 2025-05-06T09:24:00Z
@@ -109,10 +110,9 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The effective policy. Valid values:
-   * 
-   * *   **0**: Immediately takes effect.
-   * *   **1**: Takes effect within the maintenance window. You can call the **ModifyDBInstanceMaintainTime** operation to change the maintenance window of an instance.
-   * *   **2**: Takes effect at a specified point in time.
+   * - **0**: The modification takes effect immediately.
+   * - **1**: The modification takes effect during the maintenance window. You can call the **ModifyDBInstanceMaintainTime** operation to modify the maintenance window.
+   * - **2**: The modification takes effect at a specified point in time.
    * 
    * @example
    * Immediate
@@ -120,7 +120,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   switchTimeMode?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * A reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -142,6 +142,8 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       scaleMaxCpus: 'ScaleMaxCpus',
       scaleMaxMemory: 'ScaleMaxMemory',
+      scaleMaxRcu: 'ScaleMaxRcu',
+      scaleMinRcu: 'ScaleMinRcu',
       switchTime: 'SwitchTime',
       switchTimeMode: 'SwitchTimeMode',
       taskId: 'TaskId',
@@ -164,6 +166,8 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       scaleMaxCpus: 'string',
       scaleMaxMemory: 'string',
+      scaleMaxRcu: 'number',
+      scaleMinRcu: 'number',
       switchTime: 'string',
       switchTimeMode: 'string',
       taskId: 'string',

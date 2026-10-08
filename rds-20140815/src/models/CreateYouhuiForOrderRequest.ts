@@ -5,28 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class CreateYouhuiForOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The activity ID.
+   * The ID of the ticket that was created.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1711510887******
+   * 171151088708****
    */
   activityId?: number;
   ownerId?: string;
   /**
    * @remarks
-   * The promotion ID. You can call the GetResourcePrice operation to query the promotion ID.
+   * The promotion ID. You can call the GetResourcePrice operation to obtain this value.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2000001******
+   * 200000199****
    */
   promotionId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query available region IDs.
    * 
    * This parameter is required.
    * 

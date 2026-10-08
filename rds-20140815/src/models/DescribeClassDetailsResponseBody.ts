@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClassDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The RDS edition of the instance. Valid values:
-   * 
-   * *   **Basic**: RDS Basic Edition
-   * *   **HighAvailability**: RDS High-availability Edition
-   * *   **AlwaysOn**: RDS Cluster Edition
-   * *   **Finance**: RDS Enterprise Edition
+   * The edition. Valid values:
+   * * **Basic**: Basic Edition
+   * * **HighAvailability**: High-availability Edition
+   * * **AlwaysOn**: Cluster Edition
+   * * **Finance**: RDS Enterprise Edition
    * 
    * @example
    * Basic
@@ -18,7 +17,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The code of the instance type.
+   * The instance type code.
    * 
    * @example
    * mysql.n2.medium.1
@@ -26,7 +25,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The instance family of the instance.
+   * The instance family.
    * 
    * @example
    * x
@@ -34,7 +33,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   classGroup?: string;
   /**
    * @remarks
-   * The number of CPU cores that are supported by the instance type. Unit: cores.
+   * The number of CPU cores for the instance type. Unit: cores.
    * 
    * @example
    * 4
@@ -42,13 +41,12 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
-   * 
-   * *   **local_ssd**: local SSDs
-   * *   **cloud_ssd**: standard SSDs
-   * *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
-   * *   **cloud_essd2**: ESSDs of PL2
-   * *   **cloud_essd3**: ESSD of PL3
+   * The storage type. Valid values:
+   * * **local_ssd**: local SSD
+   * * **cloud_ssd**: standard SSD
+   * * **cloud_essd**: PL1 ESSD
+   * * **cloud_essd2**: PL2 ESSD
+   * * **cloud_essd3**: PL3 ESSD
    * 
    * @example
    * local_ssd
@@ -56,7 +54,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   DBInstanceStorageType?: string;
   /**
    * @remarks
-   * The architecture of the instance.
+   * The architecture.
    * 
    * @example
    * x86
@@ -72,7 +70,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   maxConnections?: string;
   /**
    * @remarks
-   * The maximum I/O bandwidth that is supported by the instance type. Unit: Mbit/s.
+   * The maximum I/O bandwidth for the instance type. Unit: Mbit/s.
    * 
    * @example
    * 1024
@@ -80,7 +78,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   maxIOMBPS?: string;
   /**
    * @remarks
-   * The maximum input/output operations per second (IOPS) that is supported by the instance type. Unit: operations per second.
+   * The maximum IOPS for the instance type. Unit: operations per second.
    * 
    * @example
    * N/A
@@ -88,7 +86,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   maxIOPS?: string;
   /**
    * @remarks
-   * The memory size. Unit: GB.
+   * The memory capacity. Unit: GB.
    * 
    * @example
    * 2GB
@@ -98,10 +96,11 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
    * @remarks
    * The price.
    * 
-   * Unit: cents (US dollars).
+   * <props="china">Unit: cents (CNY).
+   * <props="intl">Unit: cents (USD).
    * 
-   * > *   If you set the CommodityCode parameter to a value that indicates the pay-as-you-go billing method, the ReferencePrice parameter specifies the hourly fee that you must pay.
-   * > *   If you set the CommodityCode parameter to a value that indicates the subscription billing method, the ReferencePrice parameter specifies the monthly fee that you must pay.
+   * > * If you set the CommodityCode parameter to a pay-as-you-go commodity code, the hourly price is returned.
+   * > * If you set the CommodityCode parameter to a subscription commodity code, the monthly price is returned.
    * 
    * @example
    * 13400

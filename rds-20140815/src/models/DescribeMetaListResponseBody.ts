@@ -63,13 +63,13 @@ export class DescribeMetaListResponseBody extends $dara.Model {
    * The instance name.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceName?: string;
   items?: DescribeMetaListResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 60F9A12A-16B8-4728-B099-4CA38D32C31C
@@ -93,7 +93,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   totalPageCount?: number;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 1

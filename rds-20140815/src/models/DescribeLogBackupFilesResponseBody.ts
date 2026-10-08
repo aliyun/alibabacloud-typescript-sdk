@@ -70,7 +70,7 @@ export class DescribeLogBackupFilesResponseBody extends $dara.Model {
   items?: DescribeLogBackupFilesResponseBodyItems;
   /**
    * @remarks
-   * The page number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -94,7 +94,7 @@ export class DescribeLogBackupFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total size of log files. Unit: bytes.
+   * The total size of all log files. Unit: bytes.
    * 
    * @example
    * 2300

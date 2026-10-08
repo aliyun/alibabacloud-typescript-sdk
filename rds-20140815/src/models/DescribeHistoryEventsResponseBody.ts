@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   /**
    * @remarks
-   * The cloud service type of the application group. Valid values: **web** and native. The value web indicates a web application. The value **native** indicates a local application.
+   * The cloud service type of the application group. Valid values:
+   * - **web**: web application.
+   * - **native**: on-premises application.
    * 
    * @example
    * web
@@ -13,7 +15,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   cmsProduct?: string;
   /**
    * @remarks
-   * The database engine.
+   * The database type.
    * 
    * @example
    * mysql
@@ -29,7 +31,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   detailImpact?: string;
   /**
    * @remarks
-   * The details of the instance operation.
+   * The instance operation details.
    * 
    * @example
    * xxxx
@@ -37,7 +39,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   detailReason?: string;
   /**
    * @remarks
-   * The time when the alert was closed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
+   * The alert end time.
    * 
    * @example
    * 2023-03-06T11:46:01Z
@@ -45,7 +47,11 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
+   * The system event categorization. Valid values:
+   * - **Exception**: abnormal event.
+   * - **Optimize**: optimization events.
+   * - **Notification**: notification event.
+   * - **Maintenance**: scheduled maintenance event.
    * 
    * @example
    * Exception
@@ -77,7 +83,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The event impact.
+   * The event impact overview.
    * 
    * @example
    * xxxxx
@@ -85,15 +91,18 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   eventImpact?: string;
   /**
    * @remarks
-   * The event level. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
+   * The event level. Valid values:
+   * - **INFO**: notification.
+   * - **WARN**: warning.
+   * - **CRITICAL**: critical.
    * 
    * @example
-   * high
+   * INFO
    */
   eventLevel?: string;
   /**
    * @remarks
-   * The event source.
+   * The source of the event operation.
    * 
    * @example
    * xxxxx
@@ -101,15 +110,13 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   eventReason?: string;
   /**
    * @remarks
-   * The status of the alert event. Valid values:
-   * 
-   * *   **1**: pending
-   * *   **2**: ignored
-   * *   **4**: confirmed
-   * *   **8**: marked as false positive
-   * *   **16**: handling
-   * *   **32**: handled
-   * *   **64**: expired
+   * The event status. Valid values:
+   * - **Inquiring**: inquiring.
+   * - **Scheduled**: scheduled.
+   * - **Running**: running.
+   * - **Succeed**: completed.
+   * - **Failed**: failed.
+   * - **Canceled**: canceled.
    * 
    * @example
    * 1
@@ -117,7 +124,17 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   eventStatus?: string;
   /**
    * @remarks
-   * The event type. Valid values:
+   * The system event type. Valid values: 
+   * - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
+   * - **SystemMaintenance.Redeploy**: The instance is redeployed due to system maintenance.
+   * - **SystemFailure.Reboot**: The instance is restarted due to a system error.
+   * - **SystemFailure.Redeploy**: The instance is redeployed due to a system error.
+   * - **SystemFailure.Delete**: The instance is released due to an instance creation failure.
+   * - **InstanceFailure.Reboot**: The instance is restarted due to an instance error.
+   * - **InstanceExpiration.Stop**: The instance is stopped due to subscription expiration.
+   * - **InstanceExpiration.Delete**: The instance is released due to subscription expiration.
+   * - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
+   * - **AccountUnbalanced.Delete**: The pay-as-you-go instance is released due to an overdue payment.
    * 
    * @example
    * StatusNotification
@@ -125,7 +142,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The creation time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
+   * The time when the event was created.
    * 
    * @example
    * 2023-03-17T16:05:40Z
@@ -133,7 +150,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The update time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
+   * The time when the event was last updated.
    * 
    * @example
    * 2022-12-14T09:44:39.000+0000
@@ -173,7 +190,9 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Indicates whether the alert is closed. Valid values: **0**: closed. **1**: not closed.
+   * Indicates whether the event is closed. Valid values:
+   * - **0**: closed.
+   * - **1**: open.
    * 
    * @example
    * 0
@@ -181,7 +200,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   isClosed?: number;
   /**
    * @remarks
-   * The service name.
+   * The product name.
    * 
    * @example
    * rds
@@ -189,7 +208,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID.
    * 
    * @example
    * cn-guangzhou
@@ -197,10 +216,13 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type. The value is fixed as **INSTANCE**.
+   * The resource type. Valid values:
+   * - **Instance**: instance resource.
+   * - **Host**: host resource.
+   * - **User**: user resource.
    * 
    * @example
-   * INSTANCE
+   * Instance
    */
   resourceType?: string;
   /**
@@ -213,7 +235,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The start time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
+   * The start time.
    * 
    * @example
    * 2022-11-29T07:23Z
@@ -221,7 +243,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the resource owner.
+   * The ID of the user who owns the resource.
    * 
    * @example
    * 16986832xxxxx
@@ -303,12 +325,12 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
 export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: DescribeHistoryEventsResponseBodyItemsData;
   /**
    * @remarks
-   * The task ID
+   * The task ID.
    * 
    * @example
    * 4309
@@ -316,7 +338,7 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-beijing
@@ -332,7 +354,7 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The database version.
    * 
    * @example
    * 8.0
@@ -348,7 +370,7 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The amount of time that has elapsed from the start time of the query. Unit: seconds.
+   * The elapsed time of the query task. Unit: seconds.
    * 
    * @example
    * 1675232573125
@@ -356,7 +378,7 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   time?: string;
   /**
    * @remarks
-   * The event type. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
+   * The event type.
    * 
    * @example
    * host
@@ -403,12 +425,12 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
 export class DescribeHistoryEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The events.
+   * The event list.
    */
   items?: DescribeHistoryEventsResponseBodyItems[];
   /**
    * @remarks
-   * The page number. Valid values: any non-zero positive integer. Default value: **1**.
+   * The page number.
    * 
    * @example
    * 1
@@ -416,7 +438,7 @@ export class DescribeHistoryEventsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 30.
+   * The number of entries per page.
    * 
    * @example
    * 30

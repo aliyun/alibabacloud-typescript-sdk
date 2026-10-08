@@ -3,8 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCImageListResponseBodyImagesDiskDeviceMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The device information of the cloud disk, such as `/dev/xvdb`.
+   * 
+   * @example
+   * /dev/xvdb
+   */
   device?: string;
+  /**
+   * @remarks
+   * The size of the cloud disk. Unit: GiB.
+   * 
+   * @example
+   * 40
+   */
   size?: string;
+  /**
+   * @remarks
+   * The type of the cloud disk.
+   * 
+   * - **system**: System cloud disk.
+   * - **data**: Data cloud disk.
+   * 
+   * @example
+   * system
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +58,10 @@ export class DescribeRCImageListResponseBodyImagesDiskDeviceMappings extends $da
 export class DescribeRCImageListResponseBodyImages extends $dara.Model {
   /**
    * @remarks
-   * The image architecture. Valid values:
+   * The system architecture of the image. Valid values:
    * 
-   * *   x86_64
-   * *   arm64
+   * - x86_64.
+   * - arm64.
    * 
    * @example
    * x86_64
@@ -59,6 +83,10 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The mapping between cloud disks and snapshots in the image.
+   */
   diskDeviceMappings?: DescribeRCImageListResponseBodyImagesDiskDeviceMappings[];
   /**
    * @remarks
@@ -86,24 +114,37 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
   imageVersion?: string;
   /**
    * @remarks
-   * Indicates whether the image is a public image. Public images include public images provided by Alibaba Cloud and custom images published as community images.
+   * Indicates whether the image is a public image. Public images include Alibaba Cloud-provided public images and custom images that you have published as community images.
    * 
-   * *   **true**: The image is a public image.
-   * *   **false**: The image is not a public image.
+   * - **true**: The image is a public image.
+   * - **false**: The image is not a public image.
    * 
    * @example
    * false
    */
   isPublic?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the image supports RDS Custom instances. Valid values:
+   * 
+   * - **true**: Supported.
+   * - **false**: Not supported.
+   * 
+   * @example
+   * true
+   */
   isSupportRdsCustom?: boolean;
   /**
    * @remarks
-   * The display name of the operating system in Chinese.
+   * The Chinese display name of the operating system.
+   * 
+   * @example
+   * Alibaba Cloud Linux  2.1903 LTS 64位 快速启动版
    */
   OSName?: string;
   /**
    * @remarks
-   * The display name of the operating system in English.
+   * The English display name of the operating system.
    * 
    * @example
    * Alibaba Cloud Linux  2.1903 LTS 64 bit Quick Boot
@@ -113,17 +154,24 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
    * @remarks
    * The type of the operating system. Valid values:
    * 
-   * *   **windows**
-   * *   **linux**
+   * - **windows**.
+   * - **linux**.
    * 
    * @example
    * linux
    */
   OSType?: string;
+  /**
+   * @remarks
+   * The operating system platform.
+   * 
+   * @example
+   * Aliyun
+   */
   platform?: string;
   /**
    * @remarks
-   * The image size. Unit: GiB.
+   * The size of the image. Unit: GiB.
    * 
    * @example
    * 40
@@ -131,12 +179,12 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The image status. Valid values:
+   * The status of the image. Valid values:
    * 
-   * *   **Unavailable**
-   * *   **Available**
-   * *   **Creating**
-   * *   **CreateFailed**
+   * - **UnAvailable**: Unavailable.
+   * - **Available**: Available.
+   * - **Creating**: Being created.
+   * - **CreateFailed**: Creation failed.
    * 
    * @example
    * Available
@@ -144,10 +192,10 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the image is used by the RDS Custom instance. Valid values:
+   * Indicates whether the image is used by RDS Custom instances. Valid values:
    * 
-   * *   **instance**: The image is used to create one or more RDS Custom instances.
-   * *   **none**: The image is not used to create RDS Custom instances.
+   * - **instance**: One or more RDS Custom instances have been created.
+   * - **none**: No RDS Custom instances have been created.
    * 
    * @example
    * instance
@@ -210,7 +258,7 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
 export class DescribeRCImageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the images.
+   * The image information.
    */
   images?: DescribeRCImageListResponseBodyImages[];
   /**
@@ -223,7 +271,7 @@ export class DescribeRCImageListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 5

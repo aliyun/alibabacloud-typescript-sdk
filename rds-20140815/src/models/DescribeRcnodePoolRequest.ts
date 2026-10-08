@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCNodePoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACK Edge cluster in which the RDS Custom instance resides.
+   * The ID of the RDS Custom container cluster.
    * 
    * @example
    * c463aaa89e2b84cacacfbf23c4867****

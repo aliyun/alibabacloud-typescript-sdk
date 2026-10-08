@@ -5,19 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
-   * 
-   * > The name must be 2 to 64 characters in length.
+   * The name of the ApsaraDB RDS instance.
+   * >The name must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * Instance in Alibaba Cloud test environment
+   * testInstance
    */
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

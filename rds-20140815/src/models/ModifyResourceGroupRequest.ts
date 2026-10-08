@@ -8,29 +8,29 @@ export class ModifyResourceGroupRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-bpxxxxx
+   * rm-bp****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID. You can call the ListResourceGroups operation to obtain the resource group ID.
+   * The resource group ID. You can call ListResourceGroups to query the resource group ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rg-acxxxxx
+   * rg-ac****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -40,7 +40,7 @@ export class ModifyResourceGroupRequest extends $dara.Model {
    * The resource type.
    * 
    * @example
-   * Instance
+   * For example, the default resource type Custom is Instance
    */
   resourceType?: string;
   static names(): { [key: string]: string } {

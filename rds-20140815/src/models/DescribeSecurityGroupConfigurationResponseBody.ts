@@ -66,16 +66,16 @@ export class DescribeSecurityGroupConfigurationResponseBody extends $dara.Model 
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxx
+   * rm-uf6wjk****
    */
   DBInstanceName?: string;
   items?: DescribeSecurityGroupConfigurationResponseBodyItems;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * 87BDAE8C-xxxx-4A26-BBCC-7D1DD31D630D
+   * 87BDAE8C-ACB0-4A26-BBCC-7D1DD31D630D
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBProxyInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyDBProxyInstanceShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A deprecated parameter. You do not need to specify this parameter.
+   * A deprecated parameter. You do not need to configure this parameter.
    * 
    * @example
    * normal
@@ -23,9 +23,8 @@ export class ModifyDBProxyInstanceShrinkRequest extends $dara.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The number of database proxies. If you set this parameter to 0, the database proxy feature is disabled for the instance. Valid values: **1** to **16**.
-   * 
-   * >  The capability of the database proxy feature to process requests increases with the number of database proxies that are enabled. You can monitor the load on the instance and specify an appropriate number of database proxies based on the load monitoring data.
+   * The number of proxy instances. If this parameter is set to 0, the proxy service of this type is disabled for the instance. Valid values: **1** to **16**.
+   * > More proxy instances can handle more requests. You can check the load of proxy instances based on monitoring data and then specify an appropriate number of proxy instances.
    * 
    * This parameter is required.
    * 
@@ -35,29 +34,26 @@ export class ModifyDBProxyInstanceShrinkRequest extends $dara.Model {
   DBProxyInstanceNum?: string;
   /**
    * @remarks
-   * The database proxy type. Valid values:
-   * 
-   * *   **common**: general-purpose database proxy
-   * *   **exclusive** (default): dedicated database proxy
+   * The type of the database proxy instance. Valid values:
+   * - **common**: general-purpose database proxy
+   * - **exclusive**: dedicated database proxy (default)
    * 
    * This parameter is required.
    * 
    * @example
-   * DedicatedProxy
+   * exclusive
    */
   DBProxyInstanceType?: string;
   /**
    * @remarks
-   * List of proxy nodes.
-   * 
-   * > This parameter must be passed when the current proxy instance is deployed in multiple availability zones.
+   * The list of proxy nodes.
+   * > This parameter is required when the current proxy instance uses multi-active zone deployment.
    */
   DBProxyNodesShrink?: string;
   /**
    * @remarks
-   * The point in time that you want to specify. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * >  If the **EffectiveTime** parameter is set to **SpecificTime**, you must specify this parameter.
+   * The specified time for the modification to take effect. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * > This parameter is required when **EffectiveTime** is set to **SpecificTime**.
    * 
    * @example
    * 2019-07-10T13:15:12Z
@@ -65,11 +61,11 @@ export class ModifyDBProxyInstanceShrinkRequest extends $dara.Model {
   effectiveSpecificTime?: string;
   /**
    * @remarks
-   * The effective time. Valid values:
+   * The effective period. Valid values:
    * 
-   * *   **Immediate**: The effective time is immediate.
-   * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * *   **SpecificTime**: The effective time is a specified point in time.
+   * * **Immediate**: The modification takes effect immediately.
+   * * **MaintainTime**: The modification takes effect during the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+   * * **SpecificTime**: The modification takes effect at a specified time.
    * 
    * Default value: **MaintainTime**.
    * 
@@ -79,15 +75,14 @@ export class ModifyDBProxyInstanceShrinkRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The list of available zones for migration agents.
-   * 
-   * > Currently, only RDS MySQL cloud disk version agent instance migration is supported.
+   * The list of active zones for proxy migration.
+   * > Currently, only ApsaraDB RDS for MySQL proxy instances with cloud disks support active zone migration.
    */
   migrateAZShrink?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to obtain the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -97,9 +92,7 @@ export class ModifyDBProxyInstanceShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the vSwitch in the destination zone. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/610431.html) operation to query existing vSwitches.
-   * 
-   * >  Only database proxies for ApsaraDB RDS for MySQL instances that use cloud disks can be migrated to different zones.
+   * A deprecated parameter. You do not need to configure this parameter.
    * 
    * @example
    * vsw-uf6adz52c2p****

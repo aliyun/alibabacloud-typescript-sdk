@@ -8,25 +8,26 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
    * The internal endpoint of the instance.
    * 
    * @example
-   * rm-uf6wjk5*****.mysql.rds.aliyuncs.com
+   * rm-uf6wjk5****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
-   * The instance ID. If the value of the **Amount** parameter is greater than **1**, more than one instance ID is returned. The number of instance IDs that are returned is the same as the value of the Amount parameter. The returned instance IDs are separated by commas (,).
+   * The instance ID. If you set the **Amount** parameter to a value greater than **1**, the number of instance IDs that corresponds to the value is returned, separated by commas.
    * 
-   * For example, if the value of the **Amount** parameter is **3**, three instance IDs are returned. Examples: `rm-uf6wjk5*****1,rm-uf6wjk5*****2,rm-uf6wjk5*****3`
+   * For example, if **Amount** is set to **3**, three instance IDs are returned. Example:
+   * `rm-uf6wjk5*****1，rm-uf6wjk5*****2，rm-uf6wjk5*****3`
    * 
    * @example
-   * rm-uf6wjk5*****
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * Indicates that the system performed a dry run.
+   * Indicates that a dry run is performed before the instance is created.
    * 
-   * *   The value is fixed as **true**.
-   * *   If the system does not perform a dry run, this parameter is not returned.
+   * * The return value is always **true**.
+   * * If no dry run is performed, this parameter is not returned.
    * 
    * @example
    * true
@@ -34,13 +35,12 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Indicates whether the request passed the dry run. Valid values:
+   * Indicates whether the dry run for instance creation passed. Valid values:
+   * * **true**: The dry run passed.
+   * * **false**: The dry run failed.
    * 
-   * *   **true**
-   * *   **false**
-   * 
-   * > *   If the system does not perform a dry run, this parameter is not returned.
-   * > *   If the request failed the dry run, an error message is returned.
+   * > * If no dry run is performed, this parameter is not returned.
+   * > * If the dry run fails, the corresponding error is returned.
    * 
    * @example
    * true
@@ -48,9 +48,9 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   dryRunResult?: boolean;
   /**
    * @remarks
-   * The message that indicates whether multiple instances are created.
+   * The message for the batch creation task.
    * 
-   * > The parameter is returned only when the value of the **Amount** parameter is greater than 1.
+   * > This parameter is returned only when the **Amount** parameter is greater than 1.
    * 
    * @example
    * Batch Create DBInstance Task Is In Process.
@@ -61,12 +61,12 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
    * The order ID.
    * 
    * @example
-   * 1007893702*****
+   * 1007893702****
    */
   orderId?: string;
   /**
    * @remarks
-   * The internal IP address and port number that are used to connect to the instance.
+   * The port number that corresponds to the internal endpoint of the instance.
    * 
    * @example
    * 3306
@@ -74,7 +74,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
@@ -82,12 +82,11 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the specified tag is added to the instance. Valid values:
+   * Indicates whether tags are successfully bound to the instance. Valid values:
+   * * **true**: Tags are successfully bound.
+   * * **false**: Tags failed to be bound.
    * 
-   * *   **true**: The specified tag is added to the instance.
-   * *   **false**: The specified tag fails to be added to the instance.
-   * 
-   * > If you do not add a tag to the instance, this parameter is not returned.
+   * > If no tags are bound to the instance, this parameter is not returned.
    * 
    * @example
    * true
@@ -95,13 +94,13 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   tagResult?: boolean;
   /**
    * @remarks
-   * The ID of the task that is run to create multiple instances.
+   * The task ID of the batch creation task.
    * 
-   * *   This parameter is returned only when the value of **Amount** is greater than 1.
-   * *   The **TaskID** parameter cannot be used to query a task.
+   * * This parameter is returned only when the **Amount** parameter is greater than 1.
+   * * Querying tasks by **TaskId** is not supported at this time.
    * 
    * @example
-   * s2365879-a9d0-55af-fgae-f2*****
+   * s2365879-a9d0-55af-fgae-f2****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

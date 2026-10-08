@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryTasksStatRequest extends $dara.Model {
   /**
    * @remarks
-   * The minimum execution duration of a task. This parameter is used to filter tasks whose execution duration is longer than the minimum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
+   * The minimum execution duration. Tasks whose execution duration is greater than this value are returned. Unit: seconds. Default value: 0, which indicates no limit.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
   fromExecTime?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The start time of the query. Format: <i>yyyy-mm-dd</i>t<i>hh:mm</i>z (UTC).
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the available regions.
    * 
    * This parameter is required.
    * 
@@ -53,17 +53,16 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
+   * - **Scheduled**: Waiting to be executed.
+   * - **Running**: Running.
+   * - **Succeed**: Succeeded.
+   * - **Failed**: Failed.
+   * - **Cancelling**: Being stopped.
+   * - **Canceled**: Stopped.
+   * - **Waiting**: Waiting for the scheduled time.
    * 
-   * *   **Scheduled**
-   * *   **Running**
-   * *   **Succeed**
-   * *   **Failed**
-   * *   **Cancelling**
-   * *   **Canceled**
-   * *   **Waiting**
-   * 
-   * Separate multiple statuses with commas (,). By default, this parameter is left empty. This indicates that tasks in all statuses are queried.
+   * Separate multiple statuses with commas (,). Default value: empty, which indicates all statuses.
    * 
    * @example
    * Scheduled
@@ -87,7 +86,7 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The maximum execution duration of a task. This parameter is used to filter tasks whose execution duration is shorter than or equal to the maximum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
+   * The maximum execution duration. Tasks whose execution duration is not less than this value are returned. Unit: seconds. Default value: 0, which indicates no limit.
    * 
    * @example
    * 0
@@ -95,7 +94,7 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
   toExecTime?: number;
   /**
    * @remarks
-   * The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The end of the time range for the task start time. Tasks whose start time is earlier than this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * This parameter is required.
    * 

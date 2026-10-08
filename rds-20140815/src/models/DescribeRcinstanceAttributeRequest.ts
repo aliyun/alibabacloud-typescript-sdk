@@ -12,11 +12,31 @@ export class DescribeRCInstanceAttributeRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * k8s-node
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The maximum number of disks returned in the response. Valid values: 10 to 500.
+   * - If this parameter is not specified, the default value is 20.
+   * - If the specified value is less than 10, the value is set to 10.
+   * - If the specified value is from 10 to 500, the specified value is used.
+   * 
+   * @example
+   * 20
+   */
   maxDisksResults?: number;
+  /**
+   * @remarks
+   * The private IP address of the instance in the VPC.
+   * 
+   * @example
+   * 192.168.XXX.XXX
+   */
   privateIpAddress?: string;
   /**
    * @remarks

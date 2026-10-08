@@ -13,7 +13,7 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The extension used by the replication slot.
+   * The plugin used by the replication slot.
    * 
    * @example
    * test_decoding
@@ -21,7 +21,7 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   plugin?: string;
   /**
    * @remarks
-   * The replication slot name.
+   * The name of the replication slot.
    * 
    * @example
    * slot_test01
@@ -29,10 +29,9 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   slotName?: string;
   /**
    * @remarks
-   * The replication slot status. Valid values:
-   * 
-   * *   ACTIVE
-   * *   INACTIVE
+   * The status of the replication slot. Valid values:
+   * - ACTIVE: Active.
+   * - INACTIVE: Inactive.
    * 
    * @example
    * INACTIVE
@@ -40,10 +39,9 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   slotStatus?: string;
   /**
    * @remarks
-   * The replication slot type. Valid values:
-   * 
-   * *   physical
-   * *   logical
+   * The type of the replication slot. Valid values:
+   * - physical: Physical.
+   * - logical: Logical.
    * 
    * @example
    * logical
@@ -51,7 +49,7 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   slotType?: string;
   /**
    * @remarks
-   * The latency of the logical subscription on the subscriber node that corresponds to the current replication slot. Unit: seconds.
+   * The specific latency of the logical subscription on the subscriber corresponding to the current replication slot. Unit: seconds.
    * 
    * @example
    * 0
@@ -59,10 +57,9 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   subReplayLag?: string;
   /**
    * @remarks
-   * Indicates whether the replication slot is a temporary replication slot. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the replication slot is temporary. Valid values:
+   * - true: The replication slot is temporary.
+   * - false: The replication slot is not temporary.
    * 
    * @example
    * false
@@ -70,7 +67,7 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   temporary?: string;
   /**
    * @remarks
-   * The number of logs accumulated in the replication slot.
+   * The amount of logs accumulated by the replication slot.
    * 
    * @example
    * 16 MB
@@ -114,7 +111,7 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
 export class DescribeSlotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 76AF0609-4195-5DFC-BC78-3AD76FF872BB
@@ -122,7 +119,7 @@ export class DescribeSlotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the replication slot.
+   * The list of replication slots of the instance.
    */
   slots?: DescribeSlotsResponseBodySlots[];
   static names(): { [key: string]: string } {

@@ -4,116 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRCClusterNodesResponseBodyNodes extends $dara.Model {
   /**
-   * @remarks
-   * The time when the node was created.
-   * 
    * @example
-   * 2024-10-21T07:20:09Z
+   * 2026-01-06T22:22:16.00+08:00
    */
   creationTime?: string;
-  /**
-   * @remarks
-   * The container version.
-   * 
-   * @example
-   * 1.0
-   */
   dockerVersion?: string;
-  /**
-   * @remarks
-   * The image ID of the node.
-   * 
-   * @example
-   * m-2oqiu973jwcxe****
-   */
   imageId?: string;
   /**
-   * @remarks
-   * The node ID.
-   * 
    * @example
-   * rc-u79597n5f54s5bnz****
+   * vn-uoeaq5a51g0vk473****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The node role. Valid values:
-   * 
-   * *   **Master**: master node
-   * *   **Worker**: worker node
-   * 
-   * @example
-   * Master
-   */
   instanceRole?: string;
-  /**
-   * @remarks
-   * The IP address.
-   */
   ipAddresses?: string[];
-  /**
-   * @remarks
-   * Indicates whether the node is provided by Alibaba Cloud. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   isAliyunNode?: boolean;
   /**
-   * @remarks
-   * The node name, which is the identifier of the RDS Custom node in the cluster.
-   * 
    * @example
-   * cn-hangzhou.192.168.XXX.XXX
+   * vn-uoeaq5a51g0vk473****
    */
   nodeName?: string;
   /**
-   * @remarks
-   * The node pool ID.
-   * 
    * @example
-   * None
+   * rcnpf5e3ee4a65104cf0801f94850d37****
    */
   nodePoolId?: string;
-  /**
-   * @remarks
-   * Indicates whether the node is ready. Valid values:
-   * 
-   * *   **Ready**: The node is ready.
-   * *   **NotReady**: The node is not ready.
-   * *   **Unknown**: The status of the node is unknown.
-   * *   **Offline**: The node is offline.
-   * 
-   * @example
-   * Ready
-   */
   nodeStatus?: string;
   /**
    * @example
    * 1
    */
   podCount?: number;
-  /**
-   * @remarks
-   * The runtime of the ACK cluster.
-   * 
-   * @example
-   * 2024-10-21T07:20:09Z
-   */
   runtimeVersion?: string;
   /**
-   * @remarks
-   * The node status. Valid values:
-   * 
-   * *   **pending**
-   * *   **running**
-   * *   **starting**
-   * *   **stopping**
-   * *   **stopped**
-   * 
    * @example
    * running
    */
@@ -168,27 +90,18 @@ export class DescribeRCClusterNodesResponseBodyNodes extends $dara.Model {
 
 export class DescribeRCClusterNodesResponseBodyPage extends $dara.Model {
   /**
-   * @remarks
-   * The page number.
-   * 
    * @example
-   * 2
+   * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * The maximum number of entries returned per page.
-   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
-   * @remarks
-   * The total number of entries returned.
-   * 
    * @example
-   * 4
+   * 5
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -217,22 +130,11 @@ export class DescribeRCClusterNodesResponseBodyPage extends $dara.Model {
 }
 
 export class DescribeRCClusterNodesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the nodes.
-   */
   nodes?: DescribeRCClusterNodesResponseBodyNodes[];
-  /**
-   * @remarks
-   * The pagination information.
-   */
   page?: DescribeRCClusterNodesResponseBodyPage;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * 16C62438-491B-5C02-9B49-BA924A1372A2
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

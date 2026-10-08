@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWhitelistTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. Valid values:
-   * 
-   * *   **ok**: The request is successful.
-   * *   **error**: The request fails.
+   * The return status. Valid values:
+   * - **ok**: Normal return.
+   * - **error**: Error return.
    * 
    * @example
    * ok
@@ -38,13 +37,12 @@ export class ModifyWhitelistTemplateResponseBodyData extends $dara.Model {
 export class ModifyWhitelistTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **401**: identity authentication failed
-   * *   **404**: request page not found
-   * *   **500**: server error
+   * The response code. Valid values:
+   * - **200**: Normal.
+   * - **400**: Client error.
+   * - **401**: Authentication failed.
+   * - **404**: Request page not found.
+   * - **500**: Server error.
    * 
    * @example
    * 200
@@ -52,16 +50,15 @@ export class ModifyWhitelistTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data list.
    */
   data?: ModifyWhitelistTemplateResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **500**: server error
+   * The HTTP status code. Valid values:
+   * - **200**: Normal.
+   * - **400**: Client error.
+   * - **500**: Server error.
    * 
    * @example
    * 200
@@ -77,7 +74,7 @@ export class ModifyWhitelistTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Each request has a unique ID, which facilitates troubleshooting.
    * 
    * @example
    * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
@@ -87,8 +84,8 @@ export class ModifyWhitelistTemplateResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

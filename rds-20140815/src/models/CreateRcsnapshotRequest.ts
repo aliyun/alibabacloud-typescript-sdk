@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRCSnapshotRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
-   * None
+   * testRC
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
-   * None
+   * test01
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -39,9 +45,9 @@ export class CreateRCSnapshotRequestTag extends $dara.Model {
 export class CreateRCSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The snapshot description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
-   * By default, this parameter is left empty.
+   * Default value: null.
    * 
    * @example
    * test
@@ -57,18 +63,18 @@ export class CreateRCSnapshotRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
-   * none
+   * None
    */
   instantAccess?: boolean;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
-   * none
+   * None
    */
   instantAccessRetentionDays?: number;
   /**
@@ -80,27 +86,34 @@ export class CreateRCSnapshotRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
-   * None
+   * rc-t8q22a87745hf8****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The retention period of the snapshot. Valid values: 1 to 65536. Unit: days. The snapshot is automatically released when its retention period expires.
+   * Settings for the retention period of the snapshot. Unit: days. The snapshot is subject to automatic release after the retention period expires. Valid values: 1 to 65536.
    * 
-   * By default, this parameter is left empty, which specifies that the snapshot is not automatically released.
+   * Default value: null, which indicates that the snapshot is not subject to automatic release.
    * 
    * @example
    * 2
    */
   retentionDays?: number;
+  /**
+   * @remarks
+   * The tag details.
+   */
   tag?: CreateRCSnapshotRequestTag[];
   /**
    * @remarks
-   * This parameter has been deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
-   * cn-hangzhou-b
+   * None
    */
   zoneId?: string;
   static names(): { [key: string]: string } {

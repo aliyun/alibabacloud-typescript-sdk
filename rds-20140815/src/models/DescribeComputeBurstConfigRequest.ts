@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComputeBurstConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of requests and prevent repeated requests from being submitted. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxxxxx
@@ -25,7 +25,7 @@ export class DescribeComputeBurstConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou

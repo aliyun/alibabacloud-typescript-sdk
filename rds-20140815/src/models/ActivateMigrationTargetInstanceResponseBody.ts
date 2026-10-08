@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActivateMigrationTargetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the destination instance.
+   * The name of the target instance.
    * 
    * @example
    * pgm-bp102g323jd4****
@@ -13,7 +13,7 @@ export class ActivateMigrationTargetInstanceResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 76364A52-E0AB-5CC8-9818-CF1DC482C092
@@ -21,7 +21,7 @@ export class ActivateMigrationTargetInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The private IP address that is used to connect to the self-managed PostgreSQL instance.
+   * The internal IP address of the self-managed PostgreSQL database.
    * 
    * @example
    * 172.16.XX.XX
@@ -29,7 +29,7 @@ export class ActivateMigrationTargetInstanceResponseBody extends $dara.Model {
   sourceIpAddress?: string;
   /**
    * @remarks
-   * The port number that is used to connect to the self-managed PostgreSQL instance.
+   * The port of the self-managed PostgreSQL database.
    * 
    * @example
    * 5432
@@ -37,7 +37,7 @@ export class ActivateMigrationTargetInstanceResponseBody extends $dara.Model {
   sourcePort?: number;
   /**
    * @remarks
-   * The ID of the identification task.
+   * The task ID.
    * 
    * @example
    * 440913675

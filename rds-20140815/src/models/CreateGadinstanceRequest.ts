@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGADInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can create N tag keys at a time. Valid values of N: **1 to 20**. The value of this parameter cannot be an empty string.
+   * The tag key. You can create up to N tag keys at a time. Valid values of N: **1 to 20**. The tag key cannot be an empty string.
    * 
    * @example
    * testkey1
@@ -13,7 +13,7 @@ export class CreateGADInstanceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can create N tag values at a time. Valid values of N: **1 to 20**. The value of this parameter can be an empty string.
+   * The tag value that corresponds to the tag key. You can create up to N tag values at a time. Valid values of N: **1 to 20**. The tag value can be an empty string.
    * 
    * @example
    * testvalue1
@@ -45,11 +45,10 @@ export class CreateGADInstanceRequestTag extends $dara.Model {
 export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   /**
    * @remarks
-   * The name of the unit node that you want to create. The name must meet the following requirements:
-   * 
-   * *   The name must be **2 to 255** characters in length.
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
-   * *   Does not start with `http://` or `https://`.
+   * The name of the new unit node. The name must meet the following requirements:
+   * - The name must be **2 to 255** characters in length.
+   * - The name must start with a letter or a Chinese character. It can contain digits, Chinese characters, letters, underscores (_), and hyphens (-).
+   * - The name cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -57,7 +56,7 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The storage capacity of the unit node that you want to create. Unit: GB. You can adjust the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the storage capacity range that is supported by the new instance type.
+   * The storage capacity of the new unit node. Unit: GB. The value is incremented in 5 GB increments. For the value range, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the available storage capacity range for the target instance type.
    * 
    * @example
    * 20
@@ -65,18 +64,16 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The storage type of the new instance. Valid values:
+   * The instance storage type. Valid values:
+   * * **local_ssd**: Premium Local SSD (recommended).
+   * * **cloud_ssd**: standard SSD (not recommended because standard SSDs are no longer available for purchase in some regions).
+   * * **cloud_essd**: PL1 ESSD.
+   * * **cloud_essd2**: PL2 ESSD.
+   * * **cloud_essd3**: PL3 ESSD.
    * 
-   * *   **local_ssd**: Premium Local SSD (recommended)
-   * *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in specific Alibaba Cloud regions.
-   * *   **cloud_essd**: Enterprise SSD (ESSD) of performance level 1 (PL1).
-   * *   **cloud_essd2**: ESSD of PL2.
-   * *   **cloud_essd3**: ESSD of PL3.
-   * 
-   * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
-   * 
-   * *   If the instance type specifies the Premium Local SSD storage type, the default value of this parameter is **local_ssd**.
-   * *   If the instance type specifies the cloud disk storage type, the default value of this parameter is **cloud_essd**.
+   * The default value of this parameter is determined by the instance type specified in the **DBInstanceClass** parameter:
+   * - If the instance type is a Premium Local SSD instance type, the default value is **local_ssd**.
+   * - If the instance type is a cloud disk instance type, the default value is **cloud_essd**.
    * 
    * @example
    * cloud_essd2
@@ -84,7 +81,7 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   DBInstanceStorageType?: string;
   /**
    * @remarks
-   * The instance type of the unit node that you want to create. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can call the DescribeAvailableResource operation to query the available instance types in a region.
+   * The instance type of the new unit node. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the available instance types in the target region.
    * 
    * @example
    * rds.mysql.t1.small
@@ -92,11 +89,10 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   dbInstanceClass?: string;
   /**
    * @remarks
-   * The conflict resolution policy based on which Data Transmission Service (DTS) responds to primary key conflicts during data synchronization to the unit node that you want to create. Valid values:
-   * 
-   * *   **overwrite**: DTS overwrites the conflicting primary key on the destination node.
-   * *   **interrupt**: DTS stops the synchronization task, reports an error, and then exits.
-   * *   **ignore**: DTS hides the conflicting primary key on the node.
+   * The conflict resolution policy used when a primary key conflict occurs during data synchronization for the new unit node. Valid values:
+   * * **overwrite**: overwrites the conflicting primary key on the destination node.
+   * * **interrupt**: stops the synchronization task and reports an error.
+   * * **ignore**: ignores the conflicting primary key on the current node.
    * 
    * This parameter is required.
    * 
@@ -106,14 +102,13 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   dtsConflict?: string;
   /**
    * @remarks
-   * The specifications of the data synchronization task for the unit node that you want to create. Valid values:
+   * The specification of the data synchronization link for the new unit node. Valid values:
+   * * **small**
+   * * **medium**
+   * * **large**
+   * * **micro**
    * 
-   * *   **small**
-   * *   **medium**
-   * *   **large**
-   * *   **micro**
-   * 
-   * >  For more information, see [Specifications of data synchronization tasks](https://help.aliyun.com/document_detail/26605.html).
+   * >For more information about the differences between specifications, see [Data synchronization link specifications](https://help.aliyun.com/document_detail/26605.html).
    * 
    * This parameter is required.
    * 
@@ -123,7 +118,7 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   dtsInstanceClass?: string;
   /**
    * @remarks
-   * The database engine of the unit node that you want to create. Set the value to **MySQL**.
+   * The database engine of the new unit node. Only **MySQL** is supported.
    * 
    * @example
    * MySQL
@@ -131,12 +126,11 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the unit node that you want to create. Valid values:
-   * 
-   * *   **8.0**
-   * *   **5.7**
-   * *   **5.6**
-   * *   **5.5**
+   * The database engine version of the new unit node. Valid values:
+   * * **8.0**
+   * * **5.7**
+   * * **5.6**
+   * * **5.5**
    * 
    * @example
    * 8.0
@@ -144,12 +138,11 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The billing method of the unit node that you want to create. Valid values:
+   * The billing method of the new unit node. Valid values:
+   * * **Postpaid**: pay-as-you-go.
+   * * **Prepaid**: subscription.
    * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription
-   * 
-   * >  The system automatically generates a purchase order and completes the payment. You do not need to manually confirm the purchase order or complete the payment.
+   * >The system automatically generates and completes the payment for the order. You do not need to manually confirm the payment.
    * 
    * @example
    * Postpaid
@@ -157,7 +150,7 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The region ID of the unit node that you want to create. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID of the new unit node. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -167,10 +160,9 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   regionID?: string;
   /**
    * @remarks
-   * The [IP address whitelist](https://help.aliyun.com/document_detail/43185.html) of the unit node that you want to create. If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. The IP address whitelist can contain up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
-   * 
-   * *   IP addresses, such as `10.10.10.10`.
-   * *   CIDR blocks, such as `10.10.10.10/24`. In this example, **24** indicates that the prefix of the IP address in the whitelist is 24 bits in length. You can replace 24 with a value within the range of **1 to 32**.
+   * The [IP address whitelist](https://help.aliyun.com/document_detail/43185.html) of the new unit node. Separate multiple entries with commas (,). Entries cannot be duplicated. A maximum of 1,000 entries are allowed. The following two formats are supported:
+   * * IP address format, such as `10.10.10.10`.
+   * * CIDR format, such as `10.10.10.10/24` (Classless Inter-Domain Routing, where **24** indicates the length of the prefix, ranging from **1 to 32**).
    * 
    * @example
    * 10.10.10.10
@@ -178,48 +170,46 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The vSwitch ID of the unit node that you want to create.
+   * The vSwitch ID of the new unit node.
    * 
    * @example
-   * vsw-bp1tg609m5j85********
+   * vsw-bp1tg609m5j85****
    */
   vSwitchID?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the unit node that you want to create.
+   * The virtual private cloud (VPC) ID of the new unit node.
    * 
    * @example
-   * vpc-bp19ame5m1r3o********
+   * vpc-bp19ame5m1r3o****
    */
   vpcID?: string;
   /**
    * @remarks
-   * The zone ID of the unit node that you want to create. You can call the DescribeRegions operation to query the zone ID.
+   * The zone ID of the new unit node. You can call the DescribeRegions operation to query the zone ID.
    * 
    * @example
-   * cn-hangzhou-h
+   * cn-hangzhou-j
    */
   zoneID?: string;
   /**
    * @remarks
-   * The zone ID of the secondary node of the unit node that you want to create. You can call the DescribeRegions operation to query the zone ID.
-   * 
-   * *   If the value of this parameter is the same as the **zone ID** of the unit node that you want to create, the single-zone deployment method is used.
-   * *   If the value of this parameter is different from the **zone ID** of the unit node that you want to create, the multiple-zone deployment method is used.
+   * The zone ID of the secondary node for the new unit node. You can call the DescribeRegions operation to query the zone ID.
+   * * If this value is the same as the **ZoneId** of the current unit node, the single-zone deployment is used.
+   * * If this value is different from the **ZoneId** of the current unit node, the multi-zone deployment is used.
    * 
    * @example
-   * cn-hangzhou-h
+   * cn-hangzhou-j
    */
   zoneIDSlave1?: string;
   /**
    * @remarks
-   * The zone ID of the logger node of the unit node that you want to create. You can call the DescribeRegions operation to query the zone ID.
-   * 
-   * *   If the value of this parameter is the same as the **zone ID** of the unit node that you want to create, the single-zone deployment method is used.
-   * *   If the value of this parameter is different from the **zone ID** of the unit node that you want to create, the multiple-zone deployment method is used.
+   * The zone ID of the logger node for the new unit node. You can call the DescribeRegions operation to query the zone ID.
+   * * If this value is the same as the **ZoneId** of the current unit node, the single-zone deployment is used.
+   * * If this value is different from the **ZoneId** of the current unit node, the multi-zone deployment is used.
    * 
    * @example
-   * cn-hangzhou-h
+   * cn-hangzhou-j
    */
   zoneIDSlave2?: string;
   static names(): { [key: string]: string } {
@@ -276,20 +266,20 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
 export class CreateGADInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the primary instance. You can call the DescribeDBInstances operation to query the instance ID. The primary instance serves as the central node of the global active database cluster.
+   * The ID of the primary instance. You can call the DescribeDBInstances operation to query the instance ID. This instance serves as the central node (primary node) of the GAD cluster.
    * 
-   * > *   A primary instance can serve only as the central node of a single global active database cluster.
-   * > *   The primary instance can serve as the central node of the global active database cluster only in the following regions: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
+   * > * A primary instance ID can serve as the central node of only one GAD cluster.
+   * > * Only ApsaraDB RDS for MySQL primary instances in the China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu) regions can serve as the central node of a GAD cluster.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5*******
+   * rm-uf6wjk5****
    */
   centralDBInstanceId?: string;
   /**
    * @remarks
-   * The username of the privileged account of the central node. You can call the DescribeAccounts operation to query the privileged account of the central node.
+   * The privileged account of the central node. You can call the DescribeAccounts operation to query the account.
    * 
    * This parameter is required.
    * 
@@ -299,7 +289,7 @@ export class CreateGADInstanceRequest extends $dara.Model {
   centralRdsDtsAdminAccount?: string;
   /**
    * @remarks
-   * The password of the privileged account of the central node.
+   * The password of the privileged account for the central node.
    * 
    * This parameter is required.
    * 
@@ -309,7 +299,7 @@ export class CreateGADInstanceRequest extends $dara.Model {
   centralRdsDtsAdminPassword?: string;
   /**
    * @remarks
-   * The region ID of the central node. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID of the central node. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -319,13 +309,27 @@ export class CreateGADInstanceRequest extends $dara.Model {
   centralRegionId?: string;
   /**
    * @remarks
-   * A JSON array that consists of the information about a specified database on the central node. All database information that you specify in this array is synchronized to the unit nodes of the global active database cluster. The JSON array contains the following fields:
+   * A JSON array that contains the database information of the central node. All database information in this array is synchronized to the current unit node (secondary node). Parameter description:
+   * * **name**: the database name.
+   * * **all**: specifies whether to synchronize all data in the current database or table. Valid values: **true** | **false**.
+   * * **Table**: the table name. If the **all** parameter is set to **false**, you must also specify the names of the tables to be synchronized in the JSON array.
    * 
-   * *   **name**: the name of the database.
-   * *   **all**: specifies whether to synchronize all data in the database or the table. Valid values: **true** and **false**.
-   * *   **Table**: the name of the table. If you set the **all** field to **false**, you must nest the name of the table that you want to synchronize into the JSON array.
-   * 
-   * Example: `{ "testdb": { "name": "testdb", "all": false, "Table": { "order": { "name": "order", "all": true }, "ordernew": { "name": "ordernew", "all": true } } } }`
+   * Example: `{
+   *    "testdb": {
+   *     "name": "testdb",
+   *     "all": false,
+   *     "Table": {
+   *       "order": {
+   *         "name": "order",
+   *         "all": true
+   *       },
+   *       "ordernew": {
+   *         "name": "ordernew",
+   *         "all": true
+   *       }
+   *     }
+   *   }
+   * }`
    * 
    * This parameter is required.
    * 
@@ -335,7 +339,7 @@ export class CreateGADInstanceRequest extends $dara.Model {
   DBList?: string;
   /**
    * @remarks
-   * The name of the global active database cluster.
+   * The name of the GAD cluster.
    * 
    * @example
    * test
@@ -346,17 +350,17 @@ export class CreateGADInstanceRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * An array that consists of the details about the tag.
+   * The tags.
    */
   tag?: CreateGADInstanceRequestTag[];
   /**
    * @remarks
-   * The information about the unit node.
+   * The unit node information.
    * 
    * This parameter is required.
    */

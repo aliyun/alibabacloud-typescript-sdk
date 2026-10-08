@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the parameter overview.
+   * The parameter overview information.
    * 
-   * *   **false** (default): The parameter overview is returned.
-   * *   **true**: The parameter overview is not returned.
+   * - **false**: Returns parameter overview information. This is the default value.
+   * 
+   * - **true**: Does not return parameter overview information.
    * 
    * @example
    * false
@@ -17,7 +18,7 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +28,7 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy****

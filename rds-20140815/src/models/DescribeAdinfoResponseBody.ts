@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeADInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The DNS information about the AD domain.
+   * The DNS information of the AD domain.
    * 
    * @example
    * 100.100.XX.XX
@@ -13,7 +13,7 @@ export class DescribeADInfoResponseBody extends $dara.Model {
   ADDNS?: string;
   /**
    * @remarks
-   * The service IP address of the AD domain.
+   * The IP address of the AD domain server.
    * 
    * @example
    * 192.168.XX.XX
@@ -22,10 +22,9 @@ export class DescribeADInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the AD domain. Valid values:
-   * 
-   * *   **-1**: The instance is being added to the AD domain.
-   * *   **0**: The instance fails to be added to the AD domain.
-   * *   **1**: The instance is added to the AD domain.
+   * * **-1**: The instance is being joined to the AD domain.
+   * * **0**: Failed to join the AD domain.
+   * * **1**: Joined the AD domain.
    * 
    * @example
    * 1
@@ -33,10 +32,10 @@ export class DescribeADInfoResponseBody extends $dara.Model {
   ADStatus?: string;
   /**
    * @remarks
-   * The cause of the error.
+   * The reason for the exception.
    * 
    * @example
-   * XXXX
+   * ****
    */
   abnormalReason?: string;
   /**

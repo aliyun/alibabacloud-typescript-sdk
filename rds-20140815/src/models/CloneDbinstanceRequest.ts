@@ -3,66 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CloneDBInstanceRequestServerlessConfig extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the automatic start and stop feature for the serverless ApsaraDB RDS for MySQL instance. After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection is established to the instance, the instance is automatically resumed. Valid values:
-   * 
-   * *   **true**
-   * *   **false** (default)
-   * 
-   * > *   This parameter is supported only for serverless ApsaraDB RDS for MySQL instances.
-   * > *   This parameter is available only on the China site (aliyun.com).
-   * 
-   * @example
-   * true
-   */
   autoPause?: boolean;
-  /**
-   * @remarks
-   * The maximum number of RDS Capacity Units (RCUs). Valid values:
-   * 
-   * *   Serverless ApsaraDB RDS for MySQL instances: **1 to 8**
-   * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**
-   * *   Serverless ApsaraDB RDS for PostgreSQL instances: **1 to 12**
-   * 
-   * > *   The value of this parameter must be greater than or equal to the value of **MinCapacity** and can be specified only to an **integer**.
-   * > *   This parameter is available only on the China site (aliyun.com).
-   * 
-   * @example
-   * 8
-   */
   maxCapacity?: number;
-  /**
-   * @remarks
-   * The minimum number of RCUs. Valid values:
-   * 
-   * *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 8**.
-   * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
-   * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 12**.
-   * 
-   * > *   The value of this parameter must be less than or equal to the value of **MaxCapacity**.
-   * > *   This parameter is available only on the China site (aliyun.com).
-   * 
-   * @example
-   * 0.5
-   */
   minCapacity?: number;
-  /**
-   * @remarks
-   * Specifies whether to enable the forced scaling feature for the serverless ApsaraDB RDS for MySQL instance. In most cases, ApsaraDB RDS automatically scales in or out the RCUs of a serverless instance based on business requirements in real time. In rare cases, the scaling does not take effect in real time. You can enable the forced scaling feature to forcefully scales in or out the RCUs of the instance. Valid values:
-   * 
-   * *   **true**
-   * *   **false** (default)
-   * 
-   * > 
-   * 
-   * *   This parameter is supported only for serverless ApsaraDB RDS for MySQL instances.
-   * 
-   * *   This parameter is available only on the China site (aliyun.com).
-   * 
-   * @example
-   * false
-   */
   switchForce?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -91,15 +34,69 @@ export class CloneDBInstanceRequestServerlessConfig extends $dara.Model {
   }
 }
 
+export class CloneDBInstanceRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. Specify this parameter to attach a tag to the instance.
+   * 
+   * * If the specified tag key already exists, the tag is directly attached to the instance. You can call the ListTagResources operation to query existing tags.
+   * * If the specified tag key does not exist, the tag key is created and then attached to the instance.
+   * * Empty strings are not allowed.
+   * * This parameter must be used together with **Tag.Value**.
+   * 
+   * @example
+   * testkey1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value that corresponds to the tag key. Specify this parameter to attach a tag to the instance.
+   * 
+   * * If the specified tag value already exists for the corresponding tag key, the tag value is directly attached to the instance. You can call the ListTagResources operation to query existing tags.
+   * * If the specified tag value does not exist for the corresponding tag key, the tag value is created and then attached to the instance.
+   * * This parameter must be used together with **Tag.Key**.
+   * 
+   * @example
+   * testvalue1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloneDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic payment feature for the new instance. Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
-   * 1.  **true**: enables the feature. You must make sure that your account balance is sufficient.
-   * 2.  **false**: disables the feature. An unpaid order is generated.
+   * 1. **true**: enables automatic payment. Make sure that your account balance is sufficient.
    * 
-   * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * 1. **false**: generates an order without charging the account.
+   * 
+   * 
+   * 
+   * 
+   * > Default value: true. If your payment method has insufficient balance, set AutoPay to false. In this case, an unpaid order is generated. You can log on to the ApsaraDB RDS console to pay for the order.
+   * >
    * 
    * @example
    * true
@@ -109,9 +106,9 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * @remarks
    * The backup set ID.
    * 
-   * You can call the DescribeBackups operation to query the backup set ID.
+   * You can call the DescribeBackups operation to query the backup set list.
    * 
-   * >  You must specify at least one of the **BackupId** or **RestoreTime** parameters.
+   * > You must specify at least one of **BackupId** and **RestoreTime**.
    * 
    * @example
    * 902****
@@ -119,26 +116,22 @@ export class CloneDBInstanceRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The type of backup that is used to restore the data of the original instance. Valid values:
+   * The backup type. Valid values:
    * 
-   * *   **FullBackup**
-   * *   **IncrementalBackup**
+   * * **FullBackup**: full backup.
+   * * **IncrementalBackup**: incremental backup.
    * 
    * @example
    * FullBackup
    */
   backupType?: string;
-  /**
-   * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
-   * 
-   * @example
-   * false
-   */
   bpeEnabled?: string;
   /**
    * @remarks
-   * An invalid parameter. You do not need to specify this parameter.
+   * Specifies whether to enable the I/O burst feature for the Premium ESSD cloud disk. Valid values:
+   * * **true**: enables the feature.
+   * * **false**: disables the feature.
+   * > For more information about the I/O burst feature, see [What is Premium ESSD?](https://help.aliyun.com/document_detail/2340501.html).
    * 
    * @example
    * false
@@ -146,21 +139,19 @@ export class CloneDBInstanceRequest extends $dara.Model {
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * The RDS edition of the instance. Valid values:
+   * The instance edition. Valid values:
    * 
-   * *   **Basic**: RDS Basic Edition.
-   * *   **HighAvailability**: RDS High-availability Edition.
-   * *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server.
-   * *   **cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
-   * *   **Finance**: RDS Enterprise Edition. This edition is available only on the China site (aliyun.com).
+   * - **Basic**: Basic Edition.
+   * - **HighAvailability**: High-availability Edition.
+   * - **AlwaysOn**: Cluster Edition (SQL Server).
+   * - **cluster**: Cluster Edition (MySQL).
+   * - **Finance**: Enterprise Edition. This value is supported only on the China site (aliyun.com).
    * 
    * **Serverless instances**
-   * 
-   * *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
-   * *   **serverless_standard**: RDS High-availability Edition for ApsaraDB RDS for MySQL
-   * *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server
-   * 
-   * >  You do not need to configure this parameter. The value of this parameter is the same as that of the original instance.
+   * - **serverless_basic**: Serverless Basic Edition. This value is valid only for ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances.
+   * - **serverless_standard**: MySQL Serverless High-availability Edition.
+   * - **serverless_ha**: SQL Server Serverless High-availability Edition.
+   * > You do not need to specify this parameter. The clone instance uses the same edition as the source instance.
    * 
    * @example
    * HighAvailability
@@ -177,9 +168,9 @@ export class CloneDBInstanceRequest extends $dara.Model {
   customExtraInfo?: string;
   /**
    * @remarks
-   * The instance type of the new instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
+   * The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
    * 
-   * > By default, the new instance uses the same instance type as the original primary instance.
+   * > Default value: the instance type of the source instance.
    * 
    * @example
    * mysql.n1.micro.1
@@ -187,9 +178,8 @@ export class CloneDBInstanceRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance name. The value must be 2 to 255 characters in length The value can contain letters, digits, underscores (_), and hyphens (-), and must start with a letter.
-   * 
-   * >  The value cannot start with http:// or https://.
+   * The name of the instance. The name must be 2 to 255 characters in length. It must start with a letter or a Chinese character and can contain digits, Chinese characters, letters, underscores (_), and hyphens (-).
+   * > The name cannot start with http:// or https://.
    * 
    * @example
    * testInstance
@@ -202,14 +192,13 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The storage capacity of the new instance. Unit: GB. You can increase the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
-   * 
-   * > By default, the new instance has the same storage capacity as the original primary instance.
+   * Instance storage capacity of the instance. Unit: GB. The value increases in increments of 5 GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
+   * > Default value: instance storage capacity of the source instance.
    * 
    * @example
    * 1000
@@ -217,24 +206,24 @@ export class CloneDBInstanceRequest extends $dara.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The storage type of the new instance. Valid values:
+   * The instance storage type. Valid values:
    * 
-   * *   **general_essd** (recommend): general Enterprise SSD (ESSD)
-   * *   **local_ssd**: local SSD
-   * *   **cloud_ssd**: standard SSD
-   * *   **cloud_essd**: performance level 1 (PL1) ESSD
-   * *   **cloud_essd2**: PL2 ESSD
-   * *   **cloud_essd3**: PL3 ESSD
+   * * **general_essd**: Premium ESSD (recommended).
+   * * **local_ssd**: local SSD.
+   * * **cloud_ssd**: standard SSD.
+   * * **cloud_essd**: PL1 ESSD.
+   * * **cloud_essd2**: PL2 ESSD.
+   * * **cloud_essd3**: PL3 ESSD.
    * 
-   * >  Serverless instances support only PL1 ESSDs and general ESSDs.
+   * > Serverless instances support only PL1 ESSDs and Premium ESSDs.
    * 
    * @example
-   * cloud_essd
+   * general_essd
    */
   DBInstanceStorageType?: string;
   /**
    * @remarks
-   * The name of the database. If you specify more than one database, the value is in the following format: `Original database name 1,Original database name 2`.
+   * The database names in the following format: `OriginalDatabaseName1,OriginalDatabaseName2`.
    * 
    * @example
    * test1,test2
@@ -242,18 +231,17 @@ export class CloneDBInstanceRequest extends $dara.Model {
   dbNames?: string;
   /**
    * @remarks
-   * The ID of the dedicated cluster.
+   * The dedicated cluster ID.
    * 
    * @example
-   * dhg-7a9xxxxxxxx
+   * dhg-7a9****
    */
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the release protection feature for the new instance. Valid values:
-   * 
-   * *   **true**
-   * *   **false** (default)
+   * Specifies whether to enable the release protection feature. Valid values:
+   * * **true**: enables the feature.
+   * * **false** (default): disables the feature.
    * 
    * @example
    * true
@@ -261,12 +249,11 @@ export class CloneDBInstanceRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The network type of the new instance. Valid values:
+   * The network type of the instance. Valid values:
+   * * **VPC**: virtual private cloud (VPC).
+   * * **Classic**: classic network.
    * 
-   * *   **VPC**
-   * *   **Classic**
-   * 
-   * > By default, the new instance has the same network type as the original primary instance.
+   * > Default value: the network type of the source instance.
    * 
    * @example
    * VPC
@@ -274,19 +261,23 @@ export class CloneDBInstanceRequest extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * Specifies whether to enable the Buffer Pool Extension (BPE) feature for the Premium ESSD cloud disk. Valid values:
+   * 
+   *  - **1**: enables the feature.
+   *  - **0**: disables the feature.
+   * 
+   * > For more information about the BPE feature, see [Buffer Pool Extension (BPE)](https://help.aliyun.com/document_detail/2527067.html).
    * 
    * @example
-   * None
+   * 0
    */
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * *   **Postpaid**: pay-as-you-go.
-   * *   **Prepaid**: subscription.
-   * *   **Serverless**: serverless. This value is not supported for instances that run MariaDB. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
+   * The billing method. Valid values:
+   * * **Postpaid**: pay-as-you-go.
+   * * **Prepaid**: subscription.
+   * * **Serverless**: serverless. This value is not supported for ApsaraDB RDS for MariaDB instances. For more information, see [Overview of MySQL Serverless instances](https://help.aliyun.com/document_detail/411291.html), [Overview of SQL Server Serverless instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of PostgreSQL Serverless instances](https://help.aliyun.com/document_detail/607742.html).
    * 
    * This parameter is required.
    * 
@@ -296,12 +287,11 @@ export class CloneDBInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit that is used to calculate the billing cycle of the new instance. This parameter takes effect only when you select the subscription billing method for the new instance. Valid values:
+   * The unit of the subscription duration. Valid values:
+   * * **Year**
+   * * **Month**
    * 
-   * *   **Year**
-   * *   **Month**
-   * 
-   * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
+   * > This parameter is required if PayType is set to **Prepaid**.
    * 
    * @example
    * Year
@@ -309,10 +299,10 @@ export class CloneDBInstanceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The internal IP address of the new instance, which must be within the CIDR block supported by the specified vSwitch. The system automatically assigns an internal IP address based on the values of the **VPCId** and **VSwitchId** parameters.
+   * The internal IP address of the new instance. The IP address must be within the IP address range of the specified vSwitch. The system automatically assigns an internal IP address based on the values of **VPCId** and **VSwitchId**.
    * 
    * @example
-   * 172.XX.XXX.69
+   * 172.XX.XX.69
    */
   privateIpAddress?: string;
   /**
@@ -326,32 +316,27 @@ export class CloneDBInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to restore only the databases and tables that you specify. The value **1** specifies to restore only the specified databases and tables. If you do not want to restore only the specified databases or tables, you do not need to specify this parameter.
+   * Specifies whether to restore individual databases and tables. Set this parameter to **true** to restore individual databases and tables. Otherwise, leave this parameter empty.
    * 
    * @example
-   * 1
+   * true
    */
   restoreTable?: string;
   /**
    * @remarks
-   * The point in time to which you want to restore data. The point in time must fall within the specified backup retention period. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * Any point in time within the backup retention period. Specify the time in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
-   * > You must specify at least one of the **BackupId** and **RestoreTime** parameters.
+   * > You must specify at least one of **BackupId** and **RestoreTime**.
    * 
    * @example
    * 2011-06-11T16:00:00Z
    */
   restoreTime?: string;
-  /**
-   * @remarks
-   * The specifications for the serverless instance. You must specify this parameter only when you restore data to a new serverless instance.
-   * 
-   * >  This parameter is available only on the China site (aliyun.com).
-   */
   serverlessConfig?: CloneDBInstanceRequestServerlessConfig;
   /**
    * @remarks
-   * The information about the database and table that you want to restore. The value is in the following format: `[{"type":"db","name":"Name of Database 1","newname":"New name of Database 1","tables":[{"type":"table","name":"Name of Table 1 in Database 1","newname":"New name of Table 1"},{"type":"table","name":"Name of Table 2 in Database 1","newname":"New name of Table 2"}]},{"type":"db","name":"Name of Database 2","newname":"New name of Database 2","tables":[{"type":"table","name":"Name of Table 1 in Database 2","newname":"New name of Table 1"},{"type":"table","name":"Name of Table 2 in Database 2","newname":"New name of Table 2"}]}]`
+   * The information about the databases and tables that you want to restore. Format:
+   * ```[{"type":"db","name":"Database1Name","newname":"NewDatabase1Name","tables":[{"type":"table","name":"Table1NameInDatabase1","newname":"NewTable1Name"},{"type":"table","name":"Table2NameInDatabase1","newname":"NewTable2Name"}]},{"type":"db","name":"Database2Name","newname":"NewDatabase2Name","tables":[{"type":"table","name":"Table1NameInDatabase2","newname":"NewTable1Name"},{"type":"table","name":"Table2NameInDatabase2","newname":"NewTable2Name"}]}]```
    * 
    * @example
    * [{"type":"db","name":"testdb1","newname":"testdb1_new","tables":[{"type":"table","name":"testdb1table1","newname":"testdb1table1_new"}]}]
@@ -359,12 +344,16 @@ export class CloneDBInstanceRequest extends $dara.Model {
   tableMeta?: string;
   /**
    * @remarks
-   * The subscription duration of the new instance. Valid values:
+   * The tag list.
+   */
+  tag?: CloneDBInstanceRequestTag[];
+  /**
+   * @remarks
+   * The subscription duration. Valid values:
+   * * If **Period** is set to **Year**, the value of UsedTime ranges from **1 to 3**.
+   * * If **Period** is set to **Month**, the value of UsedTime ranges from **1 to 9**.
    * 
-   * *   If you set the **Period** parameter to **Year**, the value of the UsedTime parameter ranges from **1 to 3**.
-   * *   If you set the **Period** parameter to **Month**, the value of the UsedTime parameter ranges from **1 to 9**.
-   * 
-   * > If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
+   * > This parameter is required if PayType is set to **Prepaid**.
    * 
    * @example
    * 1
@@ -372,30 +361,29 @@ export class CloneDBInstanceRequest extends $dara.Model {
   usedTime?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
-   * 
-   * >  Make sure that the VPC belongs to the required region.
+   * The VPC ID.
+   * > Make sure that the VPC belongs to the corresponding region.
    * 
    * @example
-   * vpc-uf6f7l4fg90xxxxxxxxxx
+   * vpc-uf6f7l4fg90****
    */
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch. The vSwitch must belong to the zone that is specified by **ZoneId**.
+   * The vSwitch ID. The zone of the vSwitch must correspond to the active zone ID specified in **ZoneId**.
    * 
-   * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
-   * *   If you specify the **ZoneSlaveId1** parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+   * - The network type (**InstanceNetworkType**) must be set to **VPC**.
+   * - If you specify **ZoneSlaveId1** (secondary zone ID), you must specify two vSwitch IDs separated by a comma (,).
    * 
    * @example
-   * vsw-uf6adz52c2pxxxxxxxxxx
+   * vsw-uf6adz52c2p****
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the primary instance. You can call the DescribeRegions operation to query the zone ID.
+   * The primary zone ID. You can call the DescribeRegions operation to query the zone ID.
    * 
-   * >  Set this value to the zone ID of the original instance.
+   * > Default value: the zone of the source instance.
    * 
    * @example
    * cn-hangzhou-b
@@ -403,7 +391,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone ID of the secondary instance. If you set the ZoneIdSlave1 parameter and the **ZoneId** parameter to the same value, the single-zone deployment method is used. If you set the ZoneIdSlave1 parameter and the **ZoneId** parameter to different values, the multi-zone deployment method is used.
+   * The zone ID of the secondary node. If this parameter is set to the same value as **ZoneId**, the single-zone deployment method is used. If this parameter is set to a different value from **ZoneId**, the multi-zone deployment method is used.
    * 
    * @example
    * cn-hangzhou-c
@@ -411,7 +399,9 @@ export class CloneDBInstanceRequest extends $dara.Model {
   zoneIdSlave1?: string;
   /**
    * @remarks
-   * The zone ID of the logger instance. If you set the ZoneIdSlave2 parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used. If you set the ZoneIdSlave2 parameter to a different value from the **ZoneId** parameter, the multi-zone deployment method is used.
+   * <props="intl">The zone ID of the logger node. If this parameter is set to the same value as **ZoneId**, the single-zone deployment method is used. If this parameter is set to a different value from **ZoneId**, the multi-zone deployment method is used.
+   * 
+   * <props="china">The zone ID of the secondary node or logger node. If this parameter is set to the same value as **ZoneId**, the single-zone deployment method is used. If this parameter is set to a different value from **ZoneId**, the multi-zone deployment method is used.
    * 
    * @example
    * cn-hangzhou-d
@@ -446,6 +436,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
       restoreTime: 'RestoreTime',
       serverlessConfig: 'ServerlessConfig',
       tableMeta: 'TableMeta',
+      tag: 'Tag',
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -484,6 +475,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
       restoreTime: 'string',
       serverlessConfig: CloneDBInstanceRequestServerlessConfig,
       tableMeta: 'string',
+      tag: { 'type': 'array', 'itemType': CloneDBInstanceRequestTag },
       usedTime: 'number',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -496,6 +488,9 @@ export class CloneDBInstanceRequest extends $dara.Model {
   validate() {
     if(this.serverlessConfig && typeof (this.serverlessConfig as any).validate === 'function') {
       (this.serverlessConfig as any).validate();
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeImportTaskValidationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The task details.
+   * 
    * @example
    * {"ValidateAction": "Detail"}
    */
@@ -17,11 +20,20 @@ export class DescribeImportTaskValidationResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task status. This parameter is invalid.
+   * 
    * @example
    * COMPLETED
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - **true**: Successful.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

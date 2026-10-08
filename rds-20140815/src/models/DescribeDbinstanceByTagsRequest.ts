@@ -8,22 +8,22 @@ export class DescribeDBInstanceByTagsRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCz*****
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * @example
-   * rm-uf6w**********
+   * rm-uf6w****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. Valid values: any non-zero positive integer that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -33,7 +33,7 @@ export class DescribeDBInstanceByTagsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **30 to 100**. Default value: **30**.
+   * The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
    * 
    * @example
    * 10
@@ -41,7 +41,7 @@ export class DescribeDBInstanceByTagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the most recent region list.
    * 
    * This parameter is required.
    * 

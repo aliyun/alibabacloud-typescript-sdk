@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The Tabular Data Stream (TDS) port of the instance for which Babelfish is enabled.
-   * 
-   * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
+   * The TDS port number of Babelfish for RDS PostgreSQL.
+   * > This parameter is applicable only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for RDS PostgreSQL, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
    * 
    * @example
    * 1433
@@ -15,9 +14,9 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   babelfishPort?: string;
   /**
    * @remarks
-   * The prefix of the public endpoint. A valid public endpoint is in the following format: `Prefix.Database engine.rds.aliyuncs.com`. Example: `test1234.mysql.rds.aliyuncs.com`.
+   * The prefix of the public endpoint. The complete public endpoint is in the format of `Prefix.DPI engine.rds.aliyuncs.com`. Example: `test1234.mysql.rds.aliyuncs.com`.
    * 
-   * > The value can be 5 to 40 characters in length and can contain letters, digits, and hyphens (-). The value cannot contain any of the following characters: ~ ! # % ^ & \\* = + | {} ; : \\" " , <> / ?
+   * > The prefix must be 5 to 40 characters in length and cannot contain Chinese characters or invalid characters (\\~!#%^&*=+|{}\\":",<>/?). The prefix can contain letters, digits, and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -27,20 +26,20 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   connectionStringPrefix?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5*****
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the dedicated cluster to which the instance belongs. This parameter is available only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
+   * The name of the group to which the general-purpose ApsaraDB RDS for MySQL instance in a dedicated cluster belongs.
    * 
    * @example
-   * rgc-bp1tkv8*****
+   * rgc-bp1tkv8****
    */
   generalGroupName?: string;
   ownerAccount?: string;
@@ -48,8 +47,7 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
    * The PgBouncer port.
-   * 
-   * > This parameter is available only for instances that run PostgreSQL.
+   * > This parameter is applicable only to ApsaraDB RDS for PostgreSQL instances.
    * 
    * @example
    * 6432
@@ -57,7 +55,7 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   PGBouncerPort?: string;
   /**
    * @remarks
-   * The public port of the instance. Valid values: **1000 to 5999**.
+   * The public port. Valid values: **1000 to 5999**.
    * 
    * This parameter is required.
    * 

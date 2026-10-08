@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCInstanceVncUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The database engine. Valid values:
+   * The database engine type. Valid values:
    * 
-   * *   **mssql**: SQL Server
-   * *   **mysql**: MySQL
+   * - **mssql**: SQL Server
+   * - **mysql**: MySQL
    * 
    * @example
    * mysql

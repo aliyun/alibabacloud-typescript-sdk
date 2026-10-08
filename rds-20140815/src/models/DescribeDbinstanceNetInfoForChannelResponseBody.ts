@@ -211,9 +211,8 @@ export class DescribeDBInstanceNetInfoForChannelResponseBody extends $dara.Model
   /**
    * @remarks
    * The network type of the instance. Valid values:
-   * 
-   * *   **VPC**: a virtual private cloud (VPC)
-   * *   **Classic**: classic network
+   * * **VPC**: virtual private cloud (VPC).
+   * * **Classic**: classic network.
    * 
    * @example
    * VPC
@@ -221,7 +220,7 @@ export class DescribeDBInstanceNetInfoForChannelResponseBody extends $dara.Model
   instanceNetworkType?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 61DF1F28-F409-50C0-B90A-CCE82D44****

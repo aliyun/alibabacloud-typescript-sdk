@@ -8,15 +8,15 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * @example
-   * rm-bpxxxxxxx
+   * rm-bp****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
@@ -32,10 +32,9 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30 (default value)**
-   * *   **50**
-   * *   **100**
+   * * **30** (default)
+   * * **50**
+   * * **100**
    * 
    * @example
    * 30
@@ -43,7 +42,7 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -55,10 +54,10 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * This parameter is reserved. You do not need to specify this parameter.
+   * A reserved parameter. You do not need to configure this parameter.
    * 
    * @example
-   * API
+   * test
    */
   proxyId?: string;
   static names(): { [key: string]: string } {

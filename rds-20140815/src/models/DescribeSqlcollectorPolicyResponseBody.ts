@@ -14,9 +14,8 @@ export class DescribeSQLCollectorPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the SQL Explorer (SQL Audit) feature. Valid values:
-   * 
-   * *   **Enable**
-   * *   **Disabled**
+   * * **Enable**: enabled.
+   * * **Disabled**: disabled.
    * 
    * @example
    * Enable

@@ -14,39 +14,19 @@ export class DescribeRCClusterNodesRequest extends $dara.Model {
    */
   nodePoolId?: string;
   /**
-   * @remarks
-   * The page number.
-   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * The number of entries per page. Valid values: **1 to 100**.
-   * 
-   * Default value: **30**.
-   * 
    * @example
-   * 30
+   * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * >  This is a reserved parameter.
-   * 
    * @example
-   * None
+   * vpc-2zet5c7111r33zbie****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {

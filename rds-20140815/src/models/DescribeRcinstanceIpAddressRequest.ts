@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1. Pages start from page 1.
+   * The page number of the page to return. Default value: 1, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The region ID of the asset.
+   * The region ID of the assets that are assigned public IP addresses to query.
    * 
    * @example
    * cn-beijing
@@ -21,10 +21,10 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   ddosRegionId?: string;
   /**
    * @remarks
-   * The DDoS mitigation status of the asset. Valid values:
+   * The DDoS mitigation status of the assets that are assigned public IP addresses to query. Valid values:
    * 
-   * *   **defense**: queries assets for which traffic scrubbing is performed.
-   * *   **blackhole**: queries assets for which blackhole filtering is triggered.
+   * - **defense**: Cleaning. Assets that are assigned public IP addresses for which Anti-DDoS Origin scrubs traffic are queried.
+   * - **blackhole**: Black Hole Activated. Assets that are assigned public IP addresses that are in the blackhole filtering status are queried.
    * 
    * @example
    * defense
@@ -32,7 +32,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   ddosStatus?: string;
   /**
    * @remarks
-   * The ID of the RDS Custom instance to which the asset to query is added.
+   * The instance ID of the Custom instance to which the assets that are assigned public IP addresses belong.
    * 
    * @example
    * rc-y6dn4pyuub1r89******
@@ -40,7 +40,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address of the asset to query.
+   * The IP address of the assets that are assigned public IP addresses to query.
    * 
    * @example
    * 39.105.XXX.XXX
@@ -48,7 +48,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   instanceIp?: string;
   /**
    * @remarks
-   * The name of the RDS Custom instance to which the asset to query is added.
+   * The name of the Custom instance to which the assets that are assigned public IP addresses belong.
    * 
    * @example
    * rc-y6dn4pyuub1r89******
@@ -56,7 +56,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The type of the asset that is assigned a public IP address. Set the value to **ecs**.
+   * The instance type of the assets that are assigned public IP addresses to query. Set the value to **ecs**.
    * 
    * @example
    * ecs
@@ -64,7 +64,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The number of instances on each page.
+   * Settings for paged query. The number of instances to return on each page for paging.
    * 
    * @example
    * 10
@@ -72,7 +72,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region in which the RDS Custom instance resides.
+   * The region ID of the Custom instance.
    * 
    * @example
    * cn-beijing
@@ -80,7 +80,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the resource. Set the value to **ecs**.
+   * The resource type. Set the value to **ecs**.
    * 
    * @example
    * ecs

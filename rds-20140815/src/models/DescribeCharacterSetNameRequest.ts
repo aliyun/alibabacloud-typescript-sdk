@@ -7,10 +7,10 @@ export class DescribeCharacterSetNameRequest extends $dara.Model {
    * @remarks
    * The type of the database engine. Valid values:
    * 
-   * *   **mysql**
-   * *   **mssql**
-   * *   **PostgreSQL**
-   * *   **MariaDB**
+   * - **mysql**: MySQL
+   * - **mssql**: SQL Server
+   * - **PostgreSQL**: PostgreSQL
+   * - **MariaDB**: MariaDB
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class DescribeCharacterSetNameRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class DescribeCharacterSetNameRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+   * The resource group ID. You can call DescribeDBInstanceAttribute to query the resource group ID.
    * 
    * @example
    * rg-acfmy*****

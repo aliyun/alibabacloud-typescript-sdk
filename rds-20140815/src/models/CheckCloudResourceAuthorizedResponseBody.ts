@@ -6,9 +6,8 @@ export class CheckCloudResourceAuthorizedResponseBody extends $dara.Model {
   /**
    * @remarks
    * The authorization status. Valid values:
-   * 
-   * *   **1**: authorized
-   * *   **0**: not authorized
+   * - **1**: Authorized.
+   * - **0**: Not authorized.
    * 
    * @example
    * 1
@@ -24,7 +23,7 @@ export class CheckCloudResourceAuthorizedResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
+   * The global resource descriptor of the role, which is used to specify a specific role. For details, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
    * 
    * @example
    * acs:ram::1406926****:role/aliyunrdsinstanceencryptiondefaultrole

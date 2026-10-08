@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClassDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the instance type.
+   * The instance type code.
    * 
    * This parameter is required.
    * 
@@ -15,20 +15,24 @@ export class DescribeClassDetailsRequest extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCz*****
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The commodity code of the instance. Valid values:
+   * The commodity code. Valid values:
    * 
-   * *   **bards_intl**: The instance is a pay-as-you-go primary instance.
-   * *   **rds_intl**: The instance is a subscription primary instance.
-   * *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
-   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
+   * * **bards**: pay-as-you-go primary instance
+   * * **rds**: subscription primary instance
+   * * **rords**: pay-as-you-go read-only instance
+   * * **rds_rordspre_public_cn**: subscription read-only instance
+   * * **bards_intl**: pay-as-you-go primary instance
+   * * **rds_intl**: subscription primary instance
+   * * **rords_intl**: pay-as-you-go read-only instance
+   * * **rds_rordspre_public_intl**: subscription read-only instance
    * 
    * This parameter is required.
    * 
@@ -38,7 +42,7 @@ export class DescribeClassDetailsRequest extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine type.
    * 
    * This parameter is required.
    * 
@@ -48,7 +52,7 @@ export class DescribeClassDetailsRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * The database engine version.
    * 
    * This parameter is required.
    * 
@@ -59,7 +63,7 @@ export class DescribeClassDetailsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -69,10 +73,10 @@ export class DescribeClassDetailsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain this value.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

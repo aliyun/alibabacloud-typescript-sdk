@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePriceResponseBodyPriceInfoActivityInfo extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The error description.
    * 
    * @example
    * Error description
@@ -13,7 +13,7 @@ export class DescribePriceResponseBodyPriceInfoActivityInfo extends $dara.Model 
   checkErrMsg?: string;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
    * @example
    * 123456
@@ -139,7 +139,7 @@ export class DescribePriceResponseBodyPriceInfoRuleIds extends $dara.Model {
 export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The information about the promotion.
+   * The price information.
    */
   activityInfo?: DescribePriceResponseBodyPriceInfoActivityInfo;
   coupons?: DescribePriceResponseBodyPriceInfoCoupons;
@@ -172,13 +172,13 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
    * The original price.
    * 
    * @example
-   * 2504
+   * 10508
    */
   originalPrice?: number;
   ruleIds?: DescribePriceResponseBodyPriceInfoRuleIds;
   /**
    * @remarks
-   * The estimated hourly cost that is calculated based on the maximum number of RCUs you specify.
+   * The estimated hourly fee calculated based on the maximum RCU selected by the user.
    * 
    * @example
    * 1**
@@ -186,7 +186,7 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   tradeMaxRCUAmount?: number;
   /**
    * @remarks
-   * The estimated hourly cost that is calculated based on the minimum number of RCUs you specify.
+   * The estimated hourly fee calculated based on the minimum RCU selected by the user.
    * 
    * @example
    * 2**
@@ -194,10 +194,10 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   tradeMinRCUAmount?: number;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
-   * 2504
+   * 10508
    */
   tradePrice?: number;
   static names(): { [key: string]: string } {
@@ -306,7 +306,7 @@ export class DescribePriceResponseBodyRules extends $dara.Model {
 export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   /**
    * @remarks
-   * The discount amount of the maximum number of RCUs.
+   * The discount amount for the maximum RCU.
    * 
    * @example
    * 1**.*
@@ -314,7 +314,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   RCUDiscountMaxAmount?: number;
   /**
    * @remarks
-   * The discount amount of the minimum number of RCUs.
+   * The discount amount for the minimum RCU.
    * 
    * @example
    * 1*.*
@@ -322,7 +322,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   RCUDiscountMinAmount?: number;
   /**
    * @remarks
-   * The price of the maximum number of RCUs.
+   * The original price for the maximum RCU.
    * 
    * @example
    * 2**.*
@@ -330,7 +330,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   RCUOriginalMaxAmount?: number;
   /**
    * @remarks
-   * The price of the minimum number of RCUs.
+   * The original price for the minimum RCU.
    * 
    * @example
    * 3*.*
@@ -338,7 +338,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   RCUOriginalMinAmount?: number;
   /**
    * @remarks
-   * The original price of the disk capacity.
+   * The original price of the disk.
    * 
    * @example
    * 1*
@@ -346,7 +346,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   storageOriginalAmount?: number;
   /**
    * @remarks
-   * The maximum total price before the discount.
+   * The maximum total price before discount.
    * 
    * @example
    * 2**.*
@@ -354,7 +354,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   totalOriginalMaxAmount?: number;
   /**
    * @remarks
-   * The minimum total price before the discount.
+   * The minimum total price before discount.
    * 
    * @example
    * 2*.*
@@ -362,7 +362,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   totalOriginalMinAmount?: number;
   /**
    * @remarks
-   * The transaction price of the maximum number of RCUs.
+   * The trade price for the maximum RCU.
    * 
    * @example
    * 1**.*
@@ -370,7 +370,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   tradeMaxRCUAmount?: number;
   /**
    * @remarks
-   * The transaction price of the minimum number of RCUs.
+   * The trade price for the minimum RCU.
    * 
    * @example
    * 2*.*
@@ -378,7 +378,7 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
   tradeMinRCUAmount?: number;
   /**
    * @remarks
-   * The discounted price of the disk capacity.
+   * The discount price of the disk.
    * 
    * @example
    * 2.*
@@ -427,8 +427,7 @@ export class DescribePriceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The order parameters.
-   * 
-   * >  If the **OrderParamOut** parameter is set to **true**, the value of the OrderParams parameter is returned.
+   * > This parameter is returned only when the **OrderParamOut** parameter is set to **true**.
    * 
    * @example
    * {\\"autoPay\\":false}"
@@ -441,7 +440,7 @@ export class DescribePriceResponseBody extends $dara.Model {
   priceInfo?: DescribePriceResponseBodyPriceInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CA0ADDDC-0BEB-4381-A3ED-73B4C79B8CC6
@@ -450,20 +449,20 @@ export class DescribePriceResponseBody extends $dara.Model {
   rules?: DescribePriceResponseBodyRules;
   /**
    * @remarks
-   * The pricing information about a serverless RDS instance.
+   * The serverless price information.
    */
   serverlessPrice?: DescribePriceResponseBodyServerlessPrice;
   /**
    * @remarks
-   * Indicates whether discounts can be used.
+   * Indicates whether discounts are allowed.
    * 
    * @example
-   * True
+   * true
    */
   showDiscount?: boolean;
   /**
    * @remarks
-   * The estimated hourly fee that is calculated based on the maximum number of RCUs.
+   * The estimated hourly fee calculated based on the maximum RCU selected by the user.
    * 
    * @example
    * 2**
@@ -471,7 +470,7 @@ export class DescribePriceResponseBody extends $dara.Model {
   tradeMaxRCUAmount?: number;
   /**
    * @remarks
-   * The estimated hourly fee that is calculated based on the minimum number of RCUs.
+   * The estimated hourly fee calculated based on the minimum RCU selected by the user.
    * 
    * @example
    * 1**

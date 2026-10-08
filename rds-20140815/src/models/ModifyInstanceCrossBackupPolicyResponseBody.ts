@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the cross-region backup feature on the instance. Valid values:
-   * 
-   * *   **Disable**
-   * *   **Enable**
+   * The status of the cross-region backup feature. Valid values:
+   * * **Disable**: Disabled.
+   * * **Enable**: Enabled.
    * 
    * @example
    * Enable
@@ -16,7 +15,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   backupEnabled?: string;
   /**
    * @remarks
-   * The ID of the region in which the cross-region backup files of the instance are stored.
+   * The ID of the destination region for cross-region backup.
    * 
    * @example
    * cn-shanghai
@@ -24,7 +23,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   crossBackupRegion?: string;
   /**
    * @remarks
-   * The policy that is used to save the cross-region backup files of the instance. Default value: **1**. The value 1 indicates that all cross-region backup files are saved.
+   * The type of cross-region backup retention. Default value: **1**, which indicates that all backups are retained.
    * 
    * @example
    * 1
@@ -35,15 +34,14 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The status of the cross-region log backup feature on the instance. Valid values:
-   * 
-   * *   **Disable**
-   * *   **Enable**
+   * The status of cross-region log backup. Valid values:
+   * * **Disable**: Disabled.
+   * * **Enable**: Enabled.
    * 
    * @example
    * Enable
@@ -59,7 +57,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 50A6059D-6DBB-46C6-A851-1EE93C9013CF
@@ -67,7 +65,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The policy that is used to retain the cross-region backup files of the instance. Default value: **1**. The value 1 indicates that the cross-region backup files of the instance are retained based on the specified retention period.
+   * The cross-region backup retention method. Default value: **1**, which indicates retention by duration.
    * 
    * @example
    * 1
@@ -75,7 +73,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   retentType?: number;
   /**
    * @remarks
-   * The number of days for which the cross-region backup files of the instance are retained. Valid values: **7 to 1825**.
+   * The number of days for which cross-region backups are retained. Valid values: **7 to 1825**.
    * 
    * @example
    * 15

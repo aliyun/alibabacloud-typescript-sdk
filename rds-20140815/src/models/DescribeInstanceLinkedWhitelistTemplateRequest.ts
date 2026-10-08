@@ -10,12 +10,12 @@ export class DescribeInstanceLinkedWhitelistTemplateRequest extends $dara.Model 
    * This parameter is required.
    * 
    * @example
-   * rm-bp191w771kd3****
+   * rm-bp191w771k******
    */
   insName?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query available regions.
    * 
    * @example
    * cn-hangzhou
@@ -23,10 +23,10 @@ export class DescribeInstanceLinkedWhitelistTemplateRequest extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can leave this parameter empty.
+   * The resource group ID. This parameter can be left empty.
    * 
    * @example
-   * rg-aek3dbzqbh6****
+   * rg-aek3dbzqb******
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

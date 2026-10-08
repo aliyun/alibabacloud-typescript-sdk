@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCollationTimeZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The character set collation of the instance.
+   * The system character set collation.
    * 
    * @example
-   * Latin1_General_CI_AS
+   * Chinese_PRC_CS_AS
    */
   collation?: string;
   /**
@@ -16,7 +16,7 @@ export class ModifyCollationTimeZoneResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-bp15qi0nd1u27****
    */
   DBInstanceId?: string;
   /**
@@ -24,7 +24,7 @@ export class ModifyCollationTimeZoneResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 8EA054AF-DFA7-497D-9F57-790FFC974C0B
+   * 58D48758-F035-52D3-A4FB-80C73DA3E95C
    */
   requestId?: string;
   /**
@@ -32,7 +32,7 @@ export class ModifyCollationTimeZoneResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 114413215
+   * 56365****
    */
   taskId?: string;
   /**

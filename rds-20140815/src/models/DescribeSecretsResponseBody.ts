@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecretsResponseBodySecrets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
-   * 1266348003******
+   * 1266348003****
    */
   accountId?: string;
   /**
@@ -29,15 +29,15 @@ export class DescribeSecretsResponseBodySecrets extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account.
+   * The user credential of the Data API account.
    * 
    * @example
-   * acs:rds:cn-hangzhou:1335786***:dbInstance/rm-bp1m7l3j63****
+   * acs:rds:cn-hangzhou:1335786****:dbInstance/rm-bp1m7l3j63****
    */
   secretArn?: string;
   /**
    * @remarks
-   * The name of the credential.
+   * The credential name.
    * 
    * @example
    * Foo
@@ -45,7 +45,7 @@ export class DescribeSecretsResponseBodySecrets extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * The username that is used to access the database.
+   * The database username.
    * 
    * @example
    * user_jack
@@ -101,7 +101,7 @@ export class DescribeSecretsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DF4961DD-16F5-5B24-BD4C-0C7788F7ADAF
@@ -109,7 +109,7 @@ export class DescribeSecretsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the credential.
+   * The list of credential details.
    */
   secrets?: DescribeSecretsResponseBodySecrets[];
   static names(): { [key: string]: string } {

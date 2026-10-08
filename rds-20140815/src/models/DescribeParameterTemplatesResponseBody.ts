@@ -69,7 +69,7 @@ export class DescribeParameterTemplatesResponseBodyParameters extends $dara.Mode
 export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine.
    * 
    * @example
    * mysql
@@ -77,7 +77,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * @example
    * 8.0

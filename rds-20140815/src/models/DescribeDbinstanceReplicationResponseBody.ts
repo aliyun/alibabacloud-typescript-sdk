@@ -15,7 +15,7 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   executedGtidSet?: string;
   /**
    * @remarks
-   * 0表示无错误，其他值表示具体的错误代码
+   * A value of 0 indicates no error. Other values indicate specific error codes.
    * 
    * @example
    * 0
@@ -23,7 +23,7 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   lastErrno?: number;
   /**
    * @remarks
-   * 0表示无错误，其他值表示IO线程的错误代码
+   * A value of 0 indicates no error. Other values indicate error codes of the I/O thread.
    * 
    * @example
    * 0
@@ -31,12 +31,12 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   lastIoErrno?: number;
   /**
    * @remarks
-   * IO线程的错误信息描述
+   * The error message description of the I/O thread.
    */
   lastIoError?: string;
   /**
    * @remarks
-   * 0表示无错误，其他值表示SQL线程的错误代码
+   * A value of 0 indicates no error. Other values indicate error codes of the SQL thread.
    * 
    * @example
    * 0
@@ -44,7 +44,7 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   lastSqlErrno?: number;
   /**
    * @remarks
-   * SQL线程的错误信息描述
+   * The error message description of the SQL thread.
    */
   lastSqlError?: string;
   /**
@@ -99,7 +99,7 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   secondsBehindMaster?: number;
   /**
    * @remarks
-   * Yes: 运行中，No: 已停止
+   * Valid values: Yes (running) and No (stopped).
    * 
    * @example
    * Yes
@@ -112,7 +112,7 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   slaveIoState?: string;
   /**
    * @remarks
-   * Yes: 运行中，No: 已停止
+   * Valid values: Yes (running) and No (stopped).
    * 
    * @example
    * Yes
@@ -187,23 +187,25 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
 export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the native replication mods is enabled. Valid values:
-   * 
-   * *   **ON**
-   * *   **OFF**
+   * Indicates whether native replication mode is enabled. Valid values:
+   * - **ON**: Enabled.
+   * - **OFF**: Disabled.
    * 
    * @example
    * ON
    */
   externalReplication?: string;
   /**
+   * @remarks
+   * The executed global transaction identifier.
+   * 
    * @example
    * bd2a34b9-8b8d-11ef-8917-00163e1298b9:1-20567
    */
   gtidExecuted?: string;
   /**
    * @remarks
-   * COMPLETED: 导入完成，INIT: 初始化，IMPORTING: 正在导入
+   * The import status, which indicates whether full data is successfully imported.
    * 
    * @example
    * COMPLETED
@@ -211,7 +213,7 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
   importStatus?: string;
   /**
    * @remarks
-   * The replication latency. Unit: seconds.
+   * The current replication delay, in seconds.
    * 
    * @example
    * 0
@@ -226,37 +228,40 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
    */
   replicationErrorMessage?: string;
   /**
+   * @remarks
+   * The IP address of the replication endpoint.
+   * 
    * @example
    * 192.168.10.x
    */
   replicationIp?: string;
   /**
+   * @remarks
+   * The port of the replication endpoint.
+   * 
    * @example
    * 3306
    */
   replicationPort?: string;
   /**
    * @remarks
-   * The source of the native replication.
+   * The replication source of native replication.
    * 
    * @example
-   * 192.168.x.x
+   * 192.168.XX.XX
    */
   replicationSource?: string;
   /**
    * @remarks
    * The current replication status. Valid values:
    * 
-   * *   **Running**
-   * *   **Connecting**
-   * *   **Stopped**
-   * *   **Error**
+   * - **Running**: Running.
+   * - **Connecting**: Connecting.
+   * - **Stopped**: Stopped.
+   * - **Error**: Error.
    * 
    * @example
-   * Running
-   * Connecting
    * Stopped
-   * Error
    */
   replicationState?: string;
   /**

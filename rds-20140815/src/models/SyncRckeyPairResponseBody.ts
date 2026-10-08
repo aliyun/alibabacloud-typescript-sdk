@@ -3,16 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SyncRCKeyPairResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the synchronization succeeded. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   isSyncInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -36,18 +26,7 @@ export class SyncRCKeyPairResponseBodyData extends $dara.Model {
 }
 
 export class SyncRCKeyPairResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the result.
-   */
   data?: SyncRCKeyPairResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 60478CCB-95EA-5D06-8A51-CAC83A316E9A
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -8,12 +8,12 @@ export class CreateDBInstanceForRebuildResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class CreateDBInstanceForRebuildResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 20793850608****
@@ -29,7 +29,7 @@ export class CreateDBInstanceForRebuildResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -37,7 +37,7 @@ export class CreateDBInstanceForRebuildResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 417450000

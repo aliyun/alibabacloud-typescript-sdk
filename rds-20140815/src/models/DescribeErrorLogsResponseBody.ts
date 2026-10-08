@@ -75,7 +75,7 @@ export class DescribeErrorLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of error logs on the current page.
+   * The number of error log entries on the current page.
    * 
    * @example
    * 30
@@ -91,7 +91,7 @@ export class DescribeErrorLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

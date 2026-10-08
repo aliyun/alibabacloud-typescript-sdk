@@ -12,6 +12,9 @@ export class ValidateImportTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the precheck task.
+   * 
    * @example
    * 12345
    */

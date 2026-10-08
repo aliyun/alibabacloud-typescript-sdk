@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorysSupportedStorageTypes extends $dara.Model {
   /**
    * @remarks
-   * The storage type of the instance.
+   * The instance storage type.
    * 
    * @example
    * local_ssd
@@ -35,7 +35,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorys extends $dara.Model {
   /**
    * @remarks
-   * The RDS edition of the instance.
+   * The instance edition.
    * 
    * @example
    * HighAvailability
@@ -43,7 +43,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
   category?: string;
   /**
    * @remarks
-   * The storage types that are available for purchase.
+   * The list of supported storage types available for sale.
    */
   supportedStorageTypes?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorysSupportedStorageTypes[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersions extends $dara.Model {
   /**
    * @remarks
-   * The RDS editions that are available that are available for purchase.
+   * The list of supported instance editions available for sale.
    */
   supportedCategorys?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorys[];
   /**
@@ -115,7 +115,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines extends $dara.Model {
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine.
    * 
    * @example
    * MySQL
@@ -123,7 +123,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines ex
   engine?: string;
   /**
    * @remarks
-   * The database engine versions that are available for purchase.
+   * The list of supported database engine versions available for sale.
    */
   supportedEngineVersions?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersions[];
   static names(): { [key: string]: string } {
@@ -163,7 +163,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZones extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The database engines that are available for purchase.
+   * The list of supported database engines available for sale.
    */
   supportedEngines?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines[];
   /**
@@ -205,12 +205,12 @@ export class DescribeAvailableZonesResponseBodyAvailableZones extends $dara.Mode
 export class DescribeAvailableZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available zones in the region.
+   * The list of available zone resources for ApsaraDB RDS.
    */
   availableZones?: DescribeAvailableZonesResponseBodyAvailableZones[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4256E149-C3C4-4FA7-BDEA-13CA415E8763

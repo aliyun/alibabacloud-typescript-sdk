@@ -1,3 +1,4 @@
+export { AddRCInstancesToDeploymentSetResponseBodyResults } from './AddRcinstancesToDeploymentSetResponseBody';
 export { AddTagsToResourceRequestTag } from './AddTagsToResourceRequest';
 export { AttachRCInstancesResponseBodyResponses } from './AttachRcinstancesResponseBody';
 export { AttachWhitelistTemplateToInstanceResponseBodyData } from './AttachWhitelistTemplateToInstanceResponseBody';
@@ -5,6 +6,8 @@ export { AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions } fro
 export { CalculateDBInstanceWeightResponseBodyItemsDBInstanceWeight } from './CalculateDbinstanceWeightResponseBody';
 export { CalculateDBInstanceWeightResponseBodyItems } from './CalculateDbinstanceWeightResponseBody';
 export { CloneDBInstanceRequestServerlessConfig } from './CloneDbinstanceRequest';
+export { CloneDBInstanceRequestTag } from './CloneDbinstanceRequest';
+export { CloneDBInstanceShrinkRequestTag } from './CloneDbinstanceShrinkRequest';
 export { CreateDBInstanceRequestServerlessConfig } from './CreateDbinstanceRequest';
 export { CreateDBInstanceRequestTag } from './CreateDbinstanceRequest';
 export { CreateDBInstanceShrinkRequestTag } from './CreateDbinstanceShrinkRequest';
@@ -80,6 +83,7 @@ export { DescribeCustinsResourceInfoResponseBodyData } from './DescribeCustinsRe
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeDBClusterNodesDBClusterNode } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeDBClusterNodes } from './DescribeDbinstanceAttributeResponseBody';
+export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeDrReplicaInfo } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeReadOnlyDBInstanceIdsReadOnlyDBInstanceId } from './DescribeDbinstanceAttributeResponseBody';
@@ -87,6 +91,7 @@ export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeReadOnly
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeServerlessConfig } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeSlaveZonesSlaveZone } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeSlaveZones } from './DescribeDbinstanceAttributeResponseBody';
+export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeWarmStandbyInfo } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyItems } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceByTagsResponseBodyItemsDBInstanceTagTagsTag } from './DescribeDbinstanceByTagsResponseBody';
@@ -318,6 +323,7 @@ export { DescribeRCSecurityGroupPermissionResponseBodySecurityGroupPermissions }
 export { DescribeRCSnapshotsRequestTag } from './DescribeRcsnapshotsRequest';
 export { DescribeRCSnapshotsResponseBodySnapshotsTag } from './DescribeRcsnapshotsResponseBody';
 export { DescribeRCSnapshotsResponseBodySnapshots } from './DescribeRcsnapshotsResponseBody';
+export { DescribeRCVClusterResponseBodyMysqlOperator } from './DescribeRcvclusterResponseBody';
 export { DescribeRdsResourceSettingsResponseBodyRdsInstanceResourceSettingsRdsInstanceResourceSetting } from './DescribeRdsResourceSettingsResponseBody';
 export { DescribeRdsResourceSettingsResponseBodyRdsInstanceResourceSettings } from './DescribeRdsResourceSettingsResponseBody';
 export { DescribeReadDBInstanceDelayResponseBodyItemsItemsReadDBInstanceNames } from './DescribeReadDbinstanceDelayResponseBody';
@@ -385,6 +391,7 @@ export { GetDbProxyInstanceSslResponseBodyDbProxyCertListItemsDbProxyCertListIte
 export { GetDbProxyInstanceSslResponseBodyDbProxyCertListItems } from './GetDbProxyInstanceSslResponseBody';
 export { ListClassesResponseBodyItems } from './ListClassesResponseBody';
 export { ListImportTasksResponseBodyItems } from './ListImportTasksResponseBody';
+export { ListRCVClustersResponseBodyVClustersMysqlOperator } from './ListRcvclustersResponseBody';
 export { ListRCVClustersResponseBodyVClusters } from './ListRcvclustersResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagResourcesResponseBody';
@@ -413,6 +420,7 @@ export { PreCheckCreateOrderForDeleteDBNodesResponseBodyFailures } from './PreCh
 export { PrecheckDuckDBDependencyResponseBodyFailedCheckItems } from './PrecheckDuckDbdependencyResponseBody';
 export { QueryNotifyResponseBodyDataNotifyItemList } from './QueryNotifyResponseBody';
 export { QueryNotifyResponseBodyData } from './QueryNotifyResponseBody';
+export { RemoveRCInstancesFromDeploymentSetResponseBodyResults } from './RemoveRcinstancesFromDeploymentSetResponseBody';
 export { RemoveTagsFromResourceRequestTag } from './RemoveTagsFromResourceRequest';
 export { RunRCCommandRequestResourceTags } from './RunRccommandRequest';
 export { RunRCCommandRequestTags } from './RunRccommandRequest';
@@ -431,6 +439,9 @@ export { AcceptRCInquiredSystemEventResponse } from './AcceptRcinquiredSystemEve
 export { ActivateMigrationTargetInstanceRequest } from './ActivateMigrationTargetInstanceRequest';
 export { ActivateMigrationTargetInstanceResponseBody } from './ActivateMigrationTargetInstanceResponseBody';
 export { ActivateMigrationTargetInstanceResponse } from './ActivateMigrationTargetInstanceResponse';
+export { AddRCInstancesToDeploymentSetRequest } from './AddRcinstancesToDeploymentSetRequest';
+export { AddRCInstancesToDeploymentSetResponseBody } from './AddRcinstancesToDeploymentSetResponseBody';
+export { AddRCInstancesToDeploymentSetResponse } from './AddRcinstancesToDeploymentSetResponse';
 export { AddTagsToResourceRequest } from './AddTagsToResourceRequest';
 export { AddTagsToResourceResponseBody } from './AddTagsToResourceResponseBody';
 export { AddTagsToResourceResponse } from './AddTagsToResourceResponse';
@@ -1557,6 +1568,9 @@ export { ReleaseInstancePublicConnectionResponse } from './ReleaseInstancePublic
 export { ReleaseReadWriteSplittingConnectionRequest } from './ReleaseReadWriteSplittingConnectionRequest';
 export { ReleaseReadWriteSplittingConnectionResponseBody } from './ReleaseReadWriteSplittingConnectionResponseBody';
 export { ReleaseReadWriteSplittingConnectionResponse } from './ReleaseReadWriteSplittingConnectionResponse';
+export { RemoveRCInstancesFromDeploymentSetRequest } from './RemoveRcinstancesFromDeploymentSetRequest';
+export { RemoveRCInstancesFromDeploymentSetResponseBody } from './RemoveRcinstancesFromDeploymentSetResponseBody';
+export { RemoveRCInstancesFromDeploymentSetResponse } from './RemoveRcinstancesFromDeploymentSetResponse';
 export { RemoveTagsFromResourceRequest } from './RemoveTagsFromResourceRequest';
 export { RemoveTagsFromResourceResponseBody } from './RemoveTagsFromResourceResponseBody';
 export { RemoveTagsFromResourceResponse } from './RemoveTagsFromResourceResponse';
@@ -1605,6 +1619,9 @@ export { RunRCInstancesRequest } from './RunRcinstancesRequest';
 export { RunRCInstancesShrinkRequest } from './RunRcinstancesShrinkRequest';
 export { RunRCInstancesResponseBody } from './RunRcinstancesResponseBody';
 export { RunRCInstancesResponse } from './RunRcinstancesResponse';
+export { ShareRCDeploymentSetRequest } from './ShareRcdeploymentSetRequest';
+export { ShareRCDeploymentSetResponseBody } from './ShareRcdeploymentSetResponseBody';
+export { ShareRCDeploymentSetResponse } from './ShareRcdeploymentSetResponse';
 export { StartDBInstanceRequest } from './StartDbinstanceRequest';
 export { StartDBInstanceResponseBody } from './StartDbinstanceResponseBody';
 export { StartDBInstanceResponse } from './StartDbinstanceResponse';

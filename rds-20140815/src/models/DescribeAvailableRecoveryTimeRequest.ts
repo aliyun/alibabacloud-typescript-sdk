@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableRecoveryTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cross-region data backup file. You can call the DescribeCrossRegionBackups operation to query the backup file ID.
+   * The ID of the cross-region backup file. You can call the DescribeCrossRegionBackups operation to query the backup set ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 14***
+   * 12493****
    */
   crossBackupId?: number;
   /**
@@ -18,7 +18,7 @@ export class DescribeAvailableRecoveryTimeRequest extends $dara.Model {
    * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * @example
-   * rm-uf6wjk5*****
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerId?: number;
@@ -27,7 +27,7 @@ export class DescribeAvailableRecoveryTimeRequest extends $dara.Model {
    * The region ID.
    * 
    * @example
-   * cn-hangzhou
+   * cn-chengdu
    */
   regionId?: string;
   /**
@@ -35,7 +35,7 @@ export class DescribeAvailableRecoveryTimeRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

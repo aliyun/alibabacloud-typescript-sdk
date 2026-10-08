@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMarketingActivityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * This parameter is required.
    * 
@@ -15,8 +15,8 @@ export class DescribeMarketingActivityRequest extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * *   China site: 26842
-   * *   International site: 26888
+   * - Chinese site: 26842
+   * - International site: 26888
    * 
    * @example
    * 26842
@@ -33,7 +33,7 @@ export class DescribeMarketingActivityRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) to query the available regions.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class DescribeMarketingActivityRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The service name.
+   * The product name.
    * 
    * This parameter is required.
    * 

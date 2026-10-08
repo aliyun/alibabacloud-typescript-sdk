@@ -5,24 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBackupRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup set ID. You can call the DescribeBackups operation to query the backup set ID. Separate multiple values with commas (,). You can specify a maximum of 100 values in a single request.
-   * 
-   * >  You can delete only backup sets whose **StoreStatus** is **Enabled** in the response to the DescribeBackups operation call.
+   * The backup set ID. You can call DescribeBackups to query the backup set ID. Separate multiple values with commas (,). You can specify up to 100 values at a time.
+   * >Only backup sets whose **StoreStatus** is **Enabled** in the DescribeBackups response can be deleted.
    * 
    * This parameter is required.
    * 
    * @example
-   * 324******
+   * 32490****
    */
   backupId?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;

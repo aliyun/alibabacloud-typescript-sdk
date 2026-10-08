@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateEipAddressWithRCInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The EIP ID.
+   * The ID of the EIP.
    * 
-   * >  If no EIP is available, create an EIP. For more information, see [Create an EIP](https://help.aliyun.com/document_detail/292841.html).
+   * > If you do not have an EIP, [create an EIP](https://help.aliyun.com/document_detail/292841.html) first.
    * 
    * @example
    * eip-bp166out2x4bpcf******
@@ -15,7 +15,7 @@ export class AssociateEipAddressWithRCInstanceRequest extends $dara.Model {
   allocationId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID of the RDS Custom instance.
    * 
    * @example
    * rc-i322y2t562oh7o******
@@ -23,7 +23,7 @@ export class AssociateEipAddressWithRCInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the available regions.
    * 
    * @example
    * cn-hangzhou

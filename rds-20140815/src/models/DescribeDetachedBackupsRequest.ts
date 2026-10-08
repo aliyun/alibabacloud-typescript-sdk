@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDetachedBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup set.
+   * The backup set ID.
    * 
    * @example
-   * 327xxxxx3
+   * 327****
    */
   backupId?: string;
   /**
    * @remarks
-   * The backup method. Valid values:
+   * The backup mode. Valid values:
    * 
-   * *   **Automated**
-   * *   **Manual**
+   * - **Automated**: automatic backup.
+   * - **Manual**: manual backup.
    * 
    * @example
    * Automated
@@ -24,10 +24,9 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The status of the backup set. Valid values:
-   * 
-   * *   **Success**
-   * *   **Failed**
+   * The backup set status. Valid values:
+   * - **Success**: The backup is complete.
+   * - **Failed**: The backup failed.
    * 
    * @example
    * Success
@@ -35,17 +34,17 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time.
+   * The end time of the query. The end time must be later than the start time.
    * 
-   * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
    * 
    * @example
    * 2021-03-15T16:00Z
@@ -53,9 +52,9 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
    * 
-   * > The default value is 1.
+   * > Default value: 1.
    * 
    * @example
    * 1
@@ -64,12 +63,11 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
+   * - **30**
+   * - **50**
+   * - **100**
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
-   * 
-   * > The default value is **30**.
+   * > Default value: **30**.
    * 
    * @example
    * 30
@@ -77,7 +75,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region in which the instance resides.
    * 
    * This parameter is required.
    * 
@@ -87,18 +85,18 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query.
    * 
-   * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
    * 
    * @example
    * 2021-03-01T16:00Z

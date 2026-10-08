@@ -14,8 +14,7 @@ export class DeleteSecretRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
-   * >  If you specify this parameter, you must also specify the **SecretName** parameter. parameter.
+   * >This parameter must be specified together with **SecretName**.
    * 
    * @example
    * rm-sfjdlsjxxxxx
@@ -23,9 +22,9 @@ export class DeleteSecretRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The engine of the database.
+   * The database engine type.
    * 
-   * > Only MySQL is supported.
+   * > This parameter currently supports only the value MySQL.
    * 
    * This parameter is required.
    * 
@@ -56,9 +55,8 @@ export class DeleteSecretRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account. You can call the CreateSecret operation to obtain the value of this parameter.
-   * 
-   * >  You must specify one of the SecretArn and **SecretName** parameters.
+   * The user credential of the Data API account that has been created. You can call the createSecret operation to query the value of this parameter.
+   * >You must specify either **SecretName** or this parameter.
    * 
    * @example
    * acs:rds:cn-hangzhou:1335786***:dbInstance/rm-bp1m7l3j63****
@@ -66,10 +64,10 @@ export class DeleteSecretRequest extends $dara.Model {
   secretArn?: string;
   /**
    * @remarks
-   * The name of the credential.
+   * The name of the user credential.
    * 
-   * > *   You must specify one of **SecretArn** and SecretName.
-   * > *   If you specify this parameter, you must also specify **DbInstanceId**.
+   * > * You must specify either **SecretArn** or this parameter.
+   * > * This parameter must be specified together with **DbInstanceId**.
    * 
    * @example
    * Foo

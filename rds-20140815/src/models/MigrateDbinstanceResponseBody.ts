@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The serial number of the task in the migration task queue. When the serial number becomes 0, the system starts the migration.
+   * The migration queue number. When the number is 0, the migration switchover is performed.
    * 
    * @example
-   * 224****
+   * 2245016
    */
   migrationId?: number;
   /**
@@ -24,7 +24,7 @@ export class MigrateDBInstanceResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 10824****
+   * 108246861
    */
   taskId?: number;
   static names(): { [key: string]: string } {

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountMaskingPrivilegeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    */
   data?: { [key: string]: string };
   /**
    * @remarks
-   * Return message
+   * The returned message.
    * 
    * @example
    * successful
@@ -18,7 +18,7 @@ export class ModifyAccountMaskingPrivilegeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 2144F5CC-10C5-3B72-8C74-E52C********
@@ -26,7 +26,7 @@ export class ModifyAccountMaskingPrivilegeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

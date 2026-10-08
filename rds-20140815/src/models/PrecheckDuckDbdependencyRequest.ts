@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PrecheckDuckDBDependencyRequest extends $dara.Model {
   /**
    * @remarks
-   * The primary instance ID.
+   * The instance ID of the primary instance.
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class PrecheckDuckDBDependencyResponseBodyFailedCheckItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the item can be changed with one click to meet the requirements.
+   * Indicates whether the item can be fixed with one click.
    * 
-   * *   **true**: Yes. You can call the [ModifyDBInstanceConfig](https://help.aliyun.com/document_detail/2623684.html) operation to change the item with one click.
-   * *   **false**: No.
+   * - **true**: The item can be fixed with one click by calling the [ModifyDBInstanceConfig](https://help.aliyun.com/document_detail/2623684.html) operation.
+   * - **false**: The item cannot be fixed with one click.
    * 
-   * >  If the major engine version of the primary does not meet the requirements, you must manually upgrade it.
+   * 
+   * >Notice: If the major engine version of the database instance does not meet the requirements, you must perform a [manual upgrade](https://help.aliyun.com/document_detail/2623684.html).
    * 
    * @example
    * false
@@ -34,7 +35,7 @@ export class PrecheckDuckDBDependencyResponseBodyFailedCheckItems extends $dara.
   name?: string;
   /**
    * @remarks
-   * The value or value range that meets the requirements.
+   * The target value or target range of the check item.
    * 
    * @example
    * 17.0
@@ -42,11 +43,11 @@ export class PrecheckDuckDBDependencyResponseBodyFailedCheckItems extends $dara.
   requiredValue?: string;
   /**
    * @remarks
-   * The check item. Valid values:
+   * The check item type. Valid values:
    * 
-   * *   **Parameter**: The parameters of the primary instance.
-   * *   **MinorVersion**: The minor engine version of the primary instance.
-   * *   **MajorVersion**: The major engine version of the primary instance.
+   * - **Parameter**: parameter.
+   * - **MinorVersion**: minor engine version.
+   * - **MajorVersion**: major engine version.
    * 
    * @example
    * Parameter
@@ -84,15 +85,15 @@ export class PrecheckDuckDBDependencyResponseBodyFailedCheckItems extends $dara.
 export class PrecheckDuckDBDependencyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The check items that do not meet the requirements for creating DuckDB-based analytical instances.
+   * The items that do not meet the prerequisites for creating a DuckDB-based analytical instance.
    */
   failedCheckItems?: PrecheckDuckDBDependencyResponseBodyFailedCheckItems[];
   /**
    * @remarks
-   * Indicates whether the primary instance meet the requirements for creating DuckDB-based analytical instances. Valid values:
+   * Indicates whether the prerequisite check for creating a DuckDB-based analytical instance is passed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The check is passed.
+   * - **false**: The check is not passed.
    * 
    * @example
    * false

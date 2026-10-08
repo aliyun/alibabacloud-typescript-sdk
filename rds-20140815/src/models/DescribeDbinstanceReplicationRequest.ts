@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceReplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDBInstanceReplicationRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the available regions.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeDBInstanceReplicationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can leave this parameter empty.
+   * The resource group ID. This parameter can be left empty.
    * 
    * @example
    * rg-acfmx****

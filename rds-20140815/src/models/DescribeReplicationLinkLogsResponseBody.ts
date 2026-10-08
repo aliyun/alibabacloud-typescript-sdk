@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The details of the task.
+   * The task details.
    * 
    * @example
    * [Check rds empty]\\nCheck rds databases: success\\n[Check source connectivity]\\nCheck ip connectable: success\\nCheck port connectable: success\\nCheck database connectable: success\\nCheck account replication privilege: success\\nCheck account createrole privilege: success\\nCheck account monitor privilege: success\\n[Check source version]\\nCheck major version consistent: success\\n[Check source glibc version]\\nCheck source glibc version compatible: warning(warning:source glibc version is not compatible with rds pg)\\n[Check disk size]\\nCheck disk size enough: success\\n[Check wal keep size]\\nCheck wal keep size large enough: success\\n[Check spec params]\\nCheck if spec params too large: success\\n [Check triggers]\\nCheck triggers compatible: success\\n[Check user functions]\\nCheck user functions compatible: success\\n*Migrate check success*
@@ -13,7 +13,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The creation time. The time is displayed in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2022-02-25T06:57:41Z
@@ -21,7 +21,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The modification time. The time is displayed in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2022-03-01T06:39:51Z
@@ -29,7 +29,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The synchronization information. This parameter is a reserved parameter.
+   * The synchronization information. This is a reserved field.
    * 
    * @example
    * None
@@ -37,11 +37,11 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   replicationInfo?: string;
   /**
    * @remarks
-   * The status of the synchronization. Valid values:
+   * The synchronization status. Valid values:
    * 
-   * *   **steaming**: The synchronization is in progress.
-   * *   **finish**: The synchronization is complete.
-   * *   **disconnect**: The synchronization is disconnected.
+   * - **steaming**: Synchronizing.
+   * - **finish**: Completed.
+   * - **disconnect**: Disconnected.
    * 
    * @example
    * finish
@@ -49,7 +49,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   replicationState?: string;
   /**
    * @remarks
-   * The account of the database that is used for data synchronization.
+   * The database account used for data synchronization.
    * 
    * @example
    * testdbuser
@@ -57,7 +57,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   replicatorAccount?: string;
   /**
    * @remarks
-   * The password of the account.
+   * The password of the synchronization account.
    * 
    * @example
    * testpassword
@@ -65,7 +65,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   replicatorPassword?: string;
   /**
    * @remarks
-   * The endpoint of the source instance.
+   * The address of the source instance.
    * 
    * @example
    * pgm-****.pg.rds.aliyuncs.com
@@ -73,10 +73,10 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   sourceAddress?: string;
   /**
    * @remarks
-   * The type of the source instance. Valid values:
+   * The category of the source instance. Valid values:
    * 
-   * *   other: other instances
-   * *   aliyunRDS: an ApsaraDB RDS instance
+   * - other: Other.
+   * - aliyunRDS: ApsaraDB RDS instance.
    * 
    * @example
    * aliyunRDS
@@ -84,7 +84,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   sourceCategory?: string;
   /**
    * @remarks
-   * The port number of the source instance.
+   * The port of the source instance.
    * 
    * @example
    * 5432
@@ -92,7 +92,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   sourcePort?: number;
   /**
    * @remarks
-   * The destination instance ID.
+   * The ID of the target instance.
    * 
    * @example
    * pgm-bp1l4dutw453****
@@ -100,7 +100,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 8413252
@@ -108,7 +108,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * test01
@@ -116,12 +116,12 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The stage of the task. Valid values:
+   * The task stage. Valid values:
    * 
-   * *   **precheck**: the precheck stage.
-   * *   **basebackup**: the basic backup stage.
-   * *   **startup**: the startup stage.
-   * *   **increment**: the incremental synchronization stage.
+   * - **precheck**: Dry run.
+   * - **basebackup**: Basic backup.
+   * - **startup**: Startup.
+   * - **increment**: Incremental synchronization.
    * 
    * @example
    * increment
@@ -129,11 +129,11 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   taskStage?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **success**
-   * *   **failure**
-   * *   **running**
+   * - **success**: Succeeded.
+   * - **failure**: Failed.
+   * - **running**: Running.
    * 
    * @example
    * success
@@ -141,10 +141,9 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
-   * 
-   * *   **create**: creates a synchronization link.
-   * *   **create-dryrun**: performs a precheck before a synchronization link is created.
+   * The task type. Valid values:
+   * - **create**: Create a replication link.
+   * - **create-dryrun**: Dry run for creating a replication link.
    * 
    * @example
    * create
@@ -204,7 +203,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
 export class DescribeReplicationLinkLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * pgm-bp1trqb4p1xd****
@@ -212,7 +211,7 @@ export class DescribeReplicationLinkLogsResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The items.
+   * The records.
    */
   items?: DescribeReplicationLinkLogsResponseBodyItems[];
   /**
@@ -225,7 +224,7 @@ export class DescribeReplicationLinkLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1

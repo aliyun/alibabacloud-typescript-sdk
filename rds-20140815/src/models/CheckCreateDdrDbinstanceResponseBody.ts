@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCreateDdrDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the data of the source instance can be restored across regions. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the disaster recovery instance can be created. Valid values:
+   * - **true**
+   * - **false**
    * 
    * @example
    * true

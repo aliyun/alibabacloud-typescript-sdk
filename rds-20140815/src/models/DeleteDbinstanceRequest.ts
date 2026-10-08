@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,13 +17,13 @@ export class DeleteDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The policy that is used to retain archived backup files if the instance is released. Default value: None. Valid values:
+   * The data retention policy for archived backups after the instance is released. Valid values:
    * 
-   * *   **None**: No archived backup files are retained.
-   * *   **Lastest**: Only the last archived backup file is retained.
-   * *   **All**: All archived backup files are retained.
+   * * **None**: No archived backups are retained.
+   * * **Lastest**: Only the last archived backup is retained.
+   * * **All**: All archived backups are retained.
    * 
-   * > This parameter is supported only for ApsaraDB RDS for MySQL instance with local disks.
+   * >This parameter is supported only for ApsaraDB RDS for MySQL instances with Premium Local SSDs.
    * 
    * @example
    * Lastest

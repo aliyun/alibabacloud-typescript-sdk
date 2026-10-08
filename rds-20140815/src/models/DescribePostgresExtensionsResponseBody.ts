@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $dara.Model {
   /**
    * @remarks
-   * The category of the extension.
+   * The extension category. Valid values:
    * 
-   * *   **external_access**
-   * *   **index_support**
-   * *   **information_stat**
-   * *   **geography_space**
-   * *   **vector_engine**
-   * *   **timing_engine**
-   * *   **data_type**
-   * *   **encrypt_secure**
-   * *   **text_process**
-   * *   **operation_maintenance**
-   * *   **self_develop**
+   * - **external_access**: external access.
+   * - **index_support**: index support.
+   * - **information_stat**: information statistics.
+   * - **geography_space**: geospatial.
+   * - **vector_engine**: vector engine.
+   * - **timing_engine**: time series engine.
+   * - **data_type**: data type.
+   * - **encrypt_secure**: encryption and security.
+   * - **text_process**: text processing.
+   * - **operation_maintenance**: application O&M.
+   * - **self_develop**: self-developed.
    * 
    * @example
    * information_stat
@@ -41,7 +41,7 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
   defaultVersion?: string;
   /**
    * @remarks
-   * The current version of the extension.
+   * The currently installed version of the extension.
    * 
    * @example
    * 4.1
@@ -49,7 +49,7 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
   installedVersion?: string;
   /**
    * @remarks
-   * The name of the extension.
+   * The extension name.
    * 
    * @example
    * pg_profile
@@ -57,7 +57,7 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
   name?: string;
   /**
    * @remarks
-   * The user of the extension.
+   * The user to which the extension belongs.
    * 
    * @example
    * test_user
@@ -65,10 +65,10 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
   owner?: string;
   /**
    * @remarks
-   * The priority of the extension.
+   * The extension priority. Valid values:
    * 
-   * *   **0**: The extension is displayed by default.
-   * *   **1**: The extension is preferentially displayed.
+   * - **0**: displayed by default.
+   * - **1**: displayed with priority.
    * 
    * @example
    * 0
@@ -76,7 +76,7 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
   priority?: string;
   /**
    * @remarks
-   * The extensions on which the current extension depends when it is installed.
+   * The extensions on which this extension depends during installation.
    * 
    * @example
    * {dblink,plpgsql}
@@ -84,9 +84,9 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
   requires?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
-   * >  This parameter is returned only for self-developed exclusive extensions. You can view exclusive extensions only within your Alibaba Cloud account.
+   * > This parameter is returned only for exclusive extensions (extensions written by the user). Each Alibaba Cloud account can view only its own exclusive extensions.
    * 
    * @example
    * 181578148294****
@@ -132,7 +132,7 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
 export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends $dara.Model {
   /**
    * @remarks
-   * The category of the extension.
+   * The extension category.
    * 
    * @example
    * information_stat
@@ -156,7 +156,7 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
   defaultVersion?: string;
   /**
    * @remarks
-   * The current version of the extension.
+   * The currently installed version of the extension.
    * 
    * @example
    * 4.1
@@ -164,7 +164,7 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
   installedVersion?: string;
   /**
    * @remarks
-   * The name of the extension.
+   * The extension name.
    * 
    * @example
    * pg_cron
@@ -172,7 +172,7 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
   name?: string;
   /**
    * @remarks
-   * The user of the extension.
+   * The user to which the extension belongs.
    * 
    * @example
    * test_user
@@ -180,7 +180,7 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
   owner?: string;
   /**
    * @remarks
-   * The priority of the extension.
+   * The extension priority.
    * 
    * @example
    * 0
@@ -188,7 +188,7 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
   priority?: string;
   /**
    * @remarks
-   * The extensions on which the current extension depends when it is installed.
+   * The extensions on which this extension depends during installation.
    * 
    * @example
    * {dblink,plpgsql}
@@ -196,9 +196,9 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
   requires?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
-   * >  This parameter is returned only for self-developed exclusive extensions. You can view exclusive extensions only within your Alibaba Cloud account.
+   * > This parameter is returned only for exclusive extensions (extensions written by the user). Each Alibaba Cloud account can view only its own exclusive extensions.
    * 
    * @example
    * 181578148294****
@@ -244,12 +244,12 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
 export class DescribePostgresExtensionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of extensions that are installed on the specified database.
+   * The list of installed extensions in the specified database.
    */
   installedExtensions?: DescribePostgresExtensionsResponseBodyInstalledExtensions[];
   /**
    * @remarks
-   * The overview of the extension.
+   * The overview information about extensions.
    * 
    * @example
    * None
@@ -265,7 +265,7 @@ export class DescribePostgresExtensionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of extensions that are not installed on the specified database.
+   * The list of uninstalled extensions in the specified database.
    */
   uninstalledExtensions?: DescribePostgresExtensionsResponseBodyUninstalledExtensions[];
   static names(): { [key: string]: string } {

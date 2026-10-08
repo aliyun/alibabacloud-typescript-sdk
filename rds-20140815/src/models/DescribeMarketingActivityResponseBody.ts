@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The RDS edition of the instance. Valid values:
-   * 
-   * *   **Basic**: RDS Basic Edition
-   * *   **HighAvailability**: RDS High-availability Edition
-   * *   **AlwaysOn**: RDS Cluster Edition
-   * *   **Finance**: RDS Enterprise Edition
+   * The instance edition. Valid values:
+   * * **Basic**: Basic Edition.
+   * * **HighAvailability**: High-availability Edition.
+   * * **AlwaysOn**: Cluster Edition.
+   * * **Finance**: RDS Enterprise Edition.
    * 
    * @example
    * Basic
@@ -18,10 +17,9 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The payment type. Valid values:
-   * 
-   * *   POSTPAY: pay-as-you-go
-   * *   PREPAY: subscription
+   * The billing method. Valid values:
+   * - POSTPAY: pay-as-you-go.
+   * - PREPAY: subscription.
    * 
    * @example
    * POSTPAY
@@ -29,7 +27,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The instance type. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html) and [Read-only ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/145759.html).
+   * The instance type. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html) and [Read-only instance types](https://help.aliyun.com/document_detail/145759.html).
    * 
    * @example
    * rds.mysql.s3.large
@@ -37,7 +35,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The instance family. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/57184.html).
+   * The instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/57184.html).
    * 
    * @example
    * x
@@ -45,7 +43,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   classGroup?: string;
   /**
    * @remarks
-   * The number of CPU cores that are supported by the instance type. Unit: cores.
+   * The number of CPU cores for the instance type. Unit: cores.
    * 
    * @example
    * 2
@@ -53,7 +51,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The disk capacity per node. Unit: GB.
+   * The disk storage size per node. Unit: GB.
    * 
    * @example
    * 900
@@ -61,13 +59,12 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The database engine of the instance. Valid values:
-   * 
-   * *   MySQL
-   * *   SQLServer
-   * *   PostgreSQL
-   * *   PPAS
-   * *   MariaDB
+   * The database engine. Valid values:
+   * - MySQL
+   * - SQLServer
+   * - PostgreSQL
+   * - PPAS
+   * - MariaDB
    * 
    * @example
    * MySQL
@@ -75,7 +72,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * @example
    * 8.0
@@ -107,7 +104,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   maxConnections?: number;
   /**
    * @remarks
-   * The maximum I/O throughput. Unit: Mbit/s.
+   * The maximum I/O bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 100
@@ -131,13 +128,12 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
-   * 
-   * *   **local_ssd**: local SSD
-   * *   **cloud_ssd**: standard SSD
-   * *   **cloud_essd**: performance level 1 (PL1) enhanced SSD (ESSD)
-   * *   **cloud_essd2**: PL2 ESSD
-   * *   **cloud_essd3**: PL3 ESSD
+   * The instance storage type. Valid values:
+   * * **local_ssd**: local SSD.
+   * * **cloud_ssd**: standard SSD cloud disk.
+   * * **cloud_essd**: PL1 ESSD cloud disk.
+   * * **cloud_essd2**: PL2 ESSD cloud disk.
+   * * **cloud_essd3**: PL3 ESSD cloud disk.
    * 
    * @example
    * cloud_essd
@@ -145,7 +141,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The RDS edition after the upgrade.
+   * The upgrade instance edition.
    * 
    * @example
    * HighAvailability
@@ -153,7 +149,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   upgradeCategory?: string;
   /**
    * @remarks
-   * The instance type after the upgrade.
+   * The upgrade instance type.
    * 
    * @example
    * rds.mysql.s3.large
@@ -161,7 +157,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   upgradeClassCode?: string;
   /**
    * @remarks
-   * The instance family after the upgrade.
+   * The upgrade instance family.
    * 
    * @example
    * d
@@ -177,7 +173,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   upgradeCpu?: string;
   /**
    * @remarks
-   * The description of the upgrade.
+   * The upgrade description.
    * 
    * @example
    * test
@@ -185,7 +181,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   upgradeDescContent?: string;
   /**
    * @remarks
-   * The disk capacity after the upgrade.
+   * The disk size after the upgrade.
    * 
    * @example
    * 1024
@@ -201,7 +197,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   upgradeMaxConnections?: number;
   /**
    * @remarks
-   * The maximum I/O throughput after the upgrade. Unit: Mbit/s.
+   * The maximum I/O bandwidth after the upgrade. Unit: Mbit/s.
    * 
    * @example
    * 200
@@ -225,7 +221,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   upgradeMemory?: number;
   /**
    * @remarks
-   * The reference price of the upgrade.
+   * The reference price for the upgrade.
    * 
    * @example
    * 23333.1
@@ -233,7 +229,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
   upgradeReferencePrice?: string;
   /**
    * @remarks
-   * The storage type after the upgrade.
+   * The instance storage type after the upgrade.
    * 
    * @example
    * cloud_essd
@@ -315,7 +311,7 @@ export class DescribeMarketingActivityResponseBodyItems extends $dara.Model {
 export class DescribeMarketingActivityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1979008652307170
@@ -323,8 +319,8 @@ export class DescribeMarketingActivityResponseBody extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * *   China site: 26842
-   * *   International site: 26888
+   * - Chinese site: 26842
+   * - International site: 26888
    * 
    * @example
    * 26842
@@ -332,7 +328,7 @@ export class DescribeMarketingActivityResponseBody extends $dara.Model {
   bid?: string;
   /**
    * @remarks
-   * The activity parameters
+   * The campaign parameters.
    */
   items?: DescribeMarketingActivityResponseBodyItems[];
   /**
@@ -345,7 +341,7 @@ export class DescribeMarketingActivityResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * This parameter is required.
    * 

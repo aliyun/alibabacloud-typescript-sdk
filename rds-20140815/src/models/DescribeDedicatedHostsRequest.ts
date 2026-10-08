@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedHostsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether instances can be deployed on the host. Valid values:
-   * 
-   * *   **0**: Instances cannot be deployed on the host.
-   * *   **1**: Instances can be deployed on the host.
+   * Specifies whether the host allows instance allocation. Valid values:
+   * * **0**: Instance allocation is not allowed.
+   * * **1**: Instance allocation is allowed.
    * 
    * @example
    * 1
@@ -24,7 +23,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * The ID of the host in the dedicated cluster.
+   * The host ID in the dedicated cluster.
    * 
    * @example
    * ch-t4nn100ddxxxxxxxx
@@ -32,15 +31,14 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   dedicatedHostId?: string;
   /**
    * @remarks
-   * The status of the host. Valid values:
-   * 
-   * *   **0**: creating
-   * *   **1**: running
-   * *   **2**: faulty
-   * *   **3**: being replaced
-   * *   **4**: deprecated
-   * *   **5**: deleting
-   * *   **6**: restarting
+   * The host status. Valid values:
+   *  * **0**: being created
+   *  * **1**: running
+   *  * **2**: down
+   *  * **3**: offline (host being replaced)
+   *  * **4**: offline
+   *  * **5**: deleted
+   *  * **6**: restarting
    * 
    * @example
    * 1
@@ -49,9 +47,8 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   /**
    * @remarks
    * The storage type of the host. Valid values:
-   * 
-   * *   **dhg_cloud_ssd**: enhanced SSD (ESSD)
-   * *   **dhg_local_ssd**: local SSD
+   * * **dhg_cloud_ssd**: ESSD cloud disk.
+   * * **dhg_local_ssd**: local standard SSD.
    * 
    * @example
    * dhg_cloud_ssd
@@ -68,7 +65,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou

@@ -15,7 +15,7 @@ export class DeleteSlotRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * Target instance ID. You can call the DescribeDBInstances operation to query target instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,17 +27,17 @@ export class DeleteSlotRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group. You can leave this parameter empty.
+   * The resource group ID. This parameter can be left empty.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the replication slot. You can call the DescribeSlots operation to query the name of the replication slot.
+   * The replication slot name. You can call the DescribeSlots operation to query the replication slot name.
    * 
    * This parameter is required.
    * 
@@ -47,10 +47,9 @@ export class DeleteSlotRequest extends $dara.Model {
   slotName?: string;
   /**
    * @remarks
-   * The status of the replication slot. You can call the DescribeSlots operation to query the status of the replication slot. Valid values:
-   * 
-   * *   **ACTIVE**
-   * *   **INACTIVE**
+   * The replication slot status. You can call the DescribeSlots operation to query the replication slot status. Valid values:
+   * - **ACTIVE**: active.
+   * - **INACTIVE**: inactive.
    * 
    * This parameter is required.
    * 

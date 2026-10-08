@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the migration task. Valid values:
+   * The type of the backup migration task. Valid values:
    * 
-   * *   **FULL**: The migration task migrates full backup files that can be used to restore the full data of the instance.
-   * *   **UPDF**: The migration task migrates incremental or log backup files that can be used to restore the incremental data of the instance.
+   * - **FULL**: The restore operation is performed by using a full backup file.
+   * - **UPDF**: The incremental data is restored by using an incremental backup file or log file.
    * 
    * @example
    * FULL
@@ -16,7 +16,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The time when the migration task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the backup migration task was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2020-05-30T12:11:04Z
@@ -27,12 +27,12 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * mytestdb
@@ -40,7 +40,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The description of the migration task.
+   * The description of the backup migration task.
    * 
    * @example
    * Success to DBCC checkdb asynchronously
@@ -48,7 +48,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the migration task was completed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the backup migration task ended. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2021-05-30T15:15:05Z
@@ -56,10 +56,10 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Indicates whether the imported data overwrites the existing data. Valid values:
+   * Indicates whether the import is an overwrite import. Valid values: 
    * 
-   * *   **False**: The imported data does not overwrite the existing data.
-   * *   **True**: The imported data overwrites the existing data.
+   * - **False**: No.
+   * - **True**: Yes.
    * 
    * @example
    * False
@@ -67,7 +67,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   isDBReplaced?: string;
   /**
    * @remarks
-   * The ID of the migration task.
+   * The ID of the OSS backup migration task.
    * 
    * @example
    * 235943
@@ -75,7 +75,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   migrateTaskId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6ED3635A-01F9-47BD-B9C8-CB3FD70A336E
@@ -83,13 +83,12 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the migration task. Valid values:
-   * 
-   * *   **NoStart**: The task has not started.
-   * *   **Running**:The task is in progress.
-   * *   **Success**: The task is successful.
-   * *   **Failed**: The task failed.
-   * *   **Waiting**: The task is waiting for an incremental backup file to be imported.
+   * The status of the backup migration task. Valid values:
+   * - **NoStart**: Not started.
+   * - **Running**: Running.
+   * - **Success**: Succeeded.
+   * - **Failed**: Failed.
+   * - **Waiting**: Waiting for incremental backup file import.
    * 
    * @example
    * Success

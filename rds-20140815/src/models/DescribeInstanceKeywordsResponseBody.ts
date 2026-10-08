@@ -31,7 +31,7 @@ export class DescribeInstanceKeywordsResponseBodyWords extends $dara.Model {
 export class DescribeInstanceKeywordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of reserved keyword returned.
+   * The type of reserved keywords, which indicates whether the reserved keywords are for account names or database names.
    * 
    * @example
    * account
@@ -39,7 +39,7 @@ export class DescribeInstanceKeywordsResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC

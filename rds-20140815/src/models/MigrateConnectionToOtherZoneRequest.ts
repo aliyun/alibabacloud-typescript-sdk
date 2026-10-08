@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateConnectionToOtherZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the instance. The endpoint is specified when you create the instance.
+   * The endpoint of the instance. This parameter is specified when the instance is created and is used to generate the connection string.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class MigrateConnectionToOtherZoneRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * This parameter is required.
    * 

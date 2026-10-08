@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQuickSaleConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The product code. Valid values:
+   * The commodity code. Valid values:
    * 
-   * *   rds: The instance is a subscription instance.
-   * *   bards: The instance is a pay-as-you-go instance.
+   * - rds: subscription
+   * - bards: pay-as-you-go
    * 
    * @example
    * rds
@@ -16,12 +16,12 @@ export class DescribeQuickSaleConfigResponseBody extends $dara.Model {
   commodity?: string;
   /**
    * @remarks
-   * The configuration details of the product.
+   * The commodity configuration details.
    */
   items?: { [key: string]: any };
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 5DFFE9EC-3369-5937-A4E2-507C0C86A4C6

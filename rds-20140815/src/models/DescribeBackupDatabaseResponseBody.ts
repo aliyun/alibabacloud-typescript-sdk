@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupDatabaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the database. Format: "db1,db2".
+   * The database names, in the format of "db1,db2".
    * 
    * @example
    * db1,db2
@@ -13,10 +13,10 @@ export class DescribeBackupDatabaseResponseBody extends $dara.Model {
   databaseNames?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
+   * 08A3B71B-FE08-xxxx-974F-CC7EA6DBxxxx
    */
   requestId?: string;
   static names(): { [key: string]: string } {

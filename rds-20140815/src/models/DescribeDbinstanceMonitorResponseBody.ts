@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The monitoring frequency. Unit: seconds.
+   * The interval at which monitoring data is collected. Unit: seconds.
    * 
    * @example
    * 60

@@ -182,7 +182,7 @@ export class DescribeSQLLogReportListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of SQL log reports on the current page.
+   * The number of SQL log running reports on the current page.
    * 
    * @example
    * 30
@@ -198,7 +198,7 @@ export class DescribeSQLLogReportListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 60

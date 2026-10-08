@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.Model {
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.
   currency?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.
   fee?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -55,9 +55,9 @@ export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.
 export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
-   * *   **POSTPAY**: pay-as-you-go.
-   * *   **PREPAY**: subscription.
+   * The billing method. Valid values:
+   * - **POSTPAY**: pay-as-you-go.
+   * - **PREPAY**: subscription.
    * 
    * @example
    * POSTPAY
@@ -65,13 +65,13 @@ export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the instance expires.
-   * >  If you change the billing method from subscription to pay-as-you-go, this parameter is not returned.
+   * The expiration time.
+   * > This parameter is not returned if the billing method is changed to pay-as-you-go.
    */
   expiredTime?: string[];
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    */
   feeOfInstances?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances[];
   /**

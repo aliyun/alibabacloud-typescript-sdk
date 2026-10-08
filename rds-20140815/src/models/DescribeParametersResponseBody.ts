@@ -60,7 +60,7 @@ export class DescribeParametersResponseBodyConfigParameters extends $dara.Model 
 export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the parameter template.
+   * The parameter template ID.
    * 
    * @example
    * rpg-sys-01040401010200
@@ -68,7 +68,7 @@ export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
   paramGroupId?: string;
   /**
    * @remarks
-   * The description of the parameter template.
+   * The parameter template description.
    * 
    * @example
    * sync_binlog=1000, innodb_flush_log_at_trx_commit=2, async
@@ -76,7 +76,7 @@ export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
   parameterGroupDesc?: string;
   /**
    * @remarks
-   * The name of the parameter template.
+   * The parameter template name.
    * 
    * @example
    * mysql_innodb_8.0_basic_normal_high
@@ -84,7 +84,7 @@ export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
   parameterGroupName?: string;
   /**
    * @remarks
-   * The type of the parameter template.
+   * The parameter templatetype.
    * 
    * @example
    * 0
@@ -182,7 +182,7 @@ export class DescribeParametersResponseBody extends $dara.Model {
   configParameters?: DescribeParametersResponseBodyConfigParameters;
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine type.
    * 
    * @example
    * MySQL
@@ -190,20 +190,20 @@ export class DescribeParametersResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * @example
-   * 5.5
+   * 8.0
    */
   engineVersion?: string;
   /**
    * @remarks
-   * The information about the parameter template.
+   * The parameter template information.
    */
   paramGroupInfo?: DescribeParametersResponseBodyParamGroupInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

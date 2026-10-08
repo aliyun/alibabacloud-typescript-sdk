@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBProxyRequestDBProxyNodes extends $dara.Model {
   /**
    * @remarks
-   * The number of CPU cores of the node. Valid values: **1** to **16**.
-   * 
-   * >  This parameter is required when you configure the **DBProxyNodes** parameter.
+   * The number of CPU cores for the node. Valid values: **1** to **16**.
+   * > This parameter is required when you specify **DBProxyNodes**.
    * 
    * @example
    * 1
@@ -15,9 +14,8 @@ export class ModifyDBProxyRequestDBProxyNodes extends $dara.Model {
   cpuCores?: string;
   /**
    * @remarks
-   * The number of proxy nodes in the zone. Valid values: **1** and **2**.
-   * 
-   * >  This parameter is required when you configure the **DBProxyNodes** parameter.
+   * The number of proxy nodes in the zone. Valid values: **1** to **2**.
+   * > This parameter is required when you specify **DBProxyNodes**.
    * 
    * @example
    * 2
@@ -25,12 +23,11 @@ export class ModifyDBProxyRequestDBProxyNodes extends $dara.Model {
   nodeCounts?: string;
   /**
    * @remarks
-   * The ID of the zone in which the node resides.
-   * 
-   * >  This parameter is required when you configure the **DBProxyNodes** parameter.
+   * The zone ID of the node.
+   * > This parameter is required when you specify **DBProxyNodes**.
    * 
    * @example
-   * cn-hagnzhou-c
+   * cn-hangzhou-c
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -61,11 +58,11 @@ export class ModifyDBProxyRequestDBProxyNodes extends $dara.Model {
 export class ModifyDBProxyRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable or disable the database proxy feature. Valid values:
+   * Specifies whether to enable, disable, or modify the database proxy. Valid values:
    * 
-   * *   **Startup**: enables the feature.
-   * *   **Shutdown**: disables the feature.
-   * *   **Modify**: modifies the configuration of the feature.
+   * * **Startup**: Enables the database proxy.
+   * * **Shutdown**: Disables the database proxy.
+   * * **Modify**: Modifies the database proxy.
    * 
    * This parameter is required.
    * 
@@ -75,17 +72,17 @@ export class ModifyDBProxyRequest extends $dara.Model {
   configDBProxyService?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * A deprecated parameter. You do not need to specify this parameter.
+   * A deprecated parameter. You do not need to configure this parameter.
    * 
    * @example
    * normal
@@ -93,9 +90,9 @@ export class ModifyDBProxyRequest extends $dara.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The number of proxy instances that are enabled. Valid values: **1** to **16**. Default value: **1**.
+   * The number of proxy instances. Valid values: **1** to **16**. Default value: **1**.
    * 
-   * >  The capability of the database proxy to process requests increases with the number of proxy instances that are enabled. You can monitor the load on the instance and specify an appropriate number of proxy instances based on the load monitoring data.
+   * > More proxy instances can handle more requests. You can check the monitoring data to understand the load on proxy instances and then set an appropriate number of proxy instances.
    * 
    * @example
    * 1
@@ -103,25 +100,24 @@ export class ModifyDBProxyRequest extends $dara.Model {
   DBProxyInstanceNum?: string;
   /**
    * @remarks
-   * The database proxy type. Valid values:
-   * 
-   * *   **common**: general-purpose database proxy
-   * *   **exclusive** (default): dedicated database proxy
+   * The type of the database proxy instance. Valid values:
+   * - **common**: general-purpose database proxy
+   * - **exclusive**: dedicated database proxy (default)
    * 
    * @example
-   * common
+   * exclusive
    */
   DBProxyInstanceType?: string;
   /**
    * @remarks
-   * The proxy nodes.
+   * The list of proxy nodes.
    */
   DBProxyNodes?: ModifyDBProxyRequestDBProxyNodes[];
   /**
    * @remarks
-   * The network type of the instance. Only the VPC network type is supported. Set the value to **VPC**.
+   * The network type of the instance. Only Virtual Private Cloud (VPC) is supported. Set the value to **VPC**.
    * 
-   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
+   * > This parameter is required when you enable the database proxy.
    * 
    * @example
    * VPC
@@ -131,23 +127,19 @@ export class ModifyDBProxyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable persistent connections. Valid values:
+   * - **Enabled**: enables persistent connections.
+   * - **Disabled**: disables persistent connections.
    * 
-   * *   **Enabled**
-   * *   **Disabled**
-   * 
-   * > 
-   * 
-   * *   This parameter is available only for instances that run MySQL.
-   * 
-   * *   If you want to modify persistent connections, you must set the **ConfigDBProxyService** parameter to **Modify**.
+   * > - Only RDS MySQL supports this parameter.
+   * > - To modify the persistent connection status, set **ConfigDBProxyService** to **Modify**.
    * 
    * @example
-   * Enabled
+   * Disabled
    */
   persistentConnectionStatus?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to obtain the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -158,29 +150,29 @@ export class ModifyDBProxyRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID.
+   * The VPC ID of the instance. You can call DescribeDBInstanceAttribute to obtain the VPC ID.
    * 
-   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
+   * > This parameter is required when you enable the database proxy.
    * 
    * @example
-   * vpc-xxxxxxxxxxxx
+   * vpc-****
    */
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID.
+   * The vSwitch ID of the instance. You can call DescribeDBInstanceAttribute to obtain the vSwitch ID.
    * 
-   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
+   * > This parameter is required when you enable the database proxy.
    * 
    * @example
-   * vsw-xxxxxxxxxxxx
+   * vsw-****
    */
   vSwitchId?: string;
   static names(): { [key: string]: string } {

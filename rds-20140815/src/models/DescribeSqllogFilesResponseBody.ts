@@ -70,7 +70,7 @@ export class DescribeSQLLogFilesResponseBody extends $dara.Model {
   items?: DescribeSQLLogFilesResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -78,7 +78,7 @@ export class DescribeSQLLogFilesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -86,7 +86,7 @@ export class DescribeSQLLogFilesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -94,7 +94,7 @@ export class DescribeSQLLogFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

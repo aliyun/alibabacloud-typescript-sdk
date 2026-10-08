@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBProxyInstanceKernelVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database proxy of the instance.
+   * The proxy ID.
    * 
    * @example
-   * bu9***
+   * bu9****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 44537EC8-DFA2-4745-B579-E733FF2C5B9A
@@ -24,7 +24,7 @@ export class UpgradeDBProxyInstanceKernelVersionResponseBody extends $dara.Model
    * The task ID.
    * 
    * @example
-   * 33436****
+   * 334362871
    */
   taskId?: string;
   static names(): { [key: string]: string } {

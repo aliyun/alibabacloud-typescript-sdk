@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenewalPriceResponseBodyPriceInfoActivityInfo extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The error description.
    * 
    * @example
    * Error description
@@ -13,7 +13,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoActivityInfo extends $dara
   checkErrMsg?: string;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
    * @example
    * 123456
@@ -139,7 +139,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRuleIds extends $dara.Mode
 export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The information about the promotion.
+   * The promotion information.
    */
   activityInfo?: DescribeRenewalPriceResponseBodyPriceInfoActivityInfo;
   coupons?: DescribeRenewalPriceResponseBodyPriceInfoCoupons;
@@ -153,7 +153,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount.
+   * The discount amount.
    * 
    * @example
    * 27
@@ -170,7 +170,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   ruleIds?: DescribeRenewalPriceResponseBodyPriceInfoRuleIds;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * The final price, which is the original price minus the discount amount.
    * 
    * @example
    * 111
@@ -276,12 +276,12 @@ export class DescribeRenewalPriceResponseBodyRules extends $dara.Model {
 export class DescribeRenewalPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of price information.
+   * The pricing information.
    */
   priceInfo?: DescribeRenewalPriceResponseBodyPriceInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DC9F4EF6-D038-4405-B497-1F48E722C9F2

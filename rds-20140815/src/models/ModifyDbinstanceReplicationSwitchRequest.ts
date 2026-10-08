@@ -15,10 +15,9 @@ export class ModifyDBInstanceReplicationSwitchRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the native replication feature. Valid values:
-   * 
-   * *   **ON**
-   * *   **OFF**
+   * Specifies whether to enable or disable native replication mode. Valid values:
+   * - **ON**: Enable native replication.
+   * - **OFF**: Disable native replication.
    * 
    * This parameter is required.
    * 
@@ -28,7 +27,7 @@ export class ModifyDBInstanceReplicationSwitchRequest extends $dara.Model {
   externalReplication?: string;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -38,7 +37,7 @@ export class ModifyDBInstanceReplicationSwitchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can leave this parameter empty.
+   * The resource group ID. This parameter can be left empty.
    * 
    * @example
    * rg-acfmy****

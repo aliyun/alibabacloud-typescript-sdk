@@ -16,7 +16,7 @@ export class DeleteParameterGroupRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -26,10 +26,10 @@ export class DeleteParameterGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute to obtain the resource group ID.
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

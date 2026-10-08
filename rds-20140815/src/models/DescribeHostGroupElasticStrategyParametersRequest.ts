@@ -15,7 +15,7 @@ export class DescribeHostGroupElasticStrategyParametersRequest extends $dara.Mod
   dedicatedHostGroupName?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

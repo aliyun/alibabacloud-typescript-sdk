@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-2ze450g4ctg6t****
@@ -13,23 +13,23 @@ export class CreateDBNodesResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the created node. The value is a string. Multiple values are separated by commas (`,`).
+   * The IDs of the created nodes. The value is of the String type. Multiple node IDs are separated by commas (,).
    * 
    * @example
-   * rn-abcd2*****
+   * rn-abcd2****
    */
   nodeIds?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
-   * 2133400000*****
+   * 2133400000****
    */
   orderId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7A41C147-C8D0-4DAE-A1A2-17EBCD60DFA1

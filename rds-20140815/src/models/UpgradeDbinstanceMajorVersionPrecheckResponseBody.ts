@@ -21,7 +21,7 @@ export class UpgradeDBInstanceMajorVersionPrecheckResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The new major engine version of the instance.
+   * The major engine version of the target instance.
    * 
    * @example
    * 12.0

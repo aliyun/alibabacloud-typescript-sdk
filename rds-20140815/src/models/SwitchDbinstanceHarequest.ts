@@ -5,20 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchDBInstanceHARequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The time when the switching takes effect. Valid values:
-   * 
-   * *   **Immediate**: The switching immediately takes effect.
-   * *   **MaintainTime**: The switching takes effect during the maintenance time.
+   * The effective period. Valid values:
+   * * **Immediate**: The switchover is executed immediately.
+   * * **MaintainTime**: The switchover is executed during the maintenance window.
    * 
    * Default value: **Immediate**.
    * 
@@ -28,10 +27,9 @@ export class SwitchDBInstanceHARequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable forcible switching. Valid values:
-   * 
-   * *   **Yes**
-   * *   **No**
+   * The switchover method. Valid values:
+   * * **Yes**: A forced switchover is performed.
+   * * **No**: A non-forced switchover is performed.
    * 
    * Default value: **No**.
    * 
@@ -41,7 +39,7 @@ export class SwitchDBInstanceHARequest extends $dara.Model {
   force?: string;
   /**
    * @remarks
-   * The secondary instance ID. You can call the DescribeDBInstanceHAConfig operation to query the secondary instance ID.
+   * The unique ID of the secondary instance. You can call DescribeDBInstanceHAConfig to query this value.
    * 
    * This parameter is required.
    * 

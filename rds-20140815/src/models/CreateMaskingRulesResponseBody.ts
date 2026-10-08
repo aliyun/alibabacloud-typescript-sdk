@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMaskingRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    */
   data?: { [key: string]: string };
   /**
    * @remarks
-   * Return message
+   * The returned message.
    * 
    * @example
    * successful create
@@ -18,7 +18,7 @@ export class CreateMaskingRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 792233B1-76B8-5A01-92B4-**********864
@@ -26,10 +26,10 @@ export class CreateMaskingRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Return values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: Succeeded
-   * - **false**: Failed
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

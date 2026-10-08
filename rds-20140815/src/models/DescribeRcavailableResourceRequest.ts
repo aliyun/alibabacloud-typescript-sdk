@@ -3,88 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCAvailableResourceRequest extends $dara.Model {
-  /**
-   * @example
-   * 2
-   */
   cores?: number;
-  /**
-   * @example
-   * cloud_ssd
-   */
   dataDiskCategory?: string;
-  /**
-   * @example
-   * dh-bp165p6xk2tlw61e****
-   */
   dedicatedHostId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * InstanceType
    */
   destinationResource?: string;
-  /**
-   * @example
-   * PrePaid
-   */
   instanceChargeType?: string;
-  /**
-   * @example
-   * mysql.x4.4xlarge.7cm
-   */
   instanceType?: string;
-  /**
-   * @example
-   * optimized
-   */
   ioOptimized?: string;
-  /**
-   * @example
-   * 8.0
-   */
   memory?: number;
-  /**
-   * @example
-   * vpc
-   */
   networkCategory?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   regionId?: string;
-  /**
-   * @example
-   * instance
-   */
   resourceType?: string;
-  /**
-   * @example
-   * Region
-   */
   scope?: string;
-  /**
-   * @example
-   * 1
-   */
   spotDuration?: number;
-  /**
-   * @example
-   * NoSpot
-   */
   spotStrategy?: string;
-  /**
-   * @example
-   * cloud_ssd
-   */
+  supportCase?: string;
   systemDiskCategory?: string;
-  /**
-   * @example
-   * cn-hangzhou-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -102,6 +44,7 @@ export class DescribeRCAvailableResourceRequest extends $dara.Model {
       scope: 'Scope',
       spotDuration: 'SpotDuration',
       spotStrategy: 'SpotStrategy',
+      supportCase: 'SupportCase',
       systemDiskCategory: 'SystemDiskCategory',
       zoneId: 'ZoneId',
     };
@@ -123,6 +66,7 @@ export class DescribeRCAvailableResourceRequest extends $dara.Model {
       scope: 'string',
       spotDuration: 'number',
       spotStrategy: 'string',
+      supportCase: 'string',
       systemDiskCategory: 'string',
       zoneId: 'string',
     };

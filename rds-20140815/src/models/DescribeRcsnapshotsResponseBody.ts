@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCSnapshotsResponseBodySnapshotsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * testRC
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test01
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,10 +45,9 @@ export class DescribeRCSnapshotsResponseBodySnapshotsTag extends $dara.Model {
 export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the snapshot can be shared and used to create or roll back a cloud disk. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the snapshot can be used to create cloud disks, roll back cloud disks, or share snapshots. Valid values:
+   * - true: Available.
+   * - false: Not available.
    * 
    * @example
    * true
@@ -43,10 +56,9 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
    * The snapshot type. Valid values:
-   * 
-   * *   Standard: standard snapshot
-   * *   Flash: local snapshot This value will be deprecated. The local snapshot feature is replaced with the instant access feature.
-   * *   archive: archived snapshot
+   * - Standard: standard snapshot.
+   * - Flash: local snapshot. This value will be deprecated. Local snapshots have been replaced by the instant access feature.
+   * - archive: archived snapshot.
    * 
    * @example
    * Standard
@@ -62,7 +74,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The snapshot description.
+   * The description of the snapshot.
    * 
    * @example
    * zd_test
@@ -70,10 +82,9 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the snapshot was encrypted. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the snapshot is encrypted. Valid values:
+   * - true: Encrypted.
+   * - false: Not encrypted.
    * 
    * @example
    * true
@@ -81,7 +92,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * none
@@ -90,7 +101,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   lastModifiedTime?: string;
   /**
    * @remarks
-   * The progress of the snapshot creation task in percentage.
+   * The progress of snapshot creation, in percentage.
    * 
    * @example
    * 100
@@ -104,6 +115,13 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rc-t8q22a87745hf8****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -118,16 +136,15 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
    * The snapshot name.
    * 
    * @example
-   * s-2ze8klip00xcogcwer76
+   * csw-37-SystemDisk
    */
   snapshotName?: string;
   /**
    * @remarks
-   * The snapshot type. Valid values:
-   * 
-   * *   auto or timer: automatically created snapshot
-   * *   user: manually created snapshot
-   * *   all: all snapshot types
+   * The type of automatic creation. Valid values:
+   * - auto or timer: automatic snapshot.
+   * - user: manual snapshot.
+   * - all: all automatic creation types.
    * 
    * @example
    * auto
@@ -135,7 +152,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The ID of the original disk. This parameter is retained even after the original disk for which the snapshot was created is released.
+   * The ID of the source cloud disk. This field is retained even if the source cloud disk of the snapshot has been released.
    * 
    * @example
    * rcd-bp67acfmxazb4ph****
@@ -143,7 +160,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskId?: string;
   /**
    * @remarks
-   * The storage capacity of the original disk. Unit: GiB.
+   * The capacity of the source cloud disk. Unit: GiB.
    * 
    * @example
    * 60
@@ -151,10 +168,9 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskSize?: number;
   /**
    * @remarks
-   * The type of the original disk. Valid values:
-   * 
-   * *   SYSTEM: system disk
-   * *   DATA: data disk
+   * The type of the source cloud disk. Valid values:
+   * - SYSTEM: system cloud disk.
+   * - DATA: data cloud disk.
    * 
    * @example
    * data
@@ -162,9 +178,9 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The type of the source disk.
+   * The type of the source cloud disk.
    * 
-   * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+   * >This parameter will be deprecated. To ensure compatibility, use other parameters instead.
    * 
    * @example
    * disk
@@ -173,24 +189,26 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
    * The snapshot status. Valid values:
-   * 
-   * *   progressing: The snapshot is being created.
-   * *   accomplished: The snapshot is created.
-   * *   failed: The snapshot fails to be created.
+   * - progressing: The snapshot is being created.
+   * - accomplished: The snapshot is created.
+   * - failed: The snapshot failed to be created.
    * 
    * @example
    * progressing
    */
   status?: string;
+  /**
+   * @remarks
+   * The tag details.
+   */
   tag?: DescribeRCSnapshotsResponseBodySnapshotsTag[];
   /**
    * @remarks
-   * Indicates whether the snapshot is used to create custom images or disks. Valid values:
-   * 
-   * *   image: The snapshot is used to create custom images.
-   * *   disk: The snapshot is used to create disks.
-   * *   image_disk: The snapshot is used to create custom images and data disks.
-   * *   none: The snapshot is not used to create custom images or disks.
+   * Indicates whether the snapshot has been used to create images or cloud disks. Valid values:
+   * - image: The snapshot has been used to create custom images.
+   * - disk: The snapshot has been used to create cloud disks.
+   * - image_disk: The snapshot has been used to create both data cloud disks and custom images.
+   * - none: The snapshot has not been used.
    * 
    * @example
    * none
@@ -269,7 +287,7 @@ export class DescribeRCSnapshotsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -285,12 +303,12 @@ export class DescribeRCSnapshotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of snapshots.
+   * The snapshot information.
    */
   snapshots?: DescribeRCSnapshotsResponseBodySnapshots[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 7

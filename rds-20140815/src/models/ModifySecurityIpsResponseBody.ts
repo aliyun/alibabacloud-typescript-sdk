@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -16,7 +16,7 @@ export class ModifySecurityIpsResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 115855279
+   * 11585****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

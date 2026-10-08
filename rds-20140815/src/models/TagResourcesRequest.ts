@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can create N tag keys at a time. Valid values of N: **1** to **20**. The value of this parameter cannot be an empty string.
+   * The tag key. Empty values and duplicate values are **not allowed**.
+   * 
+   * > An existing tag key is overwritten by a new tag key with the same name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can create N tag values at a time. Valid values of N: **1** to **20**. The value of this parameter can be an empty string.
+   * The tag value. Empty values are **allowed**.
    * 
    * @example
    * testvalue1
@@ -48,7 +50,7 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -70,7 +72,13 @@ export class TagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to **INSTANCE**.
+   * The resource type. Valid values:
+   * 
+   * - **INSTANCE**: regular ApsaraDB RDS instance.
+   * - **CUSTOM**: RDS Custom instance.
+   * - **CUSTOMDEPLOYMENTSET**: RDS Custom deployment set.
+   * - **CUSTOMDISK**: RDS Custom cloud disk.
+   * - **CUSTOMSNAPSHOT**: RDS Custom snapshot.
    * 
    * This parameter is required.
    * 

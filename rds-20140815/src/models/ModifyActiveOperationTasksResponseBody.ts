@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyActiveOperationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the O\\&M task. IDs are separated by commas (,).
+   * The O&M task IDs. Multiple IDs are separated with commas (,).
    * 
    * @example
    * 11111,22222
@@ -13,7 +13,7 @@ export class ModifyActiveOperationTasksResponseBody extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The request ID.
    * 
    * @example
    * E9ADB6BE-1598-57FC-B86D-D7F4C69B****

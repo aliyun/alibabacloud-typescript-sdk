@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSlotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2875D608-A228-53D7-B8C9-35F13EDCF36D
@@ -13,7 +13,7 @@ export class DeleteSlotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the replication slot.
+   * The replication slot name.
    * 
    * @example
    * slot_test01

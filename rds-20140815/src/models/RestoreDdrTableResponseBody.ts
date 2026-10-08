@@ -8,12 +8,12 @@ export class RestoreDdrTableResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5*****
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 75BBF1EF-1E90-4950-BFFB-252D26E8259B

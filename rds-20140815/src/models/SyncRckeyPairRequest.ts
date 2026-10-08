@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SyncRCKeyPairRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the key pair.
-   * 
-   * @example
-   * customer_keypairs
-   */
   keyPairName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   syncMode?: boolean;
   static names(): { [key: string]: string } {

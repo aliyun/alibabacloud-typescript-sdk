@@ -13,7 +13,7 @@ export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * The IP addresses.
+   * The IP address list.
    * 
    * @example
    * 10.1.X.X,2.3.X.X
@@ -21,7 +21,7 @@ export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $dara.Mod
   ips?: string;
   /**
    * @remarks
-   * The ID of the whitelist template.
+   * The whitelist template ID.
    * 
    * @example
    * 424
@@ -29,7 +29,7 @@ export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $dara.Mod
   templateId?: number;
   /**
    * @remarks
-   * The name of the IP whitelist template.
+   * The whitelist template name.
    * 
    * @example
    * template_123
@@ -75,7 +75,7 @@ export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $dara.Mod
 export class DescribeWhitelistTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the IP whitelist template.
+   * The whitelist template information.
    */
   template?: DescribeWhitelistTemplateResponseBodyDataTemplate;
   static names(): { [key: string]: string } {
@@ -105,13 +105,12 @@ export class DescribeWhitelistTemplateResponseBodyData extends $dara.Model {
 export class DescribeWhitelistTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **401**: identity authentication failed
-   * *   **404**: request page not found
-   * *   **500**: server error
+   * The response code. Valid values:
+   * - **200**: Normal.
+   * - **400**: Client fault.
+   * - **401**: Authentication failed.
+   * - **404**: Request page not found.
+   * - **500**: Server fault.
    * 
    * @example
    * 200
@@ -119,16 +118,15 @@ export class DescribeWhitelistTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeWhitelistTemplateResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **500**: server error
+   * The HTTP status code. Valid values:
+   * - **200**: Success.
+   * - **400**: Client error.
+   * - **500**: Server error.
    * 
    * @example
    * 200
@@ -136,7 +134,7 @@ export class DescribeWhitelistTemplateResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response parameters.
+   * The returned message.
    * 
    * @example
    * success
@@ -152,10 +150,10 @@ export class DescribeWhitelistTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

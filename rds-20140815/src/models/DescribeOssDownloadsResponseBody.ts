@@ -78,7 +78,7 @@ export class DescribeOssDownloadsResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   items?: DescribeOssDownloadsResponseBodyItems;

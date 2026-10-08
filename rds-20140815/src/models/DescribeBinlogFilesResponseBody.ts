@@ -106,7 +106,7 @@ export class DescribeBinlogFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total size of the log file.
+   * The total size of the log files.
    * 
    * @example
    * 2269410

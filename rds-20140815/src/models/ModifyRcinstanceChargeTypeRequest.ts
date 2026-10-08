@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -13,11 +13,13 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the auto-renewal feature. Valid values:
-   * * **true**
-   * * **false**
-   * > *   This parameter is valid only when you change the billing method from pay-as-you-go to subscription.
-   * > *   All strings except **true** are considered **false**.
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * * **true**: Enabled (default).
+   * * **false**: Disabled.
+   * 
+   * > * This parameter takes effect only when you switch from pay-as-you-go to subscription.
+   * > * All non-**true** strings are treated as **false**.
    * 
    * @example
    * true
@@ -25,9 +27,9 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * Specifies whether to use a coupon. Valid values:
-   * * **true** (default)
-   * * **false**
+   * Specifies whether to use coupons. Valid values:
+   * * **true** (default): Coupons are used.
+   * * **false**: Coupons are not used.
    * 
    * @example
    * true
@@ -35,7 +37,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The additional business information about the instance.
+   * The business extension parameter.
    * 
    * @example
    * None
@@ -43,8 +45,8 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The custom client token that is used to ensure the idempotence of the request.
-   * > The value can contain ASCII characters and can be up to 64 characters in length.
+   * The custom token that is used to ensure the idempotence of the request. 
+   * > The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOC****
@@ -52,7 +54,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -60,7 +62,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -68,7 +70,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   includeDataDisks?: boolean;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -76,7 +78,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The ID of the instance or disk.
+   * The instance ID or cloud disk ID.
    * 
    * This parameter is required.
    * 
@@ -86,7 +88,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -94,7 +96,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The new billing method of the instance. Valid values:
+   * The billing method of the instance after the change. Valid values:
    * * **Prepaid**: subscription.
    * * **Postpaid**: pay-as-you-go.
    * 
@@ -104,10 +106,11 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The renewal cycle of the instance. Valid values:
-   * * **Year**
-   * * **Month**
-   * > This parameter must be specified if you set the PayType parameter to **Prepaid**.
+   * The unit of the subscription duration. Valid values:
+   * * **Year**: yearly subscription.
+   * * **Month**: monthly subscription.
+   * 
+   * > This parameter is required if **PayType** is set to **Prepaid**.
    * 
    * @example
    * Month
@@ -136,11 +139,11 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The subscription duration of the instance.
-   * *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1** to **5**.
-   * *   If the **Period** parameter is set to **Month**, the value of the **UsedTime** parameter ranges from **1** to **11**.
+   * The subscription duration. Valid values:
+   * * If **Period** is set to **Year**, the valid values of UsedTime are **1 to 5**.
+   * * If **Period** is set to **Month**, the valid values of UsedTime are **1 to 11**.
    * 
-   * > If you set the **PayType** parameter to **Prepaid**, you must specify this parameter.
+   * > This parameter is required if PayType is set to **Prepaid**.
    * 
    * @example
    * 2

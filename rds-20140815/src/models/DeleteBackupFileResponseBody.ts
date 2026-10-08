@@ -35,7 +35,7 @@ export class DeleteBackupFileResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * C7B3A91C-0ACD-4948-ACAE-xxxxxxxD4069
+   * C7B3A91C-0ACD-4948-ACAE-****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

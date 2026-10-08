@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQuickSaleConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The product code. Valid values:
+   * The commodity code. Valid values:
    * 
-   * *   rds: The instance is a subscription instance.
-   * *   bards: The instance is a pay-as-you-go instance.
+   * - rds: subscription
+   * - bards: pay-as-you-go
    * 
    * @example
    * rds
@@ -16,12 +16,11 @@ export class DescribeQuickSaleConfigRequest extends $dara.Model {
   commodity?: string;
   /**
    * @remarks
-   * The database engine of the instance. Valid values:
-   * 
-   * *   **MySQL**
-   * *   **SQLServer**
-   * *   **PostgreSQL**
-   * *   **MariaDB**
+   * The database engine. Valid values:
+   * * **MySQL**
+   * * **SQLServer**
+   * * **PostgreSQL**
+   * * **MariaDB**
    * 
    * @example
    * MySQL
@@ -29,7 +28,7 @@ export class DescribeQuickSaleConfigRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the available regions.
    * 
    * @example
    * cn-hangzhou

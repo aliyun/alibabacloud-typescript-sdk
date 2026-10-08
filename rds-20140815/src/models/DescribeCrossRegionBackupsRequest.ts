@@ -5,17 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup file.
+   * The user backup ID.
    * 
    * @example
-   * 603524***
+   * 603524****
    */
   backupId?: number;
   /**
    * @remarks
-   * The ID of the cross-region data backup file.
-   * 
-   * >  You must specify the **CrossBackupId** parameter. Alternatively, you must specify the **StartTime** and **EndTime** parameters.
+   * The cross-region backup file ID.
+   * >You must specify either **CrossBackupId** or the time range parameters (**StartTime** and **EndTime**).
    * 
    * @example
    * 14562
@@ -23,7 +22,7 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   crossBackupId?: number;
   /**
    * @remarks
-   * The ID of the region in which the cross-region data backup file is stored.
+   * The ID of the destination region for cross-region backup.
    * 
    * @example
    * cn-shanghai
@@ -36,21 +35,23 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC).
+   * 
+   * > For non-UTC+0 time zones, subtract 8 hours from the actual time before passing the value.
    * 
    * @example
-   * 2019-06-15T12:10:00Z
+   * 2024-03-05T02:24:37Z
    */
   endTime?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: any non-zero positive integer.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -62,9 +63,9 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: 30.
    * 
@@ -74,7 +75,7 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -87,17 +88,19 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC).
+   * 
+   * > For non-UTC+0 time zones, subtract 8 hours from the actual time before passing the value.
    * 
    * @example
-   * 2019-05-30T12:10:00Z
+   * 2024-03-05T02:21:00Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {

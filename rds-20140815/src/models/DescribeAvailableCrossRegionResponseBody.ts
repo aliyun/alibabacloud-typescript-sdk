@@ -32,7 +32,7 @@ export class DescribeAvailableCrossRegionResponseBody extends $dara.Model {
   regions?: DescribeAvailableCrossRegionResponseBodyRegions;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 39265F46-EC77-4036-8AC4-F035F32F6BE2

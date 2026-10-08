@@ -75,17 +75,16 @@ export class DescribeDBInstanceHAConfigResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The high availability mode of the instance. Valid values:
+   * The High-availability Mode. Valid values:
+   * * **RPO**: Data consistency is preferred. The instance prioritizes data reliability to minimize data loss. Use RPO mode if you have high requirements for data consistency.
+   * * **RTO**: Instance availability is preferred. The instance recovers services as soon as possible to maximize available time. Use RTO mode if you have high requirements for database uptime.
    * 
-   * *   **RPO**: Data consistency is preferred. The instance ensures data reliability to minimize data losses. If you have high requirements on data consistency, select this mode.
-   * *   **RTO**: Service availability is preferred. The instance restores the database service at the earliest opportunity to ensure service availability. If you have high requirements on instance availability, select this mode.
-   * 
-   * > This parameter is returned only for instances that run MySQL.
+   * >This parameter is returned only for ApsaraDB RDS for MySQL instances.
    * 
    * @example
    * RPO
@@ -102,13 +101,12 @@ export class DescribeDBInstanceHAConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data replication mode of the instance. Valid values:
+   * The data replication mode. Valid values:
+   * * **Sync**: synchronous replication
+   * * **Semi-sync**: semi-synchronous replication
+   * * **Async**: asynchronous replication
    * 
-   * *   **Sync**: the synchronous mode
-   * *   **Semi-sync**: the semi-synchronous replication mode
-   * *   **Async**: the asynchronous mode
-   * 
-   * > This parameter is returned only for instances that run MySQL.
+   * >This parameter is returned only for ApsaraDB RDS for MySQL instances.
    * 
    * @example
    * Sync

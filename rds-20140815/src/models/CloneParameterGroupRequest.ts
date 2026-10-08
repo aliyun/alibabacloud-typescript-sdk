@@ -6,7 +6,7 @@ export class CloneParameterGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The description of the parameter template in the destination region.
+   * The description of the parameter template that is copied to the destination region.
    * 
    * @example
    * CloneGroup1
@@ -14,7 +14,7 @@ export class CloneParameterGroupRequest extends $dara.Model {
   parameterGroupDesc?: string;
   /**
    * @remarks
-   * The ID of the parameter template. You can call the DescribeParameterGroups operation to query the parameter template ID.
+   * The ID of the source parameter template. You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/144491.html) operation to query the parameter template ID.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class CloneParameterGroupRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The name of the parameter template in the destination region.
+   * The name of the parameter template that is copied to the destination region.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class CloneParameterGroupRequest extends $dara.Model {
   parameterGroupName?: string;
   /**
    * @remarks
-   * The ID of the source region to which the parameter template belongs. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID of the source parameter template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class CloneParameterGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. You can leave this parameter empty.
+   * The resource group ID. This parameter can be left empty.
    * 
    * @example
    * rg-acfmy****
@@ -54,7 +54,7 @@ export class CloneParameterGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the destination region. You can call the DescribeRegions operation to query the most recent region list.
+   * The ID of the destination region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

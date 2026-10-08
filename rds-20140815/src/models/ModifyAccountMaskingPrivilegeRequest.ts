@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Database name
+   * The database name.
    * 
    * @example
    * myDB
@@ -23,7 +23,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * Permission expiration time in UTC format. (Required only for fullAccess permission.)
+   * The permission expiration time in UTC format. This parameter is required only for the fullAccess privilege.
    * 
    * @example
    * 2026-01-22T02:01:20Z
@@ -32,7 +32,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * Permission type (noneAccess, restrictedAccess, fullAccess)
+   * The privilege type. Valid values: noneAccess, restrictedAccess, and fullAccess.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   privilege?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * ap-southeast-1
@@ -52,7 +52,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Account name. Multiple accounts are supported and must be separated by commas.
+   * The account name. You can specify multiple accounts separated by commas.
    * 
    * This parameter is required.
    * 

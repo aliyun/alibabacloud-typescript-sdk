@@ -3,9 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstancesResponseBodyRCInstancesTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * rc-t8q22a87745hf8******
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance.
+   * - `ALIYUN::RDS::CUSTOM`: RDS Custom instance.
+   * 
+   * @example
+   * ALIYUN::RDS::CUSTOM
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * testRC
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test01
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +66,40 @@ export class DescribeRCInstancesResponseBodyRCInstancesTagResources extends $dar
 }
 
 export class DescribeRCInstancesResponseBodyRCInstancesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * rc-t8q22a87745hf8******
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance.
+   * - `ALIYUN::RDS::CUSTOM`: RDS Custom instance.
+   * 
+   * @example
+   * ALIYUN::RDS::CUSTOM
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * testRC
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test01
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,9 +129,34 @@ export class DescribeRCInstancesResponseBodyRCInstancesTags extends $dara.Model 
 }
 
 export class DescribeRCInstancesResponseBodyRCInstancesVpcAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * None
+   */
   natIpAddress?: string;
+  /**
+   * @remarks
+   * The private IP address.
+   */
   privateIpAddress?: string[];
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp1nb3pv03878tgnj****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-uf6f7l4fg90****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,6 +190,7 @@ export class DescribeRCInstancesResponseBodyRCInstancesVpcAttributes extends $da
 
 export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   autoRenew?: boolean;
+  clusterId?: string;
   /**
    * @remarks
    * The cluster name.
@@ -111,7 +199,24 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * testrdscustom
    */
   clusterName?: string;
+  /**
+   * @remarks
+   * The number of vCPUs.
+   * 
+   * @example
+   * 8
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance can be added to an ACK cluster. If the parameter settings for this field is **1**, the created instance can be added to an ACK cluster by calling the **AttachRCInstances** API operation, which enables efficient management of container applications.
+   * 
+   * - **1**: Yes.
+   * - **0** (default): No.
+   * 
+   * @example
+   * 0
+   */
   createMode?: string;
   /**
    * @remarks
@@ -121,10 +226,17 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * rds_custom
    */
   dbType?: string;
+  /**
+   * @remarks
+   * The deployment set ID.
+   * 
+   * @example
+   * ds-bp14k1xvolvsy4z3****
+   */
   deploymentSetId?: string;
   /**
    * @remarks
-   * The instance description.
+   * The description.
    * 
    * @example
    * test
@@ -135,10 +247,19 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * testHostName
    */
   ecsHostName?: string;
+  /**
+   * @remarks
+   * The time when the instance expires. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC+0.
+   * 
+   * > The expiration time displayed on the console is UTC+8.
+   * 
+   * @example
+   * 2025-05-02T16:00:00Z
+   */
   expiredTime?: string;
   /**
    * @remarks
-   * The time when the task was created. The time is displayed in GMT.
+   * The task creation time (GMT).
    * 
    * @example
    * 2023-03-22 07:56:53.0
@@ -149,7 +270,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * The host IP address.
    * 
    * @example
-   * 172.30.XXX.XXX
+   * 172.16.XX.XX
    */
   hostIp?: string;
   /**
@@ -160,7 +281,23 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * i-2zeaiz4g9u23f40m****
    */
   hostName?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * aliyun_3_x64_20G_alibase_20250117.vhd
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * * **PrePaid**: subscription.
+   * * **PostPaid**: pay-as-you-go.
+   * 
+   * @example
+   * PrePaid
+   */
   instanceChargeType?: string;
   /**
    * @remarks
@@ -171,13 +308,48 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * k8s-node
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The instance type.
+   * 
+   * For more information, see [RDS Custom instance type list](https://help.aliyun.com/document_detail/2844823.html).
+   * 
+   * @example
+   * mysql.x2.xlarge.6cm
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The instance family.
+   * 
+   * For more information, see [RDS Custom instance type list](https://help.aliyun.com/document_detail/2844823.html).
+   * 
+   * @example
+   * x.6cm
+   */
   instanceTypeFamily?: string;
+  /**
+   * @remarks
+   * The memory size. Unit: MiB.
+   * 
+   * @example
+   * 16384
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The node type. If the value **rds_vnode** is returned, the node is a container node.
+   * 
+   * @example
+   * rds_vnode
+   */
   nodeType?: string;
   /**
    * @example
@@ -189,6 +361,13 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * linux
    */
   OSType?: string;
+  /**
+   * @remarks
+   * The public IP address of the instance.
+   * 
+   * @example
+   * 121.89.XX.XX
+   */
   publicIp?: string;
   /**
    * @remarks
@@ -198,7 +377,24 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-2vcbcivwfxiozhtp****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The bidding strategy for pay-as-you-go instances. Valid values:
+   * 
+   * - **NoSpot**: A regular pay-as-you-go instance.
+   * - **SpotAsPriceGo**: The system automatically bids, following the current market price.
+   * 
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
   /**
    * @example
@@ -209,38 +405,57 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * 
-   * *   **Pending**
-   * *   **Running**
-   * *   **Starting**
-   * *   **Stopping**
-   * *   **Stopped**
+   * - **Pending**: Being created.
+   * - **Running**: Running.
+   * - **Starting**: Being started.
+   * - **Stopping**: Being stopped.
+   * - **Stopped**: Stopped.
    * 
-   * >  If the value returned for the DescribeRCInstances operation is different from the value that is returned for the **DescribeRCInstanceAttribute** operation, the value returned for the **DescribeRCInstanceAttribute** operation shall prevail.
+   * > The instance status returned by this operation may be delayed. If the value differs from the value returned by the **DescribeRCInstanceAttribute** operation, the value returned by **DescribeRCInstanceAttribute** prevails.
    * 
    * @example
    * Running
    */
   status?: string;
   stoppedMode?: string;
+  /**
+   * @remarks
+   * The details of the instances and tags.
+   */
   tagResources?: DescribeRCInstancesResponseBodyRCInstancesTagResources[];
+  /**
+   * @remarks
+   * The tag details.
+   */
   tags?: DescribeRCInstancesResponseBodyRCInstancesTags[];
   /**
+   * @remarks
+   * The VPC attributes.
+   * 
    * **if can be null:**
    * true
    */
   vpcAttributes?: DescribeRCInstancesResponseBodyRCInstancesVpcAttributes;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-uf6f7l4fg90****
    */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'AutoRenew',
+      clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       cpu: 'Cpu',
       createMode: 'CreateMode',
@@ -280,6 +495,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoRenew: 'boolean',
+      clusterId: 'string',
       clusterName: 'string',
       cpu: 'number',
       createMode: 'string',
@@ -353,7 +569,7 @@ export class DescribeRCInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The details of the instance.
+   * The instance information.
    */
   RCInstances?: DescribeRCInstancesResponseBodyRCInstances[];
   /**
@@ -366,7 +582,7 @@ export class DescribeRCInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

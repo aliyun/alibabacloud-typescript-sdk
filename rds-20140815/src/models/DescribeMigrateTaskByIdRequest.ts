@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMigrateTaskByIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-bp11e1tzgxxxx4ox
+   * rm-bp11e1tzg****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The migration task ID. You can call the DescribeMigrateTasks operation to query the migration task ID.
+   * The ID of the backup migration task. You can call DescribeMigrateTasks to query the task ID.
    * 
    * This parameter is required.
    * 
@@ -26,10 +26,10 @@ export class DescribeMigrateTaskByIdRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

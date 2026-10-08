@@ -14,8 +14,7 @@ export class DescribeTagsRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
-   * >  If you specify this parameter, all tags that are added to this instance are queried, and other filter conditions becomes invalid.
+   * > If you specify this parameter, all tags of the instance are returned and other filter conditions are ignored.
    * 
    * @example
    * rm-uf6wjk5****
@@ -25,7 +24,7 @@ export class DescribeTagsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -37,7 +36,7 @@ export class DescribeTagsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of resource. Set the value to INSTANCE.
+   * The resource type. Set the value to a fixed value.
    * 
    * @example
    * INSTANCE
@@ -45,7 +44,8 @@ export class DescribeTagsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag that you want to query. The value of the parameter consists of TagKey and TagValue. Format: `{"TagKey":"TagValue"}`.
+   * The tags to query, including TagKey and TagValue.
+   * Format: `{"TagKey":"TagValue"}`.
    * 
    * @example
    * {“key1”:”value1”}

@@ -10,19 +10,17 @@ export class ModifyHASwitchConfigRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The mode of the automatic primary/secondary switchover feature. Valid values:
-   * 
-   * *   **Auto**: The automatic primary/secondary switchover feature is enabled. The system automatically switches your workloads over from the instance to its secondary instance in the event of a fault.
-   * *   **Manual**: The automatic primary/secondary switchover feature is disabled. You must manually switch your workloads over from the instance to its secondary instance in the event of a fault.
+   * The primary/secondary switchover setting. Valid values:
+   * * **Auto**: The system automatically switches over between the primary and secondary instances upon a fault.
+   * * **Manual**: Temporarily disables automatic switchover.
    * 
    * Default value: **Auto**.
-   * 
-   * >  If you set this parameter to **Manual**, you must specify the **ManualHATime** parameter.
+   * >If you set this parameter to **Manual**, you must also specify the **ManualHATime** parameter.
    * 
    * @example
    * Manual
@@ -30,9 +28,8 @@ export class ModifyHASwitchConfigRequest extends $dara.Model {
   HAConfig?: string;
   /**
    * @remarks
-   * The time to disable the automatic primary/secondary switchover feature. The time can range from the current time to 23:59:59 seven days later. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * >  This parameter takes effect only when you set the **HAConfig** parameter to **Manual**.
+   * The deadline for temporarily disabling automatic switchover. You can set this parameter to a point in time up to 23:59:59 seven days later. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * >This parameter takes effect only when **HAConfig** is set to **Manual**.
    * 
    * @example
    * 2019-08-29T15:00:00Z
@@ -41,7 +38,7 @@ export class ModifyHASwitchConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 

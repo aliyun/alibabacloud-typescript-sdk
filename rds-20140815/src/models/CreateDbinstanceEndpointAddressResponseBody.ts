@@ -8,7 +8,7 @@ export class CreateDBInstanceEndpointAddressResponseBodyData extends $dara.Model
    * The public endpoint.
    * 
    * @example
-   * rm-******.mysql.rds.aliyuncs.com
+   * rm-****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
@@ -21,7 +21,7 @@ export class CreateDBInstanceEndpointAddressResponseBodyData extends $dara.Model
   DBInstanceEndpointId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-****
@@ -55,12 +55,12 @@ export class CreateDBInstanceEndpointAddressResponseBodyData extends $dara.Model
 export class CreateDBInstanceEndpointAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned fields.
    */
   data?: CreateDBInstanceEndpointAddressResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828

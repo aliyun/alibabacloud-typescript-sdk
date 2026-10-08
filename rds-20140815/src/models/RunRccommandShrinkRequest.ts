@@ -3,72 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunRCCommandShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * ETnLKlblzczshOTUbOCziJZNwH****
-   */
   clientToken?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ZWNobyAxMjM=
    */
   commandContent?: string;
-  /**
-   * @example
-   * ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
-   */
   containerId?: string;
-  /**
-   * @example
-   * test-container
-   */
   containerName?: string;
   /**
    * @example
    * PlainText
    */
   contentEncoding?: string;
-  /**
-   * @example
-   * testDescription
-   */
   description?: string;
-  /**
-   * @example
-   * false
-   */
   enableParameter?: boolean;
   frequency?: string;
   instanceIdsShrink?: string;
-  /**
-   * @example
-   * false
-   */
   keepCommand?: boolean;
-  /**
-   * @example
-   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
-   */
   launcher?: string;
-  /**
-   * @example
-   * testName
-   */
   name?: string;
-  /**
-   * @example
-   * {"name":"Jack", "accessKey":"LTAI*************"}
-   */
   parametersShrink?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
   /**
@@ -76,10 +34,6 @@ export class RunRCCommandShrinkRequest extends $dara.Model {
    * Once
    */
   repeatMode?: string;
-  /**
-   * @example
-   * rg-acfmy*****
-   */
   resourceGroupId?: string;
   resourceTagsShrink?: string;
   tagsShrink?: string;
@@ -88,10 +42,6 @@ export class RunRCCommandShrinkRequest extends $dara.Model {
    * ProcessTree
    */
   terminationMode?: string;
-  /**
-   * @example
-   * 60
-   */
   timeout?: number;
   /**
    * @remarks
@@ -101,20 +51,8 @@ export class RunRCCommandShrinkRequest extends $dara.Model {
    * RunShellScript
    */
   type?: string;
-  /**
-   * @example
-   * test
-   */
   username?: string;
-  /**
-   * @example
-   * None
-   */
   windowsPasswordName?: string;
-  /**
-   * @example
-   * /home/user
-   */
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {

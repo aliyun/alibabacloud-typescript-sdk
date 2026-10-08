@@ -12,6 +12,9 @@ export class CreateImportTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the import task.
+   * 
    * @example
    * 3384382
    */

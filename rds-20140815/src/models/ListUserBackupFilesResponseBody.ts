@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The ID of the full backup file.
+   * The user backup ID.
    * 
    * @example
-   * b-kwwvr7v8t7of********
+   * b-kwwvr7v8t7of****
    */
   backupId?: string;
   /**
    * @remarks
-   * The information about the binary log file that contains incremental data. If incremental data is generated during the full backup, this parameter is returned.
+   * The binary log file information in the backup file. This parameter is returned if incremental data exists during the backup process.
    * 
    * @example
    * {\\"binlogPosition\\":\\"154\\",\\"binlogFile\\":\\"0.000002\\"}
@@ -21,7 +21,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   binlogInfo?: string;
   /**
    * @remarks
-   * The description of the full backup file.
+   * The comment of the user backup.
    * 
    * @example
    * BackupTest
@@ -29,7 +29,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the system started to import the full backup file. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the user backup import started. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1623231084000
@@ -37,7 +37,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine.
    * 
    * @example
    * mysql
@@ -53,7 +53,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The time when the full backup file is successfully imported. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the user backup was successfully imported. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1623231750000
@@ -61,7 +61,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The time when the full backup file is successfully imported. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the user backup import was completed. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1623231750000
@@ -69,7 +69,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The name of the OSS bucket in which the full backup file is stored as an object.
+   * The name of the OSS bucket in which the user backup file is stored.
    * 
    * @example
    * BackupTest
@@ -77,7 +77,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The metadata of the full backup file. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+   * The metadata of the user backup file. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
    * 
    * @example
    * {\\"Accept-Ranges\\":\\"bytes\\",\\"Connection\\":\\"keep-alive\\",\\"Content-Length\\":81014337,\\"Content-Type\\":\\"application/octet-stream\\",\\"Date\\":1623309548000,\\"ETag\\":\\"889FE9E5FCEBFE4781829488A352863B-1\\",\\"Last-Modified\\":1622186844000,\\"Server\\":\\"AliyunOSS\\",\\"x-oss-hash-crc64ecma\\":\\"5793608435727323129\\",\\"x-oss-object-type\\":\\"Multipart\\",\\"x-oss-request-id\\":\\"60C1BCEC92572F37318BD499\\",\\"x-oss-server-time\\":\\"166\\",\\"x-oss-storage-class\\":\\"Standard\\"}
@@ -85,7 +85,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   ossFileMetaData?: string;
   /**
    * @remarks
-   * The name of the full backup file that is stored as an object in an OSS bucket.
+   * The name of the user backup file in OSS.
    * 
    * @example
    * backup_qp.xb
@@ -93,7 +93,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   ossFileName?: string;
   /**
    * @remarks
-   * The path of the full backup file that is stored as an object in an OSS bucket.
+   * The path of the user backup file in OSS.
    * 
    * @example
    * test/backup_qp.xb
@@ -101,7 +101,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   ossFilePath?: string;
   /**
    * @remarks
-   * The size of the full backup file that is stored as an object in an OSS bucket. Unit: KB.
+   * The size of the user backup file in OSS. Unit: KB.
    * 
    * @example
    * 79115
@@ -109,15 +109,15 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   ossFileSize?: number;
   /**
    * @remarks
-   * The URL to download the full backup file from the OSS bucket.
+   * The OSS download URL of the user backup file.
    * 
    * @example
-   * https://******.oss-ap-********.aliyuncs.com/backup_qp.xb
+   * https://****.oss-ap-****.aliyuncs.com/backup_qp.xb
    */
   ossUrl?: string;
   /**
    * @remarks
-   * The reason why the full backup file failed to be imported.
+   * The reason why the user backup file failed to be imported.
    * 
    * @example
    * success
@@ -125,7 +125,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The amount of storage that is required to restore the data of the full backup file. Unit: GB.
+   * The storage space required to restore the user backup. Unit: GB.
    * 
    * @example
    * 20
@@ -133,7 +133,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   restoreSize?: string;
   /**
    * @remarks
-   * The retention period of the full backup file. Unit: days.
+   * The retention period of the user backup file. Unit: days.
    * 
    * @example
    * 3
@@ -141,13 +141,12 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * The status of the full backup file. Valid values:
-   * 
-   * *   **Importing**: The full backup file is being imported.
-   * *   **Failed**: The full backup file fails to be imported.
-   * *   **CheckSucccess**: The full backup file passes the check.
-   * *   **BackupSuccess**: The full backup file is imported.
-   * *   **Deleted**: The full backup file is deleted.
+   * The status of the user backup file. Valid values:
+   * * **Importing**: The backup is being imported.
+   * * **Failed**: The import failed.
+   * * **CheckSuccess**: The verification passed.
+   * * **BackupSuccess**: The import succeeded.
+   * * **Deleted**: The backup is deleted.
    * 
    * @example
    * BackupSuccess
@@ -155,7 +154,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The zone ID of the full backup file.
+   * The zone ID of the user backup.
    * 
    * @example
    * cn-hangzhou-b
@@ -221,12 +220,12 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
 export class ListUserBackupFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the full backup files.
+   * The list of user backup file details.
    */
   records?: ListUserBackupFilesResponseBodyRecords[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AD67C22F-64F3-4448-A9A8-D1606D242879

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopyDatabaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * test02
@@ -13,11 +13,10 @@ export class CopyDatabaseResponseBody extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The status of the database. Valid values:
-   * 
-   * *   **Creating**
-   * *   **Running**
-   * *   **Deleting**
+   * The database status. Valid values:
+   * * **Creating**: The database is being created.
+   * * **Running**: The database is running.
+   * * **Deleting**: The database is being deleted.
    * 
    * @example
    * Creating
@@ -25,7 +24,7 @@ export class CopyDatabaseResponseBody extends $dara.Model {
   DBStatus?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -33,7 +32,7 @@ export class CopyDatabaseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 2562****

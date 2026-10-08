@@ -142,6 +142,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags
 }
 
 export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet extends $dara.Model {
+  accountId?: string;
   capacities?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities;
   createTime?: string;
   deploymentSetDescription?: string;
@@ -157,6 +158,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet ext
   tags?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       capacities: 'Capacities',
       createTime: 'CreateTime',
       deploymentSetDescription: 'DeploymentSetDescription',
@@ -175,6 +177,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet ext
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       capacities: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities,
       createTime: 'string',
       deploymentSetDescription: 'string',
@@ -237,45 +240,10 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSets extends $dara.Mo
 
 export class DescribeRCDeploymentSetsResponseBody extends $dara.Model {
   deploymentSets?: DescribeRCDeploymentSetsResponseBodyDeploymentSets;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 39265F46-EC77-4036-8AC4-F035F32F6BE2
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBInstanceReplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * 复制通道名称，用于标识复制链路
+   * The name of the replication channel, which is used to identify the replication task.
    * 
    * @example
    * replication-channel-001
@@ -13,7 +13,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * 目标RDS实例ID，复制链路将在此实例上创建
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * 主数据库主机地址，支持IP或域名
+   * The address of the primary database host. IP addresses and domain names are supported.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   masterHost?: string;
   /**
    * @remarks
-   * 主数据库密码，用于验证复制用户，需要提前经过Base64编码
+   * The password of the primary database, which is used to authenticate the replication user. The password must be Base64-encoded in advance.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   masterPassword?: string;
   /**
    * @remarks
-   * 主数据库端口号，通常为3306（MySQL）或5432（PostgreSQL）
+   * The port number of the primary database. The default port is 3306 for MySQL.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   masterPort?: number;
   /**
    * @remarks
-   * 主数据库用户名，用于建立复制连接
+   * The username of the primary database, which is used to establish the replication connection.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 地域ID，表示RDS实例所在的地域
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

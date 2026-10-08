@@ -124,15 +124,15 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeys extends $dara
 export class DescribeDBProxyPerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the monitored instance.
    * 
    * @example
-   * lsmexxxxxxx
+   * lsme****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * An internal parameter. You do not need to specify this parameter.
+   * An internal parameter. You can ignore this parameter.
    * 
    * @example
    * normal

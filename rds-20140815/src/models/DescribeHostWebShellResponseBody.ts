@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHostWebShellResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The webshell URL.
+   * The WebShell logon URL.
    * 
    * @example
-   * ***
+   * ****
    */
   loginUrl?: string;
   /**

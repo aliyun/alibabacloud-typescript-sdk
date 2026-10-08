@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The migration task ID. This parameter is available only for instances that are created in dedicated clusters.
+   * This parameter is supported only for dedicated cluster instances. The migration task ID.
    * 
    * @example
    * 740
@@ -13,7 +13,7 @@ export class StartDBInstanceResponseBody extends $dara.Model {
   migrationId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A417FB41-A3D9-464E-AD0A-C7FE05C72E98
@@ -21,7 +21,7 @@ export class StartDBInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 238028563

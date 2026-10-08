@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHostGroupElasticStrategyParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The CPU utilization of the instance. Unit: percentage.
+   * The current CPU utilization of the instance. Unit: %.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeHostGroupElasticStrategyParametersResponseBody extends $dar
   cpuShar?: number;
   /**
    * @remarks
-   * The number of CPU cores used by the instance. Unit: cores.
+   * The CPU usage of the instance. Unit: cores.
    * 
    * @example
    * 4
@@ -29,7 +29,7 @@ export class DescribeHostGroupElasticStrategyParametersResponseBody extends $dar
   iopsZoom?: number;
   /**
    * @remarks
-   * The maximum number of concurrent connections supported by the instance type.
+   * The maximum number of concurrent connections for the instance type.
    * 
    * @example
    * 30
@@ -37,7 +37,7 @@ export class DescribeHostGroupElasticStrategyParametersResponseBody extends $dar
   maxConnZoom?: number;
   /**
    * @remarks
-   * The total memory size of the instance in the dedicated cluster. Unit: MB.
+   * The total memory of instances in the current dedicated cluster. Unit: MB.
    * 
    * @example
    * 1000

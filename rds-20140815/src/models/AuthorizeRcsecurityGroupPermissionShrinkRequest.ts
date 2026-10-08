@@ -7,8 +7,8 @@ export class AuthorizeRCSecurityGroupPermissionShrinkRequest extends $dara.Model
    * @remarks
    * The direction of the rule. Valid values:
    * 
-   * *   **ingress**: the inbound security group rule.
-   * *   **egress**: the outbound security group rule.
+   * - **ingress**: inbound.
+   * - **egress**: outbound.
    * 
    * @example
    * ingress
@@ -24,7 +24,7 @@ export class AuthorizeRCSecurityGroupPermissionShrinkRequest extends $dara.Model
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-2ze27hs990o2hn9****
@@ -32,7 +32,7 @@ export class AuthorizeRCSecurityGroupPermissionShrinkRequest extends $dara.Model
   securityGroupId?: string;
   /**
    * @remarks
-   * The information about the security group.
+   * The security group information.
    */
   securityGroupPermissionsShrink?: string;
   static names(): { [key: string]: string } {

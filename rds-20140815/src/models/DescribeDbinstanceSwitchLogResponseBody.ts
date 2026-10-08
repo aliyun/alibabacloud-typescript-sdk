@@ -74,29 +74,44 @@ export class DescribeDBInstanceSwitchLogResponseBodyItems extends $dara.Model {
 
 export class DescribeDBInstanceSwitchLogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
-   * rdsaiiabnaiiabn
+   * rm-uf6wjk5****
    */
   DBInstanceName?: string;
   items?: DescribeDBInstanceSwitchLogResponseBodyItems;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 60
+   * 30
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1CA494F-CC13-4EB6-8C4D-5352EE4045BD
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries on the current page.
+   * 
    * @example
-   * 5
+   * 2
    */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {

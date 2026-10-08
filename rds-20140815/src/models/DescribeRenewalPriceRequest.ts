@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenewalPriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The additional business information about the instance.
+   * The business extension parameter.
    * 
    * @example
    * 121436975448952
@@ -16,12 +16,12 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance type of the instance. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). By default, the current instance type applies.
+   * The instance type. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). Default value: the current instance type.
    * 
    * @example
    * mysql.n2.medium.2c
@@ -29,17 +29,17 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The type of order. Set the value to **BUY**.
+   * The order type. The only valid value is **BUY**.
    * 
    * @example
    * BUY
@@ -51,8 +51,8 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription
+   * * **Postpaid**: pay-as-you-go
+   * * **Prepaid**: subscription
    * 
    * @example
    * Postpaid
@@ -60,7 +60,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The number of the instances. Default value: **1**.
+   * The number of instances. Default value: **1**.
    * 
    * @example
    * 1
@@ -68,7 +68,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to obtain the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -76,7 +76,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
    * 
    * @example
    * rg-acfmx****
@@ -86,10 +86,10 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The renewal cycle of the instance. Valid values:
+   * The subscription type of the instance. Valid values:
    * 
-   * *   **Year**
-   * *   **Month**
+   * * **Year**: yearly subscription
+   * * **Month**: monthly subscription
    * 
    * This parameter is required.
    * 
@@ -101,8 +101,8 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    * @remarks
    * The subscription duration of the instance. Valid values:
    * 
-   * *   If you set the **TimeType** parameter to **Year**, the value of the UsedTime parameter is within the range of **1 to 3**.
-   * *   If you set the **TimeType** parameter to **Month**, the value of the UsedTime parameter is within the range of **1 to 9**.
+   * * If **TimeType** is set to **Year**, the value ranges from **1 to 3**.
+   * * If **TimeType** is set to **Month**, the value ranges from **1 to 9**.
    * 
    * This parameter is required.
    * 

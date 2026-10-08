@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteReplicationLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DR instance.
+   * The instance ID of the disaster recovery instance.
    * 
    * @example
-   * pgm-bp1trqb4p1xd****
+   * PostgreSQL：pgm-bp1trqb4p1******
+   * SQL Server：135****
    */
   DBInstanceId?: string;
   /**
@@ -16,7 +17,7 @@ export class DeleteReplicationLinkResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 847BA085-B377-4BFA-8267-F82345ECE1D2
+   * 1EFCFB59-7152-19C4-8C53-F887D107AFD3
    */
   requestId?: string;
   /**
@@ -24,7 +25,7 @@ export class DeleteReplicationLinkResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 3472****
+   * 159****
    */
   taskId?: number;
   /**
@@ -32,7 +33,7 @@ export class DeleteReplicationLinkResponseBody extends $dara.Model {
    * The task name.
    * 
    * @example
-   * test01
+   * zbtest
    */
   taskName?: string;
   static names(): { [key: string]: string } {

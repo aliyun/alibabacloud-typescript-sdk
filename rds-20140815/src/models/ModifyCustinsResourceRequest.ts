@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustinsResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The deadline for the modification.
+   * The adjustment time.
    * 
    * @example
    * 2022-12-31 23:59:06
@@ -13,7 +13,7 @@ export class ModifyCustinsResourceRequest extends $dara.Model {
   adjustDeadline?: string;
   /**
    * @remarks
-   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
+   * The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ModifyCustinsResourceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The increase rate in percentage.
+   * The increase ratio. Unit: %.
    * 
    * @example
    * 10
@@ -40,7 +40,7 @@ export class ModifyCustinsResourceRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The original value. This parameter must be specified when the **ResourceType** parameter is set to **instance**.
+   * The original value. This parameter is required when **ResourceType** is set to **instance**.
    * 
    * @example
    * 200
@@ -48,7 +48,7 @@ export class ModifyCustinsResourceRequest extends $dara.Model {
   restoreOriginalSpecification?: string;
   /**
    * @remarks
-   * The target value. This parameter is available only if you set the ScalingRuleType parameter to TargetTrackingScalingRule or PredictiveScalingRule. The value must be greater than 0 and can contain up to three decimal places.
+   * The target value. This parameter is applicable to target tracking rules and predictive rules. The value of TargetValue can contain up to three decimal places and must be greater than 0.
    * 
    * @example
    * 3000

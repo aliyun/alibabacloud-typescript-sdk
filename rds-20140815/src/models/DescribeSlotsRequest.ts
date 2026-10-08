@@ -15,7 +15,7 @@ export class DescribeSlotsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,10 +27,10 @@ export class DescribeSlotsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID. You can leave this parameter empty.
+   * The resource group ID. This parameter can be left empty.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

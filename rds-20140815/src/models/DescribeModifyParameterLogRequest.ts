@@ -10,12 +10,12 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The end time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from 1.
+   * The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of Integer.
    * 
    * Default value: **1**.
    * 
@@ -38,10 +38,9 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: **30**.
    * 
@@ -53,7 +52,7 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
    * 
    * This parameter is required.
    * 

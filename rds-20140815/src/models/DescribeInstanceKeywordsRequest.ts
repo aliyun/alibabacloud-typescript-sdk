@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceKeywordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of reserved keyword to query. Valid values:
+   * The type of reserved keywords, which indicates whether the reserved keywords are for account names or database names. Valid values:
    * 
-   * *   **account**
-   * *   **database**
+   * - **account**
    * 
-   * >  This parameter is required.
+   * - **database**
+   * 
+   * > This parameter is required.
    * 
    * @example
    * account

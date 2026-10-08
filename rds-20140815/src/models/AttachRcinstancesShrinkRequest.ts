@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class AttachRCInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The node IDs.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    */
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The key pair of the node.
+   * The key pair of the RDS Custom instance.
    * 
    * @example
    * Custom_test
@@ -20,7 +20,7 @@ export class AttachRCInstancesShrinkRequest extends $dara.Model {
   keyPair?: string;
   /**
    * @remarks
-   * The logon password of the node.
+   * The logon password of the RDS Custom instance.
    * 
    * @example
    * testPassword
@@ -36,9 +36,9 @@ export class AttachRCInstancesShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The ID of the virtual private cloud (VPC).
    * 
-   * > This is a reserved parameter.
+   * > Reserved parameter.
    * 
    * @example
    * None

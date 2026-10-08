@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityIpsRequest extends $dara.Model {
   /**
    * @remarks
-   * The attribute of the IP address whitelist. By default, this parameter is empty.
+   * The attribute of the whitelist group.
    * 
-   * > The IP address whitelists that have the hidden attribute are not displayed in the ApsaraDB RDS console. These IP address whitelists are used to access Alibaba Cloud services, such as Data Transmission Service (DTS).
+   * - (Default) If you do not specify this parameter, the group is a common group.
+   * - If you set this parameter to `hidden`, the group is a system default group used by services such as DMS, DTS, and DAS. These groups are not displayed in the console. Deleting or modifying these groups may prevent DMS, DTS, and DAS from accessing ApsaraDB RDS. Proceed with caution.
    * 
    * @example
    * hidden
@@ -15,9 +16,9 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   DBInstanceIPArrayAttribute?: string;
   /**
    * @remarks
-   * The name of the IP address whitelist that you want to modify. Default value: **Default**.
+   * The name of the whitelist group to modify. Default value: Default. If the specified group does not exist, a new group is automatically created.
    * 
-   * > A maximum of 200 IP address whitelists can be configured for each instance.
+   * >Each instance supports up to 200 whitelist groups.
    * 
    * @example
    * test
@@ -25,7 +26,7 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   DBInstanceIPArrayName?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The target instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,11 +36,10 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The read-only instances to which you want to synchronize the IP address whitelist.
+   * The list of read-only instances to which the whitelist is synchronized.
    * 
-   * *   This parameter applies only to ApsaraDB RDS for PostgreSQL instances.
-   * *   If the instance is attached with a read-only instance, you can use this parameter to synchronize the IP address whitelist to the read-only instance. If the instance is attached with multiple read-only instances, separate the read-only instances with commas (,).
-   * *   If the instance is not attached with a read-only instance, leave this parameter empty.
+   * - This parameter is applicable only to ApsaraDB RDS for PostgreSQL instances that have read-only instances.
+   * - Separate multiple read-only instances with commas (,).
    * 
    * @example
    * pgr-bp17yuz4dn3d****,pgr-bp1vn2ph54u1****
@@ -47,13 +47,10 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   freshWhiteListReadins?: string;
   /**
    * @remarks
-   * The method that is used to modify the whitelist. Valid values:
-   * 
-   * *   **Cover**: Use the IP addresses and CIDR blocks that are specified in the **SecurityIps** parameter to overwrite the existing IP addresses and CIDR blocks in the IP address whitelist.
-   * *   **Append**: Add the IP addresses and CIDR blocks that are specified in the **SecurityIps** parameter to the IP address whitelist.
-   * *   **Delete**: Delete the IP addresses and CIDR blocks that are specified in the **SecurityIps** parameter from the IP address whitelist. You must retain at least one IP address or CIDR block.
-   * 
-   * Default value: **Cover**.
+   * The modification mode. Valid values:
+   * * **Cover** (default): overwrites the original IP whitelist with the value of the **SecurityIps** parameter.
+   * * **Append**: appends the IP addresses specified in the **SecurityIps** parameter to the original IP whitelist.
+   * * **Delete**: removes the IP addresses specified in the **SecurityIps** parameter from the original IP whitelist. At least one IP address must be retained.
    * 
    * @example
    * Cover
@@ -62,7 +59,7 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IP address type. The value is fixed as IPv4.
+   * The type of IP address. The value is fixed as IPv4. IPv6 is not supported.
    * 
    * @example
    * IPv4
@@ -70,12 +67,17 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   securityIPType?: string;
   /**
    * @remarks
-   * The IP addresses in an IP address whitelist. Separate multiple IP addresses with commas (,). Each IP address in the IP address whitelist must be unique. The entries in the IP address whitelist must be in one of the following formats:
+   * The IP whitelist. Before you modify the IP whitelist, call the [DescribeDBInstanceIPArrayList](https://help.aliyun.com/document_detail/610518.html) operation to query the existing IP whitelist information of the instance.
    * 
-   * *   IP addresses, such as 10.23.XX.XX.
-   * *   CIDR blocks, such as 10.23.XX.XX/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
+   * <details>
+   * <summary>Configuration rules</summary>
    * 
-   * > A maximum of 1,000 IP addresses or CIDR blocks can be added for each instance. If you want to add a large number of IP addresses, we recommend that you merge them into CIDR blocks, such as 10.23.XX.XX/24.
+   * - IP addresses (such as 10.23.XX.XX) and CIDR blocks (such as 10.23.XX.XX/24) are supported.
+   * 
+   * - Separate multiple IP addresses or CIDR blocks with commas (,). No spaces are allowed before or after the commas.
+   * 
+   * - Each instance can contain up to 1,000 IP addresses or CIDR blocks. If you have a large number of IP addresses, merge them into CIDR blocks, such as 10.23.XX.XX/24.
+   * </details>
    * 
    * This parameter is required.
    * 
@@ -85,22 +87,17 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   securityIps?: string;
   /**
    * @remarks
-   * The network type of the IP address whitelist. Valid values:
+   * The network type of the whitelist. Valid values:
    * 
-   * *   **Classic**: classic network in enhanced whitelist mode
-   * *   **VPC**: virtual private cloud (VPC) network type in enhanced whitelist mode.
-   * *   **MIX**: standard whitelist mode
+   * * **MIX** (default): general mode.
+   * * **Classic**: the classic network in enhanced whitelist mode.
+   * * **VPC**: the virtual private cloud (VPC) in enhanced whitelist mode.
    * 
-   * Default value: **MIX**.
-   * 
-   * > 
-   * 
-   * *   In standard whitelist mode, IP addresses and CIDR blocks are added only to the default IP address whitelist. In enhanced whitelist mode, IP addresses and CIDR blocks are added to the IP address whitelists of the classic network type and the VPC network type.
-   * 
-   * *   If your RDS instance runs PostgreSQL and uses cloud disks, set this parameter to MIX. If you set it to another value, the system automatically changes the value to MIX.
+   * > * ApsaraDB RDS for PostgreSQL instances with cloud disks use only the general mode (MIX). If you set this parameter to another mode, the value is automatically converted to MIX.
+   * > * Only ApsaraDB RDS for MySQL 5.1, 5.5, 5.6, and 5.7 instances with Premium Local SSDs and ApsaraDB RDS for PostgreSQL 9.4 and 10 instances with Premium Local SSDs support the enhanced whitelist mode.
    * 
    * @example
-   * Classic
+   * MIX
    */
   whitelistNetworkType?: string;
   static names(): { [key: string]: string } {

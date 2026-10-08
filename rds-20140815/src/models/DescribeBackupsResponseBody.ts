@@ -185,7 +185,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   items?: DescribeBackupsResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -201,7 +201,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1A6D328C-84B8-40DC-BF49-6C73984D7494
@@ -217,7 +217,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   totalEcsSnapshotSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 100

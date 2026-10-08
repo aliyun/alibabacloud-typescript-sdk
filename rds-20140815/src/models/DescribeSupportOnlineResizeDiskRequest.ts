@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSupportOnlineResizeDiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-bp****
    */
   DBInstanceId?: string;
   ownerAccount?: string;

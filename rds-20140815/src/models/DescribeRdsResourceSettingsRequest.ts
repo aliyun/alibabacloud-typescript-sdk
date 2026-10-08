@@ -6,10 +6,9 @@ export class DescribeRdsResourceSettingsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The location of the notification.
-   * 
-   * *   noticeBar: notification bar
-   * *   popUp: popup
+   * The resource niche. Valid values:
+   * - noticeBar: notification bar.
+   * - popUp: pop-up dialog box.
    * 
    * This parameter is required.
    * 

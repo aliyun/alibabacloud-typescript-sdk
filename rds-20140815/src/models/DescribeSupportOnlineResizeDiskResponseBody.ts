@@ -5,31 +5,35 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSupportOnlineResizeDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
-   * NotExists.InstanceId
+   * 200
    */
   code?: string;
   /**
    * @remarks
-   * The response result set.
+   * The response data.
    * 
    * @example
-   * {"SupportOnlineResizeDisk":true,"DBInstanceName":"rm-uf6wjk5xxxxxxx"}
+   * {
+   *       "SupportOnlineResizeDisk": true,
+   *       "DBInstanceName": "rm-bp****",
+   *       "maxSupportDiskSizeGB": 6144
+   * }
    */
   data?: string;
   /**
    * @remarks
-   * The response code.
+   * The message returned for the response code.
    * 
    * @example
-   * successful
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8B993DA9-5272-5414-94E3-4CA8BA0146C2

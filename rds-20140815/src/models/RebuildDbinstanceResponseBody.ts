@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class RebuildDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The serial number of the task in the rebuild task queue. When the serial number becomes 0, the system starts to rebuild the secondary instance.
+   * The queue number for the rebuild. When the number is 0, the rebuild migration starts.
    * 
    * @example
-   * 329****
+   * 3298015
    */
   migrationId?: number;
   /**
@@ -24,7 +24,7 @@ export class RebuildDBInstanceResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 20867****
+   * 208676661
    */
   taskId?: number;
   static names(): { [key: string]: string } {

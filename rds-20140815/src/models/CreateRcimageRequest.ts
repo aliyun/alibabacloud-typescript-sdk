@@ -13,7 +13,7 @@ export class CreateRCImageRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The ID of the RDS Custom instance.
+   * The instance ID of the RDS Custom instance.
    * 
    * @example
    * rc-vma9w5z699x93204****
@@ -21,7 +21,7 @@ export class CreateRCImageRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the available regions.
    * 
    * @example
    * cn-beijing
@@ -29,7 +29,7 @@ export class CreateRCImageRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the snapshot from which to create the custom image. You can call the DescribeRCSnapshots operation to query the snapshot ID.
+   * The snapshot ID used to create the custom image. You can call DescribeRCSnapshots to query snapshot IDs.
    * 
    * @example
    * rcds-c9bjdl79vz5dx********

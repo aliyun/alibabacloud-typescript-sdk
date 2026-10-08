@@ -5,18 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class QueryNotifyResponseBodyDataNotifyItemList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the current Alibaba Cloud account.
    * 
    * @example
-   * 22973492**********
+   * 22973492****
    */
   aliUid?: number;
   /**
    * @remarks
-   * Indicates whether the notification has been confirmed. You can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the notification has been confirmed, that is, whether the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation has been called to mark the notification as confirmed. Valid values:
+   * * **true**: The notification has been confirmed.
+   * * **false**: The notification has not been confirmed.
    * 
    * @example
    * true
@@ -24,9 +23,9 @@ export class QueryNotifyResponseBodyDataNotifyItemList extends $dara.Model {
   confirmFlag?: boolean;
   /**
    * @remarks
-   * The UID of the contact who called the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed. The contact belongs to the current Alibaba Cloud account.
+   * The UID of the notification recipient under the current Alibaba Cloud account who called the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed.
    * 
-   * The value **0** indicates that the notification is automatically confirmed by the system.
+   * A return value of **0** indicates that the notification was automatically confirmed by the system.
    * 
    * @example
    * 0
@@ -50,7 +49,7 @@ export class QueryNotifyResponseBodyDataNotifyItemList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the notification.
+   * The notification ID.
    * 
    * @example
    * 103499
@@ -58,7 +57,7 @@ export class QueryNotifyResponseBodyDataNotifyItemList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The number of times that repeatedly sent notifications are blocked.
+   * The number of times that duplicate notifications were blocked.
    * 
    * @example
    * 0
@@ -66,22 +65,21 @@ export class QueryNotifyResponseBodyDataNotifyItemList extends $dara.Model {
   idempotentCount?: string;
   /**
    * @remarks
-   * This parameter ensures the idempotence of the notification and prevents the notification from being repeatedly sent.
+   * The idempotency identifier used to prevent duplicate notifications from being sent.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   idempotentId?: string;
   /**
    * @remarks
    * The level of the notification. Valid values:
-   * 
-   * *   **help**
-   * *   **success**
-   * *   **warning**
-   * *   **error**
-   * *   **loading**
-   * *   **notice**
+   * * **help**: help
+   * * **success**: execution succeeded
+   * * **warning**: warning
+   * * **error**: execution failed
+   * * **loading**: task in progress
+   * * **notice**: general
    * 
    * @example
    * error
@@ -89,28 +87,23 @@ export class QueryNotifyResponseBodyDataNotifyItemList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The element in the notification template. This parameter is a JSON string. Fields in the JSON string vary based on the value of the **TemplateName** parameter.
-   * 
-   * *   If the **TemplateName** parameter is **RenewalRecommend**, the JSON string contains the following fields:
-   * 
-   *     *   **instanceName**: the ID of the instance that is about to expire
-   *     *   **reservedTime**: the remaining validity period of the instance in days
-   * 
-   * *   If the **TemplateName** parameter is **InstanceCreateFailed**, the JSON string contains the following fields:
-   * 
-   *     *   **orderId**: the ID of the order to purchase the instance
-   *     *   **reason**: the cause of the instance creation failure
+   * The elements in the notification template, which are represented as a JSON string. The parameters in the JSON string vary based on the value of **TemplateName**.
+   * * If **TemplateName** is set to **RenewalRecommend**:
+   *     * **instanceName**: the ID of the instance that is about to expire.
+   *     * **reservedTime**: the number of remaining days.
+   * * If **TemplateName** is set to **InstanceCreateFailed**:
+   *     * **orderId**: the order ID for the instance purchase.
+   *     * **reason**: the reason why the instance failed to be created.
    * 
    * @example
-   * {\\"orderId\\":21466**********}
+   * {\\"orderId\\":21466****}
    */
   notifyElement?: string;
   /**
    * @remarks
-   * The template of the notification. Valid values:
-   * 
-   * *   **RenewalRecommend**: The template that is used to notify of renewal suggestions.
-   * *   **InstanceCreateFailed**: The template that is used to notify that an instance fails to be created and is refunded.
+   * The notification template. Valid values:
+   * * **RenewalRecommend**: renewal recommendation
+   * * **InstanceCreateFailed**: instance creation failed with refund
    * 
    * @example
    * InstanceCreateFailed
@@ -118,11 +111,10 @@ export class QueryNotifyResponseBodyDataNotifyItemList extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type of the notification. Valid values:
-   * 
-   * *   **Sell**: sales notification
-   * *   **Operation**: O\\&M notification
-   * *   **Promotion**: promotion notification
+   * The notification type. Valid values:
+   * * **Sell**: sale-related notification
+   * * **Operation**: O&M notification
+   * * **Promotion**: promotional notification
    * 
    * @example
    * Sell
@@ -174,12 +166,12 @@ export class QueryNotifyResponseBodyDataNotifyItemList extends $dara.Model {
 export class QueryNotifyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of notifications.
+   * The list of notifications.
    */
   notifyItemList?: QueryNotifyResponseBodyDataNotifyItemList[];
   /**
    * @remarks
-   * The page number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -187,7 +179,7 @@ export class QueryNotifyResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 25
@@ -195,7 +187,7 @@ export class QueryNotifyResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1
@@ -234,7 +226,7 @@ export class QueryNotifyResponseBodyData extends $dara.Model {
 export class QueryNotifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: QueryNotifyResponseBodyData;
   /**

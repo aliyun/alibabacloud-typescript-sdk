@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5******
+   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   /**
@@ -20,16 +20,15 @@ export class MigrateDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dhg-4n******
+   * dhg-4nxxxxxxx
    */
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * The time when you want the system to start the migration. Valid values:
-   * 
-   * *   **Immediately**: The system immediately starts the migration. This is the default value.
-   * *   **MaintainTime**: The system starts the migration during the specified maintenance window.
-   * *   **Specified**: The system starts the migration at the specified point in time.
+   * The migration time. Valid values:
+   * * **Immediately**: migrates the instance immediately. This is the default value.
+   * * **MaintainTime**: migrates the instance during the maintenance window.
+   * * **Specified**: migrates the instance at a specified time.
    * 
    * @example
    * MaintainTime
@@ -38,7 +37,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -48,9 +47,8 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The point in time when you want the system to start the migration. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * > This parameter must be specified when you set **EffectiveTime** to **Specified**.
+   * The specified switchover time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * >This parameter is required when **EffectiveTime** is set to **Specified**.
    * 
    * @example
    * 2019-10-21T10:00:00Z
@@ -58,18 +56,18 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   specifiedTime?: string;
   /**
    * @remarks
-   * The ID of the host to which you want to migrate the primary instance. You can call the DescribeDedicatedHosts operation to query the host ID.
+   * The ID of the destination host to which the primary instance is migrated. You can call the DescribeDedicatedHosts operation to query the host ID.
    * 
    * @example
-   * i-bp******
+   * i-bpxxxxxxx1
    */
   targetDedicatedHostIdForMaster?: string;
   /**
    * @remarks
-   * The ID of the host to which you want to migrate the secondary instance. You can call the DescribeDedicatedHosts operation to query the host ID.
+   * The ID of the destination host to which the secondary instance is migrated. You can call the DescribeDedicatedHosts operation to query the host ID.
    * 
    * @example
-   * i-bp******
+   * i-bpxxxxxxx2
    */
   targetDedicatedHostIdForSlave?: string;
   /**
@@ -77,15 +75,15 @@ export class MigrateDBInstanceRequest extends $dara.Model {
    * The zone ID of the secondary node.
    * 
    * @example
-   * cn-hangzhou-h
+   * cn-hangzhou-j
    */
   zoneIdForFollower?: string;
   /**
    * @remarks
-   * The zone ID of the logger instance.
+   * The zone ID of the log node.
    * 
    * @example
-   * cn-hangzhou-i
+   * cn-hangzhou-k
    */
   zoneIdForLog?: string;
   static names(): { [key: string]: string } {

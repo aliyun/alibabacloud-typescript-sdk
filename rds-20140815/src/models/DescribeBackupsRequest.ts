@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup set.
+   * The backup set ID.
    * 
    * @example
    * 327329803
@@ -14,9 +14,8 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values:
-   * 
-   * *   **Automated**
-   * *   **Manual**
+   * * **Automated**: automatic backup
+   * * **Manual**: manual backup
    * 
    * @example
    * Automated
@@ -25,9 +24,8 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the backup set. Valid values:
-   * 
-   * *   **Success**
-   * *   **Failed**
+   * * **Success**: The backup is complete.
+   * * **Failed**: The backup failed.
    * 
    * @example
    * Success
@@ -36,9 +34,8 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * The backup type. Valid values:
-   * 
-   * *   **FullBackup**: full backup
-   * *   **IncrementalBackup**: incremental backup
+   * * **FullBackup**: full backup
+   * * **IncrementalBackup**: incremental backup
    * 
    * @example
    * FullBackup
@@ -46,19 +43,19 @@ export class DescribeBackupsRequest extends $dara.Model {
   backupType?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
    * 
-   * > We recommend that you specify a time range that is as short as possible to avoid timeout.
+   * > Narrow down the time range when you use this operation to query backup sets. A large time range may cause a timeout.
    * 
    * @example
    * 2011-06-15T16:00Z
@@ -66,7 +63,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of the page to return. Valid values: any non-zero positive integer.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -77,10 +74,9 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: **30**.
    * 
@@ -91,7 +87,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
    * 
    * @example
    * 2011-06-01T16:00Z

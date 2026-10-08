@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The deadline for the CPU adjustment.
+   * The deadline for CPU adjustment.
    * 
    * @example
    * 2023-10-25
@@ -13,7 +13,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   cpuAdjustDeadline?: string;
   /**
    * @remarks
-   * The maximum percentage of the system CPU resources that the instance can use.
+   * The maximum adjustable CPU ratio.
    * 
    * @example
    * 30
@@ -21,7 +21,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   cpuAdjustableMaxRatio?: string;
   /**
    * @remarks
-   * The maximum CPU utilization.
+   * The maximum CPU usage.
    * 
    * @example
    * 60
@@ -29,7 +29,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   cpuAdjustableMaxValue?: string;
   /**
    * @remarks
-   * The CPU utilization.
+   * The CPU usage.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   cpuIncreaseRatio?: string;
   /**
    * @remarks
-   * The CPU utilization. Unit: percentage.
+   * The CPU usage. Unit: %.
    * 
    * @example
    * 20
@@ -48,12 +48,12 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-wz92gn1ll9fe5d3a4
+   * rm-wz9s06u4drm******
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The maximum IOPS.
+   * The maximum number of I/O requests per second.
    * 
    * @example
    * 20
@@ -61,7 +61,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   iopsAdjustableMaxValue?: string;
   /**
    * @remarks
-   * The deadline for the adjustment of the maximum number of connections.
+   * The deadline for maximum connection adjustment.
    * 
    * @example
    * 2023-10-25
@@ -93,7 +93,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   maxConnIncreaseRatioValue?: string;
   /**
    * @remarks
-   * The deadline for the adjustment of the maximum IOPS.
+   * The deadline for maximum IOPS adjustment.
    * 
    * @example
    * 2023-10-25
@@ -101,7 +101,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   maxIopsAdjustDeadline?: string;
   /**
    * @remarks
-   * The maximum IOPS.
+   * The maximum number of I/O requests per second.
    * 
    * @example
    * 100
@@ -109,7 +109,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   maxIopsIncreaseRatio?: string;
   /**
    * @remarks
-   * The maximum IOPS that can be supported by the instance.
+   * The maximum number of I/O requests per second.
    * 
    * @example
    * 20
@@ -117,7 +117,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   maxIopsIncreaseRatioValue?: string;
   /**
    * @remarks
-   * The maximum percentage of the system memory that the instance can use.
+   * The maximum adjustable memory ratio.
    * 
    * @example
    * 60
@@ -125,7 +125,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   memAdjustableMaxRatio?: string;
   /**
    * @remarks
-   * The maximum value of the resources to be evaluated.
+   * The maximum value of the resource to be evaluated.
    * 
    * @example
    * 200
@@ -133,7 +133,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   memAdjustableMaxValue?: string;
   /**
    * @remarks
-   * The deadline for the memory adjustment.
+   * The deadline for memory adjustment.
    * 
    * @example
    * 2023-10-25
@@ -141,10 +141,10 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   memoryAdjustDeadline?: string;
   /**
    * @remarks
-   * The memory increase percentage.
+   * The memory increase ratio.
    * 
    * @example
-   * 2023-10-25
+   * 20
    */
   memoryIncreaseRatio?: string;
   /**
@@ -157,7 +157,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   memoryIncreaseRatioValue?: string;
   /**
    * @remarks
-   * The number of CPUs of the instance.
+   * The number of CPU cores of the instance.
    * 
    * @example
    * 2
@@ -173,7 +173,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   originMaxConn?: string;
   /**
    * @remarks
-   * The maximum IOPS.
+   * The maximum number of I/O requests per second.
    * 
    * @example
    * 20
@@ -181,7 +181,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   originMaxIops?: string;
   /**
    * @remarks
-   * The actual memory used. Unit: MB.
+   * The actual memory usage. Unit: MB.
    * 
    * @example
    * 20

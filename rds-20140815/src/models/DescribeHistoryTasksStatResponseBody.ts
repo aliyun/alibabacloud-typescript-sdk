@@ -5,15 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryTasksStatResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * 
-   * *   **Scheduled**
-   * *   **Running**
-   * *   **Succeed**
-   * *   **Failed**
-   * *   **Cancelling**
-   * *   **Canceled**
-   * *   **Waiting**
+   * The task status. Valid values:
+   * - **Scheduled**: Waiting to be executed.
+   * - **Running**: Running.
+   * - **Succeed**: Succeeded.
+   * - **Failed**: Failed.
+   * - **Cancelling**: Being stopped.
+   * - **Canceled**: Stopped.
+   * - **Waiting**: Waiting for the scheduled time.
    * 
    * @example
    * Succeed,Waiting
@@ -53,7 +52,7 @@ export class DescribeHistoryTasksStatResponseBodyItems extends $dara.Model {
 export class DescribeHistoryTasksStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried tasks.
+   * The list of task information.
    */
   items?: DescribeHistoryTasksStatResponseBodyItems[];
   /**

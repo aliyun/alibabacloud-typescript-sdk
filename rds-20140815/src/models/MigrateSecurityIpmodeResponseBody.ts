@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateSecurityIPModeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-uf6wjk5****
@@ -13,7 +13,7 @@ export class MigrateSecurityIPModeResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EF1E53AB-5625-49C7-ADF1-FBD0B6640D19
@@ -21,21 +21,7 @@ export class MigrateSecurityIPModeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The whitelist mode after the change, which is the enhanced whitelist mode.
-   * 
-   * Valid values:
-   * 
-   * *   safety
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     enhanced whitelist mode
-   * 
-   *     <!-- -->
+   * The whitelist mode after the switch, which is the enhanced whitelist mode.
    * 
    * @example
    * safety

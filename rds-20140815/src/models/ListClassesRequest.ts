@@ -8,42 +8,48 @@ export class ListClassesRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The commodity code of the instances.
+   * The commodity code of the instance to query.
    * 
-   * *   **bards_intl**: The instances are pay-as-you-go primary instances.
-   * *   **rds_intl**: The instances are subscription primary instances.
-   * *   **rords_intl**: The instances are pay-as-you-go read-only instances.
-   * *   **rds_rordspre_public_intl**: The instances are subscription read-only instances.
+   * <props="china">
+   * * **bards**: Pay-as-you-go primary instance.
+   * * **rds**: Subscription primary instance.
+   * * **rords**: Pay-as-you-go read-only instance.
+   * * **rds_rordspre_public_cn**: Subscription read-only instance.
+   * 
+   * 
+   * <props="intl">
+   * * **bards_intl**: Pay-as-you-go primary instance.
+   * * **rds_intl**: Subscription primary instance.
+   * * **rords_intl**: Pay-as-you-go read-only instance.
+   * * **rds_rordspre_public_intl**: Subscription read-only instance.
    * 
    * This parameter is required.
    * 
    * @example
-   * bards_intl
+   * bards
    */
   commodityCode?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
-   * >  If you set the **CommodityCode** parameter to the commodity code of read-only instances, you must specify this parameter.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * >This parameter is required when you query the instance type list for read-only instances, which means you set the **CommodityCode** parameter to a commodity code for read-only instances.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database engine of the instance. Valid values:
-   * 
-   * *   **MySQL**
-   * *   **SQLServer**
-   * *   **PostgreSQL**
-   * *   **MariaDB**
+   * The database engine type. Valid values:
+   * * **MySQL**
+   * * **SQLServer**
+   * * **PostgreSQL**
+   * * **MariaDB**
    * 
    * @example
    * MySQL
@@ -51,12 +57,11 @@ export class ListClassesRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The type of order that you want to query. Valid values:
-   * 
-   * *   **BUY**: specifies the query orders that are used to purchase instances.
-   * *   **UPGRADE**: specifies the query orders that are used to change the specifications of instances.
-   * *   **RENEW**: specifies the query orders that are used to renew instances.
-   * *   **CONVERT**: specifies the query orders that are used to change the billing methods of instances.
+   * The type of order to query. Valid values:
+   * * **BUY**: New purchase.
+   * * **UPGRADE**: Configuration change.
+   * * **RENEW**: Renewal.
+   * * **CONVERT**: Billing method change.
    * 
    * This parameter is required.
    * 
@@ -67,9 +72,8 @@ export class ListClassesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
-   * 
-   * >  If you are using an Alibaba Cloud account on the International site (alibabacloud.com), you must specify this parameter.
+   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * >This parameter is required if you use an Alibaba Cloud International Website account.
    * 
    * @example
    * cn-hangzhou

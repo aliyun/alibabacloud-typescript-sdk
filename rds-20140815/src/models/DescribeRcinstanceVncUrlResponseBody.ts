@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCInstanceVncUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The VNC logon address.
+   * The VNC logon URL.
    * 
-   * >  The address returned is valid only for 15 seconds. If you do not use the returned address to establish a connection within 15 seconds, the address expires and you must call the operation again to obtain a new address.
+   * 
+   * >Notice: The VNC logon URL is time-sensitive and valid for 15 seconds. If you do not use the URL within 15 seconds after the call succeeds, the URL automatically expires. In this case, call the operation again to obtain a new URL.
    * 
    * @example
    * https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html?vncUrl=****&instanceId=i-2vcb1qjj8z5dl8iw****&isWindows=false

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * Creation Time, formatted as YYYY-MM-DDTHH:mm:ssZ
+   * The creation time in the format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -13,9 +13,9 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   createdTime?: string;
   /**
    * @remarks
-   * Cycle time, with multiple values concatenated by English commas  
-   * * When cycleType is Week, values 1–7 represent Monday–Sunday  
-   * * When cycleType is Month, values 1–28 are allowed
+   * The cycle time. Multiple values are separated by commas (,).
+   * * If cycleType is set to Week, valid values are 1 to 7, which represent Monday to Sunday.
+   * * If cycleType is set to Month, valid values are 1 to 28.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   cycleTime?: string;
   /**
    * @remarks
-   * Cycle type, either Month or Week
+   * The cycle type. Valid values: Month and Week.
    * 
    * @example
    * Week
@@ -31,8 +31,8 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   cycleType?: string;
   /**
    * @remarks
-   * End time of the O&M time window, in UTC  
-   * Default: 20:00:00Z
+   * The end time of the O&M time window in UTC.
+   * Default value: 20:00:00Z.
    * 
    * @example
    * 20:00:00Z
@@ -40,8 +40,8 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainEndTime?: string;
   /**
    * @remarks
-   * Start time of the O&M time window, in UTC  
-   * Default: 18:00:00Z
+   * The start time of the O&M time window in UTC.
+   * Default value: 18:00:00Z.
    * 
    * @example
    * 18:00:00Z
@@ -49,7 +49,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainStartTime?: string;
   /**
    * @remarks
-   * Updated At, formatted as YYYY-MM-DDTHH:mm:ssZ, for example, 2018-05-30T14:30:00Z
+   * The modification time in the format of YYYY-MM-DDTHH:mm:ssZ, such as 2018-05-30T14:30:00Z.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -57,9 +57,9 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   modifiedTime?: string;
   /**
    * @remarks
-   * Whether it is effective  
-   * * 1: Valid  
-   * * 2: Invalid
+   * Indicates whether the configuration is effective. Valid values: 
+   * * 1: Valid. 
+   * * 2: Invalid.
    * 
    * @example
    * 1
@@ -101,14 +101,14 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
 export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Configuration Information
+   * The configuration information.
    */
   config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
   /**
    * @remarks
-   * Whether a configuration has been set; for the first access, hasConfig is 0  
-   * * 1: Yes  
-   * * 0: No
+   * Indicates whether the configuration has been set. The value is 0 for the first access. Valid values:
+   * * 1: Yes. 
+   * * 0: No.
    * 
    * @example
    * 1
@@ -116,7 +116,7 @@ export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model
   hasConfig?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 4438AC3E-ABE3-5943-9436-***********

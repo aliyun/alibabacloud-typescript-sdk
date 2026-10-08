@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudMigrationPrecheckTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The name of the target instance.
    * 
    * @example
    * pgm-bp102g323jd4****
@@ -13,7 +13,7 @@ export class CreateCloudMigrationPrecheckTaskResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 60F9A12A-16B8-4728-B099-4CA38D32C31C
@@ -21,7 +21,7 @@ export class CreateCloudMigrationPrecheckTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 439946016
@@ -29,7 +29,7 @@ export class CreateCloudMigrationPrecheckTaskResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * slf7w7wj3g

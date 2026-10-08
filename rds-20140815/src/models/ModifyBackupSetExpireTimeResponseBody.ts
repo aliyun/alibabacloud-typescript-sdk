@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupSetExpireTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,19 +13,15 @@ export class ModifyBackupSetExpireTimeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the returned parameters.
+   * The returned fields.
    * 
    * @example
-   * {
-   *       "SupportOnlineResizeDisk": true,
-   *       "DBInstanceName": "rm-bp****",
-   *       "maxSupportDiskSizeGB": 6144
-   * }
+   * {expectExpireTime=1752581423000, dbClusterId=rm-7xv8f2zcia0e4****, backupId=262186****}
    */
   data?: string;
   /**
    * @remarks
-   * The information about the status code.
+   * The response code message.
    * 
    * @example
    * success
@@ -43,8 +39,8 @@ export class ModifyBackupSetExpireTimeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

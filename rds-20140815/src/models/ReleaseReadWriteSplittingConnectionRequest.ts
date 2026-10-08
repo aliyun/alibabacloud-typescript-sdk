@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseReadWriteSplittingConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the primary instance. You can call the DescribeDBInstances operation to query the instance ID.
+   * The ID of the primary instance. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;

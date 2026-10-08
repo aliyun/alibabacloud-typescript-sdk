@@ -7,8 +7,9 @@ export class StopRCInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to forcefully stop the instance. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * -   **true**: Forcefully stops the instance.
+   * 
+   * -   **false** (default): Gracefully stops the instance.
    * 
    * @example
    * false
@@ -32,6 +33,20 @@ export class StopRCInstanceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The stop mode of the instance. Valid values:
+   * 
+   *   - StopCharging: economical mode. After economical mode is enabled:
+   *     - Billing for compute resources is suspended.
+   *     - Billing for system cloud disks and data cloud disks continues.
+   *     - Because compute resources are released, the instance may fail to start due to insufficient resources. Try again later or change the instance type. 
+   * 
+   *   - KeepCharging: standard mode. Billing continues after the instance is stopped.
+   * 
+   * @example
+   * KeepCharging
+   */
   stoppedMode?: string;
   static names(): { [key: string]: string } {
     return {

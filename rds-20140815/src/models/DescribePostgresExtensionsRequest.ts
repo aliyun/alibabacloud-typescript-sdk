@@ -13,7 +13,7 @@ export class DescribePostgresExtensionsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribePostgresExtensionsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database name. You can call the DescribeDatabases operation to query the database name.
+   * The database name. You can call DescribeDatabases to query the database name.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribePostgresExtensionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy****

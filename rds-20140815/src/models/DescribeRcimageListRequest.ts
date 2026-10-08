@@ -5,17 +5,38 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCImageListRequest extends $dara.Model {
   /**
    * @remarks
-   * The image architecture. Valid values:
+   * The system architecture of the image. Valid values:
    * 
-   * *   x86_64
-   * *   arm64
+   * - x86_64.
+   * - arm64.
    * 
    * @example
    * x86_64
    */
   architecture?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * m-2oqiu973jwcxe****
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * The image name.
+   * 
+   * @example
+   * test_image_name
+   */
   imageName?: string;
+  /**
+   * @remarks
+   * Queries available images for the specified instance type.
+   * 
+   * @example
+   * mysql.x2.xlarge.6cm
+   */
   instanceType?: string;
   /**
    * @remarks
@@ -45,7 +66,7 @@ export class DescribeRCImageListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The image type. Set the value to **self**.
+   * The image type. Currently, only **self** is supported.
    * 
    * @example
    * self

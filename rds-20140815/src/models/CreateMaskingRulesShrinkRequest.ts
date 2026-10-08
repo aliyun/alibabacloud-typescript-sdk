@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Database name
+   * The database name.
    * 
    * @example
    * testdb
@@ -23,7 +23,7 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * Name of the default encryption or masking algorithm
+   * The name of the default encryption or masking algorithm.
    * 
    * @example
    * aes-128-gcm
@@ -31,7 +31,7 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   defaultAlgo?: string;
   /**
    * @remarks
-   * Rule algorithm. Multiple algorithms can be selected. Masking Algorithm can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, number of encrypted characters}}
+   * The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, encryption length}}.
    * 
    * @example
    * [{"name": "aes-128-gcm"},
@@ -41,7 +41,7 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * ap-southeast-1
@@ -51,12 +51,12 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Rule configuration, in JSON string format, containing matching rules for databases, tables, and columns
+   * The rule configuration in JSON string format, which contains matching rules for databases, tables, and columns.
    */
   ruleConfigShrink?: string;
   /**
    * @remarks
-   * Rule Name (only one rule name is supported per request)
+   * The rule name. Only one rule name can be specified at a time.
    * 
    * This parameter is required.
    * 

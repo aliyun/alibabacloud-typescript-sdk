@@ -7,8 +7,7 @@ export class CheckServiceLinkedRoleRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can specify any region for this parameter, which does not affect your query results. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * > This parameter does not affect the query result. You can specify any region ID. You can call the DescribeRegions operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -28,9 +27,8 @@ export class CheckServiceLinkedRoleRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The SLR name.
-   * 
-   * >  For more information about the SLRs supported by ApsaraDB RDS, see [Service-linked roles](https://help.aliyun.com/document_detail/342840.html).
+   * The service-linked role.
+   * > For more information about the service-linked roles supported by ApsaraDB RDS, see [Service-linked roles](https://help.aliyun.com/document_detail/342840.html).
    * 
    * This parameter is required.
    * 

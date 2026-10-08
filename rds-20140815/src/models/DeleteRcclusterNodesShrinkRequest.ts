@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRCClusterNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance IDs.
+   * The list of instance IDs.
    */
   instanceIdsShrink?: string;
   /**
@@ -25,7 +25,7 @@ export class DeleteRCClusterNodesShrinkRequest extends $dara.Model {
    * @remarks
    * The virtual private cloud (VPC) ID.
    * 
-   * >  This is a reserved parameter.
+   * > Reserved parameter.
    * 
    * @example
    * None

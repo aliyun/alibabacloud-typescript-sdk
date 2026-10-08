@@ -13,7 +13,7 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates ex
   id?: number;
   /**
    * @remarks
-   * The IP addresses.
+   * The IP address list.
    * 
    * @example
    * 12.0.X.X,10.2.X.X
@@ -78,12 +78,12 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyData extends $da
    * The instance name.
    * 
    * @example
-   * rm-bp191w771kd3****
+   * rm-bp191w771k******
    */
   insName?: string;
   /**
    * @remarks
-   * The information about whitelists that are returned by page.
+   * The whitelist template information returned in a paged manner.
    */
   templates?: DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates[];
   static names(): { [key: string]: string } {
@@ -115,13 +115,12 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyData extends $da
 export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **401**: identity authentication failed
-   * *   **404**: request page not found
-   * *   **500**: server error
+   * The response code. Valid values:
+   * - **200**: Normal.
+   * - **400**: Client fault.
+   * - **401**: Authentication failed.
+   * - **404**: Request page not found.
+   * - **500**: Server fault.
    * 
    * @example
    * 200
@@ -129,16 +128,15 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data list.
    */
   data?: DescribeInstanceLinkedWhitelistTemplateResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **500**: server error
+   * The HTTP status code. Valid values:
+   * - **200**: Success.
+   * - **400**: Client error.
+   * - **500**: Server error.
    * 
    * @example
    * 200
@@ -162,10 +160,10 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

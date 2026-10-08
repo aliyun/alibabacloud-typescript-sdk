@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCAvailableResourceResponseBodyAvailableZonesAvailableResourcesSupportedResources extends $dara.Model {
-  /**
-   * @example
-   * 2048
-   */
   max?: number;
-  /**
-   * @example
-   * 20
-   */
   min?: number;
-  /**
-   * @example
-   * Available
-   */
   quotaStatus?: string;
-  /**
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @example
-   * WithStock
-   */
   statusCategory?: string;
-  /**
-   * @example
-   * GiB
-   */
   unit?: string;
-  /**
-   * @example
-   * mysql.x4.4xlarge.7cm
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,10 +45,6 @@ export class DescribeRCAvailableResourceResponseBodyAvailableZonesAvailableResou
 
 export class DescribeRCAvailableResourceResponseBodyAvailableZonesAvailableResources extends $dara.Model {
   supportedResources?: DescribeRCAvailableResourceResponseBodyAvailableZonesAvailableResourcesSupportedResources[];
-  /**
-   * @example
-   * InstanceType
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,25 +74,9 @@ export class DescribeRCAvailableResourceResponseBodyAvailableZonesAvailableResou
 
 export class DescribeRCAvailableResourceResponseBodyAvailableZones extends $dara.Model {
   availableResources?: DescribeRCAvailableResourceResponseBodyAvailableZonesAvailableResources[];
-  /**
-   * @example
-   * 0041D94C-FB92-4C49-B115-259DA1C*****
-   */
   regionId?: string;
-  /**
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @example
-   * WithStock
-   */
   statusCategory?: string;
-  /**
-   * @example
-   * cn-hangzhou-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -160,10 +112,6 @@ export class DescribeRCAvailableResourceResponseBodyAvailableZones extends $dara
 
 export class DescribeRCAvailableResourceResponseBody extends $dara.Model {
   availableZones?: DescribeRCAvailableResourceResponseBodyAvailableZones[];
-  /**
-   * @example
-   * 0041D94C-FB92-4C49-B115-259DA1C*****
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

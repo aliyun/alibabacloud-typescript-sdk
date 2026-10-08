@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchReplicationLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DR instance.
+   * The instance ID of the disaster recovery instance.
    * 
    * @example
    * 135****

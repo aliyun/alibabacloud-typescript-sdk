@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The details about the migration task.
+   * The migration details.
    * 
    * @example
    * [Check rds empty]\\nCheck rds databases: success\\n[Check source connectivity]\\nCheck ip connectable: success\\nCheck port connectable: success\\nCheck database connectable: success\\nCheck account replication privilege: success\\nCheck account createrole privilege: success\\nCheck account monitor privilege: success\\n[Check source version]\\nCheck major version consistent: success\\n[Check source glibc version]\\nCheck source glibc version compatible: warning(warning:source glibc version is not compatible with rds pg)\\n[Check disk size]\\nCheck disk size enough: success\\n[Check wal keep size]\\nCheck wal keep size large enough: success\\n[Check spec params]\\nCheck if spec params too large: success\\n[Start RDS instance]\\n2022-02-25 17:00:29 --- Start RDS instance as slave for data replication\\n[Synchronize data]\\n2022-02-25 17:01:05 --- Synchronize data from source to RDS by streaming replication \\n
@@ -21,7 +21,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the task was modified.
+   * The time when the task was last modified.
    * 
    * @example
    * 2022-03-01T06:39:51Z
@@ -29,14 +29,14 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The migration phase of the migration task.
+   * The migration stage. Valid values:
    * 
-   * *   **precheck**: precheck
-   * *   **basebackup**: full data backup
-   * *   **startup**: link establishment
-   * *   **increment**: incremental data synchronization
-   * *   **switch**: cloud migration-triggered switchover
-   * *   **success**: cloud migration completed
+   * - **precheck**: Precheck.
+   * - **basebackup**: Full backup.
+   * - **startup**: Link setup.
+   * - **increment**: Incremental synchronization.
+   * - **switch**: Cloud switchover.
+   * - **success**: Migration completed.
    * 
    * @example
    * switch
@@ -44,7 +44,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   migrateStage?: string;
   /**
    * @remarks
-   * The information about the replication link.
+   * The replication task information.
    * 
    * @example
    * {\\"Status\\":\\"streaming\\",\\"ReceiveStartLsn\\":\\"0/3000000\\",\\"ReceivedTli\\":\\"1\\",\\"LatestEndTime\\":\\"2022-02-25 17:03:59.3344+08\\",\\"Synced\\":\\"true\\",\\"IsSlave\\":\\"true\\",\\"ReplayTimestamp\\":\\"null\\",\\"LastMsgSendTime\\":\\"2022-03-01 14:42:57.967537+08\\",\\"Conninfo\\":\\"user=migratetest password=******** channel_binding=prefer dbname=replication host=172.16.254.203 port=5432 application_name=rds_db_instance fallback_application_name=walreceiver sslmode=prefer sslcompression=1 sslsni=1 ssl_min_protocol_version=TLSv1.2 gssencmode=prefer krbsrvname=postgres target_session_attrs=any\\",\\"LastMsgReceiptTime\\":\\"2022-03-01 14:42:57.96727+08\\",\\"LatestEndLsn\\":\\"0/3000148\\",\\"ReceivedLsn\\":\\"0/3000148\\",\\"ReplayLsn\\":\\"0/3000148\\",\\"ReceiveStartTli\\":\\"1\\",\\"ReplayLag\\":\\"0\\"}
@@ -52,13 +52,13 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   replicationInfo?: string;
   /**
    * @remarks
-   * The status of data replication.
+   * The replication status. Valid values:
    * 
-   * *   **unstarted**
-   * *   **catchup**
-   * *   **streaming**
-   * *   **disconnect**
-   * *   **finish**
+   * - **unstarted**: Not started.
+   * - **catchup**: Catching up.
+   * - **streaming**: Streaming.
+   * - **disconnect**: Disconnected.
+   * - **finish**: Completed.
    * 
    * @example
    * streaming
@@ -74,10 +74,10 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   sourceAccount?: string;
   /**
    * @remarks
-   * The environment in which the self-managed PostgreSQL instance runs.
+   * The type of the self-managed PostgreSQL database. Valid values:
    * 
-   * *   **idcOnVpc**: The self-managed PostgreSQL instance resides in a data center. The data center can communicate with the VPC to which the ApsaraDB RDS for PostgreSQL instance belongs.
-   * *   **ecsOnVpc**: The self-managed PostgreSQL instance resides on an ECS instance.
+   * - **idcOnVpc**: A self-managed PostgreSQL database in an IDC that is connected to a VPC.
+   * - **ecsOnVpc**: A self-managed PostgreSQL database on an Alibaba Cloud ECS instance.
    * 
    * @example
    * ecsonvpc
@@ -85,7 +85,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   sourceCategory?: string;
   /**
    * @remarks
-   * The private IP address that is used to connect to the self-managed PostgreSQL instance.
+   * The internal IP address of the self-managed PostgreSQL database.
    * 
    * @example
    * 172.16.XX.XX
@@ -101,7 +101,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   sourcePassword?: string;
   /**
    * @remarks
-   * The port number that is used to connect to the self-managed PostgreSQL instance.
+   * The port of the self-managed PostgreSQL database.
    * 
    * @example
    * 5432
@@ -109,7 +109,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   sourcePort?: number;
   /**
    * @remarks
-   * The time when the switchover was performed.
+   * The switchover time.
    * 
    * @example
    * 2022-03-01T06:40:51Z
@@ -117,7 +117,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * A reserved parameter. The return value of this parameter is empty.
+   * A reserved parameter. The query result is empty.
    * 
    * @example
    * null
@@ -125,7 +125,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   targetEip?: string;
   /**
    * @remarks
-   * The ID of the destination instance.
+   * The instance ID of the target instance.
    * 
    * @example
    * pgm-bp102g323jd4****
@@ -201,7 +201,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
 export class DescribeCloudMigrationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the cloud migration task.
+   * The list of cloud migration tasks.
    */
   items?: DescribeCloudMigrationResultResponseBodyItems[];
   /**
@@ -214,7 +214,7 @@ export class DescribeCloudMigrationResultResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 10
@@ -222,7 +222,7 @@ export class DescribeCloudMigrationResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1B983C48-9793-5EAA-8F7F-00EAEC517675

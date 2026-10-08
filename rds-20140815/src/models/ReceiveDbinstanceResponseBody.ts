@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReceiveDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the disaster recovery instance after the switchover.
+   * The instance ID of the disaster recovery instance after the switchover is complete.
    * 
    * @example
    * rm-tr2whku*****

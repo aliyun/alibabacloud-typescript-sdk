@@ -197,12 +197,12 @@ export class DescribeReadDBInstanceDelayResponseBody extends $dara.Model {
    * The primary instance ID.
    * 
    * @example
-   * rm-bp*****
+   * rm-bp****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The latency of data replication. Unit: seconds.
+   * The latency, in seconds.
    * 
    * @example
    * 0
@@ -214,7 +214,7 @@ export class DescribeReadDBInstanceDelayResponseBody extends $dara.Model {
    * The read-only instance ID.
    * 
    * @example
-   * rr-bp*****
+   * rr-bp****
    */
   readDBInstanceId?: string;
   /**

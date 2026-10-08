@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchDBInstanceNetTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The endpoint that is used to connect to the instance after the switch of endpoints.
+   * The database endpoint after the switch.
    * 
    * @example
-   * new**********.mysql.rds.aliyuncs.com
+   * new****.mysql.rds.aliyuncs.com
    */
   newConnectionString?: string;
   /**
    * @remarks
-   * The endpoint that is used to connect to the instance before the switch of endpoints.
+   * The database endpoint before the switch.
    * 
    * @example
-   * rm-bp1**************.mysql.rds.aliyuncs.com
+   * rm-bp1****.mysql.rds.aliyuncs.com
    */
   oldConnectionString?: string;
   /**

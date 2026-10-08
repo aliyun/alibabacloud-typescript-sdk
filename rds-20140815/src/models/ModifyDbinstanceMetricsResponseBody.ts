@@ -21,10 +21,9 @@ export class ModifyDBInstanceMetricsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The application scope of this modification. Valid values:
-   * 
-   * *   **instance**: This modification is applied only to the current instance.
-   * *   **region**: This modification is applied to all ApsaraDB RDS for PostgreSQL instances that are equipped with the same type of storage media as the current instance in the region to which the current instance belongs.
+   * The scope of the modification. Valid values:
+   * * **instance**: instance level.
+   * * **region**: region level.
    * 
    * @example
    * instance

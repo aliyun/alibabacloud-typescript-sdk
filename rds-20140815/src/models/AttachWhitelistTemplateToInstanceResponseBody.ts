@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AttachWhitelistTemplateToInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. Valid values:
-   * 
-   * *   **ok**: The request is successful.
-   * *   **error**: The request fails.
+   * The return status. Valid values:
+   * - **ok**: Success.
+   * - **error**: Error.
    * 
    * @example
    * ok
@@ -38,13 +37,12 @@ export class AttachWhitelistTemplateToInstanceResponseBodyData extends $dara.Mod
 export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **401**: identity authentication failed
-   * *   **404**: request page not found
-   * *   **500**: server error
+   * The response code. Valid values:
+   * - **200**: Normal.
+   * - **400**: Client fault.
+   * - **401**: Authentication failed.
+   * - **404**: Request page not found.
+   * - **500**: Server fault.
    * 
    * @example
    * 200
@@ -52,16 +50,15 @@ export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: AttachWhitelistTemplateToInstanceResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **500**: server error
+   * The HTTP status code. Valid values:
+   * - **200**: Success.
+   * - **400**: Client error.
+   * - **500**: Server error.
    * 
    * @example
    * 200
@@ -69,7 +66,7 @@ export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -85,10 +82,10 @@ export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

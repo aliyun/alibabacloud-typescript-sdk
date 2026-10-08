@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyReadonlyInstanceDelayReplicationTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the read-only instance. You can call the DescribeDBInstances operation to query the instance ID.
+   * The ID of the read-only instance. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rr-bpxxxxx
+   * rr-bp****
    */
   DBInstanceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The replication latency of the data replication. Unit: seconds.
+   * The delayed replication time. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ModifyReadonlyInstanceDelayReplicationTimeRequest extends $dara.Mod
   readSQLReplicationTime?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute to query the resource group ID.
+   * The ID of the resource group. You can call DescribeDBInstanceAttribute to query the resource group ID.
    * 
    * @example
    * rg-acfmy****

@@ -44,22 +44,33 @@ export class DescribeRCDisksResponseBodyDisksTag extends $dara.Model {
 
 export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   /**
+   * @remarks
+   * The time when the disk was attached.
+   * 
    * @example
    * 2017-12-05T2340:00Z
    */
   attachedTime?: string;
+  /**
+   * @remarks
+   * Indicates whether burst (performance bursting) is enabled. Valid values:
+   * 
+   * true: Enabled.
+   * false: Disabled.
+   * This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see ESSD AutoPL cloud disks.
+   */
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * The category of the disk. Valid values:
+   * The disk category. Valid values:
    * 
-   * *   **cloud_efficiency**: ultra disk.
-   * *   **cloud_ssd**: standard SSD.
-   * *   **cloud_essd**: ESSD.
-   * *   **cloud_auto**: Premium ESSD
+   * - **cloud_efficiency**: ultra cloud disk.
+   * - **cloud_ssd**: standard SSD.
+   * - **cloud_essd**: ESSD cloud disk.
+   * - **cloud_auto**: premium performance disk.
    * 
    * @example
-   * cloud_ssd
+   * cloud_auto
    */
   category?: string;
   /**
@@ -72,10 +83,9 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether the automatic snapshots of the cloud disk are deleted after the disk is released. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether automatic snapshots are deleted when the cloud disk is deleted. Valid values:
+   * - true: Automatic snapshots are deleted when the cloud disk is deleted.
+   * - false: Automatic snapshots are retained when the cloud disk is deleted.
    * 
    * @example
    * true
@@ -83,10 +93,10 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   deleteAutoSnapshot?: boolean;
   /**
    * @remarks
-   * Indicates whether the cloud disk is released when its associated instance is released. Valid values:
+   * Indicates whether the disk is released when the instance is released. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The disk is released when the instance is released.
+   * - false: The disk is retained when the instance is released.
    * 
    * @example
    * true
@@ -110,9 +120,9 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The billing method of the disk.
+   * Billable methods of the disk.
    * 
-   * Only **PostPaid** (pay-as-you-go) is supported.
+   * Only **PostPaid** is supported, which indicates the pay-as-you-go billing method.
    * 
    * @example
    * PostPaid
@@ -136,10 +146,9 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * Indicates whether only encrypted cloud disks are queried. Valid values:
-   * 
-   * *   true
-   * *   false (default)
+   * Indicates whether only encrypted cloud disks are filtered. Valid values:
+   * - true: Only encrypted cloud disks are returned.
+   * - false (default): All cloud disks are returned.
    * 
    * @example
    * true
@@ -155,9 +164,9 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × *Capacity, 50,000}
+   * The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
    * 
-   * This parameter is available only when the `Category` parameter is set to `cloud_auto`.
+   * This parameter is supported only when `Category` is set to `cloud_auto`.
    * 
    * @example
    * 4000
@@ -165,7 +174,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   IOPS?: number;
   /**
    * @remarks
-   * The ID of the image that is used to create the instance. This parameter is returned only if the cloud disk is created from an image. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+   * The image ID used to create the RDS Custom instance. This parameter has a value only for cloud disks created from an image. Otherwise, the value is empty. This value remains unchanged throughout the lifecycle of the cloud disk.
    * 
    * @example
    * m-2zeb24dw6wripjn2****
@@ -181,17 +190,21 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD. Valid values:
+   * The performance level (PL) of the ESSD cloud disk. Valid values:
    * 
-   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * - PL0: A single standard SSD can deliver up to 10,000 random read/write IOPS.
+   * - PL1: A single standard SSD can deliver up to 50,000 random read/write IOPS.
+   * - PL2: A single standard SSD can deliver up to 100,000 random read/write IOPS.
+   * - PL3: A single standard SSD can deliver up to 1,000,000 random read/write IOPS.
    * 
    * @example
    * PL0
    */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * Indicates whether the disk is detachable.
+   */
   portable?: boolean;
   /**
    * @remarks
@@ -219,7 +232,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The size of the disk. Unit: GiB.
+   * The disk size. Unit: GiB.
    * 
    * @example
    * 60
@@ -227,9 +240,9 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The ID of the snapshot that was used to create the cloud disk.
+   * The snapshot ID used to create the cloud disk.
    * 
-   * This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+   * If no snapshot was specified when the cloud disk was created, this parameter is empty. This value remains unchanged throughout the lifecycle of the cloud disk.
    * 
    * @example
    * rcds-bp67acfmxazb4p****
@@ -237,14 +250,13 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   sourceSnapshotId?: string;
   /**
    * @remarks
-   * The status of the disk. Valid values:
-   * 
-   * *   In_use: The disk is in use.
-   * *   Available: The disk can be attached.
-   * *   Attaching: The disk is being attached.
-   * *   Detaching: The cloud disk is being detached.
-   * *   Creating: The disk is being created.
-   * *   ReIniting: The disk is being initialized.
+   * The disk status. Valid values:
+   * - In_use: in use.
+   * - Available: to be attached.
+   * - Attaching: being attached.
+   * - Detaching: being detached.
+   * - Creating: being created.
+   * - ReIniting: being initialized.
    * 
    * @example
    * In_use
@@ -252,7 +264,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the dedicated block storage cluster to which the cloud disk belongs. If your cloud disk belongs to the public block storage cluster, an empty value is returned.
+   * The ID of the dedicated block storage cluster to which the cloud disk belongs. If the cloud disk is in a public cloud block storage cluster, this parameter is empty.
    * 
    * @example
    * dbsc-cn-zvp2rl601****
@@ -268,15 +280,14 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   storageSetId?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeRCDisksResponseBodyDisksTag[];
   /**
    * @remarks
    * The disk type. Valid values:
-   * 
-   * *   system: system disk
-   * *   data: data disk
+   * - system: system cloud disk.
+   * - data: data cloud disk.
    * 
    * @example
    * data
@@ -373,7 +384,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
 export class DescribeRCDisksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the disks.
+   * The list of disk information.
    */
   disks?: DescribeRCDisksResponseBodyDisks[];
   /**
@@ -386,7 +397,7 @@ export class DescribeRCDisksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -402,7 +413,7 @@ export class DescribeRCDisksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 12

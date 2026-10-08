@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ImportUserBackupFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the full backup file.
+   * The user backup ID.
    * 
    * @example
-   * b-n8tpg24c6i0v********
+   * b-n8tpg24c6i0v****
    * 
    * **if can be null:**
    * true
@@ -16,7 +16,7 @@ export class ImportUserBackupFileResponseBody extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A140DD14-DCC9-4548-9C72-52A49A58A310
@@ -24,7 +24,7 @@ export class ImportUserBackupFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the full backup file is successfully imported into the instance. If the full backup file is successfully imported, **true** is returned. Otherwise, an error message is returned.
+   * Indicates whether the user backup is imported. The value **true** is returned if the import is successful. Otherwise, an error message is returned.
    * 
    * @example
    * true

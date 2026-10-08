@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsStatResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
+   * The system event categorization. Valid values:
+   * - **Exception**: abnormal event.
+   * - **Optimize**: optimization events.
+   * - **Notification**: notification event.
+   * - **Maintenance**: scheduled maintenance event.
    * 
    * @example
    * Exception
@@ -13,7 +17,7 @@ export class DescribeHistoryEventsStatResponseBodyItems extends $dara.Model {
   eventCategory?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 31
@@ -45,7 +49,7 @@ export class DescribeHistoryEventsStatResponseBodyItems extends $dara.Model {
 export class DescribeHistoryEventsStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The event.
+   * The event list.
    */
   items?: DescribeHistoryEventsStatResponseBodyItems[];
   /**

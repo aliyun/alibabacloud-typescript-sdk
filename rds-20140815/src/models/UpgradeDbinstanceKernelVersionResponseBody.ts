@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBInstanceKernelVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
-   * rm-bpxxxxx
+   * rm-bp****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DA2ECBA0-4745-4491-9166-799FF8984AC9
@@ -21,7 +21,7 @@ export class UpgradeDBInstanceKernelVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The new minor engine version of the instance.
+   * The target minor engine version to which the instance is upgraded.
    * 
    * @example
    * xcluster80_20210305
@@ -29,10 +29,10 @@ export class UpgradeDBInstanceKernelVersionResponseBody extends $dara.Model {
   targetMinorVersion?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
-   * 226917****
+   * 226917711
    */
   taskId?: string;
   static names(): { [key: string]: string } {

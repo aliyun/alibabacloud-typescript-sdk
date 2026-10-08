@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMaskingRulesResponseBodyDataRulesRuleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of columns.
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * The list of databases.
+   */
   databases?: string[];
+  /**
+   * @remarks
+   * The list of tables.
+   */
   tables?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -42,23 +54,39 @@ export class DescribeMaskingRulesResponseBodyDataRulesRuleConfig extends $dara.M
 
 export class DescribeMaskingRulesResponseBodyDataRules extends $dara.Model {
   /**
+   * @remarks
+   * The default encryption or masking algorithm.
+   * 
    * @example
    * aes-128-gcm
    */
   defaultAlgo?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * true
    */
   enabled?: string;
   /**
+   * @remarks
+   * The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {masking position, masking length}}.
+   * 
    * @example
    * [{"name": "aes-128-gcm"},
    *         {"name":"sm4-128-gcm"}]
    */
   maskingAlgo?: string;
+  /**
+   * @remarks
+   * The rule configuration.
+   */
   ruleConfig?: DescribeMaskingRulesResponseBodyDataRulesRuleConfig;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * test
    */
@@ -96,6 +124,10 @@ export class DescribeMaskingRulesResponseBodyDataRules extends $dara.Model {
 }
 
 export class DescribeMaskingRulesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of encryption or masking rules.
+   */
   rules?: DescribeMaskingRulesResponseBodyDataRules[];
   static names(): { [key: string]: string } {
     return {
@@ -122,8 +154,15 @@ export class DescribeMaskingRulesResponseBodyData extends $dara.Model {
 }
 
 export class DescribeMaskingRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeMaskingRulesResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 69779000-57A4-38F6-BF85-**********A2
    */

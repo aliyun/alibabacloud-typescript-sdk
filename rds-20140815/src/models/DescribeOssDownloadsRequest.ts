@@ -10,12 +10,12 @@ export class DescribeOssDownloadsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The migration task ID. You can call the DescribeMigrateTasks operation to query the migration task ID.
+   * The ID of the migration task. You can call the DescribeMigrateTasks operation to query the migration task ID.
    * 
    * This parameter is required.
    * 
@@ -26,10 +26,10 @@ export class DescribeOssDownloadsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

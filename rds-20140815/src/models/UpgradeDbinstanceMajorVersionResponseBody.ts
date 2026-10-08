@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBInstanceMajorVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * pgm-bp1gm3yh0ht1****
@@ -13,7 +13,7 @@ export class UpgradeDBInstanceMajorVersionResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 21128667463****
@@ -21,7 +21,7 @@ export class UpgradeDBInstanceMajorVersionResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 006729E5-2A33-5955-89E3-651D3F44EBE6
@@ -29,7 +29,7 @@ export class UpgradeDBInstanceMajorVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * Reserved parameter.
    * 
    * @example
    * 416980000

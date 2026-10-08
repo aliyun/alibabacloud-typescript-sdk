@@ -5,19 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the account. The value must be 2 to 256 characters in length. The value can contain letters, digits, underscores (_), and hyphens (-), and must start with a letter.
-   * 
-   * >  The description cannot start with http:// or https://.
+   * The description of the account. The description must be 2 to 256 characters in length. It must start with a Chinese character or a letter and can contain digits, Chinese characters, letters, underscores (_), and hyphens (-).
+   * > The description cannot start with http:// or https://.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test Account A
+   * testuser
    */
   accountDescription?: string;
   /**
    * @remarks
-   * The username of the account. You can call the DescribeAccounts operation to obtain the username of the account.
+   * The account name. You can call DescribeAccounts to obtain the account name.
    * 
    * This parameter is required.
    * 
@@ -27,12 +26,12 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;

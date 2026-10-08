@@ -63,7 +63,7 @@ export class ModifySecurityGroupConfigurationResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceName?: string;
   items?: ModifySecurityGroupConfigurationResponseBodyItems;

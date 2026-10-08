@@ -10,22 +10,22 @@ export class DetachGadInstanceMemberRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * gad-rm-bp1npi2j8********
+   * gad-rm-bp1npi2j8****
    */
   gadInstanceName?: string;
   /**
    * @remarks
-   * The ID of the instance that serves as the unit node you want to remove. You can call the DescribeGadInstances query the instance ID.
+   * The ID of the ApsaraDB RDS instance that corresponds to the unit node you want to remove. You can call DescribeGadInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-bp1npi2j8********
+   * rm-bp1npi2j8****
    */
   memberInstanceName?: string;
   /**
    * @remarks
-   * The region ID of the central node. You can call the DescribeGadInstances operation to query the region ID.
+   * The region ID of the central node in the cluster. You can call DescribeGadInstances to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -33,10 +33,10 @@ export class DetachGadInstanceMemberRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+   * The resource group ID. You can call DescribeDBInstanceAttribute to query the resource group ID.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

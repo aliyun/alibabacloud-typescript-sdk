@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The storage that is occupied by archived backup files on the instance. Unit: bytes.
+   * The storage consumed by archived backups. Unit: bytes.
    * 
    * @example
    * 0
@@ -13,7 +13,9 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   archiveBackupSize?: number;
   /**
    * @remarks
-   * The storage that is occupied by data backup files, excluding archived backup files, on the instance. Unit: bytes.
+   * The total storage consumed by data backups, excluding archived backups. Unit: bytes.
+   * 
+   * > For **SQL Server** instances, this value indicates the total size of physical backups and snapshot backups.
    * 
    * @example
    * 94324736
@@ -21,7 +23,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   backupDataSize?: number;
   /**
    * @remarks
-   * The storage capacity that is used to store the snapshot backup files of the **RDS for SQL Server** instance. Unit: bytes. The value 0 indicates that no snapshot backup files are stored for the instance.
+   * The storage consumed by snapshot backups for **SQL Server instances**. Unit: bytes. A value of 0 indicates no data.
    * 
    * @example
    * 0
@@ -29,7 +31,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   backupEcsSnapshotSize?: string;
   /**
    * @remarks
-   * The storage that is occupied by log backup files, excluding archived backup files, on the instance. Unit: bytes.
+   * The total storage consumed by log backups, excluding archived backups. Unit: bytes.
    * 
    * @example
    * 45145563
@@ -37,7 +39,9 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   backupLogSize?: number;
   /**
    * @remarks
-   * The size of data backup files that are stored in Object Storage Service (OSS) buckets. Unit: bytes. The value 0 indicates no data backup files are stored in OSS buckets.
+   * The size of data files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates no data.
+   * 
+   * > For **SQL Server** instances, this value indicates the storage consumed by physical backups.
    * 
    * @example
    * 8821760
@@ -45,7 +49,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   backupOssDataSize?: number;
   /**
    * @remarks
-   * The size of log backup files that are stored in OSS buckets. Unit: bytes. The value 0 indicates no log backup files are stored in OSS buckets.
+   * The size of log files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates no data.
    * 
    * @example
    * 44180999
@@ -53,7 +57,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   backupOssLogSize?: number;
   /**
    * @remarks
-   * The storage that is used to store backup files. Unit: bytes. The value -1 indicates that no backup files are stored.
+   * The storage consumed by backups (data backups + log backups). Unit: bytes. A value of -1 indicates no data.
    * 
    * @example
    * 53002759
@@ -61,7 +65,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   backupSize?: number;
   /**
    * @remarks
-   * The storage that is used to store cold backup files. Unit: bytes. The value -1 indicates that no cold backup files are stored.
+   * The storage consumed by cold backups. Unit: bytes. A value of -1 indicates no data.
    * 
    * @example
    * 2337275904
@@ -72,12 +76,12 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5******
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The storage that is used to store data files. Unit: bytes. The value -1 indicates that no data files are stored.
+   * The storage consumed by data files. Unit: bytes. A value of -1 indicates no data.
    * 
    * @example
    * 1292094741
@@ -85,7 +89,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The total storage that is occupied by data files and log files on the instance. Unit: bytes. The value -1 indicates that no data files or log files are stored on the instance.
+   * The used storage (DataSize + LogSize). Unit: bytes. A value of -1 indicates no data.
    * 
    * @example
    * 2337275904
@@ -93,7 +97,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   diskUsed?: number;
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine type.
    * 
    * @example
    * MySQL
@@ -101,7 +105,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The storage that is used to store log files. Unit: bytes. The value -1 indicates that no log files are stored.
+   * The storage consumed by log files. Unit: bytes. A value of -1 indicates no data.
    * 
    * @example
    * 1045181163
@@ -109,7 +113,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   logSize?: number;
   /**
    * @remarks
-   * The backup storage for which you must pay. The system provides a free quota on backup storage. You must pay for the backup storage that exceeds the free quota. Unit: bytes.
+   * The billable storage consumed by backups after the free quota is deducted. Unit: bytes.
    * 
    * @example
    * 0
@@ -125,7 +129,7 @@ export class DescribeResourceUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The storage that is occupied to execute SQL statements on the instance. Unit: bytes. The value -1 indicates that no SQL statements are executed.
+   * The storage consumed by SQL data. Unit: bytes. A value of -1 indicates no data.
    * 
    * @example
    * 315052751

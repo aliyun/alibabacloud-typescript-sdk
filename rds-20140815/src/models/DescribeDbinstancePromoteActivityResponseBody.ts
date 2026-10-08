@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancePromoteActivityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 22973492**********
@@ -13,19 +13,19 @@ export class DescribeDBInstancePromoteActivityResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * *   China site: 26842
-   * *   International site: 26888
+   * - Chinese site: 26842
+   * - International site: 26888
    * 
    * @example
-   * 268**
+   * 26888
    */
   bid?: string;
   /**
    * @remarks
-   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
+   * The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to query the instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5******
    */
   DBInstanceId?: string;
   /**
@@ -33,16 +33,15 @@ export class DescribeDBInstancePromoteActivityResponseBody extends $dara.Model {
    * The instance name.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5******
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The type of the database engine. Valid values:
-   * 
-   * *   **MySQL**
-   * *   **PostgreSQL**
-   * *   **Oracle**
+   * The database engine type. Valid values: 
+   * * **MySQL**
+   * * **PostgreSQL**
+   * * **Oracle**
    * 
    * @example
    * MySQL
@@ -50,10 +49,10 @@ export class DescribeDBInstancePromoteActivityResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The activity information about the instance. For more information, see [Instance activities](https://help.aliyun.com/document_detail/2391834.html).
+   * The dynamic property of the instance. For more information, see [Instance dynamics](https://help.aliyun.com/document_detail/2391834.html).
    * 
    * @example
-   * 1
+   * 1 (indicates that the target instance is not participating in any promotions)
    */
   isActivity?: string;
   /**

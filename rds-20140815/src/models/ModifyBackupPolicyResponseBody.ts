@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to compress backups. Valid values:
-   * 
-   * *   **0:** Backups are not compressed.
-   * *   **1**: Backups are compressed by using the zlib tool.
-   * *   **2**: Backups are compressed in parallel by using the zlib tool.
-   * *   **4**: Backups are compressed by using the QuickLZ tool and can be used to restore individual databases and tables.
-   * *   **8**: Backups are compressed by using the QuickLZ tool but cannot be used to restore individual databases or tables. This value is supported only for instances that run MySQL 8.0.
+   * The backup compression method. Valid values:
+   * * **0**: not compressed.
+   * * **1**: zlib compression.
+   * * **2**: parallel zlib compression.
+   * * **4**: quicklz compression with database and table restoration enabled.
+   * * **8**: MySQL 8.0 quicklz compression without database and table restoration support.
    * 
    * @example
    * 4
@@ -22,31 +21,36 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceID?: string;
   /**
    * @remarks
-   * Indicates whether the log backup feature is enabled. Valid values:
+   * Indicates whether instance log backup is enabled. Valid values:
+   * * **1**: enabled.
+   * * **0**: disabled.
    * 
-   * *   **1**: The feature is enabled.
-   * *   **0**: The feature is disabled.
+   * 
+   * > Instance log backup for SQL Server instances is enabled by default and cannot be disabled.
    * 
    * @example
    * 1
    */
   enableBackupLog?: string;
+  enableIncrementDataBackup?: boolean;
+  enablePitrProtection?: boolean;
   /**
    * @remarks
-   * Specifies whether to forcefully delete log backup files from the instance when the storage usage of the instance exceeds 80% or the amount of remaining storage on the instance is less than 5 GB.
+   * Indicates whether binary logs are unconditionally cleaned up when the storage usage of a **MySQL** instance exceeds 80% or the remaining storage is less than 5 GB.
    * 
    * @example
    * Disable
    */
   highSpaceUsageProtection?: string;
+  incBackupInterval?: number;
   /**
    * @remarks
-   * The number of hours for which log backup files are retained on the instance.
+   * The number of hours for which instance log backups are retained on the local storage of a **MySQL** instance.
    * 
    * @example
    * 18
@@ -54,7 +58,7 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   localLogRetentionHours?: number;
   /**
    * @remarks
-   * The maximum storage usage that is allowed for log backup files on the instance.
+   * The maximum loop space usage of binary logs for a **MySQL** instance.
    * 
    * @example
    * 30
@@ -62,7 +66,7 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   localLogRetentionSpace?: string;
   /**
    * @remarks
-   * The number of binary log files on the instance.
+   * The number of binary logs retained locally for a **MySQL** instance.
    * 
    * @example
    * 60
@@ -70,7 +74,7 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   logBackupLocalRetentionNumber?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DA147739-AEAD-4417-9089-65E9B1D8240D
@@ -81,7 +85,10 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
       compressType: 'CompressType',
       DBInstanceID: 'DBInstanceID',
       enableBackupLog: 'EnableBackupLog',
+      enableIncrementDataBackup: 'EnableIncrementDataBackup',
+      enablePitrProtection: 'EnablePitrProtection',
       highSpaceUsageProtection: 'HighSpaceUsageProtection',
+      incBackupInterval: 'IncBackupInterval',
       localLogRetentionHours: 'LocalLogRetentionHours',
       localLogRetentionSpace: 'LocalLogRetentionSpace',
       logBackupLocalRetentionNumber: 'LogBackupLocalRetentionNumber',
@@ -94,7 +101,10 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
       compressType: 'string',
       DBInstanceID: 'string',
       enableBackupLog: 'string',
+      enableIncrementDataBackup: 'boolean',
+      enablePitrProtection: 'boolean',
       highSpaceUsageProtection: 'string',
+      incBackupInterval: 'number',
       localLogRetentionHours: 'number',
       localLogRetentionSpace: 'string',
       logBackupLocalRetentionNumber: 'number',

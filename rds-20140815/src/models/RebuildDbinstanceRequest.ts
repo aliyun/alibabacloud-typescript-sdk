@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RebuildDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID in the dedicated cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RebuildDBInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
+   * The dedicated cluster ID. You can call DescribeDedicatedHostGroups to query the dedicated cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,8 @@ export class RebuildDBInstanceRequest extends $dara.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * The ID of the host on which the system rebuilds the secondary instance.
-   * 
-   * >  If you do not specify this parameter, the system preferentially rebuilds the secondary instance on the original host on which the secondary instance resides. If the remaining storage of the original host is insufficient, the system rebuilds the secondary instance on a host on which the primary instance does not reside. If no suitable hosts are found, the system reports an error that indicates insufficient storage.
+   * The ID of the host on which the secondary instance is to be rebuilt.
+   * >If you do not specify this parameter, the secondary instance is preferentially rebuilt on the original host. If the original host does not have sufficient space, the system selects a host that does not contain the primary instance. If no host with sufficient space is found, an insufficient space error is returned.
    * 
    * @example
    * i-bpxxxxxxx
@@ -36,10 +35,9 @@ export class RebuildDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The role of the secondary instance that you want to rebuild. Valid values:
-   * 
-   * *   **FOLLOWER**: secondary instance
-   * *   **LOG**: logger instance
+   * The type of secondary instance to rebuild. Valid values:
+   * * **FOLLOWER**: secondary node.
+   * * **LOG**: log node.
    * 
    * @example
    * FOLLOWER
@@ -47,7 +45,7 @@ export class RebuildDBInstanceRequest extends $dara.Model {
   rebuildNodeType?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query the region ID.
    * 
    * @example
    * cn-hangzhou

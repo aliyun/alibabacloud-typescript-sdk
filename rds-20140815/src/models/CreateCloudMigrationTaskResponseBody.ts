@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudMigrationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The name of the target instance.
    * 
    * @example
    * pgm-bp102g323jd4****
@@ -13,7 +13,7 @@ export class CreateCloudMigrationTaskResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
@@ -21,7 +21,7 @@ export class CreateCloudMigrationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 440437220
@@ -29,7 +29,7 @@ export class CreateCloudMigrationTaskResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * 362c6c7a-4d20-4eac-898c-1495ceab374c

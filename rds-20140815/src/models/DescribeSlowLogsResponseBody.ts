@@ -192,10 +192,10 @@ export class DescribeSlowLogsResponseBodyItems extends $dara.Model {
 export class DescribeSlowLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
@@ -208,16 +208,16 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine type.
    * 
    * @example
-   * MySQL
+   * SQLServer
    */
   engine?: string;
   items?: DescribeSlowLogsResponseBodyItems;
   /**
    * @remarks
-   * The number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -225,7 +225,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of SQL statements that are returned on the current page.
+   * The number of SQL statements on the current page.
    * 
    * @example
    * 10
@@ -244,12 +244,12 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
    * The start date of the query.
    * 
    * @example
-   * 2011-05-30Z
+   * 2011-05-01Z
    */
   startTime?: string;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of entries.
    * 
    * @example
    * 5

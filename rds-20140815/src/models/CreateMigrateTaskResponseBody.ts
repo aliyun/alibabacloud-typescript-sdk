@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMigrateTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the migration task. Valid values:
-   * 
-   * *   **FULL**: The migration task migrates full backup files.
-   * *   **UPDF**: The migration task migrates incremental or log backup files.
+   * The type of the cloud migration task. Valid values:
+   * * **FULL**: performs a restore operation by using a full backup file.
+   * * **UPDF**: restores incremental data by using an incremental backup file or log file.
    * 
    * @example
    * FULL
@@ -19,12 +18,12 @@ export class CreateMigrateTaskResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk******
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * test02
@@ -32,15 +31,15 @@ export class CreateMigrateTaskResponseBody extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The ID of the migration task.
+   * The migration task ID.
    * 
    * @example
-   * 564******
+   * 564563****
    */
   migrateTaskId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 866F5EB8-4650-4061-87F0-379F6F968BCE

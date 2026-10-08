@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateInstancePublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The endpoint that is used to connect to the database instance.
+   * The database endpoint.
    * 
    * @example
-   * test*****.mysql.rds.aliyuncs.com
+   * test****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
-   * rm-bp1*****
+   * rm-bp1****
    */
   dbInstanceName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 65BDA532-28AF-4122-AA39-B382721EEE64

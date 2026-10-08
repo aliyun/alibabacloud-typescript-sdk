@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCrossRegionBackupDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. Up to 30 instance IDs are allowed in a single request. If you enter more than one instance ID, separate them with commas (,).
+   * The instance ID. You can specify up to 30 instance IDs at a time. Separate multiple instance IDs with commas (,).
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Valid values: any non-zero positive integer.
+   * The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -24,7 +24,7 @@ export class DescribeCrossRegionBackupDBInstanceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Default value: 30.
+   * The number of entries per page. Default value: 30.
    * 
    * @example
    * 30
@@ -32,7 +32,7 @@ export class DescribeCrossRegionBackupDBInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 

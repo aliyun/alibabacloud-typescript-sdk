@@ -6,9 +6,8 @@ export class DescribeBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The backup type. Valid values:
-   * 
-   * *   **DataBackupPolicy**: data backup
-   * *   **LogBackupPolicy**: log backup
+   * * **DataBackupPolicy**: data backup
+   * * **LogBackupPolicy**: log backup
    * 
    * @example
    * DataBackupPolicy
@@ -16,13 +15,12 @@ export class DescribeBackupPolicyRequest extends $dara.Model {
   backupPolicyMode?: string;
   /**
    * @remarks
-   * The method that is used to compress backup data. Valid values:
-   * 
-   * *   **0**: Backup data is not compressed.
-   * *   **1**: Backup data is compressed by using zlib.
-   * *   **2**: Backup data is compressed by using zlib that invokes more than one thread in parallel for each backup.
-   * *   **4**: Backup data is compressed by using QuickLZ and can be used to restore individual databases or tables.
-   * *   **8**: Backup data is compressed by using QuickLZ but cannot be used to restore individual databases or tables.
+   * The backup compression method. Valid values:
+   * * **0**: no compression
+   * * **1**: zlib compression
+   * * **2**: parallel zlib compression
+   * * **4**: QuickLZ compression with fast restoration for individual databases and tables enabled
+   * * **8**: QuickLZ compression without fast restoration for individual databases and tables supported
    * 
    * @example
    * 1
@@ -30,23 +28,23 @@ export class DescribeBackupPolicyRequest extends $dara.Model {
   compressType?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The policy that is used to retain archived backup files if the instance is released. Valid values:
+   * The archived backup data retention policy for deleted **MySQL** instances. Valid values:
    * 
-   * *   **None**: No archived backup files are retained.
-   * *   **Lastest**: Only the last archived backup file is retained.
-   * *   **All**: All archived backup files are retained.
+   * * **None**: No archived backups are retained.
+   * * **Lastest**: Only the last archived backup is retained.
+   * * **All**: All archived backups are retained.
    * 
    * @example
    * Lastest

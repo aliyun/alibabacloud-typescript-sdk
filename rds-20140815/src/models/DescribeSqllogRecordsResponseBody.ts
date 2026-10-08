@@ -76,7 +76,7 @@ export class DescribeSQLLogRecordsResponseBody extends $dara.Model {
   items?: DescribeSQLLogRecordsResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class DescribeSQLLogRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of SQL audit log entries on the current page.
+   * The number of SQL Audit log entries on the current page.
    * 
    * @example
    * 30
@@ -92,7 +92,7 @@ export class DescribeSQLLogRecordsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
@@ -100,7 +100,7 @@ export class DescribeSQLLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

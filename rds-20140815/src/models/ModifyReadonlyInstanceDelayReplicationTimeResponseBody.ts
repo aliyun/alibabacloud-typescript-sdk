@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the read-only instance.
+   * The instance ID of the read-only instance.
    * 
    * @example
-   * rr-bpxxxxx
+   * rr-bp****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The latency at which to replicate data from the primary instance to the read-only instance. Unit: seconds.
+   * The delayed replication time. Unit: seconds.
    * 
    * @example
    * 100

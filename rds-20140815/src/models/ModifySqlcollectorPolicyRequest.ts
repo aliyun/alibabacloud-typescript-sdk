@@ -5,32 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySQLCollectorPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID. You can call theDescribeDBInstanceAttribute operation to query the most recent region list.
+   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
    * 
    * @example
-   * rg-acfmx**********
+   * rg-acfmx****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable the SQL Explorer (SQL Audit) feature. Valid values:
-   * 
-   * *   **Enable**
-   * *   **Disabled**
+   * Specifies whether to enable or disable SQL Explorer (SQL Audit). Valid values:
+   * - **Enable**
+   * - **Disabled**
    * 
    * This parameter is required.
    * 

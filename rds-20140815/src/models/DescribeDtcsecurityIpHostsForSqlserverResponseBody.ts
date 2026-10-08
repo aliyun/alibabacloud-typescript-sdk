@@ -60,12 +60,12 @@ export class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends $dara.Mo
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The number of distributed transaction whitelists.
+   * The number of entries in the distributed transaction whitelist.
    * 
    * @example
    * 1

@@ -80,7 +80,7 @@ export class DescribeRCInstanceAttributeResponseBodyDataDisks extends $dara.Mode
 export class DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dedicated host.
+   * The dedicated host ID.
    * 
    * @example
    * None
@@ -120,7 +120,7 @@ export class DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute exten
 export class DescribeRCInstanceAttributeResponseBodyEipAddress extends $dara.Model {
   /**
    * @remarks
-   * The EIP ID.
+   * The ID of the EIP.
    * 
    * @example
    * eip-bp14k3rz6cbg6zxbe****
@@ -128,7 +128,7 @@ export class DescribeRCInstanceAttributeResponseBodyEipAddress extends $dara.Mod
   allocationId?: string;
   /**
    * @remarks
-   * The maximum Internet bandwidth of the EIP. Unit: Mbit/s.
+   * The Internet bandwidth throttling of the EIP. Unit: Mbit/s.
    * 
    * @example
    * 5
@@ -136,12 +136,11 @@ export class DescribeRCInstanceAttributeResponseBodyEipAddress extends $dara.Mod
   bandwidth?: number;
   /**
    * @remarks
-   * The billing method of the Internet-facing instance. Valid values:
+   * The billing method for the public network instance. Valid values:
    * 
-   * *   **paybytraffic:** pay-by-data-transfer
-   * *   **paybybandwidth**: pay-by-bandwidth
-   * 
-   * >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * - **paybytraffic**: pay-by-data-transfer.
+   * - **paybybandwidth**: pay-by-bandwidth.
+   * > In **pay-by-data-transfer** mode, the peak inbound and outbound bandwidths are both bandwidth upper limits and are not guaranteed. When resource contention occurs, the peak bandwidth may be throttled. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * paybytraffic
@@ -149,7 +148,7 @@ export class DescribeRCInstanceAttributeResponseBodyEipAddress extends $dara.Mod
   internetChargeType?: string;
   /**
    * @remarks
-   * The EIP.
+   * The EIP address.
    * 
    * @example
    * 8.147.XXX.XXX
@@ -310,10 +309,58 @@ export class DescribeRCInstanceAttributeResponseBodySecurityGroupIds extends $da
 }
 
 export class DescribeRCInstanceAttributeResponseBodySystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * None
+   */
   deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the cloud disk is encrypted. Valid values:
+   * 
+   * - **true**: Encrypted.
+   * - **false**: Not encrypted.
+   * 
+   * @example
+   * false
+   */
   encrypted?: string;
+  /**
+   * @remarks
+   * The type of the system cloud disk. Valid values:
+   * 
+   * - **cloud_efficiency**: ultra cloud disk.
+   * - **cloud_ssd**: standard SSD.
+   * - **cloud_essd**: ESSD.
+   * - **cloud_auto**: premium performance disk.
+   * 
+   * @example
+   * cloud_essd
+   */
   systemDiskCategory?: string;
+  /**
+   * @remarks
+   * The performance level (PL) of the system cloud disk when it is an ESSD. When the system cloud disk is a standard SSD, this parameter is not returned. Valid values:
+   * 
+   * - **PL0**
+   * - **PL1**
+   * - **PL2**
+   * - **PL3**
+   * 
+   * @example
+   * PL1
+   */
   systemDiskPerformanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the system cloud disk. Unit: GiB.
+   * 
+   * @example
+   * 40
+   */
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -431,7 +478,7 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddres
 export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $dara.Model {
   /**
    * @remarks
-   * The network address translation (NAT) IP address of the instance. The NAT IP address is used by instances in different VPCs for communication.
+   * The IP address of the cloud service, which is used for network communication between VPC-connected cloud services.
    * 
    * @example
    * None
@@ -485,12 +532,21 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $dara.
 }
 
 export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether auto-renewal is enabled for the instance. Valid values:
+   * 
+   * * **true**: Enabled.
+   * * **false**: Disabled.
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
   /**
    * @remarks
    * The ID of the cluster to which the instance belongs.
-   * 
-   * >  This parameter will be deprecated. We recommend that you use other parameters to ensure compatibility.
+   * >This parameter will be deprecated. For better compatibility, use other parameters.
    * 
    * @example
    * None
@@ -498,12 +554,22 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of CPU cores.
+   * The number of vCPUs.
    * 
    * @example
    * 4
    */
   cpu?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance has joined an ACK cluster. Valid values:
+   * 
+   * - **1**: Yes.
+   * - **0**: No.
+   * 
+   * @example
+   * 0
+   */
   createMode?: number;
   /**
    * @remarks
@@ -515,26 +581,48 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The performance mode of the burstable instance.
+   * The running mode of the burstable instance.
    * 
    * @example
    * None
    */
   creditSpecification?: string;
   dataDisks?: DescribeRCInstanceAttributeResponseBodyDataDisks;
+  /**
+   * @remarks
+   * The database type. Valid values:
+   * 
+   * - **mssql**: SQL Server
+   * - **mysql**: MySQL
+   * 
+   * @example
+   * mysql
+   */
   dbType?: string;
   /**
    * @remarks
-   * The attributes of the dedicated hosts.
+   * The dedicated host attributes.
    * 
    * **if can be null:**
    * true
    */
   dedicatedHostAttribute?: DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute;
+  /**
+   * @remarks
+   * Indicates whether the release protection feature is enabled. Valid values:
+   * * **true**: Enabled.
+   * * **false**: Disabled.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * false
+   */
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The ID of the deployment set.
+   * The deployment set ID.
    * 
    * @example
    * ds-uf6c8qerk019bj1l****
@@ -550,7 +638,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -558,7 +646,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The Elastic Compute Service (ECS) instance family.
+   * The corresponding ECS instance family.
    * 
    * @example
    * ecs.g6.2xlarge
@@ -566,15 +654,16 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   ecsInstanceType?: string;
   /**
    * @remarks
-   * The elastic IP address (EIP) associated with the instance.
+   * The elastic IP address (EIP) binding information.
    */
   eipAddress?: DescribeRCInstanceAttributeResponseBodyEipAddress;
   /**
    * @remarks
-   * Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
+   * Indicates whether the Jumbo frame feature is enabled for the instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
    * 
    * @example
    * false
@@ -588,11 +677,28 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * 2024-08-10T00:00:00Z
    */
   expiredTime?: string;
+  /**
+   * @remarks
+   * The number of GPUs.
+   * 
+   * @example
+   * 2
+   * 
+   * **if can be null:**
+   * false
+   */
   gpu?: number;
+  /**
+   * @remarks
+   * The GPU type.
+   * 
+   * @example
+   * NVIDIA V100
+   */
   gpuTypes?: string;
   /**
    * @remarks
-   * The instance hostname.
+   * The hostname of the instance.
    * 
    * @example
    * iZ2zej1n3cin51rlmby****
@@ -600,10 +706,9 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The storage type of the host. Valid values:
-   * 
-   * *   **dhg_cloud_ssd**: ESSD
-   * *   **dhg_local_ssd**: local SSD
+   * The host storage type. Valid values:
+   * * **dhg_cloud_ssd**: ESSD cloud disk.
+   * * **dhg_local_ssd**: local standard SSD.
    * 
    * @example
    * dhg_cloud_ssd
@@ -611,13 +716,22 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   hostType?: string;
   /**
    * @remarks
-   * The image ID of the instance.
+   * The ID of the image that the instance is running.
    * 
    * @example
    * m-2oqiu973jwcxe****
    */
   imageId?: string;
   innerIpAddress?: DescribeRCInstanceAttributeResponseBodyInnerIpAddress;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * * **PrePaid**: subscription
+   * * **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   instanceChargeType?: string;
   /**
    * @remarks
@@ -637,10 +751,10 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The network type. Valid values:
-   * 
-   * *   **classic**
-   * *   **vpc**
+   * The network type. Valid values: 
+   *          
+   * - **classic**: classic network.
+   * - **vpc**: VPC.
    * 
    * @example
    * vpc
@@ -648,7 +762,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * The instance type of the instance.
+   * The instance type.
    * 
    * @example
    * mysql.x4.xlarge.6cm
@@ -656,12 +770,12 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The billing method for network usage. Valid values:
+   * The billing method for Internet bandwidth. Valid values:
    * 
-   * *   **PayByBandwidth**: pay-by-bandwidth
-   * *   **PayByTraffic**: pay-by-data-transfer
+   * - **PayByBandwidth**: pay-by-bandwidth.
+   * - **PayByTraffic**: pay-by-data-transfer.
    * 
-   * >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * > In the **pay-by-data-transfer** mode, the peak inbound and outbound bandwidths are both bandwidth upper limits and are not guaranteed. When resource contention occurs, the peak bandwidth may be throttled. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -669,7 +783,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum inbound bandwidth from the Internet. Unit: Mbit/s.
+   * The maximum inbound Internet bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 1
@@ -677,7 +791,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   internetMaxBandwidthIn?: number;
   /**
    * @remarks
-   * The maximum outbound bandwidth to the Internet. Unit: Mbit/s.
+   * The maximum outbound Internet bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 5
@@ -685,10 +799,10 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Indicates whether the instance is I/O optimized.
+   * Indicates whether the instance is an I/O optimized instance.
    * 
-   * *   **optimized**: The instance is I/O optimized.
-   * *   **none**: The instance is not I/O optimized.
+   * - **optimized**: I/O optimization enabled.
+   * - **none**: not I/O optimized.
    * 
    * @example
    * optimized
@@ -704,12 +818,19 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The memory capacity of the instance. Unit: MiB.
+   * The memory size. Unit: MiB.
    * 
    * @example
    * 8192
    */
   memory?: number;
+  /**
+   * @remarks
+   * The node type. If **rds_vnode** is returned, the node is a container node.
+   * 
+   * @example
+   * rds_vnode
+   */
   nodeType?: string;
   operationLocks?: DescribeRCInstanceAttributeResponseBodyOperationLocks;
   publicIpAddress?: DescribeRCInstanceAttributeResponseBodyPublicIpAddress;
@@ -729,6 +850,13 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * EA2D4F34-01A7-46EB-A339-D80882135206
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aeky6z354ks****
+   */
   resourceGroupId?: string;
   securityGroupIds?: DescribeRCInstanceAttributeResponseBodySecurityGroupIds;
   /**
@@ -739,16 +867,26 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * b076f6ff-46d1-4234-a608-4e951ed6****
    */
   serialNumber?: string;
+  /**
+   * @remarks
+   * The bidding strategy for the pay-as-you-go instance. Valid values:
+   * 
+   * - **NoSpot**: a regular pay-as-you-go instance.
+   * - **SpotAsPriceGo**: the system automatically bids, following the current market price.
+   * 
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
   /**
    * @remarks
    * The instance status. Valid values:
    * 
-   * *   **Pending**
-   * *   **Running**
-   * *   **Starting**
-   * *   **Stopping**
-   * *   **Stopped**
+   * - **Pending**: being created.
+   * - **Running**: running.
+   * - **Starting**: starting.
+   * - **Stopping**: stopping.
+   * - **Stopped**: stopped.
    * 
    * @example
    * Running
@@ -756,24 +894,36 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the billing of the instance continues after the instance is stopped. Valid values:
+   * Indicates whether the instance continues to be billed after it is stopped. Valid values:
    * 
-   * *   **KeepCharging**: The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
-   * *   **StopCharging**: The billing of the instance stops after the instance is stopped. After the instance is stopped, resources such as CPU cores, memory resources, and public IP address are released. The instance may be unable to restart if some required resources are out of stock in the current region.
-   * *   **Not-applicable**: The No Fees for Stopped Instances feature is not supported for the instance.
+   * - **KeepCharging**: The instance continues to be billed after it is stopped. Inventory resources are reserved for the instance.
+   * - **StopCharging**: The instance is not billed after it is stopped. After the instance is stopped, its resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be restarted depends on the available resource inventory in the current region.
+   * - **Not-applicable**: The instance does not support the No Fees for Stopped Instances feature.
    * 
    * @example
    * Not-applicable
    */
   stoppedMode?: string;
+  /**
+   * @remarks
+   * The system cloud disk specifications.
+   */
   systemDisk?: DescribeRCInstanceAttributeResponseBodySystemDisk;
   tags?: DescribeRCInstanceAttributeResponseBodyTags;
+  /**
+   * @remarks
+   * The custom data of the instance, in Base64-encoded format.
+   * 
+   * > If the instance does not have custom data, an empty string is returned.
+   * 
+   * @example
+   * IyEvYmluL3NoCmVjaG8gXCJIZWxsbyBXb3JsZC4gVGhlIHRpbWUgaXMgbm93ICQoZGF0ZSAtUikhXCIgfCB0ZWUgL3Jvb3QvdXNlcmRhdGFfdGVzdDA2MjB0d28udHh0
+   */
   userData?: string;
   /**
    * @remarks
-   * The virtual LAN (VLAN) ID of the instance.
-   * 
-   * >  This parameter will be deprecated. We recommend that you use other parameters to ensure compatibility.
+   * The VLAN ID of the instance.
+   * > This parameter will be deprecated. For better compatibility, use other parameters.
    * 
    * @example
    * None
@@ -781,7 +931,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   vlanId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) attributes of the instance.
+   * The VPC attributes.
    * 
    * **if can be null:**
    * true

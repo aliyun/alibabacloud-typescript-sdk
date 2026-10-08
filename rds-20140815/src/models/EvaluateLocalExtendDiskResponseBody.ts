@@ -5,10 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class EvaluateLocalExtendDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance is available. Valid values: true and false.
+   * Indicates whether the expansion is available. Valid values:
+   * 
+   * - **true**: Available.
+   * 
+   * - **false**: Not available.
    * 
    * @example
-   * True
+   * true
    */
   available?: string;
   /**
@@ -16,12 +20,12 @@ export class EvaluateLocalExtendDiskResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-bp1375i66nd******
+   * rm-wz9s06u4drm******
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The data transfer type supported by the instance.
+   * The transfer type of the database instance.
    * 
    * @example
    * 0
@@ -29,7 +33,7 @@ export class EvaluateLocalExtendDiskResponseBody extends $dara.Model {
   DBInstanceTransType?: string;
   /**
    * @remarks
-   * The maximum value of the local disk. Unit: GB.
+   * The maximum capacity of the local disk. Unit: GB.
    * 
    * @example
    * 100

@@ -28,7 +28,7 @@ export class DescribeDBInstanceConnectivityRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The source IP address of the user.
    * 
    * This parameter is required.
    * 

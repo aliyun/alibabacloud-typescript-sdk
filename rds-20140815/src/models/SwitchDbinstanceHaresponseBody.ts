@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchDBInstanceHAResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC

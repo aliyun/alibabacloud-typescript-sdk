@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCSnapshotsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * testRC
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * test01
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,7 @@ export class DescribeRCSnapshotsRequestTag extends $dara.Model {
 export class DescribeRCSnapshotsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud disk ID.
+   * The ID of the cloud disk.
    * 
    * @example
    * rcd-wz9c8isqly8637zw****
@@ -56,7 +70,7 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call DescribeRegions to query available regions.
    * 
    * @example
    * cn-hangzhou
@@ -64,14 +78,18 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The snapshot IDs.
+   * The IDs of snapshots.
    * 
-   * You can specify a maximum of 100 IDs. Separate multiple IDs with commas (,).
+   * You can specify multiple snapshot IDs separated by commas (,). A maximum of 100 IDs can be specified.
    * 
    * @example
    * ["rcds-bp67acfmxazb4p****", "rcds-bp67acfmxazb5p****", … "rcds-bp67acfmxazb6p****"]
    */
   snapshotIds?: string;
+  /**
+   * @remarks
+   * The tag details.
+   */
   tag?: DescribeRCSnapshotsRequestTag[];
   static names(): { [key: string]: string } {
     return {

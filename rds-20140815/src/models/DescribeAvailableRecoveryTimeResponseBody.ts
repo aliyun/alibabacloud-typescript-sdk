@@ -5,26 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableRecoveryTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cross-region data backup file.
+   * The ID of the cross-region backup file.
    * 
    * @example
-   * 14377
+   * 1249****
    */
   crossBackupId?: number;
   /**
    * @remarks
-   * The start time from which data can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The start time of the restorable time range for the cross-region backup file. The time follows the format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
-   * 2019-06-12T05:22:29Z
+   * 2024-03-04T21:00:47Z
    */
   recoveryBeginTime?: string;
   /**
    * @remarks
-   * The end time to which data can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The end time of the restorable time range for the cross-region backup file. The time follows the format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
-   * 2019-06-12T07:33:12Z
+   * 2024-03-07T02:23:26Z
    */
   recoveryEndTime?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeAvailableRecoveryTimeResponseBody extends $dara.Model {
    * The region where the source instance resides.
    * 
    * @example
-   * cn-hangzhou
+   * cn-chengdu
    */
   regionId?: string;
   /**

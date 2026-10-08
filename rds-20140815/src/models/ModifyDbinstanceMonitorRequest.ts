@@ -8,29 +8,28 @@ export class ModifyDBInstanceMonitorRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxx
+   * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The monitoring frequency that you want to use. Valid values:
-   * 
-   * *   **5**
-   * *   **10**
-   * *   **60**
-   * *   **300**
+   * The monitoring collection interval. Valid values:
+   * * **5**
+   * * **10**
+   * * **60**
+   * * **300**
    * 
    * Unit: seconds.
    * 

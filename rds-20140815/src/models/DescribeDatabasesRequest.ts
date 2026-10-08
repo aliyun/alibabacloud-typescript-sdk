@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDatabasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDatabasesRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * testDB01
@@ -23,11 +23,10 @@ export class DescribeDatabasesRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The status of the database. Valid values:
-   * 
-   * *   **Creating**
-   * *   **Running**
-   * *   **Deleting**
+   * The database status. Valid values:
+   * * **Creating**: The database is being created.
+   * * **Running**: The database is running.
+   * * **Deleting**: The database is being deleted.
    * 
    * @example
    * Creating
@@ -37,7 +36,7 @@ export class DescribeDatabasesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from 1.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -47,11 +46,10 @@ export class DescribeDatabasesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * The number of entries per page. Valid values:
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: 30.
    * 
