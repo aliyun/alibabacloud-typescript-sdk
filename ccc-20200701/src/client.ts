@@ -1393,10 +1393,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 假期工作日检查
+   * Checks whether the current time is a working hour, considering holidays and special workdays.
    * 
    * @remarks
-   * 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+   * Accounts with RAM permissions can go to the Resource Access Management (RAM) console to query all RAM users managed under the Alibaba Cloud account. RAM console URL: https://ram.console.aliyun.com/users.
    * 
    * @param request - CheckBusinessHoursRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1431,10 +1431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 假期工作日检查
+   * Checks whether the current time is a working hour, considering holidays and special workdays.
    * 
    * @remarks
-   * 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+   * Accounts with RAM permissions can go to the Resource Access Management (RAM) console to query all RAM users managed under the Alibaba Cloud account. RAM console URL: https://ram.console.aliyun.com/users.
    * 
    * @param request - CheckBusinessHoursRequest
    * @returns CheckBusinessHoursResponse
@@ -7965,7 +7965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can invoke ListHistoricalSkillGroupReport to obtain historical data reports for one or more skill groups under a specified instance.
+   * Retrieves historical data reports for one or more skill groups in a specified instance.
    * 
    * @param request - ListHistoricalSkillGroupReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7998,6 +7998,10 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
+    if (!$dara.isNull(request.summarizeByInstanceId)) {
+      query["SummarizeByInstanceId"] = request.summarizeByInstanceId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.skillGroupIdList)) {
       body["SkillGroupIdList"] = request.skillGroupIdList;
@@ -8022,7 +8026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can invoke ListHistoricalSkillGroupReport to obtain historical data reports for one or more skill groups under a specified instance.
+   * Retrieves historical data reports for one or more skill groups in a specified instance.
    * 
    * @param request - ListHistoricalSkillGroupReportRequest
    * @returns ListHistoricalSkillGroupReportResponse

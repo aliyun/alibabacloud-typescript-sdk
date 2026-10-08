@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends $dara.Model {
   /**
    * @remarks
-   * Agent acknowledgement rate.
+   * The agent answer rate.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   agentHandleRate?: number;
   /**
    * @remarks
-   * Answer rate. Calculation Formula: CallsAnswered / CallsDialed. (Because acknowledgement events and answer events may fall into different time ranges, the result may exceed 100% in certain cases.)
+   * The answer rate. Calculation formula: CallsAnswered/CallsDialed. The result may exceed 100% in some cases because answer events and response events may fall into different time ranges.
    * 
    * @example
    * 0.6
@@ -21,7 +21,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   answerRate?: number;
   /**
    * @remarks
-   * Average customer-side ring time, in seconds.
+   * The average ring time on the customer side, in seconds.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   averageCustomerRingTime?: number;
   /**
    * @remarks
-   * Average ring time, in seconds.
+   * The average ring time, in seconds.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   averageRingTime?: number;
   /**
    * @remarks
-   * Average talk time, in seconds.
+   * The average talk time, in seconds.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   averageTalkTime?: number;
   /**
    * @remarks
-   * Number of answered calls.
+   * The number of answered calls.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   callsAnswered?: number;
   /**
    * @remarks
-   * Number of calls answered by the customer.
+   * The number of calls answered by customers.
    * 
    * @example
    * 8
@@ -61,7 +61,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   callsCustomerAnswered?: number;
   /**
    * @remarks
-   * Number of dial-up calls.
+   * The number of dialed calls.
    * 
    * @example
    * 100
@@ -69,7 +69,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   callsDialed?: number;
   /**
    * @remarks
-   * Customer answer rate.
+   * The customer answer rate.
    * 
    * @example
    * 0.8
@@ -77,7 +77,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   customerAnswerRate?: number;
   /**
    * @remarks
-   * Maximum Customer-side ring time, in seconds.
+   * The maximum ring time on the customer side, in seconds.
    * 
    * @example
    * 100
@@ -85,7 +85,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   maxCustomerRingTime?: number;
   /**
    * @remarks
-   * Maximum ring time, in seconds.
+   * The maximum ring time, in seconds.
    * 
    * @example
    * 100
@@ -93,7 +93,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   maxRingTime?: number;
   /**
    * @remarks
-   * Maximum talk time, in seconds.
+   * The maximum talk time, in seconds.
    * 
    * @example
    * 100
@@ -101,7 +101,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   maxTalkTime?: number;
   /**
    * @remarks
-   * Total Customer-side ring time, in seconds.
+   * The total ring time on the customer side, in seconds.
    * 
    * @example
    * 100
@@ -109,7 +109,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   totalCustomerRingTime?: number;
   /**
    * @remarks
-   * Total ring time, in seconds.
+   * The total ring time, in seconds.
    * 
    * @example
    * 100
@@ -117,7 +117,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
   totalRingTime?: number;
   /**
    * @remarks
-   * Total talk time, in seconds.
+   * The total talk time, in seconds.
    * 
    * @example
    * 100
@@ -175,7 +175,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends
 export class ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails extends $dara.Model {
   /**
    * @remarks
-   * Channel Type.
+   * The channel type.
    * 
    * @example
    * Web
@@ -183,7 +183,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChan
   accessChannelType?: string;
   /**
    * @remarks
-   * Quantity of assigned sessions.
+   * The number of offered sessions.
    * 
    * @example
    * 2
@@ -215,7 +215,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChan
 export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $dara.Model {
   /**
    * @remarks
-   * Abandon rate. Calculation Formula: CallsAbandoned / CallsOffered (Because abandonment events and assignment events may fall into different time ranges, the result may exceed 100% in certain cases).
+   * The abandon rate. Calculation formula: CallsAbandoned/CallsOffered. The result may exceed 100% in some cases because abandon events and allocation events may fall into different time ranges.
    * 
    * @example
    * 0
@@ -223,12 +223,12 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   abandonRate?: number;
   /**
    * @remarks
-   * Statistics for each channel.
+   * The statistical data for each channel.
    */
   accessChannelTypeDetails?: ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails[];
   /**
    * @remarks
-   * Average abandonment duration, in seconds. Calculation Formula: TotalAbandonTime / CallsAbandoned.
+   * The average abandon time, in seconds. Calculation formula: TotalAbandonTime/CallsAbandoned.
    * 
    * @example
    * 0
@@ -236,7 +236,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageAbandonTime?: number;
   /**
    * @remarks
-   * Average queue abandonment duration, in seconds. Calculation Formula: TotalAbandonedInQueueTime / CallsAbandonedInQueue.
+   * The average abandon time in queue, in seconds. Calculation formula: TotalAbandonedInQueueTime/CallsAbandonedInQueue.
    * 
    * @example
    * 0
@@ -244,7 +244,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageAbandonedInQueueTime?: number;
   /**
    * @remarks
-   * Average ringing abandonment duration, in seconds. Calculation Formula: TotalAbandonedInRingTime / CallsAbandonedInRing.
+   * The average abandon time during ringing, in seconds. Calculation formula: TotalAbandonedInRingTime/CallsAbandonedInRing.
    * 
    * @example
    * 0
@@ -252,7 +252,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageAbandonedInRingTime?: number;
   /**
    * @remarks
-   * Average first response time for chat sessions, in seconds.
+   * The average first response time for chat sessions, in seconds.
    * 
    * @example
    * 6
@@ -260,7 +260,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageFirstResponseTime?: number;
   /**
    * @remarks
-   * Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / CallsHold.
+   * The average hold time, in seconds. Calculation formula: TotalHoldTime/CallsHold.
    * 
    * @example
    * 0
@@ -268,7 +268,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageHoldTime?: number;
   /**
    * @remarks
-   * Average response time for chat sessions.
+   * The average response time for chat sessions.
    * 
    * @example
    * 8
@@ -276,7 +276,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageResponseTime?: number;
   /**
    * @remarks
-   * Average ring time, in seconds. Calculation Formula: TotalRingTime / CallsRinged.
+   * The average ring time, in seconds. Calculation formula: TotalRingTime/CallsRinged.
    * 
    * @example
    * 5
@@ -284,7 +284,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageRingTime?: number;
   /**
    * @remarks
-   * Average talk time, in seconds. Calculation Formula: TotalTalkTime / CallsHandled.
+   * The average talk time, in seconds. Calculation formula: TotalTalkTime/CallsHandled.
    * 
    * @example
    * 64
@@ -292,7 +292,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageTalkTime?: number;
   /**
    * @remarks
-   * Average wait time, which is the average duration a caller waits before an agent answers the call. Calculation Formula: TotalWaitTime / CallsHandled.
+   * The average wait time, which is the average time a caller waits before an agent answers the call. Calculation formula: TotalWaitTime/CallsHandled.
    * 
    * @example
    * 5
@@ -300,7 +300,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageWaitTime?: number;
   /**
    * @remarks
-   * Average post-processing duration, in seconds. Calculation Formula: TotalWorkTime / CallsHandled.
+   * The average after-call work time, in seconds. Calculation formula: TotalWorkTime/CallsHandled.
    * 
    * @example
    * 13
@@ -308,7 +308,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   averageWorkTime?: number;
   /**
    * @remarks
-   * Quantity of abandoned calls. Calculation Formula: CallsAbandonedInQueue + CallsAbandonedInRing.
+   * The number of abandoned calls. Calculation formula: CallsAbandonedInQueue + CallsAbandonedInRing.
    * 
    * @example
    * 0
@@ -316,7 +316,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsAbandoned?: number;
   /**
    * @remarks
-   * Number of calls abandoned in queue, which refers to the number of calls where the customer hung up after entering the queue but before being answered.
+   * The number of calls abandoned in queue, which refers to the number of calls hung up by customers while waiting in the queue after entering it.
    * 
    * @example
    * 0
@@ -324,7 +324,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsAbandonedInQueue?: number;
   /**
    * @remarks
-   * Ring abandonment count, which is the number of calls where the customer hung up while the agent\\"s phone was ringing.
+   * The number of calls abandoned during ringing, which refers to the number of calls hung up by customers while the agent is ringing.
    * 
    * @example
    * 0
@@ -332,7 +332,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsAbandonedInRing?: number;
   /**
    * @remarks
-   * Transfer-in volume, which refers to the number of calls transferred to this skill group from other skill groups. Transfers between agents within the same skill group are not counted. If an agent is signed into multiple skill groups simultaneously, the call is attributed to the first skill group the agent signed into. If a single call is transferred multiple times from other skill groups to this skill group, each transfer is counted separately. The same rule applies below.
+   * The number of attended transfers in, which refers to the number of calls transferred to this skill group from other skill groups through attended transfers. Transfers between agents within the same skill group are not counted. If an agent is signed in to multiple skill groups at the same time, the call is attributed to the first skill group the agent signed in to. If a call is transferred to this skill group multiple times from other skill groups, each transfer is counted as one. The same rule applies to similar metrics below.
    * 
    * @example
    * 0
@@ -340,7 +340,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsAttendedTransferIn?: number;
   /**
    * @remarks
-   * Quantity of attended transfer-out calls, which refers to the number of calls transferred from this skill group to another skill group via consultation. Transfers between agents within the same skill group are not counted.
+   * The number of attended transfers out, which refers to the number of calls transferred from this skill group to other skill groups through attended transfers. Transfers between agents within the same skill group are not counted.
    * 
    * @example
    * 0
@@ -348,7 +348,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsAttendedTransferOut?: number;
   /**
    * @remarks
-   * Number of blind transfer-in calls, which refers to the number of calls directly transferred to this skill group from other skill groups. Transfers between agents within the same skill group are not counted. If an agent is signed into multiple skill groups simultaneously, the call is attributed to the first skill group the agent signed into. If a single call is transferred multiple times from other skill groups to this skill group, each transfer is counted separately. The same rule applies below.
+   * The number of blind transfers in, which refers to the number of calls transferred to this skill group from other skill groups through blind transfers. Transfers between agents within the same skill group are not counted. If an agent is signed in to multiple skill groups at the same time, the call is attributed to the first skill group the agent signed in to. If a call is transferred to this skill group multiple times from other skill groups, each transfer is counted as one. The same rule applies to similar metrics below.
    * 
    * @example
    * 0
@@ -356,7 +356,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsBlindTransferIn?: number;
   /**
    * @remarks
-   * Number of blind transfer-out calls, which refers to the number of calls directly transferred from this skill group to another skill group. Transfers between agents within the same skill group are not counted.
+   * The number of blind transfers out, which refers to the number of calls transferred from this skill group to other skill groups through blind transfers. Transfers between agents within the same skill group are not counted.
    * 
    * @example
    * 0
@@ -364,7 +364,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsBlindTransferOut?: number;
   /**
    * @remarks
-   * Acknowledgement count, which is the number of times agents answered calls. For a single call that enters a queue multiple times, if it is answered by multiple agents after one queue entry, it is counted as one.
+   * The number of handled calls, which refers to the number of times agents answer calls. If a call is answered by multiple agents after entering the queue each time, it is counted as one.
    * 
    * @example
    * 7
@@ -372,7 +372,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsHandled?: number;
   /**
    * @remarks
-   * Hold count, which is the number of times calls were placed on hold. Each time a call enters the queue and experiences multiple holds, it counts as one.
+   * The number of held calls, which refers to the number of times calls are put on hold. If a call is put on hold multiple times after entering the queue each time, it is counted as one.
    * 
    * @example
    * 0
@@ -380,7 +380,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsHold?: number;
   /**
    * @remarks
-   * Assigned call volume, which is the number of calls assigned to this skill group, including calls assigned through queues and calls assigned via transfers (consultation transfers and direct transfers). Calculation Formula: CallsQueued + CallsBlindTransferIn + CallsAttendedTransferIn.
+   * The number of offered calls, which refers to the number of calls assigned to this skill group, including calls assigned through queues and calls assigned through transfers (attended transfers and blind transfers). Calculation formula: CallsQueued + CallsBlindTransferIn + CallsAttendedTransferIn.
    * 
    * @example
    * 7
@@ -388,7 +388,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsOffered?: number;
   /**
    * @remarks
-   * Overflow count, which is the number of calls that experienced queue (skill group) overflow. If a single call enters the same queue multiple times, each overflow is counted separately.
+   * The number of overflowed calls, which refers to the number of calls that overflow from the queue or skill group. If a call enters the same queue multiple times and overflows each time, each overflow is counted as one.
    * 
    * @example
    * 0
@@ -396,7 +396,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsOverflow?: number;
   /**
    * @remarks
-   * Number of inbound calls entering a queue (skill group). If a single call enters the same queue multiple times, each entry is counted separately.
+   * The number of queued calls in inbound scenarios, which refers to the number of calls that enter the queue or skill group. If a call enters the same queue multiple times, each entry is counted as one.
    * 
    * @example
    * 7
@@ -404,7 +404,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsQueued?: number;
   /**
    * @remarks
-   * Queue Failure Quantity, which is the number of calls where the customer hung up after entering the queue but before being answered.
+   * The number of failed queue calls, which refers to the number of calls hung up by customers while waiting in the queue after entering it.
    * 
    * @example
    * 0
@@ -412,7 +412,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsQueuingFailed?: number;
   /**
    * @remarks
-   * Quantity of calls that overflowed from the queue. Queue overflow refers to calls that overflow while queuing in IVR.
+   * The number of calls that overflow from the queue, which refers to calls that overflow while waiting in the IVR queue.
    * 
    * @example
    * 0
@@ -420,7 +420,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsQueuingOverflow?: number;
   /**
    * @remarks
-   * Number of calls that timed out during the queuing phase.
+   * The number of calls that time out during the queuing phase.
    * 
    * @example
    * 0
@@ -428,7 +428,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsQueuingTimeout?: number;
   /**
    * @remarks
-   * Number of calls that rang to agents. Each time a call enters the queue and is assigned to multiple agents, resulting in ringing, it counts as one.
+   * The number of ringing calls, which refers to the number of calls that trigger agent ringing. If a call is assigned to multiple agents and triggers ringing after entering the queue each time, it is counted as one.
    * 
    * @example
    * 7
@@ -436,7 +436,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsRinged?: number;
   /**
    * @remarks
-   * Timeout count, which is the number of calls that experienced queue (skill group) timeout. If a single call enters the same queue multiple times, each timeout is counted separately.
+   * The number of timed-out calls, which refers to the number of calls that time out in the queue or skill group. If a call enters the same queue multiple times and times out each time, each timeout is counted as one.
    * 
    * @example
    * 0
@@ -444,7 +444,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsTimeout?: number;
   /**
    * @remarks
-   * Acknowledgement rate. Calculation Formula: CallsHandled / CallsOffered (because acknowledgement events and assign events may fall into different time ranges, the result may exceed 100% in certain cases).
+   * The handle rate. Calculation formula: CallsHandled/CallsOffered. The result may exceed 100% in some cases because handle events and offer events may fall into different time ranges.
    * 
    * @example
    * 1
@@ -452,7 +452,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   handleRate?: number;
   /**
    * @remarks
-   * Maximum abandonment duration, in seconds.
+   * The maximum abandon time, in seconds.
    * 
    * @example
    * 0
@@ -460,7 +460,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   maxAbandonTime?: number;
   /**
    * @remarks
-   * Maximum queue abandonment duration, in seconds.
+   * The maximum abandon time in queue, in seconds.
    * 
    * @example
    * 0
@@ -468,7 +468,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   maxAbandonedInQueueTime?: number;
   /**
    * @remarks
-   * Maximum ring abandonment duration, in seconds.
+   * The maximum abandon time during ringing, in seconds.
    * 
    * @example
    * 0
@@ -476,7 +476,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   maxAbandonedInRingTime?: number;
   /**
    * @remarks
-   * Maximum call hold time, in seconds.
+   * The maximum hold time, in seconds.
    * 
    * @example
    * 0
@@ -484,7 +484,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   maxHoldTime?: number;
   /**
    * @remarks
-   * Maximum ring duration, in seconds.
+   * The maximum ring time, in seconds.
    * 
    * @example
    * 12
@@ -492,7 +492,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   maxRingTime?: number;
   /**
    * @remarks
-   * Maximum talk duration, in seconds.
+   * The maximum talk time, in seconds.
    * 
    * @example
    * 0
@@ -500,7 +500,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   maxTalkTime?: number;
   /**
    * @remarks
-   * Maximum wait time, in seconds.
+   * The maximum wait time, in seconds.
    * 
    * @example
    * 13
@@ -508,7 +508,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   maxWaitTime?: number;
   /**
    * @remarks
-   * Maximum post-processing duration, in seconds.
+   * The maximum after-call work time, in seconds.
    * 
    * @example
    * 12
@@ -516,7 +516,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   maxWorkTime?: number;
   /**
    * @remarks
-   * Satisfaction index, which is the average of the satisfaction keypress digits (single-digit numbers).
+   * The satisfaction index, which is the average value of the satisfaction rating digits.
    * 
    * @example
    * 0
@@ -524,7 +524,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   satisfactionIndex?: number;
   /**
    * @remarks
-   * Satisfaction rate. Calculation Formula: Count of evaluations marked as satisfied / Count of satisfaction survey responses.
+   * The satisfaction rate. Calculation formula: Number of satisfied ratings / Number of satisfaction survey responses.
    * 
    * @example
    * 0
@@ -532,7 +532,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   satisfactionRate?: number;
   /**
    * @remarks
-   * Sending Count of satisfaction surveys.
+   * The number of satisfaction surveys offered.
    * 
    * @example
    * 0
@@ -540,7 +540,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   satisfactionSurveysOffered?: number;
   /**
    * @remarks
-   * Count of satisfaction survey responses.
+   * The number of satisfaction surveys responded to.
    * 
    * @example
    * 0
@@ -548,7 +548,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   satisfactionSurveysResponded?: number;
   /**
    * @remarks
-   * Service level within 15 seconds.
+   * The 15-second service level.
    * 
    * @example
    * 0.7
@@ -556,7 +556,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   serviceLevel15?: number;
   /**
    * @remarks
-   * Service level within 20 seconds: number of calls with wait time less than or equal to 20 seconds divided by CallsQueued.
+   * The 20-second service level. Calculation formula: Number of calls with a wait time of less than or equal to 20 seconds / CallsQueued.
    * 
    * @example
    * 0
@@ -564,7 +564,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   serviceLevel20?: number;
   /**
    * @remarks
-   * Service level within 30 seconds.
+   * The 30-second service level.
    * 
    * @example
    * 0.9
@@ -572,7 +572,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   serviceLevel30?: number;
   /**
    * @remarks
-   * Total abandonment duration, in seconds.
+   * The total abandon time, in seconds.
    * 
    * @example
    * 0
@@ -580,7 +580,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalAbandonTime?: number;
   /**
    * @remarks
-   * Total queue abandonment duration, in seconds.
+   * The total abandon time in queue, in seconds.
    * 
    * @example
    * 0
@@ -588,7 +588,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalAbandonedInQueueTime?: number;
   /**
    * @remarks
-   * Total ring abandonment duration, in seconds.
+   * The total abandon time during ringing, in seconds.
    * 
    * @example
    * 0
@@ -596,7 +596,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalAbandonedInRingTime?: number;
   /**
    * @remarks
-   * Total call hold duration, in seconds.
+   * The total hold time, in seconds.
    * 
    * @example
    * 0
@@ -604,7 +604,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalHoldTime?: number;
   /**
    * @remarks
-   * Total number of messages sent in chat sessions.
+   * The total number of messages sent in chat sessions.
    * 
    * @example
    * 12
@@ -612,7 +612,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalMessagesSent?: number;
   /**
    * @remarks
-   * Total number of messages sent by agents in chat sessions.
+   * The total number of messages sent by agents in chat sessions.
    * 
    * @example
    * 9
@@ -620,7 +620,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalMessagesSentByAgent?: number;
   /**
    * @remarks
-   * Total number of messages sent by the customer in chat sessions.
+   * The total number of messages sent by customers in chat sessions.
    * 
    * @example
    * 3
@@ -628,7 +628,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalMessagesSentByCustomer?: number;
   /**
    * @remarks
-   * Total ringing duration, in seconds.
+   * The total ring time, in seconds.
    * 
    * @example
    * 32
@@ -636,7 +636,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalRingTime?: number;
   /**
    * @remarks
-   * Total talk time, in seconds.
+   * The total talk time, in seconds.
    * 
    * @example
    * 447
@@ -644,7 +644,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalTalkTime?: number;
   /**
    * @remarks
-   * Total waiting duration, in seconds.
+   * The total wait time, in seconds.
    * 
    * @example
    * 34
@@ -652,7 +652,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   totalWaitTime?: number;
   /**
    * @remarks
-   * Total post-processing time, in seconds.
+   * The total after-call work time, in seconds.
    * 
    * @example
    * 85
@@ -795,7 +795,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
 export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends $dara.Model {
   /**
    * @remarks
-   * Answer rate. Calculation Formula: CallsAnswered / CallsDialed. (Because the call answering event and the acknowledgement event may fall into different time ranges, the result may exceed 100% in certain cases.)
+   * The answer rate. Calculation formula: CallsAnswered/CallsDialed. The result may exceed 100% in some cases because answer events and response events may fall into different time ranges.
    * 
    * @example
    * 0
@@ -803,7 +803,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   answerRate?: number;
   /**
    * @remarks
-   * Average dial-up duration, in seconds. Calculation Formula: TotalDialingTime / CallsDialed.
+   * The average dialing time in seconds. Formula: TotalDialingTime/CallsDialed.
    * 
    * @example
    * 37
@@ -811,7 +811,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   averageDialingTime?: number;
   /**
    * @remarks
-   * Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / CallsHold.
+   * The average hold time, in seconds. Calculation formula: TotalHoldTime/CallsHold.
    * 
    * @example
    * 0
@@ -819,7 +819,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   averageHoldTime?: number;
   /**
    * @remarks
-   * Average ring time, in seconds. Calculation Formula: TotalRingTime / CallsRinged.
+   * The average ring time, in seconds. Calculation formula: TotalRingTime/CallsRinged.
    * 
    * @example
    * 0
@@ -827,7 +827,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   averageRingTime?: number;
   /**
    * @remarks
-   * Average talk time, in seconds. Calculation Formula: TotalTalkTime / CallsAnswered.
+   * The average talk time in seconds. Formula: TotalTalkTime/CallsAnswered.
    * 
    * @example
    * 3
@@ -835,7 +835,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   averageTalkTime?: number;
   /**
    * @remarks
-   * Average post-processing duration per call, in seconds. Calculation Formula: TotalWorkTime / CallsDialed
+   * The average after-call work time in seconds. Formula: TotalWorkTime/CallsDialed.
    * 
    * @example
    * 2
@@ -843,7 +843,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   averageWorkTime?: number;
   /**
    * @remarks
-   * Number of answered calls.
+   * The number of answered calls.
    * 
    * @example
    * 1
@@ -851,7 +851,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   callsAnswered?: number;
   /**
    * @remarks
-   * Transfer-in volume for consultation, which refers to the number of calls transferred to this skill group from other skill groups for consultation. Transfers between agents within the same skill group are not counted. If an agent joins multiple skill groups simultaneously, the call is attributed to the first skill group the agent signed into. If a single call is transferred multiple times from other skill groups to this skill group, each transfer is counted separately. The same rule applies below.
+   * The number of attended transfers in, which refers to the number of calls transferred to this skill group from other skill groups through attended transfers. Transfers between agents within the same skill group are not counted. If an agent is signed in to multiple skill groups at the same time, the call is attributed to the first skill group the agent signed in to. If a call is transferred to this skill group multiple times from other skill groups, each transfer is counted as one. The same rule applies to similar metrics below.
    * 
    * @example
    * 0
@@ -859,7 +859,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   callsAttendedTransferIn?: number;
   /**
    * @remarks
-   * Quantity of attended transfer-out calls, which refers to the number of calls transferred from this skill group to another skill group for consultation. Transfers between agents within the same skill group are not counted.
+   * The number of attended transfers out, which refers to the number of calls transferred from this skill group to other skill groups through attended transfers. Transfers between agents within the same skill group are not counted.
    * 
    * @example
    * 0
@@ -867,7 +867,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   callsAttendedTransferOut?: number;
   /**
    * @remarks
-   * Quantity of direct transfer-in calls, which refers to the number of calls directly transferred to this skill group from other skill groups. Transfers between agents within the same skill group are not counted. If an agent is signed into multiple skill groups simultaneously, the call is attributed to the first skill group the agent signed into. If a single call is transferred multiple times from other skill groups to this skill group, each transfer is counted separately. The same rule applies below.
+   * The number of blind transfers in, which refers to the number of calls transferred to this skill group from other skill groups through blind transfers. Transfers between agents within the same skill group are not counted. If an agent is signed in to multiple skill groups at the same time, the call is attributed to the first skill group the agent signed in to. If a call is transferred to this skill group multiple times from other skill groups, each transfer is counted as one. The same rule applies to similar metrics below.
    * 
    * @example
    * 0
@@ -875,7 +875,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   callsBlindTransferIn?: number;
   /**
    * @remarks
-   * Quantity of direct transfer-out calls, which refers to the number of calls directly transferred from this skill group to other skill groups. Transfers between agents within the same skill group are not counted.
+   * The number of blind transfers out, which refers to the number of calls transferred from this skill group to other skill groups through blind transfers. Transfers between agents within the same skill group are not counted.
    * 
    * @example
    * 0
@@ -883,7 +883,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   callsBlindTransferOut?: number;
   /**
    * @remarks
-   * Number of dialed calls.
+   * The number of dialed calls.
    * 
    * @example
    * 6
@@ -891,7 +891,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   callsDialed?: number;
   /**
    * @remarks
-   * Number of calls placed on hold. If a call is placed on hold multiple times before being transfer-out from the current skill group, it counts as one occurrence.
+   * The number of calls placed on hold. If a call is placed on hold multiple times before being transferred out of the current skill group, it is counted as one.
    * 
    * @example
    * 0
@@ -899,7 +899,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   callsHold?: number;
   /**
    * @remarks
-   * Number of calls that rang to agents. Each time a call enters the queue and is assigned to multiple agents, resulting in ringing, it counts as one occurrence.
+   * The number of ringing calls, which refers to the number of calls that trigger agent ringing. If a call is assigned to multiple agents and triggers ringing after entering the queue each time, it is counted as one.
    * 
    * @example
    * 0
@@ -907,7 +907,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   callsRinged?: number;
   /**
    * @remarks
-   * Maximum dialing time, in seconds.
+   * The maximum dialing time in seconds.
    * 
    * @example
    * 12
@@ -915,7 +915,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   maxDialingTime?: number;
   /**
    * @remarks
-   * Maximum hold time during calls, in seconds.
+   * The maximum hold time, in seconds.
    * 
    * @example
    * 0
@@ -923,7 +923,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   maxHoldTime?: number;
   /**
    * @remarks
-   * Maximum ring duration, in seconds.
+   * The maximum ring time, in seconds.
    * 
    * @example
    * 0
@@ -931,7 +931,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   maxRingTime?: number;
   /**
    * @remarks
-   * Maximum talk time, in seconds.
+   * The maximum talk time, in seconds.
    * 
    * @example
    * 0
@@ -939,7 +939,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   maxTalkTime?: number;
   /**
    * @remarks
-   * Maximum post-processing duration per call, in seconds.
+   * The maximum after-call work time, in seconds.
    * 
    * @example
    * 0
@@ -947,7 +947,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   maxWorkTime?: number;
   /**
    * @remarks
-   * Satisfaction index, which is the average value of the single-digit satisfaction key presses.
+   * The satisfaction index, which is the average value of the satisfaction rating digits.
    * 
    * @example
    * 0
@@ -955,7 +955,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   satisfactionIndex?: number;
   /**
    * @remarks
-   * Satisfaction rate. Calculation Formula: Quantity of evaluations marked as satisfied divided by the Count of satisfaction survey responses.
+   * The satisfaction rate. Calculation formula: Number of satisfied ratings / Number of satisfaction survey responses.
    * 
    * @example
    * 0
@@ -963,7 +963,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   satisfactionRate?: number;
   /**
    * @remarks
-   * Sending Count of satisfaction surveys.
+   * The number of satisfaction surveys offered.
    * 
    * @example
    * 0
@@ -971,7 +971,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   satisfactionSurveysOffered?: number;
   /**
    * @remarks
-   * Response Count of satisfaction surveys.
+   * The number of satisfaction surveys responded to.
    * 
    * @example
    * 0
@@ -979,7 +979,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   satisfactionSurveysResponded?: number;
   /**
    * @remarks
-   * Total dial-up duration, in seconds.
+   * The total dialing time in seconds.
    * 
    * @example
    * 218
@@ -987,7 +987,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   totalDialingTime?: number;
   /**
    * @remarks
-   * Total call hold duration, in seconds.
+   * The total hold time, in seconds.
    * 
    * @example
    * 0
@@ -995,7 +995,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   totalHoldTime?: number;
   /**
    * @remarks
-   * Total ring duration, in seconds.
+   * The total ring time, in seconds.
    * 
    * @example
    * 0
@@ -1003,7 +1003,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   totalRingTime?: number;
   /**
    * @remarks
-   * Total talk time, in seconds.
+   * The total talk time, in seconds.
    * 
    * @example
    * 3
@@ -1011,7 +1011,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   totalTalkTime?: number;
   /**
    * @remarks
-   * Total post-processing duration, in seconds.
+   * The total after-call work time, in seconds.
    * 
    * @example
    * 9
@@ -1095,15 +1095,15 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
 export class ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList extends $dara.Model {
   /**
    * @remarks
-   * Break type code.
+   * The break type code.
    * 
    * @example
-   * 会议
+   * Meeting
    */
   breakCode?: string;
   /**
    * @remarks
-   * Number of occurrences of this break type.
+   * The number of occurrences of this break type.
    * 
    * @example
    * 2
@@ -1111,7 +1111,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeD
   count?: number;
   /**
    * @remarks
-   * Total duration of this break type, in seconds.
+   * The total duration of this break type in seconds.
    * 
    * @example
    * 3600
@@ -1145,7 +1145,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeD
 export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $dara.Model {
   /**
    * @remarks
-   * Average break duration, in seconds. Calculation Formula: TotalBreakTime / Break Count. Break Count is a non-API statistical field.
+   * The average break time in seconds. Formula: TotalBreakTime/Number of breaks. The number of breaks is not a statistical field returned by the API.
    * 
    * @example
    * 0
@@ -1153,7 +1153,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   averageBreakTime?: number;
   /**
    * @remarks
-   * Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / (Inbound CallsHold + Outbound CallsHold).
+   * The average hold time in seconds. Formula: TotalHoldTime/(Inbound CallsHold + Outbound CallsHold).
    * 
    * @example
    * 0
@@ -1161,7 +1161,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   averageHoldTime?: number;
   /**
    * @remarks
-   * Average ready time, in seconds. Calculation Formula: TotalReadyTime / Count of ready events. The count of ready events is not an API statistics field.
+   * The average ready time in seconds. Formula: TotalReadyTime/Number of ready states. The number of ready states is not a statistical field returned by the API.
    * 
    * @example
    * 0
@@ -1169,7 +1169,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   averageReadyTime?: number;
   /**
    * @remarks
-   * Average talk time, in seconds. Calculation formula: TotalTalkTime / (CallsAnswered + CallsHandled).
+   * The average talk time in seconds. Formula: TotalTalkTime/(CallsAnswered + CallsHandled).
    * 
    * @example
    * 0
@@ -1177,7 +1177,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   averageTalkTime?: number;
   /**
    * @remarks
-   * Average post-processing time, in seconds. Calculation Formula: TotalWorkTime / TotalCalls.
+   * The average after-call work time in seconds. Formula: TotalWorkTime/TotalCalls.
    * 
    * @example
    * 8
@@ -1185,12 +1185,12 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   averageWorkTime?: number;
   /**
    * @remarks
-   * List of break details.
+   * The list of break details.
    */
   breakCodeDetailList?: ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList[];
   /**
    * @remarks
-   * Maximum break duration, in seconds.
+   * The maximum break time in seconds.
    * 
    * @example
    * 1
@@ -1198,7 +1198,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   maxBreakTime?: number;
   /**
    * @remarks
-   * Maximum call hold duration, in seconds.
+   * The maximum hold time, in seconds.
    * 
    * @example
    * 0
@@ -1206,7 +1206,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   maxHoldTime?: number;
   /**
    * @remarks
-   * Maximum ready time, in seconds.
+   * The maximum ready time in seconds.
    * 
    * @example
    * 19328
@@ -1214,7 +1214,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   maxReadyTime?: number;
   /**
    * @remarks
-   * Maximum talk time, in seconds.
+   * The maximum talk time, in seconds.
    * 
    * @example
    * 0
@@ -1222,7 +1222,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   maxTalkTime?: number;
   /**
    * @remarks
-   * Maximum post-processing duration, in seconds.
+   * The maximum after-call work time, in seconds.
    * 
    * @example
    * 12
@@ -1230,7 +1230,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   maxWorkTime?: number;
   /**
    * @remarks
-   * Agent occupancy rate. Calculation formula: (TotalWorkTime + TotalTalkTime) / TotalLoggedInTime.
+   * The agent occupancy rate. Formula: (TotalWorkTime + TotalTalkTime) / TotalLoggedInTime.
    * 
    * @example
    * 0.02332222293912065
@@ -1238,7 +1238,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   occupancyRate?: number;
   /**
    * @remarks
-   * Satisfaction index, which is the average value of the satisfaction keypress digits (single-digit numbers).
+   * The satisfaction index, which is the average value of the satisfaction rating digits.
    * 
    * @example
    * 0
@@ -1246,7 +1246,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   satisfactionIndex?: number;
   /**
    * @remarks
-   * Satisfaction rate. Calculation Formula: Number of responses marked as satisfied / Count of satisfaction survey responses.
+   * The satisfaction rate. Calculation formula: Number of satisfied ratings / Number of satisfaction survey responses.
    * 
    * @example
    * 0
@@ -1254,7 +1254,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   satisfactionRate?: number;
   /**
    * @remarks
-   * Sending Count of satisfaction surveys.
+   * The number of satisfaction surveys offered.
    * 
    * @example
    * 0
@@ -1262,7 +1262,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   satisfactionSurveysOffered?: number;
   /**
    * @remarks
-   * Count of satisfaction survey responses.
+   * The number of satisfaction surveys responded to.
    * 
    * @example
    * 0
@@ -1270,7 +1270,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   satisfactionSurveysResponded?: number;
   /**
    * @remarks
-   * Total break time, in seconds.
+   * The total break time in seconds.
    * 
    * @example
    * 3
@@ -1278,7 +1278,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   totalBreakTime?: number;
   /**
    * @remarks
-   * Total call volume. Calculation Formula: CallsOffered + CallsDialed.
+   * The total number of calls. Formula: CallsOffered + CallsDialed.
    * 
    * @example
    * 13
@@ -1286,7 +1286,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   totalCalls?: number;
   /**
    * @remarks
-   * Total hold duration, in seconds.
+   * The total hold time in seconds.
    * 
    * @example
    * 0
@@ -1294,8 +1294,8 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   totalHoldTime?: number;
   /**
    * @remarks
-   * Total logon time, in seconds.  
-   * _Note: Excludes offline and short break durations._
+   * The total logged-in time in seconds.
+   * _Note: Excludes offline and break time._
    * 
    * @example
    * 23218
@@ -1303,7 +1303,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   totalLoggedInTime?: number;
   /**
    * @remarks
-   * Total ready time, in seconds.
+   * The total ready time in seconds.
    * 
    * @example
    * 22428
@@ -1311,7 +1311,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   totalReadyTime?: number;
   /**
    * @remarks
-   * Total talk time, in seconds.
+   * The total talk time, in seconds.
    * 
    * @example
    * 449
@@ -1319,7 +1319,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
   totalTalkTime?: number;
   /**
    * @remarks
-   * Total post-processing duration, in seconds.
+   * The total after-call work time, in seconds.
    * 
    * @example
    * 94
@@ -1396,27 +1396,27 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
 export class ListHistoricalSkillGroupReportResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Back-to-back metric.
+   * The back-to-back call metrics.
    */
   back2Back?: ListHistoricalSkillGroupReportResponseBodyDataListBack2Back;
   /**
    * @remarks
-   * Inbound metrics.
+   * The inbound call metrics.
    */
   inbound?: ListHistoricalSkillGroupReportResponseBodyDataListInbound;
   /**
    * @remarks
-   * Outbound metrics.
+   * The outbound metrics.
    */
   outbound?: ListHistoricalSkillGroupReportResponseBodyDataListOutbound;
   /**
    * @remarks
-   * Overall metrics.
+   * The overall metrics.
    */
   overall?: ListHistoricalSkillGroupReportResponseBodyDataListOverall;
   /**
    * @remarks
-   * Skill group ID.
+   * The skill group ID.
    * 
    * @example
    * skillgroup@ccc-test
@@ -1424,7 +1424,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataList extends $dara.Mo
   skillGroupId?: string;
   /**
    * @remarks
-   * Skill group name.
+   * The skill group name.
    * 
    * @example
    * skillgroup
@@ -1476,12 +1476,12 @@ export class ListHistoricalSkillGroupReportResponseBodyDataList extends $dara.Mo
 export class ListHistoricalSkillGroupReportResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of historical data for skill groups.
+   * The list of historical data for the skill group.
    */
   list?: ListHistoricalSkillGroupReportResponseBodyDataList[];
   /**
    * @remarks
-   * Page number, ranging from 1 to 100.
+   * The page number. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -1489,7 +1489,7 @@ export class ListHistoricalSkillGroupReportResponseBodyData extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, ranging from 1 to 100.
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * @example
    * 100
@@ -1497,7 +1497,7 @@ export class ListHistoricalSkillGroupReportResponseBodyData extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * Total count.
+   * The total count.
    * 
    * @example
    * 4
@@ -1536,7 +1536,7 @@ export class ListHistoricalSkillGroupReportResponseBodyData extends $dara.Model 
 export class ListHistoricalSkillGroupReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * OK
@@ -1544,12 +1544,12 @@ export class ListHistoricalSkillGroupReportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data.
+   * The data.
    */
   data?: ListHistoricalSkillGroupReportResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -1557,15 +1557,15 @@ export class ListHistoricalSkillGroupReportResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
