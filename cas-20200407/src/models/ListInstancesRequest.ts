@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the instance is managed. Valid values:
-   * - 1: Managed.
-   * - 0: Not managed.
+   * Specifies whether the instance is managed. Valid values: 1 (managed) and 0 (not managed).
    * 
    * @example
    * 1
@@ -43,7 +41,7 @@ export class ListInstancesRequest extends $dara.Model {
   certificateType?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query. Default value: **1**.
+   * The page number of the current page in a paging query. Settings the current page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -51,9 +49,7 @@ export class ListInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The instance type. Valid values:
-   * - BUY: formal certificate.
-   * - TEST: test certificate.
+   * The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
    * 
    * @example
    * BUY
@@ -78,8 +74,8 @@ export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to return only instances that meet server deployment conditions. Valid values:
-   * - 1: Yes.
-   * - 0: No.
+   * - 1: is.
+   * - 0: no.
    * 
    * @example
    * 1
@@ -87,7 +83,7 @@ export class ListInstancesRequest extends $dara.Model {
   serverDeployFlag?: number;
   /**
    * @remarks
-   * The number of instances to display per page in a paged query. Default value: **10**. Maximum value: **100**.
+   * The number of instances to display per page in a paging query. Settings the number of instances displayed per page. Default value: **10**. Maximum value: **100**.
    * 
    * @example
    * 10
@@ -97,17 +93,25 @@ export class ListInstancesRequest extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * - **inactive**: Pending use.
-   * - **pending**: Under review. The latest certificate is being reviewed.
+   * - **pending**: Under review. The latest certificate is being submitted for review.
    * - **willExpire**: The instance is about to expire.
    * - **expired**: The instance has expired.
    * - **refund**: Refunded.
    * - **normal**: Normal.
-   * - **closed**: Closed. The instance is unavailable.
+   * - **closed**: Shutdown and unavailable.
    * 
    * @example
    * inactive
    */
   status?: string;
+  /**
+   * @remarks
+   * The version type. Valid values: basic (Basic Edition), standard (Standard Edition), professional (Professional Edition), and ultimate (Ultimate Edition).
+   * 
+   * @example
+   * professional
+   */
+  versionType?: string;
   static names(): { [key: string]: string } {
     return {
       autoReissueFlag: 'AutoReissueFlag',
@@ -121,6 +125,7 @@ export class ListInstancesRequest extends $dara.Model {
       serverDeployFlag: 'ServerDeployFlag',
       showSize: 'ShowSize',
       status: 'Status',
+      versionType: 'VersionType',
     };
   }
 
@@ -137,6 +142,7 @@ export class ListInstancesRequest extends $dara.Model {
       serverDeployFlag: 'number',
       showSize: 'number',
       status: 'string',
+      versionType: 'string',
     };
   }
 

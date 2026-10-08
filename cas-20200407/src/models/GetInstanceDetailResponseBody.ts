@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceDetailResponseBodyDingGroupList extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the expert service DingTalk group.
+   * The instance ID of the DingTalk group for expert services.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class GetInstanceDetailResponseBodyDingGroupList extends $dara.Model {
   dingGroupInstanceId?: string;
   /**
    * @remarks
-   * The name of the expert service DingTalk group.
+   * The name of the DingTalk group for expert services.
    * 
    * @example
    * 123
@@ -21,9 +21,9 @@ export class GetInstanceDetailResponseBodyDingGroupList extends $dara.Model {
   dingGroupName?: string;
   /**
    * @remarks
-   * The type of the expert service DingTalk group. Valid values:
-   * - expedite: application assistance
-   * - remote: offline deployment
+   * The type of the DingTalk group for expert services. Valid values:
+   * - expedite: Application assistance.
+   * - remote: Offline deployment.
    * 
    * @example
    * remote
@@ -31,7 +31,7 @@ export class GetInstanceDetailResponseBodyDingGroupList extends $dara.Model {
   dingGroupType?: string;
   /**
    * @remarks
-   * The URL for joining the expert service DingTalk group.
+   * The link to join the DingTalk group for expert services.
    * 
    * @example
    * https://123.com
@@ -67,7 +67,7 @@ export class GetInstanceDetailResponseBodyDingGroupList extends $dara.Model {
 export class GetInstanceDetailResponseBodyDomainValidationList extends $dara.Model {
   /**
    * @remarks
-   * The CNAME record value for verification-free authorization. This value may be empty.
+   * The CNAME record value for verification-free authorization. This parameter may be empty.
    * 
    * @example
    * 123.com
@@ -75,7 +75,7 @@ export class GetInstanceDetailResponseBodyDomainValidationList extends $dara.Mod
   cname?: string;
   /**
    * @remarks
-   * The prefix for CNAME validation.
+   * The prefix used for CNAME validation.
    * 
    * @example
    * abc
@@ -115,7 +115,7 @@ export class GetInstanceDetailResponseBodyDomainValidationList extends $dara.Mod
   validationType?: string;
   /**
    * @remarks
-   * The host record value for validation.
+   * The value of the host record for validation.
    * 
    * @example
    * 123
@@ -157,7 +157,7 @@ export class GetInstanceDetailResponseBodyDomainValidationList extends $dara.Mod
 export class GetInstanceDetailResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * test
@@ -165,7 +165,7 @@ export class GetInstanceDetailResponseBodyTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * test
@@ -197,9 +197,9 @@ export class GetInstanceDetailResponseBodyTags extends $dara.Model {
 export class GetInstanceDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic hosting is enabled. Valid values:
+   * Specifies whether automatic hosting is enabled. Valid values:
    * - enable: Enabled.
-   * - disable: Not enabled.
+   * - disable: Disabled.
    * 
    * @example
    * enable
@@ -207,7 +207,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   autoReissue?: string;
   /**
    * @remarks
-   * Indicates whether the current version includes automatic hosting. Valid values:
+   * Specifies whether the current version includes automatic hosting. Valid values:
    * - 1: Included.
    * - 0: Not included.
    * 
@@ -217,7 +217,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   autoReissueFlag?: number;
   /**
    * @remarks
-   * The average waiting time for issuing a certificate of this specification. Unit: seconds.
+   * The average waiting time for issuing a certificate of this specification, in seconds.
    * 
    * @example
    * 120
@@ -233,11 +233,10 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   brand?: string;
   /**
    * @remarks
-   * The global certificate ID, in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
-   * - China site: certificate ID + "-cn-hangzhou"
-   * - International site: certificate ID + "-ap-southeast-1"
-   * 
-   * For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the International site is "123-ap-southeast-1".
+   * The global certificate ID. The format is Certificate ID + "-" + Site region ID. This ID is commonly used across Alibaba Cloud services.
+   * - For the Chinese site, the format is Certificate ID + "-cn-hangzhou".
+   * - For the international site, the format is Certificate ID + "-ap-southeast-1".
+   * For example, if the certificate ID is 123, the CertIdentifier for the Chinese site is "123-cn-hangzhou", and for the international site, it is "123-ap-southeast-1".
    * 
    * @example
    * 22783111-cn-hangzhou
@@ -245,7 +244,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * @example
    * 1234567890
@@ -261,7 +260,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The end time of the latest certificate, in UNIX timestamp format. This value is empty if no certificate has been issued. The value is accurate to the second.
+   * The expiration time of the latest certificate. The value is a UNIX timestamp accurate to seconds. If no certificate is issued, this parameter is empty.
    * 
    * @example
    * 1801324800000
@@ -269,7 +268,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   certificateNotAfter?: number;
   /**
    * @remarks
-   * The start time of the latest certificate, in UNIX timestamp format. This value is empty if no certificate has been issued. The value is accurate to the second.
+   * The start time of the latest certificate. The value is a UNIX timestamp accurate to seconds. If no certificate is issued, this parameter is empty.
    * 
    * @example
    * 1781568000000
@@ -277,7 +276,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   certificateNotBefore?: number;
   /**
    * @remarks
-   * The revocation time of the latest certificate, in UNIX timestamp format. The value is accurate to the second.
+   * The revocation time of the latest certificate. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1801324800000
@@ -288,7 +287,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
    * The status of the certificate. Valid values:
    * - **issued**: Issued.
    * - **revoked**: Revoked.
-   * - **willExpire**: About to expire.
+   * - **willExpire**: Expiring soon.
    * - **expired**: Expired.
    * 
    * @example
@@ -305,7 +304,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   certificateType?: string;
   /**
    * @remarks
-   * The city where the company or organization of the certificate purchaser is located. This field is required when generating a certificate signing request. Default value: Beijing.
+   * The city where the company or organization of the user who purchased the certificate is located. This field is required when generating a CSR. Default value: Beijing.
    * 
    * @example
    * Beijing
@@ -313,7 +312,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   city?: string;
   /**
    * @remarks
-   * The company information ID.
+   * The ID of the company information.
    * 
    * @example
    * 47305
@@ -326,7 +325,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   contactIdList?: number[];
   /**
    * @remarks
-   * The country or region code of the certificate organization. For example, CN indicates China, and US indicates the United States. This field is required when generating a certificate signing request. Default value: CN.
+   * The code of the country or region where the organization specified in the certificate is located. For example, CN indicates China, and US indicates the United States. This field is required when generating a CSR. Default value: CN.
    * 
    * @example
    * CN
@@ -342,7 +341,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   csr?: string;
   /**
    * @remarks
-   * The number of cloud resources to which the certificate has been deployed.
+   * The number of deployed cloud service resources.
    * 
    * @example
    * 30
@@ -350,7 +349,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   deploymentResourceCount?: number;
   /**
    * @remarks
-   * The used quota for cloud server deployment.
+   * The used quota for deployment to cloud servers.
    * 
    * @example
    * 30
@@ -358,7 +357,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   deploymentUseCount?: number;
   /**
    * @remarks
-   * The list of associated expert service DingTalk groups.
+   * The list of associated DingTalk groups for expert services.
    */
   dingGroupList?: GetInstanceDetailResponseBodyDingGroupList[];
   /**
@@ -376,7 +375,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   domainValidationList?: GetInstanceDetailResponseBodyDomainValidationList[];
   /**
    * @remarks
-   * The number of exact-match domain names.
+   * The number of exact domain names.
    * 
    * @example
    * 1
@@ -384,9 +383,9 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   fullDomainCount?: number;
   /**
    * @remarks
-   * The method used to generate the certificate signing request. Valid values:
-   * - online: System-generated. The Csr field is ignored.
-   * - upload: User-uploaded. The Csr field is required.
+   * The method used to generate the CSR. Valid values:
+   * - online: Generated by the system. The Csr field is ignored.
+   * - upload: Uploaded by the user. The Csr field is required.
    * 
    * @example
    * online
@@ -394,7 +393,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   generateCsrMethod?: string;
   /**
    * @remarks
-   * The expiration time of the instance, in UNIX timestamp format. This value is empty if no certificate has been issued. The value is accurate to the second.
+   * The expiration time of the instance. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this parameter is empty.
    * 
    * @example
    * 1801324800000
@@ -410,7 +409,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The start time of the instance, in UNIX timestamp format. This value is empty if no certificate has been issued. The value is accurate to the second.
+   * The start time of the instance. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this parameter is empty.
    * 
    * @example
    * 1801324800000
@@ -418,9 +417,9 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   instanceStartTime?: number;
   /**
    * @remarks
-   * The instance type. Valid values:
-   * - BUY: official certificate
-   * - TEST: test certificate
+   * The type of the instance. Valid values:
+   * - BUY: Official certificate.
+   * - TEST: Test certificate.
    * 
    * @example
    * TEST
@@ -428,7 +427,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The certificate algorithm. Valid values:
+   * The algorithm of the certificate. Valid values:
    * - **RSA_2048**
    * - **RSA_3072**
    * - **RSA_4096**
@@ -441,7 +440,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   keyAlgorithm?: string;
   /**
    * @remarks
-   * Indicates whether the domain name monitoring quota can be expanded. Valid values:
+   * Specifies whether the quota for domain name monitoring can be expanded. Valid values:
    * - 1: Yes.
    * - 0: No.
    * 
@@ -459,7 +458,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   monitorUseCount?: number;
   /**
    * @remarks
-   * The end time of the instance at the time of purchase, in UNIX timestamp format. This value is used to determine the purchase duration of the instance.
+   * The end time of the instance purchase. The value is a UNIX timestamp used to determine the purchase duration of the instance.
    * 
    * @example
    * 1801324800000
@@ -467,7 +466,29 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   orderEndTime?: number;
   /**
    * @remarks
-   * The start time of the instance at the time of purchase, in UNIX timestamp format. This value is used to determine the refund time limit. The value is accurate to the second.
+   * The progress of the order.
+   * 
+   * @example
+   * {
+   *   "orderProgress": [
+   *     {
+   *       "certificateId": 12345,
+   *       "certificateName": "example.com",
+   *       "notBefore": 1727000000000,
+   *       "notAfter": 1735000000000,
+   *       "stages": [
+   *         { "name": "apply", "title": "apply", "status": "completed", "time": 1726990000000 },
+   *         { "name": "domainValidation", "title": "domainValidation", "status": "completed", "time": 1727000000000 },
+   *         { "name": "issue", "title": "issue", "status": "completed", "time": 1727000000000 }
+   *       ]
+   *     }
+   *   ]
+   * }
+   */
+  orderProgress?: string;
+  /**
+   * @remarks
+   * The start time of the instance purchase. The value is a UNIX timestamp accurate to seconds, used to determine the time limit for refunds.
    * 
    * @example
    * 1801324800000
@@ -475,7 +496,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   orderStartTime?: number;
   /**
    * @remarks
-   * The result returned by the CA during the last certificate operation.
+   * The result returned by the CA during the last operation on the certificate.
    * 
    * @example
    * pending
@@ -483,7 +504,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   pendingResult?: string;
   /**
    * @remarks
-   * The province or region where the company is located. This field is required when generating a certificate signing request. Default value: Beijing.
+   * The province or region where the company is located. This field is required when generating a CSR. Default value: Beijing.
    * 
    * @example
    * Beijing
@@ -491,7 +512,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   province?: string;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
+   * The ID of the request. It is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * B2CE1D02-6D5E-56E5-A9BD-EE288255C7F9
@@ -499,7 +520,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek****wia
@@ -507,7 +528,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The purchased instance specification.
+   * The specifications of the purchased instance.
    * 
    * @example
    * ss.dv.t
@@ -517,12 +538,12 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * - **inactive**: Pending use.
-   * - **pending**: Under review. The latest certificate is being reviewed.
-   * - **willExpire**: The instance is about to expire.
-   * - **expired**: The instance has expired.
+   * - **pending**: Under review. The latest certificate is committed for review.
+   * - **willExpire**: Expiring soon.
+   * - **expired**: Expired.
    * - **refund**: Refunded.
    * - **normal**: Normal.
-   * - **closed**: Closed. The instance cannot be used.
+   * - **closed**: Shutdown and unavailable.
    * 
    * @example
    * inactive
@@ -535,7 +556,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   tags?: GetInstanceDetailResponseBodyTags[];
   /**
    * @remarks
-   * The total quota for cloud server deployment.
+   * The total quota for deployment to cloud servers.
    * 
    * @example
    * 60
@@ -552,12 +573,9 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The upgrade status of the instance. Valid values:
-   * 
-   * - none: The instance has not been upgraded.
-   * 
-   * - payed: The instance upgrade has been paid.
-   * 
-   * - issued: The latest certificate has been issued for the instance upgrade.
+   * - none: The instance is not upgraded.
+   * - payed: The instance upgrade is paid.
+   * - issued: The latest certificate is issued for the instance upgrade.
    * 
    * @example
    * none
@@ -567,7 +585,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
    * @remarks
    * The validation method for the certificate application. Valid values:
    * - DNS: DNS validation, using TXT or CNAME records.
-   * - HTTP: File-based validation.
+   * - HTTP: File validation.
    * 
    * @example
    * DNS
@@ -575,7 +593,9 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   validationMethod?: string;
   /**
    * @remarks
-   * The version type. Valid values: FOTA: system upgrade. APP: application upgrade.
+   * The version type. Valid values:
+   * - FOTA: System upgrade.
+   * - APP: Application upgrade.
    * 
    * @example
    * 0
@@ -623,6 +643,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
       monitorExpandFlag: 'MonitorExpandFlag',
       monitorUseCount: 'MonitorUseCount',
       orderEndTime: 'OrderEndTime',
+      orderProgress: 'OrderProgress',
       orderStartTime: 'OrderStartTime',
       pendingResult: 'PendingResult',
       province: 'Province',
@@ -674,6 +695,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
       monitorExpandFlag: 'number',
       monitorUseCount: 'number',
       orderEndTime: 'number',
+      orderProgress: 'string',
       orderStartTime: 'number',
       pendingResult: 'string',
       province: 'string',
