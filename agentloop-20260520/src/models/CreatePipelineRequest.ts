@@ -2,10 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreatePipelineRequestExecutePolicyContinuous extends $dara.Model {
+  /**
+   * @remarks
+   * The bootstrap start time in UNIX seconds. It has the same precision as runOnce or scheduled fromTime. Millisecond values greater than or equal to 1e12 are automatically converted. The cursor starts from this time aligned to the grid and catches up window by window. After catching up, it switches to minute intervals. By default, it starts from the current time and processes only incremental data.
+   * 
+   * @example
+   * 1735660800
+   */
+  fromTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromTime: 'fromTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
   /**
    * @remarks
-   * The start time of the data processing window, in UNIX seconds. The value must be less than toTime.
+   * The start time of the data processing window in UNIX seconds. The value must be less than the toTime value.
    * 
    * @example
    * 1735660800
@@ -13,7 +43,7 @@ export class CreatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The end time of the data processing window, in UNIX seconds. The value must be greater than fromTime.
+   * The end time of the data processing window in UNIX seconds. The value must be greater than the fromTime value.
    * 
    * @example
    * 1735747200
@@ -45,7 +75,7 @@ export class CreatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
 export class CreatePipelineRequestExecutePolicyScheduled extends $dara.Model {
   /**
    * @remarks
-   * The scheduling start time, in UNIX milliseconds.
+   * The start time of the scheduling in UNIX milliseconds.
    * 
    * @example
    * 1735660800000
@@ -85,9 +115,15 @@ export class CreatePipelineRequestExecutePolicyScheduled extends $dara.Model {
 export class CreatePipelineRequestExecutePolicy extends $dara.Model {
   /**
    * @remarks
-   * The scheduling mode. Valid values:
-   * - RunOnce: one-time execution.
-   * - Scheduled: periodic scheduling.
+   * The continuous execution configuration. This is used when the type is trace. The processing frequency is a fixed value managed by the server.
+   * 
+   * @example
+   * {"fromTime":1735660800}
+   */
+  continuous?: CreatePipelineRequestExecutePolicyContinuous;
+  /**
+   * @remarks
+   * The scheduling mode. Valid values: RunOnce (single execution) and Scheduled (periodic scheduling).
    * 
    * @example
    * RunOnce
@@ -95,16 +131,23 @@ export class CreatePipelineRequestExecutePolicy extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The one-time execution configuration. This parameter is required only when mode is set to RunOnce.
+   * The single execution configuration. This parameter is required only when the mode is RunOnce.
+   * 
+   * @example
+   * {"fromTime":1735660800,"toTime":1735664400}
    */
   runOnce?: CreatePipelineRequestExecutePolicyRunOnce;
   /**
    * @remarks
-   * The periodic scheduling configuration. This parameter is required only when mode is set to Scheduled.
+   * The periodic scheduling configuration. This parameter is required only when the mode is Scheduled.
+   * 
+   * @example
+   * {"interval":"1h","fromTime":1735660800}
    */
   scheduled?: CreatePipelineRequestExecutePolicyScheduled;
   static names(): { [key: string]: string } {
     return {
+      continuous: 'continuous',
       mode: 'mode',
       runOnce: 'runOnce',
       scheduled: 'scheduled',
@@ -113,6 +156,7 @@ export class CreatePipelineRequestExecutePolicy extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      continuous: CreatePipelineRequestExecutePolicyContinuous,
       mode: 'string',
       runOnce: CreatePipelineRequestExecutePolicyRunOnce,
       scheduled: CreatePipelineRequestExecutePolicyScheduled,
@@ -120,6 +164,9 @@ export class CreatePipelineRequestExecutePolicy extends $dara.Model {
   }
 
   validate() {
+    if(this.continuous && typeof (this.continuous as any).validate === 'function') {
+      (this.continuous as any).validate();
+    }
     if(this.runOnce && typeof (this.runOnce as any).validate === 'function') {
       (this.runOnce as any).validate();
     }
@@ -137,7 +184,7 @@ export class CreatePipelineRequestExecutePolicy extends $dara.Model {
 export class CreatePipelineRequestPipelineNodes extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * node-1
@@ -145,12 +192,12 @@ export class CreatePipelineRequestPipelineNodes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The node parameters in key-value format. The parameters vary based on the node type.
+   * The parameters of the node. This is a key-value structure and varies based on the node type.
    */
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The node type.
+   * The type of the node.
    * 
    * @example
    * transform
@@ -188,6 +235,9 @@ export class CreatePipelineRequestPipeline extends $dara.Model {
   /**
    * @remarks
    * The list of nodes.
+   * 
+   * @example
+   * [{"id":"select-fields","type":"project","parameters":{}}]
    */
   nodes?: CreatePipelineRequestPipelineNodes[];
   static names(): { [key: string]: string } {
@@ -217,7 +267,7 @@ export class CreatePipelineRequestPipeline extends $dara.Model {
 export class CreatePipelineRequestSinkConditionDefaultSinkDataset extends $dara.Model {
   /**
    * @remarks
-   * The name of the AgentSpace to which the default destination dataset belongs.
+   * The name of the agent space to which the default destination dataset belongs.
    * 
    * @example
    * my-agent-space
@@ -297,7 +347,7 @@ export class CreatePipelineRequestSinkConditionDefaultSink extends $dara.Model {
 export class CreatePipelineRequestSinkConditionRoutesSinkDataset extends $dara.Model {
   /**
    * @remarks
-   * The name of the AgentSpace to which the destination dataset belongs.
+   * The name of the agent space to which the destination dataset belongs.
    * 
    * @example
    * my-agent-space
@@ -337,12 +387,12 @@ export class CreatePipelineRequestSinkConditionRoutesSinkDataset extends $dara.M
 export class CreatePipelineRequestSinkConditionRoutesSink extends $dara.Model {
   /**
    * @remarks
-   * The route destination dataset.
+   * The destination dataset for the route.
    */
   dataset?: CreatePipelineRequestSinkConditionRoutesSinkDataset;
   /**
    * @remarks
-   * The route destination type. Currently, only dataset is supported.
+   * The destination type for the route. Currently, only dataset is supported.
    * 
    * @example
    * dataset
@@ -377,7 +427,7 @@ export class CreatePipelineRequestSinkConditionRoutesSink extends $dara.Model {
 export class CreatePipelineRequestSinkConditionRoutes extends $dara.Model {
   /**
    * @remarks
-   * The route expression in SPL. Only where, project, and extend are supported.
+   * The route expression in Search Processing Language (SPL). Only where, project, and extend are supported.
    * 
    * @example
    * * | where intent = \\"refund\\"
@@ -393,7 +443,7 @@ export class CreatePipelineRequestSinkConditionRoutes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The route write destination.
+   * The write destination for the route.
    */
   sink?: CreatePipelineRequestSinkConditionRoutesSink;
   static names(): { [key: string]: string } {
@@ -477,7 +527,7 @@ export class CreatePipelineRequestSinkCondition extends $dara.Model {
 export class CreatePipelineRequestSinkDataset extends $dara.Model {
   /**
    * @remarks
-   * The name of the AgentSpace to which the destination dataset belongs.
+   * The name of the agent space to which the destination dataset belongs.
    * 
    * @example
    * my-agent-space
@@ -517,17 +567,17 @@ export class CreatePipelineRequestSinkDataset extends $dara.Model {
 export class CreatePipelineRequestSink extends $dara.Model {
   /**
    * @remarks
-   * The conditional routing configuration. This parameter is used only when sink.type is set to condition.
+   * The conditional routing configuration. This is used only when sink.type is set to condition.
    */
   condition?: CreatePipelineRequestSinkCondition;
   /**
    * @remarks
-   * The destination dataset configuration.
+   * The destination dataset configuration for the dataset sink. This is used only when sink.type is set to dataset.
    */
   dataset?: CreatePipelineRequestSinkDataset;
   /**
    * @remarks
-   * The sink type. Currently, only Dataset is supported.
+   * The destination type. Currently, dataset is supported.
    * 
    * @example
    * Dataset
@@ -575,7 +625,7 @@ export class CreatePipelineRequestSourceDataset extends $dara.Model {
   dataset?: string;
   /**
    * @remarks
-   * The filter condition for the dataset data.
+   * The data filter condition for the dataset.
    * 
    * @example
    * status = \\"pending\\"
@@ -607,7 +657,7 @@ export class CreatePipelineRequestSourceDataset extends $dara.Model {
 export class CreatePipelineRequestSourceInputFields extends $dara.Model {
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * @example
    * question
@@ -615,7 +665,7 @@ export class CreatePipelineRequestSourceInputFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The field type. Valid values: text, long, double, and json.
+   * The data type of the field. Valid values: text, long, double, and json.
    * 
    * @example
    * text
@@ -647,7 +697,7 @@ export class CreatePipelineRequestSourceInputFields extends $dara.Model {
 export class CreatePipelineRequestSourceLogstore extends $dara.Model {
   /**
    * @remarks
-   * The name of the SLS Logstore.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * my-sls-logstore
@@ -655,7 +705,7 @@ export class CreatePipelineRequestSourceLogstore extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the SLS project.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * my-sls-project
@@ -663,7 +713,7 @@ export class CreatePipelineRequestSourceLogstore extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The data filtered query statement in SLS query/analysis syntax.
+   * The data filtered query statement, which uses the Simple Log Service query and analysis syntax.
    * 
    * @example
    * * | SELECT *
@@ -694,25 +744,118 @@ export class CreatePipelineRequestSourceLogstore extends $dara.Model {
   }
 }
 
+export class CreatePipelineRequestSourceTrajectoryEnrich extends $dara.Model {
+  /**
+   * @remarks
+   * The list of enrichment columns. This parameter is retained for backward compatibility. The current implementation outputs only the fixed agent_trajectory column, and this parameter no longer affects the output.
+   * 
+   * @example
+   * ["input","output","session_id"]
+   */
+  columns?: string[];
+  /**
+   * @remarks
+   * Specifies whether to enable trajectory enrichment.
+   * 
+   * @example
+   * false
+   */
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'columns',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSourceTrajectory extends $dara.Model {
+  /**
+   * @remarks
+   * The trajectory enrichment configuration. It mounts trajectory data into the scrubbing results based on the trace_id. When writing to a dataset, the data is stored in the fixed agent_trajectory column, where the column value is the trajectory JSON content.
+   * 
+   * @example
+   * {"enabled":true,"columns":["input","output"]}
+   */
+  enrich?: CreatePipelineRequestSourceTrajectoryEnrich;
+  static names(): { [key: string]: string } {
+    return {
+      enrich: 'enrich',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enrich: CreatePipelineRequestSourceTrajectoryEnrich,
+    };
+  }
+
+  validate() {
+    if(this.enrich && typeof (this.enrich as any).validate === 'function') {
+      (this.enrich as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePipelineRequestSource extends $dara.Model {
   /**
    * @remarks
-   * The dataset datasource config under the current AgentSpace.
+   * The dataset datasource config under the current agent space.
+   * 
+   * @example
+   * {"dataset":"my-dataset","filter":"status = \\"pending\\""}
    */
   dataset?: CreatePipelineRequestSourceDataset;
   /**
    * @remarks
-   * The input fields and field types. This parameter applies to all data source types.
+   * The input fields and their data types. This applies to all data source types.
+   * 
+   * @example
+   * [{"name":"question","type":"text"}]
    */
   inputFields?: CreatePipelineRequestSourceInputFields[];
   /**
    * @remarks
-   * The SLS Logstore datasource config.
+   * The Simple Log Service Logstore datasource config.
+   * 
+   * @example
+   * {"project":"my-sls-project","logstore":"agent-logs"}
    */
   logstore?: CreatePipelineRequestSourceLogstore;
   /**
    * @remarks
-   * The data source type. Currently, SLS is supported.
+   * The trajectory data configuration. This is optional and takes effect only when the type is set to trace. It retrieves ATIF standard trajectory data from the trajectory scrubbing service and extends it based on features.
+   * 
+   * @example
+   * {"enrich":{"enabled":true,"columns":["input","output"]}}
+   */
+  trajectory?: CreatePipelineRequestSourceTrajectory;
+  /**
+   * @remarks
+   * The data source type. Currently, Simple Log Service is supported.
    * 
    * @example
    * SLS
@@ -723,6 +866,7 @@ export class CreatePipelineRequestSource extends $dara.Model {
       dataset: 'dataset',
       inputFields: 'inputFields',
       logstore: 'logstore',
+      trajectory: 'trajectory',
       type: 'type',
     };
   }
@@ -732,6 +876,7 @@ export class CreatePipelineRequestSource extends $dara.Model {
       dataset: CreatePipelineRequestSourceDataset,
       inputFields: { 'type': 'array', 'itemType': CreatePipelineRequestSourceInputFields },
       logstore: CreatePipelineRequestSourceLogstore,
+      trajectory: CreatePipelineRequestSourceTrajectory,
       type: 'string',
     };
   }
@@ -746,6 +891,9 @@ export class CreatePipelineRequestSource extends $dara.Model {
     if(this.logstore && typeof (this.logstore as any).validate === 'function') {
       (this.logstore as any).validate();
     }
+    if(this.trajectory && typeof (this.trajectory as any).validate === 'function') {
+      (this.trajectory as any).validate();
+    }
     super.validate();
   }
 
@@ -757,25 +905,31 @@ export class CreatePipelineRequestSource extends $dara.Model {
 export class CreatePipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The pipeline description. The description can be up to 256 characters in length.
+   * The description of the pipeline. Maximum length: 256 characters.
    * 
    * @example
-   * Collect trace data from SLS, perform data cleaning, and ingest it into a dataset
+   * Collect trace data from SLS and perform data cleaning into a dataset
    */
   description?: string;
   /**
    * @remarks
-   * The scheduling policy.
+   * The scheduling method.
+   * 
+   * @example
+   * {"mode":"RunOnce","runOnce":{"fromTime":1735660800,"toTime":1735664400}}
    */
   executePolicy?: CreatePipelineRequestExecutePolicy;
   /**
    * @remarks
-   * The pipeline configuration for node orchestration.
+   * The pipeline configuration, including node orchestration.
+   * 
+   * @example
+   * {"nodes":[{"id":"select-fields","type":"project","parameters":{"question":"user_query"}}]}
    */
   pipeline?: CreatePipelineRequestPipeline;
   /**
    * @remarks
-   * The pipeline name. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens (-).
+   * The name of the pipeline. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens (-).
    * 
    * @example
    * my-pipeline
@@ -783,17 +937,20 @@ export class CreatePipelineRequest extends $dara.Model {
   pipelineName?: string;
   /**
    * @remarks
-   * The pipeline sink (data write destination).
+   * The pipeline sink, which is the data write destination.
    */
   sink?: CreatePipelineRequestSink;
   /**
    * @remarks
-   * The pipeline data source.
+   * The data source for the pipeline.
+   * 
+   * @example
+   * {"type":"logstore","logstore":{"project":"my-sls-project","logstore":"agent-logs"},"inputFields":[{"name":"question","type":"text"}]}
    */
   source?: CreatePipelineRequestSource;
   /**
    * @remarks
-   * The idempotency token. A unique string generated by the client to ensure the idempotency of the create operation.
+   * The idempotency token. This is a unique string generated by the client to ensure the idempotency of the create operation.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

@@ -2,6 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListPipelinesResponseBodyPipelinesExecutePolicyContinuous extends $dara.Model {
+  /**
+   * @example
+   * 1735660800
+   */
+  fromTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromTime: 'fromTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce extends $dara.Model {
   /**
    * @remarks
@@ -84,6 +111,11 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicyScheduled extends $d
 
 export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model {
   /**
+   * @example
+   * {"fromTime":1735660800}
+   */
+  continuous?: ListPipelinesResponseBodyPipelinesExecutePolicyContinuous;
+  /**
    * @remarks
    * The scheduling mode. Valid values:
    * - RunOnce: one-time execution.
@@ -96,15 +128,22 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model
   /**
    * @remarks
    * The parameters for one-time execution. This parameter has a value only when mode is set to RunOnce.
+   * 
+   * @example
+   * {"fromTime":1735660800,"toTime":1735664400}
    */
   runOnce?: ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce;
   /**
    * @remarks
    * The parameters for periodic scheduling. This parameter has a value only when mode is set to Scheduled.
+   * 
+   * @example
+   * {"interval":"1h","fromTime":1735660800}
    */
   scheduled?: ListPipelinesResponseBodyPipelinesExecutePolicyScheduled;
   static names(): { [key: string]: string } {
     return {
+      continuous: 'continuous',
       mode: 'mode',
       runOnce: 'runOnce',
       scheduled: 'scheduled',
@@ -113,6 +152,7 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      continuous: ListPipelinesResponseBodyPipelinesExecutePolicyContinuous,
       mode: 'string',
       runOnce: ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce,
       scheduled: ListPipelinesResponseBodyPipelinesExecutePolicyScheduled,
@@ -120,6 +160,9 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model
   }
 
   validate() {
+    if(this.continuous && typeof (this.continuous as any).validate === 'function') {
+      (this.continuous as any).validate();
+    }
     if(this.runOnce && typeof (this.runOnce as any).validate === 'function') {
       (this.runOnce as any).validate();
     }
@@ -524,6 +567,40 @@ export class ListPipelinesResponseBodyPipelinesSourceDataset extends $dara.Model
   }
 }
 
+export class ListPipelinesResponseBodyPipelinesSourceInputFields extends $dara.Model {
+  /**
+   * @example
+   * question
+   */
+  name?: string;
+  /**
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPipelinesResponseBodyPipelinesSourceLogstore extends $dara.Model {
   /**
    * @remarks
@@ -574,17 +651,100 @@ export class ListPipelinesResponseBodyPipelinesSourceLogstore extends $dara.Mode
   }
 }
 
+export class ListPipelinesResponseBodyPipelinesSourceTrajectoryEnrich extends $dara.Model {
+  /**
+   * @example
+   * ["input","output","session_id"]
+   */
+  columns?: string[];
+  /**
+   * @example
+   * false
+   */
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'columns',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelinesResponseBodyPipelinesSourceTrajectory extends $dara.Model {
+  /**
+   * @example
+   * {"enabled":true,"columns":["input","output"]}
+   */
+  enrich?: ListPipelinesResponseBodyPipelinesSourceTrajectoryEnrich;
+  static names(): { [key: string]: string } {
+    return {
+      enrich: 'enrich',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enrich: ListPipelinesResponseBodyPipelinesSourceTrajectoryEnrich,
+    };
+  }
+
+  validate() {
+    if(this.enrich && typeof (this.enrich as any).validate === 'function') {
+      (this.enrich as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPipelinesResponseBodyPipelinesSource extends $dara.Model {
   /**
    * @remarks
    * The dataset datasource config in the current AgentSpace.
+   * 
+   * @example
+   * {"dataset":"my-dataset","filter":"status = \\"pending\\""}
    */
   dataset?: ListPipelinesResponseBodyPipelinesSourceDataset;
   /**
+   * @example
+   * [{"name":"question","type":"text"}]
+   */
+  inputFields?: ListPipelinesResponseBodyPipelinesSourceInputFields[];
+  /**
    * @remarks
    * The Simple Log Service (SLS) Logstore datasource config.
+   * 
+   * @example
+   * {"project":"my-sls-project","logstore":"agent-logs"}
    */
   logstore?: ListPipelinesResponseBodyPipelinesSourceLogstore;
+  /**
+   * @example
+   * {"enrich":{"enabled":true,"columns":["input","output"]}}
+   */
+  trajectory?: ListPipelinesResponseBodyPipelinesSourceTrajectory;
   /**
    * @remarks
    * The data source type. Valid values: logstore or dataset.
@@ -596,7 +756,9 @@ export class ListPipelinesResponseBodyPipelinesSource extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dataset: 'dataset',
+      inputFields: 'inputFields',
       logstore: 'logstore',
+      trajectory: 'trajectory',
       type: 'type',
     };
   }
@@ -604,7 +766,9 @@ export class ListPipelinesResponseBodyPipelinesSource extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dataset: ListPipelinesResponseBodyPipelinesSourceDataset,
+      inputFields: { 'type': 'array', 'itemType': ListPipelinesResponseBodyPipelinesSourceInputFields },
       logstore: ListPipelinesResponseBodyPipelinesSourceLogstore,
+      trajectory: ListPipelinesResponseBodyPipelinesSourceTrajectory,
       type: 'string',
     };
   }
@@ -613,8 +777,14 @@ export class ListPipelinesResponseBodyPipelinesSource extends $dara.Model {
     if(this.dataset && typeof (this.dataset as any).validate === 'function') {
       (this.dataset as any).validate();
     }
+    if(Array.isArray(this.inputFields)) {
+      $dara.Model.validateArray(this.inputFields);
+    }
     if(this.logstore && typeof (this.logstore as any).validate === 'function') {
       (this.logstore as any).validate();
+    }
+    if(this.trajectory && typeof (this.trajectory as any).validate === 'function') {
+      (this.trajectory as any).validate();
     }
     super.validate();
   }
@@ -646,6 +816,9 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   /**
    * @remarks
    * The execution policy.
+   * 
+   * @example
+   * {"mode":"RunOnce","runOnce":{"fromTime":1735660800,"toTime":1735664400}}
    */
   executePolicy?: ListPipelinesResponseBodyPipelinesExecutePolicy;
   /**
@@ -694,6 +867,9 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   /**
    * @remarks
    * The pipeline data source.
+   * 
+   * @example
+   * {"type":"logstore","logstore":{"project":"my-sls-project","logstore":"agent-logs"},"inputFields":[{"name":"question","type":"text"}]}
    */
   source?: ListPipelinesResponseBodyPipelinesSource;
   /**

@@ -2,21 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdatePipelineRequestExecutePolicyContinuous extends $dara.Model {
+  /**
+   * @remarks
+   * The bootstrap start time, specified as a UNIX timestamp in seconds. The precision is the same as that of runOnce or scheduled.fromTime. Millisecond values greater than or equal to 1e12 are automatically converted to seconds. The cursor starts from this time aligned to the grid and catches up window by window. After catching up, it switches to minute intervals. By default, the cursor starts from the current time and processes only incremental data.
+   * 
+   * @example
+   * 1735660800
+   */
+  fromTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromTime: 'fromTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
   /**
    * @remarks
-   * The start time for data processing, in UNIX millisecond timestamp.
+   * The start time of the data processing window, specified as a UNIX timestamp in seconds. The value must be less than the value of toTime.
    * 
    * @example
-   * 1735660800000
+   * 1735660800
    */
   fromTime?: number;
   /**
    * @remarks
-   * The end time for data processing, in UNIX millisecond timestamp.
+   * The end time of the data processing window, specified as a UNIX timestamp in seconds. The value must be greater than the value of fromTime.
    * 
    * @example
-   * 1735747200000
+   * 1735747200
    */
   toTime?: number;
   static names(): { [key: string]: string } {
@@ -45,15 +75,15 @@ export class UpdatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
 export class UpdatePipelineRequestExecutePolicyScheduled extends $dara.Model {
   /**
    * @remarks
-   * The scheduling start time, in UNIX millisecond timestamp.
+   * The scheduling start time, specified as a UNIX timestamp in seconds. The precision is the same as that of runOnce.fromTime. Millisecond values greater than or equal to 1e12 are automatically converted to seconds.
    * 
    * @example
-   * 1735660800000
+   * 1735660800
    */
   fromTime?: number;
   /**
    * @remarks
-   * The scheduling interval. For example, 1h.
+   * The scheduling interval. Valid values: 1h, 6h, 12h, and 1d.
    * 
    * @example
    * 1h
@@ -85,7 +115,15 @@ export class UpdatePipelineRequestExecutePolicyScheduled extends $dara.Model {
 export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
   /**
    * @remarks
-   * The scheduling mode. For example, Scheduled (timed scheduling) or RunOnce (one-time execution).
+   * The continuous execution configuration. This parameter is used when the type is trace. The processing frequency is a fixed value managed by the server.
+   * 
+   * @example
+   * {"fromTime":1735660800}
+   */
+  continuous?: UpdatePipelineRequestExecutePolicyContinuous;
+  /**
+   * @remarks
+   * The scheduling mode. Valid values: RunOnce (single execution), Scheduled (periodic execution), and Continuous (continuous execution, applicable only to trace data sources). For Continuous mode, the processing frequency is a fixed value managed by the server, and data is automatically processed at minute intervals after the trace is completed.
    * 
    * @example
    * Scheduled
@@ -93,16 +131,23 @@ export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The configuration for one-time execution.
+   * The single execution configuration. This parameter is required only when the mode is set to RunOnce.
+   * 
+   * @example
+   * {"fromTime":1735660800,"toTime":1735664400}
    */
   runOnce?: UpdatePipelineRequestExecutePolicyRunOnce;
   /**
    * @remarks
-   * The timed scheduling configuration.
+   * The periodic scheduling configuration. This parameter is required only when the mode is set to Scheduled.
+   * 
+   * @example
+   * {"interval":"1h","fromTime":1735660800}
    */
   scheduled?: UpdatePipelineRequestExecutePolicyScheduled;
   static names(): { [key: string]: string } {
     return {
+      continuous: 'continuous',
       mode: 'mode',
       runOnce: 'runOnce',
       scheduled: 'scheduled',
@@ -111,6 +156,7 @@ export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      continuous: UpdatePipelineRequestExecutePolicyContinuous,
       mode: 'string',
       runOnce: UpdatePipelineRequestExecutePolicyRunOnce,
       scheduled: UpdatePipelineRequestExecutePolicyScheduled,
@@ -118,6 +164,9 @@ export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
   }
 
   validate() {
+    if(this.continuous && typeof (this.continuous as any).validate === 'function') {
+      (this.continuous as any).validate();
+    }
     if(this.runOnce && typeof (this.runOnce as any).validate === 'function') {
       (this.runOnce as any).validate();
     }
@@ -135,7 +184,7 @@ export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
 export class UpdatePipelineRequestPipelineNodes extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * node-1
@@ -143,12 +192,12 @@ export class UpdatePipelineRequestPipelineNodes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The node parameters in key-value format. The parameters vary depending on the node type.
+   * The parameters of the node. The parameters use a key-value structure and vary based on the node type.
    */
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The node type.
+   * The type of the node.
    * 
    * @example
    * transform
@@ -186,6 +235,9 @@ export class UpdatePipelineRequestPipeline extends $dara.Model {
   /**
    * @remarks
    * The list of nodes.
+   * 
+   * @example
+   * [{"id":"select-fields","type":"project","parameters":{}}]
    */
   nodes?: UpdatePipelineRequestPipelineNodes[];
   static names(): { [key: string]: string } {
@@ -375,7 +427,7 @@ export class UpdatePipelineRequestSinkConditionRoutesSink extends $dara.Model {
 export class UpdatePipelineRequestSinkConditionRoutes extends $dara.Model {
   /**
    * @remarks
-   * The route expression in SPL. Only where, project, and extend are supported.
+   * The route expression in Search Processing Language (SPL). Only where, project, and extend are supported.
    * 
    * @example
    * * | where intent = \\"refund\\"
@@ -391,7 +443,7 @@ export class UpdatePipelineRequestSinkConditionRoutes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The write destination for the route.
+   * The sink for the route.
    */
   sink?: UpdatePipelineRequestSinkConditionRoutesSink;
   static names(): { [key: string]: string } {
@@ -425,7 +477,7 @@ export class UpdatePipelineRequestSinkConditionRoutes extends $dara.Model {
 export class UpdatePipelineRequestSinkCondition extends $dara.Model {
   /**
    * @remarks
-   * The default write destination used when no conditional route is matched.
+   * The default sink used when no conditional route is matched.
    */
   defaultSink?: UpdatePipelineRequestSinkConditionDefaultSink;
   /**
@@ -515,17 +567,17 @@ export class UpdatePipelineRequestSinkDataset extends $dara.Model {
 export class UpdatePipelineRequestSink extends $dara.Model {
   /**
    * @remarks
-   * The conditional routing configuration. This parameter takes effect only when sink.type is set to condition.
+   * The conditional routing configuration. This parameter is used only when sink.type is set to condition.
    */
   condition?: UpdatePipelineRequestSinkCondition;
   /**
    * @remarks
-   * The destination dataset configuration for the dataset sink. This parameter takes effect only when sink.type is set to dataset.
+   * The destination dataset configuration for the dataset sink. This parameter is used only when sink.type is set to dataset.
    */
   dataset?: UpdatePipelineRequestSinkDataset;
   /**
    * @remarks
-   * The sink type. Valid values: dataset and condition.
+   * The destination type. Valid values: dataset and condition.
    * 
    * @example
    * condition
@@ -573,7 +625,7 @@ export class UpdatePipelineRequestSourceDataset extends $dara.Model {
   dataset?: string;
   /**
    * @remarks
-   * The filter condition for the dataset data.
+   * The data filter condition for the dataset.
    * 
    * @example
    * status = \\"pending\\"
@@ -605,7 +657,7 @@ export class UpdatePipelineRequestSourceDataset extends $dara.Model {
 export class UpdatePipelineRequestSourceInputFields extends $dara.Model {
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * @example
    * question
@@ -613,7 +665,7 @@ export class UpdatePipelineRequestSourceInputFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The field type. Valid values: text, long, double, and json.
+   * The type of the field. Valid values: text, long, double, and json.
    * 
    * @example
    * text
@@ -661,7 +713,7 @@ export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The data filtered query statement in SLS query/analysis syntax.
+   * The filtered query statement in SLS query and analysis syntax.
    * 
    * @example
    * * | SELECT *
@@ -692,25 +744,118 @@ export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
   }
 }
 
+export class UpdatePipelineRequestSourceTrajectoryEnrich extends $dara.Model {
+  /**
+   * @remarks
+   * The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs a single fixed column agent_trajectory, and this parameter no longer affects the output.
+   * 
+   * @example
+   * ["input","output","session_id"]
+   */
+  columns?: string[];
+  /**
+   * @remarks
+   * Specifies whether to enable trajectory enrichment.
+   * 
+   * @example
+   * false
+   */
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'columns',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineRequestSourceTrajectory extends $dara.Model {
+  /**
+   * @remarks
+   * The trajectory enrichment. It mounts trajectory data into the scrubbing result by trace_id. When writing to a dataset, the data is carried in the fixed column agent_trajectory, where the column value is the trajectory JSON content.
+   * 
+   * @example
+   * {"enabled":true,"columns":["input","output"]}
+   */
+  enrich?: UpdatePipelineRequestSourceTrajectoryEnrich;
+  static names(): { [key: string]: string } {
+    return {
+      enrich: 'enrich',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enrich: UpdatePipelineRequestSourceTrajectoryEnrich,
+    };
+  }
+
+  validate() {
+    if(this.enrich && typeof (this.enrich as any).validate === 'function') {
+      (this.enrich as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePipelineRequestSource extends $dara.Model {
   /**
    * @remarks
-   * The dataset datasource config within the current AgentSpace.
+   * The dataset datasource config in the current AgentSpace.
+   * 
+   * @example
+   * {"dataset":"my-dataset","filter":"status = \\"pending\\""}
    */
   dataset?: UpdatePipelineRequestSourceDataset;
   /**
    * @remarks
    * The input fields and their types. This parameter applies to all data source types.
+   * 
+   * @example
+   * [{"name":"question","type":"text"}]
    */
   inputFields?: UpdatePipelineRequestSourceInputFields[];
   /**
    * @remarks
-   * The SLS Logstore datasource config.
+   * The Simple Log Service (SLS) Logstore datasource config.
+   * 
+   * @example
+   * {"project":"my-sls-project","logstore":"agent-logs"}
    */
   logstore?: UpdatePipelineRequestSourceLogstore;
   /**
    * @remarks
-   * The data source type. Valid values: logstore and dataset.
+   * The trajectory data configuration. This parameter is optional and takes effect only when type is set to trace. It obtains ATIF standard trajectory data from the trajectory scrubbing service and extends it by feature.
+   * 
+   * @example
+   * {"enrich":{"enabled":true,"columns":["input","output"]}}
+   */
+  trajectory?: UpdatePipelineRequestSourceTrajectory;
+  /**
+   * @remarks
+   * The data source type. Valid values: logstore, dataset, and trace. The trace value indicates a trajectory signal-driven processing mode. The validity of the enum values is verified by the server.
    * 
    * @example
    * dataset
@@ -721,6 +866,7 @@ export class UpdatePipelineRequestSource extends $dara.Model {
       dataset: 'dataset',
       inputFields: 'inputFields',
       logstore: 'logstore',
+      trajectory: 'trajectory',
       type: 'type',
     };
   }
@@ -730,6 +876,7 @@ export class UpdatePipelineRequestSource extends $dara.Model {
       dataset: UpdatePipelineRequestSourceDataset,
       inputFields: { 'type': 'array', 'itemType': UpdatePipelineRequestSourceInputFields },
       logstore: UpdatePipelineRequestSourceLogstore,
+      trajectory: UpdatePipelineRequestSourceTrajectory,
       type: 'string',
     };
   }
@@ -744,6 +891,9 @@ export class UpdatePipelineRequestSource extends $dara.Model {
     if(this.logstore && typeof (this.logstore as any).validate === 'function') {
       (this.logstore as any).validate();
     }
+    if(this.trajectory && typeof (this.trajectory as any).validate === 'function') {
+      (this.trajectory as any).validate();
+    }
     super.validate();
   }
 
@@ -755,7 +905,7 @@ export class UpdatePipelineRequestSource extends $dara.Model {
 export class UpdatePipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the pipeline, which helps users understand its purpose.
+   * The description of the pipeline, which helps business users understand its purpose.
    * 
    * @example
    * My pipeline
@@ -763,27 +913,33 @@ export class UpdatePipelineRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The scheduling policy. If provided, the entire scheduling policy is overwritten.
+   * The scheduling policy. If this parameter is specified, the existing policy is completely overwritten.
+   * 
+   * @example
+   * {"mode":"RunOnce","runOnce":{"fromTime":1735660800,"toTime":1735664400}}
    */
   executePolicy?: UpdatePipelineRequestExecutePolicy;
   /**
    * @remarks
-   * The pipeline configuration (node orchestration). If specified, the existing pipeline configuration is entirely overwritten.
+   * The pipeline configuration, which defines node orchestration. If this parameter is specified, the existing configuration is completely overwritten.
    */
   pipeline?: UpdatePipelineRequestPipeline;
   /**
    * @remarks
-   * The pipeline sink (data write destination). If provided, the entire sink configuration is overwritten.
+   * The pipeline sink (data write destination). Passing this parameter overwrites the entire configuration.
    */
   sink?: UpdatePipelineRequestSink;
   /**
    * @remarks
-   * The pipeline data source. If specified, the existing source configuration is entirely overwritten.
+   * The pipeline data source. Passing this parameter overwrites the entire configuration.
+   * 
+   * @example
+   * {"type":"logstore","logstore":{"project":"my-sls-project","logstore":"agent-logs"},"inputFields":[{"name":"question","type":"text"}]}
    */
   source?: UpdatePipelineRequestSource;
   /**
    * @remarks
-   * The idempotency token. A unique string generated by the client to ensure the idempotency of the update operation.
+   * The idempotency token. It is a unique string generated by the client to ensure the idempotence of the update operation.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

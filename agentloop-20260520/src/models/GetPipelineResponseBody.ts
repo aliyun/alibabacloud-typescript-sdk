@@ -2,21 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetPipelineResponseBodyExecutePolicyContinuous extends $dara.Model {
+  /**
+   * @remarks
+   * The bootstrap start time in UNIX seconds. It has the same precision as runOnce.fromTime or scheduled.fromTime. Millisecond values greater than or equal to 1e12 are automatically converted. The cursor starts from this time aligned to the grid and catches up window by window. After catching up, it switches to minute intervals. By default, it starts from the current time and processes only incremental data.
+   * 
+   * @example
+   * 1735660800
+   */
+  fromTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromTime: 'fromTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPipelineResponseBodyExecutePolicyRunOnce extends $dara.Model {
   /**
    * @remarks
-   * The start time for data processing. The value is a UNIX timestamp in milliseconds.
+   * The start time of the data processing window in UNIX seconds. The value must be less than the toTime value.
    * 
    * @example
-   * 1735660800000
+   * 1735660800
    */
   fromTime?: number;
   /**
    * @remarks
-   * The end time for data processing. The value is a UNIX timestamp in milliseconds.
+   * The end time of the data processing window in UNIX seconds. The value must be greater than the fromTime value.
    * 
    * @example
-   * 1735747200000
+   * 1735747200
    */
   toTime?: number;
   static names(): { [key: string]: string } {
@@ -45,15 +75,15 @@ export class GetPipelineResponseBodyExecutePolicyRunOnce extends $dara.Model {
 export class GetPipelineResponseBodyExecutePolicyScheduled extends $dara.Model {
   /**
    * @remarks
-   * The scheduling start time. The value is a UNIX timestamp in milliseconds.
+   * The scheduling start time in UNIX seconds. It has the same precision as runOnce.fromTime. Millisecond values greater than or equal to 1e12 are automatically converted.
    * 
    * @example
-   * 1735660800000
+   * 1735660800
    */
   fromTime?: number;
   /**
    * @remarks
-   * The scheduling interval. For example, 1h.
+   * The scheduling interval. Valid values: 1h, 6h, 12h, and 1d.
    * 
    * @example
    * 1h
@@ -85,7 +115,15 @@ export class GetPipelineResponseBodyExecutePolicyScheduled extends $dara.Model {
 export class GetPipelineResponseBodyExecutePolicy extends $dara.Model {
   /**
    * @remarks
-   * The scheduling mode. For example, scheduled (timed scheduling) or runOnce (one-time execution).
+   * The continuous execution configuration. It is used when the type is trace, and the processing frequency is a fixed value managed by the server.
+   * 
+   * @example
+   * {"fromTime":1735660800}
+   */
+  continuous?: GetPipelineResponseBodyExecutePolicyContinuous;
+  /**
+   * @remarks
+   * The scheduling mode. Valid values: RunOnce (single execution), Scheduled (periodic execution), and Continuous (continuous execution, only for trace data sources; the processing frequency is a fixed value managed by the server, and automatic processing occurs at minute intervals after trace completion).
    * 
    * @example
    * scheduled
@@ -93,16 +131,23 @@ export class GetPipelineResponseBodyExecutePolicy extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The configuration for one-time execution.
+   * The single execution configuration. This parameter is required only when the mode is RunOnce.
+   * 
+   * @example
+   * {"fromTime":1735660800,"toTime":1735664400}
    */
   runOnce?: GetPipelineResponseBodyExecutePolicyRunOnce;
   /**
    * @remarks
-   * The timed scheduling configuration.
+   * The periodic scheduling configuration. This parameter is required only when the mode is Scheduled.
+   * 
+   * @example
+   * {"interval":"1h","fromTime":1735660800}
    */
   scheduled?: GetPipelineResponseBodyExecutePolicyScheduled;
   static names(): { [key: string]: string } {
     return {
+      continuous: 'continuous',
       mode: 'mode',
       runOnce: 'runOnce',
       scheduled: 'scheduled',
@@ -111,6 +156,7 @@ export class GetPipelineResponseBodyExecutePolicy extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      continuous: GetPipelineResponseBodyExecutePolicyContinuous,
       mode: 'string',
       runOnce: GetPipelineResponseBodyExecutePolicyRunOnce,
       scheduled: GetPipelineResponseBodyExecutePolicyScheduled,
@@ -118,6 +164,9 @@ export class GetPipelineResponseBodyExecutePolicy extends $dara.Model {
   }
 
   validate() {
+    if(this.continuous && typeof (this.continuous as any).validate === 'function') {
+      (this.continuous as any).validate();
+    }
     if(this.runOnce && typeof (this.runOnce as any).validate === 'function') {
       (this.runOnce as any).validate();
     }
@@ -143,7 +192,7 @@ export class GetPipelineResponseBodyPipelineNodes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The node parameters in key-value structure, which vary depending on the node type.
+   * The node parameters in a key-value structure. The parameters vary based on the node type.
    */
   parameters?: { [key: string]: any };
   /**
@@ -186,6 +235,9 @@ export class GetPipelineResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
    * The list of nodes.
+   * 
+   * @example
+   * [{"id":"select-fields","type":"project","parameters":{}}]
    */
   nodes?: GetPipelineResponseBodyPipelineNodes[];
   static names(): { [key: string]: string } {
@@ -335,12 +387,12 @@ export class GetPipelineResponseBodySinkConditionRoutesSinkDataset extends $dara
 export class GetPipelineResponseBodySinkConditionRoutesSink extends $dara.Model {
   /**
    * @remarks
-   * The route destination dataset.
+   * The routing destination dataset.
    */
   dataset?: GetPipelineResponseBodySinkConditionRoutesSinkDataset;
   /**
    * @remarks
-   * The route destination type. Currently, only dataset is supported.
+   * The routing destination type. Currently, only dataset is supported.
    * 
    * @example
    * dataset
@@ -375,7 +427,7 @@ export class GetPipelineResponseBodySinkConditionRoutesSink extends $dara.Model 
 export class GetPipelineResponseBodySinkConditionRoutes extends $dara.Model {
   /**
    * @remarks
-   * The route expression in SPL. Only where, project, and extend are supported.
+   * The route expression in Search Processing Language (SPL). Only where, project, and extend are supported.
    * 
    * @example
    * * | where intent = \\"refund\\"
@@ -391,7 +443,7 @@ export class GetPipelineResponseBodySinkConditionRoutes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The route write destination.
+   * The routing write destination.
    */
   sink?: GetPipelineResponseBodySinkConditionRoutesSink;
   static names(): { [key: string]: string } {
@@ -430,7 +482,7 @@ export class GetPipelineResponseBodySinkCondition extends $dara.Model {
   defaultSink?: GetPipelineResponseBodySinkConditionDefaultSink;
   /**
    * @remarks
-   * The route match mode. Currently, only all is supported.
+   * The route matching mode. Currently, only all is supported.
    * 
    * @example
    * all
@@ -475,7 +527,7 @@ export class GetPipelineResponseBodySinkCondition extends $dara.Model {
 export class GetPipelineResponseBodySinkDataset extends $dara.Model {
   /**
    * @remarks
-   * The name of the AgentSpace to which the target dataset belongs.
+   * The name of the AgentSpace to which the destination dataset belongs.
    * 
    * @example
    * my-agent-space
@@ -483,7 +535,7 @@ export class GetPipelineResponseBodySinkDataset extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The target dataset name.
+   * The name of the destination dataset.
    * 
    * @example
    * my-dataset
@@ -515,17 +567,17 @@ export class GetPipelineResponseBodySinkDataset extends $dara.Model {
 export class GetPipelineResponseBodySink extends $dara.Model {
   /**
    * @remarks
-   * The conditional routing configuration. This parameter is used only when sink.type is set to condition.
+   * The conditional routing configuration. This configuration is used only when the sink.type is condition.
    */
   condition?: GetPipelineResponseBodySinkCondition;
   /**
    * @remarks
-   * The target dataset configuration for the dataset sink. This parameter is used only when sink.type is set to dataset.
+   * The destination dataset configuration for the dataset sink. This is used only when sink.type is set to dataset.
    */
   dataset?: GetPipelineResponseBodySinkDataset;
   /**
    * @remarks
-   * The sink type. Valid values: dataset and condition.
+   * The destination type. Valid values: dataset and condition.
    * 
    * @example
    * condition
@@ -565,7 +617,7 @@ export class GetPipelineResponseBodySink extends $dara.Model {
 export class GetPipelineResponseBodySourceDataset extends $dara.Model {
   /**
    * @remarks
-   * The source dataset name.
+   * The name of the source dataset.
    * 
    * @example
    * my-dataset
@@ -573,7 +625,7 @@ export class GetPipelineResponseBodySourceDataset extends $dara.Model {
   dataset?: string;
   /**
    * @remarks
-   * The dataset data filter condition.
+   * The data filter condition for the dataset.
    * 
    * @example
    * status = \\"pending\\"
@@ -605,7 +657,7 @@ export class GetPipelineResponseBodySourceDataset extends $dara.Model {
 export class GetPipelineResponseBodySourceInputFields extends $dara.Model {
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * @example
    * question
@@ -645,7 +697,7 @@ export class GetPipelineResponseBodySourceInputFields extends $dara.Model {
 export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
   /**
    * @remarks
-   * The SLS Logstore name.
+   * The name of the SLS Logstore.
    * 
    * @example
    * my-sls-logstore
@@ -653,7 +705,7 @@ export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The SLS project name.
+   * The name of the SLS project.
    * 
    * @example
    * my-sls-project
@@ -661,7 +713,7 @@ export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The data filtered query statement in SLS query/analysis syntax.
+   * The data filtered query statement (SLS query and analysis syntax).
    * 
    * @example
    * * | SELECT *
@@ -692,25 +744,118 @@ export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
   }
 }
 
+export class GetPipelineResponseBodySourceTrajectoryEnrich extends $dara.Model {
+  /**
+   * @remarks
+   * The enrichment column list. This is retained for compatibility. The current implementation outputs a single fixed column agent_trajectory, and this parameter no longer affects the output.
+   * 
+   * @example
+   * ["input","output","session_id"]
+   */
+  columns?: string[];
+  /**
+   * @remarks
+   * Specifies whether trajectory enrichment is enabled.
+   * 
+   * @example
+   * false
+   */
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'columns',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineResponseBodySourceTrajectory extends $dara.Model {
+  /**
+   * @remarks
+   * The trajectory enrichment. It mounts trajectory data into the scrubbing results by trace_id. When writing to a dataset, the data is stored in the fixed column agent_trajectory, where the column value is the trajectory JSON content.
+   * 
+   * @example
+   * {"enabled":true,"columns":["input","output"]}
+   */
+  enrich?: GetPipelineResponseBodySourceTrajectoryEnrich;
+  static names(): { [key: string]: string } {
+    return {
+      enrich: 'enrich',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enrich: GetPipelineResponseBodySourceTrajectoryEnrich,
+    };
+  }
+
+  validate() {
+    if(this.enrich && typeof (this.enrich as any).validate === 'function') {
+      (this.enrich as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPipelineResponseBodySource extends $dara.Model {
   /**
    * @remarks
-   * The dataset datasource config under the current AgentSpace.
+   * The dataset datasource config in the current AgentSpace.
+   * 
+   * @example
+   * {"dataset":"my-dataset","filter":"status = \\"pending\\""}
    */
   dataset?: GetPipelineResponseBodySourceDataset;
   /**
    * @remarks
-   * The input fields and field types, applicable to all data source types.
+   * The input fields and field types. This applies to all data source types.
+   * 
+   * @example
+   * [{"name":"question","type":"text"}]
    */
   inputFields?: GetPipelineResponseBodySourceInputFields[];
   /**
    * @remarks
    * The SLS Logstore datasource config.
+   * 
+   * @example
+   * {"project":"my-sls-project","logstore":"agent-logs"}
    */
   logstore?: GetPipelineResponseBodySourceLogstore;
   /**
    * @remarks
-   * The data source type. Valid values: logstore and dataset.
+   * The trajectory data configuration. This is optional and takes effect only when the type is set to trace. It retrieves ATIF standard trajectory data from the trajectory scrubbing service and extends it by feature.
+   * 
+   * @example
+   * {"enrich":{"enabled":true,"columns":["input","output"]}}
+   */
+  trajectory?: GetPipelineResponseBodySourceTrajectory;
+  /**
+   * @remarks
+   * The data source type. Valid values: logstore, dataset, and trace. The trace value indicates a trajectory signal-driven processing mode. The validity of the enum is verified by the server.
    * 
    * @example
    * dataset
@@ -721,6 +866,7 @@ export class GetPipelineResponseBodySource extends $dara.Model {
       dataset: 'dataset',
       inputFields: 'inputFields',
       logstore: 'logstore',
+      trajectory: 'trajectory',
       type: 'type',
     };
   }
@@ -730,6 +876,7 @@ export class GetPipelineResponseBodySource extends $dara.Model {
       dataset: GetPipelineResponseBodySourceDataset,
       inputFields: { 'type': 'array', 'itemType': GetPipelineResponseBodySourceInputFields },
       logstore: GetPipelineResponseBodySourceLogstore,
+      trajectory: GetPipelineResponseBodySourceTrajectory,
       type: 'string',
     };
   }
@@ -744,6 +891,9 @@ export class GetPipelineResponseBodySource extends $dara.Model {
     if(this.logstore && typeof (this.logstore as any).validate === 'function') {
       (this.logstore as any).validate();
     }
+    if(this.trajectory && typeof (this.trajectory as any).validate === 'function') {
+      (this.trajectory as any).validate();
+    }
     super.validate();
   }
 
@@ -755,7 +905,7 @@ export class GetPipelineResponseBodySource extends $dara.Model {
 export class GetPipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The committed watermark. The value is a UNIX timestamp in seconds.
+   * The committed watermark in UNIX seconds.
    * 
    * @example
    * 1735660800
@@ -763,7 +913,7 @@ export class GetPipelineResponseBody extends $dara.Model {
   committedWatermark?: number;
   /**
    * @remarks
-   * The time when the pipeline was created, in ISO 8601 UTC format.
+   * The pipeline creation time in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -781,12 +931,15 @@ export class GetPipelineResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The scheduling method.
+   * The execution policy.
+   * 
+   * @example
+   * {"mode":"RunOnce","runOnce":{"fromTime":1735660800,"toTime":1735664400}}
    */
   executePolicy?: GetPipelineResponseBodyExecutePolicy;
   /**
    * @remarks
-   * The next scheduling trigger time. The value is a UNIX timestamp in seconds.
+   * The next scheduling trigger time in UNIX seconds.
    * 
    * @example
    * 1735661100
@@ -795,6 +948,9 @@ export class GetPipelineResponseBody extends $dara.Model {
   /**
    * @remarks
    * The pipeline configuration for node orchestration.
+   * 
+   * @example
+   * {"nodes":[{"id":"select-fields","type":"project","parameters":{"question":"user_query"}}]}
    */
   pipeline?: GetPipelineResponseBodyPipeline;
   /**
@@ -815,7 +971,7 @@ export class GetPipelineResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The request ID used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -823,11 +979,7 @@ export class GetPipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scheduling status. Valid values:
-   * - None: No scheduling.
-   * - Active: Active.
-   * - Paused: Paused.
-   * - Terminated: Terminated.
+   * The scheduling status. Valid values: None (no scheduling), Active (active), Paused (paused), and Terminated (terminated).
    * 
    * @example
    * Active
@@ -835,17 +987,28 @@ export class GetPipelineResponseBody extends $dara.Model {
   scheduleStatus?: string;
   /**
    * @remarks
-   * The pipeline sink, which is the data write destination.
+   * The scheduling type. Valid values: RunOnce (single execution), Scheduled (periodic scheduling), and Continuous (continuous execution driven by trace source signals).
+   * 
+   * @example
+   * RunOnce
+   */
+  scheduleType?: string;
+  /**
+   * @remarks
+   * The pipeline sink, which is the destination for data writing.
    */
   sink?: GetPipelineResponseBodySink;
   /**
    * @remarks
    * The pipeline data source.
+   * 
+   * @example
+   * {"type":"logstore","logstore":{"project":"my-sls-project","logstore":"agent-logs"},"inputFields":[{"name":"question","type":"text"}]}
    */
   source?: GetPipelineResponseBodySource;
   /**
    * @remarks
-   * The time when the pipeline was last updated, in ISO 8601 UTC format.
+   * The last update time of the pipeline, in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -873,6 +1036,7 @@ export class GetPipelineResponseBody extends $dara.Model {
       regionId: 'regionId',
       requestId: 'requestId',
       scheduleStatus: 'scheduleStatus',
+      scheduleType: 'scheduleType',
       sink: 'sink',
       source: 'source',
       updateTime: 'updateTime',
@@ -892,6 +1056,7 @@ export class GetPipelineResponseBody extends $dara.Model {
       regionId: 'string',
       requestId: 'string',
       scheduleStatus: 'string',
+      scheduleType: 'string',
       sink: GetPipelineResponseBodySink,
       source: GetPipelineResponseBodySource,
       updateTime: 'string',

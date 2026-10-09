@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdatePipelineResponseBody extends $dara.Model {
+export class MetaSchemaValue extends $dara.Model {
   /**
    * @remarks
-   * The request ID, used to locate the request for troubleshooting.
+   * The dataset field types. Valid values: text, long, double, and json.
    * 
    * @example
-   * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
+   * text
    */
-  requestId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      type: 'string',
     };
   }
 

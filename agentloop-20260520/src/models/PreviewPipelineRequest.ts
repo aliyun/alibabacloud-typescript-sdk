@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PreviewPipelineRequestPipelineNodes extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * node-1
@@ -13,12 +13,12 @@ export class PreviewPipelineRequestPipelineNodes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The node parameters in key-value format. The parameters vary based on the node type.
+   * The parameters of the node. The parameters are in key-value format and vary based on the node type.
    */
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The node type.
+   * The type of the node.
    * 
    * @example
    * transform
@@ -56,6 +56,9 @@ export class PreviewPipelineRequestPipeline extends $dara.Model {
   /**
    * @remarks
    * The list of nodes.
+   * 
+   * @example
+   * [{"id":"select-fields","type":"project","parameters":{}}]
    */
   nodes?: PreviewPipelineRequestPipelineNodes[];
   static names(): { [key: string]: string } {
@@ -93,7 +96,7 @@ export class PreviewPipelineRequestSourceDataset extends $dara.Model {
   dataset?: string;
   /**
    * @remarks
-   * The filter condition for dataset data.
+   * The filter condition for the dataset data.
    * 
    * @example
    * status = \\"pending\\"
@@ -125,7 +128,7 @@ export class PreviewPipelineRequestSourceDataset extends $dara.Model {
 export class PreviewPipelineRequestSourceInputFields extends $dara.Model {
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * @example
    * question
@@ -133,7 +136,7 @@ export class PreviewPipelineRequestSourceInputFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The field type. Valid values: text, long, double, and json.
+   * The type of the field. Valid values: text, long, double, and json.
    * 
    * @example
    * text
@@ -165,7 +168,7 @@ export class PreviewPipelineRequestSourceInputFields extends $dara.Model {
 export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
   /**
    * @remarks
-   * The name of the SLS Logstore.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * my-sls-logstore
@@ -173,7 +176,7 @@ export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the SLS project.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * my-sls-project
@@ -181,7 +184,7 @@ export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The data filtered query statement in SLS query/analysis syntax.
+   * The filtered query statement (Simple Log Service query and analysis syntax).
    * 
    * @example
    * * | SELECT *
@@ -212,25 +215,118 @@ export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
   }
 }
 
+export class PreviewPipelineRequestSourceTrajectoryEnrich extends $dara.Model {
+  /**
+   * @remarks
+   * The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed agent_trajectory column, and this parameter no longer affects the output.
+   * 
+   * @example
+   * ["input","output","session_id"]
+   */
+  columns?: string[];
+  /**
+   * @remarks
+   * Specifies whether to enable trajectory enrichment.
+   * 
+   * @example
+   * false
+   */
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'columns',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewPipelineRequestSourceTrajectory extends $dara.Model {
+  /**
+   * @remarks
+   * Trajectory enrichment: mounts trajectory data into the cleaning results based on the trace_id. When writing data to a dataset, the data is stored in the fixed agent_trajectory column, and the column value is the JSON content of the trajectory.
+   * 
+   * @example
+   * {"enabled":true,"columns":["input","output"]}
+   */
+  enrich?: PreviewPipelineRequestSourceTrajectoryEnrich;
+  static names(): { [key: string]: string } {
+    return {
+      enrich: 'enrich',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enrich: PreviewPipelineRequestSourceTrajectoryEnrich,
+    };
+  }
+
+  validate() {
+    if(this.enrich && typeof (this.enrich as any).validate === 'function') {
+      (this.enrich as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewPipelineRequestSource extends $dara.Model {
   /**
    * @remarks
-   * The Dataset datasource config under the current AgentSpace.
+   * The dataset datasource config in the current AgentSpace.
+   * 
+   * @example
+   * {"dataset":"my-dataset","filter":"status = \\"pending\\""}
    */
   dataset?: PreviewPipelineRequestSourceDataset;
   /**
    * @remarks
-   * The input fields and field types. This parameter applies to all data source types.
+   * The input fields and their data types. This applies to all data source types.
+   * 
+   * @example
+   * [{"name":"question","type":"text"}]
    */
   inputFields?: PreviewPipelineRequestSourceInputFields[];
   /**
    * @remarks
-   * The SLS Logstore datasource config.
+   * The Simple Log Service Logstore datasource config.
+   * 
+   * @example
+   * {"project":"my-sls-project","logstore":"agent-logs"}
    */
   logstore?: PreviewPipelineRequestSourceLogstore;
   /**
    * @remarks
-   * The data source type. Currently, Simple Log Service (SLS) is supported.
+   * The configuration of trajectory data. This parameter is optional and takes effect only when the type is set to trace. It retrieves ATIF standard trajectory data from the trajectory cleaning service and extends the data based on features.
+   * 
+   * @example
+   * {"enrich":{"enabled":true,"columns":["input","output"]}}
+   */
+  trajectory?: PreviewPipelineRequestSourceTrajectory;
+  /**
+   * @remarks
+   * The type of the data source. Simple Log Service is currently supported.
    * 
    * @example
    * SLS
@@ -241,6 +337,7 @@ export class PreviewPipelineRequestSource extends $dara.Model {
       dataset: 'dataset',
       inputFields: 'inputFields',
       logstore: 'logstore',
+      trajectory: 'trajectory',
       type: 'type',
     };
   }
@@ -250,6 +347,7 @@ export class PreviewPipelineRequestSource extends $dara.Model {
       dataset: PreviewPipelineRequestSourceDataset,
       inputFields: { 'type': 'array', 'itemType': PreviewPipelineRequestSourceInputFields },
       logstore: PreviewPipelineRequestSourceLogstore,
+      trajectory: PreviewPipelineRequestSourceTrajectory,
       type: 'string',
     };
   }
@@ -264,6 +362,9 @@ export class PreviewPipelineRequestSource extends $dara.Model {
     if(this.logstore && typeof (this.logstore as any).validate === 'function') {
       (this.logstore as any).validate();
     }
+    if(this.trajectory && typeof (this.trajectory as any).validate === 'function') {
+      (this.trajectory as any).validate();
+    }
     super.validate();
   }
 
@@ -275,7 +376,7 @@ export class PreviewPipelineRequestSource extends $dara.Model {
 export class PreviewPipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The start time of the preview data window, in UNIX seconds.
+   * The start time of the preview data window. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1735660800
@@ -283,17 +384,23 @@ export class PreviewPipelineRequest extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The pipeline configuration, which defines the node orchestration.
+   * The pipeline configuration, including node orchestration.
+   * 
+   * @example
+   * {"nodes":[{"id":"select-fields","type":"project","parameters":{"question":"user_query"}}]}
    */
   pipeline?: PreviewPipelineRequestPipeline;
   /**
    * @remarks
-   * The pipeline data source.
+   * The data source of the pipeline.
+   * 
+   * @example
+   * {"type":"logstore","logstore":{"project":"my-sls-project","logstore":"agent-logs"},"inputFields":[{"name":"question","type":"text"}]}
    */
   source?: PreviewPipelineRequestSource;
   /**
    * @remarks
-   * The end time of the preview data window, in UNIX seconds.
+   * The end time of the preview data window. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1735747200
