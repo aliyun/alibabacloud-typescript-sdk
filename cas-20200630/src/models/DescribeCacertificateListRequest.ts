@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCACertificateListRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the CA. Valid values:
+   * The current status of the CA. Valid values:
    * 
    * - issue: enabled.
-   * 
    * - forbidden: disabled.
-   * 
    * - revoke: revoked.
    * 
    * @example
@@ -22,10 +20,8 @@ export class DescribeCACertificateListRequest extends $dara.Model {
    * The type of the CA. Valid values:
    * 
    * - root: root CA.
-   * 
-   * - subRoot: intermediate CA.
-   * 
-   * - externalCa: an imported external CA.
+   * - subRoot: subordinate CA.
+   * - externalCa: externally imported CA.
    * 
    * @example
    * subRoot
@@ -33,7 +29,7 @@ export class DescribeCACertificateListRequest extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the current page in a paging query. Settings: specify the desired page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -43,7 +39,7 @@ export class DescribeCACertificateListRequest extends $dara.Model {
    * @remarks
    * The unique identifier of the CA certificate.
    * 
-   * > Call [DescribeCACertificateList](https://help.aliyun.com/document_detail/328095.html) to query the unique identifiers of all CA certificates.
+   * > You can call [DescribeCACertificateList](https://help.aliyun.com/document_detail/328095.html) to query the unique identifiers of all CA certificates.
    * 
    * @example
    * 1ee47e24-c51b-67cc-aa6b-1f7561cf9d9a
@@ -51,13 +47,11 @@ export class DescribeCACertificateListRequest extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * The issuer of the CA. Valid values:
+   * The issuing authority of the CA. Valid values:
    * 
    * - local: private certificate.
-   * 
-   * - iTrusChina: a trusted CA.
-   * 
-   * - external: an imported external CA.
+   * - iTrusChina: compliance CA.
+   * - external: externally imported.
    * 
    * @example
    * local
@@ -73,7 +67,7 @@ export class DescribeCACertificateListRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of CA certificates per page in a paging query. Settings: specify the desired number of entries per page. Default value: **20**.
    * 
    * @example
    * 20
@@ -81,11 +75,10 @@ export class DescribeCACertificateListRequest extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The validity status of the CA. Valid values:
+   * The time-based validity status of the CA. Valid values:
    * 
-   * - valid: The CA certificate is valid.
-   * 
-   * - notValid: The CA certificate has expired.
+   * - valid: The CA is within its validity period.
+   * - notValid: The CA has expired.
    * 
    * @example
    * valid

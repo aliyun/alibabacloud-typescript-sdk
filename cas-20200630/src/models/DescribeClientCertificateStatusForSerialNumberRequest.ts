@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientCertificateStatusForSerialNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * The serial number of the client or server certificate to query. To query multiple certificates, separate their serial numbers with a comma.
+   * Certificate serial number of the client certificate or server certificate to query. Separate multiple serial numbers with commas (,).
    * 
-   * > You can call the [ListClientCertificate](https://help.aliyun.com/document_detail/330884.html) operation to retrieve the serial numbers of all client and server certificates.
+   * 
+   * > You can call [ListClientCertificate](https://help.aliyun.com/document_detail/330884.html) to query certificate serial numbers of all client certificates and server certificates.
    * 
    * This parameter is required.
    * 

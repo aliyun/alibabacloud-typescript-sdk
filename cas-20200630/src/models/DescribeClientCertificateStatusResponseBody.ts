@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientCertificateStatusResponseBodyCertificateStatus extends $dara.Model {
   /**
    * @remarks
-   * The date when the certificate was revoked.
+   * The date when the certificate was revoked. The value is a UNIX timestamp in milliseconds.
    * 
-   * > This parameter is returned only when the value of **Status** is **revoked**.
+   * > This parameter is returned only when **Status** is **revoked**, which indicates that the certificate has been revoked.
    * 
    * @example
-   * 2021-01-01T00:00Z
+   * 1787539908871
    */
   revokeTime?: number;
   /**
@@ -25,10 +25,8 @@ export class DescribeClientCertificateStatusResponseBodyCertificateStatus extend
    * @remarks
    * The current status of the certificate. Valid values:
    * 
-   * - **good**: The certificate is not revoked.
-   * 
-   * - **revoked**: The certificate is revoked.
-   * 
+   * - **good**: The certificate has not been revoked.
+   * - **revoked**: The certificate has been revoked.
    * - **unknown**: The server cannot determine the status of the certificate.
    * 
    * @example
@@ -63,7 +61,7 @@ export class DescribeClientCertificateStatusResponseBodyCertificateStatus extend
 export class DescribeClientCertificateStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the certificate status.
+   * The detailed status information of the certificates.
    */
   certificateStatus?: DescribeClientCertificateStatusResponseBodyCertificateStatus[];
   /**

@@ -5,17 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the certificate.
+   * The expiration time of the certificate in UTC/GMT.
    * 
    * @example
-   * 2024-05-13 12:59:45
+   * Mon Nov 05 16:33:52 CST 2035
    */
   afterDate?: string;
   /**
    * @remarks
-   * The expiration time of the client certificate. This value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * > The **BeforeTime** and **AfterTime** parameters must be both left empty or both specified.
+   * The service expiration time of the client certificate, in timestamp format. Unit: milliseconds.
+   * >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
    * 
    * @example
    * 1728921600000
@@ -23,7 +22,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   afterTime?: number;
   /**
    * @remarks
-   * The public key algorithm.
+   * The algorithm type.
    * 
    * @example
    * RSA
@@ -31,7 +30,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The alias of the certificate.
+   * The name of the issued certificate.
    * 
    * @example
    * test
@@ -39,17 +38,17 @@ export class ListCertResponseBodyList extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The issuance time of the certificate.
+   * The issuance time of the certificate in UTC/GMT.
    * 
    * @example
-   * 2026-05-19
+   * Wed Nov 05 16:33:52 CST 2025
    */
   beforeDate?: string;
   /**
    * @remarks
-   * The issuance time of the client certificate. This value is a UNIX timestamp. Unit: milliseconds.
+   * The issuance time of the client certificate, in timestamp format. The default value is the time when you call this operation. Unit: milliseconds.
    * 
-   * > The **BeforeTime** and **AfterTime** parameters must be both left empty or both specified.
+   * >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
    * 
    * @example
    * 1728921600000
@@ -57,13 +56,11 @@ export class ListCertResponseBodyList extends $dara.Model {
   beforeTime?: number;
   /**
    * @remarks
-   * The type of the certificate. Valid values:
+   * The certificate type. Valid values:
    * 
-   * - `free`: Free certificate.
-   * 
-   * - `cas`: Alibaba Cloud Security certificate.
-   * 
-   * - `upload`: A user-uploaded certificate.
+   * - free: free certificate.
+   * - cas: China Security certificate.
+   * - upload: custom upload.
    * 
    * @example
    * Server
@@ -71,7 +68,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   certificateType?: string;
   /**
    * @remarks
-   * The primary domain name of the certificate.
+   * The primary domain name bound to the certificate.
    * 
    * @example
    * www.kfsjn.xyz
@@ -79,7 +76,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * A unique, user-defined identifier for the certificate.
+   * The user-defined identifier, which serves as a unique key.
    * 
    * @example
    * ***b86sca4384811e0b5e8707e68***
@@ -87,7 +84,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   customIdentifier?: string;
   /**
    * @remarks
-   * A JSON string containing extended attributes.
+   * The extended field.
    * 
    * @example
    * {"appId":"APP_PFHMIGUHKDUW6S3N7ZL2"}
@@ -95,7 +92,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   extra?: string;
   /**
    * @remarks
-   * The ID of the data source to which the certificate order belongs.
+   * The data source ID of the certificate order.
    * 
    * @example
    * 1806958
@@ -103,7 +100,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The unique identifier of the certificate.
+   * The certificate identifier.
    * 
    * @example
    * 1ef539a8-1e1f-6b88-8c11-21cf01a203e9
@@ -111,11 +108,10 @@ export class ListCertResponseBodyList extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * Specifies if the private key is exportable. Valid values:
+   * Indicates whether the certificate can be used. Valid values:
    * 
-   * - `true`: The private key is exportable.
-   * 
-   * - `false`: The private key is not exportable.
+   * - true: The certificate can be used.
+   * - false: The certificate cannot be used.
    * 
    * @example
    * true
@@ -123,7 +119,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   keyExportable?: boolean;
   /**
    * @remarks
-   * The organization specified in the certificate.
+   * The organization of the certificate.
    * 
    * @example
    * test
@@ -131,7 +127,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   organization?: string;
   /**
    * @remarks
-   * The organizational unit (OU) specified in the certificate.
+   * The name of the company or organization to which the certificate purchaser belongs.
    * 
    * @example
    * IT
@@ -147,11 +143,10 @@ export class ListCertResponseBodyList extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate status. Valid values:
    * 
-   * - `ISSUE`: Issued.
-   * 
-   * - `REVOKE`: Revoked.
+   * - ISSUE: Normal.
+   * - REVOKE: Revoked.
    * 
    * @example
    * complete
@@ -159,7 +154,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The distinguished name (DN) of the certificate subject.
+   * The subscription relationship ID.
    * 
    * @example
    * SubjectDn
@@ -167,7 +162,7 @@ export class ListCertResponseBodyList extends $dara.Model {
   subjectDn?: string;
   /**
    * @remarks
-   * The tags of the certificate.
+   * The certificate tags.
    */
   tags?: string[];
   static names(): { [key: string]: string } {
@@ -241,12 +236,12 @@ export class ListCertResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of certificates.
+   * The data source ID to which the certificates belong.
    */
   list?: ListCertResponseBodyList[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries to return.
    * 
    * @example
    * 20
@@ -254,7 +249,7 @@ export class ListCertResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A token to retrieve the next page of results. If this value is empty, all results have been returned.
+   * The token for the next query. If this parameter is empty, no more results exist.
    * 
    * @example
    * 1d2db86sca4384811e0b5e8707e68181f
@@ -262,7 +257,7 @@ export class ListCertResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -270,7 +265,7 @@ export class ListCertResponseBody extends $dara.Model {
   pageCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -278,7 +273,7 @@ export class ListCertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The page size.
+   * The total size of the certificate. Unit: bytes.
    * 
    * @example
    * 50

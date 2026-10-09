@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters certificates modified after this date.
+   * The host record bound to the certificate, in the YYYY-MM-DD format.
    * 
    * @example
-   * 2024-05-13 12:59:45
+   * 2024-05-13
    */
   afterDate?: string;
   /**
    * @remarks
-   * Filters certificates modified before this date.
+   * The modification time of the certificate, in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-09-04
@@ -21,7 +21,7 @@ export class ListCertRequest extends $dara.Model {
   beforeDate?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListCertRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. This is the NextToken value from a previous response. If unspecified, the first page is returned.
+   * The token for the next query. If this parameter is empty, no more results exist.
    * 
    * @example
    * 1d2db86sca4384811e0b5e8707e68181f
@@ -53,7 +53,7 @@ export class ListCertRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The identifier of the intermediate CA that issued the certificate.
+   * The identifier of the intermediate CA that issued the certificate. You can call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifier of a CA certificate.
    * 
    * @example
    * 273ae6bb538d538c70c01f81jh2****
@@ -61,7 +61,7 @@ export class ListCertRequest extends $dara.Model {
   parentIdentifier?: string;
   /**
    * @remarks
-   * The page size. Default value: 50.
+   * The total size of the certificate. Unit: bytes.
    * 
    * @example
    * 50
@@ -69,11 +69,10 @@ export class ListCertRequest extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate status. Valid values:
    * 
-   * - ISSUE: Active
-   * 
-   * - REVOKE: Revoked
+   * - ISSUE: Normal.
+   * - REVOKE: Revoked.
    * 
    * @example
    * ISSUE
@@ -83,11 +82,9 @@ export class ListCertRequest extends $dara.Model {
    * @remarks
    * The certificate type. Valid values:
    * 
-   * - SERVER: Server certificate
-   * 
-   * - CLIENT: Client certificate
-   * 
-   * - END_ENTITY: End-entity certificate
+   * - SERVER: server certificate.
+   * - CLIENT: client certificate.
+   * - END_ENTITY: end-entity certificate.
    * 
    * @example
    * CLIENT

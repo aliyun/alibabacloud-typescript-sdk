@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the certificate.
+   * The expiration date of the certificate. The format is YYYY-MM-DD.
    * 
    * @example
    * 2022-08-23T16:15Z
@@ -13,13 +13,11 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   afterDate?: string;
   /**
    * @remarks
-   * The encryption algorithm of the certificate. Valid values:
+   * The encryption algorithm type of the certificate. Valid values:
    * 
-   * - **RSA**: The RSA algorithm.
-   * 
-   * - **ECC**: The ECC algorithm.
-   * 
-   * - **SM2**: The SM2 algorithm.
+   * - **RSA**: RSA algorithm.
+   * - **ECC**: ECC algorithm.
+   * - **SM2**: SM2 algorithm.
    * 
    * @example
    * RSA
@@ -27,7 +25,7 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   algorithm?: string;
   /**
    * @remarks
-   * The issuance time of the certificate.
+   * The issuance date of the certificate. The format is YYYY-MM-DD.
    * 
    * @example
    * 2021-10-28T16:15Z
@@ -51,9 +49,9 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   commonName?: string;
   /**
    * @remarks
-   * The two-letter country code of the issuer.
+   * The code of the country where the organization associated with the subordinate CA certificate that issued this certificate is located.
    * 
-   * For more information about country codes, see the **Country codes** section in [Manage company profiles](https://help.aliyun.com/document_detail/198289.html).
+   * For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
    * 
    * @example
    * CN
@@ -77,7 +75,7 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   keySize?: number;
   /**
    * @remarks
-   * The city of the issuer.
+   * The name of the city where the organization associated with the subordinate CA certificate that issued this certificate is located.
    * 
    * @example
    * Hangzhou
@@ -93,15 +91,15 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   md5?: string;
   /**
    * @remarks
-   * The organization of the issuer.
+   * The name of the organization associated with the subordinate CA certificate that issued this certificate.
    * 
    * @example
-   * 阿里云计算有限公司
+   * Alibaba Cloud Computing Co., Ltd
    */
   organization?: string;
   /**
    * @remarks
-   * The organizational unit of the issuer.
+   * The name of the department in the organization associated with the subordinate CA certificate that issued this certificate.
    * 
    * @example
    * Security
@@ -109,7 +107,7 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   organizationUnit?: string;
   /**
    * @remarks
-   * The identifier of the issuer. This parameter is returned only if the certificate is issued by Alibaba Cloud.
+   * If this parameter is not empty, the client certificate is issued by Alibaba Cloud.
    * 
    * @example
    * 1a83bcbb89e562885e40aa0108f5****
@@ -117,21 +115,16 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   parentIdentifier?: string;
   /**
    * @remarks
-   * The subject alternative name (SAN) extension, which specifies identifiers such as email addresses, domain names, URIs, and IP addresses.
+   * The Subject Alternative Name (SAN) extension of the certificate, which indicates other domain names or IP addresses associated with the certificate.
    * 
-   * A JSON string that represents an array of SAN objects. Each object contains the following parameters:
+   * This parameter is represented as a string converted from a JSON array. Each element in the JSON array is a structure that corresponds to a SAN extension. Each SAN extension structure contains the following parameters:
    * 
-   * - **Type**: The type of the extension. This parameter is an integer. Valid values:
-   * 
-   *   - **1**: email address.
-   * 
-   *   - **2**: domain name.
-   * 
-   *   - **6**: uniform resource identifier (URI).
-   * 
-   *   - **7**: IP address.
-   * 
-   * - **Value**: The content of the extension. This parameter is a string.
+   * - **Type**: An Integer value that indicates the type of the extension. Valid values:
+   * 	- **1**: an email address.
+   * 	- **2**: a domain name.
+   * 	- **6**: a Uniform Resource Identifier (URI).
+   * 	- **7**: an IP address.
+   * - **Value**: A String value that indicates the content of the extension.
    * 
    * @example
    * [ {"Type": 7, "Value": "192.0.XX.XX"}, {"Type": 2, "Value": "www.aliyundoc.com"}, ]
@@ -163,8 +156,8 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   signAlgorithm?: string;
   /**
    * @remarks
-   * <props="china">The state or province of the issuer.
-   * <props="intl">The state or province of the issuer.
+   * <props="china">The name of the province, municipality, or autonomous region where the organization associated with the subordinate CA certificate that issued this certificate is located.
+   * <props="intl">The name of the province or state where the organization associated with the subordinate CA certificate that issued this certificate is located.
    * 
    * @example
    * Zhejiang
@@ -174,9 +167,8 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
    * @remarks
    * The status of the certificate. Valid values:
    * 
-   * - **ISSUE**: The certificate is issued.
-   * 
-   * - **REVOKE**: The certificate is revoked.
+   * - **ISSUE**: issued.
+   * - **REVOKE**: revoked.
    * 
    * @example
    * ISSUE
@@ -184,39 +176,23 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   status?: string;
   /**
    * @remarks
-   * The distinguished name (DN) of the certificate. The DN contains information about the certificate subject, including:
+   * The distinguished name (DN) attribute of the certificate, which indicates the subject of the certificate. The DN contains the following information:
    * 
-   * - **C**: Country.
-   * 
-   * - **O**: Organization.
-   * 
-   * - **OU**: Organizational unit.
-   * 
-   * - **L**: City.
-   * 
-   * <props="china">
-   * 
-   * - **ST**: State or province.
-   * 
-   * 
-   * 
-   * 
-   * <props="intl">
-   * 
-   * - **ST**: State or province.
-   * 
-   * 
-   * 
-   * 
-   * - **CN**: Common name.
+   * - **C**: The country.
+   * - **O**: The organization.
+   * - **OU**: The department.
+   * - **L**: The city.
+   * <props="china">- **ST**: The province, municipality, or autonomous region.
+   * <props="intl">- **ST**: The province or state.
+   * - **CN**: The common name.
    * 
    * @example
-   * C=CN,O=阿里云计算有限公司,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
+   * C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
    */
   subjectDN?: string;
   /**
    * @remarks
-   * The certificate content.
+   * The content of the certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----  ...... -----END CERTIFICATE-----
@@ -224,7 +200,7 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
   x509Certificate?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The validity period of the certificate. Unit: years.
    * 
    * @example
    * 1
@@ -296,12 +272,12 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
 export class DescribeClientCertificateForSerialNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the client or server certificates.
+   * The details of the client certificates or server certificates.
    */
   certificateList?: DescribeClientCertificateForSerialNumberResponseBodyCertificateList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74

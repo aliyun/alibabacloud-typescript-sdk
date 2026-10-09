@@ -11,6 +11,13 @@ export class GetCaInstanceCrlAddressResponseBody extends $dara.Model {
    * normal
    */
   caInstanceStatus?: string;
+  /**
+   * @remarks
+   * The CA type.
+   * 
+   * @example
+   * uploadCA
+   */
   caType?: string;
   /**
    * @remarks
@@ -22,7 +29,7 @@ export class GetCaInstanceCrlAddressResponseBody extends $dara.Model {
   crlUrl?: string;
   /**
    * @remarks
-   * The hash code used to identify whether the CRL contains new revoked certificates.
+   * The hash code used to identify whether new revoked certificates exist in the CRL.
    * 
    * @example
    * 5481d1b1228fXXX40ee70dc8cd
@@ -30,7 +37,7 @@ export class GetCaInstanceCrlAddressResponseBody extends $dara.Model {
   hashCode?: string;
   /**
    * @remarks
-   * The next update time of the CRL.
+   * The next update time of the CRL. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1778688000000

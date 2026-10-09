@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCACertificateListResponseBodyCertificateList extends $dara.Model {
   /**
    * @remarks
-   * The expiration date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+   * The expiration date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1665819958000
@@ -13,13 +13,11 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   afterDate?: number;
   /**
    * @remarks
-   * The encryption algorithm of the CA certificate. Valid values:
+   * The encryption algorithm type of the CA certificate. Valid values:
    * 
    * - **RSA**: RSA algorithm.
-   * 
    * - **ECC**: ECC algorithm.
-   * 
-   * - **SM2**: SM2 algorithm.
+   * - **SM2**: SM2 (Chinese national cryptographic) algorithm.
    * 
    * @example
    * RSA
@@ -27,7 +25,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   algorithm?: string;
   /**
    * @remarks
-   * The alias of the instance.
+   * The instance alias.
    * 
    * @example
    * Aliyun_CA
@@ -35,7 +33,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   alias?: string;
   /**
    * @remarks
-   * The issuance date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+   * The issuance date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1634283958000
@@ -46,8 +44,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
    * The type of the CA certificate. Valid values:
    * 
    * - **ROOT**: root CA certificate.
-   * 
-   * - **SUB_ROOT**: intermediate CA certificate.
+   * - **SUB_ROOT**: subordinate CA certificate.
    * 
    * @example
    * SUB_ROOT
@@ -63,9 +60,9 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   commonName?: string;
   /**
    * @remarks
-   * The country code of the country where the organization associated with the CA certificate is located.
+   * The country code of the organization associated with the CA certificate.
    * 
-   * For more information about country codes, see the **Country codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
+   * For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
    * 
    * @example
    * CN
@@ -73,11 +70,10 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   countryCode?: string;
   /**
    * @remarks
-   * Indicates whether the instance is a free instance. Valid values:
+   * Indicates whether the instance is a complimentary instance. Valid values:
    * 
-   * - 0: no.
-   * 
-   * - 1: yes.
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
    * 1
@@ -125,7 +121,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   organization?: string;
   /**
    * @remarks
-   * The name of the department of the organization associated with the CA certificate.
+   * The name of the department within the organization associated with the CA certificate.
    * 
    * @example
    * Security
@@ -133,9 +129,9 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   organizationUnit?: string;
   /**
    * @remarks
-   * The unique identifier of the root CA certificate that issued the CA certificate.
+   * The unique identifier of the root CA certificate that issued this CA certificate.
    * 
-   * > This parameter is returned only when **CertificateType** is **SUB_ROOT**, which indicates an intermediate CA certificate.
+   * > This parameter is returned only when **CertificateType** is **SUB_ROOT** (subordinate CA certificate).
    * 
    * @example
    * 1a83bcbb89e562885e40aa0108f5****
@@ -151,7 +147,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   resourceGroupId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The Subject Alternative Names (SANs) of the certificate.
    * 
    * @example
    * 1
@@ -183,7 +179,8 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   signAlgorithm?: string;
   /**
    * @remarks
-   * The name of the province or state where the organization associated with the CA certificate is located.
+   * <props="china">The name of the province, municipality, or autonomous region where the organization associated with the CA certificate is located.
+   * <props="intl">The name of the province or state where the organization associated with the CA certificate is located.
    * 
    * @example
    * Zhejiang
@@ -193,9 +190,8 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
    * @remarks
    * The status of the CA certificate. Valid values:
    * 
-   * - **ISSUE**: The certificate is issued.
-   * 
-   * - **REVOKE**: The certificate is revoked.
+   * - **ISSUE**: The certificate is issued normally.
+   * - **REVOKE**: The certificate has been revoked.
    * 
    * @example
    * ISSUE
@@ -203,16 +199,12 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   status?: string;
   /**
    * @remarks
-   * The distinguished name (DN) of the CA certificate. The DN indicates the user of the certificate and contains the following information:
+   * The Distinguished Name (DN) attribute of the CA certificate, which represents the subject of the certificate. It contains the following information:
    * 
-   * - **C**: The country code where the organization is located.
-   * 
+   * - **C**: The country code of the organization.
    * - **O**: The name of the organization.
-   * 
-   * - **OU**: The department of the organization.
-   * 
+   * - **OU**: The department within the organization.
    * - **L**: The city where the organization is located.
-   * 
    * - **CN**: The common name or abbreviation of the organization.
    * 
    * @example
@@ -223,9 +215,8 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
    * @remarks
    * Indicates whether the instance is a trial instance. Valid values:
    * 
-   * - 0: no.
-   * 
-   * - 1: yes.
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
    * 0
@@ -241,7 +232,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
   x509Certificate?: string;
   /**
    * @remarks
-   * The validity period of the CA certificate in years.
+   * The validity period of the CA certificate. Unit: years.
    * 
    * @example
    * 3
@@ -321,12 +312,12 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
 export class DescribeCACertificateListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the CA certificates.
+   * The list of CA certificate details.
    */
   certificateList?: DescribeCACertificateListResponseBodyCertificateList[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -334,7 +325,7 @@ export class DescribeCACertificateListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of pages returned.
+   * The total number of pages returned.
    * 
    * @example
    * 1
@@ -350,7 +341,7 @@ export class DescribeCACertificateListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of CA certificates on each page.
+   * The number of CA certificates per page.
    * 
    * @example
    * 20
@@ -358,7 +349,7 @@ export class DescribeCACertificateListResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of root and intermediate CA certificates.
+   * The total number of root CA certificates and subordinate CA certificates.
    * 
    * @example
    * 2

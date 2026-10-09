@@ -45,8 +45,8 @@ export class CreateServerCertificateWithCsrRequestTags extends $dara.Model {
 export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the server certificate in UNIX timestamp format. Unit: seconds.
-   * >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
+   * The expiration time of the server certificate in timestamp format. Unit: seconds.
+   * >The **BeforeTime** and **AfterTime** parameters must both be empty or both be set.
    * 
    * @example
    * 1665819958
@@ -54,7 +54,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   afterTime?: number;
   /**
    * @remarks
-   * The key algorithm of the server certificate. The key algorithm is in the `<Encryption algorithm>_<Key length>` format. Valid values:
+   * The key algorithm of the server certificate. The key algorithm is in the `<encryption algorithm>_<key length>` format. Valid values:
    * 
    * - **RSA_1024**: The signature algorithm is Sha256WithRSA.
    * - **RSA_2048**: The signature algorithm is Sha256WithRSA.
@@ -65,24 +65,28 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
    * - **SM2_256**: The signature algorithm is SM3WithSM2.
    * 
    * 
-   * The encryption algorithm of the server certificate must be the same as that of the subordinate CA certificate, but the key length can be different. For example, if the key algorithm of the subordinate CA certificate is RSA_2048, the key algorithm of the server certificate must be RSA_1024, RSA_2048, or RSA_4096.
+   * The encryption algorithm of the server certificate must be the same as that of the sub-CA certificate, but the key length can be different. For example, if the key algorithm of the sub-CA certificate is RSA_2048, the key algorithm of the server certificate must be RSA_1024, RSA_2048, or RSA_4096.
    * 
-   * >You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the key algorithm of the subordinate CA certificate.
+   * >You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the key algorithm of the sub-CA certificate.
    * 
    * @example
    * RSA_2048
    */
   algorithm?: string;
   /**
+   * @remarks
+   * The asynchronous processing flag. If the value is "true", the backend service issues the certificate asynchronously.
+   * After the request is submitted, you can call the ListClientCertificate operation to obtain the latest certificate.
+   * 
    * @example
    * false
    */
   asynchronousFlag?: boolean;
   /**
    * @remarks
-   * The issuance time of the server certificate in UNIX timestamp format. The default value is the time when you call this operation. Unit: seconds.
+   * The issuance time of the server certificate in timestamp format. The default value is the time when you call this operation. Unit: seconds.
    * 
-   * >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
+   * >The **BeforeTime** and **AfterTime** parameters must both be empty or both be set.
    * 
    * @example
    * 1634283958
@@ -119,7 +123,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   csr?: string;
   /**
    * @remarks
-   * The user-defined identifier, which serves as a unique key.
+   * The custom identifier, which is a unique key.
    * 
    * @example
    * ***e6bb538d538c70c01f81hfd3****
@@ -128,7 +132,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   /**
    * @remarks
    * The validity period of the server certificate. Unit: days.
-   * The **Days**, **BeforeTime**, and **AfterTime** parameters cannot all be empty. The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified. The following rules apply:
+   * The **Days**, **BeforeTime**, and **AfterTime** parameters cannot all be empty, and the **BeforeTime** and **AfterTime** parameters must both be empty or both be set. The following describes how to set this parameter:
    * 
    * - If you set the **Days** parameter, you can choose to set or not set the **BeforeTime** and **AfterTime** parameters.
    * 
@@ -136,7 +140,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
    * - If you do not set the **Days** parameter, you must set the **BeforeTime** and **AfterTime** parameters.
    * 
    * >- If you set the **Days**, **BeforeTime**, and **AfterTime** parameters at the same time, the validity period of the server certificate is determined by the value of the **Days** parameter.
-   * - The validity period of the server certificate cannot exceed the validity period of the subordinate CA certificate. You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the validity period of the subordinate CA certificate.
+   * - The validity period of the server certificate cannot exceed the validity period of the sub-CA certificate. You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to view the validity period of the sub-CA certificate.
    * 
    * @example
    * 365
@@ -156,9 +160,8 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
    * @remarks
    * Specifies whether to include the CRL address. Valid values:
    * 
-   * - 0: No. 
-   * 
-   * - 1: Yes.
+   * - 0: no.
+   * - 1: yes.
    * 
    * @example
    * 1
@@ -167,9 +170,9 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to immediately return the digital certificate. Valid values:
-   * - **0**: Does not return the certificate. This is the default value.
-   * - **1**: Returns the certificate.
-   * - **2**: Returns the certificate and its certificate chain.
+   * - **0**: does not return the certificate. This is the default value.
+   * - **1**: returns the certificate.
+   * - **2**: returns the certificate and its certificate chain.
    * 
    * @example
    * 1
@@ -178,7 +181,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the city where the certificate organization is located. Chinese characters, English characters, and other characters are supported.
-   * The default value is the name of the city where the organization of the subordinate CA certificate that issues this certificate is located.
+   * The default value is the name of the city where the organization of the sub-CA certificate that issues this certificate is located.
    * 
    * @example
    * Hangzhou
@@ -210,8 +213,8 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   organizationUnit?: string;
   /**
    * @remarks
-   * The unique identifier of the subordinate CA certificate that issues this certificate.
-   * >You can call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifier of the subordinate CA certificate.
+   * The unique identifier of the sub-CA certificate that issues this certificate.
+   * >You can call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifier of the sub-CA certificate.
    * 
    * This parameter is required.
    * 
@@ -229,8 +232,8 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * <props="china">The name of the province, municipality, or autonomous region where the certificate organization is located. Chinese characters, English characters, and other characters are supported. The default value is the name of the province, municipality, or autonomous region where the organization of the subordinate CA certificate that issues this certificate is located.
-   * <props="intl">The name of the province or state where the certificate organization is located. Chinese characters, English characters, and other characters are supported. The default value is the name of the province or state where the organization of the subordinate CA certificate that issues this certificate is located.
+   * <props="china">The name of the province, municipality, or autonomous region where the certificate organization is located. Chinese characters, English characters, and other characters are supported. The default value is the name of the province, municipality, or autonomous region where the organization of the sub-CA certificate that issues this certificate is located.
+   * <props="intl">The name of the province or state where the certificate organization is located. Chinese characters, English characters, and other characters are supported. The default value is the name of the province or state where the organization of the sub-CA certificate that issues this certificate is located.
    * 
    * @example
    * Zhejiang

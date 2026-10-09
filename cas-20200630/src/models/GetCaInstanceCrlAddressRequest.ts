@@ -13,7 +13,7 @@ export class GetCaInstanceCrlAddressRequest extends $dara.Model {
   caIdentifier?: string;
   /**
    * @remarks
-   * The zone ID of the China CAS instance.
+   * The zone ID of the China Application Security (CAS) instance.
    * 
    * @example
    * 1f047318-0815-XXX-f7ceb76b5c0a

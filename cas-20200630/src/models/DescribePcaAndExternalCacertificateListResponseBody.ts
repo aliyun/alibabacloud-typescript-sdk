@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the certificate.
+   * The certificate expiration time. The value is a timestamp in milliseconds.
    * 
    * @example
-   * 2022-08-23T16:15Z
+   * 1787539908871
    */
   afterDate?: number;
   /**
    * @remarks
-   * The algorithm of the certificate.
+   * The certificate ID.
    * 
    * @example
    * RSA
@@ -21,15 +21,15 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   algorithm?: string;
   /**
    * @remarks
-   * The time at which the certificate is issued.
+   * The certificate issuance time. The value is a timestamp in milliseconds.
    * 
    * @example
-   * 2021-01-01T00:00Z
+   * 1787539908871
    */
   beforeDate?: number;
   /**
    * @remarks
-   * The type of the certificate.
+   * The certificate type.
    * 
    * @example
    * SUB_ROOT
@@ -37,7 +37,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   certificateType?: string;
   /**
    * @remarks
-   * The primary domain name that is bound to the certificate.
+   * The primary domain name bound to the certificate.
    * 
    * @example
    * aliyun.com
@@ -53,7 +53,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   countryCode?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 05e148d8d3ecc9976d9ecd2b2f25****
@@ -61,7 +61,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   identifier?: string;
   /**
    * @remarks
-   * The key size of the certificate. Unit: bits.
+   * The size of the certificate key. Unit: GB.
    * 
    * @example
    * 2048
@@ -69,7 +69,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   keySize?: number;
   /**
    * @remarks
-   * The city in which the organization is located.
+   * The primary domain name bound to the certificate.
    * 
    * @example
    * Hangzhou
@@ -77,7 +77,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   locality?: string;
   /**
    * @remarks
-   * The MD5 value of the certificate.
+   * The MD5 value bound to the certificate.
    * 
    * @example
    * 05e148d8d3ecc9976d9ecd2b2f25****
@@ -85,15 +85,15 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   md5?: string;
   /**
    * @remarks
-   * The organization to which the certificate belongs.
+   * The certificate organization.
    * 
    * @example
-   * 阿里云计算有限公司
+   * Alibaba Cloud Computing Co., Ltd
    */
   organization?: string;
   /**
    * @remarks
-   * The certificate authority (CA) that issued the certificate.
+   * The certification authority that issued the certificate.
    * 
    * @example
    * Security
@@ -101,7 +101,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   organizationUnit?: string;
   /**
    * @remarks
-   * The ID of the parent certificate.
+   * The parent certificate ID.
    * 
    * @example
    * 1a83bcbb89e562885e40aa0108f5****
@@ -109,7 +109,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   parentIdentifier?: string;
   /**
    * @remarks
-   * All domain names that are bound to the certificate.
+   * All domain names bound to the certificate.
    * 
    * @example
    * [ {"Type": 7, "Value": "192.0.XX.XX"}, {"Type": 2, "Value": "www.aliyundoc.com"}, ]
@@ -117,7 +117,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   sans?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * 62b2b943a32d96883a6650e672ea0276****
@@ -125,7 +125,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   serialNumber?: string;
   /**
    * @remarks
-   * The primary domain name that is bound to the certificate.
+   * The primary domain name bound to the certificate.
    * 
    * @example
    * 14dcc8afc7578e1fcec36d658f7e20de18f6957bbac42b373a66bc9de4e9****
@@ -133,7 +133,10 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   sha2?: string;
   /**
    * @remarks
-   * The signature algorithm of the certificate. Valid values:
+   * The certificate signature algorithm. Valid values:
+   * - **prefix**: Prefix match.
+   * - **match**: Exact match.
+   * - **any**: Match all.
    * 
    * @example
    * SHA256WITHRSA
@@ -141,7 +144,12 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   signAlgorithm?: string;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate state. Valid values:
+   * - **success**: Effective.
+   * - **checking**: Checking whether the domain name is on Alibaba Cloud Dynamic Route for CDN.
+   * - **cname_error**: The domain name is not pointed to an Alibaba Cloud Global Accelerator (GA) instance.
+   * - **domain_invalid**: The domain name contains invalid characters.
+   * - **unsupport_wildcard**: Wildcard domain names are not supported.
    * 
    * @example
    * Zhejiang
@@ -149,7 +157,12 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   state?: string;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate status. Valid values:
+   * - **payed**: Paid.
+   * - **checking**: Being reviewed.
+   * - **issued**: Issued.
+   * - **revoked**: Revoked.
+   * - **checked_fail**: Review failed.
    * 
    * @example
    * ISSUE
@@ -157,15 +170,15 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   status?: string;
   /**
    * @remarks
-   * The subject of the certificate.
+   * The certificate subject (owner), represented in DN format.
    * 
    * @example
-   * C=CN,O=阿里云计算有限公司,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
+   * C=CN,O=Alibaba Cloud Computing Co. Ltd.,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
    */
   subjectDN?: string;
   /**
    * @remarks
-   * The content of the X.509 certificate.
+   * The x.509 certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- …… -----END CERTIFICATE-----
@@ -173,7 +186,7 @@ export class DescribePcaAndExternalCACertificateListResponseBodyCertificateList 
   x509Certificate?: string;
   /**
    * @remarks
-   * The validity period of the certificate, in years.
+   * The number of years for which the certificate was purchased.
    * 
    * @example
    * 3
@@ -258,7 +271,7 @@ export class DescribePcaAndExternalCACertificateListResponseBody extends $dara.M
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries in the list.
    * 
    * @example
    * 1
@@ -274,7 +287,7 @@ export class DescribePcaAndExternalCACertificateListResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 50.
+   * The number of records to display per page. Default value: 50.
    * 
    * @example
    * 10
@@ -282,7 +295,7 @@ export class DescribePcaAndExternalCACertificateListResponseBody extends $dara.M
   showSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 10

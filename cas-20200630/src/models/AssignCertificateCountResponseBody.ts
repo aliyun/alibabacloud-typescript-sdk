@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssignCertificateCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of assigned certificates.
+   * The number of allocated certificates.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class AssignCertificateCountResponseBody extends $dara.Model {
   certCount?: number;
   /**
    * @remarks
-   * The number of free certificates for the current year.
+   * The number of free certificates in the current year.
    * 
    * @example
    * 0

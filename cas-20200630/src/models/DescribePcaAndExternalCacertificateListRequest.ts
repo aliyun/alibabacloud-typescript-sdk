@@ -13,7 +13,7 @@ export class DescribePcaAndExternalCACertificateListRequest extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * One or more certificate identifiers, separated by commas.
+   * The certificate identifiers. Separate multiple identifiers with commas (,).
    * 
    * @example
    * aaa,bbb
@@ -21,7 +21,7 @@ export class DescribePcaAndExternalCACertificateListRequest extends $dara.Model 
   identifiers?: string;
   /**
    * @remarks
-   * The keyword for a fuzzy search on the name, domain name, and SAN fields.
+   * The search keyword. Fuzzy search by name, domain name, or SANs is supported.
    * 
    * @example
    * test_name
@@ -29,7 +29,7 @@ export class DescribePcaAndExternalCACertificateListRequest extends $dara.Model 
   keyWord?: string;
   /**
    * @remarks
-   * The number of entries to return per page. The default value is 50.
+   * The number of records to display per page. Default value: 50.
    * 
    * @example
    * 50
