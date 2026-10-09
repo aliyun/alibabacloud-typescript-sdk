@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
   /**
    * @remarks
-   * Document ID
+   * The document ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
   docId?: string;
   /**
    * @remarks
-   * Document year
+   * The document year.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
   docYear?: number;
   /**
    * @remarks
-   * End page number
+   * The end page.
    * 
    * @example
    * 2
@@ -35,7 +35,7 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
   endPage?: number;
   /**
    * @remarks
-   * Document library ID
+   * The document library ID.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
   libraryId?: string;
   /**
    * @remarks
-   * Start page number
+   * The start page.
    * 
    * @example
    * 1
@@ -83,21 +83,21 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
 export class CreateAnnualDocSummaryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * List of years to analyze
+   * The list of analysis years.
    * 
    * This parameter is required.
    */
   anaYears?: number[];
   /**
    * @remarks
-   * List of document information
+   * The list of document information.
    * 
    * This parameter is required.
    */
   docInfos?: CreateAnnualDocSummaryTaskRequestDocInfos[];
   /**
    * @remarks
-   * Enable table extraction. Default is true.
+   * Specifies whether to enable tables. Default value: true.
    * 
    * @example
    * true
@@ -105,18 +105,18 @@ export class CreateAnnualDocSummaryTaskRequest extends $dara.Model {
   enableTable?: boolean;
   /**
    * @remarks
-   * Instruction
+   * The instruction.
    * 
    * @example
-   * 你是资深的证券研究员，对xx年上市公司进行业绩分析。根据参考信息从如下方面详细分析：
-   * 1. 整体业绩变化情况，包括营收，利润等详细指标变化情况
-   * 2. 业绩变化情况具体原因，包括各个业务变化情况
-   * 严格只输出xx年情况。
+   * You are a senior securities researcher conducting performance analysis on listed companies for the year XX. Based on the reference information, provide a detailed analysis covering the following aspects:
+   * 1. Overall performance changes, including detailed metrics such as revenue and profit.
+   * 2. Specific reasons for performance changes, including changes in each business segment.
+   * Strictly output only the information for the year XX
    */
   instruction?: string;
   /**
    * @remarks
-   * Model ID
+   * The model ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAnnualDocSummaryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Processing time in milliseconds
+   * The execution duration.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class CreateAnnualDocSummaryTaskResponseBody extends $dara.Model {
   cost?: number;
   /**
    * @remarks
-   * Response data. This is the task ID.
+   * The response data, which is the task ID.
    * 
    * @example
    * 3284627354
@@ -21,7 +21,7 @@ export class CreateAnnualDocSummaryTaskResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Data type
+   * The data type.
    * 
    * @example
    * null
@@ -29,7 +29,7 @@ export class CreateAnnualDocSummaryTaskResponseBody extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class CreateAnnualDocSummaryTaskResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * ok
@@ -45,7 +45,7 @@ export class CreateAnnualDocSummaryTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 32FFC91D-0A9F-585A-B84F-8A54C5187035
@@ -53,7 +53,7 @@ export class CreateAnnualDocSummaryTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class CreateAnnualDocSummaryTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Timestamp
+   * The timestamp.
    * 
    * @example
    * 2024-01-01 00:00:00

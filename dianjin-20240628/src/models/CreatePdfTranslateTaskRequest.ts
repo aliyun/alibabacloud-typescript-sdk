@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePdfTranslateTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Document ID
+   * The document ID.
    * 
    * This parameter is required.
    * 
@@ -15,17 +15,17 @@ export class CreatePdfTranslateTaskRequest extends $dara.Model {
   docId?: string;
   /**
    * @remarks
-   * Domain knowledge used as reference during translation
+   * The domain knowledge referenced during translation.
    * 
    * @example
-   * 净利润 (Net Profit)
-   * 英文：Net Profit
-   * 中文：净利润（通常指扣除所有费用和税后的利润）
+   * Net Profit
+   * English: Net Profit
+   * Chinese: Net profit (typically refers to the profit after deducting all expenses and taxes)
    */
   knowledge?: string;
   /**
    * @remarks
-   * Document library ID
+   * The document library ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreatePdfTranslateTaskRequest extends $dara.Model {
   libraryId?: string;
   /**
    * @remarks
-   * Model ID
+   * The model ID.
    * 
    * This parameter is required.
    * 
@@ -45,10 +45,10 @@ export class CreatePdfTranslateTaskRequest extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
-   * Target language. Default is Chinese
+   * The target language. Default value: Chinese.
    * 
    * @example
-   * 中文
+   * Chinese
    */
   translateTo?: string;
   static names(): { [key: string]: string } {

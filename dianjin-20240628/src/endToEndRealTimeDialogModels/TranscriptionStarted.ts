@@ -3,19 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TranscriptionStarted extends $dara.Model {
-  sessionId?: string;
   openingRemarks?: string;
+  sessionId?: string;
   static names(): { [key: string]: string } {
     return {
-      sessionId: 'sessionId',
       openingRemarks: 'openingRemarks',
+      sessionId: 'sessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sessionId: 'string',
       openingRemarks: 'string',
+      sessionId: 'string',
     };
   }
 

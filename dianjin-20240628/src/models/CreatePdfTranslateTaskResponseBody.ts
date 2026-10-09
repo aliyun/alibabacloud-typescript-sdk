@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePdfTranslateTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response time in milliseconds
+   * The response duration of the operation.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class CreatePdfTranslateTaskResponseBody extends $dara.Model {
   cost?: number;
   /**
    * @remarks
-   * Response data. Returns the task ID. Use this ID to query the task status and result.
+   * The response data. The task ID is returned. You can use this ID to query the task status and results.
    * 
    * @example
    * 3284627354
@@ -21,7 +21,7 @@ export class CreatePdfTranslateTaskResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Data type
+   * The data type.
    * 
    * @example
    * null
@@ -29,7 +29,7 @@ export class CreatePdfTranslateTaskResponseBody extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class CreatePdfTranslateTaskResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * ok
@@ -45,7 +45,7 @@ export class CreatePdfTranslateTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 5E3FBAF1-17AF-53B7-AF0A-CDCEEB6DE658
@@ -53,7 +53,7 @@ export class CreatePdfTranslateTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class CreatePdfTranslateTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Timestamp
+   * The timestamp.
    * 
    * @example
    * 2024-04-24 11:54:34

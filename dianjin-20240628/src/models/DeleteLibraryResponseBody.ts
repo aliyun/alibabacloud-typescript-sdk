@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLibraryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DeleteLibraryResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * ok
@@ -21,7 +21,7 @@ export class DeleteLibraryResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 30F6AD44-F078-540D-B5A5-1E519C8E9E6D
@@ -29,7 +29,7 @@ export class DeleteLibraryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

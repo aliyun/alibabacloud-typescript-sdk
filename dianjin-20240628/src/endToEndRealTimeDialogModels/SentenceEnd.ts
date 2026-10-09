@@ -3,19 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SentenceEnd extends $dara.Model {
-  messageId?: string;
   data?: number[];
+  messageId?: string;
   static names(): { [key: string]: string } {
     return {
-      messageId: 'messageId',
       data: 'data',
+      messageId: 'messageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      messageId: 'string',
       data: { 'type': 'array', 'itemType': 'number' },
+      messageId: 'string',
     };
   }
 

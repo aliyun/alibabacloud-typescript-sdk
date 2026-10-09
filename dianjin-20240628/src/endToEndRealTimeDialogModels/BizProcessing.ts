@@ -3,46 +3,46 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BizProcessingChoicesDelta extends $dara.Model {
-  recommendIntention?: string;
-  selfDirectedScriptFullContent?: string;
-  hangUpDialog?: boolean;
-  selfDirectedScript?: string;
   analysisProcess?: string;
-  interrupt?: boolean;
-  intentionCode?: string;
   callTime?: string;
-  intentionScript?: string;
+  hangUpDialog?: boolean;
+  intentionCode?: string;
   intentionName?: string;
+  intentionScript?: string;
+  interrupt?: boolean;
+  recommendIntention?: string;
   recommendScript?: string;
+  selfDirectedScript?: string;
+  selfDirectedScriptFullContent?: string;
   static names(): { [key: string]: string } {
     return {
-      recommendIntention: 'recommendIntention',
-      selfDirectedScriptFullContent: 'selfDirectedScriptFullContent',
-      hangUpDialog: 'hangUpDialog',
-      selfDirectedScript: 'selfDirectedScript',
       analysisProcess: 'analysisProcess',
-      interrupt: 'interrupt',
-      intentionCode: 'intentionCode',
       callTime: 'callTime',
-      intentionScript: 'intentionScript',
+      hangUpDialog: 'hangUpDialog',
+      intentionCode: 'intentionCode',
       intentionName: 'intentionName',
+      intentionScript: 'intentionScript',
+      interrupt: 'interrupt',
+      recommendIntention: 'recommendIntention',
       recommendScript: 'recommendScript',
+      selfDirectedScript: 'selfDirectedScript',
+      selfDirectedScriptFullContent: 'selfDirectedScriptFullContent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      recommendIntention: 'string',
-      selfDirectedScriptFullContent: 'string',
-      hangUpDialog: 'boolean',
-      selfDirectedScript: 'string',
       analysisProcess: 'string',
-      interrupt: 'boolean',
-      intentionCode: 'string',
       callTime: 'string',
-      intentionScript: 'string',
+      hangUpDialog: 'boolean',
+      intentionCode: 'string',
       intentionName: 'string',
+      intentionScript: 'string',
+      interrupt: 'boolean',
+      recommendIntention: 'string',
       recommendScript: 'string',
+      selfDirectedScript: 'string',
+      selfDirectedScriptFullContent: 'string',
     };
   }
 
@@ -56,46 +56,46 @@ export class BizProcessingChoicesDelta extends $dara.Model {
 }
 
 export class BizProcessingChoicesMessage extends $dara.Model {
-  recommendIntention?: string;
-  selfDirectedScriptFullContent?: string;
-  hangUpDialog?: boolean;
-  selfDirectedScript?: string;
   analysisProcess?: string;
-  interrupt?: boolean;
-  intentionCode?: string;
   callTime?: string;
-  intentionScript?: string;
+  hangUpDialog?: boolean;
+  intentionCode?: string;
   intentionName?: string;
+  intentionScript?: string;
+  interrupt?: boolean;
+  recommendIntention?: string;
   recommendScript?: string;
+  selfDirectedScript?: string;
+  selfDirectedScriptFullContent?: string;
   static names(): { [key: string]: string } {
     return {
-      recommendIntention: 'recommendIntention',
-      selfDirectedScriptFullContent: 'selfDirectedScriptFullContent',
-      hangUpDialog: 'hangUpDialog',
-      selfDirectedScript: 'selfDirectedScript',
       analysisProcess: 'analysisProcess',
-      interrupt: 'interrupt',
-      intentionCode: 'intentionCode',
       callTime: 'callTime',
-      intentionScript: 'intentionScript',
+      hangUpDialog: 'hangUpDialog',
+      intentionCode: 'intentionCode',
       intentionName: 'intentionName',
+      intentionScript: 'intentionScript',
+      interrupt: 'interrupt',
+      recommendIntention: 'recommendIntention',
       recommendScript: 'recommendScript',
+      selfDirectedScript: 'selfDirectedScript',
+      selfDirectedScriptFullContent: 'selfDirectedScriptFullContent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      recommendIntention: 'string',
-      selfDirectedScriptFullContent: 'string',
-      hangUpDialog: 'boolean',
-      selfDirectedScript: 'string',
       analysisProcess: 'string',
-      interrupt: 'boolean',
-      intentionCode: 'string',
       callTime: 'string',
-      intentionScript: 'string',
+      hangUpDialog: 'boolean',
+      intentionCode: 'string',
       intentionName: 'string',
+      intentionScript: 'string',
+      interrupt: 'boolean',
+      recommendIntention: 'string',
       recommendScript: 'string',
+      selfDirectedScript: 'string',
+      selfDirectedScriptFullContent: 'string',
     };
   }
 
@@ -109,14 +109,14 @@ export class BizProcessingChoicesMessage extends $dara.Model {
 }
 
 export class BizProcessingChoices extends $dara.Model {
-  finishReason?: string;
   delta?: BizProcessingChoicesDelta;
+  finishReason?: string;
   index?: number;
   message?: BizProcessingChoicesMessage;
   static names(): { [key: string]: string } {
     return {
-      finishReason: 'finishReason',
       delta: 'delta',
+      finishReason: 'finishReason',
       index: 'index',
       message: 'message',
     };
@@ -124,8 +124,8 @@ export class BizProcessingChoices extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      finishReason: 'string',
       delta: BizProcessingChoicesDelta,
+      finishReason: 'string',
       index: 'number',
       message: BizProcessingChoicesMessage,
     };
@@ -147,28 +147,28 @@ export class BizProcessingChoices extends $dara.Model {
 }
 
 export class BizProcessing extends $dara.Model {
-  id?: string;
   choices?: BizProcessingChoices[];
   created?: string;
-  success?: boolean;
+  id?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      id: 'id',
       choices: 'choices',
       created: 'created',
-      success: 'success',
+      id: 'id',
       requestId: 'requestId',
+      success: 'success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
       choices: { 'type': 'array', 'itemType': BizProcessingChoices },
       created: 'string',
-      success: 'boolean',
+      id: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

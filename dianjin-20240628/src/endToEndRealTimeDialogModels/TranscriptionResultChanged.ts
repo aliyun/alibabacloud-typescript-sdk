@@ -3,19 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TranscriptionResultChanged extends $dara.Model {
-  messageId?: string;
   content?: string;
+  messageId?: string;
   static names(): { [key: string]: string } {
     return {
-      messageId: 'messageId',
       content: 'content',
+      messageId: 'messageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      messageId: 'string',
       content: 'string',
+      messageId: 'string',
     };
   }
 

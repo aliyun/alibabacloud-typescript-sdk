@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList extends $dara.Model {
   /**
    * @remarks
-   * Start time of this utterance, in milliseconds relative to the start of the conversation
+   * The start time of the utterance, as an offset in milliseconds from the start of the conversation.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueLi
   begin?: number;
   /**
    * @remarks
-   * Start time of this utterance
+   * The start time of the utterance.
    * 
    * @example
    * 2024-09-27 11:23:20
@@ -21,15 +21,15 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueLi
   beginTime?: string;
   /**
    * @remarks
-   * Dialogue content
+   * The specific content of the dialogue.
    * 
    * @example
-   * 您好，我是2001，很高兴为您服务！
+   * Hello, this is 2001. How may I help you?
    */
   content?: string;
   /**
    * @remarks
-   * Unique identifier for the dialogue role
+   * The unique identifier of the dialogue role.
    * 
    * @example
    * null
@@ -37,15 +37,15 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueLi
   customerId?: string;
   /**
    * @remarks
-   * Agent ID
+   * The customer service ID.
    * 
    * @example
-   * 李四
+   * Li Si
    */
   customerServiceId?: string;
   /**
    * @remarks
-   * Agent type
+   * The agent type.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueLi
   customerServiceType?: string;
   /**
    * @remarks
-   * End time of this utterance, in milliseconds relative to the start of the conversation
+   * The end time of the utterance, as an offset in milliseconds from the start of the conversation.
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueLi
   end?: number;
   /**
    * @remarks
-   * Unique identifier for this utterance. Assigned internally
+   * The unique identifier of the utterance. This value is assigned internally.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueLi
   id?: number;
   /**
    * @remarks
-   * Role
+   * The role.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueLi
   role?: string;
   /**
    * @remarks
-   * Content type
+   * The type of the dialogue content.
    * 
    * @example
    * TEXT
@@ -125,7 +125,7 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueLi
 export class GetQualityCheckTaskResultResponseBodyDataConversationList extends $dara.Model {
   /**
    * @remarks
-   * Call type:
+   * The call type.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationList extends $
   callType?: string;
   /**
    * @remarks
-   * Customer ID
+   * The customer ID.
    * 
    * @example
    * 234234
@@ -141,15 +141,15 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationList extends $
   customerId?: string;
   /**
    * @remarks
-   * Customer name
+   * The customer name.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   customerName?: string;
   /**
    * @remarks
-   * Agent ID
+   * The customer service ID.
    * 
    * @example
    * 23984763826
@@ -157,20 +157,20 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationList extends $
   customerServiceId?: string;
   /**
    * @remarks
-   * Agent name
+   * The customer service name.
    * 
    * @example
-   * 李四
+   * Li Si
    */
   customerServiceName?: string;
   /**
    * @remarks
-   * Dialogue details list
+   * The list of dialogue details.
    */
   dialogueList?: GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList[];
   /**
    * @remarks
-   * Conversation time
+   * The conversation time.
    * 
    * @example
    * 2024-09-27 11:23:20
@@ -215,7 +215,7 @@ export class GetQualityCheckTaskResultResponseBodyDataConversationList extends $
 export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue extends $dara.Model {
   /**
    * @remarks
-   * Start time of this utterance, in milliseconds relative to the start of the conversation
+   * The start time of the utterance, as an offset in milliseconds from the start of the conversation.
    * 
    * @example
    * 0
@@ -223,7 +223,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
   begin?: number;
   /**
    * @remarks
-   * Start time of this utterance
+   * The start time of the utterance.
    * 
    * @example
    * 2024-05-23 14:57:50
@@ -231,15 +231,15 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
   beginTime?: string;
   /**
    * @remarks
-   * Dialogue content
+   * The specific content of the dialogue.
    * 
    * @example
-   * 您好，我是2001，很高兴为您服务！
+   * Hello, this is 2001. How may I help you?
    */
   content?: string;
   /**
    * @remarks
-   * Unique identifier for the dialogue role
+   * The unique identifier of the dialogue role.
    * 
    * @example
    * xxx
@@ -247,7 +247,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
   customerId?: string;
   /**
    * @remarks
-   * Agent ID
+   * The customer service ID.
    * 
    * @example
    * 23876432
@@ -255,7 +255,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
   customerServiceId?: string;
   /**
    * @remarks
-   * Agent type
+   * The agent type.
    * 
    * @example
    * 0
@@ -263,7 +263,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
   customerServiceType?: string;
   /**
    * @remarks
-   * End time of this utterance, in milliseconds relative to the start of the conversation
+   * The end time of the utterance, as an offset in milliseconds from the start of the conversation.
    * 
    * @example
    * 0
@@ -271,7 +271,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
   end?: number;
   /**
    * @remarks
-   * Unique identifier for this utterance. Assigned internally
+   * The unique identifier of the sentence, which is assigned internally.
    * 
    * @example
    * 1
@@ -279,7 +279,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
   id?: number;
   /**
    * @remarks
-   * Role
+   * The role.
    * 
    * @example
    * 0
@@ -287,7 +287,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
   role?: string;
   /**
    * @remarks
-   * Content type
+   * The type of the dialogue content.
    * 
    * @example
    * TEXT
@@ -335,7 +335,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
 export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $dara.Model {
   /**
    * @remarks
-   * Rule business type
+   * The business type of the rule.
    * 
    * @example
    * No
@@ -343,15 +343,15 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   bizType?: string;
   /**
    * @remarks
-   * Reason for passing or failing the quality check
+   * The explanation for why the check passed or failed.
    * 
    * @example
-   * 暂无
+   * None
    */
   checkExplanation?: string;
   /**
    * @remarks
-   * Whether the quality check passed
+   * Indicates whether the quality check passed.
    * 
    * @example
    * PASSED
@@ -359,15 +359,15 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   checkPassed?: string;
   /**
    * @remarks
-   * Description of the quality check process
+   * The description of the quality check process.
    * 
    * @example
-   * 暂无
+   * None
    */
   checkProcess?: string;
   /**
    * @remarks
-   * Whether the rule matched
+   * Indicates whether the rule was hit.
    * 
    * @example
    * HIT
@@ -375,7 +375,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   checked?: string;
   /**
    * @remarks
-   * Quality check completion time
+   * The quality check completion time.
    * 
    * @example
    * 2024-05-23 14:57:50
@@ -383,7 +383,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   gmtEnd?: string;
   /**
    * @remarks
-   * Quality check start time
+   * The quality check start time.
    * 
    * @example
    * 2024-05-23 14:57:50
@@ -391,7 +391,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   gmtStart?: string;
   /**
    * @remarks
-   * Internal quality check mode
+   * The internal quality check mode.
    * 
    * @example
    * 0
@@ -399,12 +399,12 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   mode?: string;
   /**
    * @remarks
-   * Original dialogue list
+   * The original dialogue list.
    */
   originDialogue?: GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue[];
   /**
    * @remarks
-   * Quality check group ID
+   * The quality check group ID.
    * 
    * @example
    * warning_customers
@@ -412,15 +412,15 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   qualityGroupId?: string;
   /**
    * @remarks
-   * Quality check item description
+   * The quality check item description.
    * 
    * @example
-   * 进入检测预警客户流程
+   * Enter the early-warning customer detection process
    */
   ruleDescription?: string;
   /**
    * @remarks
-   * Quality check item ID
+   * The quality check item ID.
    * 
    * @example
    * wcm_start
@@ -428,7 +428,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   ruleId?: string;
   /**
    * @remarks
-   * Rule direction. 0: negative, 1: positive
+   * The polarity type of the rule. Valid values: 0: negative. 1: positive.
    * 
    * @example
    * 0
@@ -436,7 +436,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
   ruleType?: string;
   /**
    * @remarks
-   * Child node
+   * The child node.
    */
   subNodeCol?: any[];
   static names(): { [key: string]: string } {
@@ -495,12 +495,12 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
 export class GetQualityCheckTaskResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Original conversation content
+   * The original conversation content.
    */
   conversationList?: GetQualityCheckTaskResultResponseBodyDataConversationList;
   /**
    * @remarks
-   * Task creation time. This is when the task was submitted
+   * The time when the task was created and submitted.
    * 
    * @example
    * 2024-09-27 11:23:20
@@ -508,7 +508,7 @@ export class GetQualityCheckTaskResultResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * System execution end time
+   * The time when the system finished execution.
    * 
    * @example
    * 2024-09-27 11:23:20
@@ -516,7 +516,7 @@ export class GetQualityCheckTaskResultResponseBodyData extends $dara.Model {
   gmtEnd?: string;
   /**
    * @remarks
-   * System execution start time
+   * The time when the system started execution.
    * 
    * @example
    * 2024-09-27 11:23:20
@@ -524,12 +524,12 @@ export class GetQualityCheckTaskResultResponseBodyData extends $dara.Model {
   gmtStart?: string;
   /**
    * @remarks
-   * Quality check result set
+   * The quality check results.
    */
   qualityCheckList?: GetQualityCheckTaskResultResponseBodyDataQualityCheckList[];
   /**
    * @remarks
-   * Task status
+   * The task status.
    * 
    * @example
    * INIT
@@ -537,7 +537,7 @@ export class GetQualityCheckTaskResultResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * @example
    * 1703557101831
@@ -585,7 +585,7 @@ export class GetQualityCheckTaskResultResponseBodyData extends $dara.Model {
 export class GetQualityCheckTaskResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Processing time, in milliseconds
+   * The duration.
    * 
    * @example
    * null
@@ -593,12 +593,12 @@ export class GetQualityCheckTaskResultResponseBody extends $dara.Model {
   cost?: number;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   data?: GetQualityCheckTaskResultResponseBodyData;
   /**
    * @remarks
-   * Data type
+   * The data type.
    * 
    * @example
    * null
@@ -606,7 +606,7 @@ export class GetQualityCheckTaskResultResponseBody extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 0
@@ -614,7 +614,7 @@ export class GetQualityCheckTaskResultResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * ok
@@ -622,7 +622,7 @@ export class GetQualityCheckTaskResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 67C7021A-D268-553D-8C15-A087B9604028
@@ -630,7 +630,7 @@ export class GetQualityCheckTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -638,7 +638,7 @@ export class GetQualityCheckTaskResultResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Timestamp
+   * The timestamp.
    * 
    * @example
    * 2024-01-01 00:00:00
