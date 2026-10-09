@@ -8,6 +8,13 @@ export class HandleUnknownThreatDetectEventRequest extends $dara.Model {
    * The list of event IDs.
    */
   eventIdList?: string[];
+  /**
+   * @remarks
+   * The handling remarks.
+   * 
+   * @example
+   * Confirmed and handled
+   */
   handleRemark?: string;
   /**
    * @remarks

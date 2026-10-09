@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulListPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The common vulnerabilities and exposures (CVE) ID of the vulnerability.
+   * The CVE ID.
    * 
    * @example
    * CVE-2022-42836
@@ -13,7 +13,7 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
   cveId?: string;
   /**
    * @remarks
-   * The extended field for Server Guard.
+   * The Server Guard extended field.
    * 
    * @example
    * {\\"relatedType\\":[{\\"type\\":\\"sys\\"}]}
@@ -21,7 +21,7 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
   extAegis?: string;
   /**
    * @remarks
-   * The primary key ID of the database.
+   * The primary key ID in the database.
    * 
    * @example
    * 40586
@@ -29,11 +29,10 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether the vulnerability was detected based on version comparison. Valid values:
+   * Indicates whether version comparison is supported. Valid values:
    * 
-   * - 1: The vulnerability was detected based on version comparison.
-   * 
-   * - 0: The vulnerability was not detected based on version comparison.
+   * - 1: Yes.
+   * - 0: No.
    * 
    * @example
    * 1
@@ -41,11 +40,10 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
   isAegis?: number;
   /**
    * @remarks
-   * Indicates whether the vulnerability was detected based on proof of concept (POC) verification. Valid values:
+   * Indicates whether proof-of-concept (PoC) verification is supported. Valid values:
    * 
-   * - 1: The vulnerability was detected based on POC verification.
-   * 
-   * - 0: The vulnerability was not detected based on POC verification.
+   * - 1: Yes.
+   * - 0: No.
    * 
    * @example
    * 0
@@ -53,7 +51,7 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
   isSas?: number;
   /**
    * @remarks
-   * The ID of the vulnerability.
+   * The ID.
    * 
    * @example
    * AVD-2018-8218
@@ -61,7 +59,7 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
   otherId?: string;
   /**
    * @remarks
-   * The time when the vulnerability was disclosed.
+   * The release time in UTC (ISO 8601 format), for example, 2022-12-13T08:00Z.
    * 
    * @example
    * 2022-12-13T08:00Z
@@ -72,7 +70,7 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
    * The name of the vulnerability.
    * 
    * @example
-   * Windows 终端远程代码执行漏洞
+   * Windows Terminal remote code execute vulnerability
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -118,7 +116,7 @@ export class DescribeVulListPageResponseBody extends $dara.Model {
   data?: DescribeVulListPageResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4347E985-6E64-467B-96EC-30D4EA9E32FB
@@ -126,7 +124,7 @@ export class DescribeVulListPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100

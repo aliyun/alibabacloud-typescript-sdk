@@ -13,7 +13,7 @@ export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model
   md5?: string;
   /**
    * @remarks
-   * The process path.
+   * The path of the process.
    * 
    * @example
    * /bin/rm
@@ -65,9 +65,16 @@ export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model
 export class AddUnknownThreatDetectProcessRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of specified event IDs.
+   * The list of event IDs.
    */
   eventIdList?: number[];
+  /**
+   * @remarks
+   * The handling remarks.
+   * 
+   * @example
+   * Confirmed
+   */
   handleRemark?: string;
   /**
    * @remarks
@@ -76,7 +83,7 @@ export class AddUnknownThreatDetectProcessRequest extends $dara.Model {
   processList?: AddUnknownThreatDetectProcessRequestProcessList[];
   /**
    * @remarks
-   * The list of asset UUIDs for which processes are to be added.
+   * The list of asset UUIDs for which the process is to be added.
    */
   uuidList?: string[];
   static names(): { [key: string]: string } {

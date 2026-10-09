@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAuthSummaryResponseBodyEdrSummary extends $dara.Model {
+  /**
+   * @remarks
+   * The number of EDR authorizations that have been bound.
+   */
   boundCount?: string;
+  /**
+   * @remarks
+   * The automatic binding status of hybrid-paid EDR instances.
+   */
   hybridPaidAutoBind?: string;
+  /**
+   * @remarks
+   * The automatic binding status of pay-as-you-go EDR instances.
+   */
   postPaidAutoBind?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +46,7 @@ export class GetAuthSummaryResponseBodyEdrSummary extends $dara.Model {
 export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   /**
    * @remarks
-   * The number of cores of assets that are bound with authorization.
+   * The number of cores of assets that are bound to authorizations.
    * 
    * @example
    * 10
@@ -42,7 +54,7 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   bindCoreCount?: number;
   /**
    * @remarks
-   * The number of bound assets.
+   * The number of assets that are bound to authorizations.
    * 
    * @example
    * 10
@@ -50,7 +62,7 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   bindEcsCount?: number;
   /**
    * @remarks
-   * The number of cores of assets bound with pay-as-you-go authorization.
+   * The number of cores of assets that are bound to pay-as-you-go authorizations.
    * 
    * @example
    * 10
@@ -58,7 +70,7 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   postPaidBindCoreCount?: number;
   /**
    * @remarks
-   * The number of assets bound with pay-as-you-go authorization.
+   * The number of assets that are bound to pay-as-you-go authorizations.
    * 
    * @example
    * 10
@@ -82,7 +94,7 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   riskEcsCount?: number;
   /**
    * @remarks
-   * The total number of asset cores.
+   * The total number of cores of all assets.
    * 
    * @example
    * 10
@@ -98,7 +110,7 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   totalEcsCount?: number;
   /**
    * @remarks
-   * The number of cores of unbound assets.
+   * The number of cores of assets that are not bound to authorizations.
    * 
    * @example
    * 10
@@ -106,7 +118,7 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   unBindCoreCount?: number;
   /**
    * @remarks
-   * The number of unbound assets.
+   * The number of assets that are not bound to authorizations.
    * 
    * @example
    * 10
@@ -154,24 +166,36 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
 export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Model {
   /**
    * @remarks
-   * The type of authorization consumed during binding. Valid values:
-   * - **ASSET**: consumes authorized asset count.
-   * - **CORE**: consumes authorized core count.
-   * - **ASSET_AND_CORE**: consumes both authorized asset count and authorized core count.
+   * The type of authorization consumed when binding. Valid values:
+   * - **ASSET**: consumes authorization units.
+   * - **CORE**: consumes authorization cores.
+   * - **ASSET_AND_CORE**: consumes both authorization units and authorization cores.
    * 
    * @example
    * ASSET
    */
   authBindType?: string;
+  /**
+   * @remarks
+   * The number of free authorization cores.
+   */
   freeCoreCount?: number;
+  /**
+   * @remarks
+   * The number of free authorization units.
+   */
   freeEcsCount?: number;
+  /**
+   * @remarks
+   * The type of free quota.
+   */
   freeType?: string;
   /**
    * @remarks
-   * The index of the current edition. A larger value indicates a higher edition. This field is used for sorting. Valid values:
+   * The index of the current edition. A higher value indicates a higher edition. This field is used for sorting. Valid values:
    * - **1**: Free Edition. 
    * - **2**: Anti-virus Edition.    
-   * - **3**: Premium Edition.
+   * - **3**: Advanced Edition.
    * - **4**: Enterprise Edition.
    * - **5**: Ultimate Edition.
    * 
@@ -181,8 +205,8 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
   index?: number;
   /**
    * @remarks
-   * The number of authorized cores that have been used.
-   * > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
+   * The number of authorization cores that have been used.
+   * > This parameter is valid when AuthBindType is set to CORE or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -190,8 +214,8 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
   usedCoreCount?: number;
   /**
    * @remarks
-   * The number of authorized assets that have been used.
-   * > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+   * The number of authorization units that have been used.
+   * > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -199,10 +223,10 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
   usedEcsCount?: number;
   /**
    * @remarks
-   * The pay-as-you-go edition bound to host assets. Valid values:  
+   * The pay-as-you-go edition bound to the host asset. Valid values:  
    * - **1**: Free Edition. 
    * - **3**: Enterprise Edition.
-   * - **5**: Premium Edition.
+   * - **5**: Advanced Edition.
    * - **6**: Anti-virus Edition.    
    * - **7**: Ultimate Edition.
    * 
@@ -248,10 +272,10 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
 export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   /**
    * @remarks
-   * The type of authorization consumed during binding. Valid values:
-   * - ASSET: consumes authorized asset count.
-   * - CORE: consumes authorized core count.
-   * - ASSET_AND_CORE: consumes both authorized asset count and authorized core count.
+   * The type of authorization consumed when binding. Valid values:
+   * - ASSET: consumes authorization units.
+   * - CORE: consumes authorization cores.
+   * - ASSET_AND_CORE: consumes both authorization units and authorization cores.
    * 
    * @example
    * ASSET
@@ -259,10 +283,10 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   authBindType?: string;
   /**
    * @remarks
-   * The index of the current edition. A larger value indicates a higher edition. This field is used for sorting. Valid values:
+   * The index of the current edition. A higher value indicates a higher edition. This field is used for sorting. Valid values:
    * - **1**: Free Edition. 
    * - **2**: Anti-virus Edition.    
-   * - **3**: Premium Edition.
+   * - **3**: Advanced Edition.
    * - **4**: Enterprise Edition.
    * - **5**: Ultimate Edition.
    * 
@@ -272,8 +296,8 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The total number of authorized cores.
-   * > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
+   * The total number of authorization cores.
+   * > This parameter is valid when AuthBindType is set to CORE or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -281,8 +305,8 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   totalCoreAuthCount?: number;
   /**
    * @remarks
-   * The total number of authorized assets for the current edition.
-   * > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+   * The total number of authorization units for the current edition.
+   * > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -290,8 +314,8 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of authorized assets.
-   * > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+   * The total number of authorization units.
+   * > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -299,8 +323,8 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   totalEcsAuthCount?: number;
   /**
    * @remarks
-   * The number of unused authorized assets.
-   * > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+   * The number of unused authorization units.
+   * > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -308,8 +332,8 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   unUsedCount?: number;
   /**
    * @remarks
-   * The number of unused authorized cores.
-   * > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
+   * The number of unused authorization cores.
+   * > This parameter is valid when AuthBindType is set to CORE or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -317,8 +341,8 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   unusedCoreAuthCount?: number;
   /**
    * @remarks
-   * The number of unused authorized assets.
-   * > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+   * The number of unused authorization units.
+   * > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -326,8 +350,8 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   unusedEcsAuthCount?: number;
   /**
    * @remarks
-   * The number of authorized cores that have been used.
-   * > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
+   * The number of authorization cores that have been used.
+   * > This parameter is valid when AuthBindType is set to CORE or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -335,8 +359,8 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   usedCoreCount?: number;
   /**
    * @remarks
-   * The number of authorized assets that have been used.
-   * > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+   * The number of authorization units that have been used.
+   * > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
    * 
    * @example
    * 10
@@ -344,13 +368,13 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   usedEcsCount?: number;
   /**
    * @remarks
-   * The purchased edition of Security Center. Valid values:  
+   * The edition of Security Center that you have purchased. Valid values:  
    * - **1**: Free Edition. 
    * - **3**: Enterprise Edition.
-   * - **5**: Premium Edition.
+   * - **5**: Advanced Edition.
    * - **6**: Anti-virus Edition.    
    * - **7**: Ultimate Edition.   
-   * - **8**: Multi-version.   
+   * - **8**: Multiple editions.   
    * - **10**: Value-added services only.
    * 
    * @example
@@ -401,7 +425,7 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
 export class GetAuthSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether on-demand authorization purchase is allowed during initial purchase. Valid values:
+   * Specifies whether pay-as-you-go authorization is allowed when purchasing. Valid values:
    * - **0**: Not allowed.
    * - **1**: Allowed.
    * 
@@ -411,7 +435,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   allowPartialBuy?: number;
   /**
    * @remarks
-   * Indicates whether upgrading to on-demand authorization purchase is allowed during an upgrade. Valid values:
+   * Specifies whether upgrading to pay-as-you-go authorization is allowed during an upgrade. Valid values:
    * - **0**: Not allowed.
    * - **1**: Allowed.
    * 
@@ -421,7 +445,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   allowUpgradePartialBuy?: number;
   /**
    * @remarks
-   * Indicates whether immediate unbinding of all bound assets is allowed. Valid values:
+   * Specifies whether immediately unbinding all bound assets is allowed. Valid values:
    * - **0**: No.
    * - **1**: Yes.
    * 
@@ -431,7 +455,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   allowUserUnbind?: number;
   /**
    * @remarks
-   * Indicates whether new subscription assets are automatically bound when the host and container security subscription service is activated. Valid values:
+   * Specifies whether newly added assets are automatically bound when you activate the subscription-based host and container security service. Valid values:
    * 
    * - **0**: Disabled.
    * - **1**: Enabled.
@@ -442,7 +466,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   autoBind?: number;
   /**
    * @remarks
-   * Indicates whether cluster nodes require agent version verification. Valid values:
+   * Specifies whether cluster nodes require machine version verification. Valid values:
    * - **0**: Not required.
    * - **1**: Required.
    * 
@@ -452,7 +476,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   clusterNodeCheck?: number;
   /**
    * @remarks
-   * Indicates whether all assets are authorized by default. Valid values:
+   * Specifies whether all assets are authorized by default. Valid values:
    * - **0**: No.
    * - **1**: Yes.
    * 
@@ -460,10 +484,14 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
    * 1
    */
   defaultAuthToAll?: number;
+  /**
+   * @remarks
+   * The EDR authorization summary information.
+   */
   edrSummary?: GetAuthSummaryResponseBodyEdrSummary;
   /**
    * @remarks
-   * Indicates whether a pre-bindingasset configuration exists. Pre-binding refers to the asset binding configuration selected in advance during purchase. Valid values:
+   * Specifies whether a pre-binding asset configuration exists. Pre-binding refers to the asset binding configuration selected in advance at the time of purchase. Valid values:
    * - **0**: Does not exist.
    * - **1**: Exists.
    * 
@@ -473,14 +501,14 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   hasPreBindSetting?: boolean;
   /**
    * @remarks
-   * The highest purchased edition of Security Center. Valid values:
+   * The highest edition of Security Center that you have purchased. Valid values:
    * - **1**: Free Edition.
    * - **3**: Enterprise Edition.
-   * - **5**: Premium Edition.
+   * - **5**: Advanced Edition.
    * - **6**: Anti-virus Edition.
    * - **7**: Ultimate Edition.
    * - **10**: Value-added services only.
-   * > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest sub-edition.
+   * > If you purchased a single edition, this value indicates that edition. If you purchased multiple editions, this value indicates the highest edition among all sub-editions.
    * 
    * @example
    * 1
@@ -488,9 +516,9 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   highestVersion?: number;
   /**
    * @remarks
-   * The binding validity status. Valid values:
-   * - **NORMAL**: Valid.
-   * - **INVALID_NODE_VERSION**: Invalid.
+   * The binding effective status. Valid values:
+   * - **NORMAL**: valid.
+   * - **INVALID_NODE_VERSION**: invalid.
    * 
    * @example
    * INVALID_NODE_VERSION
@@ -498,9 +526,9 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   invalidBindStatus?: string;
   /**
    * @remarks
-   * Indicates whether multiple versions exist. Valid values:
-   * - **0**: No.
-   * - **1**: Yes.
+   * Specifies whether multiple versions exist. Valid values:
+   * - **0**: Does not exist.
+   * - **1**: Exists.
    * 
    * @example
    * 1
@@ -513,10 +541,10 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   machine?: GetAuthSummaryResponseBodyMachine;
   /**
    * @remarks
-   * The protection edition of the host and container security pay-as-you-go service. This is the highest protection edition among all bound hosts. Valid values:  
+   * The highest protection edition among all hosts bound to the pay-as-you-go host and container security service. Valid values:  
    * - **1**: Free Edition. 
    * - **3**: Enterprise Edition.
-   * - **5**: Premium Edition.
+   * - **5**: Advanced Edition.
    * - **6**: Anti-virus Edition.    
    * - **7**: Ultimate Edition.
    * 
@@ -526,7 +554,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   postPaidHighestVersion?: string;
   /**
    * @remarks
-   * Indicates whether automatic binding of new hosts is enabled for the host and container security pay-as-you-go service. Valid values:
+   * Specifies whether newly added hosts are automatically bound to the pay-as-you-go host and container security service. Valid values:
    * - **0**: Disabled.
    * - **1**: Enabled.
    * 
@@ -536,10 +564,10 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   postPaidHostAutoBind?: string;
   /**
    * @remarks
-   * The edition to which new assets are automatically bound for the host and container security pay-as-you-go service. Valid values:
+   * The edition to which newly added assets are automatically bound under the pay-as-you-go host and container security service. Valid values:
    * - **1**: Free Edition. 
    * - **3**: Enterprise Edition.
-   * - **5**: Premium Edition.
+   * - **5**: Advanced Edition.
    * - **6**: Anti-virus Edition.    
    * - **7**: Ultimate Edition.
    * 
@@ -549,12 +577,12 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   postPaidHostAutoBindVersion?: string;
   /**
    * @remarks
-   * The service authorization statistics for the host and container security pay-as-you-go service.
+   * The service authorization statistics for the pay-as-you-go host and container security service.
    */
   postPaidVersionSummary?: GetAuthSummaryResponseBodyPostPaidVersionSummary[];
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot and locate issues.
    * 
    * @example
    * 0B48AB3C-***-B9270EF46038

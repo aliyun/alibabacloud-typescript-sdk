@@ -2994,6 +2994,7 @@ export { ListAgentlessRiskUuidRequest } from './ListAgentlessRiskUuidRequest';
 export { ListAgentlessRiskUuidResponseBody } from './ListAgentlessRiskUuidResponseBody';
 export { ListAgentlessRiskUuidResponse } from './ListAgentlessRiskUuidResponse';
 export { ListAgentlessTaskRequest } from './ListAgentlessTaskRequest';
+export { ListAgentlessTaskShrinkRequest } from './ListAgentlessTaskShrinkRequest';
 export { ListAgentlessTaskResponseBody } from './ListAgentlessTaskResponseBody';
 export { ListAgentlessTaskResponse } from './ListAgentlessTaskResponse';
 export { ListAssetCleanConfigResponseBody } from './ListAssetCleanConfigResponseBody';

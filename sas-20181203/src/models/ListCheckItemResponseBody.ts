@@ -13,7 +13,7 @@ export class ListCheckItemResponseBodyCheckItemsCustomConfigs extends $dara.Mode
   defaultValue?: string;
   /**
    * @remarks
-   * The name of the custom check configuration.
+   * The name of the user-defined check configuration.
    * 
    * @example
    * IPList
@@ -21,10 +21,10 @@ export class ListCheckItemResponseBodyCheckItemsCustomConfigs extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The display name of the custom check configuration.
+   * The display name of the user-defined check configuration.
    * 
    * @example
-   * IP List
+   * IP list
    */
   showName?: string;
   /**
@@ -75,7 +75,7 @@ export class ListCheckItemResponseBodyCheckItemsCustomConfigs extends $dara.Mode
 export class ListCheckItemResponseBodyCheckItemsDescription extends $dara.Model {
   /**
    * @remarks
-   * The type of the check description property. Valid values:
+   * The type of the check description attribute. Valid values:
    * 
    * - **text**: text
    * 
@@ -85,7 +85,7 @@ export class ListCheckItemResponseBodyCheckItemsDescription extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The text content when the description type of the check item risk is text.
+   * The text content when the check item risk description type is text.
    * 
    * @example
    * Checks whether strict access control policies are configured. Requirements: 1. If no blacklists and whitelist are configured, configure a whitelist first. 2. If a blacklist is configured, find the blacklist in the list of access control policies. We recommend that you do not configure an empty blacklist. 3. If a whitelist is configured, find the whitelist in the list of access control policies. We recommend that you do not configure an empty whitelist. Make sure that the whitelist does not contain 0.0.0.0. You can add the following IP addresses to the whitelist: ${IPList}.
@@ -117,7 +117,7 @@ export class ListCheckItemResponseBodyCheckItemsDescription extends $dara.Model 
 export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the check item.
+   * The check item ID.
    * 
    * @example
    * 21
@@ -125,7 +125,7 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The name of the check item.
+   * The check item name.
    * 
    * @example
    * IPv4 Access Control
@@ -143,42 +143,46 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
   checkType?: string;
   /**
    * @remarks
-   * The list of custom check configuration information.
+   * The list of user-defined check configuration information.
    */
   customConfigs?: ListCheckItemResponseBodyCheckItemsCustomConfigs[];
   /**
    * @remarks
-   * The description of the check item.
+   * The check item description.
    */
   description?: ListCheckItemResponseBodyCheckItemsDescription;
   /**
    * @remarks
-   * The estimated number of authorizations that the check item will consume.
+   * The estimated number of licenses that the check item will consume.
    * 
    * @example
    * 30
    */
   estimatedCount?: number;
+  /**
+   * @remarks
+   * The estimated number of instances affected by the check item.
+   */
   instanceEstimatedCount?: number;
   /**
    * @remarks
    * The asset subtype of the cloud service. Valid values:
    * 
-   * - If **InstanceType** is set to **ECS**, valid values of this parameter:
+   * - When **InstanceType** is set to **ECS**, valid values are:
    *     - **INSTANCE**
    *     - **DISK**
    *     - **SECURITY_GROUP**
-   * - If **InstanceType** is set to **ACR**, valid values of this parameter:
+   * - When **InstanceType** is set to **ACR**, valid values are:
    *     - **REPOSITORY_ENTERPRISE**
    *     - **REPOSITORY_PERSON**
-   * - If **InstanceType** is set to **RAM**, valid values of this parameter:
+   * - When **InstanceType** is set to **RAM**, valid values are:
    *     - **ALIAS**
    *     - **USER**
    *     - **POLICY**
    *     - **GROUP**
-   * - If **InstanceType** is set to **WAF**, valid values of this parameter:
+   * - When **InstanceType** is set to **WAF**, valid values are:
    *     - **DOMAIN**
-   * - If **InstanceType** is set to other values, valid values of this parameter:
+   * - When **InstanceType** is set to other values, valid values are:
    *     - **INSTANCE**
    * 
    * @example
@@ -191,21 +195,21 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
    * 
    * - **ECS**: Elastic Compute Service server
    * - **SLB**: load balancing
-   * - **RDS**: ApsaraDB RDS database
-   * - **MONGODB**: ApsaraDB for MongoDB database
-   * - **KVSTORE**: ApsaraDB for Redis database
+   * - **RDS**: RDS database
+   * - **MONGODB**: MongoDB database
+   * - **KVSTORE**: Redis database
    * - **ACR**: ACR
    * - **CSK**: CSK
    * - **VPC**: VPC
    * - **ACTIONTRAIL**: ActionTrail
    * - **CDN**: CDN
-   * - **CAS**: Certificate Management Service (formerly SSL Certificates)
-   * - **RDC**: Apsara Devops
+   * - **CAS**: SSL Certificates Service (formerly Digital Certificate Management Service)
+   * - **RDC**: Yunxiao
    * - **RAM**: RAM
-   * - **DDOS**: distributed deny-of-service
+   * - **DDOS**: distributed denial of service
    * - **WAF**: WAF
-   * - **OSS**: Access Control
-   * - **POLARDB**: POLARDB
+   * - **OSS**: access control
+   * - **POLARDB**: PolarDB
    * - **POSTGRESQL**: PostgreSQL
    * - **MSE**: MSE
    * - **NAS**: NAS
@@ -219,9 +223,9 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
   /**
    * @remarks
    * The risk level of the check item. Valid values:
-   * - **HIGH**: high
-   * - **MEDIUM**: medium
-   * - **LOW**: low
+   * - **HIGH**: high risk
+   * - **MEDIUM**: medium risk
+   * - **LOW**: low risk
    * 
    * @example
    * HIGH
@@ -229,7 +233,7 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The list of section IDs associated with the check item.
+   * The list of sections associated with the check item.
    */
   sectionIds?: number[];
   /**
@@ -237,7 +241,7 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
    * The cloud asset vendor. Valid values:
    * 
    * - **0**: Alibaba Cloud asset
-   * - **1**: asset outside the cloud
+   * - **1**: non-cloud asset
    * - **2**: IDC asset
    * - **3**, **4**, **5**, **7**: other cloud assets
    * - **8**: simple application server
@@ -301,7 +305,7 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
 export class ListCheckItemResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page in a paged query.
+   * The number of entries displayed on the current page in a paged query.
    * 
    * @example
    * 10
@@ -317,7 +321,7 @@ export class ListCheckItemResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -325,7 +329,7 @@ export class ListCheckItemResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 149
@@ -366,12 +370,12 @@ export class ListCheckItemResponseBody extends $dara.Model {
   checkItems?: ListCheckItemResponseBodyCheckItems[];
   /**
    * @remarks
-   * The page information in a paged query.
+   * The page information for a paged query.
    */
   pageInfo?: ListCheckItemResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
+   * The request ID. This is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot and locate issues.
    * 
    * @example
    * 9F4E6157-9600-5588-86B9-38F09067****

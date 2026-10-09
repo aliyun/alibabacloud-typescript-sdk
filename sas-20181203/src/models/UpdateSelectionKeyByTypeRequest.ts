@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSelectionKeyByTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The business type of asset selection. Valid values:
+   * The business type of the asset selection. Valid values:
    * 
-   * - **VIRUS_SCAN_CYCLE_CONFIG**: trojan scan configuration.
-   * - **VIRUS_SCAN_ONCE_TASK**: trojan scan one-time scan.
-   * - **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**: agentless detection alert whitelisting rule.
-   * - **AGENTLESS_VUL_WHITE_LIST_[ID]**: agentless detection vulnerability whitelisting rule.
-   * - **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protection.
+   * - **VIRUS_SCAN_CYCLE_CONFIG**: virus scan cycle configuration
+   * - **VIRUS_SCAN_ONCE_TASK**: one-time virus scan task
+   * - **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**: agentless detection alert whitelist rule
+   * - **AGENTLESS_VUL_WHITE_LIST_[ID]**: agentless detection vulnerability whitelist rule
+   * - **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protection
    * 
    * @example
    * VIRUS_SCAN_CYCLE_CONFIG
@@ -19,15 +19,17 @@ export class UpdateSelectionKeyByTypeRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token used to ensure the idempotence of the request. Use a different token for different requests. Only ASCII characters are supported. The token can be up to 64 characters in length.
+   * 
+   * @example
+   * 02fb3da4-130e-11e9-8e44-0016e04115b
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * - true: performs only a dry run without performing the actual operation.
-   * - false: performs the actual request.
+   * Specifies whether to perform only a dry run for this request. Valid values:
+   * - true: performs only a dry run without executing the actual operation.
+   * - false: executes the request normally.
    * 
    * Default value: false.
    */

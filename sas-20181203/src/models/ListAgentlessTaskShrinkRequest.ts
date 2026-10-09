@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAgentlessTaskRequest extends $dara.Model {
+export class ListAgentlessTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The page number of the current page in a paging query.
@@ -133,7 +133,7 @@ export class ListAgentlessTaskRequest extends $dara.Model {
    * @remarks
    * The list of task IDs to return. You can specify up to 100 IDs. You must specify RootTask and cannot specify this parameter together with TaskId. If RootTask is set to true, root tasks are queried. If RootTask is set to false, subtasks are queried, and cross-root task queries are allowed. If RootTaskId is specified, the intersection is returned.
    */
-  taskIdList?: string[];
+  taskIdListShrink?: string;
   /**
    * @remarks
    * The UUID of the server to query.
@@ -158,7 +158,7 @@ export class ListAgentlessTaskRequest extends $dara.Model {
       targetName: 'TargetName',
       targetType: 'TargetType',
       taskId: 'TaskId',
-      taskIdList: 'TaskIdList',
+      taskIdListShrink: 'TaskIdList',
       uuid: 'Uuid',
     };
   }
@@ -179,15 +179,12 @@ export class ListAgentlessTaskRequest extends $dara.Model {
       targetName: 'string',
       targetType: 'number',
       taskId: 'string',
-      taskIdList: { 'type': 'array', 'itemType': 'string' },
+      taskIdListShrink: 'string',
       uuid: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.taskIdList)) {
-      $dara.Model.validateArray(this.taskIdList);
-    }
     super.validate();
   }
 

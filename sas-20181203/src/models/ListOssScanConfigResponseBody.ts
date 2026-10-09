@@ -5,13 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ListOssScanConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether all prefixes are matched.
+   * Specifies whether all prefixes are matched.
    * 
    * @example
    * true
    */
   allKeyPrefix?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to automatically add new buckets to the scan policy. Valid values: 0 (disabled) and 1 (enabled).
+   * 
+   * @example
+   * 0
+   */
   autoAdd?: number;
+  /**
+   * @remarks
+   * The configuration name used when automatically adding buckets.
+   */
   autoAddConfigName?: string;
   /**
    * @remarks
@@ -28,7 +39,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   bucketNameList?: string[];
   /**
    * @remarks
-   * The maximum number of files to decompress. The minimum value is 1 and the maximum value is 1000. When the maximum number of decompressed files is exceeded, the decompression operation ends immediately. The scan of already decompressed files is not affected.
+   * The maximum number of files to extract. The minimum value is 1 and the maximum value is 1000. If the maximum number of files is exceeded, the decompression operation stops immediately. Files that have already been extracted are still scanned.
    * 
    * @example
    * 100
@@ -36,7 +47,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   decompressMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of decompression layers when nested compressed files exist. The minimum value is 1 and the maximum value is 5. When the maximum decompression layer is exceeded, the decompression operation ends immediately. The scan of already decompressed files is not affected.
+   * The maximum number of decompression layers for nested compressed archives. The minimum value is 1 and the maximum value is 5. If the maximum number of layers is exceeded, the decompression operation stops immediately. Files that have already been extracted are still scanned.
    * 
    * @example
    * 1
@@ -49,7 +60,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   decryptionList?: string[];
   /**
    * @remarks
-   * Indicates whether the configuration is enabled. Valid values:
+   * Specifies whether the configuration is enabled. Valid values:
    * - **1**: Enabled.
    * - **0**: Disabled.
    * 
@@ -59,7 +70,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The scan end time, in the HH:mm:ss format.
+   * The detection end time in HH:mm:ss format.
    * 
    * @example
    * 06:00:00
@@ -85,7 +96,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   keySuffixList?: string[];
   /**
    * @remarks
-   * Scans files whose last modification time is after the specified timestamp. Unit: milliseconds.
+   * The timestamp in milliseconds. Only files whose last modification time is after this timestamp are scanned.
    * 
    * @example
    * 1724301769834
@@ -93,7 +104,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   lastModifiedStartTime?: number;
   /**
    * @remarks
-   * The timestamp of the last update.
+   * The last update timestamp.
    * 
    * @example
    * 1698388233883
@@ -109,7 +120,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether real-time incremental scan is enabled. When this parameter is set to true, the parameters ScanDayList, StartTime, and EndTime do not take effect.
+   * Specifies whether real-time incremental detection is enabled. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
    * 
    * @example
    * true
@@ -117,7 +128,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   realTimeIncr?: boolean;
   /**
    * @remarks
-   * The scan days. The number represents the day of the week.
+   * The scan days. Each number represents a day of the week.
    */
   scanDayList?: number[];
   /**
@@ -132,7 +143,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The scan start time, in the HH:mm:ss format.
+   * The detection start time in HH:mm:ss format.
    * 
    * @example
    * 00:00:00
@@ -215,7 +226,7 @@ export class ListOssScanConfigResponseBodyData extends $dara.Model {
 export class ListOssScanConfigResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The current page number for paged queries.
    * 
    * @example
    * 1
@@ -223,7 +234,7 @@ export class ListOssScanConfigResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query.
+   * The maximum number of entries displayed per page for paged queries.
    * 
    * @example
    * 20
@@ -275,7 +286,7 @@ export class ListOssScanConfigResponseBody extends $dara.Model {
   pageInfo?: ListOssScanConfigResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+   * The request ID. It is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
    * 
    * @example
    * E10BAF1C-A6C5-51E2-866C-76D5922E****

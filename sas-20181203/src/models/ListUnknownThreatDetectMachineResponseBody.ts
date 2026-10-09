@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of days the policy has been in effect.
+   * 
+   * @example
+   * 0
+   */
   effectDays?: number;
   /**
    * @remarks
@@ -28,11 +35,28 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
    * 10.42.XX.XX
    */
   intranetIp?: string;
+  /**
+   * @remarks
+   * The number of malicious processes.
+   * 
+   * @example
+   * 0
+   */
   maliciousProcessCount?: number;
   /**
+   * @remarks
+   * The number of normal events.
+   * 
+   * @example
+   * 0
+   * 
    * @deprecated
    */
   normalEventCount?: number;
+  /**
+   * @remarks
+   * The plug-in status.
+   */
   pluginStatus?: string;
   /**
    * @remarks
@@ -42,14 +66,21 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
    * 1
    */
   processCount?: number;
+  /**
+   * @remarks
+   * The number of recent deviation behaviors.
+   * 
+   * @example
+   * 0
+   */
   recentDeviationBehaviorCount?: number;
   /**
    * @remarks
-   * The running status of the machine. Valid values:
+   * The machine running status. Valid values:
    * 
-   * - **monitoring**: Warning.
-   * - **blocking**: Blocking.
-   * - **studying**: Learning.
+   * - **monitoring**: warning in progress
+   * - **blocking**: under control
+   * - **studying**: learning in progress
    * 
    * @example
    * studying
@@ -66,6 +97,13 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
    * hash
    */
   studyMode?: string;
+  /**
+   * @remarks
+   * The number of remaining learning days.
+   * 
+   * @example
+   * 0
+   */
   studyRemainDays?: number;
   /**
    * @remarks
@@ -133,7 +171,7 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
 export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page when using paging.
+   * The number of entries displayed on the current page in a paged query.
    * 
    * @example
    * 10
@@ -141,7 +179,7 @@ export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The page number of the current page when using paging.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -149,7 +187,7 @@ export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries per page when using paging.
+   * The maximum number of entries to display per page in a paged query.
    * 
    * @example
    * 20

@@ -5,20 +5,36 @@ import * as $dara from '@darabonba/typescript';
 export class DataValue extends $dara.Model {
   /**
    * @remarks
-   * The number of risky hosts.
+   * The total number of baseline check items.
    * 
    * @example
    * 1
    */
-  riskMachine?: number;
+  baselineCheckCount?: number;
   /**
    * @remarks
-   * The number of scanned hosts.
+   * The total number of system vulnerability items.
    * 
    * @example
    * 1
    */
-  scanMachine?: number;
+  cveVulCount?: number;
+  /**
+   * @remarks
+   * The estimated detection volume in GB. This field is not currently returned by the batch statistics operation.
+   * 
+   * @example
+   * 10
+   */
+  estimateUsedSize?: number;
+  /**
+   * @remarks
+   * The timestamp of the last scan time, in milliseconds.
+   * 
+   * @example
+   * 1682577532318
+   */
+  lastTaskTime?: number;
   /**
    * @remarks
    * The total number of malicious sample files.
@@ -29,28 +45,12 @@ export class DataValue extends $dara.Model {
   maliciousFile?: number;
   /**
    * @remarks
-   * The number of vulnerability risks.
+   * The number of vulnerable servers.
    * 
    * @example
    * 1
    */
-  vulnerability?: number;
-  /**
-   * @remarks
-   * The timestamp of the last scan time. Unit: milliseconds.
-   * 
-   * @example
-   * 1682577532318
-   */
-  lastTaskTime?: number;
-  /**
-   * @remarks
-   * The total number of baseline check items.
-   * 
-   * @example
-   * 1
-   */
-  baselineCheckCount?: number;
+  riskMachine?: number;
   /**
    * @remarks
    * The total number of application vulnerabilities.
@@ -61,20 +61,12 @@ export class DataValue extends $dara.Model {
   scaVulCount?: number;
   /**
    * @remarks
-   * The total number of system vulnerabilities.
+   * The number of scanned servers.
    * 
    * @example
    * 1
    */
-  cveVulCount?: number;
-  /**
-   * @remarks
-   * The total number of Windows system vulnerabilities.
-   * 
-   * @example
-   * 1
-   */
-  sysVulCount?: number;
+  scanMachine?: number;
   /**
    * @remarks
    * The total number of sensitive files.
@@ -85,12 +77,20 @@ export class DataValue extends $dara.Model {
   sensitiveFileCount?: number;
   /**
    * @remarks
-   * The estimated detection volume. Unit: GB. This field is not returned by the batch statistics operation.
+   * The total number of Windows system vulnerability items.
    * 
    * @example
-   * 10
+   * 1
    */
-  estimateUsedSize?: number;
+  sysVulCount?: number;
+  /**
+   * @remarks
+   * The number of vulnerability risks.
+   * 
+   * @example
+   * 1
+   */
+  vulnerability?: number;
   /**
    * @remarks
    * The number of Linux software vulnerabilities.
@@ -173,17 +173,17 @@ export class DataValue extends $dara.Model {
   sysAsapNum?: number;
   static names(): { [key: string]: string } {
     return {
-      riskMachine: 'RiskMachine',
-      scanMachine: 'ScanMachine',
-      maliciousFile: 'MaliciousFile',
-      vulnerability: 'Vulnerability',
-      lastTaskTime: 'LastTaskTime',
       baselineCheckCount: 'BaselineCheckCount',
-      scaVulCount: 'ScaVulCount',
       cveVulCount: 'CveVulCount',
-      sysVulCount: 'SysVulCount',
-      sensitiveFileCount: 'SensitiveFileCount',
       estimateUsedSize: 'EstimateUsedSize',
+      lastTaskTime: 'LastTaskTime',
+      maliciousFile: 'MaliciousFile',
+      riskMachine: 'RiskMachine',
+      scaVulCount: 'ScaVulCount',
+      scanMachine: 'ScanMachine',
+      sensitiveFileCount: 'SensitiveFileCount',
+      sysVulCount: 'SysVulCount',
+      vulnerability: 'Vulnerability',
       cveNum: 'CveNum',
       emgNum: 'EmgNum',
       sysNum: 'SysNum',
@@ -199,17 +199,17 @@ export class DataValue extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      riskMachine: 'number',
-      scanMachine: 'number',
-      maliciousFile: 'number',
-      vulnerability: 'number',
-      lastTaskTime: 'number',
       baselineCheckCount: 'number',
-      scaVulCount: 'number',
       cveVulCount: 'number',
-      sysVulCount: 'number',
-      sensitiveFileCount: 'number',
       estimateUsedSize: 'number',
+      lastTaskTime: 'number',
+      maliciousFile: 'number',
+      riskMachine: 'number',
+      scaVulCount: 'number',
+      scanMachine: 'number',
+      sensitiveFileCount: 'number',
+      sysVulCount: 'number',
+      vulnerability: 'number',
       cveNum: 'number',
       emgNum: 'number',
       sysNum: 'number',

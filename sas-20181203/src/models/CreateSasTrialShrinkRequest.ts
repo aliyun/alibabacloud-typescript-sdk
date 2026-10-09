@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSasTrialShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token used to ensure request idempotence. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. true: performs only a dry run without performing the actual request. false: performs the actual request. Default value: false.
+   * Specifies whether to perform only a dry run for this request. Valid values: true: performs only a dry run without executing the actual operation. false: executes the request normally. Default value: false.
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether the request is from the ECS console. Valid values:
-   * - **true**
-   * - **false**
+   * Specifies whether the request originates from the ECS console. Valid values:
+   * - **true**: Yes
+   * - **false**: No
    * 
    * @example
    * true
@@ -25,9 +25,9 @@ export class CreateSasTrialShrinkRequest extends $dara.Model {
   fromEcs?: boolean;
   /**
    * @remarks
-   * The language of the request and response. Valid values:
-   * - **zh**: Chinese.
-   * - **en**: English.
+   * The language of the request and response messages. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -35,18 +35,17 @@ export class CreateSasTrialShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The reason for applying for the trial. This parameter is required for a second trial.
+   * The reason for applying for a trial. A reason is required for a second trial.
    */
   requestFormShrink?: string;
   /**
    * @remarks
    * The trial type. Valid values:
-   * - **0**: Trial is not allowed.
-   * - **1**: First trial.
+   * - **0**: Trial not allowed.
+   * - **1**: First-time trial.
    * - **2**: Second trial.
    * 
-   * 
-   * > Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter. The trial can be started only when the value is not 0.
+   * > Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to retrieve this parameter. You can start a trial only when this value is not 0.
    * 
    * @example
    * 1
@@ -55,10 +54,10 @@ export class CreateSasTrialShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The trial edition. Valid values:
-   * - **3**: Enterprise Edition.
-   * - **7**: Ultimate Edition.
+   * - **3**: Enterprise Edition
+   * - **7**: Ultimate Edition
    * 
-   * >Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
+   * >Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to retrieve this parameter.
    * 
    * @example
    * 7

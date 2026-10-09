@@ -6,6 +6,9 @@ export class ModifyVulConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 02fb3da4-130e-11e9-8e44-0016e04115b
    */
   clientToken?: string;
   /**

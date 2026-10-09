@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessAssetRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number in a paginated query.
+   * The page number in a paged query.
    * 
    * @example
    * 1
@@ -13,11 +13,11 @@ export class ListAgentlessAssetRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The type of the cloud disk. Values:
+   * The type of the cloud disk. Valid values:
    * 
-   * - **system**: System disk
+   * - **system**: system cloud disk
    * 
-   * - **data**: Data disk
+   * - **data**: data cloud disk
    * 
    * @example
    * data
@@ -31,6 +31,10 @@ export class ListAgentlessAssetRequest extends $dara.Model {
    * s-bp1g6wxdwps7s9dz****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of asset instance IDs to query.
+   */
   instanceIds?: string[];
   /**
    * @remarks
@@ -42,7 +46,7 @@ export class ListAgentlessAssetRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The maximum number of items to return per page in a paginated query.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -66,11 +70,11 @@ export class ListAgentlessAssetRequest extends $dara.Model {
   scanRegionId?: string;
   /**
    * @remarks
-   * The type of the detection target. Values:
+   * The object type of the detection target. Valid values:
    * 
-   * - **3**: User snapshot
+   * - **3**: user snapshot
    * 
-   * - **4**: User-defined image
+   * - **4**: user-defined image
    * 
    * @example
    * 1

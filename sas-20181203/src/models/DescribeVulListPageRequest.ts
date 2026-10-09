@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulListPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeVulListPageRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
+   * The CVE ID of the vulnerability.
    * 
    * @example
    * CVE-2022-44702
@@ -21,7 +21,7 @@ export class DescribeVulListPageRequest extends $dara.Model {
   cveId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to display per page in a paged query.
    * 
    * @example
    * 10
@@ -29,11 +29,9 @@ export class DescribeVulListPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether the application protection feature is supported. Valid values:
-   * 
-   * - **0**: no.
-   * 
-   * - **1**: yes.
+   * Specifies whether runtime application self-protection (RASP) is supported. Valid values:
+   * - **0**: Not supported.
+   * - **1**: Supported.
    * 
    * @example
    * 0
@@ -44,18 +42,16 @@ export class DescribeVulListPageRequest extends $dara.Model {
    * The name of the vulnerability.
    * 
    * @example
-   * 远程代码执行漏洞
+   * Remote code execute vulnerability
    */
   vulNameLike?: string;
   /**
    * @remarks
-   * The type of the vulnerabilities. Valid values:
+   * The type of vulnerability to query. Valid values:
    * 
-   * - **cve**: Linux software vulnerability.
-   * 
-   * - **sys**: Windows system vulnerability.
-   * 
-   * - **app**: Application vulnerability that is detected by using web scanner.
+   * - cve: Linux software vulnerability
+   * - sys: Windows system vulnerability
+   * - app: application vulnerability
    * 
    * @example
    * cve

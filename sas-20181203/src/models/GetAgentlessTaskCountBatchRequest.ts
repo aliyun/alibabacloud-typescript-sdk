@@ -21,7 +21,7 @@ export class GetAgentlessTaskCountBatchRequest extends $dara.Model {
   targetType?: number;
   /**
    * @remarks
-   * The list of resource UUIDs to query. The list can contain 1 to 100 elements.
+   * The list of UUIDs of the resources to query. You can specify 1 to 100 UUIDs.
    * 
    * This parameter is required.
    * 

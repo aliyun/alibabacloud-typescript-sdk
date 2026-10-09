@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStrategyResponseBodyStrategiesConfigTargets extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the baseline check policy is applied to the asset group. Valid values:
+   * Specifies whether the policy applies to the asset group. Valid values:
    * 
-   * *   **add**: The baseline check policy is applied to the asset group.
-   * *   **del**: the baseline check policy is not applied to the asset group.
+   * - **add**: the policy applies to the asset group.
+   * - **del**: the policy does not apply to the asset group.
    * 
    * @example
    * add
@@ -16,7 +16,7 @@ export class DescribeStrategyResponseBodyStrategiesConfigTargets extends $dara.M
   flag?: string;
   /**
    * @remarks
-   * The asset group ID or UUID of the asset to which the baseline check policy is applied.
+   * The group ID or UUID of the asset to which the policy applies.
    * 
    * @example
    * 10099713
@@ -24,10 +24,10 @@ export class DescribeStrategyResponseBodyStrategiesConfigTargets extends $dara.M
   target?: string;
   /**
    * @remarks
-   * The condition by which the baseline check policy is applied to the asset. Valid values:
+   * The method used to add the assets to which the policy applies. Valid values:
    * 
-   * *   **groupId**: the ID of the asset group
-   * *   **uuid**: the UUID of the asset
+   * - **groupId**: assets are added by group.
+   * - **uuid**: assets are added individually.
    * 
    * @example
    * groupId
@@ -61,15 +61,15 @@ export class DescribeStrategyResponseBodyStrategiesConfigTargets extends $dara.M
 export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   /**
    * @remarks
-   * The details of the assets to which the baseline check policy is applied.
+   * The collection of information about the assets to which the policy applies.
    */
   configTargets?: DescribeStrategyResponseBodyStrategiesConfigTargets[];
   /**
    * @remarks
-   * The type of the baseline check policy. Valid values:
+   * The type of the policy. Valid values:
    * 
-   * *   **common**
-   * *   **custom**
+   * - **common**: standard policy
+   * - **custom**: custom policy
    * 
    * @example
    * custom
@@ -77,12 +77,12 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   customType?: string;
   /**
    * @remarks
-   * The cycle of the baseline check. Valid values:
+   * The interval of the baseline check. Valid values:
    * 
-   * *   **1**: every 2 days
-   * *   **3**: every 4 days
-   * *   **7**: every 8 days
-   * *   30: every 31 days
+   * - **1**: every 1 day
+   * - **3**: every 3 days
+   * - **7**: every 7 days
+   * - **30**: every 30 days
    * 
    * @example
    * 1
@@ -90,12 +90,12 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   cycleDays?: number;
   /**
    * @remarks
-   * The time when the baseline check starts. Valid values:
+   * The start time of the baseline check. Valid values:
    * 
-   * *   **0**: The baseline check starts within the time range from 00:00 to 06:00.
-   * *   **6**: The baseline check starts within the time range from 06:00 to 12:00.
-   * *   **12**: The baseline check starts within the time range from 12:00 to 18:00.
-   * *   **18**: The baseline check starts within the time range from 18:00 to 24:00.
+   * - **0**: the baseline check starts between 00:00 and 06:00.
+   * - **6**: the baseline check starts between 06:00 and 12:00.
+   * - **12**: the baseline check starts between 12:00 and 18:00.
+   * - **18**: the baseline check starts between 18:00 and 24:00.
    * 
    * @example
    * 0
@@ -103,7 +103,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   cycleStartTime?: number;
   /**
    * @remarks
-   * The number of the assets to which the baseline check policy is applied.
+   * The number of assets to which the policy applies.
    * 
    * @example
    * 50
@@ -111,7 +111,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   ecsCount?: number;
   /**
    * @remarks
-   * The end time of the baseline check policy.
+   * The end time of the baseline check policy execution. The value is in the HH:mm:ss format.
    * 
    * @example
    * 03:00:00
@@ -119,10 +119,10 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The status of the baseline check policy. Valid values:
+   * The execution status of the baseline check policy. Valid values:
    * 
-   * *   **1**: not executed
-   * *   **2**: executing
+   * - **1**: not executed
+   * - **2**: executing
    * 
    * @example
    * 1
@@ -130,11 +130,10 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   execStatus?: number;
   /**
    * @remarks
-   * The triggering method of baseline scanning. Value:
+   * The trigger method of the baseline scan. Valid values:
    * 
-   * - **Schedule** : Periodic configuration of task triggers
-   * 
-   * - **Manual** : Manually triggered
+   * - **Schedule**: triggered by a scheduled task.
+   * - **Manual**: triggered manually.
    * 
    * @example
    * Manual
@@ -142,7 +141,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   executionType?: string;
   /**
    * @remarks
-   * The ID of the baseline check policy.
+   * The ID of the policy.
    * 
    * @example
    * 8164248
@@ -150,7 +149,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the baseline check policy.
+   * The name of the policy.
    * 
    * @example
    * text2
@@ -158,7 +157,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The proportion of risky baselines in the baseline check result.
+   * The proportion of baselines with risks detected during the execution of the baseline check policy.
    * 
    * @example
    * 0
@@ -166,7 +165,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   passRate?: number;
   /**
    * @remarks
-   * The progress of the baseline check by using the baseline. This parameter is returned only if the value of the ExecStatus parameter is 2.
+   * The progress of the baseline check. This parameter is returned only for baselines where ExecStatus is set to 2.
    * 
    * @example
    * 50%
@@ -174,7 +173,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   percent?: string;
   /**
    * @remarks
-   * The number of the assets on which the baseline check is complete.
+   * The number of assets on which the baseline check is complete.
    * 
    * @example
    * 20
@@ -182,7 +181,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   processRate?: number;
   /**
    * @remarks
-   * The number of baseline check items in the baseline check policy.
+   * The number of baseline check items included in the policy.
    * 
    * @example
    * 23
@@ -190,7 +189,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   riskCount?: number;
   /**
    * @remarks
-   * The start time of the baseline check policy.
+   * The start time of the baseline check policy execution. The value is in the HH:mm:ss format.
    * 
    * @example
    * 00:00:00
@@ -198,10 +197,10 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The source type of the baseline check policy. Valid values:
+   * The source type of the policy. Valid values:
    * 
-   * *   **1**: indicates a built-in policy provided and performed by Security Center by default.
-   * *   **2**: indicates a user-defined policy. It can be a standard or custom baseline check policy.
+   * - **1**: a built-in policy, which is the default baseline check policy that Security Center executes.
+   * - **2**: a user-added policy, including standard policies and custom policies created by users.
    * 
    * @example
    * 2
@@ -209,7 +208,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The time when the baseline check policy was last modified.
+   * The last modification time of the baseline check policy. The value is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-01-07 10:46:43
@@ -274,7 +273,7 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
 export class DescribeStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot and locate issues.
    * 
    * @example
    * 75C127E6-76CD-59A7-B6E4-1CBBDC98F2EB
@@ -282,7 +281,7 @@ export class DescribeStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the baseline check policies.
+   * The collection of detailed information about the policies.
    */
   strategies?: DescribeStrategyResponseBodyStrategies[];
   static names(): { [key: string]: string } {

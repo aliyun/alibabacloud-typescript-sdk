@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOssScanConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The current page number for paged queries.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListOssScanConfigRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The maximum number of entries to display on each page for paged queries.
    * 
    * @example
    * 20

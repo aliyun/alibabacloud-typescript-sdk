@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUniRecoverableListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**, which indicates the first page.
+   * The number of the page from which query results start to be displayed. Default value: **1**. This value indicates that the results start from page 1.
    * 
    * @example
    * 1
@@ -21,8 +21,8 @@ export class DescribeUniRecoverableListRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The maximum number of entries per page when using paging. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by default.
-   * > Do not leave PageSize empty.
+   * The maximum number of entries to display per page in a paged query. The default number of entries per page is 20. If PageSize is left empty, 20 entries are returned by default.
+   * > Set PageSize to a non-empty value.
    * 
    * @example
    * 20
@@ -31,7 +31,7 @@ export class DescribeUniRecoverableListRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the anti-ransomware backup policy for the database.
-   * >You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to obtain this parameter.
+   * >Call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

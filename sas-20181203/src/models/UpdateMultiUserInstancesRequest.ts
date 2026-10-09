@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMultiUserInstancesRequestMemberInstancesVersionSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of authorized cores assigned to the member.
+   * The number of core authorizations allocated to the member.
    * 
    * @example
    * 6
@@ -13,7 +13,7 @@ export class UpdateMultiUserInstancesRequestMemberInstancesVersionSummary extend
   coreCount?: number;
   /**
    * @remarks
-   * The number of authorized instances assigned to the member.
+   * The number of instance authorizations allocated to the member.
    * 
    * @example
    * 3
@@ -22,13 +22,13 @@ export class UpdateMultiUserInstancesRequestMemberInstancesVersionSummary extend
   /**
    * @remarks
    * The Security Center edition of the member accounts. Valid values:  
-   * - **1**: Free Edition 
-   * - **3**: Enterprise Edition
-   * - **5**: Premium Edition
-   * - **6**: Anti-virus Edition    
-   * - **7**: Ultimate Edition   
-   * - **8**: multi-edition   
-   * - **10**: value-added services only
+   * - **1**: Free Edition. 
+   * - **3**: Enterprise Edition.
+   * - **5**: Premium Edition.
+   * - **6**: Anti-virus Edition.    
+   * - **7**: Ultimate Edition.   
+   * - **8**: multi-edition.   
+   * - **10**: value-added services only.
    * 
    * @example
    * 5
@@ -70,7 +70,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   aliUid?: number;
   /**
    * @remarks
-   * The anti-ransomware capacity assigned to the member. Unit: GB.
+   * The anti-ransomware capacity allocated to the member, in GB.
    * 
    * @example
    * 10
@@ -78,8 +78,8 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   antiRansomwareCapacity?: number;
   /**
    * @remarks
-   * The billing type. Valid values:
-   * * **PREPAID**: upfront.
+   * The billing method. Valid values:
+   * * **PREPAID**: subscription.
    * * **POSTPAID** (default): pay-as-you-go.
    * 
    * @example
@@ -88,16 +88,20 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   chargeType?: string;
   /**
    * @remarks
-   * The number of cloud platform configuration check scans assigned to the member. Unit: scans per month.
+   * The number of Cloud Security Posture Management (CSPM) scans allocated to the member. Unit: scans per month.
    * 
    * @example
    * 0
    */
   cspmCapacity?: number;
+  /**
+   * @remarks
+   * The number of platform configuration check instance authorizations allocated to the member accounts.
+   */
   cspmInstanceCapacity?: number;
   /**
    * @remarks
-   * The number of honeypot quotas assigned to the member.
+   * The number of cloud honeypot authorizations allocated to the member.
    * 
    * @example
    * 0
@@ -105,7 +109,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   honeypotCapacity?: number;
   /**
    * @remarks
-   * The number of image scan quotas assigned to the member.
+   * The number of image scan authorizations allocated to the member.
    * 
    * @example
    * 1
@@ -113,7 +117,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   imageScanCapacity?: number;
   /**
    * @remarks
-   * The Security Center instance ID purchased by the member accounts.
+   * The instance ID of the Security Center instance purchased by the member accounts.
    * 
    * @example
    * sas-p0anpb26my69
@@ -122,9 +126,9 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   /**
    * @remarks
    * The operation type. Valid values:  
-   * - **ADD**: increase 
-   * - **CHANGE**: update
-   * - **DEL**: delete
+   * - **ADD**: adds an authorization. 
+   * - **CHANGE**: modifies an authorization.
+   * - **DEL**: deletes an authorization.
    * 
    * @example
    * CHANGE
@@ -132,7 +136,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   optType?: string;
   /**
    * @remarks
-   * The number of application protection quotas assigned to the member. Unit: quotas per month.
+   * The number of application protection authorizations allocated to the member. Unit: instances per month.
    * 
    * @example
    * 0
@@ -140,7 +144,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   raspCapacity?: number;
   /**
    * @remarks
-   * The number of malicious file detection SDK quotas assigned to the member.
+   * The number of malicious file detection SDK authorizations allocated to the member.
    * 
    * @example
    * 10
@@ -148,7 +152,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   sdkCapacity?: number;
   /**
    * @remarks
-   * The log storage capacity assigned to the member. Unit: GB.
+   * The log storage capacity allocated to the member, in GB.
    * 
    * @example
    * 10
@@ -166,7 +170,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   status?: number;
   /**
    * @remarks
-   * The threat analysis capacity assigned to the member. Unit: GB.
+   * The threat analysis capacity allocated to the member. Unit: GB.
    * 
    * @example
    * 10
@@ -174,7 +178,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   threatAnalysisCapacity?: number;
   /**
    * @remarks
-   * The log ingestion traffic for threat detection and response assigned to the member. Unit: GB/day.
+   * The log ingestion traffic for threat detection and response allocated to the member. Unit: GB/day.
    * 
    * @example
    * 0
@@ -183,11 +187,11 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   /**
    * @remarks
    * The Security Center edition to bind. Valid values:  
-   * - **1**: Free Edition 
-   * - **3**: Enterprise Edition
-   * - **5**: Advanced Edition
-   * - **6**: Anti-virus Edition    
-   * - **7**: Ultimate Edition
+   * - **1**: Free Edition. 
+   * - **3**: Enterprise Edition.
+   * - **5**: Advanced Edition.
+   * - **6**: Anti-virus Edition.    
+   * - **7**: Ultimate Edition.
    * 
    * @example
    * 7
@@ -200,7 +204,7 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   versionSummary?: UpdateMultiUserInstancesRequestMemberInstancesVersionSummary[];
   /**
    * @remarks
-   * The number of web tamper-proofing authorization quotas assigned to the member.
+   * The number of web tamper-proofing authorizations allocated to the member.
    * 
    * @example
    * 0

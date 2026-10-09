@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page when using paging.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   eventStatus?: number;
   /**
    * @remarks
-   * The maximum number of entries per page when using paging.
+   * The maximum number of entries to display per page in a paged query.
    * 
    * @example
    * 20
@@ -30,12 +30,12 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The running status of the machine. Valid values:
+   * The machine running status. Valid values:
    * 
-   * - **monitoring**: Warning.
-   * - **blocking**: Blocking.
-   * - **studying**: Learning.
-   * - **study_finish**: Learning completed.
+   * - **monitoring**: warning in progress
+   * - **blocking**: under control
+   * - **studying**: learning in progress
+   * - **study_finish**: learning completed
    * 
    * @example
    * studying

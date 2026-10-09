@@ -67,6 +67,9 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 02fb3da4-130e-11e9-8e44-0016e04115b
    */
   clientToken?: string;
   /**
