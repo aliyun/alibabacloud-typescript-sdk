@@ -7,9 +7,9 @@ export class ModifyVpcFirewallSwitchStatusRequest extends $dara.Model {
    * @remarks
    * The status of the virtual private cloud (VPC) firewall. Valid values:
    * 
-   * - **open**: enabled.
+   * - **open**: Enable.
    * 
-   * - **close**: disabled.
+   * - **close**: Disable.
    * 
    * This parameter is required.
    * 

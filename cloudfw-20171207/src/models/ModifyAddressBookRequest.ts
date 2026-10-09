@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAddressBookRequestAckLabels extends $dara.Model {
   /**
    * @remarks
-   * The key of the label for pods in the ACK cluster.
+   * The key of the pod label in the ACK cluster.
    * 
    * @example
    * app
@@ -13,7 +13,7 @@ export class ModifyAddressBookRequestAckLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the label for pods in the ACK cluster.
+   * The value of the pod label in the ACK cluster.
    * 
    * @example
    * storage-operator
@@ -455,17 +455,26 @@ export class ModifyAddressBookRequestTagList extends $dara.Model {
 export class ModifyAddressBookRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of labels for pods in the ACK cluster.
+   * The list of pod labels in the ACK cluster.
+   * 
+   * > A maximum of 10 labels are supported.
    */
   ackLabels?: ModifyAddressBookRequestAckLabels[];
   /**
    * @remarks
-   * The list of namespaces for pods in the ACK cluster.
+   * The list of pod namespaces in the ACK cluster.
+   * > A maximum of 10 namespaces are supported.
    */
   ackNamespaces?: string[];
   /**
    * @remarks
-   * The addresses in the address book. Separate multiple addresses with commas (,). Use a space to separate an address from its description. This parameter is required when GroupType is set to **ip**, **port**, or **domain**.
+   * The list of addresses in the address book. Separate multiple addresses with commas (,). For each address element, separate the address and the description with a space. You must specify this parameter when GroupType is set to **ip**, **port**, or **domain**.
+   * 
+   * - If GroupType is set to **ip**, enter IP addresses in the address list. Example: 1.2.XX.XX/32 Development CIDR block,10.0.0.X/24,1.2.XX.XX/24 Test CIDR block.
+   * 
+   * - If GroupType is set to **port**, enter ports or port ranges in the address list. Example: 80/80 HTTP port,100/200,3306 Database port.
+   * 
+   * - If GroupType is set to **domain**, enter domain names in the address list. Example: demo1.aliyun.com Test domain name,demo2.aliyun.com,www.aliyun.com Alibaba Cloud official website.
    * 
    * @example
    * 192.0.XX.XX/32 ,192.0.XX.XX/24
@@ -478,12 +487,12 @@ export class ModifyAddressBookRequest extends $dara.Model {
   assetMemberUids?: number[];
   /**
    * @remarks
-   * The cloud address book, including the list of regions and resource types.
+   * The asset address book, region, and resource type list.
    */
   assetRegionResourceTypes?: ModifyAddressBookRequestAssetRegionResourceTypes[];
   /**
    * @remarks
-   * Indicates whether the public IP addresses of Elastic Compute Service (ECS) instances that match the specified tags are automatically added to the address book.
+   * Specifies if the automatic addition of the public IP addresses of Elastic Compute Service (ECS) instances that match the new labels to the address book is enabled.
    * 
    * @example
    * 1
@@ -509,7 +518,7 @@ export class ModifyAddressBookRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run.
+   * The dry run mode.
    */
   dryRun?: boolean;
   /**
@@ -524,7 +533,9 @@ export class ModifyAddressBookRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The unique ID of the address book.
+   * The UUID of the address book.
+   * 
+   * > To obtain the value, call the [DescribeAddressBook](~~DescribeAddressBook~~) operation.
    * 
    * This parameter is required.
    * 
@@ -544,13 +555,16 @@ export class ModifyAddressBookRequest extends $dara.Model {
    * @remarks
    * The modification mode.
    * 
+   * > If GroupType is set to **ip**, **ipv6**, **port**, or **domain** and this parameter is not specified, the **Cover** mode is used by default to modify the address book.
+   * >Notice: If GroupType is set to **tag**, this parameter must be left empty.</notice>
+   * 
    * @example
    * Cover
    */
   modifyMode?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX
@@ -565,7 +579,7 @@ export class ModifyAddressBookRequest extends $dara.Model {
   tagList?: ModifyAddressBookRequestTagList[];
   /**
    * @remarks
-   * The logical relationship among multiple ECS tags.
+   * The relationship between multiple ECS tags.
    * 
    * @example
    * and

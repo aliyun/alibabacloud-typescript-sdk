@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm of the CA certificate. Valid values:
-   * 
-   * - **RSA**: the RSA algorithm.
-   * 
-   * - **ECC**: the ECC algorithm.
-   * 
-   * - **SM2**: the SM2 algorithm.
+   * The encryption algorithm type of the CA certificate. Valid values:
+   * - **RSA**: RSA algorithm.
+   * - **ECC**: ECC algorithm.
+   * - **SM2**: SM2 (Chinese national cryptographic) algorithm.
    * 
    * @example
    * RSA
@@ -19,7 +16,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   algorithm?: string;
   /**
    * @remarks
-   * The alias of the certificate.
+   * The certificate alias.
    * 
    * @example
    * rsa_ml_***_root
@@ -27,7 +24,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   aliasName?: string;
   /**
    * @remarks
-   * The ID of the CA certificate.
+   * The CA certificate ID.
    * 
    * @example
    * 2732BB48-2969-5716-B5D9-******CA85
@@ -37,14 +34,21 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
    * @remarks
    * The type of the CA certificate. Valid values:
    * 
-   * - **ROOT**: a root CA certificate.
-   * 
-   * - **SUB_ROOT**: a subordinate CA certificate.
+   * - **ROOT**: Root CA certificate.
+   * - **SUB_ROOT**: Subordinate CA certificate.
    * 
    * @example
    * ROOT
    */
   caCertType?: string;
+  /**
+   * @remarks
+   * The certificate chain expiration timestamp.
+   * 
+   * @example
+   * 1934***149
+   */
+  certChainExpirationTime?: number;
   /**
    * @remarks
    * The expiration timestamp.
@@ -63,7 +67,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   keySize?: number;
   /**
    * @remarks
-   * The ID of the parent CA certificate.
+   * The parent CA certificate ID.
    * 
    * @example
    * 340BB48-2969-5716-B5D9-****ACA85
@@ -79,11 +83,9 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   signAlgorithm?: string;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
-   * 
-   * - **ISSUE**: enabled.
-   * 
-   * - **REVOKE**: revoked.
+   * The certificate status. Valid values:
+   * - **ISSUE**: Enabled.
+   * - **REVOKE**: Revoked.
    * 
    * @example
    * ISSUE
@@ -95,6 +97,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
       aliasName: 'AliasName',
       caCertId: 'CaCertId',
       caCertType: 'CaCertType',
+      certChainExpirationTime: 'CertChainExpirationTime',
       expirationTime: 'ExpirationTime',
       keySize: 'KeySize',
       parentCaCertId: 'ParentCaCertId',
@@ -109,6 +112,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
       aliasName: 'string',
       caCertId: 'string',
       caCertType: 'string',
+      certChainExpirationTime: 'number',
       expirationTime: 'number',
       keySize: 'number',
       parentCaCertId: 'string',
@@ -134,7 +138,7 @@ export class ListTlsInspectCACertificatesResponseBody extends $dara.Model {
   certificates?: ListTlsInspectCACertificatesResponseBodyCertificates[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-******837D

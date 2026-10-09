@@ -15,7 +15,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   allowConfiguration?: number;
   /**
    * @remarks
-   * The deployment mode of the VPC firewall service. Valid values: **PrimaryStandby** (active/standby mode) and **MultiPrimary** (active-active mode).
+   * The deployment mode of the VPC firewall service. Valid values: **PrimaryStandby** (primary/standby mode) and **MultiPrimary** (active-active mode).
    * 
    * @example
    * PrimaryStandby
@@ -23,7 +23,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   firewallServiceMode?: string;
   /**
    * @remarks
-   * The zone IDs used by the VPC firewall service.
+   * The list of zone IDs used by the VPC firewall service.
    */
   firewallServiceZones?: string[];
   /**
@@ -131,7 +131,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
 export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
+   * The instance ID of the elastic network interface (ENI) in the VPC.
    * 
    * @example
    * eni-8vbhfosfqv2rff42****
@@ -139,7 +139,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $da
   eniId?: string;
   /**
    * @remarks
-   * The private IP of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
+   * The private IP address of the elastic network interface (ENI) in the VPC.
    * 
    * @example
    * 192.168.XX.XX
@@ -147,7 +147,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $da
   eniPrivateIpAddress?: string;
   /**
    * @remarks
-   * The vSwitch ID of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
+   * The vSwitch ID of the elastic network interface (ENI) in the VPC.
    * 
    * @example
    * vsw-wz9viido7j436b0n1****
@@ -155,7 +155,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $da
   eniVSwitchId?: string;
   /**
    * @remarks
-   * The zone ID where the elastic network interface (ENI) that serves as the network interface controller (NIC) is active.
+   * The zone ID of the elastic network interface (ENI).
    * 
    * @example
    * cn-hangzhou-i
@@ -287,17 +287,17 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   attachmentName?: string;
   /**
    * @remarks
-   * The CIDR blocks protected by the virtual private cloud (VPC) firewall.
+   * The list of CIDR blocks protected by the virtual private cloud (VPC) firewall.
    */
   defendCidrList?: string[];
   /**
    * @remarks
-   * The network interface controller (NIC) list.
+   * The list of elastic network interfaces (ENIs).
    */
   eniList?: DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList[];
   /**
    * @remarks
-   * The ID of the vSwitch specified when the routing mode is manual.
+   * The ID of the vSwitch specified when the routing mode is set to manual.
    * 
    * @example
    * vsw-zeq4o875u****
@@ -305,7 +305,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   manualVSwitchId?: string;
   /**
    * @remarks
-   * The VPC instance ID used to create a VPC firewall.
+   * The ID of the VPC for which the virtual private cloud (VPC) firewall is created.
    * 
    * @example
    * vpc-2zefk9fbn8j7v585g****
@@ -357,7 +357,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   routeMode?: string;
   /**
    * @remarks
-   * Indicates whether the routing mode supports manual mode. Valid values:
+   * Indicates whether manual routing mode is supported. Valid values:
    * 
    * - **1**: Supported.
    * - **0**: Not supported.
@@ -368,7 +368,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   supportManualMode?: string;
   /**
    * @remarks
-   * The instance ID of the CEN-TR.
+   * The instance ID of the CEN transit router (CEN-TR).
    * 
    * @example
    * tr-2zetwxskej633l3u1****
@@ -376,7 +376,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   transitRouterId?: string;
   /**
    * @remarks
-   * The version of the CEN transit router (CEN-TR). Valid values:
+   * The edition of the CEN transit router (CEN-TR). Valid values:
    * 
    * - **Basic**: Basic Edition.
    * 
@@ -472,7 +472,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
 export class DescribeVpcFirewallCenDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The connectivity type of the virtual private cloud (VPC) firewall. Valid values: **cen**, which indicates Cloud Enterprise Network.
+   * The connection type of the virtual private cloud (VPC) firewall. Valid values: **cen**, which indicates CEN.
    * 
    * @example
    * cen
@@ -480,13 +480,13 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $dara.Model {
   connectType?: string;
   /**
    * @remarks
-   * The switch status of the virtual private cloud (VPC) firewall. Valid values:
+   * The status of the virtual private cloud (VPC) firewall. Valid values:
    * 
-   * - **opened**: Enabled.
+   * - **opened**: enabled.
    * 
-   * - **closed**: Shutdown.
+   * - **closed**: shutdown.
    * 
-   * - **notconfigured**: Not configured.
+   * - **notconfigured**: not configured.
    * 
    * @example
    * opened
@@ -499,7 +499,7 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $dara.Model {
   firewallVpc?: DescribeVpcFirewallCenDetailResponseBodyFirewallVpc;
   /**
    * @remarks
-   * The VPC details.
+   * The details of the VPC.
    */
   localVpc?: DescribeVpcFirewallCenDetailResponseBodyLocalVpc;
   /**

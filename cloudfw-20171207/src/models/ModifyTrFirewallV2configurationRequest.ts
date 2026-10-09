@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTrFirewallV2ConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
+   * The instance ID of the VPC firewall. You can call DescribeTrFirewallsV2List to obtain the ID.
    * 
-   * > FirewallId and FirewallName are both required. If either is not provided, an ErrorParameters(400) error is returned. You can call DescribeTrFirewallsV2List to obtain the FirewallId.
+   * > Note: FirewallId and FirewallName are jointly required. Both parameters must be provided at the same time. If either parameter is missing, the operation returns a 400 error.
    * 
    * @example
    * vfw-tr-bcdf89d405ce4bd2****
@@ -15,8 +15,9 @@ export class ModifyTrFirewallV2ConfigurationRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The instance name of the virtual private cloud (VPC) firewall.
-   * > FirewallId and FirewallName are both required. If either is not provided, an ErrorParameters(400) error is returned.
+   * The instance name of the VPC firewall.
+   * 
+   * > Note: FirewallId and FirewallName are jointly required. Both parameters must be provided at the same time. If either parameter is missing, the operation returns a 400 error.
    * 
    * @example
    * vpc-firewall

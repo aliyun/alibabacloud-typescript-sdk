@@ -15,7 +15,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   destinationCidr?: string;
   /**
    * @remarks
-   * The next hop address of the original NAT gateway.
+   * The next hop of the original NAT gateway.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The network type of the next hop. Valid values: NatGateway.
+   * The network type of the next hop. Valid value: NatGateway.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The route table that contains the default route of the NAT gateway.
+   * The ID of the route table to which the default route of the NAT gateway belongs.
    * 
    * This parameter is required.
    * 
@@ -75,8 +75,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
    * @remarks
    * The deployment mode of the firewall service. Valid values:
    * 
-   * - PrimaryStandby: active/standby mode
-   * - MultiPrimary: active-active mode
+   * - **PrimaryStandby**: primary/standby mode.
+   * - **MultiPrimary**: active-active mode.
    * 
    * @example
    * PrimaryStandby
@@ -90,8 +90,9 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * The security protection switch. Valid values:
-   * - **open**: enabled
-   * - **close**: disabled
+   * 
+   * - **open**: Enabled.
+   * - **close**: Disabled.
    * 
    * @example
    * close
@@ -107,10 +108,10 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   fwVswitchZoneId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * 
-   * - **zh** (default): Chinese
-   * - **en**: English
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -135,7 +136,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   natRouteEntryList?: CreateSecurityProxyRequestNatRouteEntryList[];
   /**
    * @remarks
-   * The name of the NAT firewall. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
+   * The name of the NAT firewall. The name must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
    * 
    * This parameter is required.
    * 
@@ -157,7 +158,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * Specifies whether to enable strict mode.
+   * Specifies whether to enable strict mode. Valid values:
    * 
    * - 1: Enable strict mode.
    * - 0: Disable strict mode.
@@ -168,7 +169,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   strictMode?: number;
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * The ID of the VPC.
    * 
    * This parameter is required.
    * 
@@ -178,10 +179,12 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Specifies whether to use the automatic vSwitch mode. Valid values:
-   * - **true**: automatic mode
-   * - **false**: manual mode
-   * > The default value of VswitchAuto is true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
+   * Specifies whether to use the automatic mode for the vSwitch. Valid values:
+   * 
+   * - **true**: automatic mode.
+   * - **false**: manual mode.
+   * 
+   * > Default value: true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
    * 
    * @example
    * true
@@ -189,7 +192,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   vswitchAuto?: string;
   /**
    * @remarks
-   * The CIDR block of the vSwitch. This parameter is required when the vSwitch is in automatic mode.
+   * The CIDR block of the vSwitch. This parameter is required when the automatic mode is used for the vSwitch.
    * 
    * @example
    * 0.0.0.0/0
@@ -197,7 +200,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   vswitchCidr?: string;
   /**
    * @remarks
-   * The vSwitch ID. This parameter is required when the vSwitch is in manual mode.
+   * The ID of the vSwitch. This parameter is required when the manual mode is used for the vSwitch.
    * 
    * @example
    * vsw-bp1sqg9w******

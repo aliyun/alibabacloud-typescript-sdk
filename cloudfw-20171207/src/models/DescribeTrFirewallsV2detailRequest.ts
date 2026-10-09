@@ -7,7 +7,7 @@ export class DescribeTrFirewallsV2DetailRequest extends $dara.Model {
    * @remarks
    * The ID of the VPC firewall instance. This parameter is required. If this parameter is not specified, the error ErrorMissingFirewallId (-360444, firewall id is required) is returned.
    * 
-   * > You can call DescribeTrFirewallsV2List to query existing FirewallId values (in the format of vfw-tr-*). If no firewall has been created, create an Enterprise Edition transit router in the CEN console first, and then call CreateTrFirewallV2.
+   * > You can call DescribeTrFirewallsV2List to query existing FirewallId values (in the format of vfw-tr-\\*). If no firewall has been created, create an Enterprise Edition transit router in the CEN console first, and then call CreateTrFirewallV2.
    * 
    * @example
    * vfw-tr-a5a6b89f46764928****
