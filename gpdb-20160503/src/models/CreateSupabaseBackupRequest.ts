@@ -2,44 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
+export class CreateSupabaseBackupRequest extends $dara.Model {
   /**
    * @remarks
-   * The associated order ID.
+   * Instance ID of the Supabase instance. You can obtain instance ID on the Supabase page in the console.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * 278880417310796
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The Supabase instance ID.
-   * 
-   * @example
-   * spb-xxxx
+   * sbp-263****
    */
   projectId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
-   * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+   * cn-hangzhou
    */
-  requestId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
       projectId: 'ProjectId',
-      requestId: 'RequestId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
       projectId: 'string',
-      requestId: 'string',
+      regionId: 'string',
     };
   }
 

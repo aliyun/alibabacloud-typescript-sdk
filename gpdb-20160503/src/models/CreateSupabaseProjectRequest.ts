@@ -3,7 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSupabaseProjectRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. Limits:
+   * 
+   * - It cannot be an empty string.
+   * - It can be up to 128 characters in length.
+   * - It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * test-key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The value can be an empty string. It can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * test-value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +49,7 @@ export class CreateSupabaseProjectRequestTags extends $dara.Model {
 export class CreateSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The password of the initial account.
+   * The initial account password.
    * 
    * Password rules:
    * 
@@ -47,7 +65,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto start/stop. If this parameter is not specified, the default value is false.
+   * Specifies whether to enable auto-start and auto-stop. If you do not specify this parameter, the default value is false.
    * 
    * @example
    * false
@@ -55,7 +73,17 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   autoScale?: boolean;
   /**
    * @remarks
-   * The idempotency token. Ensures that duplicate requests do not result in duplicate operations.
+   * The backup set ID.
+   * 
+   * > You can call [ListSupabaseDataBackups](https://help.aliyun.com/document_detail/3064623.html) to view the IDs of all backup sets under the target Supabase project.
+   * 
+   * @example
+   * 2176307784
+   */
+  backupId?: string;
+  /**
+   * @remarks
+   * The client token. It is used to ensure idempotence and prevent duplicate requests from executing the same operation.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -63,7 +91,15 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The performance level (PL) of the cloud disk. If this parameter is not specified, the default value PL0 is used.
+   * The optional creation parameters. The default value is empty.
+   * 
+   * @example
+   * {}
+   */
+  createOptions?: string;
+  /**
+   * @remarks
+   * The performance level of the cloud disk. If you do not specify this parameter, the default value is PL0.
    * 
    * Valid values:
    * 
@@ -78,7 +114,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   diskPerformanceLevel?: string;
   /**
    * @remarks
-   * The DPI engine version. If this parameter is not specified, the default value PG15 is used. PG17 and later versions support the data sandbox (branch) feature.
+   * The DPI engine version. If you do not specify this parameter, the default value is PG15. PostgreSQL 17 and later versions support the data sandbox (branch) feature.
    * 
    * Valid values:
    * 
@@ -89,16 +125,23 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * PG15
    */
   engineVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether the project is the lightweight edition.
+   * 
+   * @example
+   * false
+   */
   lightweight?: boolean;
   /**
    * @remarks
-   * The billing type. If this parameter is not specified, the default value Free is used.
+   * The billing method. If you do not specify this parameter, the default value is Free.
    * 
    * Valid values:
    * 
-   * - Free: Free tier.
-   * - Postpaid: Pay-as-you-go.
-   * - Prepaid: Subscription.
+   * - Free: the free billing method.
+   * - Postpaid: pay-as-you-go.
+   * - Prepaid: subscription.
    * 
    * @example
    * Free
@@ -106,7 +149,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value Month is used.
+   * The unit of the subscription duration. This parameter takes effect only when PayType is set to Prepaid. If you do not specify this parameter, the default value is Month.
    * 
    * Valid values:
    * 
@@ -124,7 +167,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * Naming rules:
    * 
    * - The name must be 1 to 128 characters in length.
-   * - The name can contain letters, digits, hyphens (-), and underscores (_).
+   * - The name can contain only letters, digits, hyphens (-), and underscores (_).
    * - The name must start with a letter or an underscore (_).
    * 
    * This parameter is required.
@@ -135,7 +178,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The specifications of the Supabase project. The Free billing type uses free-tier specifications. For paid billing types, the specifications must match those available in the console.
+   * The specifications of the Supabase project. The free billing method uses the free specifications. For paid billing methods, the specifications must be consistent with those available in the console.
    * 
    * This parameter is required.
    * 
@@ -145,7 +188,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   projectSpec?: string;
   /**
    * @remarks
-   * The region ID. Specifies the region in which to create the project.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -153,7 +196,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP address whitelist. Separate multiple IP addresses or CIDR blocks with commas (,). If this parameter is not specified, the default value 0.0.0.0/0 is used.
+   * The IP address whitelist. Separate multiple IP addresses or CIDR blocks with commas (,). If you do not specify this parameter, the default value 0.0.0.0/0 is used.
    * 
    * This parameter is required.
    * 
@@ -163,16 +206,28 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The storage size, in GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
+   * The ID of the Supabase project to which the backup set belongs.
+   * 
+   * @example
+   * spb-xxxxxxxx
+   */
+  srcProjectId?: string;
+  /**
+   * @remarks
+   * The storage capacity. Unit: GB. If you do not specify this parameter for a non-free billing method, the default value is 1.
    * 
    * @example
    * 50
    */
   storageSize?: number;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: CreateSupabaseProjectRequestTags[];
   /**
    * @remarks
-   * The subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
+   * The subscription duration of the resource. This parameter takes effect only when PayType is set to Prepaid. If you do not specify this parameter, the default value is 1.
    * 
    * @example
    * 1
@@ -200,7 +255,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as this parameter value.
+   * The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -212,7 +267,9 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
     return {
       accountPassword: 'AccountPassword',
       autoScale: 'AutoScale',
+      backupId: 'BackupId',
       clientToken: 'ClientToken',
+      createOptions: 'CreateOptions',
       diskPerformanceLevel: 'DiskPerformanceLevel',
       engineVersion: 'EngineVersion',
       lightweight: 'Lightweight',
@@ -222,6 +279,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       projectSpec: 'ProjectSpec',
       regionId: 'RegionId',
       securityIPList: 'SecurityIPList',
+      srcProjectId: 'SrcProjectId',
       storageSize: 'StorageSize',
       tags: 'Tags',
       usedTime: 'UsedTime',
@@ -235,7 +293,9 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
     return {
       accountPassword: 'string',
       autoScale: 'boolean',
+      backupId: 'string',
       clientToken: 'string',
+      createOptions: 'string',
       diskPerformanceLevel: 'string',
       engineVersion: 'string',
       lightweight: 'boolean',
@@ -245,6 +305,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       projectSpec: 'string',
       regionId: 'string',
       securityIPList: 'string',
+      srcProjectId: 'string',
       storageSize: 'number',
       tags: { 'type': 'array', 'itemType': CreateSupabaseProjectRequestTags },
       usedTime: 'string',

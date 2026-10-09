@@ -2,43 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The associated order ID.
-   * 
-   * @example
-   * 278880417310796
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The Supabase instance ID.
-   * 
-   * @example
-   * spb-xxxx
-   */
-  projectId?: string;
+export class ModifySupabaseBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+   * ABB39CC3-4488-4857-905D-2E4A051D****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
-      projectId: 'ProjectId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
-      projectId: 'string',
       requestId: 'string',
     };
   }

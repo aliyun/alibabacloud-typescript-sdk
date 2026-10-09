@@ -2,43 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
+export class CreateSupabaseBackupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The associated order ID.
+   * The ID of the backup job. You can call ListSupabaseBackupJobs to query the status and progress of the corresponding job.
    * 
    * @example
-   * 278880417310796
+   * 123
    */
-  orderId?: string;
-  /**
-   * @remarks
-   * The Supabase instance ID.
-   * 
-   * @example
-   * spb-xxxx
-   */
-  projectId?: string;
+  backupJobId?: number;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+   * ABB39CC3-4488-4857-905D-2E4A051D****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
-      projectId: 'ProjectId',
+      backupJobId: 'BackupJobId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
-      projectId: 'string',
+      backupJobId: 'number',
       requestId: 'string',
     };
   }

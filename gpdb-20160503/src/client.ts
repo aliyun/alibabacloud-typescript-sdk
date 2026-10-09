@@ -3520,10 +3520,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a backup job for a specified Supabase instance and returns the backup job ID.
+   * 
+   * @remarks
+   * The instance must be in the Running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+   * 
+   * @param request - CreateSupabaseBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSupabaseBackupResponse
+   */
+  async createSupabaseBackupWithOptions(request: $_model.CreateSupabaseBackupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSupabaseBackupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSupabaseBackup",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSupabaseBackupResponse>(await this.callApi(params, req, runtime), new $_model.CreateSupabaseBackupResponse({}));
+  }
+
+  /**
+   * Creates a backup job for a specified Supabase instance and returns the backup job ID.
+   * 
+   * @remarks
+   * The instance must be in the Running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+   * 
+   * @param request - CreateSupabaseBackupRequest
+   * @returns CreateSupabaseBackupResponse
+   */
+  async createSupabaseBackup(request: $_model.CreateSupabaseBackupRequest): Promise<$_model.CreateSupabaseBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSupabaseBackupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a Supabase project.
    * 
    * @remarks
-   * Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+   * Creates a Supabase project in a specified region and active zone. This operation supports the free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access whitelist, DPI engine version, and auto-start and auto-stop configurations.
    * 
    * @param request - CreateSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3540,8 +3592,16 @@ export default class Client extends OpenApi {
       query["AutoScale"] = request.autoScale;
     }
 
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.createOptions)) {
+      query["CreateOptions"] = request.createOptions;
     }
 
     if (!$dara.isNull(request.diskPerformanceLevel)) {
@@ -3578,6 +3638,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.securityIPList)) {
       query["SecurityIPList"] = request.securityIPList;
+    }
+
+    if (!$dara.isNull(request.srcProjectId)) {
+      query["SrcProjectId"] = request.srcProjectId;
     }
 
     if (!$dara.isNull(request.storageSize)) {
@@ -3625,7 +3689,7 @@ export default class Client extends OpenApi {
    * Creates a Supabase project.
    * 
    * @remarks
-   * Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+   * Creates a Supabase project in a specified region and active zone. This operation supports the free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access whitelist, DPI engine version, and auto-start and auto-stop configurations.
    * 
    * @param request - CreateSupabaseProjectRequest
    * @returns CreateSupabaseProjectResponse
@@ -9950,6 +10014,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+   * 
+   * @remarks
+   * To modify the policy, call ModifySupabaseBackupPolicy.
+   * 
+   * @param request - DescribeSupabaseBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSupabaseBackupPolicyResponse
+   */
+  async describeSupabaseBackupPolicyWithOptions(request: $_model.DescribeSupabaseBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSupabaseBackupPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSupabaseBackupPolicy",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSupabaseBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSupabaseBackupPolicyResponse({}));
+  }
+
+  /**
+   * Queries the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+   * 
+   * @remarks
+   * To modify the policy, call ModifySupabaseBackupPolicy.
+   * 
+   * @param request - DescribeSupabaseBackupPolicyRequest
+   * @returns DescribeSupabaseBackupPolicyResponse
+   */
+  async describeSupabaseBackupPolicy(request: $_model.DescribeSupabaseBackupPolicyRequest): Promise<$_model.DescribeSupabaseBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSupabaseBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - DescribeSupportFeaturesRequest
@@ -11615,6 +11731,106 @@ export default class Client extends OpenApi {
   async getSupabaseProjectDashboardAccount(request: $_model.GetSupabaseProjectDashboardAccountRequest): Promise<$_model.GetSupabaseProjectDashboardAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSupabaseProjectDashboardAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the available specifications for Supabase projects.
+   * 
+   * @remarks
+   * Queries the specifications and zones available for creating Supabase projects in a specified region.
+   * 
+   * @param request - GetSupabaseProjectSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSupabaseProjectSpecResponse
+   */
+  async getSupabaseProjectSpecWithOptions(request: $_model.GetSupabaseProjectSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSupabaseProjectSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSupabaseProjectSpec",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSupabaseProjectSpecResponse>(await this.callApi(params, req, runtime), new $_model.GetSupabaseProjectSpecResponse({}));
+  }
+
+  /**
+   * Queries the available specifications for Supabase projects.
+   * 
+   * @remarks
+   * Queries the specifications and zones available for creating Supabase projects in a specified region.
+   * 
+   * @param request - GetSupabaseProjectSpecRequest
+   * @returns GetSupabaseProjectSpecResponse
+   */
+  async getSupabaseProjectSpec(request: $_model.GetSupabaseProjectSpecRequest): Promise<$_model.GetSupabaseProjectSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSupabaseProjectSpecWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the upgradable versions for a Supabase project.
+   * 
+   * @remarks
+   * This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
+   * 
+   * @param request - GetSupabaseUpdateVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSupabaseUpdateVersionResponse
+   */
+  async getSupabaseUpdateVersionWithOptions(request: $_model.GetSupabaseUpdateVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSupabaseUpdateVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSupabaseUpdateVersion",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSupabaseUpdateVersionResponse>(await this.callApi(params, req, runtime), new $_model.GetSupabaseUpdateVersionResponse({}));
+  }
+
+  /**
+   * Queries the upgradable versions for a Supabase project.
+   * 
+   * @remarks
+   * This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
+   * 
+   * @param request - GetSupabaseUpdateVersionRequest
+   * @returns GetSupabaseUpdateVersionResponse
+   */
+  async getSupabaseUpdateVersion(request: $_model.GetSupabaseUpdateVersionRequest): Promise<$_model.GetSupabaseUpdateVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSupabaseUpdateVersionWithOptions(request, runtime);
   }
 
   /**
@@ -13749,6 +13965,150 @@ export default class Client extends OpenApi {
   async listStreamingJobs(request: $_model.ListStreamingJobsRequest): Promise<$_model.ListStreamingJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listStreamingJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the backup tasks and task progress of a specified Supabase instance.
+   * 
+   * @param request - ListSupabaseBackupJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSupabaseBackupJobsResponse
+   */
+  async listSupabaseBackupJobsWithOptions(request: $_model.ListSupabaseBackupJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSupabaseBackupJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupMode)) {
+      query["BackupMode"] = request.backupMode;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSupabaseBackupJobs",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSupabaseBackupJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListSupabaseBackupJobsResponse({}));
+  }
+
+  /**
+   * Queries the backup tasks and task progress of a specified Supabase instance.
+   * 
+   * @param request - ListSupabaseBackupJobsRequest
+   * @returns ListSupabaseBackupJobsResponse
+   */
+  async listSupabaseBackupJobs(request: $_model.ListSupabaseBackupJobsRequest): Promise<$_model.ListSupabaseBackupJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSupabaseBackupJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of Supabase data backups.
+   * 
+   * @param request - ListSupabaseDataBackupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSupabaseDataBackupsResponse
+   */
+  async listSupabaseDataBackupsWithOptions(request: $_model.ListSupabaseDataBackupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSupabaseDataBackupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!$dara.isNull(request.backupMode)) {
+      query["BackupMode"] = request.backupMode;
+    }
+
+    if (!$dara.isNull(request.backupStatus)) {
+      query["BackupStatus"] = request.backupStatus;
+    }
+
+    if (!$dara.isNull(request.dataType)) {
+      query["DataType"] = request.dataType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSupabaseDataBackups",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSupabaseDataBackupsResponse>(await this.callApi(params, req, runtime), new $_model.ListSupabaseDataBackupsResponse({}));
+  }
+
+  /**
+   * Queries the list of Supabase data backups.
+   * 
+   * @param request - ListSupabaseDataBackupsRequest
+   * @returns ListSupabaseDataBackupsResponse
+   */
+  async listSupabaseDataBackups(request: $_model.ListSupabaseDataBackupsRequest): Promise<$_model.ListSupabaseDataBackupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSupabaseDataBackupsWithOptions(request, runtime);
   }
 
   /**
@@ -15898,6 +16258,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+   * 
+   * @remarks
+   * You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after the modification.
+   * 
+   * @param request - ModifySupabaseBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySupabaseBackupPolicyResponse
+   */
+  async modifySupabaseBackupPolicyWithOptions(request: $_model.ModifySupabaseBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySupabaseBackupPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupRetentionPeriod)) {
+      query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    }
+
+    if (!$dara.isNull(request.enableRecoveryPoint)) {
+      query["EnableRecoveryPoint"] = request.enableRecoveryPoint;
+    }
+
+    if (!$dara.isNull(request.preferredBackupPeriod)) {
+      query["PreferredBackupPeriod"] = request.preferredBackupPeriod;
+    }
+
+    if (!$dara.isNull(request.preferredBackupTime)) {
+      query["PreferredBackupTime"] = request.preferredBackupTime;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.recoveryPointPeriod)) {
+      query["RecoveryPointPeriod"] = request.recoveryPointPeriod;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySupabaseBackupPolicy",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySupabaseBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifySupabaseBackupPolicyResponse({}));
+  }
+
+  /**
+   * Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+   * 
+   * @remarks
+   * You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after the modification.
+   * 
+   * @param request - ModifySupabaseBackupPolicyRequest
+   * @returns ModifySupabaseBackupPolicyResponse
+   */
+  async modifySupabaseBackupPolicy(request: $_model.ModifySupabaseBackupPolicyRequest): Promise<$_model.ModifySupabaseBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySupabaseBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the description of a Supabase project.
    * 
    * @remarks
@@ -16484,7 +16916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves vectors and metadata from a specified document collection using natural language queries.
+   * Retrieves vectors and metadata from a specified document collection by using natural language.
    * 
    * @param tmpReq - QueryContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16525,10 +16957,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
-    }
-
-    if (!$dara.isNull(request.filter)) {
-      query["Filter"] = request.filter;
     }
 
     if (!$dara.isNull(request.graphEnhance)) {
@@ -16616,6 +17044,10 @@ export default class Client extends OpenApi {
       body["Content"] = request.content;
     }
 
+    if (!$dara.isNull(request.filter)) {
+      body["Filter"] = request.filter;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
@@ -16635,7 +17067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves vectors and metadata from a specified document collection using natural language queries.
+   * Retrieves vectors and metadata from a specified document collection by using natural language.
    * 
    * @param request - QueryContentRequest
    * @returns QueryContentResponse
@@ -18743,6 +19175,62 @@ export default class Client extends OpenApi {
   async updateSaasServiceVersion(request: $_model.UpdateSaasServiceVersionRequest): Promise<$_model.UpdateSaasServiceVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSaasServiceVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Upgrades the version of a Supabase project.
+   * 
+   * @remarks
+   * Upgrades a specified Supabase project to a target minor version. You can query the supported target versions by calling GetSupabaseUpdateVersion.
+   * 
+   * @param request - UpdateSupabaseVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSupabaseVersionResponse
+   */
+  async updateSupabaseVersionWithOptions(request: $_model.UpdateSupabaseVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSupabaseVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.minorVersion)) {
+      query["MinorVersion"] = request.minorVersion;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSupabaseVersion",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSupabaseVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSupabaseVersionResponse({}));
+  }
+
+  /**
+   * Upgrades the version of a Supabase project.
+   * 
+   * @remarks
+   * Upgrades a specified Supabase project to a target minor version. You can query the supported target versions by calling GetSupabaseUpdateVersion.
+   * 
+   * @param request - UpdateSupabaseVersionRequest
+   * @returns UpdateSupabaseVersionResponse
+   */
+  async updateSupabaseVersion(request: $_model.UpdateSupabaseVersionRequest): Promise<$_model.UpdateSupabaseVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSupabaseVersionWithOptions(request, runtime);
   }
 
   /**

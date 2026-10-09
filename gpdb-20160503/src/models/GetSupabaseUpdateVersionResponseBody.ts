@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
+export class GetSupabaseUpdateVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The associated order ID.
+   * The latest upgradable version.
    * 
    * @example
-   * 278880417310796
+   * 20240731
    */
-  orderId?: string;
+  latestVersion?: string;
   /**
    * @remarks
-   * The Supabase instance ID.
+   * The ID of the Supabase project.
    * 
    * @example
    * spb-xxxx
@@ -27,19 +27,29 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The recommended stable version for upgrade.
+   * 
+   * @example
+   * 20240630
+   */
+  stableVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
+      latestVersion: 'LatestVersion',
       projectId: 'ProjectId',
       requestId: 'RequestId',
+      stableVersion: 'StableVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
+      latestVersion: 'string',
       projectId: 'string',
       requestId: 'string',
+      stableVersion: 'string',
     };
   }
 

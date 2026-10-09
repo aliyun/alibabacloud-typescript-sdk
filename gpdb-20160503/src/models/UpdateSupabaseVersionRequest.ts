@@ -2,18 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
+export class UpdateSupabaseVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The associated order ID.
+   * The target minor version. You can query the supported upgrade versions for the current project by calling GetSupabaseUpdateVersion.
    * 
    * @example
-   * 278880417310796
+   * 20240731
    */
-  orderId?: string;
+  minorVersion?: string;
   /**
    * @remarks
-   * The Supabase instance ID.
+   * The ID of the Supabase project.
+   * 
+   * This parameter is required.
    * 
    * @example
    * spb-xxxx
@@ -21,25 +23,25 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The region ID.
    * 
    * @example
-   * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+   * cn-hangzhou
    */
-  requestId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
+      minorVersion: 'MinorVersion',
       projectId: 'ProjectId',
-      requestId: 'RequestId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
+      minorVersion: 'string',
       projectId: 'string',
-      requestId: 'string',
+      regionId: 'string',
     };
   }
 
