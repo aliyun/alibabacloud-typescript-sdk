@@ -1202,6 +1202,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重新编辑版本
+   * 
+   * @param request - RedraftSkillVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RedraftSkillVersionResponse
+   */
+  async redraftSkillVersionWithOptions(request: $_model.RedraftSkillVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RedraftSkillVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    if (!$dara.isNull(request.skillVersion)) {
+      query["SkillVersion"] = request.skillVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RedraftSkillVersion",
+      version: "2026-03-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RedraftSkillVersionResponse>(await this.callApi(params, req, runtime), new $_model.RedraftSkillVersionResponse({}));
+  }
+
+  /**
+   * 重新编辑版本
+   * 
+   * @param request - RedraftSkillVersionRequest
+   * @returns RedraftSkillVersionResponse
+   */
+  async redraftSkillVersion(request: $_model.RedraftSkillVersionRequest): Promise<$_model.RedraftSkillVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.redraftSkillVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
    * 
    * @param request - SubmitPromptVersionRequest
