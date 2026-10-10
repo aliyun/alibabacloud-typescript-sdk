@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AppendCasesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The custom variables of the contact, represented as a JSON string.
+   */
   customVariables?: string;
+  /**
+   * @remarks
+   * The phone number of the contact.
+   */
   phoneNumber?: string;
+  /**
+   * @remarks
+   * The unique identifier of the contact in the customer\\"s business system.
+   */
   referenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,6 +52,10 @@ export class AppendCasesResponseBody extends $dara.Model {
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of processing results for appending outbound call cases.
+   */
   data?: AppendCasesResponseBodyData[];
   /**
    * @remarks
@@ -54,7 +70,7 @@ export class AppendCasesResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

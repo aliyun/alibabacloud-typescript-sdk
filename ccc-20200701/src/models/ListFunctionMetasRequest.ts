@@ -2,60 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class EnableSchemaPropertyRequest extends $dara.Model {
+export class ListFunctionMetasRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  hasHttpTrigger?: boolean;
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   * ccc-test
    */
   instanceId?: string;
   /**
    * @remarks
-   * The property name.
-   * 
    * This parameter is required.
    * 
    * @example
-   * name
+   * 1
    */
-  propertyName?: string;
+  pageNumber?: number;
   /**
    * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * schema id
-   * 
    * This parameter is required.
    * 
    * @example
-   * profile
+   * 10
    */
-  schemaId?: string;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      hasHttpTrigger: 'HasHttpTrigger',
       instanceId: 'InstanceId',
-      propertyName: 'PropertyName',
-      requestId: 'RequestId',
-      schemaId: 'SchemaId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      hasHttpTrigger: 'boolean',
       instanceId: 'string',
-      propertyName: 'string',
-      requestId: 'string',
-      schemaId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 

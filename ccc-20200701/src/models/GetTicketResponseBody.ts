@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTicketResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the assignee.
+   * The assignee ID.
    * 
    * @example
    * agent1@ccc-test
@@ -13,10 +13,10 @@ export class GetTicketResponseBodyData extends $dara.Model {
   assignee?: string;
   /**
    * @remarks
-   * The name of the assignee.
+   * The assignee name.
    * 
    * @example
-   * 坐席A
+   * Agent A
    */
   assigneeName?: string;
   /**
@@ -29,19 +29,17 @@ export class GetTicketResponseBodyData extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The name of the ticket category.
+   * The ticket category name.
    * 
    * @example
-   * 售后类目
+   * After-sales category
    */
   categoryName?: string;
   /**
    * @remarks
-   * The reason for closing the ticket.
-   * 
-   * - Completed
-   * 
-   * - Terminated
+   * The reason for closing the ticket. Valid values:
+   * - Completed: Completed.
+   * - Terminated: Canceled.
    * 
    * @example
    * Completed
@@ -49,23 +47,23 @@ export class GetTicketResponseBodyData extends $dara.Model {
   closeCode?: string;
   /**
    * @remarks
-   * The comment.
+   * The handling comments.
    * 
    * @example
-   * 无
+   * None
    */
   comment?: string;
   /**
    * @remarks
-   * The fields of the ticket.
+   * The ticket field information.
    * 
    * @example
-   * {"productName":"商品A"}
+   * {"productName":"Product A"}
    */
   context?: string;
   /**
    * @remarks
-   * The time when the ticket was created.
+   * The time when the ticket was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1620259200000
@@ -73,7 +71,7 @@ export class GetTicketResponseBodyData extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * The ID of the creator.
+   * The creator ID.
    * 
    * @example
    * creator@ccc-test
@@ -81,15 +79,15 @@ export class GetTicketResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The name of the creator.
+   * The creator name.
    * 
    * @example
-   * 坐席B
+   * Agent B
    */
   creatorName?: string;
   /**
    * @remarks
-   * The ID of the current node.
+   * The current node ID.
    * 
    * @example
    * 912f0b78-6639-4a93-ae18-0d832885c27e
@@ -97,15 +95,15 @@ export class GetTicketResponseBodyData extends $dara.Model {
   currentTaskId?: string;
   /**
    * @remarks
-   * The name of the current node.
+   * The current node name.
    * 
    * @example
-   * 节点1
+   * Node 1
    */
   currentTaskName?: string;
   /**
    * @remarks
-   * The time when the current node started.
+   * The start time of the current node. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1693793208075
@@ -113,7 +111,7 @@ export class GetTicketResponseBodyData extends $dara.Model {
   currentTaskStartTime?: number;
   /**
    * @remarks
-   * The customer ID. This is the customer ID in the customer profile of Cloud Contact Center.
+   * The customer ID in the customer profile of Cloud Call Center.
    * 
    * @example
    * 4223-86d0-6bd187905-891798749
@@ -121,7 +119,7 @@ export class GetTicketResponseBodyData extends $dara.Model {
   customerId?: string;
   /**
    * @remarks
-   * The time when the ticket processing was completed.
+   * The completion time of ticket processing. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1687846259999
@@ -145,13 +143,10 @@ export class GetTicketResponseBodyData extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The source of the ticket.
-   * 
+   * The ticket source. Valid values:
    * - AUDIO: Voice service.
-   * 
-   * - CHAT: Web service.
-   * 
-   * - Console: Created in the ticket console.
+   * - CHAT: Online service.
+   * - Console: Created from the ticket console.
    * 
    * @example
    * Audio
@@ -159,7 +154,7 @@ export class GetTicketResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time when the ticket processing started.
+   * The start time of ticket processing. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1620259200000
@@ -167,15 +162,11 @@ export class GetTicketResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The ticket status.
-   * 
-   * - Processing
-   * 
-   * - Withdrawal
-   * 
-   * - Rejected
-   * 
-   * - Closed
+   * The ticket status. Valid values:
+   * - Processing: Processing.
+   * - Withdrawal: Withdrawn.
+   * - Rejected: Rejected.
+   * - Closed: Closed.
    * 
    * @example
    * Processing
@@ -191,7 +182,7 @@ export class GetTicketResponseBodyData extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The version of the ticket template.
+   * The ticket template version.
    * 
    * @example
    * 0
@@ -210,12 +201,12 @@ export class GetTicketResponseBodyData extends $dara.Model {
    * The ticket title.
    * 
    * @example
-   * 售后工单
+   * After-sales ticket
    */
   title?: string;
   /**
    * @remarks
-   * The time of the last update.
+   * The time of the last update. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1693793208075
@@ -317,12 +308,12 @@ export class GetTicketResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * The list of incorrect parameters.
+   * The list of error parameters.
    */
   params?: string[];
   /**

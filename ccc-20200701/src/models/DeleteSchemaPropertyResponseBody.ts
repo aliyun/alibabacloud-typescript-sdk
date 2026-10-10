@@ -29,7 +29,7 @@ export class DeleteSchemaPropertyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The information about error parameters.
+   * The error parameter information.
    */
   params?: string[];
   /**

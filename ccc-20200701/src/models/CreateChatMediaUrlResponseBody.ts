@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChatMediaUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Media ID.
+   * The media ID.
    * 
    * @example
    * $iAHNCNQCo21wMwMGBAAFAAbaACOEAaQhIH6TAqogDGyb-qD2Hbj0A88AAAGRLKYVnwTOACwwYwcACM8AAAGRLRPynQ
@@ -13,7 +13,7 @@ export class CreateChatMediaUrlResponseBodyData extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * File URL.
+   * The file URL.
    * 
    * @example
    * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-test/namelist.csv?Expires=1642067227&OSSAccessKeyId=****&Signature=****
@@ -45,7 +45,7 @@ export class CreateChatMediaUrlResponseBodyData extends $dara.Model {
 export class CreateChatMediaUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * OK
@@ -53,12 +53,12 @@ export class CreateChatMediaUrlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data.
+   * The data.
    */
   data?: CreateChatMediaUrlResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -66,20 +66,20 @@ export class CreateChatMediaUrlResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Response parameters.
+   * The response parameters.
    */
   params?: string[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716

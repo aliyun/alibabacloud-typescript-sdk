@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAudioFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Audio file name.
+   * The name of the audio file.
    * 
    * @example
    * test-file.wav
@@ -13,7 +13,7 @@ export class GetAudioFileResponseBodyData extends $dara.Model {
   audioFileName?: string;
   /**
    * @remarks
-   * Audio resource ID, the UUID of the audio file.
+   * The audio resource ID, which is the unique identifier of the audio file.
    * 
    * @example
    * c1a06b46-302a-4c6e-928b-a43c0df485cf
@@ -21,7 +21,7 @@ export class GetAudioFileResponseBodyData extends $dara.Model {
   audioResourceId?: string;
   /**
    * @remarks
-   * Creation Time of the audio resource.
+   * The time when the audio resource was created. The format is YYYY-MM-DD HH:mm:ss.S.
    * 
    * @example
    * 2021-07-14 10:48:43.0
@@ -29,7 +29,7 @@ export class GetAudioFileResponseBodyData extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * ccc-test
@@ -37,15 +37,15 @@ export class GetAudioFileResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Display name of the audio.
+   * The display name of the audio file.
    * 
    * @example
-   * 欢迎语
+   * Welcome message
    */
   name?: string;
   /**
    * @remarks
-   * Key of the audio resource file in OSS.
+   * The key of the audio resource file in OSS.
    * 
    * @example
    * ccc-test/test-file.wav
@@ -53,7 +53,7 @@ export class GetAudioFileResponseBodyData extends $dara.Model {
   ossFileKey?: string;
   /**
    * @remarks
-   * Last Updated At of the audio resource.
+   * The time when the audio resource was last modified. The format is YYYY-MM-DD HH:mm:ss.S.
    * 
    * @example
    * 2021-07-14 10:48:43.0
@@ -95,7 +95,7 @@ export class GetAudioFileResponseBodyData extends $dara.Model {
 export class GetAudioFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * OK
@@ -103,12 +103,12 @@ export class GetAudioFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Audio file data.
+   * The audio file data.
    */
   data?: GetAudioFileResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -116,15 +116,15 @@ export class GetAudioFileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EEE26562-D921-5CB2-AE49-E4C45A42D432

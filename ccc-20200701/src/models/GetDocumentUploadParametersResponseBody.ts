@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AccessKeyId used for signing
+   * The AccessKey ID used for signing.
    * 
    * @example
    * ****
@@ -13,7 +13,7 @@ export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
   accessKeyId?: string;
   /**
    * @remarks
-   * Expired At
+   * The expiration time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1647313420
@@ -21,7 +21,7 @@ export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * OSS file path
+   * The OSS file path.
    * 
    * @example
    * ccc-test/blacklist.xlsx
@@ -29,7 +29,7 @@ export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * OSS host
+   * oss host
    * 
    * @example
    * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com
@@ -37,7 +37,7 @@ export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * Signature policy
+   * The signature policy.
    * 
    * @example
    * Permit
@@ -45,7 +45,7 @@ export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * Signature
+   * The signature.
    * 
    * @example
    * zi31STIMtIfa/UN2l+6lww****
@@ -85,7 +85,7 @@ export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
 export class GetDocumentUploadParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code
+   * The response code.
    * 
    * @example
    * OK
@@ -93,12 +93,12 @@ export class GetDocumentUploadParametersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data.
+   * The data.
    */
   data?: GetDocumentUploadParametersResponseBodyData;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -106,20 +106,20 @@ export class GetDocumentUploadParametersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Response parameters.
+   * The response parameters.
    */
   params?: string[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 9FBA26B0-462B-4D77-B78F-AF35560DBC71

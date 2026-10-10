@@ -105,6 +105,9 @@ export class ListConfigItemsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The list of dynamic response parameters.
+   * 
+   * @example
+   * ["ParameterName"]
    */
   params?: string[];
   /**

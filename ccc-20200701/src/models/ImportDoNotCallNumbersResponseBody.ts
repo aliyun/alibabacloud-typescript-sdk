@@ -27,6 +27,10 @@ export class ImportDoNotCallNumbersResponseBody extends $dara.Model {
    * 无
    */
   message?: string;
+  /**
+   * @example
+   * ["ParameterName"]
+   */
   params?: string[];
   /**
    * @remarks

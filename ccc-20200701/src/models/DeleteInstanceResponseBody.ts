@@ -13,7 +13,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the delete task.
+   * The returned result, which is the ID of the deletion task.
    * 
    * @example
    * b7feb007-994a-497f-8934-2f0c6f89867c
@@ -32,7 +32,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

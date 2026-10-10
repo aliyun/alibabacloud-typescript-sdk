@@ -13,7 +13,7 @@ export class AssignUsersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data, which is the same as the workflow ID.
+   * The data. The content is the same as the workflow ID.
    * 
    * @example
    * 1ca2b084-6f0a-454b-9851-29768a9a5832
@@ -32,7 +32,7 @@ export class AssignUsersResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

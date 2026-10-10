@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableSchemaPropertyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code
+   * The response code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class EnableSchemaPropertyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class EnableSchemaPropertyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * The operation is not allowed. User state (READY) does not meet expectations (OFFLINE).
@@ -29,12 +29,12 @@ export class EnableSchemaPropertyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Response parameters.
+   * The response elements.
    */
   params?: string[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2778FA12-EDD6-42AA-9B15-AF855072E5E5

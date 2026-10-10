@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddSchemaPropertyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class AddSchemaPropertyShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Field
+   * The property.
    */
   propertyShrink?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716

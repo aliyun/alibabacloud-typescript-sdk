@@ -32,7 +32,7 @@ export class ExportContactFlowResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
@@ -42,7 +42,7 @@ export class ExportContactFlowResponseBody extends $dara.Model {
   params?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE

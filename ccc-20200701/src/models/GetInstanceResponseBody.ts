@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceResponseBodyDataAdminList extends $dara.Model {
   /**
    * @remarks
-   * The name of the administrator.
+   * The display name of the administrator.
    * 
    * @example
-   * 管理员
+   * Administrator
    */
   displayName?: string;
   /**
    * @remarks
-   * The mailbox.
+   * The email address.
    * 
    * @example
    * username@example.com
@@ -21,7 +21,7 @@ export class GetInstanceResponseBodyDataAdminList extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The agent\\"s extension number.
+   * The extension number of the agent.
    * 
    * @example
    * 8032****
@@ -37,7 +37,7 @@ export class GetInstanceResponseBodyDataAdminList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The agent\\"s logon name.
+   * The logon name of the agent.
    * 
    * @example
    * agent
@@ -45,7 +45,7 @@ export class GetInstanceResponseBodyDataAdminList extends $dara.Model {
   loginName?: string;
   /**
    * @remarks
-   * The agent\\"s personal phone number.
+   * The personal phone number of the agent.
    * 
    * @example
    * 1382114****
@@ -53,7 +53,7 @@ export class GetInstanceResponseBodyDataAdminList extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * The role ID. The format is: Role\\@Instance ID.
+   * The role ID, in the format of Role@Instance ID.
    * 
    * @example
    * Admin@ccc-test
@@ -123,7 +123,18 @@ export class GetInstanceResponseBodyDataAdminList extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyDataChatbotBusinessUnit extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the chatbot business unit.
+   * 
+   * @example
+   * 0
+   */
   unitId?: number;
+  /**
+   * @remarks
+   * The identifier of the chatbot business unit.
+   */
   unitKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -154,7 +165,7 @@ export class GetInstanceResponseBodyDataNumberListSkillGroups extends $dara.Mode
    * The description of the skill group.
    * 
    * @example
-   * 云联络中心的测试技能组。
+   * Test skill group of Cloud Call Center
    */
   description?: string;
   /**
@@ -162,7 +173,7 @@ export class GetInstanceResponseBodyDataNumberListSkillGroups extends $dara.Mode
    * The display name of the skill group.
    * 
    * @example
-   * 测试技能组
+   * Test skill group
    */
   displayName?: string;
   /**
@@ -175,7 +186,7 @@ export class GetInstanceResponseBodyDataNumberListSkillGroups extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The name of the skill group.
+   * The skill group name.
    * 
    * @example
    * skillgroup
@@ -241,7 +252,7 @@ export class GetInstanceResponseBodyDataNumberListSkillGroups extends $dara.Mode
 export class GetInstanceResponseBodyDataNumberList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the number is active.
+   * Indicates whether the phone number is available.
    * 
    * @example
    * true
@@ -249,10 +260,10 @@ export class GetInstanceResponseBodyDataNumberList extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * The city where the number is registered.
+   * The city to which the phone number belongs.
    * 
    * @example
-   * 乐山
+   * Leshan
    */
   city?: string;
   /**
@@ -281,20 +292,20 @@ export class GetInstanceResponseBodyDataNumberList extends $dara.Model {
   number?: string;
   /**
    * @remarks
-   * The province where the number is registered.
+   * The province to which the phone number belongs.
    * 
    * @example
-   * 四川
+   * Sichuan
    */
   province?: string;
   /**
    * @remarks
-   * The list of skill groups associated with the number.
+   * The list of skill groups associated with the phone number.
    */
   skillGroups?: GetInstanceResponseBodyDataNumberListSkillGroups[];
   /**
    * @remarks
-   * The purpose of the number.
+   * The usage of the phone number.
    * 
    * @example
    * Bidirection
@@ -302,7 +313,7 @@ export class GetInstanceResponseBodyDataNumberList extends $dara.Model {
   usage?: string;
   /**
    * @remarks
-   * The agent ID. If this parameter is not empty, the number is a personal outbound number for the agent.
+   * The agent ID. If this parameter is not empty, the phone number is a personal outbound phone number of the agent.
    * 
    * @example
    * agent@ccc-test
@@ -354,6 +365,10 @@ export class GetInstanceResponseBodyData extends $dara.Model {
    * The list of administrators.
    */
   adminList?: GetInstanceResponseBodyDataAdminList[];
+  /**
+   * @remarks
+   * The agent type used by the instance.
+   */
   agentType?: string;
   /**
    * @remarks
@@ -363,10 +378,17 @@ export class GetInstanceResponseBodyData extends $dara.Model {
    * 157123456789****
    */
   aliyunUid?: string;
+  /**
+   * @remarks
+   * The chatbot business unit associated with the instance.
+   * 
+   * @example
+   * {"UnitId":0,"UnitKey":""}
+   */
   chatbotBusinessUnit?: GetInstanceResponseBodyDataChatbotBusinessUnit;
   /**
    * @remarks
-   * The URL of the Cloud Contact Center instance homepage. This URL is formed by combining the base URL of Cloud Contact Center and the instance ID.
+   * The URL of the Cloud Call Center instance. This URL is used to access the homepage of the instance and consists of a specific Cloud Call Center URL and the instance ID.
    * 
    * @example
    * https://ccc-v2.aliyun.com/#/workbench/ccc-test
@@ -377,12 +399,12 @@ export class GetInstanceResponseBodyData extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * 云联络中心的测试实例。
+   * Test instance of Cloud Call Center
    */
   description?: string;
   /**
    * @remarks
-   * The domain name of the instance. It is globally unique.
+   * The globally unique domain name of the instance.
    * 
    * @example
    * ccc-test
@@ -401,12 +423,12 @@ export class GetInstanceResponseBodyData extends $dara.Model {
    * The instance name.
    * 
    * @example
-   * 测试实例
+   * Test instance
    */
   name?: string;
   /**
    * @remarks
-   * The list of numbers.
+   * The list of phone numbers.
    */
   numberList?: GetInstanceResponseBodyDataNumberList[];
   /**
@@ -494,7 +516,7 @@ export class GetInstanceResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

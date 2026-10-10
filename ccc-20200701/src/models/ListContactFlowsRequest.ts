@@ -44,6 +44,9 @@ export class ListContactFlowsRequest extends $dara.Model {
   /**
    * @remarks
    * A keyword to search for in the names or descriptions of IVR flows.
+   * 
+   * @example
+   * 默认流程
    */
   searchPattern?: string;
   /**

@@ -15,7 +15,7 @@ export class GetContactFlowRequest extends $dara.Model {
   contactFlowId?: string;
   /**
    * @remarks
-   * The draft ID. This is the ID of the editable draft version for the current contact flow.
+   * The draft ID, which is the ID of the editable draft version corresponding to the current contact flow.
    * 
    * This parameter is required.
    * 

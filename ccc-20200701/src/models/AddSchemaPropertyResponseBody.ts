@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddSchemaPropertyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code
+   * The response code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class AddSchemaPropertyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,20 +21,20 @@ export class AddSchemaPropertyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Response parameters.
+   * The response parameters.
    */
   params?: string[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BF268B34-09C2-43FD-BAC4-5D31EA633111

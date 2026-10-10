@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddSchemaPropertyRequestProperty extends $dara.Model {
   /**
    * @remarks
-   * Is array
+   * Specifies whether the property is an array.
    * 
    * @example
    * false
@@ -13,15 +13,15 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   array?: boolean;
   /**
    * @remarks
-   * Extension attributes
+   * The extended attributes.
    * 
    * @example
-   * {\\"newName\\":\\"小桔充电-demo\\",\\"appId\\":\\"69FRKB4193W8BYP0\\"}
+   * {"newName":"Xiaoju Charging-demo","appId":"69FRKB4193W8BYP0"}
    */
   attributes?: string;
   /**
    * @remarks
-   * Data type
+   * The data type.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * -
@@ -39,7 +39,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Is disabled
+   * Specifies whether the property is disabled.
    * 
    * @example
    * False
@@ -47,7 +47,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * Name
+   * The display name.
    * 
    * @example
    * name
@@ -55,7 +55,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * List display order
+   * The display order in the list.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   displayOrder?: number;
   /**
    * @remarks
-   * Editor type
+   * The editor type.
    * 
    * @example
    * textbox
@@ -71,7 +71,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   editorType?: string;
   /**
    * @remarks
-   * Maximum length
+   * The maximum length.
    * 
    * @example
    * 100
@@ -79,7 +79,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   maxLength?: number;
   /**
    * @remarks
-   * Maximum numeric value
+   * The maximum numeric value.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   maximum?: number;
   /**
    * @remarks
-   * Minimum length
+   * The minimum length.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   minLength?: number;
   /**
    * @remarks
-   * Minimum numeric value
+   * The minimum numeric value.
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   minimum?: number;
   /**
    * @remarks
-   * Name
+   * The display name.
    * 
    * This parameter is required.
    * 
@@ -113,7 +113,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Regular expression validation rule
+   * The regular expression validation rule.
    * 
    * @example
    * *
@@ -121,15 +121,15 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   pattern?: string;
   /**
    * @remarks
-   * Regular expression validation error message
+   * The error message for regular expression validation.
    * 
    * @example
-   * 格式错误
+   * Invalid format
    */
   patternErrorMessage?: string;
   /**
    * @remarks
-   * Is read-only
+   * Specifies whether the property is read-only.
    * 
    * @example
    * true
@@ -137,7 +137,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
   readOnly?: boolean;
   /**
    * @remarks
-   * Is required
+   * Specifies whether the property is required.
    * 
    * @example
    * false
@@ -199,7 +199,7 @@ export class AddSchemaPropertyRequestProperty extends $dara.Model {
 export class AddSchemaPropertyRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -209,12 +209,12 @@ export class AddSchemaPropertyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Field
+   * The property.
    */
   property?: AddSchemaPropertyRequestProperty;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716

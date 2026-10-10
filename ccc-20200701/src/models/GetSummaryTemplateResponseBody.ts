@@ -13,7 +13,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   array?: boolean;
   /**
    * @remarks
-   * The extended properties.
+   * The extended attributes.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   attributes?: string;
   /**
    * @remarks
-   * The time when the field was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1717664210000
@@ -29,7 +29,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   createdTime?: number;
   /**
    * @remarks
-   * The user who created the field.
+   * The creator.
    * 
    * @example
    * cretor-xxx@ccc-test
@@ -45,7 +45,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   dataType?: string;
   /**
    * @remarks
-   * The description of the field.
+   * The field description.
    * 
    * @example
    * Description-xxxx
@@ -77,7 +77,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   displayOrder?: number;
   /**
    * @remarks
-   * The type of the editor.
+   * The editor type.
    * 
    * @example
    * textbox
@@ -93,7 +93,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   maxLength?: number;
   /**
    * @remarks
-   * The maximum value of the number.
+   * The maximum numeric value.
    * 
    * @example
    * 10
@@ -109,7 +109,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   minLength?: number;
   /**
    * @remarks
-   * The minimum value of the number.
+   * The minimum numeric value.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   minimum?: number;
   /**
    * @remarks
-   * The name of the field.
+   * The field name.
    * 
    * @example
    * Name-A
@@ -125,7 +125,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The validation rule that is specified by a regular expression.
+   * The regular expression validation rule.
    * 
    * @example
    * ^
@@ -133,10 +133,10 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   pattern?: string;
   /**
    * @remarks
-   * The error message that is returned when the regular expression fails to pass the validation.
+   * The error message for regular expression validation.
    * 
    * @example
-   * 不是有效的email地址
+   * Not a valid email address
    */
   patternErrorMessage?: string;
   /**
@@ -165,7 +165,7 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
   system?: boolean;
   /**
    * @remarks
-   * The time when the field was last updated.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1717664210000
@@ -243,7 +243,7 @@ export class GetSummaryTemplateResponseBodyData extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The user who edited the template.
+   * The template editor.
    * 
    * @example
    * editor-xxx@ccc-test
@@ -259,10 +259,10 @@ export class GetSummaryTemplateResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
-   * 测试模板
+   * Test template
    */
   name?: string;
   /**
@@ -272,11 +272,9 @@ export class GetSummaryTemplateResponseBodyData extends $dara.Model {
   propertyList?: GetSummaryTemplateResponseBodyDataPropertyList[];
   /**
    * @remarks
-   * The status code.
-   * 
-   * - Enabled: The template is enabled.
-   * 
-   * - Disabled: The template is disabled.
+   * The status code. Valid values:
+   * - Enabled: Enabled.
+   * - Disabled: Disabled.
    * 
    * @example
    * Enabled
@@ -353,7 +351,7 @@ export class GetSummaryTemplateResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

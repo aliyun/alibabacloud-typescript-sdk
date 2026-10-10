@@ -15,7 +15,7 @@ export class DeleteSchemaPropertyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The field name.
+   * The property name.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DeleteSchemaPropertyRequest extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The schema ID.
+   * schema id
    * 
    * This parameter is required.
    * 

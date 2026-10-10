@@ -8,7 +8,7 @@ export class DataPropertiesValue extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 姓名
+   * Name
    */
   displayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DataPropertiesValue extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The regular expression that is used for validation.
+   * The regular expression validation rule.
    * 
    * @example
    * ^
@@ -45,10 +45,10 @@ export class DataPropertiesValue extends $dara.Model {
   pattern?: string;
   /**
    * @remarks
-   * The error message that is returned if the value does not match the regular expression.
+   * The error message for regular expression validation.
    * 
    * @example
-   * 不是有效的email地址
+   * Not a valid email address
    */
   patternErrorMessage?: string;
   /**
@@ -69,7 +69,7 @@ export class DataPropertiesValue extends $dara.Model {
   maxLength?: number;
   /**
    * @remarks
-   * The minimum value.
+   * The minimum numeric value.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DataPropertiesValue extends $dara.Model {
   minimum?: number;
   /**
    * @remarks
-   * The maximum value.
+   * The maximum numeric value.
    * 
    * @example
    * 10
@@ -125,7 +125,7 @@ export class DataPropertiesValue extends $dara.Model {
   readOnly?: boolean;
   /**
    * @remarks
-   * The type of the editor.
+   * The editor type.
    * 
    * @example
    * textbox
@@ -133,7 +133,7 @@ export class DataPropertiesValue extends $dara.Model {
   editorType?: string;
   /**
    * @remarks
-   * The extended properties.
+   * The extended attributes.
    * 
    * @example
    * {}
@@ -141,7 +141,7 @@ export class DataPropertiesValue extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The display order.
+   * The display order in the list.
    * 
    * @example
    * 1
@@ -149,7 +149,7 @@ export class DataPropertiesValue extends $dara.Model {
   displayOrder?: number;
   /**
    * @remarks
-   * The time when the field was created.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.S.
    * 
    * @example
    * 2021-07-14 10:48:43.0
@@ -157,7 +157,7 @@ export class DataPropertiesValue extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * The time when the field was last updated.
+   * The update time. Format: YYYY-MM-DD HH:mm:ss.S.
    * 
    * @example
    * 2021-07-14 10:48:43.0
@@ -165,7 +165,7 @@ export class DataPropertiesValue extends $dara.Model {
   updatedTime?: number;
   /**
    * @remarks
-   * Creator
+   * The creator.
    * 
    * @example
    * tom

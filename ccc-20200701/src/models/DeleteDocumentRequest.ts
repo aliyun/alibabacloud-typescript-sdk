@@ -33,7 +33,7 @@ export class DeleteDocumentRequest extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The schema ID.
+   * schema id
    * 
    * This parameter is required.
    * 

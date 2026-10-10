@@ -6,7 +6,7 @@ import { DataPropertiesValue } from "./DataPropertiesValue";
 export class GetSchemaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the schema was created.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.S.
    * 
    * @example
    * 2021-07-14 10:48:43.0
@@ -14,7 +14,7 @@ export class GetSchemaResponseBodyData extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * Indicates whether the schema is deleted.
+   * Indicates whether the data is deleted.
    * 
    * @example
    * false
@@ -25,12 +25,12 @@ export class GetSchemaResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * 客户profile
+   * Customer profile
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the schema.
+   * schema id
    * 
    * @example
    * profile
@@ -38,7 +38,7 @@ export class GetSchemaResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * 5e0964fd-951c-4e45-b518-d09d4d2db8ca
@@ -51,7 +51,7 @@ export class GetSchemaResponseBodyData extends $dara.Model {
   properties?: { [key: string]: DataPropertiesValue };
   /**
    * @remarks
-   * The time when the schema was last modified.
+   * The last modification time. Format: YYYY-MM-DD HH:mm:ss.S.
    * 
    * @example
    * 2021-07-14 10:48:43.0
@@ -104,7 +104,7 @@ export class GetSchemaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data.
    */
   data?: GetSchemaResponseBodyData;
   /**
@@ -130,7 +130,7 @@ export class GetSchemaResponseBody extends $dara.Model {
   params?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 19D09CCC-F298-4124-849A-AFA217819011

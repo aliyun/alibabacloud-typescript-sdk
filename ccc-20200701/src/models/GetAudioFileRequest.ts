@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAudioFileRequest extends $dara.Model {
   /**
    * @remarks
-   * Audio resource ID, the UUID of the audio file.
+   * The audio resource ID, which is the unique identifier of the audio file.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAudioFileRequest extends $dara.Model {
   audioResourceId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

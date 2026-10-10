@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatMediaUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * OK
@@ -13,15 +13,15 @@ export class GetChatMediaUrlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The returned data.
    * 
    * @example
-   * 无
+   * None
    */
   data?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class GetChatMediaUrlResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * Internal service issue. Detail:.
@@ -37,12 +37,12 @@ export class GetChatMediaUrlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Response parameters.
+   * The response parameters.
    */
   params?: string[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 9FBA26B0-462B-4D77-B78F-AF35560DBC71

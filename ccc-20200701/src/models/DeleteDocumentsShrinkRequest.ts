@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDocumentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of document IDs.
+   * The list of document IDs.
    */
   documentIdsShrink?: string;
   /**
@@ -28,7 +28,7 @@ export class DeleteDocumentsShrinkRequest extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The schema ID.
+   * schema id
    * 
    * This parameter is required.
    * 

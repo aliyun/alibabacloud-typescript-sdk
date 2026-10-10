@@ -13,7 +13,7 @@ export class GetContactFlowResponseBodyData extends $dara.Model {
   contactFlowId?: string;
   /**
    * @remarks
-   * The time when the contact flow draft was created.
+   * The time when the contact flow draft was created. The format is YYYY-MM-DD HH:mm:ss.S.
    * 
    * @example
    * 2021-07-14 10:48:43.0
@@ -21,10 +21,10 @@ export class GetContactFlowResponseBodyData extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * IVR content.
+   * The IVR content.
    * 
    * @example
-   * {"activities":[{"type":"INCOMING_CALL","id":"e98f0d47","name":"开始","properties":{"position":{"x":263,"y":164}},"events":[{"event":"complete","next":"2d3ad2c2","edgeId":"41f7dbd0"}],"nodeIndex":0},{"type":"HANGUP","id":"bd4f37e2","name":"挂机","properties":{"position":{"x":765,"y":185}},"events":[{"event":"complete","next":null}],"nodeIndex":999},{"type":"PLAY_SAY","id":"2d3ad2c2","name":"放音","properties":{"say":"您好，欢迎来到云联络中心。","audioResourceId":"","position":{"x":485.5,"y":153.5},"audioType":"tts","audioInterrupt":false},"events":[{"event":"complete","next":"bd4f37e2","edgeId":"e1af4f1f"}],"nodeIndex":1}],"description":""}
+   * {"activities":[{"type":"INCOMING_CALL","id":"e98f0d47","name":"Start","properties":{"position":{"x":263,"y":164}},"events":[{"event":"complete","next":"2d3ad2c2","edgeId":"41f7dbd0"}],"nodeIndex":0},{"type":"HANGUP","id":"bd4f37e2","name":"Hang up","properties":{"position":{"x":765,"y":185}},"events":[{"event":"complete","next":null}],"nodeIndex":999},{"type":"PLAY_SAY","id":"2d3ad2c2","name":"Play audio","properties":{"say":"Hello, welcome to Cloud Call Center.","audioResourceId":"","position":{"x":485.5,"y":153.5},"audioType":"tts","audioInterrupt":false},"events":[{"event":"complete","next":"bd4f37e2","edgeId":"e1af4f1f"}],"nodeIndex":1}],"description":""}
    */
   definition?: string;
   /**
@@ -37,7 +37,7 @@ export class GetContactFlowResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The draft ID. This is the ID of the editable draft version for the current contact flow.
+   * The draft ID, which is the ID of the editable draft version corresponding to the current contact flow.
    * 
    * @example
    * 566399d7-5558-447c-a72f-9be2768b6a82
@@ -45,7 +45,7 @@ export class GetContactFlowResponseBodyData extends $dara.Model {
   draftId?: string;
   /**
    * @remarks
-   * The agent login name of the current editor of this draft.
+   * The logon name of the agent currently editing this draft.
    * 
    * @example
    * editor-xxx
@@ -64,14 +64,14 @@ export class GetContactFlowResponseBodyData extends $dara.Model {
    * The IVR name.
    * 
    * @example
-   * 欢迎语
+   * Greeting
    */
   name?: string;
   /**
    * @remarks
-   * Indicates whether the contact flow is published.
-   * True: Published
-   * False: Not published
+   * Specifies whether the contact flow is published. Valid values:
+   * - True: Published.
+   * - False: Not published.
    * 
    * @example
    * False
@@ -79,10 +79,10 @@ export class GetContactFlowResponseBodyData extends $dara.Model {
   published?: boolean;
   /**
    * @remarks
-   * The flow type:<br>
-   * MAIN_FLOW (main flow)<br>
-   * SUB_FLOW (child flow)<br>
-   * SURVEY_FLOW (survey flow)<br><br><br>
+   * The flow type. Valid values:   
+   * - MAIN_FLOW: main flow  
+   * - SUB_FLOW: sub-flow  
+   * - SURVEY_FLOW: satisfaction survey flow
    * 
    * @example
    * MAIN_FLOW
@@ -90,7 +90,7 @@ export class GetContactFlowResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the contact flow was last updated.
+   * The time of the last modification. The format is YYYY-MM-DD HH:mm:ss.S.
    * 
    * @example
    * 2021-07-14 10:48:43.0
@@ -148,7 +148,7 @@ export class GetContactFlowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The data.
    */
   data?: GetContactFlowResponseBodyData;
   /**
@@ -164,7 +164,7 @@ export class GetContactFlowResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

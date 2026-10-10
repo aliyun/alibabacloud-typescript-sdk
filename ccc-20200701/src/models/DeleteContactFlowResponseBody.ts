@@ -21,15 +21,15 @@ export class DeleteContactFlowResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned for the request.
+   * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 07511949-6DC4-5D0B-8FA8-FF8FA29B4217

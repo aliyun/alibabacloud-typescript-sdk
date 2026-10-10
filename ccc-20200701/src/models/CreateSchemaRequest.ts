@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSchemaRequestProperties extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the field is an array.
+   * Specifies whether the field is an array.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   array?: boolean;
   /**
    * @remarks
-   * The extended properties.
+   * The extended attributes.
    * 
    * @example
    * {\\"Clusters\\": {\\"Description\\": \\"The list of clusters.\\"}, \\"ClusterIds\\": {\\"Description\\": \\"The list of cluster IDs.\\"}}
@@ -31,7 +31,7 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The description of the version.
+   * The version description.
    * 
    * @example
    * -
@@ -39,7 +39,7 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the field is disabled.
+   * Specifies whether the field is disabled.
    * 
    * @example
    * false
@@ -47,10 +47,10 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The display name for agents.
+   * The display name of the agent.
    * 
    * @example
-   * 显示名称
+   * Display name
    */
   displayName?: string;
   /**
@@ -79,7 +79,7 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   maxLength?: number;
   /**
    * @remarks
-   * The maximum value of the number.
+   * The maximum numeric value.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   minLength?: number;
   /**
    * @remarks
-   * The minimum value of the number.
+   * The minimum numeric value.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The regular expression that is used for validation.
+   * The regular expression validation rule.
    * 
    * @example
    * *
@@ -121,15 +121,15 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   pattern?: string;
   /**
    * @remarks
-   * The error message that is returned when the regular expression fails to match.
+   * The error message for regular expression validation.
    * 
    * @example
-   * 错误的格式
+   * Invalid format
    */
   patternErrorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the field is read-only.
+   * Specifies whether the field is read-only.
    * 
    * @example
    * true
@@ -137,7 +137,7 @@ export class CreateSchemaRequestProperties extends $dara.Model {
   readOnly?: boolean;
   /**
    * @remarks
-   * Indicates whether the field is required.
+   * Specifies whether the field is required.
    * 
    * @example
    * false
@@ -207,7 +207,7 @@ export class CreateSchemaRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The schema ID.
+   * schema id
    * 
    * @example
    * profile
@@ -225,7 +225,7 @@ export class CreateSchemaRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of fields.
+   * The list of properties.
    */
   properties?: CreateSchemaRequestProperties[];
   /**

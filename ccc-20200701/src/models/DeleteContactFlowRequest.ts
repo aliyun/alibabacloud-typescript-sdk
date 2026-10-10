@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the contact flow.
+   * The contact flow ID.
    * 
    * This parameter is required.
    * 
@@ -13,10 +13,14 @@ export class DeleteContactFlowRequest extends $dara.Model {
    * 0f87c997-b0c1-41d4-9e9e-1b791de6ad1f
    */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * Specifies whether the contact flow is force deleted.
+   */
   force?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

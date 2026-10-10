@@ -25,7 +25,7 @@ export class ExportContactFlowRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * AF9834D8-6D09-4A1B-BADB-B019D9D444C8

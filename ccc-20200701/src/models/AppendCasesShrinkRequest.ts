@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AppendCasesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The predictive campaign ID.
+   * The predictive outbound campaign ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class AppendCasesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of cases to be added.
+   * The list of outbound call cases in the request body.
    */
   bodyShrink?: string;
   static names(): { [key: string]: string } {

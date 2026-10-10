@@ -13,7 +13,7 @@ export class ExportDoNotCallNumbersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The OSS download link for the exported file. The link is valid for 24 hours.
+   * The data, which is the OSS download URL for the export result. The URL is valid for 24 hours.
    * 
    * @example
    * https://****.oss-cn-shanghai.aliyuncs.com/ccc-test/blacklist.xlsx?Expires=3294624578&OSSAccessKeyId=****&Signature=****
@@ -32,12 +32,15 @@ export class ExportDoNotCallNumbersResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The list of error parameters.
+   * 
+   * @example
+   * ["ParameterName"]
    */
   params?: string[];
   /**

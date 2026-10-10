@@ -24,7 +24,7 @@ export class DeleteDocumentsResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

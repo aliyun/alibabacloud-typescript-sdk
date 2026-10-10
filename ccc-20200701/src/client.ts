@@ -522,6 +522,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a property to the schema of a specified instance.
+   * 
    * @param tmpReq - AddSchemaPropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddSchemaPropertyResponse
@@ -569,6 +571,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a property to the schema of a specified instance.
+   * 
    * @param request - AddSchemaPropertyRequest
    * @returns AddSchemaPropertyResponse
    */
@@ -854,7 +858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds cases to a predictive campaign in a specified instance.
+   * Appends outbound call cases to a specified predictive outbound campaign under an instance.
    * 
    * @param tmpReq - AppendCasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -901,7 +905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds cases to a predictive campaign in a specified instance.
+   * Appends outbound call cases to a specified predictive outbound campaign under an instance.
    * 
    * @param request - AppendCasesRequest
    * @returns AppendCasesResponse
@@ -912,10 +916,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+   * Imports one or more RAM users into a specified instance. After a successful import, the RAM users exist as agents in the instance.
    * 
    * @remarks
-   * Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
+   * Accounts with RAM permissions can query all Resource Access Management (RAM) users managed under the Alibaba Cloud account in the Resource Access Management (RAM) console. RAM console URL: https://ram.console.aliyun.com/users.
    * 
    * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
    * 
@@ -968,10 +972,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+   * Imports one or more RAM users into a specified instance. After a successful import, the RAM users exist as agents in the instance.
    * 
    * @remarks
-   * Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
+   * Accounts with RAM permissions can query all Resource Access Management (RAM) users managed under the Alibaba Cloud account in the Resource Access Management (RAM) console. RAM console URL: https://ram.console.aliyun.com/users.
    * 
    * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
    * 
@@ -2013,6 +2017,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the upload URL for chat message media files.
+   * 
    * @param request - CreateChatMediaUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateChatMediaUrlResponse
@@ -2050,6 +2056,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the upload URL for chat message media files.
+   * 
    * @param request - CreateChatMediaUrlRequest
    * @returns CreateChatMediaUrlResponse
    */
@@ -2226,6 +2234,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a schema in a specified instance.
+   * 
    * @param tmpReq - CreateSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSchemaResponse
@@ -2277,6 +2287,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a schema in a specified instance.
+   * 
    * @param request - CreateSchemaRequest
    * @returns CreateSchemaResponse
    */
@@ -2598,7 +2610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the specified contact flow.
+   * Deletes a specified contact flow.
    * 
    * @param request - DeleteContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2637,7 +2649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the specified contact flow.
+   * Deletes a specified contact flow.
    * 
    * @param request - DeleteContactFlowRequest
    * @returns DeleteContactFlowResponse
@@ -2694,6 +2706,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a single document from a specified instance.
+   * 
    * @param request - DeleteDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDocumentResponse
@@ -2735,6 +2749,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a single document from a specified instance.
+   * 
    * @param request - DeleteDocumentRequest
    * @returns DeleteDocumentResponse
    */
@@ -2744,6 +2760,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes documents from a specified instance in batches.
+   * 
    * @param tmpReq - DeleteDocumentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDocumentsResponse
@@ -2791,6 +2809,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes documents from a specified instance in batches.
+   * 
    * @param request - DeleteDocumentsRequest
    * @returns DeleteDocumentsResponse
    */
@@ -2800,6 +2820,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a specified Cloud Call Center instance.
+   * 
    * @param request - DeleteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceResponse
@@ -2829,6 +2851,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a specified Cloud Call Center instance.
+   * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
    */
@@ -2838,6 +2862,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a schema from the specified instance.
+   * 
    * @param request - DeleteSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSchemaResponse
@@ -2875,6 +2901,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a schema from the specified instance.
+   * 
    * @param request - DeleteSchemaRequest
    * @returns DeleteSchemaResponse
    */
@@ -2884,6 +2912,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a property in a specified schema.
+   * 
    * @param request - DeleteSchemaPropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSchemaPropertyResponse
@@ -2925,6 +2955,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a property in a specified schema.
+   * 
    * @param request - DeleteSchemaPropertyRequest
    * @returns DeleteSchemaPropertyResponse
    */
@@ -3076,6 +3108,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables a field in a specified schema.
+   * 
    * @param request - DisableSchemaPropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableSchemaPropertyResponse
@@ -3117,6 +3151,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables a field in a specified schema.
+   * 
    * @param request - DisableSchemaPropertyRequest
    * @returns DisableSchemaPropertyResponse
    */
@@ -3222,6 +3258,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables a property in a specified schema.
+   * 
    * @param request - EnableSchemaPropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableSchemaPropertyResponse
@@ -3263,6 +3301,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables a property in a specified schema.
+   * 
    * @param request - EnableSchemaPropertyRequest
    * @returns EnableSchemaPropertyResponse
    */
@@ -3368,6 +3408,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Exports the IVR contact flow of a specified instance.
+   * 
    * @param request - ExportContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExportContactFlowResponse
@@ -3405,6 +3447,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Exports the IVR contact flow of a specified instance.
+   * 
    * @param request - ExportContactFlowRequest
    * @returns ExportContactFlowResponse
    */
@@ -3461,7 +3505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
+   * Exports the list of do-not-call numbers filtered by the specified search conditions for a specified instance.
    * 
    * @param request - ExportDoNotCallNumbersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3500,7 +3544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
+   * Exports the list of do-not-call numbers filtered by the specified search conditions for a specified instance.
    * 
    * @param request - ExportDoNotCallNumbersRequest
    * @returns ExportDoNotCallNumbersResponse
@@ -3603,7 +3647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
+   * Retrieves the information about an audio file for a specified audio resource ID in a specified instance.
    * 
    * @param request - GetAudioFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3638,7 +3682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
+   * Retrieves the information about an audio file for a specified audio resource ID in a specified instance.
    * 
    * @param request - GetAudioFileRequest
    * @returns GetAudioFileResponse
@@ -3741,7 +3785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
+   * Retrieves the details of a call specified by call ID for a specified instance.
    * 
    * @param request - GetCallDetailRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3776,7 +3820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
+   * Retrieves the details of a call specified by call ID for a specified instance.
    * 
    * @param request - GetCallDetailRecordRequest
    * @returns GetCallDetailRecordResponse
@@ -3879,6 +3923,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the access URL for a media file in a chat message.
+   * 
    * @param request - GetChatMediaUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetChatMediaUrlResponse
@@ -3916,6 +3962,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the access URL for a media file in a chat message.
+   * 
    * @param request - GetChatMediaUrlRequest
    * @returns GetChatMediaUrlResponse
    */
@@ -3967,7 +4015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a specified contact flow.
+   * Retrieves a specified contact flow.
    * 
    * @param request - GetContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4006,7 +4054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a specified contact flow.
+   * Retrieves a specified contact flow.
    * 
    * @param request - GetContactFlowRequest
    * @returns GetContactFlowResponse
@@ -4159,6 +4207,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the upload parameters required to import a document.
+   * 
    * @param request - GetDocumentUploadParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocumentUploadParametersResponse
@@ -4196,6 +4246,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the upload parameters required to import a document.
+   * 
    * @param request - GetDocumentUploadParametersRequest
    * @returns GetDocumentUploadParametersResponse
    */
@@ -4397,7 +4449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Cloud Contact Center instance.
+   * Queries the details of a Cloud Call Center instance based on the specified instance ID.
    * 
    * @param request - GetInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4428,7 +4480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Cloud Contact Center instance.
+   * Queries the details of a Cloud Call Center instance based on the specified instance ID.
    * 
    * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
@@ -4815,6 +4867,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the schema and its field definitions in a specified instance.
+   * 
    * @param request - GetSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSchemaResponse
@@ -4852,6 +4906,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the schema and its field definitions in a specified instance.
+   * 
    * @param request - GetSchemaRequest
    * @returns GetSchemaResponse
    */
@@ -4953,7 +5009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specific ticket.
+   * Queries the details of a specified ticket.
    * 
    * @param request - GetTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4988,7 +5044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specific ticket.
+   * Queries the details of a specified ticket.
    * 
    * @param request - GetTicketRequest
    * @returns GetTicketResponse
@@ -7760,6 +7816,66 @@ export default class Client extends OpenApi {
   async listFlashSmsTemplates(request: $_model.ListFlashSmsTemplatesRequest): Promise<$_model.ListFlashSmsTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFlashSmsTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询函数元数据
+   * 
+   * @remarks
+   * 若RAM子账号需要调用该接口，则需具有“管理云呼叫中心(CCC)的权限”（AliyunCCCFullAccess）。
+   * 
+   * @param request - ListFunctionMetasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFunctionMetasResponse
+   */
+  async listFunctionMetasWithOptions(request: $_model.ListFunctionMetasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFunctionMetasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hasHttpTrigger)) {
+      query["HasHttpTrigger"] = request.hasHttpTrigger;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFunctionMetas",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFunctionMetasResponse>(await this.callApi(params, req, runtime), new $_model.ListFunctionMetasResponse({}));
+  }
+
+  /**
+   * 查询函数元数据
+   * 
+   * @remarks
+   * 若RAM子账号需要调用该接口，则需具有“管理云呼叫中心(CCC)的权限”（AliyunCCCFullAccess）。
+   * 
+   * @param request - ListFunctionMetasRequest
+   * @returns ListFunctionMetasResponse
+   */
+  async listFunctionMetas(request: $_model.ListFunctionMetasRequest): Promise<$_model.ListFunctionMetasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFunctionMetasWithOptions(request, runtime);
   }
 
   /**

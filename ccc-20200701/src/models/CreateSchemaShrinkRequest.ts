@@ -13,7 +13,7 @@ export class CreateSchemaShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The schema ID.
+   * schema id
    * 
    * @example
    * profile
@@ -31,7 +31,7 @@ export class CreateSchemaShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of fields.
+   * The list of properties.
    */
   propertiesShrink?: string;
   /**

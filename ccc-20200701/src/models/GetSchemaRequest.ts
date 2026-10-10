@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSchemaRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetSchemaRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
@@ -23,7 +23,7 @@ export class GetSchemaRequest extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the schema.
+   * schema id
    * 
    * This parameter is required.
    * 

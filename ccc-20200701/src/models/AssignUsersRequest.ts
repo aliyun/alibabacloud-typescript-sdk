@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AssignUsersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to asynchronously execute user assignment.
+   */
   async?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +20,7 @@ export class AssignUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A JSON array of RAM user IDs to import, formatted as a string.
+   * The list of IDs of the Resource Access Management (RAM) users to be added.
    * 
    * This parameter is required.
    * 
@@ -26,7 +30,7 @@ export class AssignUsersRequest extends $dara.Model {
   ramIdList?: string;
   /**
    * @remarks
-   * The ID of the role to assign to the users in the instance. After the RAM users are imported, they are assigned this role. Valid roles are Administrator, Teamleader, and Agent.
+   * The role ID. This specifies the role of the agent in the instance after a successful import. Valid roles include administrator, skill group supervisor, and agent.
    * 
    * This parameter is required.
    * 
@@ -36,7 +40,7 @@ export class AssignUsersRequest extends $dara.Model {
   roleId?: string;
   /**
    * @remarks
-   * A JSON array of skill objects, provided as a string. Each object specifies a skillGroupId and a skillLevel from 1 to 10. A lower skillLevel value indicates higher proficiency and greater call-handling capacity.
+   * The list of skill levels for skill groups. The value is a string in JSON array format. Each array element is an object that contains two fields: skillGroupId and skillLevel. Set skillGroupId to the ID of the skill group to which you want to associate the agent. Set skillLevel to the skill level of the agent in the skill group. Valid values: 1 to 10. A smaller value indicates a stronger business capability, allowing the agent to handle more calls per unit of time.
    * 
    * @example
    * [{"skillGroupId":"skillgroup@ccc-test","skillLevel":5}]
@@ -44,7 +48,7 @@ export class AssignUsersRequest extends $dara.Model {
   skillLevelList?: string;
   /**
    * @remarks
-   * The work mode for the agents.
+   * The work mode.
    * 
    * This parameter is required.
    * 
