@@ -441,7 +441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Invocation of Images
+   * Invokes image moderation in batches.
    * 
    * @param request - ImageBatchModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -476,7 +476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Invocation of Images
+   * Invokes image moderation in batches.
    * 
    * @param request - ImageBatchModerationRequest
    * @returns ImageBatchModerationResponse
@@ -487,13 +487,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image moderation
+   * Moderates images.
    * 
    * @remarks
-   * Before you call this operation, complete the following steps:
-   * 1. [Activate AI Guardrails-Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
-   * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of the enhanced image moderation feature.
-   * 3. For more information about API usage and parameters, see the [API reference](https://help.aliyun.com/document_detail/467829.html).
+   * Before calling this API operation, complete the following tasks:
+   * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+   * 2. Fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+   * 3. For more information about how to use the API operation and its parameters, refer to the [API operation documentation](https://help.aliyun.com/document_detail/467829.html).
    * 
    * @param request - ImageModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -528,13 +528,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image moderation
+   * Moderates images.
    * 
    * @remarks
-   * Before you call this operation, complete the following steps:
-   * 1. [Activate AI Guardrails-Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
-   * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of the enhanced image moderation feature.
-   * 3. For more information about API usage and parameters, see the [API reference](https://help.aliyun.com/document_detail/467829.html).
+   * Before calling this API operation, complete the following tasks:
+   * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+   * 2. Fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+   * 3. For more information about how to use the API operation and its parameters, refer to the [API operation documentation](https://help.aliyun.com/document_detail/467829.html).
    * 
    * @param request - ImageModerationRequest
    * @returns ImageModerationResponse
