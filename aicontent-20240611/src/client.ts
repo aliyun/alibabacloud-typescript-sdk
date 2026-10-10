@@ -2658,6 +2658,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Renews member API keys in bulk in authorization management.
+   * 
+   * @param request - ModelRouterBatchRenewMemberApiKeysRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterBatchRenewMemberApiKeysResponse
+   */
+  async modelRouterBatchRenewMemberApiKeysWithOptions(id: string, request: $_model.ModelRouterBatchRenewMemberApiKeysRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterBatchRenewMemberApiKeysResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expireAt)) {
+      body["expireAt"] = request.expireAt;
+    }
+
+    if (!$dara.isNull(request.userIds)) {
+      body["userIds"] = request.userIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterBatchRenewMemberApiKeys",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/member-apikeys/renew`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterBatchRenewMemberApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterBatchRenewMemberApiKeysResponse({}));
+  }
+
+  /**
+   * Renews member API keys in bulk in authorization management.
+   * 
+   * @param request - ModelRouterBatchRenewMemberApiKeysRequest
+   * @returns ModelRouterBatchRenewMemberApiKeysResponse
+   */
+  async modelRouterBatchRenewMemberApiKeys(id: string, request: $_model.ModelRouterBatchRenewMemberApiKeysRequest): Promise<$_model.ModelRouterBatchRenewMemberApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterBatchRenewMemberApiKeysWithOptions(id, request, headers, runtime);
+  }
+
+  /**
    * Batch resets member authorizations to inherit under a department in organization management.
    * 
    * @param request - ModelRouterBatchResetMemberAuthorizationRequest
@@ -6946,6 +6995,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterQueryUserListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Manages authorization and renews an API key.
+   * 
+   * @param request - ModelRouterRenewApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterRenewApiKeyResponse
+   */
+  async modelRouterRenewApiKeyWithOptions(id: string, request: $_model.ModelRouterRenewApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterRenewApiKeyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expireAt)) {
+      body["expireAt"] = request.expireAt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterRenewApiKey",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/apikeys/${$dara.URL.percentEncode(id)}/renew`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterRenewApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterRenewApiKeyResponse({}));
+  }
+
+  /**
+   * Manages authorization and renews an API key.
+   * 
+   * @param request - ModelRouterRenewApiKeyRequest
+   * @returns ModelRouterRenewApiKeyResponse
+   */
+  async modelRouterRenewApiKey(id: string, request: $_model.ModelRouterRenewApiKeyRequest): Promise<$_model.ModelRouterRenewApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterRenewApiKeyWithOptions(id, request, headers, runtime);
   }
 
   /**

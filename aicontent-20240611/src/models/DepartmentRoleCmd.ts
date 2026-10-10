@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DepartmentRoleCmd extends $dara.Model {
   /**
+   * @remarks
+   * The department ID.
+   * 
    * @example
    * 1
    */
   clientId?: number;
   /**
+   * @remarks
+   * The role code.
+   * 
    * @example
    * member
    */

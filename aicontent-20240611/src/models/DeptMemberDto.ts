@@ -40,7 +40,7 @@ export class DeptMemberDTO extends $dara.Model {
   monthlyBalance?: number;
   /**
    * @example
-   * John Smith
+   * Zhang San
    */
   name?: string;
   /**

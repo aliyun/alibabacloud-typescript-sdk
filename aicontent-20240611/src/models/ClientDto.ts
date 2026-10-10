@@ -65,7 +65,7 @@ export class ClientDTO extends $dara.Model {
   main?: number;
   /**
    * @example
-   * My customer
+   * My Customer
    */
   name?: string;
   /**

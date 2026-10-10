@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchFailedItemDTO extends $dara.Model {
   /**
    * @example
-   * Member node is missing
+   * Member node missing
    */
   reason?: string;
   /**

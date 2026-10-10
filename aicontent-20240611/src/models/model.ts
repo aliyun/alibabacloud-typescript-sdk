@@ -127,6 +127,7 @@ export { ModelRouterQueryNacosProvidersResponseBodyData } from './ModelRouterQue
 export { ModelRouterQueryNacosTagsResponseBodyData } from './ModelRouterQueryNacosTagsResponseBody';
 export { ModelRouterQueryObservationLogsResponseBodyData } from './ModelRouterQueryObservationLogsResponseBody';
 export { ModelRouterQueryUserListResponseBodyData } from './ModelRouterQueryUserListResponseBody';
+export { ModelRouterRenewApiKeyResponseBodyData } from './ModelRouterRenewApiKeyResponseBody';
 export { ModelRouterSaveFlowConfigResponseBodyData } from './ModelRouterSaveFlowConfigResponseBody';
 export { ModelRouterSearchClientTreeResponseBodyData } from './ModelRouterSearchClientTreeResponseBody';
 export { ModelRouterUpdateApiKeyStatusResponseBodyData } from './ModelRouterUpdateApiKeyStatusResponseBody';
@@ -359,6 +360,9 @@ export { ModelRouterBatchCreateModelResponse } from './ModelRouterBatchCreateMod
 export { ModelRouterBatchDisableMemberApiKeysRequest } from './ModelRouterBatchDisableMemberApiKeysRequest';
 export { ModelRouterBatchDisableMemberApiKeysResponseBody } from './ModelRouterBatchDisableMemberApiKeysResponseBody';
 export { ModelRouterBatchDisableMemberApiKeysResponse } from './ModelRouterBatchDisableMemberApiKeysResponse';
+export { ModelRouterBatchRenewMemberApiKeysRequest } from './ModelRouterBatchRenewMemberApiKeysRequest';
+export { ModelRouterBatchRenewMemberApiKeysResponseBody } from './ModelRouterBatchRenewMemberApiKeysResponseBody';
+export { ModelRouterBatchRenewMemberApiKeysResponse } from './ModelRouterBatchRenewMemberApiKeysResponse';
 export { ModelRouterBatchResetMemberAuthorizationRequest } from './ModelRouterBatchResetMemberAuthorizationRequest';
 export { ModelRouterBatchResetMemberAuthorizationResponseBody } from './ModelRouterBatchResetMemberAuthorizationResponseBody';
 export { ModelRouterBatchResetMemberAuthorizationResponse } from './ModelRouterBatchResetMemberAuthorizationResponse';
@@ -561,6 +565,9 @@ export { ModelRouterQueryUsageBreakdownResponse } from './ModelRouterQueryUsageB
 export { ModelRouterQueryUserListRequest } from './ModelRouterQueryUserListRequest';
 export { ModelRouterQueryUserListResponseBody } from './ModelRouterQueryUserListResponseBody';
 export { ModelRouterQueryUserListResponse } from './ModelRouterQueryUserListResponse';
+export { ModelRouterRenewApiKeyRequest } from './ModelRouterRenewApiKeyRequest';
+export { ModelRouterRenewApiKeyResponseBody } from './ModelRouterRenewApiKeyResponseBody';
+export { ModelRouterRenewApiKeyResponse } from './ModelRouterRenewApiKeyResponse';
 export { ModelRouterResetMemberAuthorizationRequest } from './ModelRouterResetMemberAuthorizationRequest';
 export { ModelRouterResetMemberAuthorizationResponseBody } from './ModelRouterResetMemberAuthorizationResponseBody';
 export { ModelRouterResetMemberAuthorizationResponse } from './ModelRouterResetMemberAuthorizationResponse';

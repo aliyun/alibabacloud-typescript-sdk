@@ -55,7 +55,7 @@ export class BalanceOrderDTO extends $dara.Model {
   orderType?: string;
   /**
    * @example
-   * Administrator manual recharge
+   * Manual top-up by administrator
    */
   remark?: string;
   /**
