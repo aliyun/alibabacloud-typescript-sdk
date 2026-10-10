@@ -2,6 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class SearchContextRequestScope extends $dara.Model {
+  /**
+   * @example
+   * sales-copilot
+   */
+  agentId?: string;
+  /**
+   * @example
+   * crm-service
+   */
+  appId?: string;
+  /**
+   * @example
+   * run-001
+   */
+  runId?: string;
+  /**
+   * @example
+   * u-10001
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'agentId',
+      appId: 'appId',
+      runId: 'runId',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      appId: 'string',
+      runId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchContextRequest extends $dara.Model {
   /**
    * @remarks
@@ -19,6 +67,11 @@ export class SearchContextRequest extends $dara.Model {
    * true
    */
   formatted?: boolean;
+  /**
+   * @example
+   * false
+   */
+  includeInactive?: boolean;
   /**
    * @remarks
    * The maximum number of returned results (similarity Top-N).
@@ -45,6 +98,7 @@ export class SearchContextRequest extends $dara.Model {
    * semantic
    */
   retrievalOption?: string;
+  scope?: SearchContextRequestScope;
   /**
    * @remarks
    * The similarity threshold. Results with a similarity score lower than this value are filtered out. Valid values: 0 to 1.
@@ -57,9 +111,11 @@ export class SearchContextRequest extends $dara.Model {
     return {
       filter: 'filter',
       formatted: 'formatted',
+      includeInactive: 'includeInactive',
       limit: 'limit',
       query: 'query',
       retrievalOption: 'retrievalOption',
+      scope: 'scope',
       threshold: 'threshold',
     };
   }
@@ -68,9 +124,11 @@ export class SearchContextRequest extends $dara.Model {
     return {
       filter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatted: 'boolean',
+      includeInactive: 'boolean',
       limit: 'number',
       query: 'string',
       retrievalOption: 'string',
+      scope: SearchContextRequestScope,
       threshold: 'number',
     };
   }
@@ -78,6 +136,9 @@ export class SearchContextRequest extends $dara.Model {
   validate() {
     if(this.filter) {
       $dara.Model.validateMap(this.filter);
+    }
+    if(this.scope && typeof (this.scope as any).validate === 'function') {
+      (this.scope as any).validate();
     }
     super.validate();
   }

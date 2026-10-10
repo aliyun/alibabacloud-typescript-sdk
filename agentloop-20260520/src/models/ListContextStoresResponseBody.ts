@@ -62,6 +62,11 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
    */
   serviceNames?: string[];
   /**
+   * @example
+   * trajectory
+   */
+  sourceType?: string;
+  /**
    * @remarks
    * The status of the context store. Valid values: ACTIVE, INITIALIZING, and FAILED.
    * 
@@ -69,6 +74,11 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
    * ACTIVE
    */
   status?: string;
+  /**
+   * @example
+   * upsert
+   */
+  storageMode?: string;
   /**
    * @remarks
    * The time when the context store was last updated, in ISO 8601 UTC format.
@@ -88,7 +98,9 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
       description: 'description',
       regionId: 'regionId',
       serviceNames: 'serviceNames',
+      sourceType: 'sourceType',
       status: 'status',
+      storageMode: 'storageMode',
       updateTime: 'updateTime',
     };
   }
@@ -102,7 +114,9 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
       description: 'string',
       regionId: 'string',
       serviceNames: { 'type': 'array', 'itemType': 'string' },
+      sourceType: 'string',
       status: 'string',
+      storageMode: 'string',
       updateTime: 'string',
     };
   }

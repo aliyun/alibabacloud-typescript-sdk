@@ -35,12 +35,18 @@ export class ListContextStoresRequest extends $dara.Model {
    * MTIzNDU2Nzg5MA==
    */
   nextToken?: string;
+  /**
+   * @example
+   * trajectory
+   */
+  sourceType?: string;
   static names(): { [key: string]: string } {
     return {
       contextStoreName: 'contextStoreName',
       contextType: 'contextType',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      sourceType: 'sourceType',
     };
   }
 
@@ -50,6 +56,7 @@ export class ListContextStoresRequest extends $dara.Model {
       contextType: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      sourceType: 'string',
     };
   }
 

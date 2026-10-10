@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchContextResponseBody extends $dara.Model {
   /**
+   * @example
+   * ok
+   */
+  auditStatus?: string;
+  /**
+   * @example
+   * 0190f1c2-7d3e-7a1b-9c4d-2e5f6a7b8c9d
+   */
+  recallEventId?: string;
+  /**
    * @remarks
    * The request ID. You can use this ID to locate and troubleshoot issues.
    * 
@@ -18,6 +28,8 @@ export class SearchContextResponseBody extends $dara.Model {
   results?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
+      auditStatus: 'auditStatus',
+      recallEventId: 'recallEventId',
       requestId: 'requestId',
       results: 'results',
     };
@@ -25,6 +37,8 @@ export class SearchContextResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      auditStatus: 'string',
+      recallEventId: 'string',
       requestId: 'string',
       results: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };

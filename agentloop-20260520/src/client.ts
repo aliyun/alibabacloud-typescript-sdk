@@ -922,8 +922,14 @@ export default class Client extends OpenApi {
    */
   async deleteContextStoreWithOptions(agentSpace: string, contextStoreName: string, request: $_model.DeleteContextStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextStoreResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteOutputDataset)) {
+      query["deleteOutputDataset"] = request.deleteOutputDataset;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeleteContextStore",
@@ -2152,6 +2158,10 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.sourceType)) {
+      query["sourceType"] = request.sourceType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3002,6 +3012,10 @@ export default class Client extends OpenApi {
       body["formatted"] = request.formatted;
     }
 
+    if (!$dara.isNull(request.includeInactive)) {
+      body["includeInactive"] = request.includeInactive;
+    }
+
     if (!$dara.isNull(request.limit)) {
       body["limit"] = request.limit;
     }
@@ -3012,6 +3026,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.retrievalOption)) {
       body["retrievalOption"] = request.retrievalOption;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      body["scope"] = request.scope;
     }
 
     if (!$dara.isNull(request.threshold)) {
@@ -3149,7 +3167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a context store.
+   * Updates the context store configuration.
    * 
    * @param request - UpdateContextStoreRequest
    * @param headers - map
@@ -3164,6 +3182,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.changeNote)) {
+      body["changeNote"] = request.changeNote;
+    }
+
     if (!$dara.isNull(request.config)) {
       body["config"] = request.config;
     }
@@ -3200,7 +3222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a context store.
+   * Updates the context store configuration.
    * 
    * @param request - UpdateContextStoreRequest
    * @returns UpdateContextStoreResponse
