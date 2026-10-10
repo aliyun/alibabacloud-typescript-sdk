@@ -7,12 +7,12 @@ import { PrepayResource } from "./PrepayResource";
 export class ListCatalogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of catalogs.
+   * The list of catalogs.
    */
   catalogs?: Catalog[];
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this parameter is null, all results have been returned.
+   * The pagination token used to retrieve the next page of results. A null value indicates that the current query has reached the last page of results.
    * 
    * @example
    * E8ABEB1C3DB893D16576269017992F57
@@ -20,7 +20,7 @@ export class ListCatalogsResponseBody extends $dara.Model {
   nextPageToken?: string;
   /**
    * @remarks
-   * A list of subscription computing resources.
+   * The list of subscription compute resources.
    */
   prepayResource?: PrepayResource[];
   static names(): { [key: string]: string } {

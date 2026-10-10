@@ -8,7 +8,7 @@ export class CreateReceiverRequest extends $dara.Model {
    * The comment.
    * 
    * @example
-   * Customer A.
+   * 客户A。
    */
   comment?: string;
   /**

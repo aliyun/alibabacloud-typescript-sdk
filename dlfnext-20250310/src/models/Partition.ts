@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Partition extends $dara.Model {
   /**
    * @remarks
-   * The time when the partition was created.
+   * The creation time.
    * 
    * @example
    * 1747120676378
@@ -13,7 +13,7 @@ export class Partition extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The creator of the partition.
+   * The creator.
    * 
    * @example
    * acs:ram::[accountId]:root
@@ -21,7 +21,7 @@ export class Partition extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * Indicates whether the process is complete.
+   * Indicates whether the tagging is complete.
    * 
    * @example
    * true
@@ -45,12 +45,16 @@ export class Partition extends $dara.Model {
   fileSizeInBytes?: number;
   /**
    * @remarks
-   * The time when the latest file was created.
+   * The creation time of the latest file.
    * 
    * @example
    * 1741701564261
    */
   lastFileCreationTime?: number;
+  /**
+   * @remarks
+   * The extension options.
+   */
   options?: { [key: string]: string };
   /**
    * @remarks
@@ -70,7 +74,7 @@ export class Partition extends $dara.Model {
   spec?: { [key: string]: any };
   /**
    * @remarks
-   * The status of the storage class conversion.
+   * The storage type conversion status.
    * 
    * @example
    * COMPLETE
@@ -78,7 +82,7 @@ export class Partition extends $dara.Model {
   storageAction?: string;
   /**
    * @remarks
-   * The storage class conversion time.
+   * The storage type conversion time.
    * 
    * @example
    * 1758189669915
@@ -86,7 +90,7 @@ export class Partition extends $dara.Model {
   storageActionTimestamp?: number;
   /**
    * @remarks
-   * The storage class.
+   * The storage type.
    * 
    * @example
    * STANDARD
@@ -102,7 +106,7 @@ export class Partition extends $dara.Model {
   totalBuckets?: number;
   /**
    * @remarks
-   * The time when the partition was last updated.
+   * The update time.
    * 
    * @example
    * 1744970111419
@@ -110,7 +114,7 @@ export class Partition extends $dara.Model {
   updatedAt?: number;
   /**
    * @remarks
-   * The user who last updated the partition.
+   * The updater.
    * 
    * @example
    * acs:ram::[accountId]:root

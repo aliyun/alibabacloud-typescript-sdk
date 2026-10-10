@@ -906,7 +906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+   * Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -931,7 +931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+   * Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
    * @returns DropCatalogResponse
    */
   async dropCatalog(catalog: string): Promise<$_model.DropCatalogResponse> {
@@ -1081,7 +1081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a catalog.
+   * Retrieves the details of a data catalog.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1106,7 +1106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a catalog.
+   * Retrieves the details of a data catalog.
    * @returns GetCatalogResponse
    */
   async getCatalog(catalog: string): Promise<$_model.GetCatalogResponse> {
@@ -1116,7 +1116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a catalog.
+   * Retrieves the details of a data catalog.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1141,7 +1141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a catalog.
+   * Retrieves the details of a data catalog.
    * @returns GetCatalogByIdResponse
    */
   async getCatalogById(id: string): Promise<$_model.GetCatalogByIdResponse> {
@@ -1988,7 +1988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists catalogs.
+   * Queries the list of data catalogs.
    * 
    * @param request - ListCatalogsRequest
    * @param headers - map
@@ -2029,7 +2029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists catalogs.
+   * Queries the list of data catalogs.
    * 
    * @param request - ListCatalogsRequest
    * @returns ListCatalogsResponse
@@ -3539,6 +3539,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.subscribeWithOptions(headers, runtime);
+  }
+
+  /**
+   * Deletes tags from resources.
+   * 
+   * @param tmpReq - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(tmpReq: $_model.UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UntagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "resourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tagKey)) {
+      request.tagKeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKey, "tagKey", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.all)) {
+      query["all"] = request.all;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["resourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKeyShrink)) {
+      query["tagKey"] = request.tagKeyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/tags`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * Deletes tags from resources.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
   /**

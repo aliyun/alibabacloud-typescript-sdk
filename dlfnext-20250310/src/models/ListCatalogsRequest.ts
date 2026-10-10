@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCatalogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The pattern of the catalog name.
+   * The catalog name pattern.
    * 
    * @example
    * mi
@@ -13,7 +13,7 @@ export class ListCatalogsRequest extends $dara.Model {
   catalogNamePattern?: string;
   /**
    * @remarks
-   * The maximum number of records to return in a single request.
+   * The maximum number of records to retrieve at a time.
    * 
    * @example
    * 1000
@@ -21,7 +21,7 @@ export class ListCatalogsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If the response does not include this token, pass an empty string ("").
+   * The pagination token used to retrieve the next page of results. If the response does not include a token, pass an empty string ("") or an empty character (\\"\\").
    * 
    * @example
    * ""
