@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsRequest extends $dara.Model {
   /**
    * @remarks
+   * The chatbot builder type.
+   * 
+   * @example
+   * LITE
+   */
+  builderType?: string;
+  /**
+   * @remarks
    * The instance ID.
    * 
    * @example
@@ -13,12 +21,20 @@ export class ListScriptsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The scenario name.
+   * The script name.
    * 
    * @example
-   * Satisfaction Survey
+   * Satisfaction survey
    */
   name?: string;
+  /**
+   * @remarks
+   * The NLU engine type.
+   * 
+   * @example
+   * BEEBOT
+   */
+  nluEngine?: string;
   /**
    * @remarks
    * The page number, starting from 1.
@@ -29,7 +45,7 @@ export class ListScriptsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -37,7 +53,7 @@ export class ListScriptsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to return only published scenarios.
+   * Specifies whether to return only published scripts.
    * 
    * @example
    * true
@@ -45,13 +61,15 @@ export class ListScriptsRequest extends $dara.Model {
   publishOnly?: boolean;
   /**
    * @remarks
-   * The list of scenario IDs.
+   * The list of script IDs.
    */
   scriptIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      builderType: 'BuilderType',
       instanceId: 'InstanceId',
       name: 'Name',
+      nluEngine: 'NluEngine',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       publishOnly: 'PublishOnly',
@@ -61,8 +79,10 @@ export class ListScriptsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      builderType: 'string',
       instanceId: 'string',
       name: 'string',
+      nluEngine: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       publishOnly: 'boolean',

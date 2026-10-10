@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   /**
    * @remarks
+   * The chatbot builder type.
+   * 
+   * @example
+   * LITE
+   */
+  builderType?: string;
+  /**
+   * @remarks
+   * The chatbot instance ID.
+   * 
+   * @example
+   * chatbot-cn-AmVJnFZRmb
+   */
+  chatbotId?: string;
+  /**
+   * @remarks
    * The concurrency.
    * 
    * @example
@@ -13,7 +29,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   concurrency?: number;
   /**
    * @remarks
-   * The creation time, in millisecond-level timestamp.
+   * The creation time, in milliseconds.
    * 
    * @example
    * 1735660800000
@@ -40,7 +56,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
    * The name.
    * 
    * @example
-   * Satisfaction Survey
+   * Satisfaction survey
    */
   name?: string;
   /**
@@ -61,7 +77,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   nluEngine?: string;
   /**
    * @remarks
-   * The phone number bound to the scenario.
+   * The phone number bound to the script.
    * 
    * @example
    * 01057316547
@@ -77,7 +93,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   publishedVersionId?: string;
   /**
    * @remarks
-   * The scenario ID.
+   * The script ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -85,7 +101,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The scenario status.
+   * The script status.
    * 
    * @example
    * PUBLISHED
@@ -93,7 +109,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time, in millisecond-level timestamp.
+   * The update time, in milliseconds.
    * 
    * @example
    * 1735660800000
@@ -101,6 +117,8 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   updatedTime?: number;
   static names(): { [key: string]: string } {
     return {
+      builderType: 'BuilderType',
+      chatbotId: 'ChatbotId',
       concurrency: 'Concurrency',
       createdTime: 'CreatedTime',
       description: 'Description',
@@ -118,6 +136,8 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      builderType: 'string',
+      chatbotId: 'string',
       concurrency: 'number',
       createdTime: 'number',
       description: 'string',
@@ -153,7 +173,7 @@ export class ListScriptsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -161,12 +181,12 @@ export class ListScriptsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data list.
+   * The list of scripts.
    */
   scripts?: ListScriptsResponseBodyDataScripts[];
   /**
    * @remarks
-   * The total number of records that match the conditions.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 0
@@ -247,7 +267,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

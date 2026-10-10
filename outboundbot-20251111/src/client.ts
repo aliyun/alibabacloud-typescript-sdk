@@ -2065,12 +2065,20 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.builderType)) {
+      body["BuilderType"] = request.builderType;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nluEngine)) {
+      body["NluEngine"] = request.nluEngine;
     }
 
     if (!$dara.isNull(request.pageNumber)) {

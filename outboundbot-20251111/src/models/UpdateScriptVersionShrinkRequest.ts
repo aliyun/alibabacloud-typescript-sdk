@@ -36,12 +36,12 @@ export class UpdateScriptVersionShrinkRequest extends $dara.Model {
   scriptProfileShrink?: string;
   /**
    * @remarks
-   * The TTS configuration.
+   * The Text-to-Speech (TTS) configuration.
    */
   synthesizerConfigShrink?: string;
   /**
    * @remarks
-   * The ASR configuration.
+   * The Automatic Speech Recognition (ASR) configuration.
    */
   transcriberConfigShrink?: string;
   /**
