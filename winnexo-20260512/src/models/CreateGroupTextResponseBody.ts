@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupTextResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码，成功为200
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 解析并绑定的真实目录ID
+   * The folder ID.
    * 
    * @example
    * dir_example
@@ -21,7 +21,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间，ISO8601格式
+   * The creation time.
    * 
    * @example
    * example
@@ -29,7 +29,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 协作空间ID
+   * The project group ID.
    * 
    * @example
    * group_example
@@ -37,7 +37,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * 错误描述
+   * The prompt message.
    * 
    * @example
    * The current zone list is illegal.
@@ -45,15 +45,15 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Provider处理后的实际资料名称
+   * The image name.
    * 
    * @example
-   * 项目资料
+   * ProjectResources
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -61,7 +61,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 资料范围，固定GROUP
+   * The permission scope.
    * 
    * @example
    * example
@@ -69,7 +69,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * 新建资料ID
+   * The unique identifier on the business system side, that is, the business ID.
    * 
    * @example
    * example
@@ -77,7 +77,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 实际资料状态；RUNNING表示处理中，FAILED表示创建处理失败
+   * The status.
    * 
    * @example
    * example

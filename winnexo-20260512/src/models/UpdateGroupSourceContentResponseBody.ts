@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGroupSourceContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateGroupSourceContentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述
+   * The description of the status code.
    * 
    * @example
    * ok
@@ -21,15 +21,15 @@ export class UpdateGroupSourceContentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 操作后的资料名称，沿用已有名称维护规则
+   * The image name.
    * 
    * @example
-   * 项目资料
+   * Project resource
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request trace ID.
    * 
    * @example
    * C474BFC7-7B11-5D92-971E-74AA82EC495B
@@ -37,7 +37,7 @@ export class UpdateGroupSourceContentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 资料 ID；替换、编辑、重新解析均保持该 ID
+   * The data source ID.
    * 
    * @example
    * source_example
@@ -45,7 +45,7 @@ export class UpdateGroupSourceContentResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 资料类型
+   * The data source type.
    * 
    * @example
    * example
@@ -53,7 +53,7 @@ export class UpdateGroupSourceContentResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 当前资料状态；RUNNING 表示处理中，异步受理不代表解析完成
+   * The task running status.
    * 
    * @example
    * example

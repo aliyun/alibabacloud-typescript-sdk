@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 飞书群聊ID
+   * The DingTalk group chat session ID.
    * 
    * @example
    * cidxxxxxxxx
@@ -13,7 +13,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * 业务状态码
+   * The error code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 解析并绑定的真实目录ID
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -29,7 +29,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间，ISO8601格式
+   * The creation time.
    * 
    * @example
    * 2026-08-26T10:00:00+08:00
@@ -37,7 +37,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 协作空间ID
+   * The project group ID.
    * 
    * @example
    * exampleGroupId
@@ -45,7 +45,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error details.
    * 
    * @example
    * success
@@ -53,7 +53,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Provider处理后的实际资料名称
+   * The skill name.
    * 
    * @example
    * oklabs_tongyici
@@ -61,7 +61,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -69,7 +69,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 资料范围，固定GROUP
+   * The permission scope.
    * 
    * @example
    * PERSONAL
@@ -77,7 +77,7 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * 新建资料ID
+   * The original project ID.
    * 
    * @example
    * exampleSourceId
@@ -85,7 +85,10 @@ export class CreateGroupFeishuChatResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 实际资料状态；RUNNING表示处理中，FAILED表示创建处理失败
+   * The signing status. Valid values:
+   * - CREATED: Created but not signed.
+   * - SUCCESS: Signed successfully.
+   * - STOP: Terminated.
    * 
    * @example
    * PENDING

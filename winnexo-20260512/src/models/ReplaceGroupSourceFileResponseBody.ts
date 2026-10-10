@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 替换后的文件 OSS 地址
+   * The OSS persistent storage path of the replacement file.
    * 
    * @example
    * oss://example/new.txt
@@ -21,7 +21,7 @@ export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * 替换后的文件访问 URL
+   * The OSS persistent storage path of the replacement file.
    * 
    * @example
    * https://example.com/new.txt
@@ -29,7 +29,7 @@ export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 替换后的文件记录 ID
+   * The file record ID of the replacement file.
    * 
    * @example
    * file_example
@@ -37,7 +37,7 @@ export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * 错误描述
+   * The description of the status code.
    * 
    * @example
    * The current zone list is illegal.
@@ -45,15 +45,15 @@ export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 操作后的资料名称，沿用已有名称维护规则
+   * The image name.
    * 
    * @example
-   * 项目资料
+   * Project resources
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request trace ID.
    * 
    * @example
    * E68654BD-F7BA-5837-8686-5645D739A47C
@@ -61,7 +61,7 @@ export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 资料 ID；替换、编辑、重新解析均保持该 ID
+   * The data source ID.
    * 
    * @example
    * source_example
@@ -69,7 +69,7 @@ export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 资料类型
+   * The data source type. The value is fixed as FILE.
    * 
    * @example
    * example
@@ -77,7 +77,9 @@ export class ReplaceGroupSourceFileResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 当前资料状态；RUNNING 表示处理中，异步受理不代表解析完成
+   * The data source status. Valid values:
+   * - **1**: Online.
+   * - **0**: Offline.
    * 
    * @example
    * example

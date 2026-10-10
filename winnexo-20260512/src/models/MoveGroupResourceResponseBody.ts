@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveGroupResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码，成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class MoveGroupResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The collaboration space ID.
    * 
    * @example
    * group_example
@@ -21,15 +21,15 @@ export class MoveGroupResourceResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -37,7 +37,7 @@ export class MoveGroupResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 移动前的目录 ID
+   * The directory ID before the move.
    * 
    * @example
    * example
@@ -45,7 +45,7 @@ export class MoveGroupResourceResponseBody extends $dara.Model {
   sourceDirectoryId?: string;
   /**
    * @remarks
-   * 移动的资料 ID，移动前后保持不变
+   * The ID of the moved resource. This value remains unchanged before and after the move.
    * 
    * @example
    * example
@@ -53,7 +53,7 @@ export class MoveGroupResourceResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 移动后的目录 ID
+   * The directory ID after the move.
    * 
    * @example
    * example

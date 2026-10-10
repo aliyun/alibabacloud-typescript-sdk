@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupFeishuChatShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 飞书群聊ID，以oc_开头，需当前用户有权读取
+   * The DingTalk group chat session ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateGroupFeishuChatShrinkRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * 资料描述
+   * The pipeline description.
    * 
    * @example
    * string_value
@@ -23,7 +23,7 @@ export class CreateGroupFeishuChatShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 空间物理目录ID；省略/root使用空间根，首次可能初始化根目录
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -31,7 +31,7 @@ export class CreateGroupFeishuChatShrinkRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The project group ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreateGroupFeishuChatShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * 历史起始时间，YYYY-MM-DD或YYYY-MM-DD HH:MM:SS；省略读取全部可见历史
+   * The start time for historical messages. The value must be in the YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format. If this parameter is not specified, all visible historical messages are retrieved.
    * 
    * @example
    * 2026-08-01
@@ -49,15 +49,15 @@ export class CreateGroupFeishuChatShrinkRequest extends $dara.Model {
   historyStartTime?: string;
   /**
    * @remarks
-   * 分析指令
+   * The meeting notes content (optional). The notes are used for auxiliary analysis.
    * 
    * @example
-   * 重点识别客户诉求与待办
+   * Focus on identifying customer demands and to-do items
    */
   notes?: string;
   /**
    * @remarks
-   * 运营对象名称，用于来源追溯
+   * The digital employee name (operating object name, optional).
    * 
    * @example
    * string_value
@@ -65,15 +65,15 @@ export class CreateGroupFeishuChatShrinkRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 资料标签JSON字符串列表
+   * The source tags.
    * 
    * @example
-   * ["重点","文件"]
+   * ["Key","File"]
    */
   sourceTags?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. You can pass it explicitly by using --tenant-id in winnexo-cli.
    * 
    * @example
    * 10000
@@ -81,7 +81,7 @@ export class CreateGroupFeishuChatShrinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * Source级同步配置
+   * The feature update frequency.
    */
   updateFrequencyShrink?: string;
   static names(): { [key: string]: string } {
