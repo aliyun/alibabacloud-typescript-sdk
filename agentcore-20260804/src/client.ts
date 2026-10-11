@@ -441,6 +441,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a custom agent in a specified workspace and submits the container image deployment configuration. The creation process is asynchronous. You can call the GetCustomAgent operation to query the deployment result.
+   * 
+   * @remarks
+   * Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and the runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
+   * Currently, only ACR container image deployment is supported. Use artifact.container and specify the service listening port in artifact.port. Omit artifact.code. The image must have the required access permissions and be accessible over the network allowed by the workspace.
+   * The creation process is asynchronous. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
+   * The clientToken parameter does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
+   * 
+   * @param tmpReq - CreateCustomAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomAgentResponse
+   */
+  async createCustomAgentWithOptions(workspaceId: string, tmpReq: $_model.CreateCustomAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCustomAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomAgent",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/custom-agents`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomAgentResponse({}));
+  }
+
+  /**
+   * Creates a custom agent in a specified workspace and submits the container image deployment configuration. The creation process is asynchronous. You can call the GetCustomAgent operation to query the deployment result.
+   * 
+   * @remarks
+   * Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and the runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
+   * Currently, only ACR container image deployment is supported. Use artifact.container and specify the service listening port in artifact.port. Omit artifact.code. The image must have the required access permissions and be accessible over the network allowed by the workspace.
+   * The creation process is asynchronous. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
+   * The clientToken parameter does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
+   * 
+   * @param request - CreateCustomAgentRequest
+   * @returns CreateCustomAgentResponse
+   */
+  async createCustomAgent(workspaceId: string, request: $_model.CreateCustomAgentRequest): Promise<$_model.CreateCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCustomAgentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Creates an external agent in a specified workspace.
    * 
    * @remarks
@@ -1322,6 +1391,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCredentialWithOptions(workspaceId, credentialId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a custom agent in a specified workspace. A successful request indicates that the deletion is accepted, and the runtime resources are subsequently cleaned up in the background.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the workspace is writable. If the agent is still associated with a team, you must dissociate the team first.
+   * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already being deleted, a subsequent request returns the current summary.
+   * You can call GetCustomAgent to check the deletion progress. After the deletion is complete, a detail query returns a resource not found error.
+   * 
+   * @param request - DeleteCustomAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomAgentResponse
+   */
+  async deleteCustomAgentWithOptions(workspaceId: string, agentId: string, request: $_model.DeleteCustomAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomAgentResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomAgent",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/custom-agents/${$dara.URL.percentEncode(agentId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomAgentResponse({}));
+  }
+
+  /**
+   * Deletes a custom agent in a specified workspace. A successful request indicates that the deletion is accepted, and the runtime resources are subsequently cleaned up in the background.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the workspace is writable. If the agent is still associated with a team, you must dissociate the team first.
+   * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already being deleted, a subsequent request returns the current summary.
+   * You can call GetCustomAgent to check the deletion progress. After the deletion is complete, a detail query returns a resource not found error.
+   * 
+   * @param request - DeleteCustomAgentRequest
+   * @returns DeleteCustomAgentResponse
+   */
+  async deleteCustomAgent(workspaceId: string, agentId: string, request: $_model.DeleteCustomAgentRequest): Promise<$_model.DeleteCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteCustomAgentWithOptions(workspaceId, agentId, request, headers, runtime);
   }
 
   /**
@@ -2362,6 +2480,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCredentialWithOptions(workspaceId, credentialId, request, headers, runtime);
+  }
+
+  /**
+   * 查询自定义智能体
+   * 
+   * @remarks
+   * 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
+   * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
+   * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+   * 
+   * @param request - GetCustomAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomAgentResponse
+   */
+  async getCustomAgentWithOptions(workspaceId: string, agentId: string, request: $_model.GetCustomAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomAgentResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomAgent",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/custom-agents/${$dara.URL.percentEncode(agentId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomAgentResponse({}));
+  }
+
+  /**
+   * 查询自定义智能体
+   * 
+   * @remarks
+   * 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
+   * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
+   * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+   * 
+   * @param request - GetCustomAgentRequest
+   * @returns GetCustomAgentResponse
+   */
+  async getCustomAgent(workspaceId: string, agentId: string, request: $_model.GetCustomAgentRequest): Promise<$_model.GetCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCustomAgentWithOptions(workspaceId, agentId, request, headers, runtime);
   }
 
   /**
@@ -3736,6 +3903,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a paged query to retrieve the summary of custom agents in a specified workspace. For paging, the complete configuration, and the execute results of the latest version, call GetCustomAgent.
+   * 
+   * @remarks
+   * The default value of maxResults is 20, and the maximum value is 100. If this parameter is omitted or set to 0, the default value is used.
+   * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it yourself. An empty token in the response indicates that there are no more pages.
+   * This operation returns the summaries of the current page and does not return the complete deployment configuration or the execution errors of the latest version. To obtain this information, call GetCustomAgent by using the agentId in items.
+   * 
+   * @param request - ListCustomAgentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomAgentsResponse
+   */
+  async listCustomAgentsWithOptions(workspaceId: string, request: $_model.ListCustomAgentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomAgents",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/custom-agents`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomAgentsResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomAgentsResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the summary of custom agents in a specified workspace. For paging, the complete configuration, and the execute results of the latest version, call GetCustomAgent.
+   * 
+   * @remarks
+   * The default value of maxResults is 20, and the maximum value is 100. If this parameter is omitted or set to 0, the default value is used.
+   * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it yourself. An empty token in the response indicates that there are no more pages.
+   * This operation returns the summaries of the current page and does not return the complete deployment configuration or the execution errors of the latest version. To obtain this information, call GetCustomAgent by using the agentId in items.
+   * 
+   * @param request - ListCustomAgentsRequest
+   * @returns ListCustomAgentsResponse
+   */
+  async listCustomAgents(workspaceId: string, request: $_model.ListCustomAgentsRequest): Promise<$_model.ListCustomAgentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCustomAgentsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the list of external agents in a specified workspace.
    * 
    * @remarks
@@ -4698,7 +4924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries users in a specified workspace with paging. Use nameLike to filter by username with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+   * Performs a paged query of users in a specified workspace. You can filter users by fuzzy match on the username by using nameLike, specify the maximum number of records per page for paging by using maxResults, and obtain the next page by using nextToken. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @param request - ListUsersRequest
    * @param headers - map
@@ -4743,7 +4969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries users in a specified workspace with paging. Use nameLike to filter by username with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+   * Performs a paged query of users in a specified workspace. You can filter users by fuzzy match on the username by using nameLike, specify the maximum number of records per page for paging by using maxResults, and obtain the next page by using nextToken. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -5580,6 +5806,77 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCredentialWithOptions(workspaceId, credentialId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the configuration of a specified custom agent in a workspace and executes the update asynchronously. Omitted top-level fields retain their original configurations. You can call the GetCustomAgent operation to query the update result.
+   * 
+   * @remarks
+   * Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced in their entirety. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
+   * When updating an image, you must specify artifact.port and the type, instanceId, namespace, repo, and tag fields of artifact.container. To retain a custom startup command, also provide the entrypoint field. Currently, only Alibaba Cloud Container Registry (ACR) container image deployment is supported. Omit the artifact.code field.
+   * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or any of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still subject to workspace network restrictions. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
+   * The update is an asynchronous process. A successful response indicates that the request is accepted. Call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
+   * The clientToken field currently does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold field for health checks currently does not take effect. Omit this field.
+   * 
+   * @param tmpReq - UpdateCustomAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomAgentResponse
+   */
+  async updateCustomAgentWithOptions(workspaceId: string, agentId: string, tmpReq: $_model.UpdateCustomAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateCustomAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCustomAgent",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/custom-agents/${$dara.URL.percentEncode(agentId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustomAgentResponse({}));
+  }
+
+  /**
+   * Updates the configuration of a specified custom agent in a workspace and executes the update asynchronously. Omitted top-level fields retain their original configurations. You can call the GetCustomAgent operation to query the update result.
+   * 
+   * @remarks
+   * Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced in their entirety. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
+   * When updating an image, you must specify artifact.port and the type, instanceId, namespace, repo, and tag fields of artifact.container. To retain a custom startup command, also provide the entrypoint field. Currently, only Alibaba Cloud Container Registry (ACR) container image deployment is supported. Omit the artifact.code field.
+   * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or any of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still subject to workspace network restrictions. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
+   * The update is an asynchronous process. A successful response indicates that the request is accepted. Call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
+   * The clientToken field currently does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold field for health checks currently does not take effect. Omit this field.
+   * 
+   * @param request - UpdateCustomAgentRequest
+   * @returns UpdateCustomAgentResponse
+   */
+  async updateCustomAgent(workspaceId: string, agentId: string, request: $_model.UpdateCustomAgentRequest): Promise<$_model.UpdateCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCustomAgentWithOptions(workspaceId, agentId, request, headers, runtime);
   }
 
   /**
