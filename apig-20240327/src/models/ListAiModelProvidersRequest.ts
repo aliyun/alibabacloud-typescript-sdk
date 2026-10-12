@@ -31,7 +31,7 @@ export class ListAiModelProvidersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The fuzzy match condition for the model provider identifier. If left empty, all model providers under the current gateway are queried.
+   * The fuzzy match condition for the model provider identifier. If this parameter is left empty, all model providers under the current gateway are queried.
    * 
    * @example
    * qwen

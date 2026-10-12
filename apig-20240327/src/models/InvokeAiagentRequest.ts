@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class InvokeAIAgentRequestHistory extends $dara.Model {
   /**
+   * @remarks
+   * The content of the message. The returned data is in rich text format.
+   * 
    * @example
-   * 上一轮问题
+   * Previous question
    */
   content?: string;
   /**
+   * @remarks
+   * The role.
+   * 
    * @example
    * user
    */
@@ -39,22 +45,38 @@ export class InvokeAIAgentRequestHistory extends $dara.Model {
 export class InvokeAIAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * The agent name.
+   * 
    * This parameter is required.
    * 
    * @example
    * slsLogDiagnose
    */
   agentName?: string;
+  /**
+   * @remarks
+   * The business parameters. Each agent performs custom validation on these parameters, such as the SLS context passed for log diagnostics.
+   */
   bizParams?: { [key: string]: string };
+  /**
+   * @remarks
+   * The conversation history. Each element contains role (user/assistant) and content. The role and content fields in each element cannot be empty.
+   */
   history?: InvokeAIAgentRequestHistory[];
   /**
+   * @remarks
+   * The output language. When set to en, fallback error messages are displayed in English.
+   * 
    * @example
    * zh / en
    */
   outputLanguage?: string;
   /**
+   * @remarks
+   * The user input for the current turn. If left empty, a default prompt is used based on the scenario, such as "Start".
+   * 
    * @example
-   * 帮我诊断这个错误日志
+   * Help me diagnose this error log
    */
   prompt?: string;
   static names(): { [key: string]: string } {

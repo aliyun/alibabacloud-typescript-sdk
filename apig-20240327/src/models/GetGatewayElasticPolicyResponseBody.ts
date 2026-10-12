@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyDisableScaleTimePolicyList extends $dara.Model {
   /**
+   * @remarks
+   * The O&M end time in the HH:mm format.
+   * 
    * @example
    * 00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The O&M start time in the HH:mm format.
+   * 
    * @example
    * 00:00
    */
@@ -38,11 +44,17 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyDisableScaleTim
 
 export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyEnableScaleTimePolicyList extends $dara.Model {
   /**
+   * @remarks
+   * The O&M end time in the HH:mm format.
+   * 
    * @example
    * 18:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The O&M start time in the HH:mm format.
+   * 
    * @example
    * 09:00
    */
@@ -72,16 +84,25 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyEnableScaleTime
 
 export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyTimePolicyList extends $dara.Model {
   /**
+   * @remarks
+   * The O&M end time in the HH:mm format.
+   * 
    * @example
    * 06:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The O&M start time in the HH:mm format.
+   * 
    * @example
    * 00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The number of replicas.
+   * 
    * @example
    * 4
    */
@@ -112,28 +133,52 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyTimePolicyList 
 }
 
 export class GetGatewayElasticPolicyResponseBodyDataElasticPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The time periods during which AutoHPA scale-out is prohibited.
+   */
   disableScaleTimePolicyList?: GetGatewayElasticPolicyResponseBodyDataElasticPolicyDisableScaleTimePolicyList[];
   /**
+   * @remarks
+   * Indicates whether elastic scaling is enabled.
+   * 
    * @example
    * true
    */
   elasticEnabled?: boolean;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * AutoHPA
    */
   elasticType?: string;
+  /**
+   * @remarks
+   * The time periods during which AutoHPA scale-out is allowed.
+   */
   enableScaleTimePolicyList?: GetGatewayElasticPolicyResponseBodyDataElasticPolicyEnableScaleTimePolicyList[];
   /**
+   * @remarks
+   * The load alert threshold switch for AutoHPA.
+   * 
    * @example
    * true
    */
   loadWarningThreshold?: boolean;
   /**
+   * @remarks
+   * The maximum number of replicas for AutoHPA.
+   * 
    * @example
    * 10
    */
   maxUnits?: number;
+  /**
+   * @remarks
+   * The list of CronHPA scheduled policies. Each entry includes units (number of replicas), startTime, and endTime.
+   */
   timePolicyList?: GetGatewayElasticPolicyResponseBodyDataElasticPolicyTimePolicyList[];
   static names(): { [key: string]: string } {
     return {
@@ -178,18 +223,31 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicy extends $dara.
 }
 
 export class GetGatewayElasticPolicyResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The elastic policy configuration, deserialized from the elastic_config JSON field in the database.
+   */
   elasticPolicy?: GetGatewayElasticPolicyResponseBodyDataElasticPolicy;
   /**
+   * @remarks
+   * The KubeOne AutoScaleStrategy instance ID.
+   * 
    * @example
    * 123456
    */
   elasticStrategyId?: string;
   /**
+   * @remarks
+   * The elastic policy type.
+   * 
    * @example
    * CronHPA
    */
   elasticType?: string;
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * gw-xxxx
    */
@@ -226,12 +284,22 @@ export class GetGatewayElasticPolicyResponseBodyData extends $dara.Model {
 
 export class GetGatewayElasticPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetGatewayElasticPolicyResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

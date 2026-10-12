@@ -17,7 +17,7 @@ export class HiMarketProductCategory extends $dara.Model {
    * The categorization description.
    * 
    * @example
-   * AI网关相关产品分类
+   * Categorization for AI Gateway related products
    */
   description?: string;
   /**
@@ -30,7 +30,7 @@ export class HiMarketProductCategory extends $dara.Model {
    * The categorization name.
    * 
    * @example
-   * AI网关
+   * AI Gateway
    */
   name?: string;
   static names(): { [key: string]: string } {

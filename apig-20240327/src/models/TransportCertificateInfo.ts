@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransportCertificateInfo extends $dara.Model {
   /**
    * @remarks
-   * The signature/key algorithm.
+   * The signature or key algorithm.
    * 
    * @example
    * RSA_2048
@@ -13,7 +13,7 @@ export class TransportCertificateInfo extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The certificate identifier (certificate ID under the APIG cloud account).
+   * The certificate identifier (the certificate ID under the APIG Alibaba Cloud account).
    * 
    * @example
    * cert-1（1716***@cn-hangzhou 形态）
@@ -29,7 +29,7 @@ export class TransportCertificateInfo extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * The match status between the certificate and gateway instance domain names.
+   * The match status between the certificate and the gateway instance domain names.
    * 
    * @example
    * Matched
@@ -45,7 +45,7 @@ export class TransportCertificateInfo extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The set of covered domain names parsed from CN and SAN (deduplicated in lowercase, may contain *. wildcards).
+   * The set of covered domain names parsed from CN and SAN (lowercase, deduplicated, may contain *. wildcards).
    */
   coveredDomains?: string[];
   /**
@@ -58,7 +58,7 @@ export class TransportCertificateInfo extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The gateway instance domain names matched by covered domains (ordered by instance domain name, deduplicated).
+   * The gateway instance domain names matched by the covered domain names (ordered by instance domain name, deduplicated).
    */
   matchedDomains?: string[];
   /**
@@ -71,7 +71,7 @@ export class TransportCertificateInfo extends $dara.Model {
   notAfterTimestamp?: number;
   /**
    * @remarks
-   * The effective period UNIX timestamp (Unix milliseconds, from the certificate beforeDate).
+   * The effective period UNIX timestamp (milliseconds, from the certificate beforeDate).
    * 
    * @example
    * 1716336000000
@@ -79,7 +79,7 @@ export class TransportCertificateInfo extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The raw SAN string (separated by commas, semicolons, or whitespace. Elements may have a DNS: prefix).
+   * The raw Subject Alternative Name (SAN) string (separated by commas, semicolons, or whitespace. Elements may have a DNS: prefix).
    * 
    * @example
    * DNS:*.example.org, DNS:foo.example.net

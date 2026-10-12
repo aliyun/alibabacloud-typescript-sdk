@@ -13,7 +13,7 @@ export class ListConsumerQuotaRulesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The rule name keyword, used for fuzzy match.
+   * The keyword for the rule name, used for fuzzy match.
    * 
    * @example
    * daily

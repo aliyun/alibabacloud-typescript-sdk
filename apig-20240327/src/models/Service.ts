@@ -209,7 +209,7 @@ export class ServiceVersions extends $dara.Model {
 export class Service extends $dara.Model {
   /**
    * @remarks
-   * The address information, including IP addresses or domain name lists.
+   * The address information, which is a list of IP addresses or domain names.
    */
   addresses?: string[];
   /**
@@ -311,7 +311,7 @@ export class Service extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The configuration for removing abnormal instances.
+   * The outlier detection configuration for removing abnormal instances.
    */
   outlierDetection?: ServiceOutlierDetection;
   /**
@@ -387,7 +387,7 @@ export class Service extends $dara.Model {
   unhealthyEndpoints?: string[];
   /**
    * @remarks
-   * The time when the service was created.
+   * The time when the service was updated.
    * 
    * @example
    * 1725868548440

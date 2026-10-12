@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HttpApiMockContract extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the Mock feature.
+   * Indicates whether mock is enabled.
    * 
    * @example
    * false
@@ -24,7 +24,7 @@ export class HttpApiMockContract extends $dara.Model {
    * The response content.
    * 
    * @example
-   * Mock content.
+   * Mock test
    */
   responseContent?: string;
   static names(): { [key: string]: string } {

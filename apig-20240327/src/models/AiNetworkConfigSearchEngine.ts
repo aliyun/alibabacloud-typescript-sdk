@@ -13,7 +13,7 @@ export class AiNetworkConfigSearchEngine extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * Quark-specific: the content mode.
+   * The content mode. This parameter is specific to Quark.
    * 
    * @example
    * summary
@@ -37,10 +37,10 @@ export class AiNetworkConfigSearchEngine extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * Quark-specific: the industry filter.
+   * The industry filter. This parameter is specific to Quark.
    * 
    * @example
-   * 互联网
+   * Internet
    */
   industry?: string;
   /**
@@ -50,7 +50,7 @@ export class AiNetworkConfigSearchEngine extends $dara.Model {
   optionArgs?: { [key: string]: string };
   /**
    * @remarks
-   * The offset of search results.
+   * The offset of the search results.
    * 
    * @example
    * 0
@@ -58,7 +58,7 @@ export class AiNetworkConfigSearchEngine extends $dara.Model {
   start?: number;
   /**
    * @remarks
-   * Quark-specific: the time range filter.
+   * The time range filter. This parameter is specific to Quark.
    * 
    * @example
    * 7d
@@ -66,7 +66,7 @@ export class AiNetworkConfigSearchEngine extends $dara.Model {
   timeRange?: string;
   /**
    * @remarks
-   * The API call timeout period, in milliseconds.
+   * The timeout period for the API call, in milliseconds.
    * 
    * @example
    * 5000

@@ -8,7 +8,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
    * The environment alias. Fuzzy match is supported.
    * 
    * @example
-   * 测试
+   * Test
    */
   aliasLike?: string;
   /**

@@ -181,12 +181,12 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   availablePaths?: CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths[];
   /**
    * @remarks
-   * The model credits consumption configuration.
+   * The credits consumption configuration of the model.
    */
   credit?: CreateAiModelProviderResponseBodyDataModelCardsCredit;
   /**
    * @remarks
-   * The model capability features.
+   * The capability features of the model.
    * 
    * @example
    * {"stream":true,"tools":true}
@@ -194,7 +194,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   features?: { [key: string]: any };
   /**
    * @remarks
-   * The gateway instance ID to which the model card belongs.
+   * The instance ID of the gateway to which the model card belongs.
    * 
    * @example
    * gw-ucbx3s2m****
@@ -223,7 +223,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   modelName?: string;
   /**
    * @remarks
-   * The model provider identifier to which the model card belongs.
+   * The identifier of the model provider to which the model card belongs.
    * 
    * @example
    * openai
@@ -351,7 +351,7 @@ export class CreateAiModelProviderResponseBodyData extends $dara.Model {
   modelProviderId?: string;
   /**
    * @remarks
-   * The model provider identifier.
+   * The identifier of the model provider.
    * 
    * @example
    * openai
@@ -359,7 +359,7 @@ export class CreateAiModelProviderResponseBodyData extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The provider source type.
+   * The source type of the provider.
    * 
    * @example
    * custom

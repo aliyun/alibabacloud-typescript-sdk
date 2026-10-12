@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HttpApiPolicyReference extends $dara.Model {
   /**
    * @remarks
-   * The policy attachment ID.
+   * The policy mount ID.
    * 
    * @example
    * pa-3c8ayyy

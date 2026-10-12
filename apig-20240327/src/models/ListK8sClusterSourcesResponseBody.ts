@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListK8sClusterSourcesResponseBodyDataItems extends $dara.Model {
   /**
+   * @remarks
+   * The container service cluster ID.
+   * 
    * @example
    * c4a21b3560fad4ec***
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The container service cluster name.
+   * 
    * @example
    * itemcenter-dev-cluster
    */
@@ -37,6 +43,10 @@ export class ListK8sClusterSourcesResponseBodyDataItems extends $dara.Model {
 }
 
 export class ListK8sClusterSourcesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Kubernetes clusters that can be added.
+   */
   items?: ListK8sClusterSourcesResponseBodyDataItems[];
   static names(): { [key: string]: string } {
     return {
@@ -64,17 +74,30 @@ export class ListK8sClusterSourcesResponseBodyData extends $dara.Model {
 
 export class ListK8sClusterSourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListK8sClusterSourcesResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 043360DA-ED3B-5386-9B7A-D94DECF99A30
    */

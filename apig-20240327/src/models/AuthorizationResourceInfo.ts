@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizationResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * Environment ID.
+   * The environment ID.
    * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
@@ -13,7 +13,7 @@ export class AuthorizationResourceInfo extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Parent resource ID.
+   * The parent resource ID.
    * 
    * @example
    * api-cujbijem1hkr4voden8g
@@ -21,7 +21,7 @@ export class AuthorizationResourceInfo extends $dara.Model {
   parentResourceId?: string;
   /**
    * @remarks
-   * Resource ID.
+   * The resource ID.
    * 
    * @example
    * hr-d0mnu16m1hkgujnkgrcg

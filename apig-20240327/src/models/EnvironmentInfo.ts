@@ -7,10 +7,10 @@ import { SubDomainInfo } from "./SubDomainInfo";
 export class EnvironmentInfo extends $dara.Model {
   /**
    * @remarks
-   * The environment alias.
+   * The alias.
    * 
    * @example
-   * test-env
+   * Test environment
    */
   alias?: string;
   /**
@@ -23,7 +23,7 @@ export class EnvironmentInfo extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Specifies whether the environment is the default environment.
+   * Indicates whether the environment is the default environment.
    * 
    * @example
    * false
@@ -31,10 +31,10 @@ export class EnvironmentInfo extends $dara.Model {
   default?: boolean;
   /**
    * @remarks
-   * The environment descriptiont.
+   * The environment description.
    * 
    * @example
-   * This is a test environment.
+   * This is the test environment for the xx project of xxx
    */
   description?: string;
   /**
@@ -47,7 +47,7 @@ export class EnvironmentInfo extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The instance information.
+   * The gateway information.
    */
   gatewayInfo?: GatewayInfo;
   /**
@@ -68,7 +68,7 @@ export class EnvironmentInfo extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The subdomains.
+   * The subdomain list.
    */
   subDomainInfos?: SubDomainInfo[];
   /**

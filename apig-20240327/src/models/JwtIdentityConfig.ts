@@ -111,7 +111,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   pass?: boolean;
   /**
    * @remarks
-   * The location where the JWT is stored.
+   * The position where the JWT is stored.
    * 
    * @example
    * HEADER

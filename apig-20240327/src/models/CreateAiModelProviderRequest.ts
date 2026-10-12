@@ -25,7 +25,7 @@ export class CreateAiModelProviderRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The model provider identifier.
+   * The identifier of the model provider.
    * 
    * This parameter is required.
    * 

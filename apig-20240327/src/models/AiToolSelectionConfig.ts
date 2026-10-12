@@ -129,7 +129,7 @@ export class AiToolSelectionConfigQueryRewritingPromptConfig extends $dara.Model
    * The custom prompt content.
    * 
    * @example
-   * 请将以下用户问题改写为...
+   * Rewrite the following user question as..
    */
   customPrompt?: string;
   /**
@@ -166,7 +166,7 @@ export class AiToolSelectionConfigQueryRewritingPromptConfig extends $dara.Model
 export class AiToolSelectionConfigQueryRewritingTriggerConditions extends $dara.Model {
   /**
    * @remarks
-   * The number of conversation turns after which rewriting is triggered.
+   * The conversation turn threshold. Rewriting is triggered when the number of conversation turns exceeds this value.
    * 
    * @example
    * 1
@@ -201,7 +201,7 @@ export class AiToolSelectionConfigQueryRewriting extends $dara.Model {
   contextSelection?: AiToolSelectionConfigQueryRewritingContextSelection;
   /**
    * @remarks
-   * Specifies whether query rewrite is enabled.
+   * Indicates whether query rewrite is enabled.
    * 
    * @example
    * true
@@ -217,7 +217,7 @@ export class AiToolSelectionConfigQueryRewriting extends $dara.Model {
   fallbackStrategy?: string;
   /**
    * @remarks
-   * The maximum number of output tokens for rewriting.
+   * The maximum number of output tokens for the rewriting result.
    * 
    * @example
    * 50
@@ -416,7 +416,7 @@ export class AiToolSelectionConfigToolReranking extends $dara.Model {
 export class AiToolSelectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The enable conditions configuration. Controls when the overall feature is triggered.
+   * The enable condition configuration that controls when the overall feature is triggered.
    */
   enableConditions?: AiToolSelectionConfigEnableConditions;
   /**
@@ -429,12 +429,12 @@ export class AiToolSelectionConfig extends $dara.Model {
   pluginStatus?: AiPluginStatus;
   /**
    * @remarks
-   * The query rewrite configuration. Rewrites user queries before tool reranking to improve matching precision.
+   * The query rewrite configuration that rewrites user queries before tool reranking to improve matching precision.
    */
   queryRewriting?: AiToolSelectionConfigQueryRewriting;
   /**
    * @remarks
-   * The tool reranking configuration. Uses a model to rank and filter candidate tools.
+   * The tool reranking configuration that uses a model to sort and filter candidate tools.
    */
   toolReranking?: AiToolSelectionConfigToolReranking;
   static names(): { [key: string]: string } {

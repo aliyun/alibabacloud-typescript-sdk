@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GatewayLogConfigSlsConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to activate Simple Log Service.
+   * Indicates whether SLS logging is enabled.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class GatewayLogConfigSlsConfig extends $dara.Model {
 export class GatewayLogConfig extends $dara.Model {
   /**
    * @remarks
-   * The Simple Log Service configurations.
+   * The Simple Log Service (SLS) log configuration.
    */
   slsConfig?: GatewayLogConfigSlsConfig;
   static names(): { [key: string]: string } {

@@ -14,7 +14,9 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.M
   port?: number;
   /**
    * @remarks
-   * The protocol.
+   * The protocol. Valid values:
+   * - TCP.
+   * - UDP.
    * 
    * @example
    * TCP
@@ -55,6 +57,8 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   /**
    * @remarks
    * The protocol version. Valid values:
+   * - ipv4: IPv4.
+   * - ipv6: IPv6.
    * 
    * @example
    * ipv4
@@ -63,6 +67,8 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   /**
    * @remarks
    * The load balancing address type. Valid values:
+   * - Internet: public network.
+   * - Intranet: private network.
    * 
    * @example
    * Internet
@@ -70,7 +76,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   addressType?: string;
   /**
    * @remarks
-   * Indicates whether this is the default entry address of the gateway.
+   * Indicates whether this is the default ingress address of the gateway.
    * 
    * @example
    * true
@@ -97,6 +103,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   /**
    * @remarks
    * The load balancing provisioning pattern of the gateway. Valid values:
+   * - Managed: managed by the cloud-native API gateway.
    * 
    * @example
    * Managed
@@ -109,7 +116,9 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   ports?: ListGatewaysResponseBodyDataItemsLoadBalancersPorts[];
   /**
    * @remarks
-   * The status of the load balancing instance.
+   * The status of the load balancing instance. Valid values:
+   * - Ready: active.
+   * - NotCreate: No instance is associated.
    * 
    * @example
    * Ready
@@ -118,6 +127,8 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   /**
    * @remarks
    * The load balancing type of the gateway. Valid values:
+   * - NLB: Network Load Balancer (NLB).
+   * - CLB: Classic Load Balancer (CLB).
    * 
    * @example
    * NLB
@@ -378,6 +389,9 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
+   * - POSTPAY: pay-as-you-go.
+   * - PREPAY: subscription.
+   * 
    * @example
    * POSTPAY
    */
@@ -385,6 +399,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The source from which the gateway was created. Valid values:
+   * - Console: the console.
    * 
    * @example
    * Console
@@ -408,7 +423,11 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * The gateway instance edition.
+   * The gateway instance edition. Valid values:
+   * 
+   * - Professional: standard instance.
+   * 
+   * - Serverless: Serverless instance.
    * 
    * @example
    * Serverless
@@ -444,7 +463,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Indicates whether the gateway instance was created before the AI gateway was released.
+   * Indicates whether the gateway instance was created before the AI gateway feature was released.
    * 
    * @example
    * true
@@ -452,7 +471,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   legacy?: boolean;
   /**
    * @remarks
-   * The list of gateway entry addresses.
+   * The list of gateway ingress addresses.
    */
   loadBalancers?: ListGatewaysResponseBodyDataItemsLoadBalancers[];
   /**
@@ -486,7 +505,8 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   securityGroup?: ListGatewaysResponseBodyDataItemsSecurityGroup;
   /**
    * @remarks
-   * The gateway specification.
+   * The gateway specification. Valid values:
+   * - apigw.small.x1: small specification.
    * 
    * @example
    * apigw.small.x1
@@ -495,6 +515,15 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The gateway status. Valid values:
+   * - Running: The gateway is running.
+   * - Creating: The gateway is being created.
+   * - CreateFailed: The gateway failed to be created.
+   * - Upgrading: The gateway is being upgraded.
+   * - UpgradeFailed: The gateway failed to be upgraded.
+   * - Restarting: The gateway is being restarted.
+   * - RestartFailed: The gateway failed to be restarted.
+   * - Deleting: The gateway is being released.
+   * - DeleteFailed: The gateway failed to be released.
    * 
    * @example
    * Running

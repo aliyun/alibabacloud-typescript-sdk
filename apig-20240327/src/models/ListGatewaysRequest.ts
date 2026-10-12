@@ -61,7 +61,7 @@ export class ListGatewaysRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The keyword for full match search. Case-insensitive.
+   * The keyword for full match search. The search is case-insensitive.
    * 
    * @example
    * dev

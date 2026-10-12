@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGatewayErrorAccessLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of log entries. Each entry is a mapping from field names to field values.
+   */
   data?: { [key: string]: string }[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C9BF49BD-3037-5006-B379-656ECBA6F56C

@@ -18,12 +18,12 @@ export class UpdatePolicyRequest extends $dara.Model {
    * The description of the policy.
    * 
    * @example
-   * 这是一条网关超时策略
+   * This is a gateway timeout policy
    */
   description?: string;
   /**
    * @remarks
-   * The Policy Name.
+   * The policy name.
    * 
    * This parameter is required.
    * 

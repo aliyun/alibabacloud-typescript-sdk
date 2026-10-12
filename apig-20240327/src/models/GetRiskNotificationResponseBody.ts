@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRiskNotificationResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * gw-xxxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * Indicates whether the notification for the risk item is muted.
+   * 
    * @example
    * false
    */
   isMute?: boolean;
   /**
+   * @remarks
+   * The code of the risk item.
+   * 
    * @example
    * GW_VERSION_EXPIRED
    */
@@ -45,12 +54,22 @@ export class GetRiskNotificationResponseBodyData extends $dara.Model {
 
 export class GetRiskNotificationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The risk detection result.
+   */
   data?: GetRiskNotificationResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

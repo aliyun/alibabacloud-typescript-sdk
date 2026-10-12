@@ -6,9 +6,9 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   /**
    * @remarks
    * The period type of the existing conflicting rule on the subject. Valid values:
-   * - day: The period of the existing conflicting rule is daily.
-   * - week: The period of the existing conflicting rule is weekly.
-   * - month: The period of the existing conflicting rule is monthly.
+   * - day: daily.
+   * - week: weekly.
+   * - month: monthly.
    * 
    * @example
    * week
@@ -59,8 +59,8 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   /**
    * @remarks
    * The type of the conflicting subject. Valid values:
-   * - consumer
-   * - consumer_group
+   * - consumer: consumer.
+   * - consumer_group: consumer group.
    * 
    * @example
    * consumer
@@ -102,7 +102,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
    * @remarks
-   * The conflict hash.
+   * The hash of the conflict snapshot.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -228,7 +228,7 @@ export class ResetGatewayQuotaRuleResponseBody extends $dara.Model {
   data?: ResetGatewayQuotaRuleResponseBodyData;
   /**
    * @remarks
-   * The message.
+   * The message content.
    * 
    * @example
    * Hello, World!
@@ -236,7 +236,7 @@ export class ResetGatewayQuotaRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * 1234567890

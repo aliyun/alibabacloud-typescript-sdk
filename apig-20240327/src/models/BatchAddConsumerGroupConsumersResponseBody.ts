@@ -15,7 +15,7 @@ export class BatchAddConsumerGroupConsumersResponseBodyData extends $dara.Model 
   skippedConsumerIds?: string[];
   /**
    * @remarks
-   * The list of consumer IDs successfully added to the consumer group.
+   * The list of consumer IDs that were successfully added to the consumer group.
    */
   successConsumerIds?: string[];
   static names(): { [key: string]: string } {

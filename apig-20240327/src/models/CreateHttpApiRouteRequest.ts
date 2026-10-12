@@ -49,9 +49,9 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * The Terms of Service. Valid values:
-   * - HTTP.
-   * - HTTPS.
+   * The service protocol. Valid values:
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTP
@@ -75,7 +75,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   sourceType?: string;
   /**
    * @remarks
-   * The service version. This parameter takes effect only in tag-based scenarios.
+   * The service version. This parameter takes effect only in the by-tag scenario.
    * 
    * @example
    * v1
@@ -135,10 +135,10 @@ export class CreateHttpApiRouteRequestBackendConfig extends $dara.Model {
   /**
    * @remarks
    * The backend service scenario. Valid values:
-   * - SingleService: single service.
-   * - MultiServiceByRatio: multiple services with ratio-based canary release.
-   * - Mock: mock service.
-   * - Redirect: redirect service.
+   * - SingleService: Single service.
+   * - MultiServiceByRatio: Multi-service canary release by ratio.
+   * - Mock: Mock service.
+   * - Redirect: Redirect service.
    * 
    * @example
    * SingleService
@@ -194,10 +194,10 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The Terms of Service. Valid values:
-   * - TCP.
-   * - HTTP.
-   * - DUBBO.
+   * The service protocol. Valid values:
+   * - TCP
+   * - HTTP
+   * - DUBBO
    * 
    * @example
    * HTTP,HTTPS

@@ -57,7 +57,7 @@ export class HttpRouteDomainInfos extends $dara.Model {
 export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
   /**
    * @remarks
-   * The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
+   * The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, Unknown.
    * 
    * @example
    * MultiTenantServerless
@@ -170,7 +170,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
    * The environment name alias.
    * 
    * @example
-   * Product center staging environment
+   * Pre-release environment for the product center
    */
   alias?: string;
   /**
@@ -196,7 +196,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of default second-level domain names of the environment.
+   * The list of default subdomain names for the environment.
    */
   subDomains?: HttpRouteEnvironmentInfoSubDomains[];
   static names(): { [key: string]: string } {
@@ -370,7 +370,7 @@ export class HttpRoute extends $dara.Model {
   builtin?: string;
   /**
    * @remarks
-   * The creation time, in ms.
+   * The creation time, in milliseconds.
    * 
    * @example
    * 1726649310593
@@ -389,7 +389,7 @@ export class HttpRoute extends $dara.Model {
    * The route description.
    * 
    * @example
-   * Product center staging route
+   * Pre-release route for the product center
    */
   description?: string;
   /**
@@ -409,7 +409,7 @@ export class HttpRoute extends $dara.Model {
   gatewayStatus?: { [key: string]: string };
   /**
    * @remarks
-   * The route matching rule.
+   * The route matching rules.
    */
   match?: HttpRouteMatch;
   /**
@@ -435,7 +435,7 @@ export class HttpRoute extends $dara.Model {
   routeId?: string;
   /**
    * @remarks
-   * The update time, in ms.
+   * The update time, in milliseconds.
    * 
    * @example
    * 1726819895636

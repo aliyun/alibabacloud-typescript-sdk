@@ -14,7 +14,7 @@ export class UpdateAiModelProviderResponseBodyDataModelCardsAvailablePaths exten
   path?: string;
   /**
    * @remarks
-   * The protocol type corresponding to the path. The value can be up to 64 characters in length.
+   * The protocol type of the path. The value can be up to 64 characters in length.
    * 
    * @example
    * OpenAICompatible
@@ -46,7 +46,7 @@ export class UpdateAiModelProviderResponseBodyDataModelCardsAvailablePaths exten
 export class UpdateAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Model {
   /**
    * @remarks
-   * The cost of cache-hit tokens, in Credits per million tokens.
+   * The cost of cache-hit tokens. Unit: Credits per million tokens.
    * 
    * @example
    * 0.5
@@ -54,7 +54,7 @@ export class UpdateAiModelProviderResponseBodyDataModelCardsCredit extends $dara
   cacheCost?: number;
   /**
    * @remarks
-   * The cost of input tokens, in Credits per million tokens.
+   * The cost of input tokens. Unit: Credits per million tokens.
    * 
    * @example
    * 1.5
@@ -62,7 +62,7 @@ export class UpdateAiModelProviderResponseBodyDataModelCardsCredit extends $dara
   inputCost?: number;
   /**
    * @remarks
-   * The cost of output tokens, in Credits per million tokens.
+   * The cost of output tokens. Unit: Credits per million tokens.
    * 
    * @example
    * 3
@@ -223,7 +223,7 @@ export class UpdateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   modelName?: string;
   /**
    * @remarks
-   * The model provider identifier.
+   * The identifier of the model provider.
    * 
    * @example
    * qwen
@@ -231,7 +231,7 @@ export class UpdateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   modelProvider?: string;
   /**
    * @remarks
-   * The source of the model card. Instance-level model cards return user.
+   * The source of the model card. user is returned for instance-level model cards.
    * 
    * @example
    * user
@@ -247,7 +247,7 @@ export class UpdateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   sourceURL?: string;
   /**
    * @remarks
-   * The last update time of the model card, in the format of yyyy-MM-dd HH:mm:ss.
+   * The last update time of the model card. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-07-14 18:30:00
@@ -317,7 +317,7 @@ export class UpdateAiModelProviderResponseBodyData extends $dara.Model {
    * The display name of the model provider. The name can be up to 128 characters in length.
    * 
    * @example
-   * Qwen Cloud / Alibaba Cloud Bailian.
+   * Qwen Cloud / Alibaba Cloud Bailian
    */
   displayName?: string;
   /**
@@ -367,7 +367,7 @@ export class UpdateAiModelProviderResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The last update time of the model provider, in the format of yyyy-MM-dd HH:mm:ss.
+   * The last update time of the model provider. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-07-14 18:30:00

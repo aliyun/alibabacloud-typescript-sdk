@@ -37,8 +37,8 @@ export class GetDashboardRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * - zh: Chinese
-   * - en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -61,8 +61,8 @@ export class GetDashboardRequest extends $dara.Model {
    * @remarks
    * The name of the dashboard. Valid values:
    * 
-   * - LOG: Access log.
-   * - PLUGIN: Plugin log.
+   * - LOG: access log.
+   * - PLUGIN: plugin log.
    * 
    * > Note: This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty (400).
    * 
@@ -98,7 +98,7 @@ export class GetDashboardRequest extends $dara.Model {
    * @remarks
    * The source of the dashboard. Valid values:
    * 
-   * - SLS: Log dashboard.
+   * - SLS: log dashboard.
    * 
    * > Note: This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty (400).
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketProductPublicationDetail extends $dara.Model {
   /**
    * @remarks
-   * The portal ID.
+   * Portal ID
    * 
    * @example
    * portal-xxx
@@ -16,7 +16,7 @@ export class HiMarketProductPublicationDetail extends $dara.Model {
    * The portal name.
    * 
    * @example
-   * 开发者门户
+   * Developer Portal
    */
   portalName?: string;
   /**
@@ -32,7 +32,7 @@ export class HiMarketProductPublicationDetail extends $dara.Model {
    * The product name.
    * 
    * @example
-   * AI网关API
+   * AI Gateway API
    */
   productName?: string;
   /**
@@ -45,7 +45,7 @@ export class HiMarketProductPublicationDetail extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The product publish ID.
+   * The product publication ID.
    * 
    * @example
    * pub-xxx

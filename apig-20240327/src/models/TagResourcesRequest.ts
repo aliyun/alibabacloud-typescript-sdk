@@ -45,12 +45,12 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource IDs. A maximum of 50 subkeys are supported.
+   * The resource IDs. You can specify up to 50 subkeys.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type used for the tagging operation. Set this to Gateway.
+   * The resource type used for the tagging operation. Set this parameter to Gateway.
    * 
    * @example
    * gateway

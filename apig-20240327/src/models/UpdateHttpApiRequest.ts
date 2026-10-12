@@ -163,7 +163,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   versionConfig?: HttpApiVersionConfig;
   /**
    * @remarks
-   * The idempotent request identifier. If you call this operation for the same HTTP API with the same clientToken value and request parameters, the result of the first successful call is returned.
+   * The idempotency token. If you call this operation for the same HTTP API by using the same clientToken value and request parameters, the result of the first successful call is returned.
    * 
    * @example
    * update-http-api-client-token-001

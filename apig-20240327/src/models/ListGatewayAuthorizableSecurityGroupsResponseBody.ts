@@ -8,7 +8,7 @@ export class ListGatewayAuthorizableSecurityGroupsResponseBodyDataItems extends 
    * The security group name.
    * 
    * @example
-   * 商品中心集群安全组。
+   * Product Center Cluster Security Group
    */
   name?: string;
   /**
@@ -21,10 +21,9 @@ export class ListGatewayAuthorizableSecurityGroupsResponseBodyDataItems extends 
   securityGroupId?: string;
   /**
    * @remarks
-   * The type of the security group. Valid values:
-   * 
-   * *   Normal: general security group
-   * *   Enterprise: enterprise security group
+   * The security group type. Valid values:
+   * - Normal: Custom security group.
+   * - Enterprise: Advanced security group.
    * 
    * @example
    * Normal
@@ -32,7 +31,7 @@ export class ListGatewayAuthorizableSecurityGroupsResponseBodyDataItems extends 
   type?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-uf61resqa9am***
@@ -68,7 +67,7 @@ export class ListGatewayAuthorizableSecurityGroupsResponseBodyDataItems extends 
 export class ListGatewayAuthorizableSecurityGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The security groups.
+   * The list of security groups.
    */
   items?: ListGatewayAuthorizableSecurityGroupsResponseBodyDataItems[];
   static names(): { [key: string]: string } {
@@ -98,7 +97,7 @@ export class ListGatewayAuthorizableSecurityGroupsResponseBodyData extends $dara
 export class ListGatewayAuthorizableSecurityGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -106,12 +105,12 @@ export class ListGatewayAuthorizableSecurityGroupsResponseBody extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListGatewayAuthorizableSecurityGroupsResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

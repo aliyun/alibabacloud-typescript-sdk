@@ -4,18 +4,31 @@ import { RiskCheckResults } from "./RiskCheckResults";
 
 
 export class ListRiskCheckResultsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of risk detection results.
+   */
   items?: RiskCheckResults[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
@@ -52,22 +65,38 @@ export class ListRiskCheckResultsResponseBodyData extends $dara.Model {
 
 export class ListRiskCheckResultsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The risk detection results.
+   */
   data?: ListRiskCheckResultsResponseBodyData;
   /**
+   * @remarks
+   * The maximum number of entries to return in this request.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The pagination token. This parameter is empty if no more pages are available.
+   * 
    * @example
    * token-xxx
    */

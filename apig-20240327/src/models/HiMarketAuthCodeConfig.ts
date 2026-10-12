@@ -21,7 +21,7 @@ export class HiMarketAuthCodeConfig extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The OAuth2 client secret. The secret is AES-encrypted when stored.
+   * The OAuth2 client secret, which is AES-encrypted when stored.
    * 
    * @example
    * my-client-secret
@@ -37,7 +37,7 @@ export class HiMarketAuthCodeConfig extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The JWKS public key set URI, used for token signature verification.
+   * The JWKS public key set URI, which is used for token signature verification.
    * 
    * @example
    * https://idp.example.com/.well-known/jwks.json

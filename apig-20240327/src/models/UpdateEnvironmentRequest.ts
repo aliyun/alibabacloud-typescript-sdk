@@ -10,15 +10,15 @@ export class UpdateEnvironmentRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试环境
+   * Test environment
    */
   alias?: string;
   /**
    * @remarks
-   * The description of the environment. You can specify information such as the purpose and owner of the environment.
+   * The description of the environment. You can specify information such as the purpose of the environment and the owner.
    * 
    * @example
-   * 这是xx的xx项目测试环境
+   * This is the test environment for the xx project of xx
    */
   description?: string;
   static names(): { [key: string]: string } {

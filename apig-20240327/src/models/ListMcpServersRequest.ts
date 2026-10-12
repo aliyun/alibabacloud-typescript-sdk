@@ -31,7 +31,7 @@ export class ListMcpServersRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Fuzzy searches for MCP servers by API name.
+   * The keyword used to fuzzy match MCP servers by name.
    * 
    * @example
    * test
@@ -39,7 +39,7 @@ export class ListMcpServersRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Default value: 1.
+   * The page number. Pages start from page 1. Default value: 1.
    * 
    * This parameter is required.
    * 

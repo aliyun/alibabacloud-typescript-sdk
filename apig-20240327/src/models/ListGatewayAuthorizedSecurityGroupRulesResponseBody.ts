@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The list of authorized CIDR blocks.
+   * The list of authorized CIDR block addresses.
    */
   authCidrs?: string[];
   /**
@@ -13,14 +13,13 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extend
    * The rule description.
    * 
    * @example
-   * 商品中心预发网关授权安全组
+   * Security group authorized by the staging gateway of the product center
    */
   description?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
-   * 
-   * *   TCP
+   * The protocol:
+   * - TCP
    * 
    * @example
    * TCP
@@ -47,12 +46,12 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extend
    * The security group name.
    * 
    * @example
-   * 商品中心集群安全组
+   * Product center cluster security group
    */
   securityGroupName?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The security rule ID of the cloud-native API gateway.
    * 
    * @example
    * gsgr-cqadis5lhtgmv***
@@ -60,7 +59,7 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extend
   securityGroupRuleId?: string;
   /**
    * @remarks
-   * The ID of the source security group.
+   * The source security group ID.
    * 
    * @example
    * sg-bp19akuepfe***
@@ -68,7 +67,7 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extend
   sourceSecurityGroupId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1g63b5q2q29***
@@ -117,7 +116,7 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extend
 export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The security group rules.
+   * The list of security group rules.
    */
   items?: ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems[];
   static names(): { [key: string]: string } {
@@ -147,7 +146,7 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyData extends $da
 export class ListGatewayAuthorizedSecurityGroupRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -155,12 +154,12 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBody extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListGatewayAuthorizedSecurityGroupRulesResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

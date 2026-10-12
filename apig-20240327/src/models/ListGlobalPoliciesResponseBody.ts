@@ -4,18 +4,31 @@ import { PolicyInfo } from "./PolicyInfo";
 
 
 export class ListGlobalPoliciesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * object
+   */
   items?: PolicyInfo[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 25
    */
@@ -52,12 +65,22 @@ export class ListGlobalPoliciesResponseBodyData extends $dara.Model {
 
 export class ListGlobalPoliciesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListGlobalPoliciesResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

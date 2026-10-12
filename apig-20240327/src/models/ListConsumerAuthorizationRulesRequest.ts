@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerAuthorizationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The API name used for fuzzy match.
+   * The fuzzy match parameter for the API name.
    * 
    * @example
    * qwen3

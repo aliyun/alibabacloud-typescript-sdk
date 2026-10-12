@@ -160,7 +160,7 @@ export class HttpApiDeployConfigServiceConfigsObservabilityRouteConfig extends $
 export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * The capability tier for intelligent routing candidates. Specify this parameter only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium.
+   * The capability tier of the intelligent routing candidate. Specify this parameter only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium.
    * 
    * @example
    * standard
@@ -414,7 +414,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   customDomainInfos?: HttpApiDeployConfigCustomDomainInfos[];
   /**
    * @remarks
-   * Specifies whether to enable gateway system models. This parameter takes effect only when the publishing scenario is AiAutoRouter. Default value: false. This field is used for backward compatibility with older clients. If systemModelTiers is not submitted, true indicates that all three tiers of system models are enabled, and false indicates that all are disabled.
+   * Specifies whether to enable gateway system models. This parameter takes effect only when the publishing scenario is AiAutoRouter. Default value: false. This parameter is used for backward compatibility with earlier clients. If systemModelTiers is not submitted, true indicates that all three tiers of system models are enabled, and false indicates that all are disabled.
    * 
    * @example
    * true
@@ -477,7 +477,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   policyConfigs?: HttpApiPolicyConfigs[];
   /**
    * @remarks
-   * The current online routing mode of the REST API. ordinary indicates per-operation routing, and compressed indicates single-prefix routing for the API. This field is not returned for non-REST APIs.
+   * The current online routing mode of the REST API. ordinary indicates per-operation routing, and compressed indicates single-prefix routing for the API. This parameter is not returned for non-REST APIs.
    * 
    * @example
    * ordinary

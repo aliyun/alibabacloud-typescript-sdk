@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginsResponseBodyDataItemsAttachmentInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the plugin is enabled.
+   * Indicates whether the plug-in is enabled.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class ListPluginsResponseBodyDataItemsAttachmentInfo extends $dara.Model 
   enable?: string;
   /**
    * @remarks
-   * The plugin attachment ID.
+   * The plug-in mounting ID.
    * 
    * @example
    * pa-ct2irn6m1hkreaen0t40
@@ -88,7 +88,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
    * The alias.
    * 
    * @example
-   * 基于 Key 限流
+   * Key-based throttling
    */
   alias?: string;
   /**
@@ -109,7 +109,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
   executeStage?: string;
   /**
    * @remarks
-   * The plugin name.
+   * The plug-in name.
    * 
    * @example
    * key-rate-limit
@@ -117,7 +117,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The plugin type ID.
+   * The plug-in type ID.
    * 
    * @example
    * pls-cqebrgh46ppatmpri
@@ -125,7 +125,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
   pluginClassId?: string;
   /**
    * @remarks
-   * The plugin source.
+   * The plug-in source.
    * 
    * @example
    * HigressOfficial
@@ -144,7 +144,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
    * The version description.
    * 
    * @example
-   * 版本描述
+   * Version description
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
 export class ListPluginsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The plugin attachment information.
+   * The plug-in mounting information.
    */
   attachmentInfo?: ListPluginsResponseBodyDataItemsAttachmentInfo;
   /**
@@ -195,12 +195,12 @@ export class ListPluginsResponseBodyDataItems extends $dara.Model {
   gatewayInfo?: ListPluginsResponseBodyDataItemsGatewayInfo;
   /**
    * @remarks
-   * The plugin type information.
+   * The plug-in type information.
    */
   pluginClassInfo?: ListPluginsResponseBodyDataItemsPluginClassInfo;
   /**
    * @remarks
-   * The plugin ID.
+   * The plug-in ID.
    * 
    * @example
    * pl-cvu6r4um1hko3b3ti0a0
@@ -245,7 +245,7 @@ export class ListPluginsResponseBodyDataItems extends $dara.Model {
 export class ListPluginsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The plugin list.
+   * The list of plug-ins.
    */
   items?: ListPluginsResponseBodyDataItems[];
   /**
@@ -258,7 +258,7 @@ export class ListPluginsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10

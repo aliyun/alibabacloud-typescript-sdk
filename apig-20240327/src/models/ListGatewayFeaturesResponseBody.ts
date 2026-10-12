@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayFeaturesResponseBodyDataItemsConstraints extends $dara.Model {
   /**
    * @remarks
-   * The maximum body collection size per request in bytes. This value is returned based on the managed form of the gateway deployment cluster. Only the log-request-response feature returns this field.
+   * The maximum body collection size per request, in bytes. This value is returned based on the managed form of the gateway deployment cluster. Only the log-request-response feature returns this field.
    * 
    * @example
    * 5120
@@ -35,7 +35,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsConstraints extends $dara.M
 export class ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions extends $dara.Model {
   /**
    * @remarks
-   * The key used to pass the parameter.
+   * The pass parameter key.
    * 
    * @example
    * KEEP_UNCHANGED
@@ -86,7 +86,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
    * The parameter description.
    * 
    * @example
-   * Applies to request and response phases. Enabling gzip compresses request responses, which reduces gateway traffic but increases gateway CPU consumption
+   * Applies to the request and response phases. Enabling gzip compresses request responses, which reduces gateway traffic but increases gateway CPU consumption
    */
   description?: string;
   /**
@@ -100,8 +100,8 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   /**
    * @remarks
    * The parameter group. Valid values:
-   * - Telemetry: observability-related parameter.
-   * - Engine: engine-related parameter.
+   * - Telemetry: An observability parameter.
+   * - Engine: An engine parameter.
    * 
    * @example
    * Engine
@@ -110,10 +110,10 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   /**
    * @remarks
    * The input type of the parameter. Valid values:
-   * - Trigger: toggle.
-   * - Input: text input.
-   * - SingleSelect: single-select.
-   * - MultiSelect: multi-select.
+   * - Trigger: Toggle.
+   * - Input: Text input.
+   * - SingleSelect: Single-select.
+   * - MultiSelect: Multi-select.
    * 
    * @example
    * Trigger
@@ -258,7 +258,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
 export class ListGatewayFeaturesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The runtime constraints calculated based on the current gateway form. Only returned for certain features.
+   * The runtime constraints calculated based on the current gateway form. Only returned for specific features.
    */
   constraints?: ListGatewayFeaturesResponseBodyDataItemsConstraints;
   /**

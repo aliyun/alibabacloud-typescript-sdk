@@ -66,10 +66,10 @@ export class ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo extends $dara.M
   importInstanceId?: string;
   /**
    * @remarks
-   * The synced MCP server ID.
+   * The ID of the synced MCP server.
    * 
    * @example
-   * The synced MCP server ID
+   * The ID of the synced MCP server
    */
   importMcpServerId?: string;
   /**
@@ -116,7 +116,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The list of assembled sources. This parameter is required when type is AssemblyMCP.
+   * The list of assembly sources. This parameter is required when type is AssemblyMCP.
    */
   assembledSources?: ListMcpServersResponseBodyDataItemsAssembledSources[];
   /**
@@ -126,13 +126,13 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   backend?: Backend;
   /**
    * @remarks
-   * The creation source type. Valid values:
+   * The creation source type.
    * 
-   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP.
-   * - ApiGatewayMcpHosting: gateway-managed MCP direct proxy.
-   * - ApiGatewayAssembly: gateway MCP assembly.
-   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP.
-   * - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
+   * - ApiGatewayHttpToMCP: Gateway-managed HTTP-to-MCP.
+   * - ApiGatewayMcpHosting: Gateway-managed MCP direct proxy.
+   * - ApiGatewayAssembly: Gateway MCP assembly.
+   * - NacosHttpToMCP: Gateway-managed Nacos-synced HTTP-to-MCP.
+   * - NacosMcpHosting: Gateway-managed Nacos-synced MCP direct proxy.
    * 
    * @example
    * ApiGatewayHttpToMCP
@@ -344,7 +344,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
 export class ListMcpServersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The MCP server list information.
+   * The list of MCP servers.
    */
   items?: ListMcpServersResponseBodyDataItems[];
   /**

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayQuotaRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The conflict snapshot hash, used to prevent concurrent dirty overwrites during confirmation. Retrieve this value from the response of a previous dry run (dryRun=true).
+   * The conflict snapshot hash, used to prevent concurrent dirty overwrites during confirmation. Obtain this value from the response of a previous dry run (dryRun=true).
    * 
    * This parameter is not required in the following cases: no conflicts exist, the request is a dry run (dryRun=true), or overwrite is set to false.
    * 
-   * When dryRun is set to false and overwrite is set to true, if this parameter is not provided or the value has expired and no longer matches, the backend returns accepted=false with a new conflict preview. Perform a new dry run to confirm the updated conflicts.
+   * When dryRun is set to false and overwrite is set to true, if this parameter is not specified or the value has expired and no longer matches, the backend returns accepted=false with a new conflict preview. Perform a new dry run to confirm the updated conflicts.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -33,7 +33,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   consumerIds?: string[];
   /**
    * @remarks
-   * Specifies whether to perform only a dry run without applying the configuration. A dry run checks whether conflicting rules exist on the bound consumer subjects. For example, a consumer subject that already has a calendar-day quota cannot have another calendar-day quota rule added.
+   * Specifies whether to perform only a dry run without applying the configuration. A dry run checks whether conflicting rules exist on the bound consumer subjects. For example, a consumer that already has a calendar-day quota rule cannot have another calendar-day quota rule.
    * 
    * @example
    * false
@@ -116,7 +116,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The reset period type. Valid values:
+   * The reset period alignment type. Valid values:
    * 
    * - calendar: calendar period. The period starts from the beginning of a calendar day, week, or month.
    * - epoch: custom period. The period starts from the time the rule is applied.

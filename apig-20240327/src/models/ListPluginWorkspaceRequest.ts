@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPluginWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The gateway type used to filter workspaces. Default value: API.
+   * 
    * @example
    * AI
    */

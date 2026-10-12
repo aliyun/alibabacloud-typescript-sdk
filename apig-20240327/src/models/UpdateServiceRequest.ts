@@ -117,7 +117,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
 export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The base ejection time. This is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation time is calculated using the formula: k × base_ejection_time (where k starts at 1). Each ejection increases the isolation time (k is incremented by one). If consecutive checks are healthy, the isolation time is gradually reduced (k is decremented by one).
+   * The base ejection time, which is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation time is calculated by using the following formula: k × base_ejection_time, where k starts at 1. Each ejection increases the isolation time by incrementing k by 1. If consecutive checks are normal, the isolation time is gradually reduced by decrementing k by 1.
    * 
    * @example
    * 30
@@ -143,7 +143,7 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   failurePercentageMinimumHosts?: number;
   /**
    * @remarks
-   * The failure percentage threshold. When the proportion of failed requests for a node reaches this threshold, the system triggers the ejection mechanism for that node.
+   * The failure percentage threshold. When the proportion of failed requests on a node reaches this threshold, the system triggers the ejection mechanism for that node.
    * 
    * @example
    * 80

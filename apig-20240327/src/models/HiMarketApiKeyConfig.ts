@@ -50,7 +50,7 @@ export class HiMarketApiKeyConfig extends $dara.Model {
   credentials?: HiMarketApiKeyConfigCredentials[];
   /**
    * @remarks
-   * The name of the location from which the API key is extracted.
+   * The name of the location from which the API key is fetched.
    * 
    * @example
    * Apikey

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPluginRepositoriesResponseBodyDataRepositories extends $dara.Model {
   /**
+   * @remarks
+   * The Codeup repository ID (numeric string).
+   * 
    * @example
    * 12345678
    */
   repositoryId?: string;
   /**
+   * @remarks
+   * The repository name.
+   * 
    * @example
    * my-custom-plugin
    */
@@ -38,15 +44,25 @@ export class ListPluginRepositoriesResponseBodyDataRepositories extends $dara.Mo
 
 export class ListPluginRepositoriesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Codeup organization ID.
+   * 
    * @example
    * 664f1e2xxxx
    */
   organizationId?: string;
   /**
+   * @remarks
+   * The organization name.
+   * 
    * @example
    * my-org
    */
   organizationName?: string;
+  /**
+   * @remarks
+   * The list of repositories under the organization.
+   */
   repositories?: ListPluginRepositoriesResponseBodyDataRepositories[];
   static names(): { [key: string]: string } {
     return {
@@ -78,19 +94,29 @@ export class ListPluginRepositoriesResponseBodyData extends $dara.Model {
 
 export class ListPluginRepositoriesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListPluginRepositoriesResponseBodyData[];
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 019FCA83-0416-588D-9763-2474980495F1

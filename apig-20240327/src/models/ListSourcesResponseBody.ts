@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSourcesResponseBodyDataItemsK8sSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The container service cluster ID.
    * 
    * @example
    * c09212180612a42adbed6a940d01d***
@@ -35,7 +35,7 @@ export class ListSourcesResponseBodyDataItemsK8sSourceInfo extends $dara.Model {
 export class ListSourcesResponseBodyDataItemsNacosSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the Nacos instance.
+   * The access address of the Nacos instance.
    * 
    * @example
    * mse-3353***-nacos-ans.mse.aliyuncs.com:8848
@@ -43,7 +43,7 @@ export class ListSourcesResponseBodyDataItemsNacosSourceInfo extends $dara.Model
   address?: string;
   /**
    * @remarks
-   * The registry ID.
+   * The NACOS registry cluster ID.
    * 
    * @example
    * mse-3353***
@@ -84,11 +84,17 @@ export class ListSourcesResponseBodyDataItemsNacosSourceInfo extends $dara.Model
 
 export class ListSourcesResponseBodyDataItems extends $dara.Model {
   /**
+   * @remarks
+   * The reason for the association status
+   * 
    * @example
    * Association completed
    */
   associationReason?: string;
   /**
+   * @remarks
+   * The association status of the source
+   * 
    * @example
    * ASSOCIATED
    */
@@ -103,23 +109,26 @@ export class ListSourcesResponseBodyDataItems extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The source information when the source type is K8S.
+   * The container service source information.
    */
   k8sSourceInfo?: ListSourcesResponseBodyDataItemsK8sSourceInfo;
   /**
    * @remarks
-   * The source information when the source type is MSE_NACOS.
+   * The MSE Nacos source information.
    */
   nacosSourceInfo?: ListSourcesResponseBodyDataItemsNacosSourceInfo;
   /**
    * @remarks
-   * The source name. If the source type is K8S, the name is the container cluster name. If the source type is MSE_NACOS, the name is the Nacos instance name.
+   * The source name. If the source type is container service, the name is the container service cluster name. If the source type is MSE Nacos, the name is the Nacos instance name.
    * 
    * @example
    * itemcenter-dev-cluster
    */
   name?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxxx
    */
@@ -191,7 +200,7 @@ export class ListSourcesResponseBodyData extends $dara.Model {
   items?: ListSourcesResponseBodyDataItems[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -207,7 +216,7 @@ export class ListSourcesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -246,7 +255,7 @@ export class ListSourcesResponseBodyData extends $dara.Model {
 export class ListSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -254,12 +263,12 @@ export class ListSourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListSourcesResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

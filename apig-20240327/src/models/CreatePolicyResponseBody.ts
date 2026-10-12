@@ -56,7 +56,7 @@ export class CreatePolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E7406754***

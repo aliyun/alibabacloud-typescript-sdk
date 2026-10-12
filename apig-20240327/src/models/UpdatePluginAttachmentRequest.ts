@@ -18,7 +18,7 @@ export class UpdatePluginAttachmentRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The Base64-encoded content of the raw plugin configuration.
+   * The Base64-encoded content of the original plugin configuration.
    * 
    * @example
    * cHJlcGVuZDoKLSByb2xlOiBzeXN0ZW0KICBjb250ZW50OiDor7fkvb/nlKjoi7Hor63lm57nrZTpl67popgKYXBwZW5kOgotIHJvbGU6IHVzZXIKICBjb250ZW50OiDmr4/mrKHlm57nrZTlrozpl67popjvvIzlsJ3or5Xov5vooYzlj43pl64K

@@ -29,7 +29,7 @@ export class SubDomainInfo extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The protocol type supported by the subdomain. Valid values: HTTP, HTTPS.
+   * The protocol type supported by the subdomain. Valid values: HTTP and HTTPS.
    * 
    * @example
    * HTTP

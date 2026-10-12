@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoExistHttpApiInfoVersionInfo extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether versioning is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The key in the specified header parameter when the header versioning scheme is used.
+   * 
    * @example
    * my-version
    */
   headerName?: string;
   /**
+   * @remarks
+   * The key in the specified query parameter when the query versioning scheme is used.
+   * 
    * @example
    * myVersion
    */
   queryName?: string;
   /**
+   * @remarks
+   * The versioning scheme.
+   * 
    * @example
    * Query
    */
   scheme?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * v1
    */
@@ -59,30 +74,49 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoExis
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoExistHttpApiInfo extends $dara.Model {
   /**
+   * @remarks
+   * The base path of the API.
+   * 
    * @example
    * /v1
    */
   basePath?: string;
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-xxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The ID of the HTTP API.
+   * 
    * @example
    * api-xxx
    */
   httpApiId?: string;
   /**
+   * @remarks
+   * The name of the API.
+   * 
    * @example
    * petstore
    */
   name?: string;
   /**
+   * @remarks
+   * The API type.
+   * 
    * @example
    * Rest
    */
   type?: string;
+  /**
+   * @remarks
+   * The API versioning information.
+   */
   versionInfo?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoExistHttpApiInfoVersionInfo;
   static names(): { [key: string]: string } {
     return {
@@ -120,11 +154,17 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoExis
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFailureComponents extends $dara.Model {
   /**
+   * @remarks
+   * The reason why the dry run failed.
+   * 
    * @example
    * invalid schema
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The name of the data structure.
+   * 
    * @example
    * Pet
    */
@@ -154,16 +194,25 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFail
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFailureOperations extends $dara.Model {
   /**
+   * @remarks
+   * The reason why the dry run failed.
+   * 
    * @example
    * unsupported operation
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP method of the REST API operation.
+   * 
    * @example
    * GET
    */
   method?: string;
   /**
+   * @remarks
+   * The path of the REST API operation.
+   * 
    * @example
    * /pets/{petId}
    */
@@ -195,11 +244,17 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFail
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFailureRoutes extends $dara.Model {
   /**
+   * @remarks
+   * The reason why the dry run failed.
+   * 
    * @example
    * domain not found
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The name of the route.
+   * 
    * @example
    * route-pets
    */
@@ -229,11 +284,17 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFail
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSuccessComponents extends $dara.Model {
   /**
+   * @remarks
+   * The action type to be performed after the dry run.
+   * 
    * @example
    * Create
    */
   action?: string;
   /**
+   * @remarks
+   * The name of the data structure.
+   * 
    * @example
    * Pet
    */
@@ -263,21 +324,33 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSucc
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSuccessOperations extends $dara.Model {
   /**
+   * @remarks
+   * The action type to be performed after the dry run.
+   * 
    * @example
    * Create
    */
   action?: string;
   /**
+   * @remarks
+   * The HTTP method of the REST API operation.
+   * 
    * @example
    * GET
    */
   method?: string;
   /**
+   * @remarks
+   * The name of the REST API operation.
+   * 
    * @example
    * getPetById
    */
   name?: string;
   /**
+   * @remarks
+   * The path of the REST API operation.
+   * 
    * @example
    * /pets/{petId}
    */
@@ -311,11 +384,17 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSucc
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSuccessRoutes extends $dara.Model {
   /**
+   * @remarks
+   * The action type to be performed after the dry run.
+   * 
    * @example
    * Create
    */
   action?: string;
   /**
+   * @remarks
+   * The name of the route.
+   * 
    * @example
    * route-pets
    */
@@ -344,14 +423,50 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSucc
 }
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of dry run error messages.
+   */
   errorMessages?: string[];
+  /**
+   * @remarks
+   * The basic information about the existing HTTP API matched during import.
+   */
   existHttpApiInfo?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoExistHttpApiInfo;
+  /**
+   * @remarks
+   * The list of data structures that failed the dry run.
+   */
   failureComponents?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFailureComponents[];
+  /**
+   * @remarks
+   * The list of REST API operations that failed the dry run.
+   */
   failureOperations?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFailureOperations[];
+  /**
+   * @remarks
+   * The list of routes that failed the dry run.
+   */
   failureRoutes?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoFailureRoutes[];
+  /**
+   * @remarks
+   * The list of data structures that passed the dry run.
+   */
   successComponents?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSuccessComponents[];
+  /**
+   * @remarks
+   * The list of REST API operations that passed the dry run.
+   */
   successOperations?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSuccessOperations[];
+  /**
+   * @remarks
+   * The list of routes that passed the dry run.
+   */
   successRoutes?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfoSuccessRoutes[];
+  /**
+   * @remarks
+   * The list of dry run warning messages.
+   */
   warningMessages?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -419,17 +534,30 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfo ext
 
 export class GetBatchImportTaskResponseBodyDataResultDryRunResults extends $dara.Model {
   /**
+   * @remarks
+   * The API name. The value unknown is returned if the name cannot be identified.
+   * 
    * @example
    * petstore
    */
   apiName?: string;
+  /**
+   * @remarks
+   * The dry run details, including the operations, routes, components, and error or warning messages planned for creation or update in this file.
+   */
   dryRunInfo?: GetBatchImportTaskResponseBodyDataResultDryRunResultsDryRunInfo;
   /**
+   * @remarks
+   * The dry run error message.
+   * 
    * @example
    * unsupported oas version
    */
   error?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * petstore.yaml
    */
@@ -466,21 +594,33 @@ export class GetBatchImportTaskResponseBodyDataResultDryRunResults extends $dara
 
 export class GetBatchImportTaskResponseBodyDataResultFailureItems extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the API.
+   * 
    * @example
    * api-xxx
    */
   apiId?: string;
   /**
+   * @remarks
+   * The API name. The value unknown is returned if the name cannot be identified.
+   * 
    * @example
    * petstore
    */
   apiName?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * invalid oas format
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * petstore.yaml
    */
@@ -514,16 +654,25 @@ export class GetBatchImportTaskResponseBodyDataResultFailureItems extends $dara.
 
 export class GetBatchImportTaskResponseBodyDataResultImportRequestSpecOssConfig extends $dara.Model {
   /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
    * @example
    * my-bucket
    */
   bucketName?: string;
   /**
+   * @remarks
+   * The object key of the specification file in the OSS bucket.
+   * 
    * @example
    * imports/batch.zip
    */
   objectKey?: string;
   /**
+   * @remarks
+   * The region ID of the OSS bucket.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -554,38 +703,68 @@ export class GetBatchImportTaskResponseBodyDataResultImportRequestSpecOssConfig 
 }
 
 export class GetBatchImportTaskResponseBodyDataResultImportRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to allow overwriting existing APIs.
+   */
   allowUpdate?: boolean;
   /**
+   * @remarks
+   * The API type.
+   * 
    * @example
    * Http
    */
   apiType?: string;
   /**
+   * @remarks
+   * Specifies whether the request is in dry run mode. This parameter is fixed to false in the formal import request body.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-xxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxx
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The download URL of the OAS ZIP file, which is consistent with the dry run request.
+   * 
    * @example
    * https://oss-cn-hangzhou.aliyuncs.com/my-bucket/imports/batch.zip
    */
   specFileUrl?: string;
+  /**
+   * @remarks
+   * The OSS configuration of the OAS file, which is consistent with the dry run request.
+   */
   specOssConfig?: GetBatchImportTaskResponseBodyDataResultImportRequestSpecOssConfig;
   /**
+   * @remarks
+   * The conflict merge strategy used during import.
+   * 
    * @example
    * ExistFirst
    */
   strategy?: string;
+  /**
+   * @remarks
+   * Specifies whether to import with gateway extension configurations.
+   */
   withGatewayExtension?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -629,21 +808,33 @@ export class GetBatchImportTaskResponseBodyDataResultImportRequest extends $dara
 
 export class GetBatchImportTaskResponseBodyDataResultSuccessItems extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the API.
+   * 
    * @example
    * api-xxx
    */
   apiId?: string;
   /**
+   * @remarks
+   * The API name. The value unknown is returned if the name cannot be identified.
+   * 
    * @example
    * petstore
    */
   apiName?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * invalid oas format
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * petstore.yaml
    */
@@ -677,23 +868,48 @@ export class GetBatchImportTaskResponseBodyDataResultSuccessItems extends $dara.
 
 export class GetBatchImportTaskResponseBodyDataResult extends $dara.Model {
   /**
+   * @remarks
+   * The API type.
+   * 
    * @example
    * Http
    */
   apiType?: string;
   /**
+   * @remarks
+   * Indicates whether the task is in dry run mode.
+   * 
    * @example
    * true
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The list of dry run results.
+   */
   dryRunResults?: GetBatchImportTaskResponseBodyDataResultDryRunResults[];
+  /**
+   * @remarks
+   * The list of APIs that failed to be processed.
+   */
   failureItems?: GetBatchImportTaskResponseBodyDataResultFailureItems[];
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-xxx
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The formal import request body. This field is returned only for dry run tasks and can be resubmitted as the request body of BatchImportHttpApis. The dryRun parameter is fixed to false. Temporary specFileUrl values are still subject to URL expiration constraints.
+   */
   importRequest?: GetBatchImportTaskResponseBodyDataResultImportRequest;
+  /**
+   * @remarks
+   * The list of successfully processed APIs.
+   */
   successItems?: GetBatchImportTaskResponseBodyDataResultSuccessItems[];
   static names(): { [key: string]: string } {
     return {
@@ -742,37 +958,62 @@ export class GetBatchImportTaskResponseBodyDataResult extends $dara.Model {
 
 export class GetBatchImportTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the task was created. The time is in UTC and follows the RFC 3339 format.
+   * 
    * @example
    * 2026-05-15T10:00:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * some apis import failed
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The number of processed items.
+   * 
    * @example
    * 5
    */
   processedCount?: number;
+  /**
+   * @remarks
+   * The task result details.
+   */
   result?: GetBatchImportTaskResponseBodyDataResult;
   /**
+   * @remarks
+   * The task status. Valid values: Pending, Running, Success, PartialSuccess, and Failed.
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * async-task-xxx
    */
   taskId?: string;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * BatchImport
    */
   taskType?: string;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 10
    */
@@ -817,17 +1058,30 @@ export class GetBatchImportTaskResponseBodyData extends $dara.Model {
 
 export class GetBatchImportTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetBatchImportTaskResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CE534E1D-FCE4-5930-B784-E055EC1AEE6F
    */

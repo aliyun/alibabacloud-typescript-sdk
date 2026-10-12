@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBatchExportTaskResponseBodyDataResultFailureItems extends $dara.Model {
   /**
+   * @remarks
+   * API ID。
+   * 
    * @example
    * api-xxx
    */
   apiId?: string;
   /**
+   * @remarks
+   * The API name.
+   * 
    * @example
    * petstore
    */
   apiName?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * api definition is invalid
    */
@@ -45,16 +54,25 @@ export class GetBatchExportTaskResponseBodyDataResultFailureItems extends $dara.
 
 export class GetBatchExportTaskResponseBodyDataResultSuccessItems extends $dara.Model {
   /**
+   * @remarks
+   * API ID。
+   * 
    * @example
    * api-xxx
    */
   apiId?: string;
   /**
+   * @remarks
+   * The API name.
+   * 
    * @example
    * petstore
    */
   apiName?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * api definition is invalid
    */
@@ -86,21 +104,38 @@ export class GetBatchExportTaskResponseBodyDataResultSuccessItems extends $dara.
 
 export class GetBatchExportTaskResponseBodyDataResult extends $dara.Model {
   /**
+   * @remarks
+   * The API type.
+   * 
    * @example
    * Http
    */
   apiType?: string;
+  /**
+   * @remarks
+   * The list of APIs that failed to be processed.
+   */
   failureItems?: GetBatchExportTaskResponseBodyDataResultFailureItems[];
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-xxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The Base64-encoded ZIP file content. After the frontend decodes the content, it can directly trigger a browser download.
+   * 
    * @example
    * UEsDBBQAAAA...
    */
   specContentBase64?: string;
+  /**
+   * @remarks
+   * The list of APIs that were processed successfully.
+   */
   successItems?: GetBatchExportTaskResponseBodyDataResultSuccessItems[];
   static names(): { [key: string]: string } {
     return {
@@ -139,37 +174,62 @@ export class GetBatchExportTaskResponseBodyDataResult extends $dara.Model {
 
 export class GetBatchExportTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the task was created. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * 
    * @example
    * 2026-05-15T10:00:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * some apis export failed
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The number of processed items.
+   * 
    * @example
    * 5
    */
   processedCount?: number;
+  /**
+   * @remarks
+   * The task result details.
+   */
   result?: GetBatchExportTaskResponseBodyDataResult;
   /**
+   * @remarks
+   * The task status. Valid values: Pending, Running, Success, PartialSuccess, and Failed.
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * async-task-xxx
    */
   taskId?: string;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * BatchExport
    */
   taskType?: string;
   /**
+   * @remarks
+   * The total number of items.
+   * 
    * @example
    * 10
    */
@@ -214,17 +274,30 @@ export class GetBatchExportTaskResponseBodyData extends $dara.Model {
 
 export class GetBatchExportTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetBatchExportTaskResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * CE534E1D-FCE4-5930-B784-E055EC1AEE6F
    */

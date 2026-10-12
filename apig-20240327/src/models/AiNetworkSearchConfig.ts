@@ -7,7 +7,7 @@ import { AiNetworkConfigSearchEngine } from "./AiNetworkConfigSearchEngine";
 export class AiNetworkSearchConfigSearchRewrite extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable search query rewriting.
+   * Specifies whether to enable search term rewriting.
    * 
    * @example
    * true
@@ -15,7 +15,7 @@ export class AiNetworkSearchConfigSearchRewrite extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The maximum number of search queries after rewriting.
+   * The maximum number of search terms after rewriting.
    * 
    * @example
    * 3
@@ -31,7 +31,7 @@ export class AiNetworkSearchConfigSearchRewrite extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The ID of the rewriting service.
+   * The rewriting service ID.
    * 
    * @example
    * svc-xxx
@@ -109,10 +109,10 @@ export class AiNetworkSearchConfig extends $dara.Model {
   pluginStatus?: AiPluginStatus;
   /**
    * @remarks
-   * The format template for reference content. The template must contain at least one %s placeholder.
+   * The format template for reference content. Must contain at least one %s placeholder.
    * 
    * @example
-   * 参考来源:\\n%s
+   * Reference source:\\n%s
    */
   referenceFormat?: string;
   /**

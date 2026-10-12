@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination resource group. You can view resource group IDs in the Resource Management console.
+   * The ID of the destination resource group. You can view the ID in the Resource Management console.
    * 
    * @example
    * rg-aekzuqyxxxxxxxx
@@ -21,7 +21,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. The value is case-sensitive and must exactly match one of the valid values.
+   * The resource type. This parameter is case-sensitive and must exactly match one of the valid values.
    * 
    * @example
    * Gateway

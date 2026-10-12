@@ -23,11 +23,6 @@ export class HttpApiDomainInfo extends $dara.Model {
    * @remarks
    * The protocol.
    * 
-   * Valid values:
-   * 
-   * *   HTTPS
-   * *   HTTP
-   * 
    * @example
    * HTTP
    */

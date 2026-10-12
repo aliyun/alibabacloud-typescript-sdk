@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMigrationTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * async-task-xxx
    */
@@ -31,19 +34,29 @@ export class CreateMigrationTaskResponseBodyData extends $dara.Model {
 
 export class CreateMigrationTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreateMigrationTaskResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 019FD4D8-8A86-5FDE-B79F-357C69677DFB

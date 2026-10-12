@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGatewayElasticPolicyRequestElasticPolicyEnableScaleTimePolicyList extends $dara.Model {
   /**
+   * @remarks
+   * The O&M end time in the HH:mm format.
+   * 
    * @example
    * 18:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The O&M start time in the HH:mm format.
+   * 
    * @example
    * 09:00
    */
@@ -38,16 +44,25 @@ export class UpdateGatewayElasticPolicyRequestElasticPolicyEnableScaleTimePolicy
 
 export class UpdateGatewayElasticPolicyRequestElasticPolicyTimePolicyList extends $dara.Model {
   /**
+   * @remarks
+   * The O&M end time in the HH:mm format.
+   * 
    * @example
    * 06:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The O&M start time in the HH:mm format.
+   * 
    * @example
    * 00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The number of replicas.
+   * 
    * @example
    * 4
    */
@@ -79,26 +94,46 @@ export class UpdateGatewayElasticPolicyRequestElasticPolicyTimePolicyList extend
 
 export class UpdateGatewayElasticPolicyRequestElasticPolicy extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the elastic policy. A value of false indicates that the elastic policy is disabled. When the elastic policy is disabled, other fields are not validated and the system directly proceeds with the disabling process.
+   * 
    * @example
    * true
    */
   elasticEnabled?: boolean;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * CronHPA
    */
   elasticType?: string;
+  /**
+   * @remarks
+   * The time periods during which AutoHPA is allowed to scale out, specified by startTime and endTime.
+   */
   enableScaleTimePolicyList?: UpdateGatewayElasticPolicyRequestElasticPolicyEnableScaleTimePolicyList[];
   /**
+   * @remarks
+   * Specifies whether to enable the AutoHPA load alert threshold.
+   * 
    * @example
    * true
    */
   loadWarningThreshold?: boolean;
   /**
+   * @remarks
+   * The maximum number of replicas. This parameter is required for AutoHPA.
+   * 
    * @example
    * 10
    */
   maxUnits?: number;
+  /**
+   * @remarks
+   * The list of scheduled policies.
+   */
   timePolicyList?: UpdateGatewayElasticPolicyRequestElasticPolicyTimePolicyList[];
   static names(): { [key: string]: string } {
     return {
@@ -138,6 +173,10 @@ export class UpdateGatewayElasticPolicyRequestElasticPolicy extends $dara.Model 
 }
 
 export class UpdateGatewayElasticPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The elastic policy object.
+   */
   elasticPolicy?: UpdateGatewayElasticPolicyRequestElasticPolicy;
   static names(): { [key: string]: string } {
     return {

@@ -32,12 +32,12 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
    * The consumer group description.
    * 
    * @example
-   * Used for online API caller grouping.
+   * Group for online API callers
    */
   description?: string;
   /**
    * @remarks
-   * The gateway type. Valid values: API or AI.
+   * The gateway type. Valid values: API and AI.
    * 
    * @example
    * API

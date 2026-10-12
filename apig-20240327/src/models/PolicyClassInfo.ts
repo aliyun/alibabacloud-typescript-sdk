@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class PolicyClassInfo extends $dara.Model {
   /**
    * @remarks
-   * The template alias.
+   * The alias of the policy template.
    * 
    * @example
-   * Rate Limit
+   * Concurrency Control
    */
   alias?: string;
   /**
@@ -18,7 +18,7 @@ export class PolicyClassInfo extends $dara.Model {
   attachableResourceTypes?: string[];
   /**
    * @remarks
-   * The template identifier.
+   * The identifier of the policy template.
    * 
    * @example
    * pc-cpqm0s94ckt1displ8ng
@@ -26,7 +26,7 @@ export class PolicyClassInfo extends $dara.Model {
   classId?: string;
   /**
    * @remarks
-   * A configuration example.
+   * The configuration example.
    * 
    * @example
    * {}
@@ -34,7 +34,7 @@ export class PolicyClassInfo extends $dara.Model {
   configExample?: string;
   /**
    * @remarks
-   * Specifies whether the policy has been deprecated.
+   * Indicates whether the policy is deprecated.
    * 
    * @example
    * false
@@ -42,15 +42,15 @@ export class PolicyClassInfo extends $dara.Model {
   deprecated?: boolean;
   /**
    * @remarks
-   * The template description.
+   * The detailed description of the policy template.
    * 
    * @example
-   * Limits the number of requests per unit of time
+   * Controls the number of concurrent threads to ensure system stability. Applicable to scenarios where internal application components or downstream dependencies become unstable, such as slow SQL queries or increased response time from downstream applications
    */
   description?: string;
   /**
    * @remarks
-   * The direction of traffic on which the policy takes effect.
+   * The direction in which the policy takes effect.
    * 
    * @example
    * InBound
@@ -58,7 +58,7 @@ export class PolicyClassInfo extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * Specifies whether to enable logging.
+   * Indicates whether log recording is enabled.
    * 
    * @example
    * true
@@ -74,7 +74,7 @@ export class PolicyClassInfo extends $dara.Model {
   executePriority?: string;
   /**
    * @remarks
-   * The execution phase.
+   * The execution stage.
    * 
    * @example
    * POST
@@ -82,7 +82,7 @@ export class PolicyClassInfo extends $dara.Model {
   executeStage?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the policy template.
    * 
    * @example
    * ConcurrencyLimit
@@ -98,7 +98,7 @@ export class PolicyClassInfo extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The template version.
+   * The version of the policy template.
    * 
    * @example
    * 1.0.0

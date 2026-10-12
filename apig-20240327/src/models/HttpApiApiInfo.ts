@@ -10,6 +10,9 @@ import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 
 export class HttpApiApiInfoEnvironmentsGatewayInfo extends $dara.Model {
   /**
+   * @remarks
+   * The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
+   * 
    * @example
    * MultiTenantServerless
    */
@@ -226,7 +229,7 @@ export class HttpApiApiInfoEnvironments extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The deployment scenario.
+   * The publish scenario.
    * 
    * @example
    * SingleService
@@ -242,12 +245,12 @@ export class HttpApiApiInfoEnvironments extends $dara.Model {
   backendType?: string;
   /**
    * @remarks
-   * The domain name information published by the user.
+   * The custom domain information published by the user.
    */
   customDomains?: HttpApiDomainInfo[];
   /**
    * @remarks
-   * The deployment status of the API in the current environment.
+   * The publish status of the API in the current environment.
    * 
    * @example
    * Deployed
@@ -403,7 +406,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
   environmentInfo?: HttpApiApiInfoIngressInfoEnvironmentInfo;
   /**
    * @remarks
-   * The monitored Ingress Class.
+   * The Ingress Class to listen on.
    * 
    * @example
    * mse
@@ -416,7 +419,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
   k8sClusterInfo?: HttpApiApiInfoIngressInfoK8sClusterInfo;
   /**
    * @remarks
-   * Specifies whether to update the address in Ingress Status.
+   * Specifies whether to update the address in the Ingress Status.
    * 
    * @example
    * true
@@ -432,7 +435,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The monitored namespace.
+   * The namespace to listen on.
    * 
    * @example
    * default
@@ -478,7 +481,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
 export class HttpApiApiInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of agent protocols.
+   * The list of Agent protocols.
    */
   agentProtocols?: string[];
   /**
@@ -501,7 +504,7 @@ export class HttpApiApiInfo extends $dara.Model {
   basePath?: string;
   /**
    * @remarks
-   * The API operation deployment status.
+   * The API operation publish status.
    */
   deployCntMap?: { [key: string]: HttpApiApiInfoDeployCntMapValue };
   /**
@@ -518,6 +521,9 @@ export class HttpApiApiInfo extends $dara.Model {
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether authentication is enabled.
+   * 
    * @example
    * true
    */

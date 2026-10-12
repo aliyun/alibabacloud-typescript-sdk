@@ -13,7 +13,7 @@ export class CreateAiModelCardResponseBodyDataAvailablePaths extends $dara.Model
   path?: string;
   /**
    * @remarks
-   * The protocol type corresponding to the path.
+   * The protocol type of the path.
    * 
    * @example
    * OpenAICompatible
@@ -69,7 +69,7 @@ export class CreateAiModelCardResponseBodyDataCredit extends $dara.Model {
   outputCost?: number;
   /**
    * @remarks
-   * The billing type. Currently, fixed is returned.
+   * The billing type. The current value is fixed.
    * 
    * @example
    * fixed
@@ -245,7 +245,7 @@ export class CreateAiModelCardResponseBodyData extends $dara.Model {
   modelProvider?: string;
   /**
    * @remarks
-   * The source of the model card. Currently, user is returned.
+   * The source of the model card. The current value is user.
    * 
    * @example
    * user
@@ -253,7 +253,7 @@ export class CreateAiModelCardResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The last update time of the model card, in the format of yyyy-MM-dd HH:mm:ss.
+   * The last update time of the model card, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-07-14 18:30:00

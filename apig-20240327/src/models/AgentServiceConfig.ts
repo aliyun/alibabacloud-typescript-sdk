@@ -165,17 +165,17 @@ export class AgentServiceConfig extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The custom configuration. Required when provider is set to custom.
+   * The custom configuration. This parameter is required when provider is set to custom.
    */
   customConfig?: AgentServiceConfigCustomConfig;
   /**
    * @remarks
-   * The DashScope service configuration. Required when provider is set to qwen. The appCredentials parameter cannot be empty, and each entry must have non-empty appId and apiKey values.
+   * The DashScope service configuration. This parameter is required when provider is set to qwen. The appCredentials parameter cannot be empty, and each entry must have non-empty appId and apiKey values.
    */
   dashScopeConfig?: AgentServiceConfigDashScopeConfig;
   /**
    * @remarks
-   * The Dify service configuration. Required when provider is set to dify. The botType and apiKey parameters cannot be empty.
+   * The Dify service configuration. This parameter is required when provider is set to dify. The botType and apiKey parameters cannot be empty.
    */
   difyConfig?: AgentServiceConfigDifyConfig;
   /**

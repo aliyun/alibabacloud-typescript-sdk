@@ -49,7 +49,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureOperations extends $d
    * The error message.
    * 
    * @example
-   * Missing response definition
+   * The response definition is missing
    */
   errorMessage?: string;
   /**

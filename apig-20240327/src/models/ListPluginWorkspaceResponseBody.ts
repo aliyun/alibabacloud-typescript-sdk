@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPluginWorkspaceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Codeup organization ID.
+   * 
    * @example
    * 664f1e2xxxx
    */
   organizationId?: string;
   /**
+   * @remarks
+   * The Codeup repository ID.
+   * 
    * @example
    * 12345678
    */
   repoId?: string;
   /**
+   * @remarks
+   * The repository name (the English ID of the plugin).
+   * 
    * @example
    * my-custom-plugin
    */
   repoName?: string;
   /**
+   * @remarks
+   * The workspace ID (prefixed with plw-).
+   * 
    * @example
    * plw-xxxxxxxx
    */
@@ -52,12 +64,22 @@ export class ListPluginWorkspaceResponseBodyData extends $dara.Model {
 
 export class ListPluginWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListPluginWorkspaceResponseBodyData[];
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

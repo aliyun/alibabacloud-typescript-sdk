@@ -306,7 +306,7 @@ export class HiMarketHttpRouteMatch extends $dara.Model {
 export class HiMarketHttpRoute extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the route is a built-in route.
+   * Indicates whether this is a built-in route.
    * 
    * @example
    * false

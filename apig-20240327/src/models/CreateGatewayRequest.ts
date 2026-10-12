@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayRequestLogConfigSls extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable log collection.
+   * Specifies whether to enable SLS log collection.
    * 
    * @example
    * false
@@ -249,7 +249,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter is allowed only when gatewayType is AI and gatewayEdition is MultiTenantServerless.
+   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when gatewayType is set to AI and gatewayEdition is set to MultiTenantServerless.
    * 
    * @example
    * ENTERPRISE
@@ -257,7 +257,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayMode?: string;
   /**
    * @remarks
-   * The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant gateways.
+   * The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant editions.
    * 
    * @example
    * API
@@ -270,7 +270,7 @@ export class CreateGatewayRequest extends $dara.Model {
   logConfig?: CreateGatewayRequestLogConfig;
   /**
    * @remarks
-   * The gateway name. This parameter is required for all gateway editions.
+   * The gateway name. This parameter is required for all editions.
    * 
    * @example
    * test-ceshi
@@ -278,7 +278,7 @@ export class CreateGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network access configuration. This parameter is required. If not provided, the service returns InvalidParameter.IsEmpty (400).
+   * The network access configuration. This parameter is required. If this parameter is not specified, the service returns an InvalidParameter.IsEmpty (400) error.
    */
   networkAccessConfig?: CreateGatewayRequestNetworkAccessConfig;
   /**
@@ -304,7 +304,7 @@ export class CreateGatewayRequest extends $dara.Model {
   tag?: CreateGatewayRequestTag[];
   /**
    * @remarks
-   * The VPC ID. This parameter is required for all gateway editions.
+   * The virtual private cloud (VPC) ID. This parameter is required for all editions.
    * 
    * @example
    * vpc-zm0x16tomfiat1mk9f6rs
@@ -312,7 +312,7 @@ export class CreateGatewayRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone configuration. This parameter is required for all gateway editions.
+   * The zone configuration. This parameter is required for all editions.
    */
   zoneConfig?: CreateGatewayRequestZoneConfig;
   static names(): { [key: string]: string } {

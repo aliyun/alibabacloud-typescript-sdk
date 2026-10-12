@@ -221,7 +221,7 @@ export class AddGatewayQuotaRuleResponseBody extends $dara.Model {
   data?: AddGatewayQuotaRuleResponseBodyData;
   /**
    * @remarks
-   * The message content.
+   * The response message.
    * 
    * @example
    * success

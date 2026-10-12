@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList extends $dara.Model {
   /**
+   * @remarks
+   * The port. When an NLB instance is associated, two placeholder entries with ports 80 and 443 are returned.
+   * 
    * @example
    * 80
    */
   port?: string;
   /**
+   * @remarks
+   * The protocol. When an NLB instance is associated, HTTP and HTTPS are returned as placeholders. For CLB, the value is deserialized from the stored vServerGroupMetaInfo.
+   * 
    * @example
    * http
    */
   protocol?: string;
   /**
+   * @remarks
+   * The VServerGroup or ServerGroup ID. When an NLB instance is associated, this field is an empty string placeholder.
+   * 
    * @example
    * rsp-xxxx
    */
   virtualServiceGroupId?: string;
   /**
+   * @remarks
+   * The group name. When an NLB instance is associated, this field is an empty string placeholder.
+   * 
    * @example
    * 80-tcp
    */
@@ -52,46 +64,78 @@ export class UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList extends
 
 export class UpdateGatewayLoadBalancerResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the load balancer can be edited. This serves as the edit toggle for a load balancer that is being migrated.
+   * 
    * @example
    * true
    */
   editEnable?: boolean;
   /**
+   * @remarks
+   * The load balancer address.
+   * 
    * @example
    * 47.x.x.x
    */
   loadBalancerAddress?: string;
   /**
+   * @remarks
+   * The load balancer instance ID.
+   * 
    * @example
    * lb-bp1xxxx
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The load balancer name.
+   * 
    * @example
    * my-clb
    */
   loadBalancerName?: string;
   /**
+   * @remarks
+   * The load balancer type.
+   * 
    * @example
    * CLB
    */
   loadBalancerType?: string;
   /**
+   * @remarks
+   * The network type.
+   * 
    * @example
    * Internet
    */
   networkType?: string;
+  /**
+   * @remarks
+   * The port information.
+   */
   ports?: number[];
   /**
+   * @remarks
+   * The gateway service weight for traffic shifting during migration. Valid values: 0 to 100.
+   * 
    * @example
    * 0
    */
   serviceWeight?: number;
   /**
+   * @remarks
+   * The status description.
+   * 
    * @example
-   * 状态描述
+   * Status description
    */
   statusDescription?: string;
+  /**
+   * @remarks
+   * The backend server group bindings.
+   */
   virtualServiceList?: UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList[];
   static names(): { [key: string]: string } {
     return {
@@ -140,12 +184,22 @@ export class UpdateGatewayLoadBalancerResponseBodyData extends $dara.Model {
 
 export class UpdateGatewayLoadBalancerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: UpdateGatewayLoadBalancerResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

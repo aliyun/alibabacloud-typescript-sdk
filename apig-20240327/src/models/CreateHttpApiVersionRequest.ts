@@ -4,6 +4,10 @@ import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 
 
 export class CreateHttpApiVersionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The API versioning configuration.
+   */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {
     return {

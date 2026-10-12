@@ -55,7 +55,7 @@ export class HiMarketHmacConfigCredentials extends $dara.Model {
 export class HiMarketHmacConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of credentials.
+   * The credential list.
    */
   credentials?: HiMarketHmacConfigCredentials[];
   static names(): { [key: string]: string } {

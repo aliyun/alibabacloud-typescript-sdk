@@ -47,11 +47,11 @@ export class ListServicesRequest extends $dara.Model {
    * @remarks
    * The source type of the service. Valid values:
    * 
-   * - MSE_NACOS: The service is from MSE Nacos.
-   * - K8S: The service is from a Kubernetes cluster in Container Service.
-   * - FC3: The service is from Function Compute.
-   * - VIP: The service is from a fixed address.
-   * - DNS: The service is from a domain name.
+   * - MSE_NACOS: The service originates from MSE Nacos.
+   * - K8S: The service originates from a Kubernetes cluster in Container Service.
+   * - FC3: The service originates from Function Compute.
+   * - VIP: The service originates from a fixed address.
+   * - DNS: The service originates from a domain name.
    * 
    * @example
    * MSE_NACOS

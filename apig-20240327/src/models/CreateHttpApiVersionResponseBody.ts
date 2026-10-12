@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateHttpApiVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695
    */

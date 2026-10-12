@@ -18,7 +18,7 @@ export class AddGatewaySecurityGroupRuleRequest extends $dara.Model {
   portRanges?: string[];
   /**
    * @remarks
-   * The security group ID. This parameter is required. The specified security group must be different from the security group associated with the gateway. Otherwise, an error is returned.
+   * The security group ID. This parameter is required. The specified security group must be different from the security group that is associated with the gateway. Otherwise, an error is returned.
    * 
    * @example
    * sg-wz929kxhcdp****

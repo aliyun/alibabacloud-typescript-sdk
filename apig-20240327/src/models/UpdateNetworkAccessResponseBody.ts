@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateNetworkAccessResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 019F3F7D-9EC4-5F8B-A3F7-97E1369C31BD
    */

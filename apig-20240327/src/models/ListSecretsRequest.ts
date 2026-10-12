@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecretsRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway type used to filter results. Valid values: **AI** and **API**.
+   * The gateway type used for filtering. Valid values: **AI** and **API**.
    * 
    * @example
    * AI

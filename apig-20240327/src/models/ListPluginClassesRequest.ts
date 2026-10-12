@@ -8,7 +8,7 @@ export class ListPluginClassesRequest extends $dara.Model {
    * The plug-in alias. Fuzzy match is supported.
    * 
    * @example
-   * OAuth2 认证
+   * OAuth2 Authentication
    */
   aliasLike?: string;
   /**

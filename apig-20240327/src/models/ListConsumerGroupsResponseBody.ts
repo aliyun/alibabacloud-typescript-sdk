@@ -32,7 +32,7 @@ export class ListConsumerGroupsResponseBodyDataItems extends $dara.Model {
    * The consumer group description.
    * 
    * @example
-   * Used for online API caller grouping.
+   * Used for grouping online API callers
    */
   description?: string;
   /**
@@ -106,7 +106,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of consumer groups that match the conditions.
+   * The total number of consumer groups that match the specified conditions.
    * 
    * @example
    * 2

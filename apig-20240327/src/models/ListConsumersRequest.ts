@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters by gateway type. Valid values: **AI** and **API**.
+   * The gateway type used to filter results. Valid values: **AI** and **API**.
    * 
    * @example
    * AI
@@ -21,7 +21,7 @@ export class ListConsumersRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1

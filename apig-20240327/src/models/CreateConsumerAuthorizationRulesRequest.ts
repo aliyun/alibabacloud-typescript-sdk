@@ -81,7 +81,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   consumerId?: string;
   /**
    * @remarks
-   * The expiration mode. Currently only LongTerm is supported.
+   * The expiration mode. Currently, only LongTerm is supported.
    * 
    * @example
    * LongTerm
@@ -105,7 +105,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   principalType?: string;
   /**
    * @remarks
-   * The resource identifier. Serves as a unique identifier for space reuse by non-standard code sources.
+   * The resource identifier, which serves as a unique identifier for space reuse by non-standard code sources.
    */
   resourceIdentifier?: CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier;
   /**

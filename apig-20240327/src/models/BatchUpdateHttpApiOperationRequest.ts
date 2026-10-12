@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchUpdateHttpApiOperationRequestAuthConfig extends $dara.Model {
   /**
+   * @remarks
+   * The authentication mode.
+   * 
    * @example
    * Custom
    */
   authMode?: string;
   /**
+   * @remarks
+   * The authentication type.
+   * 
    * @example
    * Jwt
    */
@@ -37,12 +43,23 @@ export class BatchUpdateHttpApiOperationRequestAuthConfig extends $dara.Model {
 }
 
 export class BatchUpdateHttpApiOperationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication configuration. This parameter is required when enableAuth is set to true.
+   */
   authConfig?: BatchUpdateHttpApiOperationRequestAuthConfig;
   /**
+   * @remarks
+   * Specifies whether to enable consumer authentication. If set to true, a valid authConfig must be provided. If set to false, authConfig is not validated and the existing configuration remains unchanged.
+   * 
    * @example
    * true
    */
   enableAuth?: boolean;
+  /**
+   * @remarks
+   * The list of operation IDs to update in batches. This parameter cannot be empty.
+   */
   operationIds?: string[];
   static names(): { [key: string]: string } {
     return {

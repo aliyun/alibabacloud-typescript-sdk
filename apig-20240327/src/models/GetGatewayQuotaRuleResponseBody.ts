@@ -61,7 +61,7 @@ export class GetGatewayQuotaRuleResponseBodyDataSubjects extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The subject type. Valid values: consumer or consumer_group.
+   * The subject type. Valid values: consumer and consumer_group.
    * 
    * @example
    * consumer
@@ -172,7 +172,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   subjectCount?: number;
   /**
    * @remarks
-   * The rule subject type. Valid values: consumer or consumer_group.
+   * The rule subject type. Valid values: consumer and consumer_group.
    * 
    * @example
    * consumer_group
@@ -180,7 +180,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   subjectType?: string;
   /**
    * @remarks
-   * The general subject list bound to this rule. Returned only when withSubjects is set to true.
+   * The list of general subjects bound to this rule. Returned only when withSubjects is set to true.
    */
   subjects?: GetGatewayQuotaRuleResponseBodyDataSubjects[];
   /**

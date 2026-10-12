@@ -42,7 +42,7 @@ export class UpdateDomainRequest extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS. This parameter is required when the protocol is HTTPS.
+   * Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is set. When the protocol is HTTPS, forceHttps is required.
    * 
    * @example
    * false
@@ -65,8 +65,8 @@ export class UpdateDomainRequest extends $dara.Model {
    * @remarks
    * The protocol type supported by the domain name.
    * 
-   * - HTTP: Only HTTP is supported.
-   * - HTTPS: Only HTTPS is supported.
+   * - HTTP: Only the HTTP protocol is supported.
+   * - HTTPS: Only the HTTPS protocol is supported.
    * 
    * @example
    * HTTP

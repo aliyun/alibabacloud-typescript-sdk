@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAuthorizationRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The new list of authorized resources. In MCP Tool scenarios, this is a set of tool names. An empty array returns ErrInvalidParameterWithEmpty.
+   */
   resources?: string[];
   static names(): { [key: string]: string } {
     return {

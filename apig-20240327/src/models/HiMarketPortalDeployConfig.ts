@@ -29,7 +29,7 @@ export class HiMarketPortalDeployConfigSaeConfig extends $dara.Model {
   oidcRoleName?: string;
   /**
    * @remarks
-   * The region ID of SAE.
+   * The region ID where SAE is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -121,7 +121,7 @@ export class HiMarketPortalDeployConfig extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The SAE (Serverless App Engine) deployment configuration.
+   * The Serverless App Engine (SAE) deployment configuration.
    */
   saeConfig?: HiMarketPortalDeployConfigSaeConfig;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for querying consumption record details. Specify a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates startTime based on the rule cycle.
+   * The end time for querying detailed consumption records. The time is a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates the start time based on the rule period.
    * 
    * @example
    * 1788425220
@@ -21,7 +21,7 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   filterFailedRequests?: boolean;
   /**
    * @remarks
-   * The page number of the detailed consumption (request) records of the subject within the cycle.
+   * The page number of the detailed consumption (request) records for the consumer subject within the period.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for the detailed consumption (request) records of the subject within the cycle. Maximum value: 10.
+   * The number of entries per page for the detailed consumption (request) records of the consumer subject within the period. Maximum value: 10.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time for querying consumption record details. Specify a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates endTime based on the rule cycle.
+   * The start time for querying detailed consumption records. The time is a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates the end time based on the rule period.
    * 
    * @example
    * 1788338820

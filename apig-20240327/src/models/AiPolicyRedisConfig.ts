@@ -13,7 +13,7 @@ export class AiPolicyRedisConfig extends $dara.Model {
   databaseNumber?: number;
   /**
    * @remarks
-   * The Redis host address.
+   * The Redis hostname.
    * 
    * @example
    * r-xxx.redis.rds.aliyuncs.com

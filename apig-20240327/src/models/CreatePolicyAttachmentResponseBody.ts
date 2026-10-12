@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyAttachmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The policy mount ID.
+   * The policy attachment ID.
    * 
    * @example
    * pr-cqooju5lhtgquuj6***

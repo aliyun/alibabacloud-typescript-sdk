@@ -32,7 +32,7 @@ export class PolicyDetailInfo extends $dara.Model {
    * The policy description.
    * 
    * @example
-   * 每秒限流100次
+   * Rate limited to 100 requests per second
    */
   description?: string;
   /**

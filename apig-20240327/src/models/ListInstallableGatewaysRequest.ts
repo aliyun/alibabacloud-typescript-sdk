@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstallableGatewaysRequest extends $dara.Model {
   /**
+   * @remarks
+   * The gateway type used for filtering.
+   * 
    * @example
    * AI
    */
   gatewayType?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

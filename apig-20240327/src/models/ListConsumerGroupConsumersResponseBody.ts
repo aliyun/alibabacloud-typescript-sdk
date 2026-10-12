@@ -24,7 +24,7 @@ export class ListConsumerGroupConsumersResponseBodyDataItems extends $dara.Model
    * The consumer description.
    * 
    * @example
-   * Online API caller.
+   * Online API caller
    */
   description?: string;
   /**
@@ -37,7 +37,7 @@ export class ListConsumerGroupConsumersResponseBodyDataItems extends $dara.Model
   enable?: boolean;
   /**
    * @remarks
-   * The time when the consumer joined the consumer group, in Unix millisecond timestamp.
+   * The time when the consumer joined the consumer group. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1715769600000

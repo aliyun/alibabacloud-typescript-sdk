@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMigrationNamespacedServicesResponseBodyDataNamespacedServicesServices extends $dara.Model {
   /**
+   * @remarks
+   * The service name. After you select a Server Load Balancer (SLB) instance, the frontend populates this value into the serviceName field.
+   * 
    * @example
    * nginx-ingress-lb
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the load balancing instance associated with the service.
+   * 
    * @example
    * lb-xxxx / nlb-xxxx
    */
@@ -38,10 +44,17 @@ export class GetMigrationNamespacedServicesResponseBodyDataNamespacedServicesSer
 
 export class GetMigrationNamespacedServicesResponseBodyDataNamespacedServices extends $dara.Model {
   /**
+   * @remarks
+   * The Kubernetes namespace.
+   * 
    * @example
    * default
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The list of migratable services in the namespace.
+   */
   services?: GetMigrationNamespacedServicesResponseBodyDataNamespacedServicesServices[];
   static names(): { [key: string]: string } {
     return {
@@ -70,6 +83,10 @@ export class GetMigrationNamespacedServicesResponseBodyDataNamespacedServices ex
 }
 
 export class GetMigrationNamespacedServicesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of services grouped by namespace.
+   */
   namespacedServices?: GetMigrationNamespacedServicesResponseBodyDataNamespacedServices[];
   static names(): { [key: string]: string } {
     return {
@@ -97,19 +114,29 @@ export class GetMigrationNamespacedServicesResponseBodyData extends $dara.Model 
 
 export class GetMigrationNamespacedServicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetMigrationNamespacedServicesResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 7D513911-206E-5E93-9C9E-71D63C0D68E7

@@ -8,7 +8,7 @@ import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 export class HttpApiPublishRevisionInfoCloudProductConfigContainerServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * The associated service ID.
+   * The ID of the associated service.
    * 
    * @example
    * gs-xxx
@@ -16,12 +16,12 @@ export class HttpApiPublishRevisionInfoCloudProductConfigContainerServiceConfigs
   gatewayServiceId?: string;
   /**
    * @remarks
-   * The matching conditions.
+   * The match condition.
    */
   match?: HttpApiBackendMatchConditions;
   /**
    * @remarks
-   * The K8s service name.
+   * The Kubernetes service name.
    * 
    * @example
    * demo-service
@@ -29,7 +29,7 @@ export class HttpApiPublishRevisionInfoCloudProductConfigContainerServiceConfigs
   name?: string;
   /**
    * @remarks
-   * The K8s namespace.
+   * The Kubernetes service namespace.
    * 
    * @example
    * default
@@ -98,7 +98,7 @@ export class HttpApiPublishRevisionInfoCloudProductConfigContainerServiceConfigs
 export class HttpApiPublishRevisionInfoCloudProductConfigFunctionConfigs extends $dara.Model {
   /**
    * @remarks
-   * The associated service ID.
+   * The ID of the associated service.
    * 
    * @example
    * gs-xxx
@@ -106,7 +106,7 @@ export class HttpApiPublishRevisionInfoCloudProductConfigFunctionConfigs extends
   gatewayServiceId?: string;
   /**
    * @remarks
-   * The matching conditions.
+   * The match condition.
    */
   match?: HttpApiBackendMatchConditions;
   /**
@@ -168,7 +168,7 @@ export class HttpApiPublishRevisionInfoCloudProductConfigFunctionConfigs extends
 export class HttpApiPublishRevisionInfoCloudProductConfigMseNacosConfigs extends $dara.Model {
   /**
    * @remarks
-   * The associated service ID.
+   * The ID of the associated service.
    * 
    * @example
    * gs-xxx
@@ -184,7 +184,7 @@ export class HttpApiPublishRevisionInfoCloudProductConfigMseNacosConfigs extends
   groupName?: string;
   /**
    * @remarks
-   * The matching conditions.
+   * The match condition.
    */
   match?: HttpApiBackendMatchConditions;
   /**
@@ -248,7 +248,7 @@ export class HttpApiPublishRevisionInfoCloudProductConfigMseNacosConfigs extends
 export class HttpApiPublishRevisionInfoCloudProductConfig extends $dara.Model {
   /**
    * @remarks
-   * The type of the cloud service.
+   * The cloud product type.
    * 
    * @example
    * FC
@@ -256,17 +256,17 @@ export class HttpApiPublishRevisionInfoCloudProductConfig extends $dara.Model {
   cloudProductType?: string;
   /**
    * @remarks
-   * The ACK configurations.
+   * The container service configuration.
    */
   containerServiceConfigs?: HttpApiPublishRevisionInfoCloudProductConfigContainerServiceConfigs[];
   /**
    * @remarks
-   * The Function Compute configurations.
+   * The Function Compute (FC) configuration.
    */
   functionConfigs?: HttpApiPublishRevisionInfoCloudProductConfigFunctionConfigs[];
   /**
    * @remarks
-   * The MSE Nacos configurations.
+   * The MSE Nacos configuration.
    */
   mseNacosConfigs?: HttpApiPublishRevisionInfoCloudProductConfigMseNacosConfigs[];
   static names(): { [key: string]: string } {
@@ -308,17 +308,17 @@ export class HttpApiPublishRevisionInfoCloudProductConfig extends $dara.Model {
 export class HttpApiPublishRevisionInfoDnsConfigs extends $dara.Model {
   /**
    * @remarks
-   * The DNS domain names.
+   * The list of DNS domain names.
    */
   dnsList?: string[];
   /**
    * @remarks
-   * The matching condition. This condition is valid only in content-based routing.
+   * The match condition. This parameter is valid only in the by-content scenario.
    */
   match?: HttpApiBackendMatchConditions;
   /**
    * @remarks
-   * The weight. Valid values: [1,100]. This parameter is valid only in proportional routing.
+   * The weight. Valid values: 1 to 100. This parameter is valid only in the by-ratio scenario.
    * 
    * @example
    * 100
@@ -358,7 +358,7 @@ export class HttpApiPublishRevisionInfoDnsConfigs extends $dara.Model {
 export class HttpApiPublishRevisionInfoEnvironmentInfoGatewayInfo extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The gateway ID.
    * 
    * @example
    * gw-xxx
@@ -366,10 +366,10 @@ export class HttpApiPublishRevisionInfoEnvironmentInfoGatewayInfo extends $dara.
   gatewayId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The gateway name.
    * 
    * @example
-   * Instance 1
+   * Instance1
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -414,7 +414,7 @@ export class HttpApiPublishRevisionInfoEnvironmentInfo extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The instance information.
+   * The gateway instance information.
    */
   gatewayInfo?: HttpApiPublishRevisionInfoEnvironmentInfoGatewayInfo;
   /**
@@ -466,7 +466,7 @@ export class HttpApiPublishRevisionInfoServiceConfigs extends $dara.Model {
   gatewayServiceId?: string;
   /**
    * @remarks
-   * The matching conditions.
+   * The match condition.
    */
   match?: HttpApiBackendMatchConditions;
   /**
@@ -495,7 +495,7 @@ export class HttpApiPublishRevisionInfoServiceConfigs extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The service weight.
+   * The weight.
    * 
    * @example
    * 100
@@ -538,17 +538,17 @@ export class HttpApiPublishRevisionInfoServiceConfigs extends $dara.Model {
 export class HttpApiPublishRevisionInfoVipConfigs extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses.
+   * The list of static addresses.
    */
   endpoints?: string[];
   /**
    * @remarks
-   * The matching condition. This condition is valid only in content-based routing.
+   * The match condition. This parameter is valid only in the by-content scenario.
    */
   match?: HttpApiBackendMatchConditions;
   /**
    * @remarks
-   * The weight. Valid values: [1,100]. This parameter is valid only in proportional routing.
+   * The weight. Valid values: 1 to 100. This parameter is valid only in the by-ratio scenario.
    * 
    * @example
    * 100
@@ -588,15 +588,7 @@ export class HttpApiPublishRevisionInfoVipConfigs extends $dara.Model {
 export class HttpApiPublishRevisionInfo extends $dara.Model {
   /**
    * @remarks
-   * The publishing scenario.
-   * 
-   * Valid values:
-   * 
-   * *   SingleService
-   * *   MultiServiceByRatio
-   * *   MultiServiceByContent
-   * *   MultiServiceByTag
-   * *   Mock
+   * The API publish scenario.
    * 
    * @example
    * SingleService
@@ -604,14 +596,7 @@ export class HttpApiPublishRevisionInfo extends $dara.Model {
   backendScene?: string;
   /**
    * @remarks
-   * The type of the backend service.
-   * 
-   * Valid values:
-   * 
-   * *   DNS: a DNS domain name
-   * *   Service: an existing service
-   * *   VIP: a fixed IP address
-   * *   CloudProduct: a cloud service
+   * The backend type.
    * 
    * @example
    * Service
@@ -619,12 +604,12 @@ export class HttpApiPublishRevisionInfo extends $dara.Model {
   backendType?: string;
   /**
    * @remarks
-   * The cloud service configurations.
+   * The cloud product configuration.
    */
   cloudProductConfig?: HttpApiPublishRevisionInfoCloudProductConfig;
   /**
    * @remarks
-   * The publishing timestamp.
+   * The publish timestamp.
    * 
    * @example
    * 1718807057927
@@ -632,17 +617,17 @@ export class HttpApiPublishRevisionInfo extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The custom domain names.
+   * The list of custom domain names.
    */
   customDomains?: HttpApiDomainInfo[];
   /**
    * @remarks
-   * The configurations of DNS domain names. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
+   * The DNS domain name configuration. In the single-service scenario, only one entry can be configured. In the by-ratio or by-content scenario, multiple entries can be configured.
    */
   dnsConfigs?: HttpApiPublishRevisionInfoDnsConfigs[];
   /**
    * @remarks
-   * The environment information.
+   * The environment context.
    * 
    * @example
    * env-xxx
@@ -650,7 +635,7 @@ export class HttpApiPublishRevisionInfo extends $dara.Model {
   environmentInfo?: HttpApiPublishRevisionInfoEnvironmentInfo;
   /**
    * @remarks
-   * Specifies whether the current version is used.
+   * Indicates whether this is the current version.
    * 
    * @example
    * true
@@ -658,12 +643,12 @@ export class HttpApiPublishRevisionInfo extends $dara.Model {
   isCurrentVersion?: boolean;
   /**
    * @remarks
-   * The operations.
+   * The list of API operations.
    */
   operations?: HttpApiOperationInfo[];
   /**
    * @remarks
-   * The published version.
+   * The version number of the published API.
    * 
    * @example
    * apr-xxx
@@ -671,12 +656,12 @@ export class HttpApiPublishRevisionInfo extends $dara.Model {
   revisionId?: string;
   /**
    * @remarks
-   * The configurations of existing services. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
+   * The existing service configurations. In a single-service scenario, only one entry can be configured. In proportion-based, content-based, or tag-based scenarios, multiple entries can be configured.
    */
   serviceConfigs?: HttpApiPublishRevisionInfoServiceConfigs[];
   /**
    * @remarks
-   * The default domain names of the environment.
+   * The list of default domain names for the environment.
    * 
    * @example
    * env-xxx.com
@@ -684,7 +669,7 @@ export class HttpApiPublishRevisionInfo extends $dara.Model {
   subDomains?: HttpApiDomainInfo[];
   /**
    * @remarks
-   * The configurations of fixed IP addresses. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
+   * The static address configurations. In a single-service scenario, only one entry can be configured. In proportion-based or content-based scenarios, multiple entries can be configured.
    */
   vipConfigs?: HttpApiPublishRevisionInfoVipConfigs[];
   static names(): { [key: string]: string } {

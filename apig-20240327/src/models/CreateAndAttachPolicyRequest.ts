@@ -32,7 +32,7 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The policy configuration content (JSON string).
+   * The policy configuration content in JSON string format.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
    * The policy description.
    * 
    * @example
-   * Fallback when primary route fails
+   * Fallback when the primary route fails
    */
   description?: string;
   /**
@@ -67,8 +67,8 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The policy name.
-   * This parameter is required when className is set to IpAccessControl, JWTAuth, OIDCAuth, or ExternalZAuth, and must be unique within the same gateway instance (gatewayId) under the current account. If the name conflicts with an existing policy, a PolicyExisted error is returned. When retrying after receiving this error, you must use a different name. Submitting the same name repeatedly will always fail.
-   * For other className values (such as RateLimit, Timeout, Retry, ServiceTls, and AiProxy), name is optional and used only for display purposes.
+   * This parameter is required when className is set to IpAccessControl, JWTAuth, OIDCAuth, or ExternalZAuth, and the name must be unique within the same gateway instance (gatewayId) under the current account. If a policy with the same name already exists, a PolicyExisted error is returned. When retrying after receiving this error, use a different name. Submitting the same name repeatedly will always fail.
+   * For other className values such as RateLimit, Timeout, Retry, ServiceTls, and AiProxy, this parameter is optional and used only for display purposes.
    * 
    * @example
    * my-fallback-policy

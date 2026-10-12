@@ -13,7 +13,7 @@ export class SslCertMetaInfo extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The certificate ID.
+   * The unique certificate ID.
    * 
    * @example
    * 1234567890
@@ -21,7 +21,7 @@ export class SslCertMetaInfo extends $dara.Model {
   certId?: number;
   /**
    * @remarks
-   * The certificate ID.
+   * The certificate identifier.
    * 
    * @example
    * cert-123
@@ -37,7 +37,7 @@ export class SslCertMetaInfo extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * The name.
+   * The common name.
    * 
    * @example
    * example.com
@@ -53,7 +53,7 @@ export class SslCertMetaInfo extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The certificate matching the domain name.
+   * The certificate matched to the domain name.
    * 
    * @example
    * true
@@ -101,7 +101,7 @@ export class SslCertMetaInfo extends $dara.Model {
   keySize?: string;
   /**
    * @remarks
-   * The md5 value.
+   * The MD5 value.
    * 
    * @example
    * A1B2C3D4E5F67890ABCDEF1234567890
@@ -109,7 +109,7 @@ export class SslCertMetaInfo extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The expiration time.
    * 
    * @example
    * 1234567890000
@@ -117,7 +117,7 @@ export class SslCertMetaInfo extends $dara.Model {
   notAfterTimestamp?: number;
   /**
    * @remarks
-   * The time when the certificate starts to take effect.
+   * The start time.
    * 
    * @example
    * 1234567890000
@@ -141,7 +141,7 @@ export class SslCertMetaInfo extends $dara.Model {
   serialNo?: string;
   /**
    * @remarks
-   * The sha2 value.
+   * The SHA-2 value.
    * 
    * @example
    * A1B2C3D4E5F67890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890

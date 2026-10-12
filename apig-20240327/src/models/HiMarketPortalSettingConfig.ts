@@ -21,7 +21,7 @@ export class HiMarketPortalSettingConfig extends $dara.Model {
   autoApproveSubscriptions?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable username-password authentication (built-in authentication).
+   * Specifies whether to enable username and password authentication (built-in authentication).
    * 
    * @example
    * true

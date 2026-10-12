@@ -16,7 +16,7 @@ export class ListMseNacosSourcesResponseBodyDataItems extends $dara.Model {
    * The Nacos instance name.
    * 
    * @example
-   * 商品中心Nacos注册中心
+   * Product Center Nacos Registry
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class ListMseNacosSourcesResponseBodyData extends $dara.Model {
 export class ListMseNacosSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -83,12 +83,12 @@ export class ListMseNacosSourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListMseNacosSourcesResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

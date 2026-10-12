@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The label key.
+   * The tag key.
    * 
    * @example
    * env
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The label value.
+   * The tag value.
    * 
    * @example
    * prod
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query. An empty NextToken indicates that no more results exist.
+   * The token used to start the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * caeb235b-xxx
@@ -81,7 +81,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of tagged resources.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

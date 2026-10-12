@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class PluginClassInfo extends $dara.Model {
   /**
    * @remarks
-   * The plugin class alias.
+   * The alias of the plugin class.
    * 
    * @example
-   * AI安全护栏
+   * AI Safety Guardrail
    */
   alias?: string;
   /**
@@ -21,10 +21,10 @@ export class PluginClassInfo extends $dara.Model {
   configExample?: string;
   /**
    * @remarks
-   * The plugin class description.
+   * The description of the plugin class.
    * 
    * @example
-   * AI请求内容安全检测插件
+   * AI request content security detection plugin
    */
   description?: string;
   /**
@@ -69,7 +69,7 @@ export class PluginClassInfo extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The plugin class name.
+   * The name of the plugin class.
    * 
    * @example
    * ai-security-guard
@@ -120,7 +120,7 @@ export class PluginClassInfo extends $dara.Model {
    * The version description.
    * 
    * @example
-   * 初始版本
+   * Initial version
    */
   versionDescription?: string;
   /**
@@ -133,7 +133,7 @@ export class PluginClassInfo extends $dara.Model {
   wasmLanguage?: string;
   /**
    * @remarks
-   * The Wasm file download URL.
+   * The download URL of the Wasm file.
    * 
    * @example
    * https://...

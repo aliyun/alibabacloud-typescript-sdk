@@ -24,7 +24,7 @@ export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the API consumer joined the consumer group, in Unix milliseconds timestamp.
+   * The time when the API consumer joined the consumer group. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1715769600000
@@ -68,7 +68,7 @@ export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
 export class GetConsumerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AK/SK identity authentication configuration.
+   * The AccessKey ID and AccessKey Secret identity authentication configurations.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**

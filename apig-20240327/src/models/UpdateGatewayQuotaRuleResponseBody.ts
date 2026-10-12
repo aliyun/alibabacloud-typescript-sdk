@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumer subject. Valid values: day (daily), week (weekly), month (monthly).
+   * The period type of the existing conflicting rule on the consumer subject. Valid values: day (daily), week (weekly), and month (monthly).
    * 
    * @example
    * week
@@ -13,7 +13,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumer subject. Valid values: calendar (calendar period) and epoch (custom period).
+   * The type of the existing conflicting rule on the consumer subject. A value of calendar indicates a calendar-period rule. A value of epoch indicates a custom-period rule.
    * 
    * @example
    * calendar
@@ -158,7 +158,7 @@ export class UpdateGatewayQuotaRuleResponseBodyData extends $dara.Model {
   conflictPreview?: UpdateGatewayQuotaRuleResponseBodyDataConflictPreview;
   /**
    * @remarks
-   * Indicates whether this is a dry run.
+   * Indicates whether the request is a dry run.
    * 
    * @example
    * true

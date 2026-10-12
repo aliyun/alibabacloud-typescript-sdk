@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumersResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The consumer ID.
+   * The API consumer ID.
    * 
    * @example
    * cs-csheiftlhtgmp0j0hp4g
@@ -32,12 +32,12 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
    * The description.
    * 
    * @example
-   * 测试消费者
+   * Test consumer
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the consumer is enabled.
+   * Indicates whether the API consumer is enabled.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The consumer name.
+   * The API consumer name.
    * 
    * @example
    * user-service
@@ -95,7 +95,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
 export class ListConsumersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of consumers.
+   * The list of API consumer information.
    */
   items?: ListConsumersResponseBodyDataItems[];
   /**

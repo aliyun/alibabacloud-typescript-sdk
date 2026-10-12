@@ -67,7 +67,7 @@ export class AiCacheConfigEmbeddingConfig extends $dara.Model {
 export class AiCacheConfigVectorConfig extends $dara.Model {
   /**
    * @remarks
-   * The API key of the vector database.
+   * The vector database API key.
    * 
    * @example
    * sk-xxx
@@ -83,7 +83,7 @@ export class AiCacheConfigVectorConfig extends $dara.Model {
   collectionId?: string;
   /**
    * @remarks
-   * The service address of the vector database.
+   * The vector database service address.
    * 
    * @example
    * vdb-xxx.dashvector.aliyuncs.com

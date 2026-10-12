@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends $dara.Model {
   /**
    * @remarks
-   * The cached token consumption.
+   * The consumption of cached tokens.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   cachedAmount?: number;
   /**
    * @remarks
-   * The exact value of cached consumption. Decimals are supported in credit scenarios.
+   * The exact value of the cached consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 10.5
@@ -21,7 +21,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   cachedAmountDecimal?: number;
   /**
    * @remarks
-   * The consumer name.
+   * The name of the consumer.
    * 
    * @example
    * consumer-a
@@ -29,7 +29,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   consumer?: string;
   /**
    * @remarks
-   * The input token consumption.
+   * The consumption of input tokens.
    * 
    * @example
    * 120
@@ -37,7 +37,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   inputAmount?: number;
   /**
    * @remarks
-   * The exact value of input consumption. Decimals are supported in credit scenarios.
+   * The exact value of the input consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 120.5
@@ -45,7 +45,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   inputAmountDecimal?: number;
   /**
    * @remarks
-   * The model name.
+   * The name of the model.
    * 
    * @example
    * qwen-plus
@@ -53,7 +53,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   model?: string;
   /**
    * @remarks
-   * The output token consumption.
+   * The consumption of output tokens.
    * 
    * @example
    * 80
@@ -61,7 +61,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   outputAmount?: number;
   /**
    * @remarks
-   * The exact value of output consumption. Decimals are supported in credit scenarios.
+   * The exact value of the output consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 80.5
@@ -77,7 +77,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   requestId?: string;
   /**
    * @remarks
-   * The consumption (request) time in the format of YYYY-MM-DD.
+   * The consumption or request time in YYYY-MM-DD format.
    * 
    * @example
    * 2026-06-05
@@ -93,7 +93,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   usedAmount?: number;
   /**
    * @remarks
-   * The exact value of total consumption. Decimals are supported in credit scenarios.
+   * The exact value of the total consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 210.5
@@ -208,7 +208,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails extends $dar
 export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total cached token consumption.
+   * The total consumption of cached tokens.
    * 
    * @example
    * 20
@@ -216,7 +216,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   cachedAmount?: number;
   /**
    * @remarks
-   * The exact value of total cached consumption. Decimals are supported in credit scenarios.
+   * The exact value of the total cached consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 20.5
@@ -224,7 +224,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   cachedAmountDecimal?: number;
   /**
    * @remarks
-   * The paginated consumption details.
+   * The pagination of consumption details.
    * 
    * @example
    * {"totalSize":100}
@@ -232,7 +232,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   details?: GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails;
   /**
    * @remarks
-   * The total input token consumption.
+   * The total consumption of input tokens.
    * 
    * @example
    * 300
@@ -240,7 +240,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   inputAmount?: number;
   /**
    * @remarks
-   * The exact value of total input consumption. Decimals are supported in credit scenarios.
+   * The exact value of the total input consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 300.5
@@ -248,7 +248,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   inputAmountDecimal?: number;
   /**
    * @remarks
-   * The total output token consumption.
+   * The total consumption of output tokens.
    * 
    * @example
    * 180
@@ -256,7 +256,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   outputAmount?: number;
   /**
    * @remarks
-   * The exact value of total output consumption. Decimals are supported in credit scenarios.
+   * The exact value of the total output consumption. Decimals are supported in credit scenarios.
    * 
    * @example
    * 180.5
@@ -264,7 +264,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   outputAmountDecimal?: number;
   /**
    * @remarks
-   * Indicates whether the quota limit is exceeded.
+   * Indicates whether the limit is exceeded.
    * 
    * @example
    * false
@@ -296,7 +296,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   totalQuota?: number;
   /**
    * @remarks
-   * The total used amount of the subject.
+   * The total used quota of the subject.
    * 
    * @example
    * 500
@@ -304,7 +304,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   usedAmount?: number;
   /**
    * @remarks
-   * The exact value of the total used amount of the subject. Decimals are supported in credit scenarios.
+   * The exact value of the total used quota of the subject. Decimals are supported in credit scenarios.
    * 
    * @example
    * 500.5

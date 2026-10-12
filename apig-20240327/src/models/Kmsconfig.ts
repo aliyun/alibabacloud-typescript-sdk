@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class KMSConfig extends $dara.Model {
   /**
    * @remarks
-   * The KMS instance ID
+   * The KMS instance ID.
    * 
    * @example
    * kst-xxxxxxxx
@@ -13,7 +13,7 @@ export class KMSConfig extends $dara.Model {
   kmsInstanceId?: string;
   /**
    * @remarks
-   * The KMS key ID
+   * The KMS key ID.
    * 
    * @example
    * key-xxxxxxxx

@@ -11,7 +11,13 @@ export class ParentResourceInfo extends $dara.Model {
   apiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * The resource type. Valid values: HttpApi/Operation/GatewayRoute/Gateway/GatewayDomain
+   * The resource type. Valid values:
+   * 
+   * - HttpApi
+   * - Operation
+   * - GatewayRoute
+   * - Gateway
+   * - GatewayDomain
    * 
    * @example
    * Gateway

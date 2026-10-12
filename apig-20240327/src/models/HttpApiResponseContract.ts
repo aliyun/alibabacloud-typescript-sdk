@@ -13,15 +13,15 @@ export class HttpApiResponseContractItems extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response description.
+   * The description.
    * 
    * @example
-   * This is a description.
+   * Normal API response
    */
   description?: string;
   /**
    * @remarks
-   * The sample value.
+   * The example value.
    * 
    * @example
    * {"result": "ok"}
@@ -29,7 +29,7 @@ export class HttpApiResponseContractItems extends $dara.Model {
   example?: string;
   /**
    * @remarks
-   * The JSON definition description of the response body.
+   * The JSON schema definition of the response body.
    * 
    * @example
    * {
@@ -40,7 +40,7 @@ export class HttpApiResponseContractItems extends $dara.Model {
    *     "properties": {
    *         "result": {
    *             "type": "string",
-   *             "description": "This is a description."
+   *             "description": "Operation result. \\"ok\\" indicates success."
    *         }
    *     }
    * }
@@ -76,7 +76,7 @@ export class HttpApiResponseContractItems extends $dara.Model {
 export class HttpApiResponseContract extends $dara.Model {
   /**
    * @remarks
-   * The content type.
+   * The response content type.
    * 
    * This parameter is required.
    * 
@@ -86,7 +86,7 @@ export class HttpApiResponseContract extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The response definition.
+   * The response definitions.
    */
   items?: HttpApiResponseContractItems[];
   static names(): { [key: string]: string } {

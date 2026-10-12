@@ -51,7 +51,7 @@ export class ApiRouteConflictInfoConflictsDetailsConflictingMatch extends $dara.
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * The corresponding operation information if the conflicting target is an API.
+   * When the conflicting target is an API, this indicates the corresponding operation information.
    */
   operationInfo?: ApiRouteConflictInfoConflictsDetailsConflictingMatchOperationInfo;
   static names(): { [key: string]: string } {
@@ -126,12 +126,12 @@ export class ApiRouteConflictInfoConflictsDetailsDetectedMatchOperationInfo exte
 export class ApiRouteConflictInfoConflictsDetailsDetectedMatch extends $dara.Model {
   /**
    * @remarks
-   * The matching rule information of the object being detected.
+   * The matching rule information of the detected target.
    */
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * If the object is an API, the conflicting operation information needs to be returned.
+   * When the detected target is an API, the conflicting operation information is returned.
    */
   operationInfo?: ApiRouteConflictInfoConflictsDetailsDetectedMatchOperationInfo;
   static names(): { [key: string]: string } {
@@ -171,12 +171,18 @@ export class ApiRouteConflictInfoConflictsDetails extends $dara.Model {
   conflictingMatch?: ApiRouteConflictInfoConflictsDetailsConflictingMatch;
   /**
    * @remarks
-   * The matching rule information of the object being detected.
+   * The matching rule information of the detected target.
    */
   detectedMatch?: ApiRouteConflictInfoConflictsDetailsDetectedMatch;
   /**
    * @remarks
-   * The conflict level. Valid values: Critical, Warning, and Informational.
+   * The conflict level. Valid values:
+   * 
+   * - Critical
+   * 
+   * - Warning
+   * 
+   * - Informational
    * 
    * @example
    * Critical
@@ -296,17 +302,17 @@ export class ApiRouteConflictInfoConflictsRouteInfo extends $dara.Model {
 export class ApiRouteConflictInfoConflicts extends $dara.Model {
   /**
    * @remarks
-   * The details about the conflicts.
+   * The list of conflict details.
    */
   details?: ApiRouteConflictInfoConflictsDetails[];
   /**
    * @remarks
-   * For APIs, conflicts exist in the specific environment. If the conflict object is a route, ignore.
+   * For an API, the conflict exists in a specific environment. If the conflicting object is a route, this field is ignored.
    */
   environmentInfo?: ApiRouteConflictInfoConflictsEnvironmentInfo;
   /**
    * @remarks
-   * The conflicting resource ID.
+   * The conflicting resource ID, which is the API ID.
    * 
    * @example
    * api-crdclqllhtggm***
@@ -314,7 +320,7 @@ export class ApiRouteConflictInfoConflicts extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The conflicting resource name.
+   * The conflicting resource name, which is the API name.
    * 
    * @example
    * item-stock
@@ -322,12 +328,10 @@ export class ApiRouteConflictInfoConflicts extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The type of the conflicting resource.
+   * The conflicting resource type. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   RestApi
-   * *   HttpApiRoute
+   * - RestApi
+   * - HttpApiRoute
    * 
    * @example
    * HttpApiRoute
@@ -381,7 +385,7 @@ export class ApiRouteConflictInfoConflicts extends $dara.Model {
 export class ApiRouteConflictInfoDomainInfo extends $dara.Model {
   /**
    * @remarks
-   * The domain name ID.
+   * The domain ID.
    * 
    * @example
    * d-cqookcllhtgvof7e***
@@ -421,12 +425,12 @@ export class ApiRouteConflictInfoDomainInfo extends $dara.Model {
 export class ApiRouteConflictInfo extends $dara.Model {
   /**
    * @remarks
-   * The conflicts.
+   * The list of conflict information.
    */
   conflicts?: ApiRouteConflictInfoConflicts[];
   /**
    * @remarks
-   * The conflicting routes.
+   * The conflicting domain information.
    */
   domainInfo?: ApiRouteConflictInfoDomainInfo;
   static names(): { [key: string]: string } {

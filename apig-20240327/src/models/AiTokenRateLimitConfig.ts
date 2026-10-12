@@ -21,7 +21,7 @@ export class AiTokenRateLimitConfig extends $dara.Model {
   globalRules?: AiTokenRateLimitConfigRule[];
   /**
    * @remarks
-   * The running status of the plugin.
+   * The running status of the plug-in.
    * 
    * **if can be null:**
    * true

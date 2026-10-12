@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGatewayMaintenancePeriodResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8FA817D1-CCB0-5776-A604-8FC5DE6DACB9
    */

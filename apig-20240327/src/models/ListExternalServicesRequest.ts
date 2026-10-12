@@ -21,7 +21,7 @@ export class ListExternalServicesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * Fuzzy search by API name.
+   * Fuzzy match by API name.
    * 
    * @example
    * imah

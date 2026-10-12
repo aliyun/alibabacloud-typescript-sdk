@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRiskNotificationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 01A00D7A-AA00-5BC0-9835-C7B15A3FE73A

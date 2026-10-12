@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RiskCheckResultsMetadata extends $dara.Model {
   /**
    * @remarks
-   * The cluster type
+   * The cluster type.
    * 
    * @example
    * Ingress
@@ -13,7 +13,7 @@ export class RiskCheckResultsMetadata extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The replica count
+   * The number of replicas.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class RiskCheckResultsMetadata extends $dara.Model {
   replica?: number;
   /**
    * @remarks
-   * The specification
+   * The instance specifications.
    * 
    * @example
    * apigw.small.x1
@@ -29,7 +29,7 @@ export class RiskCheckResultsMetadata extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The version
+   * The instance version.
    * 
    * @example
    * 2.0.14
@@ -65,7 +65,7 @@ export class RiskCheckResultsMetadata extends $dara.Model {
 export class RiskCheckResultsRiskDetails extends $dara.Model {
   /**
    * @remarks
-   * The check module
+   * The name of the module that performed the check.
    * 
    * @example
    * BaseInfo
@@ -73,20 +73,20 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   checkModule?: string;
   /**
    * @remarks
-   * The risk detailed data
+   * The detailed data related to the risk. The data structure varies by risk type.
    */
   data?: { [key: string]: string };
   /**
    * @remarks
-   * The risk description
+   * The detailed description of the risk in JSON string format.
    * 
    * @example
-   * The version is outdated
+   * {"desc":"The single-node instance has an architecture risk. A single point of failure can cause service unavailability. Scale out to two or more nodes."}
    */
   description?: string;
   /**
    * @remarks
-   * Whether to mute notifications
+   * Indicates whether the alert notification for the risk item is muted.
    * 
    * @example
    * false
@@ -94,7 +94,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   isNoticeMute?: boolean;
   /**
    * @remarks
-   * The risk code
+   * The unique identifier of the risk item.
    * 
    * @example
    * 30010010001
@@ -102,7 +102,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   riskCode?: string;
   /**
    * @remarks
-   * The risk level
+   * The level of the risk item. Valid values: LOW, MEDIUM, HIGH, and CRITICAL.
    * 
    * @example
    * HIGH
@@ -110,15 +110,19 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The risk title
+   * The name of the risk item.
    * 
    * @example
-   * Version Risk
+   * Single-node architecture risk
    */
   riskName?: string;
   /**
    * @remarks
-   * The risk type
+   * The risk category. Valid values:
+   * - SYSTEM: System risk.
+   * - VERSION: Version risk.
+   * - SAFE: Security risk.
+   * - CAPACITY: Capacity risk.
    * 
    * @example
    * SYSTEM
@@ -126,18 +130,18 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   riskType?: string;
   /**
    * @remarks
-   * The risk situation
+   * The current risk situation of the instance in JSON string format.
    * 
    * @example
-   * Current version is 2 releases behind
+   * {"desc":"The cluster has only one node and does not support high availability."}
    */
   situation?: string;
   /**
    * @remarks
-   * The fix suggestion
+   * The optimization suggestions for the risk in JSON string format, including descriptions and action links.
    * 
    * @example
-   * Upgrade to the latest version
+   * {"desc":"Scale out to two or more nodes.","links":[{"descEn":"click to upgrade specification","type":"upgrade","desc":"Click to scale out"}]}
    */
   suggestion?: string;
   static names(): { [key: string]: string } {
@@ -185,7 +189,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
 export class RiskCheckResults extends $dara.Model {
   /**
    * @remarks
-   * The check time
+   * The check timestamp.
    * 
    * @example
    * 1234567890000
@@ -193,7 +197,7 @@ export class RiskCheckResults extends $dara.Model {
   checkTime?: number;
   /**
    * @remarks
-   * The gateway ID
+   * The unique identifier of the gateway instance.
    * 
    * @example
    * gw-0364f863b1a04474911b48cd6d51d03d
@@ -201,17 +205,21 @@ export class RiskCheckResults extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The instance metadata
+   * The basic information about the instance.
    */
   metadata?: RiskCheckResultsMetadata;
   /**
    * @remarks
-   * The risk details list
+   * The list of detailed risk items.
    */
   riskDetails?: RiskCheckResultsRiskDetails[];
   /**
    * @remarks
-   * The risk level
+   * The overall risk level. Valid values:
+   * - LOW: Low risk.
+   * - MEDIUM: Medium risk.
+   * - HIGH: High risk.
+   * - CRITICAL: Critical risk.
    * 
    * @example
    * MEDIUM
@@ -219,7 +227,7 @@ export class RiskCheckResults extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The risk score
+   * The overall risk score. Valid values: 0 to 100. A higher score indicates a lower risk.
    * 
    * @example
    * 85
@@ -227,7 +235,7 @@ export class RiskCheckResults extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * The snapshot time
+   * The snapshot time.
    * 
    * @example
    * 1234567890000
@@ -235,7 +243,10 @@ export class RiskCheckResults extends $dara.Model {
   snapshotTime?: number;
   /**
    * @remarks
-   * The execution status
+   * The risk detection status. Valid values:
+   * - SUCCESS: The detection succeeded.
+   * - FAIL: The detection failed.
+   * - RUNNING: The detection is running.
    * 
    * @example
    * SUCCESS
@@ -243,7 +254,7 @@ export class RiskCheckResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of risks
+   * The total number of detected risk items.
    * 
    * @example
    * 1

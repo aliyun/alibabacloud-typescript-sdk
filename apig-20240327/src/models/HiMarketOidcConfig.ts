@@ -115,7 +115,7 @@ export class HiMarketOidcConfigAuthCodeConfig extends $dara.Model {
 export class HiMarketOidcConfigIdentityMapping extends $dara.Model {
   /**
    * @remarks
-   * The custom field mappings.
+   * The custom field mapping.
    */
   customFields?: { [key: string]: string };
   /**
@@ -180,7 +180,7 @@ export class HiMarketOidcConfig extends $dara.Model {
   authCodeConfig?: HiMarketOidcConfigAuthCodeConfig;
   /**
    * @remarks
-   * Indicates whether the OIDC configuration is enabled.
+   * Specifies whether to enable the OIDC configuration.
    * 
    * @example
    * true
@@ -220,7 +220,7 @@ export class HiMarketOidcConfig extends $dara.Model {
    * The OIDC provider name.
    * 
    * @example
-   * 阿里云IDaaS
+   * Alibaba Cloud IDaaS
    */
   provider?: string;
   static names(): { [key: string]: string } {

@@ -76,12 +76,12 @@ export class HiMarketMcpConfigMeta extends $dara.Model {
 export class HiMarketMcpConfig extends $dara.Model {
   /**
    * @remarks
-   * The MCP Server configuration.
+   * The MCP server configuration.
    */
   mcpServerConfig?: HiMarketMcpConfigMcpServerConfig;
   /**
    * @remarks
-   * The MCP Server name.
+   * The MCP server name.
    * 
    * @example
    * my-mcp-server
@@ -97,7 +97,7 @@ export class HiMarketMcpConfig extends $dara.Model {
    * The MCP tool definitions.
    * 
    * @example
-   * [{\\"name\\":\\"search\\",\\"description\\":\\"搜索工具\\"}]
+   * [{\\"name\\":\\"search\\",\\"description\\":\\"Search tool\\"}]
    */
   tools?: string;
   static names(): { [key: string]: string } {

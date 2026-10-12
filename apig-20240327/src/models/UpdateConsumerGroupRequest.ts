@@ -8,7 +8,7 @@ export class UpdateConsumerGroupRequest extends $dara.Model {
    * The consumer group description.
    * 
    * @example
-   * Used for grouping online API callers.
+   * Group for online API callers
    */
   description?: string;
   /**

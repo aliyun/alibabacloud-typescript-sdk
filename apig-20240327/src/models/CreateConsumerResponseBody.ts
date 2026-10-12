@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The consumer ID.
+   * The API consumer ID.
    * 
    * @example
    * cs-cvnjramm1hks1r3fmmug

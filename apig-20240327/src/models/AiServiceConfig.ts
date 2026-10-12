@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AiServiceConfigBedrockServiceConfig extends $dara.Model {
   /**
    * @remarks
-   * AWS-AccessKey
+   * The AWS access key.
    * 
    * @example
    * AKIAIOSFODNN7EXAMPLE
@@ -13,15 +13,15 @@ export class AiServiceConfigBedrockServiceConfig extends $dara.Model {
   awsAccessKey?: string;
   /**
    * @remarks
-   * AWS-Region
+   * The AWS region.
    * 
    * @example
-   * us-west-2
+   * us-east-1
    */
   awsRegion?: string;
   /**
    * @remarks
-   * AWS-SecretKey
+   * The AWS secret key.
    * 
    * @example
    * wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -55,7 +55,7 @@ export class AiServiceConfigBedrockServiceConfig extends $dara.Model {
 export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
   /**
    * @remarks
-   * Type of endpoint.
+   * The connection type: private network (vpc) or public network (public).
    * 
    * @example
    * "public"，"private"
@@ -63,26 +63,26 @@ export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * Service identifier.
+   * The service ID.
    * 
    * @example
-   * svc-d33onfmm1hkn5duhuqjg
+   * svc-cvaeb0um1hkqp79k72v0
    */
   serviceId?: string;
   /**
    * @remarks
-   * Name of the service.
+   * The service name.
    * 
    * @example
-   * service-hello
+   * auto-ai-service
    */
   serviceName?: string;
   /**
    * @remarks
-   * Workspace identifier.
+   * The workspace ID.
    * 
    * @example
-   * plw-d5g7qsem1hkmih54g210
+   * cb89d4de30042df4459442589664e00d
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
@@ -115,36 +115,36 @@ export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
 export class AiServiceConfigVertexServiceConfig extends $dara.Model {
   /**
    * @remarks
-   * Gemini safety settings.
+   * The safety filtering level settings for the Gemini model.
    */
   geminiSafetySetting?: { [key: string]: string };
   /**
    * @remarks
-   * Vertex AI authentication key.
+   * The authentication key for Vertex AI.
    * 
    * @example
-   * {\\"type\\":\\"service_account\\",\\"project_id\\":\\"xxx\\",\\"private_key\\":\\"-----BEGIN PRIVATE KEY-----\\",\\"client_email\\":\\"xxx@xxx.iam.gserviceaccount.com\\",\\"token_uri\\":\\"https://oauth2.googleapis.com/token\\"}
+   * {\\"type\\":\\"service_account\\",\\"project_id\\":\\"my-project\\",\\"private_key\\":\\"-----BEGIN PRIVATE KEY-----...\\",\\"client_email\\":\\"xxx@xxx.iam.gserviceaccount.com\\",\\"token_uri\\":\\"https://oauth2.googleapis.com/token\\"}
    */
   vertexAuthKey?: string;
   /**
    * @remarks
-   * Vertex AI auth service name.
+   * The service name of the authentication service used by Vertex AI.
    * 
    * @example
-   * custom-vertex-auth
+   * google-oauth2
    */
   vertexAuthServiceName?: string;
   /**
    * @remarks
-   * Vertex AI project ID.
+   * The Google Cloud project ID.
    * 
    * @example
-   * my-gcp-project-123
+   * my-project
    */
   vertexProjectId?: string;
   /**
    * @remarks
-   * Vertex AI region.
+   * The Google Cloud region where the Vertex AI service is located.
    * 
    * @example
    * us-central1
@@ -152,7 +152,7 @@ export class AiServiceConfigVertexServiceConfig extends $dara.Model {
   vertexRegion?: string;
   /**
    * @remarks
-   * Vertex token refresh lead time.
+   * The number of seconds before the access token expires to refresh it in advance.
    * 
    * @example
    * 300
@@ -195,15 +195,15 @@ export class AiServiceConfigVertexServiceConfig extends $dara.Model {
 export class AiServiceConfig extends $dara.Model {
   /**
    * @remarks
-   * API key generation mode.
+   * The generation mode of the API key.
    * 
    * @example
-   * -
+   * Custom
    */
   apiKeyGenerateMode?: string;
   /**
    * @remarks
-   * The service endpoint.
+   * The service address.
    * 
    * @example
    * https://dashscope.aliyun.com
@@ -211,30 +211,30 @@ export class AiServiceConfig extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The API keys.
+   * The list of API keys.
    */
   apiKeys?: string[];
   /**
    * @remarks
-   * Bedrock service configuration.
+   * The configuration specific to the Bedrock service.
    */
   bedrockServiceConfig?: AiServiceConfigBedrockServiceConfig;
   /**
    * @remarks
-   * Supported compatible protocols.
+   * The list of compatible protocols supported by the service.
    */
   compatibleProtocols?: string[];
   /**
    * @remarks
-   * Default model name.
+   * The name of the default model.
    * 
    * @example
-   * qwen-turbo
+   * gpt-4
    */
   defaultModelName?: string;
   /**
    * @remarks
-   * Specifies whether to enable health check.
+   * Indicates whether health check is enabled.
    * 
    * @example
    * true
@@ -242,33 +242,53 @@ export class AiServiceConfig extends $dara.Model {
   enableHealthCheck?: boolean;
   /**
    * @remarks
-   * Enable outlier detection.
+   * Indicates whether outlier detection is enabled.
    * 
    * @example
-   * false
+   * true
    */
   enableOutlierDetection?: boolean;
   /**
    * @remarks
-   * PAI-EAS service configuration settings.
+   * The configuration specific to the PAI-EAS service.
    */
   paiEASServiceConfig?: AiServiceConfigPaiEASServiceConfig;
   /**
    * @remarks
-   * The LLM protocols.
+   * The list of model protocols.
    */
   protocols?: string[];
   /**
    * @remarks
-   * The Large Language Model (LLM) provider.
+   * The large language model provider.
    * 
    * @example
    * qwen
+   * moonshot
+   * baichuan
+   * yi
+   * zhipuai
+   * 360ai
+   * hunyuan
+   * stepfun
+   * spark
+   * openai
+   * claude
+   * anthropic
+   * doubao
+   * minimax
+   * gemini
+   * azure
+   * deepseek
+   * custom
+   * pai-eas
+   * bedrock
+   * vertex
    */
   provider?: string;
   /**
    * @remarks
-   * Vertex AI service configuration.
+   * The configuration of the Vertex AI service.
    */
   vertexServiceConfig?: AiServiceConfigVertexServiceConfig;
   static names(): { [key: string]: string } {

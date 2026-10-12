@@ -10,12 +10,12 @@ import { HttpApiResponseContract } from "./HttpApiResponseContract";
 export class HttpApiOperation extends $dara.Model {
   /**
    * @remarks
-   * The authentication configurations.
+   * The authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The deployment configurations.
+   * The deployment configuration.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
@@ -23,12 +23,12 @@ export class HttpApiOperation extends $dara.Model {
    * The operation description.
    * 
    * @example
-   * This is a operation description.
+   * Retrieve user information
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable authentication.
+   * Indicates whether authentication is enabled.
    * 
    * @example
    * true
@@ -36,19 +36,7 @@ export class HttpApiOperation extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The HTTP method.
-   * 
-   * Valid values:
-   * 
-   * *   TRACE
-   * *   HEAD
-   * *   DELETE
-   * *   POST
-   * *   GET
-   * *   CONNECT
-   * *   OPTIONS
-   * *   PUT
-   * *   PATCH
+   * The method.
    * 
    * This parameter is required.
    * 
@@ -58,7 +46,7 @@ export class HttpApiOperation extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The mocking configuration of the operation. This field takes effect only when the API publishing scenario is Mock.
+   * The mock configuration of the operation. This configuration takes effect only when the API is published in Mock mode.
    */
   mock?: HttpApiMockContract;
   /**
@@ -83,12 +71,12 @@ export class HttpApiOperation extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The request parameters of the operation.
+   * The request parameter definition of the operation.
    */
   request?: HttpApiRequestContract;
   /**
    * @remarks
-   * The response parameters of the operation.
+   * The response parameter definition of the operation.
    */
   response?: HttpApiResponseContract;
   static names(): { [key: string]: string } {

@@ -11,9 +11,7 @@ export class UpdateConsumerAuthorizationRuleRequest extends $dara.Model {
   authorizationResourceInfos?: AuthorizationResourceInfo[];
   /**
    * @remarks
-   * The expiration mode. Valid values:
-   * - LongTerm
-   * - ShortTerm
+   * The expiration mode. Valid values: LongTerm and ShortTerm.
    * 
    * @example
    * LongTerm

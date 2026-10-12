@@ -14,15 +14,15 @@ export class HttpApiRequestContractBody extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The parameter description.
+   * The description.
    * 
    * @example
-   * This is a description.
+   * Body parameter description
    */
   description?: string;
   /**
    * @remarks
-   * The sample value.
+   * The example value.
    * 
    * @example
    * {"result":"ok"}
@@ -30,21 +30,21 @@ export class HttpApiRequestContractBody extends $dara.Model {
   example?: string;
   /**
    * @remarks
-   * The JSON definition description of the request body.
+   * The JSON schema definition of the request body.
    * 
    * @example
    * {
-   *       "type": "object",
-   *       "required": [
-   *           "result"
-   *       ],
-   *       "properties": {
-   *           "result": {
-   *               "type": "string",
-   *               "description": "Operation result. \\"ok\\" indicates success."
-   *           }
-   *       }
-   *   }
+   *     "type": "object",
+   *     "required": [
+   *         "result"
+   *     ],
+   *     "properties": {
+   *         "result": {
+   *             "type": "string",
+   *             "description": "Operation result. \\"ok\\" indicates success."
+   *         }
+   *     }
+   * }
    */
   jsonSchema?: string;
   static names(): { [key: string]: string } {
@@ -77,22 +77,22 @@ export class HttpApiRequestContractBody extends $dara.Model {
 export class HttpApiRequestContract extends $dara.Model {
   /**
    * @remarks
-   * The body parameters.
+   * The request body parameter definitions.
    */
   body?: HttpApiRequestContractBody;
   /**
    * @remarks
-   * The request header parameters.
+   * The request header parameter definitions.
    */
   headerParameters?: HttpApiParameter[];
   /**
    * @remarks
-   * The path parameters.
+   * The path parameter definitions.
    */
   pathParameters?: HttpApiParameter[];
   /**
    * @remarks
-   * The query parameters.
+   * The query parameter definitions.
    */
   queryParameters?: HttpApiParameter[];
   static names(): { [key: string]: string } {

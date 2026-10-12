@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSyncMCPServerResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of domain name IDs bound to the Nacos MCP export of the gateway, excluding the default domain name. If no configuration exists, an empty array [] is returned.
+   */
   domainIds?: string[];
+  /**
+   * @remarks
+   * The list of synchronized (whitelisted) MCP server names, obtained from the AllowMcpServers field in the MCP Bridge registration configuration. If no configuration exists, an empty array [] is returned.
+   */
   mcpServers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,19 +44,29 @@ export class ListSyncMCPServerResponseBodyData extends $dara.Model {
 
 export class ListSyncMCPServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListSyncMCPServerResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 211B1C7E-DD93-58D3-AA4B-9B392B63258C

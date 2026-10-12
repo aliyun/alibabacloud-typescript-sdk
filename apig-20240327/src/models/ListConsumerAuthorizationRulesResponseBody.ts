@@ -50,7 +50,9 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * The expiration mode. Valid values: LongTerm, ShortTerm.
+   * The expiration mode. Valid values:
+   * - LongTerm: long-term
+   * - ShortTerm: short-term
    * 
    * @example
    * ShortTerm
@@ -66,7 +68,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   expireStatus?: string;
   /**
    * @remarks
-   * The expiration timestamp.
+   * The expiration time.
    * 
    * @example
    * 172086834548

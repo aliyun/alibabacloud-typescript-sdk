@@ -39,7 +39,7 @@ export class Attachment extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The environment to which the mounted resource belongs. If the environment ID is *, the mounted resource of the policy is not associated with any environment.
+   * The environment to which the mounted resource belongs. If the environment ID is returned as *, the mounted resource of the policy is not associated with any environment.
    * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0

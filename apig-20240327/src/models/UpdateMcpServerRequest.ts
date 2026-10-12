@@ -64,10 +64,10 @@ export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The service protocol. Valid values:
-   * - TCP
-   * - HTTP
-   * - DUBBO
+   * The Terms of Service. Valid values:
+   * - TCP.
+   * - HTTP.
+   * - DUBBO.
    * 
    * @example
    * HTTP
@@ -177,7 +177,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   port?: number;
   /**
    * @remarks
-   * The service protocol.
+   * The Terms of Service.
    * 
    * @example
    * HTTP
@@ -284,7 +284,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
   backendConfig?: UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig;
   /**
    * @remarks
-   * The route match rules.
+   * The route match rule.
    */
   match?: HttpRouteMatch;
   /**
@@ -369,22 +369,22 @@ export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
 export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of assembled sources. This parameter is required when type is AssemblyMCP.
+   * The list of assembled sources. This parameter is required when type is set to AssemblyMCP.
    */
   assembledSources?: UpdateMcpServerRequestAssembledSources[];
   /**
    * @remarks
-   * The backend service configuration of the route.
+   * The backend service configuration of the route. This parameter is conditionally required. If this parameter is not specified, the API returns InvalidParameter.WithValue(400).
    */
   backendConfig?: UpdateMcpServerRequestBackendConfig;
   /**
    * @remarks
    * The creation source type. Valid values:
-   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
-   * - ApiGatewayProxyMcpHosting: gateway-managed MCP direct proxy.
-   * - ApiGatewayAssembly: gateway MCP assembly.
-   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
-   * - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
+   * - ApiGatewayHttpToMCP: Gateway-managed HTTP-to-MCP conversion.
+   * - ApiGatewayProxyMcpHosting: Gateway-managed MCP direct proxy.
+   * - ApiGatewayAssembly: Gateway MCP assembly.
+   * - NacosHttpToMCP: Gateway-managed Nacos-synced HTTP-to-MCP conversion.
+   * - NacosMcpHosting: Gateway-managed Nacos-synced MCP direct proxy.
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -395,17 +395,17 @@ export class UpdateMcpServerRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * Product center service routing
+   * 商品中心服务路由
    */
   description?: string;
   /**
    * @remarks
-   * The domain name IDs.
+   * The domain name ID.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
+   * The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
    * 
    * @example
    * /sse
@@ -413,12 +413,12 @@ export class UpdateMcpServerRequest extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * The list of canary release MCP server routing configurations.
+   * The list of canary release MCP server route configurations.
    */
   grayMcpServerConfigs?: UpdateMcpServerRequestGrayMcpServerConfigs[];
   /**
    * @remarks
-   * The route match rules.
+   * The route match rule. This parameter is conditionally required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty(400).
    */
   match?: HttpRouteMatch;
   /**
@@ -450,9 +450,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The MCP server type filter. Valid values:
-   * - RealMCP
-   * - AssemblyMCP
+   * The MCP server type filter. Valid values: RealMCP, AssemblyMCP.
    * 
    * This parameter is required.
    * 

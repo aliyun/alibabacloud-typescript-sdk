@@ -5,6 +5,9 @@ import { HttpApiApiInfo } from "./HttpApiApiInfo";
 
 export class HttpApiInfoByName extends $dara.Model {
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * gw-xx
    */
@@ -19,7 +22,7 @@ export class HttpApiInfoByName extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The API type.
+   * The type of the HTTP API.
    * 
    * @example
    * Http
@@ -27,7 +30,7 @@ export class HttpApiInfoByName extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Specifies whether to enable versioning.
+   * Indicates whether version management is enabled.
    * 
    * @example
    * true
@@ -35,7 +38,7 @@ export class HttpApiInfoByName extends $dara.Model {
   versionEnabled?: boolean;
   /**
    * @remarks
-   * The information about the versioned API.
+   * The versioned API version information.
    */
   versionedHttpApis?: HttpApiApiInfo[];
   static names(): { [key: string]: string } {

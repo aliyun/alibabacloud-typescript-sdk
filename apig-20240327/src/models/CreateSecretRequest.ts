@@ -22,7 +22,7 @@ export class CreateSecretRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The KMS key configuration.
+   * The KMS key configuration information.
    */
   kmsConfig?: KMSConfig;
   /**
@@ -43,7 +43,7 @@ export class CreateSecretRequest extends $dara.Model {
   secretData?: string;
   /**
    * @remarks
-   * The source of the key.
+   * The key source.
    * 
    * @example
    * KMS

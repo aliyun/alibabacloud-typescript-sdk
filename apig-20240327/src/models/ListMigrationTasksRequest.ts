@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMigrationTasksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

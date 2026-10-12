@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRiskCheckResultsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return in this request.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * token-xxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1 (DefaultPageNumber).
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10 (DefaultPageSize).
+   * 
    * @example
    * 10
    */

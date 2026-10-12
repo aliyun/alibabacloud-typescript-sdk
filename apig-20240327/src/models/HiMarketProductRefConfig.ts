@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
   /**
    * @remarks
-   * The associated Agent API ID.
+   * The ID of the associated Agent API.
    * 
    * @example
    * api-xxx
@@ -13,7 +13,7 @@ export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
   agentApiId?: string;
   /**
    * @remarks
-   * The Agent API name.
+   * The name of the Agent API.
    * 
    * @example
    * my-agent-api
@@ -21,7 +21,7 @@ export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
   agentApiName?: string;
   /**
    * @remarks
-   * The associated MCP route ID.
+   * The ID of the associated MCP route.
    * 
    * @example
    * route-xxx
@@ -29,7 +29,7 @@ export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
   mcpRouteId?: string;
   /**
    * @remarks
-   * The associated MCP Server ID.
+   * The ID of the associated MCP Server.
    * 
    * @example
    * mcp-xxx
@@ -37,7 +37,7 @@ export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The MCP Server name.
+   * The name of the MCP Server.
    * 
    * @example
    * my-mcp-server
@@ -45,7 +45,7 @@ export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
   mcpServerName?: string;
   /**
    * @remarks
-   * The associated Model API ID.
+   * The ID of the associated Model API.
    * 
    * @example
    * api-yyy
@@ -53,7 +53,7 @@ export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
   modelApiId?: string;
   /**
    * @remarks
-   * The Model API name.
+   * The name of the Model API.
    * 
    * @example
    * qwen-model-api

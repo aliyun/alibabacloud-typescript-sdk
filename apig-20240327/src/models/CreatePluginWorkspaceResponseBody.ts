@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePluginWorkspaceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Codeup repository ID, which is a numeric string.
+   * 
    * @example
    * 12345678
    */
   repoId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * plw-xxxxxxxx
    */
@@ -38,19 +44,29 @@ export class CreatePluginWorkspaceResponseBodyData extends $dara.Model {
 
 export class CreatePluginWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreatePluginWorkspaceResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 01A02219-8028-57D8-9D60-2D167FF9118E

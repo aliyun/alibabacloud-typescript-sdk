@@ -158,7 +158,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS.
+   * Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
    * 
    * @example
    * false
@@ -174,7 +174,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * The certificate issue authority.
+   * The certification authority.
    * 
    * @example
    * Alibaba
@@ -214,10 +214,10 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The protocol type supported by the domain name. Valid values:
+   * The protocol type supported by the domain name.
    * 
-   * - HTTP: only HTTP is supported.
-   * - HTTPS: only HTTPS is supported.
+   * - HTTP: Only the HTTP protocol is supported.
+   * - HTTPS: Only the HTTPS protocol is supported.
    * 
    * @example
    * HTTP

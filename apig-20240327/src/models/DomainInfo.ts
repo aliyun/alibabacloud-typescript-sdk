@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DomainInfo extends $dara.Model {
   /**
    * @remarks
-   * The certificate identity from SSL Certificates Service.
+   * The certificate identity in SSL Certificates Service.
    * 
    * @example
    * 235556-cn-hangzhou

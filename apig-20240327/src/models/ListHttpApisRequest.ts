@@ -31,7 +31,7 @@ export class ListHttpApisRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Searches for an HTTP API by exact name match.
+   * Searches for an exact match by name.
    * 
    * @example
    * login
@@ -55,7 +55,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -131,7 +131,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withIngressInfo?: boolean;
   /**
    * @remarks
-   * The plug-in ID. If specified, the response includes plug-in publishing information for the specified plug-in.
+   * The plug-in ID. If specified, the response includes plug-in publishing information based on this plug-in ID.
    * 
    * @example
    * pl-ct9qn3um1hktue8dqol0

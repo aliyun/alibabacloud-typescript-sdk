@@ -105,7 +105,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The protocol version. Valid values:
+   * The IP version. Valid values:
    * - ipv4: IPv4.
    * - ipv6: IPv6.
    * 
@@ -116,8 +116,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The load balancing address type. Valid values:
-   * - Internet: public network.
-   * - Intranet: private network.
+   * - Internet: Public network.
+   * - Intranet: Private network.
    * 
    * @example
    * Internet
@@ -152,7 +152,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The load balancing mode of the gateway. Valid values:
-   * - Managed: managed by Cloud-native API Gateway.
+   * - Managed: Managed by Cloud-native API Gateway.
    * 
    * @example
    * Managed
@@ -537,7 +537,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The source from which the gateway was created. Valid values:
-   * - Console: the console.
+   * - Console: Console.
    * 
    * @example
    * Console
@@ -568,7 +568,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * @remarks
    * The gateway instance edition. Valid values:
    * 
-   * - Professional: standard instance.
+   * - Professional: Standard instance.
    * 
    * - Serverless: Serverless instance.
    * 
@@ -586,7 +586,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter. Valid values:
+   * The running mode of AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter. Valid values:
    * - ENTERPRISE: default.
    * - STANDARD: allowed only for AI multi-tenant V2.
    * 
@@ -654,7 +654,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway specification. Valid values:
-   * - apigw.small.x1: small specification.
+   * - apigw.small.x1: Small specification.
    * 
    * @example
    * apigw.small.x1
@@ -663,15 +663,15 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway status. Valid values:
-   * - Running: The gateway is running.
-   * - Creating: The gateway is being created.
-   * - CreateFailed: The gateway failed to be created.
-   * - Upgrading: The gateway is being upgraded.
-   * - UpgradeFailed: The gateway failed to be upgraded.
-   * - Restarting: The gateway is being restarted.
-   * - RestartFailed: The gateway failed to be restarted.
-   * - Deleting: The gateway is being released.
-   * - DeleteFailed: The gateway failed to be released.
+   * - Running: Running.
+   * - Creating: Being created.
+   * - CreateFailed: Creation failed.
+   * - Upgrading: Being upgraded.
+   * - UpgradeFailed: Upgrade failed.
+   * - Restarting: Being restarted.
+   * - RestartFailed: Restart failed.
+   * - Deleting: Being released.
+   * - DeleteFailed: Release failed.
    * 
    * @example
    * Running
@@ -684,7 +684,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   tags?: GetGatewayResponseBodyDataTags[];
   /**
    * @remarks
-   * The target version of the gateway. When this value differs from version, a version upgrade can be performed.
+   * The target version of the gateway. If this value differs from version, a version upgrade can be performed.
    * 
    * @example
    * 2.0.2

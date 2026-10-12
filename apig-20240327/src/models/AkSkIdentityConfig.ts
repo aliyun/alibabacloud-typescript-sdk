@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AkSkIdentityConfig extends $dara.Model {
   /**
    * @remarks
-   * Access Key
+   * The AK configuration.
    * 
    * @example
    * xxxx
@@ -13,7 +13,7 @@ export class AkSkIdentityConfig extends $dara.Model {
   ak?: string;
   /**
    * @remarks
-   * Generation mode
+   * The generation mode.
    * 
    * @example
    * System
@@ -21,7 +21,7 @@ export class AkSkIdentityConfig extends $dara.Model {
   generateMode?: string;
   /**
    * @remarks
-   * Secret Key
+   * The SK configuration.
    * 
    * @example
    * xxxx
@@ -29,7 +29,7 @@ export class AkSkIdentityConfig extends $dara.Model {
   sk?: string;
   /**
    * @remarks
-   * Identity authentication type
+   * The type.
    * 
    * @example
    * Jwt

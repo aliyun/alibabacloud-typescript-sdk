@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The gateway ID.
    * 
    * @example
    * gw-cpv4sqdl****
@@ -13,7 +13,7 @@ export class ListSourcesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -28,18 +28,16 @@ export class ListSourcesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The resource group ID used to filter results. This parameter is also used for RAM authentication.
+   * 
    * @example
    * rg-xxxx
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type by which you want to query sources.
-   * 
-   * Valid values:
-   * 
-   * *   K8S
-   * *   MSE_NACOS
+   * The source type used to filter the query results.
    * 
    * @example
    * MSE_NACOS

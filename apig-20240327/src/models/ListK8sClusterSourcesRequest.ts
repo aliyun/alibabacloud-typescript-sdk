@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListK8sClusterSourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The VPC ID used to query clusters within the specified VPC. If this parameter is not specified, the VPC of the gateway is used.
+   * 
    * @example
    * vpc-xxxx
    */

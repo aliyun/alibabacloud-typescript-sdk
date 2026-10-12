@@ -53,7 +53,7 @@ export class GetPluginClassResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The Wasm plug-in programming language.
+   * The programming language of the Wasm plug-in.
    * 
    * @example
    * TinyGo

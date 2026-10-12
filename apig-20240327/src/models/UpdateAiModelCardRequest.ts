@@ -45,7 +45,7 @@ export class UpdateAiModelCardRequestAvailablePaths extends $dara.Model {
 export class UpdateAiModelCardRequestCredit extends $dara.Model {
   /**
    * @remarks
-   * The cache hit token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The cost of cache-hit tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
    * 
    * @example
    * 0.5
@@ -53,7 +53,7 @@ export class UpdateAiModelCardRequestCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The input token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The cost of input tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
    * 
    * @example
    * 1.5
@@ -61,7 +61,7 @@ export class UpdateAiModelCardRequestCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The output token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The cost of output tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
    * 
    * @example
    * 3
@@ -175,7 +175,7 @@ export class UpdateAiModelCardRequestMeta extends $dara.Model {
 export class UpdateAiModelCardRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of invocation paths supported by the model. Each item must include both path and type. The list is overwritten as a whole during updates.
+   * The list of invocation paths supported by the model. Each item must include both path and type. The entire list is overwritten during an update.
    */
   availablePaths?: UpdateAiModelCardRequestAvailablePaths[];
   /**
@@ -198,7 +198,7 @@ export class UpdateAiModelCardRequest extends $dara.Model {
   meta?: UpdateAiModelCardRequestMeta;
   /**
    * @remarks
-   * The model name. The name must be unique within the same AI gateway instance and model provider. Maximum length: 256 characters.
+   * The model name. The name must be unique within the same AI gateway instance and the same model provider. Maximum length: 256 characters.
    * 
    * This parameter is required.
    * 

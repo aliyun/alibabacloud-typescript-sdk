@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class HttpApiApiInfoDeployCntMapValue extends $dara.Model {
   /**
    * @remarks
-   * The number of deployed API operations.
+   * The number of published API operations.
    * 
    * @example
    * 3
    */
   deployedCnt?: number;
   /**
+   * @remarks
+   * The total number of API operations.
+   * 
    * @example
    * 10
    */

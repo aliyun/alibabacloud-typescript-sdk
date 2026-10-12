@@ -45,7 +45,7 @@ export class HiMarketModelFeature extends $dara.Model {
   streaming?: boolean;
   /**
    * @remarks
-   * The temperature parameter that controls the randomness of generation.
+   * The temperature parameter that controls the randomness of the generated output.
    * 
    * @example
    * 0.7

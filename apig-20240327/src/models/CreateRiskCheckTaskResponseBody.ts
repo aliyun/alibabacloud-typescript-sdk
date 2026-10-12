@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRiskCheckTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The risk detection task ID.
+   * 
    * @example
    * rct-xxxxxxxx
    */
@@ -31,12 +34,22 @@ export class CreateRiskCheckTaskResponseBodyData extends $dara.Model {
 
 export class CreateRiskCheckTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreateRiskCheckTaskResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

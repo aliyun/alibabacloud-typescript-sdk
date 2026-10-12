@@ -6,12 +6,12 @@ import { HiMarketHttpRoute } from "./HiMarketHttpRoute";
 export class HiMarketAgentConfigAgentAPIConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of agent protocols.
+   * The agent protocol list.
    */
   agentProtocols?: string[];
   /**
    * @remarks
-   * The list of agent API routing configurations.
+   * The agent API routing configuration list.
    */
   routes?: HiMarketHttpRoute[];
   static names(): { [key: string]: string } {

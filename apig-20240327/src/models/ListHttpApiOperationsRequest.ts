@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpApiOperationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the API operation list by a specific consumer authorization rule ID. Only authorized API operations are included in the response.
+   * The consumer authorization rule ID used to filter the API operation list. When specified, the response includes only authorized API operations.
    * 
    * @example
    * cas-xxx
@@ -13,7 +13,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   consumerAuthorizationRuleId?: string;
   /**
    * @remarks
-   * The authentication enable filter.
+   * Specifies whether to filter by authentication enablement status.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   forDeploy?: boolean;
   /**
    * @remarks
-   * The gateway ID filter.
+   * The gateway ID used to filter results.
    * 
    * @example
    * gw-001
@@ -37,7 +37,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Filters API operations by HTTP method.
+   * Lists API operations by HTTP method.
    * 
    * @example
    * GET
@@ -45,7 +45,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * Filters API operations by exact name match.
+   * Searches for API operations by exact name match.
    * 
    * @example
    * getUserInfo
@@ -53,7 +53,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Filters API operations by name prefix.
+   * Searches for API operations by name prefix.
    * 
    * @example
    * GetUser
@@ -61,7 +61,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The page number. Starts from 1. Default value: 1.
+   * The page number to return. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -77,7 +77,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters API operations by path prefix match.
+   * Searches for API operations by path prefix match.
    * 
    * @example
    * /v1
@@ -85,7 +85,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   pathLike?: string;
   /**
    * @remarks
-   * Includes the authorization rule list for the specified consumer in the specified environment ID in each API operation\\"s information in the response. You must also specify the withConsumerInfoById field.
+   * The environment ID. When specified together with withConsumerInfoById, the response includes the authorization rule list of the specified consumer in the specified environment for each API operation.
    * 
    * @example
    * env-xxx
@@ -93,7 +93,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   withConsumerInEnvironmentId?: string;
   /**
    * @remarks
-   * Includes the authorization rule list for the specified consumer in the specified environment ID in each API operation\\"s information in the response. You must also specify the withConsumerInEnvironmentId field.
+   * The consumer ID. When specified together with withConsumerInEnvironmentId, the response includes the authorization rule list of the specified consumer in the specified environment for each API operation.
    * 
    * @example
    * cs-xxx
@@ -101,7 +101,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * The plug-in ID. Retrieves plug-in publish information based on this plug-in ID.
+   * The plug-in ID used to retrieve plug-in deployment information.
    * 
    * @example
    * pl-xxx

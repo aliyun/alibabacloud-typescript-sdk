@@ -10,7 +10,7 @@ import { HttpApiResponseContract } from "./HttpApiResponseContract";
 export class HttpApiOperationInfo extends $dara.Model {
   /**
    * @remarks
-   * The authentication configurations of the operation.
+   * The authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
@@ -23,20 +23,20 @@ export class HttpApiOperationInfo extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The backend service deployment information of the operation.
+   * The backend service deployment information for the API operation.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The operation description.
+   * The description.
    * 
    * @example
-   * A example operation.
+   * Retrieve user information
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable authentication.
+   * Indicates whether authentication is enabled.
    * 
    * @example
    * true
@@ -44,19 +44,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The HTTP method of the operation.
-   * 
-   * Valid values:
-   * 
-   * *   TRACE
-   * *   HEAD
-   * *   DELETE
-   * *   POST
-   * *   GET
-   * *   CONNECT
-   * *   OPTIONS
-   * *   PUT
-   * *   PATCH
+   * The HTTP method of the API operation.
    * 
    * @example
    * GET
@@ -64,12 +52,12 @@ export class HttpApiOperationInfo extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The mocked parameters of the operation.
+   * The mock parameter settings for the API operation.
    */
   mock?: HttpApiMockContract;
   /**
    * @remarks
-   * The operation name.
+   * The name of the API operation.
    * 
    * @example
    * GetUserInfo
@@ -77,7 +65,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The operation ID.
+   * The ID of the API operation.
    * 
    * @example
    * op-xxx
@@ -85,7 +73,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The operation path.
+   * The path of the API operation.
    * 
    * @example
    * /user/123
@@ -93,17 +81,17 @@ export class HttpApiOperationInfo extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The request parameters of the operation.
+   * The request parameter definition of the API operation.
    */
   request?: HttpApiRequestContract;
   /**
    * @remarks
-   * The response parameters of the operation.
+   * The response parameter definition of the API operation.
    */
   response?: HttpApiResponseContract;
   /**
    * @remarks
-   * The operation publishing status on the instance.
+   * The publish status of the API operation on the gateway.
    * 
    * @example
    * Deployed

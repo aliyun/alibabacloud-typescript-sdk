@@ -101,7 +101,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiToolSelectionConfig?: AiToolSelectionConfig;
   /**
    * @remarks
-   * Indicates whether the policy is enabled.
+   * Indicates whether the feature is enabled.
    * 
    * @example
    * false
@@ -109,7 +109,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The read-only compatible reference. GetHttpApi returns policyId/policyAttachmentId for ModelAPI AiTokenRateLimit. This must be stripped before write path persistence and is not used as a bind/unbind instruction.
+   * The read-only compatible reference. GetHttpApi returns the policyId and policyAttachmentId for ModelAPI AiTokenRateLimit. This field must be stripped before write-path persistence and is not used as a bind or unbind instruction.
    * 
    * **if can be null:**
    * true

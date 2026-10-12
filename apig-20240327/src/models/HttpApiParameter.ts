@@ -13,15 +13,15 @@ export class HttpApiParameter extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * The parameter description.
+   * The description.
    * 
    * @example
-   * The example description.
+   * User ID
    */
   description?: string;
   /**
    * @remarks
-   * The sample value of the parameter.
+   * The example value of the parameter.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class HttpApiParameter extends $dara.Model {
   exampleValue?: string;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class HttpApiParameter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether the parameter is required.
+   * Indicates whether the parameter is required.
    * 
    * @example
    * true
@@ -47,14 +47,7 @@ export class HttpApiParameter extends $dara.Model {
   required?: boolean;
   /**
    * @remarks
-   * The parameter type.
-   * 
-   * Valid values:
-   * 
-   * *   Integer
-   * *   Number
-   * *   String
-   * *   Boolean
+   * The type of the parameter.
    * 
    * This parameter is required.
    * 

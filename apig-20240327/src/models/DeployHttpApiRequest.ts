@@ -46,7 +46,7 @@ export class DeployHttpApiRequestHttpApiConfig extends $dara.Model {
 export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * The match condition configuration for API publishing.
+   * The match condition configuration related to API publishing.
    * 
    * @example
    * {\\"change_order_revision\\":\\"3.657.33_fc-hz-yunqi.1662568293908382_faas-eerouter\\"}
@@ -62,7 +62,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   port?: number;
   /**
    * @remarks
-   * The service protocol. Valid values:
+   * The Terms of Service. Valid values:
    * - HTTP.
    * - HTTPS.
    * 
@@ -88,7 +88,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   version?: string;
   /**
    * @remarks
-   * The weight. Valid values: 1 to 100. This parameter takes effect only in the ratio-based scenario.
+   * The weight. Valid values: 1 to 100. This parameter takes effect only in ratio-based scenarios.
    * 
    * @example
    * 49
@@ -131,7 +131,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
 export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   /**
    * @remarks
-   * The API publish scenario. Backend configurations cannot be specified during publishing. Configure them in advance by calling UpdateHttpApi or UpdateHttpApiOperation before publishing.
+   * The API publish scenario. Backend configurations cannot be specified during publish. Configure them in advance by calling UpdateHttpApi or UpdateHttpApiOperation before publishing.
    * 
    * @example
    * SingleService
@@ -156,7 +156,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The existing service configurations. In the single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Configure them in advance by calling UpdateHttpApi or UpdateHttpApiOperation before publishing.
+   * The existing service configurations. In a single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publish. Configure them in advance by calling UpdateHttpApi or UpdateHttpApiOperation before publishing.
    * 
    * **if can be null:**
    * true
@@ -240,7 +240,7 @@ export class DeployHttpApiRequestRestApiConfigOperationDeployments extends $dara
 export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   /**
    * @remarks
-   * The description of the publish.
+   * The description of the publish operation.
    * 
    * @example
    * User service API publish
@@ -248,7 +248,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable REST API route compression. If this parameter is omitted or set to false, operations are published individually. If this parameter is set to true, the API is published as a single prefix route. This parameter is ignored for historical revision publishing, which uses the routing mode saved in the historical revision. When set to true, operationDeployments must not be specified because prefix route publishing supports only full publishing.
+   * Specifies whether to enable REST API route compression. If this parameter is omitted or set to false, operations are published individually. If this parameter is set to true, the API is published as a single prefix route. This parameter is ignored for historical revision publishing, which uses the route mode saved in the historical revision. When this parameter is set to true, operationDeployments must not be specified because prefix route publishing supports only full publishing.
    * 
    * @example
    * true
@@ -281,7 +281,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   operationIds?: string[];
   /**
    * @remarks
-   * The historical revision ID. If this parameter is specified, the publish uses the information from the historical revision.
+   * The historical revision ID. If this parameter is specified, the deployment uses the information from the historical revision.
    * 
    * @example
    * apr-xxx
@@ -339,12 +339,14 @@ export class DeployHttpApiRequest extends $dara.Model {
   httpApiConfig?: DeployHttpApiRequestHttpApiConfig;
   /**
    * @remarks
-   * The REST API deployment configuration. This parameter is required when the HTTP API to be published is a REST API. At least one of revisionId, environment, or gatewayId must be specified to identify the publish target.
+   * The deployment configuration for a REST API. This parameter is required when the HTTP API to be published is a REST API. At least one of revisionId, environment, or gatewayId must be specified to identify the deployment target.
    */
   restApiConfig?: DeployHttpApiRequestRestApiConfig;
   /**
    * @remarks
-   * The route ID. This parameter is required when publishing a route of an HTTP API. Before deploying with routeId, make sure the target route is associated with a publishable domain name. If the domain name was not configured when the route was created, call UpdateHttpApiRoute to add domainIds.
+   * The route ID. This parameter is required when you publish a route of an HTTP API. Before deploying with routeId, make sure the target route is associated with a publishable domain name. If the domain name was not configured when the route was created, call UpdateHttpApiRoute to add domainIds.
+   * 
+   * A publishable domain name refers to the default subdomain of the environment and does not include custom Dedicated domain names. If the route is associated only with a Dedicated domain name, call UpdateHttpApiRoute to add the domainIds corresponding to the default subdomain of the environment before deployment.
    * 
    * @example
    * hr-cr82undlhtgrl***

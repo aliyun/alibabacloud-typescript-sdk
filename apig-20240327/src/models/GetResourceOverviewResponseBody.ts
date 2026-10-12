@@ -13,7 +13,7 @@ export class GetResourceOverviewResponseBodyDataApi extends $dara.Model {
   publishedCount?: number;
   /**
    * @remarks
-   * The total number of APIs.
+   * The number of APIs.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GetResourceOverviewResponseBodyDataGateway extends $dara.Model {
   runningCount?: number;
   /**
    * @remarks
-   * The total number of gateway instances.
+   * The number of gateway instances.
    * 
    * @example
    * 1

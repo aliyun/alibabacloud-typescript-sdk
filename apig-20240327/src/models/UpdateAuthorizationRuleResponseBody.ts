@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAuthorizationRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

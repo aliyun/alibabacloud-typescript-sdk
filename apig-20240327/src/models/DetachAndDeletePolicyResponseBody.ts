@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachAndDeletePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DetachAndDeletePolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DetachAndDeletePolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the call link.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

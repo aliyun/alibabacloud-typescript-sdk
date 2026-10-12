@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the attached resource.
+   * The ID of the mounted resource.
    * 
    * @example
    * api-cuip2pum1hksng6oni3g
@@ -13,15 +13,15 @@ export class ListPluginsRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The type of the attachment point supported by the policy.
+   * The type of mount point supported by the policy.
    * 
    * - HttpApi: HttpApi.
    * - Operation: Operation of HttpApi.
-   * - GatewayRoute: gateway route.
-   * - GatewayService: gateway service.
-   * - GatewayServicePort: gateway service port.
-   * - Domain: gateway domain name.
-   * - Gateway: gateway.
+   * - GatewayRoute: Gateway route.
+   * - GatewayService: Gateway service.
+   * - GatewayServicePort: Gateway service port.
+   * - Domain: Gateway domain name.
+   * - Gateway: Gateway.
    * 
    * @example
    * HttpApi
@@ -45,7 +45,7 @@ export class ListPluginsRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Specifies whether the response includes built-in AI plugins installed by the system. Default value: false.
+   * Specifies whether the response includes built-in AI plug-ins installed by the system. Default value: false.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class ListPluginsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ListPluginsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the plugin type used to filter results.
+   * The ID of the plug-in type used to filter results.
    * 
    * @example
    * pls-dn82a9djd8z****
@@ -77,7 +77,7 @@ export class ListPluginsRequest extends $dara.Model {
   pluginClassId?: string;
   /**
    * @remarks
-   * The name of the plugin type used to filter results.
+   * The name of the plug-in type used to filter results.
    * 
    * @example
    * key-auth
@@ -85,7 +85,7 @@ export class ListPluginsRequest extends $dara.Model {
   pluginClassName?: string;
   /**
    * @remarks
-   * Specifies whether the response includes the plugin attachment information corresponding to attachResourceId.
+   * Specifies whether the response includes the plug-in mounting information corresponding to attachResourceId.
    * 
    * @example
    * false
