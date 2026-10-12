@@ -13,7 +13,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   agentCoreUserId?: string;
   /**
    * @remarks
-   * The authentication method of the user. A value of password indicates that the user is authenticated by using the local password of the workspace. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
+   * The authentication method of the user. A value of password indicates that local password authentication in the workspace is used. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
    * 
    * @example
    * password
@@ -21,7 +21,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   authMethod?: string;
   /**
    * @remarks
-   * The creation time. The time is displayed in UTC and follows the RFC 3339 format.
+   * The creation time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -45,7 +45,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or a digit, and must be 1 to 32 characters in length.
+   * The user name. The name must be unique within the workspace, contain only lowercase letters, digits, and hyphens, start and end with a lowercase letter or a digit, and be 1 to 32 characters in length.
    * 
    * @example
    * user-01
@@ -53,10 +53,10 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The note of the user. The note can be up to 1,024 characters in length.
+   * The user remarks. The remarks can be up to 1,024 characters in length.
    * 
    * @example
-   * Agent operations team member
+   * Member of the agent operations team
    */
   note?: string;
   /**
@@ -69,7 +69,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the user. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
+   * The user status. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
    * 
    * @example
    * Active
@@ -77,7 +77,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time of the last modification. The time is displayed in UTC and follows the RFC 3339 format.
+   * The last modification time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -151,12 +151,12 @@ export class ListUsersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The user list.
+   * The list of users.
    */
   items?: ListUsersResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page that takes effect in the current query.
+   * The maximum number of records per page that takes effect in this query.
    * 
    * @example
    * 10
@@ -164,7 +164,7 @@ export class ListUsersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. If the request fails, an error description is returned.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success
@@ -172,7 +172,7 @@ export class ListUsersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The cursor for the next page. If no next page exists, this parameter is empty.
+   * The cursor for the next page. This parameter is empty if no next page exists.
    * 
    * @example
    * dXNlci1vZmZzZXQ6MTA

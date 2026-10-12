@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersRequest extends $dara.Model {
   /**
    * @remarks
+   * The filter condition for exact match on the email address.
+   * 
+   * @example
+   * xxx@xxx.com
+   */
+  email?: string;
+  /**
+   * @remarks
    * The maximum number of records to return per page. Valid values: 1 to 100. If this parameter is not specified, 10 records are returned by default.
    * 
    * @example
@@ -13,7 +21,7 @@ export class ListUsersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The filter condition for exact match on the username.
+   * The filter condition for exact match on the user name.
    * 
    * @example
    * user-01
@@ -21,7 +29,7 @@ export class ListUsersRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The filter condition for fuzzy match on the username. The value can be up to 128 characters in length.
+   * The filter condition for fuzzy match on the user name. The value can be up to 128 characters in length.
    * 
    * @example
    * user
@@ -37,6 +45,7 @@ export class ListUsersRequest extends $dara.Model {
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
+      email: 'email',
       maxResults: 'maxResults',
       name: 'name',
       nameLike: 'nameLike',
@@ -46,6 +55,7 @@ export class ListUsersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      email: 'string',
       maxResults: 'number',
       name: 'string',
       nameLike: 'string',

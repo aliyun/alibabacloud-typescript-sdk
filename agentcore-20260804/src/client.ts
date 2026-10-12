@@ -4924,7 +4924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of users in a specified workspace. You can filter users by fuzzy match on the username by using nameLike, specify the maximum number of records per page for paging by using maxResults, and obtain the next page by using nextToken. If maxResults is not specified, the server returns 10 records by default.
+   * Performs a paged query for users in a specified workspace. You can use nameLike to filter users by fuzzy match on the username, maxResults to specify the maximum number of records per page for paging, and nextToken to retrieve the next page. If maxResults is not specified, 10 records are returned by default.
    * 
    * @param request - ListUsersRequest
    * @param headers - map
@@ -4934,6 +4934,10 @@ export default class Client extends OpenApi {
   async listUsersWithOptions(workspaceId: string, request: $_model.ListUsersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListUsersResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.email)) {
+      query["email"] = request.email;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
@@ -4969,7 +4973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of users in a specified workspace. You can filter users by fuzzy match on the username by using nameLike, specify the maximum number of records per page for paging by using maxResults, and obtain the next page by using nextToken. If maxResults is not specified, the server returns 10 records by default.
+   * Performs a paged query for users in a specified workspace. You can use nameLike to filter users by fuzzy match on the username, maxResults to specify the maximum number of records per page for paging, and nextToken to retrieve the next page. If maxResults is not specified, 10 records are returned by default.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
