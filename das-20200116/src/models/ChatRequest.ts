@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ChatRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID used for the service. This parameter is optional. You can specify an agent generated after DAS Agent is enabled or an agent that you manually created. If this parameter is not specified, the default agent is used.
+   * Optional. The agent ID used for the service. You can specify the agent generated after enabling the DAS Agent or a manually created agent. If not specified, the default agent is used.
    * 
    * @example
    * ag-472T0DxtmjIxxxxx
    */
   agentId?: string;
+  /**
+   * @remarks
+   * The forwarded properties.
+   * 
+   * @example
+   * {"enableInteractiveTools":true}
+   */
+  forwardedProps?: string;
   /**
    * @remarks
    * The message.
@@ -29,7 +37,7 @@ export class ChatRequest extends $dara.Model {
   resume?: string;
   /**
    * @remarks
-   * The session ID in UUID string format. This parameter is optional. If this parameter is not specified, a new session is created by default. To maintain context across conversations, use the same session ID.
+   * Optional. The session ID, which is a UUID string. If not specified, a new session is created by default. The same session ID must be maintained for contextual conversations.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-xxxxxxxxxxxx
@@ -46,6 +54,7 @@ export class ChatRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
+      forwardedProps: 'ForwardedProps',
       message: 'Message',
       resume: 'Resume',
       sessionId: 'SessionId',
@@ -56,6 +65,7 @@ export class ChatRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentId: 'string',
+      forwardedProps: 'string',
       message: 'string',
       resume: 'string',
       sessionId: 'string',

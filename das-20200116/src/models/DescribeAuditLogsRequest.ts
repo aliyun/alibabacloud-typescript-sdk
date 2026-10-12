@@ -13,7 +13,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   asyncRequestId?: string;
   /**
    * @remarks
-   * The IP address of the request client.
+   * The IP address of the client that sends the request.
    * 
    * @example
    * 11.26.118.7
@@ -53,7 +53,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   effectRowRange?: string;
   /**
    * @remarks
-   * The end time of the alert log. The value is a UNIX timestamp in milliseconds.
+   * The end time of the alert logs. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 15682887991222
@@ -61,7 +61,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The range of the execution time.
+   * The execution time range.
    * 
    * @example
    * in[1000 2000]
@@ -79,9 +79,9 @@ export class DescribeAuditLogsRequest extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * 
-   * - **default** (default): non-Alibaba Cloud service.
+   * - **default**: Non-Alibaba Cloud services. This is the default value.
    * 
-   * - **aliyun**: Alibaba Cloud service.
+   * - **aliyun**: Alibaba Cloud services.
    * 
    * @example
    * aliyun
@@ -89,7 +89,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ipType?: string;
   /**
    * @remarks
-   * The language of the request and response. Default value: zh_cn. Valid values:
+   * The language type of the request and response messages. Default value: zh_cn. Valid values:
    * 
    * - zh_cn: Chinese.
    * - en_us: English.
@@ -125,7 +125,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   operateType?: string;
   /**
    * @remarks
-   * The key of the OSS storage object.
+   * The key of the OSS object.
    * 
    * @example
    * N.A
@@ -133,7 +133,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ossObjectKey?: string;
   /**
    * @remarks
-   * The maximum number of records per page. Default value: 10.
+   * The maximum number of entries per page. Default value: 10.
    * 
    * @example
    * 30
@@ -141,7 +141,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the product to which the data asset belongs. Valid values: **RDS, PolarDB, PolarDB-X 2.0**, and others.
+   * The name of the product to which the data asset belongs. Valid values include **RDS**, **PolarDB**, and **PolarDB-X 2.0**.
    * 
    * @example
    * RDS
@@ -149,7 +149,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID that corresponds to the product name to which the data object belongs. Valid values:
+   * The ID of the product to which the data object belongs. Valid values:
    * 
    * - 3: ADB-MYSQL
    * - 5: RDS
@@ -165,7 +165,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * Specifies whether to use aggregate query.
+   * Specifies whether to perform an aggregate query.
    * 
    * @example
    * true
@@ -189,7 +189,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The name of the audit policy.
+   * The name of the audit rule.
    * 
    * @example
    * test_rule
@@ -205,7 +205,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   sqlText?: string;
   /**
    * @remarks
-   * The start time of the alert log, in milliseconds.
+   * The start time of the alert logs. Unit: milliseconds.
    * 
    * @example
    * 1608888296000

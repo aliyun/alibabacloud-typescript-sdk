@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeadlockHistogramResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The end time of the analysis task range.
+   * The end time of the analysis task range. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1729998000000
@@ -37,7 +37,7 @@ export class GetDeadlockHistogramResponseBodyData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The start time of the analysis task range.
+   * The start time of the analysis task range. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1729994400000
@@ -46,8 +46,8 @@ export class GetDeadlockHistogramResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - **SUCCESS**: The analysis is successful.
-   * - **FAILED**: The analysis failed or encountered an exception.
+   * - **SUCCESS**: The analysis was successful.
+   * - **FAILED**: The analysis is abnormal or failed.
    * 
    * @example
    * SUCCESS
@@ -55,7 +55,7 @@ export class GetDeadlockHistogramResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The full deadlock analysis task ID.
+   * The ID of the full deadlock analysis task.
    * 
    * @example
    * B6D17591-B48B-4D31-9CD6-1321B394****
@@ -138,9 +138,9 @@ export class GetDeadlockHistogramResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request is successful.
+   * - **true**: The request was successful.
    * - **false**: The request failed.
    * 
    * @example

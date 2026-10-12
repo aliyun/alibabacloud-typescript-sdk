@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceGroupInspectReportListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the task was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-12-11 00:39:00
@@ -13,7 +13,7 @@ export class GetInstanceGroupInspectReportListResponseBodyData extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The date of the diagnosis.
+   * The diagnosis date in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-12-10
@@ -29,7 +29,13 @@ export class GetInstanceGroupInspectReportListResponseBodyData extends $dara.Mod
   reportId?: string;
   /**
    * @remarks
-   * The task status. Valid values: WAITING_UNREADY = 0, WAITING_READY = 1, PROCESSING = 2, FINISHED = 3, ERROR = 4, STOPPED = -1.
+   * The task status. Valid values:
+   * - 0: WAITING_UNREADY.
+   * - 1: WAITING_READY.
+   * - 2: PROCESSING.
+   * - 3: FINISHED.
+   * - 4: ERROR.
+   * - -1: STOPPED.
    * 
    * @example
    * 3
@@ -65,7 +71,7 @@ export class GetInstanceGroupInspectReportListResponseBodyData extends $dara.Mod
 export class GetInstanceGroupInspectReportListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -78,8 +84,8 @@ export class GetInstanceGroupInspectReportListResponseBody extends $dara.Model {
   data?: GetInstanceGroupInspectReportListResponseBodyData[];
   /**
    * @remarks
-   * The response message.
-   * >If the request is successful, **Successful** is returned. If the request fails, exception information such as an error code is returned.
+   * The returned message.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -95,9 +101,9 @@ export class GetInstanceGroupInspectReportListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * * **true**: The request is successful.
-   * * **false**: The request fails.
+   * Indicates whether the request was successful. Valid values:
+   * * **true**: The request was successful.
+   * * **false**: The request failed.
    * 
    * @example
    * true

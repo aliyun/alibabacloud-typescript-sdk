@@ -7,7 +7,7 @@ export class ModifyDasOpsConfigRequestFilters extends $dara.Model {
    * @remarks
    * The filter parameter.
    * 
-   * > For supported filter parameters and their values, see **Supplementary description of request parameters**.
+   * > For supported filter parameters and their valid values, see **Supplementary description of request parameters**.
    * 
    * @example
    * None
@@ -15,7 +15,7 @@ export class ModifyDasOpsConfigRequestFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * select
@@ -49,8 +49,8 @@ export class ModifyDasOpsConfigRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable DAS Alibaba Cloud Managed Services. Valid values:
    * 
-   * - **true**: Enable.
-   * - **false**: Disable. Shutdown only turns off the feature but does not unsubscribe from the service. To unsubscribe, go to the unsubscription management page.
+   * - **true**: Enabled.
+   * - **false**: Disabled. Note that shutdown only disables the feature, but does not cancel your subscription. To cancel your subscription, go to the Unsubscription Management page.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class ModifyDasOpsConfigRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    */
   filters?: ModifyDasOpsConfigRequestFilters[];
   /**

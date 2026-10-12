@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDasOpsConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The payment method.
+   * The billing method.
    * 
    * @example
    * prepay
@@ -13,7 +13,7 @@ export class ModifyDasOpsConfigResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Managed Services instance ID.
+   * The instance ID of Alibaba Cloud Managed Services.
    * 
    * @example
    * pc-2zelo5v5u0678jx04
@@ -21,7 +21,7 @@ export class ModifyDasOpsConfigResponseBodyData extends $dara.Model {
   commodityInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether DAS Economy Edition is enabled.
+   * Indicates whether the DAS Economy Edition is enabled.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ModifyDasOpsConfigResponseBodyData extends $dara.Model {
   ecoEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether the Alibaba Cloud Managed Services feature is enabled (including DAS Economy Edition).
+   * Indicates whether the Alibaba Cloud Managed Services feature (including DAS Economy Edition) is enabled.
    * 
    * @example
    * true
@@ -50,7 +50,7 @@ export class ModifyDasOpsConfigResponseBodyData extends $dara.Model {
   opsEnable?: boolean;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 285412912420536
@@ -58,7 +58,7 @@ export class ModifyDasOpsConfigResponseBodyData extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The start time.
+   * The start time of Alibaba Cloud Managed Services. The format is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1672531200000
@@ -66,14 +66,14 @@ export class ModifyDasOpsConfigResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The task status. Valid values:
-   * - **INIT**: Pending scheduling.
+   * The status of the task. Valid values:
+   * - **INIT**: Pending.
    * - **RUNNING**: Running.
    * - **FAILED**: Failed.
    * - **CANCELED**: Canceled.
    * - **COMPLETED**: Completed.
    * 
-   * > When the task is in the **COMPLETED** state, you can view the task result.
+   * > When the task is in the **COMPLETED** state, you can view the task results.
    * 
    * @example
    * COMPLETED
@@ -140,7 +140,7 @@ export class ModifyDasOpsConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B6D17591-B48B-4D31-9CD6-9B9796B2****
@@ -150,8 +150,8 @@ export class ModifyDasOpsConfigResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

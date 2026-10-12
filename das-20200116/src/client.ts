@@ -133,14 +133,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the asynchronous logic interface for DAS large model capabilities.
+   * Invokes the asynchronous logic interface for DAS large model capabilities.
    * 
    * @remarks
    * Before you begin:
    * - Use the latest version of the Alibaba Cloud or DAS SDK.
-   * - When calling DAS by using the SDK, set the region to cn-shanghai.
-   * - Only database instances with DAS Enterprise Edition activated support creating batch tasks. For databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
-   * For more methods and examples of interacting with DAS Agent by using the Chat API, see [Best practices for DAS Agent interaction (integrating the Chat API)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
+   * - When you use the SDK to call DAS services, specify the region as cn-shanghai.
+   * - Only database instances with DAS Enterprise Edition enabled support creating offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * For more methods and examples on how to use the Chat interface to interact with the DAS Agent, see [Best practices for DAS Agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
    * 
    * @param request - ChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -151,6 +151,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.agentId)) {
       query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.forwardedProps)) {
+      query["ForwardedProps"] = request.forwardedProps;
     }
 
     if (!$dara.isNull(request.message)) {
@@ -201,14 +205,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the asynchronous logic interface for DAS large model capabilities.
+   * Invokes the asynchronous logic interface for DAS large model capabilities.
    * 
    * @remarks
    * Before you begin:
    * - Use the latest version of the Alibaba Cloud or DAS SDK.
-   * - When calling DAS by using the SDK, set the region to cn-shanghai.
-   * - Only database instances with DAS Enterprise Edition activated support creating batch tasks. For databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
-   * For more methods and examples of interacting with DAS Agent by using the Chat API, see [Best practices for DAS Agent interaction (integrating the Chat API)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
+   * - When you use the SDK to call DAS services, specify the region as cn-shanghai.
+   * - Only database instances with DAS Enterprise Edition enabled support creating offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * For more methods and examples on how to use the Chat interface to interact with the DAS Agent, see [Best practices for DAS Agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
    * 
    * @param request - ChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -219,6 +223,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.agentId)) {
       query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.forwardedProps)) {
+      query["ForwardedProps"] = request.forwardedProps;
     }
 
     if (!$dara.isNull(request.message)) {
@@ -255,14 +263,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the asynchronous logic interface for DAS large model capabilities.
+   * Invokes the asynchronous logic interface for DAS large model capabilities.
    * 
    * @remarks
    * Before you begin:
    * - Use the latest version of the Alibaba Cloud or DAS SDK.
-   * - When calling DAS by using the SDK, set the region to cn-shanghai.
-   * - Only database instances with DAS Enterprise Edition activated support creating batch tasks. For databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
-   * For more methods and examples of interacting with DAS Agent by using the Chat API, see [Best practices for DAS Agent interaction (integrating the Chat API)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
+   * - When you use the SDK to call DAS services, specify the region as cn-shanghai.
+   * - Only database instances with DAS Enterprise Edition enabled support creating offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * For more methods and examples on how to use the Chat interface to interact with the DAS Agent, see [Best practices for DAS Agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
    * 
    * @param request - ChatRequest
    * @returns ChatResponse
@@ -1299,12 +1307,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the audit alert log list for alert search and alert handling.
+   * Queries the list of data audit alert logs to facilitate alert search and processing.
    * 
    * @remarks
-   * Before you begin:
-   * - Use the latest version of the Alibaba Cloud or DAS SDK.
-   * - When you call DAS by using the SDK, set the region to cn-shanghai.
+   * To use this operation, you must meet the following prerequisites:
+   * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+   * - When using the SDK to call DAS, specify the region as cn-shanghai.
    * 
    * @param request - DescribeAuditLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1435,12 +1443,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the audit alert log list for alert search and alert handling.
+   * Queries the list of data audit alert logs to facilitate alert search and processing.
    * 
    * @remarks
-   * Before you begin:
-   * - Use the latest version of the Alibaba Cloud or DAS SDK.
-   * - When you call DAS by using the SDK, set the region to cn-shanghai.
+   * To use this operation, you must meet the following prerequisites:
+   * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+   * - When using the SDK to call DAS, specify the region as cn-shanghai.
    * 
    * @param request - DescribeAuditLogsRequest
    * @returns DescribeAuditLogsResponse
@@ -5037,14 +5045,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the deadlock count trend based on full deadlock analysis of error logs within a specified time range.
+   * Queries the trend of deadlock counts based on full deadlock analysis of error logs within a specified time range.
    * 
    * @remarks
-   * Invokes this operation to query the deadlock count from full deadlock analysis within a specified time range. DAS periodically analyzes fault logs, parses deadlock information, and collects statistics on deadlock count trends. For details, see [Full deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
-   * Before you begin:
-   * - The database DPI engine must be RDS MySQL or PolarDB for MySQL, and [DAS Alibaba Cloud Managed Services (formerly DAS Economy Edition)](https://help.aliyun.com/document_detail/2666482.html) must be enabled.
-   * - If you use the China site (aliyun.com) or DAS SDK, use the latest version.
-   * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
+   * This operation queries the number of deadlocks based on full deadlock analysis within a specified time range. Database Autonomy Service (DAS) periodically analyzes error logs, parses deadlock information, and calculates the trend of deadlock counts. For details, see [Full deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+   * Before you invoke this operation, ensure that the following prerequisites are met:
+   * - The target database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL, and [DAS Alibaba Cloud Managed Services (formerly DAS Economy Edition)](https://help.aliyun.com/document_detail/2666482.html) is activated.
+   * - If you use the Alibaba Cloud SDK or DAS SDK, use the latest version.
+   * - When you use an SDK to invoke DAS, set the region to cn-shanghai.
    * 
    * @param request - GetDeadlockHistogramRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5091,14 +5099,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the deadlock count trend based on full deadlock analysis of error logs within a specified time range.
+   * Queries the trend of deadlock counts based on full deadlock analysis of error logs within a specified time range.
    * 
    * @remarks
-   * Invokes this operation to query the deadlock count from full deadlock analysis within a specified time range. DAS periodically analyzes fault logs, parses deadlock information, and collects statistics on deadlock count trends. For details, see [Full deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
-   * Before you begin:
-   * - The database DPI engine must be RDS MySQL or PolarDB for MySQL, and [DAS Alibaba Cloud Managed Services (formerly DAS Economy Edition)](https://help.aliyun.com/document_detail/2666482.html) must be enabled.
-   * - If you use the China site (aliyun.com) or DAS SDK, use the latest version.
-   * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
+   * This operation queries the number of deadlocks based on full deadlock analysis within a specified time range. Database Autonomy Service (DAS) periodically analyzes error logs, parses deadlock information, and calculates the trend of deadlock counts. For details, see [Full deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+   * Before you invoke this operation, ensure that the following prerequisites are met:
+   * - The target database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL, and [DAS Alibaba Cloud Managed Services (formerly DAS Economy Edition)](https://help.aliyun.com/document_detail/2666482.html) is activated.
+   * - If you use the Alibaba Cloud SDK or DAS SDK, use the latest version.
+   * - When you use an SDK to invoke DAS, set the region to cn-shanghai.
    * 
    * @param request - GetDeadlockHistogramRequest
    * @returns GetDeadlockHistogramResponse
@@ -5582,13 +5590,13 @@ export default class Client extends OpenApi {
    * Queries the list of O&M reports generated by DAS Agent.
    * 
    * @remarks
-   * Enabling the O&M report feature of DAS Agent allows the system to perform periodic inspections on target instances and generate reports. Currently, only daily reports are supported.
-   * Before you begin:
-   * - Activate DAS Agent and ensure that the Agent is still within its validity period.
-   * - Enable the daily report feature on the DAS Agent configuration page.
+   * Enabling the O&M report feature of DAS Agent allows the system to perform regular inspections on target instances and generate reports. Currently, only daily reports are supported.
+   * To use this operation, the following prerequisites must be met:
+   * - You have activated DAS Agent and the agent is still within its validity period.
+   * - You have enabled the daily report feature on the DAS Agent configuration page.
    * - When using the Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is later than 4.3.3. Use the latest version.
-   * - Use DAS SDK 1.0.3 or later.
-   * - When calling DAS by using the SDK, set the region to ap-southeast-1.
+   * - The version of the DAS SDK is 1.0.3 or later.
+   * - When calling DAS services by using the SDK, specify the region as cn-shanghai.
    * 
    * @param request - GetInstanceGroupInspectReportListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5640,13 +5648,13 @@ export default class Client extends OpenApi {
    * Queries the list of O&M reports generated by DAS Agent.
    * 
    * @remarks
-   * Enabling the O&M report feature of DAS Agent allows the system to perform periodic inspections on target instances and generate reports. Currently, only daily reports are supported.
-   * Before you begin:
-   * - Activate DAS Agent and ensure that the Agent is still within its validity period.
-   * - Enable the daily report feature on the DAS Agent configuration page.
+   * Enabling the O&M report feature of DAS Agent allows the system to perform regular inspections on target instances and generate reports. Currently, only daily reports are supported.
+   * To use this operation, the following prerequisites must be met:
+   * - You have activated DAS Agent and the agent is still within its validity period.
+   * - You have enabled the daily report feature on the DAS Agent configuration page.
    * - When using the Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is later than 4.3.3. Use the latest version.
-   * - Use DAS SDK 1.0.3 or later.
-   * - When calling DAS by using the SDK, set the region to ap-southeast-1.
+   * - The version of the DAS SDK is 1.0.3 or later.
+   * - When calling DAS services by using the SDK, specify the region as cn-shanghai.
    * 
    * @param request - GetInstanceGroupInspectReportListRequest
    * @returns GetInstanceGroupInspectReportListResponse
@@ -7838,13 +7846,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a configuration item of Alibaba Cloud Managed Services.
+   * Modifies the configuration items of Alibaba Cloud Managed Services.
    * 
    * @remarks
-   * Before you begin:
-   * - Use the latest version of Alibaba Cloud SDK or DAS SDK.
-   * - When calling DAS by using the SDK, set the region to cn-shanghai.
-   * - This operation enables the latest supported version by default. For information about the databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * To use this API operation, you must meet the following prerequisites:
+   * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+   * - When you use an SDK to call DAS, you must set the region to cn-shanghai.
+   * - By default, this API operation enables the latest supported version. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
    * 
    * @param request - ModifyDasOpsConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7885,13 +7893,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a configuration item of Alibaba Cloud Managed Services.
+   * Modifies the configuration items of Alibaba Cloud Managed Services.
    * 
    * @remarks
-   * Before you begin:
-   * - Use the latest version of Alibaba Cloud SDK or DAS SDK.
-   * - When calling DAS by using the SDK, set the region to cn-shanghai.
-   * - This operation enables the latest supported version by default. For information about the databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * To use this API operation, you must meet the following prerequisites:
+   * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+   * - When you use an SDK to call DAS, you must set the region to cn-shanghai.
+   * - By default, this API operation enables the latest supported version. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
    * 
    * @param request - ModifyDasOpsConfigRequest
    * @returns ModifyDasOpsConfigResponse

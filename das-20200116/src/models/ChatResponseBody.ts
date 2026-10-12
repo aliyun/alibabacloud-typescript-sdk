@@ -29,7 +29,7 @@ export class ChatResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Indicates whether the content is incremental.
+   * Specifies whether the content is incremental.
    * 
    * @example
    * hello
@@ -37,7 +37,7 @@ export class ChatResponseBody extends $dara.Model {
   delta?: string;
   /**
    * @remarks
-   * The step type of STEP_STARTED, such as task.
+   * The step type for STEP_STARTED, such as task.
    * 
    * @example
    * task
@@ -45,10 +45,10 @@ export class ChatResponseBody extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The display name of the sub-agent for STEP_STARTED.
+   * The display name of the child agent for STEP_STARTED.
    * 
    * @example
-   * SQL Performance Diagnostics
+   * SQL performance diagnostics
    */
   label?: string;
   /**
@@ -117,7 +117,7 @@ export class ChatResponseBody extends $dara.Model {
   stepName?: string;
   /**
    * @remarks
-   * The step status of STEP_FINISHED, such as completed.
+   * The step status for STEP_FINISHED, such as completed.
    * 
    * @example
    * completed
@@ -125,7 +125,7 @@ export class ChatResponseBody extends $dara.Model {
   stepStatus?: string;
   /**
    * @remarks
-   * The callback utility class.
+   * The callback tool class.
    * 
    * @example
    * das_api
@@ -149,7 +149,7 @@ export class ChatResponseBody extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The error that occurred during tool invocation.
+   * The error that occurred when invoking the tool.
    * 
    * @example
    * error
@@ -157,7 +157,7 @@ export class ChatResponseBody extends $dara.Model {
   toolCallError?: string;
   /**
    * @remarks
-   * The tool invocation ID.
+   * The tool call ID.
    * 
    * @example
    * call_edf9cdb69e0e4c9796a6a5a6
