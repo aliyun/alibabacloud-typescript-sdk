@@ -16,7 +16,7 @@ export class CreateProductOrdersRequestProductsInstanceProperties extends $dara.
    * The name of the instance property.
    * 
    * @example
-   * Object Storage Service
+   * Object Storage Service (OSS)
    */
   name?: string;
   /**
@@ -55,11 +55,9 @@ export class CreateProductOrdersRequestProductsInstanceProperties extends $dara.
 export class CreateProductOrdersRequestProducts extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal.
-   * 
-   * - true: Enables auto-renewal.
-   * 
-   * - false: Disables auto-renewal.
+   * Specifies whether to enable auto-renewal. Valid values:
+   * - true: Auto-renewal is enabled.
+   * - false: Auto-renewal is disabled.
    * 
    * @example
    * true
@@ -75,7 +73,7 @@ export class CreateProductOrdersRequestProducts extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The subscription duration. This parameter is used with PricingCycle. Currently, only a value of 1 is supported.
+   * The purchase duration. This parameter is used together with PricingCycle. Currently, only 1 is supported.
    * 
    * @example
    * 1
@@ -83,57 +81,52 @@ export class CreateProductOrdersRequestProducts extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The list of instance properties.
-   * 
+   * The list of instance property information.
    * - DataWorks_share:
-   *   [ {
-   *   "Code": "region",
-   *   "Value": "cn-shanghai"
-   *   }
-   *   ]
-   * 
+   * [ {
+   * "Code": "region",
+   * "Value": "cn-shanghai"
+   * }
+   * ]
    * - OSS_share:
-   *   [ {
-   *   "Code": "commodity_type",
-   *   "Value": "oss",
-   *   "Name": "Object Storage Service"
-   *   },
-   *   {
-   *   "Code": "ord_time",
-   *   "Value": "1:Hour",
-   *   "Name": "1 Hour"
-   *   }
-   *   ]
-   * 
+   * [ {
+   * "Code": "commodity_type",
+   * "Value": "oss",
+   * "Name": "Object Storage Service (OSS)"
+   * },
+   * {
+   * "Code": "ord_time",
+   * "Value": "1:Hour",
+   * "Name": "1 hour"
+   * }
+   * ]
    * - PAI_share: None
-   * 
-   * - MaxCompute_share for accounts in mainland China:
-   *   [
-   *   {
-   *   "Code": "region",
-   *   "Value": "cn-hangzhou"
-   *   },
-   *   {
-   *   "Code": "odps_specification_type",
-   *   "Value": "OdpsStandard"
-   *   },
-   *   {
-   *   "Code": "ord_time",
-   *   "Value": "1:Hour"
-   *   }
-   *   ]
-   * 
-   * - MaxCompute_share for accounts outside mainland China:
-   *   [
-   *   {
-   *   "Code": "region",
-   *   "Value": "cn-hangzhou"
-   *   },
-   *   {
-   *   "Code": "ord_time",
-   *   "Value": "1:Hour"
-   *   }
-   *   ]
+   * - MaxCompute_share for the Chinese site:
+   * [
+   * {
+   * "Code": "region",
+   * "Value": "cn-hangzhou"
+   * },
+   * {
+   * "Code": "odps_specification_type",
+   * "Value": "OdpsStandard"
+   * },
+   * {
+   * "Code": "ord_time",
+   * "Value": "1:Hour"
+   * }
+   * ]
+   * - MaxCompute_share for the international site:
+   * [
+   * {
+   * "Code": "region",
+   * "Value": "cn-hangzhou"
+   * },
+   * {
+   * "Code": "ord_time",
+   * "Value": "1:Hour"
+   * }
+   * ]
    */
   instanceProperties?: CreateProductOrdersRequestProductsInstanceProperties[];
   /**
@@ -146,11 +139,9 @@ export class CreateProductOrdersRequestProducts extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The billing cycle. The following values are supported:
-   * 
-   * - Month: Monthly billing. Only DataWorks_share supports this value.
-   * 
-   * - Hour: Hourly billing. Only OSS_share and MaxCompute_share support this value.
+   * The pricing unit. Valid values:
+   * - Month: Monthly pricing. Only DataWorks_share supports this value.
+   * - Hour: Hourly pricing. Only OSS_share and MaxCompute_share support this value.
    * 
    * @example
    * Month
@@ -158,15 +149,11 @@ export class CreateProductOrdersRequestProducts extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * The product code. The following codes are supported:
-   * 
-   * - DataWorks_share: The pay-as-you-go DataWorks product.
-   * 
-   * - MaxCompute_share: The pay-as-you-go MaxCompute product.
-   * 
-   * - PAI_share: The pay-as-you-go PAI product.
-   * 
-   * - OSS_share: The pay-as-you-go OSS product.
+   * The product code. Valid values:
+   * - DataWorks_share: Pay-as-you-go DataWorks.
+   * - MaxCompute_share: Pay-as-you-go MaxCompute.
+   * - PAI_share: Pay-as-you-go PAI.
+   * - OSS_share: Pay-as-you-go OSS.
    * 
    * @example
    * DataWorks_share
@@ -211,11 +198,9 @@ export class CreateProductOrdersRequestProducts extends $dara.Model {
 export class CreateProductOrdersRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically pay for all products listed in the Products parameter.
-   * 
-   * - true: Enables automatic payment.
-   * 
-   * - false: Disables automatic payment.
+   * Specifies whether automatic payment is applied to all products specified in the Products parameter. Valid values:
+   * - true: automatic payment
+   * - false: no automatic payment
    * 
    * @example
    * true
@@ -223,7 +208,7 @@ export class CreateProductOrdersRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The list of products to purchase.
+   * The list of products to purchase, separated by commas.
    */
   products?: CreateProductOrdersRequestProducts[];
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class ListRunsRequest extends $dara.Model {
   experimentId?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The time follows the ISO 8601 standard in UTC. Format: YYYY-MM-DDTHH:mm:ss.sssZ.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -21,11 +21,9 @@ export class ListRunsRequest extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The labels of the run for an exact match. The following formats are supported:
-   * 
+   * The labels of the task for exact match. Supported formats:
    * - Single-label query: "is_evaluation:true"
-   * 
-   * - Multi-label query: "is_evaluation:true,LLM_evaluation:true". This method is not recommended for common scenarios because it may degrade performance. Use commas (,) to separate multiple labels. The system matches all specified key-value pairs.
+   * - Multi-label scenario (not recommended except in special cases due to potential performance issues): "is_evaluation:true,LLM_evaluation:true" separated by commas (,), indicating that multiple label key-value pairs must all match.
    * 
    * @example
    * is_evaluation:true
@@ -33,7 +31,7 @@ export class ListRunsRequest extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The maximum number of results to return. The default value is 10.
+   * The maximum number of results to return. Default value: 10.
    * 
    * @example
    * 10
@@ -41,7 +39,7 @@ export class ListRunsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the run.
+   * The run name.
    * 
    * @example
    * myName
@@ -49,11 +47,9 @@ export class ListRunsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort order for the paged query. Use this parameter with SortBy.
-   * 
-   * - ASC: ascending order.
-   * 
-   * - DESC (default): descending order.
+   * The sorting order for the specified field in a paging query. Used together with SortBy. Valid values:
+   * - ASC: Ascending order.
+   * - DESC (default): Descending order.
    * 
    * @example
    * DESC
@@ -61,7 +57,7 @@ export class ListRunsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The fields to sort by and the sort order. You can sort by GmtCreateTime and Name. Valid sort orders are DESC and ASC. The default is ASC. To sort by multiple fields, separate them with a comma (,).
+   * A comma-separated list of sorting strings. Supported fields: GmtCreateTime and Name. Supported sorting orders: DESC and ASC. Default: ASC. Separate multiple fields with commas (,).
    * 
    * @example
    * GmtCreateTime DESC,Name ASC
@@ -69,7 +65,7 @@ export class ListRunsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number. The value must be greater than 0. Default value: 1.
+   * The page number. Valid values: greater than 0. Default value: 1.
    * 
    * @example
    * 1
@@ -77,7 +73,7 @@ export class ListRunsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records to display on each page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -85,7 +81,7 @@ export class ListRunsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The paging token. The value starts from 0. The default value is 0.
+   * The pagination token. Starts from 0. Default value: 0.
    * 
    * @example
    * 0
@@ -93,11 +89,9 @@ export class ListRunsRequest extends $dara.Model {
   pageToken?: number;
   /**
    * @remarks
-   * The field to use for sorting. Valid values:
-   * 
-   * - Name: the name of the run.
-   * 
-   * - GmtCreateTime (default): the time when the run was created.
+   * The field used for sorting. Valid values:
+   * - Name: The run name.
+   * - GmtCreateTime (default): The run creation time.
    * 
    * @example
    * GmtCreateTime
@@ -121,11 +115,9 @@ export class ListRunsRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Specifies whether to display details, including Metrics, Params, and Labels. Valid values:
-   * 
-   * - true: displays details.
-   * 
-   * - false (default): does not display details.
+   * Specifies whether to display detailed information, including Metrics, Params, and Labels. Valid values:
+   * - true: Detailed information is displayed.
+   * - false (default): Detailed information is not displayed.
    * 
    * @example
    * true
@@ -133,9 +125,9 @@ export class ListRunsRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The ID of the workspace where the experiment resides. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
-   * 
-   * > If you do not specify a workspace ID, the system returns the list of runs in the default workspace.
+   * The ID of the workspace where the experiment resides. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * > If you do not specify a workspace ID, the system returns the run list of the default workspace.
+   * >
    * 
    * @example
    * 228**

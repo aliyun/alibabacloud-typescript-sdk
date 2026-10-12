@@ -194,12 +194,19 @@ export class CreateWorkspaceRoleRequest extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The role type. Valid values: custom (custom role). Only custom roles are supported. This is the default value.
+   * The role type. Valid values: custom: custom role. Only custom roles are supported. This is the default value.
    * 
    * @example
    * custom
    */
   roleType?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 21513926******88039
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

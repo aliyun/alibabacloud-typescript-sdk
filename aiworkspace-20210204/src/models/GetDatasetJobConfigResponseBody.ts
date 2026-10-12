@@ -5,18 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class GetDatasetJobConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration content. The format depends on the ConfigType value.
-   * If ConfigType is MultimodalIntelligentTag, the format is as follows:
+   * The configuration content.
+   * 
+   * The configuration format for MultimodalIntelligentTag is as follows:
    * 
    * {
-   * "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx"
+   *   "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx"
    * }
    * 
-   * If ConfigType is MultimodalSemanticIndex, the format is as follows:
+   * The configuration format for MultimodalSemanticIndex is as follows:
    * 
    * {
-   * "defaultModelId": "xxx",
-   * "defaultModelVersion":"1.0.0"
+   *   "defaultModelId": "xxx"
+   *   "defaultModelVersion":"1.0.0"
    * }
    * 
    * @example
@@ -25,7 +26,7 @@ export class GetDatasetJobConfigResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The configuration type.
+   * The configuration type. Valid values:
    * 
    * - MultimodalIntelligentTag
    * 
@@ -37,7 +38,7 @@ export class GetDatasetJobConfigResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time in the ISO 8601 standard in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2024-10-16T01:44:10Z
@@ -53,7 +54,7 @@ export class GetDatasetJobConfigResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The time when the configuration was last modified.
+   * The modification time of the configuration in the ISO 8601 standard in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2024-12-26T02:17:18Z

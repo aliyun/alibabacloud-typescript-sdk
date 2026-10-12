@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMemberResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The account type of the member. Valid values: 1: primary account. 5: sub-account. 6: role account.
+   * 
+   * @example
+   * 5
+   */
   accountType?: string;
   /**
    * @remarks
@@ -14,7 +21,7 @@ export class GetMemberResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the member was created. The time is in Coordinated Universal Time (UTC) and the format is ISO 8601.
+   * The creation time in UTC, in ISO 8601 format.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z

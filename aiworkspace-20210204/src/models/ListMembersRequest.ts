@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * Username. Fuzzy match is supported.
+   * The member name. Fuzzy match is supported.
    * 
    * @example
    * zhangsan
@@ -13,7 +13,7 @@ export class ListMembersRequest extends $dara.Model {
   memberName?: string;
   /**
    * @remarks
-   * Page number. Pages start at 1. Default value: 1.
+   * The page number of the workspace list. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListMembersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page. Default value: 20.
+   * The paging Settings for the number of entries per page in a paged query. Default value: 20.
    * 
    * @example
    * 20
@@ -29,27 +29,24 @@ export class ListMembersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Roles used to filter members. Separate multiple roles with commas (,). Valid values:
-   * 
-   * - PAI.AlgoDeveloper: Algorithm developer
-   * 
-   * - PAI.AlgoOperator: Algorithm O\\&M engineer
-   * 
-   * - PAI.LabelManager: Annotation administrator
-   * 
-   * - PAI.MaxComputeDeveloper: MaxCompute developer
-   * 
-   * - PAI.WorkspaceAdmin: Workspace administrator
-   * 
-   * - PAI.WorkspaceGuest: Guest
-   * 
-   * - PAI.WorkspaceOwner: Workspace owner
+   * Filters members by role. Separate multiple roles with commas (,).
+   * Valid values:
+   * - PAI.AlgoDeveloper: Algorithm developer.
+   * - PAI.AlgoOperator: Algorithm O&M.
+   * - PAI.LabelManager: Labeling administrator.
+   * - PAI.MaxComputeDeveloper: MaxCompute developer.
+   * - PAI.WorkspaceAdmin: Administrator.
+   * - PAI.WorkspaceGuest: Guest.
+   * - PAI.WorkspaceOwner: Owner.
    * 
    * @example
    * PAI.AlgoDeveloper
    */
   roles?: string;
   /**
+   * @remarks
+   * The ID of the user to query.
+   * 
    * @example
    * 2788******129
    */

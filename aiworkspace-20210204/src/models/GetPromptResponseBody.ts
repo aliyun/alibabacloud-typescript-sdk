@@ -16,7 +16,7 @@ export class GetPromptResponseBody extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in UTC, formatted as YYYY-MM-DDTHH:mm:ssZ in the ISO 8601 standard.
    * 
    * @example
    * 2024-10-16T01:44:10Z
@@ -24,7 +24,7 @@ export class GetPromptResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The prompt description.
+   * The description of the prompt.
    * 
    * @example
    * This is an information extraction prompt for autonomous driving highway scenarios, focusing on extracting lane and weather information
@@ -32,11 +32,11 @@ export class GetPromptResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The prompt content.
+   * The content of the prompt.
    * 
    * @example
    * {
-   *   "context":"You are an experienced driver with ten years of driving experience. Please analyze and make judgments about the following image scenarios.",
+   *   "context":"You are an experienced driver with ten years of driving experience. Please analyze and make judgments about the following image scenario.",
    *   "inputData":"{
    *     \\"Reflective strips\\": \\"Usually yellow or yellow-black alternating, attached to permanent protruding obstacles such as wall corners to remind drivers to avoid them. They are strip-shaped, not cones, not ground locks, not water barriers!\\",
    *     \\"Ground lock\\": \\"Also called a parking space lock, it can prevent a parking space from being occupied when raised. When a ground lock is present, you must indicate whether it is in the raised or lowered state. It is in the raised state when there is a raised frame, otherwise it is in the lowered state.\\",
@@ -46,7 +46,7 @@ export class GetPromptResponseBody extends $dara.Model {
   frameworkContent?: string;
   /**
    * @remarks
-   * The prompt template framework type.
+   * The framework type of the prompt template.
    * 
    * @example
    * ICIO
@@ -54,7 +54,7 @@ export class GetPromptResponseBody extends $dara.Model {
   frameworkType?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time in UTC, formatted as YYYY-MM-DDTHH:mm:ssZ in the ISO 8601 standard.
    * 
    * @example
    * 2024-08-27T02:01:10Z
@@ -62,7 +62,7 @@ export class GetPromptResponseBody extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The prompt name.
+   * The name of the prompt.
    * 
    * @example
    * Autonomous driving prompt

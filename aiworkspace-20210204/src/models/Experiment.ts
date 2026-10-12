@@ -7,32 +7,41 @@ import { Run } from "./Run";
 export class Experiment extends $dara.Model {
   /**
    * @remarks
-   * Accessibility
+   * The visibility of the experiment. PRIVATE indicates that the experiment is visible only to the creator and their Alibaba Cloud account. PUBLIC indicates that the experiment is visible to all users.
+   * 
+   * @example
+   * PRIVATE
    */
   accessibility?: string;
   /**
    * @remarks
-   * ArtifactUri
+   * The default artifact output path for tasks associated with the experiment. Currently, only OSS paths are supported.
+   * 
+   * @example
+   * oss://test-bucket.oss-cn-hangzhou.aliyuncs.com/test
    */
   artifactUri?: string;
   /**
    * @remarks
-   * ExperimentId
+   * The experiment ID.
+   * 
+   * @example
+   * exp-1zpfthdx******
    */
   experimentId?: string;
   /**
    * @remarks
-   * GmtCreatedTime
+   * The time when the experiment was created.
    */
   gmtCreateTime?: string;
   /**
    * @remarks
-   * GmtModifiedTime
+   * The time when the experiment was last modified.
    */
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Labels
+   * The list of labels for the experiment.
    */
   labels?: ExperimentLabel[];
   /**
@@ -42,32 +51,38 @@ export class Experiment extends $dara.Model {
   latestRun?: Run;
   /**
    * @remarks
-   * Name
+   * The name of the experiment.
+   * 
+   * @example
+   * exp-test
    */
   name?: string;
   /**
    * @remarks
-   * OwnerId
+   * The Alibaba Cloud account ID of the experiment owner.
    */
   ownerId?: string;
   /**
    * @remarks
-   * RequestId
+   * The request ID.
    */
   requestId?: string;
   /**
    * @remarks
-   * TensorboardLogUri
+   * The default OSS storage path for TensorBoard logs of each trial in the experiment.
    */
   tensorboardLogUri?: string;
   /**
    * @remarks
-   * UserId
+   * The user ID of the experiment creator.
    */
   userId?: string;
   /**
    * @remarks
-   * WorkspaceId
+   * The ID of the workspace to which the experiment belongs.
+   * 
+   * @example
+   * 1517**
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

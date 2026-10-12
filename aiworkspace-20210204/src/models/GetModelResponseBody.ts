@@ -7,11 +7,9 @@ import { ModelVersion } from "./ModelVersion";
 export class GetModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the workspace. Valid values:
-   * 
-   * - PRIVATE: The model is visible only to you and administrators in the workspace.
-   * 
-   * - PUBLIC: The model is visible to everyone in the workspace.
+   * The workspace visibility. Valid values:
+   * - PRIVATE: Visible only to you and administrators in this workspace.
+   * - PUBLIC: Visible to all users in this workspace.
    * 
    * @example
    * PUBLIC
@@ -19,7 +17,7 @@ export class GetModelResponseBody extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The domain. This indicates the domain of the problem that the model is designed to solve, such as natural language processing (NLP) and computer vision (CV).
+   * The domain. Describes the domain to which the problem solved by the model belongs, such as nlp (natural language processing) and cv (computer vision).
    * 
    * @example
    * cv
@@ -27,7 +25,7 @@ export class GetModelResponseBody extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Other information about the model.
+   * The extra information of the model.
    * 
    * @example
    * {
@@ -43,7 +41,7 @@ export class GetModelResponseBody extends $dara.Model {
   extraInfo?: { [key: string]: any };
   /**
    * @remarks
-   * The UTC time when the model was created. The time is in the ISO 8601 format.
+   * The UTC time of model creation, in ISO 8601 format.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -51,7 +49,7 @@ export class GetModelResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the latest version was updated.
+   * The time when the latest version was modified, in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.sssZ format.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -59,7 +57,7 @@ export class GetModelResponseBody extends $dara.Model {
   gmtLatestVersionModifiedTime?: string;
   /**
    * @remarks
-   * The UTC time when the model was last updated. The time is in the ISO 8601 format.
+   * The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -67,7 +65,7 @@ export class GetModelResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The list of labels for the model.
+   * The list of model labels.
    */
   labels?: Label[];
   /**
@@ -80,7 +78,7 @@ export class GetModelResponseBody extends $dara.Model {
    * The model description.
    * 
    * @example
-   * General sentiment analysis.
+   * General sentiment analysis
    */
   modelDescription?: string;
   /**
@@ -104,7 +102,7 @@ export class GetModelResponseBody extends $dara.Model {
    * The model name.
    * 
    * @example
-   * Sentiment analysis
+   * Sentiment Analysis
    */
   modelName?: string;
   /**
@@ -125,7 +123,7 @@ export class GetModelResponseBody extends $dara.Model {
   orderNumber?: number;
   /**
    * @remarks
-   * The source of the model. This indicates the community or organization to which the source model belongs, such as ModelScope and HuggingFace.
+   * The model origin. Describes the community or organization to which the source model belongs, such as ModelScope and HuggingFace.
    * 
    * @example
    * ModelScope
@@ -133,7 +131,7 @@ export class GetModelResponseBody extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1234567890******
@@ -141,7 +139,7 @@ export class GetModelResponseBody extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The number of parameters, in millions.
+   * The number of parameters, in millions (M).
    * 
    * @example
    * 3000
@@ -165,7 +163,7 @@ export class GetModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task. This indicates the specific problem that the model is designed to solve, such as text classification.
+   * The task. Describes the specific problem that the model solves, such as text-classification (text categorization).
    * 
    * @example
    * text-classification

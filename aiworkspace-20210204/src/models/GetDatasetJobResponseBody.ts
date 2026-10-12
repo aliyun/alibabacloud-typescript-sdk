@@ -13,7 +13,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   completedFileCount?: number;
   /**
    * @remarks
-   * The time when the task was started.
+   * The time when the job was started, in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-11-15T07:06:42Z
@@ -21,10 +21,10 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The task description.
+   * The job description.
    * 
    * @example
-   * This is a task description.
+   * This is a job description
    */
   description?: string;
   /**
@@ -37,7 +37,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   failedFileCount?: number;
   /**
    * @remarks
-   * The time when the task was finished.
+   * The time when the job ended, in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-07-16T02:03:23Z
@@ -45,7 +45,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The task operation.
+   * The job action.
    * 
    * @example
    * SemanticIndex
@@ -53,7 +53,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   jobAction?: string;
   /**
    * @remarks
-   * The task pattern.
+   * The job mode.
    * 
    * @example
    * Full
@@ -61,7 +61,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   jobMode?: string;
   /**
    * @remarks
-   * The task details.
+   * The job details.
    * 
    * @example
    * {\\"modelId\\":\\"xxx\\"}
@@ -82,7 +82,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task status.
+   * The job status.
    * 
    * @example
    * Running
@@ -90,7 +90,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of files for the task.
+   * The total number of files in the job.
    * 
    * @example
    * 1000

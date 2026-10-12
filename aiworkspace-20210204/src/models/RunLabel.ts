@@ -18,11 +18,17 @@ export class RunLabel extends $dara.Model {
    * Key of the label
    * 
    * This parameter is required.
+   * 
+   * @example
+   * is_evaluation
    */
   key?: string;
   /**
    * @remarks
    * ID of the Run that owns this label
+   * 
+   * @example
+   * run-1qJhzJ2YXgX****
    */
   runId?: string;
   /**
@@ -30,6 +36,9 @@ export class RunLabel extends $dara.Model {
    * Value of the label
    * 
    * This parameter is required.
+   * 
+   * @example
+   * true
    */
   value?: string;
   static names(): { [key: string]: string } {

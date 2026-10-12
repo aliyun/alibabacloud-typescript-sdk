@@ -64,7 +64,7 @@ export class AddImageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The image ID. If this parameter is not specified, the system automatically generates one. The format is image- followed by 18 uppercase or lowercase letters or digits.
+   * The image ID. If you do not specify this parameter, the system automatically generates one. The format is image- followed by 18 uppercase or lowercase letters or digits.
    * 
    * @example
    * image-k83*****cv
@@ -129,7 +129,10 @@ export class AddImageRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The image source ID. When the image source type is Build, the source ID corresponds to the image build ID.
+   * The image source ID. If the image source type is Build, the source ID corresponds to the image build ID.
+   * 
+   * @example
+   * build-****ks92
    */
   sourceId?: string;
   /**
@@ -137,8 +140,15 @@ export class AddImageRequest extends $dara.Model {
    * The image source type. Valid values:
    * - Import: import.
    * - Build: generate.
+   * 
+   * @example
+   * Build
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * The user ID (UID) of the image creator.
+   */
   userId?: string;
   /**
    * @remarks

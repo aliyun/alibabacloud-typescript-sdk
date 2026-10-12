@@ -7,7 +7,7 @@ import { UserMetricsEndpoint } from "./UserMetricsEndpoint";
 export class GetDatasetVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data volume.
+   * The data count.
    * 
    * @example
    * 10000
@@ -23,7 +23,10 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The data source type.
+   * The data source type. Valid values:
+   * - NAS: File Storage NAS.
+   * - CPFS: Cloud Parallel File Storage.
+   * - OSS: Object Storage Service (OSS).
    * 
    * This parameter is required.
    * 
@@ -33,7 +36,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The primary resource ID.
+   * The primary ID of the resource.
    * 
    * @example
    * d-dkdbnnap0g7b6su4yg
@@ -57,7 +60,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.sssZ format.
    * 
    * @example
    * 2023-12-13T10:22:05.694Z
@@ -65,7 +68,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last modification time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.sssZ format.
    * 
    * @example
    * 2023-12-13T10:22:05.694Z
@@ -78,9 +81,9 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
    * <details>
    * <summary>OSS</summary>
    * {
-   * "region": "${region}",//The region ID.
-   * "bucket": "${bucket}",//The bucket name.
-   * "path": "${path}" //The file path.
+   * "region": "${region}",// The region ID
+   * "bucket": "${bucket}",// The bucket name
+   * "path": "${path}" // The file path
    * }
    * </details>
    * 
@@ -96,7 +99,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
    * 
    * 
    * <details>
-   * <summary>Intelligent computing CPFS</summary>
+   * <summary>AI CPFS</summary>
    * Block content
    * </details>
    * 
@@ -112,14 +115,14 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   importInfo?: string;
   /**
    * @remarks
-   * The resource labels.
+   * The resource tags.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The permission when the dataset is mounted. Valid values:
-   * - RO: read-only mount
-   * - RW: read and write mount
+   * The permissions when the dataset is mounted. Valid values:
+   * - RO: Read-only mount.
+   * - RW: Read/write mount.
    * 
    * @example
    * RO
@@ -127,7 +130,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   mountAccess?: string;
   /**
    * @remarks
-   * The extension field.
+   * The extended fields.
    * 
    * @example
    * {
@@ -137,7 +140,9 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The property of the dataset.
+   * The property of the dataset. Valid values:
+   * - DIRECTORY: Directory.
+   * - FILE: File.
    * 
    * This parameter is required.
    * 
@@ -155,7 +160,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The dataset source ID.
+   * The source ID of the dataset.
    * 
    * @example
    * d-rbvg5wzljzjhc9ks92
@@ -163,7 +168,10 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The data source type.
+   * The source type. Valid values:
+   * - ENHANCE: Data augmentation.
+   * - ADDVERSION: Added version.
+   * - CLEANING: Data cleaning.
    * 
    * @example
    * USER
@@ -179,6 +187,13 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
    * oss://ai4d-br7hx9ngzelo2o6uip.oss-cn-shanghai.aliyuncs.com/365349/data-1157703270994901/datasets/aka108o/
    */
   uri?: string;
+  /**
+   * @remarks
+   * The list of user metric collection endpoints.
+   * 
+   * @example
+   * [{"Port":0,"Path":""}]
+   */
   userMetricsEndpoints?: UserMetricsEndpoint[];
   /**
    * @remarks

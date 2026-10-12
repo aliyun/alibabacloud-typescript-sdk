@@ -11,6 +11,9 @@ export class Trial extends $dara.Model {
   /**
    * @remarks
    * ExperimentId
+   * 
+   * @example
+   * exp-1zpfthdx******
    */
   experimentId?: string;
   /**
@@ -51,6 +54,9 @@ export class Trial extends $dara.Model {
   /**
    * @remarks
    * TrialId
+   * 
+   * @example
+   * trl-v0fw9a0sd8f9af
    */
   trialId?: string;
   /**

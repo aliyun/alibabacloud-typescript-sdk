@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetLabel extends $dara.Model {
   /**
    * @remarks
-   * The label key, which must be 1 to 128 characters long.
+   * The key of the dataset label.
+   * 
+   * @example
+   * env
    */
   key?: string;
   /**
    * @remarks
-   * The label value, which can be 0 to 128 characters long.
+   * The value of the dataset label.
+   * 
+   * @example
+   * test
    */
   value?: string;
   static names(): { [key: string]: string } {

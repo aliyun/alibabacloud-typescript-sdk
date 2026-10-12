@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of return fields for workspace details. This parameter limits the workspace properties returned in the result.
-   * Separate multiple properties with commas (,). Currently, only Id is supported, which indicates the workspace ID.
+   * The list of fields to return in the workspace details. Use this parameter to limit the workspace properties included in the response. Separate multiple properties with commas (,). Currently, only Id (workspace ID) is supported.
    * 
    * @example
    * Id
@@ -14,7 +13,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   fields?: string;
   /**
    * @remarks
-   * The comma-separated list of modules. Default value: PAI.
+   * The comma-separated module list. Default value: PAI.
    * 
    * @example
    * PAI
@@ -22,9 +21,9 @@ export class ListWorkspacesRequest extends $dara.Model {
   moduleList?: string;
   /**
    * @remarks
-   * The query option. Valid values:
-   * * GetWorkspaces (default): retrieves the workspace list. The Workspaces parameter is returned.
-   * * GetResourceLimits: retrieves resource limits. The ResourceLimits parameter is returned.
+   * The query options. Valid values:
+   * * GetWorkspaces (default): retrieves the workspace list and returns Workspaces.
+   * * GetResourceLimits: retrieves resource limits and returns ResourceLimits.
    * 
    * @example
    * GetWorkspaces
@@ -32,7 +31,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   option?: string;
   /**
    * @remarks
-   * The sorting order for the specified sorting field during paging. Valid values:
+   * The sort order applied to the specified sort field in a paged query. Valid values:
    * * ASC (default): ascending order.
    * * DESC: descending order.
    * 
@@ -50,7 +49,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging. Default value: 20.
+   * The number of entries per page for a paged query. Default value: 20.
    * 
    * @example
    * 20
@@ -58,7 +57,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID. For information about how to view the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The resource group ID. For information about how to view the resource group ID, see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmwp7rky****
@@ -66,7 +65,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The sorting field for paging. Default value: GmtCreateTime. Valid values:
+   * The sort field for a paged query. Default value: GmtCreateTime. Valid values:
    * * GmtCreateTime (default): sorts by creation time.
    * * GmtModifiedTime: sorts by modification time.
    * 
@@ -78,12 +77,12 @@ export class ListWorkspacesRequest extends $dara.Model {
    * @remarks
    * The workspace status. Valid values:
    * 
-   * - ENABLED: Normal.
-   * - INITIALIZING: Being initialized.
-   * - FAILURE: Failed.
-   * - DISABLED: Manually disabled.
-   * - FROZEN: Frozen due to overdue payment.
-   * - UPDATING: Being updated.
+   * - ENABLED: normal.
+   * - INITIALIZING: initializing.
+   * - FAILURE: failed.
+   * - DISABLED: manually disabled.
+   * - FROZEN: frozen due to overdue payment.
+   * - UPDATING: updating.
    * 
    * @example
    * ENABLED
@@ -99,9 +98,9 @@ export class ListWorkspacesRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Specifies whether to display detailed workspace information. Valid values:
-   * - false (default): does not display detailed information.
-   * - true: displays detailed information.
+   * Specifies whether to display workspace details. Valid values:
+   * - false (default): does not display details.
+   * - true: displays details.
    * 
    * @example
    * true

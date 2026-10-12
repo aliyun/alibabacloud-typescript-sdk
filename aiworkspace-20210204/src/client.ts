@@ -53,27 +53,7 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "aiworkspace.aliyuncs.com",
       'me-east-1': "aiworkspace.aliyuncs.com",
       'rus-west-1-pop': "aiworkspace.aliyuncs.com",
-      'cn-wulanchabu': "aiworkspace.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "aiworkspace.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "aiworkspace.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "aiworkspace.cn-hongkong.aliyuncs.com",
-      'cn-heyuan': "aiworkspace.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou': "aiworkspace.cn-hangzhou.aliyuncs.com",
       'cn-guangzhou': "aiworkspace.cn-guangzhou.aliyuncs.com	",
-      'cn-beijing': "aiworkspace.cn-beijing.aliyuncs.com",
-      'ap-southeast-8': "aiworkspace.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-7': "aiworkspace.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-3': "aiworkspace.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "aiworkspace.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "aiworkspace.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "aiworkspace.ap-northeast-1.aliyuncs.com",
-      'eu-central-1': "aiworkspace.eu-central-1.aliyuncs.com",
-      'na-south-1': "aiworkspace.na-south-1.aliyuncs.com",
-      'us-east-1': "aiworkspace.us-east-1.aliyuncs.com",
-      'us-southeast-1': "aiworkspace.us-southeast-1.aliyuncs.com",
-      'us-west-1': "aiworkspace.us-west-1.aliyuncs.com",
-      'ap-south-1': "aiworkspace.ap-south-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "aiworkspace.cn-shanghai-finance-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("aiworkspace", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -574,6 +554,10 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.edition)) {
       body["Edition"] = request.edition;
     }
@@ -913,6 +897,9 @@ export default class Client extends OpenApi {
   /**
    * Creates a dataset version.
    * 
+   * @remarks
+   * Creates a dataset version.
+   * 
    * @param request - CreateDatasetVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -939,6 +926,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.importInfo)) {
@@ -992,6 +983,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a dataset version.
+   * 
+   * @remarks
    * Creates a dataset version.
    * 
    * @param request - CreateDatasetVersionRequest
@@ -1544,7 +1538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
+   * Purchases products. Currently, only pay-as-you-go DataWorks, OSS, PAI, and MaxCompute are supported.
    * 
    * @param request - CreateProductOrdersRequest
    * @param headers - map
@@ -1581,7 +1575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
+   * Purchases products. Currently, only pay-as-you-go DataWorks, OSS, PAI, and MaxCompute are supported.
    * 
    * @param request - CreateProductOrdersRequest
    * @returns CreateProductOrdersResponse
@@ -1839,7 +1833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a workspace role.
+   * Adds a role to a workspace.
    * 
    * @param request - CreateWorkspaceRoleRequest
    * @param headers - map
@@ -1884,7 +1878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a workspace role.
+   * Adds a role to a workspace.
    * 
    * @param request - CreateWorkspaceRoleRequest
    * @returns CreateWorkspaceRoleResponse
@@ -3281,7 +3275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of a dataset job.
+   * Retrieves the configuration of a dataset task.
    * 
    * @param request - GetDatasetJobConfigRequest
    * @param headers - map
@@ -3314,7 +3308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of a dataset job.
+   * Retrieves the configuration of a dataset task.
    * 
    * @param request - GetDatasetJobConfigRequest
    * @returns GetDatasetJobConfigResponse
@@ -3326,7 +3320,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information of a specified dataset version.
+   * Retrieves the details of a specified dataset version.
+   * 
+   * @remarks
+   * Retrieves the details of a specified dataset version.
    * 
    * @param request - GetDatasetVersionRequest
    * @param headers - map
@@ -3353,7 +3350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information of a specified dataset version.
+   * Retrieves the details of a specified dataset version.
+   * 
+   * @remarks
+   * Retrieves the details of a specified dataset version.
    * 
    * @param request - GetDatasetVersionRequest
    * @returns GetDatasetVersionResponse
@@ -3539,7 +3539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a member of a workspace.
+   * Retrieves the members of a workspace.
    * 
    * @param request - GetMemberRequest
    * @param headers - map
@@ -3576,7 +3576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a member of a workspace.
+   * Retrieves the members of a workspace.
    * 
    * @param request - GetMemberRequest
    * @returns GetMemberResponse
@@ -3588,7 +3588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified model.
+   * Retrieves the details of a specified model.
    * 
    * @param request - GetModelRequest
    * @param headers - map
@@ -3615,7 +3615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified model.
+   * Retrieves the details of a specified model.
    * 
    * @param request - GetModelRequest
    * @returns GetModelResponse
@@ -4868,7 +4868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of images.
+   * Retrieves a list of images.
    * 
    * @param request - ListImagesRequest
    * @param headers - map
@@ -4945,7 +4945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of images.
+   * Retrieves a list of images.
    * 
    * @param request - ListImagesRequest
    * @returns ListImagesResponse
@@ -4957,7 +4957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists members in a workspace.
+   * Lists the members of a workspace.
    * 
    * @param request - ListMembersRequest
    * @param headers - map
@@ -5006,7 +5006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists members in a workspace.
+   * Lists the members of a workspace.
    * 
    * @param request - ListMembersRequest
    * @returns ListMembersResponse
@@ -5838,10 +5838,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of workspaces in a specified region.
+   * Retrieves the list of workspaces in a region.
    * 
    * @remarks
-   * You can specify different query options by using the option parameter to retrieve different workspace-related information.
+   * Use the Option parameter to specify different query options and retrieve different workspace-related information.
    * 
    * @param request - ListWorkspacesRequest
    * @param headers - map
@@ -5922,10 +5922,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of workspaces in a specified region.
+   * Retrieves the list of workspaces in a region.
    * 
    * @remarks
-   * You can specify different query options by using the option parameter to retrieve different workspace-related information.
+   * Use the Option parameter to specify different query options and retrieve different workspace-related information.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -6829,6 +6829,9 @@ export default class Client extends OpenApi {
   /**
    * Updates the information of a specified dataset version.
    * 
+   * @remarks
+   * Updates the information of a specified dataset version.
+   * 
    * @param request - UpdateDatasetVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6880,6 +6883,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the information of a specified dataset version.
+   * 
+   * @remarks
    * Updates the information of a specified dataset version.
    * 
    * @param request - UpdateDatasetVersionRequest

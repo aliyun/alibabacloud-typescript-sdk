@@ -46,10 +46,8 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   /**
    * @remarks
    * The visibility of the image. Valid values:
-   * 
-   * - PUBLIC: All members in the current workspace can perform operations on the image.
-   * 
-   * - PRIVATE: Only the creator can perform operations on the image.
+   * - PUBLIC: All members of the current workspace can operate on the image.
+   * - PRIVATE: Only the creator can operate on the image.
    * 
    * @example
    * PUBLIC
@@ -65,7 +63,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the image was created. The time is in UTC and the format is ISO 8601.
+   * The creation time in UTC, in ISO 8601 format.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -73,7 +71,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the image was last modified. The time is in UTC and the format is ISO 8601.
+   * The modification time in UTC, in ISO 8601 format.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -89,12 +87,12 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image URL, which includes the version number.
+   * The image URI, including the version number.
    */
   imageUri?: string;
   /**
    * @remarks
-   * The list of image labels.
+   * The image label list.
    */
   labels?: ListImagesResponseBodyImagesLabels[];
   /**
@@ -107,7 +105,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account that created the image.
+   * The UID of the Alibaba Cloud account of the creator.
    * 
    * @example
    * 155**********904
@@ -115,7 +113,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   parentUserId?: string;
   /**
    * @remarks
-   * The image size in bytes.
+   * The image size, in bytes.
    * 
    * @example
    * 2
@@ -123,17 +121,23 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The ID of the image source.
+   * The image source ID.
+   * 
+   * @example
+   * build-****ks92
    */
   sourceId?: string;
   /**
    * @remarks
-   * The type of the image source.
+   * The image source type.
+   * 
+   * @example
+   * Build
    */
   sourceType?: string;
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account that created the image.
+   * The UID of the Alibaba Cloud account of the creator.
    * 
    * @example
    * 155**********904
@@ -200,7 +204,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
 export class ListImagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of images.
+   * The image list.
    */
   images?: ListImagesResponseBodyImages[];
   /**
@@ -213,7 +217,7 @@ export class ListImagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned images.
+   * The total number of images returned.
    * 
    * @example
    * 2

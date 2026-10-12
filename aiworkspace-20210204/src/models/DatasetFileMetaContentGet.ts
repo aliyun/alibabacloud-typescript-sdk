@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetFileMetaContentGet extends $dara.Model {
   /**
    * @remarks
-   * The comment on the file.
+   * The file comment.
    * 
    * @example
    * The first image file in the dataset.
@@ -13,10 +13,10 @@ export class DatasetFileMetaContentGet extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The MIME type of the file. It includes a type and a subtype.
+   * The MIME type of the file, which includes the type and subtype.
    * 
    * @example
-   * text/png
+   * image/png
    */
   contentType?: string;
   /**
@@ -37,7 +37,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
   datasetFileMetaId?: string;
   /**
    * @remarks
-   * The time when the file was created. The time is in the ISO 8601 format.
+   * The creation time of the file in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -47,7 +47,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
   fileCreateTime?: string;
   /**
    * @remarks
-   * The path of the folder where the OSS, NAS, or CPFS file is located.
+   * The directory path of the OSS, NAS, or CPFS file.
    * 
    * @example
    * icp_certificate_card/icp/1577179298694813/1716429710367
@@ -55,7 +55,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
   fileDir?: string;
   /**
    * @remarks
-   * The fingerprint of the file. This value ensures the uniqueness of the file content. The value changes if the file content is modified. For OSS files, the ETag is used. For NAS files, the MD5 hash is used.
+   * The fingerprint of the file. This value is used to determine the uniqueness of the file content and changes when the file content is modified. The ETag is used for OSS files, and the MD5 value is used for NAS files.
    * 
    * @example
    * D41D8CD98F*****E9800998ECF8
@@ -71,7 +71,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file type. This is the same as the Multipurpose Internet Mail Extensions (MIME) type.
+   * The file type. This is the same as the MIME type.
    * 
    * @example
    * image
@@ -79,7 +79,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The time when the file was last modified. The time is in the ISO 8601 format.
+   * The last modification time of the file in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -89,22 +89,18 @@ export class DatasetFileMetaContentGet extends $dara.Model {
   fileUpdateTime?: string;
   /**
    * @remarks
-   * The specific metadata of the file. This metadata cannot be used for retrieval. The format is a JSON string.
+   * The specific metadata of the file in JSON string format. This metadata does not support search capabilities.
    * 
    * @example
    * {
-   *     "Image":
-   *     {
-   *         "Width": 1920,
-   *         "Height": 1080,
-   *         "Channel": 3
-   *     }
+   *     "ImageHeight": 1080,
+   *     "ImageWidth": 1920
    * }
    */
   metaAttributes?: string;
   /**
    * @remarks
-   * The ID of the job that builds the semantic index.
+   * The task ID for building the semantic index.
    * 
    * @example
    * dsjob-klfwtjtov*****scvt3
@@ -120,10 +116,17 @@ export class DatasetFileMetaContentGet extends $dara.Model {
    * 2021-01-12T14:36:01.000Z
    */
   semanticIndexUpdateTime?: string;
+  /**
+   * @remarks
+   * The status of the file metadata. ACTIVE indicates that the metadata is valid, and DELETED indicates that the metadata is deleted.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
   /**
    * @remarks
-   * The time when the tag was last modified. The time is in the ISO 8601 format.
+   * The last modification time of the tags in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -133,59 +136,44 @@ export class DatasetFileMetaContentGet extends $dara.Model {
   tagUpdateTime?: string;
   /**
    * @remarks
-   * A collection of tags for the metadata. It includes the following groups:
-   * 
-   * - Algorithm tag group:
-   * 
-   *   - ai: A list of tag names aggregated from all algorithmic tagging tasks for a single metadata record.
-   * 
-   * - User-defined tag group:
-   * 
-   *   - user: A list of tag names that a user adds to a single metadata record.
-   * 
-   *   - user-delete-ai-tags: A list of tag names from the algorithm tag group that the user wants to delete from a single metadata record.
+   * The collection of tags for this metadata, including:
+   * - Algorithm tag groups:
+   *   - ai: A list of tag names summarized from all algorithm tagging tasks for a single metadata entry.
+   * - User-defined tag groups:
+   *   - user: A list of tag names added by the user for a single metadata entry.
+   *   - user-delete-ai-tags: A list of tag names to be deleted by the user from the algorithm tag group for a single metadata entry.
    * 
    * @example
    * {
    *     "ai":
    *     [
-   *         "Felis catus",
-   *         "Shorthair"
+   *         "Lane line",
+   *         "Water horse",
+   *         "Sunny day"
    *     ],
    *     "user":
    *     [
-   *         "cat",
-   *         "White"
+   *         "Everett",
+   *         "Intelligent driving Dataset 1",
+   *         "Cloudy day"
+   *     ],
+   *     "user-delete-ai-tags":
+   *     [
+   *         "Sunny day"
    *     ]
    * }
    */
   tags?: string;
   /**
    * @remarks
-   * The unique URI of the file. This URI records the unique path of the file. Paths for files in OSS and NAS are supported.
-   * 
+   * The unique URI of the file. This URI records the unique path of the file. File paths in OSS and NAS are supported.
    * <details>
-   * 
-   * <summary>
-   * 
-   * OSS
-   * 
-   * </summary>
-   * 
-   * oss\\://${bucket}/${path}
-   * 
+   * <summary>OSS</summary>
+   * oss://${bucket}/${path}
    * </details>
-   * 
    * <details>
-   * 
-   * <summary>
-   * 
-   * NAS
-   * 
-   * </summary>
-   * 
-   * nas\\://${fileSystemId}/${path}
-   * 
+   * <summary>NAS</summary>
+   * nas://${fileSystemId}/${path}
    * </details>
    * 
    * @example

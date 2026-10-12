@@ -38,7 +38,8 @@ export class UpdateDatasetVersionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The extended field in JsonString format. When DLC uses the dataset, you can specify the default mount path of the dataset by configuring the mountPath field.
+   * The extended field in JsonString format.
+   * When Deep Learning Containers (DLC) uses the dataset, you can specify the default mount path of the dataset by configuring the mountPath field.
    * 
    * @example
    * {
@@ -46,6 +47,10 @@ export class UpdateDatasetVersionRequest extends $dara.Model {
    * }
    */
   options?: string;
+  /**
+   * @remarks
+   * The list of user metric collection endpoints.
+   */
   userMetricsEndpoints?: UserMetricsEndpoint[];
   static names(): { [key: string]: string } {
     return {

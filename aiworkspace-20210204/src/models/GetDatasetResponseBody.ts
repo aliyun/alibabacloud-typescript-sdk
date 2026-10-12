@@ -8,7 +8,7 @@ import { DatasetShareRelationship } from "./DatasetShareRelationship";
 export class GetDatasetResponseBodySharingConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of sharing configuration relationships.
+   * The list of sharing configurations.
    */
   sharedTo?: DatasetShareRelationship[];
   static names(): { [key: string]: string } {
@@ -39,8 +39,8 @@ export class GetDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
    * The workspace visibility. Valid values:
-   * - PRIVATE: Only the dataset owner and administrators in the workspace can access the dataset.
-   * - PUBLIC: All members in the workspace can access the dataset.
+   * - PRIVATE: Only the dataset owner and administrators within the workspace can access the dataset.
+   * - PUBLIC: All members of the workspace can access the dataset.
    * - ROLE_PUBLIC: Only specified workspace roles can access the dataset. For the role list, see AccessibleRoleIdList. The dataset owner and administrators always have access under this condition.
    * 
    * @example
@@ -49,14 +49,14 @@ export class GetDatasetResponseBody extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The list of workspace role names that can access the dataset. This field takes effect when Accessibility is ROLE_PUBLIC. IDs starting with PAI are basic role IDs, and IDs starting with role- are custom role IDs.
+   * The list of workspace role names that can access the dataset. This parameter takes effect only when Accessibility is set to ROLE_PUBLIC. Role IDs starting with PAI are basic role IDs, and role IDs starting with role- are custom role IDs.
    */
   accessibleRoleIdList?: string[];
   /**
    * @remarks
    * The data source type. Valid values:
-   * - OSS: Alibaba Cloud Object Storage Service (OSS).
-   * - NAS: Alibaba Cloud Apsara File Storage NAS (NAS).
+   * - OSS: Object Storage Service (OSS).
+   * - NAS: Apsara File Storage NAS (NAS).
    * 
    * @example
    * NAS
@@ -89,7 +89,7 @@ export class GetDatasetResponseBody extends $dara.Model {
    * The description.
    * 
    * @example
-   * Data for labeling
+   * Data for annotation
    */
   description?: string;
   /**
@@ -108,7 +108,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   edition?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time, in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ss.sssZ.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -116,7 +116,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time, in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ss.sssZ.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -162,8 +162,8 @@ export class GetDatasetResponseBody extends $dara.Model {
    * "region": "${region}",//Region ID<BR>
    * "fileSystemId": "${file_system_id}", //File system ID<BR>
    * "path": "${path}", //File system path<BR>
-   * "mountTarget": "${mount_target}" //File system mount target, specific to Lingjun edition<BR>
-   * "isVpcMount": boolean, //Whether it is a VPC mount target, specific to Lingjun edition<BR>
+   * "mountTarget": "${mount_target}" //File system mount target, specific to Lingjun<BR>
+   * "isVpcMount": boolean, //Specifies whether the mount target is a VPC mount target, specific to Lingjun<BR>
    * }<BR>
    * </details>
    * 
@@ -197,9 +197,9 @@ export class GetDatasetResponseBody extends $dara.Model {
   latestVersion?: DatasetVersion;
   /**
    * @remarks
-   * The permission when the dataset is mounted. Valid values:
+   * The permission when the dataset is mounted.
    * - RO: read-only mount.
-   * - RW: read-write mount.
+   * - RW: read/write mount.
    * 
    * @example
    * RW
@@ -207,7 +207,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   mountAccess?: string;
   /**
    * @remarks
-   * The list of workspace role names that have read and write permission on the dataset. IDs starting with PAI are basic role IDs, and IDs starting with role- are custom role IDs. If the list contains "*", all roles have read and write permission.
+   * The list of workspace role names that have read and write permission on the dataset. Role IDs starting with PAI are basic role IDs, and role IDs starting with role- are custom role IDs. If the list contains "*", all roles have read and write permission.
    */
   mountAccessReadWriteRoleIdList?: string[];
   /**
@@ -275,7 +275,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The source relationship of the shared dataset. This field is valid only when IsShared is true.
+   * The source relationship of the shared dataset. This parameter is valid only when IsShared is true.
    */
   sharedFrom?: DatasetShareRelationship;
   /**
@@ -285,7 +285,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   sharingConfig?: GetDatasetResponseBodySharingConfig;
   /**
    * @remarks
-   * The source dataset ID of the iTag labeling dataset.
+   * The source dataset ID of the iTAG annotation dataset.
    * 
    * @example
    * d-rcdg3wxxxxxhc5jk87
@@ -293,7 +293,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   sourceDatasetId?: string;
   /**
    * @remarks
-   * The source dataset version of the labeling dataset.
+   * The source dataset version of the annotation dataset.
    * 
    * @example
    * v2
@@ -303,7 +303,7 @@ export class GetDatasetResponseBody extends $dara.Model {
    * @remarks
    * The source ID of the initial version v1. Valid values:
    * - If SourceType is USER, SourceId can be customized.
-   * - If SourceType is ITAG, which indicates a dataset generated from iTAG labeling results, SourceId is the iTAG task ID.
+   * - If SourceType is ITAG, which indicates a dataset generated from iTAG annotation results, SourceId is the iTAG task ID.
    * - If SourceType is PAI_PUBLIC_DATASET, which indicates a dataset created from a PAI public dataset, SourceId is empty by default.
    * 
    * @example
@@ -320,7 +320,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The labeling template of the iTag labeling dataset.
+   * The annotation template of the iTAG annotation dataset.
    * 
    * @example
    * TextClassification

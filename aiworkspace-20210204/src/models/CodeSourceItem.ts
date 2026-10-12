@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CodeSourceItem extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the code source configuration.
+   * The visibility of the code configuration.
    * 
    * @example
    * PUBLIC
@@ -14,7 +14,7 @@ export class CodeSourceItem extends $dara.Model {
   /**
    * @remarks
    * The clone mode. Valid values:
-   * - 0: Create a new subdirectory.
+   * - 0: Create a subdirectory.
    * - 1: Tile to the current directory.
    * 
    * @example
@@ -39,7 +39,7 @@ export class CodeSourceItem extends $dara.Model {
   codeCommit?: string;
   /**
    * @remarks
-   * The code repository URL.
+   * The address of the code repository.
    * 
    * @example
    * https://code.aliyun.com/****
@@ -47,12 +47,15 @@ export class CodeSourceItem extends $dara.Model {
   codeRepo?: string;
   /**
    * @remarks
-   * The token used as the access code for the code repository.
+   * The token used to access code in the repository.
+   * 
+   * @example
+   * xxxx
    */
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username used as the access code for the code repository.
+   * The username used to access code in the repository.
    * 
    * @example
    * user
@@ -60,7 +63,7 @@ export class CodeSourceItem extends $dara.Model {
   codeRepoUserName?: string;
   /**
    * @remarks
-   * The code source configuration ID.
+   * The code configuration ID.
    * 
    * @example
    * code-202**********
@@ -76,7 +79,7 @@ export class CodeSourceItem extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the code source configuration.
+   * The name of the code source configuration.
    * 
    * @example
    * MyCodeSourceName1
@@ -108,7 +111,7 @@ export class CodeSourceItem extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 1157290171663117

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TrialLabel extends $dara.Model {
   /**
    * @remarks
-   * The time the label was created, in UTC and following the ISO 8601 standard.
+   * Create time
    * 
    * @example
    * 2023-12-27T03:30:04Z
@@ -13,7 +13,7 @@ export class TrialLabel extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time the label was last modified, in UTC and following the ISO 8601 standard.
+   * Modified time
    * 
    * @example
    * 2023-12-27T03:30:04Z
@@ -21,7 +21,7 @@ export class TrialLabel extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The key of the label.
+   * Key of Trial Label
    * 
    * @example
    * key
@@ -29,12 +29,15 @@ export class TrialLabel extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The ID of the associated trial.
+   * Trial ID。
+   * 
+   * @example
+   * trl-v0fw9a0sd8f9af
    */
   trialId?: string;
   /**
    * @remarks
-   * The value of the label.
+   * Value of Trial Label
    * 
    * @example
    * value

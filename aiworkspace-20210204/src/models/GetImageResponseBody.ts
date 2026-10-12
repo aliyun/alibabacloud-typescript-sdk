@@ -46,10 +46,8 @@ export class GetImageResponseBody extends $dara.Model {
   /**
    * @remarks
    * The visibility of the image. Valid values:
-   * 
-   * - PUBLIC: All members in the current workspace can perform operations on the image.
-   * 
-   * - PRIVATE: Only the creator can perform operations on the image.
+   * - PUBLIC: All members of the current workspace can access the image.
+   * - PRIVATE: Only the creator can access the image.
    * 
    * @example
    * PUBLIC
@@ -57,7 +55,7 @@ export class GetImageResponseBody extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The description of the image.
+   * The image description.
    * 
    * @example
    * NLP model compression training image
@@ -65,7 +63,7 @@ export class GetImageResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the image was created. The time is in UTC and the format is ISO 8601.
+   * The creation time of the image in UTC, in ISO 8601 format.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -73,7 +71,7 @@ export class GetImageResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the image was last modified. The time is in UTC and the format is ISO 8601.
+   * The modification time of the image in UTC, in ISO 8601 format.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -81,7 +79,7 @@ export class GetImageResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The URL of the image, including the version number.
+   * The image address, including the version number.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.******ession/nlp:gpu
@@ -89,13 +87,13 @@ export class GetImageResponseBody extends $dara.Model {
   imageUri?: string;
   /**
    * @remarks
-   * A list of image labels. This is an array. Each item in the array contains a Key and a Value field.
-   * Official images have the following label: the key is system.official and the value is true.
+   * The list of image labels. This is an array in which each element contains the Key and Value fields.
+   * Official images have the following label: Key is system.official and Value is true.
    */
   labels?: GetImageResponseBodyLabels[];
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * nlp-compression
@@ -119,7 +117,7 @@ export class GetImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The size of the image in bytes.
+   * The image size, in bytes.
    * 
    * @example
    * 10
@@ -127,12 +125,18 @@ export class GetImageResponseBody extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The ID of the image source.
+   * The image source ID.
+   * 
+   * @example
+   * build-****ks92
    */
   sourceId?: string;
   /**
    * @remarks
-   * The type of the image source.
+   * The image source type.
+   * 
+   * @example
+   * Build
    */
   sourceType?: string;
   /**

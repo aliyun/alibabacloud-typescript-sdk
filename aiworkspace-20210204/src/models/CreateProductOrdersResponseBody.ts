@@ -27,6 +27,10 @@ export class CreateProductOrdersResponseBody extends $dara.Model {
    * 210292536260646
    */
   orderId?: string;
+  /**
+   * @remarks
+   * The list of IDs of the successfully purchased products.
+   */
   productIds?: string[];
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDatasetJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the dataset version.
+   * The dataset version name.
    * 
    * @example
    * v1
@@ -13,7 +13,7 @@ export class GetDatasetJobRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The workspace ID. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 478**

@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class Relationship extends $dara.Model {
   /**
    * @remarks
-   * A collection of key-value pairs providing additional details about the relationship.
+   * Attributes
    */
   attributes?: { [key: string]: any };
   /**
    * @remarks
-   * The channel or system through which the relationship is established.
+   * The data channel to which the lineage relationship belongs.
    */
   dataChannel?: string;
   /**
    * @remarks
-   * The globally unique identifier (GUID) for the relationship.
+   * The globally unique identifier of the lineage relationship.
    */
   relationshipGuid?: string;
   /**
    * @remarks
-   * Specifies the type of relationship.
+   * The type of the lineage relationship.
    */
   relationshipType?: string;
   static names(): { [key: string]: string } {

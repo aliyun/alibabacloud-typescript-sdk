@@ -20,7 +20,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The end time for the file update time query range. The value is a UTC timestamp in ISO 8601 format.
+   * The start time of the file update time range for the query. The value is a UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -30,7 +30,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   endFileUpdateTime?: string;
   /**
    * @remarks
-   * The end time for the tag last update time query range. The value is a UTC timestamp in ISO 8601 format.
+   * The end time of the tag last update time range for the query. The value is a UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -58,7 +58,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sorting order for the specified sort field in paging queries. Used together with SortBy. Default value: DESC. Valid values:
+   * The sorting order for the specified sorting field in paging queries. Used together with SortBy. Default value: DESC. Valid values:
    * - ASC: ascending order.
    * - DESC: descending order.
    * 
@@ -69,7 +69,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. If MaxResults is also specified, MaxResults takes precedence.
-   * > This parameter will be offline soon. Use NextToken and MaxResults to perform paging operations.
+   * > This parameter will be offline soon. Use NextToken and MaxResults to perform paging query operations.
    * 
    * @example
    * 10
@@ -79,13 +79,13 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search condition for "include any of the following content types". You can select multiple content types, and the query results need to match only one of them. If empty, this condition is not applied. Array values are separated by commas.
+   * The search condition for "include any of the following content types". You can select multiple content types, and the query results need to match only one of them. If this parameter is empty, this condition is not applied. Array elements are separated by commas.
    */
   queryContentTypeIncludeAnyShrink?: string;
   /**
    * @remarks
-   * The query statement (DSL) is a domain-specific language for expressing complex retrieve conditions. It supports grouping, Boolean logic (AND/OR/NOT), range comparisons (>, >=, <, <=), property existence (HAS/NOT HAS), tokenized matching (:), and exact match (=), suitable for advanced retrieve scenarios.
-   * Generally used for complex advanced conditional retrieve operations.
+   * The query statement (DSL) is a realm-specific language for expressing complex retrieve conditions. It supports grouping, Boolean logic (AND/OR/NOT), range comparisons (>, >=, <, <=), property existence checks (HAS/NOT HAS), token match (:), and exact match (=), which are suitable for advanced retrieve scenarios.
+   * This parameter is typically used for complex advanced retrieve conditional statements.
    * <notice>To avoid conflicts, after setting this query statement, do not use it together with other query parameters.</notice>
    * 
    * @example
@@ -110,13 +110,13 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   queryFileName?: string;
   /**
    * @remarks
-   * The search condition for "include any of the following file types". You can select multiple file types, and the query results need to match only one of them. If empty, this condition is not applied. Array values are separated by commas.
+   * The search condition for "include any of the following file types". You can select multiple file types, and the query results need to match only one of them. If this parameter is empty, this condition is not applied. Array elements are separated by commas.
    */
   queryFileTypeIncludeAnyShrink?: string;
   /**
    * @remarks
    * The image information for image-to-image search.
-   * * Supports a public network access OSS URL in the format: oss://{bucket_name}/{object_path}, where bucket_name is the bucket name and object_path is the file path in the bucket.
+   * * An OSS URL with public network access is supported. Format: oss://{bucket_name}/{object_path}, where bucket_name is the bucket name and object_path is the file path in the bucket.
    * > This parameter takes effect only when QueryType is set to VECTOR or MIX.
    * 
    * @example
@@ -125,20 +125,20 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   queryImage?: string;
   /**
    * @remarks
-   * The search condition for "exclude the following tags". You can select multiple tags, and the query results must not contain any of them. If empty, this condition is not applied.
+   * The search condition for "exclude the following tags". You can select multiple tags, and the query results must not contain any of them. If this parameter is empty, this condition is not applied.
    * > This parameter takes effect only when QueryType is set to TAG or MIX.
    */
   queryTagsExcludeShrink?: string;
   /**
    * @remarks
-   * The search condition for "include all of the following tags". You can select multiple tags, and the query results must match all of them. If empty, this condition is not applied. Array values are separated by commas.
+   * The search condition for "include all of the following tags". You can select multiple tags, and the query results must match all of them. If this parameter is empty, this condition is not applied. Array elements are separated by commas.
    * 
-   * > This parameter takes effect only when QueryType is set to TAG or MIX. When QueryType is set to TAG, QueryText is added to this condition.
+   * > This parameter takes effect only when QueryType is set to TAG or MIX. When QueryType is set to TAG, the value of QueryText is added to this condition.
    */
   queryTagsIncludeAllShrink?: string;
   /**
    * @remarks
-   * The search condition for "include any of the following tags". You can select multiple tags, and the query results need to match only one of them. If empty, this condition is not applied. Array values are separated by commas.
+   * The search condition for "include any of the following tags". You can select multiple tags, and the query results need to match only one of them. If this parameter is empty, this condition is not applied. Array elements are separated by commas.
    * > This parameter takes effect only when QueryType is set to TAG or MIX.
    */
   queryTagsIncludeAnyShrink?: string;
@@ -155,7 +155,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
    * The retrieve type. Valid values:
    * * MIX: hybrid retrieve (default).
    * * TAG: label-only retrieve.
-   * * VECTOR: vector retrieve only.
+   * * VECTOR: AISearch-only retrieve.
    * 
    * @example
    * MIX
@@ -164,7 +164,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The video file information for video-based search.
-   * * Supports a public network access OSS URL in the format: oss://{bucket_name}/{object_path}, where bucket_name is the bucket name and object_path is the file path in the bucket.
+   * * A video OSS URL with public network access is supported. Format: oss://{bucket_name}/{object_path}, where bucket_name is the bucket name and object_path is the file path in the bucket.
    * > This parameter takes effect only when QueryType is set to VECTOR or MIX.
    * 
    * @example
@@ -182,9 +182,9 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   scoreThreshold?: number;
   /**
    * @remarks
-   * The sorting field for paging queries. By default, results are sorted by retrieve relevance in descending order. Valid values:
+   * The sorting field for paging queries. By default, results are sorted by retrieve relevance in descending order. Other valid values:
    * * FileCreateTime: sorting by file creation time.
-   * * FileUpdateTime: sorting by file last modification time.
+   * * FileUpdateTime: sorting by file last modified time.
    * 
    * @example
    * FileCreateTime
@@ -192,7 +192,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start time for the file update time query range. The value is a UTC timestamp in ISO 8601 format.
+   * The end time of the file update time range for the query. The value is a UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -202,7 +202,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   startFileUpdateTime?: string;
   /**
    * @remarks
-   * The start time for the tag last update time query range. The value is a UTC timestamp in ISO 8601 format.
+   * The start time of the tag last update time range for the query. The value is a UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -227,9 +227,9 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
    * - Proportional scaling: p_{percentage}, where percentage specifies the desired scaling ratio. Valid values: [1, 100]. Example: p_50 uses 50% of the original file size as the thumbnail.
    * - Fixed width with adaptive height: w_{width}, where width specifies the desired image width. Valid values: [1, 16384]. Example: w_200 fixes the image width to 200 pixels and adaptively scales the height.
    * - Fixed height with adaptive width: h_{height}, where height specifies the desired image height. Valid values: [1, 16384]. Example: h_100 fixes the image height to 100 pixels and adaptively scales the width.
-   * - Fixed dimensions with padding: m_pad,w_{width},h_{height},color_{RGB}. m_pad scales the image to the largest size that fits within the specified width and height rectangle. RGB specifies the fill color for blank areas. If not specified, white is used by default. width specifies the desired image width and height specifies the desired image height. Valid values for both width and height: [1, 16384].
-   * - Fixed dimensions with center cropping: m_fill,w_{width},h_{height}. m_fill proportionally scales the image to the smallest size that extends beyond the specified width and height rectangle, and center-crops the excess. width specifies the desired image width and height specifies the desired image height. Valid values for both width and height: [1, 16384]. Example: m_fill,w_100,h_100 fixes both width and height to 100 pixels with center cropping.
-   * - Forced dimensions: m_fixed,w_{width},h_{height}. width specifies the desired image width and height specifies the desired image height. Valid values for both width and height: [1, 16384]. Example: m_fixed,w_100,h_100 forces both width and height to 100 pixels.
+   * - Fixed dimensions with padding: m_pad,w_{width},h_{height},color_{RGB}. m_pad scales the image to the largest size that fits within the specified width and height rectangle. RGB specifies the fill color for blank areas. If this parameter is not specified, white is used by default. width specifies the desired image width and height specifies the desired image height. Valid values for both width and height: [1, 16384]. Example:
+   * - Fixed dimensions with center cropping: m_fill,w_{width},h_{height}. m_fill proportionally scales the image to the smallest size that extends beyond the specified width and height rectangle, and center-crops the excess. width specifies the desired image width and height specifies the desired image height. Valid values for both width and height: [1, 16384]. Example: m_fill,w_100,h_100 fixes both the width and height to 100 pixels with center cropping.
+   * - Forced dimensions: m_fixed,w_{width},h_{height}. width specifies the desired image width and height specifies the desired image height. Valid values for both width and height: [1, 16384]. Example: m_fixed,w_100,h_100 forces both the width and height to 100 pixels.
    * 
    * @example
    * w_100
@@ -246,7 +246,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   topK?: number;
   /**
    * @remarks
-   * The workspace ID where the dataset resides. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID of the dataset. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * This parameter is required.
    * 
