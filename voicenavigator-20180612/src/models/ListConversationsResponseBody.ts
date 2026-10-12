@@ -32,18 +32,18 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   dsReportTitles?: string[];
   /**
    * @remarks
-   * The reason for hanging up. Valid values:
-   *      1: Normal completion.
-   *      2: Bot hung up after unrecognized input.
-   *      3: Hung up due to silence timeout.
-   *      4: User hung up after unrecognized input.
-   *      5: User hung up without reason.
-   *      6: Transferred to human agent due to intent match.
-   *      7: Transferred to human agent due to unrecognized input.
-   *      8: No interaction from the user side.
-   *      9: System exception interruption.
-   *      10: Transferred to IVR due to intent match.
-   *      11: Transferred to IVR due to unrecognized input.
+   * The reason for ending the session. Valid values:
+   * 1. Normal completion.
+   * 2. Hangup by the bot after unrecognized input.
+   * 3. Hangup due to silence timeout.
+   * 4. Hangup by the user after unrecognized input.
+   * 5. Hangup by the user without a reason.
+   * 6. Transfer to a human agent due to matched intent.
+   * 7. Transfer to a human agent after unrecognized input.
+   * 8. No interaction from the user.
+   * 9. Interruption due to a system exception.
+   * 10. Transfer to IVR due to matched intent.
+   * 11. Transfer to IVR after unrecognized input.
    * 
    * @example
    * 1
@@ -59,7 +59,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Indicates whether the last playback was completed when the session ended.
+   * Specifies whether the last prompt was fully played before the session ended.
    * 
    * @example
    * true
@@ -67,7 +67,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   hasLastPlaybackCompleted?: boolean;
   /**
    * @remarks
-   * Indicates whether the session was transferred to a human agent.
+   * Specifies whether the session was transferred to a human agent.
    * 
    * @example
    * false
@@ -83,7 +83,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   rounds?: number;
   /**
    * @remarks
-   * Indicates whether the session is in a sandbox environment.
+   * Specifies whether the sandbox mode is enabled.
    * 
    * @example
    * true
@@ -105,6 +105,14 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
    * 1641625694286
    */
   startTime?: number;
+  /**
+   * @remarks
+   * The text-to-speech (TTS) voice used for the call.
+   * 
+   * @example
+   * cosyvoice-v3-flash:longanyang
+   */
+  voice?: string;
   static names(): { [key: string]: string } {
     return {
       abTestName: 'AbTestName',
@@ -121,6 +129,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
       sandBox: 'SandBox',
       skillGroup: 'SkillGroup',
       startTime: 'StartTime',
+      voice: 'Voice',
     };
   }
 
@@ -140,6 +149,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
       sandBox: 'boolean',
       skillGroup: 'string',
       startTime: 'number',
+      voice: 'string',
     };
   }
 

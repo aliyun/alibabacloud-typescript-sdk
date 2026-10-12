@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConversationsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The AB test ID.
+   */
   abTestId?: string;
   /**
    * @remarks
-   * The left boundary of the start time range.
+   * The lower bound of the start time range.
    * 
    * @example
    * 1638288000000
@@ -14,7 +18,7 @@ export class ListConversationsRequest extends $dara.Model {
   beginTimeLeftRange?: number;
   /**
    * @remarks
-   * The right boundary of the start time range.
+   * The upper bound of the start time range.
    * 
    * @example
    * 1637547875311
@@ -31,7 +35,7 @@ export class ListConversationsRequest extends $dara.Model {
   debugConversation?: number;
   /**
    * @remarks
-   * The instance list.
+   * The instance IDs.
    * 
    * This parameter is required.
    * 
@@ -41,7 +45,7 @@ export class ListConversationsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the session is in a sandbox environment.
+   * Specifies whether the sandbox mode is enabled.
    * 
    * @example
    * false
@@ -69,7 +73,7 @@ export class ListConversationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
    * 
    * @example
    * 13788914724
@@ -85,7 +89,7 @@ export class ListConversationsRequest extends $dara.Model {
   result?: number;
   /**
    * @remarks
-   * The left boundary of the rounds query range.
+   * The lower bound of the conversation rounds range.
    * 
    * @example
    * 1
@@ -93,7 +97,7 @@ export class ListConversationsRequest extends $dara.Model {
   roundsLeftRange?: number;
   /**
    * @remarks
-   * The right boundary of the rounds query range.
+   * The upper bound of the conversation rounds range.
    * 
    * @example
    * 3
