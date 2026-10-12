@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. If you specify `Tag`, `Key` is required. The tag key cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. It also cannot consist of only spaces.
+   * The tag key. If you specify `Tag`, `Key` is required. The value cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, cannot contain `http://` or `https://`, and cannot consist of spaces only.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeDesktopsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value. The value cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -46,8 +46,8 @@ export class DescribeDesktopsRequest extends $dara.Model {
   /**
    * @remarks
    * The business channel. Valid values:
-   * - Enterprise: Enterprise Edition.
-   * - Business: Business Edition.
+   * Enterprise: Enterprise Edition
+   * Business: Business Edition
    * 
    * @example
    * Enterprise
@@ -63,7 +63,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The cloud computer pool ID. If `DesktopId` is specified, `DesktopGroupId` is ignored. If `DesktopId` is empty, the system retrieves the DesktopId values of all cloud computers in the cloud computer pool specified by `DesktopGroupId`.
+   * The cloud computer pool ID. If you specify `DesktopId`, this `DesktopGroupId` parameter is ignored. If `DesktopId` is empty, the system retrieves the `DesktopId` of all cloud computers in the specified cloud computer pool based on `DesktopGroupId`.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -100,7 +100,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   desktopStatusList?: string[];
   /**
    * @remarks
-   * The cloud computer specifications. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by cloud computers.
+   * The cloud computer instance type. Call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported instance type IDs.
    * 
    * @example
    * eds.general.2c8g
@@ -108,7 +108,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The directory ID, which is the same as the office network ID.
+   * The directory ID. This is the same as the office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -116,9 +116,9 @@ export class DescribeDesktopsRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The list of authorized users of the cloud computer. You can specify 1 to 100 users.
+   * The list of authorized users for the cloud computer. You can set 1 to 100 users.
    * 
-   * > Only one user can connect to and use the cloud computer at a time.
+   * > At any given time, only one user can connect to and use the cloud computer.
    * 
    * @example
    * alice
@@ -134,7 +134,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   excludedEndUserId?: string[];
   /**
    * @remarks
-   * The expiration time of the subscription cloud computer. The time follows the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
+   * The expiration time of the subscription cloud computer. The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-12-31T15:59:59Z
@@ -142,7 +142,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * Specifies whether to query resource group information.
+   * Specifies whether to include enterprise resource group information in the response.
    * 
    * @example
    * true
@@ -174,7 +174,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The image IDs.
+   * The list of image IDs.
    */
   imageId?: string[];
   /**
@@ -197,8 +197,8 @@ export class DescribeDesktopsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page for a paged query.
    * 
-   * - Maximum value: 100.
-   * - Default value: 10.
+   * - Maximum value: 100
+   * - Default value: 10
    * 
    * @example
    * 10
@@ -222,7 +222,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   networkInterfaceIp?: string;
   /**
    * @remarks
-   * The pagination token for the next query. If this parameter is empty, no more results are available.
+   * The token that marks the start of the next query. An empty NextToken value indicates that there are no more results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -254,12 +254,12 @@ export class DescribeDesktopsRequest extends $dara.Model {
   onlyDesktopGroup?: boolean;
   /**
    * @remarks
-   * The operating system types.
+   * The operating system type.
    */
   osTypes?: string[];
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The page number in a paged query.
    * 
    * @example
    * 1
@@ -291,7 +291,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The public IP address of the instance to query.
+   * The public IP address of the instance. Use this parameter to filter instances by public IP address.
    * 
    * @example
    * 121.199.28.39
@@ -299,7 +299,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   publicIp?: string;
   /**
    * @remarks
-   * The Internet bandwidth throttling rule ID.
+   * The public network bandwidth throttling rule ID.
    * 
    * @example
    * qos-5605u0gelk200****
@@ -307,7 +307,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   qosRuleId?: string;
   /**
    * @remarks
-   * Specifies whether to query cloud computer image version information.
+   * Specifies whether to query the image version information of the cloud computer.
    * 
    * @example
    * false
@@ -315,7 +315,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   queryFotaUpdate?: boolean;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to retrieve the list of regions supported by Alibaba Cloud Workspace.
    * 
    * This parameter is required.
    * 
@@ -323,10 +323,17 @@ export class DescribeDesktopsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource reservation pool ID (rp-xxx). Filters cloud computers by reservation pool exactly. If not specified or left empty, no filtering by reservation pool is applied.
+   * 
+   * @example
+   * rp-xxx
+   */
   reservePoolId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The enterprise resource group ID.
    * 
    * @example
    * rg-4hsvzbbmqdzu3s****
@@ -350,7 +357,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   subPayType?: string;
   /**
    * @remarks
-   * The tags. A tag consists of a key-value pair and is used to mark resources. You can use tags to group and manage cloud computers for easy searching and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
+   * The list of tags. A tag consists of a key-value pair and is used to identify resources. You can use tags to group and manage cloud computers for easier search and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
    */
   tag?: DescribeDesktopsRequestTag[];
   /**

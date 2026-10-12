@@ -13,7 +13,7 @@ export class ModifyVirtualBridgeLevelRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter takes effect and is optional only when the billing method is `PrePaid`.
+   * Specifies whether to enable auto-renewal. This parameter takes effect and is optional only when the billing method is set to `PrePaid`.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class ModifyVirtualBridgeLevelRequest extends $dara.Model {
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
+   * The renewal duration. The valid values depend on the value of the `PeriodUnit` parameter.
    * 
    * - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
    * - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
@@ -62,7 +62,7 @@ export class ModifyVirtualBridgeLevelRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration for the prepaid cloud disk. This parameter takes effect and is required only when the `CdsChargeType` parameter is set to `PrePaid`.
+   * The unit of the subscription duration for the cloud disk. This parameter takes effect and is required only when the `CdsChargeType` parameter is set to `PrePaid`.
    * 
    * @example
    * Month
@@ -70,7 +70,7 @@ export class ModifyVirtualBridgeLevelRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The promotion ID. You can call the pricing query operation to obtain the list of matched promotion IDs.
+   * The promotion ID. You can call the pricing API operation to obtain the list of matched promotion IDs.
    * 
    * @example
    * 23141
@@ -78,7 +78,7 @@ export class ModifyVirtualBridgeLevelRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

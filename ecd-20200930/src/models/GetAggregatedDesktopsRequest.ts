@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetAggregatedDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The aggregation factor.
+   * The aggregation factor. Valid values:
+   * - directory_id: office network ID
+   * - region: region
+   * - policy_group_id: cloud desktop policy ID
+   * - status: cloud desktop status
    * 
    * @example
    * STATUS

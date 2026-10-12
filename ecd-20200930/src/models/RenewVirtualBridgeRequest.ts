@@ -21,7 +21,7 @@ export class RenewVirtualBridgeRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The virtual bridge ID.
+   * The ID of the virtual bridge.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class RenewVirtualBridgeRequest extends $dara.Model {
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The renewal duration. The valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
+   * The renewal duration. The valid values depend on the value of the `PeriodUnit` parameter.
    * 
    * - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
    * - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
@@ -68,7 +68,7 @@ export class RenewVirtualBridgeRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Wuying Workspace.
    * 
    * This parameter is required.
    * 

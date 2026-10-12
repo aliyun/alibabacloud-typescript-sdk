@@ -82,6 +82,12 @@ export { DescribeCloudDriveGroupsResponseBodyCloudDriveGroups } from './Describe
 export { DescribeCloudDrivePermissionsResponseBodyCloudDrivePermissionModels } from './DescribeCloudDrivePermissionsResponseBody';
 export { DescribeCloudDriveUsersResponseBodyCloudDriveUsers } from './DescribeCloudDriveUsersResponseBody';
 export { DescribeConfigGroupResponseBodyData } from './DescribeConfigGroupResponseBody';
+export { DescribeConsoleMessagesResponseBodyMessageListContentConfigs } from './DescribeConsoleMessagesResponseBody';
+export { DescribeConsoleMessagesResponseBodyMessageListHyperLinkConfigs } from './DescribeConsoleMessagesResponseBody';
+export { DescribeConsoleMessagesResponseBodyMessageListImageInfoList } from './DescribeConsoleMessagesResponseBody';
+export { DescribeConsoleMessagesResponseBodyMessageListMetaData } from './DescribeConsoleMessagesResponseBody';
+export { DescribeConsoleMessagesResponseBodyMessageListTitleConfigs } from './DescribeConsoleMessagesResponseBody';
+export { DescribeConsoleMessagesResponseBodyMessageList } from './DescribeConsoleMessagesResponseBody';
 export { DescribeCustomizedListHeadersResponseBodyHeaders } from './DescribeCustomizedListHeadersResponseBody';
 export { DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo } from './DescribeDesktopGroupSessionsResponseBody';
 export { DescribeDesktopGroupSessionsResponseBodySessions } from './DescribeDesktopGroupSessionsResponseBody';
@@ -635,6 +641,9 @@ export { DescribeCloudDriveUsersResponse } from './DescribeCloudDriveUsersRespon
 export { DescribeConfigGroupRequest } from './DescribeConfigGroupRequest';
 export { DescribeConfigGroupResponseBody } from './DescribeConfigGroupResponseBody';
 export { DescribeConfigGroupResponse } from './DescribeConfigGroupResponse';
+export { DescribeConsoleMessagesRequest } from './DescribeConsoleMessagesRequest';
+export { DescribeConsoleMessagesResponseBody } from './DescribeConsoleMessagesResponseBody';
+export { DescribeConsoleMessagesResponse } from './DescribeConsoleMessagesResponse';
 export { DescribeCustomizedListHeadersRequest } from './DescribeCustomizedListHeadersRequest';
 export { DescribeCustomizedListHeadersResponseBody } from './DescribeCustomizedListHeadersResponseBody';
 export { DescribeCustomizedListHeadersResponse } from './DescribeCustomizedListHeadersResponse';
@@ -1160,6 +1169,9 @@ export { RevokeCoordinatePrivilegeResponse } from './RevokeCoordinatePrivilegeRe
 export { RunCommandRequest } from './RunCommandRequest';
 export { RunCommandResponseBody } from './RunCommandResponseBody';
 export { RunCommandResponse } from './RunCommandResponse';
+export { SendConsoleMessageRequest } from './SendConsoleMessageRequest';
+export { SendConsoleMessageResponseBody } from './SendConsoleMessageResponseBody';
+export { SendConsoleMessageResponse } from './SendConsoleMessageResponse';
 export { SendVerifyCodeRequest } from './SendVerifyCodeRequest';
 export { SendVerifyCodeResponseBody } from './SendVerifyCodeResponseBody';
 export { SendVerifyCodeResponse } from './SendVerifyCodeResponse';

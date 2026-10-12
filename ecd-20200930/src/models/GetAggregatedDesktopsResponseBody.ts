@@ -35,7 +35,7 @@ export class GetAggregatedDesktopsResponseBodyAggregations extends $dara.Model {
 export class GetAggregatedDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of aggregation field information.
+   * The list of aggregated field information.
    * >Notice: When you use an aggregate query, only aggregation results are returned. The list of matched metadata is not returned.
    */
   aggregations?: GetAggregatedDesktopsResponseBodyAggregations;

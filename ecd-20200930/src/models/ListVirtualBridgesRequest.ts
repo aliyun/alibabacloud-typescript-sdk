@@ -19,7 +19,7 @@ export class ListVirtualBridgesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results exist.
+   * The token used to start the next query. An empty NextToken indicates that no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6mnFXZiT7NdvGNgkInJ****
@@ -29,7 +29,7 @@ export class ListVirtualBridgesRequest extends $dara.Model {
    * @remarks
    * The office network ID.
    * 
-   * > The `DirectoryId` parameter will be deprecated. Use this parameter instead.
+   * > The `DirectoryId` parameter is deprecated. Use this parameter instead.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -37,7 +37,7 @@ export class ListVirtualBridgesRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
