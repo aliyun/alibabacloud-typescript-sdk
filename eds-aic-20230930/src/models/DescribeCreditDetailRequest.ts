@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of agent types, used to filter credit change details by specified agent types.
+   * The agent types. This parameter is used to filter credit change details by agent type.
    */
   agentTypes?: string[];
   /**
    * @remarks
-   * The end time.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782906240000
@@ -18,12 +18,12 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The list of instance IDs.
+   * The instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The maximum number of entries to read in this request.
+   * The maximum number of entries to return for this query.
    * 
    * @example
    * 100
@@ -31,7 +31,7 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue retrieving results.
+   * The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue the query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
@@ -39,12 +39,12 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of package or credit booster pack IDs.
+   * The package IDs.
    */
   packageIds?: string[];
   /**
    * @remarks
-   * The page number for pagination. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -60,7 +60,7 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782819840000

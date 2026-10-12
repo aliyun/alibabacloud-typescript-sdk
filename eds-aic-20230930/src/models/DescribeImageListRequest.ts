@@ -45,7 +45,7 @@ export class DescribeImageListRequestImageBizTags extends $dara.Model {
 export class DescribeImageListRequest extends $dara.Model {
   /**
    * @remarks
-   * An array of tag objects.
+   * The array of tag objects.
    */
   imageBizTags?: DescribeImageListRequestImageBizTags[];
   /**
@@ -66,7 +66,7 @@ export class DescribeImageListRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * > This parameter is not yet available.
+   * > This parameter is not yet available for public use.
    * 
    * @example
    * null
@@ -92,7 +92,7 @@ export class DescribeImageListRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page for a paged query. Valid values: 1 to 100. Default value: 20.
+   * The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class DescribeImageListRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the position from which to start the query. If you leave this parameter empty, the query starts from the beginning.
+   * The position from which the read operation starts. An empty value indicates that the read operation starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
@@ -117,6 +117,10 @@ export class DescribeImageListRequest extends $dara.Model {
    * AVAILABLE
    */
   status?: string;
+  /**
+   * @remarks
+   * The operating system type.
+   */
   systemType?: string;
   static names(): { [key: string]: string } {
     return {

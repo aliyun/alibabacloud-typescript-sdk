@@ -13,7 +13,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   androidInstanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * Test cloud phone
@@ -21,7 +21,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   androidInstanceName?: string;
   /**
    * @remarks
-   * Specifies whether to perform a full device backup.
+   * Specifies whether the backup is a full-device backup.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   backupAll?: boolean;
   /**
    * @remarks
-   * The backup file ID.
+   * The ID of the backup file.
    * 
    * @example
    * bf-b0qbg3pbpjkn7****
@@ -37,7 +37,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   backupFileId?: string;
   /**
    * @remarks
-   * The backup file name.
+   * The name of the backup file.
    * 
    * @example
    * a-58ftsoo90p0qa****.ab
@@ -45,19 +45,26 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   backupFileName?: string;
   /**
    * @remarks
-   * The directory where the backup file is stored.
+   * The directory where the backup file is saved.
    * 
    * @example
    * oss://cloudphone-saved-bucket-cn-shanghai/backup/aic-58ftsoo90p0qa****.ab
    */
   backupFilePath?: string;
+  /**
+   * @remarks
+   * The order source. A value of CLOUDPHONE indicates AI cloud phone.
+   * 
+   * @example
+   * CLOUDPHONE
+   */
   channel?: string;
   /**
    * @remarks
    * The description of the backup file.
    * 
    * @example
-   * Backup file for /data/media directory.
+   * This is a backup file for the /data/media directory
    */
   description?: string;
   /**
@@ -86,7 +93,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2024-05-15 17:33:59
@@ -110,26 +117,33 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of backed-up application package names.
+   * The list of package names of the backed-up applications.
    */
   sourceAppInfoList?: string[];
   /**
    * @remarks
-   * The list of source backup file directories.
+   * The list of directories of the source backup files.
    */
   sourceFilePathList?: string[];
   /**
    * @remarks
-   * The backup file status.
+   * The status of the backup file.
    * 
    * @example
    * AVAILABLE
    */
   status?: string;
+  /**
+   * @remarks
+   * The Android system version.
+   * 
+   * @example
+   * Android 11
+   */
   systemVersion?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * t-bp67acfmxazb4p****
@@ -226,7 +240,7 @@ export class DescribeBackupFilesResponseBody extends $dara.Model {
   data?: DescribeBackupFilesResponseBodyData[];
   /**
    * @remarks
-   * The maximum number of entries returned in this call.
+   * The maximum number of entries returned in this query.
    * 
    * @example
    * 10
@@ -234,7 +248,7 @@ export class DescribeBackupFilesResponseBody extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
+   * The token that specifies the position from which the next query starts. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
@@ -242,7 +256,7 @@ export class DescribeBackupFilesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID. If you encounter an issue, provide this request ID for troubleshooting.
+   * The unique ID of the request. If you encounter any issues, provide this request ID to the technical support team for troubleshooting.
    * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****

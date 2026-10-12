@@ -6,8 +6,7 @@ export class DescribeMetricTopResponseBodyMetricTotalModelMetricModelListDataPoi
   /**
    * @remarks
    * The average value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+   * > If the monitoring metric is instance_in_traffic or instance_out_traffic, the unit is bps.
    * 
    * @example
    * 99.52
@@ -24,8 +23,7 @@ export class DescribeMetricTopResponseBodyMetricTotalModelMetricModelListDataPoi
   /**
    * @remarks
    * The maximum value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+   * > If the monitoring metric is instance_in_traffic or instance_out_traffic, the unit is bps.
    * 
    * @example
    * 100
@@ -34,8 +32,7 @@ export class DescribeMetricTopResponseBodyMetricTotalModelMetricModelListDataPoi
   /**
    * @remarks
    * The minimum value.
-   * 
-   * > The unit is bps when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+   * > If the monitoring metric is instance_in_traffic or instance_out_traffic, the unit is bps.
    * 
    * @example
    * 93.1
@@ -51,9 +48,8 @@ export class DescribeMetricTopResponseBodyMetricTotalModelMetricModelListDataPoi
   name?: string;
   /**
    * @remarks
-   * The properties.
-   * 
-   * > A JSON string that contains the extension properties.
+   * The property information.
+   * > The extended property information string in JSON format is returned.
    * 
    * @example
    * {"IP":"192.168.*.***"}
@@ -61,7 +57,7 @@ export class DescribeMetricTopResponseBodyMetricTotalModelMetricModelListDataPoi
   properties?: string;
   /**
    * @remarks
-   * The timestamp of the data point. Unit: milliseconds.
+   * The statistical timestamp. Unit: milliseconds.
    * 
    * @example
    * 1548777660000
@@ -103,12 +99,12 @@ export class DescribeMetricTopResponseBodyMetricTotalModelMetricModelListDataPoi
 export class DescribeMetricTopResponseBodyMetricTotalModelMetricModelList extends $dara.Model {
   /**
    * @remarks
-   * The monitoring data points.
+   * The monitoring statistical data points.
    */
   dataPoints?: DescribeMetricTopResponseBodyMetricTotalModelMetricModelListDataPoints[];
   /**
    * @remarks
-   * The name of the metric.
+   * The name of the monitoring metric.
    * 
    * @example
    * instance_in_traffic
@@ -143,8 +139,8 @@ export class DescribeMetricTopResponseBodyMetricTotalModelMetricModelList extend
 export class DescribeMetricTopResponseBodyMetricTotalModel extends $dara.Model {
   /**
    * @remarks
-   * For instance-level monitoring, this is the cloud phone instance ID.
-   * <props="china">For matrix-level monitoring, this is the matrix ID.
+   * For instance-level monitoring, the cloud phone instance ID is returned. 
+   * <props="china">For matrix-level monitoring, the matrix ID is returned.
    * 
    * @example
    * acp-fkuit0cmyru4p****
@@ -160,7 +156,7 @@ export class DescribeMetricTopResponseBodyMetricTotalModel extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The monitoring data of metrics.
+   * The list of metric monitoring results.
    */
   metricModelList?: DescribeMetricTopResponseBodyMetricTotalModelMetricModelList[];
   static names(): { [key: string]: string } {
@@ -194,7 +190,7 @@ export class DescribeMetricTopResponseBodyMetricTotalModel extends $dara.Model {
 export class DescribeMetricTopResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -202,12 +198,12 @@ export class DescribeMetricTopResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The instance monitoring data.
+   * The list of instance monitoring results.
    */
   metricTotalModel?: DescribeMetricTopResponseBodyMetricTotalModel[];
   /**
    * @remarks
-   * The token to retrieve the next page of results. If the results are not fully returned in a single query, this parameter is not empty. You can use this token in a subsequent query to retrieve the next page of results.
+   * The token for the next query. If a single query does not return all results, the returned NextToken is not empty. You can use the returned NextToken in subsequent queries to continue the query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

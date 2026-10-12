@@ -13,7 +13,7 @@ export class DescribeAgentTaskResponseBodyTasksArtifacts extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The OSS pre-signed download URL.
+   * The presigned OSS download URL.
    * 
    * @example
    * https://bucket.oss-cn-hangzhou.aliyuncs.com/...
@@ -89,7 +89,6 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
    * The current status of the task. Valid values:
-   * 
    * - PENDING: The task is being created.
    * - RUNNING: The task is running.
    * - COMPLETED: The task is completed.
@@ -103,15 +102,17 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
    * The source of the digest. Valid values:
+   * - PROMPT_AUTO: Automatically generated.
+   * - RESULT_AUTO: Refined from the result.
+   * - USER: Edited by the user.
    * 
-   * - PROMPT_AUTO: auto-generated.
-   * - RESULT_AUTO: result refinement.
-   * - USER: user-edited.
+   * @example
+   * PROMPT_AUTO
    */
   digestSource?: string;
   /**
    * @remarks
-   * The Mobile node ID.
+   * The ID of the mobile node.
    * 
    * @example
    * acp-anzzuho371azi44xr
@@ -128,7 +129,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   runningAt?: string;
   /**
    * @remarks
-   * The number of steps executed.
+   * The number of executed steps.
    * 
    * @example
    * 30
@@ -136,12 +137,12 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   steps?: string;
   /**
    * @remarks
-   * The task digest text, up to 25 characters.
+   * The task digest text, with a maximum of 25 characters.
    */
   taskDigest?: string;
   /**
    * @remarks
-   * The task duration. This field is returned only when CurrentStatus is FAILED or COMPLETED.
+   * The time consumed by the task. This field is returned only when CurrentStatus is FAILED or COMPLETED.
    * 
    * @example
    * 50
@@ -149,7 +150,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   taskDuration?: string;
   /**
    * @remarks
-   * The task ID, which is globally unique.
+   * The globally unique task ID.
    * 
    * @example
    * t-imr0fufqd7cle****
@@ -157,18 +158,18 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task result in the desired state. This field is returned only when CurrentStatus is COMPLETED or FAILED.
+   * The node task result (desired state). This field is returned only when CurrentStatus is COMPLETED or FAILED.
    * 
    * @example
-   * Download DingTalk succeeded.
+   * DingTalk downloaded successfully
    */
   taskResult?: string;
   /**
    * @remarks
-   * The user instruction in natural language. The Agent performs operations based on this instruction.
+   * The user instruction in natural language based on which the agent performs operations.
    * 
    * @example
-   * Download DingTalk from App Store
+   * Download DingTalk from the app store
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {
@@ -225,7 +226,7 @@ export class DescribeAgentTaskResponseBody extends $dara.Model {
    * The API status code.
    * 
    * @example
-   * For example, "200" indicates success.
+   * For example, "200" indicates success
    */
   code?: string;
   /**

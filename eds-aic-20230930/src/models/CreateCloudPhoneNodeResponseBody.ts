@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Internet Shared Bandwidth instance.
+   * The ID of the Internet Shared Bandwidth.
    * 
    * @example
    * cbwp-uf63gsv8j0ir53*****

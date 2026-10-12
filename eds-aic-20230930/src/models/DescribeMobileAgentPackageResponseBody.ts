@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMobileAgentPackageResponseBodyPackageListTags extends $dara.Model {
   /**
    * @remarks
-   * The label key.
+   * The tag key.
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageListTags extends $dara
   key?: string;
   /**
    * @remarks
-   * The label value.
+   * The tag value.
    * 
    * @example
    * value
@@ -45,7 +45,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageListTags extends $dara
 export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Model {
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-10-30 00:00:00
@@ -74,7 +74,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   packageId?: string;
   /**
    * @remarks
-   * The package specification.
+   * The package specifications.
    * 
    * @example
    * advanced
@@ -93,12 +93,12 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   periodStartTime?: string;
   /**
    * @remarks
-   * The labels.
+   * The tags.
    */
   tags?: DescribeMobileAgentPackageResponseBodyPackageListTags[];
   /**
    * @remarks
-   * The number of credits that have been used.
+   * The number of used credits.
    * 
    * @example
    * 1000
@@ -162,7 +162,7 @@ export class DescribeMobileAgentPackageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API operation.
    * 
    * @example
    * Success.
@@ -170,7 +170,7 @@ export class DescribeMobileAgentPackageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The list of package information.
+   * The list of packages.
    */
   packageList?: DescribeMobileAgentPackageResponseBodyPackageList[];
   /**

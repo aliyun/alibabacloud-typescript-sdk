@@ -13,7 +13,7 @@ export class ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos extends $dar
   instanceId?: string;
   /**
    * @remarks
-   * The dedicated device storage capacity.
+   * The independent device storage capacity.
    * 
    * @example
    * 200
@@ -58,7 +58,7 @@ export class ChangeCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * When the matrix uses dedicated device storage, a 64 GiB shared storage space is allocated by default (not modifiable) for storing images and other matrix-wide files. When the matrix uses shared device storage (with the size specified at purchase), this storage space is shared by all instances.
+   * When the matrix uses independent device storage, 64 GiB of shared storage space is allocated by default (not modifiable) for storing images and other matrix-wide files. When the matrix uses shared device storage (with the size set at purchase), this storage space is shared among all instances.
    * 
    * @example
    * 100

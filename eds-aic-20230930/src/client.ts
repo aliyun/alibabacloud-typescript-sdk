@@ -538,7 +538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
+   * Modifies the configuration of a cloud phone matrix. Currently, only instance type changes and cloud phone instance count changes are supported (the instance count refers to the number of instances in the cloud phone matrix).
    * 
    * @param request - ChangeCloudPhoneNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -609,7 +609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
+   * Modifies the configuration of a cloud phone matrix. Currently, only instance type changes and cloud phone instance count changes are supported (the instance count refers to the number of instances in the cloud phone matrix).
    * 
    * @param request - ChangeCloudPhoneNodeRequest
    * @returns ChangeCloudPhoneNodeResponse
@@ -1108,8 +1108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud phone matrix.
-   * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances varies based on the configuration.
+   * Creates a cloud phone matrix. In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create the corresponding cloud phone instances. The number of cloud phone instances varies based on the configuration.
    * 
    * @param tmpReq - CreateCloudPhoneNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1280,8 +1279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud phone matrix.
-   * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances varies based on the configuration.
+   * Creates a cloud phone matrix. In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create the corresponding cloud phone instances. The number of cloud phone instances varies based on the configuration.
    * 
    * @param request - CreateCloudPhoneNodeRequest
    * @returns CreateCloudPhoneNodeResponse
@@ -1292,10 +1290,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a credit booster pack.
+   * Places an order to purchase a credit top-up package.
    * 
    * @remarks
-   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
+   * This API operation involves billing. Make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone before you call this operation.
    * 
    * @param request - CreateCreditPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1350,10 +1348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a credit booster pack.
+   * Places an order to purchase a credit top-up package.
    * 
    * @remarks
-   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
+   * This API operation involves billing. Make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone before you call this operation.
    * 
    * @param request - CreateCreditPackageRequest
    * @returns CreateCreditPackageResponse
@@ -1548,10 +1546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a resource plan by placing an order.
+   * Purchases a resource plan.
    * 
    * @remarks
-   * This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
+   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
    * 
    * @param request - CreateMobileAgentPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1642,10 +1640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a resource plan by placing an order.
+   * Purchases a resource plan.
    * 
    * @remarks
-   * This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
+   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
    * 
    * @param request - CreateMobileAgentPackageRequest
    * @returns CreateMobileAgentPackageResponse
@@ -1653,6 +1651,68 @@ export default class Client extends OpenApi {
   async createMobileAgentPackage(request: $_model.CreateMobileAgentPackageRequest): Promise<$_model.CreateMobileAgentPackageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createMobileAgentPackageWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an agent task.
+   * 
+   * @param request - CreateMobileAgentTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMobileAgentTaskResponse
+   */
+  async createMobileAgentTaskWithOptions(request: $_model.CreateMobileAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMobileAgentTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.inputParam)) {
+      query["InputParam"] = request.inputParam;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nodeIds)) {
+      query["NodeIds"] = request.nodeIds;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMobileAgentTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMobileAgentTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMobileAgentTaskResponse({}));
+  }
+
+  /**
+   * Creates an agent task.
+   * 
+   * @param request - CreateMobileAgentTaskRequest
+   * @returns CreateMobileAgentTaskResponse
+   */
+  async createMobileAgentTask(request: $_model.CreateMobileAgentTaskRequest): Promise<$_model.CreateMobileAgentTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMobileAgentTaskWithOptions(request, runtime);
   }
 
   /**
@@ -2444,7 +2504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about Agent Tasks.
+   * Queries the information about agent tasks.
    * 
    * @param request - DescribeAgentTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2475,7 +2535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about Agent Tasks.
+   * Queries the information about agent tasks.
    * 
    * @param request - DescribeAgentTaskRequest
    * @returns DescribeAgentTaskResponse
@@ -2787,7 +2847,7 @@ export default class Client extends OpenApi {
    * Queries a list of backup files.
    * 
    * @remarks
-   * Currently, only backup files generated by cloud phones can be stored in Object Storage Service (OSS).
+   * Currently, only backup files generated by cloud phones can be saved in Object Storage Service (OSS).
    * 
    * @param request - DescribeBackupFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2873,7 +2933,7 @@ export default class Client extends OpenApi {
    * Queries a list of backup files.
    * 
    * @remarks
-   * Currently, only backup files generated by cloud phones can be stored in Object Storage Service (OSS).
+   * Currently, only backup files generated by cloud phones can be saved in Object Storage Service (OSS).
    * 
    * @param request - DescribeBackupFilesRequest
    * @returns DescribeBackupFilesResponse
@@ -2884,10 +2944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about buckets. This operation returns only the buckets whose names start with `cloudphone-saved-bucket-`.
+   * Queries the list of buckets whose names start with cloudphone-saved-bucket-.
    * 
    * @remarks
-   * Currently, you can save backup files generated by Cloud Phone only to Object Storage Service (OSS).
+   * Currently, only backup files generated by Cloud Phone can be stored in Object Storage Service (OSS).
    * 
    * @param request - DescribeBucketsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2918,10 +2978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about buckets. This operation returns only the buckets whose names start with `cloudphone-saved-bucket-`.
+   * Queries the list of buckets whose names start with cloudphone-saved-bucket-.
    * 
    * @remarks
-   * Currently, you can save backup files generated by Cloud Phone only to Object Storage Service (OSS).
+   * Currently, only backup files generated by Cloud Phone can be stored in Object Storage Service (OSS).
    * 
    * @param request - DescribeBucketsRequest
    * @returns DescribeBucketsResponse
@@ -3098,7 +3158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credit booster packages.
+   * Queries credit boost packages.
    * 
    * @param request - DescribeCreditPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3133,7 +3193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credit booster packages.
+   * Queries credit boost packages.
    * 
    * @param request - DescribeCreditPackageRequest
    * @returns DescribeCreditPackageResponse
@@ -3248,7 +3308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of available images.
+   * Queries a list of images.
    * 
    * @param request - DescribeImageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3317,7 +3377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of available images.
+   * Queries a list of images.
    * 
    * @param request - DescribeImageListRequest
    * @returns DescribeImageListResponse
@@ -3328,10 +3388,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution results of a command run by calling the RunCommand operation.
+   * Queries the command execution results of the RunCommand operation.
    * 
    * @remarks
-   * This operation is being deprecated. Use the [](t2740507.xdita#)operation to query the progress and results of a command execution.
+   * This operation will be deprecated soon. Use the [DescribeTasks](https://help.aliyun.com/document_detail/2833926.html) operation to query the progress and results of command execution.
    * 
    * @param request - DescribeInvocationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3366,10 +3426,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution results of a command run by calling the RunCommand operation.
+   * Queries the command execution results of the RunCommand operation.
    * 
    * @remarks
-   * This operation is being deprecated. Use the [](t2740507.xdita#)operation to query the progress and results of a command execution.
+   * This operation will be deprecated soon. Use the [DescribeTasks](https://help.aliyun.com/document_detail/2833926.html) operation to query the progress and results of command execution.
    * 
    * @param request - DescribeInvocationsRequest
    * @returns DescribeInvocationsResponse
@@ -3380,7 +3440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries JVS instance information.
+   * Queries the details of JVS instances.
    * 
    * @param request - DescribeJVSInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3419,7 +3479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries JVS instance information.
+   * Queries the details of JVS instances.
    * 
    * @param request - DescribeJVSInstanceRequest
    * @returns DescribeJVSInstanceResponse
@@ -3484,7 +3544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the latest monitoring data for an instance or a matrix. You can query metrics such as CPU, memory, disk, and network.
+   * Queries the latest monitoring data of instances or matrices. Supports querying monitoring data such as CPU, memory, disk, and network.
    * 
    * @param request - DescribeMetricLastRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3545,7 +3605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the latest monitoring data for an instance or a matrix. You can query metrics such as CPU, memory, disk, and network.
+   * Queries the latest monitoring data of instances or matrices. Supports querying monitoring data such as CPU, memory, disk, and network.
    * 
    * @param request - DescribeMetricLastRequest
    * @returns DescribeMetricLastResponse
@@ -3556,7 +3616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries monitoring data for specified metrics, such as network bandwidth.
+   * Queries the monitoring data of specified metrics, such as network bandwidth.
    * 
    * @param request - DescribeMetricListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3619,7 +3679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries monitoring data for specified metrics, such as network bandwidth.
+   * Queries the monitoring data of specified metrics, such as network bandwidth.
    * 
    * @param request - DescribeMetricListRequest
    * @returns DescribeMetricListResponse
@@ -3630,7 +3690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the latest monitoring data for metrics such as instance network bandwidth and returns the results in a sorted list.
+   * Queries the latest sorted monitoring data and supports querying monitoring data such as instance network bandwidth.
    * 
    * @param request - DescribeMetricTopRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3689,7 +3749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the latest monitoring data for metrics such as instance network bandwidth and returns the results in a sorted list.
+   * Queries the latest sorted monitoring data and supports querying monitoring data such as instance network bandwidth.
    * 
    * @param request - DescribeMetricTopRequest
    * @returns DescribeMetricTopResponse
@@ -4010,7 +4070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available specifications for cloud phones. This information is required to create an instance. For the cloud phone matrix mode, this operation also returns the minimum and maximum number of instances allowed per matrix.
+   * Queries the available specifications for cloud phones. You must specify a specification when you create an instance. You can call this operation to retrieve all specification information. For matrix creation, this operation retrieves the maximum and minimum limits on the number of instances that can be created in a single matrix.
    * 
    * @param request - DescribeSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4073,7 +4133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available specifications for cloud phones. This information is required to create an instance. For the cloud phone matrix mode, this operation also returns the minimum and maximum number of instances allowed per matrix.
+   * Queries the available specifications for cloud phones. You must specify a specification when you create an instance. You can call this operation to retrieve all specification information. For matrix creation, this operation retrieves the maximum and minimum limits on the number of instances that can be created in a single matrix.
    * 
    * @param request - DescribeSpecRequest
    * @returns DescribeSpecResponse
@@ -4138,14 +4198,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tasks created for a cloud phone instance. Many operations on cloud phones—such as creating, starting, or stopping them—are asynchronous. When you initiate an operation, the system returns a `Task ID` that you can use to track its progress and final result. You can call this API to retrieve a list of all tasks and their execution statuses.
+   * Queries the current task list of cloud phone instances. Many operations on cloud phones, such as creation and power-on or power-off, are performed asynchronously. The system generates a task ID for you to query the operation progress and results. You can call this operation to query the complete task list and execution status.
    * 
    * @remarks
-   * - You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
-   * - The system currently supports various tasks, including starting, stopping, restarting, and resetting cloud phone instances; backing up and restoring data; installing apps; and executing remote commands.
-   * - You can use the Level field to specify the type of task. If Level is set to 1, it represents a batch task. If Level is set to 2, it represents an instance-level task.
-   * **Example**
-   * Assume you restart two cloud phone instances with the instance IDs acp-25nt4kk9whhok\\*\\*\\*\\* and acp-j2taq887orj8l\\*\\*\\*\\*, and the returned request ID is B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you want to check the operation outcomes of the two cloud phone instances, you can call the DescribeTasks operation. You need to set the InvokeId request parameter to B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you only want to check the cloud phone instance with the ID acp-25nt4kk9whhok\\*\\*\\*\\*, you must set the ParentTaskId request parameter to the ID of the batch task and the AndroidInstanceId request parameter to acp-25nt4kk9whhok\\*\\*\\*\\* when calling the DescribeTasks operation.
+   * - You can call the DescribeTasks operation to query the operation status of one or more cloud phone instances.
+   * - Task queries are currently supported for operations such as power-on, power-off, restart, reset, backup or restoration, application installation, and remote commands.
+   * - The Level field distinguishes task levels. If Level is set to 1, the task is a batch task. If Level is set to 2, the task is an instance-level task.
+   * **Examples:**
+   * Assume that you restart two cloud phone instances whose instance IDs are acp-25nt4kk9whhok**** and acp-j2taq887orj8l****. The requestId returned for this operation is B8ED2BA9-0C6A-5643-818F-B5D60A64****. To check the result of this batch operation, you can call DescribeTasks and set InvokeId to B8ED2BA9-0C6A-5643-818F-B5D60A64****. To obtain the restart result for the instance whose ID is acp-25nt4kk9whhok****, you can call DescribeTasks and set ParentTaskId to the batch task ID and AndroidInstanceId to acp-25nt4kk9whhok****.
    * 
    * @param request - DescribeTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4228,14 +4288,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tasks created for a cloud phone instance. Many operations on cloud phones—such as creating, starting, or stopping them—are asynchronous. When you initiate an operation, the system returns a `Task ID` that you can use to track its progress and final result. You can call this API to retrieve a list of all tasks and their execution statuses.
+   * Queries the current task list of cloud phone instances. Many operations on cloud phones, such as creation and power-on or power-off, are performed asynchronously. The system generates a task ID for you to query the operation progress and results. You can call this operation to query the complete task list and execution status.
    * 
    * @remarks
-   * - You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
-   * - The system currently supports various tasks, including starting, stopping, restarting, and resetting cloud phone instances; backing up and restoring data; installing apps; and executing remote commands.
-   * - You can use the Level field to specify the type of task. If Level is set to 1, it represents a batch task. If Level is set to 2, it represents an instance-level task.
-   * **Example**
-   * Assume you restart two cloud phone instances with the instance IDs acp-25nt4kk9whhok\\*\\*\\*\\* and acp-j2taq887orj8l\\*\\*\\*\\*, and the returned request ID is B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you want to check the operation outcomes of the two cloud phone instances, you can call the DescribeTasks operation. You need to set the InvokeId request parameter to B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you only want to check the cloud phone instance with the ID acp-25nt4kk9whhok\\*\\*\\*\\*, you must set the ParentTaskId request parameter to the ID of the batch task and the AndroidInstanceId request parameter to acp-25nt4kk9whhok\\*\\*\\*\\* when calling the DescribeTasks operation.
+   * - You can call the DescribeTasks operation to query the operation status of one or more cloud phone instances.
+   * - Task queries are currently supported for operations such as power-on, power-off, restart, reset, backup or restoration, application installation, and remote commands.
+   * - The Level field distinguishes task levels. If Level is set to 1, the task is a batch task. If Level is set to 2, the task is an instance-level task.
+   * **Examples:**
+   * Assume that you restart two cloud phone instances whose instance IDs are acp-25nt4kk9whhok**** and acp-j2taq887orj8l****. The requestId returned for this operation is B8ED2BA9-0C6A-5643-818F-B5D60A64****. To check the result of this batch operation, you can call DescribeTasks and set InvokeId to B8ED2BA9-0C6A-5643-818F-B5D60A64****. To obtain the restart result for the instance whose ID is acp-25nt4kk9whhok****, you can call DescribeTasks and set ParentTaskId to the batch task ID and AndroidInstanceId to acp-25nt4kk9whhok****.
    * 
    * @param request - DescribeTasksRequest
    * @returns DescribeTasksResponse
@@ -4510,10 +4570,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Expands the storage of a cloud phone matrix. You can expand shared storage for matrix-level files such as images, and instance storage. Expanding the storage incurs new fees, and the API response returns an order ID.
+   * Expands the storage of a cloud phone matrix. You can expand the shared device storage used to store matrix-level files such as images, as well as the independent device storage. Storage capacity expansion incurs additional fees. The response parameters returned when you invoke the API operation include the order ID for the new fees.
    * 
    * @remarks
-   * This operation is only available on the china site (aliyun.com).
+   * This API operation is available only on the China site.
    * 
    * @param request - ExpandDataVolumeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4568,10 +4628,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Expands the storage of a cloud phone matrix. You can expand shared storage for matrix-level files such as images, and instance storage. Expanding the storage incurs new fees, and the API response returns an order ID.
+   * Expands the storage of a cloud phone matrix. You can expand the shared device storage used to store matrix-level files such as images, as well as the independent device storage. Storage capacity expansion incurs additional fees. The response parameters returned when you invoke the API operation include the order ID for the new fees.
    * 
    * @remarks
-   * This operation is only available on the china site (aliyun.com).
+   * This API operation is available only on the China site.
    * 
    * @param request - ExpandDataVolumeRequest
    * @returns ExpandDataVolumeResponse
@@ -5758,7 +5818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a JVS instance.
+   * Modifies the configurations of JVS instances.
    * 
    * @param request - ModifyJVSInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5809,7 +5869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a JVS instance.
+   * Modifies the configurations of JVS instances.
    * 
    * @param request - ModifyJVSInstanceRequest
    * @returns ModifyJVSInstanceResponse
@@ -5863,6 +5923,52 @@ export default class Client extends OpenApi {
   async modifyKeyPairName(request: $_model.ModifyKeyPairNameRequest): Promise<$_model.ModifyKeyPairNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyKeyPairNameWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a package.
+   * 
+   * @param request - ModifyMobileAgentPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMobileAgentPackageResponse
+   */
+  async modifyMobileAgentPackageWithOptions(request: $_model.ModifyMobileAgentPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMobileAgentPackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.packageId)) {
+      query["PackageId"] = request.packageId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyMobileAgentPackage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyMobileAgentPackageResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMobileAgentPackageResponse({}));
+  }
+
+  /**
+   * Modifies a package.
+   * 
+   * @param request - ModifyMobileAgentPackageRequest
+   * @returns ModifyMobileAgentPackageResponse
+   */
+  async modifyMobileAgentPackage(request: $_model.ModifyMobileAgentPackageRequest): Promise<$_model.ModifyMobileAgentPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyMobileAgentPackageWithOptions(request, runtime);
   }
 
   /**
@@ -6576,7 +6682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews the specified cloud phone matrices.
+   * Renews a cloud phone matrix.
    * 
    * @param request - RenewCloudPhoneNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6633,7 +6739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews the specified cloud phone matrices.
+   * Renews a cloud phone matrix.
    * 
    * @param request - RenewCloudPhoneNodesRequest
    * @returns RenewCloudPhoneNodesResponse
@@ -6840,7 +6946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers an Agent on Mobile nodes to execute an AI automation task.
+   * Triggers an agent on a Mobile node to execute AI automation tasks.
    * 
    * @param tmpReq - RunAgentTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6913,7 +7019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers an Agent on Mobile nodes to execute an AI automation task.
+   * Triggers an agent on a Mobile node to execute AI automation tasks.
    * 
    * @param request - RunAgentTaskRequest
    * @returns RunAgentTaskResponse
@@ -6982,10 +7088,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a synchronous command on one or more Cloud Phone instances and returns the execution result.
+   * Executes a command on a cloud phone and attempts to return the result.
    * 
    * @remarks
-   * The `RunSyncCommand` operation is designed for commands that return a result quickly, typically within milliseconds. For longer-running commands that may take several seconds, we recommend using the asynchronous [](t2729835.xdita#)operation.
+   * `RunSyncCommand` is suitable for commands that return results quickly, typically within milliseconds. For commands that take longer to execute, typically within seconds, use the [RunCommand](~~RunCommand~~) operation.
    * 
    * @param request - RunSyncCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7028,10 +7134,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a synchronous command on one or more Cloud Phone instances and returns the execution result.
+   * Executes a command on a cloud phone and attempts to return the result.
    * 
    * @remarks
-   * The `RunSyncCommand` operation is designed for commands that return a result quickly, typically within milliseconds. For longer-running commands that may take several seconds, we recommend using the asynchronous [](t2729835.xdita#)operation.
+   * `RunSyncCommand` is suitable for commands that return results quickly, typically within milliseconds. For commands that take longer to execute, typically within seconds, use the [RunCommand](~~RunCommand~~) operation.
    * 
    * @param request - RunSyncCommandRequest
    * @returns RunSyncCommandResponse
@@ -7946,7 +8052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades an instance group. This operation only supports scaling out an instance group, which increases the number of instances.
+   * Upgrades an instance group. Currently, only scaling out the instance group by increasing the number of instances is supported.
    * 
    * @param request - UpgradeAndroidInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7993,7 +8099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades an instance group. This operation only supports scaling out an instance group, which increases the number of instances.
+   * Upgrades an instance group. Currently, only scaling out the instance group by increasing the number of instances is supported.
    * 
    * @param request - UpgradeAndroidInstanceGroupRequest
    * @returns UpgradeAndroidInstanceGroupResponse

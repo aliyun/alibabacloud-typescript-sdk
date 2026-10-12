@@ -38,7 +38,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The number of cloud phone instances. Call the [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) operation to query the maximum and minimum instance count limits.
+   * The number of cloud phone instances. You can call [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) to query the maximum and minimum instance count limits.
    * 
    * @example
    * 20
@@ -46,7 +46,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   phoneCount?: number;
   /**
    * @remarks
-   * The device storage size. Valid values: 10 GiB to 4000 GiB. If this parameter is left empty, the current size is retained.
+   * The device storage size. Valid range: 10 GiB to 4000 GiB. If this parameter is left empty, the original size is retained.
    * 
    * @example
    * 10
@@ -54,12 +54,16 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   phoneDataVolume?: number;
   /**
    * @remarks
-   * The promotion ID.
+   * The promotional activity ID.
    * 
    * @example
    * 50003308011****
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The shared storage size. Unit: GiB.
+   */
   shareDataVolume?: number;
   swapSize?: number;
   /**

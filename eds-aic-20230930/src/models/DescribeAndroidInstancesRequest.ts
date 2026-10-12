@@ -50,7 +50,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   androidInstanceIds?: string[];
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * name
@@ -58,7 +58,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   androidInstanceName?: string;
   /**
    * @remarks
-   * The application management policy ID.
+   * The ID of the application control rule.
    * 
    * @example
    * amp-shigvudbyeuib****
@@ -66,7 +66,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   appManagePolicyId?: string;
   /**
    * @remarks
-   * The user ID assigned to the instance, which is the China Wuying convenience account ID.
+   * The ID of the user assigned to the instance, which is the Wuying convenience user ID.
    * 
    * @example
    * user
@@ -74,7 +74,9 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   authorizedUserId?: string;
   /**
    * @remarks
-   * <props="china">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones of different editions (Instance Edition or Matrix Edition).
+   * <props="china">The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the list of regions where different versions of cloud phones (instance edition and matrix edition) are available for purchase.
+   * 
+   * <props="intl">The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the list of regions where cloud phones are available for purchase.
    * 
    * @example
    * cn-shanghai
@@ -82,7 +84,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * PostPaid
@@ -90,7 +92,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The instance group ID.
+   * The ID of the instance group.
    * 
    * @example
    * ag-25nt4kk9whjh****
@@ -103,7 +105,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The instance group name.
+   * The name of the instance group.
    * 
    * @example
    * test
@@ -119,7 +121,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   instanceVersion?: string;
   /**
    * @remarks
-   * The ID of the bound key pair.
+   * The ID of the associated key pair.
    * 
    * @example
    * kp-5hh431emkpuoi****
@@ -127,7 +129,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
+   * The maximum number of entries per page for paging. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 20
@@ -135,7 +137,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that indicates the position from which to start reading. Leave this parameter empty to read from the beginning.
+   * The token that specifies the starting position for the next query. An empty value indicates that the query starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
@@ -144,6 +146,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * <props="china">The matrix ID.
+   * <props="intl">This parameter is not publicly available.
    * 
    * @example
    * node_id
@@ -152,6 +155,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * <props="china">The name of the matrix.
+   * <props="intl">This parameter is not publicly available.
    * 
    * @example
    * node_name
@@ -159,7 +163,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The cloud phone network IDs.
+   * The ID of the cloud phone network.
    */
   officeSiteIds?: string[];
   /**
@@ -172,12 +176,12 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   privateIpAddress?: string;
   /**
    * @remarks
-   * The IDs of the public network rate limiting rule groups. These are rate limiting rules for instances in the basic shared network.
+   * The ID of the public network throttling rule group. This specifies the throttling rules for instances in the basic shared network.
    */
   qosRuleIds?: string[];
   /**
    * @remarks
-   * The sales mode.
+   * The sale mode.
    * 
    * @example
    * Instance
@@ -187,13 +191,21 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    * @remarks
    * The sort key used when querying resources.
    * 
+   * This parameter must be used together with SortType. Valid values: CreationTime and ExpiredTime.
+   * 
+   * If you set this parameter to CreationTime, the resources are sorted by creation time. If you set this parameter to ExpiredTime, the resources are sorted by expiration time.
+   * 
+   * By default, resources are sorted in descending order of creation time.
+   * 
    * @example
    * CreationTime
    */
   sortKey?: string;
   /**
    * @remarks
-   * The sort order. Default value: descending order. Valid values:
+   * The sort order. Default value: DESC. Valid values:
+   * - ASC: ascending order
+   * - DESC: descending order
    * 
    * @example
    * ASC

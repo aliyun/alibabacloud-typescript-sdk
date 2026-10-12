@@ -13,10 +13,7 @@ export class DescribeSkillsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language type. The skill description is returned in this language.
-   * 
-   * Valid values:
-   * 
+   * The language type. The skill description is returned in the specified language. Valid values:
    * - en: English.
    * - zh-CN: Chinese.
    * 

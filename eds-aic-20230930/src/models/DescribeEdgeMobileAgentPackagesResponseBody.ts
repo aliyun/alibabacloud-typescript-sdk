@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEdgeMobileAgentPackagesResponseBodyPackages extends $dara.Model {
   /**
    * @remarks
-   * The device type.
+   * The device class.
    * 
    * @example
    * BOX
@@ -13,7 +13,7 @@ export class DescribeEdgeMobileAgentPackagesResponseBodyPackages extends $dara.M
   deviceClass?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-05 10:04:07
@@ -93,7 +93,7 @@ export class DescribeEdgeMobileAgentPackagesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that no more data exists.
+   * The pagination token for the next page. An empty value indicates that no more data is available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
@@ -114,7 +114,7 @@ export class DescribeEdgeMobileAgentPackagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 30

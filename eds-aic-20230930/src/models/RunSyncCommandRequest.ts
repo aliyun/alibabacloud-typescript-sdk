@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunSyncCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the command to execute.
+   * The content of the command.
    * 
    * @example
    * ls
@@ -13,7 +13,7 @@ export class RunSyncCommandRequest extends $dara.Model {
   commandContent?: string;
   /**
    * @remarks
-   * The encoding of the command content. If you provide a value that is not a valid option, the system uses the default value, `PlainText`.
+   * The encoding method of the script content. If the specified value is not within the valid values, the default value `PlainText` is used.
    * 
    * @example
    * PlainText
@@ -21,12 +21,12 @@ export class RunSyncCommandRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * An array of Cloud Phone instance IDs. You can specify up to 50 instances in a single request.
+   * The list of cloud phone instance IDs. A single request supports up to 50 instances.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The timeout for command execution, in milliseconds. Valid range: 500 to 3000. Default: 1000.
+   * The wait time in milliseconds. Valid values: 500 to 3000. Default value: 1000.
    * 
    * @example
    * 1000

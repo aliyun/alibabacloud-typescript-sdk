@@ -6,8 +6,7 @@ export class DescribeMetricListResponseBodyMetricTotalModelMetricModelListDataPo
   /**
    * @remarks
    * The average value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+   * > If the metric is bandwidth_package_usage_out or bandwidth_package_usage_in, the unit is bps.
    * 
    * @example
    * 99.52
@@ -24,8 +23,7 @@ export class DescribeMetricListResponseBodyMetricTotalModelMetricModelListDataPo
   /**
    * @remarks
    * The maximum value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+   * > If the metric is bandwidth_package_usage_out or bandwidth_package_usage_in, the unit is bps.
    * 
    * @example
    * 100
@@ -34,8 +32,7 @@ export class DescribeMetricListResponseBodyMetricTotalModelMetricModelListDataPo
   /**
    * @remarks
    * The minimum value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+   * > If the metric is bandwidth_package_usage_out or bandwidth_package_usage_in, the unit is bps.
    * 
    * @example
    * 93.1
@@ -43,7 +40,7 @@ export class DescribeMetricListResponseBodyMetricTotalModelMetricModelListDataPo
   minimum?: number;
   /**
    * @remarks
-   * The timestamp of the statistics. Unit: milliseconds.
+   * The statistical timestamp. Unit: milliseconds.
    * 
    * @example
    * 1548777660000
@@ -52,8 +49,7 @@ export class DescribeMetricListResponseBodyMetricTotalModelMetricModelListDataPo
   /**
    * @remarks
    * The data value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+   * > If the metric is bandwidth_package_usage_out or bandwidth_package_usage_in, the unit is bps.
    * 
    * @example
    * tf-testacc-oos-parameter
@@ -93,7 +89,7 @@ export class DescribeMetricListResponseBodyMetricTotalModelMetricModelListDataPo
 export class DescribeMetricListResponseBodyMetricTotalModelMetricModelList extends $dara.Model {
   /**
    * @remarks
-   * A list of monitoring data points.
+   * The list of monitoring statistics data points.
    */
   dataPoints?: DescribeMetricListResponseBodyMetricTotalModelMetricModelListDataPoints[];
   /**
@@ -106,7 +102,7 @@ export class DescribeMetricListResponseBodyMetricTotalModelMetricModelList exten
   metricName?: string;
   /**
    * @remarks
-   * The process name.
+   * The name of the process.
    * 
    * @example
    * Required
@@ -143,7 +139,7 @@ export class DescribeMetricListResponseBodyMetricTotalModelMetricModelList exten
 export class DescribeMetricListResponseBodyMetricTotalModel extends $dara.Model {
   /**
    * @remarks
-   * For instance-level monitoring, the Cloud Phone instance ID is returned.
+   * For instance-level monitoring, the cloud phone instance ID is returned. 
    * <props="china">For matrix-level monitoring, the matrix ID is returned.
    * 
    * @example
@@ -160,7 +156,7 @@ export class DescribeMetricListResponseBodyMetricTotalModel extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The monitoring data for metrics.
+   * The list of metric monitoring results.
    */
   metricModelList?: DescribeMetricListResponseBodyMetricTotalModelMetricModelList[];
   static names(): { [key: string]: string } {
@@ -194,7 +190,7 @@ export class DescribeMetricListResponseBodyMetricTotalModel extends $dara.Model 
 export class DescribeMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of records.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -202,12 +198,12 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The instance monitoring data.
+   * The list of instance monitoring results.
    */
   metricTotalModel?: DescribeMetricListResponseBodyMetricTotalModel[];
   /**
    * @remarks
-   * The token for the next query. If not all results are returned, this parameter is not empty. Use the returned token to query the next page.
+   * The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can use the returned NextToken in subsequent queries to retrieve the remaining results.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
@@ -215,7 +211,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****

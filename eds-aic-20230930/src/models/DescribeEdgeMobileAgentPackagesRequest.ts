@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEdgeMobileAgentPackagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The device type filter. Valid values: BOX, PHONE, PAD, and OTHER.
+   * The device class filter. Valid values: BOX, PHONE, PAD, and OTHER.
    * 
    * @example
    * BOX
@@ -21,7 +21,7 @@ export class DescribeEdgeMobileAgentPackagesRequest extends $dara.Model {
   licenseKeys?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeEdgeMobileAgentPackagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Leave this parameter empty for the first query. For subsequent queries, use the value returned in the previous response.
+   * The pagination token. Leave this parameter empty for the first query. For subsequent queries, obtain the token from the previous response.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU****

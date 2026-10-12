@@ -53,7 +53,7 @@ export class DescribeSkillsResponseBodySkillInfo extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-03-13 15:40:51
@@ -77,7 +77,7 @@ export class DescribeSkillsResponseBodySkillInfo extends $dara.Model {
   iconOssUrl?: string;
   /**
    * @remarks
-   * The number of instances that have the skill installed.
+   * The number of instances on which the skill is installed.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class DescribeSkillsResponseBodySkillInfo extends $dara.Model {
   installedCount?: number;
   /**
    * @remarks
-   * The information about the installed instances.
+   * The information about the instances on which the skill is installed.
    */
   installedInstances?: DescribeSkillsResponseBodySkillInfoInstalledInstances[];
   /**
@@ -122,7 +122,7 @@ export class DescribeSkillsResponseBodySkillInfo extends $dara.Model {
   skillSource?: string;
   /**
    * @remarks
-   * The skill lifecycle status.
+   * The lifecycle status of the skill.
    * 
    * @example
    * UPLOADED
@@ -130,7 +130,7 @@ export class DescribeSkillsResponseBodySkillInfo extends $dara.Model {
   skillStatus?: string;
   /**
    * @remarks
-   * The source node ID of the skill created from a conversation. This value is empty for user-uploaded skills.
+   * The source node ID of the skill created from a conversation. This parameter is empty if the skill is uploaded by a user.
    * 
    * @example
    * acp-bp4du4v74mc7qw8****
@@ -154,7 +154,7 @@ export class DescribeSkillsResponseBodySkillInfo extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The skill version.
+   * The skill version number.
    * 
    * @example
    * 1.0.0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy extends $dara.Model {
   /**
    * @remarks
-   * The application management policy ID.
+   * The ID of the application control rule.
    * 
    * @example
    * amp-dgiavcvibfdds****
@@ -13,10 +13,10 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy ex
   appManagePolicyId?: string;
   /**
    * @remarks
-   * The name of the application management rule.
+   * The name of the application control rule.
    * 
    * @example
-   * AppGroup1
+   * Application group 1
    */
   appManagePolicyName?: string;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelDisks extends $dar
 export class DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig extends $dara.Model {
   /**
    * @remarks
-   * DPI。
+   * The DPI.
    * 
    * @example
    * 240
@@ -141,7 +141,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig exte
   fps?: number;
   /**
    * @remarks
-   * Indicates whether the resolution is locked.
+   * Specifies whether the resolution is locked.
    * 
    * @example
    * off
@@ -149,7 +149,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig exte
   lockResolution?: string;
   /**
    * @remarks
-   * The height of the resolution. Unit: pixels.
+   * The resolution height. Unit: pixels.
    * 
    * @example
    * 1280
@@ -157,7 +157,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig exte
   resolutionHeight?: number;
   /**
    * @remarks
-   * The width of the resolution. Unit: pixels.
+   * The resolution width. Unit: pixels.
    * 
    * @example
    * 720
@@ -283,7 +283,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   androidInstanceGroupId?: string;
   /**
    * @remarks
-   * The instance group name.
+   * The name of the instance group.
    * 
    * @example
    * AndroidInstanceGroupName
@@ -299,7 +299,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   androidInstanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * name
@@ -331,7 +331,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   appInstanceId?: string;
   /**
    * @remarks
-   * The application management rule information. This corresponds to the blacklists and whitelists management of application management rules in the console.
+   * The application control rule information. This corresponds to the blacklists and whitelists management of application control rules in the console.
    */
   appManagePolicy?: DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy;
   /**
@@ -344,7 +344,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   authorizedUserId?: string;
   /**
    * @remarks
-   * The ID of the bandwidth package.
+   * The ID of the bandwidth plan.
    * 
    * @example
    * np-0q6ixs7vpxcizp***
@@ -360,7 +360,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   bandwidthPackageType?: string;
   /**
    * @remarks
-   * The bound user.
+   * The user to whom the instance is bound.
    * 
    * @example
    * test
@@ -381,7 +381,9 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   bizTags?: DescribeAndroidInstancesResponseBodyInstanceModelBizTags[];
   /**
    * @remarks
-   * The order source.
+   * The order source. Valid values:
+   * 
+   * - CLOUDPHONE (AI cloud phone)
    * 
    * @example
    * CLOUDPHONE
@@ -389,7 +391,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   channel?: string;
   /**
    * @remarks
-   * The billing type of the instance.
+   * The billing method of the instance.
    * 
    * @example
    * PrePaid
@@ -423,7 +425,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   downBandwidthLimit?: number;
   /**
    * @remarks
-   * The error reason for instance data backup failure or restoration failure.
+   * The error cause for data backup or restoration failures of the instance.
    * 
    * @example
    * FilePathNotFound
@@ -479,11 +481,11 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   instanceType?: string;
   /**
    * @remarks
-   * The network status.
+   * The network status. Valid values:
    * 
-   * - INIT: Being created.
+   * - INIT: Creating.
    * 
-   * - UPDATING: Being updated.
+   * - UPDATING: Updating.
    * 
    * - AVAILABLE: Available.
    * 
@@ -535,7 +537,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   networkType?: string;
   /**
    * @remarks
-   * The network ID. This corresponds to the network selected during creation in the console (basic shared network or advanced shared network).
+   * The network ID. This corresponds to the network selected during creation in the console, such as the basic shared network or the advanced shared network.
    * 
    * @example
    * cn-shenzhen+dir-211620****
@@ -543,7 +545,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   officeSiteId?: string;
   /**
    * @remarks
-   * The ID of the plan associated with the AI cloud phone.
+   * The ID of the package for the AI cloud phone.
    * 
    * @example
    * cmag-bp1bpyt7sfeleukh****
@@ -560,6 +562,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   /**
    * @remarks
    * <props="china">The independent device storage information of the cloud phone matrix instance.
+   * <props="intl">This parameter is not publicly available.
    */
   phoneDataInfo?: DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo;
   /**
@@ -588,7 +591,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   publicIpv6Address?: string;
   /**
    * @remarks
-   * The ID of the public network rate limiting rule. This applies only to premium bandwidth.
+   * The ID of the public network throttling rule. This rule applies only to premium bandwidth.
    * 
    * @example
    * qos-5605u0gelk200****
@@ -596,7 +599,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   qosRuleId?: string;
   /**
    * @remarks
-   * The progress of instance data backup or restoration.
+   * The progress of data backup and restoration for the instance.
    * 
    * @example
    * 100
@@ -621,6 +624,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   /**
    * @remarks
    * <props="china">The matrix status.
+   * <props="intl">This parameter is not publicly available.
    * 
    * @example
    * RUNNING
@@ -628,7 +632,8 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   serverStatus?: string;
   /**
    * @remarks
-   * <props="china">The cloud phone matrix specification.
+   * <props="china">The specifications of the cloud phone matrix.
+   * <props="intl">This parameter is not publicly available.
    * 
    * @example
    * cpm.gx7.10xlarge
@@ -645,6 +650,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   /**
    * @remarks
    * <props="china">The streaming mode of the instance in the cloud phone matrix.
+   * <props="intl">This parameter is not publicly available.
    * 
    * @example
    * 1
@@ -673,7 +679,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   upBandwidthLimit?: number;
   /**
    * @remarks
-   * The vSwitch ID in the VPC.
+   * The vSwitch ID in the virtual private cloud (VPC).
    * 
    * @example
    * vsw-2zepmau2hsbhos42****
@@ -681,7 +687,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The ID of the zone to which the instance belongs.
    * 
    * @example
    * cn-hangzhou-h
@@ -838,7 +844,7 @@ export class DescribeAndroidInstancesResponseBody extends $dara.Model {
   instanceModel?: DescribeAndroidInstancesResponseBodyInstanceModel[];
   /**
    * @remarks
-   * The position from which the current call starts reading. An empty value indicates that all data has been read.
+   * The token that indicates the read position returned by the current call. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kmma/xxE9WtwL/ADvZ****

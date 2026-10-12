@@ -8,7 +8,7 @@ export class DescribeBucketsResponseBodyDataOssObjectListOwner extends $dara.Mod
    * The name of the bucket owner.
    * 
    * @example
-   * 佳钰
+   * Jiayu
    */
   displayName?: string;
   /**
@@ -45,7 +45,7 @@ export class DescribeBucketsResponseBodyDataOssObjectListOwner extends $dara.Mod
 export class DescribeBucketsResponseBodyDataOssObjectList extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * tf-testacceu-central-1ensbucketlifecycle44222
@@ -53,13 +53,13 @@ export class DescribeBucketsResponseBodyDataOssObjectList extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The Entity Tag (ETag) is created when an object is generated. It is used to identify the content of an object.
+   * The ETag (Entity Tag) is created when an object is generated and is used to identify the content of the object.
    * 
-   * - For an object created by a PutObject request, the ETag value is the MD5 hash of the object content.
+   * - For an object created by a PutObject request, the ETag is the MD5 hash of the object content.
    * 
-   * - For an object created by other methods, the ETag value is a unique value generated based on specific calculation rules. It is not the MD5 hash of the object content.
+   * - For an object created by other methods, the ETag is a unique value generated based on specific calculation rules, but it is not the MD5 hash of the object content.
    * 
-   * - The ETag value can be used to check if the object content has changed. Do not use the ETag value as the MD5 hash to verify the data integrity of the object.
+   * - You can use the ETag to check whether the object content has changed. Do not use the ETag as the MD5 hash to verify the data integrity of the object content.
    * 
    * @example
    * 5B3C1A2E053D763E1B002CC607C5A0FE1****
@@ -83,16 +83,14 @@ export class DescribeBucketsResponseBodyDataOssObjectList extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * The information about the bucket owner.
+   * The bucket owner information.
    */
   owner?: DescribeBucketsResponseBodyDataOssObjectListOwner;
   /**
    * @remarks
-   * The information about database recovery if the database type is MSSQL. The value is a JSON string that contains the following parameters:
-   * 
-   * - **name**: The name of the database.
-   * 
-   * - **files**: The path of the database file.
+   * The database restoration information when the restored database type is MSSQL. The value is a JSON string that contains the following fields:
+   * - **name**: The database name.
+   * - **files**: The database file path.
    * 
    * @example
    * ongoing-request="true"
@@ -100,7 +98,7 @@ export class DescribeBucketsResponseBodyDataOssObjectList extends $dara.Model {
   restoreInfo?: string;
   /**
    * @remarks
-   * The size of the file. Unit: KB.
+   * The file size. Unit: KB.
    * 
    * @example
    * 9
@@ -110,15 +108,11 @@ export class DescribeBucketsResponseBodyDataOssObjectList extends $dara.Model {
    * @remarks
    * The storage class of the bucket. Valid values:
    * 
-   * - Standard (default): Standard
-   * 
-   * - IA: Infrequent Access
-   * 
-   * - Archive: Archive Storage
-   * 
-   * - ColdArchive: Cold Archive
-   * 
-   * - DeepColdArchive: Deep Cold Archive
+   * - Standard: Standard storage (default).
+   * - IA: Infrequent Access.
+   * - Archive: Archive.
+   * - ColdArchive: Cold Archive.
+   * - DeepColdArchive: Deep Cold Archive.
    * 
    * @example
    * ARCHIVE
@@ -126,7 +120,7 @@ export class DescribeBucketsResponseBodyDataOssObjectList extends $dara.Model {
   storageClass?: string;
   /**
    * @remarks
-   * The type of the trigger method.
+   * The trigger type.
    * 
    * @example
    * InstanceGroup
@@ -175,7 +169,7 @@ export class DescribeBucketsResponseBodyDataOssObjectList extends $dara.Model {
 export class DescribeBucketsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * zydctest
@@ -183,7 +177,7 @@ export class DescribeBucketsResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The public endpoint that is used to access the bucket.
+   * The public endpoint used to access the bucket.
    * 
    * @example
    * oss-cn-hangzhou.aliyuncs.com
@@ -191,7 +185,7 @@ export class DescribeBucketsResponseBodyData extends $dara.Model {
   extranetEndpoint?: string;
   /**
    * @remarks
-   * The time when the bucket was created.
+   * The creation time.
    * 
    * @example
    * 2024-05-15 17:33:59
@@ -199,7 +193,7 @@ export class DescribeBucketsResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The internal endpoint that is used by a same-region ECS instance to access the bucket.
+   * The internal endpoint used by ECS instances in the same region to access the bucket.
    * 
    * @example
    * oss-cn-hangzhou-internal.aliyuncs.com
@@ -207,7 +201,7 @@ export class DescribeBucketsResponseBodyData extends $dara.Model {
   intranetEndpoint?: string;
   /**
    * @remarks
-   * The storage path, such as a path in Hadoop Distributed File System (HDFS) or OSS.
+   * The storage path, such as HDFS or OSS.
    * 
    * @example
    * center
@@ -215,7 +209,7 @@ export class DescribeBucketsResponseBodyData extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The information about the objects in the bucket.
+   * The information about objects in the bucket.
    */
   ossObjectList?: DescribeBucketsResponseBodyDataOssObjectList[];
   /**
@@ -267,7 +261,7 @@ export class DescribeBucketsResponseBody extends $dara.Model {
    * @remarks
    * The error code.
    * 
-   * > This parameter is returned only when the call fails.
+   * > This parameter is returned only when an error occurs during the API call.
    * 
    * @example
    * 200
@@ -280,7 +274,7 @@ export class DescribeBucketsResponseBody extends $dara.Model {
   data?: DescribeBucketsResponseBodyData[];
   /**
    * @remarks
-   * The return status code of the request.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -304,7 +298,7 @@ export class DescribeBucketsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the request.
+   * The request result.
    * 
    * @example
    * True

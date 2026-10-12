@@ -13,7 +13,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the public network bandwidth limit rule (applies only to premium bandwidth).
+   * The ID of the Internet bandwidth throttling rule (applies only to premium bandwidth).
    * 
    * @example
    * qos-3kh93uu0vdbka****
@@ -45,12 +45,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules extends $dara.Model {
   /**
    * @remarks
-   * The public network bandwidth limit rule bound to the instance.
+   * The Internet bandwidth throttling rules bound to the instances.
    */
   instanceQosRule?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule[];
   /**
    * @remarks
-   * The total number of public network bandwidth limit rules for the instance group.
+   * The total number of Internet bandwidth throttling rules for the instance group.
    * 
    * @example
    * 2
@@ -85,7 +85,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks extends $dara.Model {
   /**
    * @remarks
-   * The disk size (unit: GB).
+   * The disk size. Unit: GB.
    * 
    * @example
    * 32
@@ -182,8 +182,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   /**
    * @remarks
    * The number of available instances.
-   * 
-   * > Available means the instance status is not "being deleted" or "deleted".
+   * > Available indicates that the instance status is neither Deleting nor Deleted.
    * 
    * @example
    * 2
@@ -191,7 +190,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   availableInstanceAmount?: number;
   /**
    * @remarks
-   * The ID of the bandwidth package.
+   * The ID of the bandwidth plan.
    * 
    * @example
    * np-0q6ixs7vpxciz****
@@ -199,14 +198,14 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The status of the bandwidth package.
+   * The status of the bandwidth plan.
    * Valid values:
-   * - Creating: being created.
-   * - Releasing: being released.
-   * - InUse: in use.
-   * - Failed: failed.
-   * - Expired: expired.
-   * - Available: unbound and being billed.
+   * - Creating: creating
+   * - Releasing: releasing
+   * - InUse: in use
+   * - Failed: failed
+   * - Expired: expired
+   * - Available: available and unbound, billing in progress
    * 
    * @example
    * Creating
@@ -214,7 +213,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   bandwidthPackageStatus?: string;
   /**
    * @remarks
-   * The type of the bandwidth package.
+   * The type of the bandwidth plan.
    * 
    * @example
    * cbwp_ecd
@@ -222,9 +221,16 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   bandwidthPackageType?: string;
   /**
    * @remarks
-   * The public network bandwidth limit rules for the instance group.
+   * The Internet bandwidth throttling rules for the instance group.
    */
   bindQosRules?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules;
+  /**
+   * @remarks
+   * The order source. CLOUDPHONE indicates AI Cloud Phone.
+   * 
+   * @example
+   * CLOUDPHONE
+   */
   channel?: string;
   /**
    * @remarks
@@ -249,7 +255,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   disks?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks[];
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not available for public use.
    * 
    * @example
    * true
@@ -257,7 +263,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   enableIpv6?: boolean;
   /**
    * @remarks
-   * The reason for the creation failure.
+   * The cause of the creation failure.
    * 
    * @example
    * InternalError
@@ -308,12 +314,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * The list of installed applications.
    * 
    * @example
-   * "抖音","淘宝"
+   * "Douyin","Taobao"
    */
   installedAppList?: string;
   /**
    * @remarks
-   * The instance group ID.
+   * The ID of the instance group.
    * 
    * @example
    * ag-h67a2cs0zprfdh****
@@ -321,10 +327,10 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   instanceGroupId?: string;
   /**
    * @remarks
-   * The instance group name.
+   * The name of the instance group.
    * 
    * @example
-   * Cloud phoneA
+   * Cloud Phone A
    */
   instanceGroupName?: string;
   /**
@@ -345,7 +351,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   instanceGroupSpecDescribe?: string;
   /**
    * @remarks
-   * The instance group status.
+   * The status of the instance group.
    * 
    * @example
    * RUNNING
@@ -353,7 +359,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   instanceGroupStatus?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not available for public use.
    * 
    * @example
    * 50
@@ -370,8 +376,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   /**
    * @remarks
    * The network type of the instance.
-   * 
-   * > This field is returned only for instance groups with standard networking.
+   * > Currently, this field is returned only for instance groups in the standard network.
    * 
    * @example
    * network_pro_ecd
@@ -393,10 +398,17 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * cn-shanghai+dir-030598****
    */
   officeSiteId?: string;
+  /**
+   * @remarks
+   * The ID of the plan package for the AI Cloud Phone.
+   * 
+   * @example
+   * cmag-bp1bpyt7sfeleukh****
+   */
   packageId?: string;
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the policy.
    * 
    * @example
    * pg-c6n38xucps8kl****
@@ -420,7 +432,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   renderingType?: string;
   /**
    * @remarks
-   * The height of the resolution.
+   * The resolution height.
    * 
    * @example
    * 1280
@@ -428,7 +440,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   resolutionHeight?: number;
   /**
    * @remarks
-   * The width of the resolution.
+   * The resolution width.
    * 
    * @example
    * 720
@@ -582,12 +594,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
 export class DescribeAndroidInstanceGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the instance groups.
+   * The details of the instance group.
    */
   instanceGroupModel?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel[];
   /**
    * @remarks
-   * The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
+   * The token that indicates the read position returned by the current call. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****

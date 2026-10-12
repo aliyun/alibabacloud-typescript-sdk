@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunAgentTaskRequestRunConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of skill IDs. A maximum of 10 skill IDs are supported. Only the first skill is passed through during command delivery. All skills are stored in task_skill_relation for reverse lookup.
+   * The list of skill IDs. You can specify up to 10 skill IDs. Only the first skill ID is passed through when the command is delivered. All skill IDs are stored in the task_skill_relation table for reverse lookup.
    * 
    * @example
    * ["sk-abc","sk-def"]
@@ -38,7 +38,7 @@ export class RunAgentTaskRequestRunConfig extends $dara.Model {
 export class RunAgentTaskRequestTargets extends $dara.Model {
   /**
    * @remarks
-   * The Mobile node ID, such as acp-xxx.
+   * The ID of the Mobile node, such as acp-xxx.
    * 
    * @example
    * acp-5hh4a31emkt6u****
@@ -46,7 +46,7 @@ export class RunAgentTaskRequestTargets extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The session ID. Tasks with the same session ID share context, such as ses-260702-21b****.
+   * The session ID. Tasks with the same session ID share the context, such as ses-260702-21b****.
    * 
    * @example
    * ses-260702-21bh****。
@@ -78,7 +78,7 @@ export class RunAgentTaskRequestTargets extends $dara.Model {
 export class RunAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the Mobile node.
+   * The ID of the region where the Mobile node resides.
    * 
    * @example
    * cn-shanghai
@@ -86,20 +86,20 @@ export class RunAgentTaskRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The list of Mobile node IDs. A maximum of 100 nodes are supported per request.
+   * The list of Mobile node IDs. A single request supports up to 100 nodes.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The maximum number of execution steps for the task. This prevents infinite loops. Valid values: 30 to 1000. Default value: 1000.
+   * The maximum number of execution steps for the task to prevent infinite loops. Valid values: 50 to 1000. Default value: 50.
    * 
    * @example
-   * 30
+   * 50
    */
   maxSteps?: number;
   /**
    * @remarks
-   * The runtime configuration that carries the runtime parameters (skills) for this task.
+   * The runtime configuration that contains the runtime parameters such as skills for the current task.
    * 
    * @example
    * {"Skills":["sk-abc","sk-def"]}
@@ -107,7 +107,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   runConfig?: RunAgentTaskRequestRunConfig;
   /**
    * @remarks
-   * Specifies whether to write the task artifacts to the user\\"s OSS bucket.
+   * Specifies whether to save the task artifacts to your OSS.
    * 
    * @example
    * true
@@ -115,7 +115,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   saveArtifacts?: boolean;
   /**
    * @remarks
-   * The scheduling plan ID. When specified, the execution record is associated with the corresponding scheduled node, which facilitates aggregate query by scheduling dimension through aggregation.
+   * The ID of the scheduling plan. When specified, the execute record is associated with the corresponding scheduled node, which facilitates aggregate query by scheduling aggregation dimension.
    * 
    * @example
    * sch-260625-pbj2****
@@ -123,12 +123,12 @@ export class RunAgentTaskRequest extends $dara.Model {
   scheduleId?: string;
   /**
    * @remarks
-   * An array of target objects. Each element contains an InstanceId and a SessionId.
+   * The list of targets. Each element is an object that contains an InstanceId and a SessionId.
    */
   targets?: RunAgentTaskRequestTargets[];
   /**
    * @remarks
-   * The task configuration ID. This parameter is used to trigger a task with the specified configuration.
+   * The ID of the task configuration. This parameter is used to trigger a task with the specified configuration.
    * 
    * @example
    * tsk-260625-49be****
@@ -136,7 +136,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   taskConfigId?: string;
   /**
    * @remarks
-   * The task timeout period, in seconds. Valid values: 300 to 3600. Default value: 3600.
+   * The timeout period of the task in seconds. Valid values: 300 to 3600. Default value: 3600.
    * 
    * @example
    * 3600
@@ -144,10 +144,10 @@ export class RunAgentTaskRequest extends $dara.Model {
   timeoutSeconds?: number;
   /**
    * @remarks
-   * The user instruction in natural language. The Agent performs operations based on this instruction.
+   * The user prompt in natural language. The agent performs operations based on this prompt.
    * 
    * @example
-   * Go to App Store and download DingTalk
+   * Download DingTalk from the app store
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {

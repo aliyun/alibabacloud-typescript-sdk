@@ -21,7 +21,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The total number of failed subtasks.
+   * The total number of failed child tasks.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   failedChildCount?: number;
   /**
    * @remarks
-   * The end time of the task.
+   * The end time of the task. The time is displayed in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2022-10-11T08:53:32Z
@@ -37,7 +37,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The ID of the cloud phone instance.
+   * The instance ID.
    * 
    * @example
    * acp-uto81vfd8t8z****
@@ -45,7 +45,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the cloud phone instance.
+   * The instance name.
    * 
    * @example
    * defaultInstanceName
@@ -53,7 +53,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The state of the cloud phone instance.
+   * The instance status.
    * 
    * @example
    * RUNNING
@@ -61,7 +61,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The ID of the command execution.
+   * The command execution ID.
    * 
    * @example
    * B8ED2BA9-0C6A-5643-818F-B5D60A64****
@@ -69,7 +69,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The level of the task.
+   * The task level.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The parameters of the task.
+   * The task parameters.
    * 
    * @example
    * param
@@ -93,7 +93,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   param?: string;
   /**
    * @remarks
-   * The ID of the parent task.
+   * The parent task ID.
    * 
    * @example
    * t-41oan3tza16vs****
@@ -101,7 +101,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   parentTaskId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -109,7 +109,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * acp-25nt4kk9whhok****
@@ -117,7 +117,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The execution result of the task.
+   * The task execution result.
    * 
    * @example
    * {\\"Success\\": True}
@@ -125,7 +125,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The total number of the subtasks that are running.
+   * The total number of running child tasks.
    * 
    * @example
    * 0
@@ -133,7 +133,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   runningChildCount?: number;
   /**
    * @remarks
-   * The start time of the task.
+   * The start time of the task. The time is displayed in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2022-10-11T08:53:32Z
@@ -141,7 +141,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of successfully executed subtasks.
+   * The total number of successful child tasks.
    * 
    * @example
    * 98
@@ -149,7 +149,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   successChildCount?: number;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * t-bp67acfmxazb4p****
@@ -157,7 +157,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The state of the task.
+   * The task status.
    * 
    * @example
    * Processing
@@ -165,7 +165,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * StartInstance
@@ -173,7 +173,7 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of subtasks of the current batch task.
+   * The total number of child tasks for the current batch task.
    * 
    * @example
    * 100
@@ -245,12 +245,12 @@ export class DescribeTasksResponseBodyData extends $dara.Model {
 export class DescribeTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The objects that are returned.
+   * The list of returned result objects.
    */
   data?: DescribeTasksResponseBodyData[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that specifies the starting position for reading. If this parameter is left empty, the reading starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
@@ -258,7 +258,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B8ED2BA9-0C6A-5643-818F-B5D60A64****
@@ -266,7 +266,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

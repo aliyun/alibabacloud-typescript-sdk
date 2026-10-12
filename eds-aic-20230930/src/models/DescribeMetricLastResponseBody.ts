@@ -6,8 +6,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPo
   /**
    * @remarks
    * The average value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+   * > The unit is bps when the monitoring metric is bandwidth_package_usage_out or bandwidth_package_usage_in.
    * 
    * @example
    * 99.52
@@ -24,8 +23,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPo
   /**
    * @remarks
    * The maximum value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+   * > The unit is bps when the monitoring metric is bandwidth_package_usage_out or bandwidth_package_usage_in.
    * 
    * @example
    * 100
@@ -34,8 +32,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPo
   /**
    * @remarks
    * The minimum value. Unit: %.
-   * 
-   * > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+   * > The unit is bps when the monitoring metric is bandwidth_package_usage_out or bandwidth_package_usage_in.
    * 
    * @example
    * 93.1
@@ -43,7 +40,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPo
   minimum?: number;
   /**
    * @remarks
-   * The timestamp of the statistics. Unit: milliseconds.
+   * The statistical timestamp. Unit: milliseconds.
    * 
    * @example
    * 1548777660000
@@ -81,7 +78,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPo
 export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos extends $dara.Model {
   /**
    * @remarks
-   * The CPU utilization. Unit: %.
+   * The CPU usage. Unit: %.
    * 
    * @example
    * 50
@@ -110,7 +107,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProces
   processIds?: number[];
   /**
    * @remarks
-   * The timestamp of the statistics. Unit: milliseconds.
+   * The statistical timestamp. Unit: milliseconds.
    * 
    * @example
    * 1548777660000
@@ -151,12 +148,12 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProces
 export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelList extends $dara.Model {
   /**
    * @remarks
-   * The monitoring data points.
+   * The list of monitoring statistics data points.
    */
   dataPoints?: DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints[];
   /**
    * @remarks
-   * The name of the metric.
+   * The name of the monitoring metric.
    * 
    * @example
    * cpu_utilization
@@ -164,9 +161,9 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelList exten
   metricName?: string;
   /**
    * @remarks
-   * The process monitoring metrics.
+   * The list of process monitoring metrics.
    * 
-   * > This parameter is returned when the metric is \\`process_cpu\\` or \\`process_memory\\`.
+   * > This parameter is returned when the monitoring metric is process_cpu or process_memory.
    */
   processLastInfos?: DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos[];
   static names(): { [key: string]: string } {
@@ -203,8 +200,8 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelList exten
 export class DescribeMetricLastResponseBodyMetricTotalModel extends $dara.Model {
   /**
    * @remarks
-   * For instance-level monitoring, the Cloud Phone instance ID is returned.
-   * <props="china">For matrix-level monitoring, the matrix ID is returned.
+   * The cloud phone instance ID returned for instance-level monitoring. 
+   * <props="china">The matrix ID returned for matrix-level monitoring.
    * 
    * @example
    * acp-fkuit0cmyru4p****
@@ -212,7 +209,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModel extends $dara.Model 
   androidInstanceId?: string;
   /**
    * @remarks
-   * The monitoring data for metrics.
+   * The list of metric monitoring results.
    */
   metricModelList?: DescribeMetricLastResponseBodyMetricTotalModelMetricModelList[];
   static names(): { [key: string]: string } {
@@ -244,7 +241,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModel extends $dara.Model 
 export class DescribeMetricLastResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of records.
+   * The total count.
    * 
    * @example
    * 100
@@ -252,12 +249,12 @@ export class DescribeMetricLastResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The instance monitoring data.
+   * The list of instance monitoring results.
    */
   metricTotalModel?: DescribeMetricLastResponseBodyMetricTotalModel[];
   /**
    * @remarks
-   * The token for the next query. If not all results are returned in a single query, the returned NextToken is not empty. You can use the returned NextToken in the next query to query the next page.
+   * The token for the next query. If a single query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue querying.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

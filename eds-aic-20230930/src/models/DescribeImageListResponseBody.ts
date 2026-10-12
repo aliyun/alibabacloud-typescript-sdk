@@ -46,7 +46,7 @@ export class DescribeImageListResponseBodyDataImageBizTags extends $dara.Model {
 export class DescribeImageListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 117819727354****
@@ -62,7 +62,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the image was created.
+   * The creation time.
    * 
    * @example
    * 2024-02-01 10:56:36
@@ -70,7 +70,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the image was last modified.
+   * The modification time.
    * 
    * @example
    * 2024-02-01 10:56:36
@@ -78,7 +78,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * An array of tag objects.
+   * The array of tag objects.
    */
   imageBizTags?: DescribeImageListResponseBodyDataImageBizTags[];
   /**
@@ -99,7 +99,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The image distribution information by region. The key is the region and the value is the distribution information.
+   * The image distribution region information. The key is the region and the value is the distribution information.
    */
   imageRegionDistributeMap?: { [key: string]: DataImageRegionDistributeMapValue };
   /**
@@ -133,7 +133,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time when the image was published.
+   * The release time. The time format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-07-25 10:06:45
@@ -231,7 +231,7 @@ export class DescribeImageListResponseBody extends $dara.Model {
   data?: DescribeImageListResponseBodyData[];
   /**
    * @remarks
-   * The token that is used to start the next query. An empty value indicates that all data has been returned.
+   * The position from which the current call returns the read data. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****

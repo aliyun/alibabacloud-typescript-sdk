@@ -27,10 +27,14 @@ export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
    * ag-asguicdjh****
    */
   instanceGroupId?: string;
+  /**
+   * @remarks
+   * The redirect URL for the payment success page.
+   */
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotion.
    */
   promotionId?: string;
   static names(): { [key: string]: string } {

@@ -21,7 +21,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   maxPhoneCount?: string;
   /**
    * @remarks
-   * The memory size in GB.
+   * The memory size.
    * 
    * @example
    * 16
@@ -37,7 +37,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   minPhoneCount?: string;
   /**
    * @remarks
-   * The number of instances.
+   * The number of cloud phone instances.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The size of the system disk, in GB.
+   * The system cloud disk size. Unit: GB.
    * 
    * @example
    * 32
@@ -125,7 +125,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
 export class DescribeSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token to use for the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
+   * The token that indicates the position up to which the data is retrieved. An empty value indicates that all data has been retrieved.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****

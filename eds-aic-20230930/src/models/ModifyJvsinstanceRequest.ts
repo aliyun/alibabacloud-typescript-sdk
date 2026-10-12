@@ -13,11 +13,7 @@ export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
   creditLimit?: number;
   /**
    * @remarks
-   * The dimension of the current credit. Valid values:
-   * 
-   * - total: Total usage limit.
-   * - month: Monthly. The quota resets based on the resource activation time cycle.
-   * - day: Daily. The quota resets at 00:00.
+   * The period of the current credit.
    * 
    * @example
    * day
@@ -49,7 +45,10 @@ export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
 export class ModifyJVSInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The target version, such as 2607W1. Set this parameter to latest to automatically resolve to the latest available version.
+   * The target version of AI Engine, such as 2607W1. You can also set this parameter to latest to automatically resolve to the latest available version.
+   * 
+   * @example
+   * latest
    */
   agentVersion?: string;
   /**
@@ -62,9 +61,13 @@ export class ModifyJVSInstanceRequest extends $dara.Model {
   applyToAll?: boolean;
   /**
    * @remarks
-   * The credit quota configuration. If you submit the configuration multiple times, the latest configuration overwrites the previous one.
+   * The credit limit configuration. Subsequent quota configurations overwrite previous ones.
    */
   creditConfig?: ModifyJVSInstanceRequestCreditConfig[];
+  /**
+   * @remarks
+   * The image ID.
+   */
   imageId?: string;
   /**
    * @remarks

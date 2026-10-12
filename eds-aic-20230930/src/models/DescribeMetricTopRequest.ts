@@ -6,15 +6,12 @@ export class DescribeMetricTopRequest extends $dara.Model {
   /**
    * @remarks
    * For instance-level monitoring, specify a list of cloud phone instance IDs.
-   * 
-   * <props="china">
-   * 
-   * For matrix-level monitoring, specify a list of matrix IDs.
+   * <props="china">For matrix-level monitoring, specify a list of matrix IDs.
    */
   androidInstanceIds?: string[];
   /**
    * @remarks
-   * The end time of the query.
+   * The end time of the query for the monitoring metric. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2019-01-31 11:00:00
@@ -27,9 +24,8 @@ export class DescribeMetricTopRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page. This parameter is used for paged queries.
-   * 
-   * > The maximum value is 100 when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+   * The number of entries to return on each page for the monitoring data. This parameter is used for paging in a paged query.
+   * > If the monitoring metric is instance_in_traffic or instance_out_traffic, the maximum value is 100.
    * 
    * @example
    * 100
@@ -37,14 +33,14 @@ export class DescribeMetricTopRequest extends $dara.Model {
   length?: string;
   /**
    * @remarks
-   * The list of metrics.
+   * The list of monitoring metrics.
    * 
    * This parameter is required.
    */
   metricNames?: string[];
   /**
    * @remarks
-   * The token that marks the start of the next page of results. If you leave this parameter empty, the query starts from the beginning.
+   * The token that marks the position from which to start reading. If this parameter is left empty, the query starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -61,7 +57,7 @@ export class DescribeMetricTopRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The start time of the query.
+   * The start time of the query for the monitoring metric. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2019-01-31 10:00:00

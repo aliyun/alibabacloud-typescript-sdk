@@ -31,10 +31,7 @@ export class DescribeJVSInstanceResponseBodyDataAgentVersion extends $dara.Model
 export class DescribeJVSInstanceResponseBodyDataCreditConfig extends $dara.Model {
   /**
    * @remarks
-   * The quota limit. Valid values:
-   * - 0: not available for use.
-   * - >0: the quota is configured based on the numeric value.
-   * - -1: unlimited.
+   * The limit value.
    * 
    * @example
    * -1
@@ -42,10 +39,7 @@ export class DescribeJVSInstanceResponseBodyDataCreditConfig extends $dara.Model
   creditLimit?: number;
   /**
    * @remarks
-   * The quota period. Valid values:
-   * - total: The total usage limit.
-   * - month: Monthly. The quota resets based on the resource activation time as one cycle.
-   * - day: Daily. The quota resets at 00:00.
+   * The limit period.
    * 
    * @example
    * day
@@ -156,7 +150,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   agentVersion?: DescribeJVSInstanceResponseBodyDataAgentVersion;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2026-04-10T01:31:32Z
@@ -164,12 +158,12 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The credit quota configuration. Subsequent quota configurations overwrite previous configurations.
+   * The credit limit configuration. Subsequent quota configurations overwrite previous configurations.
    */
   creditConfig?: DescribeJVSInstanceResponseBodyDataCreditConfig[];
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2026-04-10T01:31:32Z
@@ -194,7 +188,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   jvsPackageId?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2026-04-10T01:31:32Z
@@ -210,7 +204,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The used credits.
+   * The used credit.
    */
   usedCredit?: DescribeJVSInstanceResponseBodyDataUsedCredit[];
   static names(): { [key: string]: string } {
@@ -272,7 +266,7 @@ export class DescribeJVSInstanceResponseBody extends $dara.Model {
   data?: DescribeJVSInstanceResponseBodyData[];
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of results returned in this request.
    * 
    * @example
    * 10
@@ -280,7 +274,7 @@ export class DescribeJVSInstanceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that indicates the current position from which to start reading. An empty value indicates reading from the beginning.
+   * The token that specifies the starting position for the next query. An empty value indicates that the query starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud phone instance.
+   * The instance ID.
    * 
    * @example
    * acp-2zecay9ponatdc4m****
@@ -13,7 +13,7 @@ export class DescribeTasksRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the cloud phone instance.
+   * The instance name.
    * 
    * @example
    * defaultInstanceName
@@ -21,7 +21,7 @@ export class DescribeTasksRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The ID of the command execution. You can set the value to the last returned request ID.
+   * The command execution ID. You can enter the requestId returned by the previous operation.
    * 
    * @example
    * B8ED2BA9-0C6A-5643-818F-B5D60A64****
@@ -29,7 +29,7 @@ export class DescribeTasksRequest extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The level of the task. A value of 1 specifies a batch task. A value of 2 specifies an instance-level task.
+   * The task level. A value of 1 indicates a batch task. A value of 2 indicates an instance-level task.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeTasksRequest extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribeTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
+   * The token that specifies the starting position for reading. If this parameter is left empty, the reading starts from the beginning.
    * 
    * @example
    * FFbc8N4E1iOlcSxC+8boa0HHH2LKWbggYUinyrZWvtS1oTrMYCg1HuMLGuftj0****
@@ -53,7 +53,7 @@ export class DescribeTasksRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The extension field.
+   * The extended field.
    * 
    * @example
    * param
@@ -61,7 +61,7 @@ export class DescribeTasksRequest extends $dara.Model {
   param?: string;
   /**
    * @remarks
-   * The ID of the parent task.
+   * The parent task ID.
    * 
    * @example
    * t-iaej5dkbnmivx****
@@ -69,17 +69,17 @@ export class DescribeTasksRequest extends $dara.Model {
   parentTaskId?: string;
   /**
    * @remarks
-   * The IDs of the resources.
+   * The list of resource IDs.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The IDs of the tasks.
+   * The list of task IDs.
    */
   taskIds?: string[];
   /**
    * @remarks
-   * The state of the task.
+   * The task status.
    * 
    * @example
    * Processing
@@ -87,12 +87,12 @@ export class DescribeTasksRequest extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The status of the tasks.
+   * The list of task statuses.
    */
   taskStatuses?: string[];
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * StartInstance
@@ -100,7 +100,7 @@ export class DescribeTasksRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The types of the tasks.
+   * The list of task types.
    */
   taskTypes?: string[];
   static names(): { [key: string]: string } {

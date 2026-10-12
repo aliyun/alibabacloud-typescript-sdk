@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunSyncCommandResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when command execution finished.
+   * The end time of the command execution. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-11 17:45:03
@@ -13,7 +13,7 @@ export class RunSyncCommandResponseBodyData extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The ID of the instance on which the command was executed.
+   * The instance ID on which the current command is executed.
    * 
    * @example
    * acp-uto81vfd8t8z****
@@ -21,7 +21,7 @@ export class RunSyncCommandResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The invocation ID.
+   * The command execution ID.
    * 
    * @example
    * t-15775dc8****
@@ -29,7 +29,7 @@ export class RunSyncCommandResponseBodyData extends $dara.Model {
   invocationId?: string;
   /**
    * @remarks
-   * The command execution status.
+   * The execution status of the command.
    * 
    * @example
    * RUNNING
@@ -37,7 +37,7 @@ export class RunSyncCommandResponseBodyData extends $dara.Model {
   invocationStatus?: string;
   /**
    * @remarks
-   * The command output.
+   * The output of the command execution.
    * 
    * @example
    * success
@@ -45,7 +45,7 @@ export class RunSyncCommandResponseBodyData extends $dara.Model {
   output?: string;
   /**
    * @remarks
-   * The time when command execution began.
+   * The start time of the command execution. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2022-10-11T08:53:32Z
@@ -85,7 +85,7 @@ export class RunSyncCommandResponseBodyData extends $dara.Model {
 export class RunSyncCommandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of objects, where each object contains the execution result for a single instance.
+   * The returned result object.
    */
   data?: RunSyncCommandResponseBodyData[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditPackageResponseBodyCreditsPackageInfos extends $dara.Model {
   /**
    * @remarks
-   * The number of available credits in the current credit booster package.
+   * The number of available credits in the current credit boost package.
    * 
    * @example
    * 70
@@ -14,7 +14,7 @@ export class DescribeCreditPackageResponseBodyCreditsPackageInfos extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The ID of the credit booster package.
+   * The ID of the credit boost package.
    * 
    * @example
    * crp-xagydbhfkah****
@@ -22,7 +22,7 @@ export class DescribeCreditPackageResponseBodyCreditsPackageInfos extends $dara.
   creditPackageId?: string;
   /**
    * @remarks
-   * The status of the credit booster package.
+   * The status of the credit boost package.
    * 
    * @example
    * ACTIVE
@@ -30,7 +30,7 @@ export class DescribeCreditPackageResponseBodyCreditsPackageInfos extends $dara.
   creditPackageStatus?: string;
   /**
    * @remarks
-   * The effective period of the credit booster package.
+   * The effective period of the credit boost package. The time format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-04-30 00:00:00
@@ -38,7 +38,7 @@ export class DescribeCreditPackageResponseBodyCreditsPackageInfos extends $dara.
   effectiveTime?: string;
   /**
    * @remarks
-   * The number of consumed credits in the current credit booster package.
+   * The number of consumed credits in the current credit boost package.
    * 
    * @example
    * 30
@@ -46,7 +46,7 @@ export class DescribeCreditPackageResponseBodyCreditsPackageInfos extends $dara.
   exhaustedCredits?: string;
   /**
    * @remarks
-   * The expiration time of the credit booster package.
+   * The expiration time of the credit boost package. The time format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-10-30 00:00:00
@@ -54,7 +54,7 @@ export class DescribeCreditPackageResponseBodyCreditsPackageInfos extends $dara.
   expiredTime?: string;
   /**
    * @remarks
-   * The total number of credits in the current credit booster package.
+   * The total number of credits in the current credit boost package.
    * 
    * @example
    * 100
@@ -98,7 +98,7 @@ export class DescribeCreditPackageResponseBodyCreditsPackageInfos extends $dara.
 export class DescribeCreditPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The credit booster package information.
+   * The information about the credit boost packages.
    */
   creditsPackageInfos?: DescribeCreditPackageResponseBodyCreditsPackageInfos[];
   /**
@@ -111,7 +111,7 @@ export class DescribeCreditPackageResponseBody extends $dara.Model {
   isFirstPurchase?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC****

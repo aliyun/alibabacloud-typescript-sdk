@@ -6,30 +6,18 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
    * The current status of the task. Valid values:
-   * 
-   * PENDING: The task is being created.
-   * 
-   * RUNNING: The task is running.
-   * 
-   * COMPLETED: The task is completed.
-   * 
-   * FAILED: The task failed.
-   * 
-   * TIMEOUT: The task timed out.
-   * 
-   * CALL_FOR_USER: Waiting for user action.
-   * 
-   * PAUSING: The task is being paused.
-   * 
-   * PAUSED: The task is paused.
-   * 
-   * CANCELLING: The task is being canceled.
-   * 
-   * CANCELED: The task is canceled.
-   * 
-   * STOPPED: The task is stopped.
-   * 
-   * TIMEOUT: The task timed out.
+   * - PENDING: The task is being created.
+   * - RUNNING: The task is running.
+   * - COMPLETED: The task is completed.
+   * - FAILED: The task failed.
+   * - TIMEOUT: The task execution timed out.
+   * - CALL_FOR_USER: The task is waiting for user operations.
+   * - PAUSING: The task is being paused.
+   * - PAUSED: The task is paused.
+   * - CANCELLING: The task is being canceled.
+   * - CANCELED: The task is canceled.
+   * - STOPPED: The task is stopped.
+   * - TIMEOUT: The task timed out.
    * 
    * @example
    * COMPLETED
@@ -37,7 +25,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   currentStatus?: string;
   /**
    * @remarks
-   * The Mobile node ID.
+   * The ID of the Mobile node.
    * 
    * @example
    * acp-ek65k51zoxia3x8xz
@@ -45,7 +33,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the task was created, in ISO 8601 format.
+   * The time when the task was created. The time is in the ISO 8601 format.
    * 
    * @example
    * 2026-04-13T17:42:19Z
@@ -53,7 +41,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   runningAt?: string;
   /**
    * @remarks
-   * The session ID. Tasks with the same session ID share context.
+   * The session ID. Tasks with the same session ID share the context.
    * 
    * @example
    * ses-260702-21bh****。
@@ -61,7 +49,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The task ID, which is globally unique.
+   * The globally unique ID of the task.
    * 
    * @example
    * t-imr0fufqd7cle****
@@ -69,10 +57,10 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The user instruction in natural language. The Agent performs operations based on this instruction.
+   * The user prompt in natural language. The agent performs operations based on this prompt.
    * 
    * @example
-   * Go to App Store and download DingTalk
+   * Download DingTalk from the app store
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {
@@ -109,10 +97,10 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
 export class RunAgentTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation.
+   * The status code of the API operation.
    * 
    * @example
-   * For example, "200" indicates success
+   * "200" indicates success
    */
   code?: string;
   /**
@@ -125,7 +113,7 @@ export class RunAgentTaskResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API operation.
    * 
    * @example
    * Success.
@@ -133,7 +121,7 @@ export class RunAgentTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****

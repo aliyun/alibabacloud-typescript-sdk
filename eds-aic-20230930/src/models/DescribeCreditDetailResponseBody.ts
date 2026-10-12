@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
   /**
    * @remarks
-   * The agent type. This field is populated only when querying by a single agent type.
+   * The agent type. This field is populated only when you query by a single agent type.
    * 
    * @example
    * cloudphone_enterprise
@@ -29,7 +29,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
   cachedTokens?: number;
   /**
    * @remarks
-   * The time when the change occurred.
+   * The time when the change occurred. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2026-06-30T08:14:02Z
@@ -53,7 +53,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The model inference duration, in milliseconds.
+   * The model inference duration in milliseconds.
    * 
    * @example
    * 3000
@@ -133,7 +133,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
   totalTokens?: number;
   /**
    * @remarks
-   * The response time of the first token, in milliseconds.
+   * The first token response time, in milliseconds.
    * 
    * @example
    * 500
@@ -208,7 +208,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number for pagination. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -224,7 +224,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of detail records.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -275,7 +275,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
 export class DescribeCreditDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response object.
+   * The returned data object.
    */
   data?: DescribeCreditDetailResponseBodyData;
   /**

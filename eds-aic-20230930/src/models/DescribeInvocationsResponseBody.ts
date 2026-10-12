@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the command finished running.
+   * The end time of the command execution. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-11 17:45:03
@@ -13,7 +13,7 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The ID of the instance where the command was run.
+   * The instance ID on which the current command is executed.
    * 
    * @example
    * acp-uto81vfd8t8z****
@@ -21,7 +21,7 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the command execution.
+   * The command execution ID.
    * 
    * @example
    * t-15775dc8****
@@ -29,7 +29,7 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
   invocationId?: string;
   /**
    * @remarks
-   * The status of the command execution.
+   * The execution status of the command.
    * 
    * @example
    * Running
@@ -45,7 +45,7 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
   output?: string;
   /**
    * @remarks
-   * The time when the command started to run.
+   * The start time of the command execution. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-11 17:45:03
