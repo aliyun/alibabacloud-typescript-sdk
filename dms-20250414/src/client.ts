@@ -1922,7 +1922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a custom agent by custom agent ID.
+   * Queries the details of a custom agent by custom agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1957,7 +1957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a custom agent by custom agent ID.
+   * Queries the details of a custom agent by custom agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @returns DescribeCustomAgentResponse
@@ -1965,6 +1965,68 @@ export default class Client extends OpenApi {
   async describeCustomAgent(request: $_model.DescribeCustomAgentRequest): Promise<$_model.DescribeCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+   * 
+   * @param request - DescribeCustomAgentMonitorMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCustomAgentMonitorMetricsResponse
+   */
+  async describeCustomAgentMonitorMetricsWithOptions(request: $_model.DescribeCustomAgentMonitorMetricsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCustomAgentMonitorMetricsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!$dara.isNull(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCustomAgentMonitorMetrics",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCustomAgentMonitorMetricsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCustomAgentMonitorMetricsResponse({}));
+  }
+
+  /**
+   * DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+   * 
+   * @param request - DescribeCustomAgentMonitorMetricsRequest
+   * @returns DescribeCustomAgentMonitorMetricsResponse
+   */
+  async describeCustomAgentMonitorMetrics(request: $_model.DescribeCustomAgentMonitorMetricsRequest): Promise<$_model.DescribeCustomAgentMonitorMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCustomAgentMonitorMetricsWithOptions(request, runtime);
   }
 
   /**
@@ -3686,7 +3748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom agents in a personal space or workspace.
+   * Lists all custom agents in personal spaces and workspaces.
    * 
    * @param request - ListCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3737,7 +3799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom agents in a personal space or workspace.
+   * Lists all custom agents in personal spaces and workspaces.
    * 
    * @param request - ListCustomAgentRequest
    * @returns ListCustomAgentResponse
@@ -3745,6 +3807,72 @@ export default class Client extends OpenApi {
   async listCustomAgent(request: $_model.ListCustomAgentRequest): Promise<$_model.ListCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+   * 
+   * @param request - ListCustomAgentMonitorSessionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomAgentMonitorSessionsResponse
+   */
+  async listCustomAgentMonitorSessionsWithOptions(request: $_model.ListCustomAgentMonitorSessionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentMonitorSessionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomAgentMonitorSessions",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomAgentMonitorSessionsResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomAgentMonitorSessionsResponse({}));
+  }
+
+  /**
+   * ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+   * 
+   * @param request - ListCustomAgentMonitorSessionsRequest
+   * @returns ListCustomAgentMonitorSessionsResponse
+   */
+  async listCustomAgentMonitorSessions(request: $_model.ListCustomAgentMonitorSessionsRequest): Promise<$_model.ListCustomAgentMonitorSessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomAgentMonitorSessionsWithOptions(request, runtime);
   }
 
   /**
@@ -4338,7 +4466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the workspaces under the primary account with pagination.
+   * Retrieves a paginated list of collaborative workspaces under the primary account.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4405,7 +4533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the workspaces under the primary account with pagination.
+   * Retrieves a paginated list of collaborative workspaces under the primary account.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @returns ListDataAgentWorkspaceResponse
@@ -5090,7 +5218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom agent in a personal space or workspace.
+   * Modifies a custom agent in a personal or shared workspace.
    * 
    * @param tmpReq - ModifyCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5215,7 +5343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom agent in a personal space or workspace.
+   * Modifies a custom agent in a personal or shared workspace.
    * 
    * @param request - ModifyCustomAgentRequest
    * @returns ModifyCustomAgentResponse

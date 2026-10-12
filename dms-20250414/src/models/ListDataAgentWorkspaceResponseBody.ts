@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workspace, in milliseconds (UNIX timestamp).
+   * The time when the workspace was created. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1765960516000
@@ -19,6 +19,13 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
    * 20282*****7591
    */
   creator?: string;
+  /**
+   * @remarks
+   * The name of the workspace creator.
+   * 
+   * @example
+   * test
+   */
   creatorName?: string;
   /**
    * @remarks
@@ -38,7 +45,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The most recent modification time of the workspace, in milliseconds (UNIX timestamp).
+   * The time when the workspace was last modified. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1765961516000
@@ -46,21 +53,35 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The role name of the user in the workspace.
+   * The name of the user\\"s role in the workspace.
    * 
    * @example
    * admin
    */
   roleName?: string;
+  /**
+   * @remarks
+   * The number of running sessions in the workspace.
+   * 
+   * @example
+   * 15
+   */
   runningSessionCount?: number;
   /**
    * @remarks
-   * The number of members in the workspace.
+   * The total number of members in the workspace.
    * 
    * @example
    * 11
    */
   totalMember?: number;
+  /**
+   * @remarks
+   * The total number of sessions in the workspace.
+   * 
+   * @example
+   * 30
+   */
   totalSessionCount?: number;
   /**
    * @remarks
@@ -227,7 +248,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * Specified parameter is not valid.
@@ -235,7 +256,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of results per page.
    * 
    * @example
    * nu use
@@ -243,7 +264,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * no use

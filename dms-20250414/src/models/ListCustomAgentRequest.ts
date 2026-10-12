@@ -13,7 +13,7 @@ export class ListCustomAgentRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListCustomAgentRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to query all custom agents in the published state. Default value: false.
+   * Specifies whether to query all published custom agents. Default value: false.
    * 
    * @example
    * true
@@ -29,10 +29,10 @@ export class ListCustomAgentRequest extends $dara.Model {
   queryAllReleased?: boolean;
   /**
    * @remarks
-   * The search keyword. Supports fuzzy search by custom agent name and description.
+   * The search keyword. Fuzzy search is supported for custom agent names and descriptions.
    * 
    * @example
-   * TestAgent
+   * Test Agent
    */
   searchKey?: string;
   /**

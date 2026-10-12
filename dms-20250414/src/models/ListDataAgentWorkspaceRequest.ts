@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDataAgentWorkspaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the creator used to search for workspaces.
+   * 
+   * @example
+   * 186xxx9947
+   */
   creator?: string;
   /**
    * @remarks
@@ -14,7 +21,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of results per page.
    * 
    * @example
    * no use
@@ -22,7 +29,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * no use
@@ -38,7 +45,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The name of the field by which to sort.
+   * The sort field name.
    * 
    * @example
    * CreateTime
@@ -56,7 +63,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -66,7 +73,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * workspaceTest
@@ -74,7 +81,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The type of workspace to query.
+   * The workspace type.
    * 
    * This parameter is required.
    * 

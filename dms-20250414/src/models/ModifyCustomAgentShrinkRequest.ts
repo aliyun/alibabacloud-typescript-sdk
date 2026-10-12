@@ -6,7 +6,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   callbackConfigShrink?: string;
   /**
    * @remarks
-   * The custom agent ID.
+   * The ID of the custom agent.
    * 
    * This parameter is required.
    * 
@@ -25,17 +25,17 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The specified data scope in **JSON character string format**.
-   * - Common parameter description
-   *   - tableFlag: true indicates a specified data scope.
+   * - General parameter description
+   *   - tableFlag: true specifies the data scope.
    *   - scope: personal is a fixed value.
-   *   - personal: pass parameters for file or database types.
+   *   - personal: parameters for file and database types.
    * 
-   * **File type**. Pass parameters in the following format:
+   * **File type**: pass parameters in the following format:
    * - DataSourceType: remote_data_center is a fixed value.
    * - FileId: the file ID.
-   * - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name.
-   * - Tables: the table name returned by the ListDataCenterTable operation.
-   * - TableIds: the TableId returned by the ListDataCenterTable operation.
+   * - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
+   * - Tables: the table names returned by the ListDataCenterTable operation.
+   * - TableIds: the table IDs returned by the ListDataCenterTable operation.
    * - RegionId: the current region.
    * ```
    * {
@@ -56,16 +56,16 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * }
    * ```
    * 
-   * **Database type**. Pass parameters as follows:
+   * **Database type**: pass parameters as follows:
    * - DataSourceType: database is a fixed value.
-   * - DmsInstanceId: the DMS instance ID returned by the data center operation.
-   * - DmsDatabaseId: the DMS database ID returned by the data center operation.
-   * - FileId: the instance name (deprecated).
-   * - DbName: the database name returned by the data center operation.
-   * - Database: the database name returned by the data center operation.
-   * - Tables: the table name returned by the data center operation.
-   * - TableIds: the TableId returned by the data center operation.
-   * - Engine: the engine type (mysql or postgresql).
+   * - DmsInstanceId: the DMS instance ID returned by the Data Center operation.
+   * - DmsDatabaseId: the DMS database ID returned by the Data Center operation.
+   * - FileId: the instance name. **[Deprecated]**
+   * - DbName: the database name returned by the Data Center operation.
+   * - Database: the database name returned by the Data Center operation.
+   * - Tables: the table names returned by the Data Center operation.
+   * - TableIds: the table IDs returned by the Data Center operation.
+   * - Engine: the engine type, such as mysql or postgresql.
    * - RegionId: the current region.
    * ```
    * {
@@ -97,7 +97,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "TestTable******.xlsx",
+   *     "Database" : "Test_spreadsheet******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -110,7 +110,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * AgentTestDescription
+   * Agent test description
    */
   description?: string;
   /**
@@ -120,14 +120,14 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   executionConfigShrink?: string;
   /**
    * @remarks
-   * The instruction.
+   * The instructions.
    * - Input limit: up to 10,000 characters.
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) by day, week, and month dimensions, and analyze trends and year-over-year/month-over-month fluctuations.
-   * 2. Segment by new/existing customers, channels, and regions to identify growth sources and weaknesses.
-   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → payment) to identify drop-off points
+   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes as well as year-over-year and month-over-month fluctuations.
+   * 2. Segment data by new and returning customers, channels, and regions to identify growth drivers and weaknesses.
+   * 3. Conduct funnel analysis based on user behavior paths (browse -> add to cart -> pay) to locate churn points
    */
   instruction?: string;
   /**
@@ -137,15 +137,15 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * 
    * @example
    * Core metric definitions:
-   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including paid and unpaid orders.
-   * 2. Order volume is the number of valid orders placed per day.
-   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app.
-   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both successfully paid and unpaid orders.
+   * 2. Order volume refers to the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
+   * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
    */
   knowledge?: string;
   /**
    * @remarks
-   * The external knowledge base list.
+   * The external knowledge bases.
    */
   knowledgeConfigListShrink?: string;
   knowledgeSemanticConfigListShrink?: string;
@@ -154,12 +154,15 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * AgentTestName
+   * Agent test name
    */
   name?: string;
   /**
    * @remarks
    * The ID of the referenced historical session.
+   * 
+   * @example
+   * ski-sldk8v******3owd
    */
   relatedSessionId?: string;
   /**
@@ -170,12 +173,16 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The text report format.
-   *  - Input limit: up to 10,000 characters.
+   * - Input limit: up to 10,000 characters.
    * 
    * @example
-   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
+   * Require all numbers in the text report to be written in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
+  /**
+   * @remarks
+   * The list of user-specified skills.
+   */
   userSpecifiedSkillListShrink?: string;
   /**
    * @remarks
@@ -183,9 +190,21 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * - Input limit: up to 50,000 characters.
    * 
    * @example
-   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals
+   * Require all numbers in the web report to be written in Chinese characters instead of Arabic numerals
    */
   webReportConfig?: string;
+  /**
+   * @remarks
+   * The web report theme. Valid values:
+   * - default: default.
+   * - journal: journal.
+   * - legacy: classic.
+   * - neobrutalism: stylized.
+   * - infographic: infographic.
+   * 
+   * @example
+   * default
+   */
   webReportTheme?: string;
   /**
    * @remarks
