@@ -16,8 +16,8 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   /**
    * @remarks
    * The object type. Valid values:
-   * - Task: node
-   * - TaskInstance: node instance
+   * - Task: task.
+   * - TaskInstance: task instance.
    * 
    * @example
    * TaskInstance
@@ -41,7 +41,7 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   operationSeq?: number;
   /**
    * @remarks
-   * The ID of the node on which the operation was performed.
+   * The ID of the operated task.
    * 
    * @example
    * 1234
@@ -49,7 +49,7 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   taskId?: number;
   /**
    * @remarks
-   * The ID of the node instance on which the operation was performed.
+   * The ID of the operated task instance.
    * 
    * @example
    * 1234
@@ -57,7 +57,7 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   taskInstanceId?: number;
   /**
    * @remarks
-   * The account ID of the user who performed the operation.
+   * The account ID of the operator.
    * 
    * @example
    * 1000

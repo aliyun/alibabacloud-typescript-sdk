@@ -5,12 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.Model {
   /**
    * @remarks
-   * The type of the tag.
-   * 
-   * Valid values:
-   * 
+   * The tag type.
    * - Normal
-   * 
    * - System
    * 
    * @example
@@ -19,7 +15,9 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
   category?: string;
   /**
    * @remarks
-   * The time when the tag was created.
+   * The creation time of the tag.
+   * 
+   * The value is a 13-digit number, such as `1735890003000`.
    * 
    * @example
    * 1735890003000
@@ -35,7 +33,7 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
   createUser?: string;
   /**
    * @remarks
-   * The description of the tag.
+   * The description.
    * 
    * @example
    * This is a description
@@ -51,12 +49,14 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
   key?: string;
   /**
    * @remarks
-   * The tag administrators.
+   * The list of tag administrators.
    */
   managers?: string[];
   /**
    * @remarks
-   * The time when the tag was last modified.
+   * The last modification time of the tag.
+   * 
+   * The value is a 13-digit number, such as `1735890003000`.
    * 
    * @example
    * 1735890003000
@@ -80,7 +80,7 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
   valueType?: string;
   /**
    * @remarks
-   * The tag values.
+   * The list of tag values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -131,7 +131,7 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
 export class ListDataAssetTagsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   dataAssetTags?: ListDataAssetTagsResponseBodyPagingInfoDataAssetTags[];
   /**
@@ -152,7 +152,7 @@ export class ListDataAssetTagsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2524
@@ -191,12 +191,12 @@ export class ListDataAssetTagsResponseBodyPagingInfo extends $dara.Model {
 export class ListDataAssetTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The paginated query results for the tag list.
    */
   pagingInfo?: ListDataAssetTagsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 0bc1ec92159376****

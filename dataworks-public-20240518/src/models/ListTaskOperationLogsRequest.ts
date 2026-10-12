@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTaskOperationLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The date of the operation, accurate to the day. Default value: the current day. You can query operation logs from the past 31 days. The value is a timestamp.
+   * The operation date, accurate to the day. Default value: the current day. Only operation logs from the past 31 days can be queried. The value is a timestamp.
    * 
    * @example
    * 1710239005403
@@ -13,7 +13,7 @@ export class ListTaskOperationLogsRequest extends $dara.Model {
   date?: number;
   /**
    * @remarks
-   * The node ID.
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -40,8 +40,8 @@ export class ListTaskOperationLogsRequest extends $dara.Model {
   /**
    * @remarks
    * The project environment. Valid values:
-   * - Prod: production
-   * - Dev: development
+   * - Prod: production.
+   * - Dev: development.
    * 
    * @example
    * Prod

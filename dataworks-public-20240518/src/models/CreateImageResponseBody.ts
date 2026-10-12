@@ -13,7 +13,7 @@ export class CreateImageResponseBody extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The request ID, which is used for locating logs and troubleshooting.
+   * The ID of the request. You can use the ID to query logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -21,7 +21,7 @@ export class CreateImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

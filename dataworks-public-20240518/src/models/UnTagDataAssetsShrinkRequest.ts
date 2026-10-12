@@ -5,14 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UnTagDataAssetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The data asset IDs.
+   * The unique IDs of the data assets.
    * 
    * This parameter is required.
    */
   dataAssetIdsShrink?: string;
   /**
    * @remarks
-   * The type of the data asset. Valid values: ACS::DataWorks::Table (data table) and ACS::DataWorks::Task (scheduled task).
+   * The type of the data asset. Valid values:
+   * - Data table (ACS::DataWorks::Table)
+   * - Scheduled task (ACS::DataWorks::Task)
    * 
    * This parameter is required.
    * 
@@ -22,7 +24,7 @@ export class UnTagDataAssetsShrinkRequest extends $dara.Model {
   dataAssetType?: string;
   /**
    * @remarks
-   * The environment of the workspace to which the data asset belongs. Valid values:
+   * The workspace environment to which the data asset belongs. Valid values:
    * 
    * - Dev: development environment
    * 
@@ -34,7 +36,7 @@ export class UnTagDataAssetsShrinkRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 123
@@ -42,7 +44,7 @@ export class UnTagDataAssetsShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tags that you want to remove.
+   * The tags to disassociate.
    * 
    * This parameter is required.
    */

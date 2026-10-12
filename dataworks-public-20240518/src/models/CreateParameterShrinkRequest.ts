@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateParameterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the parameter.
+   * The description.
    * 
    * @example
-   * 这是一个测试参数
+   * This is a test parameter
    */
   description?: string;
   /**
    * @remarks
-   * The parameter name. It must be unique within the workspace, be prefixed with `workspace.`, and not exceed 255 characters. The part of the name after the prefix must start with a letter and can contain only letters, digits, and underscores (_).
+   * The name of the parameter. It must be unique within the workspace. It must start with "workspace.". The subsequent content must start with a letter and can contain only letters, underscores, and digits. The total length of the name cannot exceed 255 characters.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateParameterShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The workspace ID. This parameter is required when `Scope` is set to `Project`.
+   * The workspace ID. This parameter is required when Scope is set to Project.
    * 
    * This parameter is required.
    * 
@@ -43,14 +43,14 @@ export class CreateParameterShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The value configurations for the parameter. A configuration for the production environment is required. If you provide duplicate configurations for an environment, only the first one is used.
+   * The parameter value configurations. This parameter is required for the production environment. If duplicate environment configurations exist in the array, the subsequent configurations do not take effect.
    * 
    * This parameter is required.
    */
   propertiesShrink?: string;
   /**
    * @remarks
-   * The scope of the parameter. The default value is `Project`. No other values are currently supported.
+   * The scope of the parameter. Default value: Project. Other types are currently not supported.
    * 
    * @example
    * Project
@@ -58,13 +58,10 @@ export class CreateParameterShrinkRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The type of the parameter.
-   * 
-   * - `PlainConstant`: plaintext constant.
-   * 
-   * - `SecretConstant`: secret constant.
-   * 
-   * - `Variable`: variable.
+   * The type. Valid values:
+   * - PlainConstant: plaintext constant.
+   * - SecretConstant: ciphertext constant.
+   * - Variable: variable.
    * 
    * This parameter is required.
    * 

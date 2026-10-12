@@ -16,12 +16,12 @@ export class TableBusinessMetadataCategories extends $dara.Model {
    * The name.
    * 
    * @example
-   * Test category
+   * 测试类目
    */
   name?: string;
   /**
    * @remarks
-   * The parent category ID. This parameter can be empty.
+   * The parent category ID. This field can be empty.
    * 
    * @example
    * CATEGORY.123
@@ -56,7 +56,6 @@ export class TableBusinessMetadataExtension extends $dara.Model {
   /**
    * @remarks
    * The environment type. Valid values:
-   * 
    * - Prod: Production environment.
    * - Dev: Development environment.
    * 
@@ -66,7 +65,7 @@ export class TableBusinessMetadataExtension extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The favorite count.
+   * The number of times added to favorites.
    * 
    * @example
    * 0
@@ -82,7 +81,7 @@ export class TableBusinessMetadataExtension extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The read count.
+   * The number of reads.
    * 
    * @example
    * 0
@@ -90,7 +89,7 @@ export class TableBusinessMetadataExtension extends $dara.Model {
   readCount?: number;
   /**
    * @remarks
-   * The view count.
+   * The number of views.
    * 
    * @example
    * 0
@@ -171,7 +170,7 @@ export class TableBusinessMetadataTags extends $dara.Model {
 export class TableBusinessMetadataUpstreamTasks extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * The task ID.
    * 
    * @example
    * 123456
@@ -179,7 +178,7 @@ export class TableBusinessMetadataUpstreamTasks extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The node name.
+   * The task name.
    * 
    * @example
    * test_task
@@ -216,20 +215,20 @@ export class TableBusinessMetadata extends $dara.Model {
   categories?: TableBusinessMetadataCategories[][];
   /**
    * @remarks
-   * The custom attribute values, where key is the custom attribute identifier and value is the list of attribute values.
+   * The custom attribute values, where the key is the custom attribute identifier and the value is the list of attribute values.
    */
   customAttributes?: { [key: string]: string[] };
   /**
    * @remarks
-   * The extension information. Currently only supported for MaxCompute type.
+   * The extension information. This parameter is currently supported only for the MaxCompute type.
    */
   extension?: TableBusinessMetadataExtension;
   /**
    * @remarks
-   * The usage instructions.
+   * The instructions.
    * 
    * @example
-   * ## Usage instructions
+   * ## Instructions
    */
   readme?: string;
   /**
@@ -239,7 +238,7 @@ export class TableBusinessMetadata extends $dara.Model {
   tags?: TableBusinessMetadataTags[];
   /**
    * @remarks
-   * The list of upstream nodes.
+   * The list of upstream output tasks.
    */
   upstreamTasks?: TableBusinessMetadataUpstreamTasks[];
   static names(): { [key: string]: string } {
@@ -291,7 +290,7 @@ export class TableBusinessMetadata extends $dara.Model {
 export class TableTechnicalMetadata extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the table is compressed.
+   * Specifies whether the table is compressed.
    * 
    * @example
    * false
@@ -336,7 +335,7 @@ export class TableTechnicalMetadata extends $dara.Model {
   parameters?: { [key: string]: string };
   /**
    * @remarks
-   * The class used by SerDe.
+   * The class used for SerDe.
    * 
    * @example
    * org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
@@ -381,7 +380,7 @@ export class TableTechnicalMetadata extends $dara.Model {
 export class Table extends $dara.Model {
   /**
    * @remarks
-   * The business metadata related to DataWorks, including usage instructions, tags, categories, upstream production nodes, and extended information.
+   * The business metadata related to DataWorks, including the instructions, tags, categories, upstream output tasks, and extension information.
    */
   businessMetadata?: TableBusinessMetadata;
   /**
@@ -394,7 +393,7 @@ export class Table extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The creation time, in millisecond-level timestamp.
+   * The creation time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1736852168000
@@ -404,69 +403,31 @@ export class Table extends $dara.Model {
    * @remarks
    * The ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
    * 
+   * The format is `${EntityType}:${Instance ID or URL-encoded URL}:${Data catalog identifier}:${Database name}:${Schema name}:${Table name}`. Use an empty string as a placeholder for non-existent levels.
    * 
+   * > For MaxCompute and DLF types, use an empty string as a placeholder for the instance ID. For the MaxCompute type, the database name is the MaxCompute project name. Projects with the three-level model enabled must provide the schema name. For projects without the three-level model enabled, use an empty string as a placeholder for the schema name.
    * 
+   * > For the StarRocks type, the data catalog identifier is the catalog name. For the DLF type, the data catalog identifier is the catalog ID. Other types do not support the catalog level, and you can use an empty string as a placeholder. 
    * 
-   * The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}:${SchemaName}:${TableName}`. Use an empty character as a placeholder for levels that do not exist.
-   * 
-   * 
-   * 
-   * 
-   * > For maxcompute and dlf types, use an empty string as a placeholder for the instance ID. For the maxcompute type, the database name is the MaxCompute project name. Projects with the three-layer model enabled require a schema name. For projects without the three-layer model enabled, use an empty string as a placeholder for the schema name.
-   * 
-   * 
-   * 
-   * 
-   * > For the starrocks type, the data catalog identifier is the catalog name. For the dlf type, the data catalog identifier is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
-   * 
-   * 
-   * 
-   * 
-   * The following examples show the ID formats for common types:
-   * 
-   * 
-   * 
+   * The ID formats for several common types are as follows: 
    * 
    * `maxcompute-table:::project_name:[schema_name]:table_name`
    * 
-   * 
-   * 
-   * 
    * `dlf-table::catalog_id:database_name::table_name`
-   * 
-   * 
-   * 
    * 
    * `hms-table:instance_id::database_name::table_name`
    * 
-   * 
-   * 
-   * 
    * `holo-table:instance_id::database_name:schema_name:table_name`
    * 
-   * 
-   * 
-   * 
    * `mysql-table:(instance_id|encoded_jdbc_url)::database_name::table_name`
-   * 
-   * 
-   * 
-   * 
-   * > Where  
-   * > 
-   * > `instance_id`: The instance ID. This is required when the data source is registered in instance mode.  
-   * > 
-   * > `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.  
-   * > 
-   * > `catalog_id`: The DLF catalog ID.  
-   * > 
-   * > `project_name`: The MaxCompute project name.  
-   * > 
-   * > `database_name`: The database name.  
-   * > 
-   * > `schema_name`: The schema name. For the maxcompute type, this is required only when the three-layer model is enabled for the project. If the three-layer model is not enabled, use an empty string as a placeholder.  
-   * > 
-   * > `table_name`: The table name.
+   * > Where:  
+   * `instance_id`: The instance ID, which is required when the data source is registered in instance mode.  
+   * `encoded_jdbc_url`: The URL-encoded JDBC connection string, which is required when the data source is registered in connection string mode.  
+   * `catalog_id`: The DLF catalog ID.  
+   * `project_name`: The MaxCompute project name.   
+   * `database_name`: The database name.   
+   * `schema_name`: The schema name. For the MaxCompute type, this is required only when the three-level model is enabled for the project. If it is not enabled, use an empty string as a placeholder.   
+   * `table_name`: The table name.
    * 
    * @example
    * dlf-table::catalog_id:database_name::table_name
@@ -474,7 +435,7 @@ export class Table extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The modification time, in millisecond-level timestamp.
+   * The modification time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1736852168000
@@ -490,75 +451,37 @@ export class Table extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parent-level metadata entity ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+   * The ID of the parent metadata entity. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
    * 
+   * - For types that support schemas (`maxcompute/holo/postgresql/sqlserver/hybriddb_for_postgresql/oracle`, where the MaxCompute type requires the three-level model to be enabled for the project), `ParentMetaEntityId` is the database schema to which the table belongs. The format is `${EntityType}:${Instance ID or URL-encoded URL}:${Data catalog identifier}:${Database name}:${Schema name}`. Use an empty string as a placeholder for non-existent levels.
    * 
+   * - For other types, `ParentMetaEntityId` is the database to which the table belongs. The format is `${EntityType}:${Instance ID or URL-encoded URL}:${Data catalog identifier}:${Database name}`. Use an empty string as a placeholder for non-existent levels.
    * 
+   * > For MaxCompute and DLF types, use an empty string as a placeholder for the instance ID. For the MaxCompute type, the database name is the MaxCompute project name.
    * 
-   * - For types that support schemas (`maxcompute/holo/postgresql/sqlserver/hybriddb_for_postgresql/oracle, where the maxcompute type requires the three-layer model to be enabled for the project`), ParentMetaEntityId is the database schema to which the table belongs. The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}:${SchemaName}`. Use an empty character as a placeholder for levels that do not exist.
-   * - For other types, ParentMetaEntityId is the database to which the table belongs. The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}`. Use an empty character as a placeholder for levels that do not exist.
+   * > For the StarRocks type, the data catalog identifier is the catalog name. For the DLF type, the data catalog identifier is the catalog ID. Other types do not support the catalog level, and you can use an empty string as a placeholder.
    * 
-   * 
-   * 
-   * 
-   * > For maxcompute and dlf types, use an empty string as a placeholder for the instance ID. For the maxcompute type, the database name is the MaxCompute project name.
-   * 
-   * 
-   * 
-   * 
-   * > For the starrocks type, the data catalog identifier is the catalog name. For the dlf type, the data catalog identifier is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
-   * 
-   * 
-   * 
-   * 
-   * The following examples show the ParentMetaEntityId formats for common types:
-   * 
-   * 
-   * 
-   * 
+   * The `ParentMetaEntityId` formats for several common types are as follows:
+   * 	
    * `maxcompute-project:::project_name`
    * 
-   * 
-   * 
-   * 
-   * `maxcompute-schema:::project_name:schema_name` (only when the three-layer model is enabled for the project)
-   * 
-   * 
-   * 
+   * `maxcompute-schema:::project_name:schema_name` (Only when the three-level model is enabled for the project)
    * 
    * `dlf-database::catalog_id:database_name`
    * 
-   * 
-   * 
-   * 
    * `hms-database:instance_id::database_name`
-   * 
-   * 
-   * 
    * 
    * `holo-schema:instance_id::database_name:schema_name`
    * 
-   * 
-   * 
-   * 
    * `mysql-database:(instance_id|encoded_jdbc_url)::database_name`
    * 
-   * 
-   * 
-   * 
-   * > Where  
-   * > 
-   * > `instance_id`: The instance ID. This is required when the data source is registered in instance mode.  
-   * > 
-   * > `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.  
-   * > 
-   * > `catalog_id`: The DLF catalog ID.  
-   * > 
-   * > `project_name`: The MaxCompute project name.  
-   * > 
-   * > `database_name`: The database name.  
-   * > 
-   * > `schema_name`: The schema name.
+   * > Where:  
+   * `instance_id`: The instance ID, which is required when the data source is registered in instance mode.   
+   * `encoded_jdbc_url`: The URL-encoded JDBC connection string, which is required when the data source is registered in connection string mode.   
+   * `catalog_id`: The DLF catalog ID.   
+   * `project_name`: The MaxCompute project name.   
+   * `database_name`: The database name.   
+   * `schema_name`: The schema name.
    * 
    * @example
    * dlf-database::catalog_id:database_name
@@ -566,7 +489,7 @@ export class Table extends $dara.Model {
   parentMetaEntityId?: string;
   /**
    * @remarks
-   * The list of partition keys. This is empty for non-partitioned tables.
+   * The list of partition keys. This parameter is empty for non-partitioned tables.
    */
   partitionKeys?: string[];
   statisticsInfos?: { [key: string]: string };

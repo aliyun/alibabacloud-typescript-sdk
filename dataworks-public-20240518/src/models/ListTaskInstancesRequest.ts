@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTaskInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The business date. This is typically 00:00:00 of the day before the scheduled time of the periodic instance. The value is a millisecond-level timestamp, such as 1743350400000.
+   * The business date. Typically, this is 00:00:00 of the day before the scheduled time of the periodic instance, in the format of a millisecond-level timestamp, such as 1743350400000.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   bizdate?: number;
   /**
    * @remarks
-   * The filter. The value is in JSON format. Multiple filter conditions are combined with AND logic. Currently supported fields: `startedTimeStart, startedTimeEnd, finishedTimeStart, finishedTimeEnd, createTimeStart, createTimeEnd`
+   * The filter conditions in JSON format. Multiple filter conditions are combined with the AND logical operator. Supported fields: `startedTimeStart`, `startedTimeEnd`, `finishedTimeStart`, `finishedTimeEnd`, `createTimeStart`, and `createTimeEnd`.
    * 
    * @example
    * {
@@ -30,7 +30,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The instance ID. If an instance has been rerun, specifying this parameter returns the historical information including reruns. You can use RunNumber to distinguish each historical record.
+   * The task instance ID. A task instance may be rerun. If you specify this parameter, the response includes historical rerun records, which are distinguished by RunNumber.
    * 
    * @example
    * 1234
@@ -38,12 +38,12 @@ export class ListTaskInstancesRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The list of instance IDs. You can use this parameter to query multiple instances in a batch.
+   * The task instance IDs. You can specify multiple task instance IDs to query task instances in batches.
    */
   ids?: number[];
   /**
    * @remarks
-   * The account ID of the node owner.
+   * The account ID of the task owner.
    * 
    * @example
    * 1000
@@ -68,8 +68,8 @@ export class ListTaskInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The project environment. Valid values:
-   * - Prod: production.
-   * - Dev: development.
+   * - Prod: production
+   * - Dev: development
    * 
    * @example
    * Prod
@@ -87,7 +87,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The schedule resource information. Specify the identifier of the schedule resource group.
+   * The resource group information. Specify the identifier of the scheduling resource group.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -95,7 +95,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   runtimeResource?: string;
   /**
    * @remarks
-   * The sort field. Supports fields such as scheduled time and start time. The format is "sort field + sort order (Desc/Asc)". Asc can be omitted. Valid values:
+   * The sort field. Fields such as scheduled time and start time are supported. The format is \\"Sort field + Sort order (Desc/Asc)\\", where Asc can be omitted. Valid values for the sort field:
    * 
    * - `TriggerTime (Desc/Asc)`
    * 
@@ -115,13 +115,13 @@ export class ListTaskInstancesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * - `NotRun`: not run.
-   * - `Running`: running.
-   * - `Failure`: failed.
-   * - `Success`: succeeded.
-   * - `WaitTime`: waiting for the scheduled time.
-   * - `WaitResource`: waiting for resources.
+   * The status of the task instance. Valid values:
+   * - `NotRun`: not run
+   * - `Running`: running
+   * - `Failure`: failed
+   * - `Success`: successful
+   * - `WaitTime`: waiting for scheduled time
+   * - `WaitResource`: waiting for resources
    * 
    * @example
    * Success
@@ -129,7 +129,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the corresponding node.
+   * The ID of the task.
    * 
    * @example
    * 1234
@@ -137,12 +137,12 @@ export class ListTaskInstancesRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The list of node IDs. You can use this parameter to query instances of multiple nodes in a batch.
+   * The task IDs. You can specify multiple task IDs to query task instances in batches.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The name of the corresponding node. Fuzzy match is supported.
+   * The task name. Fuzzy match is supported.
    * 
    * @example
    * SQL node
@@ -150,7 +150,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The node type. For the TaskType values of each node, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
+   * The task type. For the valid values of TaskType for each node, see [DataWorks node types](https://help.aliyun.com/document_detail/600169.html).
    * 
    * @example
    * ODPS_SQL
@@ -158,10 +158,10 @@ export class ListTaskInstancesRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The run mode at the time of triggering. This parameter takes effect only when TriggerType is set to Scheduler. Valid values:
-   * - Pause: paused.
-   * - Skip: dry run.
-   * - Normal: normal run.
+   * The run mode upon triggering. This parameter takes effect only when TriggerType is set to Scheduler. Valid values:
+   * - Pause: pause
+   * - Skip: dry run
+   * - Normal: normal run
    * 
    * @example
    * Normal
@@ -170,8 +170,8 @@ export class ListTaskInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger type. Valid values:
-   * - Scheduler: triggered by periodic scheduling.
-   * - Manual: manually triggered.
+   * - Scheduler: periodic scheduling
+   * - Manual: manual
    * 
    * @example
    * Normal
@@ -179,7 +179,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The unified workflow instance ID. All instances within the same business date under a single trigger share the same value for this field.
+   * The unified workflow instance ID. This value is the same for all task instances within a specific business date under a single trigger.
    * 
    * @example
    * 1234
@@ -187,7 +187,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
-   * The ID of the workflow to which the instance belongs.
+   * The ID of the associated workflow.
    * 
    * @example
    * 1234
@@ -195,7 +195,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   workflowId?: number;
   /**
    * @remarks
-   * The ID of the workflow instance to which the instance belongs.
+   * The ID of the associated workflow instance.
    * 
    * @example
    * 1234
@@ -203,13 +203,13 @@ export class ListTaskInstancesRequest extends $dara.Model {
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance to which the instance belongs. Valid values:
-   * - SmokeTest: test.
-   * - Manual: manual node.
-   * - SupplementData: data backfill.
-   * - ManualWorkflow: manual workflow.
-   * - Normal: periodic scheduling.
-   * - TriggerWorkflow: trigger-based workflow.
+   * The type of the workflow instance. Valid values:
+   * - SmokeTest: test
+   * - Manual: manual task
+   * - SupplementData: data backfill
+   * - ManualWorkflow: manual workflow
+   * - Normal: periodic scheduling
+   * - TriggerWorkflow: triggered workflow
    * 
    * @example
    * Normal

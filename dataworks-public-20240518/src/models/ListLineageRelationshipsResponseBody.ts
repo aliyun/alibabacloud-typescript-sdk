@@ -19,7 +19,7 @@ export class ListLineageRelationshipsResponseBodyPagingInfo extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -71,7 +71,7 @@ export class ListLineageRelationshipsResponseBody extends $dara.Model {
   pagingInfo?: ListLineageRelationshipsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate and troubleshoot issues.
+   * The ID of the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
@@ -79,7 +79,7 @@ export class ListLineageRelationshipsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

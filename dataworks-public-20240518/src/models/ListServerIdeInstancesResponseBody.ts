@@ -13,7 +13,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
   accessKeyId?: string;
   /**
    * @remarks
-   * The account ID of the delegated user.
+   * The account ID of the proxied user.
    * 
    * @example
    * 20933221576142****
@@ -30,9 +30,9 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
   /**
    * @remarks
    * The user type. Valid values:
-   * - customer: Alibaba Cloud account.
-   * - sub: RAM user.
-   * - AssumedRoleUser: RAM role.
+   * - customer: Alibaba Cloud account
+   * - sub: RAM user
+   * - AssumedRoleUser: RAM role
    * 
    * @example
    * sub
@@ -68,7 +68,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
 export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfigConfigsRoles extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the entity that owns the role to be assumed.
+   * The Alibaba Cloud account ID of the entity to which the assumed role belongs.
    * 
    * @example
    * 123456789012****
@@ -93,8 +93,8 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
   /**
    * @remarks
    * The role assumption type. Valid values:
-   * - service: assumed by a service.
-   * - user: assumed by a user.
+   * - service: assumed by a service
+   * - user: assumed by a user
    * 
    * @example
    * service
@@ -102,7 +102,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
   roleType?: string;
   /**
    * @remarks
-   * The information about the delegated user.
+   * The information about the proxied user.
    */
   userInfo?: ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfigConfigsRolesUserInfo;
   static names(): { [key: string]: string } {
@@ -148,14 +148,14 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
   key?: string;
   /**
    * @remarks
-   * The list of roles in the credential configuration.
+   * The roles in the credential configuration.
    */
   roles?: ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfigConfigsRoles[];
   /**
    * @remarks
    * The credential configuration type. Valid values:
-   * - Role: single role assumption.
-   * - RoleChain: role chain assumption.
+   * - Role: single role assumption
+   * - RoleChain: role chain assumption
    * 
    * @example
    * RoleChain
@@ -200,12 +200,12 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
   aliyunEnvRoleKey?: string;
   /**
    * @remarks
-   * The list of credential configurations.
+   * The credential configurations.
    */
   configs?: ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfigConfigs[];
   /**
    * @remarks
-   * Indicates whether credential injection is enabled.
+   * Specifies whether credential injection is enabled.
    */
   enable?: boolean;
   static names(): { [key: string]: string } {
@@ -239,7 +239,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
 export class ListServerIdeInstancesResponseBodyPagingInfoInstancesDatasets extends $dara.Model {
   /**
    * @remarks
-   * The custom mount properties of the dataset. The content is passed as mount options.
+   * The custom mount attributes of the dataset. The content is passed as mount options.
    * 
    * @example
    * {"fs.oss.download.thread.concurrency":"10"}
@@ -263,12 +263,12 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesDatasets exten
   mountPath?: string;
   /**
    * @remarks
-   * Indicates whether the dataset is mounted in read-only mode.
+   * Specifies whether the dataset is mounted in read-only mode.
    */
   readOnly?: boolean;
   /**
    * @remarks
-   * The URI of the storage service directory for direct mounting.
+   * The URI of the storage service directory used for direct mounting.
    * 
    * @example
    * oss://example-bucket/data/
@@ -321,7 +321,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpcForward
   accessType?: string[];
   /**
    * @remarks
-   * The name of the target container.
+   * The name of the destination container.
    * 
    * @example
    * dsw-notebook
@@ -337,7 +337,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpcForward
   eipAllocationId?: string;
   /**
    * @remarks
-   * Indicates whether the port forwarding configuration is enabled.
+   * Specifies whether the port forwarding configuration is enabled.
    */
   enable?: boolean;
   /**
@@ -350,7 +350,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpcForward
   externalPort?: string;
   /**
    * @remarks
-   * The target port in the instance container.
+   * The destination port in the instance container.
    * 
    * @example
    * 22
@@ -491,12 +491,12 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   createTime?: number;
   /**
    * @remarks
-   * The credential injection configuration of the instance. After this feature is enabled, you can use the default RAM role chain or specify a custom RAM role.
+   * The credential injection configuration of the instance. After this feature is enabled, you can use the default Resource Access Management (RAM) role chain or specify a custom RAM role.
    */
   credentialConfig?: ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfig;
   /**
    * @remarks
-   * The number of CUs used by the instance.
+   * The number of compute units (CUs) used by the instance.
    * 
    * @example
    * 10
@@ -504,7 +504,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   cu?: number;
   /**
    * @remarks
-   * The list of datasets mounted to the instance.
+   * The datasets mounted to the instance.
    */
   datasets?: ListServerIdeInstancesResponseBodyPagingInfoInstancesDatasets[];
   /**
@@ -525,7 +525,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   imageId?: string;
   /**
    * @remarks
-   * The image name.
+   * The name of the image.
    * 
    * @example
    * serveride_notebook
@@ -533,7 +533,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   imageName?: string;
   /**
    * @remarks
-   * The image URL.
+   * The URL of the image.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/example/serveride:latest
@@ -541,7 +541,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   imageUrl?: string;
   /**
    * @remarks
-   * The personal development environment instance ID.
+   * The ID of the personal development environment instance.
    * 
    * @example
    * 699573
@@ -549,7 +549,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The personal development environment instance name.
+   * The name of the personal development environment instance.
    * 
    * @example
    * notebook_dev
@@ -557,7 +557,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   instanceName?: string;
   /**
    * @remarks
-   * The account ID of the user who owns the instance.
+   * The account ID of the user that owns the instance.
    * 
    * @example
    * 20933221576142****
@@ -573,7 +573,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   projectId?: number;
   /**
    * @remarks
-   * The DataWorks workspace name.
+   * The name of the DataWorks workspace.
    * 
    * @example
    * example_project
@@ -589,7 +589,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   resourceGroupId?: number;
   /**
    * @remarks
-   * The resource group name.
+   * The name of the resource group.
    * 
    * @example
    * serverless_group
@@ -613,7 +613,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   updateTime?: number;
   /**
    * @remarks
-   * The VPC configuration used by the instance.
+   * The virtual private cloud (VPC) configuration used by the instance.
    */
   userVpc?: ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpc;
   static names(): { [key: string]: string } {
@@ -696,7 +696,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 10
@@ -704,7 +704,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records that match the filter conditions.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 3
@@ -743,7 +743,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfo extends $dara.Model {
 export class ListServerIdeInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned in this response.
+   * The maximum number of entries returned in the current response.
    * 
    * @example
    * 20

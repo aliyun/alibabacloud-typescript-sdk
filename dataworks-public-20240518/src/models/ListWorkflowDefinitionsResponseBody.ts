@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScriptRuntime extends $dara.Model {
   /**
    * @remarks
-   * Command
+   * The command.
    * 
    * @example
    * WORKFLOW
@@ -37,7 +37,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
    * @remarks
    * The ID of the script.
    * 
-   * > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures due to the type change may occur only when upgrading the SDK across version 8.0.0, in which case users need to manually correct the data type.
+   * >Notice: Before SDK version 8.0.0, this field is of the Long type. In SDK version 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. However, if you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures. In this case, you must manually correct the data type.
    * 
    * @example
    * 698002781368644XXXX
@@ -45,7 +45,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
   id?: string;
   /**
    * @remarks
-   * The script path.
+   * The path of the script.
    * 
    * @example
    * XX/OpenAPI_test/workflow_test/OpenAPI_test_workflow_Demo
@@ -53,7 +53,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
   path?: string;
   /**
    * @remarks
-   * Runtime
+   * The runtime.
    */
   runtime?: ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScriptRuntime;
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   createTime?: number;
   /**
    * @remarks
-   * Description
+   * The description of the workflow.
    * 
    * @example
    * Workflow description
@@ -105,7 +105,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
    * @remarks
    * The unique identifier of the workflow.
    * 
-   * > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * >Notice: Before SDK version 8.0.0, this field is of the Long type. In SDK version 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. However, if you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures. In this case, you must manually correct the data type.
    * 
    * @example
    * 463497880880954XXXX
@@ -129,7 +129,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   name?: string;
   /**
    * @remarks
-   * Owner
+   * The owner of the workflow.
    * 
    * @example
    * 110755000425XXXX
@@ -152,12 +152,9 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   script?: ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScript;
   /**
    * @remarks
-   * The type of the workflow.
-   * 
-   * Valid values:
+   * The type of the workflow. Valid values:
    * 
    * - CycleWorkflow
-   * 
    * - ManualWorkflow
    * 
    * @example
@@ -207,7 +204,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
 export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -215,7 +212,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -223,7 +220,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries that meet the conditions.
+   * The total number of entries that meet the specified conditions.
    * 
    * @example
    * 227
@@ -231,7 +228,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The workflows.
+   * The list of queried workflows.
    */
   workflowDefinitions?: ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions[];
   static names(): { [key: string]: string } {
@@ -272,7 +269,7 @@ export class ListWorkflowDefinitionsResponseBody extends $dara.Model {
   pagingInfo?: ListWorkflowDefinitionsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 8C3ED0C5-ABAB-55E1-854B-DAC02B11XXXX

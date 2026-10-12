@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The earliest start time of a data quality scan run to include in the results. Specify the time as a UNIX timestamp in milliseconds.
+   * The earliest start time of the data quality monitoring run.
    * 
    * @example
    * 1710239005403
@@ -13,7 +13,7 @@ export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   createTimeFrom?: number;
   /**
    * @remarks
-   * The latest start time of a data quality scan run to include in the results. Specify the time as a UNIX timestamp in milliseconds.
+   * The latest start time of the data quality monitoring run.
    * 
    * @example
    * 1710239005403
@@ -21,7 +21,7 @@ export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   createTimeTo?: number;
   /**
    * @remarks
-   * The ID of the data quality scan.
+   * The data quality monitoring ID.
    * 
    * @example
    * 10001
@@ -29,11 +29,9 @@ export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   dataQualityScanId?: number;
   /**
    * @remarks
-   * An object with advanced filter conditions. The following parameters are supported:
-   * 
-   * - `TaskInstanceId`: The ID of the task instance.
-   * 
-   * - `RunNumber`: The run number of the instance.
+   * The extension query filter. The following filter parameters are supported:
+   * - TaskInstanceId: the scheduled task instance ID.
+   * - RunNumber: the number of times the instance has run.
    * 
    * @example
    * {
@@ -44,7 +42,7 @@ export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   filterShrink?: string;
   /**
    * @remarks
-   * The page number to return. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -52,7 +50,7 @@ export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 20
@@ -70,10 +68,8 @@ export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The sort field and order for the results. The format is `FieldName Order`. The default order is ascending (Asc). Supported fields:
-   * 
+   * The list of sort fields. Fields such as modification time and creation time are supported. The format is "SortField+SortOrder(Desc/Asc)". The default value is Asc, which can be omitted. Valid values for the sort field:
    * - CreateTime (Desc/Asc)
-   * 
    * - Id (Desc/Asc)
    * 
    * @example
@@ -82,16 +78,11 @@ export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The status of the data quality scan run. Valid values:
-   * 
+   * The status of the data quality check result. Valid values:
    * - Pass
-   * 
    * - Running
-   * 
    * - Error
-   * 
    * - Fail
-   * 
    * - Warn
    * 
    * @example

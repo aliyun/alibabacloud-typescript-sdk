@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityStrategyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-generated token that ensures request idempotency, preventing duplicate operations if you retry the request.
+   * The idempotency parameter. This parameter is used to prevent duplicate operations caused by multiple calls.
    * 
    * @example
    * ABFUOEUOTRTRJKE
@@ -13,14 +13,14 @@ export class CreateSecurityStrategyShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The content of the strategy. This value is constrained by the `SecurityStrategySchema`.
+   * The policy content. The content is constrained by SecurityStrategySchema.
    * 
    * This parameter is required.
    */
   contentShrink?: string;
   /**
    * @remarks
-   * **The control scope. Valid values: Workspace and Tenant.**
+   * The control scope.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class CreateSecurityStrategyShrinkRequest extends $dara.Model {
   controlDwScope?: string;
   /**
    * @remarks
-   * **Control module**
+   * The control module.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class CreateSecurityStrategyShrinkRequest extends $dara.Model {
   controlModule?: string;
   /**
    * @remarks
-   * **Control submodule**
+   * The control submodule.
    * 
    * @example
    * MyCatalog
@@ -48,25 +48,25 @@ export class CreateSecurityStrategyShrinkRequest extends $dara.Model {
   controlSubModule?: string;
   /**
    * @remarks
-   * **Strategy description**
+   * The description of the policy.
    * 
    * @example
-   * 控制数据分析模块的查询结果安全行为
+   * Controls the security behavior of query results in the data analysis module
    */
   description?: string;
   /**
    * @remarks
-   * **Strategy name**
+   * The policy name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 默认数据分析策略
+   * Default data analysis policy
    */
   name?: string;
   /**
    * @remarks
-   * **Schema template name**
+   * The name of the schema template.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class CreateSecurityStrategyShrinkRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * A list of associated workspace IDs.
+   * The list of associated workspace IDs.
    */
   workspacesShrink?: string;
   static names(): { [key: string]: string } {

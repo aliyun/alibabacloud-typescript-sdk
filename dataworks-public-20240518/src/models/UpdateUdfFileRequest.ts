@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUdfFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The class name where the function is defined, corresponding to the class name field in the Create Function form.
+   * The name of the class where the function is defined, which corresponds to the class name in the create function form.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The command format for invoking the function, corresponding to the command format field in the Create Function form.
+   * The command format used to call the function, which corresponds to the command format in the create function form.
    * 
    * @example
    * StringConcat(String... substrs)
@@ -23,7 +23,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   cmdDescription?: string;
   /**
    * @remarks
-   * An example demonstrating how to call the function, corresponding to the example field in the Create Function form.
+   * The call example of the function, which corresponds to the example in the create function form.
    * 
    * @example
    * StringConcat(\\"a\\", \\"b\\", \\"c\\")
@@ -31,7 +31,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   example?: string;
   /**
    * @remarks
-   * The path to the folder containing the function file.
+   * The path of the folder where the function file is located.
    * 
    * @example
    * Business_process/First_Business_Process/function/string_processing_function
@@ -39,7 +39,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   fileFolderPath?: string;
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The function category, corresponding to the function type field in the Create Function form. Valid values: MATH (mathematical functions), AGGREGATE (aggregate functions), STRING (string processing functions), DATE (date processing functions), ANALYTIC (window functions), and OTHER (other functions).
+   * The category of the function, which corresponds to the function type in the create function form. Valid values: MATH (mathematical operation functions), AGGREGATE (aggregate functions), STRING (string processing functions), DATE (date processing functions), ANALYTIC (window functions), and OTHER (other functions).
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   functionType?: string;
   /**
    * @remarks
-   * The description of the function input parameters, corresponding to the Parameter Description field in the Create Function form.
+   * The description of the input parameters for the function, which corresponds to the parameter description in the create function form.
    * 
    * @example
    * List of strings to be connected
@@ -67,7 +67,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   parameterDescription?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. To find this, click the wrench icon in the upper-right corner and navigate to the workspace management page.
+   * The ID of the DataWorks workspace. You can view the ID on the Workspace Management page by clicking the Settings icon in the upper-right corner.
    * 
    * @example
    * 10000
@@ -75,12 +75,9 @@ export class UpdateUdfFileRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The unique identifier of the DataWorks workspace, which is the English identifier at the top of the Data Studio page where you switch workspaces.
+   * The unique identifier of the DataWorks workspace, which is the English identifier displayed when you switch workspaces at the top of the Data Studio page.
    * 
-   * 
-   * 
-   * 
-   * Either this parameter or ProjectId must be specified to identify the target DataWorks workspace for this API call.
+   * You must specify either this parameter or the ProjectId parameter to determine the DataWorks workspace for the API call.
    * 
    * @example
    * dw_project
@@ -88,7 +85,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   projectIdentifier?: string;
   /**
    * @remarks
-   * A comma-separated list of resource names referenced by the function, corresponding to the resource list field in the Create Function form.
+   * The list of resource names referenced by the function. Separate multiple resource names with commas (,). This corresponds to the resources in the create function form.
    * 
    * This parameter is required.
    * 
@@ -98,7 +95,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   resources?: string;
   /**
    * @remarks
-   * The return value description, corresponding to the return value field in the Create Function form.
+   * The description of the return value of the function, which corresponds to the return value in the create function form.
    * 
    * @example
    * New strings generated by concatenating all strings before and after the input order
@@ -106,7 +103,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   returnValue?: string;
   /**
    * @remarks
-   * The function purpose description, corresponding to the description field in the Create Function form.
+   * The description of the function purpose, which corresponds to the description in the create function form.
    * 
    * @example
    * Concatenate several strings to generate a new string

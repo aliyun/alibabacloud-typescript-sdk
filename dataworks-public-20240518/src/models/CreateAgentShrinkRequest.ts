@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of child Agents that can be called by this Agent.
+   * The list of child agents that can be called by this agent.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   callableAgentsShrink?: string;
   /**
    * @remarks
-   * The description of the Agent.
+   * The description of the agent.
    * 
    * @example
    * Data analytics assistant
@@ -21,15 +21,15 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the Agent.
+   * The display name of the agent.
    * 
    * @example
-   * MyAssistant
+   * My Assistant
    */
   displayName?: string;
   /**
    * @remarks
-   * The extended metadata (key-value pairs).
+   * The extended metadata in key-value pairs.
    * 
    * @example
    * {}
@@ -47,7 +47,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   modelShrink?: string;
   /**
    * @remarks
-   * The Agent name, which must be unique within the current account.
+   * The name of the agent. The name must be unique within the current account.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * You are a data analytics assistant.
+   * You are a data analytics assistant
    */
   systemPrompt?: string;
   /**
@@ -83,7 +83,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * @remarks
    * The visibility level.<br>
    * `TENANT`: Visible within the account.<br>
-   * `PROJECT`: Visible to a specified project.<br>
+   * `PROJECT`: Visible to specified projects.<br>
    * `USER`: Visible to specified users.
    * 
    * @example
@@ -92,7 +92,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. The corresponding field is determined by the Visibility parameter.
+   * The visibility scope. The corresponding field is used based on the visibility level.
    */
   visibilityScopeShrink?: string;
   static names(): { [key: string]: string } {

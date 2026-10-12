@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the API request.
+   * The API request result.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class UpdateImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

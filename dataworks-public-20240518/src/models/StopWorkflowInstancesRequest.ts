@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopWorkflowInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * this is a comment
@@ -13,7 +13,7 @@ export class StopWorkflowInstancesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The workflow instance IDs.
+   * The list of workflow instance IDs. You can call the ListWorkflowInstances operation to query workflow instance IDs.
    * 
    * This parameter is required.
    */

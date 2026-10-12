@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to run the workflow instance immediately after creation. Default value: true.
+   * Specifies whether to run the instance immediately after it is created. Default value: true.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   autoStartEnabled?: boolean;
   /**
    * @remarks
-   * The reason for creating the workflow instance.
+   * The reason for creation.
    * 
    * @example
    * create for test
@@ -27,8 +27,8 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The project environment. Valid values:
-   * - Prod: production
-   * - Dev: development
+   * - Prod: production.
+   * - Dev: development.
    * 
    * @example
    * Prod
@@ -61,9 +61,9 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tag creation policy. Valid values:
-   * - Append: append mode. New tags are appended to the existing tags inherited from the manual workflow.
-   * - Overwrite: overwrite mode. Existing tags of the manual workflow are not inherited. Tags are created directly.
+   * The tag creation policy.
+   * - Append: Append mode. Inherits existing tags from the manual business process and appends new tags.
+   * - Overwrite: Overwrite mode. Does not inherit existing tags from the manual business process and directly creates tags.
    * 
    * @example
    * Append
@@ -71,12 +71,12 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   tagCreationPolicy?: string;
   /**
    * @remarks
-   * The list of node labels.
+   * The list of task tags.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * The node parameters used to set parameters for specific nodes. The value is in JSON format. The key is the node ID, and the value format refers to the node script parameter (the Task.Script.Parameter field in the GetTask response).
+   * The task parameters. You can use this parameter to set parameters for specific tasks. The value is in JSON format. The key is the task ID. For the format of the value, refer to the task script parameters (Task.Script.Parameter in the response of the GetTask operation).
    * 
    * @example
    * {
@@ -88,12 +88,11 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the workflow instance. Valid values:
-   * 
-   * - SupplementData: data backfill. The method for specifying RootTaskIds and IncludeTaskIds varies based on the data backfill pattern. For more information, see the DefaultRunProperties.Mode parameter description.
-   * - ManualWorkflow: manual workflow. Set WorkflowId to the ID of the manual workflow. RootTaskIds is optional. If you do not specify RootTaskIds, the default root node list of the manual workflow is used.
-   * - Manual: manual node. Only RootTaskIds is required, which specifies the list of manual nodes to run.
-   * - SmokeTest: smoke test. Only RootTaskIds is required, which specifies the list of test nodes to run.
-   * - TriggerWorkflow: trigger-based workflow. Set WorkflowId to the ID of the trigger-based workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow is run.
+   * - SupplementData: data backfill. The methods for specifying RootTaskIds and IncludeTaskIds vary based on the data backfill pattern. For more information, see the parameter description of DefaultRunProperties.Mode.
+   * - ManualWorkflow: manual workflow. You must set WorkflowId to the ID of the manual workflow. RootTaskIds is optional. If you do not specify RootTaskIds, the default root node list of the manual workflow is used.
+   * - Manual: manual task. You only need to specify RootTaskIds, which is the list of manual tasks to be run.
+   * - SmokeTest: smoke test. You only need to specify RootTaskIds, which is the list of test tasks to be run.
+   * - TriggerWorkflow: trigger-based workflow. You must set WorkflowId to the ID of the trigger-based workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow is run.
    * 
    * This parameter is required.
    * 
@@ -103,7 +102,7 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the workflow to which the instance belongs. The WorkflowId for periodic nodes is 1.
+   * The ID of the workflow to which the task belongs. The WorkflowId of a periodic task is always 1.
    * 
    * This parameter is required.
    * 
@@ -113,7 +112,7 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   workflowId?: number;
   /**
    * @remarks
-   * The workflow parameters. This parameter takes effect when a unique workflow is specified (`WorkflowId != 1`). For periodic workflows and trigger-based workflows, the format is key=value, and the priority is lower than node parameters. For manual workflows, the format is JSON, and the priority is higher than node parameters.
+   * The workflow parameters. This parameter takes effect only when a specific workflow is specified (WorkflowId != 1). For a periodic workflow or a trigger-based workflow, the format is key=value, and the priority is lower than that of task parameters. For a manual workflow, the format is JSON, and the priority is higher than that of task parameters.
    * 
    * @example
    * "key=value" format:

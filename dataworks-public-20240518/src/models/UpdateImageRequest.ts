@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageRequestBuildConfigPackageInstallationScripts extends $dara.Model {
   /**
    * @remarks
-   * The script content. If the content consists of package names, separate them with commas (,).
+   * The script content. If the content specifies package names, separate them with commas.
    * 
    * @example
    * requests
@@ -86,10 +86,6 @@ export class UpdateImageRequestSupported extends $dara.Model {
   /**
    * @remarks
    * The image sub-module. Valid values:
-   * 
-   * 
-   * 
-   * 
    * - Scheduler: Data Studio.
    * 
    * @example
@@ -98,7 +94,7 @@ export class UpdateImageRequestSupported extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * The list of node types supported by the image.
+   * The list of task types supported by the image.
    */
   taskTypes?: string[];
   static names(): { [key: string]: string } {
@@ -131,8 +127,8 @@ export class UpdateImageRequest extends $dara.Model {
   /**
    * @remarks
    * The image visibility. Valid values:
-   * - Public: visible to all users.
-   * - Private: visible only to the creator.
+   * - Public: Visible to all users.
+   * - Private: Visible only to the creator.
    * 
    * @example
    * Public
@@ -140,7 +136,7 @@ export class UpdateImageRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The VPC ID associated with the ACR instance. This parameter is required when referencing an ACR image.
+   * The ID of the VPC associated with the ACR instance. This parameter is required when you reference an ACR image.
    * 
    * @example
    * vpc-xxx
@@ -148,7 +144,7 @@ export class UpdateImageRequest extends $dara.Model {
   acrAssociatedVpcId?: string;
   /**
    * @remarks
-   * The Container Registry (ACR) instance ID. This parameter is required when referencing an ACR image.
+   * The ID of the Container Registry (ACR) instance. This parameter is required when you reference an ACR image.
    * 
    * @example
    * acr_instance_id
@@ -179,7 +175,7 @@ export class UpdateImageRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The image URI. This parameter is required when referencing an ACR image.
+   * The image URI. This parameter is required when you reference an ACR image.
    * 
    * @example
    * registry-vpc.cn-beijing.cr.aliyuncs.com/namespace/image:0.1.0
@@ -195,7 +191,7 @@ export class UpdateImageRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The image namespace. Set this parameter to DataWorks Default when referencing a DataWorks official image.
+   * The image namespace. If you reference an official DataWorks image, set this parameter to DataWorks Default.
    * 
    * @example
    * namespace_name
@@ -203,7 +199,7 @@ export class UpdateImageRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The provider image ID. This parameter is required when referencing a DataWorks official image.
+   * The ID of the image provided by the provider. This parameter is required when you reference an official DataWorks image.
    * 
    * @example
    * System_shell_20251201
@@ -211,7 +207,7 @@ export class UpdateImageRequest extends $dara.Model {
   providerImageId?: string;
   /**
    * @remarks
-   * The image repository name. Set this parameter to DataWorks Default when referencing a DataWorks official image.
+   * The image repository name. If you reference an official DataWorks image, set this parameter to DataWorks Default.
    * 
    * @example
    * repo_name

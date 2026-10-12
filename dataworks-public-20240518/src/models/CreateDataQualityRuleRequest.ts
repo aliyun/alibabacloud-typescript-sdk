@@ -7,13 +7,13 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsCritical extend
    * @remarks
    * The threshold expression.
    * 
-   * For a fluctuation-type rule, you must use an expression to represent the fluctuation threshold. Examples:
+   * For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
    * 
-   * - Fluctuation rises above 0.01: $checkValue > 0.01 
-   * - Fluctuation drops below -0.01: $checkValue < -0.01 
-   * - Absolute value of the fluctuation: abs($checkValue) > 0.01
+   * - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+   * - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+   * - Absolute value of the fluctuation rate: abs($checkValue) > 0.01
    * 
-   * For a fixed-value type rule, you can also use an expression to configure the threshold. If both are configured at the same time, the expression takes precedence over Operator and Value.
+   * You can also use an expression to configure the threshold for fixed value rules. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue > 0.05
@@ -21,7 +21,7 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsCritical extend
   expression?: string;
   /**
    * @remarks
-   * The comparison operator:
+   * The comparison operator. Valid values:
    * - \\>
    * - \\>=
    * - \\<
@@ -71,13 +71,13 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsExpected extend
    * @remarks
    * The threshold expression.
    * 
-   * For a fluctuation-type rule, you must use an expression to represent the fluctuation threshold. Examples:
+   * For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
    * 
-   * - Fluctuation rises above 0.01: $checkValue > 0.01 
-   * - Fluctuation drops below -0.01: $checkValue < -0.01 
-   * - Absolute value of the fluctuation: abs($checkValue) > 0.01
+   * - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+   * - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+   * - Absolute value of the fluctuation rate: abs($checkValue) > 0.01
    * 
-   * For a fixed-value type rule, you can also use an expression to configure the threshold. If both are configured at the same time, the expression takes precedence over Operator and Value.
+   * You can also use an expression to configure the threshold for fixed value rules. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue <= 0.01
@@ -85,7 +85,7 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsExpected extend
   expression?: string;
   /**
    * @remarks
-   * The comparison operator:
+   * The comparison operator. Valid values:
    * - \\>
    * - \\>=
    * - \\<
@@ -135,13 +135,13 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsWarned extends 
    * @remarks
    * The threshold expression.
    * 
-   * For a fluctuation-type rule, you must use an expression to represent the fluctuation threshold. Examples:
+   * For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
    * 
-   * - Fluctuation rises above 0.01: $checkValue > 0.01 
-   * - Fluctuation drops below -0.01: $checkValue < -0.01 
-   * - Absolute value of the fluctuation: abs($checkValue) > 0.01
+   * - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+   * - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+   * - Absolute value of the fluctuation rate: abs($checkValue) > 0.01
    * 
-   * For a fixed-value type rule, you can also use an expression to configure the threshold. If both are configured at the same time, the expression takes precedence over Operator and Value.
+   * You can also use an expression to configure the threshold for fixed value rules. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue > 0.01
@@ -149,7 +149,7 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsWarned extends 
   expression?: string;
   /**
    * @remarks
-   * The comparison operator:
+   * The comparison operator. Valid values:
    * - \\>
    * - \\>=
    * - \\<
@@ -197,7 +197,7 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsWarned extends 
 export class CreateDataQualityRuleRequestCheckingConfigThresholds extends $dara.Model {
   /**
    * @remarks
-   * The threshold settings for a critical warning.
+   * The threshold settings for critical warnings.
    */
   critical?: CreateDataQualityRuleRequestCheckingConfigThresholdsCritical;
   /**
@@ -207,7 +207,7 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholds extends $dara.
   expected?: CreateDataQualityRuleRequestCheckingConfigThresholdsExpected;
   /**
    * @remarks
-   * The threshold settings for a normal warning.
+   * The threshold settings for common warnings.
    */
   warned?: CreateDataQualityRuleRequestCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
@@ -247,7 +247,7 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholds extends $dara.
 export class CreateDataQualityRuleRequestCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * Some types of thresholds require querying for reference samples and then summarizing the values of the reference samples to derive the threshold to be compared. An expression is used here to represent the query method for the reference samples.
+   * For some types of thresholds, reference samples must be queried, and the values of the reference samples are aggregated to obtain the threshold for comparison. This parameter specifies an expression that represents the query method for the reference samples.
    * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
@@ -260,7 +260,7 @@ export class CreateDataQualityRuleRequestCheckingConfig extends $dara.Model {
   thresholds?: CreateDataQualityRuleRequestCheckingConfigThresholds;
   /**
    * @remarks
-   * The threshold calculation method. You do not need to specify this parameter when a template is used.
+   * The threshold calculation method. This parameter is not required when a template is used. Valid values:
    * - Fixed
    * - Fluctation
    * - FluctationDiscreate
@@ -303,7 +303,7 @@ export class CreateDataQualityRuleRequestCheckingConfig extends $dara.Model {
 export class CreateDataQualityRuleRequestErrorHandlers extends $dara.Model {
   /**
    * @remarks
-   * For a custom SQL rule, you must specify an SQL statement to filter problematic data.
+   * If the rule is a custom SQL rule, you must specify an SQL statement to filter the problematic data.
    * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
@@ -311,7 +311,7 @@ export class CreateDataQualityRuleRequestErrorHandlers extends $dara.Model {
   errorDataFilter?: string;
   /**
    * @remarks
-   * The handler type:
+   * The handler type. Valid values:
    * - SaveErrorData
    * 
    * @example
@@ -344,26 +344,22 @@ export class CreateDataQualityRuleRequestErrorHandlers extends $dara.Model {
 export class CreateDataQualityRuleRequestSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the metric to be sampled. You do not need to specify this parameter when a template is used.
-   * 
-   * 
-   * 
-   * 
+   * The name of the sampling metric. This parameter is not required when a template is used. Valid values:
    * - Count: the number of rows in the table.
-   * - Min: the minimum value of the column.
-   * - Max: the maximum value of the column.
-   * - Avg: the average value of the column.
-   * - DistinctCount: the number of distinct values of the column.
-   * - DistinctPercent: the ratio of the number of distinct values of the column to the number of data rows.
-   * - DuplicatedCount: the number of duplicate values of the column.
-   * - DuplicatedPercent: the ratio of the number of duplicate values of the column to the number of data rows.
+   * - Min: the minimum value of the field.
+   * - Max: the maximum value of the field.
+   * - Avg: the average value of the field.
+   * - DistinctCount: the number of unique values in the field.
+   * - DistinctPercent: the ratio of the number of unique values in the field to the total number of rows.
+   * - DuplicatedCount: the number of duplicate values in the field.
+   * - DuplicatedPercent: the ratio of the number of duplicate values in the field to the total number of rows.
    * - TableSize: the size of the table.
-   * - NullValueCount: the number of rows in which the column is null.
-   * - NullValuePercent: the ratio of rows in which the column is null.
-   * - GroupCount: the values aggregated by column value and the corresponding number of data rows for each value.
-   * - CountNotIn: the number of rows whose enum values do not match.
-   * - CountDistinctNotIn: the number of distinct values that do not match the enum values.
-   * - UserDefinedSql: collects samples by using a custom SQL statement.
+   * - NullValueCount: the number of rows where the field is null.
+   * - NullValuePercent: the ratio of rows where the field is null.
+   * - GroupCount: the number of rows corresponding to each value after aggregation by field value.
+   * - CountNotIn: the number of rows that do not match the enumerated values.
+   * - CountDistinctNotIn: the number of unique values that do not match the enumerated values.
+   * - UserDefinedSql: sample collection by using custom SQL statements.
    * 
    * @example
    * Count
@@ -371,7 +367,7 @@ export class CreateDataQualityRuleRequestSamplingConfig extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * The parameters required during sample collection.
+   * The parameters required for sample collection.
    * 
    * @example
    * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
@@ -379,7 +375,7 @@ export class CreateDataQualityRuleRequestSamplingConfig extends $dara.Model {
   metricParameters?: string;
   /**
    * @remarks
-   * The condition used to perform a secondary filter on the irrelevant data during sampling. The maximum length is 16777215 characters.
+   * The conditions used to filter out unneeded data during sampling. The conditions can be up to 16,777,215 characters in length.
    * 
    * @example
    * id IS NULL
@@ -387,7 +383,7 @@ export class CreateDataQualityRuleRequestSamplingConfig extends $dara.Model {
   samplingFilter?: string;
   /**
    * @remarks
-   * The runtime parameter setting statements to be inserted and executed before the sampling statement is executed. The maximum length is 1000 characters. Only MaxCompute is supported.
+   * The runtime parameter setting statements that are inserted and executed before the sampling statements are executed. The statements can be up to 1,000 characters in length. Only MaxCompute is supported.
    * 
    * @example
    * SET odps.sql.udf.timeout=600s; 
@@ -424,7 +420,7 @@ export class CreateDataQualityRuleRequestSamplingConfig extends $dara.Model {
 export class CreateDataQualityRuleRequestTarget extends $dara.Model {
   /**
    * @remarks
-   * For a table-type dataset, the type of database to which the table belongs.
+   * The type of the database to which the table belongs. This parameter is required when the dataset is of the table type. Valid values:
    * - maxcompute
    * - emr
    * - cdh
@@ -447,7 +443,7 @@ export class CreateDataQualityRuleRequestTarget extends $dara.Model {
   partitionSpec?: string;
   /**
    * @remarks
-   * The unique ID of the table in Data Map on which the rule operates.
+   * The unique ID of the table to which the rule applies in Data Map.
    * 
    * This parameter is required.
    * 
@@ -457,7 +453,7 @@ export class CreateDataQualityRuleRequestTarget extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The type of the monitored object.
+   * The monitored object type. Valid values:
    * 
    * - Table
    * 
@@ -500,7 +496,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   checkingConfig?: CreateDataQualityRuleRequestCheckingConfig;
   /**
    * @remarks
-   * The description of the rule. The maximum length is 500 characters.
+   * The description of the rule. The description can be up to 500 characters in length.
    * 
    * @example
    * this is a odps _sql task
@@ -508,7 +504,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the data quality rule.
+   * Specifies whether the quality rule is enabled.
    * 
    * @example
    * true
@@ -516,7 +512,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The list of issue handlers for the data quality rule check.
+   * The list of handlers for quality rule check issues.
    */
   errorHandlers?: CreateDataQualityRuleRequestErrorHandlers[];
   /**
@@ -546,7 +542,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   samplingConfig?: CreateDataQualityRuleRequestSamplingConfig;
   /**
    * @remarks
-   * The severity of the rule for the business (corresponding to the strong/weak rule on the page). Valid values:
+   * The severity level of the rule for business operations, which corresponds to strong and weak rules on the page. Valid values:
    * - Normal
    * - High
    * 
@@ -561,7 +557,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   target?: CreateDataQualityRuleRequestTarget;
   /**
    * @remarks
-   * The unique identifier of the rule template that the rule references.
+   * The unique identifier of the rule template referenced by the rule.
    * 
    * @example
    * SYSTEM:table:table_count:fixed

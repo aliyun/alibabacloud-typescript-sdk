@@ -13,12 +13,12 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
   basicEditionDefaultValue?: any;
   /**
    * @remarks
-   * The valid value interval for Basic Edition, in the format `[min, max]`.
+   * The valid value range for Basic Edition, in the format of [min, max].
    */
   basicEditionIntervalValue?: number[];
   /**
    * @remarks
-   * The controller identifier. For valid values, see the list of controllers for each schema.
+   * The identifier of the control item. For valid values, refer to the control item list for each schema.
    * 
    * @example
    * viewCount
@@ -26,7 +26,7 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
   controller?: string;
   /**
    * @remarks
-   * The value type. Valid values: `Boolean`, `Integer`, `Long`, and `String`.
+   * The value type. Valid values: Boolean, Integer, Long, and String.
    * 
    * @example
    * Integer
@@ -37,7 +37,7 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
    * The display name.
    * 
    * @example
-   * 查询结果-单次展示记录值上限
+   * Query results - Maximum number of records displayed per query
    */
   displayName?: string;
   /**
@@ -50,7 +50,7 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
   displayNameEn?: string;
   /**
    * @remarks
-   * Specifies whether to enable this controller.
+   * Specifies whether to enable the control item.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
   enterpriseEditionDefaultValue?: any;
   /**
    * @remarks
-   * The valid value interval for Enterprise Edition, in the format `[min, max]`.
+   * The valid value range for Enterprise Edition, in the format of [min, max].
    */
   enterpriseEditionIntervalValue?: number[];
   /**
@@ -79,7 +79,7 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
   professionalEditionDefaultValue?: any;
   /**
    * @remarks
-   * The valid value interval for Professional Edition, in the format `[min, max]`.
+   * The valid value range for Professional Edition, in the format of [min, max].
    */
   professionalEditionIntervalValue?: number[];
   /**
@@ -92,12 +92,12 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
   standardEditionDefaultValue?: any;
   /**
    * @remarks
-   * The valid value interval for Standard Edition, in the format `[min, max]`.
+   * The valid value range for Standard Edition, in the format of [min, max].
    */
   standardEditionIntervalValue?: number[];
   /**
    * @remarks
-   * The user-configured value. The type of this value depends on the `ControllerValueType` parameter.
+   * The user-configured value. The type depends on `ControllerValueType`.
    * 
    * @example
    * 10
@@ -165,7 +165,7 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
 export class CreateSecurityStrategyRequestContent extends $dara.Model {
   /**
    * @remarks
-   * The control scope. This corresponds to the `controlDwScope` property of the `SecurityStrategySchema` associated with the current strategy.
+   * The control scope. This is the name of the SecurityStrategySchema associated with the current policy.
    * 
    * @example
    * Tenant
@@ -173,7 +173,7 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
   controlDwScope?: string;
   /**
    * @remarks
-   * The control module. This corresponds to the `controlModule` property of the `SecurityStrategySchema` associated with the current strategy.
+   * The control module. This is the controlModule of the SecurityStrategySchema associated with the current policy.
    * 
    * This parameter is required.
    * 
@@ -183,7 +183,7 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
   controlModule?: string;
   /**
    * @remarks
-   * The control submodule. This corresponds to the `controlSubModule` property of the `SecurityStrategySchema` associated with the current strategy.
+   * The control submodule. This is the controlSubModule of the SecurityStrategySchema associated with the current policy.
    * 
    * @example
    * MyCatalog
@@ -191,22 +191,22 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
   controlSubModule?: string;
   /**
    * @remarks
-   * A list of controllers.
+   * The list of control items.
    * 
-   * **Note:** Valid controllers depend on the selected schema. For more information, see the controller definitions and the list of controllers for each schema.
+   * Note: Valid control items depend on the selected schema. Refer to the controller definitions and the control item list for each schema.
    */
   controllers?: CreateSecurityStrategyRequestContentControllers[];
   /**
    * @remarks
-   * The `displayName` property of the `SecurityStrategySchema` associated with the current strategy.
+   * The display name of the SecurityStrategySchema associated with the current policy.
    * 
    * @example
-   * 数据分析
+   * Data analysis
    */
   displayName?: string;
   /**
    * @remarks
-   * The `displayNameEn` property of the `SecurityStrategySchema` associated with the current strategy.
+   * The English display name of the SecurityStrategySchema associated with the current policy.
    * 
    * @example
    * Data Analysis
@@ -214,7 +214,7 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
   displayNameEn?: string;
   /**
    * @remarks
-   * The `name` property of the `SecurityStrategySchema` associated with the current strategy.
+   * The name of the SecurityStrategySchema associated with the current policy.
    * 
    * This parameter is required.
    * 
@@ -224,7 +224,7 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The `systemPolicyDisplayName` property of the `SecurityStrategySchema` associated with the current strategy.
+   * The name of the SecurityStrategySchema associated with the current policy.
    * 
    * @example
    * Default system generate data query policy
@@ -232,7 +232,7 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
   systemPolicyDisplayName?: string;
   /**
    * @remarks
-   * The `systemPolicyName` property of the `SecurityStrategySchema` associated with the current strategy.
+   * The name of the SecurityStrategySchema associated with the current policy.
    * 
    * @example
    * SYSTEM_GENERATE_DEFAULT_DATA_QUERY
@@ -281,7 +281,7 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
 export class CreateSecurityStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-generated token that ensures request idempotency, preventing duplicate operations if you retry the request.
+   * The idempotency parameter. This parameter is used to prevent duplicate operations caused by multiple calls.
    * 
    * @example
    * ABFUOEUOTRTRJKE
@@ -289,14 +289,14 @@ export class CreateSecurityStrategyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The content of the strategy. This value is constrained by the `SecurityStrategySchema`.
+   * The policy content. The content is constrained by SecurityStrategySchema.
    * 
    * This parameter is required.
    */
   content?: CreateSecurityStrategyRequestContent;
   /**
    * @remarks
-   * **The control scope. Valid values: Workspace and Tenant.**
+   * The control scope.
    * 
    * This parameter is required.
    * 
@@ -306,7 +306,7 @@ export class CreateSecurityStrategyRequest extends $dara.Model {
   controlDwScope?: string;
   /**
    * @remarks
-   * **Control module**
+   * The control module.
    * 
    * This parameter is required.
    * 
@@ -316,7 +316,7 @@ export class CreateSecurityStrategyRequest extends $dara.Model {
   controlModule?: string;
   /**
    * @remarks
-   * **Control submodule**
+   * The control submodule.
    * 
    * @example
    * MyCatalog
@@ -324,25 +324,25 @@ export class CreateSecurityStrategyRequest extends $dara.Model {
   controlSubModule?: string;
   /**
    * @remarks
-   * **Strategy description**
+   * The description of the policy.
    * 
    * @example
-   * 控制数据分析模块的查询结果安全行为
+   * Controls the security behavior of query results in the data analysis module
    */
   description?: string;
   /**
    * @remarks
-   * **Strategy name**
+   * The policy name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 默认数据分析策略
+   * Default data analysis policy
    */
   name?: string;
   /**
    * @remarks
-   * **Schema template name**
+   * The name of the schema template.
    * 
    * This parameter is required.
    * 
@@ -352,7 +352,7 @@ export class CreateSecurityStrategyRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * A list of associated workspace IDs.
+   * The list of associated workspace IDs.
    */
   workspaces?: number[];
   static names(): { [key: string]: string } {

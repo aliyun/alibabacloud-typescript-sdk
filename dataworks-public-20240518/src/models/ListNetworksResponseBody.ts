@@ -13,7 +13,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the user who creates the network resource.
+   * The ID of the user who created the network resource.
    * 
    * @example
    * 11075500042XXXXX
@@ -21,7 +21,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The network ID.
+   * The ID of the network resource.
    * 
    * @example
    * 1000
@@ -29,7 +29,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the serverless resource group.
+   * The unique identifier of the general resource group to which the network resource belongs.
    * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
@@ -37,7 +37,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The security group ID of the network resource.
    * 
    * @example
    * sg-2ze13vamugr7jenXXXXX
@@ -45,7 +45,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The status of the network resource. Valid values: Pending: waiting; Creating: being created; Running: running normally; Deleting: being deleted; Deleted: deleted.
+   * The current status of the network resource. A value of Pending indicates that the resource is waiting. A value of Creating indicates that the resource is being created. A value of Running indicates that the resource is running normally. A value of Deleting indicates that the resource is being deleted. A value of Deleted indicates that the resource is deleted.
    * 
    * @example
    * Running
@@ -53,7 +53,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID of the network resource.
    * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
@@ -61,7 +61,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VSwitch ID.
+   * The vSwitch ID of the network resource.
    * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
@@ -105,7 +105,7 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
 export class ListNetworksResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The network resources of the serverless resource group.
+   * The list of detailed information about the network resources in the general resource group.
    */
   networkList?: ListNetworksResponseBodyPagingInfoNetworkList[];
   /**
@@ -126,7 +126,7 @@ export class ListNetworksResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries that meet the conditions.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -170,7 +170,7 @@ export class ListNetworksResponseBody extends $dara.Model {
   pagingInfo?: ListNetworksResponseBodyPagingInfo;
   /**
    * @remarks
-   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -178,7 +178,7 @@ export class ListNetworksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

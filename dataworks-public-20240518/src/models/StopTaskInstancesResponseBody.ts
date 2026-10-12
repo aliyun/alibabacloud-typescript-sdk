@@ -14,7 +14,7 @@ export class StopTaskInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information of the batch operation. The structure is a map in which instance IDs are used as keys and result information is used as values.
+   * The result information of the batch operation. The structure is a map where the task instance ID is the key and the result information is the value.
    */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {

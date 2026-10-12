@@ -13,7 +13,7 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the owner, which is the account UID of the workspace administrator. To view the UID, log on to the Alibaba Cloud console and go to the Security Management section of Account Management.
+   * The ID of the owner, which is the UID of the workspace administrator account. You can log on to the Alibaba Cloud Management Console and view the account UID on the Security Settings page of Account Management.
    * 
    * @example
    * 110755000425XXXX
@@ -21,7 +21,7 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The page number of the data to retrieve, used for pagination.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -37,12 +37,9 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to query the ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Configuration page to obtain the workspace ID.
    * 
-   * 
-   * 
-   * 
-   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * This parameter specifies the DataWorks workspace for the current API call.
    * 
    * This parameter is required.
    * 
@@ -52,12 +49,9 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Filter condition: The type of the workflow. The default value is CycleWorkflow.
-   * 
-   * Valid values:
+   * The type of the workflow. This parameter is used as a filter condition. If you do not specify this parameter, the default value is CycleWorkflow. Valid values:
    * 
    * - CycleWorkflow
-   * 
    * - ManualWorkflow
    * 
    * @example

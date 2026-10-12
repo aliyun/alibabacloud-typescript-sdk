@@ -98,7 +98,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   aliyunResourceTags?: GetResourceGroupResponseBodyResourceGroupAliyunResourceTags[];
   /**
    * @remarks
-   * The creation time, represented as a 64-bit timestamp.
+   * The creation time, which is a 64-bit timestamp.
    * 
    * @example
    * 1727055811000
@@ -114,7 +114,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The ID of the default VPC bound to the resource group.
+   * The ID of the default VPC associated with the general resource group.
    * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
@@ -122,7 +122,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   defaultVpcId?: string;
   /**
    * @remarks
-   * The ID of the default vSwitch bound to the resource group.
+   * The ID of the default vSwitch associated with the general resource group.
    * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
@@ -155,7 +155,6 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
    * @remarks
    * The billing method of the resource group. Valid values:
-   * 
    * - PrePaid: subscription.
    * - PostPaid: pay-as-you-go.
    * 
@@ -165,7 +164,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The remarks of the resource group.
+   * The remarks for the resource group.
    * 
    * @example
    * Create a common resource group for common tasks
@@ -174,11 +173,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
    * @remarks
    * The type of the resource group. Valid values:
-   * 
-   * 
-   * 
-   * 
-   * - CommonV2: new-version general-purpose resource group.
+   * - CommonV2: general resource group V2.
    * - ExclusiveDataIntegration: exclusive data integration resource group.
    * - ExclusiveScheduler: exclusive scheduling resource group.
    * - ExclusiveDataService: exclusive data service resource group.
@@ -189,22 +184,21 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   resourceGroupType?: string;
   /**
    * @remarks
-   * The specifications of the resource group.
+   * The resource group specification.
    */
   spec?: GetResourceGroupResponseBodyResourceGroupSpec;
   /**
    * @remarks
-   * The status of the resource group. Valid values:
-   * 
-   * - Normal: normal (running/in service).
+   * The status of the queried resource group. Valid values:
+   * - Normal: normal (running or in service).
    * - Stop: frozen (expired).
-   * - Deleted: deleted (released/destroyed).
-   * - Creating: being created.
+   * - Deleted: deleted (released or destroyed).
+   * - Creating: creating.
    * - CreateFailed: creation failed.
-   * - Updating: being updated (scaling out/scaling in/specification change in progress).
-   * - UpdateFailed: update failed (scale-out failed/upgrade failed).
-   * - Deleting: being deleted (being released/being destroyed).
-   * - DeleteFailed: deletion failed (release failed/destruction failed).
+   * - Updating: updating (scaling in, scaling out, or changing specifications).
+   * - UpdateFailed: update failed (scale-in failed or upgrade failed).
+   * - Deleting: deleting (releasing or destroying).
+   * - DeleteFailed: deletion failed (release failed or destruction failed).
    * - Timeout: operation timed out.
    * - Freezed: frozen.
    * - Starting: starting.
@@ -269,7 +263,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
 export class GetResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -277,12 +271,12 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The detailed information of the resource group.
+   * The resource group details.
    */
   resourceGroup?: GetResourceGroupResponseBodyResourceGroup;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

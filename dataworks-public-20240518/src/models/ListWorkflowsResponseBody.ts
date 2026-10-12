@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowsResponseBodyPagingInfoWorkflowsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of a tag.
+   * The tag key.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTags extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * The value of a tag.
+   * The tag value.
    * 
    * @example
    * value1
@@ -45,7 +45,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTags extends $dara.Mode
 export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The cron expression. This parameter takes effect only when Type is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -53,7 +53,9 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The expiration time of the periodic trigger. This parameter takes effect only when Type is set to Scheduler.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. The example does not include a time zone identifier.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -61,7 +63,10 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
+   * The running mode upon triggering. This parameter takes effect only when Type is set to Scheduler. Valid values:
+   * - Pause: Paused.
+   * - Skip: Dry run.
+   * - Normal: Normal execution.
    * 
    * @example
    * Normal
@@ -69,7 +74,9 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The effective period of the epoch trigger. This parameter takes effect only when Type is set to Scheduler.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identity.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -78,10 +85,8 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
   /**
    * @remarks
    * The trigger type. Valid values:
-   * 
-   * - Scheduler: scheduling cycle-based trigger
-   * 
-   * - Manual: manual trigger
+   * - Scheduler: Triggered by a scheduling cycle.
+   * - Manual: Triggered manually.
    * 
    * @example
    * Scheduler
@@ -119,7 +124,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
 export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
   /**
    * @remarks
-   * The unique code of the client. This parameter is used to create a workflow asynchronously and implement the idempotence of the workflow. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+   * The client unique code of the workflow, which is used to implement asynchronous processing and idempotence. If you do not specify this parameter when creating a workflow, the system automatically generates one and uniquely binds it to the resource ID. If you specify this parameter when updating or deleting a resource, it must be the same as the client unique code used during creation.
    * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
@@ -129,13 +134,15 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The value is a 13-digit timestamp, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the workflow.
    * 
    * @example
    * 1000
@@ -151,7 +158,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
+   * The project environment.
    * 
    * @example
    * Prod
@@ -159,7 +166,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The workflow ID.
+   * The unique identifier of the workflow.
    * 
    * @example
    * 1234
@@ -169,13 +176,15 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
    * @remarks
    * The modification time.
    * 
+   * The value is a 13-digit timestamp, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who last modified the workflow.
    * 
    * @example
    * 1000
@@ -199,7 +208,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The parameters.
+   * The list of parameters.
    * 
    * @example
    * para1=$bizdate para2=$[yyyymmdd]
@@ -207,7 +216,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * @example
    * 100
@@ -215,7 +224,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The task tag.
+   * The task tags.
    */
   tags?: ListWorkflowsResponseBodyPagingInfoWorkflowsTags[];
   /**
@@ -295,7 +304,7 @@ export class ListWorkflowsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -303,7 +312,7 @@ export class ListWorkflowsResponseBodyPagingInfo extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The workflows.
+   * The list of workflows.
    */
   workflows?: ListWorkflowsResponseBodyPagingInfoWorkflows[];
   static names(): { [key: string]: string } {
@@ -339,12 +348,12 @@ export class ListWorkflowsResponseBodyPagingInfo extends $dara.Model {
 export class ListWorkflowsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Pagination information.
+   * The pagination information.
    */
   pagingInfo?: ListWorkflowsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX

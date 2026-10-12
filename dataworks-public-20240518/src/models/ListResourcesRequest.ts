@@ -13,7 +13,7 @@ export class ListResourcesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the owner, which is the account UID of the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the account UID in the security management section of account management.
+   * The ID of the owner, which is the UID of the workspace administrator account. You can log on to the Alibaba Cloud Management Console and view the account UID in the Security Management section of Account Management.
    * 
    * @example
    * 110755000425XXXX
@@ -21,7 +21,7 @@ export class ListResourcesRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The page number of the request, used for pagination.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -37,9 +37,7 @@ export class ListResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
-   * 
-   * This parameter specifies the DataWorks workspace for this API call.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID. This parameter specifies the DataWorks workspace for the API operation.
    * 
    * This parameter is required.
    * 
@@ -49,9 +47,7 @@ export class ListResourcesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The filter condition: resource file type.
-   * 
-   * Valid values:
+   * The filter condition for the resource type. Valid values:
    * 
    * - Python
    * - Jar

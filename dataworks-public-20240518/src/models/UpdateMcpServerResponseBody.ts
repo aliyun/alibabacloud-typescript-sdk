@@ -7,7 +7,7 @@ export class UpdateMcpServerResponseBodyMcpServer extends $dara.Model {
    * @remarks
    * The creation time.
    * 
-   * The value is a 13-digit number, for example, `1780555634000`.
+   * The value is a 13-digit number, such as `1780555634000`.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -17,7 +17,7 @@ export class UpdateMcpServerResponseBodyMcpServer extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time, in millisecond-level timestamp.
+   * **The last modification time as a millisecond timestamp.**
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -27,7 +27,7 @@ export class UpdateMcpServerResponseBodyMcpServer extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The MCP Server name.
+   * **The name of the MCP server.**
    * 
    * @example
    * my-mcp-server
@@ -61,7 +61,7 @@ export class UpdateMcpServerResponseBodyMcpServer extends $dara.Model {
 export class UpdateMcpServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The MCP Server details.
+   * The details of the MCP server.
    */
   mcpServer?: UpdateMcpServerResponseBodyMcpServer;
   /**

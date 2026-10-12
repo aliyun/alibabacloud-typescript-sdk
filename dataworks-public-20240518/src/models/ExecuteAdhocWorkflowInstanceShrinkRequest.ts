@@ -14,8 +14,8 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The project environment. Valid values:
-   * - Prod: production
-   * - Dev: development
+   * - Prod: production.
+   * - Dev: development.
    * 
    * @example
    * Prod

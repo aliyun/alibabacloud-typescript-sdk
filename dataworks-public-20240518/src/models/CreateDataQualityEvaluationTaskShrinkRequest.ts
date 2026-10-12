@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of data quality rules associated with the data quality monitoring task. If DataQualityRule.Id is specified, the rule corresponding to the ID is associated with the new quality monitoring task. If DataQualityRule.Id is not specified, a new rule is created based on the other fields and associated with the new quality monitoring task.
+   * The list of data quality rules associated with the data quality monitoring task. If DataQualityRule.Id is specified, the rule corresponding to the ID is associated with the new quality monitoring task. If it is not specified, a new rule is created by using other fields and associated with the new quality monitoring task.
    */
   dataQualityRulesShrink?: string;
   /**
    * @remarks
-   * The data source ID. You can call [ListDataSources](https://help.aliyun.com/document_detail/211431.html) to obtain the data source ID.
+   * The ID of the data source. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID of the data source.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The description of the data quality monitor task.
+   * The description of the data quality monitoring task.
    * 
    * @example
    * OpenAPI create a data quality monitoring test
@@ -28,12 +28,12 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The callback settings.
+   * The hook settings.
    */
   hooksShrink?: string;
   /**
    * @remarks
-   * The name of the data quality monitor task.
+   * The name of the data quality monitoring task.
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,9 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   notificationsShrink?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the ID.
+   * 
+   * This parameter is used to determine the DataWorks workspace used to invoke this API operation.
    * 
    * This parameter is required.
    * 
@@ -58,13 +60,11 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The extended configuration. The value is a JSON-formatted string. This parameter takes effect only for EMR-type data quality monitors.
-   * 
-   * 
-   * 
-   * 
-   * - queue: The YARN queue used for EMR data quality checks. By default, the queue configured for the current project is used.
-   * - sqlEngine: The SQL engine used for EMR data quality checks. Valid values: HIVE_SQL and SPARK_SQL.
+   * The extension configurations in JSON string format. This parameter takes effect only for EMR data quality monitoring tasks.
+   * - queue: the YARN queue used to execute EMR data validation. Default value: the queue configured for the project.
+   * - sqlEngine: the SQL engine used to execute EMR data validation. Valid values:
+   *     + HIVE_SQL
+   *     + SPARK_SQL
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -72,14 +72,14 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the data quality monitor.
+   * The monitored object for the data quality monitoring task.
    * 
    * This parameter is required.
    */
   targetShrink?: string;
   /**
    * @remarks
-   * The trigger configuration of the data quality check task.
+   * The trigger configuration for the data quality check task.
    */
   triggerShrink?: string;
   static names(): { [key: string]: string } {

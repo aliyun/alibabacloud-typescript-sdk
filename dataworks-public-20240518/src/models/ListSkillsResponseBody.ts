@@ -13,15 +13,17 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * **The Skill description.**
+   * **The skill description.**
    * 
    * @example
-   * Data analysis skill
+   * Data analytics skill
    */
   description?: string;
   /**
    * @remarks
    * The creation time.
+   * 
+   * The format is a 13-digit number, such as `1780555634000`.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -31,7 +33,7 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * **The modifier ID.**
+   * **The ID of the last modifier.**
    * 
    * @example
    * 123456
@@ -39,7 +41,7 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
   modifierId?: string;
   /**
    * @remarks
-   * **The Skill name.**
+   * **The skill name.**
    * 
    * @example
    * my-skill
@@ -87,7 +89,7 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
 export class ListSkillsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results returned in this response.
+   * The maximum number of entries returned in this request.
    * 
    * @example
    * 100
@@ -95,7 +97,7 @@ export class ListSkillsResponseBodyPagingInfo extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. This parameter is null or empty if all results have been returned.
+   * The token for the next page. An empty value indicates that the last page has been reached.
    * 
    * @example
    * 5
@@ -103,12 +105,12 @@ export class ListSkillsResponseBodyPagingInfo extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of Skills.
+   * The list of skills.
    */
   skills?: ListSkillsResponseBodyPagingInfoSkills[];
   /**
    * @remarks
-   * The total number of results that match the query.
+   * The total number of matching entries.
    * 
    * @example
    * 100

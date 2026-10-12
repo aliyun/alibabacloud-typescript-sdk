@@ -65,7 +65,7 @@ export class ReplyAgentSessionResponseBodyJsonRpcResponseError extends $dara.Mod
 export class ReplyAgentSessionResponseBodyJsonRpcResponseResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the daemon accepted the reply. A value of true indicates that the daemon accepted the reply. A value of false indicates that the reply was not accepted. Possible reasons include an unknown request, an already processed request, an expired request, or a nonexistent session. You cannot determine the specific reason from this value.
+   * Indicates whether the daemon accepts the current reply. A value of true indicates that the reply is accepted. A value of false indicates that the reply is not accepted, which may be because the request is unknown, already processed, expired, or the session does not exist. The specific cause cannot be distinguished based on this value.
    * 
    * @example
    * true
@@ -95,12 +95,12 @@ export class ReplyAgentSessionResponseBodyJsonRpcResponseResult extends $dara.Mo
 export class ReplyAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   /**
    * @remarks
-   * The JSON-RPC fault information. For example, DAEMON_PERMISSION_UNAVAILABLE is returned when the daemon reply feature is not enabled.
+   * The JSON-RPC fault message. For example, DAEMON_PERMISSION_UNAVAILABLE is returned when the daemon reply feature is not enabled.
    */
   error?: ReplyAgentSessionResponseBodyJsonRpcResponseError;
   /**
    * @remarks
-   * The JSON-RPC correlation ID for this reply request.
+   * The JSON-RPC correlation ID for the current reply request.
    * 
    * @example
    * reply-rpc-001
@@ -116,12 +116,12 @@ export class ReplyAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The reply processing result. This only indicates whether the reply was accepted, not whether the original task has completed.
+   * The reply processing result. It only indicates whether the current reply is accepted, and does not indicate that the original task execution is completed.
    */
   result?: ReplyAgentSessionResponseBodyJsonRpcResponseResult;
   /**
    * @remarks
-   * The response time. This is a UNIX timestamp, in milliseconds.
+   * The response time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1789549200000
@@ -165,12 +165,12 @@ export class ReplyAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
 export class ReplyAgentSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The JSON-RPC response. Returns Result on success or Error on protocol errors.
+   * The JSON-RPC response. Returns Result on success and Error on protocol errors.
    */
   jsonRpcResponse?: ReplyAgentSessionResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * The request ID for this call, which can be used for troubleshooting.
+   * The request ID for the current call, which can be used for troubleshooting.
    * 
    * @example
    * request-001

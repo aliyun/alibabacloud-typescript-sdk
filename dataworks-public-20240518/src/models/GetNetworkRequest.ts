@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNetworkRequest extends $dara.Model {
   /**
    * @remarks
-   * The network ID.
+   * The ID of the network resource.
    * 
    * This parameter is required.
    * 

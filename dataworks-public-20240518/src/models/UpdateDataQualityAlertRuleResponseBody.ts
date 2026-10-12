@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityAlertRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0bc14115***159376359
@@ -13,7 +13,7 @@ export class UpdateDataQualityAlertRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the alert rule is updated.
+   * Indicates whether the alert rule was updated successfully.
    * 
    * @example
    * True

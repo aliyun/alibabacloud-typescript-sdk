@@ -21,7 +21,7 @@ export class ListImageTestResultsResponseBodyPagingInfoTestResultList extends $d
   message?: string;
   /**
    * @remarks
-   * The operation time, represented as a 64-bit timestamp.
+   * The operation time, which is a 64-bit timestamp.
    * 
    * @example
    * 1727055811000
@@ -37,7 +37,7 @@ export class ListImageTestResultsResponseBodyPagingInfoTestResultList extends $d
   processId?: string;
   /**
    * @remarks
-   * The publish stage of the image.
+   * The image publishing stage.
    * 
    * @example
    * UNPUBLISHED

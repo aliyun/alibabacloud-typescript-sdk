@@ -13,7 +13,7 @@ export class UpdateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The alert rule ID.
+   * The ID of the alert rule.
    * 
    * @example
    * 105412
@@ -26,7 +26,7 @@ export class UpdateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   notificationShrink?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * 1000
@@ -34,7 +34,7 @@ export class UpdateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The monitoring target of the data quality monitoring alert rule.
+   * The target of the data quality monitoring alert rule.
    */
   targetShrink?: string;
   static names(): { [key: string]: string } {

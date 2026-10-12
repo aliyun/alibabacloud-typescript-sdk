@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAssetTagRequest extends $dara.Model {
   /**
    * @remarks
-   * The label description.
+   * The tag description.
    * 
    * @example
    * This is a description
@@ -13,7 +13,7 @@ export class CreateDataAssetTagRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The label key.
+   * The tag key.
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,12 @@ export class CreateDataAssetTagRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The list of label administrators.
+   * The list of tag administrators.
    */
   managers?: string[];
   /**
    * @remarks
-   * The label value type. Valid values:
+   * The tag value type. Valid values:
    * - Boolean
    * - Int
    * - String
@@ -40,7 +40,7 @@ export class CreateDataAssetTagRequest extends $dara.Model {
   valueType?: string;
   /**
    * @remarks
-   * The list of label values.
+   * The list of tag values.
    */
   values?: string[];
   static names(): { [key: string]: string } {

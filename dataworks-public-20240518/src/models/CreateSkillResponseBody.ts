@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillResponseBodySkillVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of visible project IDs.
+   * The IDs of the visible projects.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of visible user IDs. This parameter takes effect only when Visibility is set to `USER`.
+   * The IDs of the visible users. This field is returned only when Visibility is set to USER.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class CreateSkillResponseBodySkillVisibilityScope extends $dara.Model {
 export class CreateSkillResponseBodySkill extends $dara.Model {
   /**
    * @remarks
-   * The SKILL.md body content.
+   * The content of the SKILL.md file.
    * 
    * @example
    * -
@@ -53,7 +53,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   body?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 123456
@@ -61,15 +61,15 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The Skill description.
+   * The skill description.
    * 
    * @example
-   * Data analytics skill.
+   * Data analytics skill
    */
   description?: string;
   /**
    * @remarks
-   * The creation time, in millisecond-level UNIX timestamp.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -79,7 +79,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time, in millisecond-level UNIX timestamp.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -89,7 +89,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The ID of the user who last modified the Skill.
+   * The ID of the last modifier.
    * 
    * @example
    * 123456
@@ -97,7 +97,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   modifierId?: string;
   /**
    * @remarks
-   * The Skill name.
+   * The skill name.
    * 
    * @example
    * my-skill
@@ -167,7 +167,7 @@ export class CreateSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * -
+   * The skill details.
    */
   skill?: CreateSkillResponseBodySkill;
   static names(): { [key: string]: string } {

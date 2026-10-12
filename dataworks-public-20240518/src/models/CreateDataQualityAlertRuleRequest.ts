@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityAlertRuleRequestNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to @ all members.
+   * The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to mention all members.
    * 
    * @example
    * {"atAll":true}
@@ -13,11 +13,7 @@ export class CreateDataQualityAlertRuleRequestNotificationReceivers extends $dar
   extension?: string;
   /**
    * @remarks
-   * The alert recipient type.
-   * 
-   * 
-   * 
-   * 
+   * The type of the alert recipient.
    * - AliUid
    * - WebhookUrl
    * - DingdingUrl
@@ -69,7 +65,7 @@ export class CreateDataQualityAlertRuleRequestNotificationReceivers extends $dar
 export class CreateDataQualityAlertRuleRequestNotification extends $dara.Model {
   /**
    * @remarks
-   * The list of channels. You can set both `Email` and `Sms` at the same time. In other cases, only one channel can be set.
+   * The list of channels. You can specify both `Email` and `Sms` at the same time. For other types, you can specify only one channel.
    * 
    * This parameter is required.
    */
@@ -113,7 +109,7 @@ export class CreateDataQualityAlertRuleRequestNotification extends $dara.Model {
 export class CreateDataQualityAlertRuleRequestTarget extends $dara.Model {
   /**
    * @remarks
-   * The list of monitored target IDs. Currently, only one ID can be specified.
+   * The list of monitored target IDs. Currently, only one ID is supported.
    * 
    * This parameter is required.
    */
@@ -157,7 +153,7 @@ export class CreateDataQualityAlertRuleRequestTarget extends $dara.Model {
 export class CreateDataQualityAlertRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert condition of the data quality monitoring alert rule.
+   * The alert condition for the data quality monitoring alert rule.
    * 
    * This parameter is required.
    * 
@@ -184,7 +180,7 @@ export class CreateDataQualityAlertRuleRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The monitored target of the data quality monitoring alert rule.
+   * The target of the data quality monitoring alert rule.
    * 
    * This parameter is required.
    */

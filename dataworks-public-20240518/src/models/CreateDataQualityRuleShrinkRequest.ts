@@ -10,7 +10,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   checkingConfigShrink?: string;
   /**
    * @remarks
-   * The description of the rule. The maximum length is 500 characters.
+   * The description of the rule. The description can be up to 500 characters in length.
    * 
    * @example
    * this is a odps _sql task
@@ -18,7 +18,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the data quality rule.
+   * Specifies whether the quality rule is enabled.
    * 
    * @example
    * true
@@ -26,7 +26,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The list of issue handlers for the data quality rule check.
+   * The list of handlers for quality rule check issues.
    */
   errorHandlersShrink?: string;
   /**
@@ -56,7 +56,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The severity of the rule for the business (corresponding to the strong/weak rule on the page). Valid values:
+   * The severity level of the rule for business operations, which corresponds to strong and weak rules on the page. Valid values:
    * - Normal
    * - High
    * 
@@ -71,7 +71,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   targetShrink?: string;
   /**
    * @remarks
-   * The unique identifier of the rule template that the rule references.
+   * The unique identifier of the rule template referenced by the rule.
    * 
    * @example
    * SYSTEM:table:table_count:fixed

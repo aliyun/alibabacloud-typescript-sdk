@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The specific connection configuration of the computing resource, including the connection address, access identity, and environment information. The environment type (EnvType) of the computing resource is a member attribute of this object, including DEV (development environment) and PROD (production environment). The value is not case-sensitive.
+   * The specific connection configuration information of the compute resource, including the endpoint, access identity, and environment context. The EnvType property of the compute resource environment is a member attribute of this object. Valid values include DEV (development environment) and PROD (production environment). The value is case-insensitive.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateComputeResourceRequest extends $dara.Model {
   connectionProperties?: string;
   /**
    * @remarks
-   * The category of the computing resource to be added. Different types have different subtypes and corresponding parameter schema constraints. Examples: InstanceMode (instance mode) and UrlMode (connection string mode).
+   * The category of the added compute resource. Different types have different subtypes, which correspond to different parameter schema constraints. Examples: InstanceMode for instance mode and UrlMode for connection string mode.
    * 
    * @example
    * InstanceMode
@@ -31,15 +31,15 @@ export class UpdateComputeResourceRequest extends $dara.Model {
   connectionPropertiesMode?: string;
   /**
    * @remarks
-   * The description of the computing resource. The maximum length is 3000 characters.
+   * The description of the compute resource. The description can be up to 3,000 characters in length.
    * 
    * @example
-   * Table level description
+   * Hierarchical description
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the computing resource.
+   * The compute resource ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RerunWorkflowInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation ID. You can use this value to query the creation result via the GetRerunWorkflowInstancesResult operation.
+   * The operation ID. You can use this field to call the GetRerunWorkflowInstancesResult operation to query the result of the operation.
    * 
    * @example
    * e15ad21c-b0e9-4792-8f55-b037xxxxxxxx
@@ -13,7 +13,7 @@ export class RerunWorkflowInstancesResponseBody extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The request ID. Used for troubleshooting and log tracking.
+   * The ID of the request. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX

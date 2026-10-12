@@ -21,7 +21,7 @@ export class GetImageTestResultResponseBodyTestResult extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The operation time, represented as a 64-bit timestamp.
+   * The operation time. The value is a 64-bit timestamp.
    * 
    * @example
    * 1727055811000
@@ -29,7 +29,7 @@ export class GetImageTestResultResponseBodyTestResult extends $dara.Model {
   operateTime?: number;
   /**
    * @remarks
-   * The process ID.
+   * The ID of the process.
    * 
    * @example
    * 582d4896-d224-413b-b883-239eeebe0bc5
@@ -37,18 +37,18 @@ export class GetImageTestResultResponseBodyTestResult extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The image publish status. Valid values:
+   * The publishing status of the image. Valid values:
    * - Untest: Not tested.
-   * - Testing: Testing in progress.
+   * - Testing: Testing.
    * - TestFailed: Test failed.
-   * - Unpublished: Not published.
-   * - Publishing: Publishing in progress.
+   * - Unpublished: Unpublished.
+   * - Publishing: Publishing.
    * - Published: Published.
-   * - PublishFailed: Publish failed.
-   * - Building: Building in progress.
+   * - PublishFailed: Publishing failed.
+   * - Building: Building.
    * - BuildSuccess: Build succeeded.
    * - BuildFailed: Build failed.
-   * - Accelerating: Acceleration in progress.
+   * - Accelerating: Accelerating.
    * - AccelerateSuccess: Acceleration succeeded.
    * - AccelerateFailed: Acceleration failed.
    * 
@@ -58,7 +58,7 @@ export class GetImageTestResultResponseBodyTestResult extends $dara.Model {
   publishStage?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * Serverless_res_group_****
@@ -66,11 +66,11 @@ export class GetImageTestResultResponseBodyTestResult extends $dara.Model {
   resourceGroupId?: number;
   /**
    * @remarks
-   * The test process status. Valid values:
+   * The status of the test process. Valid values:
    * - running: Running.
    * - completed: Completed.
    * - failed: Failed.
-   * - cancelled: Cancelled.
+   * - cancelled: Canceled.
    * 
    * @example
    * completed
@@ -112,7 +112,7 @@ export class GetImageTestResultResponseBodyTestResult extends $dara.Model {
 export class GetImageTestResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to locate logs and troubleshoot issues.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -120,7 +120,7 @@ export class GetImageTestResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

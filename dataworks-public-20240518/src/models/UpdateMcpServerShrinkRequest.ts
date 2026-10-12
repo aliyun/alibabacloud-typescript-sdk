@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMcpServerShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The new custom request headers (key-value pairs).
+   * The new custom request headers in key-value pairs.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class UpdateMcpServerShrinkRequest extends $dara.Model {
   customHeadersShrink?: string;
   /**
    * @remarks
-   * The name of the MCP Server to update.
+   * The name of the MCP server to update.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class UpdateMcpServerShrinkRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The new visibility scope. Provide the corresponding field based on the Visibility setting.
+   * The new visibility scope. Specify the corresponding fields based on the `Visibility` value.
    */
   visibilityScopeShrink?: string;
   static names(): { [key: string]: string } {

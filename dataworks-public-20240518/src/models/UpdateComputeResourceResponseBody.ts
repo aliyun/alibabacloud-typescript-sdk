@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. Used to locate logs and troubleshoot issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 7C352CB7-CD88-50CF-9D0D-E81BDF02XXXX
@@ -13,11 +13,9 @@ export class UpdateComputeResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the computing resource was modified successfully:
-   * 
-   * - true: Yes
-   * 
-   * - false: No
+   * Specifies whether the compute resource is updated:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true

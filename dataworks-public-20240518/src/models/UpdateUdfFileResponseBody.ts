@@ -29,7 +29,7 @@ export class UpdateUdfFileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The unique ID for this request. Use this ID for troubleshooting if an error occurs.
+   * The unique ID of the request. You can use the ID to troubleshoot issues when an error occurs.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -37,11 +37,10 @@ export class UpdateUdfFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
+   * Specifies whether the request is successful. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

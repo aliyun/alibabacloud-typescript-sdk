@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLineagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination entity ID. You can use the table or column ID returned by the ListTables or ListColumns operation, or a custom entity ID.
+   * The destination entity ID. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
    * 
    * @example
    * dlf-table::catalog_id:database_name::table_name
@@ -29,9 +29,9 @@ export class ListLineagesRequest extends $dara.Model {
   needAttachRelationship?: boolean;
   /**
    * @remarks
-   * The sort direction. Default value: Asc. Valid values:
-   * - Asc: ascending order.
-   * - Desc: descending order.
+   * The sort order. Default value: Asc. Valid values:
+   * - Asc: ascending order
+   * - Desc: descending order
    * 
    * @example
    * Asc
@@ -47,7 +47,7 @@ export class ListLineagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -56,7 +56,7 @@ export class ListLineagesRequest extends $dara.Model {
   recentDays?: number;
   /**
    * @remarks
-   * The sort field. Default value: Name, which sorts by lineage entity name.
+   * The sort field. Default value: Name. The entities are sorted by lineage entity name.
    * 
    * @example
    * Name
@@ -64,7 +64,7 @@ export class ListLineagesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The source entity ID. You can use the table or column ID returned by the ListTables or ListColumns operation, or a custom entity ID.
+   * The source entity ID. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
    * 
    * @example
    * maxcompute-table:::project_name:[schema_name]:table_name

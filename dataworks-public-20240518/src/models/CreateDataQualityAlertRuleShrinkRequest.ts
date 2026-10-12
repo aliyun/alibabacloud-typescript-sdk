@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert condition of the data quality monitoring alert rule.
+   * The alert condition for the data quality monitoring alert rule.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class CreateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The monitored target of the data quality monitoring alert rule.
+   * The target of the data quality monitoring alert rule.
    * 
    * This parameter is required.
    */

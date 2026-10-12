@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceGroupRequestAliyunResourceTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class CreateResourceGroupRequestAliyunResourceTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value
@@ -58,12 +58,12 @@ export class CreateResourceGroupRequest extends $dara.Model {
   aliyunResourceTags?: CreateResourceGroupRequestAliyunResourceTags[];
   /**
    * @remarks
-   * Specifies whether auto-renewal is enabled.
+   * Specifies whether to enable auto-renewal.
    */
   autoRenewEnabled?: boolean;
   /**
    * @remarks
-   * The client idempotency token that is used to ensure the idempotence of the create resource group operation.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the common resource group. The name must start with a letter and can contain letters, digits, and underscores (_), up to 128 characters.
+   * The name of the general-purpose resource group. It must start with a letter and can contain letters, digits, and underscores (_). It can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The payment duration.
+   * The billing duration.
    * 
    * @example
    * 1
@@ -91,9 +91,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   paymentDuration?: number;
   /**
    * @remarks
-   * The unit of the payment duration. Valid values:
-   * - Month: monthly subscription.
-   * - Year: yearly subscription.
+   * The unit of the billing duration. Month indicates months, and Year indicates years.
    * 
    * @example
    * Month
@@ -101,9 +99,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * The payment type of the resource group. Valid values:
-   * - PrePaid: subscription.
-   * - PostPaid: pay-as-you-go.
+   * The billing method of the resource group. PrePaid indicates subscription, and PostPaid indicates pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -113,7 +109,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The remarks for the common resource group. The remarks can contain letters, Chinese characters, digits, and underscores (_), up to 128 characters.
+   * The remark of the general-purpose resource group. It can contain letters, Chinese characters, digits, and underscores (_). It can be up to 128 characters in length.
    * 
    * @example
    * Create a serverless resource group for common tasks
@@ -121,7 +117,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The resource group specification, in CUs. This parameter is required when the payment type is PrePaid.
+   * The specifications of the resource group. Unit: CU. This parameter is required when the billing method of the resource group is PrePaid.
    * 
    * @example
    * 2
@@ -129,7 +125,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   spec?: number;
   /**
    * @remarks
-   * The ID of the VPC to associate by default.
+   * The ID of the default VPC.
    * 
    * This parameter is required.
    * 
@@ -139,7 +135,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to associate by default.
+   * The ID of the default vSwitch.
    * 
    * This parameter is required.
    * 

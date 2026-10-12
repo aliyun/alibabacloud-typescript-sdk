@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAssetTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the tag. Valid values:
-   * 
+   * The tag type.
    * - Normal
-   * 
    * - System
    * 
    * @example
@@ -25,7 +23,7 @@ export class ListDataAssetTagsRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1

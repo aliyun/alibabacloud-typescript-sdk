@@ -45,7 +45,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupListAliyunReso
 export class ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec extends $dara.Model {
   /**
    * @remarks
-   * The number of resource units.
+   * The quantity.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec exten
   amount?: number;
   /**
    * @remarks
-   * The resource specifications.
+   * The specification details.
    * 
    * @example
    * 2CU
@@ -85,7 +85,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec exten
 export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-aek2kqofrgXXXXX
@@ -93,12 +93,12 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   aliyunResourceGroupId?: string;
   /**
    * @remarks
-   * A list of Alibaba Cloud tags.
+   * The Alibaba Cloud tags.
    */
   aliyunResourceTags?: ListResourceGroupsResponseBodyPagingInfoResourceGroupListAliyunResourceTags[];
   /**
    * @remarks
-   * The creation time of the resource group, as a 64-bit timestamp.
+   * The time when the resource group was created. The value is a 64-bit timestamp.
    * 
    * @example
    * 1727055811000
@@ -106,7 +106,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   createTime?: number;
   /**
    * @remarks
-   * The user ID of the creator.
+   * The ID of the user who created the resource group.
    * 
    * @example
    * 11075500042XXXXX
@@ -114,7 +114,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   createUser?: string;
   /**
    * @remarks
-   * The ID of the default Virtual Private Cloud (VPC) bound to the general-purpose resource group.
+   * The ID of the default VPC associated with the general-purpose resource group.
    * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
@@ -122,7 +122,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   defaultVpcId?: string;
   /**
    * @remarks
-   * The ID of the default vSwitch bound to the general-purpose resource group.
+   * The ID of the default vSwitch associated with the general-purpose resource group.
    * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
@@ -146,7 +146,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   name?: string;
   /**
    * @remarks
-   * The order instance ID for the resource group.
+   * The order instance ID of the resource group.
    * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
@@ -154,7 +154,7 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   orderInstanceId?: string;
   /**
    * @remarks
-   * The billing method of the resource group. `PrePaid` indicates subscription and `PostPaid` indicates pay-as-you-go.
+   * The billing method of the resource group. Valid values: PrePaid (subscription) and PostPaid (pay-as-you-go).
    * 
    * @example
    * PrePaid
@@ -162,23 +162,19 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   paymentType?: string;
   /**
    * @remarks
-   * The description of the resource group.
+   * The remark of the resource group.
    * 
    * @example
-   * 创建用于普通任务的通用资源组
+   * Create a general-purpose resource group for common tasks
    */
   remark?: string;
   /**
    * @remarks
    * The type of the resource group. Valid values:
-   * 
-   * - `CommonV2`: The new general-purpose resource group.
-   * 
-   * - `ExclusiveDataIntegration`: The exclusive resource group for data integration.
-   * 
-   * - `ExclusiveScheduler`: The exclusive resource group for scheduling.
-   * 
-   * - `ExclusiveDataService`: The exclusive resource group for data services.
+   * - CommonV2: General-purpose resource group V2.
+   * - ExclusiveDataIntegration: Exclusive data integration resource group.
+   * - ExclusiveScheduler: Exclusive scheduling resource group.
+   * - ExclusiveDataService: Exclusive data service resource group.
    * 
    * @example
    * CommonV2
@@ -191,31 +187,20 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
   spec?: ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec;
   /**
    * @remarks
-   * The status of the resource group. Valid values:
+   * The status of the resource group to query. Valid values:
    * 
-   * - `Normal`: Running.
-   * 
-   * - `Stop`: Frozen due to expiration.
-   * 
-   * - `Deleted`: Released.
-   * 
-   * - `Creating`: Creation in progress.
-   * 
-   * - `CreateFailed`: Creation failed.
-   * 
-   * - `Updating`: Update in progress.
-   * 
-   * - `UpdateFailed`: Update failed.
-   * 
-   * - `Deleting`: Release in progress.
-   * 
-   * - `DeleteFailed`: Release failed.
-   * 
-   * - `Timeout`: The operation timed out.
-   * 
-   * - `Freezed`: Frozen.
-   * 
-   * - `Starting`: Starting.
+   * - Normal: The resource group is running or in service.
+   * - Stop: The resource group is frozen because it has expired.
+   * - Deleted: The resource group is released or destroyed.
+   * - Creating: The resource group is being created.
+   * - CreateFailed: The resource group fails to be created.
+   * - Updating: The resource group is being updated, scaled out, scaled in, or reconfigured.
+   * - UpdateFailed: The resource group fails to be updated, scaled, or upgraded.
+   * - Deleting: The resource group is being released or destroyed.
+   * - DeleteFailed: The resource group fails to be released or destroyed.
+   * - Timeout: The operation times out.
+   * - Freezed: The resource group is frozen.
+   * - Starting: The resource group is being started.
    * 
    * @example
    * Normal
@@ -298,7 +283,7 @@ export class ListResourceGroupsResponseBodyPagingInfo extends $dara.Model {
   resourceGroupList?: ListResourceGroupsResponseBodyPagingInfoResourceGroupList[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of data entries.
    * 
    * @example
    * 100
@@ -342,7 +327,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   pagingInfo?: ListResourceGroupsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -350,7 +335,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

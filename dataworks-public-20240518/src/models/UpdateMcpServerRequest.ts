@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMcpServerRequestVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of visible project IDs. This parameter takes effect only when Visibility is set to `PROJECT`.
+   * The list of visible project IDs. This field takes effect when `Visibility` is set to `PROJECT`.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of visible user IDs. This parameter takes effect only when Visibility is set to `USER`.
+   * The list of visible user IDs. This field takes effect when `Visibility` is set to `USER`.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class UpdateMcpServerRequestVisibilityScope extends $dara.Model {
 export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The new custom request headers (key-value pairs).
+   * The new custom request headers in key-value pairs.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
   customHeaders?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the MCP Server to update.
+   * The name of the MCP server to update.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The new visibility scope. Provide the corresponding field based on the Visibility setting.
+   * The new visibility scope. Specify the corresponding fields based on the `Visibility` value.
    */
   visibilityScope?: UpdateMcpServerRequestVisibilityScope;
   static names(): { [key: string]: string } {

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillRequestVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of visible project IDs. This parameter takes effect only when Visibility is set to `PROJECT`.
+   * The IDs of the visible projects. This parameter takes effect only when Visibility is set to PROJECT.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of visible user IDs. This parameter takes effect only when Visibility is set to `USER`.
+   * The IDs of the visible users. This parameter takes effect only when Visibility is set to USER.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class CreateSkillRequestVisibilityScope extends $dara.Model {
 export class CreateSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The **downloadable URL (HTTP/HTTPS) of the bundle.zip file**. This parameter is mutually exclusive with SkillMdOverride.
+   * The **download URL of the bundle.zip file** (HTTP or HTTPS). This parameter and SkillMdOverride are mutually exclusive.
    * 
    * @example
    * https://example.com/skill.zip
@@ -53,15 +53,15 @@ export class CreateSkillRequest extends $dara.Model {
   bundleUrl?: string;
   /**
    * @remarks
-   * The **Skill description**.
+   * The **skill description**.
    * 
    * @example
-   * Data analytics skill.
+   * Data analytics skill
    */
   description?: string;
   /**
    * @remarks
-   * The extension metadata in key-value pairs.
+   * The extended metadata in key-value pairs.
    * 
    * @example
    * {"appId":"APP_CWJMV36CT9SAFW1QEHX7"}
@@ -69,7 +69,7 @@ export class CreateSkillRequest extends $dara.Model {
   extra?: { [key: string]: any };
   /**
    * @remarks
-   * The **Skill name**, which must be unique within the current account.
+   * The **skill name**. The name must be unique within the current account.
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class CreateSkillRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The SKILL.md body content. This parameter is mutually exclusive with BundleUrl. If no bundle is provided, use this field to create a lightweight Skill that contains only a SKILL.md file.
+   * The content of the SKILL.md file. This parameter and BundleUrl are mutually exclusive. If you do not provide a bundle, use this parameter to create a lightweight skill that contains only the SKILL.md file.
    * 
    * @example
    * -
@@ -90,15 +90,12 @@ export class CreateSkillRequest extends $dara.Model {
    * The **version note**.
    * 
    * @example
-   * Initial version.
+   * Initial version
    */
   versionNote?: string;
   /**
    * @remarks
-   * The **visibility level**. Valid values:
-   * - TENANT: Visible within the account.
-   * - PROJECT: Visible to specified projects.
-   * - USER: Visible to specified users.
+   * The **visibility level**. Valid values: TENANT (visible to the entire tenant), PROJECT (visible to specific projects), and USER (visible to specific users).
    * 
    * @example
    * TENANT
@@ -106,7 +103,7 @@ export class CreateSkillRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. The corresponding field is determined by the Visibility parameter.
+   * The visibility scope. Specify the corresponding field based on the value of Visibility.
    */
   visibilityScope?: CreateSkillRequestVisibilityScope;
   static names(): { [key: string]: string } {

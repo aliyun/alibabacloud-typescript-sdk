@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RerunWorkflowInstancesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to rerun the matched instances and all downstream instances.
+   * Specifies whether to rerun the matched instances and all their downstream instances.
    * 
    * @example
    * false
@@ -13,17 +13,17 @@ export class RerunWorkflowInstancesRequestFilter extends $dara.Model {
   rerunDownstreamEnabled?: boolean;
   /**
    * @remarks
-   * The internal task IDs used for matching manual workflow instances.
+   * The task IDs of the internal tasks in the manual workflow used for matching.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The statuses of internal tasks used for matching manual workflow instances.
+   * The running statuses of the internal instances of the manual workflow instance used for matching.
    */
   taskInstanceStatuses?: string[];
   /**
    * @remarks
-   * The internal task name used for matching the manual workflow instance.
+   * The name of the internal task in the manual workflow used for matching.
    * 
    * @example
    * test
@@ -31,7 +31,7 @@ export class RerunWorkflowInstancesRequestFilter extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * Match internal tasks within the manual workflow by type.
+   * The types of the internal tasks in the manual workflow used for matching.
    */
   taskTypes?: string[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,9 @@ export class RerunWorkflowInstancesRequestFilter extends $dara.Model {
 export class RerunWorkflowInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The business date used for matching manual workflow instances.
+   * The data timestamp specified for the manual workflow instance run, used for matching.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -83,7 +85,9 @@ export class RerunWorkflowInstancesRequest extends $dara.Model {
   bizdate?: number;
   /**
    * @remarks
-   * The end trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with the StartTriggerTime.
+   * The end trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with StartTriggerTime.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -91,7 +95,10 @@ export class RerunWorkflowInstancesRequest extends $dara.Model {
   endTriggerTime?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
+   * The project environment. Valid values:
+   * 
+   * - Prod: Production.
+   * - Dev: Development.
    * 
    * @example
    * Prod
@@ -99,17 +106,17 @@ export class RerunWorkflowInstancesRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The match conditions for internal instances of manual workflow instances.
+   * The matching conditions for the internal instances of the manual workflow instance.
    */
   filter?: RerunWorkflowInstancesRequestFilter;
   /**
    * @remarks
-   * The instance IDs used for matching manual workflow instances.
+   * The list of manual workflow instance IDs used for matching.
    */
   ids?: number[];
   /**
    * @remarks
-   * The manual workflow name, used for fuzzy matching.
+   * The name of the manual workflow used for fuzzy matching.
    * 
    * @example
    * test
@@ -129,13 +136,15 @@ export class RerunWorkflowInstancesRequest extends $dara.Model {
    * @remarks
    * The start trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with EndTriggerTime.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   startTriggerTime?: number;
   /**
    * @remarks
-   * The status used for matching manual workflow instances.
+   * The running status of the manual workflow instance used for matching.
    * 
    * @example
    * Failure
@@ -143,7 +152,9 @@ export class RerunWorkflowInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the workflow instance. Valid value: ManualWorkflow (manual workflow).
+   * The type of the workflow instance. Valid values:
+   * 
+   * - ManualWorkflow: Manual workflow.
    * 
    * This parameter is required.
    * 
@@ -153,7 +164,7 @@ export class RerunWorkflowInstancesRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The workflow ID.
+   * The ID of the workflow.
    * 
    * This parameter is required.
    * 

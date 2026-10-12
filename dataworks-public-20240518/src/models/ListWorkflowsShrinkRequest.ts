@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment.
    * 
    * @example
    * Prod
@@ -17,12 +13,12 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The IDs of the workflows. You can query multiple workflows at a time by workflow ID.
+   * The list of workflow IDs. You can specify multiple workflow IDs to query multiple workflows at a time.
    */
   idsShrink?: string;
   /**
    * @remarks
-   * The name of the workflow. Fuzzy match is supported.
+   * The name. Fuzzy match is supported.
    * 
    * @example
    * Workflow1
@@ -30,7 +26,7 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The account ID of the workflow owner.
+   * The account ID of the owner.
    * 
    * @example
    * 1000
@@ -38,7 +34,7 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -54,7 +50,7 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -64,7 +60,12 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The field used for sorting. Fields such as ModifyTime and CreateTime are supported. Format: sort field + sort order (Desc/Asc). Asc can be omitted. Valid values: ModifyTime (Desc/Asc), CreateTime (Desc/Asc), and Id (Desc/Asc). Default value: Id Desc.
+   * The sort field. You can sort by fields such as modification time and creation time. The format is \\"SortField+SortOrder(Desc/Asc)\\", where Asc can be omitted. Valid values for the sort field:
+   * - ModifyTime (Desc/Asc)
+   * - CreateTime (Desc/Asc)
+   * - Id (Desc/Asc)
+   * 
+   * Default value: Id Desc.
    * 
    * @example
    * Id Desc
@@ -72,17 +73,14 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * List of tags. A result is returned if it matches any one of the specified tags.
+   * The list of tags. If a workflow matches any of the specified tags, it is returned in the result.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * The trigger type.
-   * 
+   * The trigger type. Valid values:
    * - Scheduler
-   * 
    * - Manual
-   * 
    * - TriggerWorkflow
    * 
    * @example

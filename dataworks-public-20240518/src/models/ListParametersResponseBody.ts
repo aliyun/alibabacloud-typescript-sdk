@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListParametersResponseBodyPagingInfoParametersProperties extends $dara.Model {
   /**
    * @remarks
-   * The environment type. Valid values:
-   * 
-   * - `Prod`: production environment
-   * 
-   * - `Dev`: development environment
+   * The project environment. Valid values:
+   * - Prod: production environment.
+   * - Dev: development environment.
    * 
    * @example
    * Prod
@@ -49,7 +47,9 @@ export class ListParametersResponseBodyPagingInfoParametersProperties extends $d
 export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model {
   /**
    * @remarks
-   * The time when the parameter was created. This value is a UNIX timestamp in milliseconds.
+   * The creation time.
+   * 
+   * The value is a 13-digit number, such as `1640000000000`.
    * 
    * @example
    * 1640000000000
@@ -57,7 +57,7 @@ export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model 
   createTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the creator.
+   * The user who created the parameter.
    * 
    * @example
    * 123456789
@@ -65,10 +65,10 @@ export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model 
   createUser?: string;
   /**
    * @remarks
-   * The parameter description.
+   * The description.
    * 
    * @example
-   * This is a test parameter.
+   * This is a test parameter
    */
   description?: string;
   /**
@@ -81,7 +81,9 @@ export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * The time when the parameter was last modified. This value is a UNIX timestamp in milliseconds.
+   * The modification time.
+   * 
+   * The value is a 13-digit number, such as `1640000000000`.
    * 
    * @example
    * 1640000000000
@@ -89,7 +91,7 @@ export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model 
   modifyTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the user who last modified the parameter.
+   * The user who last modified the parameter.
    * 
    * @example
    * 123456789
@@ -105,7 +107,7 @@ export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the owner.
+   * The owner.
    * 
    * @example
    * 123456789
@@ -121,12 +123,12 @@ export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model 
   projectId?: number;
   /**
    * @remarks
-   * The environment-specific values for the parameter.
+   * The parameter value configuration.
    */
   properties?: ListParametersResponseBodyPagingInfoParametersProperties[];
   /**
    * @remarks
-   * The parameter scope.
+   * The scope of the parameter.
    * 
    * @example
    * Project
@@ -135,12 +137,9 @@ export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model 
   /**
    * @remarks
    * The parameter type. Valid values:
-   * 
-   * - `PlainConstant`: a plaintext constant
-   * 
-   * - `SecretConstant`: an encrypted constant
-   * 
-   * - `Variable`: a variable
+   * - PlainConstant: plaintext constant.
+   * - SecretConstant: ciphertext constant.
+   * - Variable: variable.
    * 
    * @example
    * PlainConstant
@@ -213,7 +212,7 @@ export class ListParametersResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -221,12 +220,12 @@ export class ListParametersResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of parameters.
+   * The list of parameters.
    */
   parameters?: ListParametersResponseBodyPagingInfoParameters[];
   /**
    * @remarks
-   * The total number of parameters.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -265,7 +264,7 @@ export class ListParametersResponseBodyPagingInfo extends $dara.Model {
 export class ListParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The response data.
    */
   pagingInfo?: ListParametersResponseBodyPagingInfo;
   /**

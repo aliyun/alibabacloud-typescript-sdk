@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in millisecond-precision UNIX timestamp.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -15,7 +15,7 @@ export class CreateAgentResponseBodyAgent extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time, in millisecond-precision UNIX timestamp.
+   * The last modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -25,7 +25,7 @@ export class CreateAgentResponseBodyAgent extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The Agent name.
+   * The name of the agent.
    * 
    * @example
    * my-agent
@@ -59,7 +59,7 @@ export class CreateAgentResponseBodyAgent extends $dara.Model {
 export class CreateAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the created Agent.
+   * The details of the created agent.
    */
   agent?: CreateAgentResponseBodyAgent;
   /**

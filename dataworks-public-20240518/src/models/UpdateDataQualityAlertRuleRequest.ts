@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityAlertRuleRequestNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to @ all members.
+   * The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to mention all members.
    * 
    * @example
    * {"atAll":true}
@@ -13,7 +13,7 @@ export class UpdateDataQualityAlertRuleRequestNotificationReceivers extends $dar
   extension?: string;
   /**
    * @remarks
-   * The alerting accept object type. Valid values:
+   * The type of the alert recipient.
    * - AliUid
    * - WebhookUrl
    * - DingdingUrl
@@ -31,7 +31,7 @@ export class UpdateDataQualityAlertRuleRequestNotificationReceivers extends $dar
   receiverType?: string;
   /**
    * @remarks
-   * The values of the alert recipients.
+   * The value of the alert recipient.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class UpdateDataQualityAlertRuleRequestNotificationReceivers extends $dar
 export class UpdateDataQualityAlertRuleRequestNotification extends $dara.Model {
   /**
    * @remarks
-   * The list of notification channels. You can set both Email and Sms at the same time. In other cases, only one channel can be specified.
+   * The list of notification channels. You can configure both Email and Sms simultaneously. For other cases, only one channel can be configured.
    * 
    * This parameter is required.
    */
@@ -107,7 +107,7 @@ export class UpdateDataQualityAlertRuleRequestNotification extends $dara.Model {
 export class UpdateDataQualityAlertRuleRequestTarget extends $dara.Model {
   /**
    * @remarks
-   * The list of monitoring target IDs. Currently, only one ID can be specified.
+   * The list of monitored target IDs. Currently, only one ID is supported.
    */
   ids?: number[];
   /**
@@ -155,7 +155,7 @@ export class UpdateDataQualityAlertRuleRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The alert rule ID.
+   * The ID of the alert rule.
    * 
    * @example
    * 105412
@@ -168,7 +168,7 @@ export class UpdateDataQualityAlertRuleRequest extends $dara.Model {
   notification?: UpdateDataQualityAlertRuleRequestNotification;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * 1000
@@ -176,7 +176,7 @@ export class UpdateDataQualityAlertRuleRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The monitoring target of the data quality monitoring alert rule.
+   * The target of the data quality monitoring alert rule.
    */
   target?: UpdateDataQualityAlertRuleRequestTarget;
   static names(): { [key: string]: string } {

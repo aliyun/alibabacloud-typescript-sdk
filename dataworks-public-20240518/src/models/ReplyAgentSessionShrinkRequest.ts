@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplyAgentSessionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The JSON-RPC correlation ID for this reply request. The response returns this value as-is. This is different from PermissionRequestId.
+   * The JSON-RPC correlation ID for the current reply request. It is returned as-is in the response and is different from PermissionRequestId.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ReplyAgentSessionShrinkRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC protocol version. Fixed value: 2.0.
+   * The JSON-RPC protocol version. Fixed to 2.0.
    * 
    * @example
    * 2.0

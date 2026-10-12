@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the resource group.
+   * The unique identifier of the general resource group.
    * 
    * This parameter is required.
    * 

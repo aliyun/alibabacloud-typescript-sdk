@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagDataAssetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable lineage-based automatic backtracking.
+   * Specifies whether to enable automatic data lineage backtracking.
    * 
    * @example
    * false
@@ -13,14 +13,16 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
   autoTraceEnabled?: boolean;
   /**
    * @remarks
-   * The data asset IDs.
+   * The list of unique IDs of the data assets. You can call the ListDataAssets operation to query the IDs of data assets to which tags can be attached.
    * 
    * This parameter is required.
    */
   dataAssetIdsShrink?: string;
   /**
    * @remarks
-   * The type of the data asset. Valid values: ACS::DataWorks::Table (data table) and ACS::DataWorks::Task (scheduled task).
+   * The data asset type. Valid values:
+   * - DataWorks table (ACS::DataWorks::Table)
+   * - DataWorks scheduled task (ACS::DataWorks::Task)
    * 
    * This parameter is required.
    * 
@@ -30,11 +32,9 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
   dataAssetType?: string;
   /**
    * @remarks
-   * The environment of the workspace to which the data asset belongs. Valid values:
-   * 
-   * - Dev: development environment
-   * 
-   * - Prod: production environment
+   * The workspace environment to which the data asset belongs. Valid values:
+   * - Dev (development environment)
+   * - Prod (production environment)
    * 
    * @example
    * Prod
@@ -42,7 +42,7 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 10000
@@ -50,7 +50,7 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tags that you want to add to data assets.
+   * The list of data asset tags to attach.
    * 
    * This parameter is required.
    */

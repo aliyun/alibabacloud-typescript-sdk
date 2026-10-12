@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListSkillsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page of results. Omit this for the first request. For subsequent requests, set this to the `NextToken` from the previous response.
+   * The pagination token. Do not pass this parameter for the first query. For subsequent queries, pass the NextToken returned in the previous response to obtain the next page.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class ListSkillsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The search keyword for a fuzzy match on Skill names.
+   * The search keyword for fuzzy matching by skill name.
    * 
    * @example
    * analysis
@@ -29,7 +29,7 @@ export class ListSkillsShrinkRequest extends $dara.Model {
   q?: string;
   /**
    * @remarks
-   * Filters the results by visibility level. You can specify multiple values.
+   * The visibility levels used to filter results. Multiple values can be specified.
    */
   visibilityShrink?: string;
   static names(): { [key: string]: string } {

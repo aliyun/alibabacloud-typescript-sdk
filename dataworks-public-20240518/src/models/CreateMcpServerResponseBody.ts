@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMcpServerResponseBodyMcpServer extends $dara.Model {
   /**
    * @remarks
-   * The time when the MCP Server was created.
-   * 
-   * The value is a 13-digit number, such as `1780555634000`.
+   * The creation time. The value is a 13-digit number, such as `1780555634000`.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -17,7 +15,7 @@ export class CreateMcpServerResponseBodyMcpServer extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The name of the MCP Server.
+   * The name of the MCP server.
    * 
    * @example
    * my-mcp-server
@@ -49,7 +47,7 @@ export class CreateMcpServerResponseBodyMcpServer extends $dara.Model {
 export class CreateMcpServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The registered MCP Server.
+   * The registered MCP server.
    */
   mcpServer?: CreateMcpServerResponseBodyMcpServer;
   /**

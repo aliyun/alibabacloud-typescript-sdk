@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DataQualityRuleTemplateCheckingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The expression used to query referenced samples. Some threshold types require querying referenced samples and aggregating their values to derive the comparison threshold.
+   * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
   referencedSamplesFilter?: string;
   /**
+   * @remarks
+   * The threshold calculation method.
+   * 
    * @example
    * Fixed
    */
@@ -38,16 +44,25 @@ export class DataQualityRuleTemplateCheckingConfig extends $dara.Model {
 
 export class DataQualityRuleTemplateSamplingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The name of the sampled metric.
+   * 
    * @example
    * Min
    */
   metric?: string;
   /**
+   * @remarks
+   * The parameters required for sample collection.
+   * 
    * @example
    * { "SQL": "SELECT min(id) from table;" }
    */
   metricParameters?: string;
   /**
+   * @remarks
+   * The runtime parameter setting statements inserted before the execution of the sampling statement. The maximum length is 1,000 characters. Currently, only MaxCompute is supported.
+   * 
    * @example
    * SET odps.sql.udf.timeout=600s;
    */
@@ -78,18 +93,57 @@ export class DataQualityRuleTemplateSamplingConfig extends $dara.Model {
 }
 
 export class DataQualityRuleTemplate extends $dara.Model {
+  /**
+   * @remarks
+   * The sample check settings.
+   */
   checkingConfig?: DataQualityRuleTemplateCheckingConfig;
+  /**
+   * @remarks
+   * The globally unique code of the rule template.
+   * 
+   * @example
+   * USER_DEFINED:123
+   */
   code?: string;
   /**
+   * @remarks
+   * The category directory where the custom template is stored. Levels are separated by forward slashes.
+   * 
    * @example
-   * /ods/订单数据
+   * /ods/OrderData
    */
   directoryPath?: string;
+  /**
+   * @remarks
+   * The name of the rule template.
+   * 
+   * @example
+   * Table row count check
+   */
   name?: string;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * @example
+   * 2043
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * The sample collection settings.
+   */
   samplingConfig?: DataQualityRuleTemplateSamplingConfig;
+  /**
+   * @remarks
+   * The DataWorks tenant ID.
+   */
   tenantId?: number;
   /**
+   * @remarks
+   * The visibility scope of the template.
+   * 
    * @example
    * Project
    */

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListImagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The accessibility:
-   * 
-   * - Public: Visible to all members.
-   * 
-   * - Private: Visible only to the creator.
+   * The accessibility of the image. Valid values:
+   * - Public: The image is visible to all users.
+   * - Private: The image is visible only to the creator.
    * 
    * @example
    * Public
@@ -17,7 +15,7 @@ export class ListImagesRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The image name, used for fuzzy search.
+   * The image name used for fuzzy match.
    * 
    * @example
    * image
@@ -38,7 +36,7 @@ export class ListImagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -51,22 +49,20 @@ export class ListImagesRequest extends $dara.Model {
   projectIds?: number[];
   /**
    * @remarks
-   * The list of image provider types.
+   * The list of image reference data types.
    */
   providerTypes?: string[];
   /**
    * @remarks
-   * Specifies whether to search all images.
+   * Specifies whether to search for all images.
    */
   searchAll?: boolean;
   /**
    * @remarks
-   * The list of sort fields. You can sort by scheduled time, start time, and other fields. The format is "SortField+SortOrder(Desc/Asc)", where Asc is the default and can be omitted. Valid values of sort fields:
-   * 
-   * - CreateTime (Desc/Asc): The creation time.
-   * 
-   * - Name (Desc/Asc): The image name.
-   *   Default value: CreateTime Asc.
+   * The list of sort fields. Fields such as scheduled time and start time are supported. The format is "sort field + sort order (Desc/Asc)". Asc can be omitted. Valid values for sort fields:
+   * - CreateTime (Desc/Asc): creation time.
+   * - Name (Desc/Asc): image name.
+   * Default value: CreateTime Asc.
    * 
    * @example
    * CreatedTime Desc
@@ -74,7 +70,7 @@ export class ListImagesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The list of image publish stages to query.
+   * The list of image publishing stages to query.
    */
   stages?: string[];
   /**

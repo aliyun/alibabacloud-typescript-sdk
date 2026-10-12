@@ -13,7 +13,7 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the user who creates the network resource.
+   * The ID of the user who created the network resource.
    * 
    * @example
    * 11075500042XXXXX
@@ -21,7 +21,7 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The network ID.
+   * The ID of the network resource.
    * 
    * @example
    * 1000
@@ -29,7 +29,7 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the serverless resource group.
+   * The ID of the resource group to which the network resource belongs.
    * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
@@ -37,7 +37,7 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The security group ID of the network resource.
    * 
    * @example
    * sg-2ze13vamugr7jenXXXXX
@@ -45,17 +45,12 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The status of the network resource. Valid values:
-   * 
-   * - Pending: The network resource is waiting to be created.
-   * 
-   * - Creating: The network resource is being created.
-   * 
-   * - Running: The network resource is running as expected.
-   * 
-   * - Deleting: The network resource is being deleted.
-   * 
-   * - Deleted: The network resource is deleted.
+   * The current status of the network resource. Valid values:
+   * - Pending: The resource is pending.
+   * - Creating: The resource is being created.
+   * - Running: The resource is running.
+   * - Deleting: The resource is being deleted.
+   * - Deleted: The resource is deleted.
    * 
    * @example
    * Running
@@ -63,7 +58,7 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID of the network resource.
    * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
@@ -71,7 +66,7 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VSwitch ID.
+   * The vSwitch ID of the network resource.
    * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
@@ -115,12 +110,12 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
 export class GetNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the network resource.
+   * The details of the network resource.
    */
   network?: GetNetworkResponseBodyNetwork;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. You can use the ID to query logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The security strategy ID.
+   * The security policy ID.
    * 
    * @example
    * 12345
@@ -13,7 +13,7 @@ export class CreateSecurityStrategyResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID.
+   * The API request ID.
    * 
    * @example
    * 0bc5df3a17****903790e8e8a
