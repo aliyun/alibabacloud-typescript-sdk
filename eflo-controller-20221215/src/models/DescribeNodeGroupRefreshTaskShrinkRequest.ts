@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeGroupRefreshTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Valid values: 1 to 500. Default value: 100. For more information about paging, set this parameter together with NextToken.
+   * The maximum number of entries per page for a paged query. Valid values: 1 to 500. Default value: 100. For more information about paging, see the NextToken parameter.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class DescribeNodeGroupRefreshTaskShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the refresh task.
+   * The ID of the node group configuration refresh task. After you call RefreshNodeGroupNodes to trigger a node group configuration refresh, obtain this value from the NodeGroupRefreshTaskId response parameter. Before you call this operation, the node group must contain nodes with configuration drift.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeNodeGroupRefreshTaskShrinkRequest extends $dara.Model {
   nodeGroupRefreshTaskId?: string;
   /**
    * @remarks
-   * The node refresh statuses to filter by. Valid values:
+   * The node refresh statuses to filter by:
    * - Pending: the node is waiting to be refreshed.
    * - InProgress: the node is being refreshed.
    * - Success: the node is refreshed.

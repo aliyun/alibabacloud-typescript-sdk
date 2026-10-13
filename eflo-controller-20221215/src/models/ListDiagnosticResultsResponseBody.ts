@@ -13,7 +13,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
   clusterId?: string;
   /**
    * @remarks
-   * Cluster Name
+   * The cluster name.
    * 
    * @example
    * pjlab-lingjun
@@ -21,7 +21,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
   clusterName?: string;
   /**
    * @remarks
-   * Creation time of the diagnostic task.
+   * The time when the diagnostic task was created. The time is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2024-01-15T02:01:12Z
@@ -29,15 +29,15 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
   creationTime?: string;
   /**
    * @remarks
-   * Diagnostic content. For example, in network diagnostics, there are static configuration checks, dynamic operation checks, and other diagnostic contents.
+   * The diagnostic content. For example, in the network diagnostic type, the diagnostic content includes static configuration checks and dynamic runtime checks.
    * 
    * @example
-   * Test diagnosis information
+   * Test diagnostic information
    */
   diagContent?: string;
   /**
    * @remarks
-   * Diagnosis ID
+   * The diagnostic ID.
    * 
    * @example
    * 123
@@ -45,7 +45,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
   diagId?: string;
   /**
    * @remarks
-   * Diagnostic result, either success or failure.
+   * The diagnostic result, which indicates success or failure.
    * 
    * @example
    * Success
@@ -53,7 +53,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
   diagResult?: string;
   /**
    * @remarks
-   * Completion time of the diagnostic task.
+   * The time when the diagnostic task was completed. The time is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2024-10-16T02:04Z
@@ -69,7 +69,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
   resourceId?: string;
   /**
    * @remarks
-   * Server name.
+   * The service name.
    * 
    * @example
    * proxy-rps.mos.csvw.com
@@ -77,10 +77,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
   serverName?: string;
   /**
    * @remarks
-   * Status of the diagnostic task. Possible values:
-   * - InProgress: Diagnosing.
-   * - Finished: Diagnosis completed.
-   * - Failed: Diagnosis failed.
+   * The governance status.
    * 
    * @example
    * succeed
@@ -133,12 +130,13 @@ export class ListDiagnosticResultsResponseBody extends $dara.Model {
   diagnosticResults?: ListDiagnosticResultsResponseBodyDiagnosticResults[];
   /**
    * @remarks
-   * Number of items per page in a paginated query. The maximum value is 100.
+   * The number of entries per page in a paged query. Maximum value: 100.
    * 
    * Default value:
    * 
-   * - If no value is set or the set value is less than 20, the default value is 20.
-   * - If the set value is greater than 100, the default value is 100.
+   * - If this parameter is not specified or is set to a value less than 20, the default value is 20.
+   * 
+   * - If this parameter is set to a value greater than 100, the default value is 100.
    * 
    * @example
    * 20
@@ -146,7 +144,7 @@ export class ListDiagnosticResultsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * NextToken for the next page. Include this value when requesting the next page.
+   * The NextToken for the next page. Include this value when you request the next page.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120****

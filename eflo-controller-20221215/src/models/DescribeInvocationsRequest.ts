@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The encoding mode of the `CommandContent` and `Output` fields in the response. Valid values:
-   * 
+   * The encoding method for the CommandContent and Output fields in the response. Valid values:
    * - PlainText: Returns the original command content and output.
-   * 
    * - Base64 (default): Returns the Base64-encoded command content and output.
    * 
    * @example
@@ -17,10 +15,8 @@ export class DescribeInvocationsRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * Specifies whether to include the command output in the response.
-   * 
-   * - true: Returns the output. You must specify the `InvokeId` or `NodeId` parameter.
-   * 
+   * Specifies whether to return the command output in the results.
+   * - true: Returns the output. In this case, specify at least the InvokeId or InstanceId parameter.
    * - false (default): Does not return the output.
    * 
    * @example
@@ -29,7 +25,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   includeOutput?: boolean;
   /**
    * @remarks
-   * The ID of the command execution.
+   * The command execution ID.
    * 
    * This parameter is required.
    * 
@@ -39,7 +35,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * e01-cn-zvp2tgykr08

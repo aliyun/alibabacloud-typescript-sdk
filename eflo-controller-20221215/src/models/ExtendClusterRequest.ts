@@ -305,7 +305,7 @@ export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
 export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable burst (I/O burst).
+   * Specifies whether to enable burst (performance burst).
    * 
    * @example
    * false
@@ -315,7 +315,7 @@ export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
    * @remarks
    * The cloud disk type. Valid values:
    * 
-   *  - cloud_essd: ESSD.
+   *  - cloud_essd: Enterprise SSD (ESSD) cloud disk.
    * 
    * @example
    * cloud_essd
@@ -331,9 +331,9 @@ export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
   deleteWithNode?: boolean;
   /**
    * @remarks
-   * The performance level (PL) when an ESSD is used as a system cloud disk. Valid values:
-   * - PL0: a maximum of 10,000 random read/write IOPS per disk.
-   * - PL1: a maximum of 50,000 random read/write IOPS per disk.
+   * The performance level (PL) of the ESSD cloud disk used as a system cloud disk. Valid values:
+   * - PL0: A maximum of 10,000 random read/write IOPS per disk.
+   * - PL1: A maximum of 50,000 random read/write IOPS per disk.
    * 
    * @example
    * PL1
@@ -341,7 +341,7 @@ export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned performance (read/write IOPS) of a single ESSD AutoPL cloud disk.
+   * The provisioned performance of read/write IOPS for the ESSD AutoPL cloud disk (per disk).
    * 
    * @example
    * 9600
@@ -349,7 +349,7 @@ export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
   provisionedIops?: number;
   /**
    * @remarks
-   * The cloud disk size. Unit: GiB.
+   * The disk size. Unit: GiB.
    * 
    * @example
    * 10
@@ -389,7 +389,7 @@ export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
 export class ExtendClusterRequestNodeGroupsHyperNodes extends $dara.Model {
   /**
    * @remarks
-   * The list of cloud disk information.
+   * The list of disk information.
    */
   dataDisk?: ExtendClusterRequestNodeGroupsHyperNodesDataDisk[];
   /**
@@ -519,7 +519,7 @@ export class ExtendClusterRequestNodeGroupsNodeTag extends $dara.Model {
 export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable burst (I/O burst).
+   * Specifies whether to enable burst (performance burst).
    * 
    * @example
    * true
@@ -543,7 +543,7 @@ export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   deleteWithNode?: boolean;
   /**
    * @remarks
-   * The performance metric of the data cloud disk.
+   * The performance parameter of the data cloud disk.
    * 
    * @example
    * PL0
@@ -559,7 +559,7 @@ export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   provisionedIops?: number;
   /**
    * @remarks
-   * The cloud disk size.
+   * The disk size.
    * 
    * @example
    * 80
@@ -689,7 +689,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
 export class ExtendClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of nodes to purchase. Valid values: 0 to 500. If Amount is set to 0, no nodes are purchased and existing nodes are used for scale-out. If Amount is set to a value from 1 to 500, the specified number of nodes are purchased and used for scale-out. Default value: 0
+   * The number of nodes to purchase. Valid values: 0 to 500. If Amount is set to 0, no nodes are purchased and existing nodes are used for scale-out. If Amount is set to a value from 1 to 500, the specified number of nodes are purchased and used for scale-out. Default value: 0.
    * 
    * @example
    * 4
@@ -744,7 +744,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   nodeTag?: ExtendClusterRequestNodeGroupsNodeTag[];
   /**
    * @remarks
-   * The node list.
+   * The list of nodes.
    */
   nodes?: ExtendClusterRequestNodeGroupsNodes[];
   /**
@@ -765,7 +765,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   savingsPlanId?: string;
   /**
    * @remarks
-   * The custom executable shell script. The script must be Base64-encoded. The maximum size of the raw data is 16 KB.
+   * The custom executable shell script. The script must be in Base64 encoding. The maximum size of the raw data is 16 KB.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
@@ -870,17 +870,17 @@ export class ExtendClusterRequest extends $dara.Model {
    * Specifies whether to skip failed nodes. Default value: False.
    * 
    * @example
-   * False
+   * false
    */
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * The combined IP allocation policy. Each policy can use only one policy type, and multiple policies can be combined.
+   * The combined policy for IP allocation. Each policy can use only one policy type, and multiple policies can be combined.
    */
   ipAllocationPolicy?: ExtendClusterRequestIpAllocationPolicy[];
   /**
    * @remarks
-   * The node groups.
+   * The node group.
    */
   nodeGroups?: ExtendClusterRequestNodeGroups[];
   /**

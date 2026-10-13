@@ -63,7 +63,7 @@ export class DescribeNetTestResultResponseBodyCommTest extends $dara.Model {
   GPUNum?: string;
   /**
    * @remarks
-   * The hosts for the test.
+   * The resource ID.
    */
   hosts?: DescribeNetTestResultResponseBodyCommTestHosts[];
   /**
@@ -76,7 +76,7 @@ export class DescribeNetTestResultResponseBodyCommTest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The type of the communication library test. Valid values: Alibaba Cloud Collective Communication Library (ACCL) and NVIDIA Collective Communication Library (NCCL).
+   * The communication library test category. Valid values: ACCL and NCCL.
    * 
    * @example
    * ACCL
@@ -115,7 +115,7 @@ export class DescribeNetTestResultResponseBodyCommTest extends $dara.Model {
 export class DescribeNetTestResultResponseBodyDelayTestHosts extends $dara.Model {
   /**
    * @remarks
-   * The bonded port of the NIC.
+   * The NIC bond interface.
    * 
    * @example
    * bond1
@@ -123,7 +123,7 @@ export class DescribeNetTestResultResponseBodyDelayTestHosts extends $dara.Model
   bond?: string;
   /**
    * @remarks
-   * The IP address of the node.
+   * The node IP address.
    * 
    * @example
    * 125.210.225.48
@@ -205,7 +205,7 @@ export class DescribeNetTestResultResponseBodyDelayTest extends $dara.Model {
 export class DescribeNetTestResultResponseBodyTrafficTestClients extends $dara.Model {
   /**
    * @remarks
-   * The bonded port of the network interface card (NIC).
+   * The NIC bond interface.
    * 
    * @example
    * bond1
@@ -213,7 +213,7 @@ export class DescribeNetTestResultResponseBodyTrafficTestClients extends $dara.M
   bond?: string;
   /**
    * @remarks
-   * The IP address of the node.
+   * The node IP address.
    * 
    * @example
    * 192.168.1.1
@@ -265,7 +265,7 @@ export class DescribeNetTestResultResponseBodyTrafficTestClients extends $dara.M
 export class DescribeNetTestResultResponseBodyTrafficTestServers extends $dara.Model {
   /**
    * @remarks
-   * The bonded port of the NIC.
+   * The NIC bond interface.
    * 
    * @example
    * bond1
@@ -273,7 +273,7 @@ export class DescribeNetTestResultResponseBodyTrafficTestServers extends $dara.M
   bond?: string;
   /**
    * @remarks
-   * The IP address of the node.
+   * The node IP address.
    * 
    * @example
    * 47.121.110.190
@@ -325,12 +325,12 @@ export class DescribeNetTestResultResponseBodyTrafficTestServers extends $dara.M
 export class DescribeNetTestResultResponseBodyTrafficTest extends $dara.Model {
   /**
    * @remarks
-   * The client nodes.
+   * The resource IDs.
    */
   clients?: DescribeNetTestResultResponseBodyTrafficTestClients[];
   /**
    * @remarks
-   * The runtime of the flow task in seconds.
+   * The duration of the workflow task. Unit: seconds.
    * 
    * @example
    * 1
@@ -338,7 +338,7 @@ export class DescribeNetTestResultResponseBodyTrafficTest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Indicates whether GPUDirect RDMA (GDR) is enabled. This parameter is returned only if the protocol is RDMA. Valid values: True and False. If the protocol is TCP, this field is empty.
+   * If Protocol is set to RDMA, specify True or False. If Protocol is set to TCP, this field is empty.
    * 
    * @example
    * False
@@ -346,7 +346,7 @@ export class DescribeNetTestResultResponseBodyTrafficTest extends $dara.Model {
   GDR?: string;
   /**
    * @remarks
-   * The network protocol. Valid values: Remote Direct Memory Access (RDMA) and Transmission Control Protocol (TCP).
+   * The network protocol. Valid values: RDMA and TCP.
    * 
    * @example
    * TCP
@@ -354,7 +354,7 @@ export class DescribeNetTestResultResponseBodyTrafficTest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * If the protocol is TCP, this is the number of concurrent connections for the test. If the protocol is RDMA, this is the Queue Pair (QP) value.
+   * If Protocol is set to TCP, specify the number of test Concurrent Connections. If Protocol is set to RDMA, specify the QP value.
    * 
    * @example
    * 1
@@ -431,12 +431,12 @@ export class DescribeNetTestResultResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The configuration for the communication library test. This parameter is returned when the network test type is a communication library test.
+   * The communication library test configuration. This field is required when the traffic test type is communication library test.
    */
   commTest?: DescribeNetTestResultResponseBodyCommTest;
   /**
    * @remarks
-   * The time when the diagnostic task was created.
+   * The time when the diagnostic task was created. The time is in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2024-10-15T10:25:42+08:00
@@ -444,12 +444,12 @@ export class DescribeNetTestResultResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The configuration for the delay test. This parameter is returned when the network test type is a delay test.
+   * The latency test configuration. This field is required when the network test type is latency test.
    */
   delayTest?: DescribeNetTestResultResponseBodyDelayTest;
   /**
    * @remarks
-   * The time when the diagnostic task was completed.
+   * The time when the diagnostic task was completed. The time is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2024-10-16T02:04Z
@@ -457,7 +457,7 @@ export class DescribeNetTestResultResponseBody extends $dara.Model {
   finishedTime?: string;
   /**
    * @remarks
-   * The type of the network test.
+   * The network test type.
    * 
    * @example
    * DelayTest
@@ -481,7 +481,7 @@ export class DescribeNetTestResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the diagnostic result. The value is a JSON string.
+   * The details of the diagnostic result. The value is returned as a JSON string.
    * 
    * @example
    * {}
@@ -491,11 +491,9 @@ export class DescribeNetTestResultResponseBody extends $dara.Model {
    * @remarks
    * The status of the diagnostic task. Valid values:
    * 
-   * - InProgress: The task is in progress.
-   * 
-   * - Finished: The task is complete.
-   * 
-   * - Failed: The task failed.
+   * - InProgress: The diagnostic task is in progress.
+   * - Finished: The diagnostic task is complete.
+   * - Failed: The diagnostic task failed.
    * 
    * @example
    * Failed
@@ -503,7 +501,7 @@ export class DescribeNetTestResultResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the test task. This ID uniquely identifies the network test task.
+   * The ID of the test task. This is the unique identifier of the network test task.
    * 
    * @example
    * af35ce53-7c35-4277-834a-fbf49c316a96
@@ -511,7 +509,7 @@ export class DescribeNetTestResultResponseBody extends $dara.Model {
   testId?: string;
   /**
    * @remarks
-   * The configuration for the traffic test. This parameter is returned when the network test type is a traffic test.
+   * If TrafficModel is set to Fullmesh, this field is empty.
    */
   trafficTest?: DescribeNetTestResultResponseBodyTrafficTest;
   static names(): { [key: string]: string } {

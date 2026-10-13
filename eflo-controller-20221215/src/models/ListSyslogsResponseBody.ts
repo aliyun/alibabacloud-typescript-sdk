@@ -21,7 +21,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * A standard field in Linux syslog.
+   * The Linux syslog standard field.
    * 
    * @example
    * kern
@@ -45,7 +45,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The content of the syslog.
+   * The syslog content.
    * 
    * @example
    * bond4: failed to get link speed/duplex for eth8
@@ -61,7 +61,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * A standard field in Linux syslog.
+   * The Linux syslog standard field.
    * 
    * @example
    * warning
@@ -85,7 +85,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * A standard field in Linux syslog.
+   * The Linux syslog standard field.
    * 
    * @example
    * kernel
@@ -93,7 +93,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   syslogtag?: string;
   /**
    * @remarks
-   * Tag: Hostname.
+   * The tag for the hostname.
    * 
    * @example
    * damo-m53kr8kd-0008
@@ -101,7 +101,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   tagHostname?: string;
   /**
    * @remarks
-   * Tag: Package ID.
+   * The tag for the pack ID.
    * 
    * @example
    * D990314D3C25D7E8-1080
@@ -109,7 +109,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   tagPackId?: string;
   /**
    * @remarks
-   * Tag: Path.
+   * The tag for the path.
    * 
    * @example
    * /var/log/kern
@@ -117,7 +117,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   tagPath?: string;
   /**
    * @remarks
-   * Tag: Receive time.
+   * The tag for the receive time. Specify a UNIX timestamp in seconds.
    * 
    * @example
    * 1687363348
@@ -125,7 +125,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   tagReceiveTime?: string;
   /**
    * @remarks
-   * Tag: User-defined ID.
+   * The tag for the user-defined ID.
    * 
    * @example
    * application_b
@@ -133,7 +133,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   tagUserDefinedId?: string;
   /**
    * @remarks
-   * The time in UNIX format.
+   * The time in UNIX timestamp format.
    * 
    * @example
    * 1687363346
@@ -141,7 +141,7 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
   time?: string;
   /**
    * @remarks
-   * The topic. Valid values are \\`logserver\\` and \\`log2sls\\`. Note: Both are syslog servers. \\`logserver\\` collects data over TCP. \\`log2sls\\` collects data over UDP.
+   * The topic, which is logserver or log2sls. Both are syslog servers. logserver collects logs over TCP, and log2sls collects logs over UDP.
    * 
    * @example
    * logserver
@@ -205,12 +205,12 @@ export class ListSyslogsResponseBodyLogs extends $dara.Model {
 export class ListSyslogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The object that contains the paginated list of logs.
+   * The paginated list of log objects.
    */
   logs?: ListSyslogsResponseBodyLogs[];
   /**
    * @remarks
-   * The \\`NextToken\\` for the next page. To retrieve the next page of results, include this return value in the next request.
+   * The NextToken for the next page. Include this value in the request to retrieve the next page of results.
    * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069
@@ -218,7 +218,7 @@ export class ListSyslogsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1

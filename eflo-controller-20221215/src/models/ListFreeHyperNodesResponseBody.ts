@@ -53,7 +53,7 @@ export class ListFreeHyperNodesResponseBodyHyperNodes extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The time when the node was created.
+   * The creation time. The time is in ISO 8601 format.
    * 
    * @example
    * 2025-08-06T10:11:41.569
@@ -61,7 +61,7 @@ export class ListFreeHyperNodesResponseBodyHyperNodes extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time of the machine.
+   * The machine expiration time. The time is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2025-01-22T23:59:59Z
@@ -101,7 +101,7 @@ export class ListFreeHyperNodesResponseBodyHyperNodes extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The status of the hypernode.
+   * The hyper node status.
    * 
    * @example
    * Using
@@ -117,7 +117,7 @@ export class ListFreeHyperNodesResponseBodyHyperNodes extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the hypernode.
+   * The hyper node status.
    * 
    * @example
    * Using
@@ -192,13 +192,13 @@ export class ListFreeHyperNodesResponseBody extends $dara.Model {
   hyperNodes?: ListFreeHyperNodesResponseBodyHyperNodes[];
   /**
    * @remarks
-   * The number of entries returned on each page. The maximum value is 100.
+   * The number of entries per page in a paged query. Maximum value: 100.
    * 
    * Default value:
    * 
-   * • If you do not set this parameter or you set a value less than 20, the default value is 20.
+   * •If this parameter is not specified or is set to a value less than 20, the default value is 20.
    * 
-   * • If you set a value greater than 100, the default value is 100.
+   * •If this parameter is set to a value greater than 100, the default value is 100.
    * 
    * @example
    * 20
@@ -206,7 +206,7 @@ export class ListFreeHyperNodesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this parameter is empty, no more results are available.
+   * The pagination token returned by this call.
    * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069

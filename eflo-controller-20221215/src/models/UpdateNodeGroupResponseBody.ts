@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNodeGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8F065DDD-6996-5973-9691-9EC57BD0072E
@@ -13,7 +13,7 @@ export class UpdateNodeGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * i154273451745372344629

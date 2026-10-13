@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateNodeGroupRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The performance level.
+   * 
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,7 +43,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * The default image ID of the node group. If this parameter is not specified, the image remains unchanged.
+   * The default image ID of the node group. If you do not specify this parameter, the image ID remains unchanged.
    * 
    * @example
    * i1232142432432
@@ -44,7 +51,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The key pair name.
+   * The name of the key pair.
    * 
    * @example
    * test
@@ -52,15 +59,15 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The logon password of the machines in the node group.
+   * The logon password for the machines in the node group.
    * 
    * @example
-   * 密码
+   * Password
    */
   loginPassword?: string;
   /**
    * @remarks
-   * The node group name.
+   * The name of the node group.
    * 
    * @example
    * test-update
@@ -68,7 +75,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   newNodeGroupName?: string;
   /**
    * @remarks
-   * The node group ID.
+   * The ID of the node group.
    * 
    * @example
    * i120021051733814190732
@@ -76,17 +83,20 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The RAM role name of the node. You can call the RAM API ListRoles to query the node RAM roles that you have created. The trusted entity of the role must be set to Lingjun AI Computing Service.
-   * Note: Clearing an existing role is not supported.
+   * The name of the RAM role for the node. You can call the ListRoles API operation of RAM to query the RAM roles that you have created. The trusted entity of the role must be Lingjun AI Computing Service. <warning>Submitting an empty string "" clears the RAM role of the node group.</warning>
    * 
    * @example
    * xianwen-test-ram-role
    */
   ramRoleName?: string;
+  /**
+   * @remarks
+   * The system cloud disk configuration.
+   */
   systemDisk?: UpdateNodeGroupRequestSystemDisk;
   /**
    * @remarks
-   * The custom executable shell script. The script must be Base64-encoded. The maximum size of the raw data is 16 KB.
+   * The custom executable shell script. It must be Base64-encoded, and the maximum size of the raw data is 16 KB.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh

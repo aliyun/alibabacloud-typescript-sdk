@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSyslogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The start time.
+   * The start time. Specify a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListSyslogsRequest extends $dara.Model {
   fromTime?: string;
   /**
    * @remarks
-   * The token for the next page. To retrieve the next page of results, include the token in the next request.
+   * The token for the next page. Include this token when you retrieve the next page of results.
    * 
    * @example
    * 392e8b4a03ed171433cc39f5b464ec9d
@@ -41,7 +41,7 @@ export class ListSyslogsRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Specifies whether to sort the results by time in descending order.
+   * Specifies whether to query logs in reverse chronological order.
    * 
    * @example
    * true
@@ -49,7 +49,7 @@ export class ListSyslogsRequest extends $dara.Model {
   reverse?: boolean;
   /**
    * @remarks
-   * The end time.
+   * The end time. Specify a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

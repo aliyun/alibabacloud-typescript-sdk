@@ -16,17 +16,17 @@ export class ExtendClusterShrinkRequest extends $dara.Model {
    * Specifies whether to skip failed nodes. Default value: False.
    * 
    * @example
-   * False
+   * false
    */
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * The combined IP allocation policy. Each policy can use only one policy type, and multiple policies can be combined.
+   * The combined policy for IP allocation. Each policy can use only one policy type, and multiple policies can be combined.
    */
   ipAllocationPolicyShrink?: string;
   /**
    * @remarks
-   * The node groups.
+   * The node group.
    */
   nodeGroupsShrink?: string;
   /**

@@ -53,7 +53,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The time when the node was created.
+   * The creation time. The time is in ISO 8601 format.
    * 
    * @example
    * 2025-07-07T17:38:35.391
@@ -61,7 +61,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time of the machine.
+   * The machine expiration time. The time is in ISO 8601 format. The Z in the example indicates UTC.
    * 
    * @example
    * 2025-04-19T02:32:48Z
@@ -85,7 +85,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster number.
    * 
    * @example
    * B1
@@ -117,7 +117,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The name of the node group.
+   * The node group name.
    * 
    * @example
    * g1
@@ -125,7 +125,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * The status of the hyper node.
+   * The hypernode status.
    * 
    * @example
    * Using
@@ -133,7 +133,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * The status of the node.
+   * The node status.
    * 
    * @example
    * Extending
@@ -164,7 +164,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-0jl8gs7qmx89739e210dn
@@ -237,12 +237,12 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
 export class ListClusterHyperNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of nodes.
+   * The node list.
    */
   hyperNodes?: ListClusterHyperNodesResponseBodyHyperNodes[];
   /**
    * @remarks
-   * The query token returned from this call.
+   * The pagination token returned in this call.
    * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069
@@ -250,7 +250,7 @@ export class ListClusterHyperNodesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54

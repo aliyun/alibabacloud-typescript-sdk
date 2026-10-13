@@ -61,13 +61,13 @@ export class ListFreeHyperNodesRequest extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. The maximum value is 100.
+   * The number of entries per page in a paged query. Maximum value: 100.
    * 
    * Default value:
    * 
-   * • If you do not set this parameter or you set a value less than 20, the default value is 20.
+   * •If this parameter is not specified or is set to a value less than 20, the default value is 20.
    * 
-   * • If you set a value greater than 100, the default value is 100.
+   * •If this parameter is set to a value greater than 100, the default value is 100.
    * 
    * @example
    * 20
@@ -75,7 +75,7 @@ export class ListFreeHyperNodesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. Set this parameter to the NextToken value from the previous response.
+   * The pagination token. Set this parameter to the value of NextToken that was returned from the last API call.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120****
@@ -91,7 +91,7 @@ export class ListFreeHyperNodesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * A list of statuses of unused nodes to return.
+   * The list of unused node statuses to return.
    */
   status?: string[];
   /**

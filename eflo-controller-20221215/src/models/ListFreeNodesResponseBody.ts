@@ -53,7 +53,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format.
    * 
    * @example
    * 2026-02-02T11:27:07
@@ -61,7 +61,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time of the machine.
+   * The expiration time of the machine. The time is in ISO 8601 format.
    * 
    * @example
    * 2026-03-03T00:00:00
@@ -69,7 +69,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster number.
    * 
    * @example
    * A1
@@ -185,7 +185,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
 export class ListFreeNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token returned for the next query.
+   * The pagination token returned by this call.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4

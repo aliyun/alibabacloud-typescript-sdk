@@ -13,7 +13,7 @@ export class DescribeNodeGroupRefreshTaskResponseBodyNodesPropertyDrifts extends
   actualValue?: string;
   /**
    * @remarks
-   * The minimum action required to apply the target value: Refresh / Reboot / Reimage. For more information, see the MaxDisruptiveAction parameter description in the RefreshNodeGroupNodes operation.
+   * The minimum action required to apply the target value: Refresh, Reboot, or Reimage. For more information, see the MaxDisruptiveAction parameter of the RefreshNodeGroupNodes operation.
    * 
    * @example
    * Refresh
@@ -75,7 +75,7 @@ export class DescribeNodeGroupRefreshTaskResponseBodyNodesPropertyDrifts extends
 export class DescribeNodeGroupRefreshTaskResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * The action level actually executed on the node. If multiple properties are refreshed on the node, the highest required action level is used. Valid values:
+   * The action level actually performed on the node. If multiple properties are refreshed on the node, the highest required action level is used. Valid values:
    * - Refresh: in-place refresh.
    * - Reboot: restart.
    * - Reimage: reimage.
@@ -103,7 +103,7 @@ export class DescribeNodeGroupRefreshTaskResponseBodyNodes extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * node-001
@@ -111,7 +111,7 @@ export class DescribeNodeGroupRefreshTaskResponseBodyNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The list of property drifts for the node, including both executed and skipped properties.
+   * The property drift list for the node, including both executed and skipped properties.
    */
   propertyDrifts?: DescribeNodeGroupRefreshTaskResponseBodyNodesPropertyDrifts[];
   /**
@@ -204,7 +204,7 @@ export class DescribeNodeGroupRefreshTaskResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. An empty value of NextToken indicates that no more results exist.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * 7ed93fda-5e7f-436a-ae5a-bd8e6b04e36b
@@ -212,7 +212,7 @@ export class DescribeNodeGroupRefreshTaskResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * @example
    * ng-3525
@@ -220,7 +220,7 @@ export class DescribeNodeGroupRefreshTaskResponseBody extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The ID of the refresh task.
+   * The refresh task ID.
    * 
    * @example
    * task-159136551662516768776

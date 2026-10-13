@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeGroupResponseBodySystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The category of the disk.
+   * The category of the cloud disk.
    * 
    * @example
    * system
@@ -13,10 +13,8 @@ export class DescribeNodeGroupResponseBodySystemDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The performance level of the ESSD. Valid values:
-   * 
+   * The performance level (PL) of the ESSD used as the system cloud disk. Valid values:
    * - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * 
    * - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
    * 
    * @example
@@ -25,25 +23,18 @@ export class DescribeNodeGroupResponseBodySystemDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB. Valid values:
+   * The size of the system cloud disk. Unit: GiB. Valid values:
    * 
-   * - Basic disk: 20–500.
-   * 
+   * - Premium performance disk: 20 to 500.
    * - ESSD:
+   *   - PL0: 1 to 2048.
+   *   - PL1: 20 to 2048.
+   *   - PL2: 461 to 2048.
+   *   - PL3: 1261 to 2048.
+   * - ESSD AutoPL: 1 to 2048.
+   * - Other cloud disk types: 20 to 2048.
    * 
-   *   - PL0: 1–2,048.
-   * 
-   *   - PL1: 20–2,048.
-   * 
-   *   - PL2: 461–2,048.
-   * 
-   *   - PL3: 1,261–2,048.
-   * 
-   * - ESSD AutoPL disk: 1–2,048.
-   * 
-   * - Other disk categories: 20–2,048.
-   * 
-   * Default value: the larger value between 20 and the size of the image that is specified by `ImageId`.
+   * Default value: max{20, size of the image specified by the parameter ImageId}.
    * 
    * @example
    * 1024
@@ -77,7 +68,7 @@ export class DescribeNodeGroupResponseBodySystemDisk extends $dara.Model {
 export class DescribeNodeGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The zone ID.
+   * The zone.
    * 
    * @example
    * cn-wulanchabu-a
@@ -85,7 +76,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   az?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * i111987311754895199538
@@ -101,7 +92,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format.
    * 
    * @example
    * 2025-07-07T17:19:42.980000
@@ -109,7 +100,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether file storage can be mounted.
+   * Indicates whether file storage mounting is supported.
    * 
    * @example
    * True
@@ -125,7 +116,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * Alinux3_x86_5.10.134-16.3_NV_RunC_D3_E3C7_570.133.20_V1.0_250428
@@ -142,11 +133,11 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * Valid values:
-   * • password: The node group supports only password-based logon.
-   * • keypair: The node group supports only key pair-based logon.
-   * • both: The node group supports password-based and key pair-based logon.
+   * • password: The group supports only password-based logon. 
+   * • keypair: The group supports only key pair-based logon. 
+   * • both: The group supports both password-based and key pair-based logon.
    * 
-   * If this parameter is not returned, no logon method is configured for the node group.
+   * If the value is empty, no logon method is configured for the group.
    * 
    * @example
    * password
@@ -154,7 +145,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   loginType?: string;
   /**
    * @remarks
-   * The instance type.
+   * The machine type.
    * 
    * @example
    * efg2.NH2cn
@@ -170,7 +161,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   nodeCount?: string;
   /**
    * @remarks
-   * The description of the node group.
+   * The node group description.
    * 
    * @example
    * lingjun alinux node group
@@ -178,7 +169,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   nodeGroupDescription?: string;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * @example
    * i120982301752461697971
@@ -186,7 +177,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The name of the node group.
+   * The node group name.
    * 
    * @example
    * test-ack
@@ -194,7 +185,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * The name of the RAM role. You can call the ListRoles operation of the RAM API to query the RAM roles that you created.
+   * The name of the RAM role for the node. You can call the RAM API ListRoles to query the RAM roles that you have created.
    * 
    * @example
    * xianwen-test-ram-role
@@ -202,7 +193,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   ramRoleName?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 83896080-59E3-5775-BDDC-8084691C3D96
@@ -210,12 +201,12 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The system disk information.
+   * The system cloud disk information.
    */
   systemDisk?: DescribeNodeGroupResponseBodySystemDisk;
   /**
    * @remarks
-   * The time when the node group was last updated.
+   * The update time. The time is in ISO 8601 format.
    * 
    * @example
    * 2025-08-20T11:18:11.164000
@@ -223,7 +214,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The user data.
+   * The user-defined script.
    * 
    * @example
    * #!/bin/bash
@@ -233,7 +224,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * Indicates whether the node group supports GPU virtualization.
+   * Indicates whether GPU virtualization slicing is supported.
    * 
    * @example
    * False

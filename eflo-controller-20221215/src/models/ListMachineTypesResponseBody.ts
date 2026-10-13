@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMachineTypesResponseBodyMachineTypesCpuInfoDetail extends $dara.Model {
   /**
+   * @remarks
+   * The CPU architecture.
+   * 
    * @example
    * x86_64
    */
   cpuArch?: string;
   /**
+   * @remarks
+   * The number of CPU sockets.
+   * 
    * @example
    * 2
    */
   cpuSockets?: number;
   /**
+   * @remarks
+   * The number of vCPU cores.
+   * 
    * @example
    * 192
    */
@@ -45,16 +54,25 @@ export class ListMachineTypesResponseBodyMachineTypesCpuInfoDetail extends $dara
 
 export class ListMachineTypesResponseBodyMachineTypesDiskInfoDetail extends $dara.Model {
   /**
+   * @remarks
+   * The number of disks.
+   * 
    * @example
    * 4
    */
   localDiskCount?: number;
   /**
+   * @remarks
+   * The capacity per disk, in TB.
+   * 
    * @example
    * 3.84
    */
   localDiskSizeInTB?: number;
   /**
+   * @remarks
+   * The disk type.
+   * 
    * @example
    * NVMe SSD
    */
@@ -86,11 +104,17 @@ export class ListMachineTypesResponseBodyMachineTypesDiskInfoDetail extends $dar
 
 export class ListMachineTypesResponseBodyMachineTypesFrontendNetworkDetail extends $dara.Model {
   /**
+   * @remarks
+   * The frontend network type.
+   * 
    * @example
    * vpc
    */
   frontendNetworkType?: string;
   /**
+   * @remarks
+   * Indicates whether jumbo frames are supported.
+   * 
    * @example
    * true
    */
@@ -120,26 +144,41 @@ export class ListMachineTypesResponseBodyMachineTypesFrontendNetworkDetail exten
 
 export class ListMachineTypesResponseBodyMachineTypesGpuInfoDetail extends $dara.Model {
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 8
    */
   gpuCount?: number;
   /**
+   * @remarks
+   * The GPU memory per card, in GB.
+   * 
    * @example
    * 144
    */
   gpuMemoryInGB?: number;
   /**
+   * @remarks
+   * The GPU name.
+   * 
    * @example
    * M890P-144G
    */
   gpuName?: string;
   /**
+   * @remarks
+   * The GPU vendor.
+   * 
    * @example
    * T-HEAD
    */
   gpuVendor?: string;
   /**
+   * @remarks
+   * The total GPU memory, in GB.
+   * 
    * @example
    * 9216
    */
@@ -175,6 +214,9 @@ export class ListMachineTypesResponseBodyMachineTypesGpuInfoDetail extends $dara
 
 export class ListMachineTypesResponseBodyMachineTypesMemoryInfoDetail extends $dara.Model {
   /**
+   * @remarks
+   * The memory size, in GB.
+   * 
    * @example
    * 2048
    */
@@ -202,19 +244,36 @@ export class ListMachineTypesResponseBodyMachineTypesMemoryInfoDetail extends $d
 
 export class ListMachineTypesResponseBodyMachineTypesRdmaInfoDetail extends $dara.Model {
   /**
+   * @remarks
+   * The bandwidth per backend RDMA NIC, in Gbps.
+   * 
    * @example
    * 400
    */
   backendRdmaNicBwInGbps?: number;
   /**
+   * @remarks
+   * The number of backend RDMA NICs.
+   * 
    * @example
    * 4
    */
   backendRdmaNicCount?: number;
+  /**
+   * @remarks
+   * Indicates whether backend RDMA is supported. Valid values:
+   * - true: The current machine type supports backend RDMA.
+   * - false: The current machine type does not support backend RDMA.
+   * 
+   * @example
+   * true
+   */
+  backendRdmaSupported?: boolean;
   static names(): { [key: string]: string } {
     return {
       backendRdmaNicBwInGbps: 'BackendRdmaNicBwInGbps',
       backendRdmaNicCount: 'BackendRdmaNicCount',
+      backendRdmaSupported: 'BackendRdmaSupported',
     };
   }
 
@@ -222,6 +281,7 @@ export class ListMachineTypesResponseBodyMachineTypesRdmaInfoDetail extends $dar
     return {
       backendRdmaNicBwInGbps: 'number',
       backendRdmaNicCount: 'number',
+      backendRdmaSupported: 'boolean',
     };
   }
 
@@ -245,40 +305,60 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   bondNum?: number;
   /**
    * @remarks
-   * CPU information.
+   * The CPU information.
    * 
    * @example
    * 2x Intel Icelake 8369B 32C CPU
    */
   cpuInfo?: string;
+  /**
+   * @remarks
+   * The structured CPU specifications.
+   */
   cpuInfoDetail?: ListMachineTypesResponseBodyMachineTypesCpuInfoDetail;
   /**
    * @remarks
-   * Disk information.
+   * The disk information.
    * 
    * @example
    * 2x 480GB SATA SSD
    */
   diskInfo?: string;
+  /**
+   * @remarks
+   * The disk information.
+   */
   diskInfoDetail?: ListMachineTypesResponseBodyMachineTypesDiskInfoDetail;
+  /**
+   * @remarks
+   * The frontend network information.
+   */
   frontendNetworkDetail?: ListMachineTypesResponseBodyMachineTypesFrontendNetworkDetail;
   /**
    * @remarks
-   * GPU information.
+   * The GPU information.
    * 
    * @example
    * 8x NVIDIA SXM4 80GB A100 GPU
    */
   gpuInfo?: string;
+  /**
+   * @remarks
+   * The GPU information.
+   */
   gpuInfoDetail?: ListMachineTypesResponseBodyMachineTypesGpuInfoDetail;
   /**
    * @remarks
-   * Memory information.
+   * The memory information.
    * 
    * @example
    * 32x 64GB DDR4 3200 Memory
    */
   memoryInfo?: string;
+  /**
+   * @remarks
+   * The memory information.
+   */
   memoryInfoDetail?: ListMachineTypesResponseBodyMachineTypesMemoryInfoDetail;
   /**
    * @remarks
@@ -290,7 +370,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Network information.
+   * The network information.
    * 
    * @example
    * 2x 100Gbps DP NIC
@@ -304,6 +384,10 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
    * 10
    */
   nodeCount?: string;
+  /**
+   * @remarks
+   * The RDMA information.
+   */
   rdmaInfoDetail?: ListMachineTypesResponseBodyMachineTypesRdmaInfoDetail;
   /**
    * @remarks
@@ -315,7 +399,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   totalCpuCore?: number;
   /**
    * @remarks
-   * The type of the machine type.
+   * The machine type.
    * 
    * @example
    * Public
@@ -393,12 +477,12 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
 export class ListMachineTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the machine types.
+   * The details of the machine types.
    */
   machineTypes?: ListMachineTypesResponseBodyMachineTypes[];
   /**
    * @remarks
-   * The token to request the next page of results. Include this token in your next request to retrieve the next page.
+   * The next token for pagination. Include this value in the request to retrieve the next page of results.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4

@@ -13,7 +13,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the device was created. The time is in ISO 8601 format.
    * 
    * @example
    * 2024-06-15T10:17:56
@@ -21,7 +21,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The diagnostic task ID.
+   * The diagnostic ID.
    * 
    * @example
    * diag-i155363241720059671316
@@ -42,7 +42,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   diagnosticState?: string;
   /**
    * @remarks
-   * The type of the diagnostic task.
+   * The diagnostic type.
    * 
    * @example
    * CheckByAiJobLogs
@@ -50,7 +50,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   diagnosticType?: string;
   /**
    * @remarks
-   * The end time of the instance exception. The time format with time zone based on the ISO8601 standard. The format is yyyy-MM-ddTHH:mm:ss +0800.
+   * The time when the node exception ended. The time is in ISO 8601 format with a time zone, in the yyyy-MM-ddTHH:mm:ss+0800 format.
    * 
    * @example
    * 2024-06-11T10:00:30
@@ -58,7 +58,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The node IDs.
+   * The list of node IDs.
    */
   nodeIds?: string[];
   /**

@@ -13,7 +13,7 @@ export class DescribeClusterResponseBodyComponents extends $dara.Model {
   componentId?: string;
   /**
    * @remarks
-   * The type of the component.
+   * The component type.
    * 
    * @example
    * ACKEdge
@@ -45,7 +45,7 @@ export class DescribeClusterResponseBodyComponents extends $dara.Model {
 export class DescribeClusterResponseBodyNetworks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the virtual private datacenter (VPD).
+   * The cluster CIDR block ID.
    * 
    * @example
    * vpd-iqd7xunc
@@ -75,7 +75,7 @@ export class DescribeClusterResponseBodyNetworks extends $dara.Model {
 export class DescribeClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
    * Test cluster
@@ -91,7 +91,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * Eflo-YJ-Test-Cluster
@@ -99,7 +99,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The type of the cluster.
+   * The cluster type.
    * 
    * @example
    * AckEdgePro
@@ -120,7 +120,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   computingIpVersion?: string;
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The creation time. The time is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2022-06-08T07:05:11Z
@@ -128,7 +128,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The zone of the cluster.
+   * The cluster number.
    * 
    * @example
    * A2
@@ -165,7 +165,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   openEniJumboFrame?: string;
   /**
    * @remarks
-   * The state of the cluster.
+   * The cluster status.
    * 
    * @example
    * running
@@ -205,7 +205,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The time when the cluster was last updated.
+   * The update time. The time is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2022-08-23T06:36:17.000Z
@@ -221,7 +221,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-0jlkqysom5dmcviymep3f

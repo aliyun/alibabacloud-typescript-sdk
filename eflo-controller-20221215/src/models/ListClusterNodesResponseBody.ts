@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   /**
    * @remarks
-   * The name of the network interface.
+   * The name of the network interface on the machine.
    * 
    * @example
    * bond0
@@ -13,7 +13,7 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   bondName?: string;
   /**
    * @remarks
-   * The IP address of the node in the VPC.
+   * The IP address of the machine in the virtual private cloud (VPC).
    * 
    * @example
    * 192.168.22.2
@@ -21,7 +21,7 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The subnet ID.
+   * The subnet ID of the VPC.
    * 
    * @example
    * subnet-fwekrvg9
@@ -29,7 +29,7 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   subnetId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the network interface belongs.
+   * The VPC ID.
    * 
    * @example
    * vpd-eoiy88ju
@@ -105,15 +105,15 @@ export class ListClusterNodesResponseBodyNodesTags extends $dara.Model {
 export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * The unique code that identifies the cloud product or service.
+   * The commodity code, which is a unique identifier for a specific cloud product or service.
    * 
    * @example
-   * bccluster_eflocomputing_public_cn（表示灵骏中国站包年包月）、bccluster_eflocomputing_public_intl（表示灵骏国际站包年包月）
+   * bccluster_eflocomputing_public_cn (Lingjun China site subscription), bccluster_eflocomputing_public_intl (Lingjun international site subscription)
    */
   commodityCode?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format.
    * 
    * @example
    * 2026-02-02T11:27:07
@@ -121,7 +121,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time of the node.
+   * The expiration time of the machine. The time is in ISO 8601 format.
    * 
    * @example
    * 2026-03-03T00:00:00
@@ -129,7 +129,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * Indicates whether the node supports mounting file storage.
+   * Indicates whether file storage mounting is supported.
    * 
    * @example
    * False
@@ -145,7 +145,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The ID of the HPN zone.
+   * The cluster number.
    * 
    * @example
    * A1
@@ -161,7 +161,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   hyperNodeId?: string;
   /**
    * @remarks
-   * The image ID.
+   * The system image ID.
    * 
    * @example
    * i190297201669099844192
@@ -185,7 +185,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Network details.
+   * The network information.
    */
   networks?: ListClusterNodesResponseBodyNodesNetworks[];
   /**
@@ -214,7 +214,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The type of the node.
+   * The node specifications.
    * 
    * @example
    * standard
@@ -222,7 +222,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The status of the node.
+   * The node status.
    * 
    * @example
    * Extending
@@ -230,7 +230,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * The serial number (SN) of the node.
+   * The serial number (SN) of the machine.
    * 
    * @example
    * sn_tOuUk
@@ -238,7 +238,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   sn?: string;
   /**
    * @remarks
-   * The list of tags attached to the node.
+   * The tag information.
    */
   tags?: ListClusterNodesResponseBodyNodesTags[];
   /**
@@ -259,7 +259,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC where the node is located.
+   * The VPC ID.
    * 
    * @example
    * vpc-f8zcet5mwerafyqlrhyoi
@@ -267,7 +267,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The availability zone ID.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-b
@@ -345,7 +345,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
 export class ListClusterNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this parameter is empty, no more results are available.
+   * The query token returned by this call.
    * 
    * @example
    * AAAAAXW/ZB9TBvH+0ZK0phtCibQgQmu1RbqplAI6Velo2OKR

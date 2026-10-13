@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The Z in the example indicates UTC.
    * 
    * @example
    * 2022-11-30T2:00:00.852Z
@@ -13,7 +13,7 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message returned for failed sub tasks.
+   * The subtask failure message.
    * 
    * @example
    * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
@@ -21,7 +21,7 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The task ID.
+   * The node ID.
    * 
    * @example
    * i158805051661047928377
@@ -29,7 +29,7 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task status.
+   * The task execution state.
    * 
    * @example
    * running
@@ -39,31 +39,13 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
    * @remarks
    * The task type.
    * 
-   * Valid values:
-   * 
-   * *   reclone_node_sub_task
-   * *   initialize_bare_cluster
-   * *   extend_bare_cluster
-   * *   reclone_node
-   * *   reboot_node
-   * *   extend_ack_edge_cluster
-   * *   extend_cluster
-   * *   initialize_ack_edge_cluster
-   * *   cut_node_sub_task
-   * *   reboot_node_sub_task
-   * *   reclone_ack_edge_node
-   * *   initialize_cluster
-   * *   cut_cluster
-   * *   reclone_bare_node
-   * *   cut_bare_cluster
-   * 
    * @example
    * cut_node_sub_task
    */
   taskType?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. Uses ISO 8601 format. The Z in the example indicates UTC.
    * 
    * @example
    * 2022-11-30T02:20:14.852Z
@@ -103,7 +85,7 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
 export class DescribeTaskResponseBodySteps extends $dara.Model {
   /**
    * @remarks
-   * The error message of the step.
+   * The step failure message.
    * 
    * @example
    * get taskinfo failed
@@ -111,32 +93,15 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The stage marker.
-   * 
-   * Valid values:
-   * 
-   * *   机器释放: Machine release.
-   * *   节点并发初始化: Node concurrent initialization.
-   * *   节点释放: Node release.
-   * *   机器替换: Machine replacement.
-   * *   节点缩容: Node scale-in.
-   * *   提前续费: Early renewal.
-   * *   物理机清理: Physical machine cleanup.
-   * *   节点清理: Node cleanup.
-   * *   创建K8s集群: Create Kubernetes cluster.
-   * *   网络初始化: Network initialization.
-   * *   节点重启: Node restart.
-   * *   节点退订: Node unsubscribe.
-   * *   集群扩容: Cluster scale-out.
-   * *   异常机器释放: Abnormal machine release.
+   * The stage tag.
    * 
    * @example
-   * Node scale-down
+   * node scale-in
    */
   stageTag?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Z in the example indicates UTC.
    * 
    * @example
    * 2022-11-30T2:00:00.852Z
@@ -144,7 +109,7 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the step.
+   * The step name.
    * 
    * @example
    * create_vpd
@@ -152,12 +117,7 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   stepName?: string;
   /**
    * @remarks
-   * The step status.
-   * 
-   * Valid values:
-   * 
-   * *   execution_success
-   * *   execution_failed
+   * The step execution state.
    * 
    * @example
    * execution_success
@@ -165,12 +125,7 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   stepState?: string;
   /**
    * @remarks
-   * The type of the step.
-   * 
-   * Valid values:
-   * 
-   * *   normal: A normal step has only one successor step.
-   * *   dispersive: A dispersive step has multiple successor steps.
+   * The step type.
    * 
    * @example
    * normal
@@ -178,12 +133,12 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   stepType?: string;
   /**
    * @remarks
-   * The sub tasks.
+   * The subtasks.
    */
   subTasks?: DescribeTaskResponseBodyStepsSubTasks[];
   /**
    * @remarks
-   * The update time.
+   * The update time. Uses ISO 8601 format. The Z in the example indicates UTC.
    * 
    * @example
    * 2022-11-30T02:20:14.852Z
@@ -246,7 +201,7 @@ export class DescribeTaskResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The create time.
+   * The start time. The value is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2022-11-30T02:00:00.852Z
@@ -254,7 +209,7 @@ export class DescribeTaskResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message returned for failed tasks.
+   * The task failure message.
    * 
    * @example
    * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
@@ -262,7 +217,7 @@ export class DescribeTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The IDs of the nodes.
+   * The list of node IDs.
    */
   nodeIds?: string[];
   /**
@@ -275,19 +230,12 @@ export class DescribeTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The steps.
+   * The execution steps.
    */
   steps?: DescribeTaskResponseBodySteps[];
   /**
    * @remarks
-   * The task status.
-   * 
-   * Valid values:
-   * 
-   * *   running
-   * *   execution_success
-   * *   execution_fail
-   * *   waiting_to_run
+   * The task state.
    * 
    * @example
    * running
@@ -297,31 +245,13 @@ export class DescribeTaskResponseBody extends $dara.Model {
    * @remarks
    * The task type.
    * 
-   * Valid values:
-   * 
-   * *   reclone_node_sub_task
-   * *   initialize_bare_cluster
-   * *   extend_bare_cluster
-   * *   reclone_node
-   * *   reboot_node
-   * *   extend_ack_edge_cluster
-   * *   extend_cluster
-   * *   initialize_ack_edge_cluster
-   * *   cut_node_sub_task
-   * *   reboot_node_sub_task
-   * *   reclone_ack_edge_node
-   * *   initialize_cluster
-   * *   cut_cluster
-   * *   reclone_bare_node
-   * *   cut_bare_cluster
-   * 
    * @example
    * cut_cluster
    */
   taskType?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. Uses ISO 8601 format. The Z in the example indicates UTC.
    * 
    * @example
    * 2022-11-30T03:40:14.852Z

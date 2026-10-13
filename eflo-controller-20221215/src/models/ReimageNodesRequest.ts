@@ -76,7 +76,7 @@ export class ReimageNodesRequest extends $dara.Model {
    * Specifies whether to skip failed nodes. Default value: False.
    * 
    * @example
-   * False
+   * false
    */
   ignoreFailedNodeTasks?: boolean;
   /**

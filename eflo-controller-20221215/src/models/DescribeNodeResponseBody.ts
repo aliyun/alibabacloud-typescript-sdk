@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeResponseBodyDisks extends $dara.Model {
   /**
    * @remarks
-   * The disk type. Valid values:
+   * The disk category. Valid values:
    * 
    *  - cloud_essd: ESSD cloud disk.
    * 
@@ -23,9 +23,9 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The performance level of the cloud disk when an ESSD cloud disk is created as a system disk. Valid values:
-   * - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
-   * - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
+   * The performance level (PL) of the ESSD cloud disk when it is used as the system cloud disk. Valid values:
+   * - PL0: a maximum of 10,000 random read/write IOPS per disk.
+   * - PL1: a maximum of 50,000 random read/write IOPS per disk.
    * 
    * @example
    * PL1
@@ -43,8 +43,8 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * - system: system disk.
-   * - data: data disk.
+   * - system: system cloud disk.
+   * - data: data cloud disk.
    * 
    * @example
    * system
@@ -90,7 +90,7 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   bondName?: string;
   /**
    * @remarks
-   * The machine IP address.
+   * The IP address of the machine.
    * 
    * @example
    * 47.254.235.44
@@ -178,7 +178,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2022-09-30T03:35:53Z
@@ -191,7 +191,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   disks?: DescribeNodeResponseBodyDisks[];
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time is in ISO 8601 format. Z in the example indicates UTC.
    * 
    * @example
    * 2022-06-23T16:00:00Z
@@ -199,7 +199,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * Indicates whether file system mounting is supported.
+   * Indicates whether file storage mounting is supported.
    * 
    * @example
    * True
@@ -223,7 +223,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * The hyper node ID.
+   * The HyperNode ID.
    * 
    * @example
    * e01-cn-zvp2tgykr08
@@ -330,7 +330,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   savingsPlanId?: string;
   /**
    * @remarks
-   * The unique machine identifier.
+   * The unique identifier of the machine.
    * 
    * @example
    * sag42ckf4jx

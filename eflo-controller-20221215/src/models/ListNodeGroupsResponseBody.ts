@@ -21,7 +21,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format.
    * 
    * @example
    * 2024-02-27T13:16:31.599
@@ -38,6 +38,9 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
    * Indicates whether file storage mounting is supported.
+   * 
+   * @example
+   * true
    */
   fileSystemMountEnabled?: boolean;
   /**
@@ -74,7 +77,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The instance type.
+   * The machine type.
    * 
    * @example
    * efg1.nvga1n
@@ -90,7 +93,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * The update time.
+   * The update time. The time is in ISO 8601 format.
    * 
    * @example
    * 2023-09-22T00:03:05.114
@@ -98,7 +101,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Whether to enable gpu virtualization or not
+   * Indicates whether GPU virtualization splitting is supported.
    * 
    * @example
    * false
@@ -162,12 +165,12 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
 export class ListNodeGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node groups.
+   * The cluster group information.
    */
   groups?: ListNodeGroupsResponseBodyGroups[];
   /**
    * @remarks
-   * The token that is used in the next request to retrieve a new page of results.
+   * The NextToken for the next page. Include this return value when requesting the next page.
    * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069
@@ -175,7 +178,7 @@ export class ListNodeGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6

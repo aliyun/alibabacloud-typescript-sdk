@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodeGroupDriftedNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Valid values: 1 to 500. Default value: 100.
+   * The maximum number of entries per page in a paging query. Valid values: 1 to 500. Default value: 100.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListNodeGroupDriftedNodesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID. Call ListClusters to obtain the ClusterId, pass the ClusterId to ListNodeGroups, and obtain the value from the NodeGroupId response parameter.
    * 
    * This parameter is required.
    * 

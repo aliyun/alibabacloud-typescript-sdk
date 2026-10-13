@@ -12,26 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-wulanchabu': "eflo-controller.cn-wulanchabu.aliyuncs.com",
-      'cn-beijing': "eflo-controller.cn-beijing.aliyuncs.com",
-      'cn-shanghai': "eflo-controller.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "eflo-controller.cn-hongkong.aliyuncs.com",
-      'cn-heyuan': "eflo-controller.cn-heyuan.aliyuncs.com",
-      'cn-zhangjiakou': "eflo-controller.cn-zhangjiakou.aliyuncs.com",
-      'cn-shenzhen': "eflo-controller.cn-shenzhen.aliyuncs.com",
-      'ap-northeast-1': "eflo-controller.ap-northeast-1.aliyuncs.com",
-      'cn-guangzhou': "eflo-controller.cn-guangzhou.aliyuncs.com",
-      'ap-southeast-1': "eflo-controller.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "eflo-controller.ap-southeast-3.aliyuncs.com",
-      'cn-huhehaote': "eflo-controller.cn-huhehaote.aliyuncs.com",
-      'ap-southeast-7': "eflo-controller.ap-southeast-7.aliyuncs.com",
-      'cn-hangzhou': "eflo-controller.cn-hangzhou.aliyuncs.com",
-      'ap-southeast-8': "eflo-controller.ap-southeast-8.aliyuncs.com",
-      'eu-central-1': "eflo-controller.eu-central-1.aliyuncs.com",
-      'me-east-1': "eflo-controller.me-east-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "eflo-controller.cn-shanghai-finance-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eflo-controller", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -96,10 +76,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the node group of a node.
+   * Modifies the node group of nodes.
    * 
    * @remarks
-   * Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
+   * Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
    * 
    * @param tmpReq - ChangeNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -146,10 +126,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the node group of a node.
+   * Modifies the node group of nodes.
    * 
    * @remarks
-   * Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
+   * Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
    * 
    * @param request - ChangeNodeGroupRequest
    * @returns ChangeNodeGroupResponse
@@ -984,10 +964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cluster.
+   * Queries the details of a Lingjun AI Computing Service cluster.
    * 
    * @remarks
-   * Queries the details of a specified cluster.
+   * Closes a remote session.
    * 
    * @param request - DescribeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1018,10 +998,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cluster.
+   * Queries the details of a Lingjun AI Computing Service cluster.
    * 
    * @remarks
-   * Queries the details of a specified cluster.
+   * Closes a remote session.
    * 
    * @param request - DescribeClusterRequest
    * @returns DescribeClusterResponse
@@ -1033,9 +1013,6 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the results of a diagnostic task.
-   * 
-   * @remarks
-   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - DescribeDiagnosticResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1068,9 +1045,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the results of a diagnostic task.
    * 
-   * @remarks
-   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
-   * 
    * @param request - DescribeDiagnosticResultRequest
    * @returns DescribeDiagnosticResultResponse
    */
@@ -1080,10 +1054,58 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a hyper node.
+   * Queries the details of a fault report after a user submits one.
    * 
    * @remarks
-   * Queries the details of a specified hyper node.
+   * Queries the details of a fault report. After you call ReportNodeStatus to submit a fault report, you can obtain the report ID from the ReportId response parameter. You can also call ListFaultReports to query existing fault reports and obtain the ReportId.
+   * 
+   * @param request - DescribeFaultReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFaultReportResponse
+   */
+  async describeFaultReportWithOptions(request: $_model.DescribeFaultReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFaultReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportId)) {
+      body["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFaultReport",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFaultReportResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFaultReportResponse({}));
+  }
+
+  /**
+   * Queries the details of a fault report after a user submits one.
+   * 
+   * @remarks
+   * Queries the details of a fault report. After you call ReportNodeStatus to submit a fault report, you can obtain the report ID from the ReportId response parameter. You can also call ListFaultReports to query existing fault reports and obtain the ReportId.
+   * 
+   * @param request - DescribeFaultReportRequest
+   * @returns DescribeFaultReportResponse
+   */
+  async describeFaultReport(request: $_model.DescribeFaultReportRequest): Promise<$_model.DescribeFaultReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFaultReportWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a hypernode.
+   * 
+   * @remarks
+   * Queries the details of a hypernode.
    * 
    * @param request - DescribeHyperNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1114,10 +1136,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a hyper node.
+   * Queries the details of a hypernode.
    * 
    * @remarks
-   * Queries the details of a specified hyper node.
+   * Queries the details of a hypernode.
    * 
    * @param request - DescribeHyperNodeRequest
    * @returns DescribeHyperNodeResponse
@@ -1128,7 +1150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution history and status of Cloud Assistant commands.
+   * Queries the execution list and status of O&M Assistant commands.
    * 
    * @param request - DescribeInvocationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1171,7 +1193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution history and status of Cloud Assistant commands.
+   * Queries the execution list and status of O&M Assistant commands.
    * 
    * @param request - DescribeInvocationsRequest
    * @returns DescribeInvocationsResponse
@@ -1182,7 +1204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the results of a network test.
+   * Queries network test results.
    * 
    * @param request - DescribeNetTestResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1213,7 +1235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the results of a network test.
+   * Queries network test results.
    * 
    * @param request - DescribeNetTestResultRequest
    * @returns DescribeNetTestResultResponse
@@ -1224,10 +1246,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of nodes.
+   * Queries a list of nodes.
    * 
    * @remarks
-   * Queries the detailed information of a hyper node.
+   * Queries the details of a supernode.
    * 
    * @param request - DescribeNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1258,10 +1280,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of nodes.
+   * Queries a list of nodes.
    * 
    * @remarks
-   * Queries the detailed information of a hyper node.
+   * Queries the details of a supernode.
    * 
    * @param request - DescribeNodeRequest
    * @returns DescribeNodeResponse
@@ -1272,10 +1294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a node group.
+   * Queries node groups.
    * 
    * @remarks
-   * This operation queries the details of a node group.
+   * Queries the details of a supernode.
    * 
    * @param request - DescribeNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1306,10 +1328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a node group.
+   * Queries node groups.
    * 
    * @remarks
-   * This operation queries the details of a node group.
+   * Queries the details of a supernode.
    * 
    * @param request - DescribeNodeGroupRequest
    * @returns DescribeNodeGroupResponse
@@ -1323,10 +1345,10 @@ export default class Client extends OpenApi {
    * Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
    * 
    * @remarks
-   * The returned results contain the following information:
-   * - The processing status of each node with configuration drift
-   * - The processing result, status, and reason for each node
-   * - The refreshed and skipped properties for each node
+   * The returned results include the following:
+   * - The processing status of each node with configuration drift.
+   * - The processing result, status, and reason for each node.
+   * - The refreshed and skipped properties for each node.
    * 
    * @param tmpReq - DescribeNodeGroupRefreshTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1378,10 +1400,10 @@ export default class Client extends OpenApi {
    * Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
    * 
    * @remarks
-   * The returned results contain the following information:
-   * - The processing status of each node with configuration drift
-   * - The processing result, status, and reason for each node
-   * - The refreshed and skipped properties for each node
+   * The returned results include the following:
+   * - The processing status of each node with configuration drift.
+   * - The processing result, status, and reason for each node.
+   * - The refreshed and skipped properties for each node.
    * 
    * @param request - DescribeNodeGroupRefreshTaskRequest
    * @returns DescribeNodeGroupRefreshTaskResponse
@@ -1392,7 +1414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes the constraints for a node type.
+   * Queries the constraints for a node type.
    * 
    * @param request - DescribeNodeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1423,7 +1445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes the constraints for a node type.
+   * Queries the constraints for a node type.
    * 
    * @param request - DescribeNodeTypeRequest
    * @returns DescribeNodeTypeResponse
@@ -1476,7 +1498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
+   * Queries the list and status of files sent by O&M Assistant.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1511,7 +1533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
+   * Queries the list and status of files sent by O&M Assistant.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @returns DescribeSendFileResultsResponse
@@ -1522,7 +1544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a task.
+   * Queries the details of a node.
    * 
    * @param request - DescribeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1553,7 +1575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a task.
+   * Queries the details of a node.
    * 
    * @param request - DescribeTaskRequest
    * @returns DescribeTaskResponse
@@ -1730,7 +1752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the node groups of a cluster and the nodes in each group.
+   * Queries the host group list under a cluster and the host list under each group.
    * 
    * @param request - ListClusterHyperNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1783,7 +1805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the node groups of a cluster and the nodes in each group.
+   * Queries the host group list under a cluster and the host list under each group.
    * 
    * @param request - ListClusterHyperNodesRequest
    * @returns ListClusterHyperNodesResponse
@@ -1794,7 +1816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the nodes in a cluster.
+   * Queries the list of nodes in a cluster.
    * 
    * @param request - ListClusterNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1851,7 +1873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the nodes in a cluster.
+   * Queries the list of nodes in a cluster.
    * 
    * @param request - ListClusterNodesRequest
    * @returns ListClusterNodesResponse
@@ -1862,7 +1884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query cluster instances with optional filtering by resource group and tags.
+   * Queries a list of cluster instances.
    * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1907,7 +1929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query cluster instances with optional filtering by resource group and tags.
+   * Queries a list of cluster instances.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -1918,10 +1940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Diagnostic Tasks
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+   * Queries a list of diagnostic tasks.
    * 
    * @param request - ListDiagnosticResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1964,10 +1983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Diagnostic Tasks
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+   * Queries a list of diagnostic tasks.
    * 
    * @param request - ListDiagnosticResultsRequest
    * @returns ListDiagnosticResultsResponse
@@ -1978,7 +1994,73 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the active physical servers in the rack.
+   * Queries the list of historical fault reports.
+   * 
+   * @remarks
+   * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+   * 
+   * @param tmpReq - ListFaultReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFaultReportsResponse
+   */
+  async listFaultReportsWithOptions(tmpReq: $_model.ListFaultReportsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFaultReportsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListFaultReportsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodes)) {
+      request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "Nodes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodesShrink)) {
+      body["Nodes"] = request.nodesShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFaultReports",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFaultReportsResponse>(await this.callApi(params, req, runtime), new $_model.ListFaultReportsResponse({}));
+  }
+
+  /**
+   * Queries the list of historical fault reports.
+   * 
+   * @remarks
+   * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+   * 
+   * @param request - ListFaultReportsRequest
+   * @returns ListFaultReportsResponse
+   */
+  async listFaultReports(request: $_model.ListFaultReportsRequest): Promise<$_model.ListFaultReportsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFaultReportsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of available rack physical machines.
    * 
    * @param request - ListFreeHyperNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2033,7 +2115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the active physical servers in the rack.
+   * Queries the list of available rack physical machines.
    * 
    * @param request - ListFreeHyperNodesRequest
    * @returns ListFreeHyperNodesResponse
@@ -2044,7 +2126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all unused nodes.
+   * Queries the list of unused nodes.
    * 
    * @param request - ListFreeNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2101,7 +2183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all unused nodes.
+   * Queries the list of unused nodes.
    * 
    * @param request - ListFreeNodesRequest
    * @returns ListFreeNodesResponse
@@ -2112,10 +2194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Machines
+   * Queries a list of machines.
    * 
    * @remarks
-   * Queries the details of hypernodes.
+   * Queries the details of hyper nodes.
    * 
    * @param tmpReq - ListHyperNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2206,10 +2288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Machines
+   * Queries a list of machines.
    * 
    * @remarks
-   * Queries the details of hypernodes.
+   * Queries the details of hyper nodes.
    * 
    * @param request - ListHyperNodesRequest
    * @returns ListHyperNodesResponse
@@ -2318,7 +2400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of available machine types.
+   * Queries the list of available machine types.
    * 
    * @param request - ListMachineTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2349,7 +2431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of available machine types.
+   * Queries the list of available machine types.
    * 
    * @param request - ListMachineTypesRequest
    * @returns ListMachineTypesResponse
@@ -2360,7 +2442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists network test results.
+   * Queries the list of network tests.
    * 
    * @param request - ListNetTestResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2403,7 +2485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists network test results.
+   * Queries the list of network tests.
    * 
    * @param request - ListNetTestResultsRequest
    * @returns ListNetTestResultsResponse
@@ -2417,7 +2499,7 @@ export default class Client extends OpenApi {
    * Queries nodes with configuration drift within a node group and the drift details.
    * 
    * @remarks
-   * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+   * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the drift type, before-and-after values, and the required action level for refreshing each inconsistent property. This is a read-only operation.
    * 
    * @param tmpReq - ListNodeGroupDriftedNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2469,7 +2551,7 @@ export default class Client extends OpenApi {
    * Queries nodes with configuration drift within a node group and the drift details.
    * 
    * @remarks
-   * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+   * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the drift type, before-and-after values, and the required action level for refreshing each inconsistent property. This is a read-only operation.
    * 
    * @param request - ListNodeGroupDriftedNodesRequest
    * @returns ListNodeGroupDriftedNodesResponse
@@ -2480,7 +2562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of node group configuration refresh tasks with paging.
+   * Queries the list of node group configuration refresh tasks by paging.
    * 
    * @remarks
    * If you do not know which node group has refresh tasks, you can use conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
@@ -2536,7 +2618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of node group configuration refresh tasks with paging.
+   * Queries the list of node group configuration refresh tasks by paging.
    * 
    * @remarks
    * If you do not know which node group has refresh tasks, you can use conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
@@ -2550,7 +2632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Node Group Information Under the Cluster
+   * Queries node group information in a cluster.
    * 
    * @param request - ListNodeGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2593,7 +2675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Node Group Information Under the Cluster
+   * Queries node group information in a cluster.
    * 
    * @param request - ListNodeGroupsRequest
    * @returns ListNodeGroupsResponse
@@ -2887,12 +2969,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+   * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
    * 
    * @remarks
-   * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+   * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
    * Limits:
-   * - Only one node group configuration refresh task can be running at a time for a node group.
+   * - A node group can have only one running node group configuration refresh task at a time.
    * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
    * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
    * 
@@ -2939,12 +3021,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+   * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
    * 
    * @remarks
-   * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+   * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
    * Limits:
-   * - Only one node group configuration refresh task can be running at a time for a node group.
+   * - A node group can have only one running node group configuration refresh task at a time.
    * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
    * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
    * 
@@ -3014,6 +3096,62 @@ export default class Client extends OpenApi {
   async reimageNodes(request: $_model.ReimageNodesRequest): Promise<$_model.ReimageNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.reimageNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Reports a fault for an abnormal node.
+   * 
+   * @remarks
+   * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+   * 
+   * @param request - ReportNodeStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReportNodeStatusResponse
+   */
+  async reportNodeStatusWithOptions(request: $_model.ReportNodeStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportNodeStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.diagnosisType)) {
+      body["DiagnosisType"] = request.diagnosisType;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReportNodeStatus",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReportNodeStatusResponse>(await this.callApi(params, req, runtime), new $_model.ReportNodeStatusResponse({}));
+  }
+
+  /**
+   * Reports a fault for an abnormal node.
+   * 
+   * @remarks
+   * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+   * 
+   * @param request - ReportNodeStatusRequest
+   * @returns ReportNodeStatusResponse
+   */
+  async reportNodeStatus(request: $_model.ReportNodeStatusRequest): Promise<$_model.ReportNodeStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.reportNodeStatusWithOptions(request, runtime);
   }
 
   /**
@@ -3396,6 +3534,54 @@ export default class Client extends OpenApi {
   async stopInvocation(request: $_model.StopInvocationRequest): Promise<$_model.StopInvocationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopInvocationWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops an ongoing fault reporting diagnostics process after a user initiates a fault report.
+   * 
+   * @remarks
+   * Stops an ongoing fault reporting diagnostics process. Before calling this operation, initiate a fault report for the abnormal node by calling ReportNodeStatus, and use the returned ReportId as the ReportId for this operation.
+   * 
+   * @param request - StopNodeDiagnosticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopNodeDiagnosticResponse
+   */
+  async stopNodeDiagnosticWithOptions(request: $_model.StopNodeDiagnosticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopNodeDiagnosticResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportId)) {
+      body["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopNodeDiagnostic",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopNodeDiagnosticResponse>(await this.callApi(params, req, runtime), new $_model.StopNodeDiagnosticResponse({}));
+  }
+
+  /**
+   * Stops an ongoing fault reporting diagnostics process after a user initiates a fault report.
+   * 
+   * @remarks
+   * Stops an ongoing fault reporting diagnostics process. Before calling this operation, initiate a fault report for the abnormal node by calling ReportNodeStatus, and use the returned ReportId as the ReportId for this operation.
+   * 
+   * @param request - StopNodeDiagnosticRequest
+   * @returns StopNodeDiagnosticResponse
+   */
+  async stopNodeDiagnostic(request: $_model.StopNodeDiagnosticRequest): Promise<$_model.StopNodeDiagnosticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopNodeDiagnosticWithOptions(request, runtime);
   }
 
   /**

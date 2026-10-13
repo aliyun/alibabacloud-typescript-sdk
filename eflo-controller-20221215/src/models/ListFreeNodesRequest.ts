@@ -45,7 +45,7 @@ export class ListFreeNodesRequestTags extends $dara.Model {
 export class ListFreeNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster number.
    * 
    * @example
    * A1
@@ -61,7 +61,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query. The default value is 20.
+   * The number of entries per page for a paged query. Default value: 20.
    * 
    * @example
    * 20
@@ -69,7 +69,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set it to the NextToken value returned from the previous API call.
+   * The pagination token. Set this parameter to the value of NextToken that is returned from the previous API call.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -77,7 +77,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The type of unused nodes to be returned.
+   * The type of unused nodes to return.
    */
   operatingStates?: string[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHyperNodesResponseBodyHyperNodesTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the node tag.
+   * The tag key of the node.
    * 
    * @example
    * alarm_xdc
@@ -13,7 +13,7 @@ export class ListHyperNodesResponseBodyHyperNodesTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the node tag.
+   * The tag value of the node.
    * 
    * @example
    * 97
@@ -45,7 +45,7 @@ export class ListHyperNodesResponseBodyHyperNodesTags extends $dara.Model {
 export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * i115226661755786900341
@@ -53,7 +53,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * test-ack
@@ -61,7 +61,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The product code.
+   * The commodity code.
    * 
    * @example
    * bccluster_eflocomputing_public_cn
@@ -69,7 +69,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The time when the node was created.
+   * The creation time. The time is in ISO 8601 format.
    * 
    * @example
    * 2025-07-09T10:41:56.577
@@ -77,7 +77,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time is in ISO 8601 format. The Z in the example indicates UTC.
    * 
    * @example
    * 2025-09-28T16:00:00Z
@@ -101,7 +101,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * e01-cn-2r42tmj4z02
@@ -117,7 +117,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * @example
    * i121135081698451727812
@@ -125,7 +125,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The name of the node group.
+   * The node group.
    * 
    * @example
    * l20c-0801
@@ -133,7 +133,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * The status of the hypernode.
+   * The hyper node status.
    * 
    * @example
    * Using
@@ -141,7 +141,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmwfm33rlt6zi
@@ -149,7 +149,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the node.
+   * The node status.
    * 
    * @example
    * Extending
@@ -164,7 +164,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   tags?: ListHyperNodesResponseBodyHyperNodesTags[];
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * i153333771756952392398
@@ -172,7 +172,7 @@ export class ListHyperNodesResponseBodyHyperNodes extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-b
@@ -242,13 +242,13 @@ export class ListHyperNodesResponseBody extends $dara.Model {
   hyperNodes?: ListHyperNodesResponseBodyHyperNodes[];
   /**
    * @remarks
-   * The number of entries to return on each page. The maximum value is 100.
+   * The number of entries per page in a paged query. Maximum value: 100.
    * 
-   * Default values:
+   * Default value:
    * 
-   * • If you do not specify this parameter or you specify a value that is less than 20, the default value is 20.
+   * - If this parameter is not specified or is set to a value less than 20, the default value is 20.
    * 
-   * • If you specify a value that is greater than 100, the default value is 100.
+   * - If this parameter is set to a value greater than 100, the default value is 100.
    * 
    * @example
    * 20
@@ -256,7 +256,7 @@ export class ListHyperNodesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this parameter is not returned, no more results are available.
+   * The NextToken for the next page. Include this value when requesting the next page.
    * 
    * @example
    * 7ed93fda-5e7f-436a-ae5a-bd8e6b04e36b
@@ -264,7 +264,7 @@ export class ListHyperNodesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * E64F9128-E2FC-5998-B769-199B0CB18138

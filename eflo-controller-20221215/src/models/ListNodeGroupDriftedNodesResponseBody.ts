@@ -13,7 +13,7 @@ export class ListNodeGroupDriftedNodesResponseBodyNodesPropertyDrifts extends $d
   actualValue?: string;
   /**
    * @remarks
-   * The minimum action required to apply the TargetValue: Refresh / Reboot / Reimage. For more information, refer to the MaxDisruptiveAction parameter description in the RefreshNodeGroupNodes operation.
+   * The minimum action required to apply the TargetValue: Refresh, Reboot, or Reimage. For more information, refer to the MaxDisruptiveAction parameter of the RefreshNodeGroupNodes operation.
    * 
    * @example
    * Refresh
@@ -65,7 +65,7 @@ export class ListNodeGroupDriftedNodesResponseBodyNodesPropertyDrifts extends $d
 export class ListNodeGroupDriftedNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * node-001
@@ -105,7 +105,7 @@ export class ListNodeGroupDriftedNodesResponseBodyNodes extends $dara.Model {
 export class ListNodeGroupDriftedNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page for a single query.
+   * The maximum number of entries per page.
    * 
    * @example
    * 20
@@ -113,7 +113,7 @@ export class ListNodeGroupDriftedNodesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call. An empty value indicates that no more pages are available.
+   * The pagination token returned by this call. An empty value indicates that no more pages exist.
    * 
    * @example
    * 3a6b93229825ac667104463b56790c91

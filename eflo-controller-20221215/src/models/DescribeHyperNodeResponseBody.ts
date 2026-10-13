@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHyperNodeResponseBodyNodesDisks extends $dara.Model {
   /**
    * @remarks
-   * The packet classification. Valid values:
+   * The packet category. Valid values:
    * 
-   * - **DOWNLINK_PACKET**: downlink packet
-   * 
-   * - **UPLINK_PACKET**: uplink packet
+   * - **DOWNLINK_PACKET**: downlink packet.
+   * - **UPLINK_PACKET**: uplink packet.
    * 
    * @example
    * DOWNLINK_PACKET
@@ -25,11 +24,9 @@ export class DescribeHyperNodeResponseBodyNodesDisks extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * When you create an enhanced SSD (ESSD) to use as a system disk, set the performance level of the disk. Valid values:
-   * 
-   * - PL0: A maximum of 10,000 random read/write input/output operations per second (IOPS) per disk.
-   * 
-   * - PL1: A maximum of 50,000 random read/write IOPS per disk.
+   * The performance level (PL) of the cloud disk when an ESSD is created as the system cloud disk. Settings:
+   * - PL0: A maximum of 10,000 random read/write IOPS per standard SSD.
+   * - PL1: A maximum of 50,000 random read/write IOPS per standard SSD.
    * 
    * @example
    * PL0
@@ -47,9 +44,8 @@ export class DescribeHyperNodeResponseBodyNodesDisks extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * - system: system disk.
-   * 
-   * - data: data disk.
+   * - system: system cloud disk.
+   * - data: data cloud disk.
    * 
    * @example
    * system
@@ -87,7 +83,7 @@ export class DescribeHyperNodeResponseBodyNodesDisks extends $dara.Model {
 export class DescribeHyperNodeResponseBodyNodesNetworks extends $dara.Model {
   /**
    * @remarks
-   * The name of the network interface on the machine.
+   * The bond interface name of the machine.
    * 
    * @example
    * bond0
@@ -95,7 +91,7 @@ export class DescribeHyperNodeResponseBodyNodesNetworks extends $dara.Model {
   bondName?: string;
   /**
    * @remarks
-   * The IP address of the machine in the virtual private cloud (VPC).
+   * The IP address of the machine in the VPC.
    * 
    * @example
    * 192.168.22.2
@@ -169,7 +165,7 @@ export class DescribeHyperNodeResponseBodyNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The state of the node.
+   * The node status.
    * 
    * @example
    * Using
@@ -177,7 +173,7 @@ export class DescribeHyperNodeResponseBodyNodes extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * The state.
+   * The status.
    * 
    * @example
    * InProgress
@@ -257,7 +253,7 @@ export class DescribeHyperNodeResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The time when the hyper node was created.
+   * The creation time. The time is in ISO 8601 format. The Z in the example indicates UTC.
    * 
    * @example
    * 2022-11-30T02:00:00.852Z
@@ -265,7 +261,7 @@ export class DescribeHyperNodeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time is in ISO 8601 format.
    * 
    * @example
    * 2125-06-24T16:52:44.318000
@@ -297,7 +293,7 @@ export class DescribeHyperNodeResponseBody extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * The ID of the hyper node.
+   * The hypernode ID.
    * 
    * @example
    * e01-cn-zvp2tgykr08
@@ -321,7 +317,7 @@ export class DescribeHyperNodeResponseBody extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The name of the node group.
+   * The node group name.
    * 
    * @example
    * lisan-nodegroup
@@ -334,7 +330,7 @@ export class DescribeHyperNodeResponseBody extends $dara.Model {
   nodes?: DescribeHyperNodeResponseBodyNodes[];
   /**
    * @remarks
-   * The state of the hyper node.
+   * The hypernode status.
    * 
    * @example
    * Using
@@ -358,7 +354,7 @@ export class DescribeHyperNodeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The state of the node.
+   * The node status.
    * 
    * @example
    * Operating

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterNodesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The key of the node tag.
    * 
    * @example
    * my_key
@@ -13,7 +13,7 @@ export class ListClusterNodesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The value of the node tag.
    * 
    * @example
    * my_value
@@ -55,7 +55,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page. The default value is 20.
+   * The number of entries per page in a paged query. Default value: 20.
    * 
    * @example
    * 20
@@ -63,7 +63,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for pagination. To retrieve the next page of results, set this parameter to the NextToken value returned from the previous call.
+   * The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
    * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
@@ -79,7 +79,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The operating states for filtering nodes.
+   * The list of node states.
    */
   operatingStates?: string[];
   /**
@@ -92,7 +92,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags for filtering nodes.
+   * The tag information.
    */
   tags?: ListClusterNodesRequestTags[];
   static names(): { [key: string]: string } {

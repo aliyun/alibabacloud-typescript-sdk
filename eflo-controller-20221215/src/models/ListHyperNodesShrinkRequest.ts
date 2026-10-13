@@ -45,7 +45,7 @@ export class ListHyperNodesShrinkRequestTags extends $dara.Model {
 export class ListHyperNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * Standard_Cluster
@@ -69,7 +69,7 @@ export class ListHyperNodesShrinkRequest extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * e01-cn-zvp2tgykr08
@@ -90,13 +90,13 @@ export class ListHyperNodesShrinkRequest extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. The maximum value is 100.
+   * The number of entries per page in a paged query. Maximum value: 100.
    * 
-   * Default values:
+   * Default value:
    * 
-   * • If you do not specify this parameter or you specify a value that is less than 20, the default value is 20.
+   * - If this parameter is not specified or is set to a value less than 20, the default value is 20.
    * 
-   * • If you specify a value that is greater than 100, the default value is 100.
+   * - If this parameter is set to a value greater than 100, the default value is 100.
    * 
    * @example
    * 100
@@ -104,7 +104,7 @@ export class ListHyperNodesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Set this parameter to the NextToken value that is returned from a previous call.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * 3a6b93229825ac667104463b56790c91
@@ -120,12 +120,12 @@ export class ListHyperNodesShrinkRequest extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * The state of the node. If you do not specify this parameter, nodes in all states are returned. Valid values: Extending, UnusedNodeStopped, UnusedNodeStopping, Unused, Using, ReleaseLocking, Operating, Cutting, ClusterNodeStopped, UnusedNodeRecovering, ClusterNodeStopping, ClusterNodeRecovering, and Replacing.
+   * The node status. If this parameter is not specified, all statuses are returned. Valid values: Extending, UnusedNodeStopped, UnusedNodeStopping, Unused, Using, ReleaseLocking, Operating, Cutting, ClusterNodeStopped, UnusedNodeRecovering, ClusterNodeStopping, ClusterNodeRecovering, and Replacing.
    */
   operatingStatesShrink?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmwfm33rlt6zi
@@ -133,12 +133,12 @@ export class ListHyperNodesShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    */
   tags?: ListHyperNodesShrinkRequestTags[];
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i

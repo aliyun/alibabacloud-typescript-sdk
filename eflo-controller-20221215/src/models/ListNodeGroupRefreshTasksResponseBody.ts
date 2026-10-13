@@ -73,7 +73,7 @@ export class ListNodeGroupRefreshTasksResponseBodyNodeGroupRefreshTasks extends 
   status?: string;
   /**
    * @remarks
-   * The total number of nodes to refresh in this task.
+   * The total number of nodes to be refreshed by the task.
    * 
    * @example
    * 100
@@ -127,7 +127,7 @@ export class ListNodeGroupRefreshTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. An empty value indicates that no more results exist.
+   * The pagination token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069
