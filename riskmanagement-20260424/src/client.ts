@@ -619,6 +619,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Immediately ends a penetration test.
+   * 
+   * @param request - EndPenetrationTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EndPenetrationTestResponse
+   */
+  async endPenetrationTestWithOptions(request: $_model.EndPenetrationTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EndPenetrationTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EndPenetrationTest",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EndPenetrationTestResponse>(await this.callApi(params, req, runtime), new $_model.EndPenetrationTestResponse({}));
+  }
+
+  /**
+   * Immediately ends a penetration test.
+   * 
+   * @param request - EndPenetrationTestRequest
+   * @returns EndPenetrationTestResponse
+   */
+  async endPenetrationTest(request: $_model.EndPenetrationTestRequest): Promise<$_model.EndPenetrationTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.endPenetrationTestWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the analysis results of alert records.
    * 
    * @param tmpReq - GetAlertRecordAnalysisResultRequest
@@ -1643,6 +1685,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a penetration test application.
+   * 
+   * @param request - QueryPenetrationTestDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPenetrationTestDetailResponse
+   */
+  async queryPenetrationTestDetailWithOptions(request: $_model.QueryPenetrationTestDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPenetrationTestDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPenetrationTestDetail",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPenetrationTestDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryPenetrationTestDetailResponse({}));
+  }
+
+  /**
+   * Queries the details of a penetration test application.
+   * 
+   * @param request - QueryPenetrationTestDetailRequest
+   * @returns QueryPenetrationTestDetailResponse
+   */
+  async queryPenetrationTestDetail(request: $_model.QueryPenetrationTestDetailRequest): Promise<$_model.QueryPenetrationTestDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryPenetrationTestDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询渗透测试申请列表
+   * 
+   * @param request - QueryPenetrationTestListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPenetrationTestListResponse
+   */
+  async queryPenetrationTestListWithOptions(request: $_model.QueryPenetrationTestListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPenetrationTestListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPenetrationTestList",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPenetrationTestListResponse>(await this.callApi(params, req, runtime), new $_model.QueryPenetrationTestListResponse({}));
+  }
+
+  /**
+   * 查询渗透测试申请列表
+   * 
+   * @param request - QueryPenetrationTestListRequest
+   * @returns QueryPenetrationTestListResponse
+   */
+  async queryPenetrationTestList(request: $_model.QueryPenetrationTestListRequest): Promise<$_model.QueryPenetrationTestListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryPenetrationTestListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries cloud resource control events.
    * 
    * @param tmpReq - QueryResourceControlEventsRequest
@@ -2008,6 +2138,84 @@ export default class Client extends OpenApi {
   async submitApplyRecord(request: $_model.SubmitApplyRecordRequest): Promise<$_model.SubmitApplyRecordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitApplyRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a penetration test application.
+   * 
+   * @param request - SubmitPenetrationTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitPenetrationTestResponse
+   */
+  async submitPenetrationTestWithOptions(request: $_model.SubmitPenetrationTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitPenetrationTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetList)) {
+      query["AssetList"] = request.assetList;
+    }
+
+    if (!$dara.isNull(request.isThirdpartyTest)) {
+      query["IsThirdpartyTest"] = request.isThirdpartyTest;
+    }
+
+    if (!$dara.isNull(request.testContent)) {
+      query["TestContent"] = request.testContent;
+    }
+
+    if (!$dara.isNull(request.testEndDate)) {
+      query["TestEndDate"] = request.testEndDate;
+    }
+
+    if (!$dara.isNull(request.testSourceIps)) {
+      query["TestSourceIps"] = request.testSourceIps;
+    }
+
+    if (!$dara.isNull(request.testStartDate)) {
+      query["TestStartDate"] = request.testStartDate;
+    }
+
+    if (!$dara.isNull(request.testSteps)) {
+      query["TestSteps"] = request.testSteps;
+    }
+
+    if (!$dara.isNull(request.thirdpartyEmail)) {
+      query["ThirdpartyEmail"] = request.thirdpartyEmail;
+    }
+
+    if (!$dara.isNull(request.thirdpartyMobile)) {
+      query["ThirdpartyMobile"] = request.thirdpartyMobile;
+    }
+
+    if (!$dara.isNull(request.thirdpartyTester)) {
+      query["ThirdpartyTester"] = request.thirdpartyTester;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitPenetrationTest",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitPenetrationTestResponse>(await this.callApi(params, req, runtime), new $_model.SubmitPenetrationTestResponse({}));
+  }
+
+  /**
+   * Submits a penetration test application.
+   * 
+   * @param request - SubmitPenetrationTestRequest
+   * @returns SubmitPenetrationTestResponse
+   */
+  async submitPenetrationTest(request: $_model.SubmitPenetrationTestRequest): Promise<$_model.SubmitPenetrationTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitPenetrationTestWithOptions(request, runtime);
   }
 
   /**
