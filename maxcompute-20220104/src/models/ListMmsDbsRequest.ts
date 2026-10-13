@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMmsDbsRequestSorter extends $dara.Model {
   /**
    * @remarks
-   * Number of data rows in the database
+   * The number of data rows in the database.
    * 
    * @example
    * desc
@@ -13,7 +13,7 @@ export class ListMmsDbsRequestSorter extends $dara.Model {
   numRows?: string;
   /**
    * @remarks
-   * Size of data in the database
+   * The size of data in the database.
    * 
    * @example
    * asc
@@ -21,7 +21,7 @@ export class ListMmsDbsRequestSorter extends $dara.Model {
   size?: string;
   /**
    * @remarks
-   * Update time
+   * The update time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 15:44:17
@@ -55,7 +55,7 @@ export class ListMmsDbsRequestSorter extends $dara.Model {
 export class ListMmsDbsRequest extends $dara.Model {
   /**
    * @remarks
-   * Data source name
+   * The name of the data source.
    * 
    * @example
    * demo
@@ -63,7 +63,7 @@ export class ListMmsDbsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class ListMmsDbsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Number of records per page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -79,12 +79,12 @@ export class ListMmsDbsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Sorting conditions
+   * The sorting conditions.
    */
   sorter?: ListMmsDbsRequestSorter;
   /**
    * @remarks
-   * Data source status
+   * The status of the data source.
    * 
    * @example
    * STARTED

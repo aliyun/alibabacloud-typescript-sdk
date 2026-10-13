@@ -13,7 +13,7 @@ export class ListQuotasRequest extends $dara.Model {
   billingType?: string;
   /**
    * @remarks
-   * The token that specifies the position from which to start returning results. The results are sorted in alphabetical order.
+   * The marker after which the results are returned in alphabetical order.
    * 
    * @example
    * cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
@@ -21,7 +21,7 @@ export class ListQuotasRequest extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of items to return.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class ListQuotasRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The cost allocation tags that are used to filter quotas. You can create cost allocation tags in the Tag service.
+   * The billing tags used to filter quota objects. Billing tags are created by users for cloud products.
    * 
    * @example
    * {"tag":"this_is_tag_demo"}

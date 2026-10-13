@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMmsTasksResponseBodyDataObjectList extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The task creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-10-25 04:21:01
@@ -45,7 +45,7 @@ export class ListMmsTasksResponseBodyDataObjectList extends $dara.Model {
   dstTableName?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-10-25 07:21:01
@@ -77,7 +77,7 @@ export class ListMmsTasksResponseBodyDataObjectList extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The number of retries that have been performed.
+   * The number of retries.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class ListMmsTasksResponseBodyDataObjectList extends $dara.Model {
   srcDbName?: string;
   /**
    * @remarks
-   * The source schema name in a three-level namespace.
+   * The source schema name. This is the schema in the three-level namespace.
    * 
    * @example
    * default
@@ -133,7 +133,7 @@ export class ListMmsTasksResponseBodyDataObjectList extends $dara.Model {
   srcTableName?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-10-25 06:21:01
@@ -295,7 +295,7 @@ export class ListMmsTasksResponseBodyData extends $dara.Model {
 export class ListMmsTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListMmsTasksResponseBodyData;
   /**

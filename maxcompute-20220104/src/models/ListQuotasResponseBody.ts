@@ -45,11 +45,9 @@ export class ListQuotasResponseBodyDataQuotaInfoListTags extends $dara.Model {
 export class ListQuotasResponseBodyDataQuotaInfoListBillingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
-   * 
-   * - subscription: The subscription billing method.
-   * 
-   * - payasyougo: The pay-as-you-go billing method.
+   * The billing method. Valid values:
+   * - subscription: subscription quota.
+   * - payasyougo: pay-as-you-go quota.
    * 
    * @example
    * subscription
@@ -57,7 +55,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListBillingPolicy extends $dara.
   billingMethod?: string;
   /**
    * @remarks
-   * The specifications of the order.
+   * The order specification.
    * 
    * @example
    * OdpsStandard
@@ -65,7 +63,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListBillingPolicy extends $dara.
   odpsSpecCode?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 45245678
@@ -99,12 +97,12 @@ export class ListQuotasResponseBodyDataQuotaInfoListBillingPolicy extends $dara.
 export class ListQuotasResponseBodyDataQuotaInfoListSaleTag extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the resources. This ID is also used in the billing system. You can use this ID to associate the costs of a quota with a tag.
+   * The identifier of the MaxCompute quota object. This identifier also exists in the Alibaba Cloud billing subsystem. You can use this identifier to associate all fees of the quota object with a specific tag.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values: quota and project.
+   * The object type. Only quota and project are supported.
    * 
    * @example
    * "quota"
@@ -139,7 +137,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSaleTag extends $dara.Model 
 export class ListQuotasResponseBodyDataQuotaInfoListScheduleInfo extends $dara.Model {
   /**
    * @remarks
-   * The quota plan that is currently in effect.
+   * The quota plan that takes effect according to the schedule.
    * 
    * @example
    * planA
@@ -147,7 +145,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListScheduleInfo extends $dara.M
   currPlan?: string;
   /**
    * @remarks
-   * The time when the current plan took effect.
+   * The time when currPlan is scheduled. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 0800
@@ -155,7 +153,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListScheduleInfo extends $dara.M
   currTime?: string;
   /**
    * @remarks
-   * The next quota plan that is scheduled to take effect.
+   * The quota plan that will take effect according to the schedule.
    * 
    * @example
    * planB
@@ -163,7 +161,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListScheduleInfo extends $dara.M
   nextPlan?: string;
   /**
    * @remarks
-   * The time when the next plan is scheduled to take effect.
+   * The time when next_plan is scheduled. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 1700
@@ -171,7 +169,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListScheduleInfo extends $dara.M
   nextTime?: string;
   /**
    * @remarks
-   * The quota plan that takes effect immediately. This parameter is returned only when a user triggers an immediate plan that is different from the current plan.
+   * The quota plan that takes effect immediately. This parameter is not empty if the user triggers immediate effect and the plan is different from curr_plan.
    * 
    * @example
    * planC
@@ -179,7 +177,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListScheduleInfo extends $dara.M
   oncePlan?: string;
   /**
    * @remarks
-   * The time when the immediate plan was triggered.
+   * The time when the immediate effect is triggered. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 1500
@@ -239,11 +237,9 @@ export class ListQuotasResponseBodyDataQuotaInfoListScheduleInfo extends $dara.M
 export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListBillingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
-   * 
-   * - subscription: The subscription billing method.
-   * 
-   * - payasyougo: The pay-as-you-go billing method.
+   * The billing method. Valid values:
+   * - subscription: indicates a subscription quota.
+   * - payasyougo: indicates a pay-as-you-go quota.
    * 
    * @example
    * subscription
@@ -251,7 +247,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListBillingPolic
   billingMethod?: string;
   /**
    * @remarks
-   * The specifications of the order.
+   * The order specification.
    * 
    * @example
    * OdpsStandard
@@ -259,7 +255,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListBillingPolic
   odpsSpecCode?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 45245678
@@ -295,7 +291,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
   autoScaleCPULimit?: number;
   /**
    * @remarks
-   * The value of elastically reserved CUs.
+   * The number of elastic reserved CUs.
    * 
    * @example
    * 50
@@ -303,7 +299,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
   elasticReservedCU?: number;
   /**
    * @remarks
-   * Specifies whether to enable priority-based scheduling.
+   * Specifies whether priority is enabled.
    * 
    * @example
    * true
@@ -311,7 +307,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
   enablePriority?: boolean;
   /**
    * @remarks
-   * Specifies whether the resource is exclusive.
+   * Specifies whether the quota is exclusive.
    * 
    * @example
    * true
@@ -330,7 +326,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
   maxGu?: number;
   /**
    * @remarks
-   * The minimum number of guaranteed reserved CUs.
+   * The minimum number of reserved CUs.
    * 
    * This parameter is required.
    * 
@@ -349,7 +345,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
   schedulerType?: string;
   /**
    * @remarks
-   * The upper limit of CUs for a single job.
+   * The CU limit for a single job.
    * 
    * @example
    * 10
@@ -402,12 +398,12 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
 export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListSaleTag extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the MaxCompute quota object. This identifier also exists in the Alibaba Cloud sales subsystem. It associates the costs of the quota object with a tag.
+   * The identifier of the MaxCompute quota object. This identifier also exists in the Alibaba Cloud billing subsystem. You can use this identifier to associate all fees of the quota object with a specific tag.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The type of the object. Only \\`quota\\` and \\`project\\` are supported.
+   * The object type. Only quota and project are supported.
    * 
    * @example
    * "quota"
@@ -442,7 +438,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListSaleTag exte
 export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListScheduleInfo extends $dara.Model {
   /**
    * @remarks
-   * The quota plan that is currently in effect.
+   * The quota plan that takes effect according to the schedule.
    * 
    * @example
    * planA
@@ -450,7 +446,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListScheduleInfo
   currPlan?: string;
   /**
    * @remarks
-   * The time when the current plan took effect.
+   * The time when currPlan is scheduled. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 0800
@@ -458,7 +454,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListScheduleInfo
   currTime?: string;
   /**
    * @remarks
-   * The next quota plan that is scheduled to take effect.
+   * The quota plan that will take effect according to the schedule.
    * 
    * @example
    * planB
@@ -466,7 +462,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListScheduleInfo
   nextPlan?: string;
   /**
    * @remarks
-   * The time when the next plan is scheduled to take effect.
+   * The time when next_plan is scheduled. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 1700
@@ -474,7 +470,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListScheduleInfo
   nextTime?: string;
   /**
    * @remarks
-   * The quota plan that takes effect immediately. This parameter is returned only if a user triggers an immediate plan that is different from `currPlan`.
+   * The quota plan that takes effect immediately. This parameter is not empty if the user triggers immediate effect and the plan is different from curr_plan.
    * 
    * @example
    * planC
@@ -482,7 +478,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListScheduleInfo
   oncePlan?: string;
   /**
    * @remarks
-   * The time when the immediate-effect plan was triggered.
+   * The time when the immediate effect is triggered. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 1500
@@ -542,12 +538,12 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListScheduleInfo
 export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $dara.Model {
   /**
    * @remarks
-   * The billing information.
+   * The order information.
    */
   billingPolicy?: ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListBillingPolicy;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * AT-120N
@@ -555,7 +551,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   cluster?: string;
   /**
    * @remarks
-   * The time when the resource was created.
+   * The time when the resource was created. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2022-09-06T02:14:44Z
@@ -563,7 +559,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   createTime?: number;
   /**
    * @remarks
-   * The creator of the resource. This is the UID of an Alibaba Cloud account.
+   * The UID of the Alibaba Cloud account that created the resource.
    * 
    * @example
    * 672863518
@@ -571,7 +567,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   creatorId?: string;
   /**
    * @remarks
-   * The ID of the sub-quota.
+   * The ID of the secondary quota.
    * 
    * @example
    * 1000048
@@ -579,7 +575,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   id?: string;
   /**
    * @remarks
-   * The name of the sub-quota.
+   * The name of the secondary quota.
    * 
    * @example
    * subquotaA
@@ -587,7 +583,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   name?: string;
   /**
    * @remarks
-   * The alias of the sub-quota.
+   * The nickname of the secondary quota.
    * 
    * @example
    * subquotaA
@@ -615,7 +611,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   parentId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -623,17 +619,17 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   regionId?: string;
   /**
    * @remarks
-   * The identifier of the MaxCompute quota object. This identifier is the same as the one in the Alibaba Cloud bill and is used in tagging scenarios.
+   * The identifier of the MaxCompute quota object. This identifier is consistent with the identifier in Alibaba Cloud billing and is used in tagging scenarios.
    */
   saleTag?: ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListSaleTag;
   /**
    * @remarks
-   * The time-based scheduling information.
+   * The time-sharing information.
    */
   scheduleInfo?: ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListScheduleInfo;
   /**
    * @remarks
-   * The status of the quota.
+   * The resource status.
    * 
    * @example
    * ON
@@ -649,7 +645,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   tag?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 280747109771520
@@ -657,7 +653,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
   tenantId?: string;
   /**
    * @remarks
-   * The type of the resource system. This parameter corresponds to the resourceSystemType parameter of the control cluster.
+   * Corresponds to the resourceSystemType field of the control cluster.
    * 
    * @example
    * FUXI_ONLINE
@@ -744,12 +740,12 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   tags?: ListQuotasResponseBodyDataQuotaInfoListTags[];
   /**
    * @remarks
-   * The billing information.
+   * The order information.
    */
   billingPolicy?: ListQuotasResponseBodyDataQuotaInfoListBillingPolicy;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * AT-120N
@@ -757,7 +753,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * The time when the quota was created.
+   * The time when the resource was created. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2022-09-06T02:14:44Z
@@ -765,7 +761,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the account that created the quota. This ID is an Alibaba Cloud account UID.
+   * The UID of the Alibaba Cloud account that created the resource.
    * 
    * @example
    * 672863518
@@ -773,7 +769,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The ID of the quota.
+   * quota id
    * 
    * @example
    * 0
@@ -781,7 +777,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the quota.
+   * The quota name.
    * 
    * @example
    * quota_a
@@ -789,7 +785,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The alias of the quota.
+   * The quota alias.
    * 
    * @example
    * quota_nickname
@@ -797,7 +793,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * The quota description.
+   * The description of the quota.
    * 
    * @example
    * {"minCU":10,	
@@ -817,7 +813,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -825,17 +821,17 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The sales tag of the quota. This tag is the same as the billing identifier and is used for cost allocation.
+   * The identifier of the MaxCompute quota object. This identifier is consistent with the identifier in Alibaba Cloud billing and is used in tagging scenarios.
    */
   saleTag?: ListQuotasResponseBodyDataQuotaInfoListSaleTag;
   /**
    * @remarks
-   * The time-based scheduling information.
+   * The time-sharing information.
    */
   scheduleInfo?: ListQuotasResponseBodyDataQuotaInfoListScheduleInfo;
   /**
    * @remarks
-   * The status of the quota.
+   * The resource status.
    * 
    * @example
    * ON
@@ -843,12 +839,12 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The information about the sub-quotas.
+   * The secondary quota information.
    */
   subQuotaInfoList?: ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList[];
   /**
    * @remarks
-   * The tag of the quota.
+   * The resource tag of the quota.
    * 
    * @example
    * abc
@@ -856,7 +852,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 280747109771520
@@ -864,7 +860,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The type of the resource system. This parameter corresponds to the resourceSystemType parameter of the control cluster.
+   * Corresponds to the resourceSystemType field of the control cluster.
    * 
    * @example
    * FUXI_ONLINE
@@ -872,7 +868,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version number.
+   * The version.
    * 
    * @example
    * 1
@@ -956,7 +952,7 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $dara.Model {
 export class ListQuotasResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The token for the next page of results. If this parameter has a value, more results are available. To get the next page, include this value in the \\`NextToken\\` parameter of the next request.
+   * The pagination token. This operation supports only sequential pagination. A non-empty NextToken value indicates that more data is available. Pass the NextToken value as a parameter in the next request to retrieve the next page.
    * 
    * @example
    * "abcde"
@@ -964,7 +960,7 @@ export class ListQuotasResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The results are returned in alphabetical order, starting from the entry after the marker.
+   * The marker after which the results are returned in alphabetical order.
    * 
    * @example
    * cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
@@ -972,7 +968,7 @@ export class ListQuotasResponseBodyData extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of results returned per page.
    * 
    * @example
    * 10
@@ -1016,7 +1012,7 @@ export class ListQuotasResponseBodyData extends $dara.Model {
 export class ListQuotasResponseBodyQuotaInfoListTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * Department
@@ -1024,7 +1020,7 @@ export class ListQuotasResponseBodyQuotaInfoListTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * 1
@@ -1056,11 +1052,9 @@ export class ListQuotasResponseBodyQuotaInfoListTags extends $dara.Model {
 export class ListQuotasResponseBodyQuotaInfoListBillingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
-   * 
-   * - subscription: The subscription billing method.
-   * 
-   * - payasyougo: The pay-as-you-go billing method.
+   * The billing method. Valid values:
+   * - subscription: subscription quota.
+   * - payasyougo: pay-as-you-go quota.
    * 
    * @example
    * subscription
@@ -1068,7 +1062,7 @@ export class ListQuotasResponseBodyQuotaInfoListBillingPolicy extends $dara.Mode
   billingMethod?: string;
   /**
    * @remarks
-   * The specifications of the order.
+   * The order specification.
    * 
    * @example
    * OdpsStandard
@@ -1076,7 +1070,7 @@ export class ListQuotasResponseBodyQuotaInfoListBillingPolicy extends $dara.Mode
   odpsSpecCode?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 45245678
@@ -1110,12 +1104,12 @@ export class ListQuotasResponseBodyQuotaInfoListBillingPolicy extends $dara.Mode
 export class ListQuotasResponseBodyQuotaInfoListSaleTag extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the resources. This ID is also used in the billing system. You can use this ID to associate the costs of a quota with a tag.
+   * The identifier of the MaxCompute quota object. This identifier also exists in the Alibaba Cloud billing subsystem. You can use this identifier to associate all fees of the quota object with a specific tag.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values: quota and project.
+   * The object type. Only quota and project are supported.
    * 
    * @example
    * "project"
@@ -1150,7 +1144,7 @@ export class ListQuotasResponseBodyQuotaInfoListSaleTag extends $dara.Model {
 export class ListQuotasResponseBodyQuotaInfoListScheduleInfo extends $dara.Model {
   /**
    * @remarks
-   * The quota plan that is currently in effect.
+   * The quota plan that takes effect according to the schedule.
    * 
    * @example
    * planA
@@ -1158,7 +1152,7 @@ export class ListQuotasResponseBodyQuotaInfoListScheduleInfo extends $dara.Model
   currPlan?: string;
   /**
    * @remarks
-   * The time when the current plan took effect.
+   * The time when currPlan is scheduled. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 0800
@@ -1166,7 +1160,7 @@ export class ListQuotasResponseBodyQuotaInfoListScheduleInfo extends $dara.Model
   currTime?: string;
   /**
    * @remarks
-   * The next quota plan that is scheduled to take effect.
+   * The quota plan that will take effect according to the schedule.
    * 
    * @example
    * planB
@@ -1174,7 +1168,7 @@ export class ListQuotasResponseBodyQuotaInfoListScheduleInfo extends $dara.Model
   nextPlan?: string;
   /**
    * @remarks
-   * The time when the next plan is scheduled to take effect.
+   * The time when next_plan is scheduled. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 1700
@@ -1182,7 +1176,7 @@ export class ListQuotasResponseBodyQuotaInfoListScheduleInfo extends $dara.Model
   nextTime?: string;
   /**
    * @remarks
-   * The quota plan that takes effect immediately. This parameter is returned only when a user triggers an immediate plan that is different from the current plan.
+   * The quota plan that takes effect immediately. This parameter is not empty if the user triggers immediate effect and the plan is different from curr_plan.
    * 
    * @example
    * planC
@@ -1190,7 +1184,7 @@ export class ListQuotasResponseBodyQuotaInfoListScheduleInfo extends $dara.Model
   oncePlan?: string;
   /**
    * @remarks
-   * The time when the immediate plan was triggered.
+   * The time when the immediate effect is triggered. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 1500
@@ -1250,11 +1244,9 @@ export class ListQuotasResponseBodyQuotaInfoListScheduleInfo extends $dara.Model
 export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListBillingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
-   * 
-   * - subscription: The subscription billing method.
-   * 
-   * - payasyougo: The pay-as-you-go billing method.
+   * The billing method. Valid values:
+   * - subscription: subscription quota.
+   * - payasyougo: pay-as-you-go quota.
    * 
    * @example
    * subscription
@@ -1262,7 +1254,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListBillingPolicy ex
   billingMethod?: string;
   /**
    * @remarks
-   * The specifications of the order.
+   * The order specification.
    * 
    * @example
    * OdpsStandard
@@ -1270,7 +1262,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListBillingPolicy ex
   odpsSpecCode?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 45245678
@@ -1306,7 +1298,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
   autoScaleCPULimit?: number;
   /**
    * @remarks
-   * The elastically reserved CUs.
+   * The number of elastic reserved CUs.
    * 
    * @example
    * 50
@@ -1314,7 +1306,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
   elasticReservedCU?: number;
   /**
    * @remarks
-   * Indicates whether to enable priority-based scheduling.
+   * Specifies whether priority is enabled.
    * 
    * @example
    * true
@@ -1322,7 +1314,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
   enablePriority?: boolean;
   /**
    * @remarks
-   * Indicates whether the resource is exclusive.
+   * Specifies whether the quota is exclusive.
    * 
    * @example
    * true
@@ -1330,7 +1322,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
   forceReservedMin?: boolean;
   /**
    * @remarks
-   * The maximum reserved computing units (CUs).
+   * The upper limit of reserved CUs.
    * 
    * This parameter is required.
    * 
@@ -1341,7 +1333,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
   maxGu?: number;
   /**
    * @remarks
-   * The minimum reserved CUs.
+   * The minimum number of reserved CUs.
    * 
    * This parameter is required.
    * 
@@ -1360,7 +1352,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
   schedulerType?: string;
   /**
    * @remarks
-   * The maximum CUs for a single job.
+   * The CU limit for a single job.
    * 
    * @example
    * 10
@@ -1413,12 +1405,12 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
 export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListSaleTag extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the resources. This ID is also used in the billing system. You can use this ID to associate the costs of a quota with a tag.
+   * The identifier of the MaxCompute quota object. This identifier also exists in the Alibaba Cloud billing subsystem. You can use this identifier to associate all fees of the quota object with a specific tag.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values: quota and project.
+   * The object type. Only quota and project are supported.
    * 
    * @example
    * "quota"
@@ -1453,7 +1445,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListSaleTag extends 
 export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListScheduleInfo extends $dara.Model {
   /**
    * @remarks
-   * The quota plan that is currently in effect.
+   * The quota plan that takes effect according to the schedule.
    * 
    * @example
    * planA
@@ -1461,7 +1453,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListScheduleInfo ext
   currPlan?: string;
   /**
    * @remarks
-   * The time when the current plan took effect.
+   * The time when currPlan is scheduled. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 0800
@@ -1469,7 +1461,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListScheduleInfo ext
   currTime?: string;
   /**
    * @remarks
-   * The next quota plan that is scheduled to take effect.
+   * The quota plan that will take effect according to the schedule.
    * 
    * @example
    * planB
@@ -1477,7 +1469,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListScheduleInfo ext
   nextPlan?: string;
   /**
    * @remarks
-   * The time when the next plan is scheduled to take effect.
+   * The time when next_plan is scheduled. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 1700
@@ -1485,7 +1477,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListScheduleInfo ext
   nextTime?: string;
   /**
    * @remarks
-   * The quota plan that takes effect immediately. This parameter is returned only when a user triggers an immediate plan that is different from the current plan.
+   * The quota plan that takes effect immediately. This parameter is not empty if the user triggers immediate effect and the plan is different from curr_plan.
    * 
    * @example
    * planC
@@ -1493,7 +1485,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListScheduleInfo ext
   oncePlan?: string;
   /**
    * @remarks
-   * The time when the immediate plan was triggered.
+   * The time when the immediate effect is triggered. The time is in HHmm format. For example, 0800 indicates 08:00.
    * 
    * @example
    * 1500
@@ -1553,12 +1545,12 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListScheduleInfo ext
 export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.Model {
   /**
    * @remarks
-   * The billing information.
+   * The order information.
    */
   billingPolicy?: ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListBillingPolicy;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * AT-120N
@@ -1566,7 +1558,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   cluster?: string;
   /**
    * @remarks
-   * The time when the quota was created.
+   * The time when the resource was created. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2022-09-06T02:14:44Z
@@ -1574,7 +1566,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The ID of the account that created the quota. This ID is an Alibaba Cloud account UID.
+   * The UID of the Alibaba Cloud account that created the resource.
    * 
    * @example
    * 672863518
@@ -1582,7 +1574,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   creatorId?: string;
   /**
    * @remarks
-   * The ID of the sub-quota.
+   * The ID of the secondary quota.
    * 
    * @example
    * 1000048
@@ -1590,7 +1582,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   id?: string;
   /**
    * @remarks
-   * The name of the sub-quota.
+   * The name of the secondary quota.
    * 
    * @example
    * subquotaA
@@ -1598,7 +1590,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The alias of the sub-quota.
+   * The alias of the secondary quota.
    * 
    * @example
    * subquotaA
@@ -1606,7 +1598,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   nickName?: string;
   /**
    * @remarks
-   * The quota description.
+   * The description of the quota.
    * 
    * @example
    * {"minCU":10,	
@@ -1626,7 +1618,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   parentId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -1634,17 +1626,17 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   regionId?: string;
   /**
    * @remarks
-   * The sales tag of the quota. This tag is the same as the billing identifier and is used for cost allocation.
+   * The identifier of the MaxCompute quota object. This identifier is consistent with the identifier in Alibaba Cloud billing and is used in tagging scenarios.
    */
   saleTag?: ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListSaleTag;
   /**
    * @remarks
-   * The time-based scheduling information.
+   * The scheduling information.
    */
   scheduleInfo?: ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListScheduleInfo;
   /**
    * @remarks
-   * The status of the quota.
+   * The resource status.
    * 
    * @example
    * ON
@@ -1652,7 +1644,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The tag of the quota.
+   * The resource tag of the quota.
    * 
    * @example
    * abc
@@ -1660,7 +1652,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   tag?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 280747109771520
@@ -1668,7 +1660,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   tenantId?: string;
   /**
    * @remarks
-   * The type of the resource system. This parameter corresponds to the resourceSystemType parameter of the control cluster.
+   * Corresponds to the resourceSystemType field of the control cluster.
    * 
    * @example
    * FUXI_ONLINE
@@ -1676,7 +1668,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
   type?: string;
   /**
    * @remarks
-   * The version number.
+   * The version.
    * 
    * @example
    * 1
@@ -1755,12 +1747,12 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   tags?: ListQuotasResponseBodyQuotaInfoListTags[];
   /**
    * @remarks
-   * The billing information.
+   * The order information.
    */
   billingPolicy?: ListQuotasResponseBodyQuotaInfoListBillingPolicy;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * AT-120N
@@ -1768,7 +1760,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * The time when the quota was created.
+   * The time when the resource was created. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2022-09-06T02:14:44Z
@@ -1776,7 +1768,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the account that created the quota. This ID is an Alibaba Cloud account UID.
+   * The UID of the Alibaba Cloud account that created the resource.
    * 
    * @example
    * 672863518
@@ -1784,7 +1776,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The ID of the quota.
+   * quota ID
    * 
    * @example
    * 0
@@ -1792,7 +1784,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the quota.
+   * The quota name.
    * 
    * @example
    * quota_a
@@ -1800,7 +1792,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The alias of the quota.
+   * The quota alias.
    * 
    * @example
    * quota_nickname
@@ -1808,7 +1800,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * The parameters of the quota.
+   * The description of the quota.
    * 
    * @example
    * {"minCU":10,	
@@ -1828,7 +1820,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -1836,17 +1828,17 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The sales tag of the quota. This tag is the same as the billing identifier and is used for cost allocation.
+   * The identifier of the MaxCompute quota object. This identifier is consistent with the identifier in Alibaba Cloud billing and is used in tagging scenarios.
    */
   saleTag?: ListQuotasResponseBodyQuotaInfoListSaleTag;
   /**
    * @remarks
-   * The time-based scheduling information.
+   * The scheduling information.
    */
   scheduleInfo?: ListQuotasResponseBodyQuotaInfoListScheduleInfo;
   /**
    * @remarks
-   * The status of the quota.
+   * The resource status.
    * 
    * @example
    * ON
@@ -1854,12 +1846,12 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The information about the sub-quotas.
+   * The secondary quota information.
    */
   subQuotaInfoList?: ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList[];
   /**
    * @remarks
-   * The tag of the quota.
+   * The resource tag of the quota.
    * 
    * @example
    * abc
@@ -1867,7 +1859,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 280747109771520
@@ -1875,7 +1867,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The type of the resource system. This parameter corresponds to the resourceSystemType parameter of the control cluster.
+   * Corresponds to the resourceSystemType field of the control cluster.
    * 
    * @example
    * FUXI_ONLINE
@@ -1883,7 +1875,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version number.
+   * The version.
    * 
    * @example
    * 1
@@ -1967,7 +1959,7 @@ export class ListQuotasResponseBodyQuotaInfoList extends $dara.Model {
 export class ListQuotasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next page of results. This operation supports only consecutive paging. If the returned value is not empty, more data is available. To get the next page, use the returned value in your next request.
+   * The pagination token. This operation supports only sequential pagination. A non-empty NextToken value indicates that more data is available. Pass the NextToken value as a parameter in the next request to retrieve the next page.
    * 
    * @example
    * AAAAAdDWBF2w6Olxc+cMPjUtUMo/CvPe4IK7f7kIQFrIZjyc
@@ -1975,12 +1967,12 @@ export class ListQuotasResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ListQuotasResponseBodyData;
   /**
    * @remarks
-   * The token that specifies the position from which to start returning results. The results are sorted in alphabetical order.
+   * The marker after which the results are returned in alphabetical order.
    * 
    * @example
    * cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
@@ -1988,7 +1980,7 @@ export class ListQuotasResponseBody extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of results returned per page.
    * 
    * @example
    * 10
@@ -2001,7 +1993,7 @@ export class ListQuotasResponseBody extends $dara.Model {
   quotaInfoList?: ListQuotasResponseBodyQuotaInfoList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bc12e6f16677875480593081d2956

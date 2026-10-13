@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the marker after which the returned list begins.
+   * Specifies the marker after which results are returned in alphabetical order.
    * 
    * @example
    * cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
@@ -13,7 +13,7 @@ export class ListResourcesRequest extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of results to return per page.
    * 
    * @example
    * 10

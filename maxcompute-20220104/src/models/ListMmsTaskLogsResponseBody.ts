@@ -13,7 +13,7 @@ export class ListMmsTaskLogsResponseBodyData extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The time when the log was created.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 15:44:00
@@ -37,7 +37,7 @@ export class ListMmsTaskLogsResponseBodyData extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 2000015
@@ -45,7 +45,7 @@ export class ListMmsTaskLogsResponseBodyData extends $dara.Model {
   sourceId?: number;
   /**
    * @remarks
-   * The migration task status.
+   * The status of the migration task.
    * 
    * @example
    * DATA_DOING
@@ -53,7 +53,7 @@ export class ListMmsTaskLogsResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The migration task ID.
+   * The ID of the migration task.
    * 
    * @example
    * 4023
@@ -95,7 +95,7 @@ export class ListMmsTaskLogsResponseBodyData extends $dara.Model {
 export class ListMmsTaskLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of logs.
+   * The list of logs.
    */
   data?: ListMmsTaskLogsResponseBodyData[];
   /**

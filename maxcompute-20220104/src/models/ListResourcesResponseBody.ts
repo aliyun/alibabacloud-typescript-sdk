@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcesResponseBodyDataResources extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
-   * Filr type resource
+   * file type resource
    */
   comment?: string;
   /**
    * @remarks
-   * The Base64-encoded 128-bit MD5 hash value of the HTTP request body.
+   * The Base64-encoded 128-bit MD5 hash of the HTTP request body.
    * 
    * @example
    * MACiECZtnLiNkNS1v5****=1
@@ -21,7 +21,7 @@ export class ListResourcesResponseBodyDataResources extends $dara.Model {
   contentMD5?: string;
   /**
    * @remarks
-   * The time when the resource was created.
+   * The creation time in ISO 8601 format in the UTC time zone.
    * 
    * @example
    * 2022-01-29T03:34:09Z
@@ -37,7 +37,7 @@ export class ListResourcesResponseBodyDataResources extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the resource was modified.
+   * The last modification time in ISO 8601 format in the UTC time zone.
    * 
    * @example
    * 2023-04-18T06:15:05Z
@@ -45,7 +45,7 @@ export class ListResourcesResponseBodyDataResources extends $dara.Model {
   lastModifiedTime?: number;
   /**
    * @remarks
-   * The user who updated the resource.
+   * The user who last updated the resource.
    * 
    * @example
    * ALIYUN$xxx@test.aliyunid.com
@@ -86,48 +86,6 @@ export class ListResourcesResponseBodyDataResources extends $dara.Model {
   /**
    * @remarks
    * The resource type.
-   * 
-   * Valid values:
-   * 
-   * - file
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - py
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - jar
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - volumefile
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - table
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
    * 
    * @example
    * file
@@ -177,7 +135,7 @@ export class ListResourcesResponseBodyDataResources extends $dara.Model {
 export class ListResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates the marker after which the returned list begins.
+   * Specifies the marker after which results are returned in alphabetical order.
    * 
    * @example
    * ZmN0X21vbnRoX3Rhb2Jhb19pbmRleCE=
@@ -185,7 +143,7 @@ export class ListResourcesResponseBodyData extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of results to return per page.
    * 
    * @example
    * 10
@@ -232,7 +190,7 @@ export class ListResourcesResponseBody extends $dara.Model {
   data?: ListResourcesResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bc3b4ae16685836687916212e7850

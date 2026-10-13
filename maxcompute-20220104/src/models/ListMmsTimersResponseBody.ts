@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMmsTimersResponseBodyDataObjectList extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 09:29:58
@@ -21,7 +21,7 @@ export class ListMmsTimersResponseBodyDataObjectList extends $dara.Model {
   dbId?: number;
   /**
    * @remarks
-   * The timer ID.
+   * The scheduled task ID.
    * 
    * @example
    * 18
@@ -29,7 +29,7 @@ export class ListMmsTimersResponseBodyDataObjectList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The timer name.
+   * The scheduled task name.
    * 
    * @example
    * migrate_db_1
@@ -37,7 +37,7 @@ export class ListMmsTimersResponseBodyDataObjectList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The schedule type.
+   * The schedule type of the scheduled task.
    * 
    * @example
    * Daily
@@ -61,7 +61,7 @@ export class ListMmsTimersResponseBodyDataObjectList extends $dara.Model {
   srcDbName?: string;
   /**
    * @remarks
-   * Indicates whether the timer is stopped.
+   * Indicates whether the task is stopped.
    * 
    * @example
    * false
@@ -125,7 +125,7 @@ export class ListMmsTimersResponseBodyDataObjectList extends $dara.Model {
 export class ListMmsTimersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of timers.
+   * The log information.
    */
   objectList?: ListMmsTimersResponseBodyDataObjectList[];
   /**
@@ -138,7 +138,7 @@ export class ListMmsTimersResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries displayed per page.
    * 
    * @example
    * 10

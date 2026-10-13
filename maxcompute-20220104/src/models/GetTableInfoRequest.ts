@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the schema to which the table or view belongs.
+   * The name of the schema to which the table or view to be queried belongs.
    * 
    * @example
    * default
@@ -13,15 +13,12 @@ export class GetTableInfoRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The type of the table or view that you want to view. Valid values:
-   * 
-   * - **internal**: internal table
-   * 
-   * - **external**: external table
-   * 
-   * - **view**: view
-   * 
-   * - **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
+   * The type of the table or view to be queried. Valid values:
+   * - **internal**: Internal table.
+   * - **external**: External table.
+   * - **view**: View.
+   * - **materializedView**: <props="china">[Materialized view](https://www.alibabacloud.com/help/en/maxcompute/user-guide/materialized-view-operations)
+   * <props="intl">[Materialized view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations).
    * 
    * @example
    * internal

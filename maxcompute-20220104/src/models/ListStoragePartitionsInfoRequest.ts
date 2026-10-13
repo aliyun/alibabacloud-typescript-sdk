@@ -13,7 +13,7 @@ export class ListStoragePartitionsInfoRequest extends $dara.Model {
   ascOrder?: boolean;
   /**
    * @remarks
-   * The date for which to retrieve statistics. The date must be in `YYYYMMdd` format.
+   * The statistical date at the day level. Specify the time parameter in the YYYYMMdd format.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListStoragePartitionsInfoRequest extends $dara.Model {
   date?: string;
   /**
    * @remarks
-   * The column to sort by.
+   * The sort column.
    * 
    * @example
    * totalFrequency
@@ -47,7 +47,7 @@ export class ListStoragePartitionsInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The partition name. This parameter supports fuzzy matching.
+   * The partition name for fuzzy matching.
    * 
    * @example
    * 20241201
@@ -63,7 +63,7 @@ export class ListStoragePartitionsInfoRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The schema that contains the table.
+   * The schema to which the table belongs.
    * 
    * @example
    * schema
@@ -71,7 +71,7 @@ export class ListStoragePartitionsInfoRequest extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The tenant ID. You can find this ID in the MaxCompute console by navigating to **Tenant Management** > **Tenant Properties**.
+   * The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing **Tenant Management** > **Tenant Properties** in the left-side navigation pane.
    * 
    * @example
    * 40713753659****

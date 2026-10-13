@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.Model {
   /**
    * @remarks
-   * The details of the intelligent diagnostics result.
+   * The details of the intelligent diagnosis result.
    * 
    * @example
    * This job uses annual and monthly computing resources. It may be that the job is waiting for resources due to the large amount of overall job running data, many resources requested, and low job priority. Please go to Resource Consumption to view the specific situation. You can also go to Cost Optimization to see if you need to adjust resource configuration.
@@ -13,12 +13,12 @@ export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The node information about data skew or data bloat. This parameter is returned only when the diagnostics scenario is data skew or data bloat.
+   * The node information for data skew and data bloat. This parameter is returned only when the diagnosis scenario is data skew or data bloat.
    */
   params?: { [key: string]: string };
   /**
    * @remarks
-   * The scenario of the intelligent diagnostics result.
+   * The scenario of the intelligent diagnosis result.
    * 
    * @example
    * LackResource
@@ -26,7 +26,7 @@ export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.M
   scene?: string;
   /**
    * @remarks
-   * The tag of the intelligent diagnostics result.
+   * The tag of the intelligent diagnosis result.
    * 
    * @example
    * SubscriptionLackResource
@@ -34,7 +34,7 @@ export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.M
   sceneTag?: string;
   /**
    * @remarks
-   * The summary of the intelligent diagnostics result.
+   * The summary of the intelligent diagnosis result.
    * 
    * @example
    * Insufficient computing resources available for the job. Click to view details.
@@ -42,7 +42,7 @@ export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.M
   summary?: string;
   /**
    * @remarks
-   * The type of the intelligent diagnostics result.
+   * The type of the intelligent diagnosis result.
    * 
    * @example
    * warning
@@ -109,7 +109,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   cuUsage?: number;
   /**
    * @remarks
-   * The time when the job finished running.
+   * The end time of the execution. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 0
@@ -133,7 +133,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   extNodeName?: string;
   /**
    * @remarks
-   * The person responsible for the execution.
+   * The person in charge of the execution.
    * 
    * @example
    * duty_2
@@ -245,7 +245,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The role session name of the entity that submitted the job through role assumption.
+   * The role assumption used to commit the job.
    * 
    * @example
    * aliyunservicerole
@@ -253,7 +253,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   roleSessionName?: string;
   /**
    * @remarks
-   * The time when the job started running.
+   * The start time of the job execution. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1672112113
@@ -261,7 +261,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   runningAtTime?: number;
   /**
    * @remarks
-   * The running time.
+   * The execution duration. Unit: seconds.
    * 
    * @example
    * 800
@@ -269,7 +269,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   runningTime?: number;
   /**
    * @remarks
-   * The intelligent diagnostics results.
+   * The intelligent diagnosis results.
    */
   sceneResults?: ListJobInfosResponseBodyDataJobInfoListSceneResults[];
   /**
@@ -298,7 +298,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   statusSnapshot?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The submission time of the job. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1672112013
@@ -330,7 +330,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The total running duration.
+   * The total execution duration.
    * 
    * @example
    * 900
@@ -338,7 +338,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   totalTime?: number;
   /**
    * @remarks
-   * The waiting time.
+   * The waiting time. Unit: seconds.
    * 
    * @example
    * 100
@@ -500,7 +500,7 @@ export class ListJobInfosResponseBody extends $dara.Model {
   data?: ListJobInfosResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. If the value is not empty and is not 200, the request failed.
+   * Indicates whether the request is successful. If the value is not null and is not 200, the request failed.
    * 
    * @example
    * 200

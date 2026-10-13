@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableInfoResponseBodyDataClusterInfoSortCols extends $dara.Model {
   /**
    * @remarks
-   * The name of the sorting field.
+   * The name of the sort column.
    * 
    * @example
    * col_2
@@ -13,7 +13,7 @@ export class GetTableInfoResponseBodyDataClusterInfoSortCols extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The sorting order.
+   * The sort order.
    * 
    * @example
    * DESC
@@ -45,7 +45,7 @@ export class GetTableInfoResponseBodyDataClusterInfoSortCols extends $dara.Model
 export class GetTableInfoResponseBodyDataClusterInfo extends $dara.Model {
   /**
    * @remarks
-   * Optional. The number of buckets in the clustered table. The value 0 indicates that the number of buckets dynamically changes when a job is running.
+   * The number of buckets in the clustered table. This is an optional field. A value of 0 indicates that the number of buckets is dynamically determined during job execution.
    * 
    * @example
    * 1024
@@ -53,14 +53,15 @@ export class GetTableInfoResponseBodyDataClusterInfo extends $dara.Model {
   bucketNum?: number;
   /**
    * @remarks
-   * The cluster keys.
+   * The cluster key.
    */
   clusterCols?: string[];
   /**
    * @remarks
-   * The clustering type of the table. MaxCompute supports [hash clustering](https://www.alibabacloud.com/help/maxcompute/use-cases/hash-clustering) and
-   * 
-   * [range clustering](https://www.alibabacloud.com/help/maxcompute/use-cases/range-clustering).
+   * The clustering type of the table. MaxCompute currently supports <props="china">[Hash Clustering](https://www.alibabacloud.com/help/en/maxcompute/use-cases/hash-clustering)
+   * <props="intl">[Hash Clustering](https://www.alibabacloud.com/help/maxcompute/use-cases/hash-clustering) and
+   * <props="china"> [Range Clustering](https://www.alibabacloud.com/help/en/maxcompute/use-cases/hash-clustering)
+   * <props="intl">[Range Clustering](https://www.alibabacloud.com/help/maxcompute/use-cases/range-clustering).
    * 
    * @example
    * Hash
@@ -68,7 +69,7 @@ export class GetTableInfoResponseBodyDataClusterInfo extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The condition by which the results are sorted.
+   * The sort columns.
    */
   sortCols?: GetTableInfoResponseBodyDataClusterInfoSortCols[];
   static names(): { [key: string]: string } {
@@ -107,7 +108,7 @@ export class GetTableInfoResponseBodyDataClusterInfo extends $dara.Model {
 export class GetTableInfoResponseBodyDataNativeColumns extends $dara.Model {
   /**
    * @remarks
-   * The column comments.
+   * The column comment.
    * 
    * @example
    * Store name
@@ -115,7 +116,8 @@ export class GetTableInfoResponseBodyDataNativeColumns extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The sensitivity-level label of the column. For more information, see [Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
+   * The sensitivity level label of the column. For more information, see <props="china">[Label-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/label-based-access-control)
+   * <props="intl">[Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
    * 
    * @example
    * 0
@@ -131,7 +133,7 @@ export class GetTableInfoResponseBodyDataNativeColumns extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The column type.
+   * The data type.
    * 
    * @example
    * STRING
@@ -167,15 +169,16 @@ export class GetTableInfoResponseBodyDataNativeColumns extends $dara.Model {
 export class GetTableInfoResponseBodyDataPartitionColumns extends $dara.Model {
   /**
    * @remarks
-   * The comments of the partition key column.
+   * The partition column comment.
    * 
    * @example
-   * Sales date
+   * Sale date
    */
   comment?: string;
   /**
    * @remarks
-   * The sensitivity-level label of the column. For more information, see [Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
+   * The sensitivity level label of the column. For more information, see <props="china">[Label-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/label-based-access-control)
+   * <props="intl">[Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
    * 
    * @example
    * 0
@@ -191,7 +194,7 @@ export class GetTableInfoResponseBodyDataPartitionColumns extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The partition column type.
+   * The data type.
    * 
    * @example
    * STRING
@@ -227,7 +230,7 @@ export class GetTableInfoResponseBodyDataPartitionColumns extends $dara.Model {
 export class GetTableInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the materialized view is automatically refreshed. This response parameter is returned when type is set to materializedView.
+   * Indicates whether automatic refresh of the materialized view is enabled. This parameter is returned only when the type is materialized view.
    * 
    * @example
    * false
@@ -235,12 +238,12 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   autoRefreshEnabled?: boolean;
   /**
    * @remarks
-   * The clustering attribute. This response parameter is returned when the table is a clustered table.
+   * The clustering properties. This parameter is returned only when the table type is clustered table.
    */
   clusterInfo?: GetTableInfoResponseBodyDataClusterInfo;
   /**
    * @remarks
-   * The comments of the table.
+   * The table comment.
    * 
    * @example
    * sale_detail
@@ -248,7 +251,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * DDL statement to create a table.
+   * The DDL statement used to create the table.
    * 
    * @example
    * create table if not exists sale_detail( shop_name STRING, customer_id STRING, total_price DOUBLE) partitioned by (sale_date STRING, region STRING);
@@ -256,7 +259,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   createTableDDL?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format and in the UTC time zone.
    * 
    * @example
    * 2022-01-17T07:07:47Z
@@ -272,7 +275,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The number of file of the table.
+   * The number of files.
    * 
    * @example
    * 200
@@ -280,7 +283,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   fileNum?: number;
   /**
    * @remarks
-   * Indicates whether the table is an external table. This response parameter is returned when type is set to external.
+   * Indicates whether the table is an external table. This parameter is returned only when the type is table.
    * 
    * @example
    * false
@@ -288,7 +291,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   isExternalTable?: boolean;
   /**
    * @remarks
-   * Indicates whether data of the materialized view is invalid due to changes in the data of the source table. This response parameter is returned when type is set to materializedView.
+   * Indicates whether the data in the materialized view is invalid due to changes in the source table data. This parameter is returned only when the type is materialized view.
    * 
    * @example
    * false
@@ -296,7 +299,8 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   isOutdated?: boolean;
   /**
    * @remarks
-   * The time when data of the table or view was last accessed.
+   * The time when the data of the table or view was last accessed. This parameter is returned only when the table is a non-partitioned table.
+   * > This data has been gradually collected since July 2023. If the table has not been accessed after the upgrade, or if it is accessed through ALGO jobs or Hologres direct read, the last_access_time cannot be collected.
    * 
    * @example
    * 2023-11-21T02:05:56Z
@@ -304,7 +308,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   lastAccessTime?: number;
   /**
    * @remarks
-   * The time when the data definition language (DDL) statement of the table or view was last modified.
+   * The time when the DDL statement of the table or view was last modified.
    * 
    * @example
    * 2023-11-21T02:05:56Z
@@ -312,7 +316,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   lastDDLTime?: number;
   /**
    * @remarks
-   * The time when data of the table or view was last modified.
+   * The time when the data of the table or view was last modified. The time is in ISO 8601 format and in the UTC time zone.
    * 
    * @example
    * 2023-11-21T02:05:56Z
@@ -320,7 +324,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   lastModifiedTime?: number;
   /**
    * @remarks
-   * The lifecycle. Unit: days.
+   * The lifecycle in days.
    * 
    * @example
    * -1
@@ -328,7 +332,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   lifecycle?: string;
   /**
    * @remarks
-   * The path of the external table. This response parameter is returned when type is set to external.
+   * The external table location. This parameter is returned only when the type is external table.
    * 
    * @example
    * oss://oss-cn-hangzhou-internal.aliyuncs.com/oss-mc-test/Demo1/
@@ -336,7 +340,8 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * Indicates whether the table or view is a [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations).
+   * Indicates whether the table is a <props="china">[materialized view](https://www.alibabacloud.com/help/en/maxcompute/user-guide/materialized-view-operations)
+   * <props="intl">[materialized view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations).
    * 
    * @example
    * false
@@ -352,12 +357,12 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The field information.
+   * The column information.
    */
   nativeColumns?: GetTableInfoResponseBodyDataNativeColumns[];
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role AliyunODPSDefaultRole in Resource Access Management (RAM). This response parameter is returned when type is set to external.
+   * The ARN of AliyunODPSDefaultRole in RAM. This parameter is returned only when the type is external table.
    * 
    * @example
    * acs:ram::xxxxx:role/aliyunodpsdefaultrole
@@ -365,7 +370,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   odpsPropertiesRolearn?: string;
   /**
    * @remarks
-   * Indicates whether the table header is ignored. This response parameter is returned when type is set to external.
+   * Indicates whether to ignore the header. This parameter is returned only when the type is external table.
    * 
    * @example
    * true
@@ -373,7 +378,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   odpsSqlTextOptionFlushHeader?: boolean;
   /**
    * @remarks
-   * The first N rows that were ignored in the table header. This response parameter is returned when type is set to external.
+   * The number of header lines to ignore. This parameter is returned only when the type is external table.
    * 
    * @example
    * 1
@@ -381,7 +386,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   odpsTextOptionHeaderLinesCount?: number;
   /**
    * @remarks
-   * The account information of the table or view owner.
+   * The account information of the owner of the table or view.
    * 
    * @example
    * ALIYUN$odps****@aliyunid.com
@@ -389,12 +394,12 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The information about partition key columns. This response parameter is returned only for partitioned tables.
+   * The partition column information. This parameter is returned only for partitioned tables.
    */
   partitionColumns?: GetTableInfoResponseBodyDataPartitionColumns[];
   /**
    * @remarks
-   * The physical size of the table.
+   * The physical size.
    * 
    * @example
    * 2763
@@ -410,7 +415,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Indicates whether the query rewrite operation can be performed by using the materialized view. This response parameter is returned when type is set to materializedView.
+   * Indicates whether query rewrite through the materialized view is allowed. This parameter is returned only when the type is materialized view.
    * 
    * @example
    * false
@@ -418,7 +423,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   rewriteEnabled?: boolean;
   /**
    * @remarks
-   * The name of the schema to which the table or the view belongs.
+   * The name of the schema to which the table or view belongs.
    * 
    * @example
    * default
@@ -426,7 +431,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The data size of the non-partitioned table. If the table is a partitioned table, the system does not calculate the data size of the table. In this case, the value of this parameter is NULL. The PARTITIONS view includes the data size of each partition in a partitioned table. Unit: bytes.
+   * The data size of the table. If the table is a non-partitioned table, the value is the data size of the table. If the table is a partitioned table, the system does not calculate the data size of the table, and the value is NULL. The PARTITIONS view contains the data size of each partition in the partitioned table. Unit: bytes.
    * 
    * @example
    * 5372
@@ -434,7 +439,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The storage handler of the external table. This response parameter is returned when type is set to external.
+   * The external table parser. This parameter is returned only when the type is external table.
    * 
    * @example
    * com.aliyun.odps.CsvStorageHandler
@@ -442,7 +447,8 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   storageHandler?: string;
   /**
    * @remarks
-   * The sensitivity-level label of the table. For more information, see [Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
+   * The sensitivity level label of the table. For more information, see <props="china">[Label-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/label-based-access-control)
+   * <props="intl">[Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
    * 
    * @example
    * 0
@@ -450,7 +456,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   tableLabel?: string;
   /**
    * @remarks
-   * The name of the Tablestore table to be accessed. This response parameter is returned when type is set to external.
+   * The name of the Tablestore table to be accessed. This parameter is returned only when the type is external table.
    * 
    * @example
    * ots_tpch_orders
@@ -458,7 +464,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   tablesotreTableName?: string;
   /**
    * @remarks
-   * The columns of the Tablestore table to be accessed, including the primary key column and attribute column. This response parameter is returned when type is set to external.
+   * The columns of the Tablestore table to be accessed by MaxCompute, including the primary key columns and attribute columns. This parameter is returned only when the type is external table.
    * 
    * @example
    * o_orderkey,o_orderdate,o_custkey,o_orderstatus,o_totalprice
@@ -467,14 +473,11 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The type of the table or view. Valid values:
-   * 
-   * - **internal**: internal table
-   * 
-   * - **external**: external table
-   * 
-   * - **view**: view
-   * 
-   * - **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
+   * - **internal**: Internal table.
+   * - **external**: External table.
+   * - **view**: View.
+   * - **materializedView**: <props="china">[Materialized view](https://www.alibabacloud.com/help/en/maxcompute/user-guide/materialized-view-operations)
+   * <props="intl">[Materialized view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations).
    * 
    * @example
    * internal
@@ -482,7 +485,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The statement that generates the view. This response parameter is returned when type is set to view.
+   * The statement used to create the view. This parameter is returned only when the type is view.
    * 
    * @example
    * select shop_name, sum(total_price) from sale_detail group by shop_name
@@ -585,7 +588,7 @@ export class GetTableInfoResponseBodyData extends $dara.Model {
 export class GetTableInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response result.
    */
   data?: GetTableInfoResponseBodyData;
   /**

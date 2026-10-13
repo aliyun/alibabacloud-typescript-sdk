@@ -8,12 +8,12 @@ export class ListMmsDataSourcesResponseBodyDataObjectListConfig extends $dara.Mo
    * The description of the configuration.
    * 
    * @example
-   * Range partition table migration method
+   * Migration method for range-partitioned tables
    */
   desc?: string;
   /**
    * @remarks
-   * A list of valid values for the configuration.
+   * The enumerated values of the configuration.
    */
   enums?: string[];
   /**
@@ -26,7 +26,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectListConfig extends $dara.Mo
   group?: string;
   /**
    * @remarks
-   * The unique key for the configuration.
+   * The English identifier of the configuration.
    * 
    * @example
    * bigquery.range.partition.migrate.type
@@ -34,15 +34,15 @@ export class ListMmsDataSourcesResponseBodyDataObjectListConfig extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * The configuration name.
+   * The name of the configuration.
    * 
    * @example
-   * Range partition table migration method
+   * Migration method for range-partitioned tables
    */
   name?: string;
   /**
    * @remarks
-   * A placeholder for the configuration value.
+   * The sample value of the configuration.
    * 
    * @example
    * Cluster or Partition
@@ -50,7 +50,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectListConfig extends $dara.Mo
   placeHolder?: string;
   /**
    * @remarks
-   * Indicates whether the configuration is required.
+   * Specifies whether the configuration is required.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectListConfig extends $dara.Mo
   required?: boolean;
   /**
    * @remarks
-   * The required file extension (for example, `.keytab`) when `type` is `file`.
+   * The specific file type when the type is file, such as .keytab.
    * 
    * @example
    * .keytab
@@ -66,7 +66,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectListConfig extends $dara.Mo
   subType?: string;
   /**
    * @remarks
-   * The configuration type.
+   * The type of the configuration. Valid values: boolean, int, map, string, password, and file.
    * 
    * @example
    * string
@@ -74,7 +74,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectListConfig extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The configuration value.
+   * The value of the configuration.
    * 
    * @example
    * Partition
@@ -125,7 +125,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectListConfig extends $dara.Mo
 export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the agent for the data source instance is online.
+   * Specifies whether the data source instance or the associated agent is started.
    * 
    * @example
    * true
@@ -133,12 +133,12 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   agentIsOnline?: boolean;
   /**
    * @remarks
-   * A list of data source configurations.
+   * The configurations related to the data source.
    */
   config?: ListMmsDataSourcesResponseBodyDataObjectListConfig[];
   /**
    * @remarks
-   * The time the data source was created.
+   * The time when the data source was created. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 09:29:58
@@ -162,12 +162,12 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   dstProject?: string;
   /**
    * @remarks
-   * A list of destination MaxCompute projects.
+   * The list of destination MaxCompute projects.
    */
   dstProjects?: string[];
   /**
    * @remarks
-   * The reason the data source instance failed to start or stop. This parameter is returned only if the `status` is `START_FAILED` or `STOP_FAILED`.
+   * The reason why the data source instance failed to start or stop when the status is START_FAILED or STOP_FAILED.
    * 
    * @example
    * unexpected exception
@@ -175,7 +175,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   errMsg?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 2000015
@@ -183,7 +183,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The last metadata synchronization time.
+   * The time when the metadata was last synchronized. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 15:44:17
@@ -191,7 +191,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   lastUpdateTime?: string;
   /**
    * @remarks
-   * The data source name.
+   * The name of the data source.
    * 
    * @example
    * demo
@@ -199,7 +199,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network connection, specified in the `VpcId:RegionId` format.
+   * The MaxCompute network connectivity ID. Format: "MaxCompute network connectivity ID":region ID.
    * 
    * @example
    * vpc-2zebqp6uojhdla46677tl:cn-beijing
@@ -215,7 +215,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   partitionNum?: number;
   /**
    * @remarks
-   * The number of partitions currently being migrated.
+   * The number of partitions being migrated.
    * 
    * @example
    * 2332
@@ -223,7 +223,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   partitionsDoingNum?: number;
   /**
    * @remarks
-   * The number of successfully migrated partitions.
+   * The number of partitions that have been migrated.
    * 
    * @example
    * 23
@@ -231,7 +231,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   partitionsDoneNum?: number;
   /**
    * @remarks
-   * The number of partitions that failed to migrate.
+   * The number of partitions that failed to be migrated.
    * 
    * @example
    * 2323
@@ -245,6 +245,10 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * The cause of the metadata update task failure.
+   */
   scanErrMsg?: string;
   /**
    * @remarks
@@ -254,10 +258,17 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
    * 1000253
    */
   scanId?: number;
+  /**
+   * @remarks
+   * The status of the metadata update task. Valid values:
+   * - DOING: The task is running.
+   * - DONE: The task succeeded.
+   * - FAILED: The task failed.
+   */
   scanStatus?: string;
   /**
    * @remarks
-   * The data source status.
+   * The status of the data source.
    * 
    * @example
    * STARTED
@@ -273,7 +284,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   tableNum?: number;
   /**
    * @remarks
-   * The number of tables currently being migrated.
+   * The number of tables being migrated.
    * 
    * @example
    * 18
@@ -281,7 +292,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   tablesDoingNum?: number;
   /**
    * @remarks
-   * The number of successfully migrated tables.
+   * The number of tables that have been migrated.
    * 
    * @example
    * 2323
@@ -289,7 +300,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   tablesDoneNum?: number;
   /**
    * @remarks
-   * The number of tables that failed to migrate.
+   * The number of tables that failed to be migrated.
    * 
    * @example
    * 2
@@ -297,7 +308,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   tablesFailedNum?: number;
   /**
    * @remarks
-   * The number of partially migrated tables.
+   * The number of tables that have been partially migrated.
    * 
    * @example
    * 22
@@ -305,7 +316,7 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   tablesPartDoneNum?: number;
   /**
    * @remarks
-   * The data source type.
+   * The type of the data source.
    * 
    * @example
    * BIGQUERY
@@ -412,7 +423,7 @@ export class ListMmsDataSourcesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of data sources.
+   * The total number of records.
    * 
    * @example
    * 9
@@ -451,7 +462,7 @@ export class ListMmsDataSourcesResponseBodyData extends $dara.Model {
 export class ListMmsDataSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response payload.
+   * The returned data.
    */
   data?: ListMmsDataSourcesResponseBodyData;
   /**

@@ -13,7 +13,7 @@ export class ListMmsDataSourcesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number. If pagination is not used, all data sources are returned.
+   * The page number. If this parameter is not specified, all records are queried.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListMmsDataSourcesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. If pagination is not used, all data sources are returned.
+   * The number of entries to return on each page. If this parameter is not specified, all records are queried.
    * 
    * @example
    * 10

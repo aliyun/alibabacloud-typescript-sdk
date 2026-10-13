@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   /**
    * @remarks
-   * Time created in MMS
+   * The time when the database was created in MMS.
    * 
    * @example
    * 2024-12-17 15:44:42
@@ -13,7 +13,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Whether deleted
+   * Indicates whether the database has been deleted.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   deleted?: boolean;
   /**
    * @remarks
-   * Database description
+   * The description of the database.
    * 
    * @example
    * for mms test
@@ -29,7 +29,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The MaxCompute schema corresponding to the source database. If the target MaxCompute project does not have a schema layer enabled, this value is null. By default, it is consistent with the source database name.
+   * The MaxCompute schema that corresponds to the source database. If the schema layer is not enabled for the destination MaxCompute project, this value is null. By default, this value is the same as the name of the source database.
    * 
    * @example
    * default
@@ -37,7 +37,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   dstName?: string;
   /**
    * @remarks
-   * Target MaxCompute project name
+   * The name of the destination MaxCompute project.
    * 
    * @example
    * mms_test
@@ -45,7 +45,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   dstProjectName?: string;
   /**
    * @remarks
-   * Other information stored in JSON format
+   * The additional information stored in JSON format.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   extra?: string;
   /**
    * @remarks
-   * Database ID
+   * The ID of the database.
    * 
    * @example
    * 1530
@@ -69,7 +69,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   lastDdlTime?: string;
   /**
    * @remarks
-   * Database storage location
+   * The storage location of the database.
    * 
    * @example
    * hdfs://master-1-1.c-6fc187819ed6bae0.cn-shanghai.emr.aliyuncs.com:9000/user/hive/warehouse
@@ -77,7 +77,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * Database name
+   * The name of the database.
    * 
    * @example
    * mms_test
@@ -85,7 +85,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Number of database data rows
+   * The number of data rows in the database.
    * 
    * @example
    * 23232
@@ -93,7 +93,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   numRows?: number;
   /**
    * @remarks
-   * Database owner
+   * The owner of the database.
    * 
    * @example
    * System user
@@ -101,7 +101,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * Number of partitions
+   * The number of partitions.
    * 
    * @example
    * 1000
@@ -109,7 +109,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   partitions?: number;
   /**
    * @remarks
-   * Partitions being migrated
+   * The partitions being migrated.
    * 
    * @example
    * 400
@@ -117,7 +117,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   partitionsDoing?: number;
   /**
    * @remarks
-   * Partitions migrated
+   * The partitions that have been migrated.
    * 
    * @example
    * 200
@@ -125,7 +125,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   partitionsDone?: number;
   /**
    * @remarks
-   * Failed partitions
+   * The partitions that failed to migrate.
    * 
    * @example
    * 200
@@ -133,7 +133,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   partitionsFailed?: number;
   /**
    * @remarks
-   * Database data size in bytes
+   * The size of the database data, in bytes.
    * 
    * @example
    * 2342342
@@ -141,7 +141,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 2000015
@@ -149,7 +149,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   sourceId?: number;
   /**
    * @remarks
-   * Data source name
+   * The name of the data source.
    * 
    * @example
    * demo
@@ -157,7 +157,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   sourceName?: string;
   /**
    * @remarks
-   * Migration status: INIT, DOING, FAILED, DONE, PART_DONE
+   * The migration status. Valid values: INIT, DOING, FAILED, DONE, and PART_DONE.
    * 
    * @example
    * DOING
@@ -165,7 +165,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Number of tables
+   * The number of tables.
    * 
    * @example
    * 100
@@ -173,7 +173,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   tables?: number;
   /**
    * @remarks
-   * Tables being migrated
+   * The tables being migrated.
    * 
    * @example
    * 20
@@ -181,7 +181,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   tablesDoing?: number;
   /**
    * @remarks
-   * Tables migrated
+   * The tables that have been migrated.
    * 
    * @example
    * 20
@@ -189,7 +189,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   tablesDone?: number;
   /**
    * @remarks
-   * Failed tables
+   * The tables that failed to migrate.
    * 
    * @example
    * 20
@@ -197,7 +197,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   tablesFailed?: number;
   /**
    * @remarks
-   * Partially migrated tables
+   * The tables that are partially migrated.
    * 
    * @example
    * 20
@@ -205,7 +205,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   tablesPartDone?: number;
   /**
    * @remarks
-   * Latest data update time
+   * The latest update time of the data. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 15:44:42
@@ -213,7 +213,7 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Whether data is updated
+   * Indicates whether the data has been updated.
    * 
    * @example
    * true
@@ -295,12 +295,12 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
 export class ListMmsDbsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Database list
+   * The list of databases.
    */
   objectList?: ListMmsDbsResponseBodyDataObjectList[];
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -308,7 +308,7 @@ export class ListMmsDbsResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -316,7 +316,7 @@ export class ListMmsDbsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 13
@@ -355,12 +355,12 @@ export class ListMmsDbsResponseBodyData extends $dara.Model {
 export class ListMmsDbsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: ListMmsDbsResponseBodyData;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * CF3F9978-260F-5204-94BE-30A4E6B54443

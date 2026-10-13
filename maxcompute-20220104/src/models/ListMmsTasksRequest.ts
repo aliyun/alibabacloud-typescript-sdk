@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMmsTasksRequestSorter extends $dara.Model {
   /**
    * @remarks
-   * Sorts results by the start time.
+   * Sorts the results by start time.
    * 
    * @example
    * desc
@@ -13,7 +13,7 @@ export class ListMmsTasksRequestSorter extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Sorts results by status.
+   * Sorts the results by status.
    * 
    * @example
    * asc
@@ -94,7 +94,7 @@ export class ListMmsTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The partition value. Use this parameter to filter migration tasks that migrated a specific partition value.
+   * The partition value. Filters migration tasks that migrated a specific partition value.
    * 
    * @example
    * p1=1/p2=abc

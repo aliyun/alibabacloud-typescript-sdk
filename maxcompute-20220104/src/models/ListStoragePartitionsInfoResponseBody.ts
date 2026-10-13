@@ -29,7 +29,7 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
   fileSizeUnit?: string;
   /**
    * @remarks
-   * Indicates whether the table is a partitioned table. You can ignore this parameter because this operation returns data only for partitions.
+   * Indicates whether the table is partitioned. This API operation returns only partition information. You can ignore this field.
    * 
    * @example
    * false
@@ -37,9 +37,8 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
   isPartitioned?: boolean;
   /**
    * @remarks
-   * The last access time of the partition.
-   * 
-   * > Data collection for this metric began a gradual rollout in July 2023. Consequently, the lastAccessTime may not be recorded for a partition that has not been accessed since then or is accessed only by ALGO jobs or direct reads from Hologres.
+   * The last access time of the data in the partition.
+   * > The collection of this data has been gradually upgraded since July 2023. The last_access_time cannot be collected if the partition has not been accessed after the upgrade or if it is accessed through ALGO jobs or Hologres direct read.
    * 
    * @example
    * 1694589365
@@ -63,7 +62,7 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
   projectName?: string;
   /**
    * @remarks
-   * The period-over-period change in the total storage usage over the last {$recentDays} days. This API operation does not return this parameter.
+   * The year-over-year comparison of the total storage capacity over the recent {$recentDays} days. This API operation does not return this value.
    * 
    * @example
    * 1%
@@ -80,12 +79,9 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
   /**
    * @remarks
    * The storage type. Valid values:
-   * 
-   * - `standard`: Standard storage
-   * 
-   * - `lowfrequency`: Infrequent-access storage
-   * 
-   * - `longterm`: Archive storage
+   * - standard: Standard storage.
+   * - lowfrequency: Low-frequency storage.
+   * - longterm: Long-term storage.
    * 
    * @example
    * standard
@@ -102,16 +98,11 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
   /**
    * @remarks
    * The access frequency.
-   * 
-   * > - Access activities include:
-   * >
-   * > > * The table is used as input in a SQL compute task.
-   * > >
-   * > > * The table is downloaded via Tunnel.
-   * > >
-   * > > * The table data is read by calling the `Read` operation of the StorageAPI. Partition-level data for partitioned tables is not available. Each access activity increases the access frequency by 1.
-   * >
-   * > - Data collection for this metric began a gradual rollout in July 2023. Consequently, the access frequency may not be recorded for tables that have not been accessed since then or are accessed only by ALGO jobs or direct reads from Hologres.
+   * > - Access behaviors include:
+   * >> - The table is used as an input table in SQL computing tasks.
+   * >> - The table is downloaded by using Tunnel.
+   * >> - The table is read by calling the Read operation of StorageAPI (partition-level data for partitioned tables is currently unavailable). The access frequency increases by 1 for each additional access.
+   * > - The statistics for this data have been gradually upgraded since July 2023. Accesses that did not occur after the upgrade or accesses made through ALGO jobs or Hologres direct read cannot be counted in the access frequency.
    * 
    * @example
    * 10
@@ -119,9 +110,8 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
   totalFrequency?: number;
   /**
    * @remarks
-   * The total data accessed.
-   * 
-   * > The cumulative amount of data read from all access operations.
+   * The total amount of accessed data.
+   * > The amount of data read by all access behaviors.
    * 
    * @example
    * 1
@@ -129,7 +119,7 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
   totalInputAmount?: number;
   /**
    * @remarks
-   * The unit of the total data accessed.
+   * The unit of the total amount of accessed data.
    * 
    * @example
    * GB
@@ -137,7 +127,7 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
   totalInputAmountUnit?: string;
   /**
    * @remarks
-   * The type of the object. The value is always PARTITION.
+   * The type.
    * 
    * @example
    * PARTITION
@@ -195,7 +185,7 @@ export class ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList e
 export class ListStoragePartitionsInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The date to which the statistics apply.
+   * The statistical date. The format is YYYYMMDD.
    * 
    * @example
    * 20241205
@@ -203,7 +193,7 @@ export class ListStoragePartitionsInfoResponseBodyData extends $dara.Model {
   date?: string;
   /**
    * @remarks
-   * The page number of the returned data.
+   * The current page number.
    * 
    * @example
    * 1
@@ -219,12 +209,12 @@ export class ListStoragePartitionsInfoResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The storage information for the partitions.
+   * The list of partition storage information.
    */
   storagePartitionInfoList?: ListStoragePartitionsInfoResponseBodyDataStoragePartitionInfoList[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of returned results.
    * 
    * @example
    * 57
@@ -265,7 +255,7 @@ export class ListStoragePartitionsInfoResponseBodyData extends $dara.Model {
 export class ListStoragePartitionsInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: ListStoragePartitionsInfoResponseBodyData;
   /**
@@ -286,17 +276,12 @@ export class ListStoragePartitionsInfoResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * - 1xx: Informational response - The request has been received and is being processed.
-   * 
-   * - 2xx: Success - The request was successfully received, understood, and accepted.
-   * 
-   * - 3xx: Redirection - Further action must be taken to complete the request.
-   * 
-   * - 4xx: Client error - The request contains invalid parameters or syntax, or cannot be fulfilled.
-   * 
-   * - 5xx: Server error - The server failed to fulfill a valid request.
+   * The HTTP status code. Valid values:
+   * - 1xx: Informational response. The request was received and is being processed.
+   * - 2xx: Success. The request was successfully received, understood, and accepted by the server.
+   * - 3xx: Redirection. The request was redirected, and further action is required to complete it.
+   * - 4xx: Client error. The request contains bad syntax, invalid parameters, or cannot be fulfilled.
+   * - 5xx: Server error. The server failed to fulfill the request due to other reasons.
    * 
    * @example
    * 200

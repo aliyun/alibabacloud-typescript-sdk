@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPackagesResponseBodyDataCreatedPackages extends $dara.Model {
   /**
    * @remarks
-   * The time when the package was created.
+   * The creation time. The format is ISO 8601 and the time zone is UTC.
    * 
    * @example
    * 2022-08-02T02:30:34Z
@@ -45,7 +45,7 @@ export class ListPackagesResponseBodyDataCreatedPackages extends $dara.Model {
 export class ListPackagesResponseBodyDataInstalledPackages extends $dara.Model {
   /**
    * @remarks
-   * The time when the package was installed.
+   * The installation time. The format is ISO 8601 and the time zone is UTC.
    * 
    * @example
    * 2022-09-02T02:30:34Z
@@ -61,7 +61,7 @@ export class ListPackagesResponseBodyDataInstalledPackages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The project to which the package belongs. This parameter is required if the package is installed in the MaxCompute project.
+   * The project to which the package belongs. This parameter is required if the package is installed.
    * 
    * @example
    * projectB
@@ -69,7 +69,7 @@ export class ListPackagesResponseBodyDataInstalledPackages extends $dara.Model {
   sourceProject?: string;
   /**
    * @remarks
-   * The status of the package.
+   * The status.
    * 
    * @example
    * OK
@@ -105,12 +105,12 @@ export class ListPackagesResponseBodyDataInstalledPackages extends $dara.Model {
 export class ListPackagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The packages that were created.
+   * The list of created packages.
    */
   createdPackages?: ListPackagesResponseBodyDataCreatedPackages[];
   /**
    * @remarks
-   * The packages that were installed.
+   * The list of installed packages.
    */
   installedPackages?: ListPackagesResponseBodyDataInstalledPackages[];
   static names(): { [key: string]: string } {
@@ -150,7 +150,7 @@ export class ListPackagesResponseBody extends $dara.Model {
   data?: ListPackagesResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bc3b4aa16677927210252786e4cb6

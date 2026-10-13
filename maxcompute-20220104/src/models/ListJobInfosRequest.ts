@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort in ascending or descending order.
+   * Specifies whether to sort the results in ascending order.
    * 
    * @example
    * true
@@ -33,12 +33,12 @@ export class ListJobInfosRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The job instance IDs.
+   * The job instance Id.
    */
   instanceIdList?: string[];
   /**
    * @remarks
-   * The job owners.
+   * The list of job owners.
    */
   jobOwnerList?: string[];
   /**
@@ -61,7 +61,7 @@ export class ListJobInfosRequest extends $dara.Model {
   quotaNickname?: string;
   /**
    * @remarks
-   * The intelligent diagnosis labels.
+   * The intelligent diagnostics tags.
    */
   sceneTagList?: string[];
   /**
@@ -71,12 +71,12 @@ export class ListJobInfosRequest extends $dara.Model {
   signatureList?: string[];
   /**
    * @remarks
-   * The fields used for multi-column sorting.
+   * The multi-column sort fields.
    */
   sortByList?: string[];
   /**
    * @remarks
-   * The sort orders for multi-column sorting.
+   * The multi-column sort orders.
    */
   sortOrderList?: string[];
   /**
@@ -106,7 +106,7 @@ export class ListJobInfosRequest extends $dara.Model {
   typeList?: string[];
   /**
    * @remarks
-   * The column used for sorting.
+   * The sort column.
    * 
    * @example
    * cuUsage
@@ -122,7 +122,7 @@ export class ListJobInfosRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10

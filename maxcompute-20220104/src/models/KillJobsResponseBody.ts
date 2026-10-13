@@ -13,7 +13,7 @@ export class KillJobsResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+   * Indicates whether the operation was successful. If the value is not empty and is not 200, the operation failed.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class KillJobsResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0abb7ede16814560741256732e91b6

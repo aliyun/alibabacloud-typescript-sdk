@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class KillJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body parameters.
+   * The list of jobs to terminate. The instanceId is obtained from the job instance ID returned by ListJobInfos, and the projectName is obtained from the project name returned by ListProjects.
    * 
    * @example
    * [
@@ -22,7 +22,7 @@ export class KillJobsRequest extends $dara.Model {
   body?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -30,7 +30,7 @@ export class KillJobsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 478403690625249

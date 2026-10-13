@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList extends $dara.Model {
   /**
    * @remarks
-   * The statistics collection date. The date is accurate to the day. The date must be in the `YYYYMMdd` format.
+   * The statistical date. Data is collected on a daily basis. Specify the date in the YYYYMMDD format.
    * 
    * @example
    * 20250528
@@ -13,7 +13,7 @@ export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList exten
   date?: string;
   /**
    * @remarks
-   * The Long Term storage usage.
+   * The long-term storage usage.
    * 
    * @example
    * 300
@@ -21,7 +21,7 @@ export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList exten
   longTermStorage?: number;
   /**
    * @remarks
-   * The unit of the Long Term storage usage.
+   * The unit of the long-term storage usage.
    * 
    * @example
    * GB
@@ -29,7 +29,7 @@ export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList exten
   longTermStorageUnit?: string;
   /**
    * @remarks
-   * The IA storage class usage.
+   * The low-frequency storage usage.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList exten
   lowFreqStorage?: number;
   /**
    * @remarks
-   * The unit of the IA storage class usage.
+   * The unit of the low-frequency storage usage.
    * 
    * @example
    * GB
@@ -53,7 +53,7 @@ export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList exten
   projectName?: string;
   /**
    * @remarks
-   * The year-over-year change rate of the total storage usage in the last {$recentDays} days.
+   * The rate of change in the total storage usage compared with {$recentDays} days ago.
    * 
    * @example
    * 0.011872406445069006
@@ -77,7 +77,7 @@ export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList exten
   recycleBinStorageUnit?: string;
   /**
    * @remarks
-   * The Standard storage usage.
+   * The standard storage usage.
    * 
    * @example
    * 500
@@ -85,7 +85,7 @@ export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList exten
   standardStorage?: number;
   /**
    * @remarks
-   * The unit of the Standard storage usage.
+   * The unit of the standard storage usage.
    * 
    * @example
    * GB
@@ -165,7 +165,7 @@ export class ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList exten
 export class ListStorageProjectsInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The statistics collection date.
+   * The statistical date. The format is YYYYMMDD.
    * 
    * @example
    * 20241205
@@ -181,7 +181,7 @@ export class ListStorageProjectsInfoResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -194,7 +194,7 @@ export class ListStorageProjectsInfoResponseBodyData extends $dara.Model {
   storageProjectInfoList?: ListStorageProjectsInfoResponseBodyDataStorageProjectInfoList[];
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of returned results.
    * 
    * @example
    * 60
@@ -257,16 +257,11 @@ export class ListStorageProjectsInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
-   * 
-   * - 1xx: an informational response. The request has been received and is being processed.
-   * 
-   * - 2xx: a success response. The request has been successfully received, understood, and accepted by the server.
-   * 
-   * - 3xx: a redirection response. The request is redirected. You must take further action to complete the request.
-   * 
-   * - 4xx: a client error. The request contains invalid request parameters or syntax, or cannot be fulfilled.
-   * 
-   * - 5xx: a server error. The server fails to fulfill the request for other reasons.
+   * - 1xx: Informational. The request was received and is being processed.
+   * - 2xx: Success. The action requested by the client was successfully received, understood, and accepted by the server.
+   * - 3xx: Redirection. The request was redirected, and further action is required to complete it.
+   * - 4xx: Client error. The request contains bad syntax, invalid parameters, or cannot be fulfilled.
+   * - 5xx: Server error. The server failed to fulfill the request.
    * 
    * @example
    * 200

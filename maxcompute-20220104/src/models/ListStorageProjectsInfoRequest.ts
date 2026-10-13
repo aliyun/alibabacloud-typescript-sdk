@@ -13,7 +13,7 @@ export class ListStorageProjectsInfoRequest extends $dara.Model {
   ascOrder?: boolean;
   /**
    * @remarks
-   * The statistics collection date. The date is accurate to the day. The date must be in the `YYYYMMdd` format.
+   * The statistical date, in the YYYYMMdd format. Data is collected on a daily basis.
    * 
    * This parameter is required.
    * 
@@ -23,16 +23,11 @@ export class ListStorageProjectsInfoRequest extends $dara.Model {
   date?: string;
   /**
    * @remarks
-   * The column to sort by. Valid values:
-   * 
+   * The sort column. Valid values:
    * - totalStorage
-   * 
    * - longTermStorage
-   * 
    * - lowFreqStorage
-   * 
    * - standardStorage
-   * 
    * - recycleBinStorage
    * 
    * @example
@@ -65,7 +60,7 @@ export class ListStorageProjectsInfoRequest extends $dara.Model {
   projectPrefix?: string;
   /**
    * @remarks
-   * The number of days for year-over-year comparison.
+   * The number of days used for comparison.
    * 
    * @example
    * 1
@@ -81,7 +76,7 @@ export class ListStorageProjectsInfoRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The tenant ID. You can log on to the MaxCompute console and choose **Tenant Property** in the navigation pane on the left to view the tenant ID.
+   * The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing **Tenant Management** > **Tenant Properties** in the left-side navigation pane.
    * 
    * @example
    * 28074710977****

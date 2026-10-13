@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SumStorageMetricsByTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Required. The query end time, specified as a Unix timestamp in milliseconds.
+   * The end time of the statistical period. This parameter is required. Unit: milliseconds (UNIX timestamp).
    * 
    * @example
    * 1718590596556
@@ -13,12 +13,12 @@ export class SumStorageMetricsByTypeRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * An array of project names.
+   * The instance name.
    */
   projectNames?: string[];
   /**
    * @remarks
-   * Required. The query start time, specified as a Unix timestamp in milliseconds.
+   * The start time of the statistical period. This parameter is required. Unit: milliseconds (UNIX timestamp).
    * 
    * @example
    * 1715393576201
@@ -26,7 +26,9 @@ export class SumStorageMetricsByTypeRequest extends $dara.Model {
   startDate?: number;
   /**
    * @remarks
-   * The dimension for aggregating statistics. Valid values: `PROJECT` (by project) and `STORAGE_TYPE` (by storage type).
+   * The statistics type. Valid values:
+   * - PROJECT: instance.
+   * - STORAGE_TYPE: storage type.
    * 
    * @example
    * PROJECT

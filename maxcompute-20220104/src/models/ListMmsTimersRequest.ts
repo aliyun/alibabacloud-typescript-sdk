@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMmsTimersRequest extends $dara.Model {
   /**
    * @remarks
-   * The timer name.
+   * The table name.
    * 
    * @example
    * demo
@@ -45,7 +45,7 @@ export class ListMmsTimersRequest extends $dara.Model {
   srcTableName?: string;
   /**
    * @remarks
-   * Filters timers by their stopped state.
+   * Specifies whether the job is stopped.
    * 
    * @example
    * false

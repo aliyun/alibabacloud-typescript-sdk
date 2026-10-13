@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobMetricResponseBodyDataMetrics extends $dara.Model {
   /**
    * @remarks
-   * Metric related information.
+   * The metric-related information.
    */
   metric?: { [key: string]: string };
   /**
    * @remarks
-   * Metric values information.
+   * The metric value information.
    */
   values?: number[][];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListJobMetricResponseBodyDataMetrics extends $dara.Model {
 export class ListJobMetricResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The category of the metrics.
+   * The metric type.
    * 
    * @example
    * job
@@ -53,12 +53,12 @@ export class ListJobMetricResponseBodyData extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Metric details.
+   * The metric details.
    */
   metrics?: ListJobMetricResponseBodyDataMetrics[];
   /**
    * @remarks
-   * The name of observation metric.
+   * The metric name.
    * 
    * @example
    * num
@@ -66,7 +66,7 @@ export class ListJobMetricResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The monitoring statistical period.Unit:Second(s).
+   * The monitoring statistical period.
    * 
    * @example
    * 3600
@@ -105,7 +105,7 @@ export class ListJobMetricResponseBodyData extends $dara.Model {
 export class ListJobMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListJobMetricResponseBodyData;
   /**
@@ -126,17 +126,12 @@ export class ListJobMetricResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * HTTP status code.
-   * 
-   * - 1xx: Informational response - Request received, processing continues.
-   * 
-   * - 2xx: Success - The request has been successfully received, understood, and accepted by the server.
-   * 
-   * - 3xx: Redirection - Further action must be taken to complete the request.
-   * 
-   * - 4xx: Client error - The request contains bad syntax or cannot be fulfilled.
-   * 
-   * - 5xx: Server error - The server failed to fulfill an apparently valid request.
+   * The HTTP status code.
+   * - 1xx: Informational response. The request was received and is being processed.
+   * - 2xx: Success. The request action was successfully received, understood, and accepted by the server.
+   * - 3xx: Redirection. The request was redirected, and further action is required to complete it.
+   * - 4xx: Client error. The request contains invalid parameters, bad syntax, or cannot be fulfilled due to specific request conditions.
+   * - 5xx: Server error. The server failed to fulfill the request due to other reasons.
    * 
    * @example
    * 200

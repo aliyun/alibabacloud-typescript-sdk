@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMmsTimerLogsResponseBodyDataObjectList extends $dara.Model {
   /**
    * @remarks
-   * The logged action for the migration job created by the scheduled task.
+   * The action log of the migration job created by the scheduled task.
    * 
    * @example
    * start job
@@ -13,7 +13,7 @@ export class ListMmsTimerLogsResponseBodyDataObjectList extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The creation time of the log entry.
+   * The time when the log was created. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-17 15:44:17
@@ -21,7 +21,7 @@ export class ListMmsTimerLogsResponseBodyDataObjectList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the asynchronous task for the migration job created by the scheduled task.
+   * The ID of the asynchronous task created by the scheduled task to create a migration job.
    * 
    * @example
    * 1003476
@@ -29,7 +29,7 @@ export class ListMmsTimerLogsResponseBodyDataObjectList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * A detailed message about the action.
+   * The log information of the migration job created by the scheduled task.
    * 
    * @example
    * start job success
@@ -37,7 +37,7 @@ export class ListMmsTimerLogsResponseBodyDataObjectList extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source ID.
    * 
    * @example
    * 200018
@@ -98,7 +98,7 @@ export class ListMmsTimerLogsResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -106,7 +106,7 @@ export class ListMmsTimerLogsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100

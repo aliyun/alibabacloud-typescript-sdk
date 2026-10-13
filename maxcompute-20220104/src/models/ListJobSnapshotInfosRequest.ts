@@ -13,14 +13,13 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   ascOrder?: boolean;
   /**
    * @remarks
-   * The upstream node ID.
+   * The upstream node IDs.
    */
   extNodeIdList?: string[];
   /**
    * @remarks
-   * The start UNIX timestamp.
-   * 
-   * > This parameter is invalid. The end timestamp is the point in time for the snapshot that you want to view.
+   * The start timestamp.
+   * > This parameter is invalid. The end timestamp specifies the snapshot time to query.
    * 
    * @example
    * 1706840714
@@ -28,27 +27,27 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The job instance ID.
+   * The job instance Id.
    */
   instanceIdList?: string[];
   /**
    * @remarks
-   * The job owner.
+   * The list of job owners.
    */
   jobOwnerList?: string[];
   /**
    * @remarks
-   * The job priority.
+   * The job priorities.
    */
   priorityList?: number[];
   /**
    * @remarks
-   * The project name.
+   * The project names.
    */
   projectList?: string[];
   /**
    * @remarks
-   * The nickname of the computing quota that the job uses.
+   * The nickname of the compute quota used by the job.
    * 
    * @example
    * quota_A
@@ -56,27 +55,27 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   quotaNickname?: string;
   /**
    * @remarks
-   * The signature of the SQL job.
+   * The SQL job signatures.
    */
   signatureList?: string[];
   /**
    * @remarks
-   * The fields for multi-column sorting.
+   * The multi-column sort fields.
    */
   sortByList?: string[];
   /**
    * @remarks
-   * The sort orders for multi-column sorting.
+   * The multi-column sort orders.
    */
   sortOrderList?: string[];
   /**
    * @remarks
-   * The job status.
+   * The job statuses.
    */
   statusList?: string[];
   /**
    * @remarks
-   * The end UNIX timestamp.
+   * The end timestamp.
    * 
    * This parameter is required.
    * 
@@ -86,41 +85,26 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   to?: number;
   /**
    * @remarks
-   * The job type.
+   * The job types.
    */
   typeList?: string[];
   /**
    * @remarks
-   * The column to sort by. Valid values:
-   * 
+   * The sort column. Valid values:
    * - submittedAtTime
-   * 
    * - waitingTime
-   * 
    * - runningAtTime
-   * 
    * - runningTime
-   * 
    * - snapshotTime
-   * 
    * - totalTime
-   * 
-   * - cpuUsage
-   * 
+   * - cpuUsage 
    * - memoryUsage
-   * 
    * - minCpuPct
-   * 
    * - minMemoryPct
-   * 
    * - priority
-   * 
    * - cpuRequest
-   * 
    * - memoryRequest
-   * 
    * - cpuUsageToRequestRatio
-   * 
    * - memoryUsageToRequestRatio
    * 
    * @example
@@ -137,7 +121,7 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size, which is the maximum number of entries to return per page.
    * 
    * @example
    * 10
@@ -153,7 +137,7 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The tenant ID. To view the tenant ID, log on to the MaxCompute console. In the navigation pane on the left, choose Tenant Management > Tenant Properties.
+   * The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing Tenant Management > Tenant Properties in the left-side navigation pane.
    * 
    * @example
    * 478403690625249

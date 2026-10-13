@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class QueryQuotaMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * The fixed interval in seconds. If you leave this parameter empty, the system uses an automatic interval policy.
-   * 
-   * - Automatic interval policy: The interval is 60 seconds for a time range within 6 hours, 300 seconds for a time range within 24 hours, 900 seconds for a time range within 72 hours, and 1,800 seconds for a time range longer than 72 hours.
-   * 
-   * - Specified interval: Valid values are 60, 300, and 900. The query time range must be within 72 hours.
+   * The fixed interval in seconds. By default, this parameter is empty, which indicates that the adaptive interval policy of the system is used.
+   * - Adaptive interval policy: The interval is 60 seconds if the query time range is within 6 hours, 300 seconds if within 24 hours, 900 seconds if within 72 hours, and 1800 seconds if exceeding 72 hours.
+   * - Specified interval: Only 60, 300, and 900 are supported. The query time range must be within 72 hours.
    * 
    * @example
    * 60
@@ -34,7 +32,7 @@ export class QueryQuotaMetricRequest extends $dara.Model {
   subQuotaNickname?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query time range. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -44,7 +42,7 @@ export class QueryQuotaMetricRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The start of the time range to query.
+   * The start time of the query time range. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -54,9 +52,9 @@ export class QueryQuotaMetricRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The aggregation strategy for the data. The default value is max. Valid values: max and avg.
+   * The data aggregation policy. Default value: max. Valid values: max and avg.
    * 
-   * Data is collected at one-minute intervals. If you query a long time range, the system may use an interval longer than one minute and aggregate the data. This parameter specifies how the data is aggregated.
+   * Data is collected every 1 minute. If the query time range is large, the adaptive step size for data display exceeds 1 minute, and the metrics are aggregated. This parameter specifies the data aggregation logic.
    * 
    * @example
    * max
