@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyScalingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyScalingRuleResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class ModifyScalingRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CB36E997-FE54-476C-8C0D-********

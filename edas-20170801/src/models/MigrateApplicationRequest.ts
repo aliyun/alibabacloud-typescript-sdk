@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of application IDs.
+   * appIds
+   * 
+   * @example
+   * "b72c0ed4-a69f-4872-b4c6-def5555bfd3e,a72c0ed4-a69f-4872-b4c6-def5555bfd3e"
    */
-  appIds?: string[];
+  appIds?: string;
   /**
    * @remarks
    * The operation command. Valid values:
-   * - export: Export.
-   * - import: Import.
+   * - export: export
+   * - import: import
+   * - clone: clone
    * 
    * @example
    * export
@@ -28,7 +32,7 @@ export class MigrateApplicationRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The raw data for the application to be imported, which is sourced from the JSON file of the exported application.
+   * The row data of the imported application, which is sourced from the JSON file of the exported application.
    * 
    * @example
    * {"job_id":"b72c0ed4-a69f-4872-b4c6-def5555bfd3e","app_info":"xxxx"
@@ -54,7 +58,7 @@ export class MigrateApplicationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      appIds: { 'type': 'array', 'itemType': 'string' },
+      appIds: 'string',
       cmd: 'string',
       config: 'string',
       rawData: 'string',
@@ -63,9 +67,6 @@ export class MigrateApplicationRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.appIds)) {
-      $dara.Model.validateArray(this.appIds);
-    }
     super.validate();
   }
 

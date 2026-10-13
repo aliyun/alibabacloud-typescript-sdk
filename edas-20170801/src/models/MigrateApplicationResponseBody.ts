@@ -35,7 +35,7 @@ export class MigrateApplicationResponseBodyData extends $dara.Model {
 export class MigrateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The API status code.
    * 
    * @example
    * 200

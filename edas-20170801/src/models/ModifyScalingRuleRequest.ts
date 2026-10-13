@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the value to true if scale-outs are allowed.
+   * Must be set to true if auto scaling is used.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   acceptEULA?: boolean;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the instance group to which the application is deployed.
+   * The deployment group ID.
    * 
    * This parameter is required.
    * 
@@ -33,11 +33,10 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The relationship among the conditions that trigger a scale-in.
+   * The trigger condition. Valid values:
    * 
-   * - OR: one of the conditions
-   * 
-   * - AND: all conditions
+   * - OR: Any condition.
+   * - AND: All conditions.
    * 
    * @example
    * "OR"
@@ -45,7 +44,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   inCondition?: string;
   /**
    * @remarks
-   * The CPU utilization that triggers a scale-in.
+   * The trigger metric: CPU utilization.
    * 
    * @example
    * 50
@@ -53,7 +52,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   inCpu?: number;
   /**
    * @remarks
-   * The duration in which the metric threshold is exceeded. Unit: minutes.
+   * The duration, in minutes.
    * 
    * @example
    * 50
@@ -61,11 +60,10 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   inDuration?: number;
   /**
    * @remarks
-   * Specifies whether to allow scale-ins.
+   * Specifies whether to include the scale-in rule. Valid values:
    * 
-   * - true: allows scale-ins.
-   * 
-   * - false: does not allow scale-ins.
+   * - true: Included.
+   * - false: Not included.
    * 
    * @example
    * true
@@ -73,7 +71,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   inEnable?: boolean;
   /**
    * @remarks
-   * The minimum number of instances that must be retained in each group when a scale-in is performed.
+   * The minimum number of instances to retain when the group scales in.
    * 
    * @example
    * 3
@@ -81,7 +79,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   inInstanceNum?: number;
   /**
    * @remarks
-   * The system load that triggers a scale-in.
+   * The trigger metric: system load.
    * 
    * @example
    * 50
@@ -89,7 +87,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   inLoad?: number;
   /**
    * @remarks
-   * The minimum service latency that triggers a scale-in. The lower limit is 0. Unit: milliseconds.
+   * The trigger metric: service latency. Unit: milliseconds. Minimum value: 0.
    * 
    * @example
    * 50
@@ -97,7 +95,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   inRT?: number;
   /**
    * @remarks
-   * The number of instances that are removed during each scale-in.
+   * The number of instances to scale in at a time.
    * 
    * @example
    * 1
@@ -105,7 +103,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   inStep?: number;
   /**
    * @remarks
-   * The key pair that is used to log on to the instance. This parameter takes effect only if you choose to create instances based on the specifications of an existing instance during a scale-out.
+   * The name of the logon key pair for the instance. This parameter is valid only when the existing instance rule is used for auto scaling.
    * 
    * @example
    * "tdy218"
@@ -113,11 +111,9 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The multi-zone scaling policy. Valid values:
-   * 
-   * - PRIORITY: The vSwitch that is first selected has the highest priority.
-   * 
-   * - BALANCE: This policy evenly distributes instances across zones in which the vSwitches reside.
+   * The multi-zone scaling policy for auto scaling. Valid values:
+   * - PRIORITY: Priority policy.
+   * - BALANCE: Balanced distribution policy.
    * 
    * @example
    * "PRIORITY"
@@ -125,7 +121,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   multiAzPolicy?: string;
   /**
    * @remarks
-   * The CPU utilization that triggers a scale-out.
+   * The trigger metric: CPU utilization.
    * 
    * @example
    * 50
@@ -133,11 +129,10 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   outCPU?: number;
   /**
    * @remarks
-   * The relationship among the conditions that trigger a scale-out.
+   * The trigger condition. Valid values:
    * 
-   * - OR: one of the conditions
-   * 
-   * - AND: all conditions
+   * - OR: Any condition.
+   * - AND: All conditions.
    * 
    * @example
    * "OR"
@@ -145,7 +140,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   outCondition?: string;
   /**
    * @remarks
-   * The duration in which the metric threshold is exceeded. Unit: minutes.
+   * The duration, in minutes.
    * 
    * @example
    * 50
@@ -153,7 +148,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   outDuration?: number;
   /**
    * @remarks
-   * Specifies whether to allow scale-outs.
+   * Specifies whether to include the scale-out rule.
    * 
    * @example
    * true
@@ -161,7 +156,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   outEnable?: boolean;
   /**
    * @remarks
-   * The maximum number of instances in each group when a scale-out is performed.
+   * The maximum number of instances when the group scales out.
    * 
    * @example
    * 10
@@ -169,7 +164,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   outInstanceNum?: number;
   /**
    * @remarks
-   * The system load that triggers a scale-out.
+   * The trigger metric: system load.
    * 
    * @example
    * 50
@@ -177,7 +172,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   outLoad?: number;
   /**
    * @remarks
-   * The minimum service latency that triggers a scale-out. The lower limit is 0. Unit: milliseconds.
+   * The trigger metric: service latency. Unit: milliseconds. Minimum value: 0.
    * 
    * @example
    * 0
@@ -185,7 +180,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   outRT?: number;
   /**
    * @remarks
-   * The number of instances that are added during each scale-out.
+   * The number of instances to scale out at a time.
    * 
    * @example
    * 0
@@ -193,7 +188,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   outStep?: number;
   /**
    * @remarks
-   * The password that is used to log on to the instance. This parameter takes effect only if you choose to create instances based on the specifications of an existing instance during a scale-out.
+   * The logon password of the instance. This parameter is valid only when the existing instance rule is used for auto scaling.
    * 
    * @example
    * "Pwd*****"
@@ -201,13 +196,11 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The source of the instance to be added during a scale-out. Valid values:
+   * The source of instances for scale-out. Valid values:
+   * - NEW: Elastic resources.
+   * - AVAILABLE: Existing resources. To prioritize existing resources, use AVAILABLE_FIRST.
    * 
-   * - NEW: elastic resources
-   * 
-   * - AVAILABLE: existing resources If you prefer existing resources to elastic resources, set this parameter to AVAILABLE_FIRST.
-   * 
-   * If you set this parameter to NEW or AVAILABLE_FIRST, you must specify the auto-scaling parameters. If you set this parameter to NEW, instances are created based on a launch template or the specifications of an existing instance.
+   * If you set this parameter to NEW or AVAILABLE_FIRST, you must specify auto scaling parameters. Auto scaling includes two modes: launch template and existing instance rule.
    * 
    * @example
    * "AVAILABLE"
@@ -215,11 +208,9 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   resourceFrom?: string;
   /**
    * @remarks
-   * The instance handling mode during a scale-in. Valid values:
-   * 
-   * - release: When a scale-in is performed, instances that are no longer used are released.
-   * 
-   * - recycle: When a scale-in is performed, instances that are no longer used are stopped and reclaimed.
+   * The reclamation mode for scale-in. Valid values:
+   * - release: Release mode.
+   * - recycle: Stop and reclaim mode.
    * 
    * @example
    * "release"
@@ -227,7 +218,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   scalingPolicy?: string;
   /**
    * @remarks
-   * The ID of the launch template that is used to create instances during a scale-out. This parameter takes effect only if you set the OutEnable parameter to true. This parameter takes precedence over the TemplateInstanceId parameter.
+   * The launch template ID for auto scaling. This parameter is valid only when OutEnable is set to true, and it has a higher priority than TemplateInstanceId.
    * 
    * @example
    * "lt-wz9hkhn8wp*****"
@@ -235,7 +226,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The ID of the instance whose specifications are used to create instances during a scale-out. This parameter is valid only when you set the OutEnable parameter to true.
+   * The instance ID for the existing instance rule of auto scaling. This parameter is valid only when OutEnable is set to true.
    * 
    * @example
    * "1"
@@ -243,7 +234,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   templateInstanceId?: string;
   /**
    * @remarks
-   * The name of the instance whose specifications are used to create instances during a scale-out. This parameter takes effect only if you specify the TemplateInstanceId parameter.
+   * The instance name for the existing instance rule of auto scaling. This parameter is valid only when TemplateInstanceId is specified.
    * 
    * @example
    * "tpl-tdy218"
@@ -251,7 +242,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   templateInstanceName?: string;
   /**
    * @remarks
-   * The version of the launch template that is used to create instances during a scale-out. This parameter takes effect only if you set the OutEnable parameter to true. To use the default template version, set this parameter to `-1`. Otherwise, set this parameter to the version that you want to use.
+   * The launch template version for auto scaling. This parameter is valid only when OutEnable is set to true. Set this parameter to `-1` to use the default template version, or set it to a specific version number.
    * 
    * @example
    * -1
@@ -259,7 +250,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   templateVersion?: number;
   /**
    * @remarks
-   * The IDs of the vSwitches that are associated with the VPC. Separate multiple IDs with commas (,).
+   * The list of vSwitch IDs in the VPC. Separate multiple IDs with commas (,).
    * 
    * @example
    * "vsw-bp1ldxs3d4fd*****"
@@ -267,7 +258,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   vSwitchIds?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) that is associated with the instances created based on a launch template or the specifications of an existing instance.
+   * The VPC ID associated with the launch template or existing instance rule for auto scaling.
    * 
    * @example
    * "vpc-bp1j55oz3bg*****"

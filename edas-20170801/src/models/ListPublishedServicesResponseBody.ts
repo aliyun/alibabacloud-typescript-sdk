@@ -133,7 +133,7 @@ export class ListPublishedServicesResponseBodyPublishedServicesList extends $dar
 export class ListPublishedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The code.
    * 
    * @example
    * 200
@@ -141,7 +141,7 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message.
    * 
    * @example
    * success
@@ -150,7 +150,7 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   publishedServicesList?: ListPublishedServicesResponseBodyPublishedServicesList;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 1D6FC-4307-4583-BA6F-215F3857E****

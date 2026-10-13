@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySlsLogStoreListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QuerySlsLogStoreListRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from Page 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class QuerySlsLogStoreListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 1000
@@ -31,11 +31,10 @@ export class QuerySlsLogStoreListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of data that is collected by Log Service. Valid values:
+   * The Simple Log Service collection type. Valid values:
    * 
-   * - file: the file type
-   * 
-   * - stdout: the standard output type
+   * - file: File.
+   * - stdout: Standard output.
    * 
    * This parameter is required.
    * 

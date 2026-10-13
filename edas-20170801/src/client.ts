@@ -2815,7 +2815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specific cluster.
+   * Retrieves the details of a specified cluster.
    * 
    * @param request - GetClusterRequest
    * @param headers - map
@@ -2848,7 +2848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specific cluster.
+   * Retrieves the details of a specified cluster.
    * 
    * @param request - GetClusterRequest
    * @returns GetClusterResponse
@@ -3208,6 +3208,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getK8sServicesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the details of application import and export.
+   * 
+   * @param request - GetMigrateApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMigrateApplicationResponse
+   */
+  async getMigrateApplicationWithOptions(request: $_model.GetMigrateApplicationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMigrateApplicationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.migrationId)) {
+      query["migrationId"] = request.migrationId;
+    }
+
+    if (!$dara.isNull(request.migrationType)) {
+      query["migrationType"] = request.migrationType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMigrateApplication",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/k8s/migrateK8sApp`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMigrateApplicationResponse>(await this.callApi(params, req, runtime), new $_model.GetMigrateApplicationResponse({}));
+  }
+
+  /**
+   * Queries the details of application import and export.
+   * 
+   * @param request - GetMigrateApplicationRequest
+   * @returns GetMigrateApplicationResponse
+   */
+  async getMigrateApplication(request: $_model.GetMigrateApplicationRequest): Promise<$_model.GetMigrateApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMigrateApplicationWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5399,7 +5452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries consumed services.
+   * Queries the consumed services.
    * 
    * @param request - ListConsumedServicesRequest
    * @param headers - map
@@ -5432,7 +5485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries consumed services.
+   * Queries the consumed services.
    * 
    * @param request - ListConsumedServicesRequest
    * @returns ListConsumedServicesResponse
@@ -6575,9 +6628,6 @@ export default class Client extends OpenApi {
   /**
    * Migrates an application.
    * 
-   * @remarks
-   * > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
-   * 
    * @param request - MigrateApplicationRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6626,9 +6676,6 @@ export default class Client extends OpenApi {
 
   /**
    * Migrates an application.
-   * 
-   * @remarks
-   * > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
    * 
    * @param request - MigrateApplicationRequest
    * @returns MigrateApplicationResponse
@@ -6707,7 +6754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the scaling rule for an application.
+   * Modifies the auto scaling rules.
    * 
    * @param request - ModifyScalingRuleRequest
    * @param headers - map
@@ -6856,7 +6903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the scaling rule for an application.
+   * Modifies the auto scaling rules.
    * 
    * @param request - ModifyScalingRuleRequest
    * @returns ModifyScalingRuleResponse
@@ -7083,7 +7130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of Log Service for an application.
+   * Queries the Simple Log Service configuration details of an application.
    * 
    * @param request - QuerySlsLogStoreListRequest
    * @param headers - map
@@ -7128,7 +7175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of Log Service for an application.
+   * Queries the Simple Log Service configuration details of an application.
    * 
    * @param request - QuerySlsLogStoreListRequest
    * @returns QuerySlsLogStoreListResponse

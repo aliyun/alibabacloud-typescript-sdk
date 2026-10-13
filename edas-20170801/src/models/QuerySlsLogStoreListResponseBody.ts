@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySlsLogStoreListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The type of the logging service.
+   * The Simple Log Service type.
    * 
    * @example
-   * SLS log service
+   * Simple Log Service
    */
   consumerSide?: string;
   /**
    * @remarks
-   * The time when the logging service was created.
+   * The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2020-05-18 22:08:46
@@ -21,12 +21,12 @@ export class QuerySlsLogStoreListResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The URL of the logging service.
+   * The Simple Log Service link.
    */
   link?: string;
   /**
    * @remarks
-   * The name of the Logstore.
+   * The Logstore name.
    * 
    * @example
    * thisisatestlogstore
@@ -34,7 +34,7 @@ export class QuerySlsLogStoreListResponseBodyResult extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The project name.
    * 
    * @example
    * k8s-log-c846f28edbd1d4c6aa9d78c0e********
@@ -42,11 +42,10 @@ export class QuerySlsLogStoreListResponseBodyResult extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The source of logs. Valid values:
+   * The log source. Valid values:
    * 
-   * - Standard output: stdout.log
-   * 
-   * - File log: the directory that stores logs
+   * - Standard output: stdout.log.
+   * - File log: the collection path.
    * 
    * @example
    * /var/log/*
@@ -86,7 +85,7 @@ export class QuerySlsLogStoreListResponseBodyResult extends $dara.Model {
 export class QuerySlsLogStoreListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -94,7 +93,7 @@ export class QuerySlsLogStoreListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -102,7 +101,7 @@ export class QuerySlsLogStoreListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * d6834ee9-5045-*************
@@ -110,12 +109,12 @@ export class QuerySlsLogStoreListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configurations of Log Service for the application.
+   * The Simple Log Service configuration results.
    */
   result?: QuerySlsLogStoreListResponseBodyResult[];
   /**
    * @remarks
-   * The number of log sources configured for the application.
+   * The total number of Simple Log Service configurations.
    * 
    * @example
    * 1

@@ -133,7 +133,7 @@ export class ListConsumedServicesResponseBodyConsumedServicesList extends $dara.
 export class ListConsumedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The code.
    * 
    * @example
    * 200
@@ -142,7 +142,7 @@ export class ListConsumedServicesResponseBody extends $dara.Model {
   consumedServicesList?: ListConsumedServicesResponseBodyConsumedServicesList;
   /**
    * @remarks
-   * The returned message.
+   * The message.
    * 
    * @example
    * success

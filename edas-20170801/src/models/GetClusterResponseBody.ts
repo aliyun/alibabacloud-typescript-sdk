@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterResponseBodyCluster extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * 5439271a-015b-433d-befb-d76d****
@@ -13,17 +13,12 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The import status of the cluster. Valid values:
-   * 
-   * - 1: The cluster is imported.
-   * 
-   * - 2: The cluster fails to be imported.
-   * 
-   * - 3: The cluster is being imported.
-   * 
-   * - 4: The cluster is deleted.
-   * 
-   * - 0: The cluster is not imported.
+   * The cluster import status. Valid values:
+   * - 1: Imported.
+   * - 2: Import failed.
+   * - 3: Importing.
+   * - 4: Cluster deleted.
+   * - 0: Not imported.
    * 
    * @example
    * 0
@@ -31,7 +26,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   clusterImportStatus?: number;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * ClusterTest
@@ -39,19 +34,13 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values:
-   * 
-   * - 0: regular Docker cluster
-   * 
-   * - 1: Swarm cluster
-   * 
-   * - 2: Elastic Compute Service (ECS) cluster
-   * 
-   * - 3: self-managed Kubernetes cluster in EDAS
-   * 
-   * - 4: cluster in which Pandora automatically registers applications
-   * 
-   * - 5: ACK cluster
+   * The cluster type. Valid values:
+   * - 0: Common Docker cluster.
+   * - 1: Swarm cluster.
+   * - 2: ECS cluster.
+   * - 3: EDAS self-managed Kubernetes cluster.
+   * - 4: Pandora auto-registered application cluster.
+   * - 5: Container Service Kubernetes cluster.
    * 
    * @example
    * 2
@@ -75,7 +64,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   cpuUsed?: number;
   /**
    * @remarks
-   * The time when the cluster was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp when the cluster was created.
    * 
    * @example
    * 1570708232145
@@ -83,7 +72,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the Container Service for Kubernetes (ACK) cluster.
+   * The Container Service cluster ID.
    * 
    * @example
    * c2ce62869f4d4466b920312315f05****
@@ -91,7 +80,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   csClusterId?: string;
   /**
    * @remarks
-   * The description of the cluster.
+   * The description.
    * 
    * @example
    * Test
@@ -99,7 +88,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The provider of Infrastructure as a Service (IaaS) resources used in the cluster.
+   * The IaaS resource provider.
    * 
    * @example
    * ALIYUN
@@ -107,7 +96,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   iaasProvider?: string;
   /**
    * @remarks
-   * The total size of memory. Unit: MB.
+   * The total memory. Unit: MB.
    * 
    * @example
    * 2048
@@ -115,7 +104,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   mem?: number;
   /**
    * @remarks
-   * The size of used memory. Unit: MB.
+   * The amount of used memory. Unit: MB.
    * 
    * @example
    * 1024
@@ -123,11 +112,9 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   memUsed?: number;
   /**
    * @remarks
-   * The network type of the cluster. Valid values:
-   * 
-   * - 1: classic network
-   * 
-   * - 2: virtual private cloud (VPC)
+   * The network type. Valid values:
+   * - 1: Classic network.
+   * - 2: VPC.
    * 
    * @example
    * 2
@@ -143,15 +130,11 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   nodeNum?: number;
   /**
    * @remarks
-   * The overcommit ratio supported by a Docker cluster. Valid values:
-   * 
-   * - 1: 1:1, which means that resources are not overcommitted.
-   * 
-   * - 2: 1:2, which means that resources are overcommitted by 1:2.
-   * 
-   * - 4: 1:4, which means that resources are overcommitted by 1:4.
-   * 
-   * - 8: 1:8, which means that resources are overcommitted by 1:8.
+   * The CPU overselling ratio for Docker clusters. Valid values:
+   * - 1: 1:1 ratio. No overselling.
+   * - 2: 1:2 overselling ratio.
+   * - 4: 1:4 overselling ratio.
+   * - 8: 1:8 overselling ratio.
    * 
    * @example
    * 2
@@ -159,7 +142,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   oversoldFactor?: number;
   /**
    * @remarks
-   * The ID of the region where the cluster resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -167,7 +150,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The subtype of the Kubernetes cluster. Valid values: ManagedKubernetes, Ask, and ExternalKubernetes. ManagedKubernetes refers to the ACK cluster. Ask refers to the Serverless Kubernetes (ASK) cluster. ExternalKubernetes refers to the external cluster.
+   * The subtype of the Kubernetes cluster. ManagedKubernetes indicates an ACK cluster, Ask indicates an ASK cluster, and ExternalKubernetes indicates an external cluster.
    * 
    * @example
    * ManagedKubernetes
@@ -175,7 +158,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   subClusterType?: string;
   /**
    * @remarks
-   * The time when the cluster was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp when the cluster was last modified.
    * 
    * @example
    * 1570708232145
@@ -183,7 +166,7 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-xxxxz1mlwpb****
@@ -249,12 +232,12 @@ export class GetClusterResponseBodyCluster extends $dara.Model {
 export class GetClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the cluster.
+   * The cluster information.
    */
   cluster?: GetClusterResponseBodyCluster;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -262,7 +245,7 @@ export class GetClusterResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The detailed information that is returned.
+   * The detailed message.
    * 
    * @example
    * success
@@ -270,7 +253,7 @@ export class GetClusterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * d76db491

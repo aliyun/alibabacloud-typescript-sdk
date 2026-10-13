@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InsertClusterResponseBodyCluster extends $dara.Model {
   /**
    * @remarks
-   * The ID of cluster.
+   * The ID of the cluster.
    * 
    * @example
    * 8705ad13-5d86-47fc-b68f-257b59ed****
@@ -23,9 +23,9 @@ export class InsertClusterResponseBodyCluster extends $dara.Model {
    * @remarks
    * The type of the cluster. Valid values:
    * 
-   * *   2: ECS cluster
-   * *   3: self-managed Kubernetes cluster in EDAS
-   * *   5: Kubernetes cluster
+   * - 2: ECS cluster.
+   * - 3: EDAS built-in Kubernetes cluster.
+   * - 5: Kubernetes cluster.
    * 
    * @example
    * 2
@@ -33,7 +33,7 @@ export class InsertClusterResponseBodyCluster extends $dara.Model {
   clusterType?: number;
   /**
    * @remarks
-   * The provider of the IaaS resources that are used in the cluster.
+   * The provider.
    * 
    * @example
    * ALIYUN
@@ -41,10 +41,11 @@ export class InsertClusterResponseBodyCluster extends $dara.Model {
   iaasProvider?: string;
   /**
    * @remarks
-   * The network type of the cluster. Valid values:
+   * The network type. Valid values:
    * 
-   * *   1: classic network
-   * *   2\\. VPC
+   * - 1: Classic network.
+   * 
+   * - 2: VPC.
    * 
    * @example
    * 2
@@ -52,11 +53,13 @@ export class InsertClusterResponseBodyCluster extends $dara.Model {
   networkMode?: number;
   /**
    * @remarks
-   * **This parameter is deprecated.** The CPU overcommit ratio supported by the Docker cluster. Valid values:
+   * **[Deprecated]** The CPU overselling ratio for Docker clusters. Valid values:
    * 
-   * *   2: 1:2, which means that resources are overcommitted by 1:2.
-   * *   4: 1:4, which means that resources are overcommitted by 1:4.
-   * *   8: 1:8, which means that resources are overcommitted by 1:8.
+   * - 2: 1:2 ratio.
+   * 
+   * - 4: 1:4 ratio.
+   * 
+   * - 8: 1:8 ratio.
    * 
    * @example
    * 1
@@ -64,7 +67,7 @@ export class InsertClusterResponseBodyCluster extends $dara.Model {
   oversoldFactor?: number;
   /**
    * @remarks
-   * The ID of the region in which the cluster resides.
+   * The region ID of the cluster.
    * 
    * @example
    * cn-beijing
@@ -116,12 +119,12 @@ export class InsertClusterResponseBodyCluster extends $dara.Model {
 export class InsertClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the cluster that was created.
+   * The created cluster entity.
    */
   cluster?: InsertClusterResponseBodyCluster;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -129,7 +132,7 @@ export class InsertClusterResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The additional information.
    * 
    * @example
    * success
@@ -137,7 +140,7 @@ export class InsertClusterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * b197-40ab-9155-****
