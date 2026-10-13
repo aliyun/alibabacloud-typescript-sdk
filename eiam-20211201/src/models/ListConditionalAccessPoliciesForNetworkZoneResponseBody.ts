@@ -223,7 +223,7 @@ export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalA
   activeSessionReuseStatus?: string;
   /**
    * @remarks
-   * The decision action of the conditional access policy.
+   * The decision action effect of the conditional access policy.
    * 
    * @example
    * allow
@@ -293,10 +293,10 @@ export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalA
   conditionalAccessPolicyId?: string;
   /**
    * @remarks
-   * The conditional access policy name.
+   * The Policy Name of the conditional access policy.
    * 
    * @example
-   * My policy
+   * MyPolicy
    */
   conditionalAccessPolicyName?: string;
   /**
@@ -314,7 +314,7 @@ export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalA
   conditionsConfig?: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig;
   /**
    * @remarks
-   * The creation time.
+   * The time when the policy was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1741857554000
@@ -359,7 +359,7 @@ export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalA
   instanceId?: string;
   /**
    * @remarks
-   * The last updated time.
+   * The time when the policy was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1741857554000
@@ -367,7 +367,7 @@ export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalA
   lastUpdatedTime?: number;
   /**
    * @remarks
-   * The priority.
+   * The priority of the conditional access policy.
    * 
    * @example
    * 10

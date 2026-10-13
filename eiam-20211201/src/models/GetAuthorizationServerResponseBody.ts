@@ -53,7 +53,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   authorizationServerId?: string;
   /**
    * @remarks
-   * The name of the authorization server.
+   * The authorization server name.
    * 
    * @example
    * System_Default
@@ -61,7 +61,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   authorizationServerName?: string;
   /**
    * @remarks
-   * The time when the authorization server was created.
+   * The time when the authorization server was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754620108295
@@ -77,7 +77,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   creationType?: string;
   /**
    * @remarks
-   * The description of the authorization server.
+   * The authorization server description.
    * 
    * @example
    * description of authorization server
@@ -93,7 +93,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The issuer of the authorization token.
+   * The authorization token issuer.
    * 
    * @example
    * https://xxxx.aliyunidaas.com/api/v2/iauths_system/oauth2
@@ -117,7 +117,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   issuerMode?: string;
   /**
    * @remarks
-   * The time when the authorization server was last updated.
+   * The time when the authorization server was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1781608572164
@@ -125,12 +125,12 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   lastUpdateTime?: number;
   /**
    * @remarks
-   * The endpoint configuration of the authorization server.
+   * The authorization server endpoint configuration.
    */
   protocolEndpoint?: GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoint;
   /**
    * @remarks
-   * The status of the authorization server.
+   * The authorization server status.
    * 
    * @example
    * ENABLE

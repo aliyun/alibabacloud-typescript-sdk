@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrustedOriginsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IDaaS EIAM instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Maximum value: 100. If you set this parameter to 0, the default value is used.
+   * The maximum number of results per page.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The NextToken returned by the previous call.
+   * The pagination token.
    * 
    * @example
    * NT_example
@@ -31,7 +31,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Filters by the exact normalized origin.
+   * The origin filter.
    * 
    * @example
    * https://console.qoder.com
@@ -39,7 +39,10 @@ export class ListTrustedOriginsRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * Filters by exact status. Valid values: Enabled or Disabled.
+   * The status filter. Valid values:
+   * 
+   * - Enabled: Enabled.
+   * - Disabled: Disabled.
    * 
    * @example
    * Enabled
@@ -47,7 +50,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Filters by exact name.
+   * The name filter.
    * 
    * @example
    * Qoder Production Console
@@ -55,7 +58,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
   trustOriginName?: string;
   /**
    * @remarks
-   * Filters by exact trusted origin scene. You can specify at most one value.
+   * The trusted origin scene filter.
    * 
    * @example
    * iframe_embed

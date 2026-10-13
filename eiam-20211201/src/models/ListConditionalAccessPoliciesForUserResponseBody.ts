@@ -239,7 +239,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   mfaAuthenticationIntervalSeconds?: number;
   /**
    * @remarks
-   * The MFA methods allowed by the conditional access policy.
+   * The MFA types allowed by the conditional access policy.
    */
   mfaAuthenticationMethods?: string[];
   /**
@@ -301,7 +301,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   conditionalAccessPolicyName?: string;
   /**
    * @remarks
-   * The type of the conditional access policy.
+   * The conditional access policy type.
    * 
    * @example
    * arn:alibaba:idaas:authn:access:policy:system
@@ -314,7 +314,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   conditionsConfig?: ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPoliciesConditionsConfig;
   /**
    * @remarks
-   * The creation time.
+   * The time when the policy was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1741857554000
@@ -322,12 +322,12 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   createTime?: number;
   /**
    * @remarks
-   * The execution configuration of the conditional access policy.
+   * The decision configuration of the conditional access policy.
    */
   decisionConfig?: ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPoliciesDecisionConfig;
   /**
    * @remarks
-   * The execution type of the conditional access policy.
+   * The decision type of the conditional access policy.
    * 
    * @example
    * enforcement
@@ -335,7 +335,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   decisionType?: string;
   /**
    * @remarks
-   * The description of the conditional access policy.
+   * The conditional access policy description.
    * 
    * @example
    * testPolicy
@@ -359,7 +359,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   instanceId?: string;
   /**
    * @remarks
-   * The last updated time.
+   * The time when the policy was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1741857554000

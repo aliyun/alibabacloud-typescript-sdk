@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications extends $dara.Model {
   /**
    * @remarks
-   * Excluded applications.
+   * The excluded applications.
    */
   excludeApplications?: string[];
   /**
    * @remarks
-   * Included applications.
+   * The included applications.
    */
   includeApplications?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyCondit
 export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones extends $dara.Model {
   /**
    * @remarks
-   * Excluded network ranges.
+   * The excluded network zones.
    */
   excludeNetworkZones?: string[];
   /**
    * @remarks
-   * Included network ranges.
+   * The included network zones.
    */
   includeNetworkZones?: string[];
   static names(): { [key: string]: string } {
@@ -85,32 +85,32 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyCondit
 export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers extends $dara.Model {
   /**
    * @remarks
-   * Excluded user groups.
+   * The excluded user groups.
    */
   excludeGroups?: string[];
   /**
    * @remarks
-   * Excluded organizations.
+   * The excluded organizational units.
    */
   excludeOrganizationalUnits?: string[];
   /**
    * @remarks
-   * Excluded users.
+   * The excluded users.
    */
   excludeUsers?: string[];
   /**
    * @remarks
-   * Included user groups.
+   * The included user groups.
    */
   includeGroups?: string[];
   /**
    * @remarks
-   * Included organizations.
+   * The included organizational units.
    */
   includeOrganizationalUnits?: string[];
   /**
    * @remarks
-   * Included users.
+   * The included users.
    */
   includeUsers?: string[];
   static names(): { [key: string]: string } {
@@ -165,17 +165,17 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyCondit
 export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig extends $dara.Model {
   /**
    * @remarks
-   * Target applications of the conditional access policy.
+   * The target applications of the conditional access policy.
    */
   applications?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications;
   /**
    * @remarks
-   * Network zones of the conditional access policy.
+   * The network zones of the conditional access policy.
    */
   networkZones?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones;
   /**
    * @remarks
-   * Target users of the conditional access policy.
+   * The target users of the conditional access policy.
    */
   users?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers;
   static names(): { [key: string]: string } {
@@ -215,7 +215,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyCondit
 export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig extends $dara.Model {
   /**
    * @remarks
-   * Whether session reuse is enabled.
+   * Indicates whether session reuse is enabled.
    * 
    * @example
    * enabled
@@ -223,7 +223,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisi
   activeSessionReuseStatus?: string;
   /**
    * @remarks
-   * Decision action of the conditional access policy.
+   * The decision action of the conditional access policy.
    * 
    * @example
    * allow
@@ -231,7 +231,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisi
   effect?: string;
   /**
    * @remarks
-   * Re-authentication interval (seconds) of the conditional access policy.
+   * The interval in seconds for MFA re-authentication in the conditional access policy.
    * 
    * @example
    * 300
@@ -239,12 +239,12 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisi
   mfaAuthenticationIntervalSeconds?: number;
   /**
    * @remarks
-   * Allowed MFA types of the conditional access policy.
+   * The MFA types allowed by the conditional access policy.
    */
   mfaAuthenticationMethods?: string[];
   /**
    * @remarks
-   * MFA authentication type of the conditional access policy.
+   * The MFA authentication type of the conditional access policy.
    * 
    * @example
    * directly_access
@@ -285,7 +285,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisi
 export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy extends $dara.Model {
   /**
    * @remarks
-   * Conditional access policy ID.
+   * The conditional access policy ID.
    * 
    * @example
    * cp_xxxxx
@@ -293,15 +293,15 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   conditionalAccessPolicyId?: string;
   /**
    * @remarks
-   * Conditional access policy name.
+   * The Policy Name of the conditional access policy.
    * 
    * @example
-   * My policy
+   * MyPolicy
    */
   conditionalAccessPolicyName?: string;
   /**
    * @remarks
-   * Conditional access policy type.
+   * The type of the conditional access policy.
    * 
    * @example
    * arn:alibaba:idaas:authn:access:policy:system
@@ -309,12 +309,12 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   conditionalAccessPolicyType?: string;
   /**
    * @remarks
-   * Conditional access policy content.
+   * The conditions configuration of the conditional access policy.
    */
   conditionsConfig?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig;
   /**
    * @remarks
-   * Creation time.
+   * The time when the conditional access policy was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1741857554000
@@ -322,12 +322,12 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   createTime?: number;
   /**
    * @remarks
-   * Execution action of the conditional access policy.
+   * The decision action configuration of the conditional access policy.
    */
   decisionConfig?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig;
   /**
    * @remarks
-   * Execution type of the conditional access policy.
+   * The decision type of the conditional access policy.
    * 
    * @example
    * enforcement
@@ -335,7 +335,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   decisionType?: string;
   /**
    * @remarks
-   * Conditional access policy description.
+   * The description of the conditional access policy.
    * 
    * @example
    * ga access port for ecs: internal-cn-hangzhou-docker-builder-2(i-bp19g1pheaailkk1xvr6)
@@ -343,7 +343,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   description?: string;
   /**
    * @remarks
-   * Evaluation point of the conditional access policy.
+   * The evaluation point of the conditional access policy.
    * 
    * @example
    * arn:alibaba:idaas:authn:access:rule:eval_at:after_step1
@@ -351,7 +351,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   evaluateAt?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * idaas_qnx6fbrinlecptl5hld23lfkvy
@@ -359,7 +359,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   instanceId?: string;
   /**
    * @remarks
-   * Update time.
+   * The time when the conditional access policy was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1741857554000
@@ -367,7 +367,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   lastUpdatedTime?: number;
   /**
    * @remarks
-   * Priority.
+   * The priority of the conditional access policy.
    * 
    * @example
    * 5
@@ -375,7 +375,7 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
   priority?: number;
   /**
    * @remarks
-   * Enabled or disabled status of the conditional access policy.
+   * The enabled or disabled status of the conditional access policy.
    * 
    * @example
    * enabled
@@ -435,12 +435,12 @@ export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy exten
 export class GetConditionalAccessPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the conditional access policy.
+   * The details of the conditional access policy.
    */
   conditionalAccessPolicy?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

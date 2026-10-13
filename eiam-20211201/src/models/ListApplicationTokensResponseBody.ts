@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Model {
   /**
    * @remarks
-   * aliUid。
+   * The Alibaba Cloud account UID.
    * 
    * @example
    * 1973166921975xxxx
@@ -45,7 +45,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   applicationTokenType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1747796654000
@@ -61,7 +61,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1747796654000
@@ -77,7 +77,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The last used time.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1747796654000

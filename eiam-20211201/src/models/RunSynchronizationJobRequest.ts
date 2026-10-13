@@ -81,12 +81,12 @@ export class RunSynchronizationJobRequest extends $dara.Model {
   passwordInitialization?: boolean;
   /**
    * @remarks
-   * The configuration of the synchronization scope.
+   * The synchronization scope configuration.
    */
   synchronizationScopeConfig?: RunSynchronizationJobRequestSynchronizationScopeConfig;
   /**
    * @remarks
-   * The ID of the synchronization target.
+   * The synchronization target ID.
    * 
    * This parameter is required.
    * 
@@ -96,11 +96,10 @@ export class RunSynchronizationJobRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The type of the synchronization target. Valid values:
+   * The synchronization target type. Valid values:
    * 
-   * - identity_provider: The identity provider.
-   * 
-   * - application: The application.
+   * - identity_provider: identity provider
+   * - application: application
    * 
    * This parameter is required.
    * 

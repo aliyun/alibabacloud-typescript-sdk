@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTrustedOriginRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The idempotence token.
    * 
    * @example
    * client-token-example
@@ -13,7 +13,7 @@ export class UpdateTrustedOriginRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the IDaaS EIAM instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateTrustedOriginRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * If this parameter is not specified, the trusted origin name is not modified.
+   * The trusted origin name.
    * 
    * @example
    * Qoder Production Console
@@ -31,7 +31,7 @@ export class UpdateTrustedOriginRequest extends $dara.Model {
   trustOriginName?: string;
   /**
    * @remarks
-   * The ID of the trusted origin.
+   * The trusted origin ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateTrustedOriginRequest extends $dara.Model {
   trustedOriginId?: string;
   /**
    * @remarks
-   * When specified, the existing values are entirely replaced. Only iframe_embed and cors are supported.
+   * The trusted origin scenario.
    * 
    * @example
    * iframe_embed

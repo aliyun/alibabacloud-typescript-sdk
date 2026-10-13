@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudAccountRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The token can contain only ASCII characters and must be no more than 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateCloudAccountRoleRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The cloud account ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateCloudAccountRoleRequest extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * The name of the cloud role.
+   * The cloud role name.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,8 @@ export class CreateCloudAccountRoleRequest extends $dara.Model {
   cloudAccountRoleName?: string;
   /**
    * @remarks
-   * The type of the cloud role. The format of this parameter depends on the type of the Alibaba Cloud account. The supported value is:
-   * 
-   * - role: applies to Alibaba Cloud accounts.
+   * The cloud role type. The specific format depends on the cloud account type. Valid values:
+   * - role: applicable to Alibaba Cloud accounts.
    * 
    * @example
    * role
@@ -45,7 +44,7 @@ export class CreateCloudAccountRoleRequest extends $dara.Model {
   cloudAccountRoleType?: string;
   /**
    * @remarks
-   * The description of the cloud role.
+   * The cloud role description.
    * 
    * @example
    * cloud_account_role_description
@@ -53,7 +52,7 @@ export class CreateCloudAccountRoleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

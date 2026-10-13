@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetApplicationResponseBodyApplicationApplicationOwner extends $dara.Model {
+  /**
+   * @remarks
+   * The list of group scopes for synchronization authorization.
+   */
   groupIds?: string[];
+  /**
+   * @remarks
+   * The list of user IDs.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +43,21 @@ export class GetApplicationResponseBodyApplicationApplicationOwner extends $dara
 }
 
 export class GetApplicationResponseBodyApplicationCustomFields extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of the application custom field.
+   * 
+   * @example
+   * agent_source_id
+   */
   fieldName?: string;
+  /**
+   * @remarks
+   * The value of the application custom field. When FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. When FieldName is set to agentExternalId, enter the corresponding value.
+   * 
+   * @example
+   * 38899
+   */
   fieldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,7 +85,7 @@ export class GetApplicationResponseBodyApplicationCustomFields extends $dara.Mod
 export class GetApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
-   * The status of the Developer API feature for the application. Valid values:
+   * The Developer API feature status of the application. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -102,9 +124,13 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * The application name.
    * 
    * @example
-   * SAML application
+   * SAML Application
    */
   applicationName?: string;
+  /**
+   * @remarks
+   * The application owner.
+   */
   applicationOwner?: GetApplicationResponseBodyApplicationApplicationOwner;
   /**
    * @remarks
@@ -118,7 +144,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   applicationSourceType?: string;
   /**
    * @remarks
-   * The ID of the application template associated during creation. This value is returned only when the application was created from an application template.
+   * The application template ID associated during creation. This value is returned only when the application was created from an application template.
    * 
    * @example
    * apt_rpa_tdsxxx
@@ -149,16 +175,20 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The time when the application was created. The value is a UNIX timestamp in milliseconds.
+   * The time when the application was created, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The list of application custom fields.
+   */
   customFields?: GetApplicationResponseBodyApplicationCustomFields[];
   /**
    * @remarks
-   * Indicates whether the custom Subject field in the token is enabled. After this feature is enabled, the issued Access Token changes from \\<clientId\\> to \\<clientId\\>:\\<client.activeSubjectUrn\\>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential of the application.
+   * Indicates whether the custom Subject field in the token is enabled. After this feature is enabled, the issued Access Token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential of the application.
    * 
    * @example
    * enabled
@@ -169,7 +199,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * The application description.
    * 
    * @example
-   * An application for test environment
+   * An application for the test environment
    */
   description?: string;
   /**
@@ -217,7 +247,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   managedServiceCode?: string;
   /**
    * @remarks
-   * The unique identifier of the ResourceServer, which corresponds to the ResourceServer audience.
+   * The unique identifier of the ResourceServer, corresponding to the ResourceServer audience.
    * 
    * @example
    * https://www.example.com
@@ -247,6 +277,10 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * true
    */
   serviceManaged?: boolean;
+  /**
+   * @remarks
+   * The list of capabilities configured through smart configuration.
+   */
   smartConfigCapabilities?: string[];
   /**
    * @remarks
@@ -272,7 +306,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the application was last updated. The value is a UNIX timestamp in milliseconds.
+   * The time when the application was last updated, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830226000

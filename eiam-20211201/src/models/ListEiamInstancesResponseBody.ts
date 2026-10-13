@@ -45,7 +45,12 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The instance version.
+   * The instance version. Valid values:
+   * 
+   * - EIAM 2~0: EIAM 2.0.
+   * - EIAM 1~0: EIAM 1.0.
+   * [_single.resp.200.props.Instances.items.InstanceVersion.enum.EIAM 2~0]EIAM 2.0
+   * [_single.resp.200.props.Instances.items.InstanceVersion.enum.EIAM 1~0]EIAM 1.0
    * 
    * @example
    * EIAM 2.0
@@ -77,7 +82,7 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
   SSODomain?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1677810869300

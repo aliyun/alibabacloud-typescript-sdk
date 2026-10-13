@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersForResourceServerResponseBodyUsersResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the scope permission.
+   * The scope permission ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -13,7 +13,7 @@ export class ListUsersForResourceServerResponseBodyUsersResourceServerScopes ext
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * The name of the scope permission.
+   * The scope permission name.
    * 
    * @example
    * Read All User
@@ -45,7 +45,7 @@ export class ListUsersForResourceServerResponseBodyUsersResourceServerScopes ext
 export class ListUsersForResourceServerResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_qsw77zl5vrllwzyrrfwbmpxxxx
@@ -53,12 +53,12 @@ export class ListUsersForResourceServerResponseBodyUsers extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A list of granted scope permissions.
+   * The list of granted scope permissions.
    */
   resourceServerScopes?: ListUsersForResourceServerResponseBodyUsersResourceServerScopes[];
   /**
    * @remarks
-   * The ID of the user account.
+   * The account ID.
    * 
    * @example
    * user_nbsomva32b6utec3hgi7scxxxx
@@ -95,7 +95,7 @@ export class ListUsersForResourceServerResponseBodyUsers extends $dara.Model {
 export class ListUsersForResourceServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for paged queries.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class ListUsersForResourceServerResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxexample
@@ -111,7 +111,7 @@ export class ListUsersForResourceServerResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -127,7 +127,7 @@ export class ListUsersForResourceServerResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of user accounts.
+   * The list of accounts.
    */
   users?: ListUsersForResourceServerResponseBodyUsers[];
   static names(): { [key: string]: string } {

@@ -23,6 +23,13 @@ export class GenerateOauthTokenRequest extends $dara.Model {
    * https://example.com
    */
   audience?: string;
+  /**
+   * @remarks
+   * The grant type.
+   * 
+   * @example
+   * client_credentials
+   */
   grantType?: string;
   /**
    * @remarks
@@ -34,15 +41,36 @@ export class GenerateOauthTokenRequest extends $dara.Model {
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The requested token type.
+   * 
+   * @example
+   * urn:ietf:params:oauth:token-type:access_token
+   */
   requestedTokenType?: string;
   /**
    * @remarks
-   * The permission scopes.
+   * The permission scope.
    * 
    * This parameter is required.
    */
   scopeValues?: string[];
+  /**
+   * @remarks
+   * The subject token.
+   * 
+   * @example
+   * subject001
+   */
   subjectToken?: string;
+  /**
+   * @remarks
+   * The subject token type.
+   * 
+   * @example
+   * urn:ietf:params:oauth:token-type:access_token
+   */
   subjectTokenType?: string;
   static names(): { [key: string]: string } {
     return {

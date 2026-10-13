@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainCredentialResponseBodyCredentialCredentialContentApiKeyContent extends $dara.Model {
   /**
    * @remarks
-   * The API key content.
+   * The API key value.
    * 
    * @example
    * nsklncmwizncxxxx
@@ -75,12 +75,12 @@ export class ObtainCredentialResponseBodyCredentialCredentialContentOAuthClientC
 export class ObtainCredentialResponseBodyCredentialCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * The credential content of the API key credential type.
+   * The content of the API key credential.
    */
   apiKeyContent?: ObtainCredentialResponseBodyCredentialCredentialContentApiKeyContent;
   /**
    * @remarks
-   * The credential content of the OAuth client authentication credential type.
+   * The content of the OAuth client credential.
    */
   OAuthClientContent?: ObtainCredentialResponseBodyCredentialCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -123,7 +123,7 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The credential content.
+   * The content of the credential.
    */
   credentialContent?: ObtainCredentialResponseBodyCredentialCredentialContent;
   /**
@@ -136,6 +136,13 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
    * user_custom
    */
   credentialCreationType?: string;
+  /**
+   * @remarks
+   * The external unique identifier of the credential.
+   * 
+   * @example
+   * credential_external_1234567890
+   */
   credentialExternalId?: string;
   /**
    * @remarks
@@ -164,13 +171,20 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   /**
    * @remarks
    * The scenarios label of the credential. Valid values:
-   * - llm: large language model.
-   * - saas: third-party SaaS service.
+   * - llm: Large language model.
+   * - saas: Third-party SaaS service.
    * 
    * @example
    * llm
    */
   credentialScenarioLabel?: string;
+  /**
+   * @remarks
+   * The sharing scope of the credential.
+   * 
+   * @example
+   * common
+   */
   credentialSharingScope?: string;
   /**
    * @remarks
@@ -183,7 +197,7 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   /**
    * @remarks
    * The type of the subject to which the credential belongs. Valid values:
-   * - authentication_token_provider: authentication token provider.
+   * - authentication_token_provider: Authentication token provider.
    * 
    * @example
    * authentication_token_provider
@@ -192,8 +206,8 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   /**
    * @remarks
    * The credential type. Valid values:
-   * - api_key: API key authentication credential.
-   * - oauth_client: OAuth client authentication credential.
+   * - api_key: API key credential.
+   * - oauth_client: OAuth client credential.
    * 
    * @example
    * api_key
@@ -207,6 +221,13 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
    * credential_description
    */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the account to which the credential is exclusively assigned.
+   * 
+   * @example
+   * user_1234567890
+   */
   exclusiveUserId?: string;
   /**
    * @remarks

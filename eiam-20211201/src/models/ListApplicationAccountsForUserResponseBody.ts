@@ -21,7 +21,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   applicationId?: string;
   /**
    * @remarks
-   * The name of the application account.
+   * The application account name.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   applicationUsername?: string;
   /**
    * @remarks
-   * The time when the account was created.
+   * The time when the account was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754359439000
@@ -37,7 +37,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   createTime?: number;
   /**
    * @remarks
-   * The ID of the IDaaS EIAM instance.
+   * The IDaaS EIAM instance ID.
    * 
    * @example
    * idaas_ki6hd7ihir4ybawogqk6xxxxx
@@ -85,7 +85,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
 export class ListApplicationAccountsForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the member accounts.
+   * The member accounts information.
    */
   applicationAccounts?: ListApplicationAccountsForUserResponseBodyApplicationAccounts[];
   /**
@@ -98,7 +98,7 @@ export class ListApplicationAccountsForUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100

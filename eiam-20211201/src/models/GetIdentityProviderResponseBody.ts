@@ -300,7 +300,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig ext
    * The AppSecret of the Lark custom application.
    * 
    * @example
-   * ***
+   * REOQ6Cl55kriOd8NOBeqWYLKpHR4p6fdZxxxx
    */
   appSecret?: string;
   /**
@@ -362,7 +362,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig ext
    * The AD/LDAP administrator password.
    * 
    * @example
-   * XXXX
+   * 123456
    */
   administratorPassword?: string;
   /**
@@ -613,11 +613,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig ext
   grantType?: string;
   /**
    * @remarks
-   * The PKCE algorithm. Valid values:
+   * The PKCE challenge method. Valid values:
    * 
    * - S256: SHA-256.
    * 
-   * - plain: plaintext.
+   * - plain: Plaintext.
    * 
    * @example
    * S256
@@ -682,7 +682,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCert
   notAfter?: number;
   /**
    * @remarks
-   * The date before which the certificate is not valid.
+   * The date before which the certificate is not yet valid.
    * 
    * @example
    * 1672531200000
@@ -800,11 +800,17 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
   /**
    * @remarks
    * Indicates whether the external IdP is required to sign assertions.
+   * 
+   * @example
+   * true
    */
   wantAssertionsSigned?: boolean;
   /**
    * @remarks
-   * Indicates whether the external IdP is required to sign the Response.
+   * Indicates whether the external IdP is required to sign responses.
+   * 
+   * @example
+   * true
    */
   wantResponseSigned?: boolean;
   static names(): { [key: string]: string } {
@@ -890,9 +896,9 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig e
    * @remarks
    * Indicates whether group synchronization is enabled. Valid values:
    * 
-   * - disabled: Disabled.
+   * - disabled
    * 
-   * - enabled: Enabled.
+   * - enabled
    * 
    * @example
    * disabled
@@ -902,9 +908,9 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig e
    * @remarks
    * The incremental callback status, which indicates whether incremental callback data from the IdP is processed. Valid values:
    * 
-   * - disabled: Disabled.
+   * - disabled
    * 
-   * - enabled: Enabled.
+   * - enabled
    * 
    * @example
    * disabled
@@ -912,7 +918,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig e
   incrementalCallbackStatus?: string;
   /**
    * @remarks
-   * The sync scope configuration.
+   * The synchronization scope configuration.
    */
   udSyncScopeConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig;
   static names(): { [key: string]: string } {
@@ -994,7 +1000,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig e
   incrementalCallbackStatus?: string;
   /**
    * @remarks
-   * The list of sync scope configurations.
+   * The list of synchronization scope configurations.
    */
   udSyncScopeConfigs?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs[];
   static names(): { [key: string]: string } {
@@ -1042,7 +1048,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig ex
   authorizeCallbackDomain?: string;
   /**
    * @remarks
-   * The WeCom contacts secret.
+   * The WeCom contact secret.
    * 
    * @example
    * mPLLiWv-_9witxxxEJCpk1xkF5hOgBzpRt4kBkxxxx
@@ -1221,7 +1227,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   identityProviderName?: string;
   /**
    * @remarks
-   * The synchronization type of the identity provider. Valid values:
+   * The sync type of the identity provider. Valid values:
    * 
    * - urn:alibaba:idaas:idp:alibaba:dingtalk:pull: Inbound DingTalk.
    * 
@@ -1305,16 +1311,16 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   samlConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig;
   /**
    * @remarks
-   * The inbound sync configuration.
+   * The inbound synchronization configuration.
    */
   udPullConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig;
   /**
    * @remarks
-   * Indicates whether the inbound sync feature is supported. Valid values:
+   * Indicates whether the inbound synchronization feature is supported. Valid values:
    * 
-   * - disabled: Disabled.
+   * - disabled
    * 
-   * - enabled: Enabled.
+   * - enabled
    * 
    * @example
    * disabled
@@ -1322,16 +1328,16 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   udPullStatus?: string;
   /**
    * @remarks
-   * The outbound sync configuration.
+   * The outbound synchronization configuration.
    */
   udPushConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig;
   /**
    * @remarks
-   * Indicates whether the outbound sync capability is enabled. Valid values:
+   * Indicates whether the outbound synchronization capability is enabled. Valid values:
    * 
-   * - disabled: Disabled.
+   * - disabled
    * 
-   * - enabled: Enabled.
+   * - enabled
    * 
    * @example
    * disabled

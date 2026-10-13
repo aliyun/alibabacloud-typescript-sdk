@@ -35,7 +35,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo exten
 export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara.Model {
   /**
    * @remarks
-   * The application template ID.
+   * The ID of the application template.
    * 
    * @example
    * apt_ramintlrole_ixxxxx
@@ -43,7 +43,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   applicationTemplateId?: string;
   /**
    * @remarks
-   * The application template name.
+   * The name of the application template.
    * 
    * @example
    * Alibaba Cloud
@@ -51,7 +51,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   applicationTemplateName?: string;
   /**
    * @remarks
-   * The time when the application template was created.
+   * The creation time of the application template. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1730341123000
@@ -59,7 +59,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   createTime?: number;
   /**
    * @remarks
-   * The application template description.
+   * The description of the application template.
    * 
    * @example
    * Alibaba Cloud SSO
@@ -83,7 +83,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   logoUrl?: string;
   /**
    * @remarks
-   * The service code of the Alibaba Cloud service that manages the application template.
+   * The service code of the cloud service that manages the application template.
    * 
    * @example
    * bastionhost
@@ -96,7 +96,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   saleInfo?: GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo;
   /**
    * @remarks
-   * The console URL of the Alibaba Cloud service that manages the application template.
+   * The console URL of the cloud service that manages the application template.
    * 
    * @example
    * https://example.com/?p=bastion
@@ -104,7 +104,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   serviceConsoleUrl?: string;
   /**
    * @remarks
-   * Indicates whether the application template is managed by an Alibaba Cloud service.
+   * Indicates whether the application template is managed by a cloud service.
    * 
    * @example
    * true
@@ -117,7 +117,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   ssoTypes?: string[];
   /**
    * @remarks
-   * The time when the application template was last updated.
+   * The update time of the application template. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1730341124000

@@ -37,7 +37,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   applicationTokenType?: string;
   /**
    * @remarks
-   * The time when the application token was created.
+   * The time when the application token was created. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1735610930000
@@ -45,7 +45,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1735610950000
@@ -61,7 +61,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The last used time.
+   * The last used time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1735610930000

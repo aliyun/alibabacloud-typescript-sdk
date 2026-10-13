@@ -29,7 +29,7 @@ export class ListApplicationAccountsResponseBodyApplicationAccounts extends $dar
   applicationUsername?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the application account was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1737510353000

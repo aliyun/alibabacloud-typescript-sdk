@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderCloudIdPProviderConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The identity provider ID.
+   * 
+   * @example
+   * idp_1234567890
+   */
   identityProviderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,7 +35,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderOidcProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of audiences for the OIDC credential.
+   * The audience list of the OIDC credential.
    */
   audiences?: string[];
   /**
@@ -41,7 +48,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   dynamicJwks?: string;
   /**
    * @remarks
-   * The issuer of the OIDC credential.
+   * The token issuer identifier (Issuer).
    * 
    * @example
    * http://test.idaas.com/v2/oauth
@@ -49,7 +56,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   issuer?: string;
   /**
    * @remarks
-   * The time of the last JWKS retrieval.
+   * The time when the JWKS was last obtained. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1729061324000
@@ -57,7 +64,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   jwksLastObtainedTime?: number;
   /**
    * @remarks
-   * The source of the JSON Web Key Set (JWKS).
+   * The JWKS source.
    * 
    * @example
    * static
@@ -73,7 +80,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   jwksUri?: string;
   /**
    * @remarks
-   * The static JWKS content.
+   * The statically obtained JWKS.
    * 
    * @example
    * {
@@ -91,7 +98,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   staticJwks?: string;
   /**
    * @remarks
-   * The trust condition for the OIDC provider.
+   * The trust condition.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -146,7 +153,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   notAfter?: number;
   /**
    * @remarks
-   * The time when the certificate becomes valid.
+   * The effective period of the certificate.
    * 
    * @example
    * 1729061324000
@@ -183,7 +190,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   certificateMetadata?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * The content of the certificate.
+   * The root certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -193,7 +200,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   content?: string;
   /**
    * @remarks
-   * The fingerprint of the certificate.
+   * The root certificate fingerprint.
    * 
    * @example
    * 2b18947a6a9fc7764fd8b5fb18a863b0c6daxxx
@@ -230,12 +237,12 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of PKCS#7 certificates.
+   * The PKCS7 certificate list.
    */
   certificates?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificates[];
   /**
    * @remarks
-   * The Cryptographic Message Syntax (CMS) verification mode.
+   * The CMS verification mode.
    * 
    * @example
    * cert
@@ -243,7 +250,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * The validity period of the signature, in seconds.
+   * The signature effective time. The value indicates the duration for which the signature is valid. Unit: seconds.
    * 
    * @example
    * 3600
@@ -251,7 +258,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   signatureEffectiveTime?: number;
   /**
    * @remarks
-   * An expression that specifies the signing time.
+   * The signing time.
    * 
    * @example
    * pkcs7.payload.jsonData.audience.signingTime
@@ -259,7 +266,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   signingTimeValueExpression?: string;
   /**
    * @remarks
-   * The source of the certificate trust anchor.
+   * The certificate trust anchor source.
    * 
    * @example
    * alibaba_cloud
@@ -267,7 +274,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The trust condition for the PKCS#7 provider.
+   * The trust condition.
    * 
    * @example
    * IsNullOrEmpty("certNo")
@@ -318,7 +325,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   notAfter?: number;
   /**
    * @remarks
-   * The time when the certificate becomes valid.
+   * The effective period of the certificate.
    * 
    * @example
    * 1729061324000
@@ -355,7 +362,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   certificateMetadata?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * The content of the root certificate.
+   * The root certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -365,7 +372,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   content?: string;
   /**
    * @remarks
-   * The fingerprint of the root certificate.
+   * The root certificate fingerprint.
    * 
    * @example
    * 2b18947a6a9fc7764fd8b5fb18a863b0c6daxxx
@@ -402,12 +409,12 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of root certificates.
+   * The root certificate.
    */
   certificates?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * The method for obtaining the root certificate.
+   * The method used to retrieve the root certificate.
    * 
    * @example
    * custom
@@ -415,7 +422,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The trust condition for the root certificate.
+   * The trust condition of the root certificate.
    * 
    * @example
    * IsNullOrEmpty("certNo")
@@ -450,10 +457,14 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 }
 
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvider extends $dara.Model {
+  /**
+   * @remarks
+   * The cloud identity provider configuration.
+   */
   cloudIdPProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderCloudIdPProviderConfig;
   /**
    * @remarks
-   * The time when the provider was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1729061324000
@@ -469,7 +480,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   description?: string;
   /**
    * @remarks
-   * The ID of the federated credential provider.
+   * The federated trust source ID.
    * 
    * @example
    * fcp_asd123XXX
@@ -493,7 +504,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   federatedCredentialProviderType?: string;
   /**
    * @remarks
-   * The ID of the EIAM instance.
+   * The EIAM instance ID.
    * 
    * @example
    * idaas_qlbbighyxbu42xl7eninojXXX
@@ -501,7 +512,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the network access endpoint.
+   * The network access endpoint ID.
    * 
    * @example
    * inae_public
@@ -509,22 +520,22 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The OpenID Connect (OIDC) configuration.
+   * The OIDC configuration.
    */
   oidcProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderOidcProviderConfig;
   /**
    * @remarks
-   * The PKCS#7 configuration.
+   * The PKCS7 configuration.
    */
   pkcs7ProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfig;
   /**
    * @remarks
-   * The private certificate authority (CA) configuration.
+   * The private CA configuration.
    */
   privateCaProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfig;
   /**
    * @remarks
-   * The status of the federated credential provider.
+   * The status.
    * 
    * @example
    * enabled
@@ -532,7 +543,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   status?: string;
   /**
    * @remarks
-   * The time when the provider was last updated.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1729061324000
@@ -598,7 +609,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The federated credential provider.
+   * The federated credential provider object.
    */
   federatedCredentialProvider?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProvider;
   /**

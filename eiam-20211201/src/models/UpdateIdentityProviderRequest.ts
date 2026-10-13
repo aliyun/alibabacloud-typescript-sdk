@@ -442,7 +442,7 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
 export class UpdateIdentityProviderRequestSamlConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * The certificate content.
+   * The content of the certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX-----END CERTIFICATE-----
@@ -480,7 +480,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   bindingMethod?: string;
   /**
    * @remarks
-   * The certificate list of the IdP.
+   * The list of IdP certificates.
    */
   certificates?: UpdateIdentityProviderRequestSamlConfigCertificates[];
   /**
@@ -518,11 +518,17 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the external IdP is required to sign the Assertion.
+   * 
+   * @example
+   * true
    */
   wantAssertionsSigned?: boolean;
   /**
    * @remarks
    * Specifies whether the external IdP is required to sign the Response.
+   * 
+   * @example
+   * false
    */
   wantResponseSigned?: boolean;
   static names(): { [key: string]: string } {
@@ -581,6 +587,9 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
    */
   authorizeCallbackDomain?: string;
   /**
+   * @remarks
+   * The WeCom contacts secret.
+   * 
    * @example
    * mPLLiWv-_9witxxxEJCpk1xkF5hOgBzpRt4kBkxxx
    */
@@ -595,7 +604,7 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   corpSecret?: string;
   /**
    * @remarks
-   * The trusted domain name.
+   * The trusted domain.
    * 
    * @example
    * https://xxx.aliyunidaas.com

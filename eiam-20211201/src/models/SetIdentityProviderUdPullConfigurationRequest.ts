@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig extends $dara.Model {
   /**
    * @remarks
-   * The group member identifier.
+   * The group member attribute name.
    * 
    * @example
    * member
@@ -29,7 +29,7 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
   groupObjectClassCustomFilter?: string;
   /**
    * @remarks
-   * The organizational unit ObjectClass.
+   * The organization ObjectClass.
    * 
    * @example
    * organizationUnit,top
@@ -93,12 +93,12 @@ export class SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig ext
   periodicSyncCron?: string;
   /**
    * @remarks
-   * The execution time points. This parameter is required when periodicSyncType is set to time. For example, [3, 5] indicates that the task runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
+   * The execution time points. This parameter is required when periodicSyncType is set to time. For example, [3, 5] indicates that the synchronization runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
    */
   periodicSyncTimes?: number[];
   /**
    * @remarks
-   * The type of periodic synchronization.
+   * The periodic synchronization type.
    * 
    * @example
    * cron
@@ -143,7 +143,7 @@ export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule exte
   groupDeletedThreshold?: number;
   /**
    * @remarks
-   * The threshold for the number of deleted organizational units. If the number of deleted organizational units exceeds this value, the synchronization task is terminated.
+   * The threshold for the number of deleted organizations. If the number of deleted organizations exceeds this value, the synchronization task is terminated.
    * 
    * @example
    * 10
@@ -185,12 +185,12 @@ export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule exte
 export class SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of source nodes for synchronization.
+   * The list of source scope nodes.
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * The target node for synchronization.
+   * The target scope node.
    * 
    * @example
    * ou_asdaq1addsxzdq1XXX
@@ -297,7 +297,7 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   pullProtectedRule?: SetIdentityProviderUdPullConfigurationRequestPullProtectedRule;
   /**
    * @remarks
-   * The inbound synchronization scope configuration.
+   * The inbound synchronization configuration.
    */
   udSyncScopeConfig?: SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig;
   static names(): { [key: string]: string } {

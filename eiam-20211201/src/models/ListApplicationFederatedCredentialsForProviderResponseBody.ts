@@ -70,7 +70,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   instanceIds?: string[];
   /**
    * @remarks
-   * The GCP project ID.
+   * The GCP project ID to which the resource belongs.
    * 
    * @example
    * turnkey-axiom-475109-xx
@@ -78,7 +78,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   projectId?: string;
   /**
    * @remarks
-   * The subject corresponding to the service account.
+   * The subject (sub) that corresponds to the service account.
    * 
    * @example
    * 123456789
@@ -145,7 +145,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
 export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFederatedCredentialsOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The K8s namespace.
+   * The Kubernetes namespace.
    * 
    * @example
    * default
@@ -161,7 +161,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   podNamePrefix?: string;
   /**
    * @remarks
-   * The K8s service account name.
+   * The Kubernetes service account name.
    * 
    * @example
    * default
@@ -299,7 +299,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
 export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFederatedCredentials extends $dara.Model {
   /**
    * @remarks
-   * The application federated credential ID.
+   * The ID of the application federated credential.
    * 
    * @example
    * afc_dads12sadxxxxx
@@ -307,7 +307,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   applicationFederatedCredentialId?: string;
   /**
    * @remarks
-   * The application federated credential name.
+   * The name of the application federated credential.
    * 
    * @example
    * test
@@ -315,7 +315,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   applicationFederatedCredentialName?: string;
   /**
    * @remarks
-   * The application federated credential type.
+   * The type of the application federated credential.
    * 
    * @example
    * oidc
@@ -323,7 +323,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   applicationFederatedCredentialType?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * app_asda1dsadxxxxx
@@ -331,7 +331,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   applicationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the credential was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -339,7 +339,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   createTime?: number;
   /**
    * @remarks
-   * The application federated credential description.
+   * The description of the application federated credential.
    * 
    * @example
    * test
@@ -363,7 +363,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   instanceId?: string;
   /**
    * @remarks
-   * The last used time.
+   * The time when the credential was last used. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -381,7 +381,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   pkcs7VerificationConfig?: ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFederatedCredentialsPkcs7VerificationConfig;
   /**
    * @remarks
-   * The application federated credential status.
+   * The status of the application federated credential.
    * 
    * @example
    * enabled
@@ -389,7 +389,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the credential was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -476,7 +476,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   applicationFederatedCredentials?: ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFederatedCredentials[];
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20

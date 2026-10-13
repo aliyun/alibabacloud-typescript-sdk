@@ -7,6 +7,9 @@ export class ListCredentialProvidersRequestFilter extends $dara.Model {
    * @remarks
    * The filter condition name. Valid values:
    * 
+   * - CredentialProviderName: the credential provider name.
+   * - CredentialProviderIdentifier: the credential provider identifier.
+   * 
    * @example
    * CredentialProviderName
    */
@@ -70,7 +73,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20

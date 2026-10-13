@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig extends $dara.Model {
   /**
    * @remarks
-   * The group member identifier attribute.
+   * The group member attribute name.
    * 
    * @example
    * group
@@ -29,7 +29,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   groupObjectClassCustomFilter?: string;
   /**
    * @remarks
-   * The organizational unit ObjectClass.
+   * The organization ObjectClass.
    * 
    * @example
    * ou,top
@@ -93,7 +93,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   periodicSyncCron?: string;
   /**
    * @remarks
-   * The execution time points. For example, [3, 5] indicates that synchronization runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
+   * The execution time points. For example, [3, 5] indicates that the task runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
    * 
    * @example
    * [3,5]
@@ -185,12 +185,12 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
 export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of source nodes for synchronization.
+   * The list of source scope nodes.
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * The target node for synchronization.
+   * The target scope node.
    * 
    * @example
    * ou_asjdfhaskfhw213mnsj33sXXX
@@ -227,8 +227,9 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
    * @remarks
    * The group synchronization status. Valid values:
    * 
-   * - disabled
-   * - enabled.
+   * - disabled: Disabled.
+   * 
+   * - enabled: Enabled.
    * 
    * @example
    * enabled
@@ -246,8 +247,9 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
    * @remarks
    * The incremental callback status, which specifies whether to process incremental callback data from the IdP. Valid values:
    * 
-   * - disabled
-   * - enabled.
+   * - disabled: Disabled.
+   * 
+   * - enabled: Enabled.
    * 
    * @example
    * enabled
@@ -275,8 +277,9 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
    * @remarks
    * The periodic verification status, which specifies whether to periodically verify data differences between IDaaS and the identity provider. Valid values:
    * 
-   * - disabled
-   * - enabled.
+   * - disabled: Disabled.
+   * 
+   * - enabled: Enabled.
    * 
    * @example
    * enabled

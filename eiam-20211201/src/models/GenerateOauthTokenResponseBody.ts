@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
   /**
    * @remarks
-   * Access Token。
+   * The access token.
    * 
    * @example
-   * ***
+   * eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJlaWFtIn0.signature
    */
   accessToken?: string;
   /**
@@ -27,6 +27,13 @@ export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
    * 1200
    */
   expiresIn?: number;
+  /**
+   * @remarks
+   * The issued token type.
+   * 
+   * @example
+   * standard
+   */
   issuedTokenType?: string;
   /**
    * @remarks

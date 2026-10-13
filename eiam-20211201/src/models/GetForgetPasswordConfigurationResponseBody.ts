@@ -5,36 +5,44 @@ import * as $dara from '@darabonba/typescript';
 export class GetForgetPasswordConfigurationResponseBodyOpenForgetPasswordConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The list of authentication channels for forgot password. This parameter is required when ForgetPasswordStatus is set to enabled. Valid values: email, sms (SMS), totp (OTP), and web_authn (WebAuthn).
+   * The list of forgot password authentication channels. Required when ForgetPasswordStatus is set to enabled. Valid values:
+   * 
+   * - email: Email.
+   * - sms: SMS.
+   * - totp: OTP dynamic password.
+   * - web_authn: WebAuthn.
    */
   authenticationChannels?: string[];
   /**
    * @remarks
-   * Indicates whether the forgot password feature is enabled. This parameter is deprecated. Use the ForgetPasswordStatus parameter instead.
+   * **[Deprecated]** Indicates whether the forgot password feature is enabled. This parameter is deprecated. Use the ForgetPasswordStatus parameter instead.
    * 
    * @example
-   * true
+   * deprecated: true
    */
   enable?: boolean;
   /**
    * @remarks
-   * Indicates whether email is enabled as an authentication method for forgot password. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
+   * **[Deprecated]** Indicates whether email is enabled as a forgot password authentication method. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
    * 
    * @example
-   * false
+   * deprecated: true
    */
   enableEmail?: boolean;
   /**
    * @remarks
-   * Indicates whether SMS is enabled as an authentication method for forgot password. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
+   * **[Deprecated]** Indicates whether SMS is enabled as a forgot password authentication method. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
    * 
    * @example
-   * true
+   * deprecated: true
    */
   enableSms?: boolean;
   /**
    * @remarks
-   * The status of the forgot password configuration. Valid values: enabled and disabled.
+   * The forgot password configuration status. Valid values:
+   * 
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled

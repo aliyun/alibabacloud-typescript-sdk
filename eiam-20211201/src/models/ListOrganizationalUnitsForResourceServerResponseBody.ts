@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnitsResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * The scope ID.
+   * The scope permission ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -13,7 +13,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * The scope name.
+   * The scope permission name.
    * 
    * @example
    * Read User Info
@@ -61,7 +61,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
   organizationalUnitId?: string;
   /**
    * @remarks
-   * A list of scopes.
+   * The list of scope permissions.
    */
   resourceServerScopes?: ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnitsResourceServerScopes[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
 export class ListOrganizationalUnitsForResourceServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results per page.
+   * The number of rows per page in a paged query.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBody extends $dara.
   maxResults?: number;
   /**
    * @remarks
-   * A token to retrieve the next page of results.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxexample
@@ -111,7 +111,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBody extends $dara.
   nextToken?: string;
   /**
    * @remarks
-   * A list of organizational units.
+   * The list of organizational units.
    */
   organizationalUnits?: ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnits[];
   /**
@@ -124,7 +124,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * The total number of results.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

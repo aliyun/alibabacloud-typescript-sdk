@@ -13,7 +13,7 @@ export class ListUsersForResourceServerRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * A list of values for the filter condition.
+   * The list of filter condition values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListUsersForResourceServerRequestFilter extends $dara.Model {
 export class ListUsersForResourceServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Resource Server application.
+   * The ResourceServer application ID.
    * 
    * This parameter is required.
    * 
@@ -55,12 +55,12 @@ export class ListUsersForResourceServerRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * A list of filter conditions.
+   * The list of filter conditions.
    */
   filter?: ListUsersForResourceServerRequestFilter[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -70,7 +70,7 @@ export class ListUsersForResourceServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page for paged queries.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -78,7 +78,7 @@ export class ListUsersForResourceServerRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page. Set this parameter to the value of NextToken returned by the previous API call.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * NTxxxxxexample
@@ -86,7 +86,7 @@ export class ListUsersForResourceServerRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 权限唯一标识。
+   * The permission ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx

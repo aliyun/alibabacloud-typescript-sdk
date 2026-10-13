@@ -21,7 +21,7 @@ export class ListAuthorizationServersResponseBodyAuthorizationServers extends $d
   authorizationServerName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -85,7 +85,7 @@ export class ListAuthorizationServersResponseBodyAuthorizationServers extends $d
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -140,7 +140,7 @@ export class ListAuthorizationServersResponseBody extends $dara.Model {
   authorizationServers?: ListAuthorizationServersResponseBodyAuthorizationServers[];
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -148,7 +148,7 @@ export class ListAuthorizationServersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample

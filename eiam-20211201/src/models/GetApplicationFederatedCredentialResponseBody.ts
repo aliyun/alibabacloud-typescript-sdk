@@ -45,7 +45,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigAzureVmConfig extends $dara.Model {
   /**
    * @remarks
-   * The principal ID.
+   * The identity identifier.
    * 
    * @example
    * 5dee234a-1b4c-4ad7-a19f-fxxxxx
@@ -110,7 +110,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   instanceIds?: string[];
   /**
    * @remarks
-   * The GCP project ID.
+   * The GCP project ID to which the resource belongs.
    * 
    * @example
    * turnkey-axiom-475109-xx
@@ -118,7 +118,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   projectId?: string;
   /**
    * @remarks
-   * The subject corresponding to the service account.
+   * The sub claim that corresponds to the service account.
    * 
    * @example
    * 123456789
@@ -376,7 +376,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   attributeMappings?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialAttributeMappings[];
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -408,7 +408,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   instanceId?: string;
   /**
    * @remarks
-   * The last used time.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -434,7 +434,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982

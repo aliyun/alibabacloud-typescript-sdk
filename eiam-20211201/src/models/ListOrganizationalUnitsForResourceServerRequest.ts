@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsForResourceServerRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key.
+   * The name of the filter condition.
    * 
    * @example
    * OrganizationalUnitIds
@@ -13,7 +13,7 @@ export class ListOrganizationalUnitsForResourceServerRequestFilter extends $dara
   name?: string;
   /**
    * @remarks
-   * The list of filter values.
+   * The list of filter condition values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListOrganizationalUnitsForResourceServerRequestFilter extends $dara
 export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource server application ID.
+   * The ResourceServer application ID.
    * 
    * This parameter is required.
    * 
@@ -70,7 +70,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The number of rows per page in a paged query.
    * 
    * @example
    * 20
@@ -78,7 +78,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. To retrieve the next page of results, set this parameter to the NextToken value from the previous response.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * NTxxxxxexample
@@ -86,7 +86,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the resource server scope.
+   * The permission ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx

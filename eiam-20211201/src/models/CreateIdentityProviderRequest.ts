@@ -6,8 +6,8 @@ export class CreateIdentityProviderRequestAuthnConfig extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the corresponding IdP supports authentication. Valid values:
-   * 
    * - disabled: Disabled.
+   * 
    * - enabled: Enabled.
    * 
    * @example
@@ -17,8 +17,8 @@ export class CreateIdentityProviderRequestAuthnConfig extends $dara.Model {
   /**
    * @remarks
    * Specifies whether automatic password update is supported. Valid values:
-   * 
    * - disabled: Disabled.
+   * 
    * - enabled: Enabled.
    * 
    * @example
@@ -129,8 +129,9 @@ export class CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpre
    * @remarks
    * The type of the expression. Valid values:
    * 
-   * - field: field
-   * - expression: expression
+   * - field: Field.
+   * 
+   * - expression: Expression.
    * 
    * @example
    * field
@@ -198,6 +199,7 @@ export class CreateIdentityProviderRequestBindingConfig extends $dara.Model {
    * Specifies whether automatic account matching is enabled. Valid values:
    * 
    * - disabled: Disabled.
+   * 
    * - enabled: Enabled.
    * 
    * @example
@@ -206,10 +208,9 @@ export class CreateIdentityProviderRequestBindingConfig extends $dara.Model {
   autoMatchUserStatus?: string;
   /**
    * @remarks
-   * Specifies whether the manual account binding feature is enabled. Valid values:
-   * 
-   * - disabled: Disabled.
-   * - enabled: Enabled.
+   * Specifies whether the manual account binding feature is enabled for users. Valid values:
+   * - disabled
+   * - enabled
    * 
    * @example
    * enabled
@@ -272,9 +273,9 @@ export class CreateIdentityProviderRequestDingtalkAppConfig extends $dara.Model 
    * @remarks
    * The DingTalk version. Valid values:
    * 
-   * - public_dingtalk: standard DingTalk
+   * - public_dingtalk: Standard DingTalk.
    * 
-   * - private_dingtalk: exclusive DingTalk
+   * - private_dingtalk: Dedicated DingTalk.
    * 
    * @example
    * public_dingtalk
@@ -403,7 +404,7 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
    * The administrator password.
    * 
    * @example
-   * xxxx
+   * 123456
    */
   administratorPassword?: string;
   /**
@@ -416,11 +417,10 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
   administratorUsername?: string;
   /**
    * @remarks
-   * Specifies whether to verify the certificate fingerprint. Valid values:
+   * Specifies whether certificate fingerprint verification is enabled. Valid values:
    * 
-   * - disabled: Disabled.
-   * 
-   * - enabled: Enabled.
+   * - disabled
+   * - enabled
    * 
    * @example
    * enabled
@@ -433,7 +433,7 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
   certificateFingerprints?: string[];
   /**
    * @remarks
-   * The group member attribute name.
+   * The group member identifier.
    * 
    * @example
    * member
@@ -506,9 +506,8 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
   /**
    * @remarks
    * Specifies whether StartTLS is enabled. Valid values:
-   * - disabled: Disabled.
-   * 
-   * - enabled: Enabled.
+   * - disabled
+   * - enabled
    * 
    * @example
    * enabled
@@ -1035,6 +1034,7 @@ export class CreateIdentityProviderRequestUdPullConfig extends $dara.Model {
    * Specifies whether group synchronization is supported. Default value: disabled. Valid values:
    * 
    * - disabled: Disabled.
+   * 
    * - enabled: Enabled.
    * 
    * @example
@@ -1046,6 +1046,7 @@ export class CreateIdentityProviderRequestUdPullConfig extends $dara.Model {
    * Specifies whether to process incremental callback data from the IdP. Valid values:
    * 
    * - disabled: Disabled.
+   * 
    * - enabled: Enabled.
    * 
    * @example
@@ -1060,8 +1061,8 @@ export class CreateIdentityProviderRequestUdPullConfig extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to periodically verify data differences between EIAM and the identity provider. Valid values:
-   * 
    * - disabled: Disabled.
+   * 
    * - enabled: Enabled.
    * 
    * @example
@@ -1201,7 +1202,7 @@ export class CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs extends
 export class CreateIdentityProviderRequestUdPushConfig extends $dara.Model {
   /**
    * @remarks
-   * The incremental callback status. This field is not yet available. Ignore this field.
+   * The incremental callback status. This field is not yet enabled. Ignore this field.
    * 
    * @example
    * disabled
@@ -1214,7 +1215,7 @@ export class CreateIdentityProviderRequestUdPushConfig extends $dara.Model {
   periodicSyncConfig?: CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig;
   /**
    * @remarks
-   * The periodic verification status. This field is not yet available. Ignore this field.
+   * The periodic verification status. This field is not yet enabled. Ignore this field.
    * 
    * @example
    * disabled
@@ -1277,7 +1278,7 @@ export class CreateIdentityProviderRequestWeComConfig extends $dara.Model {
   authorizeCallbackDomain?: string;
   /**
    * @remarks
-   * The WeCom address book secret.
+   * The WeCom contacts secret.
    * 
    * @example
    * mPLLiWv-_9wittxxxEJCpk1xkF5hOgBzpRt4kBkxxx
@@ -1301,7 +1302,7 @@ export class CreateIdentityProviderRequestWeComConfig extends $dara.Model {
   corpSecret?: string;
   /**
    * @remarks
-   * The trusted domain.
+   * The trusted domain name.
    * 
    * @example
    * https://xxx.aliyunidaas.com/
@@ -1369,12 +1370,12 @@ export class CreateIdentityProviderRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The DingTalk configuration.
+   * The DingTalk configuration information.
    */
   dingtalkAppConfig?: CreateIdentityProviderRequestDingtalkAppConfig;
   /**
    * @remarks
-   * The name of the identity provider.
+   * The identity provider name.
    * 
    * This parameter is required.
    * 
@@ -1386,14 +1387,21 @@ export class CreateIdentityProviderRequest extends $dara.Model {
    * @remarks
    * The synchronization type of the identity provider. Valid values:
    * 
-   * - urn:alibaba:idaas:idp:alibaba:dingtalk:pull: inbound DingTalk
-   * - urn:alibaba:idaas:idp:alibaba:dingtalk:push: outbound DingTalk
-   * - urn:alibaba:idaas:idp:tencent:wecom:pull: inbound WeCom
-   * - urn:alibaba:idaas:idp:bytedance:lark:pull: inbound Lark
-   * - urn:alibaba:idaas:idp:microsoft:ad:pull: inbound AD
-   * - urn:alibaba:idaas:idp:unknown:ldap:pull: inbound LDAP
-   * - urn:alibaba:idaas:idp:standard:oidc: standard OIDC
-   * - urn:alibaba:idaas:idp:alibaba:sase: SASE custom OIDC
+   * - Inbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
+   * 
+   * - Outbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
+   * 
+   * - Inbound WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
+   * 
+   * - Inbound Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
+   * 
+   * - Inbound AD: urn:alibaba:idaas:idp:microsoft:ad:pull
+   * 
+   * - Inbound LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
+   * 
+   * - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
+   * 
+   * - SASE custom OIDC: urn:alibaba:idaas:idp:alibaba:sase
    * 
    * This parameter is required.
    * 
@@ -1423,7 +1431,7 @@ export class CreateIdentityProviderRequest extends $dara.Model {
   ldapConfig?: CreateIdentityProviderRequestLdapConfig;
   /**
    * @remarks
-   * The URL of the application logo.
+   * The application logo URL.
    * 
    * @example
    * xxxx-image://xxxx_23aqr2ye554csg33dqpch5eu3q/tmp/d17d9adc-a943-45e7-ba0c-2838dddea678

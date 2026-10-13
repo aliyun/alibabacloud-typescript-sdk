@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderStatusCheckJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The identity provider (IdP) ID.
+   * The identity provider ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetIdentityProviderStatusCheckJobRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * This parameter is required.
    * 

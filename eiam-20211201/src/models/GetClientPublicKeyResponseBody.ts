@@ -29,7 +29,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   clientPublicKeyId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1731305755000
@@ -45,7 +45,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The last time the key pair was used.
+   * The last used time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1771305755000

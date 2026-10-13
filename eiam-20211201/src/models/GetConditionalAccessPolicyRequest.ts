@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConditionalAccessPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Conditional access policy ID.
+   * The conditional access policy ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetConditionalAccessPolicyRequest extends $dara.Model {
   conditionalAccessPolicyId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

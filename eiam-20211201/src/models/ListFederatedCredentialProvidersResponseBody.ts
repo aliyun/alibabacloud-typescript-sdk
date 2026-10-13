@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersCloudIdPProviderConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the identity provider.
+   * 
+   * @example
+   * idp_1234567890
+   */
   identityProviderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,7 +58,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   dynamicJwks?: string;
   /**
    * @remarks
-   * Issuer
+   * The token issuer identifier (Issuer).
    * 
    * @example
    * https://example.com
@@ -59,7 +66,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   issuer?: string;
   /**
    * @remarks
-   * The time when the JWKS was last obtained.
+   * The time when the JWKS was last obtained. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1729061324000
@@ -253,7 +260,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * The signature effective time.
+   * The signature effective time. The value indicates the duration for which the signature is valid, in seconds.
    * 
    * @example
    * 3600
@@ -261,7 +268,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   signatureEffectiveTime?: number;
   /**
    * @remarks
-   * The expression used to retrieve the signing time.
+   * The expression used to obtain the signing time.
    * 
    * @example
    * pkcs7.payload.jsonData.audience.signingTime
@@ -365,7 +372,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   certificateMetadata?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * The root certificate content.
+   * The content of the root certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -375,7 +382,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   content?: string;
   /**
    * @remarks
-   * The root certificate fingerprint.
+   * The fingerprint of the root certificate.
    * 
    * @example
    * 2b18947a6a9fc7764fd8b5fb18a863b0c6daxxx
@@ -460,10 +467,14 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 }
 
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProviders extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the cloud identity provider for federated credentials.
+   */
   cloudIdPProviderConfig?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersCloudIdPProviderConfig;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1729061324000
@@ -479,7 +490,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   description?: string;
   /**
    * @remarks
-   * The federated trust source ID.
+   * The federated credential provider ID.
    * 
    * @example
    * fcp_asda123XXX
@@ -542,7 +553,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1729061324000
@@ -608,7 +619,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of federated trust sources.
+   * The list of federated credential providers.
    */
   federatedCredentialProviders?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProviders[];
   /**
@@ -621,7 +632,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The query token (Token) value returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -629,7 +640,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The query token (Token) value returned by this call.
    * 
    * @example
    * PTxxxexample

@@ -6,8 +6,8 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
   /**
    * @remarks
    * Indicates whether direct authorization exists. Valid values:
-   * - true: Direct authorization exists.
-   * - false: Direct authorization does not exist.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true
@@ -127,7 +127,7 @@ export class ListResourceServersForUserResponseBodyResourceServers extends $dara
 export class ListResourceServersForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of rows per page in a paged query.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConditionalAccessPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListConditionalAccessPoliciesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Number of rows per page in paginated queries.
+   * The number of rows per page in a paged query.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListConditionalAccessPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Next page query token.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxxxexample
@@ -31,7 +31,7 @@ export class ListConditionalAccessPoliciesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Previous page query token.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxxxexample

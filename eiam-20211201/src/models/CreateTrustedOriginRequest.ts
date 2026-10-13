@@ -33,7 +33,7 @@ export class CreateTrustedOriginRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The name of the trusted origin used for management, display, and auditing. If not specified, the value is empty.
+   * The name of the trusted origin used for management, display, and auditing. If this parameter is not specified, the value is empty.
    * 
    * @example
    * Qoder Production Console

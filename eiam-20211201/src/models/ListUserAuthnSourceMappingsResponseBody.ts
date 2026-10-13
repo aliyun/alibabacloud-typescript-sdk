@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings extends $dara.Model {
   /**
    * @remarks
-   * The authentication source type.
+   * The authentication source type of the source IdP.
    * 
    * @example
    * urn:alibaba:idaas:authntype:oidc
@@ -13,7 +13,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   authnSourceType?: string;
   /**
    * @remarks
-   * The time when the binding was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1762309642177
@@ -21,7 +21,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   createTime?: number;
   /**
    * @remarks
-   * Information about the associated third-party account.
+   * The association information of the third-party account.
    * 
    * @example
    * {\\"userId\\":\\"xxxx\\",\\"name\\":\\"xxx\\",\\"bindTime\\":\\"1766050298872\\",\\"description\\":\\"bind request id: reqpre_xxx\\"}
@@ -45,7 +45,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   instanceId?: string;
   /**
    * @remarks
-   * The time when the binding was last updated.
+   * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1762309642177
@@ -56,7 +56,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
    * The external ID.
    * 
    * @example
-   * xxxxxx
+   * user_123131xxasasa
    */
   userExternalId?: string;
   /**
@@ -105,7 +105,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
 export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of rows per page in a paged query.
    * 
    * @example
    * 20
@@ -113,7 +113,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -121,7 +121,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token to retrieve the previous page of results.
+   * The pagination token returned by this call.
    * 
    * @example
    * PTxxxexample
@@ -137,7 +137,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 100
@@ -145,7 +145,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of bindings for third-party account logons.
+   * The list of third-party account login bindings.
    */
   userAuthnSourceMappings?: ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings[];
   static names(): { [key: string]: string } {

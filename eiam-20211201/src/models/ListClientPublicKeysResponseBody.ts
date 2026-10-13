@@ -21,7 +21,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the client public key.
+   * The ID of the application ClientPublicKey.
    * 
    * @example
    * KEYEqDnDJhztiEAwSin7MZoxGcihzCAuxxxx
@@ -29,7 +29,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   clientPublicKeyId?: string;
   /**
    * @remarks
-   * The time when the key was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1722006052000
@@ -45,7 +45,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The time when the key was last used.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1762006052000
@@ -53,7 +53,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   lastUsedTime?: number;
   /**
    * @remarks
-   * Indicates whether the key is used with priority.
+   * Indicates whether this key is used with priority.
    * 
    * @example
    * true
@@ -123,12 +123,12 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
 export class ListClientPublicKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of client public keys for the application.
+   * The list of ClientPublicKeys for the application.
    */
   clientPublicKeys?: ListClientPublicKeysResponseBodyClientPublicKeys[];
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -136,7 +136,7 @@ export class ListClientPublicKeysResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -152,7 +152,7 @@ export class ListClientPublicKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

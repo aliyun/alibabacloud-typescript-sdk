@@ -15,7 +15,7 @@ export class ListConditionalAccessPoliciesForNetworkZoneRequest extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The network zone ID associated with the conditional access policy.
+   * The ID of the application associated with the conditional access policy.
    * 
    * This parameter is required.
    * 

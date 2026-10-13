@@ -35,7 +35,7 @@ export class GetCredentialResponseBodyCredentialCredentialContentOAuthClientCont
 export class GetCredentialResponseBodyCredentialCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * The content of the OAuth client credential.
+   * The credential content of the OAuth client authentication credential type.
    */
   OAuthClientContent?: GetCredentialResponseBodyCredentialCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -73,7 +73,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The content of the credential.
+   * The credential content.
    */
   credentialContent?: GetCredentialResponseBodyCredentialCredentialContent;
   /**
@@ -86,6 +86,13 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
    * user_custom
    */
   credentialCreationType?: string;
+  /**
+   * @remarks
+   * The external unique identifier of the credential.
+   * 
+   * @example
+   * credential_external_1234567890
+   */
   credentialExternalId?: string;
   /**
    * @remarks
@@ -121,10 +128,17 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
    * llm
    */
   credentialScenarioLabel?: string;
+  /**
+   * @remarks
+   * The credential sharing scope.
+   * 
+   * @example
+   * common
+   */
   credentialSharingScope?: string;
   /**
    * @remarks
-   * The ID of the subject to which the credential belongs.
+   * The subject ID to which the credential belongs.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -132,7 +146,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * The type of the subject to which the credential belongs. Valid values:
+   * The subject type to which the credential belongs. Valid values:
    * - authentication_token_provider: Authentication token provider.
    * 
    * @example
@@ -142,8 +156,8 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   /**
    * @remarks
    * The credential type. Valid values:
-   * - api_key: API key credential.
-   * - oauth_client: OAuth client credential.
+   * - api_key: API key authentication credential.
+   * - oauth_client: OAuth client authentication credential.
    * 
    * @example
    * api_key
@@ -157,6 +171,13 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
    * credential_description
    */
   description?: string;
+  /**
+   * @remarks
+   * The exclusive account ID of the credential.
+   * 
+   * @example
+   * user_1234567890
+   */
   exclusiveUserId?: string;
   /**
    * @remarks

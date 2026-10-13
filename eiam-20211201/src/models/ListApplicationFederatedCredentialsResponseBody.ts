@@ -70,7 +70,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   instanceIds?: string[];
   /**
    * @remarks
-   * The GCP project ID.
+   * The GCP project ID to which the resource belongs.
    * 
    * @example
    * 6193072600270353961
@@ -78,7 +78,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   projectId?: string;
   /**
    * @remarks
-   * The sub claim corresponding to the service account.
+   * The subject (sub) that corresponds to the service account.
    * 
    * @example
    * 123456789
@@ -331,7 +331,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -363,7 +363,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   instanceId?: string;
   /**
    * @remarks
-   * The last used time.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -389,7 +389,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -406,8 +406,8 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   /**
    * @remarks
    * The verification mode. Valid values:
-   * - freedom: free mode.
-   * - structured: structured mode.
+   * - freedom: Free mode.
+   * - structured: Structured mode.
    * 
    * @example
    * structured

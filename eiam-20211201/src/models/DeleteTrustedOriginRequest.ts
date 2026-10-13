@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTrustedOriginRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique among different requests. The value of ClientToken can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The idempotence token.
    * 
    * @example
    * client-token-example
@@ -13,7 +13,7 @@ export class DeleteTrustedOriginRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the IDaaS EIAM instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DeleteTrustedOriginRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the trusted origin.
+   * The trusted origin ID.
    * 
    * This parameter is required.
    * 

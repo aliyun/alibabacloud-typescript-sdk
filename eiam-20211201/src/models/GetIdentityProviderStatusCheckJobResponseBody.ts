@@ -55,7 +55,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItems extends $dara.Model {
   /**
    * @remarks
-   * The reason for the error.
+   * The error reason.
    */
   errorReason?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItemsErrorReason;
   /**
@@ -115,7 +115,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJob extends $dara.Model {
   /**
    * @remarks
-   * The result of the check task.
+   * The job check result.
    * 
    * @example
    * success
@@ -123,7 +123,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   checkResult?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1763776265757
@@ -131,7 +131,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   endTime?: number;
   /**
    * @remarks
-   * The ID of the IdP.
+   * The identity provider ID.
    * 
    * @example
    * idp_ncehkms65fiefobrvwy2blrxxx
@@ -139,7 +139,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   identityProviderId?: string;
   /**
    * @remarks
-   * The ID of the IdP status check job.
+   * The IdP status check job ID.
    * 
    * @example
    * async_000036tfu8cgngmakngrr2rk75qgf87pf3rxxx
@@ -155,12 +155,12 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   instanceId?: string;
   /**
    * @remarks
-   * The results of the status check subtasks.
+   * The status check sub-item task result information.
    */
   jobCheckItems?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItems[];
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1763776265757
@@ -168,7 +168,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   startTime?: number;
   /**
    * @remarks
-   * The status of the check task.
+   * The job check status.
    * 
    * @example
    * success
@@ -215,7 +215,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 export class GetIdentityProviderStatusCheckJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the IdP status check job.
+   * The IdP status check job information.
    */
   identityProviderStatusCheckJob?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJob;
   /**

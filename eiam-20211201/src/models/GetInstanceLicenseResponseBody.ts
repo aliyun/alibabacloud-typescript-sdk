@@ -45,12 +45,15 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
   networkAccessEndpointQuota?: number;
   /**
    * @remarks
-   * The PAM privileged management license status. Valid values: enabled and disabled.
+   * The PAM privileged access management license status.
+   * 
+   * @example
+   * enabled
    */
   pamLicenseStatus?: string;
   /**
    * @remarks
-   * The number of prepaid active accounts.
+   * The number of prepaid active users.
    * 
    * @example
    * 100
@@ -131,7 +134,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseChargeType?: string;
   /**
    * @remarks
-   * The detailed license configuration in JSON string format.
+   * The detailed license configuration as a JSON string.
    * 
    * @example
    * {"modules":[{"features":[{"name":"urn:alibaba:idaas:license:module:ud:customField","status":"enabled"}]……{"name":"urn:alibaba:idaas:license:tag:enterprise","status":"enabled"}],"version":"1.0"}
@@ -171,7 +174,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   purchaseChannel?: string;
   /**
    * @remarks
-   * The unique identifier of the external product associated with the license.
+   * The unique identifier of the external commodity associated with the license.
    * 
    * @example
    * eiam-cn-xxxxx
@@ -242,7 +245,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
 export class GetInstanceLicenseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response result.
+   * The returned result.
    */
   license?: GetInstanceLicenseResponseBodyLicense;
   /**

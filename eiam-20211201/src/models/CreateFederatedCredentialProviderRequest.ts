@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFederatedCredentialProviderRequestCloudIdPProviderConfig extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the identity provider.
+   * 
    * @example
    * idp_m7hk2hbnew5ir3ycfabug6xxxx
    */
@@ -37,7 +40,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   audiences?: string[];
   /**
    * @remarks
-   * Issuer
+   * The token issuer identifier (Issuer).
    * 
    * @example
    * https://example.com
@@ -279,7 +282,7 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The trust condition for the root certificate.
+   * The trust condition of the root certificate.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -314,6 +317,10 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
 }
 
 export class CreateFederatedCredentialProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The identity provider configuration.
+   */
   cloudIdPProviderConfig?: CreateFederatedCredentialProviderRequestCloudIdPProviderConfig;
   /**
    * @remarks

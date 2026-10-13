@@ -3,11 +3,44 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpointBackupVpcEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The private egress IP address list of the backup network access endpoint.
+   */
   backupEgressPrivateIpAddresses?: string[];
+  /**
+   * @remarks
+   * The public egress IP address range of the backup network access endpoint.
+   */
   backupEgressPublicIpAddresses?: string[];
+  /**
+   * @remarks
+   * The ID of the backup security group.
+   * 
+   * @example
+   * sg-bp1a2b3c4d5e6f7g8
+   */
   backupSecurityGroupId?: string;
+  /**
+   * @remarks
+   * The list of backup vSwitches.
+   */
   backupVSwitchIds?: string[];
+  /**
+   * @remarks
+   * The ID of the backup VPC.
+   * 
+   * @example
+   * vpc-bp1a2b3c4d5e6f7g8
+   */
   backupVpcId?: string;
+  /**
+   * @remarks
+   * The region of the backup VPC.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   backupVpcRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,6 +83,10 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpointBackupVpcE
 }
 
 export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The backup VPC endpoint configuration.
+   */
   backupVpcEndpoint?: GetNetworkAccessEndpointResponseBodyNetworkAccessEndpointBackupVpcEndpoint;
   /**
    * @remarks
@@ -72,7 +109,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
    * The public egress IP address range of the shared network access endpoint. This parameter is returned only when NetworkEndpointType is set to shared.
    * 
    * @example
-   * 203.0.XX.XX/27
+   * 8.xx.xx.xxx/27
    */
   egressPublicIpAddresses?: string[];
   /**
@@ -96,7 +133,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
    * The name of the dedicated network access endpoint.
    * 
    * @example
-   * Xx-business VPC access endpoint
+   * VPC access endpoint for XX service
    */
   networkAccessEndpointName?: string;
   /**
@@ -112,7 +149,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   networkAccessEndpointType?: string;
   /**
    * @remarks
-   * The ID of the security group used by the dedicated network access endpoint.
+   * The security group ID used by the dedicated network access endpoint.
    * 
    * @example
    * sg-examplexxx
@@ -141,7 +178,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   updateTime?: number;
   /**
    * @remarks
-   * The list of vSwitches to which the dedicated network access endpoint is connected.
+   * The list of vSwitches associated with the dedicated network access endpoint.
    * 
    * @example
    * vsw-examplexxx
@@ -149,7 +186,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the VPC to which the dedicated network access endpoint is connected.
+   * The VPC ID associated with the dedicated network access endpoint.
    * 
    * @example
    * vpc-examplexxx
@@ -157,7 +194,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   vpcId?: string;
   /**
    * @remarks
-   * The region of the VPC to which the dedicated network access endpoint is connected.
+   * The region of the VPC associated with the dedicated network access endpoint.
    * 
    * @example
    * cn-hangzhou

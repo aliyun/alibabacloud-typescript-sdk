@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecIdentityProviderMetadataUrlResolutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the identity provider in IDaaS.
+   * The identity provider ID in IDaaS.
    * 
    * @example
    * idp_mwpcwnhrimlr2horxXXXX
@@ -23,7 +23,7 @@ export class ExecIdentityProviderMetadataUrlResolutionRequest extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The network access endpoint ID.
+   * The network endpoint ID.
    * 
    * @example
    * inae_public
@@ -38,6 +38,9 @@ export class ExecIdentityProviderMetadataUrlResolutionRequest extends $dara.Mode
    */
   oidcIssuer?: string;
   /**
+   * @remarks
+   * The SAML metadata URL.
+   * 
    * @example
    * https://dc.test.com/FederationMetadata/2007-06/FederationMetadata.xml
    */

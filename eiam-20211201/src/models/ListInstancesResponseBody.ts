@@ -47,7 +47,7 @@ export class ListInstancesResponseBodyInstancesDefaultEndpoint extends $dara.Mod
 export class ListInstancesResponseBodyInstancesReplicationConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the backup instance.
+   * The instance ID of the disaster recovery instance.
    * 
    * @example
    * idaas_xxxxxx
@@ -55,7 +55,7 @@ export class ListInstancesResponseBodyInstancesReplicationConfiguration extends 
   backupInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the backup instance.
+   * The region ID of the disaster recovery instance.
    * 
    * @example
    * cn-beijing
@@ -125,7 +125,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether cross-region replication is enabled. Valid values: enabled or disabled.
+   * Indicates whether cross-region replication is enabled. Valid values: enabled and disabled.
    * 
    * @example
    * enabled
@@ -133,7 +133,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   crossRegionReplication?: string;
   /**
    * @remarks
-   * The cross-region replication role. Valid values: primary (primary instance) or backup (backup instance).
+   * The cross-region replication role. Valid values: primary, which indicates the primary instance, and backup, which indicates the backup instance.
    * 
    * @example
    * primary
@@ -154,7 +154,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The instance failover activation status. Valid values: active (activated) or inactive (not activated).
+   * The failover activation status of the instance. Valid values: active, which indicates that failover is activated, and inactive, which indicates that failover is not activated.
    * 
    * @example
    * inactive

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceResponseBodyInstanceDefaultEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The domain name of the instance.
+   * The domain name address of the instance.
    * 
    * @example
    * example-xxx.aliyunidaas.com
@@ -63,7 +63,7 @@ export class GetInstanceResponseBodyInstanceDomainConfig extends $dara.Model {
   initDomain?: string;
   /**
    * @remarks
-   * The automatic redirect status of the initialization domain name. Valid values:
+   * The auto-redirect status of the initialization domain name. Valid values:
    * - enabled: Enabled.
    * 
    * - disabled: Disabled.
@@ -99,26 +99,41 @@ export class GetInstanceResponseBodyInstanceDomainConfig extends $dara.Model {
 
 export class GetInstanceResponseBodyInstanceReplicationConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the backup instance.
+   * 
    * @example
    * idaas_xxxx
    */
   backupInstanceId?: string;
   /**
+   * @remarks
+   * The region ID of the backup instance.
+   * 
    * @example
    * cn-beijing
    */
   backupInstanceRegionId?: string;
   /**
+   * @remarks
+   * The instance ID of the primary instance.
+   * 
    * @example
    * idaas_xxxx
    */
   primaryInstanceId?: string;
   /**
+   * @remarks
+   * The region ID of the primary instance.
+   * 
    * @example
    * cn-hangzhou
    */
   primaryInstanceRegionId?: string;
   /**
+   * @remarks
+   * The time when the disaster recovery data replication was created. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1778499337000
    */
@@ -155,30 +170,36 @@ export class GetInstanceResponseBodyInstanceReplicationConfiguration extends $da
 export class GetInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the instance was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1550115455000
    */
   createTime?: number;
   /**
+   * @remarks
+   * Indicates whether cross-region replication is enabled. Valid values: enabled or disabled.
+   * 
    * @example
    * enabled
    */
   crossRegionReplication?: string;
   /**
+   * @remarks
+   * The cross-region replication role. Valid values: primary indicates the primary instance, and backup indicates the backup instance.
+   * 
    * @example
    * primary
    */
   crossRegionReplicationRole?: string;
   /**
    * @remarks
-   * The default domain name of the instance. This field is no longer maintained. Use the DomainConfig fields or refer to the query domain name list operation instead.
+   * The default domain name of the instance. This field is no longer maintained. Use the DomainConfig fields or refer to the domain name list query operation instead.
    */
   defaultEndpoint?: GetInstanceResponseBodyInstanceDefaultEndpoint;
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
    * 
    * @example
    * instance_for_test
@@ -191,10 +212,13 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   domainConfig?: GetInstanceResponseBodyInstanceDomainConfig;
   /**
    * @remarks
-   * The public egress CIDR blocks of the instance. For example, during Active Directory (AD) account synchronization, the EIAM instance accesses your AD server through these public CIDR blocks.
+   * The egress public IP address ranges of the instance. For example, during AD account synchronization, the EIAM instance accesses your AD server through these public IP address ranges.
    */
   egressAddresses?: string[];
   /**
+   * @remarks
+   * The failover activation status of the instance. Valid values: active indicates activated, and inactive indicates not activated.
+   * 
    * @example
    * inactive
    */
@@ -209,7 +233,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ServiceCode of the Alibaba Cloud service that manages the instance.
+   * The service code of the Alibaba Cloud service that manages the instance.
    * 
    * @example
    * sase
@@ -218,6 +242,10 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * false
    */
   managedServiceCode?: string;
+  /**
+   * @remarks
+   * The cross-region replication configuration. This parameter is returned only when CrossRegionReplication is set to enabled.
+   */
   replicationConfiguration?: GetInstanceResponseBodyInstanceReplicationConfiguration;
   /**
    * @remarks

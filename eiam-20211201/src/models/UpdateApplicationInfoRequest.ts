@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateApplicationInfoRequestApplicationOwner extends $dara.Model {
+  /**
+   * @remarks
+   * The list of group IDs.
+   */
   groupIds?: string[];
+  /**
+   * @remarks
+   * The list of user IDs.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,8 +43,29 @@ export class UpdateApplicationInfoRequestApplicationOwner extends $dara.Model {
 }
 
 export class UpdateApplicationInfoRequestCustomFields extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the application extension field.
+   * 
+   * @example
+   * agent_type
+   */
   fieldName?: string;
+  /**
+   * @remarks
+   * The value of the application extension field. If FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. If FieldName is set to agentExternalId, enter the relevant value.
+   * 
+   * @example
+   * bailian
+   */
   fieldValue?: string;
+  /**
+   * @remarks
+   * The operation type for the application extension field.
+   * 
+   * @example
+   * add
+   */
   operation?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,6 +111,10 @@ export class UpdateApplicationInfoRequest extends $dara.Model {
    * Ram Account SSO
    */
   applicationName?: string;
+  /**
+   * @remarks
+   * The application owner.
+   */
   applicationOwner?: UpdateApplicationInfoRequestApplicationOwner;
   /**
    * @remarks
@@ -90,12 +123,16 @@ export class UpdateApplicationInfoRequest extends $dara.Model {
   applicationVisibility?: string[];
   /**
    * @remarks
-   * The idempotence token.
+   * The idempotency token.
    * 
    * @example
    * client-token-example
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The list of application extension fields.
+   */
   customFields?: UpdateApplicationInfoRequestCustomFields[];
   /**
    * @remarks

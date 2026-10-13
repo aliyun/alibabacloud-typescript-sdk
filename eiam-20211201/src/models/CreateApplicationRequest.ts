@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateApplicationRequestApplicationOwner extends $dara.Model {
+  /**
+   * @remarks
+   * The list of group IDs.
+   */
   groupIds?: string[];
+  /**
+   * @remarks
+   * The list of user IDs.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +43,21 @@ export class CreateApplicationRequestApplicationOwner extends $dara.Model {
 }
 
 export class CreateApplicationRequestCustomFields extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of the application extension field.
+   * 
+   * @example
+   * agent_type
+   */
   fieldName?: string;
+  /**
+   * @remarks
+   * The value of the application extension field. When FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. When FieldName is set to agentExternalId, enter the relevant value.
+   * 
+   * @example
+   * bailian
+   */
   fieldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,6 +103,10 @@ export class CreateApplicationRequest extends $dara.Model {
    * Ram Account SSO
    */
   applicationName?: string;
+  /**
+   * @remarks
+   * The application owner.
+   */
   applicationOwner?: CreateApplicationRequestApplicationOwner;
   /**
    * @remarks
@@ -96,12 +122,16 @@ export class CreateApplicationRequest extends $dara.Model {
   applicationSourceType?: string;
   /**
    * @remarks
-   * The application template ID. This parameter is required when ApplicationSourceType is set to urn:alibaba:idaas:app:source:template.
+   * The application template ID. This parameter is required when the ApplicationSourceType parameter is set to urn:alibaba:idaas:app:source:template.
    * 
    * @example
    * apt_ramuser_mjqrsi
    */
   applicationTemplateId?: string;
+  /**
+   * @remarks
+   * The list of application extension fields.
+   */
   customFields?: CreateApplicationRequestCustomFields[];
   /**
    * @remarks
@@ -131,7 +161,7 @@ export class CreateApplicationRequest extends $dara.Model {
   logoUrl?: string;
   /**
    * @remarks
-   * The single sign-on protocol. Valid values:
+   * The single sign-on (SSO) protocol. Valid values:
    * - saml2: SAML 2.0 protocol.
    * - oidc: OpenID Connect protocol.
    * 

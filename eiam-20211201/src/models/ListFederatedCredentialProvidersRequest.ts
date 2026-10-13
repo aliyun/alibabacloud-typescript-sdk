@@ -39,7 +39,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxxxexample
@@ -47,7 +47,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token used to query the previous page.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxxxexample
