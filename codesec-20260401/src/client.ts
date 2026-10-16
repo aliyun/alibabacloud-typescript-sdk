@@ -252,7 +252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成 SBOM / 许可证清单的短时下载链接
+   * Generates a download link for an SBOM or license manifest that includes producer metadata.
    * 
    * @param request - CreateScanSbomExportRequest
    * @param headers - map
@@ -289,7 +289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成 SBOM / 许可证清单的短时下载链接
+   * Generates a download link for an SBOM or license manifest that includes producer metadata.
    * 
    * @param request - CreateScanSbomExportRequest
    * @returns CreateScanSbomExportResponse
@@ -462,7 +462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists scan tasks under a specified project with pagination.
+   * Queries the scan tasks of a specific project in a paginated manner.
    * 
    * @param request - DescribeScansRequest
    * @param headers - map
@@ -478,6 +478,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["query"] = request.query;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -507,7 +511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists scan tasks under a specified project with pagination.
+   * Queries the scan tasks of a specific project in a paginated manner.
    * 
    * @param request - DescribeScansRequest
    * @returns DescribeScansResponse

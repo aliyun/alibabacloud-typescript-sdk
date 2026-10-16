@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScansRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Maximum value: 100.
+   * The maximum number of entries per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeScansRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Do not specify this parameter or set it to an empty string for the first page. For subsequent pages, pass the nextToken value from the previous response without any modification. If the nextToken value in the response is empty, the last page has been reached.
+   * The pagination token. To query the first page, leave this parameter empty or do not specify it. To query subsequent pages, pass the nextToken value returned in the previous response. If the nextToken value in the response is empty, the last page is returned.
    * 
    * @example
    * eyJ0IjoiMjAyNi0wNy0xNlQwNzo1MzozOC4wMjFaIiwiaSI6MTAwMDQ0OH0
@@ -21,10 +21,18 @@ export class DescribeScansRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * * running: Running.
-   * * completed: Completed.
-   * * failed: Failed.
+   * The query string. You can perform a fuzzy match by project name or prompt.
+   * 
+   * @example
+   * name
+   */
+  query?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * * running: The task is running.
+   * * completed: The task is completed.
+   * * failed: The task failed.
    * 
    * @example
    * completed
@@ -32,7 +40,7 @@ export class DescribeScansRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * name
@@ -42,6 +50,7 @@ export class DescribeScansRequest extends $dara.Model {
     return {
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      query: 'query',
       status: 'status',
       taskName: 'taskName',
     };
@@ -51,6 +60,7 @@ export class DescribeScansRequest extends $dara.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      query: 'string',
       status: 'string',
       taskName: 'string',
     };

@@ -69,7 +69,7 @@ export class DescribeScansResponseBodyItemsScanMetrics extends $dara.Model {
   linesOfCode?: number;
   /**
    * @remarks
-   * Deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class DescribeScansResponseBodyItemsScanMetrics extends $dara.Model {
 export class DescribeScansResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The code bundle ID.
+   * The ID of the code package.
    * 
    * @example
    * 11
@@ -121,7 +121,7 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The user ID of the task creator.
+   * The ID of the user who created the task.
    * 
    * @example
    * 11111
@@ -129,12 +129,12 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The scan phase. Valid values:
-   * * threat_model: Threat modeling.
-   * * discovery: Vulnerability discovery.
-   * * panel: Vulnerability review.
-   * * adversarial: Adversarial verification.
-   * * finalize: Report generation.
+   * The current scan phase. Valid values:
+   * * threat_model: threat modeling
+   * * discovery: vulnerability discovery
+   * * panel: vulnerability review
+   * * adversarial: adversarial verification
+   * * finalize: report compilation
    * 
    * @example
    * finalize
@@ -142,12 +142,12 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   currentPhase?: string;
   /**
    * @remarks
-   * The supported scan types.
+   * The supported types.
    */
   engineSnapshot?: DescribeScansResponseBodyItemsEngineSnapshot;
   /**
    * @remarks
-   * The time when the scan finished.
+   * The time when the scan ended.
    * 
    * @example
    * 2026-07-28T03:36:31.573Z
@@ -155,7 +155,7 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   finishedAt?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 934
@@ -164,8 +164,8 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The scan type. Valid values:
-   * * full: Full scan.
-   * * incremental: Incremental scan.
+   * * full: full scan
+   * * incremental: incremental scan
    * 
    * @example
    * full
@@ -173,7 +173,7 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * p-n72k9yrkq81ny7z
@@ -181,12 +181,12 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The scan result statistics information.
+   * The statistics information of the scan results.
    */
   scanMetrics?: DescribeScansResponseBodyItemsScanMetrics;
   /**
    * @remarks
-   * The task progress.
+   * The progress of the task.
    * 
    * @example
    * 100
@@ -202,12 +202,12 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   startedAt?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * * running: Running.
-   * * completed: Completed.
-   * * failed: Failed.
-   * * canceling: Being canceled. 
-   * * canceled: Canceled.
+   * The status of the task. Valid values:
+   * * running: The task is running.
+   * * completed: The task is completed.
+   * * failed: The task failed.
+   * * canceling: The task is being canceled. 
+   * * canceled: The task is canceled.
    * 
    * @example
    * completed
@@ -215,7 +215,7 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * 1648622222394847-ha-cn-lm64p7tby01_dsl_kb_video_1773817008236_full
@@ -223,7 +223,7 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The time when the task was last updated.
+   * The time when the task was updated.
    * 
    * @example
    * 2026-07-28T03:36:31.573Z
@@ -231,7 +231,7 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * 1
@@ -297,12 +297,12 @@ export class DescribeScansResponseBodyItems extends $dara.Model {
 export class DescribeScansResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task list.
+   * The list of tasks.
    */
   items?: DescribeScansResponseBodyItems[];
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -310,7 +310,7 @@ export class DescribeScansResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. An empty value indicates the last page.
+   * The pagination token. An empty value indicates that the last page is returned.
    * 
    * @example
    * eyJ0IjoiMjAyNi0wNy0xNlQwNzo1MzozOC4wMjFaIiwiaSI6MTAwMDQ0OH0
