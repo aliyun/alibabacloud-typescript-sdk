@@ -13,10 +13,10 @@ export class SetMemberDeletionPermissionResponseBody extends $dara.Model {
   managementAccountId?: string;
   /**
    * @remarks
-   * The status of the member deletion feature. Valid values:
+   * The status of the member deletion permission. Valid values:
    * 
-   * *   Enabled: The feature is enabled.
-   * *   Disabled: The feature is disabled.
+   * - Enabled: The member deletion permission is enabled.
+   * - Disabled: The member deletion permission is disabled.
    * 
    * @example
    * Enabled
@@ -24,7 +24,7 @@ export class SetMemberDeletionPermissionResponseBody extends $dara.Model {
   memberDeletionStatus?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C55A4CAA-9039-1DDF-91CE-FCC134513D29
@@ -32,7 +32,7 @@ export class SetMemberDeletionPermissionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The resource directory ID.
    * 
    * @example
    * rd-3G****

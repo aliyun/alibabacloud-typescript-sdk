@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFolderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the folder.
+   * The folder ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateFolderRequest extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The new name of the folder.
+   * The new folder name.
    * 
    * The name must be 1 to 24 characters in length and can contain letters, digits, underscores (_), periods (.), and hyphens (-).
    * 

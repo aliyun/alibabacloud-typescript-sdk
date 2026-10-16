@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which you want to return the description of the access control policy. Valid values:
+   * The language in which the control policy description is returned. Valid values:
    * 
-   * *   zh-CN (default value): Chinese
-   * *   en: English
-   * *   ja: Japanese
+   * - zh-CN (default): Chinese.
+   * - en: English.
+   * - ja: Japanese.
    * 
-   * >  This parameter is valid only for system access control policies.
+   * > This parameter is valid only for system control policies.
    * 
    * @example
    * zh-CN
@@ -19,7 +19,7 @@ export class GetControlPolicyRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The ID of the access control policy.
+   * The ID of the control policy.
    * 
    * This parameter is required.
    * 

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which you want to return the descriptions of the system permission policies. Valid values:
+   * The language type. The description of the system access policy is returned in the specified language.
    * 
-   * *   en: English.
-   * *   zh-CN: Chinese
-   * *   ja: Japanese
+   * - en: English.
+   * - zh-CN: Chinese.
+   * - ja: Japanese.
    * 
    * @example
    * zh-CN
@@ -19,7 +19,7 @@ export class ListPoliciesRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -37,10 +37,10 @@ export class ListPoliciesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the permission policy. If you do not configure this parameter, all types of permission policies are returned. Valid values:
+   * The type of the access policy. If this parameter is left empty, all types of access policies are listed. 
    * 
-   * *   Custom
-   * *   System
+   * - Custom: custom policy.
+   * - System: system policy.
    * 
    * @example
    * Custom

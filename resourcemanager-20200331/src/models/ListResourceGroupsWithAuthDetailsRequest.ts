@@ -7,7 +7,7 @@ export class ListResourceGroupsWithAuthDetailsRequestResourceTypes extends $dara
    * @remarks
    * The resource type.
    * 
-   * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -15,9 +15,9 @@ export class ListResourceGroupsWithAuthDetailsRequestResourceTypes extends $dara
   resourceTypeCode?: string;
   /**
    * @remarks
-   * The service code.
+   * The cloud service code.
    * 
-   * You can obtain the code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -89,9 +89,9 @@ export class ListResourceGroupsWithAuthDetailsRequestTag extends $dara.Model {
 export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The display name of the resource group. This parameter specifies a filter condition for the query. Fuzzy search is supported.
+   * The display name of the resource group. This parameter is used as a filter condition. Fuzzy match is supported.
    * 
-   * The display name can be a maximum of 50 characters in length.
+   * The name can be up to 50 characters in length.
    * 
    * @example
    * TestRG-BVT1
@@ -99,12 +99,12 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Specifies whether to return the information of tags. Valid values:
+   * Specifies whether to return tag information. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - false (default): Does not return tag information.
    * 
-   * >  If you set a tag filter condition, the tag information is returned regardless of the `IncludeTags` value.
+   * - true: Returns tag information.
+   * > If you specify tag-based filter conditions, tag information is always returned regardless of the value of `IncludeTags`.
    * 
    * @example
    * true
@@ -112,9 +112,9 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   includeTags?: boolean;
   /**
    * @remarks
-   * The identifier of the resource group. This parameter specifies a filter condition for the query. Fuzzy search is supported.
+   * The unique identifier of the resource group. This parameter is used as a filter condition. Fuzzy match is supported.
    * 
-   * The identifier can be a maximum of 50 characters in length and can contain letters, digits, and hyphens (-).
+   * The identifier can be up to 50 characters in length and can contain letters, digits, and hyphens (-).
    * 
    * @example
    * prod-rg
@@ -122,7 +122,7 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -130,7 +130,7 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -138,12 +138,12 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of the resource groups that you want to query.
+   * The list of resource group IDs.
    */
   resourceGroupIds?: string[];
   /**
    * @remarks
-   * The ID of the region where the resource resides.
+   * The region ID of the resource.
    * 
    * @example
    * cn-shenzhen
@@ -151,16 +151,16 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The resource types.
+   * The list of resource types.
    */
   resourceTypes?: ListResourceGroupsWithAuthDetailsRequestResourceTypes[];
   /**
    * @remarks
-   * The status of the resource group. This parameter specifies a filter condition for the query. Valid values:
+   * The status of the resource group. This parameter is used as a filter condition. Valid values:
    * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * *   PendingDelete: The resource group is waiting to be deleted.
+   * - Creating: Being created.
+   * - OK: Created.
+   * - PendingDelete: Pending deletion.
    * 
    * @example
    * OK

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Model {
   /**
    * @remarks
-   * The status of the Control Policy feature. Valid values:
+   * The status of the control policy. Valid values:
    * 
-   * *   Enabled: The feature is enabled.
-   * *   PendingEnable: The feature is being enabled.
-   * *   Disabled: The feature is disabled.
-   * *   PendingDisable: The feature is being disabled.
+   * - Enabled: Enabled.
+   * - PendingEnable: Being enabled.
+   * - Disabled: Disabled.
+   * - PendingDisable: Being disabled.
    * 
    * @example
    * Enabled
@@ -18,7 +18,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Mod
   controlPolicyStatus?: string;
   /**
    * @remarks
-   * The time when the resource directory was enabled.
+   * The time when the resource directory was created. The time is displayed in UTC in RFC 3339 format, indicated by Z.
    * 
    * @example
    * 2019-02-18T15:32:10.473Z
@@ -26,10 +26,10 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The real-name verification information.
+   * The real-name verification information of the member.
    * 
    * @example
-   * \\*\\*\\* Co., Ltd.
+   * ***有限公司
    */
   identityInformation?: string;
   /**
@@ -50,10 +50,9 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Mod
   masterAccountName?: string;
   /**
    * @remarks
-   * The status of the member deletion feature. Valid values:
-   * 
-   * *   Enabled: The feature is enabled. You can call the [DeleteAccount](https://help.aliyun.com/document_detail/311546.html) operation to delete members of the resource account type.
-   * *   Disabled: The feature is disabled. You cannot delete members of the resource account type.
+   * Indicates whether member deletion is enabled. Valid values:
+   * - Enabled: Enabled. You can call [DeleteAccount](https://help.aliyun.com/document_detail/311546.html) to delete members of the resource account type.
+   * - Disabled: Disabled. You cannot delete members of the resource account type.
    * 
    * @example
    * Enabled
@@ -113,7 +112,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Mod
 export class GetResourceDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CD76D376-2517-4924-92C5-DBC52262F93A
@@ -121,7 +120,7 @@ export class GetResourceDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the resource directory.
+   * The resource directory information.
    */
   resourceDirectory?: GetResourceDirectoryResponseBodyResourceDirectory;
   static names(): { [key: string]: string } {

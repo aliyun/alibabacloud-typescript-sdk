@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SetDefaultPolicyVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission policy.
+   * Policy Name of the access policy.
    * 
-   * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphen (-).
+   * Policy Name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class SetDefaultPolicyVersionRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The ID of the policy version.
+   * The ID of the access policy version.
    * 
    * This parameter is required.
    * 

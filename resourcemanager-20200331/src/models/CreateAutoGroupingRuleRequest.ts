@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAutoGroupingRuleRequestRuleContents extends $dara.Model {
   /**
    * @remarks
-   * The condition for the range of resources to be automatically transferred.
+   * The scope condition for automatic allocation. Specifies the scope of resources to be automatically allocated.
    * 
    * @example
    * {"children":[{"desired":"{\\"env\\":\\"online\\", \\"project\\":\\"A\\"}","featurePath":"$.tags","featureSource":"RESOURCE","operator":"TagMatchAll"}],"operator":"and"}
@@ -13,7 +13,7 @@ export class CreateAutoGroupingRuleRequestRuleContents extends $dara.Model {
   autoGroupingScopeCondition?: string;
   /**
    * @remarks
-   * The condition for the destination resource group.
+   * The target resource group condition. Specifies the target resource group for automatic allocation.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateAutoGroupingRuleRequestRuleContents extends $dara.Model {
 export class CreateAutoGroupingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of regions to be excluded. Separate multiple IDs with commas (,).
+   * The region IDs to exclude. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-beijing,cn-guangzhou
@@ -55,7 +55,7 @@ export class CreateAutoGroupingRuleRequest extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of resource groups to be excluded. Separate multiple IDs with commas (,).
+   * The resource group IDs to exclude. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aekz******zj2oi,rg-aekz******r62ua
@@ -63,7 +63,7 @@ export class CreateAutoGroupingRuleRequest extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of resources to be excluded. Separate multiple IDs with commas (,).
+   * The resource IDs to exclude. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * pc-uf6p******4h784y,rmq-cn-******ny0y
@@ -71,7 +71,7 @@ export class CreateAutoGroupingRuleRequest extends $dara.Model {
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * The resource types to be excluded. Separate multiple resource types with commas (,).
+   * The resource types to exclude. Separate multiple resource types with commas (,).
    * 
    * @example
    * mse.cluster,slb.loadbalancer
@@ -79,7 +79,7 @@ export class CreateAutoGroupingRuleRequest extends $dara.Model {
   excludeResourceTypesScope?: string;
   /**
    * @remarks
-   * The IDs of regions. Separate multiple IDs with commas (,).
+   * The scope of region IDs. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-hangzhou,cn-shanghai
@@ -87,7 +87,7 @@ export class CreateAutoGroupingRuleRequest extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of resource groups. Separate multiple IDs with commas (,).
+   * The scope of resource group IDs. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aekz******4b5ea,rg-aek2******fxykq
@@ -95,7 +95,7 @@ export class CreateAutoGroupingRuleRequest extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of resources. Separate multiple IDs with commas (,).
+   * The scope of resource IDs. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * i-2zee******ym49kfmwis,vpc-5ts6******fnw493g849a
@@ -103,7 +103,7 @@ export class CreateAutoGroupingRuleRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The resource types. Separate multiple resource types with commas (,).
+   * The scope of resource types. Separate multiple resource types with commas (,).
    * 
    * @example
    * rds.dbinstance,oss.bucket
@@ -111,35 +111,34 @@ export class CreateAutoGroupingRuleRequest extends $dara.Model {
   resourceTypesScope?: string;
   /**
    * @remarks
-   * The content records of the rule.
+   * The list of rule content entries.
    * 
    * This parameter is required.
    */
   ruleContents?: CreateAutoGroupingRuleRequestRuleContents[];
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
-   * Transfer resources to which the {"env": "online"} and {"project": "A"} tags are added to the resource group rg-aek2********qcy.
+   * Move resources with tags {"env": "online"} and {"project": "A"} to resource group rg-aek2********qcy
    */
   ruleDesc?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Custom Transfer Rule for Online Resources of Project A
+   * Auto allocation rule for Project A online resources
    */
   ruleName?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * *   custom_condition: custom transfer rule
-   * *   associated_transfer: transfer rule for associated resources
+   * The rule type. Valid values:
+   * - custom_condition: custom allocation rule.
+   * - associated_transfer: attached-resource allocation rule.
    * 
    * This parameter is required.
    * 

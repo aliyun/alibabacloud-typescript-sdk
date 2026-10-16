@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountsForParentRequestTag extends $dara.Model {
   /**
    * @remarks
-   * A tag key.
+   * The tag key.
    * 
    * @example
    * tag_key
@@ -13,7 +13,7 @@ export class ListAccountsForParentRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A tag value.
+   * The tag value.
    * 
    * @example
    * tag_value
@@ -45,11 +45,10 @@ export class ListAccountsForParentRequestTag extends $dara.Model {
 export class ListAccountsForParentRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the information of tags. Valid values:
+   * Specifies whether to return tag information. Valid values:
    * 
-   * false (default value)
-   * 
-   * true
+   * - false (default): Does not return tag information.
+   * - true: Returns tag information.
    * 
    * @example
    * true
@@ -57,9 +56,9 @@ export class ListAccountsForParentRequest extends $dara.Model {
   includeTags?: boolean;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -67,7 +66,7 @@ export class ListAccountsForParentRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -77,7 +76,7 @@ export class ListAccountsForParentRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the folder.
+   * The ID of the resource folder.
    * 
    * @example
    * fd-bVaRIG****
@@ -85,7 +84,7 @@ export class ListAccountsForParentRequest extends $dara.Model {
   parentFolderId?: string;
   /**
    * @remarks
-   * The keyword used for the query, such as the display name of a member.
+   * The query keyword, such as the member name.
    * 
    * Fuzzy match is supported.
    * 
@@ -95,7 +94,7 @@ export class ListAccountsForParentRequest extends $dara.Model {
   queryKeyword?: string;
   /**
    * @remarks
-   * The tag key and value.
+   * The tags used to filter member accounts.
    */
   tag?: ListAccountsForParentRequestTag[];
   static names(): { [key: string]: string } {

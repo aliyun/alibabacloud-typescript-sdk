@@ -9,9 +9,8 @@ export class ListResourcesRequestResourceTypes extends $dara.Model {
    * 
    * Valid values of N: 1 to 50.
    * 
-   * For more information about the supported resource types, see the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
-   * 
-   * >  You must configure both `Service` and `ResourceType` in `ResourceTypes`. Otherwise, the two parameters do not take effect.
+   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * > The Service and ResourceType parameters in ResourceTypes must be specified at the same time. Otherwise, they do not take effect.
    * 
    * @example
    * instance
@@ -19,13 +18,12 @@ export class ListResourcesRequestResourceTypes extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service.
+   * The code of the cloud service.
    * 
    * Valid values of N: 1 to 50.
    * 
-   * You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
-   * 
-   * >  You must configure both `Service` and `ResourceType` in `ResourceTypes`. Otherwise, the two parameters do not take effect.
+   * You can obtain the code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * > The Service and ResourceType parameters in ResourceTypes must be specified at the same time. Otherwise, they do not take effect.
    * 
    * @example
    * ecs
@@ -57,9 +55,16 @@ export class ListResourcesRequestResourceTypes extends $dara.Model {
 export class ListResourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to query the total number of resources. Default value: true. Valid values:
+   * - true: Queries the total number of resources and returns the result in the TotalCount parameter.
+   * - false: Does not query the total number of resources. The TotalCount parameter returns -1, and the resources are still paginated based on the PageNumber and PageSize parameters.
+   */
+  count?: boolean;
+  /**
+   * @remarks
    * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -103,7 +108,7 @@ export class ListResourcesRequest extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * For more information about the supported resource types, see the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -111,16 +116,16 @@ export class ListResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The resource types. A maximum of 50 resource types are supported.
+   * The list of resource types. A maximum of 50 resource types are supported.
    * 
-   * >  If you configure `ResourceTypes`, you must configure both `Service` and `ResourceType`. Otherwise, the configured Service or ResourceType does not take effect.
+   * > If you configure the Settings for ResourceTypes, the Service and ResourceType request parameter specified separately do not take effect.
    */
   resourceTypes?: ListResourcesRequestResourceTypes[];
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service.
+   * The code of the cloud service.
    * 
-   * You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -128,6 +133,7 @@ export class ListResourcesRequest extends $dara.Model {
   service?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       region: 'Region',
@@ -141,6 +147,7 @@ export class ListResourcesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
       region: 'string',

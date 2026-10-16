@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFolderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the folder.
+   * The folder ID.
    * 
    * This parameter is required.
    * 

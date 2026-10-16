@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindSecureMobilePhoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0217AFEB-5318-56D4-B167-1933D83EDF3F

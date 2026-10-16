@@ -13,7 +13,7 @@ export class CreateAutoGroupingRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * gr-acfo******hy6a

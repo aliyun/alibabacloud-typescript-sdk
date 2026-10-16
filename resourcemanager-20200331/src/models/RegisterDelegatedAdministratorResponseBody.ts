@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterDelegatedAdministratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0A45FC8F-54D2-4A65-8338-25E5DEBDA304

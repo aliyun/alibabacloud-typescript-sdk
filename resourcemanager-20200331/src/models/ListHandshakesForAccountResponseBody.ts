@@ -85,7 +85,7 @@ export class ListHandshakesForAccountResponseBody extends $dara.Model {
   handshakes?: ListHandshakesForAccountResponseBodyHandshakes;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class ListHandshakesForAccountResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -101,7 +101,7 @@ export class ListHandshakesForAccountResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE
@@ -109,7 +109,7 @@ export class ListHandshakesForAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of invitations.
+   * The total number of invitation records.
    * 
    * @example
    * 2

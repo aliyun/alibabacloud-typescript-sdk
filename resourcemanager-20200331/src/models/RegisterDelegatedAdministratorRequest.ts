@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterDelegatedAdministratorRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the member in the resource directory.
+   * The UID of a member account in the resource directory.
    * 
    * This parameter is required.
    * 

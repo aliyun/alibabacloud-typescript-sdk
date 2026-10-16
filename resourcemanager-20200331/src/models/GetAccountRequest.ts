@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * The member account ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class GetAccountRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Specifies whether to return the information of tags. Valid values:
+   * Specifies whether to return tag information. Valid values:
    * 
-   * *   false (default value)
-   * *   true
+   * - false (default): Does not return tag information.
+   * - true: Returns tag information.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelChangeAccountEmailRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * The member account ID.
    * 
    * This parameter is required.
    * 

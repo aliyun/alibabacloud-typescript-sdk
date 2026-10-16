@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DetachPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission policy.
+   * Policy Name of the access policy.
    * 
-   * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphen (-).
+   * Policy Name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,10 @@ export class DetachPolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the permission policy. Valid values:
+   * The type of the access policy. Valid values:
    * 
-   * *   Custom
-   * *   System
+   * - Custom: custom policy.
+   * - System: system policy.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class DetachPolicyRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The name of the object to which you want to attach the permission policy.
+   * The name of the object from which you want to detach the policy.
    * 
    * This parameter is required.
    * 
@@ -40,11 +40,11 @@ export class DetachPolicyRequest extends $dara.Model {
   principalName?: string;
   /**
    * @remarks
-   * The type of the object to which you want to attach the permission policy. Valid values:
+   * The authorization object type. Valid values:
    * 
-   * *   IMSUser: RAM user
-   * *   IMSGroup: RAM user group
-   * *   ServiceRole: RAM role
+   * - IMSUser: Resource Access Management (RAM) user.
+   * - IMSGroup: RAM user group.
+   * - ServiceRole: RAM role.
    * 
    * This parameter is required.
    * 
@@ -54,9 +54,9 @@ export class DetachPolicyRequest extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The ID of the resource group or the ID of the Alibaba Cloud account to which the resource group belongs.
+   * The ID of the resource group or the ID of the Alibaba Cloud account that owns the resource group.
    * 
-   * This parameter specifies the resource group or Alibaba Cloud account for which you want to revoke permissions.
+   * Specifies the resource group or Alibaba Cloud account from which to detach the policy.
    * 
    * This parameter is required.
    * 

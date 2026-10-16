@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SendVerificationCodeForEnableRDRequest extends $dara.Model {
   /**
    * @remarks
-   * The mobile phone number that is bound to the newly created account. If you leave this parameter empty, the mobile phone number that is bound to the current account is used.
+   * The secure phone number of the new management account. If you leave this parameter empty, the secure phone number of the current logon account is used.
    * 
-   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
+   * Format: `<Country code>-<Phone number>`.
    * 
-   * >  Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
+   * <props="intl">
+   * > Phone numbers in the `86-<Phone number>` format from the Chinese mainland are not supported.
+   * 
+   * <props="china">
+   * > Only phone numbers in the `86-<Phone number>` format from the Chinese mainland are supported.
    * 
    * @example
    * xx-13900001234

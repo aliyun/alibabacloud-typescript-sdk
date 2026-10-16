@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag key for a fuzzy query.
+   * The tag key for fuzzy match.
    * 
    * @example
    * team
@@ -13,7 +13,7 @@ export class ListTagKeysRequest extends $dara.Model {
   keyFilter?: string;
   /**
    * @remarks
-   * The maximum number of entries to return for a single request.
+   * The maximum number of entries to return in a single request.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -23,7 +23,7 @@ export class ListTagKeysRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token that determines the start point of the next query.
    * 
    * @example
    * TGlzdFJlc291cm****
@@ -33,7 +33,7 @@ export class ListTagKeysRequest extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * The value Account indicates the members of the resource directory.
+   * Set this parameter to Account, which indicates a member account of a resource directory.
    * 
    * This parameter is required.
    * 

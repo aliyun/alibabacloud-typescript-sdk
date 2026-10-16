@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAccountResponseBodyAccount extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that corresponds to the member.
+   * The ID of the member.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account that corresponds to the member.
+   * The name of the Alibaba Cloud account.
    * 
    * @example
    * ecs-manager@aliyun.com
@@ -21,7 +21,7 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The display name of the member.
+   * The name of the member.
    * 
    * @example
    * admin
@@ -37,10 +37,10 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The way in which the member joins the resource directory. Valid values:
+   * The method used by the member to join the resource directory. Valid values:
    * 
-   * *   invited: The member is invited to join the resource directory.
-   * *   created: The member is directly created in the resource directory.
+   * - invited: invited.
+   * - created: created.
    * 
    * @example
    * created
@@ -48,7 +48,7 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   joinMethod?: string;
   /**
    * @remarks
-   * The time when the member joined the resource directory. The time is displayed in UTC.
+   * The time when the member joined the resource directory (UTC).
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -56,7 +56,7 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   joinTime?: string;
   /**
    * @remarks
-   * The time when the member was modified. The time is displayed in UTC.
+   * The time when the member was last modified (UTC).
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -72,12 +72,12 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The status of the member. Valid values:
+   * The join status of the member. Valid values:
    * 
-   * *   CreateSuccess: The member is created.
-   * *   InviteSuccess: The member accepts the invitation.
-   * *   Removed: The member is removed.
-   * *   SwitchSuccess: The type of the member is switched.
+   * - CreateSuccess: Created.
+   * - InviteSuccess: Invited.
+   * - Removed: Removed.
+   * - SwitchSuccess: Switched.
    * 
    * @example
    * CreateSuccess
@@ -87,8 +87,8 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
    * @remarks
    * The type of the member. Valid values:
    * 
-   * *   CloudAccount: cloud account
-   * *   ResourceAccount: resource account
+   * - CloudAccount: cloud account.
+   * - ResourceAccount: resource account.
    * 
    * @example
    * ResourceAccount
@@ -136,12 +136,12 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
 export class UpdateAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the member.
+   * The member information.
    */
   account?: UpdateAccountResponseBodyAccount;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

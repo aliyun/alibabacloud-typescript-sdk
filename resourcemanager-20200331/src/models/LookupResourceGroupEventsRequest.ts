@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LookupResourceGroupEventsRequestLookupAttributes extends $dara.Model {
   /**
    * @remarks
-   * The key of the attribute.
+   * The key of the lookup attribute.
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class LookupResourceGroupEventsRequestLookupAttributes extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * The value of the attribute.
+   * The value of the lookup attribute.
    * 
    * @example
    * value
@@ -45,7 +45,7 @@ export class LookupResourceGroupEventsRequestLookupAttributes extends $dara.Mode
 export class LookupResourceGroupEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The time is displayed in UTC.
+   * The end time of the event. The format is YYYY-MM-DD HH:mm:ss and does not include a time zone identifier.
    * 
    * @example
    * 2025-11-30 23:43:16
@@ -63,7 +63,7 @@ export class LookupResourceGroupEventsRequest extends $dara.Model {
   eventCategory?: string;
   /**
    * @remarks
-   * The attributes used for advanced search.
+   * The lookup attributes.
    */
   lookupAttributes?: LookupResourceGroupEventsRequestLookupAttributes[];
   /**
@@ -78,7 +78,7 @@ export class LookupResourceGroupEventsRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token for the next query.
    * 
    * @example
    * TGlzdFJlc291cm****
@@ -102,7 +102,7 @@ export class LookupResourceGroupEventsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time is displayed in UTC.
+   * The start time of the event. The format is YYYY-MM-DD HH:mm:ss and does not include a time zone identifier.
    * 
    * @example
    * 2025-11-30 23:43:16

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAutoGroupingRuleResponseBodyRuleRuleContents extends $dara.Model {
   /**
    * @remarks
-   * The condition for the range of resources that are automatically transferred.
+   * The scope condition for automatic group transfer, which specifies the range of resources to be automatically transferred to a resource group.
    * 
    * @example
    * {"children":[{"desired":"{\\"env\\":\\"online\\", \\"project\\":\\"A\\"}","featurePath":"$.tags","featureSource":"RESOURCE","operator":"TagMatchAll"}],"operator":"and"}
@@ -13,7 +13,7 @@ export class GetAutoGroupingRuleResponseBodyRuleRuleContents extends $dara.Model
   autoGroupingScopeCondition?: string;
   /**
    * @remarks
-   * The ID of the content record.
+   * The rule content ID.
    * 
    * @example
    * grc-acfo******fwybpq
@@ -21,7 +21,7 @@ export class GetAutoGroupingRuleResponseBodyRuleRuleContents extends $dara.Model
   ruleContentId?: string;
   /**
    * @remarks
-   * The condition for the destination resource group.
+   * The target resource group condition, which specifies the destination resource group for automatic grouping.
    * 
    * @example
    * {"children":[{"desired":"rg-aek2********qcy","featurePath":"$.resourceGroupId","featureSource":"RESOURCE","operator":"StringEquals"}],"operator":"and"}
@@ -55,7 +55,7 @@ export class GetAutoGroupingRuleResponseBodyRuleRuleContents extends $dara.Model
 export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   /**
    * @remarks
-   * The time when the rule was created.
+   * The time when the rule was created, in RFC 3339 format with a UTC offset of +08:00.
    * 
    * @example
    * 2025-01-01T10:00:00+08:00
@@ -63,7 +63,7 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The IDs of excluded regions. Multiple IDs are separated by commas (,).
+   * The excluded region IDs. Multiple region IDs are separated by commas (,).
    * 
    * @example
    * cn-hangzhou,cn-shanghai
@@ -71,7 +71,7 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of excluded resource groups. Multiple IDs are separated by commas (,).
+   * The excluded resource group IDs. Multiple resource group IDs are separated by commas (,).
    * 
    * @example
    * rg-aekz******4b5ea,rg-aek2******fxykq
@@ -79,7 +79,7 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of excluded resources. Multiple IDs are separated by commas (,).
+   * The excluded resource IDs. Multiple resource IDs are separated by commas (,).
    * 
    * @example
    * i-2zee******ym49kfmwis,vpc-5ts6******fnw493g849a
@@ -95,7 +95,7 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   excludeResourceTypesScope?: string;
   /**
    * @remarks
-   * The time when the rule was modified.
+   * The time when the rule was last modified, in RFC 3339 format with a UTC offset of +08:00.
    * 
    * @example
    * 2025-01-01T10:00:00+08:00
@@ -103,7 +103,7 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The IDs of regions. Multiple IDs are separated by commas (,).
+   * The region IDs in scope. Multiple region IDs are separated by commas (,).
    * 
    * @example
    * cn-hangzhou,cn-shanghai
@@ -111,7 +111,7 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of resource groups. Multiple IDs are separated by commas (,).
+   * The resource group IDs in scope. Multiple resource group IDs are separated by commas (,).
    * 
    * @example
    * rg-aekz******4b5ea,rg-aek2******fxykq
@@ -119,7 +119,7 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of resources. Multiple IDs are separated by commas (,).
+   * The resource IDs in scope. Multiple resource IDs are separated by commas (,).
    * 
    * @example
    * i-2zee******ym49kfmwis,vpc-5ts6******fnw493g849a
@@ -127,7 +127,7 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The resource types. Multiple resource types are separated by commas (,).
+   * The resource types in scope. Multiple resource types are separated by commas (,).
    * 
    * @example
    * ecs.instance,vpc.vpc
@@ -135,20 +135,20 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   resourceTypesScope?: string;
   /**
    * @remarks
-   * The content records of the rule.
+   * The list of rule contents.
    */
   ruleContents?: GetAutoGroupingRuleResponseBodyRuleRuleContents[];
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
-   * Transfer resources to which the {"env": "online"} and {"project": "A"} tags are added to the resource group rg-aek2********qcy.
+   * Transfer resources with tags {"env": "online"} and {"project": "A"} to resource group rg-aek2********qcy
    */
   ruleDesc?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * gr-acfo******hy6a
@@ -156,18 +156,17 @@ export class GetAutoGroupingRuleResponseBodyRule extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
-   * Custom Transfer Rule for Online Resources of Project A
+   * Automatic group transfer rule for Project A online resources
    */
   ruleName?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * *   custom_condition: custom transfer rule
-   * *   associated_transfer: transfer rule for associated resources
+   * The rule type. Valid values:
+   * - custom_condition: Transfer based on custom rules.
+   * - associated_transfer: Transfer associated resources together.
    * 
    * @example
    * associated_transfer
@@ -236,7 +235,7 @@ export class GetAutoGroupingRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the rule.
+   * The rule information.
    */
   rule?: GetAutoGroupingRuleResponseBodyRule;
   static names(): { [key: string]: string } {

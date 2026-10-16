@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The time when the permission policy was created.
+   * The time when the access policy was created. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -13,7 +13,7 @@ export class CreatePolicyResponseBodyPolicy extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The version number of the permission policy. Default value: v1.
+   * The version number of the access policy. Default value: v1.
    * 
    * @example
    * v1
@@ -21,15 +21,15 @@ export class CreatePolicyResponseBodyPolicy extends $dara.Model {
   defaultVersion?: string;
   /**
    * @remarks
-   * The description of the permission policy.
+   * The description of the access policy.
    * 
    * @example
-   * OSS administrator
+   * OSS administrator permissions
    */
   description?: string;
   /**
    * @remarks
-   * The name of the permission policy.
+   * The Policy Name of the access policy.
    * 
    * @example
    * OSS-Administrator
@@ -37,10 +37,9 @@ export class CreatePolicyResponseBodyPolicy extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the permission policy. Valid values:
-   * 
-   * *   Custom
-   * *   System
+   * The type of the access policy. Valid values:
+   * - Custom: custom policy.
+   * - System: system policy.
    * 
    * @example
    * Custom
@@ -78,7 +77,7 @@ export class CreatePolicyResponseBodyPolicy extends $dara.Model {
 export class CreatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the permission policy.
+   * The access policy information.
    */
   policy?: CreatePolicyResponseBodyPolicy;
   /**

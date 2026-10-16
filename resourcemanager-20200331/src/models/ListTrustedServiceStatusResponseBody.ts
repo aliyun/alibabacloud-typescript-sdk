@@ -58,7 +58,7 @@ export class ListTrustedServiceStatusResponseBody extends $dara.Model {
   enabledServicePrincipals?: ListTrustedServiceStatusResponseBodyEnabledServicePrincipals;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -66,7 +66,7 @@ export class ListTrustedServiceStatusResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -74,7 +74,7 @@ export class ListTrustedServiceStatusResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CD76D376-2517-4924-92C5-DBC52262F93A
@@ -82,7 +82,7 @@ export class ListTrustedServiceStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

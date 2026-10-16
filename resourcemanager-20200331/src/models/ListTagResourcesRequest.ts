@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * A tag key.
+   * The tag key.
    * 
    * @example
    * k1
@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A tag value.
+   * The tag value.
    * 
    * @example
    * v1
@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -63,15 +63,17 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The resource group ID or resource directory member ID. This parameter is used as a filter condition.
+   * 
+   * > To query the tags that are attached to a resource directory member, you must specify both `ResourceId` and `ResourceType`, and set `ResourceType` to `Account`.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the objects whose tags you want to query. This parameter specifies a filter condition for the query. Valid values:
+   * The resource type. This parameter is used as a filter condition. Valid values:
    * 
-   * *   ResourceGroup: resource group. This is the default value.
-   * *   Account: member.
+   * - ResourceGroup (default): queries the tags of a resource group.
+   * - Account: queries the tags of a resource directory member.
    * 
    * @example
    * ResourceGroup
@@ -79,7 +81,9 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key and value.
+   * The tags. This parameter is used as a filter condition.
+   * 
+   * You can specify up to 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

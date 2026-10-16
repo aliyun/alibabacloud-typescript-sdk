@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
-   * The time when the invitation was created. The time is displayed in UTC.
+   * The creation time of the handshake (UTC).
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -13,7 +13,7 @@ export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the invitation expires. The time is displayed in UTC.
+   * The expiration time of the handshake (UTC).
    * 
    * @example
    * 2018-08-24T09:55:41Z
@@ -21,7 +21,7 @@ export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The ID of the invitation.
+   * The handshake ID.
    * 
    * @example
    * h-ycm4rp****
@@ -45,7 +45,7 @@ export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
   masterAccountName?: string;
   /**
    * @remarks
-   * The time when the invitation was modified. The time is displayed in UTC.
+   * The modification time of the handshake (UTC).
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -53,15 +53,15 @@ export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The comment on the invitation.
+   * The remarks.
    * 
    * @example
-   * Welcome
+   * Welcome to join us
    */
   note?: string;
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The resource directory ID.
    * 
    * @example
    * h-ycm4rp****
@@ -69,13 +69,13 @@ export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The status of the invitation. Valid values:
+   * The status of the handshake. Valid values:
    * 
-   * *   Pending: The invitation is waiting for confirmation.
-   * *   Accepted: The invitation is accepted.
-   * *   Cancelled: The invitation is canceled.
-   * *   Declined: The invitation is rejected.
-   * *   Expired: The invitation expires.
+   * - Pending: Waiting for confirmation.
+   * - Accepted: Accepted.
+   * - Cancelled: Cancelled.
+   * - Declined: Rejected.
+   * - Expired: Expired.
    * 
    * @example
    * Cancelled
@@ -93,8 +93,8 @@ export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
    * @remarks
    * The type of the invited account. Valid values:
    * 
-   * *   Account: indicates the ID of the account.
-   * *   Email: indicates the logon email address of the account.
+   * - Account: account ID.
+   * - Email: account logon email address.
    * 
    * @example
    * Email
@@ -144,12 +144,12 @@ export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
 export class CancelHandshakeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the invitation.
+   * The handshake information.
    */
   handshake?: CancelHandshakeResponseBodyHandshake;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

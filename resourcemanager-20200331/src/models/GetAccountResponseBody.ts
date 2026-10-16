@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountResponseBodyAccountTags extends $dara.Model {
   /**
    * @remarks
-   * A tag key.
+   * The tag key.
    * 
    * @example
    * tag_key
@@ -13,7 +13,7 @@ export class GetAccountResponseBodyAccountTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A tag value.
+   * The tag value.
    * 
    * @example
    * tag_value
@@ -45,7 +45,7 @@ export class GetAccountResponseBodyAccountTags extends $dara.Model {
 export class GetAccountResponseBodyAccount extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * The member account ID.
    * 
    * @example
    * 181761095690****
@@ -53,7 +53,7 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account name of the member.
+   * The name of the account.
    * 
    * @example
    * someone@example.com
@@ -61,7 +61,7 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The display name of the member.
+   * The display name of the member account.
    * 
    * @example
    * admin
@@ -69,13 +69,12 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The status of the modification for the email address bound to the member. Valid values:
+   * The email status. Valid values:
    * 
-   * *   WAIT_MODIFY: in progress
-   * *   CANCELLED: canceled
-   * *   EXPIRED: expired
-   * 
-   * If the value of this parameter is empty, no modification is performed for the email address.
+   * - Empty: No email modification record exists.
+   * - WAIT_MODIFY: The modification is in progress.
+   * - CANCELLED: The modification is canceled.
+   * - EXPIRED: The modification has expired.
    * 
    * @example
    * WAIT_MODIFY
@@ -99,10 +98,10 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
   identityInformation?: string;
   /**
    * @remarks
-   * The way in which the member joins the resource directory. Valid values:
+   * The method used by the member account to join the resource directory. Valid values:
    * 
-   * *   invited: The member is invited to join the resource directory.
-   * *   created: The member is directly created in the resource directory.
+   * - invited: Invited.
+   * - created: Created.
    * 
    * @example
    * created
@@ -110,7 +109,7 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
   joinMethod?: string;
   /**
    * @remarks
-   * The time when the member joined the resource directory.
+   * The time when the member account joined the resource directory. The time is displayed in UTC, as specified by RFC 3339, with Z indicating UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -118,12 +117,12 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
   joinTime?: string;
   /**
    * @remarks
-   * The location of the member in the resource directory.
+   * The location of the member account in the resource directory.
    */
   location?: string;
   /**
    * @remarks
-   * The time when the member was modified.
+   * The time when the member account was last modified. The time is displayed in UTC, as specified by RFC 3339, with Z indicating UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -139,20 +138,20 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The path of the member in the resource directory.
+   * The path ID (RDPath) of the member account in the resource directory.
    */
   resourceDirectoryPath?: string;
   /**
    * @remarks
-   * The status of the member. Valid values:
+   * The join status of the member account. Valid values:
    * 
-   * *   CreateSuccess: The member is created.
-   * *   PromoteVerifying: The upgrade of the member is being confirmed.
-   * *   PromoteFailed: The upgrade of the member fails.
-   * *   PromoteExpired: The upgrade of the member expires.
-   * *   PromoteCancelled: The upgrade of the member is canceled.
-   * *   PromoteSuccess: The member is upgraded.
-   * *   InviteSuccess: The member accepts the invitation.
+   * - CreateSuccess: Created.
+   * - PromoteVerifying: Upgrade is being confirmed.
+   * - PromoteFailed: Upgrade failed.
+   * - PromoteExpired: Upgrade expired.
+   * - PromoteCancelled: Upgrade canceled.
+   * - PromoteSuccess: Upgrade succeeded.
+   * - InviteSuccess: Invitation succeeded.
    * 
    * @example
    * CreateSuccess
@@ -160,15 +159,15 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags that are added to the member.
+   * The tags.
    */
   tags?: GetAccountResponseBodyAccountTags[];
   /**
    * @remarks
-   * The type of the member. Valid values:
+   * The type of the member account. Valid values:
    * 
-   * *   CloudAccount: cloud account
-   * *   ResourceAccount: resource account
+   * - CloudAccount: Cloud account.
+   * - ResourceAccount: Resource account.
    * 
    * @example
    * ResourceAccount
@@ -229,12 +228,12 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
 export class GetAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the member.
+   * The member account information.
    */
   account?: GetAccountResponseBodyAccount;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

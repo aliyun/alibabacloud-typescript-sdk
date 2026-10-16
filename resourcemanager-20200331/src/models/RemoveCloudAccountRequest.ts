@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveCloudAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the member.
+   * The member ID.
    * 
    * This parameter is required.
    * 

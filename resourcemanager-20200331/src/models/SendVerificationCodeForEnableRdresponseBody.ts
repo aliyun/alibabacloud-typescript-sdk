@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendVerificationCodeForEnableRDResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EC2FE94D-A4A2-51A1-A493-5C273A36C46A

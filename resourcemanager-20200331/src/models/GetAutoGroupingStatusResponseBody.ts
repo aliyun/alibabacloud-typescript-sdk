@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetAutoGroupingStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Transfer Existing Associated Resources feature is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the attached-resource allocation for existing resources is enabled. Valid values:
+   * - true: Enabled.
+   * - false: Not enabled.
    * 
    * @example
    * true
@@ -16,12 +15,11 @@ export class GetAutoGroupingStatusResponseBody extends $dara.Model {
   enableExistedResourcesTransfer?: boolean;
   /**
    * @remarks
-   * The status of the Automatic Resource Transfer feature. Valid values:
-   * 
-   * *   Enabling: The feature is being enabled.
-   * *   Enable: The feature is enabled.
-   * *   Partial_Enable: The transfer of associated resources is enabled, but custom transfer rule-based resource transfer is disabled. You can call the [EnableAutoGrouping](https://help.aliyun.com/document_detail/2870380.html) operation to enable custom transfer rule-based resource transfer.
-   * *   Disable: The feature is disabled.
+   * The status of automatic resource group transfer. Valid values:
+   * - Enabling: Being enabled.
+   * - Enable: Enabled.
+   * - Partial_Enable: Attached-resource allocation is enabled, but custom condition-based resource group transfer is not enabled. To enable custom condition-based resource group transfer, call [EnableAutoGrouping](~~EnableAutoGrouping~~).
+   * - Disable: Not enabled.
    * 
    * @example
    * Enable

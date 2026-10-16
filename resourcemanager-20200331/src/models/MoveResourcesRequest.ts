@@ -13,26 +13,30 @@ export class MoveResourcesRequestResources extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
-   * vpc-bp1sig0mjktx5ewx1****
+   * i-23v38****
    */
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
+   * 
+   * You can obtain the value from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
-   * vpc
+   * instance
    */
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service to which the resource belongs.
+   * The cloud service code.
+   * 
+   * You can obtain the value from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
-   * vpc
+   * ecs
    */
   service?: string;
   static names(): { [key: string]: string } {
@@ -65,7 +69,7 @@ export class MoveResourcesRequestResources extends $dara.Model {
 export class MoveResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource group to which you want to move the resources.
+   * The ID of the destination resource group.
    * 
    * This parameter is required.
    * 
@@ -75,9 +79,9 @@ export class MoveResourcesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resources that you want to move.
+   * The list of resources to move.
    * 
-   * >  You can move a maximum of 10 resources at a time. If you want to move more than 10 resources, move them in batches.
+   * > A maximum of 10 resources can be moved at a time. Move resources in batches if you have more than 10.
    * 
    * This parameter is required.
    */

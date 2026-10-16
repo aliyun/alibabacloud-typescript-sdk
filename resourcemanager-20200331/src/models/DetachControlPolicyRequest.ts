@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access control policy.
+   * The ID of the control policy.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class DetachControlPolicyRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The ID of the object from which you want to detach the access control policy. Access control policies can be attached to the following objects:
+   * The ID of the target node. Valid values:
    * 
-   * *   Root folder
-   * *   Subfolders of the Root folder
-   * *   Members
+   * - Root ID: detaches the control policy from the Root resource folder.
+   * - Resource folder ID: detaches the control policy from a resource folder.
+   * - Member ID: detaches the control policy from a member.
    * 
    * This parameter is required.
    * 

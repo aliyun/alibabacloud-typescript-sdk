@@ -61,7 +61,7 @@ export class ListDelegatedServicesForAccountResponseBody extends $dara.Model {
   delegatedServices?: ListDelegatedServicesForAccountResponseBodyDelegatedServices;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D9C03B94-9396-4794-A74B-13DC437556A6

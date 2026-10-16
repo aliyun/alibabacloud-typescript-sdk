@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceLinkedRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deletion task.
+   * The deletion task ID.
    * 
    * @example
    * task/acs-service-role/polardb.aliyuncs.com/AliyunServiceRoleForPolarDB/64c4f9cc-fac2-4692-ae1b-804ae4b9****

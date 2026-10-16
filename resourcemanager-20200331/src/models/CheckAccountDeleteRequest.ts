@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAccountDeleteRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the member that you want to delete.
+   * The ID of the member account to be deleted.
    * 
    * This parameter is required.
    * 

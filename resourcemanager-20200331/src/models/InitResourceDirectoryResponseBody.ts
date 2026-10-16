@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitResourceDirectoryResponseBodyResourceDirectory extends $dara.Model {
   /**
    * @remarks
-   * The time when the resource directory was enabled.
+   * The time when the resource directory was enabled. The time is displayed in UTC in RFC 3339 format, indicated by Z.
    * 
    * @example
    * 2019-02-18T15:32:10.473Z
@@ -13,7 +13,7 @@ export class InitResourceDirectoryResponseBodyResourceDirectory extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The ID of the enterprise management account.
+   * The ID of the management account.
    * 
    * @example
    * 172841235500****
@@ -21,7 +21,7 @@ export class InitResourceDirectoryResponseBodyResourceDirectory extends $dara.Mo
   masterAccountId?: string;
   /**
    * @remarks
-   * The name of the enterprise management account.
+   * The name of the management account.
    * 
    * @example
    * aliyun-****
@@ -37,7 +37,7 @@ export class InitResourceDirectoryResponseBodyResourceDirectory extends $dara.Mo
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The ID of the root folder.
+   * The ID of the Root folder.
    * 
    * @example
    * r-Zo****
@@ -75,7 +75,7 @@ export class InitResourceDirectoryResponseBodyResourceDirectory extends $dara.Mo
 export class InitResourceDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CD76D376-2517-4924-92C5-DBC52262F93A
@@ -83,7 +83,7 @@ export class InitResourceDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the resource directory.
+   * The resource directory information.
    */
   resourceDirectory?: InitResourceDirectoryResponseBodyResourceDirectory;
   static names(): { [key: string]: string } {

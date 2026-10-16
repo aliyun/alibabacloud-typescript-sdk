@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   /**
    * @remarks
-   * The ID of the member account.
+   * The account ID.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the member account.
+   * The account name.
    * 
    * @example
    * someone@example.com
@@ -21,7 +21,7 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The display name of the member account.
+   * The member name.
    * 
    * @example
    * admin
@@ -29,7 +29,7 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the folder.
+   * The folder ID.
    * 
    * @example
    * fd-bVaRIG****
@@ -37,10 +37,10 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The way in which the member account joined the resource directory. Valid values:
+   * The method used by the member to join the resource directory. Valid values:
    * 
-   * *   invited: The member account is invited to join the resource directory.
-   * *   created: The member account is directly created in the resource directory.
+   * - invited: Invited.
+   * - created: Created.
    * 
    * @example
    * created
@@ -48,7 +48,7 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   joinMethod?: string;
   /**
    * @remarks
-   * The time when the member account joined the resource directory.
+   * The time when the member joined the resource directory. The time is displayed in UTC in RFC 3339 format, indicated by Z.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -56,7 +56,7 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   joinTime?: string;
   /**
    * @remarks
-   * The time when the member account was modified.
+   * The time when the member was last modified. The time is displayed in UTC in RFC 3339 format, indicated by Z.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -72,7 +72,7 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   recordId?: string;
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The resource directory ID.
    * 
    * @example
    * rd-k3****
@@ -80,20 +80,20 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The status of the member account. Valid values:
+   * The status of the member. Valid values:
    * 
-   * *   CreateSuccess: The member account is created.
-   * *   CreateVerifying: The creation of the member account is under confirmation.
-   * *   CreateFailed: The member account failed to be created.
-   * *   CreateExpired: The creation of the member account expired.
-   * *   CreateCancelled: The creation of the member account is canceled.
-   * *   PromoteVerifying: The upgrade of the member account is under confirmation.
-   * *   PromoteFailed: The member account failed to be upgraded.
-   * *   PromoteExpired: The upgrade of the member account expired.
-   * *   PromoteCancelled: The upgrade of the member account is canceled.
-   * *   PromoteSuccess: The member account is upgraded.
-   * *   InviteSuccess: The owner of the member account accepted the invitation.
-   * *   Removed: The member account is removed from the resource directory.
+   * - CreateSuccess: Created.
+   * - CreateVerifying: Pending creation confirmation.
+   * - CreateFailed: Creation failed.
+   * - CreateExpired: Creation expired.
+   * - CreateCancelled: Creation canceled.
+   * - PromoteVerifying: Pending upgrade confirmation.
+   * - PromoteFailed: Upgrade failed.
+   * - PromoteExpired: Upgrade expired.
+   * - PromoteCancelled: Upgrade canceled.
+   * - PromoteSuccess: Upgraded.
+   * - InviteSuccess: Invited.
+   * - Removed: Removed.
    * 
    * @example
    * PromoteVerifying
@@ -101,10 +101,10 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the member account. Valid values:
+   * The type of the member. Valid values:
    * 
-   * *   CloudAccount
-   * *   ResourceAccount
+   * - CloudAccount: Alibaba Cloud account.
+   * - ResourceAccount: Resource account.
    * 
    * @example
    * ResourceAccount
@@ -154,12 +154,12 @@ export class PromoteResourceAccountResponseBodyAccount extends $dara.Model {
 export class PromoteResourceAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the member account.
+   * The member account information.
    */
   account?: PromoteResourceAccountResponseBodyAccount;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

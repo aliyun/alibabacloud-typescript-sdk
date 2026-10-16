@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListControlPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which you want to return the descriptions of the access control policies. Valid values:
+   * The language in which you want the description of the control policy to be returned. Valid values:
    * 
-   * - zh-CN (default value): Chinese
-   * - en: English
-   * - ja: Japanese
+   * - zh-CN (default): Chinese.
+   * - en: English.
+   * - ja: Japanese.
    * 
-   * >  This parameter is valid only for system access control policies.
+   * > This parameter is valid only for system control policies.
    * 
    * @example
    * zh-CN
@@ -19,9 +19,9 @@ export class ListControlPoliciesRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The number of the page to return. 
+   * The page number.
    * 
-   * Page start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListControlPoliciesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. 
+   * The number of entries per page.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -39,10 +39,10 @@ export class ListControlPoliciesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the access control policy. Valid values:
+   * The type of the control policy. Valid values:
    * 
-   * - System: system access control policy
-   * - Custom: custom access control policy
+   * - System: system control policy.
+   * - Custom: custom control policy.
    * 
    * @example
    * System

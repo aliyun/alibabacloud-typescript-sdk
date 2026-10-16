@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoleResponseBodyRoleLatestDeletionTask extends $dara.Model {
   /**
    * @remarks
-   * The time when the deletion task was created.
+   * The time when the deletion task was created. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2018-10-23T12:33:18Z
@@ -45,7 +45,7 @@ export class GetRoleResponseBodyRoleLatestDeletionTask extends $dara.Model {
 export class GetRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * The resource descriptor of the role.
    * 
    * @example
    * acs:ram::123456789012****:role/ECSAdmin
@@ -53,7 +53,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The document of the policy in which the identity that can assume the role is specified.
+   * The content of the access policy that specifies one or more entities entrusted to assume the role.
    * 
    * @example
    * { \\"Statement\\": [ { \\"Action\\": \\"sts:AssumeRole\\", \\"Effect\\": \\"Allow\\", \\"Principal\\": { \\"RAM\\": \\"acs:ram::12345678901234****:root\\" } } ], \\"Version\\": \\"1\\" }
@@ -61,7 +61,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   assumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The time when the role was created.
+   * The time when the role was created. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -72,7 +72,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
    * The description of the role.
    * 
    * @example
-   * ECS administrator
+   * ECS management role
    */
   description?: string;
   /**
@@ -85,7 +85,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   isServiceLinkedRole?: boolean;
   /**
    * @remarks
-   * The information of the most recent deletion task.
+   * The information about the most recent deletion task.
    */
   latestDeletionTask?: GetRoleResponseBodyRoleLatestDeletionTask;
   /**
@@ -114,7 +114,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The name of the role after authorization.
+   * The name of the authorized role.
    * 
    * @example
    * ECSAdmin@role.123456.onaliyunservice.com
@@ -122,7 +122,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   rolePrincipalName?: string;
   /**
    * @remarks
-   * The time when the role was updated.
+   * The time when the role was last updated. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2016-01-23T12:33:18Z
@@ -183,7 +183,7 @@ export class GetRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the role.
+   * The role information.
    */
   role?: GetRoleResponseBodyRole;
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * A tag key.
+   * The label key.
    * 
-   * A tag key can be a maximum of 128 characters in length. It cannot contain `http://` or `https://` and cannot start with `acs:` or `aliyun`.
+   * The key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * k1
@@ -15,9 +15,9 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A tag value.
+   * The label value.
    * 
-   * A tag value can be a maximum of 128 characters in length. It cannot contain `http://` or `https://` and cannot start with `acs:`.
+   * The value can be up to 128 characters in length and cannot start with `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * v1
@@ -49,19 +49,21 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of a resource group or member.
+   * The ID of the resource group or the ID of the resource directory member account.
+   * 
+   * You can specify up to 50 IDs.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the objects to which you want to add tags. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   ResourceGroup : resource group. This is the default value.
-   * *   Account: member.
+   * - ResourceGroup (default): attaches labels to resource groups.
+   * - Account: attaches labels to member accounts of a resource directory.
    * 
-   * >  This parameter is required if you add tags to members in a resource directory.
+   * > This parameter is required when you attach labels to member accounts of a resource directory.
    * 
    * @example
    * ResourceGroup
@@ -69,7 +71,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The labels.
+   * 
+   * You can attach up to 20 labels.
    * 
    * This parameter is required.
    */

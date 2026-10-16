@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.Model {
   /**
+   * @remarks
+   * The resource center resource type code.
+   * 
    * @example
    * ACS::ECS::Instance
    */
@@ -12,7 +15,7 @@ export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.M
    * @remarks
    * The resource type.
    * 
-   * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -20,9 +23,9 @@ export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.M
   resourceType?: string;
   /**
    * @remarks
-   * The service code.
+   * The cloud service code.
    * 
-   * You can obtain the code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -30,7 +33,7 @@ export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.M
   service?: string;
   /**
    * @remarks
-   * Indicates whether a specific resource type or cloud service supports resource group events.
+   * Specifies whether resource group events are supported.
    * 
    * @example
    * true
@@ -66,7 +69,7 @@ export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.M
 export class ListResourceGroupCapabilityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a specific resource type or cloud service supports resource group events.
+   * The list of capability items.
    */
   capabilities?: ListResourceGroupCapabilityResponseBodyCapabilities[];
   /**

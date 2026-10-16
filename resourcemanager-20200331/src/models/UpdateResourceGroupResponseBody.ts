@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource group belongs.
+   * The Alibaba Cloud account ID to which the resource group belongs.
    * 
    * @example
    * 123456789****
@@ -13,7 +13,7 @@ export class UpdateResourceGroupResponseBodyResourceGroup extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The time when the resource group was created. The time is displayed in UTC.
+   * The time when the resource group was created (UTC).
    * 
    * @example
    * 2015-01-23T12:33:18+08:00
@@ -29,7 +29,7 @@ export class UpdateResourceGroupResponseBodyResourceGroup extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-9gLOoK****
@@ -75,7 +75,7 @@ export class UpdateResourceGroupResponseBodyResourceGroup extends $dara.Model {
 export class UpdateResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -83,7 +83,7 @@ export class UpdateResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the resource group.
+   * The resource group information.
    */
   resourceGroup?: UpdateResourceGroupResponseBodyResourceGroup;
   static names(): { [key: string]: string } {

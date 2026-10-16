@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFolderResponseBodyFolder extends $dara.Model {
   /**
    * @remarks
-   * The time when the folder was created.
+   * The time when the folder was created. The time is displayed in UTC in RFC 3339 format, indicated by Z.
    * 
    * @example
    * 2021-06-15T06:39:08.521Z
@@ -13,7 +13,7 @@ export class GetFolderResponseBodyFolder extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the folder.
+   * The folder ID.
    * 
    * @example
    * fd-Jyl5U7****
@@ -37,7 +37,7 @@ export class GetFolderResponseBodyFolder extends $dara.Model {
   parentFolderId?: string;
   /**
    * @remarks
-   * The path of the folder in the resource directory.
+   * The path ID (RDPath) of the folder in the resource directory.
    */
   resourceDirectoryPath?: string;
   static names(): { [key: string]: string } {
@@ -72,12 +72,12 @@ export class GetFolderResponseBodyFolder extends $dara.Model {
 export class GetFolderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the folder.
+   * The folder information.
    */
   folder?: GetFolderResponseBodyFolder;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C2CBCA30-C8DD-423E-B4AD-4FB694C9180C

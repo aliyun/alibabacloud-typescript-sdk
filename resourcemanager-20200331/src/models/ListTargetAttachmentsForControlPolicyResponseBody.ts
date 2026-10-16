@@ -63,7 +63,7 @@ export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments 
 export class ListTargetAttachmentsForControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class ListTargetAttachmentsForControlPolicyResponseBody extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -79,7 +79,7 @@ export class ListTargetAttachmentsForControlPolicyResponseBody extends $dara.Mod
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B32BD3D6-1089-41F3-8E70-E0079BC7D760
@@ -88,7 +88,7 @@ export class ListTargetAttachmentsForControlPolicyResponseBody extends $dara.Mod
   targetAttachments?: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments;
   /**
    * @remarks
-   * The total number of objects to which the control policy is attached.
+   * The number of target nodes to which the control policy is attached.
    * 
    * @example
    * 1

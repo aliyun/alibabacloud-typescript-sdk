@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * The resource descriptor of the role.
    * 
    * @example
    * acs:ram::177242285274****:role/aliyunserviceroleforpolardb
@@ -13,7 +13,7 @@ export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The document of the trust policy for the role.
+   * The trust policy of the role.
    * 
    * @example
    * {\\"Statement\\":[{\\"Action\\":\\"sts:AssumeRole\\",\\"Effect\\":\\"Allow\\",\\"Principal\\":{\\"Service\\":[\\"polardb.aliyuncs.com\\"]}}],\\"Version\\":\\"1\\"}
@@ -21,7 +21,7 @@ export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   assumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The time when the role was created. The time is displayed in UTC.
+   * The time when the role was created (UTC).
    * 
    * @example
    * 2020-06-30T08:14:16Z
@@ -39,8 +39,8 @@ export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
    * @remarks
    * Indicates whether the role is a service-linked role. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The role is a service-linked role.
+   * - false: The role is not a service-linked role.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   isServiceLinkedRole?: boolean;
   /**
    * @remarks
-   * The ID of the role.
+   * The role ID.
    * 
    * @example
    * 32833240981067****
@@ -56,7 +56,7 @@ export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   roleId?: string;
   /**
    * @remarks
-   * The name of the role.
+   * The role name.
    * 
    * @example
    * AliyunServiceRoleForPolarDB
@@ -64,7 +64,7 @@ export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The role name that uses a domain name as the suffix.
+   * The role name with the domain name suffix.
    * 
    * @example
    * AliyunServiceRoleForPolarDB@role.test.onaliyunservice.com
@@ -116,7 +116,7 @@ export class CreateServiceLinkedRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the role.
+   * The role information.
    */
   role?: CreateServiceLinkedRoleResponseBodyRole;
   static names(): { [key: string]: string } {

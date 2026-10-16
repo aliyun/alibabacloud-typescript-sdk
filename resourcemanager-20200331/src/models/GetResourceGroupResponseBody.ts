@@ -109,7 +109,7 @@ export class GetResourceGroupResponseBodyResourceGroupTags extends $dara.Model {
 export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource group belongs.
+   * The Alibaba Cloud account ID to which the resource group belongs.
    * 
    * @example
    * 123456789****
@@ -117,7 +117,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The time when the resource group was created. The time is displayed in UTC.
+   * The time when the resource group was created (UTC).
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -133,7 +133,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-9gLOoK****
@@ -141,7 +141,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The identifier of the resource group.
+   * The unique identifier of the resource group.
    * 
    * @example
    * my-project
@@ -152,9 +152,9 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * @remarks
    * The status of the resource group. Valid values:
    * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * *   PendingDelete: The resource group is waiting to be deleted.
+   * - Creating: The resource group is being created.
+   * - OK: The resource group is created.
+   * - PendingDelete: The resource group is waiting to be deleted.
    * 
    * @example
    * OK
@@ -205,7 +205,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
 export class GetResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF5189484043
@@ -213,7 +213,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the resource group.
+   * The resource group information.
    */
   resourceGroup?: GetResourceGroupResponseBodyResourceGroup;
   static names(): { [key: string]: string } {

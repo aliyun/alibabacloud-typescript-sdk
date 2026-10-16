@@ -85,7 +85,7 @@ export class LookupResourceGroupEventsResponseBodyEventsTargetResourceGroupInfo 
 export class LookupResourceGroupEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The type of the resource change event.
+   * The change type of the event.
    * 
    * @example
    * Add
@@ -93,7 +93,7 @@ export class LookupResourceGroupEventsResponseBodyEvents extends $dara.Model {
   changeType?: string;
   /**
    * @remarks
-   * The time when the event was triggered.
+   * The event time in RFC 3339 UTC format, indicated by Z for UTC.
    * 
    * @example
    * 2025-12-04T18:35:17Z
@@ -135,7 +135,7 @@ export class LookupResourceGroupEventsResponseBodyEvents extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the value from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -143,9 +143,9 @@ export class LookupResourceGroupEventsResponseBodyEvents extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The service code.
+   * The cloud service code.
    * 
-   * You can obtain the code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the value from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -158,7 +158,7 @@ export class LookupResourceGroupEventsResponseBodyEvents extends $dara.Model {
   sourceResourceGroupInfo?: LookupResourceGroupEventsResponseBodyEventsSourceResourceGroupInfo;
   /**
    * @remarks
-   * The destination resource group.
+   * The target resource group.
    */
   targetResourceGroupInfo?: LookupResourceGroupEventsResponseBodyEventsTargetResourceGroupInfo;
   static names(): { [key: string]: string } {
@@ -209,12 +209,12 @@ export class LookupResourceGroupEventsResponseBodyEvents extends $dara.Model {
 export class LookupResourceGroupEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried events.
+   * The list of events.
    */
   events?: LookupResourceGroupEventsResponseBodyEvents[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token for the next query.
    * 
    * @example
    * TGlzdFJlc291cm****

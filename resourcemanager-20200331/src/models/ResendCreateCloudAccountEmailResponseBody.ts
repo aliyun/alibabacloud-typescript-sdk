@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Model {
   /**
    * @remarks
-   * The ID of the account.
+   * The account ID.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
   accountId?: string;
   /**
    * @remarks
-   * The name of the account.
+   * The account name.
    * 
    * @example
    * someone@example.com
@@ -29,7 +29,7 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
   displayName?: string;
   /**
    * @remarks
-   * The ID of the folder.
+   * The ID of the resource folder.
    * 
    * @example
    * fd-bVaRIG****
@@ -37,10 +37,10 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
   folderId?: string;
   /**
    * @remarks
-   * The way in which the member account joined the resource directory. Valid values:
+   * The method used by the member account to join the resource directory. Valid values:
    * 
-   * *   invited: The member account is invited to join the resource directory.
-   * *   created: The member account is directly created in the resource directory.
+   * - invited: Invited.
+   * - created: Created.
    * 
    * @example
    * created
@@ -48,7 +48,7 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
   joinMethod?: string;
   /**
    * @remarks
-   * The time when the member account joined the resource directory.
+   * The time when the member account joined the resource directory. The time is displayed in UTC, as specified by RFC 3339, with Z indicating UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -56,7 +56,7 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
   joinTime?: string;
   /**
    * @remarks
-   * The time when the member account was modified.
+   * The time when the member account was last modified. The time is displayed in UTC, as specified by RFC 3339, with Z indicating UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -67,7 +67,7 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
    * The account record ID.
    * 
    * @example
-   * 16950264-3f0d-4ca9-82dd-6ee7a3d33d6b
+   * 16950264-3f0d-4ca9-82dd-6ee7a3d3****
    */
   recordId?: string;
   /**
@@ -80,20 +80,20 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The status of the member account. Valid values:
+   * The join status of the member account. Valid values:
    * 
-   * *   CreateSuccess: The member account is created.
-   * *   CreateVerifying: The creation of the member account is under confirmation.
-   * *   CreateFailed: The member account failed to be created.
-   * *   CreateExpired: The creation of the member account expired.
-   * *   CreateCancelled: The creation of the member account is canceled.
-   * *   PromoteVerifying: The upgrade of the member account is under confirmation.
-   * *   PromoteFailed: The member account failed to be upgraded.
-   * *   PromoteExpired: The upgrade of the member account expired.
-   * *   PromoteCancelled: The upgrade of the member account is canceled.
-   * *   PromoteSuccess: The member account is upgraded.
-   * *   InviteSuccess: The owner of the member account accepted the invitation.
-   * *   Removed: The member account is removed from the resource directory.
+   * - CreateSuccess: Created.
+   * - CreateVerifying: Pending creation confirmation.
+   * - CreateFailed: Creation failed.
+   * - CreateExpired: Creation expired.
+   * - CreateCancelled: Creation canceled.
+   * - PromoteVerifying: Pending upgrade confirmation.
+   * - PromoteFailed: Upgrade failed.
+   * - PromoteExpired: Upgrade expired.
+   * - PromoteCancelled: Upgrade canceled.
+   * - PromoteSuccess: Upgraded.
+   * - InviteSuccess: Invited.
+   * - Removed: Removed.
    * 
    * @example
    * CreateVerifying
@@ -101,7 +101,7 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The type of the member account. The value CloudAccount indicates that the member account is a cloud account.
+   * The type of the member account. The value CloudAccount indicates a cloud account.
    * 
    * @example
    * CloudAccount
@@ -151,12 +151,12 @@ export class ResendCreateCloudAccountEmailResponseBodyAccount extends $dara.Mode
 export class ResendCreateCloudAccountEmailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the member account.
+   * The member account information.
    */
   account?: ResendCreateCloudAccountEmailResponseBodyAccount;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

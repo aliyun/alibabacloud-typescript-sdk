@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The new description of the access control policy.
+   * The new description of the control policy.
    * 
-   * The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
+   * The description must be 1 to 1,024 characters in length, must start with a letter, and can contain letters, digits, underscores (_), and hyphens (-).
    * 
    * @example
    * ExampleControlPolicy
@@ -15,13 +15,13 @@ export class UpdateControlPolicyRequest extends $dara.Model {
   newDescription?: string;
   /**
    * @remarks
-   * The new document of the access control policy.
+   * The new document of the control policy.
    * 
-   * The document can be a maximum of 4,096 characters in length.
+   * The maximum length is 4,096 characters.
    * 
-   * For more information about the languages of access control policies, see [Languages of access control policies](https://help.aliyun.com/document_detail/179096.html).
+   * For information about the control policy language, see [Control policy language](https://help.aliyun.com/document_detail/179096.html).
    * 
-   * For more information about the examples of access control policies, see [Examples of custom access control policies](https://help.aliyun.com/document_detail/181474.html).
+   * For examples of control policies, see [Examples of custom control policies](https://help.aliyun.com/document_detail/181474.html).
    * 
    * @example
    * {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
@@ -29,9 +29,9 @@ export class UpdateControlPolicyRequest extends $dara.Model {
   newPolicyDocument?: string;
   /**
    * @remarks
-   * The new name of the access control policy.
+   * The new Policy Name of the control policy.
    * 
-   * The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
+   * The name must be 1 to 128 characters in length, must start with a letter, and can contain letters, digits, and hyphens (-).
    * 
    * @example
    * NewControlPolicy
@@ -39,7 +39,7 @@ export class UpdateControlPolicyRequest extends $dara.Model {
   newPolicyName?: string;
   /**
    * @remarks
-   * The ID of the access control policy.
+   * The ID of the control policy.
    * 
    * This parameter is required.
    * 

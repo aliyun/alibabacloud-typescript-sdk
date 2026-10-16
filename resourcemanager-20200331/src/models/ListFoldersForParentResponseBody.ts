@@ -61,7 +61,7 @@ export class ListFoldersForParentResponseBody extends $dara.Model {
   folders?: ListFoldersForParentResponseBodyFolders;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListFoldersForParentResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 5
@@ -77,7 +77,7 @@ export class ListFoldersForParentResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
@@ -85,7 +85,7 @@ export class ListFoldersForParentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

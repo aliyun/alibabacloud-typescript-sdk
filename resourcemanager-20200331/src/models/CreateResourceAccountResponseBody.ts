@@ -13,7 +13,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * The name of the account.
    * 
    * @example
    * alice@rd-3g****.aliyunid.com
@@ -37,10 +37,10 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The way in which the member joins the resource directory. Valid values:
+   * The method used by the member to join the resource directory. Valid values:
    * 
-   * *   invited: The member is invited to join the resource directory.
-   * *   created: The member is directly created in the resource directory.
+   * - invited: invited.
+   * - created: created.
    * 
    * @example
    * created
@@ -48,7 +48,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   joinMethod?: string;
   /**
    * @remarks
-   * The time when the member joined the resource directory. The time is displayed in UTC.
+   * The time when the member joined the resource directory (UTC).
    * 
    * @example
    * 2020-12-31T03:37:39.456Z
@@ -56,7 +56,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   joinTime?: string;
   /**
    * @remarks
-   * The time when the member was modified. The time is displayed in UTC.
+   * The time when the member was last modified (UTC).
    * 
    * @example
    * 2020-12-31T03:37:39.456Z
@@ -72,7 +72,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The status of the member. The value CreateSuccess indicates that the member is created.
+   * The join status of the member. The value CreateSuccess indicates that the member is created.
    * 
    * @example
    * CreateSuccess
@@ -80,7 +80,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the member. The value ResourceAccount indicates that the member is a resource account.
+   * The type of the member. The value ResourceAccount indicates a resource account.
    * 
    * @example
    * ResourceAccount
@@ -128,7 +128,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
 export class CreateResourceAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the member.
+   * The member information.
    */
   account?: CreateResourceAccountResponseBodyAccount;
   /**

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListDelegatedAdministratorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class ListDelegatedAdministratorsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -27,7 +27,7 @@ export class ListDelegatedAdministratorsRequest extends $dara.Model {
    * @remarks
    * The identifier of the trusted service.
    * 
-   * For more information, see the `Trusted service identifier` column in [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+   * For more information, see the `Trusted Service Identifier` column in [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
    * 
    * @example
    * cloudfw.aliyuncs.com

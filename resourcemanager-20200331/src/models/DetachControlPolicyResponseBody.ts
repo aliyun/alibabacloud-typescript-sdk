@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9EA4F962-1A2E-4AFE-BE0C-B14736FC46CC

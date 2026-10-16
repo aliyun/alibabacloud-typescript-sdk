@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAutoGroupingRemediationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The earliest remediation time. This parameter is empty by default.
+   * The earliest time. This parameter is empty by default. The format is YYYY-MM-DD HH:mm:ss without a time zone identifier.
    * 
    * @example
    * 2022-01-01 00:00:00
@@ -13,7 +13,7 @@ export class ListAutoGroupingRemediationsRequest extends $dara.Model {
   earliestRemediationTime?: string;
   /**
    * @remarks
-   * The latest remediation time. This parameter is empty by default.
+   * The latest time. This parameter is empty by default. The format is YYYY-MM-DD HH:mm:ss without a time zone identifier.
    * 
    * @example
    * 2022-02-01 00:00:00
@@ -21,7 +21,7 @@ export class ListAutoGroupingRemediationsRequest extends $dara.Model {
   latestRemediationTime?: string;
   /**
    * @remarks
-   * The maximum number of data entries to return.
+   * The maximum number of records to return in this request.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListAutoGroupingRemediationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
+   * The pagination token that marks the position from which to start reading. If this parameter is left empty, data is read from the beginning.
    * 
    * @example
    * TGlzdFJlc291cm****
@@ -37,7 +37,7 @@ export class ListAutoGroupingRemediationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource ID,
+   * The resource ID.
    * 
    * @example
    * i-23v38****
@@ -45,9 +45,9 @@ export class ListAutoGroupingRemediationsRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type,
+   * The resource type.
    * 
-   * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -65,9 +65,9 @@ export class ListAutoGroupingRemediationsRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service.
+   * The cloud service ID.
    * 
-   * You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the cloud service ID from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -75,7 +75,7 @@ export class ListAutoGroupingRemediationsRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The ID of the new resource group.
+   * The ID of the target resource group for remediation.
    * 
    * @example
    * rg-aekz26emqhc****

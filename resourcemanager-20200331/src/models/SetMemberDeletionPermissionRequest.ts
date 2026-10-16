@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SetMemberDeletionPermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the member deletion feature. Valid values:
+   * Specifies whether to enable or disable the member deletion permission. Valid values:
    * 
-   * *   Enabled: enables the member deletion feature
-   * *   Disabled: disables the member deletion feature
+   * - Enabled: enables the member deletion permission.
+   * - Disabled: disables the member deletion permission.
    * 
    * This parameter is required.
    * 

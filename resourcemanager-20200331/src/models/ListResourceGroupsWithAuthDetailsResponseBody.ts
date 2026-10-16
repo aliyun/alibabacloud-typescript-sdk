@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceGroupsWithAuthDetailsResponseBodyAuthDetailsAuthOfResourceGroups extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the user has permissions on the resource group for the specified resource type.
+   * Indicates whether the resource group has permissions.
    * 
    * @example
    * true
@@ -45,19 +45,19 @@ export class ListResourceGroupsWithAuthDetailsResponseBodyAuthDetailsAuthOfResou
 export class ListResourceGroupsWithAuthDetailsResponseBodyAuthDetails extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the user has account-level authorization for this resource type.
+   * Indicates whether the user has account-level authorization for the resource type.
    */
   accountScopeAuth?: boolean;
   /**
    * @remarks
-   * The permission details for the resource groups on the specified resource types.
+   * The permissions of resource groups on the resource type.
    */
   authOfResourceGroups?: ListResourceGroupsWithAuthDetailsResponseBodyAuthDetailsAuthOfResourceGroups[];
   /**
    * @remarks
    * The resource type.
    * 
-   * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -65,9 +65,9 @@ export class ListResourceGroupsWithAuthDetailsResponseBodyAuthDetails extends $d
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service.
+   * The cloud service ID.
    * 
-   * You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the cloud service ID from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -146,7 +146,7 @@ export class ListResourceGroupsWithAuthDetailsResponseBodyResourceGroupsTags ext
 export class ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource group belongs.
+   * The Alibaba Cloud account ID to which the resource group belongs.
    * 
    * @example
    * 123456789****
@@ -154,7 +154,7 @@ export class ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups extends
   accountId?: string;
   /**
    * @remarks
-   * The time when the resource group was created. The time is displayed in UTC.
+   * The time when the resource group was created (UTC).
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -170,7 +170,7 @@ export class ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups extends
   displayName?: string;
   /**
    * @remarks
-   * The ID of your Alibaba Cloud resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-9gLOoK****
@@ -187,10 +187,9 @@ export class ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups extends
   /**
    * @remarks
    * The status of the resource group. Valid values:
-   * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * *   PendingDelete: The resource group is waiting to be deleted.
+   * - Creating: Being created.
+   * - OK: Created.
+   * - PendingDelete: Pending deletion.
    * 
    * @example
    * OK
@@ -198,7 +197,7 @@ export class ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups extends
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListResourceGroupsWithAuthDetailsResponseBodyResourceGroupsTags[];
   static names(): { [key: string]: string } {
@@ -240,7 +239,7 @@ export class ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups extends
 export class ListResourceGroupsWithAuthDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authorization details for resource groups.
+   * The list of authorization details for resource groups.
    */
   authDetails?: ListResourceGroupsWithAuthDetailsResponseBodyAuthDetails[];
   /**
@@ -253,7 +252,7 @@ export class ListResourceGroupsWithAuthDetailsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -261,7 +260,7 @@ export class ListResourceGroupsWithAuthDetailsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The response parameters.
+   * The request ID.
    * 
    * @example
    * 4141780B-4E3D-5D2A-A8F4-44D6D34F****
@@ -269,12 +268,12 @@ export class ListResourceGroupsWithAuthDetailsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the resource groups.
+   * The list of resource groups.
    */
   resourceGroups?: ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

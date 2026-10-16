@@ -57,7 +57,7 @@ export class DeleteResourceGroupResponseBodyResourceGroupRegionStatuses extends 
 export class DeleteResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource group belongs.
+   * The Alibaba Cloud account ID to which the resource group belongs.
    * 
    * @example
    * 123456789****
@@ -65,7 +65,7 @@ export class DeleteResourceGroupResponseBodyResourceGroup extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The time when the resource group was created. The time is displayed in UTC.
+   * The time when the resource group was created (UTC).
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -81,7 +81,7 @@ export class DeleteResourceGroupResponseBodyResourceGroup extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-9gLOoK****
@@ -100,9 +100,9 @@ export class DeleteResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * @remarks
    * The status of the resource group. Valid values:
    * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * *   PendingDelete: The resource group is waiting to be deleted.
+   * - Creating: Being created.
+   * - OK: Created.
+   * - PendingDelete: Pending deletion.
    * 
    * @example
    * PendingDelete
@@ -147,7 +147,7 @@ export class DeleteResourceGroupResponseBodyResourceGroup extends $dara.Model {
 export class DeleteResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1C488B66-B819-4D14-8711-C4EAAA13AC01
@@ -155,7 +155,7 @@ export class DeleteResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the resource group.
+   * The resource group information.
    */
   resourceGroup?: DeleteResourceGroupResponseBodyResourceGroup;
   static names(): { [key: string]: string } {

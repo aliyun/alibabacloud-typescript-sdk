@@ -7,7 +7,7 @@ export class ListResourceGroupCapabilityRequest extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -15,9 +15,9 @@ export class ListResourceGroupCapabilityRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service.
+   * The cloud service ID.
    * 
-   * You can obtain the service code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the cloud service ID from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -25,7 +25,7 @@ export class ListResourceGroupCapabilityRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * Specifies whether a specific resource type or cloud service supports resource group events.
+   * Specifies whether resource group events are supported.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
-   * The time when the invitation was created. The time is displayed in UTC.
+   * The creation time of the invitation (UTC).
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -13,7 +13,7 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   createTime?: string;
   /**
    * @remarks
-   * The time when the invitation expires. The time is displayed in UTC.
+   * The expiration time of the invitation (UTC).
    * 
    * @example
    * 2018-08-24T09:55:41Z
@@ -45,7 +45,7 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   masterAccountName?: string;
   /**
    * @remarks
-   * The time when the invitation was modified. The time is displayed in UTC.
+   * The modification time of the invitation (UTC).
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -53,10 +53,10 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   modifyTime?: string;
   /**
    * @remarks
-   * The comment on the invitation.
+   * The remarks.
    * 
    * @example
-   * Welcome
+   * Welcome to join
    */
   note?: string;
   /**
@@ -69,13 +69,13 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The status of the invitation.
+   * The status of the invitation. Valid values:
    * 
-   * *   Pending: The invitation is waiting for confirmation.
-   * *   Accepted: The invitation is accepted.
-   * *   Cancelled: The invitation is canceled.
-   * *   Declined: The invitation is rejected.
-   * *   Expired: The invitation expires.
+   * - Pending: Waiting for confirmation.
+   * - Accepted: Accepted.
+   * - Cancelled: Canceled.
+   * - Declined: Rejected.
+   * - Expired: Expired.
    * 
    * @example
    * Pending
@@ -83,7 +83,7 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   status?: string;
   /**
    * @remarks
-   * The ID or logon email address of the invited account.
+   * The ID or logon email address of the account that is invited.
    * 
    * @example
    * someone@example.com
@@ -93,8 +93,8 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
    * @remarks
    * The type of the invited account. Valid values:
    * 
-   * *   Account: indicates the ID of the account.
-   * *   Email: indicates the logon email address of the account.
+   * - Account: account ID.
+   * - Email: logon email address of the account.
    * 
    * @example
    * Email
@@ -144,12 +144,12 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
 export class InviteAccountToResourceDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the invitation.
+   * The invitation information.
    */
   handshake?: InviteAccountToResourceDirectoryResponseBodyHandshake;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

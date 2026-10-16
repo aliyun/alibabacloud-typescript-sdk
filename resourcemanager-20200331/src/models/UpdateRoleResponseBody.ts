@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * The resource descriptor of the RAM role.
    * 
    * @example
    * acs:ram::123456789012****:role/ECSAdmin
@@ -21,7 +21,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
   assumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The time when the RAM role was created.
+   * The time when the RAM role was created. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -32,12 +32,12 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
    * The description of the RAM role.
    * 
    * @example
-   * ECS administrator
+   * ECS management role
    */
   description?: string;
   /**
    * @remarks
-   * The maximum session time of the RAM role.
+   * The maximum session duration of the RAM role.
    * 
    * @example
    * 3600
@@ -61,7 +61,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The name of the RAM role after authorization.
+   * The name of the authorized RAM role.
    * 
    * @example
    * ECSAdmin@role.123456.onaliyunservice.com
@@ -69,7 +69,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
   rolePrincipalName?: string;
   /**
    * @remarks
-   * The time when the RAM role was updated.
+   * The time when the RAM role was last updated. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2016-01-23T12:33:18Z
@@ -123,7 +123,7 @@ export class UpdateRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the RAM role.
+   * The information of the RAM role.
    */
   role?: UpdateRoleResponseBodyRole;
   static names(): { [key: string]: string } {

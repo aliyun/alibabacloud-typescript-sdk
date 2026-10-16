@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * k1
@@ -15,9 +15,9 @@ export class CreateResourceGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * v1
@@ -51,7 +51,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
    * @remarks
    * The display name of the resource group.
    * 
-   * It must be 1 to 50 characters in length.
+   * The name must be 1 to 50 characters in length.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
    * @remarks
    * The unique identifier of the resource group.
    * 
-   * It must be 2 to 50 characters in length and can contain letters, digits, and hyphens (-). It must start with a letter.
+   * The identifier must be 2 to 50 characters in length and can contain letters, digits, and hyphens (-). It must start with a letter.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: CreateResourceGroupRequestTag[];
   static names(): { [key: string]: string } {

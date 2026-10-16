@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
-   * The time when the invitation was created.
+   * The creation time of the handshake in RFC 3339 UTC format, indicated by Z for UTC.
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -13,7 +13,7 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the invitation expires.
+   * The expiration time of the handshake in RFC 3339 UTC format, indicated by Z for UTC.
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -21,7 +21,7 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The ID of the invitation.
+   * The handshake ID.
    * 
    * @example
    * h-ycm4rp****
@@ -29,7 +29,7 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   handshakeId?: string;
   /**
    * @remarks
-   * The ID of the enterprise management account of the resource directory.
+   * The ID of the management account of the resource directory.
    * 
    * @example
    * 172841235500****
@@ -37,7 +37,7 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   masterAccountId?: string;
   /**
    * @remarks
-   * The name of the enterprise management account of the resource directory.
+   * The name of the management account of the resource directory.
    * 
    * @example
    * Alice
@@ -45,7 +45,7 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   masterAccountName?: string;
   /**
    * @remarks
-   * The time when the invitation was modified.
+   * The modification time of the handshake in RFC 3339 UTC format, indicated by Z for UTC.
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -53,15 +53,15 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The invitation note.
+   * The remarks.
    * 
    * @example
-   * Welcome
+   * Welcome to join us
    */
   note?: string;
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The resource directory ID.
    * 
    * @example
    * rd-abcdef****
@@ -69,13 +69,13 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The status of the invitation. Valid values:
+   * The handshake status. Valid values:
    * 
-   * *   Pending: The invitation is waiting for confirmation.
-   * *   Accepted: The invitation is accepted.
-   * *   Cancelled: The invitation is canceled.
-   * *   Declined: The invitation is rejected.
-   * *   Expired: The invitation expired.
+   * - Pending: Waiting for confirmation.
+   * - Accepted: Accepted.
+   * - Cancelled: Cancelled.
+   * - Declined: Declined.
+   * - Expired: Expired.
    * 
    * @example
    * Declined
@@ -93,8 +93,8 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
    * @remarks
    * The type of the invited account. Valid values:
    * 
-   * *   Account: indicates the ID of the account.
-   * *   Email: indicates the logon email address of the account.
+   * - Account: account ID.
+   * - Email: account logon email address.
    * 
    * @example
    * Email
@@ -144,12 +144,12 @@ export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
 export class DeclineHandshakeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the invitation.
+   * The handshake information.
    */
   handshake?: DeclineHandshakeResponseBodyHandshake;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

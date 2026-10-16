@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The number of references to the permission policy.
+   * The number of references.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   attachmentCount?: number;
   /**
    * @remarks
-   * The time when the permission policy was created.
+   * The time when the access policy was created. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -21,7 +21,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The default version of the permission policy.
+   * The default version of the access policy.
    * 
    * @example
    * v1
@@ -29,15 +29,15 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   defaultVersion?: string;
   /**
    * @remarks
-   * The description of the permission policy.
+   * The description of the access policy.
    * 
    * @example
-   * OSS administrator
+   * OSS administrator permissions
    */
   description?: string;
   /**
    * @remarks
-   * The document of the permission policy.
+   * The content of the access policy.
    * 
    * @example
    * { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
@@ -45,7 +45,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * The name of the permission policy.
+   * The Policy Name of the access policy.
    * 
    * @example
    * OSS-Administrator
@@ -53,10 +53,10 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the permission policy. Valid values:
+   * The type of the access policy. Valid values:
    * 
-   * *   Custom
-   * *   System
+   * - Custom: custom policy.
+   * - System: system policy.
    * 
    * @example
    * Custom
@@ -64,7 +64,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The time when the permission policy was updated.
+   * The time when the access policy was last updated. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2016-01-23T12:33:18Z
@@ -108,7 +108,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
 export class GetPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the permission policy.
+   * The access policy information.
    */
   policy?: GetPolicyResponseBodyPolicy;
   /**

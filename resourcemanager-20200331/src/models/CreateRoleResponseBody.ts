@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * The resource descriptor of the role.
    * 
    * @example
    * acs:ram::123456789012****:role/ECSAdmin
@@ -13,7 +13,7 @@ export class CreateRoleResponseBodyRole extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The document of the policy in which the entity that can assume the role is specified.
+   * The content of the access policy for assuming the role.
    * 
    * @example
    * { \\"Statement\\": [ { \\"Action\\": \\"sts:AssumeRole\\", \\"Effect\\": \\"Allow\\", \\"Principal\\": { \\"RAM\\": \\"acs:ram::12345678901234****:root\\" } } ], \\"Version\\": \\"1\\" }
@@ -21,7 +21,7 @@ export class CreateRoleResponseBodyRole extends $dara.Model {
   assumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The time when the role was created.
+   * The time when the role was created. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -32,7 +32,7 @@ export class CreateRoleResponseBodyRole extends $dara.Model {
    * The description of the role.
    * 
    * @example
-   * ECS administrator
+   * ECS management role
    */
   description?: string;
   /**
@@ -61,7 +61,7 @@ export class CreateRoleResponseBodyRole extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The name of the role after authorization.
+   * The name of the authorized role.
    * 
    * @example
    * ECSAdmin@role.123456.onaliyunservice.com
@@ -113,7 +113,7 @@ export class CreateRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the role.
+   * The role information.
    */
   role?: CreateRoleResponseBodyRole;
   static names(): { [key: string]: string } {

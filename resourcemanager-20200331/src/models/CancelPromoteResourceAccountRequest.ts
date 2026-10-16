@@ -10,7 +10,7 @@ export class CancelPromoteResourceAccountRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 06950264-3f0d-4ca9-82dd-6ee7a3d33d6b
+   * 06950264-3f0d-4ca9-82dd-6ee7a3d3****
    */
   recordId?: string;
   static names(): { [key: string]: string } {

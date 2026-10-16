@@ -45,15 +45,17 @@ export class CreateResourceAccountRequestTag extends $dara.Model {
 export class CreateResourceAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix for the Alibaba Cloud account name of the member. If you leave this parameter empty, the system randomly generates a prefix.
+   * The prefix of the account name. If you leave this parameter empty, the system randomly generates a prefix.
    * 
-   * The prefix must be 2 to 37 characters in length.
+   * <props="china">Length: 2 to 50 characters.
    * 
-   * The prefix can contain letters, digits, and special characters but cannot contain consecutive special characters. The prefix must start with a letter or digit and end with a letter or digit. Valid special characters include underscores (`_`), periods (`.`), and hyphens (-).
+   * <props="intl">Length: 2 to 37 characters.
    * 
-   * The complete Alibaba Cloud account name of a member is in the @.aliyunid.com format, such as `alice@rd-3G****.aliyunid.com`.
+   * Format: Can contain letters, digits, and special characters `_.-`. Must start and end with a letter or digit. Consecutive special characters `_.-` are not allowed.
    * 
-   * Each name must be unique in the resource directory.
+   * The full account name is in the format of <AccountNamePrefix>@<ResourceDirectoryId>.aliyunid.com. Example: `alice@rd-3G****.aliyunid.com`.
+   * 
+   * The account name must be unique within the resource directory.
    * 
    * @example
    * alice
@@ -63,11 +65,11 @@ export class CreateResourceAccountRequest extends $dara.Model {
    * @remarks
    * The display name of the member.
    * 
-   * The name must be 2 to 50 characters in length.
+   * Length: 2 to 50 characters.
    * 
-   * The name can contain letters, digits, underscores (_), periods (.), hyphens (-), and spaces.
+   * Format: Can contain letters, digits, underscores (_), periods (.), hyphens (-), and spaces.
    * 
-   * The name must be unique in the resource directory.
+   * The display name must be unique within the resource directory.
    * 
    * This parameter is required.
    * 
@@ -85,7 +87,7 @@ export class CreateResourceAccountRequest extends $dara.Model {
   parentFolderId?: string;
   /**
    * @remarks
-   * The ID of the billing account. If you leave this parameter empty, the newly created member is used as its billing account.
+   * The ID of the billing account. If you leave this parameter empty, the newly created member pays for its own resource consumption.
    * 
    * @example
    * 12323344****
@@ -95,10 +97,10 @@ export class CreateResourceAccountRequest extends $dara.Model {
    * @remarks
    * The identity type of the member. Valid values:
    * 
-   * *   resell (default): The member is an account for a reseller. A relationship is automatically established between the member and the reseller. The management account of the resource directory must be used as the billing account of the member.
-   * *   non_resell: The member is not an account for a reseller. The member is an account that is not associated with a reseller. You can directly use the account to purchase Alibaba Cloud resources. The member is used as its own billing account.
+   * - resell (default): reseller account. The created member automatically establishes a reseller relationship with your distributor. You must use the management account to pay for the new member.
+   * - non_resell: non-reseller account. The created member is a regular Alibaba Cloud account that has no relationship with your current distributor. This account purchases resources directly from Alibaba Cloud and pays for its own resource consumption.
    * 
-   * >  This parameter is available only for resellers at the international site (alibabacloud.com).
+   * > This parameter is supported only for China site (Chinese mainland) distributor customers.
    * 
    * @example
    * resell
@@ -106,7 +108,7 @@ export class CreateResourceAccountRequest extends $dara.Model {
   resellAccountType?: string;
   /**
    * @remarks
-   * The tag of the member.
+   * The tags of the member.
    */
   tag?: CreateResourceAccountRequestTag[];
   static names(): { [key: string]: string } {

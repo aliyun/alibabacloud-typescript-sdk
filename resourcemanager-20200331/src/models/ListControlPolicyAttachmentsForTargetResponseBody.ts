@@ -70,7 +70,7 @@ export class ListControlPolicyAttachmentsForTargetResponseBody extends $dara.Mod
   controlPolicyAttachments?: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C276B600-7B7A-49E8-938C-E16CFA955A82

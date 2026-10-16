@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceGroupResourceCountsResponseBodyResourceCounts extends $dara.Model {
   /**
    * @remarks
-   * The number of the resources.
+   * The resource count.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetResourceGroupResourceCountsResponseBodyResourceCounts extends $d
   count?: number;
   /**
    * @remarks
-   * The dimension by which resources are queried.
+   * The grouping dimension for resource count statistics.
    * 
    * @example
    * ResourceGroupId
@@ -63,7 +63,7 @@ export class GetResourceGroupResourceCountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The numbers of the resources.
+   * The resource count.
    */
   resourceCounts?: GetResourceGroupResourceCountsResponseBodyResourceCounts[];
   static names(): { [key: string]: string } {

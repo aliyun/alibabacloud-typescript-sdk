@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   /**
    * @remarks
-   * The number of times that the access control policy is referenced.
+   * The number of times the control policy is referenced.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   attachmentCount?: string;
   /**
    * @remarks
-   * The time when the access control policy was created.
+   * The time when the control policy was created. The time is displayed in UTC in RFC 3339 format, indicated by Z.
    * 
    * @example
    * 2021-03-18T08:51:33Z
@@ -21,7 +21,7 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The description of the access control policy.
+   * The description of the control policy.
    * 
    * @example
    * ExampleControlPolicy
@@ -29,10 +29,10 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The effective scope of the access control policy. Valid values:
+   * The effective scope of the control policy. Valid values:
    * 
-   * *   All: The access control policy is in effect for Alibaba Cloud accounts, RAM users, and RAM roles.
-   * *   RAM: The access control policy is in effect only for RAM users and RAM roles.
+   * - All: The control policy takes effect for Alibaba Cloud accounts, Resource Access Management (RAM) users, and RAM roles.
+   * - RAM: The control policy takes effect only for RAM users and RAM roles.
    * 
    * @example
    * RAM
@@ -40,7 +40,7 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   effectScope?: string;
   /**
    * @remarks
-   * The document of the access control policy.
+   * The content of the control policy.
    * 
    * @example
    * {\\"Version\\":\\"1\\",\\"Statement\\":[{\\"Effect\\":\\"Deny\\",\\"Action\\":[\\"ram:UpdateRole\\",\\"ram:DeleteRole\\",\\"ram:AttachPolicyToRole\\",\\"ram:DetachPolicyFromRole\\"],\\"Resource\\":\\"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole\\"}]}
@@ -48,7 +48,7 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * The ID of the access control policy.
+   * The ID of the control policy.
    * 
    * @example
    * cp-SImPt8GCEwiq****
@@ -56,7 +56,7 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The name of the access control policy.
+   * The Policy Name of the control policy.
    * 
    * @example
    * test
@@ -64,10 +64,10 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the access control policy. Valid values:
+   * The type of the control policy. Valid values:
    * 
-   * *   System: system access control policy
-   * *   Custom: custom access control policy
+   * - System: system control policy.
+   * - Custom: custom control policy.
    * 
    * @example
    * Custom
@@ -75,7 +75,7 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The time when the access control policy was updated.
+   * The time when the control policy was updated. The time is displayed in UTC in RFC 3339 format, indicated by Z.
    * 
    * @example
    * 2021-03-18T08:51:33Z
@@ -121,12 +121,12 @@ export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
 export class GetControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access control policy.
+   * The details of the control policy.
    */
   controlPolicy?: GetControlPolicyResponseBodyControlPolicy;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AB769936-CDFA-4D52-8CE2-A3581800044A

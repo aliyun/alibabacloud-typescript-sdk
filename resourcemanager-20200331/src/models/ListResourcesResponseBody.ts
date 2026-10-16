@@ -85,7 +85,7 @@ export class ListResourcesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -94,7 +94,7 @@ export class ListResourcesResponseBody extends $dara.Model {
   resources?: ListResourcesResponseBodyResources;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

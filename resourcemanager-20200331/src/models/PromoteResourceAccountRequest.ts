@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PromoteResourceAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource account you want to upgrade.
+   * The ID of the resource account to upgrade.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class PromoteResourceAccountRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The email address used to log on to the cloud account after the upgrade.
+   * The logon email address of the Alibaba Cloud account after the upgrade.
    * 
    * This parameter is required.
    * 

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyVersionResponseBodyPolicyVersion extends $dara.Model {
   /**
    * @remarks
-   * The time when the policy version was created.
+   * The time when the access policy version was created. The time is in RFC 3339 UTC format, indicated by Z.
    * 
    * @example
-   * 2015-01-23T12:33:18
+   * 2015-01-23T12:33:18Z
    */
   createDate?: string;
   /**
    * @remarks
-   * Indicates whether the policy version is the default version.
+   * Indicates whether the version is the default version of the access policy.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class CreatePolicyVersionResponseBodyPolicyVersion extends $dara.Model {
   isDefaultVersion?: boolean;
   /**
    * @remarks
-   * The ID of the policy version.
+   * The ID of the access policy version.
    * 
    * @example
    * v3
@@ -55,7 +55,7 @@ export class CreatePolicyVersionResponseBodyPolicyVersion extends $dara.Model {
 export class CreatePolicyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the policy version.
+   * The access policy version information.
    */
   policyVersion?: CreatePolicyVersionResponseBodyPolicyVersion;
   /**

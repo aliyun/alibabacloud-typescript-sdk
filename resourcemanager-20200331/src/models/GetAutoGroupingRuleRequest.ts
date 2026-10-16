@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAutoGroupingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * This parameter is required.
    * 

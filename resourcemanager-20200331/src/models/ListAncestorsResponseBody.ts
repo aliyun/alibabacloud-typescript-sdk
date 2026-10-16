@@ -61,7 +61,7 @@ export class ListAncestorsResponseBody extends $dara.Model {
   folders?: ListAncestorsResponseBodyFolders;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 83AFBEB6-DC03-406E-9686-867461FF6698

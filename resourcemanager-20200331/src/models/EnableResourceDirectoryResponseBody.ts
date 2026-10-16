@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableResourceDirectoryResponseBodyResourceDirectory extends $dara.Model {
   /**
    * @remarks
-   * The time when the resource directory was enabled.
+   * The time when the resource directory was enabled. The time is displayed in UTC in RFC 3339 format, indicated by Z.
    * 
    * @example
    * 2021-12-08T02:15:31.744Z
@@ -37,7 +37,7 @@ export class EnableResourceDirectoryResponseBodyResourceDirectory extends $dara.
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The ID of the Root folder.
+   * The ID of the root folder.
    * 
    * @example
    * r-G9****
@@ -75,7 +75,7 @@ export class EnableResourceDirectoryResponseBodyResourceDirectory extends $dara.
 export class EnableResourceDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EC2FE94D-A4A2-51A1-A493-5C273A36C46A
@@ -83,7 +83,7 @@ export class EnableResourceDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the resource directory.
+   * The resource directory information.
    */
   resourceDirectory?: EnableResourceDirectoryResponseBodyResourceDirectory;
   static names(): { [key: string]: string } {

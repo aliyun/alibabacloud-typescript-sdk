@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class EnableControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the Control Policy feature. Valid values:
+   * The status of the control policy feature. Valid values:
    * 
-   * *   Enabled: The Control Policy feature is enabled.
-   * *   PendingEnable: The Control Policy feature is being enabled.
-   * *   Disabled: The Control Policy feature is disabled.
-   * *   PendingDisable: The Control Policy feature is being disabled.
+   * - Enabled: Enabled.
+   * - PendingEnable: Being enabled.
+   * - Disabled: Disabled.
+   * - PendingDisable: Being disabled.
    * 
    * @example
    * PendingEnable
@@ -18,7 +18,7 @@ export class EnableControlPolicyResponseBody extends $dara.Model {
   enablementStatus?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8CE7BD95-EFFA-4911-A1E0-BD4412697FEB

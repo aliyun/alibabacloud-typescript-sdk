@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeregisterDelegatedAdministratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DF5D5C52-7BD0-40E7-94C6-23A1505038A2

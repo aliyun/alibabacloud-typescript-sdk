@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource group or member.
+   * The resource group ID or resource directory member ID.
    * 
    * @example
    * rg-aekz6bre2uq****
@@ -13,10 +13,10 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the object whose tags are queried. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   resourcegroup: resource group
-   * *   Account: member
+   * - resourcegroup: resource group.
+   * - Account: resource directory member.
    * 
    * @example
    * resourcegroup
@@ -68,10 +68,10 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the next query is required.
+   * Indicates whether the `NextToken` parameter is returned for the next query. Valid values:
    * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+   * - If `NextToken` is empty, which is displayed as `"NextToken": ""`, no next query exists.
+   * - If `NextToken` is returned with a value, the value is the token that is used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -79,7 +79,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8054B059-6B36-53BF-AA45-B8C9A0ED05AB

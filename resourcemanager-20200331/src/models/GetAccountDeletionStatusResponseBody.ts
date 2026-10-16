@@ -13,7 +13,7 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReas
   description?: string;
   /**
    * @remarks
-   * The name of the cloud service to which the check item belongs.
+   * The service name of the cloud service to which the check item belongs.
    * 
    * @example
    * Others
@@ -45,7 +45,7 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReas
 export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * The ID of the member account.
    * 
    * @example
    * 169946124551****
@@ -53,7 +53,7 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends
   accountId?: string;
   /**
    * @remarks
-   * The start time of the deletion.
+   * The time when the deletion started, in RFC 3339 format with a UTC offset of +08:00.
    * 
    * @example
    * 2022-08-23T17:05:30+08:00
@@ -61,7 +61,7 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends
   createTime?: string;
   /**
    * @remarks
-   * The end time of the deletion.
+   * The time when the deletion ended, in RFC 3339 format with a UTC offset of +08:00.
    * 
    * This parameter is required.
    * 
@@ -71,10 +71,10 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends
   deletionTime?: string;
   /**
    * @remarks
-   * The type of the deletion. Valid values:
+   * The deletion type. Valid values:
    * 
-   * *   0: direct deletion. If the member does not have pay-as-you-go resources that are purchased within the previous 30 days, the system directly deletes the member.
-   * *   1: deletion with a silence period. If the member has pay-as-you-go resources that are purchased within the previous 30 days, the member enters a silence period. The system starts to delete the member until the silence period ends. For more information about the silence period, see [What is the silence period for member deletion?](https://help.aliyun.com/document_detail/446079.html)
+   * - 0: direct deletion. If the member account has no pay-as-you-go resources in the last 30 days, the system directly deletes the member account.
+   * - 1: cool-down period deletion. If the member account has pay-as-you-go resources in the last 30 days, the member account enters a cool-down period. The system starts to delete the member account after the cool-down period ends. For more information about the cool-down period, see [What is the cool-down period for member account deletion](https://help.aliyun.com/document_detail/446079.html).
    * 
    * @example
    * 0
@@ -82,18 +82,18 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends
   deletionType?: string;
   /**
    * @remarks
-   * The reasons why the member fails to be deleted.
+   * The reasons for the deletion failure.
    */
   failReasonList?: GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList[];
   /**
    * @remarks
    * The status. Valid values:
    * 
-   * *   Success: The member is deleted.
-   * *   Checking: A deletion check is being performed for the member.
-   * *   Deleting: The member is being deleted.
-   * *   CheckFailed: The deletion check for the member fails.
-   * *   DeleteFailed: The member fails to be deleted.
+   * - Success: The member account is deleted.
+   * - Checking: The check is in progress.
+   * - Deleting: The deletion is in progress.
+   * - CheckFailed: The check failed.
+   * - DeleteFailed: The deletion failed.
    * 
    * @example
    * Success
@@ -136,12 +136,12 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends
 export class GetAccountDeletionStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deletion status of the member.
+   * The deletion status of the member account.
    */
   rdAccountDeletionStatus?: GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8AA43293-7C8F-5730-8F2D-7F864EC092C5

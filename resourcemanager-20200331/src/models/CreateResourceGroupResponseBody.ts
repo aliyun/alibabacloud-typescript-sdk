@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateResourceGroupResponseBodyResourceGroupRegionStatusesRegionStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-qingdao
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The status of the resource group. Valid values:
-   * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * 
-   * @example
-   * Creating
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,7 +57,7 @@ export class CreateResourceGroupResponseBodyResourceGroupRegionStatuses extends 
 export class CreateResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource group belongs.
+   * The Alibaba Cloud account ID to which the resource group belongs.
    * 
    * @example
    * 151266687691****
@@ -82,7 +65,7 @@ export class CreateResourceGroupResponseBodyResourceGroup extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The time when the resource group was created. The time is displayed in UTC.
+   * The time when the resource group was created (UTC).
    * 
    * @example
    * 2021-06-05T14:39:13+08:00
@@ -98,7 +81,7 @@ export class CreateResourceGroupResponseBodyResourceGroup extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-9gLOoK****
@@ -112,17 +95,12 @@ export class CreateResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * my-project
    */
   name?: string;
-  /**
-   * @remarks
-   * The status of the resource group in all regions.
-   */
   regionStatuses?: CreateResourceGroupResponseBodyResourceGroupRegionStatuses;
   /**
    * @remarks
    * The status of the resource group. Valid values:
-   * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
+   * - Creating: Being created.
+   * - OK: Created.
    * 
    * @example
    * Creating
@@ -175,7 +153,7 @@ export class CreateResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the resource group.
+   * The resource group information.
    */
   resourceGroup?: CreateResourceGroupResponseBodyResourceGroup;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSettingRuleSettings extends $dara.Model {
   /**
    * @remarks
-   * The type of the associated resource.
+   * The resource type of the associated resource.
    * 
    * @example
    * disk
@@ -13,7 +13,7 @@ export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSettingR
   associatedResourceType?: string;
   /**
    * @remarks
-   * The service code of the associated resource.
+   * The cloud service code of the associated resource.
    * 
    * @example
    * ecs
@@ -21,7 +21,7 @@ export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSettingR
   associatedService?: string;
   /**
    * @remarks
-   * The type of the primary resource.
+   * The resource type of the master resource.
    * 
    * @example
    * instance
@@ -29,7 +29,7 @@ export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSettingR
   masterResourceType?: string;
   /**
    * @remarks
-   * The service code of the primary resource.
+   * The cloud service code of the master resource.
    * 
    * @example
    * ecs
@@ -37,10 +37,10 @@ export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSettingR
   masterService?: string;
   /**
    * @remarks
-   * The status of the Transfer Associated Resources feature. Valid values:
+   * The status of the associated resource group transfer feature. Valid values:
    * 
-   * *   Enable: enabled
-   * *   Disable: disabled
+   * - Enable: enabled.
+   * - Disable: disabled.
    * 
    * @example
    * Enable
@@ -78,7 +78,7 @@ export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSettingR
 export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSetting extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 121998723923****
@@ -86,10 +86,10 @@ export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSetting 
   accountId?: string;
   /**
    * @remarks
-   * Indicates whether the Transfer Existing Associated Resources feature is enabled. Valid values:
+   * Indicates whether the task for transferring existing associated resources to the same resource group is started. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false: The task is not started.
+   * - true: The task is started.
    * 
    * @example
    * true
@@ -97,15 +97,15 @@ export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSetting 
   enableExistingResourcesTransfer?: string;
   /**
    * @remarks
-   * The settings of transfer rules.
+   * The rule settings of the associated resource group transfer feature.
    */
   ruleSettings?: ListAssociatedTransferSettingResponseBodyAssociatedTransferSettingRuleSettings[];
   /**
    * @remarks
-   * The status of the Transfer Associated Resources feature. Valid values:
+   * The status of the associated resource group transfer feature. Valid values:
    * 
-   * *   Enable: enabled
-   * *   Disable: disabled
+   * - Enable: enabled.
+   * - Disable: disabled.
    * 
    * @example
    * Enable
@@ -144,7 +144,7 @@ export class ListAssociatedTransferSettingResponseBodyAssociatedTransferSetting 
 export class ListAssociatedTransferSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The settings of the Transfer Associated Resources feature.
+   * The settings of the associated resource group transfer feature.
    */
   associatedTransferSetting?: ListAssociatedTransferSettingResponseBodyAssociatedTransferSetting;
   /**

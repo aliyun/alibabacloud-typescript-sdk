@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPayerForAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the settlement account.
+   * The ID of the billing account.
    * 
    * @example
    * 172841235500****
@@ -13,7 +13,7 @@ export class GetPayerForAccountResponseBody extends $dara.Model {
   payerAccountId?: string;
   /**
    * @remarks
-   * The name of the settlement account.
+   * The name of the billing account.
    * 
    * @example
    * Alice
@@ -21,7 +21,7 @@ export class GetPayerForAccountResponseBody extends $dara.Model {
   payerAccountName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

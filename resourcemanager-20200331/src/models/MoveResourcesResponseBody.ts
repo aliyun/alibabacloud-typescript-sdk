@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class MoveResourcesResponseBodyResponses extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
-   * >  This parameter is returned if the resource failed to be moved.
+   * > This parameter is returned only when the resource transfer fails.
    * 
    * @example
    * NoPermission
@@ -15,12 +15,11 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
-   * 
-   * >  This parameter is returned if the resource failed to be moved.
+   * The error message.
+   * > This parameter is returned only when the resource transfer fails.
    * 
    * @example
-   * No permissions
+   * No permission
    */
   errorMsg?: string;
   /**
@@ -33,7 +32,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C00B89D3-3247-11DE-95D8-A7C01FB0AB4F
@@ -41,34 +40,34 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
-   * vpc-bp1sig0mjktx5ewx1****
+   * i-23v38****
    */
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
-   * vpc
+   * instance
    */
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service.
+   * The cloud service code.
    * 
    * @example
-   * vpc
+   * ecs
    */
   service?: string;
   /**
    * @remarks
-   * The status of the move task. Valid values:
+   * The status. Valid values:
    * 
-   * *   SUCCESS
-   * *   FAIL
+   * - SUCCESS: Succeeded.
+   * - FAIL: Failed.
    * 
    * @example
    * FAIL
@@ -112,7 +111,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
 export class MoveResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C00B89D3-3247-11DE-95D8-A7C01FB0AB4F
@@ -120,7 +119,7 @@ export class MoveResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The response results.
    */
   responses?: MoveResourcesResponseBodyResponses[];
   static names(): { [key: string]: string } {

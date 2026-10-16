@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountDeletionStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * The ID of the member account.
    * 
    * This parameter is required.
    * 

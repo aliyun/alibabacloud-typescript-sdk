@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the account you want to move.
+   * The ID of the account to be moved.
    * 
    * This parameter is required.
    * 

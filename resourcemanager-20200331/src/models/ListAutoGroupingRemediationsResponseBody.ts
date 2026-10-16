@@ -61,7 +61,7 @@ export class ListAutoGroupingRemediationsResponseBodyRemediations extends $dara.
   remediationId?: string;
   /**
    * @remarks
-   * The remediation time.
+   * The remediation time. The format is YYYY-MM-DD HH:mm:ss without a time zone identifier.
    * 
    * @example
    * 2022-01-01 00:00:00
@@ -79,7 +79,7 @@ export class ListAutoGroupingRemediationsResponseBodyRemediations extends $dara.
    * @remarks
    * The resource type.
    * 
-   * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -87,9 +87,9 @@ export class ListAutoGroupingRemediationsResponseBodyRemediations extends $dara.
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service.
+   * The cloud service ID.
    * 
-   * You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the cloud service ID from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -97,7 +97,7 @@ export class ListAutoGroupingRemediationsResponseBodyRemediations extends $dara.
   service?: string;
   /**
    * @remarks
-   * The information about the new resource group.
+   * The information about the target resource group for remediation.
    */
   targetResourceGroupInfo?: ListAutoGroupingRemediationsResponseBodyRemediationsTargetResourceGroupInfo;
   static names(): { [key: string]: string } {
@@ -149,7 +149,7 @@ export class ListAutoGroupingRemediationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token for the next query.
    * 
    * @example
    * TGlzdFJlc291cm****

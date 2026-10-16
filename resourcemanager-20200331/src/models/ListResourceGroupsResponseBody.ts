@@ -127,7 +127,7 @@ export class ListResourceGroupsResponseBodyResourceGroups extends $dara.Model {
 export class ListResourceGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -143,7 +143,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
@@ -152,7 +152,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   resourceGroups?: ListResourceGroupsResponseBodyResourceGroups;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the conditional request parameter criteria.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindSecureMobilePhoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * The member ID.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,18 @@ export class BindSecureMobilePhoneRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The mobile phone number that you want to bind to the member for security purposes.
+   * The secure phone number.
    * 
-   * The mobile phone number you specify must be the same as the mobile phone number that you specify when you call the [SendVerificationCodeForBindSecureMobilePhone](https://help.aliyun.com/document_detail/372556.html) operation to obtain a verification code.
+   * The phone number must be the same as the one that you specified when you called [SendVerificationCodeForBindSecureMobilePhone](https://help.aliyun.com/document_detail/372556.html) to authenticate and obtain the verification code.
    * 
-   * Specify the mobile phone number in the \\<Country code>-\\<Mobile phone number> format.
+   * Format: <Country code>-<Phone number>.
    * 
-   * >  Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
+   * <props="china">
+   * > Only the Chinese mainland phone numbers in the `86-<Phone number>` format are supported.
+   * 
+   * 
+   * <props="intl">
+   * > The Chinese mainland phone numbers in the `86-<Phone number>` format are not supported.
    * 
    * This parameter is required.
    * 
@@ -33,7 +38,7 @@ export class BindSecureMobilePhoneRequest extends $dara.Model {
    * @remarks
    * The verification code.
    * 
-   * You can call the [SendVerificationCodeForBindSecureMobilePhone](https://help.aliyun.com/document_detail/372556.html) operation to obtain the verification code.
+   * You can call [SendVerificationCodeForBindSecureMobilePhone](https://help.aliyun.com/document_detail/372556.html) to obtain the verification code.
    * 
    * This parameter is required.
    * 
