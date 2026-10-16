@@ -40,12 +40,12 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
    * The description of the managed agent.
    * 
    * @example
-   * An agent for code review
+   * Agent for code review
    */
   description?: string;
   /**
    * @remarks
-   * The latest specification version number.
+   * The latest specification version.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
 export class DeleteManagedAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS is returned if the request succeeds.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -148,7 +148,7 @@ export class DeleteManagedAgentResponseBody extends $dara.Model {
   data?: DeleteManagedAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 is returned if the request succeeds.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -156,7 +156,7 @@ export class DeleteManagedAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned for the request processing result.
+   * The request processing result message.
    * 
    * @example
    * success
@@ -172,7 +172,7 @@ export class DeleteManagedAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

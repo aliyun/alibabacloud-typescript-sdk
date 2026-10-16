@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentIMChannelCredentialResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of configured secret field names. Secret values are not included.
+   * The list of configured secret field names, excluding the secret values.
    */
   configuredSecretFields?: string[];
   /**
@@ -45,7 +45,7 @@ export class UpdateAgentIMChannelCredentialResponseBodyData extends $dara.Model 
 export class UpdateAgentIMChannelCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS if the request succeeds.
+   * The business status code. The value is SUCCESS when the request is successful.
    * 
    * @example
    * SUCCESS
@@ -53,12 +53,12 @@ export class UpdateAgentIMChannelCredentialResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The summary of the updated IM channel credential.
+   * The summary of the updated IM channel credentials.
    */
   data?: UpdateAgentIMChannelCredentialResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 if the request succeeds.
+   * The HTTP status code. The value is 200 when the request is successful.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class UpdateAgentIMChannelCredentialResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The message indicating the request processing result.
    * 
    * @example
    * success
@@ -82,7 +82,7 @@ export class UpdateAgentIMChannelCredentialResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

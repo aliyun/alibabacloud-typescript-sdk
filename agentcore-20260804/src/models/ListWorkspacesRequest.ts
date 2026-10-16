@@ -13,7 +13,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page.
+   * The cursor used to query the next page.
    * 
    * @example
    * d29ya3NwYWNlLW9mZnNldDoyMA

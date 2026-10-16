@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the referencing entity (the identifier of the Agent or AgentSpec).
+   * The ID of the referencing entity, which is the identifier of the agent or agent spec.
    * 
    * @example
    * agent-1234567890abcdef
@@ -37,7 +37,7 @@ export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
   selectorType?: string;
   /**
    * @remarks
-   * The reference selector value, such as latest, a named label, HEAD, or a specific version.
+   * The reference selector value. Valid values: latest, a named label, HEAD, or a specific version.
    * 
    * @example
    * HEAD
@@ -53,7 +53,7 @@ export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The workspace ID to which the reference belongs.
+   * The ID of the workspace to which the reference belongs.
    * 
    * @example
    * ws-1234567890abcdef
@@ -116,7 +116,7 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
   pagesAvailable?: number;
   /**
    * @remarks
-   * The total number of reference relationships that match the filter conditions.
+   * The total number of reference relationships that meet the conditions.
    * 
    * @example
    * 100
@@ -155,12 +155,12 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
 export class ListSkillReferencesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The skill reference relationship data returned by the paged query. The data is returned with paging.
+   * The skill reference relationship data returned by the paging query.
    */
   data?: ListSkillReferencesResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used for troubleshooting.
+   * The request ID used for troubleshooting.
    * 
    * @example
    * 5C6D9E10-1234-5678-9ABC-DEF012345678

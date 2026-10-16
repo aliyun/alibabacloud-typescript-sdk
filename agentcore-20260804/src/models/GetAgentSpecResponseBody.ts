@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentSpecResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * The version author.
+   * The author of the version.
    * 
    * @example
    * alice
@@ -13,7 +13,7 @@ export class GetAgentSpecResponseBodyDataVersions extends $dara.Model {
   author?: string;
   /**
    * @remarks
-   * The creation time. This value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -24,7 +24,7 @@ export class GetAgentSpecResponseBodyDataVersions extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description that explains the purpose of the resource
+   * A sample description used to explain the purpose of the resource
    */
   description?: string;
   /**
@@ -53,7 +53,7 @@ export class GetAgentSpecResponseBodyDataVersions extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time. This value is a UNIX timestamp in milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -116,7 +116,7 @@ export class GetAgentSpecResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description that explains the purpose of the resource
+   * A sample description used to explain the purpose of the resource
    */
   description?: string;
   /**
@@ -129,7 +129,7 @@ export class GetAgentSpecResponseBodyData extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The version that is currently being edited.
+   * The version currently being edited.
    * 
    * @example
    * 1.0.0
@@ -137,7 +137,7 @@ export class GetAgentSpecResponseBodyData extends $dara.Model {
   editingVersion?: string;
   /**
    * @remarks
-   * Indicates whether the AgentSpec is enabled.
+   * Indicates whether it is enabled.
    */
   enable?: boolean;
   /**
@@ -171,7 +171,7 @@ export class GetAgentSpecResponseBodyData extends $dara.Model {
   onlineCnt?: number;
   /**
    * @remarks
-   * The version that is currently under review.
+   * The version currently under review.
    * 
    * @example
    * 1.0.0
@@ -187,7 +187,7 @@ export class GetAgentSpecResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The update time. This value is a UNIX timestamp in milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000

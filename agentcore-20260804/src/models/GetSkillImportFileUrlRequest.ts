@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillImportFileUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The Content-Type of the upload file. Default value: application/zip.
+   * The Content-Type of the uploaded file. Default value: application/zip.
    * 
    * @example
    * application/zip

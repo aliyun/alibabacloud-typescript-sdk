@@ -15,7 +15,7 @@ export class ListPredefinedModelsResponseBodyDataCapabilities extends $dara.Mode
   document?: boolean;
   /**
    * @remarks
-   * Indicates whether the model is able to invoke multiple tool calling requests in a single response.
+   * Specifies whether the model is able to invoke multiple tool calling in a single response.
    */
   multiToolCall?: boolean;
   /**
@@ -25,7 +25,7 @@ export class ListPredefinedModelsResponseBodyDataCapabilities extends $dara.Mode
   reasoning?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports streaming tool calling.
+   * Specifies whether the model is able to invoke streaming tool calling.
    */
   streamToolCall?: boolean;
   /**
@@ -81,12 +81,12 @@ export class ListPredefinedModelsResponseBodyDataCapabilities extends $dara.Mode
 export class ListPredefinedModelsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The model capability configuration.
+   * The model capability configurations.
    */
   capabilities?: ListPredefinedModelsResponseBodyDataCapabilities;
   /**
    * @remarks
-   * The model context window size in tokens. The value must be a positive integer.
+   * The context window size of the model, in tokens. The value must be a positive integer.
    * 
    * @example
    * 128000
@@ -110,7 +110,7 @@ export class ListPredefinedModelsResponseBodyData extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model release date in the format of YYYY-MM-DD.
+   * The release date of the model. The format is YYYY-MM-DD.
    * 
    * @example
    * 2025-02-01
@@ -151,7 +151,7 @@ export class ListPredefinedModelsResponseBodyData extends $dara.Model {
 export class ListPredefinedModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -164,7 +164,7 @@ export class ListPredefinedModelsResponseBody extends $dara.Model {
   data?: ListPredefinedModelsResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -172,7 +172,7 @@ export class ListPredefinedModelsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request processing result message.
+   * The message indicating the request processing result.
    * 
    * @example
    * success
@@ -188,7 +188,7 @@ export class ListPredefinedModelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

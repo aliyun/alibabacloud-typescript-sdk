@@ -13,7 +13,7 @@ export class UpdateCustomAgentResponseBodyDataAgenticFsMounts extends $dara.Mode
   mountPath?: string;
   /**
    * @remarks
-   * The relative directory within the mounted AccessPoint.
+   * The relative directory in the mounted access point.
    * 
    * @example
    * workspace/data
@@ -21,7 +21,7 @@ export class UpdateCustomAgentResponseBodyDataAgenticFsMounts extends $dara.Mode
   path?: string;
   /**
    * @remarks
-   * Specifies whether the mount is read-only. A value of true indicates read-only, and a value of false indicates read and write.
+   * Specifies whether the mount is read-only. A value of true indicates a read-only mount, and a value of false indicates a read-write mount.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class UpdateCustomAgentResponseBodyDataAgenticFsMounts extends $dara.Mode
   readOnly?: boolean;
   /**
    * @remarks
-   * The domain name of the AgenticFS AccessPoint used for the mount.
+   * The domain name of the AgenticFS access point used for the mount.
    * 
    * @example
    * ap-0123456789abcdef0.0123456789-vlm36.cn-hangzhou.nas.aliyuncs.com
@@ -169,7 +169,7 @@ export class UpdateCustomAgentResponseBodyDataArtifactContainer extends $dara.Mo
   tag?: string;
   /**
    * @remarks
-   * The image source type. A value of acr indicates Alibaba Cloud Container Registry (ACR).
+   * The image source type. A value of acr indicates Alibaba Cloud Container Registry.
    * 
    * This parameter is required.
    * 
@@ -221,7 +221,7 @@ export class UpdateCustomAgentResponseBodyDataArtifact extends $dara.Model {
   container?: UpdateCustomAgentResponseBodyDataArtifactContainer;
   /**
    * @remarks
-   * The TCP port listened on by the agent service.
+   * The TCP port listened to by the agent service.
    * 
    * This parameter is required.
    * 
@@ -353,7 +353,7 @@ export class UpdateCustomAgentResponseBodyDataHealthCheck extends $dara.Model {
   intervalSeconds?: number;
   /**
    * @remarks
-   * The health check path.
+   * The Health Check Path for HTTP health checks.
    * 
    * @example
    * /healthz
@@ -417,7 +417,7 @@ export class UpdateCustomAgentResponseBodyDataHealthCheck extends $dara.Model {
 export class UpdateCustomAgentResponseBodyDataLatestExecutionError extends $dara.Model {
   /**
    * @remarks
-   * The reason code for the waiting or execution failure of the latest configuration. This code is used to determine the subsequent processing method.
+   * The reason code for the waiting or execution failure of the latest configuration. This code is used to determine the subsequent handling method.
    * 
    * @example
    * AgentExecutionFailed
@@ -433,7 +433,7 @@ export class UpdateCustomAgentResponseBodyDataLatestExecutionError extends $dara
   message?: string;
   /**
    * @remarks
-   * Specifies whether automatic retry is performed. If the value is true, you can query again later. If the value is false, check and fix the configuration based on the reason, and then resubmit.
+   * Specifies whether automatic retry is performed. If the value is true, you can query again later. If the value is false, check and fix the configuration based on the reason, and then resubmit the request.
    */
   retryable?: boolean;
   static names(): { [key: string]: string } {
@@ -534,7 +534,7 @@ export class UpdateCustomAgentResponseBodyDataLogging extends $dara.Model {
 export class UpdateCustomAgentResponseBodyDataNetworkAccessInternet extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether Internet access is allowed on the agent side. The actual access is still restricted by the workspace.
+   * Specifies whether Internet access is allowed on the agent side. The actual access is still limited by the workspace.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -561,7 +561,7 @@ export class UpdateCustomAgentResponseBodyDataNetworkAccessInternet extends $dar
 export class UpdateCustomAgentResponseBodyDataNetworkAccessVpc extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether access to the user VPC configured for the workspace is allowed on the agent side. The actual access is still restricted by the workspace.
+   * Specifies whether access to the user VPC configured for the workspace is allowed on the agent side. The actual access is still limited by the workspace.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -588,12 +588,12 @@ export class UpdateCustomAgentResponseBodyDataNetworkAccessVpc extends $dara.Mod
 export class UpdateCustomAgentResponseBodyDataNetwork extends $dara.Model {
   /**
    * @remarks
-   * The Internet access configuration of the agent. If this field is not configured, Internet access is allowed on the agent side, but it is still restricted by the workspace.
+   * The Internet access configuration of the agent. If this field is not configured, Internet access is allowed on the agent side, but it is still limited by the workspace.
    */
   accessInternet?: UpdateCustomAgentResponseBodyDataNetworkAccessInternet;
   /**
    * @remarks
-   * The user VPC access configuration of the agent. If this field is not configured, user VPC access is allowed on the agent side, but it is still restricted by the workspace.
+   * The user VPC access configuration of the agent. If this field is not configured, user VPC access is allowed on the agent side, but it is still limited by the workspace.
    */
   accessVpc?: UpdateCustomAgentResponseBodyDataNetworkAccessVpc;
   static names(): { [key: string]: string } {
@@ -652,7 +652,7 @@ export class UpdateCustomAgentResponseBodyDataOssMounts extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * Specifies whether the mount is read-only. A value of true indicates read-only, and a value of false indicates read and write.
+   * Specifies whether the mount is read-only. A value of true indicates a read-only mount, and a value of false indicates a read-write mount.
    */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -727,7 +727,7 @@ export class UpdateCustomAgentResponseBodyDataProtocolPaths extends $dara.Model 
 export class UpdateCustomAgentResponseBodyDataProtocol extends $dara.Model {
   /**
    * @remarks
-   * The request header configurations for the current protocol, where the key is the name and the value is a string.
+   * The request header configurations for the current protocol. The key is the header name and the value is a string.
    */
   headers?: { [key: string]: string };
   /**
@@ -817,7 +817,9 @@ export class UpdateCustomAgentResponseBodyDataRuntimeCompute extends $dara.Model
 export class UpdateCustomAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether elastic scaling is enabled. A value of true indicates that elastic scaling is enabled, and a value of false indicates that elastic scaling is disabled.
+   * Specifies whether elastic scaling is enabled. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * This parameter is required.
    */
@@ -886,7 +888,7 @@ export class UpdateCustomAgentResponseBodyDataRuntimeHpa extends $dara.Model {
 export class UpdateCustomAgentResponseBodyDataRuntimeSessionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The name of the HTTP request header used by the session policy. This parameter is applicable to ISOLATED_HEADER_FIELD.
+   * The name of the HTTP request header used by the session policy. This parameter applies to ISOLATED_HEADER_FIELD.
    * 
    * @example
    * X-Session-Id
@@ -894,7 +896,11 @@ export class UpdateCustomAgentResponseBodyDataRuntimeSessionPolicy extends $dara
   headerName?: string;
   /**
    * @remarks
-   * The type of the session policy. Valid values: AFFINITY (session affinity), ISOLATED_HEADER_FIELD (associates sessions by using the request header specified by headerName), and ISOLATED_COOKIE (not recommended). The compatible value DISABLED in requests is returned as AFFINITY.
+   * The type of the session policy. Valid values:
+   * - AFFINITY: Session affinity.
+   * - ISOLATED_HEADER_FIELD: Uses the request header specified by headerName to associate sessions.
+   * - ISOLATED_COOKIE: Not recommended.
+   * Note: The compatible value DISABLED in a request is returned as AFFINITY.
    * 
    * This parameter is required.
    * 
@@ -995,7 +1001,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   agenticFsMounts?: UpdateCustomAgentResponseBodyDataAgenticFsMounts[];
   /**
    * @remarks
-   * The latest submitted deployment artifact configuration, including the service listening port and ACR container image. Check latestVersionStatus to determine whether the configuration has taken effect.
+   * The latest submitted deployment artifact configuration, including the service listening port and the ACR container image. To check whether the configuration has taken effect, refer to latestVersionStatus.
    */
   artifact?: UpdateCustomAgentResponseBodyDataArtifact;
   /**
@@ -1024,7 +1030,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The description of the agent\\"s purpose.
+   * The description of the agent.
    * 
    * @example
    * Custom agent that provides conversation services
@@ -1037,7 +1043,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   environment?: UpdateCustomAgentResponseBodyDataEnvironment;
   /**
    * @remarks
-   * The HTTP health check configuration of the agent. This field is empty if no configuration is specified.
+   * The HTTP health check configuration of the agent. This field is empty if no health check is configured.
    */
   healthCheck?: UpdateCustomAgentResponseBodyDataHealthCheck;
   /**
@@ -1047,7 +1053,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   latestExecutionError?: UpdateCustomAgentResponseBodyDataLatestExecutionError;
   /**
    * @remarks
-   * The current latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
+   * The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
    * 
    * @example
    * 1
@@ -1058,8 +1064,8 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
    * The execution status corresponding to latestSpecVersion. Valid values:
    * - pending: Waiting for execution.
    * - processing: Executing.
-   * - waiting_retry: Waiting for retry.
-   * - succeeded: Execution succeeded.
+   * - waiting_retry: Waiting for a retry.
+   * - succeeded: Executed successfully.
    * - failed: Execution failed.
    * - superseded: Superseded by a subsequent version.
    * 
@@ -1082,7 +1088,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network access configuration of the agent. The actual access scope is also restricted by the workspace network configuration.
+   * The network access configuration of the agent. The actual access scope is also limited by the network configuration of the workspace.
    */
   network?: UpdateCustomAgentResponseBodyDataNetwork;
   /**
@@ -1118,12 +1124,19 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   runtime?: UpdateCustomAgentResponseBodyDataRuntime;
   /**
    * @remarks
-   * The counts of running instances by phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
+   * The instance counts grouped by running instance phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
    */
   sandboxPhaseCounts?: { [key: string]: number };
   /**
    * @remarks
-   * The overall status of the agent. Valid values: Creating (creating), Running (running), Failed (failed), Updating (updating), Deleting (deleting), and Deleted (deleted). To check the execution progress of the latest configuration, query latestVersionStatus.
+   * The overall status of the agent. Valid values:
+   * - Creating: The agent is being created.
+   * - Running: The agent is running.
+   * - Failed: The agent failed.
+   * - Updating: The agent is being updated.
+   * - Deleting: The agent is being deleted.
+   * - Deleted: The agent is deleted.
+   * To query the execution progress of the latest configuration, check latestVersionStatus.
    * 
    * @example
    * Running
@@ -1131,7 +1144,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the agent was last updated. The time follows the ISO 8601 standard. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The time when the agent was last updated. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:05:00Z
@@ -1269,7 +1282,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The processing result message of the request. The value is success if the request is successful.
+   * The processing result message of the request. The value is success if the request succeeds.
    * 
    * @example
    * success
@@ -1277,7 +1290,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request, which is used to locate and troubleshoot issues.
+   * The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
    * 
    * @example
    * 550E8400-E29B-41D4-A716-446655440000
@@ -1285,7 +1298,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. A successful creation, update, or deletion does not mean that the background operation is complete.
+   * Indicates whether the request is successful. A value of true indicates that the request is successful. Note that a successful creation, update, or deletion does not mean that the background operation is complete.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -45,7 +45,7 @@ export class BatchDeleteModelsResponseBodyData extends $dara.Model {
 export class BatchDeleteModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -58,7 +58,7 @@ export class BatchDeleteModelsResponseBody extends $dara.Model {
   data?: BatchDeleteModelsResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -82,7 +82,7 @@ export class BatchDeleteModelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

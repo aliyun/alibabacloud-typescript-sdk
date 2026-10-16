@@ -39,17 +39,17 @@ export class UpdateAgentIMChannelRequestBodyChannelConfig extends $dara.Model {
 export class UpdateAgentIMChannelRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The channel behavior configuration. When specified, the entire configuration is replaced. An empty object restores default values.
+   * The channel behavior configuration. This configuration is fully replaced when passed. An empty object indicates that the default values are restored.
    */
   channelConfig?: UpdateAgentIMChannelRequestBodyChannelConfig;
   /**
    * @remarks
-   * Specifies whether to enable the IM channel. Default value upon creation: true.
+   * Specifies whether to enable the IM channel. Default value: true.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint.
+   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready and have a public endpoint.
    * 
    * @example
    * se-1
@@ -91,7 +91,7 @@ export class UpdateAgentIMChannelRequest extends $dara.Model {
   body?: UpdateAgentIMChannelRequestBody;
   /**
    * @remarks
-   * The reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
+   * The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
    * 
    * @example
    * client-token-1

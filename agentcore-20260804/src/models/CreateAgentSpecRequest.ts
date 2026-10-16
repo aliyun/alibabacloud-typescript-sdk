@@ -15,7 +15,7 @@ export class CreateAgentSpecRequestBody extends $dara.Model {
   agentSpecName?: string;
   /**
    * @remarks
-   * The draft version number. If not specified, the default value is 0.0.1.
+   * Specifies the draft version number. If not specified, the default value is 0.0.1.
    * 
    * @example
    * 0.0.1

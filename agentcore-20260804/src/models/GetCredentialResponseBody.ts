@@ -53,7 +53,7 @@ export class GetCredentialResponseBodyDataResourceRefs extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource name. This value is empty if the resource has been deleted.
+   * The resource name. This field is empty if the resource is deleted.
    * 
    * @example
    * my-agent
@@ -100,7 +100,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   boundAgents?: GetCredentialResponseBodyDataBoundAgents[];
   /**
    * @remarks
-   * The creation time in UTC, formatted according to RFC 3339.
+   * The creation time in UTC format compliant with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -116,7 +116,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The masked content of the credential. When credentialType is apiKey, the value of apiKey is returned as asterisks (*) of equal length.
+   * The masked result of the credential content. When credentialType is apiKey, the value of apiKey is returned as asterisks (*) of the same length.
    * 
    * @example
    * {"apiKey":"****************"}
@@ -132,15 +132,15 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The credential description, up to 256 characters in length.
+   * The credential description, which cannot exceed 256 characters in length.
    * 
    * @example
-   * API Key used to call model services in the production environment
+   * API key used for calling model services in the production environment
    */
   description?: string;
   /**
    * @remarks
-   * The credential name. The name must be unique within the workspace and can contain only letters, digits, periods (.), underscores (_), and hyphens (-). The name must be 3 to 128 characters in length and cannot use runtime reserved names.
+   * The credential name. It must be unique within the workspace, contain only letters, digits, periods (.), underscores (_), and hyphens (-), be 3 to 128 characters in length, and cannot use runtime reserved names.
    * 
    * @example
    * model-api-key
@@ -148,7 +148,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID where the resource resides.
+   * The region ID of the resource.
    * 
    * @example
    * cn-hangzhou
@@ -156,12 +156,12 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Each item contains resourceType, resourceId, and resourceName. If the resource has been deleted, resourceName is empty.
+   * Each item includes resourceType, resourceId, and resourceName. If the resource is deleted, resourceName is empty.
    */
   resourceRefs?: GetCredentialResponseBodyDataResourceRefs[];
   /**
    * @remarks
-   * The scope of resources to which the credential applies.
+   * The application scope of the credential resource.
    * 
    * @example
    * ALL
@@ -169,7 +169,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   resourceScope?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted according to RFC 3339.
+   * The time of the last modification in UTC format compliant with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -272,7 +272,7 @@ export class GetCredentialResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -24,7 +24,7 @@ export class ListAgentTeamsResponseBodyItems extends $dara.Model {
    * The team name.
    * 
    * @example
-   * Default Team
+   * Default team
    */
   teamName?: string;
   /**
@@ -81,7 +81,7 @@ export class ListAgentTeamsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The list of agent-team membership relationships.
+   * The list of membership relationships between agents and teams.
    */
   items?: ListAgentTeamsResponseBodyItems[];
   /**
@@ -94,7 +94,7 @@ export class ListAgentTeamsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request failed.
+   * The response message. Returns an error description when the request fails.
    * 
    * @example
    * success
@@ -102,7 +102,7 @@ export class ListAgentTeamsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The cursor used to retrieve the next page. An empty value indicates that no more data exists.
+   * The cursor used to retrieve the next page. An empty value indicates that no more data is available.
    * 
    * @example
    * dXNlci1vZmZzZXQ6MTA
@@ -118,12 +118,12 @@ export class ListAgentTeamsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**
    * @remarks
-   * The total number of records that match the specified conditions.
+   * The total number of records that match the query conditions.
    * 
    * @example
    * 5

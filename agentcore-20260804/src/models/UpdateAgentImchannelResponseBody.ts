@@ -92,10 +92,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   channelConfig?: UpdateAgentIMChannelResponseBodyDataChannelConfig;
   /**
    * @remarks
-   * The IM channel type. Valid values:
-   * - DINGTALK: DingTalk.
-   * - FEISHU: Lark.
-   * - WECOM: WeCom.
+   * The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
    * 
    * @example
    * DINGTALK
@@ -111,12 +108,12 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The channel credential summary. Only non-sensitive fields and the names of configured secret fields are returned. Secret values are not returned.
+   * The channel credential summary. Only non-sensitive fields and configured secret field names are returned. Secret values are not returned.
    */
   credentialSummary?: UpdateAgentIMChannelResponseBodyDataCredentialSummary;
   /**
    * @remarks
-   * Specifies whether to enable the IM channel. Default value upon creation: true.
+   * Specifies whether to enable the IM channel. Default value: true.
    */
   enabled?: boolean;
   /**
@@ -137,7 +134,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint.
+   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready and have a public endpoint.
    * 
    * @example
    * se-1
@@ -145,13 +142,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   serviceEndpointId?: string;
   /**
    * @remarks
-   * The IM channel status. Valid values:
-   * - CREATING: Being created.
-   * - READY: Ready.
-   * - UPDATING: Being updated.
-   * - FAILED: Failed.
-   * - DELETING: Being deleted.
-   * - DELETE_FAILED: Deletion failed.
+   * The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Deletion failed).
    * 
    * @example
    * READY
@@ -159,7 +150,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the current IM channel status.
+   * The reason for the current status of the IM channel.
    * 
    * @example
    * AppFlow creation failed
@@ -235,7 +226,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
 export class UpdateAgentIMChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -248,7 +239,7 @@ export class UpdateAgentIMChannelResponseBody extends $dara.Model {
   data?: UpdateAgentIMChannelResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -272,7 +263,7 @@ export class UpdateAgentIMChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

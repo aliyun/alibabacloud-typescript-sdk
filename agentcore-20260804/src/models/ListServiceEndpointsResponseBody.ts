@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceEndpointsResponseBodyItemsAccessUrls extends $dara.Model {
   /**
    * @remarks
-   * The access URL type. Valid values: INTERNET, VPC.
+   * The access URL type. Valid values: INTERNET and VPC.
    * 
    * @example
    * INTERNET
@@ -13,7 +13,7 @@ export class ListServiceEndpointsResponseBodyItemsAccessUrls extends $dara.Model
   accessType?: string;
   /**
    * @remarks
-   * The access URL status. Valid values: CREATING, READY, DEGRADED.
+   * The access URL status. Valid values: CREATING, READY, and DEGRADED.
    * 
    * @example
    * READY
@@ -21,7 +21,7 @@ export class ListServiceEndpointsResponseBodyItemsAccessUrls extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The reason for the access URL status. A specific reason is returned when the status is abnormal.
+   * The reason for the access URL status. The specific reason is returned when the status is abnormal.
    * 
    * @example
    * ServiceEndpoint.Provider.Unavailable: no provider for the target type
@@ -65,7 +65,7 @@ export class ListServiceEndpointsResponseBodyItemsAccessUrls extends $dara.Model
 export class ListServiceEndpointsResponseBodyItemsAuthentication extends $dara.Model {
   /**
    * @remarks
-   * The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key through the x-api-key request header.
+   * The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key in the x-api-key request header.
    * 
    * @example
    * API_KEY
@@ -95,7 +95,7 @@ export class ListServiceEndpointsResponseBodyItemsAuthentication extends $dara.M
 export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   /**
    * @remarks
-   * The target agent ID. Returned when the target type is AGENT_VERSION.
+   * The target agent ID. This parameter is returned when the target type is AGENT_VERSION.
    * 
    * @example
    * agent-123456
@@ -103,7 +103,7 @@ export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The target agent version number. Returned when the target type is AGENT_VERSION.
+   * The target agent version. This parameter is returned when the target type is AGENT_VERSION.
    * 
    * @example
    * v1
@@ -111,7 +111,7 @@ export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * The collaboration component type. Returned when the target type is TEAM_COLLABORATION.
+   * The collaboration component type. This parameter is returned when the target type is TEAM_COLLABORATION.
    * 
    * @example
    * ELEMENT_WEB
@@ -119,7 +119,7 @@ export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   collaborationComponent?: string;
   /**
    * @remarks
-   * The workspace resource binding ID associated with the target collaboration component. Returned when the target type is TEAM_COLLABORATION.
+   * The workspace resource binding ID associated with the target collaboration component. This parameter is returned when the target type is TEAM_COLLABORATION.
    * 
    * @example
    * wrb-123456
@@ -127,7 +127,7 @@ export class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
   resourceBindingId?: string;
   /**
    * @remarks
-   * The target type. Valid values: AGENT_VERSION, TEAM_COLLABORATION.
+   * The target type. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
    * 
    * @example
    * AGENT_VERSION
@@ -175,7 +175,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   authentication?: ListServiceEndpointsResponseBodyItemsAuthentication;
   /**
    * @remarks
-   * The creation time in UTC, formatted in RFC 3339.
+   * The creation time in UTC format compliant with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -183,7 +183,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
+   * The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by a user.
    * 
    * @example
    * NAMED
@@ -191,7 +191,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * The service endpoint name. The name is unique within the workspace and is 1 to 128 characters in length.
+   * The service endpoint name. The name must be unique within the workspace and 1 to 128 characters in length.
    * 
    * @example
    * my-agent-endpoint
@@ -215,7 +215,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   serviceEndpointId?: string;
   /**
    * @remarks
-   * The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, DELETING.
+   * The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
    * 
    * @example
    * READY
@@ -223,7 +223,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the service endpoint status. A specific reason is returned when the status is abnormal.
+   * The reason for the service endpoint status. The specific reason is returned when the status is abnormal.
    * 
    * @example
    * ServiceEndpoint.Provider.Unavailable: no provider for the target type
@@ -236,7 +236,7 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   target?: ListServiceEndpointsResponseBodyItemsTarget;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted in RFC 3339.
+   * The last update time in UTC format compliant with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -326,7 +326,7 @@ export class ListServiceEndpointsResponseBody extends $dara.Model {
   items?: ListServiceEndpointsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page that takes effect for this query.
+   * The maximum number of records per page that takes effect in this query.
    * 
    * @example
    * 20
@@ -342,7 +342,7 @@ export class ListServiceEndpointsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This value is empty when no more pages are available.
+   * The cursor for the next page. This parameter is empty if no next page exists.
    * 
    * @example
    * djE6YWdlbnRjb3JlLnNlcnZpY2UtZW5kcG9pbnQubGlzdDoyMA
@@ -358,12 +358,12 @@ export class ListServiceEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**
    * @remarks
-   * The total number of service endpoints that match the query conditions.
+   * The total number of service endpoints that meet the query conditions.
    * 
    * @example
    * 42

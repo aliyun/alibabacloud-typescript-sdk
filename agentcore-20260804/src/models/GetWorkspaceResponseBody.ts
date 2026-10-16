@@ -18,7 +18,7 @@ export class GetWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dara.M
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The user VPC ID.
+   * The VPC ID of the user.
    * 
    * @example
    * vpc-bp1234567890
@@ -55,6 +55,14 @@ export class GetWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dara.M
 export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
+   * Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the current change failed. This setting only controls the use of the platform public egress for the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+   * 
+   * @example
+   * true
+   */
+  publicEgressEnabled?: boolean;
+  /**
+   * @remarks
    * The public egress IP address of the workspace.
    * 
    * @example
@@ -63,19 +71,31 @@ export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Mode
   publicEgressIp?: string;
   /**
    * @remarks
-   * The user VPC network configuration.
+   * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public ingress for all agent endpoints in the workspace is closed. When re-enabled, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this setting.
+   * 
+   * @example
+   * true
+   */
+  publicIngressEnabled?: boolean;
+  /**
+   * @remarks
+   * The VPC network configuration of the user.
    */
   vpc?: GetWorkspaceResponseBodyDataNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
     return {
+      publicEgressEnabled: 'publicEgressEnabled',
       publicEgressIp: 'publicEgressIp',
+      publicIngressEnabled: 'publicIngressEnabled',
       vpc: 'vpc',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      publicEgressEnabled: 'boolean',
       publicEgressIp: 'string',
+      publicIngressEnabled: 'boolean',
       vpc: GetWorkspaceResponseBodyDataNetworkConfigurationVpc,
     };
   }
@@ -111,7 +131,7 @@ export class GetWorkspaceResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The time when the workspace was created.
+   * The creation time.
    * 
    * @example
    * 2026-08-06T03:56:56Z
@@ -127,7 +147,7 @@ export class GetWorkspaceResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The workspace network configuration.
+   * The network configuration of the workspace.
    */
   networkConfiguration?: GetWorkspaceResponseBodyDataNetworkConfiguration;
   /**
@@ -156,7 +176,7 @@ export class GetWorkspaceResponseBodyData extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The workspace storage type.
+   * The storage type of the workspace.
    * 
    * @example
    * PRIVATE
@@ -262,7 +282,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -55,17 +55,37 @@ export class ListWorkspacesResponseBodyItemsNetworkConfigurationVpc extends $dar
 export class ListWorkspacesResponseBodyItemsNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The VPC network configuration of the user.
+   * Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This setting only controls whether the latest versions of managed and custom agents use the public network egress of the platform. It does not control fixed historical versions, model or MCP proxy egresses, or the public network egress of the user VPC.
+   * 
+   * @example
+   * true
+   */
+  publicEgressEnabled?: boolean;
+  /**
+   * @remarks
+   * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. After this setting is disabled, the public network ingress for all agent endpoints in the workspace is closed. After it is re-enabled, the original public network ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this setting.
+   * 
+   * @example
+   * true
+   */
+  publicIngressEnabled?: boolean;
+  /**
+   * @remarks
+   * The network configuration of the user VPC.
    */
   vpc?: ListWorkspacesResponseBodyItemsNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
     return {
+      publicEgressEnabled: 'publicEgressEnabled',
+      publicIngressEnabled: 'publicIngressEnabled',
       vpc: 'vpc',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      publicEgressEnabled: 'boolean',
+      publicIngressEnabled: 'boolean',
       vpc: ListWorkspacesResponseBodyItemsNetworkConfigurationVpc,
     };
   }
@@ -85,7 +105,7 @@ export class ListWorkspacesResponseBodyItemsNetworkConfiguration extends $dara.M
 export class ListWorkspacesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the workspace was created.
+   * The creation time.
    * 
    * @example
    * 2026-08-06T03:56:56Z
@@ -93,7 +113,7 @@ export class ListWorkspacesResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * production-agents
@@ -106,7 +126,7 @@ export class ListWorkspacesResponseBodyItems extends $dara.Model {
   networkConfiguration?: ListWorkspacesResponseBodyItemsNetworkConfiguration;
   /**
    * @remarks
-   * The region ID of the workspace.
+   * The ID of the region where the workspace resides.
    * 
    * @example
    * cn-hangzhou
@@ -114,11 +134,7 @@ export class ListWorkspacesResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The workspace status. Valid values:
-   * - Initializing
-   * - Initialized
-   * - Deleting
-   * - Deleted.
+   * The workspace status. Valid values: Initializing, Initialized, Deleting, and Deleted.
    * 
    * @example
    * Initialized
@@ -195,12 +211,12 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The list of workspaces.
+   * The workspace list.
    */
   items?: ListWorkspacesResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page used in this request.
+   * The maximum number of records per page used for this request.
    * 
    * @example
    * 20
@@ -216,7 +232,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This parameter is empty if no more pages are available.
+   * The cursor for the next page. This parameter is empty if there is no next page.
    * 
    * @example
    * d29ya3NwYWNlLW9mZnNldDo0MA
@@ -232,7 +248,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -240,7 +256,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of workspaces that match the query conditions.
+   * The total number of workspaces that meet the query conditions.
    * 
    * @example
    * 42

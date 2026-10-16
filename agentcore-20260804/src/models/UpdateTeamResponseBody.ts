@@ -13,11 +13,7 @@ export class UpdateTeamResponseBodyDataAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The role of the agent in the team. Valid values:
-   * - LEADER
-   * - WORKER
-   * 
-   * Each team must have exactly one LEADER.
+   * The role of the agent in the team. Valid values: LEADER, WORKER. Each team must have exactly one LEADER.
    * 
    * @example
    * WORKER
@@ -49,11 +45,7 @@ export class UpdateTeamResponseBodyDataAgents extends $dara.Model {
 export class UpdateTeamResponseBodyDataUsers extends $dara.Model {
   /**
    * @remarks
-   * The role of the user in the team. Valid values:
-   * - ADMIN
-   * - MEMBER
-   * 
-   * Each team must have exactly one ADMIN.
+   * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
    * 
    * @example
    * ADMIN
@@ -93,12 +85,12 @@ export class UpdateTeamResponseBodyDataUsers extends $dara.Model {
 export class UpdateTeamResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The agent member list of the team.
+   * The list of agent members in the team.
    */
   agents?: UpdateTeamResponseBodyDataAgents[];
   /**
    * @remarks
-   * The creation time in UTC, formatted in RFC 3339.
+   * The creation time in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -109,12 +101,12 @@ export class UpdateTeamResponseBodyData extends $dara.Model {
    * The team description.
    * 
    * @example
-   * A team responsible for intelligent customer service
+   * Team responsible for intelligent customer service
    */
   description?: string;
   /**
    * @remarks
-   * The team name. The name can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 128 characters in length.
+   * The team name. The name can contain only lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
    * 
    * @example
    * team-01
@@ -122,13 +114,7 @@ export class UpdateTeamResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The team status. Valid values:
-   * - Creating
-   * - Active
-   * - Updating
-   * - Deleting
-   * - Failed
-   * - Deleted
+   * The team status. Valid values: Creating, Active, Updating, Deleting, Failed, Deleted.
    * 
    * @example
    * Active
@@ -144,7 +130,7 @@ export class UpdateTeamResponseBodyData extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted in RFC 3339.
+   * The time of the last update in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -152,7 +138,7 @@ export class UpdateTeamResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The user member list of the team.
+   * The list of user members in the team.
    */
   users?: UpdateTeamResponseBodyDataUsers[];
   /**
@@ -230,7 +216,7 @@ export class UpdateTeamResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request failed.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success
@@ -246,7 +232,7 @@ export class UpdateTeamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

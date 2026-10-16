@@ -15,7 +15,7 @@ export class GetModelResponseBodyDataCapabilities extends $dara.Model {
   document?: boolean;
   /**
    * @remarks
-   * Indicates whether the model is able to invoke multiple tool calling requests in a single response.
+   * Indicates whether the model supports tool calling and is able to invoke multiple tools in a single response.
    */
   multiToolCall?: boolean;
   /**
@@ -25,7 +25,7 @@ export class GetModelResponseBodyDataCapabilities extends $dara.Model {
   reasoning?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports streaming tool calling.
+   * Indicates whether the model supports tool calling and is able to invoke tools in a streaming manner.
    */
   streamToolCall?: boolean;
   /**
@@ -81,7 +81,7 @@ export class GetModelResponseBodyDataCapabilities extends $dara.Model {
 export class GetModelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The model capability configuration.
+   * The capability configurations of the model.
    */
   capabilities?: GetModelResponseBodyDataCapabilities;
   /**
@@ -94,7 +94,7 @@ export class GetModelResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The model context window size, in tokens. The value must be a positive integer.
+   * The context window size of the model, in tokens. It must be a positive integer.
    * 
    * @example
    * 128000
@@ -110,7 +110,7 @@ export class GetModelResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The model description, up to 255 characters.
+   * The description of the model, up to 255 characters in length.
    * 
    * @example
    * description
@@ -118,7 +118,7 @@ export class GetModelResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The maximum number of output tokens supported per model generation.
+   * The maximum number of output tokens supported by the model in a single generation.
    * 
    * @example
    * 131072
@@ -134,7 +134,7 @@ export class GetModelResponseBodyData extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
-   * The upstream model name.
+   * The name of the upstream model.
    * 
    * @example
    * qwen-max
@@ -142,7 +142,7 @@ export class GetModelResponseBodyData extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The region ID to which the resource belongs.
+   * The ID of the region to which the resource belongs.
    * 
    * @example
    * cn-hangzhou
@@ -219,7 +219,7 @@ export class GetModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The model details.
+   * The detailed information about the model.
    */
   data?: GetModelResponseBodyData;
   /**
@@ -248,7 +248,7 @@ export class GetModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

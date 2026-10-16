@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable VPC networking.
+   * Specifies whether to enable the VPC network.
    * 
    * @example
    * true
@@ -18,7 +18,7 @@ export class UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID of the user.
+   * The ID of the user VPC.
    * 
    * @example
    * vpc-bp1234567890
@@ -55,17 +55,37 @@ export class UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
 export class UpdateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
+   * Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+   * 
+   * @example
+   * true
+   */
+  publicEgressEnabled?: boolean;
+  /**
+   * @remarks
+   * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. After this feature is disabled, the public ingress for all agent endpoints in the workspace is closed. After this feature is re-enabled, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
+   * 
+   * @example
+   * true
+   */
+  publicIngressEnabled?: boolean;
+  /**
+   * @remarks
    * The VPC network configuration of the user.
    */
   vpc?: UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
     return {
+      publicEgressEnabled: 'publicEgressEnabled',
+      publicIngressEnabled: 'publicIngressEnabled',
       vpc: 'vpc',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      publicEgressEnabled: 'boolean',
+      publicIngressEnabled: 'boolean',
       vpc: UpdateWorkspaceResponseBodyDataNetworkConfigurationVpc,
     };
   }
@@ -85,7 +105,7 @@ export class UpdateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.M
 export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The OSS storage authorization status.
+   * The authorization status of OSS storage.
    * 
    * @example
    * AUTHORIZED
@@ -101,7 +121,7 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * production-agents-v2
@@ -114,7 +134,7 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   networkConfiguration?: UpdateWorkspaceResponseBodyDataNetworkConfiguration;
   /**
    * @remarks
-   * The region ID of the workspace.
+   * The ID of the region where the workspace resides.
    * 
    * @example
    * cn-hangzhou
@@ -122,7 +142,7 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The workspace status. Valid values: Initializing, Initialized, Deleting, and Deleted.
+   * The status of the workspace. Valid values: Initializing, Initialized, Deleting, and Deleted.
    * 
    * @example
    * Initialized
@@ -138,7 +158,7 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The tenant ID to which the workspace belongs.
+   * The ID of the tenant to which the workspace belongs.
    * 
    * @example
    * tenant-123456
@@ -146,7 +166,7 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * ws-123456
@@ -224,7 +244,7 @@ export class UpdateWorkspaceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * request-123456
@@ -232,7 +252,7 @@ export class UpdateWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

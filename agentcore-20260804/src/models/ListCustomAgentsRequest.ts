@@ -13,7 +13,7 @@ export class ListCustomAgentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The opaque token used to query the next page. Omit this parameter in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. Do not construct the token yourself.
+   * The opaque token used to query the next page. Omit this parameter in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. Do not construct this token.
    * 
    * @example
    * djE6YWdlbnRjb3JlLmFnZW50Lmxpc3QuY3VzdG9tOjIw

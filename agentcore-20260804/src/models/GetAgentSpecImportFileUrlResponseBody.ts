@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentSpecImportFileUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Content-Type to use for the OSS PUT request.
+   * The Content-Type used for the OSS PUT request.
    * 
    * @example
    * application/zip
@@ -29,7 +29,7 @@ export class GetAgentSpecImportFileUrlResponseBodyData extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * The OSS pre-signed upload URL.
+   * The OSS presigned upload URL.
    * 
    * @example
    * https://example.com/artifacts/example.zip
@@ -65,7 +65,7 @@ export class GetAgentSpecImportFileUrlResponseBodyData extends $dara.Model {
 export class GetAgentSpecImportFileUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: GetAgentSpecImportFileUrlResponseBodyData;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAgentsResponseBodyItemsProtocolPaths extends $dara.Model {
   /**
    * @remarks
-   * The description of the purpose of the current API path.
+   * The description of the current API path.
    * 
    * @example
    * AG-UI conversation API
@@ -57,7 +57,10 @@ export class ListCustomAgentsResponseBodyItemsProtocol extends $dara.Model {
   paths?: ListCustomAgentsResponseBodyItemsProtocolPaths[];
   /**
    * @remarks
-   * The invoke Protocol Type. Valid values: agui: AG-UI protocol. openai-chat-completion: OpenAI Chat Completions compatible protocol. custom: custom protocol.
+   * The invocation protocol type. Valid values:
+   * - agui: AG-UI protocol.
+   * - openai-chat-completion: OpenAI Chat Completions compatible protocol.
+   * - custom: Custom protocol.
    * 
    * This parameter is required.
    * 
@@ -99,7 +102,7 @@ export class ListCustomAgentsResponseBodyItemsProtocol extends $dara.Model {
 export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the custom agent. You can obtain the value from the response of CreateCustomAgent or ListCustomAgents.
+   * The unique identifier of the custom agent. You can obtain this value from the response of CreateCustomAgent or ListCustomAgents.
    * 
    * @example
    * agent-550e8400e29b41d4a716446655440000
@@ -115,7 +118,7 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   createMode?: string;
   /**
    * @remarks
-   * The time when the agent was created. The time is displayed in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:00:00Z
@@ -123,7 +126,7 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED.
+   * The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED for custom agents.
    * 
    * @example
    * MANAGED
@@ -131,10 +134,10 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The description of the agent\\"s purpose.
+   * The description of the agent.
    * 
    * @example
-   * Custom agent that provides conversation services
+   * Custom agent that provides conversational services
    */
   description?: string;
   /**
@@ -168,7 +171,14 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The overall status of the agent. Valid values: Creating: The agent is being created. Running: The agent is running. Failed: The agent failed to run. Updating: The agent is being updated. Deleting: The agent is being deleted. Deleted: The agent is deleted. To query the execution progress of the latest configuration, call GetCustomAgent.
+   * The overall status of the agent. Valid values:
+   * - Creating: The agent is being created.
+   * - Running: The agent is running.
+   * - Failed: The agent failed.
+   * - Updating: The agent is being updated.
+   * - Deleting: The agent is being deleted.
+   * - Deleted: The agent is deleted.
+   * To check the execution progress of the latest configuration, call GetCustomAgent.
    * 
    * @example
    * Running
@@ -176,7 +186,7 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the agent was last updated. The time is displayed in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The time when the agent was last updated. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:05:00Z
@@ -276,7 +286,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The opaque token used to query the next page. An empty value indicates that there are no more pages. Pass the token as is in subsequent requests.
+   * The opaque token used to query the next page. If this value is empty, no more pages are available. Pass this value as is in subsequent requests.
    * 
    * @example
    * djE6YWdlbnRjb3JlLmFnZW50Lmxpc3QuY3VzdG9tOjIw
@@ -284,7 +294,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can use the ID to locate and troubleshoot issues.
+   * The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
    * 
    * @example
    * 550E8400-E29B-41D4-A716-446655440000
@@ -292,7 +302,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. true indicates that the request was processed successfully. A successful creation, update, or deletion does not mean that the background operation is complete.
+   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. A successful creation, update, or deletion does not indicate that the background operation is complete.
    */
   success?: boolean;
   /**

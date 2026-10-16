@@ -21,7 +21,7 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * Required. The secret of the external identity provider application. This parameter is write-only and is not returned by query operations.
+   * Required. The application secret of the external identity provider. This parameter is used only for write operations and is not returned by query operations.
    * 
    * @example
    * example-app-secret
@@ -37,7 +37,7 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * The data encryption key for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
+   * The data encryption key for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
    * 
    * @example
    * example-encrypt-key
@@ -45,7 +45,7 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   encryptKey?: string;
   /**
    * @remarks
-   * The verification token for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
+   * The verification token for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
    * 
    * @example
    * example-verification-token
@@ -85,9 +85,7 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
 export class CreateIdentityProviderRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the external identity provider. Valid values:
-   * - DingTalk
-   * - Feishu
+   * The type of the external identity provider. Valid values: DingTalk and Feishu.
    * 
    * This parameter is required.
    * 
@@ -97,17 +95,17 @@ export class CreateIdentityProviderRequestBody extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * Specifies whether workspace users are allowed to log on through this external identity provider.
+   * Specifies whether workspace users can log on through the external identity provider.
    */
   loginEnabled?: boolean;
   /**
    * @remarks
-   * The application configuration of the external identity provider. When binding DingTalk, you must provide appKey, appSecret, and corpId. When binding Lark, you must provide appId and appSecret.
+   * The application configuration for the external identity provider. When you bind DingTalk, you must provide appKey, appSecret, and corpId. When you bind Feishu, you must provide appId and appSecret.
    */
   metadata?: CreateIdentityProviderRequestBodyMetadata;
   /**
    * @remarks
-   * Specifies whether to enable organization member synchronization. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
+   * Specifies whether to enable organization member synchronization. If enabled, organization members are synchronized to workspace users from the external identity provider.
    */
   syncEnabled?: boolean;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   agentCoreUserId?: string;
   /**
    * @remarks
-   * The authentication method of the user. password indicates local password authentication of the workspace. dingtalk and feishu indicate that the user is synchronized and authenticated by the corresponding external identity provider.
+   * The authentication method of the user. A value of password indicates that local password authentication of the workspace is used. Values of dingtalk and feishu indicate that the user is synchronized and authenticated by the corresponding external identity provider.
    * 
    * @example
    * password
@@ -21,7 +21,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   authMethod?: string;
   /**
    * @remarks
-   * The creation time in UTC, formatted in RFC 3339.
+   * The creation time in UTC format that complies with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -29,10 +29,10 @@ export class GetUserResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The display name of the user. The name is 1 to 32 characters in length.
+   * The display name of the user. The name must be 1 to 32 characters in length.
    * 
    * @example
-   * John Doe
+   * Zhang San
    */
   displayName?: string;
   /**
@@ -45,7 +45,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The username is 1 to 32 characters in length.
+   * The username. The name must be unique within the workspace, contain only lowercase letters, digits, and hyphens, start and end with a lowercase letter or digit, and be 1 to 32 characters in length.
    * 
    * @example
    * user-01
@@ -53,10 +53,10 @@ export class GetUserResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The remarks of the user. The remarks can be up to 1,024 characters in length.
+   * The notes for the user. The notes can be up to 1,024 characters in length.
    * 
    * @example
-   * Member of the agent operations team
+   * Agent operations team member
    */
   note?: string;
   /**
@@ -69,13 +69,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user status. Valid values:
-   * - Creating
-   * - Active
-   * - Updating
-   * - Deleting
-   * - Failed
-   * - DeleteFailed
+   * The status of the user. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
    * 
    * @example
    * Active
@@ -83,7 +77,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted in RFC 3339.
+   * The time of the last update in UTC format that complies with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -178,7 +172,7 @@ export class GetUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

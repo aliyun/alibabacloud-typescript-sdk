@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceRequestBodyNetworkConfigurationVpc extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable VPC networking.
+   * Specifies whether to enable the VPC network.
    * 
    * @example
    * true
@@ -13,12 +13,12 @@ export class CreateWorkspaceRequestBodyNetworkConfigurationVpc extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be included, and all vSwitches must belong to the VPC specified by VpcId.
+   * The list of vSwitch IDs. When the VPC network is enabled, the list must contain at least one vSwitch, and all vSwitches must belong to the VPC specified by VpcId.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the user VPC.
+   * The user VPC ID.
    * 
    * @example
    * vpc-bp1234567890
@@ -55,19 +55,37 @@ export class CreateWorkspaceRequestBodyNetworkConfigurationVpc extends $dara.Mod
 export class CreateWorkspaceRequestBodyNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The VPC network configuration of the user.
+   * Specifies whether to allow public outbound access from the platform. If this parameter is not specified, the default value is true. This setting only controls whether the latest versions of managed and custom agents use the public outbound endpoint of the platform. It does not affect fixed historical versions, model or MCP proxy endpoints, or the public outbound endpoint of the user VPC.
    * 
-   * This parameter is required.
+   * @example
+   * true
+   */
+  publicEgressEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to allow public inbound access. If this parameter is not specified, the default value is true. If disabled, the public inbound endpoints of all agent endpoints in the workspace are closed, and the original public inbound endpoints are restored when re-enabled. INNER_DIRECT and user VPC endpoints are not affected. Collaboration and Element Web endpoints are not controlled by this parameter.
+   * 
+   * @example
+   * true
+   */
+  publicIngressEnabled?: boolean;
+  /**
+   * @remarks
+   * The user VPC network configuration.
    */
   vpc?: CreateWorkspaceRequestBodyNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
     return {
+      publicEgressEnabled: 'publicEgressEnabled',
+      publicIngressEnabled: 'publicIngressEnabled',
       vpc: 'vpc',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      publicEgressEnabled: 'boolean',
+      publicIngressEnabled: 'boolean',
       vpc: CreateWorkspaceRequestBodyNetworkConfigurationVpc,
     };
   }
@@ -87,7 +105,7 @@ export class CreateWorkspaceRequestBodyNetworkConfiguration extends $dara.Model 
 export class CreateWorkspaceRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * This parameter is required.
    * 
@@ -102,9 +120,7 @@ export class CreateWorkspaceRequestBody extends $dara.Model {
   networkConfiguration?: CreateWorkspaceRequestBodyNetworkConfiguration;
   /**
    * @remarks
-   * The storage type of the workspace. Valid values:
-   * - PLATFORM: Platform-managed storage.
-   * - PRIVATE: User-owned private OSS storage.
+   * The workspace storage type. PLATFORM indicates platform-managed storage, and PRIVATE indicates user private OSS storage.
    * 
    * @example
    * PRIVATE
@@ -141,7 +157,7 @@ export class CreateWorkspaceRequestBody extends $dara.Model {
 export class CreateWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for creating a workspace.
+   * The workspace creation request body.
    */
   body?: CreateWorkspaceRequestBody;
   /**

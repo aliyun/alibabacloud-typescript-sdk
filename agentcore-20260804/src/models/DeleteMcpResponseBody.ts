@@ -24,12 +24,12 @@ export class DeleteMcpResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * Request processed successfully
+   * The request is processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A1B2C3D4-E5F6-47A8-90AB-CDEF12345678
@@ -37,7 +37,7 @@ export class DeleteMcpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

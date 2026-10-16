@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of API keys configured in the model connection.
+   * The number of API keys configured for the model connection.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The time when the resource was created, in RFC 3339 UTC format.
+   * The time when the resource was created. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -29,7 +29,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Indicates whether access credentials have been configured for the model connection.
+   * Indicates whether access credentials are configured for the model connection.
    */
   credentialConfigured?: boolean;
   /**
@@ -42,7 +42,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The absolute HTTP or HTTPS address of the upstream model service. The address can be up to 1024 characters in length.
+   * The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
    * 
    * @example
    * https://dashscope.aliyuncs.com/compatible-mode/v1
@@ -50,7 +50,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The model connection name. The name must be 1 to 128 non-whitespace characters in length.
+   * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
    * 
    * @example
    * name
@@ -58,7 +58,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not configured in Settings during model creation, this default value is used.
+   * The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
    * 
    * @example
    * OpenAI/v1
@@ -82,7 +82,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The failure summary returned when the model connection fails to be published or fails to be deleted but remains in the Deleting state. This parameter is empty for other states.
+   * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the Deleting state. This field is empty in other states.
    * 
    * @example
    * GatewayOperationException
@@ -90,7 +90,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The time when the resource was last updated, in RFC 3339 UTC format.
+   * The time when the resource was last updated. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -152,7 +152,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
 export class CreateModelConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS indicates success.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -160,12 +160,12 @@ export class CreateModelConnectionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The model connection information after creation.
+   * The information about the created model connection.
    */
   data?: CreateModelConnectionResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 indicates success.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -173,7 +173,7 @@ export class CreateModelConnectionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request processing result message.
+   * The message about the request processing result.
    * 
    * @example
    * success
@@ -189,7 +189,7 @@ export class CreateModelConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

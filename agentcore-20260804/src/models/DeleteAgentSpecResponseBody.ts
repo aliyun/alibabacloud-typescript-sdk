@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgentSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: boolean;
   /**

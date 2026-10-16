@@ -5,14 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetExternalAgentBootstrapOptionsResponseBodyDataNetworkOptions extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the network access type is available.
+   * Indicates whether the access network is available.
    */
   available?: boolean;
   /**
    * @remarks
-   * The network type. Valid values:
-   * - INTRANET: internal network.
-   * - INTERNET: public network.
+   * The access network type. Valid values: INTRANET (internal network) and INTERNET (public network).
    * 
    * @example
    * INTERNET
@@ -52,7 +50,7 @@ export class GetExternalAgentBootstrapOptionsResponseBodyData extends $dara.Mode
   agentId?: string;
   /**
    * @remarks
-   * The list of available network access options.
+   * The list of available access networks.
    */
   networkOptions?: GetExternalAgentBootstrapOptionsResponseBodyDataNetworkOptions[];
   /**
@@ -94,7 +92,7 @@ export class GetExternalAgentBootstrapOptionsResponseBodyData extends $dara.Mode
 export class GetExternalAgentBootstrapOptionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS is returned if the request succeeds.
+   * The business status code. The value is SUCCESS when the request is successful.
    * 
    * @example
    * SUCCESS
@@ -102,12 +100,12 @@ export class GetExternalAgentBootstrapOptionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The network access information available for the external agent.
+   * The access network information available for the external agent.
    */
   data?: GetExternalAgentBootstrapOptionsResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 is returned if the request succeeds.
+   * The HTTP status code. The value is 200 when the request is successful.
    * 
    * @example
    * 200
@@ -115,7 +113,7 @@ export class GetExternalAgentBootstrapOptionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The request processing result message.
    * 
    * @example
    * success
@@ -131,7 +129,7 @@ export class GetExternalAgentBootstrapOptionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

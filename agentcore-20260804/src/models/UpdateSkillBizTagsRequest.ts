@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSkillBizTagsRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The business tags as a JSON array string.
+   * The JSON array string of business tags.
    * 
    * This parameter is required.
    * 

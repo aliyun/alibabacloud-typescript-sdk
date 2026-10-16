@@ -92,10 +92,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   channelConfig?: CreateAgentIMChannelResponseBodyDataChannelConfig;
   /**
    * @remarks
-   * The IM channel type. Valid values:
-   * - DINGTALK: DingTalk.
-   * - FEISHU: Lark.
-   * - WECOM: WeCom.
+   * The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
    * 
    * @example
    * DINGTALK
@@ -116,12 +113,12 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   credentialSummary?: CreateAgentIMChannelResponseBodyDataCredentialSummary;
   /**
    * @remarks
-   * Specifies whether to enable the IM channel. Default value during creation: true.
+   * Specifies whether to enable the IM channel. Default value: true.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The public network access URL of the attached ServiceEndpoint.
+   * The public network access address of the bound ServiceEndpoint.
    * 
    * @example
    * https://agent.example.com
@@ -137,7 +134,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
+   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready and have a public network address.
    * 
    * @example
    * se-1
@@ -146,11 +143,11 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The IM channel status. Valid values:
-   * - CREATING: Being created.
+   * - CREATING: Creating.
    * - READY: Ready.
-   * - UPDATING: Being updated.
+   * - UPDATING: Updating.
    * - FAILED: Failed.
-   * - DELETING: Being deleted.
+   * - DELETING: Deleting.
    * - DELETE_FAILED: Deletion failed.
    * 
    * @example
@@ -235,7 +232,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
 export class CreateAgentIMChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the request succeeds.
+   * The business status code. The value is SUCCESS when the request is successful.
    * 
    * @example
    * SUCCESS
@@ -248,7 +245,7 @@ export class CreateAgentIMChannelResponseBody extends $dara.Model {
   data?: CreateAgentIMChannelResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 when the request succeeds.
+   * The HTTP status code. The value is 200 when the request is successful.
    * 
    * @example
    * 200
@@ -272,7 +269,7 @@ export class CreateAgentIMChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

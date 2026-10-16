@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadAgentSpecViaOssRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The OSS object name (full path).
+   * The name of the OSS object, including the full path.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UploadAgentSpecViaOssRequestBody extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite the existing draft. Default value: false.
+   * Specifies whether to overwrite existing drafts. Default value: false.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class UploadAgentSpecViaOssRequestBody extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * Specifies whether to publish directly after upload. Default value: false.
+   * Specifies whether to publish and bring the AgentSpec online immediately after the upload. Default value: false.
    * 
    * @example
    * false

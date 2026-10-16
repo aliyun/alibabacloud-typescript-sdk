@@ -10,7 +10,7 @@ export class UpdateWorkspaceShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The client idempotency token.
+   * The client token used to ensure idempotence.
    * 
    * @example
    * workspace-update-20260805-001

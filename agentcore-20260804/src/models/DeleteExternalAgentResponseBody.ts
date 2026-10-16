@@ -40,7 +40,7 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
    * The description of the external agent.
    * 
    * @example
-   * A code review agent running in the user environment
+   * Code review agent running in the user environment
    */
   description?: string;
   /**
@@ -69,13 +69,7 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The status of the external agent. Valid values:
-   * - Creating: The agent is being created.
-   * - Running: The agent is running.
-   * - Failed: The agent has failed.
-   * - Updating: The agent is being updated.
-   * - Deleting: The agent is being deleted.
-   * - Deleted: The agent has been deleted.
+   * The status of the external agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
    * 
    * @example
    * Running
@@ -141,7 +135,7 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
 export class DeleteExternalAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS is returned if the request is successful.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -154,7 +148,7 @@ export class DeleteExternalAgentResponseBody extends $dara.Model {
   data?: DeleteExternalAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 is returned if the request is successful.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -162,7 +156,7 @@ export class DeleteExternalAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned for the request processing result.
+   * The message about the request processing result.
    * 
    * @example
    * success
@@ -178,7 +172,7 @@ export class DeleteExternalAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

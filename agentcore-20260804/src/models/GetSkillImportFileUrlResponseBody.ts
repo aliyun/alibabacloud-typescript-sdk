@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillImportFileUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Content-Type of the upload file.
+   * The Content-Type of the uploaded file.
    * 
    * @example
    * application/zip
@@ -13,7 +13,7 @@ export class GetSkillImportFileUrlResponseBodyData extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The maximum file size allowed for upload, in bytes.
+   * The maximum allowed file size for upload, in bytes.
    * 
    * @example
    * 10485760
@@ -29,7 +29,7 @@ export class GetSkillImportFileUrlResponseBodyData extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * The OSS pre-signed upload URL.
+   * The OSS presigned upload URL.
    * 
    * @example
    * https://example.com/artifacts/example.zip
@@ -65,7 +65,7 @@ export class GetSkillImportFileUrlResponseBodyData extends $dara.Model {
 export class GetSkillImportFileUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: GetSkillImportFileUrlResponseBodyData;
   /**

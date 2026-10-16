@@ -13,7 +13,7 @@ export class UpdateCredentialRequestBodyResourceRefs extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource name. This value is empty if the resource has been deleted.
+   * The resource name. This parameter is empty if the resource is deleted.
    * 
    * @example
    * my-agent
@@ -55,7 +55,7 @@ export class UpdateCredentialRequestBodyResourceRefs extends $dara.Model {
 export class UpdateCredentialRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The new credential content. The value is a JSON string. If credentialType is set to apiKey, only the apiKey field can be included, and the value cannot be empty. At least one of credentialMetadata and description must be specified.
+   * The new credential content, which is a JSON string. If credentialType is apiKey, this parameter can only contain the apiKey field, and the value cannot be empty. You must specify at least one of credentialMetadata and description.
    * 
    * @example
    * {"apiKey":"sk-example-value"}
@@ -63,20 +63,20 @@ export class UpdateCredentialRequestBody extends $dara.Model {
   credentialMetadata?: string;
   /**
    * @remarks
-   * The new credential description. The description can be up to 256 characters in length. At least one of description and credentialMetadata must be specified.
+   * The new credential description, which can be up to 256 characters in length. You must specify at least one of credentialMetadata and description.
    * 
    * @example
-   * API Key used for calling model services in the production environment
+   * API key used to call model services in the production environment
    */
   description?: string;
   /**
    * @remarks
-   * This parameter is required and must be a non-empty array when resourceScope is set to SPECIFIED. Each item contains resourceType and resourceId. resourceName is optional.
+   * If resourceScope is SPECIFIED, this parameter must be a non-empty array. Each item must include resourceType and resourceId. resourceName is optional.
    */
   resourceRefs?: UpdateCredentialRequestBodyResourceRefs[];
   /**
    * @remarks
-   * ALL indicates all resources. SPECIFIED indicates that the credential applies only to the resources specified in resourceRefs.
+   * The application scope of the credential resources. A value of ALL indicates all resources. A value of SPECIFIED indicates only the resources specified by resourceRefs.
    * 
    * @example
    * ALL

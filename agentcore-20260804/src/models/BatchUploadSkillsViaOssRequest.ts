@@ -15,7 +15,7 @@ export class BatchUploadSkillsViaOssRequestBody extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite an existing Skill. Default value: false.
+   * Specifies whether to overwrite existing skills. Default value: false.
    * 
    * @example
    * false

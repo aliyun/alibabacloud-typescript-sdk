@@ -86,7 +86,7 @@ export class InstallWorkspacePluginResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. Returns an error description when the request fails.
    * 
    * @example
    * success
@@ -102,7 +102,7 @@ export class InstallWorkspacePluginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

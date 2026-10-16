@@ -13,7 +13,7 @@ export class CreateAgentSpecVersionRequestBody extends $dara.Model {
   basedOnVersion?: string;
   /**
    * @remarks
-   * The version number of the draft. If this parameter is not specified, the version number is automatically incremented.
+   * Specifies the draft version number. If you do not specify this parameter, the version number is automatically incremented.
    * 
    * @example
    * 2.0.0

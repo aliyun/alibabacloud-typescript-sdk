@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentSpecImportFileUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The Content-Type of the file to upload. The client must use the same value from the response when performing the PUT request.
+   * The Content-Type of the uploaded file. The client must use the same value in the PUT request as the one returned in the response.
    * 
    * @example
    * application/zip

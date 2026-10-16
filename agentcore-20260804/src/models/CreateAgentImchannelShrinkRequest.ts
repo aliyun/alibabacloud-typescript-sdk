@@ -10,7 +10,7 @@ export class CreateAgentIMChannelShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
+   * The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
    * 
    * @example
    * client-token-1

@@ -26,7 +26,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The time when the resource was created, in RFC 3339 UTC format.
+   * The time when the resource was created. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -34,7 +34,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Indicates whether access credentials have been configured for the model connection.
+   * Indicates whether access credentials are configured for the model connection.
    */
   credentialConfigured?: boolean;
   /**
@@ -47,7 +47,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The absolute HTTP or HTTPS address of the upstream model service. The address can be up to 1024 characters in length.
+   * The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
    * 
    * @example
    * https://dashscope.aliyuncs.com/compatible-mode/v1
@@ -63,7 +63,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The model invocation protocol. Currently, only OpenAI/v1 is supported. If this parameter is not set during model connection creation, this default value is used.
+   * The protocol used to invoke the model. Currently, only OpenAI/v1 is supported. If no Settings are specified during model creation, this default value is used.
    * 
    * @example
    * OpenAI/v1
@@ -71,7 +71,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The model provider type.
+   * The type of the model provider.
    * 
    * @example
    * qwen
@@ -79,7 +79,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   providerType?: string;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The ID of the region to which the resource belongs.
    * 
    * @example
    * cn-hangzhou
@@ -87,7 +87,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource status. Valid values:
+   * The status of the resource.
    * 
    * @example
    * Active
@@ -95,7 +95,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The failure summary returned when the model connection fails to be published or fails to be deleted but remains in the Deleting state. This value is empty for other statuses.
+   * The failure summary returned when the model connection fails to be published, or when deletion fails but the resource remains in the deleting state. This field is empty in other states.
    * 
    * @example
    * GatewayOperationException
@@ -103,7 +103,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The time when the resource was last updated, in RFC 3339 UTC format.
+   * The time when the resource was last updated. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -172,7 +172,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
 export class GetModelConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value SUCCESS is returned if the request succeeds.
+   * The business status code. The value is SUCCESS when the request is successful.
    * 
    * @example
    * SUCCESS
@@ -185,7 +185,7 @@ export class GetModelConnectionResponseBody extends $dara.Model {
   data?: GetModelConnectionResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value 200 is returned if the request succeeds.
+   * The HTTP status code. The value is 200 when the request is successful.
    * 
    * @example
    * 200
@@ -193,7 +193,7 @@ export class GetModelConnectionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request processing result message.
+   * The message about the request processing result.
    * 
    * @example
    * success
@@ -209,7 +209,7 @@ export class GetModelConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

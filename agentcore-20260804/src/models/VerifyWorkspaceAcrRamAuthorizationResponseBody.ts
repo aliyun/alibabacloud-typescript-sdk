@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ACR Enterprise instance ID.
+   * The ID of the ACR Enterprise instance.
    * 
    * @example
    * cri-1234567890abcdef
@@ -13,7 +13,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   acrInstanceId?: string;
   /**
    * @remarks
-   * The policy attachment status for the target repository.
+   * The current attachment status of the policy for the target repository.
    * 
    * @example
    * UNAUTHORIZED
@@ -21,7 +21,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   authorizationStatus?: string;
   /**
    * @remarks
-   * The prerequisite status for access. This is not the Secret Ready status.
+   * The access prerequisite status. This does not indicate that the secret is ready.
    * 
    * @example
    * ELIGIBLE
@@ -37,7 +37,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   reasonCode?: string;
   /**
    * @remarks
-   * The human-readable reason. This field is omitted when no reason exists.
+   * The user-readable reason message. This field is omitted when no reason exists.
    * 
    * @example
    * Authorize the Workspace role for this ACR instance.
@@ -45,7 +45,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   reasonMessage?: string;
   /**
    * @remarks
-   * The shared role name selected by the backend. This value is not editable on the frontend.
+   * The name of the shared role selected by the backend. This field is not editable on the frontend.
    * 
    * @example
    * AliyunAgentCoreWorkspace-ws-1234567890abcdef12345
@@ -142,7 +142,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

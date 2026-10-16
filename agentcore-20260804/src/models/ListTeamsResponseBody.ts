@@ -21,9 +21,7 @@ export class ListTeamsResponseBodyItemsAgents extends $dara.Model {
   agentName?: string;
   /**
    * @remarks
-   * The role of the agent in the team. Valid values:
-   * - LEADER
-   * - WORKER
+   * The role of the agent in the team. Valid values: LEADER, WORKER.
    * 
    * @example
    * WORKER
@@ -57,11 +55,7 @@ export class ListTeamsResponseBodyItemsAgents extends $dara.Model {
 export class ListTeamsResponseBodyItemsUsers extends $dara.Model {
   /**
    * @remarks
-   * The role of the user in the team. Valid values:
-   * - ADMIN
-   * - MEMBER
-   * 
-   * Each team must have exactly one ADMIN.
+   * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
    * 
    * @example
    * ADMIN
@@ -116,7 +110,7 @@ export class ListTeamsResponseBodyItems extends $dara.Model {
   agents?: ListTeamsResponseBodyItemsAgents[];
   /**
    * @remarks
-   * The creation time in UTC, formatted according to RFC 3339.
+   * The creation time in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -127,12 +121,12 @@ export class ListTeamsResponseBodyItems extends $dara.Model {
    * The team description.
    * 
    * @example
-   * A team responsible for intelligent customer service
+   * The team responsible for intelligent customer service
    */
   description?: string;
   /**
    * @remarks
-   * The team name. The name can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 128 characters in length.
+   * The team name. It can contain only lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
    * 
    * @example
    * team-01
@@ -140,13 +134,7 @@ export class ListTeamsResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The team status. Valid values:
-   * - Creating
-   * - Active
-   * - Updating
-   * - Deleting
-   * - Failed
-   * - Deleted
+   * The team status. Valid values: Creating, Active, Updating, Deleting, Failed, and Deleted.
    * 
    * @example
    * Active
@@ -162,7 +150,7 @@ export class ListTeamsResponseBodyItems extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted according to RFC 3339.
+   * The time of the last modification in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -248,7 +236,7 @@ export class ListTeamsResponseBody extends $dara.Model {
   items?: ListTeamsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page that took effect for this query.
+   * The maximum number of records per page applied to this query.
    * 
    * @example
    * 10
@@ -256,7 +244,7 @@ export class ListTeamsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request failed.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success
@@ -264,7 +252,7 @@ export class ListTeamsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This value is empty if no more pages are available.
+   * The pagination token for the next page. This parameter is empty if no next page exists.
    * 
    * @example
    * dGVhbS1vZmZzZXQ6MTA
@@ -280,12 +268,12 @@ export class ListTeamsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**
    * @remarks
-   * The total number of teams that match the query conditions.
+   * The total number of teams that meet the query conditions.
    * 
    * @example
    * 42

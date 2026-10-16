@@ -15,22 +15,22 @@ export class UpdateModelResponseBodyDataCapabilities extends $dara.Model {
   document?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports invoking multiple tools in a single response.
+   * Indicates whether the model is able to invoke tool calling multiple times in a single response.
    */
   multiToolCall?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports reasoning.
+   * Indicates whether the model supports reasoning capabilities.
    */
   reasoning?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports streaming tool invocation.
+   * Indicates whether the model is able to invoke streaming tool calling.
    */
   streamToolCall?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports tool invocation.
+   * Indicates whether the model is able to invoke tool calling.
    */
   toolCall?: boolean;
   /**
@@ -94,7 +94,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The model context window size, in tokens. The value must be a positive integer.
+   * The context window size of the model, in tokens. The value must be a positive integer.
    * 
    * @example
    * 128000
@@ -102,7 +102,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   contextSize?: number;
   /**
    * @remarks
-   * The time when the resource was created, in RFC 3339 UTC format.
+   * The time when the resource was created. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -118,7 +118,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The maximum number of output tokens supported per generation.
+   * The maximum number of output tokens supported for a single generation of the model.
    * 
    * @example
    * 131072
@@ -142,7 +142,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The time when the resource was last updated, in RFC 3339 UTC format.
+   * The time when the resource was last updated. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -201,7 +201,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
 export class UpdateModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the request succeeds.
+   * The business status code. The value is SUCCESS when the request is successful.
    * 
    * @example
    * SUCCESS
@@ -214,7 +214,7 @@ export class UpdateModelResponseBody extends $dara.Model {
   data?: UpdateModelResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 when the request succeeds.
+   * The HTTP status code. The value is 200 when the request is successful.
    * 
    * @example
    * 200
@@ -222,7 +222,7 @@ export class UpdateModelResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request processing result message.
+   * The message about the request processing result.
    * 
    * @example
    * success
@@ -238,7 +238,7 @@ export class UpdateModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

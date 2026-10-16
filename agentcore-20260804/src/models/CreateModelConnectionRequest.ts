@@ -20,7 +20,7 @@ export class CreateModelConnectionRequestBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The absolute HTTP or HTTPS address of the upstream model service. The address can be up to 1024 characters in length.
+   * The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class CreateModelConnectionRequestBody extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The model connection name. The name must be 1 to 128 non-whitespace characters in length.
+   * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class CreateModelConnectionRequestBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not configured in Settings during model creation, this default value is used.
+   * The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
    * 
    * @example
    * OpenAI/v1
@@ -98,7 +98,7 @@ export class CreateModelConnectionRequest extends $dara.Model {
   body?: CreateModelConnectionRequestBody;
   /**
    * @remarks
-   * The client token used for idempotence. Not supported.
+   * The client token used for idempotence. This parameter is not supported.
    * 
    * @example
    * client-token-1

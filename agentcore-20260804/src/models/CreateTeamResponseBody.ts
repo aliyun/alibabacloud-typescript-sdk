@@ -13,7 +13,7 @@ export class CreateTeamResponseBodyDataAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The role of the agent in the team. Valid values: LEADER, WORKER. Each team must include exactly one LEADER.
+   * The role of the agent in the team. Valid values: LEADER and WORKER. Each team must have exactly one LEADER.
    * 
    * @example
    * WORKER
@@ -45,7 +45,7 @@ export class CreateTeamResponseBodyDataAgents extends $dara.Model {
 export class CreateTeamResponseBodyDataUsers extends $dara.Model {
   /**
    * @remarks
-   * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must include exactly one ADMIN.
+   * The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must have exactly one ADMIN.
    * 
    * @example
    * ADMIN
@@ -90,7 +90,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   agents?: CreateTeamResponseBodyDataAgents[];
   /**
    * @remarks
-   * The creation time in UTC, formatted in RFC 3339.
+   * The creation time in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -106,7 +106,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The team name. The name can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 128 characters in length.
+   * The team name. The name can only contain lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
    * 
    * @example
    * team-01
@@ -114,7 +114,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The team status. Valid values: Creating, Active, Updating, Deleting, Failed, Deleted.
+   * The team status. Valid values: Creating, Active, Updating, Deleting, Failed, and Deleted.
    * 
    * @example
    * Active
@@ -130,7 +130,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted in RFC 3339.
+   * The time of the last update in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -232,7 +232,7 @@ export class CreateTeamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

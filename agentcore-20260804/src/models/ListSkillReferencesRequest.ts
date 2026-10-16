@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillReferencesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number, starting from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListSkillReferencesRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. If this parameter is not specified, the server-side default value is used.
+   * The number of entries per page. If not specified, the default value on the server is used.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListSkillReferencesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters results by reference selector type. Valid values: LABEL and VERSION.
+   * The reference selector type used for filtering. Valid values: LABEL and VERSION.
    * 
    * @example
    * LABEL
@@ -29,7 +29,7 @@ export class ListSkillReferencesRequest extends $dara.Model {
   selectorType?: string;
   /**
    * @remarks
-   * Filters results by reference selector value, such as latest, a named label, HEAD, or a specific version.
+   * The reference selector value used for filtering. Valid values: latest, a named label, HEAD, or a specific version.
    * 
    * @example
    * HEAD

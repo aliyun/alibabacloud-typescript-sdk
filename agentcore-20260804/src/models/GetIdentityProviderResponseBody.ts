@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderResponseBodyDataMetadata extends $dara.Model {
   /**
    * @remarks
-   * The App ID of the Lark application. Required when the binding type is Feishu.
+   * The App ID of the Lark application. This parameter is required when the binding type is Feishu.
    * 
    * @example
    * cli_exampleappid01
@@ -13,7 +13,7 @@ export class GetIdentityProviderResponseBodyDataMetadata extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The AppKey of the DingTalk application. Required when the binding type is DingTalk.
+   * The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
    * 
    * @example
    * dingexampleappkey01
@@ -21,7 +21,7 @@ export class GetIdentityProviderResponseBodyDataMetadata extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The CorpId of the DingTalk enterprise. Required when the binding type is DingTalk.
+   * The CorpId of the DingTalk enterprise. This parameter is required when the binding type is DingTalk.
    * 
    * @example
    * dingexamplecorpid01
@@ -55,7 +55,7 @@ export class GetIdentityProviderResponseBodyDataMetadata extends $dara.Model {
 export class GetIdentityProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time in UTC, formatted according to RFC 3339.
+   * The creation time in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -63,7 +63,7 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. An empty string is returned if the user pool has not been activated.
+   * The event subscription callback URL. You must configure this URL in the application of the external identity provider to receive organization change events. An empty string is returned if the user pool is not activated.
    * 
    * @example
    * http://auth.cn-hangzhou.agentteams.aliyuncs.com/roa/dingtalk/event/up-123456
@@ -71,7 +71,7 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   eventSubscriptionCallbackUrl?: string;
   /**
    * @remarks
-   * The type of the external identity provider. Valid values: DingTalk, Feishu.
+   * The type of the external identity provider. Valid values: DingTalk and Feishu.
    * 
    * @example
    * DingTalk
@@ -79,7 +79,7 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * The logon callback URL. Configure this URL in the external identity provider application. An empty string is returned if the user pool has not been activated.
+   * The logon callback URL. You must configure this URL in the application of the external identity provider. An empty string is returned if the user pool is not activated.
    * 
    * @example
    * https://signin-cn-hangzhou.aliyunagentid.com/up-123456/dingtalk/callback
@@ -87,26 +87,26 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   loginCallbackUrl?: string;
   /**
    * @remarks
-   * Indicates whether workspace users are allowed to log on through this external identity provider.
+   * Specifies whether workspace users are allowed to log on through this external identity provider.
    */
   loginEnabled?: boolean;
   /**
    * @remarks
-   * The application configuration of the external identity provider. Application secret configurations are not returned.
+   * The application configurations of the external identity provider. Application secret configurations are not returned.
    */
   metadata?: GetIdentityProviderResponseBodyDataMetadata;
   /**
    * @remarks
    * The status. Valid values:
-   * - CONFIGURED: The configuration has been accepted and is waiting for user pool activation.
+   * - CONFIGURED: The configuration is accepted and waiting for the user pool to be activated.
    * - SYNCING: Organization members are being synchronized.
-   * - SYNCED: Organization member synchronization is complete.
-   * - READY: The binding is active.
-   * - SYNC_FAILED: Organization member synchronization failed.
+   * - SYNCED: Organization members are synchronized.
+   * - READY: The binding is in effect.
+   * - SYNC_FAILED: Failed to synchronize organization members.
    * - UPDATING: The configuration is being updated.
-   * - UPDATE_FAILED: The configuration update failed.
-   * - DISCONNECTING: The binding is being removed.
-   * - DISCONNECT_FAILED: The unbinding failed.
+   * - UPDATE_FAILED: Failed to update the configuration.
+   * - DISCONNECTING: The binding is being disconnected.
+   * - DISCONNECT_FAILED: Failed to disconnect the binding.
    * 
    * @example
    * READY
@@ -114,12 +114,12 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether organization member synchronization is enabled. When enabled, the external identity provider synchronizes organization members as workspace users.
+   * Specifies whether organization member synchronization is enabled. After this feature is enabled, organization members are synchronized as workspace users by this external identity provider.
    */
   syncEnabled?: boolean;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted according to RFC 3339.
+   * The time of the last update in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -199,7 +199,7 @@ export class GetIdentityProviderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request failed.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success
@@ -215,7 +215,7 @@ export class GetIdentityProviderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

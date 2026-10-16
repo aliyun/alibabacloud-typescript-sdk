@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the target NAS AccessPoint. This parameter corresponds to the server and fileSystemId parameters.
+   * The ID of the target NAS access point. This parameter corresponds to the server and fileSystemId parameters.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest extends $dara.Mode
   accessPointId?: string;
   /**
    * @remarks
-   * The ID of the NAS file system to which the target AccessPoint belongs. This parameter corresponds to the server and accessPointId parameters.
+   * The ID of the NAS file system to which the target access point belongs. This parameter corresponds to the server and accessPointId parameters.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest extends $dara.Mode
   fileSystemId?: string;
   /**
    * @remarks
-   * The domain name of the target AccessPoint, obtained from the DomainName field of the NAS ListAccessPoints operation. Do not include the protocol, port, or path.
+   * The domain name of the target access point. Obtain this value from the DomainName field in the NAS ListAccessPoints response. Do not include the protocol, port, or path.
    * 
    * This parameter is required.
    * 

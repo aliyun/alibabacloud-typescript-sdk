@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the custom agent. You can retrieve it from the response of CreateCustomAgent or ListCustomAgents.
+   * The unique identifier of the custom agent. You can obtain it from the response of CreateCustomAgent or ListCustomAgents.
    * 
    * @example
    * agent-550e8400e29b41d4a716446655440000
@@ -29,7 +29,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The deployment method of the agent. Custom agents are deployed and managed by the platform, and the value is MANAGED.
+   * The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED.
    * 
    * @example
    * MANAGED
@@ -69,7 +69,14 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The overall status of the agent. Valid values: Creating: The agent is being created. Running: The agent is running. Failed: The agent failed. Updating: The agent is being updated. Deleting: The agent is being deleted. Deleted: The agent is deleted. To query the execution progress of the latest configuration, call GetCustomAgent.
+   * The overall status of the agent. Valid values:
+   * - Creating: The agent is being created.
+   * - Running: The agent is running.
+   * - Failed: The agent is in a failed state.
+   * - Updating: The agent is being updated.
+   * - Deleting: The agent is being deleted.
+   * - Deleted: The agent has been deleted.
+   * Call GetCustomAgent to retrieve the latest configuration execution progress.
    * 
    * @example
    * Running
@@ -172,7 +179,7 @@ export class DeleteCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. A successful creation, update, or deletion does not mean that the background operation is complete.
+   * Indicates whether the request was successful. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

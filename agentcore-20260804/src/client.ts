@@ -30,7 +30,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
+   * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+   * 
+   * @remarks
+   * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+   * 
+   * @param tmpReq - AddMemoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMemoriesResponse
+   */
+  async addMemoriesWithOptions(workspaceId: string, memoryStoreName: string, tmpReq: $_model.AddMemoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddMemoriesResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddMemoriesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddMemories",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memories`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddMemoriesResponse>(await this.callApi(params, req, runtime), new $_model.AddMemoriesResponse({}));
+  }
+
+  /**
+   * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+   * 
+   * @remarks
+   * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+   * 
+   * @param request - AddMemoriesRequest
+   * @returns AddMemoriesResponse
+   */
+  async addMemories(workspaceId: string, memoryStoreName: string, request: $_model.AddMemoriesRequest): Promise<$_model.AddMemoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addMemoriesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Deletes multiple models in a specified workspace. If any model is in use, the entire batch request fails.
    * 
    * @param tmpReq - BatchDeleteModelsRequest
    * @param headers - map
@@ -75,7 +132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
+   * Deletes multiple models in a specified workspace. If any model is in use, the entire batch request fails.
    * 
    * @param request - BatchDeleteModelsRequest
    * @returns BatchDeleteModelsResponse
@@ -87,11 +144,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads Skill ZIP packages in bulk through OSS and returns the processing result of each Skill.
+   * Uploads skill ZIP packages in batches through OSS and returns the processing result for each skill.
    * 
    * @remarks
-   * ## Operation description
-   * Uploads Skill ZIP packages in bulk through OSS and returns the processing result of each Skill.
+   * ## Request description
+   * Uploads skill ZIP packages in batches through OSS and returns the processing result for each skill.
    * 
    * @param tmpReq - BatchUploadSkillsViaOssRequest
    * @param headers - map
@@ -130,11 +187,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads Skill ZIP packages in bulk through OSS and returns the processing result of each Skill.
+   * Uploads skill ZIP packages in batches through OSS and returns the processing result for each skill.
    * 
    * @remarks
-   * ## Operation description
-   * Uploads Skill ZIP packages in bulk through OSS and returns the processing result of each Skill.
+   * ## Request description
+   * Uploads skill ZIP packages in batches through OSS and returns the processing result for each skill.
    * 
    * @param request - BatchUploadSkillsViaOssRequest
    * @returns BatchUploadSkillsViaOssResponse
@@ -146,10 +203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts an MCP to free editing.
+   * Converts an MCP to free-edit mode.
    * 
    * @remarks
-   * Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+   * Disables template usage constraints. After the conversion, the MCP retains its source and tags, but no longer appears on the usage page.
    * 
    * @param request - ConvertMcpToFreeEditRequest
    * @param headers - map
@@ -182,10 +239,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts an MCP to free editing.
+   * Converts an MCP to free-edit mode.
    * 
    * @remarks
-   * Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+   * Disables template usage constraints. After the conversion, the MCP retains its source and tags, but no longer appears on the usage page.
    * 
    * @param request - ConvertMcpToFreeEditRequest
    * @returns ConvertMcpToFreeEditResponse
@@ -197,10 +254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
+   * Creates an IM channel for a specified agent and binds it to a publicly accessible ServiceEndpoint.
    * 
    * @remarks
-   * Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
+   * Creates an IM channel for a specified agent and binds it to a publicly accessible ServiceEndpoint.
    * 
    * @param tmpReq - CreateAgentIMChannelRequest
    * @param headers - map
@@ -245,10 +302,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
+   * Creates an IM channel for a specified agent and binds it to a publicly accessible ServiceEndpoint.
    * 
    * @remarks
-   * Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
+   * Creates an IM channel for a specified agent and binds it to a publicly accessible ServiceEndpoint.
    * 
    * @param request - CreateAgentIMChannelRequest
    * @returns CreateAgentIMChannelResponse
@@ -260,11 +317,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AgentSpec in the specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
+   * Creates an AgentSpec in a specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
    * 
    * @remarks
-   * ## Operation description
-   * Creates an AgentSpec in the specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
+   * ## Request description
+   * Creates an AgentSpec in a specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
    * 
    * @param tmpReq - CreateAgentSpecRequest
    * @param headers - map
@@ -303,11 +360,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AgentSpec in the specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
+   * Creates an AgentSpec in a specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
    * 
    * @remarks
-   * ## Operation description
-   * Creates an AgentSpec in the specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
+   * ## Request description
+   * Creates an AgentSpec in a specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
    * 
    * @param request - CreateAgentSpecRequest
    * @returns CreateAgentSpecResponse
@@ -319,11 +376,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
+   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist and must not have a draft currently being edited.
    * 
    * @remarks
    * ## Request description
-   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
+   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist and must not have a draft currently being edited.
    * 
    * @param tmpReq - CreateAgentSpecVersionRequest
    * @param headers - map
@@ -362,11 +419,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
+   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist and must not have a draft currently being edited.
    * 
    * @remarks
    * ## Request description
-   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
+   * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist and must not have a draft currently being edited.
    * 
    * @param request - CreateAgentSpecVersionRequest
    * @returns CreateAgentSpecVersionResponse
@@ -378,7 +435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+   * Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed as a JSON string through credentialMetadata and can only be queried in a desensitized format after it is written.
    * 
    * @remarks
    * Creates a credential in a workspace for authentication of services such as Connector.
@@ -426,7 +483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+   * Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed as a JSON string through credentialMetadata and can only be queried in a desensitized format after it is written.
    * 
    * @remarks
    * Creates a credential in a workspace for authentication of services such as Connector.
@@ -441,13 +498,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom agent in a specified workspace and submits the container image deployment configuration. The creation process is asynchronous. You can call the GetCustomAgent operation to query the deployment result.
+   * Creates a custom agent in a specified workspace and submits a container image deployment configuration. The creation is an asynchronous process. You can call GetCustomAgent to query the deployment result.
    * 
    * @remarks
-   * Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and the runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
+   * Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and a runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
    * Currently, only ACR container image deployment is supported. Use artifact.container and specify the service listening port in artifact.port. Omit artifact.code. The image must have the required access permissions and be accessible over the network allowed by the workspace.
-   * The creation process is asynchronous. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
-   * The clientToken parameter does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
+   * The creation is an asynchronous process. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
+   * The clientToken parameter does not currently provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
    * 
    * @param tmpReq - CreateCustomAgentRequest
    * @param headers - map
@@ -492,13 +549,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom agent in a specified workspace and submits the container image deployment configuration. The creation process is asynchronous. You can call the GetCustomAgent operation to query the deployment result.
+   * Creates a custom agent in a specified workspace and submits a container image deployment configuration. The creation is an asynchronous process. You can call GetCustomAgent to query the deployment result.
    * 
    * @remarks
-   * Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and the runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
+   * Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and a runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
    * Currently, only ACR container image deployment is supported. Use artifact.container and specify the service listening port in artifact.port. Omit artifact.code. The image must have the required access permissions and be accessible over the network allowed by the workspace.
-   * The creation process is asynchronous. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
-   * The clientToken parameter does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
+   * The creation is an asynchronous process. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
+   * The clientToken parameter does not currently provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
    * 
    * @param request - CreateCustomAgentRequest
    * @returns CreateCustomAgentResponse
@@ -573,10 +630,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
+   * Creates the Bootstrap token and CMS configuration required to onboard a specified external agent.
    * 
    * @remarks
-   * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
+   * Creates the Bootstrap token and CMS configuration required to onboard a specified external agent.
    * 
    * @param request - CreateExternalAgentBootstrapTokenRequest
    * @param headers - map
@@ -609,10 +666,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
+   * Creates the Bootstrap token and CMS configuration required to onboard a specified external agent.
    * 
    * @remarks
-   * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
+   * Creates the Bootstrap token and CMS configuration required to onboard a specified external agent.
    * 
    * @param request - CreateExternalAgentBootstrapTokenRequest
    * @returns CreateExternalAgentBootstrapTokenResponse
@@ -624,7 +681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
+   * Binds an external identity provider to a specified workspace to enable single sign-on and organization member synchronization for workspace users. Each workspace can be bound to a maximum of one external identity provider. This is an asynchronous operation. After the API call returns, you can call GetIdentityProvider to query the status and track the progress.
    * 
    * @param tmpReq - CreateIdentityProviderRequest
    * @param headers - map
@@ -663,7 +720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
+   * Binds an external identity provider to a specified workspace to enable single sign-on and organization member synchronization for workspace users. Each workspace can be bound to a maximum of one external identity provider. This is an asynchronous operation. After the API call returns, you can call GetIdentityProvider to query the status and track the progress.
    * 
    * @param request - CreateIdentityProviderRequest
    * @returns CreateIdentityProviderResponse
@@ -797,7 +854,70 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model configuration under a specified model connection in a workspace.
+   * Creates a long-term memory store in a specified workspace.
+   * 
+   * @remarks
+   * Creates a long-term memory store in a specified workspace.
+   * 
+   * @param tmpReq - CreateMemoryStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemoryStoreResponse
+   */
+  async createMemoryStoreWithOptions(workspaceId: string, tmpReq: $_model.CreateMemoryStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMemoryStoreResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMemoryStoreShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMemoryStore",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMemoryStoreResponse>(await this.callApi(params, req, runtime), new $_model.CreateMemoryStoreResponse({}));
+  }
+
+  /**
+   * Creates a long-term memory store in a specified workspace.
+   * 
+   * @remarks
+   * Creates a long-term memory store in a specified workspace.
+   * 
+   * @param request - CreateMemoryStoreRequest
+   * @returns CreateMemoryStoreResponse
+   */
+  async createMemoryStore(workspaceId: string, request: $_model.CreateMemoryStoreRequest): Promise<$_model.CreateMemoryStoreResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMemoryStoreWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Creates a model configuration for model creation under a model connection in a specified workspace.
    * 
    * @param tmpReq - CreateModelRequest
    * @param headers - map
@@ -842,7 +962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model configuration under a specified model connection in a workspace.
+   * Creates a model configuration for model creation under a model connection in a specified workspace.
    * 
    * @param request - CreateModelRequest
    * @returns CreateModelResponse
@@ -854,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
+   * Creates a model connection in a specified workspace and configures the upstream model service endpoint, invoke protocol, and access credentials to support model creation.
    * 
    * @param tmpReq - CreateModelConnectionRequest
    * @param headers - map
@@ -899,7 +1019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
+   * Creates a model connection in a specified workspace and configures the upstream model service endpoint, invoke protocol, and access credentials to support model creation.
    * 
    * @param request - CreateModelConnectionRequest
    * @returns CreateModelConnectionResponse
@@ -970,7 +1090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
+   * Creates a team in a specified workspace and configures user members and agent members at the same time. Exactly one user member must have the ADMIN role, and agent members can only have the LEADER or WORKER role.
    * 
    * @param tmpReq - CreateTeamRequest
    * @param headers - map
@@ -1015,7 +1135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
+   * Creates a team in a specified workspace and configures user members and agent members at the same time. Exactly one user member must have the ADMIN role, and agent members can only have the LEADER or WORKER role.
    * 
    * @param request - CreateTeamRequest
    * @returns CreateTeamResponse
@@ -1027,7 +1147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
+   * Creates a user in a specified workspace. The username must be unique within the workspace, can contain only lowercase letters, digits, and hyphens, and cannot use reserved names such as manager, admin, or names starting with worker-. If the password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
    * 
    * @param tmpReq - CreateUserRequest
    * @param headers - map
@@ -1072,7 +1192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
+   * Creates a user in a specified workspace. The username must be unique within the workspace, can contain only lowercase letters, digits, and hyphens, and cannot use reserved names such as manager, admin, or names starting with worker-. If the password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -1087,7 +1207,7 @@ export default class Client extends OpenApi {
    * Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
    * 
    * @remarks
-   * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
+   * ## Request description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable the VPC network. If enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
    * 
    * @param tmpReq - CreateWorkspaceRequest
    * @param headers - map
@@ -1135,7 +1255,7 @@ export default class Client extends OpenApi {
    * Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
    * 
    * @remarks
-   * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
+   * ## Request description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable the VPC network. If enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
    * 
    * @param request - CreateWorkspaceRequest
    * @returns CreateWorkspaceResponse
@@ -1249,11 +1369,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified AgentSpec along with all its versions and metadata. This operation is irreversible.
+   * Deletes the specified AgentSpec and all its versions and metadata. The deletion is irreversible.
    * 
    * @remarks
-   * ## Request description
-   * Deletes a specified AgentSpec along with all its versions and metadata. This operation is irreversible.
+   * ## Operation description
+   * Deletes the specified AgentSpec and all its versions and metadata. The deletion is irreversible.
    * 
    * @param request - DeleteAgentSpecRequest
    * @param headers - map
@@ -1280,11 +1400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified AgentSpec along with all its versions and metadata. This operation is irreversible.
+   * Deletes the specified AgentSpec and all its versions and metadata. The deletion is irreversible.
    * 
    * @remarks
-   * ## Request description
-   * Deletes a specified AgentSpec along with all its versions and metadata. This operation is irreversible.
+   * ## Operation description
+   * Deletes the specified AgentSpec and all its versions and metadata. The deletion is irreversible.
    * 
    * @param request - DeleteAgentSpecRequest
    * @returns DeleteAgentSpecResponse
@@ -1343,10 +1463,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+   * Deletes a credential in a specified workspace and deletes the ciphertext hosted in the credential service. After deletion, agents bound to the credential can no longer obtain the credential content.
    * 
    * @remarks
-   * Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
+   * Deletes an access credential in a specified workspace. A credential cannot be deleted if it is still bound to an MCP service.
    * 
    * @param request - DeleteCredentialRequest
    * @param headers - map
@@ -1379,10 +1499,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+   * Deletes a credential in a specified workspace and deletes the ciphertext hosted in the credential service. After deletion, agents bound to the credential can no longer obtain the credential content.
    * 
    * @remarks
-   * Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
+   * Deletes an access credential in a specified workspace. A credential cannot be deleted if it is still bound to an MCP service.
    * 
    * @param request - DeleteCredentialRequest
    * @returns DeleteCredentialResponse
@@ -1394,11 +1514,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom agent in a specified workspace. A successful request indicates that the deletion is accepted, and the runtime resources are subsequently cleaned up in the background.
+   * Deletes a custom agent from a specified workspace. A successful request indicates that the deletion is accepted. The runtime resources are subsequently cleaned up in the background.
    * 
    * @remarks
-   * Before you call this operation, make sure that the workspace is writable. If the agent is still associated with a team, you must dissociate the team first.
-   * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already being deleted, a subsequent request returns the current summary.
+   * Before calling this operation, ensure that the workspace is writable. If the agent is still associated with a team, you must dissociate it from the team first.
+   * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already in the deletion process, a subsequent request returns the current summary.
    * You can call GetCustomAgent to check the deletion progress. After the deletion is complete, a detail query returns a resource not found error.
    * 
    * @param request - DeleteCustomAgentRequest
@@ -1426,11 +1546,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom agent in a specified workspace. A successful request indicates that the deletion is accepted, and the runtime resources are subsequently cleaned up in the background.
+   * Deletes a custom agent from a specified workspace. A successful request indicates that the deletion is accepted. The runtime resources are subsequently cleaned up in the background.
    * 
    * @remarks
-   * Before you call this operation, make sure that the workspace is writable. If the agent is still associated with a team, you must dissociate the team first.
-   * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already being deleted, a subsequent request returns the current summary.
+   * Before calling this operation, ensure that the workspace is writable. If the agent is still associated with a team, you must dissociate it from the team first.
+   * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already in the deletion process, a subsequent request returns the current summary.
    * You can call GetCustomAgent to check the deletion progress. After the deletion is complete, a detail query returns a resource not found error.
    * 
    * @param request - DeleteCustomAgentRequest
@@ -1572,11 +1692,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
+   * Deletes a specified MCP server. The deletion is an asynchronous process, and the MCP server is no longer returned after the process is complete.
    * 
    * @remarks
-   * ## Operation description
-   * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
+   * ## Request description
+   * Deletes a specified MCP server. The deletion is an asynchronous process, and the MCP server is no longer returned after the process is complete.
    * 
    * @param request - DeleteMcpRequest
    * @param headers - map
@@ -1603,11 +1723,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
+   * Deletes a specified MCP server. The deletion is an asynchronous process, and the MCP server is no longer returned after the process is complete.
    * 
    * @remarks
-   * ## Operation description
-   * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
+   * ## Request description
+   * Deletes a specified MCP server. The deletion is an asynchronous process, and the MCP server is no longer returned after the process is complete.
    * 
    * @param request - DeleteMcpRequest
    * @returns DeleteMcpResponse
@@ -1616,6 +1736,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteMcpWithOptions(mcpServerId, workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a long-term memory based on the memory ID.
+   * 
+   * @remarks
+   * Deletes a long-term memory based on the memory ID.
+   * 
+   * @param request - DeleteMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemoryResponse
+   */
+  async deleteMemoryWithOptions(workspaceId: string, memoryStoreName: string, memoryId: string, request: $_model.DeleteMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMemory",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memories/${$dara.URL.percentEncode(memoryId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMemoryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMemoryResponse({}));
+  }
+
+  /**
+   * Deletes a long-term memory based on the memory ID.
+   * 
+   * @remarks
+   * Deletes a long-term memory based on the memory ID.
+   * 
+   * @param request - DeleteMemoryRequest
+   * @returns DeleteMemoryResponse
+   */
+  async deleteMemory(workspaceId: string, memoryStoreName: string, memoryId: string, request: $_model.DeleteMemoryRequest): Promise<$_model.DeleteMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * Asynchronously deletes a MemoryStore and all its long-term memory.
+   * 
+   * @remarks
+   * Asynchronously deletes a MemoryStore and all its long-term memory.
+   * 
+   * @param request - DeleteMemoryStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemoryStoreResponse
+   */
+  async deleteMemoryStoreWithOptions(workspaceId: string, memoryStoreName: string, request: $_model.DeleteMemoryStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryStoreResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMemoryStore",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMemoryStoreResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMemoryStoreResponse({}));
+  }
+
+  /**
+   * Asynchronously deletes a MemoryStore and all its long-term memory.
+   * 
+   * @remarks
+   * Asynchronously deletes a MemoryStore and all its long-term memory.
+   * 
+   * @param request - DeleteMemoryStoreRequest
+   * @returns DeleteMemoryStoreResponse
+   */
+  async deleteMemoryStore(workspaceId: string, memoryStoreName: string, request: $_model.DeleteMemoryStoreRequest): Promise<$_model.DeleteMemoryStoreResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemoryStoreWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
   }
 
   /**
@@ -1893,10 +2103,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+   * Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. The server processes repeated deletion requests for workspaces in the Deleting or Deleted state idempotently.
    * 
    * @remarks
-   * ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+   * ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. The server processes repeated deletion requests for workspaces in the `Deleting` or `Deleted` state idempotently.\\n.
    * 
    * @param request - DeleteWorkspaceRequest
    * @param headers - map
@@ -1923,10 +2133,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+   * Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. The server processes repeated deletion requests for workspaces in the Deleting or Deleted state idempotently.
    * 
    * @remarks
-   * ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+   * ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. The server processes repeated deletion requests for workspaces in the `Deleting` or `Deleted` state idempotently.\\n.
    * 
    * @param request - DeleteWorkspaceRequest
    * @returns DeleteWorkspaceResponse
@@ -1983,11 +2193,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
+   * Retrieves the presigned OSS download URL of a specified AgentSpec to download the AgentSpec ZIP package.
    * 
    * @remarks
-   * ## Operation description
-   * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
+   * ## Request description
+   * Retrieves the presigned OSS download URL of a specified AgentSpec to download the AgentSpec ZIP package.
    * 
    * @param request - DownloadAgentSpecViaOssRequest
    * @param headers - map
@@ -2020,11 +2230,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
+   * Retrieves the presigned OSS download URL of a specified AgentSpec to download the AgentSpec ZIP package.
    * 
    * @remarks
-   * ## Operation description
-   * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
+   * ## Request description
+   * Retrieves the presigned OSS download URL of a specified AgentSpec to download the AgentSpec ZIP package.
    * 
    * @param request - DownloadAgentSpecViaOssRequest
    * @returns DownloadAgentSpecViaOssResponse
@@ -2247,7 +2457,7 @@ export default class Client extends OpenApi {
    * Queries the governance details of a specified AgentSpec, including basic information, governance pointers, and summaries of all versions.
    * 
    * @remarks
-   * ## Operation description
+   * ## Request description
    * Queries the governance details of a specified AgentSpec, including basic information, governance pointers, and summaries of all versions.
    * 
    * @param request - GetAgentSpecRequest
@@ -2278,7 +2488,7 @@ export default class Client extends OpenApi {
    * Queries the governance details of a specified AgentSpec, including basic information, governance pointers, and summaries of all versions.
    * 
    * @remarks
-   * ## Operation description
+   * ## Request description
    * Queries the governance details of a specified AgentSpec, including basic information, governance pointers, and summaries of all versions.
    * 
    * @param request - GetAgentSpecRequest
@@ -2291,11 +2501,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+   * Retrieves the OSS presigned upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, you can call the AgentSpec OSS upload API to complete the import.
    * 
    * @remarks
-   * ## Operation description
-   * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+   * ## Request description
+   * Retrieves the OSS presigned upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, you can call the AgentSpec OSS upload API to complete the import.
    * 
    * @param request - GetAgentSpecImportFileUrlRequest
    * @param headers - map
@@ -2328,11 +2538,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+   * Retrieves the OSS presigned upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, you can call the AgentSpec OSS upload API to complete the import.
    * 
    * @remarks
-   * ## Operation description
-   * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+   * ## Request description
+   * Retrieves the OSS presigned upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, you can call the AgentSpec OSS upload API to complete the import.
    * 
    * @param request - GetAgentSpecImportFileUrlRequest
    * @returns GetAgentSpecImportFileUrlResponse
@@ -2391,11 +2601,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the complete content of a specified AgentSpec version, including manifest content, resource files, and metadata.
+   * Queries the complete content of a specified AgentSpec version, including the manifest content, resource files, and metadata.
    * 
    * @remarks
-   * ## Operation description
-   * Queries the complete content of a specified AgentSpec version, including manifest content, resource files, and metadata.
+   * ## Request description
+   * Queries the complete content of a specified AgentSpec version, including the manifest content, resource files, and metadata.
    * 
    * @param request - GetAgentSpecVersionRequest
    * @param headers - map
@@ -2422,11 +2632,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the complete content of a specified AgentSpec version, including manifest content, resource files, and metadata.
+   * Queries the complete content of a specified AgentSpec version, including the manifest content, resource files, and metadata.
    * 
    * @remarks
-   * ## Operation description
-   * Queries the complete content of a specified AgentSpec version, including manifest content, resource files, and metadata.
+   * ## Request description
+   * Queries the complete content of a specified AgentSpec version, including the manifest content, resource files, and metadata.
    * 
    * @param request - GetAgentSpecVersionRequest
    * @returns GetAgentSpecVersionResponse
@@ -2438,7 +2648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+   * Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in a masked format.
    * 
    * @remarks
    * Queries the details of a single credential. Sensitive fields are not returned.
@@ -2468,7 +2678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+   * Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in a masked format.
    * 
    * @remarks
    * Queries the details of a single credential. Sensitive fields are not returned.
@@ -2483,12 +2693,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义智能体
+   * Queries the details of a custom agent in a specified workspace, including the deployment configuration, the execute status of the latest configuration version, and the running instance status statistics.
    * 
    * @remarks
-   * 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
-   * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
-   * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+   * After creating or updating a custom agent, you can poll this operation to query the execution result of the latest configuration version. latestVersionStatus corresponds to latestSpecVersion. latestExecutionError indicates the cause of the pending or failed status for this version. If retryable is true, you can query again later.
+   * The returned configuration is the latest submitted configuration and may not have taken effect. Check latestVersionStatus, the overall agent status, and the running instance statistics in sandboxPhaseCounts to confirm the deployment and running status.
+   * If you query a custom agent that does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
    * 
    * @param request - GetCustomAgentRequest
    * @param headers - map
@@ -2515,12 +2725,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义智能体
+   * Queries the details of a custom agent in a specified workspace, including the deployment configuration, the execute status of the latest configuration version, and the running instance status statistics.
    * 
    * @remarks
-   * 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
-   * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
-   * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+   * After creating or updating a custom agent, you can poll this operation to query the execution result of the latest configuration version. latestVersionStatus corresponds to latestSpecVersion. latestExecutionError indicates the cause of the pending or failed status for this version. If retryable is true, you can query again later.
+   * The returned configuration is the latest submitted configuration and may not have taken effect. Check latestVersionStatus, the overall agent status, and the running instance statistics in sandboxPhaseCounts to confirm the deployment and running status.
+   * If you query a custom agent that does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
    * 
    * @param request - GetCustomAgentRequest
    * @returns GetCustomAgentResponse
@@ -2577,10 +2787,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available network types for a specified external agent.
+   * Queries the available access network types for a specified external agent.
    * 
    * @remarks
-   * Queries the available network types for a specified external agent.
+   * Queries the available access network types for a specified external agent.
    * 
    * @param request - GetExternalAgentBootstrapOptionsRequest
    * @param headers - map
@@ -2607,10 +2817,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available network types for a specified external agent.
+   * Queries the available access network types for a specified external agent.
    * 
    * @remarks
-   * Queries the available network types for a specified external agent.
+   * Queries the available access network types for a specified external agent.
    * 
    * @param request - GetExternalAgentBootstrapOptionsRequest
    * @returns GetExternalAgentBootstrapOptionsResponse
@@ -2622,7 +2832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the binding details of an external identity provider for a specified workspace, including the binding status, application configuration, and callback URLs that need to be configured on the identity provider side. Application secret configurations are not returned.
+   * Queries the binding details of the external identity provider for a specified workspace, including the binding status, application configurations, and callback URLs to be configured on the identity provider side. Application secret configurations are not returned.
    * 
    * @param request - GetIdentityProviderRequest
    * @param headers - map
@@ -2649,7 +2859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the binding details of an external identity provider for a specified workspace, including the binding status, application configuration, and callback URLs that need to be configured on the identity provider side. Application secret configurations are not returned.
+   * Queries the binding details of the external identity provider for a specified workspace, including the binding status, application configurations, and callback URLs to be configured on the identity provider side. Application secret configurations are not returned.
    * 
    * @param request - GetIdentityProviderRequest
    * @returns GetIdentityProviderResponse
@@ -2792,6 +3002,141 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a long-term memory by memory ID.
+   * 
+   * @remarks
+   * Queries a long-term memory by memory ID.
+   * 
+   * @param request - GetMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryResponse
+   */
+  async getMemoryWithOptions(workspaceId: string, memoryStoreName: string, memoryId: string, request: $_model.GetMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemory",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memories/${$dara.URL.percentEncode(memoryId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryResponse>(await this.callApi(params, req, runtime), new $_model.GetMemoryResponse({}));
+  }
+
+  /**
+   * Queries a long-term memory by memory ID.
+   * 
+   * @remarks
+   * Queries a long-term memory by memory ID.
+   * 
+   * @param request - GetMemoryRequest
+   * @returns GetMemoryResponse
+   */
+  async getMemory(workspaceId: string, memoryStoreName: string, memoryId: string, request: $_model.GetMemoryRequest): Promise<$_model.GetMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the public information and current status of a MemoryStore in a specified workspace.
+   * 
+   * @remarks
+   * Queries the public information and current status of a MemoryStore in a specified workspace.
+   * 
+   * @param request - GetMemoryStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryStoreResponse
+   */
+  async getMemoryStoreWithOptions(workspaceId: string, memoryStoreName: string, request: $_model.GetMemoryStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryStoreResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemoryStore",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryStoreResponse>(await this.callApi(params, req, runtime), new $_model.GetMemoryStoreResponse({}));
+  }
+
+  /**
+   * Queries the public information and current status of a MemoryStore in a specified workspace.
+   * 
+   * @remarks
+   * Queries the public information and current status of a MemoryStore in a specified workspace.
+   * 
+   * @param request - GetMemoryStoreRequest
+   * @returns GetMemoryStoreResponse
+   */
+  async getMemoryStore(workspaceId: string, memoryStoreName: string, request: $_model.GetMemoryStoreRequest): Promise<$_model.GetMemoryStoreResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryStoreWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Queries the task ID returned by the asynchronous AddMemories operation.
+   * 
+   * @remarks
+   * Queries the task ID returned by the asynchronous AddMemories operation.
+   * 
+   * @param request - GetMemoryTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryTaskResponse
+   */
+  async getMemoryTaskWithOptions(workspaceId: string, memoryStoreName: string, taskId: string, request: $_model.GetMemoryTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemoryTask",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-tasks/${$dara.URL.percentEncode(taskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetMemoryTaskResponse({}));
+  }
+
+  /**
+   * Queries the task ID returned by the asynchronous AddMemories operation.
+   * 
+   * @remarks
+   * Queries the task ID returned by the asynchronous AddMemories operation.
+   * 
+   * @param request - GetMemoryTaskRequest
+   * @returns GetMemoryTaskResponse
+   */
+  async getMemoryTask(workspaceId: string, memoryStoreName: string, taskId: string, request: $_model.GetMemoryTaskRequest): Promise<$_model.GetMemoryTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryTaskWithOptions(workspaceId, memoryStoreName, taskId, request, headers, runtime);
+  }
+
+  /**
    * Queries the detailed configuration and region of a model in a specified workspace.
    * 
    * @param request - GetModelRequest
@@ -2915,10 +3260,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the currently active API Key and its invocation method for a specified service endpoint within a workspace.
+   * Queries the currently active API key and its invocation method for a service endpoint in a specified workspace.
    * 
    * @remarks
-   * Queries the currently active API Key for a specified service endpoint. The call succeeds only when the service endpoint has API_KEY authentication enabled and the gateway consumer and credentials are ready. The service reads the API Key from the gateway in real time. AgentCore does not persist the plaintext. Keep the returned API Key secure and avoid logging it or exposing it in public configurations.
+   * Queries the currently active API key for a specified service endpoint. The call succeeds only when API key authentication is enabled for the service endpoint and the gateway consumer and credentials are ready. The service reads the API key from the gateway in real time, and AgentCore does not persist the plaintext. Keep the returned API key secure and avoid logging it or exposing it in public configurations.
    * 
    * @param request - GetServiceEndpointApiKeyRequest
    * @param headers - map
@@ -2945,10 +3290,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the currently active API Key and its invocation method for a specified service endpoint within a workspace.
+   * Queries the currently active API key and its invocation method for a service endpoint in a specified workspace.
    * 
    * @remarks
-   * Queries the currently active API Key for a specified service endpoint. The call succeeds only when the service endpoint has API_KEY authentication enabled and the gateway consumer and credentials are ready. The service reads the API Key from the gateway in real time. AgentCore does not persist the plaintext. Keep the returned API Key secure and avoid logging it or exposing it in public configurations.
+   * Queries the currently active API key for a specified service endpoint. The call succeeds only when API key authentication is enabled for the service endpoint and the gateway consumer and credentials are ready. The service reads the API key from the gateway in real time, and AgentCore does not persist the plaintext. Keep the returned API key secure and avoid logging it or exposing it in public configurations.
    * 
    * @param request - GetServiceEndpointApiKeyRequest
    * @returns GetServiceEndpointApiKeyResponse
@@ -3007,11 +3352,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OSS pre-signed upload URL and object name required for importing a Skill ZIP package. After the upload is complete, call the Skill OSS upload operation to complete the import.
+   * Retrieves the OSS presigned upload URL and object name required to import a Skill ZIP package. After the upload is complete, you can call the Skill OSS upload API to complete the import.
    * 
    * @remarks
    * ## Request description
-   * Retrieves the OSS pre-signed upload URL and object name required for importing a Skill ZIP package. After the upload is complete, call the Skill OSS upload operation to complete the import.
+   * Retrieves the OSS presigned upload URL and object name required to import a Skill ZIP package. After the upload is complete, you can call the Skill OSS upload API to complete the import.
    * 
    * @param request - GetSkillImportFileUrlRequest
    * @param headers - map
@@ -3044,11 +3389,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OSS pre-signed upload URL and object name required for importing a Skill ZIP package. After the upload is complete, call the Skill OSS upload operation to complete the import.
+   * Retrieves the OSS presigned upload URL and object name required to import a Skill ZIP package. After the upload is complete, you can call the Skill OSS upload API to complete the import.
    * 
    * @remarks
    * ## Request description
-   * Retrieves the OSS pre-signed upload URL and object name required for importing a Skill ZIP package. After the upload is complete, call the Skill OSS upload operation to complete the import.
+   * Retrieves the OSS presigned upload URL and object name required to import a Skill ZIP package. After the upload is complete, you can call the Skill OSS upload API to complete the import.
    * 
    * @param request - GetSkillImportFileUrlRequest
    * @returns GetSkillImportFileUrlResponse
@@ -3146,7 +3491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
+   * Queries the details of a specific user in a specified workspace. Returns an error if the user does not exist.
    * 
    * @param request - GetUserRequest
    * @param headers - map
@@ -3173,7 +3518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
+   * Queries the details of a specific user in a specified workspace. Returns an error if the user does not exist.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -3185,10 +3530,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+   * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policies.
    * 
    * @remarks
-   * ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+   * ## Request description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policies.\\n.
    * 
    * @param request - GetWorkspaceRequest
    * @param headers - map
@@ -3215,10 +3560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+   * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policies.
    * 
    * @remarks
-   * ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+   * ## Request description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policies.\\n.
    * 
    * @param request - GetWorkspaceRequest
    * @returns GetWorkspaceResponse
@@ -3230,10 +3575,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ACR RAM authorization URL for a workspace.
+   * Queries the RAM authorization URL for ACR in a workspace.
    * 
    * @remarks
-   * ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+   * ACR and user OSS mounts share the workspace role. If no existing role is found, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is retained and only new permissions are appended without overwriting existing OSS policies. Fixed historical shared roles continue to be reused and are not recreated or renamed due to new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. Returns the role resolved by the backend and the authorization URL for the target repository. This operation does not create ACR or agent execution versions, nor does it deliver runtime configurations. After authorization is complete, you can verify it and then create or update the agent without calling a separate Ensure operation.
    * 
    * @param request - GetWorkspaceAcrRamAuthorizeUrlRequest
    * @param headers - map
@@ -3274,10 +3619,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ACR RAM authorization URL for a workspace.
+   * Queries the RAM authorization URL for ACR in a workspace.
    * 
    * @remarks
-   * ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+   * ACR and user OSS mounts share the workspace role. If no existing role is found, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is retained and only new permissions are appended without overwriting existing OSS policies. Fixed historical shared roles continue to be reused and are not recreated or renamed due to new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. Returns the role resolved by the backend and the authorization URL for the target repository. This operation does not create ACR or agent execution versions, nor does it deliver runtime configurations. After authorization is complete, you can verify it and then create or update the agent without calling a separate Ensure operation.
    * 
    * @param request - GetWorkspaceAcrRamAuthorizeUrlRequest
    * @returns GetWorkspaceAcrRamAuthorizeUrlResponse
@@ -3292,7 +3637,7 @@ export default class Client extends OpenApi {
    * Queries the RAM authorization URL for mounting AgenticFS in a workspace.
    * 
    * @remarks
-   * The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+   * Determines the account, region, and shared role based on the workspace, and concatenates the resource ARN based on the provided fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check the resource status, and returns an authorization URL that contains only the target NAS policy. After completing RAM authorization, you must call the verification API.
    * 
    * @param request - GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
    * @param headers - map
@@ -3336,7 +3681,7 @@ export default class Client extends OpenApi {
    * Queries the RAM authorization URL for mounting AgenticFS in a workspace.
    * 
    * @remarks
-   * The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+   * Determines the account, region, and shared role based on the workspace, and concatenates the resource ARN based on the provided fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check the resource status, and returns an authorization URL that contains only the target NAS policy. After completing RAM authorization, you must call the verification API.
    * 
    * @param request - GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
    * @returns GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
@@ -3460,10 +3805,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs a plugin for a specified AgentCore workspace. Currently supports the collaboration plugin. The installation process is executed asynchronously.
+   * Installs a plugin for a specified AgentCore workspace. Currently, only the collaboration plugin is supported. The installation process runs asynchronously.
    * 
    * @remarks
-   * ## Operation description\\nInstalls a plugin for a specified AgentCore workspace. Currently supports the `collaboration` plugin. Plugin configuration is passed through the `Config` parameter, and different plugins can define their own configuration structures. The `collaboration` plugin uses `Config.NetworkConfiguration` to specify VPC and public network access policies. The installation process is executed asynchronously. When you repeatedly call this operation for a plugin with the same name that is being installed or already installed, the operation returns the current status with idempotent semantics if the configuration is the same. If the configuration is different, the operation returns an operation conflict error.\\n.
+   * ## Request description\\nInstalls a plugin for a specified AgentCore workspace. Currently, only the `collaboration` plugin is supported. Plugin configurations are passed through the `Config` parameter, and different plugins can define their own configuration structures. The `collaboration` plugin uses `Config.NetworkConfiguration` to specify the VPC and public network access policy. The installation procedure executes asynchronously. If you repeatedly invoke this operation for a plugin with the same name that is being installed or already installed, the operation returns the current status based on idempotent semantics if the configurations are identical. If the configurations are different, the operation returns an operation conflict.\\n
    * 
    * @param tmpReq - InstallWorkspacePluginRequest
    * @param headers - map
@@ -3508,10 +3853,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs a plugin for a specified AgentCore workspace. Currently supports the collaboration plugin. The installation process is executed asynchronously.
+   * Installs a plugin for a specified AgentCore workspace. Currently, only the collaboration plugin is supported. The installation process runs asynchronously.
    * 
    * @remarks
-   * ## Operation description\\nInstalls a plugin for a specified AgentCore workspace. Currently supports the `collaboration` plugin. Plugin configuration is passed through the `Config` parameter, and different plugins can define their own configuration structures. The `collaboration` plugin uses `Config.NetworkConfiguration` to specify VPC and public network access policies. The installation process is executed asynchronously. When you repeatedly call this operation for a plugin with the same name that is being installed or already installed, the operation returns the current status with idempotent semantics if the configuration is the same. If the configuration is different, the operation returns an operation conflict error.\\n.
+   * ## Request description\\nInstalls a plugin for a specified AgentCore workspace. Currently, only the `collaboration` plugin is supported. Plugin configurations are passed through the `Config` parameter, and different plugins can define their own configuration structures. The `collaboration` plugin uses `Config.NetworkConfiguration` to specify the VPC and public network access policy. The installation procedure executes asynchronously. If you repeatedly invoke this operation for a plugin with the same name that is being installed or already installed, the operation returns the current status based on idempotent semantics if the configurations are identical. If the configurations are different, the operation returns an operation conflict.\\n
    * 
    * @param request - InstallWorkspacePluginRequest
    * @returns InstallWorkspacePluginResponse
@@ -3671,7 +4016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
+   * Queries the teams to which specified agents belong. Specify the agent IDs by using agentIds to retrieve the membership information of each agent in the teams, including the team ID, team name, and the role of the agent in the team.
    * 
    * @param tmpReq - ListAgentTeamsRequest
    * @param headers - map
@@ -3710,7 +4055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
+   * Queries the teams to which specified agents belong. Specify the agent IDs by using agentIds to retrieve the membership information of each agent in the teams, including the team ID, team name, and the role of the agent in the team.
    * 
    * @param request - ListAgentTeamsRequest
    * @returns ListAgentTeamsResponse
@@ -3836,10 +4181,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+   * Performs a paged query for credentials in a specified workspace. Filters by type using credentialType, performs fuzzy filtering by credential name using nameLike, configures paging by specifying the maximum number of records per page using maxResults, and retrieves the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @remarks
-   * Queries credentials in a workspace with paging. Supports filtering by type and name.
+   * Performs a paged query for the credential list in a workspace, and supports filtering by type and name during paging.
    * 
    * @param request - ListCredentialsRequest
    * @param headers - map
@@ -3888,10 +4233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+   * Performs a paged query for credentials in a specified workspace. Filters by type using credentialType, performs fuzzy filtering by credential name using nameLike, configures paging by specifying the maximum number of records per page using maxResults, and retrieves the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @remarks
-   * Queries credentials in a workspace with paging. Supports filtering by type and name.
+   * Performs a paged query for the credential list in a workspace, and supports filtering by type and name during paging.
    * 
    * @param request - ListCredentialsRequest
    * @returns ListCredentialsResponse
@@ -3903,11 +4248,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the summary of custom agents in a specified workspace. For paging, the complete configuration, and the execute results of the latest version, call GetCustomAgent.
+   * Queries the summaries of custom agents in a specified workspace by using paging. For the complete configuration and the execution results of the latest version, call GetCustomAgent.
    * 
    * @remarks
    * The default value of maxResults is 20, and the maximum value is 100. If this parameter is omitted or set to 0, the default value is used.
-   * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it yourself. An empty token in the response indicates that there are no more pages.
+   * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it. If the token in the response is empty, it indicates that no more pages are available.
    * This operation returns the summaries of the current page and does not return the complete deployment configuration or the execution errors of the latest version. To obtain this information, call GetCustomAgent by using the agentId in items.
    * 
    * @param request - ListCustomAgentsRequest
@@ -3945,11 +4290,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the summary of custom agents in a specified workspace. For paging, the complete configuration, and the execute results of the latest version, call GetCustomAgent.
+   * Queries the summaries of custom agents in a specified workspace by using paging. For the complete configuration and the execution results of the latest version, call GetCustomAgent.
    * 
    * @remarks
    * The default value of maxResults is 20, and the maximum value is 100. If this parameter is omitted or set to 0, the default value is used.
-   * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it yourself. An empty token in the response indicates that there are no more pages.
+   * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it. If the token in the response is empty, it indicates that no more pages are available.
    * This operation returns the summaries of the current page and does not return the complete deployment configuration or the execution errors of the latest version. To obtain this information, call GetCustomAgent by using the agentId in items.
    * 
    * @param request - ListCustomAgentsRequest
@@ -4017,7 +4362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the external identity provider bound to a specified workspace. Each workspace can be bound to at most one external identity provider, so the response returns at most one record. Application secret configurations are not returned.
+   * Queries the external identity providers bound to a specified workspace. Each workspace can be bound to at most one external identity provider, so the response returns at most one record. Application secret configurations are not returned.
    * 
    * @param request - ListIdentityProvidersRequest
    * @param headers - map
@@ -4054,7 +4399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the external identity provider bound to a specified workspace. Each workspace can be bound to at most one external identity provider, so the response returns at most one record. Application secret configurations are not returned.
+   * Queries the external identity providers bound to a specified workspace. Each workspace can be bound to at most one external identity provider, so the response returns at most one record. Application secret configurations are not returned.
    * 
    * @param request - ListIdentityProvidersRequest
    * @returns ListIdentityProvidersResponse
@@ -4322,6 +4667,258 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+   * 
+   * @remarks
+   * Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+   * 
+   * @param request - ListMemoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemoriesResponse
+   */
+  async listMemoriesWithOptions(workspaceId: string, memoryStoreName: string, request: $_model.ListMemoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMemoriesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMemories",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memories`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMemoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListMemoriesResponse({}));
+  }
+
+  /**
+   * Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+   * 
+   * @remarks
+   * Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+   * 
+   * @param request - ListMemoriesRequest
+   * @returns ListMemoriesResponse
+   */
+  async listMemories(workspaceId: string, memoryStoreName: string, request: $_model.ListMemoriesRequest): Promise<$_model.ListMemoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemoriesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+   * 
+   * @remarks
+   * Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+   * 
+   * @param request - ListMemorySessionMessagesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemorySessionMessagesResponse
+   */
+  async listMemorySessionMessagesWithOptions(workspaceId: string, memoryStoreName: string, request: $_model.ListMemorySessionMessagesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMemorySessionMessagesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMemorySessionMessages",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/messages`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMemorySessionMessagesResponse>(await this.callApi(params, req, runtime), new $_model.ListMemorySessionMessagesResponse({}));
+  }
+
+  /**
+   * Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+   * 
+   * @remarks
+   * Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+   * 
+   * @param request - ListMemorySessionMessagesRequest
+   * @returns ListMemorySessionMessagesResponse
+   */
+  async listMemorySessionMessages(workspaceId: string, memoryStoreName: string, request: $_model.ListMemorySessionMessagesRequest): Promise<$_model.ListMemorySessionMessagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemorySessionMessagesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+   * 
+   * @remarks
+   * Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+   * 
+   * @param request - ListMemorySessionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemorySessionsResponse
+   */
+  async listMemorySessionsWithOptions(workspaceId: string, memoryStoreName: string, request: $_model.ListMemorySessionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMemorySessionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMemorySessions",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/sessions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMemorySessionsResponse>(await this.callApi(params, req, runtime), new $_model.ListMemorySessionsResponse({}));
+  }
+
+  /**
+   * Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+   * 
+   * @remarks
+   * Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+   * 
+   * @param request - ListMemorySessionsRequest
+   * @returns ListMemorySessionsResponse
+   */
+  async listMemorySessions(workspaceId: string, memoryStoreName: string, request: $_model.ListMemorySessionsRequest): Promise<$_model.ListMemorySessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemorySessionsWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Queries MemoryStores in a specified workspace by using paging.
+   * 
+   * @remarks
+   * Queries MemoryStores in a specified workspace by using paging.
+   * 
+   * @param request - ListMemoryStoresRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemoryStoresResponse
+   */
+  async listMemoryStoresWithOptions(workspaceId: string, request: $_model.ListMemoryStoresRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMemoryStoresResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMemoryStores",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMemoryStoresResponse>(await this.callApi(params, req, runtime), new $_model.ListMemoryStoresResponse({}));
+  }
+
+  /**
+   * Queries MemoryStores in a specified workspace by using paging.
+   * 
+   * @remarks
+   * Queries MemoryStores in a specified workspace by using paging.
+   * 
+   * @param request - ListMemoryStoresRequest
+   * @returns ListMemoryStoresResponse
+   */
+  async listMemoryStores(workspaceId: string, request: $_model.ListMemoryStoresRequest): Promise<$_model.ListMemoryStoresResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemoryStoresWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
    * 
    * @remarks
@@ -4454,7 +5051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询预定义模型供应商目录
+   * Queries the providers supported by the built-in model catalog of AgentCore and their default service configurations.
    * 
    * @param request - ListPredefinedModelProvidersRequest
    * @param headers - map
@@ -4481,7 +5078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询预定义模型供应商目录
+   * Queries the providers supported by the built-in model catalog of AgentCore and their default service configurations.
    * 
    * @param request - ListPredefinedModelProvidersRequest
    * @returns ListPredefinedModelProvidersResponse
@@ -4493,7 +5090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the models and their capability information for a specified provider in the AgentCore built-in model catalog.
+   * Queries the models and their capabilities in the built-in model catalog of AgentCore for a specified provider.
    * 
    * @param request - ListPredefinedModelsRequest
    * @param headers - map
@@ -4520,7 +5117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the models and their capability information for a specified provider in the AgentCore built-in model catalog.
+   * Queries the models and their capabilities in the built-in model catalog of AgentCore for a specified provider.
    * 
    * @param request - ListPredefinedModelsRequest
    * @returns ListPredefinedModelsResponse
@@ -4650,10 +5247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
+   * Queries service endpoints in a specified workspace with paging and supports filtering by target type, agent, collaboration component, and status.
    * 
    * @remarks
-   * ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+   * ## Request description\\nQueries service endpoints in a specified workspace with paging. You can filter the results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
    * 
    * @param request - ListServiceEndpointsRequest
    * @param headers - map
@@ -4714,10 +5311,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
+   * Queries service endpoints in a specified workspace with paging and supports filtering by target type, agent, collaboration component, and status.
    * 
    * @remarks
-   * ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+   * ## Request description\\nQueries service endpoints in a specified workspace with paging. You can filter the results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
    * 
    * @param request - ListServiceEndpointsRequest
    * @returns ListServiceEndpointsResponse
@@ -4729,7 +5326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the reference relationships of a skill.
+   * Queries skill reference relationships.
    * 
    * @param request - ListSkillReferencesRequest
    * @param headers - map
@@ -4774,7 +5371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the reference relationships of a skill.
+   * Queries skill reference relationships.
    * 
    * @param request - ListSkillReferencesRequest
    * @returns ListSkillReferencesResponse
@@ -4871,7 +5468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
+   * Queries teams in a specified workspace by using paging. You can use nameLike to filter teams by fuzzy matching the team name, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. The member information in the list includes only the member identifier, name, and team role.
    * 
    * @param request - ListTeamsRequest
    * @param headers - map
@@ -4912,7 +5509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
+   * Queries teams in a specified workspace by using paging. You can use nameLike to filter teams by fuzzy matching the team name, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. The member information in the list includes only the member identifier, name, and team role.
    * 
    * @param request - ListTeamsRequest
    * @returns ListTeamsResponse
@@ -4985,10 +5582,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+   * Performs a paged query on the workspaces under the current tenant. By default, the list does not return soft-deleted records with the Deleted status. The server performs stable sorting on the results by creation order to facilitate paging.
    * 
    * @remarks
-   * ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+   * ## Request description\\nPerforms a paged query on the workspaces under the current tenant. By default, the list does not return soft-deleted records with the Deleted status. The server performs stable sorting on the results by creation order to facilitate paging. You can use nextToken to obtain the next page, skip to skip a specified number of workspaces, maxResults to specify the maximum number of records per page, and nameLike to perform fuzzy filtering by workspace name. If maxResults is not specified or is set to 0, the server returns 20 records by default.\\n
    * 
    * @param request - ListWorkspacesRequest
    * @param headers - map
@@ -5029,10 +5626,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+   * Performs a paged query on the workspaces under the current tenant. By default, the list does not return soft-deleted records with the Deleted status. The server performs stable sorting on the results by creation order to facilitate paging.
    * 
    * @remarks
-   * ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+   * ## Request description\\nPerforms a paged query on the workspaces under the current tenant. By default, the list does not return soft-deleted records with the Deleted status. The server performs stable sorting on the results by creation order to facilitate paging. You can use nextToken to obtain the next page, skip to skip a specified number of workspaces, maxResults to specify the maximum number of records per page, and nameLike to perform fuzzy filtering by workspace name. If maxResults is not specified or is set to 0, the server returns 20 records by default.\\n
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -5339,7 +5936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
+   * Resets the logon password of a specified user. You can specify the user by using agentCoreUserId or username, and you must specify at least one of them. This operation only supports resetting passwords for users who use local password authentication in the workspace. If you do not specify the password parameter, the server generates a random password and returns it in the response.
    * 
    * @param tmpReq - ResetUserPasswordRequest
    * @param headers - map
@@ -5378,7 +5975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
+   * Resets the logon password of a specified user. You can specify the user by using agentCoreUserId or username, and you must specify at least one of them. This operation only supports resetting passwords for users who use local password authentication in the workspace. If you do not specify the password parameter, the server generates a random password and returns it in the response.
    * 
    * @param request - ResetUserPasswordRequest
    * @returns ResetUserPasswordResponse
@@ -5390,11 +5987,68 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
+   * Retrieves long-term memory from a MemoryStore based on semantics queries.
    * 
    * @remarks
-   * ## Operation description
-   * Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
+   * Retrieves long-term memory from a MemoryStore based on semantics queries.
+   * 
+   * @param tmpReq - SearchMemoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMemoriesResponse
+   */
+  async searchMemoriesWithOptions(workspaceId: string, memoryStoreName: string, tmpReq: $_model.SearchMemoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMemoriesResponse> {
+    tmpReq.validate();
+    let request = new $_model.SearchMemoriesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchMemories",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memories/search`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchMemoriesResponse>(await this.callApi(params, req, runtime), new $_model.SearchMemoriesResponse({}));
+  }
+
+  /**
+   * Retrieves long-term memory from a MemoryStore based on semantics queries.
+   * 
+   * @remarks
+   * Retrieves long-term memory from a MemoryStore based on semantics queries.
+   * 
+   * @param request - SearchMemoriesRequest
+   * @returns SearchMemoriesResponse
+   */
+  async searchMemories(workspaceId: string, memoryStoreName: string, request: $_model.SearchMemoriesRequest): Promise<$_model.SearchMemoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchMemoriesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Submits a specified draft version of an AgentSpec for review. If no release pipeline is configured, the version is directly published online.
+   * 
+   * @remarks
+   * ## Request description
+   * Submits a specified draft version of an AgentSpec for review. If no release pipeline is configured, the version is directly published online.
    * 
    * @param tmpReq - SubmitAgentSpecVersionRequest
    * @param headers - map
@@ -5433,11 +6087,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
+   * Submits a specified draft version of an AgentSpec for review. If no release pipeline is configured, the version is directly published online.
    * 
    * @remarks
-   * ## Operation description
-   * Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
+   * ## Request description
+   * Submits a specified draft version of an AgentSpec for review. If no release pipeline is configured, the version is directly published online.
    * 
    * @param request - SubmitAgentSpecVersionRequest
    * @returns SubmitAgentSpecVersionResponse
@@ -5508,10 +6162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the ServiceEndpoint binding, enabled/disabled status, or channel behavior configuration of an IM channel. At least one updatable field must be provided.
+   * Updates the ServiceEndpoint, enablement status, or channel behavior configuration bound to an IM channel. At least one updatable field must be provided.
    * 
    * @remarks
-   * Updates the ServiceEndpoint binding, enabled/disabled status, or channel behavior configuration of an IM channel. At least one updatable field must be provided.
+   * Updates the ServiceEndpoint, enablement status, or channel behavior configuration bound to an IM channel. At least one updatable field must be provided.
    * 
    * @param tmpReq - UpdateAgentIMChannelRequest
    * @param headers - map
@@ -5556,10 +6210,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the ServiceEndpoint binding, enabled/disabled status, or channel behavior configuration of an IM channel. At least one updatable field must be provided.
+   * Updates the ServiceEndpoint, enablement status, or channel behavior configuration bound to an IM channel. At least one updatable field must be provided.
    * 
    * @remarks
-   * Updates the ServiceEndpoint binding, enabled/disabled status, or channel behavior configuration of an IM channel. At least one updatable field must be provided.
+   * Updates the ServiceEndpoint, enablement status, or channel behavior configuration bound to an IM channel. At least one updatable field must be provided.
    * 
    * @param request - UpdateAgentIMChannelRequest
    * @returns UpdateAgentIMChannelResponse
@@ -5571,10 +6225,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a full update of the channel credential for a specified IM channel of an agent. Secrets are not returned in the response.
+   * Fully updates the channel credentials of a specified IM channel. Secrets are not returned in the response.
    * 
    * @remarks
-   * Performs a full update of the channel credential for a specified IM channel of an agent. Secrets are not returned in the response.
+   * Fully updates the channel credentials of a specified IM channel. Secrets are not returned in the response.
    * 
    * @param tmpReq - UpdateAgentIMChannelCredentialRequest
    * @param headers - map
@@ -5619,10 +6273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a full update of the channel credential for a specified IM channel of an agent. Secrets are not returned in the response.
+   * Fully updates the channel credentials of a specified IM channel. Secrets are not returned in the response.
    * 
    * @remarks
-   * Performs a full update of the channel credential for a specified IM channel of an agent. Secrets are not returned in the response.
+   * Fully updates the channel credentials of a specified IM channel. Secrets are not returned in the response.
    * 
    * @param request - UpdateAgentIMChannelCredentialRequest
    * @returns UpdateAgentIMChannelCredentialResponse
@@ -5750,10 +6404,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+   * Updates the content or description of a specified credential. You must specify at least one of credentialMetadata and description. Unspecified attributes remain unchanged. The credential name and credential type cannot be modified after creation.
    * 
    * @remarks
-   * Updates the metadata or resource scope of a specified credential.
+   * Updates the metadata or application scope of a specified credential.
    * 
    * @param tmpReq - UpdateCredentialRequest
    * @param headers - map
@@ -5798,10 +6452,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+   * Updates the content or description of a specified credential. You must specify at least one of credentialMetadata and description. Unspecified attributes remain unchanged. The credential name and credential type cannot be modified after creation.
    * 
    * @remarks
-   * Updates the metadata or resource scope of a specified credential.
+   * Updates the metadata or application scope of a specified credential.
    * 
    * @param request - UpdateCredentialRequest
    * @returns UpdateCredentialResponse
@@ -5816,10 +6470,10 @@ export default class Client extends OpenApi {
    * Updates the configuration of a specified custom agent in a workspace and executes the update asynchronously. Omitted top-level fields retain their original configurations. You can call the GetCustomAgent operation to query the update result.
    * 
    * @remarks
-   * Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced in their entirety. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
+   * Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced as a whole. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
    * When updating an image, you must specify artifact.port and the type, instanceId, namespace, repo, and tag fields of artifact.container. To retain a custom startup command, also provide the entrypoint field. Currently, only Alibaba Cloud Container Registry (ACR) container image deployment is supported. Omit the artifact.code field.
-   * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or any of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still subject to workspace network restrictions. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
-   * The update is an asynchronous process. A successful response indicates that the request is accepted. Call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
+   * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or some of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, you must provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still restricted by the workspace network configurations. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
+   * The update is an asynchronous process. A successful response indicates that the request is accepted. You can call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
    * The clientToken field currently does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold field for health checks currently does not take effect. Omit this field.
    * 
    * @param tmpReq - UpdateCustomAgentRequest
@@ -5868,10 +6522,10 @@ export default class Client extends OpenApi {
    * Updates the configuration of a specified custom agent in a workspace and executes the update asynchronously. Omitted top-level fields retain their original configurations. You can call the GetCustomAgent operation to query the update result.
    * 
    * @remarks
-   * Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced in their entirety. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
+   * Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced as a whole. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
    * When updating an image, you must specify artifact.port and the type, instanceId, namespace, repo, and tag fields of artifact.container. To retain a custom startup command, also provide the entrypoint field. Currently, only Alibaba Cloud Container Registry (ACR) container image deployment is supported. Omit the artifact.code field.
-   * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or any of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still subject to workspace network restrictions. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
-   * The update is an asynchronous process. A successful response indicates that the request is accepted. Call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
+   * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or some of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, you must provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still restricted by the workspace network configurations. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
+   * The update is an asynchronous process. A successful response indicates that the request is accepted. You can call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
    * The clientToken field currently does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold field for health checks currently does not take effect. Omit this field.
    * 
    * @param request - UpdateCustomAgentRequest
@@ -6187,12 +6841,132 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+   * Updates the long-term memory text or metadata based on the memory ID.
    * 
    * @remarks
-   * This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
-   * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
-   * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
+   * Updates the long-term memory text or metadata based on the memory ID.
+   * 
+   * @param tmpReq - UpdateMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryResponse
+   */
+  async updateMemoryWithOptions(workspaceId: string, memoryStoreName: string, memoryId: string, tmpReq: $_model.UpdateMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemoryResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMemoryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMemory",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memories/${$dara.URL.percentEncode(memoryId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMemoryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMemoryResponse({}));
+  }
+
+  /**
+   * Updates the long-term memory text or metadata based on the memory ID.
+   * 
+   * @remarks
+   * Updates the long-term memory text or metadata based on the memory ID.
+   * 
+   * @param request - UpdateMemoryRequest
+   * @returns UpdateMemoryResponse
+   */
+  async updateMemory(workspaceId: string, memoryStoreName: string, memoryId: string, request: $_model.UpdateMemoryRequest): Promise<$_model.UpdateMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a memory store.
+   * 
+   * @remarks
+   * Updates a memory store.
+   * 
+   * @param tmpReq - UpdateMemoryStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryStoreResponse
+   */
+  async updateMemoryStoreWithOptions(workspaceId: string, memoryStoreName: string, tmpReq: $_model.UpdateMemoryStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemoryStoreResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMemoryStoreShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMemoryStore",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMemoryStoreResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMemoryStoreResponse({}));
+  }
+
+  /**
+   * Updates a memory store.
+   * 
+   * @remarks
+   * Updates a memory store.
+   * 
+   * @param request - UpdateMemoryStoreRequest
+   * @returns UpdateMemoryStoreResponse
+   */
+  async updateMemoryStore(workspaceId: string, memoryStoreName: string, request: $_model.UpdateMemoryStoreRequest): Promise<$_model.UpdateMemoryStoreResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemoryStoreWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Updates the description, context token limit, maximum output token count, or capability configurations of a specified model.
+   * 
+   * @remarks
+   * This operation supports updating description, contextSize, maxTokens, and capabilities. You must specify at least one non-null parameter. Parameters that are not specified or are set to null retain their original values. The capabilities parameter is replaced as a whole object. Capability fields that are not specified in the object are treated as false.
+   * Modifying only the description does not refresh the model configurations of associated agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed agents that reference the model within the same workspace, as well as external agents whose model source is PLATFORM. External agents whose model source is RUNTIME are not affected. Repeatedly submitting the same configuration does not trigger a new model configuration refresh.
+   * A successful response indicates that the model configuration has been saved, but does not indicate that associated agents have completed the configuration refresh or that the runtime has loaded the new configuration. You can call GetModel to query the saved model configuration.
    * 
    * @param tmpReq - UpdateModelRequest
    * @param headers - map
@@ -6237,12 +7011,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+   * Updates the description, context token limit, maximum output token count, or capability configurations of a specified model.
    * 
    * @remarks
-   * This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
-   * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
-   * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
+   * This operation supports updating description, contextSize, maxTokens, and capabilities. You must specify at least one non-null parameter. Parameters that are not specified or are set to null retain their original values. The capabilities parameter is replaced as a whole object. Capability fields that are not specified in the object are treated as false.
+   * Modifying only the description does not refresh the model configurations of associated agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed agents that reference the model within the same workspace, as well as external agents whose model source is PLATFORM. External agents whose model source is RUNTIME are not affected. Repeatedly submitting the same configuration does not trigger a new model configuration refresh.
+   * A successful response indicates that the model configuration has been saved, but does not indicate that associated agents have completed the configuration refresh or that the runtime has loaded the new configuration. You can call GetModel to query the saved model configuration.
    * 
    * @param request - UpdateModelRequest
    * @returns UpdateModelResponse
@@ -6254,7 +7028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the mutable configuration of a specified model connection and resubmits the publish task. The protocol cannot be modified after the model connection is created.
+   * Updates the mutable configurations of a specified model connection and resubmits the publish task. The invocation protocol cannot be modified after creation.
    * 
    * @param tmpReq - UpdateModelConnectionRequest
    * @param headers - map
@@ -6299,7 +7073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the mutable configuration of a specified model connection and resubmits the publish task. The protocol cannot be modified after the model connection is created.
+   * Updates the mutable configurations of a specified model connection and resubmits the publish task. The invocation protocol cannot be modified after creation.
    * 
    * @param request - UpdateModelConnectionRequest
    * @returns UpdateModelConnectionResponse
@@ -6311,11 +7085,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the business tags of a specified Skill. Other attributes that are not included in the request remain unchanged.
+   * Updates the business tags of a specified skill. Other attributes not provided in the request remain unchanged.
    * 
    * @remarks
-   * ## Operation description
-   * Updates the business tags of a specified Skill. Other attributes that are not included in the request remain unchanged.
+   * ## Request description
+   * Updates the business tags of a specified skill. Other attributes not provided in the request remain unchanged.
    * 
    * @param tmpReq - UpdateSkillBizTagsRequest
    * @param headers - map
@@ -6354,11 +7128,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the business tags of a specified Skill. Other attributes that are not included in the request remain unchanged.
+   * Updates the business tags of a specified skill. Other attributes not provided in the request remain unchanged.
    * 
    * @remarks
-   * ## Operation description
-   * Updates the business tags of a specified Skill. Other attributes that are not included in the request remain unchanged.
+   * ## Request description
+   * Updates the business tags of a specified skill. Other attributes not provided in the request remain unchanged.
    * 
    * @param request - UpdateSkillBizTagsRequest
    * @returns UpdateSkillBizTagsResponse
@@ -6488,7 +7262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
+   * Updates the description and members of a specified team. When users or agents are passed, the corresponding member list is replaced based on full overwrite semantics. Member lists that are not passed remain unchanged. The team name cannot be modified after creation.
    * 
    * @param tmpReq - UpdateTeamRequest
    * @param headers - map
@@ -6533,7 +7307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
+   * Updates the description and members of a specified team. When users or agents are passed, the corresponding member list is replaced based on full overwrite semantics. Member lists that are not passed remain unchanged. The team name cannot be modified after creation.
    * 
    * @param request - UpdateTeamRequest
    * @returns UpdateTeamResponse
@@ -6545,7 +7319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
+   * Updates the display name, email address, or note of a specified user. You must specify at least one of the displayName, email, and note parameters. Unspecified attributes remain unchanged. The username cannot be modified after creation.
    * 
    * @param tmpReq - UpdateUserRequest
    * @param headers - map
@@ -6590,7 +7364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
+   * Updates the display name, email address, or note of a specified user. You must specify at least one of the displayName, email, and note parameters. Unspecified attributes remain unchanged. The username cannot be modified after creation.
    * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse
@@ -6602,10 +7376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
+   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this API operation.
    * 
    * @remarks
-   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
+   * ## Request description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this API operation. The network configuration uses `Enabled` to specify whether to enable the VPC network. If enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
    * 
    * @param tmpReq - UpdateWorkspaceRequest
    * @param headers - map
@@ -6650,10 +7424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
+   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this API operation.
    * 
    * @remarks
-   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
+   * ## Request description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this API operation. The network configuration uses `Enabled` to specify whether to enable the VPC network. If enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
    * 
    * @param request - UpdateWorkspaceRequest
    * @returns UpdateWorkspaceResponse
@@ -6665,11 +7439,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an uploaded AgentSpec ZIP package from OSS, parses it, and imports the AgentSpec into the current workspace.
+   * Imports an AgentSpec into the current workspace by retrieving and parsing an uploaded AgentSpec ZIP package from OSS.
    * 
    * @remarks
-   * ## Operation description
-   * Retrieves an uploaded AgentSpec ZIP package from OSS, parses it, and imports the AgentSpec into the current workspace.
+   * ## Request description
+   * Retrieves an uploaded AgentSpec ZIP package from OSS, parses the package, and imports the AgentSpec into the current workspace.
    * 
    * @param tmpReq - UploadAgentSpecViaOssRequest
    * @param headers - map
@@ -6708,11 +7482,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an uploaded AgentSpec ZIP package from OSS, parses it, and imports the AgentSpec into the current workspace.
+   * Imports an AgentSpec into the current workspace by retrieving and parsing an uploaded AgentSpec ZIP package from OSS.
    * 
    * @remarks
-   * ## Operation description
-   * Retrieves an uploaded AgentSpec ZIP package from OSS, parses it, and imports the AgentSpec into the current workspace.
+   * ## Request description
+   * Retrieves an uploaded AgentSpec ZIP package from OSS, parses the package, and imports the AgentSpec into the current workspace.
    * 
    * @param request - UploadAgentSpecViaOssRequest
    * @returns UploadAgentSpecViaOssResponse
@@ -6840,10 +7614,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ACR RAM authorization of a workspace.
+   * Verifies the ACR RAM authorization for a workspace.
    * 
    * @remarks
-   * ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+   * ACR and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is retained and only new permissions are appended without overwriting existing OSS policies. Fixed historical shared roles continue to be reused and are not recreated or renamed due to new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisites. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached, without parsing the policy content or simulating the final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require ACR configurations to be delivered. Creating or updating an agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through agent details.
    * 
    * @param request - VerifyWorkspaceAcrRamAuthorizationRequest
    * @param headers - map
@@ -6884,10 +7658,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ACR RAM authorization of a workspace.
+   * Verifies the ACR RAM authorization for a workspace.
    * 
    * @remarks
-   * ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+   * ACR and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is retained and only new permissions are appended without overwriting existing OSS policies. Fixed historical shared roles continue to be reused and are not recreated or renamed due to new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisites. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached, without parsing the policy content or simulating the final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require ACR configurations to be delivered. Creating or updating an agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through agent details.
    * 
    * @param request - VerifyWorkspaceAcrRamAuthorizationRequest
    * @returns VerifyWorkspaceAcrRamAuthorizationResponse
