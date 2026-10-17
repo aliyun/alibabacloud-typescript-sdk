@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UserMetricsEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP path of the metric collection API.
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port number on which the metric collection service listens.
+   */
   port?: number;
   static names(): { [key: string]: string } {
     return {

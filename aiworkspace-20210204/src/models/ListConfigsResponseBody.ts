@@ -53,13 +53,12 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   configId?: string;
   /**
    * @remarks
-   * The key of the configuration item. The following keys are supported:
-   * 
-   * - tempStoragePath: the temporary storage path. This ConfigKey can be used only when CategoryName is set to CommonResourceConfig.
-   * - isAutoRecycle: the automatic recycling configuration. This ConfigKey can be used only when CategoryName is set to DLCAutoRecycle.
-   * - priorityConfig: the priority configuration. This ConfigKey can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-   * - quotaMaximumDuration: the maximum runtime duration configuration for DLC jobs in a quota. This ConfigKey can be used only when CategoryName is set to QuotaMaximumDuration.
-   * - predefinedTags: the preset tags for the workspace. Resources that are created must include these tags.
+   * The key of the configuration item. Valid values:
+   * - tempStoragePath: Temporary storage path. This key is allowed only when CategoryName is set to CommonResourceConfig.
+   * - isAutoRecycle: Automatic revoke configuration. This key is allowed only when CategoryName is set to DLCAutoRecycle.
+   * - priorityConfig: Priority configuration. This key is allowed only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+   * - quotaMaximumDuration: Maximum runtime configuration of DLC nodes for a quota. This key is allowed only when CategoryName is set to QuotaMaximumDuration.
+   * - predefinedTags: Preset labels for the workspace. Resources created must have these labels.
    * 
    * @example
    * tempTableLifecycle
@@ -83,7 +82,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The UTC time when the configuration item was last modified.
+   * The UTC time when the configuration item was modified.
    * 
    * @example
    * 2026-07-28T03:44:10.000Z
@@ -144,7 +143,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of returned items.
    * 
    * @example
    * 15

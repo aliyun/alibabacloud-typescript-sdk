@@ -6,6 +6,9 @@ export class Trial extends $dara.Model {
   /**
    * @remarks
    * Accessibility
+   * 
+   * @example
+   * PRIVATE
    */
   accessibility?: string;
   /**
@@ -19,11 +22,17 @@ export class Trial extends $dara.Model {
   /**
    * @remarks
    * GmtCreateTime
+   * 
+   * @example
+   * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
   /**
    * @remarks
    * GmtModifiedTime
+   * 
+   * @example
+   * 2021-01-30T12:51:33.028Z
    */
   gmtModifiedTime?: string;
   /**
@@ -34,21 +43,33 @@ export class Trial extends $dara.Model {
   /**
    * @remarks
    * Name
+   * 
+   * @example
+   * testrun
    */
   name?: string;
   /**
    * @remarks
    * OwnerId
+   * 
+   * @example
+   * 1631044****3440
    */
   ownerId?: string;
   /**
    * @remarks
    * SourceId
+   * 
+   * @example
+   * train9s0afvjkf
    */
   sourceId?: string;
   /**
    * @remarks
    * SourceType
+   * 
+   * @example
+   * TrainingService
    */
   sourceType?: string;
   /**
@@ -67,6 +88,9 @@ export class Trial extends $dara.Model {
   /**
    * @remarks
    * WorkspaceId
+   * 
+   * @example
+   * 145883
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

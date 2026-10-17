@@ -7,7 +7,7 @@ export class GetPermissionResponseBodyPermissionRules extends $dara.Model {
    * @remarks
    * The access type. Valid values:
    * 
-   * - PUBLIC: All members in the current workspace can perform operations.
+   * - PUBLIC: All members of the current workspace can perform operations.
    * - PRIVATE: Only the creator can perform operations.
    * - ANY: Both the creator and non-creators can perform operations.
    * 
@@ -17,9 +17,9 @@ export class GetPermissionResponseBodyPermissionRules extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The access type.
-   * When Accessibility is set to PUBLIC, all users can perform operations and this value does not take effect.
-   * When Accessibility is set to PRIVATE, EntityAccessType supports the following values:
+   * The entity access type.
+   * If Accessibility is set to PUBLIC, all users can perform operations and this parameter does not take effect.
+   * If Accessibility is set to PRIVATE, EntityAccessType supports the following values:
    * - CREATOR: Only the creator can perform operations.
    * - ANY: Both the creator and non-creators can perform operations.
    * 
@@ -53,7 +53,7 @@ export class GetPermissionResponseBodyPermissionRules extends $dara.Model {
 export class GetPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission, which is unique within the same region. For more information about permissions, see [Appendix: Roles and permissions](https://help.aliyun.com/document_detail/2840449.html).
+   * The name of the permission. The name is unique within a region. For more information about permissions, see [Appendix: Roles and permissions](https://help.aliyun.com/document_detail/2840449.html).
    * 
    * @example
    * PaiDLC:ListJobs

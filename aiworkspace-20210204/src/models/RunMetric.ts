@@ -8,16 +8,19 @@ export class RunMetric extends $dara.Model {
    * The metric name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * loss
    */
   key?: string;
   /**
    * @remarks
-   * The step when the metric was recorded.
+   * The step count at which the metric is generated.
    */
   step?: number;
   /**
    * @remarks
-   * The timestamp when the metric was recorded.
+   * The timestamp at which the metric is generated.
    */
   timestamp?: number;
   /**

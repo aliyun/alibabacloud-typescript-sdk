@@ -47,8 +47,8 @@ export class AddImageRequest extends $dara.Model {
    * @remarks
    * The visibility of the image. Valid values:
    * 
-   * - PUBLIC: All members in the current workspace can access the image.
-   * - PRIVATE: Only the creator can access the image.
+   * - PUBLIC: All members in the current workspace can manage the image.
+   * - PRIVATE: Only the creator can manage the image.
    * 
    * @example
    * PUBLIC
@@ -64,7 +64,8 @@ export class AddImageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The image ID. If you do not specify this parameter, the system automatically generates one. The format is image- followed by 18 uppercase or lowercase letters or digits.
+   * The ID of the image. If you do not specify this parameter, the system automatically generates an image ID.
+   * The format is image- followed by 18 uppercase or lowercase letters or digits.
    * 
    * @example
    * image-k83*****cv
@@ -72,7 +73,7 @@ export class AddImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image URI, which can be duplicated. For information about how to view the image URI, see [ListImage](https://help.aliyun.com/document_detail/449118.html).
+   * The URI of the image. The URI can be duplicated. For more information about how to view the image URI, see [ListImage](https://help.aliyun.com/document_detail/449118.html).
    * 
    * This parameter is required.
    * 
@@ -82,8 +83,8 @@ export class AddImageRequest extends $dara.Model {
   imageUri?: string;
   /**
    * @remarks
-   * The image labels. This is an array in which each item contains a key field and a value field.
-   * Official images have the following label: system.official=true
+   * The labels of the image. This parameter is an array, and each item in the array contains the key and value fields.
+   * Official images have the following label: system.official=true.
    * The following keys are supported:
    * 
    * - system.chipType
@@ -108,7 +109,7 @@ export class AddImageRequest extends $dara.Model {
   labels?: AddImageRequestLabels[];
   /**
    * @remarks
-   * The image name. Naming rules:
+   * The name of the image. The naming rules are as follows:
    * - The name must be 1 to 50 characters in length.
    * - The name can contain lowercase letters, digits, and hyphens (-), and must start with a letter.
    * - The name must be unique within the same workspace.
@@ -121,7 +122,7 @@ export class AddImageRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The image size, in GB.
+   * The size of the image. Unit: GB.
    * 
    * @example
    * 2
@@ -129,7 +130,7 @@ export class AddImageRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The image source ID. If the image source type is Build, the source ID corresponds to the image build ID.
+   * The source ID of the image. If the source type of the image is Build, the source ID is the image build ID.
    * 
    * @example
    * build-****ks92
@@ -137,9 +138,9 @@ export class AddImageRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The image source type. Valid values:
-   * - Import: import.
-   * - Build: generate.
+   * The source type of the image. Valid values:
+   * - Import: The image is imported.
+   * - Build: The image is built.
    * 
    * @example
    * Build
@@ -148,11 +149,14 @@ export class AddImageRequest extends $dara.Model {
   /**
    * @remarks
    * The user ID (UID) of the image creator.
+   * 
+   * @example
+   * 1611******3000
    */
   userId?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the image belongs. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The ID of the workspace to which the image belongs. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 15******45

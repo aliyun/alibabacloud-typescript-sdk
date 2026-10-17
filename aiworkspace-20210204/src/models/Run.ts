@@ -8,7 +8,7 @@ import { RunParam } from "./RunParam";
 export class Run extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the run.
+   * The accessibility.
    * 
    * @example
    * PRIVATE
@@ -24,7 +24,7 @@ export class Run extends $dara.Model {
   experimentId?: string;
   /**
    * @remarks
-   * The time when the run was created.
+   * The creation time.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -32,7 +32,7 @@ export class Run extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the run was last modified.
+   * The modification time.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -50,7 +50,7 @@ export class Run extends $dara.Model {
   metrics?: RunMetric[];
   /**
    * @remarks
-   * Name
+   * The name.
    * 
    * @example
    * testrun
@@ -58,7 +58,7 @@ export class Run extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the owner\\"s root account.
+   * The Alibaba Cloud account ID of the owner.
    * 
    * @example
    * 163104*****3440
@@ -104,6 +104,9 @@ export class Run extends $dara.Model {
   /**
    * @remarks
    * The ID of the owner.
+   * 
+   * @example
+   * 1557702098******
    */
   userId?: string;
   /**

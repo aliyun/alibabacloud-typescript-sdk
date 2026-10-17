@@ -41,17 +41,17 @@ export class Experiment extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The list of labels for the experiment.
+   * The list of experiment labels.
    */
   labels?: ExperimentLabel[];
   /**
    * @remarks
-   * LatestRun
+   * The information about the latest run associated with the experiment.
    */
   latestRun?: Run;
   /**
    * @remarks
-   * The name of the experiment.
+   * The experiment name.
    * 
    * @example
    * exp-test
@@ -60,21 +60,33 @@ export class Experiment extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the experiment owner.
+   * 
+   * @example
+   * 1631044****3440
    */
   ownerId?: string;
   /**
    * @remarks
    * The request ID.
+   * 
+   * @example
+   * 0C6835C5-A424-5AFB-ACC2-F1E3CA1ABF7C
    */
   requestId?: string;
   /**
    * @remarks
    * The default OSS storage path for TensorBoard logs of each trial in the experiment.
+   * 
+   * @example
+   * oss://test-bucket.oss-cn-hangzhou.aliyuncs.com/tensorboard/
    */
   tensorboardLogUri?: string;
   /**
    * @remarks
    * The user ID of the experiment creator.
+   * 
+   * @example
+   * 1557702098******
    */
   userId?: string;
   /**

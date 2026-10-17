@@ -4014,6 +4014,10 @@ export default class Client extends OpenApi {
       query["Labels"] = request.labels;
     }
 
+    if (!$dara.isNull(request.options)) {
+      query["Options"] = request.options;
+    }
+
     if (!$dara.isNull(request.verbose)) {
       query["Verbose"] = request.verbose;
     }
