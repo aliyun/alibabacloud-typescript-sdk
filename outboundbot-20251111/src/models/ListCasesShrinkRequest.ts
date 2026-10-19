@@ -60,7 +60,7 @@ export class ListCasesShrinkRequest extends $dara.Model {
   dispositionReasonsShrink?: string;
   /**
    * @remarks
-   * Specifies whether the version is a draft version.
+   * Specifies whether it is a draft version.
    * 
    * @example
    * true
@@ -86,7 +86,7 @@ export class ListCasesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The label search condition.
+   * The label search criteria.
    */
   labelSearchShrink?: string;
   /**
@@ -183,7 +183,7 @@ export class ListCasesShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The list of case states.
+   * The list of case statuses.
    */
   statesShrink?: string;
   static names(): { [key: string]: string } {

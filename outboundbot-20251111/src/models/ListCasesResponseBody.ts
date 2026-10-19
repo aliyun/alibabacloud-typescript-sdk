@@ -10,7 +10,7 @@ export class ListCasesResponseBodyDataListLabels extends $dara.Model {
   candidateValues?: string[];
   /**
    * @remarks
-   * Indicates whether the item is collected.
+   * Indicates whether the label is collected.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListCasesResponseBodyDataListLabels extends $dara.Model {
    * The description of the label.
    * 
    * @example
-   * Description content
+   * Sample description
    */
   description?: string;
   /**
@@ -37,12 +37,12 @@ export class ListCasesResponseBodyDataListLabels extends $dara.Model {
    * The name of the label.
    * 
    * @example
-   * 软包装企业打电话_20251022_165548
+   * Flexible packaging enterprise call_20251022_165548
    */
   name?: string;
   /**
    * @remarks
-   * The system label.
+   * Indicates whether the label is a system label.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class ListCasesResponseBodyDataListLabels extends $dara.Model {
 export class ListCasesResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The number of dial attempts.
+   * The number of call attempts.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   caseId?: string;
   /**
    * @remarks
-   * The time when the case was created.
+   * The creation time.
    * 
    * @example
    * 2025-07-27T11:25:15+08:00
@@ -178,7 +178,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   labels?: ListCasesResponseBodyDataListLabels[];
   /**
    * @remarks
-   * The time of the last dial attempt.
+   * The time of the last call attempt.
    * 
    * @example
    * 1786960840667
@@ -194,7 +194,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The priority of the case.
+   * The priority.
    * 
    * @example
    * Daily
@@ -237,7 +237,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
    * The name of the script.
    * 
    * @example
-   * Scenario Name
+   * Sample scenario name
    */
   scriptName?: string;
   /**
@@ -250,7 +250,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The case state.
+   * The case status.
    * 
    * @example
    * Executing
@@ -258,12 +258,20 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The talk time.
+   * The call duration.
    * 
    * @example
    * 10
    */
   talkTime?: number;
+  /**
+   * @remarks
+   * The number of dialogue turns.
+   * 
+   * @example
+   * 1
+   */
+  talkTurns?: number;
   static names(): { [key: string]: string } {
     return {
       attemptedCount: 'AttemptedCount',
@@ -289,6 +297,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
       sessionId: 'SessionId',
       state: 'State',
       talkTime: 'TalkTime',
+      talkTurns: 'TalkTurns',
     };
   }
 
@@ -317,6 +326,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
       sessionId: 'string',
       state: 'string',
       talkTime: 'number',
+      talkTurns: 'number',
     };
   }
 
@@ -335,7 +345,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
 export class ListCasesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of cases.
+   * The case list.
    */
   list?: ListCasesResponseBodyDataList[];
   /**
@@ -403,7 +413,7 @@ export class ListCasesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The paged data.
+   * The paginated data.
    */
   data?: ListCasesResponseBodyData;
   /**
@@ -424,7 +434,7 @@ export class ListCasesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pass-through parameters.
+   * The pass-through parameter.
    */
   params?: string[];
   /**
@@ -437,7 +447,7 @@ export class ListCasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
