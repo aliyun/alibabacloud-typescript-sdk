@@ -189,6 +189,144 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * BatchCancelTodos
+   * 
+   * @remarks
+   * 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+   * 
+   * @param tmpReq - BatchCancelTodosRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCancelTodosResponse
+   */
+  async batchCancelTodosWithOptions(tmpReq: $_model.BatchCancelTodosRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCancelTodosResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchCancelTodosShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.todoIds)) {
+      request.todoIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.todoIds, "todoIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.todoIdsShrink)) {
+      body["todoIds"] = request.todoIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCancelTodos",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/batchCancelTodos`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCancelTodosResponse>(await this.callApi(params, req, runtime), new $_model.BatchCancelTodosResponse({}));
+  }
+
+  /**
+   * BatchCancelTodos
+   * 
+   * @remarks
+   * 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+   * 
+   * @param request - BatchCancelTodosRequest
+   * @returns BatchCancelTodosResponse
+   */
+  async batchCancelTodos(request: $_model.BatchCancelTodosRequest): Promise<$_model.BatchCancelTodosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchCancelTodosWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * BatchOperateWorkItems
+   * 
+   * @remarks
+   * 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+   * 
+   * @param tmpReq - BatchOperateWorkItemsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchOperateWorkItemsResponse
+   */
+  async batchOperateWorkItemsWithOptions(tmpReq: $_model.BatchOperateWorkItemsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchOperateWorkItemsResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchOperateWorkItemsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.workItemIds)) {
+      request.workItemIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workItemIds, "workItemIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.action)) {
+      body["action"] = request.action;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.idempotencyKey)) {
+      body["idempotencyKey"] = request.idempotencyKey;
+    }
+
+    if (!$dara.isNull(request.workItemIdsShrink)) {
+      body["workItemIds"] = request.workItemIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchOperateWorkItems",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/batchOperateWorkItems`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchOperateWorkItemsResponse>(await this.callApi(params, req, runtime), new $_model.BatchOperateWorkItemsResponse({}));
+  }
+
+  /**
+   * BatchOperateWorkItems
+   * 
+   * @remarks
+   * 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+   * 
+   * @param request - BatchOperateWorkItemsRequest
+   * @returns BatchOperateWorkItemsResponse
+   */
+  async batchOperateWorkItems(request: $_model.BatchOperateWorkItemsRequest): Promise<$_model.BatchOperateWorkItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchOperateWorkItemsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Batch cancels digital employee precise object type subscriptions.
    * 
    * @remarks
@@ -264,6 +402,219 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CancelTodo
+   * 
+   * @remarks
+   * 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+   * 
+   * @param request - CancelTodoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelTodoResponse
+   */
+  async cancelTodoWithOptions(request: $_model.CancelTodoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CancelTodoResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.todoId)) {
+      body["todoId"] = request.todoId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelTodo",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/cancelTodo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelTodoResponse>(await this.callApi(params, req, runtime), new $_model.CancelTodoResponse({}));
+  }
+
+  /**
+   * CancelTodo
+   * 
+   * @remarks
+   * 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+   * 
+   * @param request - CancelTodoRequest
+   * @returns CancelTodoResponse
+   */
+  async cancelTodo(request: $_model.CancelTodoRequest): Promise<$_model.CancelTodoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelTodoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 检查应用内资源权限
+   * 
+   * @remarks
+   * 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+   * 
+   * @param request - CheckAppResourcePermissionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckAppResourcePermissionResponse
+   */
+  async checkAppResourcePermissionWithOptions(request: $_model.CheckAppResourcePermissionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CheckAppResourcePermissionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.permission)) {
+      body["permission"] = request.permission;
+    }
+
+    if (!$dara.isNull(request.resourceKey)) {
+      body["resourceKey"] = request.resourceKey;
+    }
+
+    if (!$dara.isNull(request.resourceTenantId)) {
+      body["resourceTenantId"] = request.resourceTenantId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.targetUserId)) {
+      body["targetUserId"] = request.targetUserId;
+    }
+
+    if (!$dara.isNull(request.targetUserTenantId)) {
+      body["targetUserTenantId"] = request.targetUserTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckAppResourcePermission",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/checkAppResourcePermission`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckAppResourcePermissionResponse>(await this.callApi(params, req, runtime), new $_model.CheckAppResourcePermissionResponse({}));
+  }
+
+  /**
+   * 检查应用内资源权限
+   * 
+   * @remarks
+   * 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+   * 
+   * @param request - CheckAppResourcePermissionRequest
+   * @returns CheckAppResourcePermissionResponse
+   */
+  async checkAppResourcePermission(request: $_model.CheckAppResourcePermissionRequest): Promise<$_model.CheckAppResourcePermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.checkAppResourcePermissionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量检查应用内资源权限
+   * 
+   * @remarks
+   * 整批逐应用鉴权后，复用 service 的常数级查询。
+   * 
+   * @param tmpReq - CheckAppResourcePermissionsBatchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckAppResourcePermissionsBatchResponse
+   */
+  async checkAppResourcePermissionsBatchWithOptions(tmpReq: $_model.CheckAppResourcePermissionsBatchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CheckAppResourcePermissionsBatchResponse> {
+    tmpReq.validate();
+    let request = new $_model.CheckAppResourcePermissionsBatchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.checks)) {
+      request.checksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.checks, "checks", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.checksShrink)) {
+      body["checks"] = request.checksShrink;
+    }
+
+    if (!$dara.isNull(request.resourceTenantId)) {
+      body["resourceTenantId"] = request.resourceTenantId;
+    }
+
+    if (!$dara.isNull(request.targetUserId)) {
+      body["targetUserId"] = request.targetUserId;
+    }
+
+    if (!$dara.isNull(request.targetUserTenantId)) {
+      body["targetUserTenantId"] = request.targetUserTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckAppResourcePermissionsBatch",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/checkAppResourcePermissionsBatch`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckAppResourcePermissionsBatchResponse>(await this.callApi(params, req, runtime), new $_model.CheckAppResourcePermissionsBatchResponse({}));
+  }
+
+  /**
+   * 批量检查应用内资源权限
+   * 
+   * @remarks
+   * 整批逐应用鉴权后，复用 service 的常数级查询。
+   * 
+   * @param request - CheckAppResourcePermissionsBatchRequest
+   * @returns CheckAppResourcePermissionsBatchResponse
+   */
+  async checkAppResourcePermissionsBatch(request: $_model.CheckAppResourcePermissionsBatchRequest): Promise<$_model.CheckAppResourcePermissionsBatchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.checkAppResourcePermissionsBatchWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Performs a service health check.
    * 
    * @param request - CheckHealthRequest
@@ -306,6 +657,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkHealthWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按类型或全部清空自动记忆
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - ClearAutoMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearAutoMemoryResponse
+   */
+  async clearAutoMemoryWithOptions(request: $_model.ClearAutoMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ClearAutoMemoryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["groupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerType)) {
+      body["ownerType"] = request.ownerType;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClearAutoMemory",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/clearAutoMemory`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClearAutoMemoryResponse>(await this.callApi(params, req, runtime), new $_model.ClearAutoMemoryResponse({}));
+  }
+
+  /**
+   * 按类型或全部清空自动记忆
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - ClearAutoMemoryRequest
+   * @returns ClearAutoMemoryResponse
+   */
+  async clearAutoMemory(request: $_model.ClearAutoMemoryRequest): Promise<$_model.ClearAutoMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.clearAutoMemoryWithOptions(request, headers, runtime);
   }
 
   /**
@@ -371,6 +787,124 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.clearOperatingObjectFavoritesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * CloseWorkflowTodos
+   * 
+   * @remarks
+   * 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+   * 
+   * @param request - CloseWorkflowTodosRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseWorkflowTodosResponse
+   */
+  async closeWorkflowTodosWithOptions(request: $_model.CloseWorkflowTodosRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CloseWorkflowTodosResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.sourceWorkflowId)) {
+      body["sourceWorkflowId"] = request.sourceWorkflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloseWorkflowTodos",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/closeWorkflowTodos`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloseWorkflowTodosResponse>(await this.callApi(params, req, runtime), new $_model.CloseWorkflowTodosResponse({}));
+  }
+
+  /**
+   * CloseWorkflowTodos
+   * 
+   * @remarks
+   * 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+   * 
+   * @param request - CloseWorkflowTodosRequest
+   * @returns CloseWorkflowTodosResponse
+   */
+  async closeWorkflowTodos(request: $_model.CloseWorkflowTodosRequest): Promise<$_model.CloseWorkflowTodosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.closeWorkflowTodosWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * CountTodos
+   * 
+   * @remarks
+   * 统计当前用户的待办角标（待处理数与未读数）
+   * 
+   * @param request - CountTodosRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CountTodosResponse
+   */
+  async countTodosWithOptions(request: $_model.CountTodosRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CountTodosResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CountTodos",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/countTodos`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CountTodosResponse>(await this.callApi(params, req, runtime), new $_model.CountTodosResponse({}));
+  }
+
+  /**
+   * CountTodos
+   * 
+   * @remarks
+   * 统计当前用户的待办角标（待处理数与未读数）
+   * 
+   * @param request - CountTodosRequest
+   * @returns CountTodosResponse
+   */
+  async countTodos(request: $_model.CountTodosRequest): Promise<$_model.CountTodosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.countTodosWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3740,6 +4274,101 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateTodo
+   * 
+   * @remarks
+   * 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+   * 
+   * @param tmpReq - CreateTodoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTodoResponse
+   */
+  async createTodoWithOptions(tmpReq: $_model.CreateTodoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTodoResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateTodoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assigneeUserIds)) {
+      request.assigneeUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assigneeUserIds, "assigneeUserIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.questions)) {
+      request.questionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.questions, "questions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sourceContext)) {
+      request.sourceContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceContext, "sourceContext", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assigneeUserIdsShrink)) {
+      body["assigneeUserIds"] = request.assigneeUserIdsShrink;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.questionsShrink)) {
+      body["questions"] = request.questionsShrink;
+    }
+
+    if (!$dara.isNull(request.sourceContextShrink)) {
+      body["sourceContext"] = request.sourceContextShrink;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      body["sourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTodo",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/createTodo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTodoResponse>(await this.callApi(params, req, runtime), new $_model.CreateTodoResponse({}));
+  }
+
+  /**
+   * CreateTodo
+   * 
+   * @remarks
+   * 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+   * 
+   * @param request - CreateTodoRequest
+   * @returns CreateTodoResponse
+   */
+  async createTodo(request: $_model.CreateTodoRequest): Promise<$_model.CreateTodoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTodoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a user and adds the user to a tenant.
    * 
    * @remarks
@@ -4001,6 +4630,342 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateWorkItem
+   * 
+   * @remarks
+   * 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+   * 
+   * @param tmpReq - CreateWorkItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkItemResponse
+   */
+  async createWorkItemWithOptions(tmpReq: $_model.CreateWorkItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkItemResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWorkItemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attachments)) {
+      request.attachmentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attachments, "attachments", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.collaboratorUserIds)) {
+      request.collaboratorUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.collaboratorUserIds, "collaboratorUserIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.workflowTemplateIds)) {
+      request.workflowTemplateIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowTemplateIds, "workflowTemplateIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceptanceCriteria)) {
+      body["acceptanceCriteria"] = request.acceptanceCriteria;
+    }
+
+    if (!$dara.isNull(request.attachmentsShrink)) {
+      body["attachments"] = request.attachmentsShrink;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.collaboratorUserIdsShrink)) {
+      body["collaboratorUserIds"] = request.collaboratorUserIdsShrink;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["conversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.itemType)) {
+      body["itemType"] = request.itemType;
+    }
+
+    if (!$dara.isNull(request.ownerUserId)) {
+      body["ownerUserId"] = request.ownerUserId;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workflowTemplateIdsShrink)) {
+      body["workflowTemplateIds"] = request.workflowTemplateIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkItem",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/createWorkItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkItemResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkItemResponse({}));
+  }
+
+  /**
+   * CreateWorkItem
+   * 
+   * @remarks
+   * 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+   * 
+   * @param request - CreateWorkItemRequest
+   * @returns CreateWorkItemResponse
+   */
+  async createWorkItem(request: $_model.CreateWorkItemRequest): Promise<$_model.CreateWorkItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkItemWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 幂等创建工作流实例
+   * 
+   * @remarks
+   * 组合既有创建与排产，不旁路工作项权限或运行准入。
+   * 
+   * @param tmpReq - CreateWorkflowInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkflowInstanceResponse
+   */
+  async createWorkflowInstanceWithOptions(tmpReq: $_model.CreateWorkflowInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkflowInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWorkflowInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.variables)) {
+      request.variablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.variables, "variables", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceptanceCriteria)) {
+      body["acceptanceCriteria"] = request.acceptanceCriteria;
+    }
+
+    if (!$dara.isNull(request.businessId)) {
+      body["businessId"] = request.businessId;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.initiator)) {
+      body["initiator"] = request.initiator;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["templateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.variablesShrink)) {
+      body["variables"] = request.variablesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkflowInstance",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/createWorkflowInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkflowInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkflowInstanceResponse({}));
+  }
+
+  /**
+   * 幂等创建工作流实例
+   * 
+   * @remarks
+   * 组合既有创建与排产，不旁路工作项权限或运行准入。
+   * 
+   * @param request - CreateWorkflowInstanceRequest
+   * @returns CreateWorkflowInstanceResponse
+   */
+  async createWorkflowInstance(request: $_model.CreateWorkflowInstanceRequest): Promise<$_model.CreateWorkflowInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkflowInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * CreateWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员保存全新工作流模板；同名模板不会覆盖
+   * 
+   * @param tmpReq - CreateWorkflowTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkflowTemplateResponse
+   */
+  async createWorkflowTemplateWithOptions(tmpReq: $_model.CreateWorkflowTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkflowTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWorkflowTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.definition)) {
+      request.definitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.definition, "definition", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.definitionShrink)) {
+      body["definition"] = request.definitionShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkflowTemplate",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/createWorkflowTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkflowTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkflowTemplateResponse({}));
+  }
+
+  /**
+   * CreateWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员保存全新工作流模板；同名模板不会覆盖
+   * 
+   * @param request - CreateWorkflowTemplateRequest
+   * @returns CreateWorkflowTemplateResponse
+   */
+  async createWorkflowTemplate(request: $_model.CreateWorkflowTemplateRequest): Promise<$_model.CreateWorkflowTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkflowTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量删除应用内资源权限
+   * 
+   * @remarks
+   * 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+   * 
+   * @param tmpReq - DeleteAppResourcePermissionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppResourcePermissionsResponse
+   */
+  async deleteAppResourcePermissionsWithOptions(tmpReq: $_model.DeleteAppResourcePermissionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppResourcePermissionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAppResourcePermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.items)) {
+      request.itemsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.items, "items", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.itemsShrink)) {
+      body["items"] = request.itemsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceTenantId)) {
+      body["resourceTenantId"] = request.resourceTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAppResourcePermissions",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/deleteAppResourcePermissions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppResourcePermissionsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppResourcePermissionsResponse({}));
+  }
+
+  /**
+   * 批量删除应用内资源权限
+   * 
+   * @remarks
+   * 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+   * 
+   * @param request - DeleteAppResourcePermissionsRequest
+   * @returns DeleteAppResourcePermissionsResponse
+   */
+  async deleteAppResourcePermissions(request: $_model.DeleteAppResourcePermissionsRequest): Promise<$_model.DeleteAppResourcePermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAppResourcePermissionsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes a session.
    * 
    * @remarks
@@ -4200,6 +5165,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DeleteWorkItem
+   * 
+   * @remarks
+   * 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+   * 
+   * @param request - DeleteWorkItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkItemResponse
+   */
+  async deleteWorkItemWithOptions(request: $_model.DeleteWorkItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkItemResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkItem",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/deleteWorkItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkItemResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkItemResponse({}));
+  }
+
+  /**
+   * DeleteWorkItem
+   * 
+   * @remarks
+   * 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+   * 
+   * @param request - DeleteWorkItemRequest
+   * @returns DeleteWorkItemResponse
+   */
+  async deleteWorkItem(request: $_model.DeleteWorkItemRequest): Promise<$_model.DeleteWorkItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkItemWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * DeleteWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+   * 
+   * @param request - DeleteWorkflowTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkflowTemplateResponse
+   */
+  async deleteWorkflowTemplateWithOptions(request: $_model.DeleteWorkflowTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkflowTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkflowTemplate",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/deleteWorkflowTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkflowTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkflowTemplateResponse({}));
+  }
+
+  /**
+   * DeleteWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+   * 
+   * @param request - DeleteWorkflowTemplateRequest
+   * @returns DeleteWorkflowTemplateResponse
+   */
+  async deleteWorkflowTemplate(request: $_model.DeleteWorkflowTemplateRequest): Promise<$_model.DeleteWorkflowTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkflowTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Disables an API token.
    * 
    * @remarks
@@ -4339,6 +5426,207 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableTokenWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * ExportWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员导出可回流导入的精简模板定义
+   * 
+   * @param request - ExportWorkflowTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportWorkflowTemplateResponse
+   */
+  async exportWorkflowTemplateWithOptions(request: $_model.ExportWorkflowTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExportWorkflowTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportWorkflowTemplate",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/exportWorkflowTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportWorkflowTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ExportWorkflowTemplateResponse({}));
+  }
+
+  /**
+   * ExportWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员导出可回流导入的精简模板定义
+   * 
+   * @param request - ExportWorkflowTemplateRequest
+   * @returns ExportWorkflowTemplateResponse
+   */
+  async exportWorkflowTemplate(request: $_model.ExportWorkflowTemplateRequest): Promise<$_model.ExportWorkflowTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.exportWorkflowTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * GenerateWorkflowTemplateDraft
+   * 
+   * @remarks
+   * 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+   * 
+   * @param tmpReq - GenerateWorkflowTemplateDraftRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateWorkflowTemplateDraftResponse
+   */
+  async generateWorkflowTemplateDraftWithOptions(tmpReq: $_model.GenerateWorkflowTemplateDraftRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateWorkflowTemplateDraftResponse> {
+    tmpReq.validate();
+    let request = new $_model.GenerateWorkflowTemplateDraftShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.previousDraft)) {
+      request.previousDraftShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.previousDraft, "previousDraft", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.previousDraftShrink)) {
+      body["previousDraft"] = request.previousDraftShrink;
+    }
+
+    if (!$dara.isNull(request.requirement)) {
+      body["requirement"] = request.requirement;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateWorkflowTemplateDraft",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/generateWorkflowTemplateDraft`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateWorkflowTemplateDraftResponse>(await this.callApi(params, req, runtime), new $_model.GenerateWorkflowTemplateDraftResponse({}));
+  }
+
+  /**
+   * GenerateWorkflowTemplateDraft
+   * 
+   * @remarks
+   * 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+   * 
+   * @param request - GenerateWorkflowTemplateDraftRequest
+   * @returns GenerateWorkflowTemplateDraftResponse
+   */
+  async generateWorkflowTemplateDraft(request: $_model.GenerateWorkflowTemplateDraftRequest): Promise<$_model.GenerateWorkflowTemplateDraftResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateWorkflowTemplateDraftWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * GetAgentWorkLog
+   * 
+   * @remarks
+   * 查询工作流 Agent 工作日志
+   * 
+   * @param request - GetAgentWorkLogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentWorkLogResponse
+   */
+  async getAgentWorkLogWithOptions(request: $_model.GetAgentWorkLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentWorkLogResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeId)) {
+      body["nodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentWorkLog",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getAgentWorkLog`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentWorkLogResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentWorkLogResponse({}));
+  }
+
+  /**
+   * GetAgentWorkLog
+   * 
+   * @remarks
+   * 查询工作流 Agent 工作日志
+   * 
+   * @param request - GetAgentWorkLogRequest
+   * @returns GetAgentWorkLogResponse
+   */
+  async getAgentWorkLog(request: $_model.GetAgentWorkLogRequest): Promise<$_model.GetAgentWorkLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAgentWorkLogWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4859,6 +6147,193 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getKnowledgeBaseSourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询自动记忆拾取开关
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - GetMemoryAutoExtractionSwitchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryAutoExtractionSwitchResponse
+   */
+  async getMemoryAutoExtractionSwitchWithOptions(request: $_model.GetMemoryAutoExtractionSwitchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryAutoExtractionSwitchResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["groupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerType)) {
+      body["ownerType"] = request.ownerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemoryAutoExtractionSwitch",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getMemoryAutoExtractionSwitch`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryAutoExtractionSwitchResponse>(await this.callApi(params, req, runtime), new $_model.GetMemoryAutoExtractionSwitchResponse({}));
+  }
+
+  /**
+   * 查询自动记忆拾取开关
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - GetMemoryAutoExtractionSwitchRequest
+   * @returns GetMemoryAutoExtractionSwitchResponse
+   */
+  async getMemoryAutoExtractionSwitch(request: $_model.GetMemoryAutoExtractionSwitchRequest): Promise<$_model.GetMemoryAutoExtractionSwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryAutoExtractionSwitchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询个人或协作空间记忆详情
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - GetMemoryDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryDetailResponse
+   */
+  async getMemoryDetailWithOptions(request: $_model.GetMemoryDetailRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryDetailResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["groupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerType)) {
+      body["ownerType"] = request.ownerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemoryDetail",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getMemoryDetail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetMemoryDetailResponse({}));
+  }
+
+  /**
+   * 查询个人或协作空间记忆详情
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - GetMemoryDetailRequest
+   * @returns GetMemoryDetailResponse
+   */
+  async getMemoryDetail(request: $_model.GetMemoryDetailRequest): Promise<$_model.GetMemoryDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * GetNodeDetail
+   * 
+   * @remarks
+   * 查询实例节点完整详情
+   * 
+   * @param request - GetNodeDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNodeDetailResponse
+   */
+  async getNodeDetailWithOptions(request: $_model.GetNodeDetailRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetNodeDetailResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["nodeId"] = request.nodeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNodeDetail",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getNodeDetail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNodeDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetNodeDetailResponse({}));
+  }
+
+  /**
+   * GetNodeDetail
+   * 
+   * @remarks
+   * 查询实例节点完整详情
+   * 
+   * @param request - GetNodeDetailRequest
+   * @returns GetNodeDetailResponse
+   */
+  async getNodeDetail(request: $_model.GetNodeDetailRequest): Promise<$_model.GetNodeDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getNodeDetailWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5483,6 +6958,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetTodo
+   * 
+   * @remarks
+   * 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+   * 
+   * @param request - GetTodoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTodoResponse
+   */
+  async getTodoWithOptions(request: $_model.GetTodoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTodoResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messageId)) {
+      body["messageId"] = request.messageId;
+    }
+
+    if (!$dara.isNull(request.todoId)) {
+      body["todoId"] = request.todoId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTodo",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getTodo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTodoResponse>(await this.callApi(params, req, runtime), new $_model.GetTodoResponse({}));
+  }
+
+  /**
+   * GetTodo
+   * 
+   * @remarks
+   * 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+   * 
+   * @param request - GetTodoRequest
+   * @returns GetTodoResponse
+   */
+  async getTodo(request: $_model.GetTodoRequest): Promise<$_model.GetTodoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTodoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * GetTodoDetail
+   * 
+   * @remarks
+   * 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+   * 
+   * @param request - GetTodoDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTodoDetailResponse
+   */
+  async getTodoDetailWithOptions(request: $_model.GetTodoDetailRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTodoDetailResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.todoId)) {
+      body["todoId"] = request.todoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTodoDetail",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getTodoDetail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTodoDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetTodoDetailResponse({}));
+  }
+
+  /**
+   * GetTodoDetail
+   * 
+   * @remarks
+   * 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+   * 
+   * @param request - GetTodoDetailRequest
+   * @returns GetTodoDetailResponse
+   */
+  async getTodoDetail(request: $_model.GetTodoDetailRequest): Promise<$_model.GetTodoDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTodoDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves an API token and ensures that it is active.
    * 
    * @remarks
@@ -5893,6 +7490,311 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetWorkItem
+   * 
+   * @remarks
+   * 有效成员读取当前空间可见工作项详情
+   * 
+   * @param request - GetWorkItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkItemResponse
+   */
+  async getWorkItemWithOptions(request: $_model.GetWorkItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkItemResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkItem",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getWorkItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkItemResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkItemResponse({}));
+  }
+
+  /**
+   * GetWorkItem
+   * 
+   * @remarks
+   * 有效成员读取当前空间可见工作项详情
+   * 
+   * @param request - GetWorkItemRequest
+   * @returns GetWorkItemResponse
+   */
+  async getWorkItem(request: $_model.GetWorkItemRequest): Promise<$_model.GetWorkItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkItemWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * GetWorkItemArtifactAccess
+   * 
+   * @remarks
+   * 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+   * 
+   * @param request - GetWorkItemArtifactAccessRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkItemArtifactAccessResponse
+   */
+  async getWorkItemArtifactAccessWithOptions(request: $_model.GetWorkItemArtifactAccessRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkItemArtifactAccessResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.artifactId)) {
+      query["artifactId"] = request.artifactId;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      query["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      query["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkItemArtifactAccess",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getWorkItemArtifactAccess`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkItemArtifactAccessResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkItemArtifactAccessResponse({}));
+  }
+
+  /**
+   * GetWorkItemArtifactAccess
+   * 
+   * @remarks
+   * 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+   * 
+   * @param request - GetWorkItemArtifactAccessRequest
+   * @returns GetWorkItemArtifactAccessResponse
+   */
+  async getWorkItemArtifactAccess(request: $_model.GetWorkItemArtifactAccessRequest): Promise<$_model.GetWorkItemArtifactAccessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkItemArtifactAccessWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * GetWorkItemAttachmentAccess
+   * 
+   * @remarks
+   * 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+   * 
+   * @param request - GetWorkItemAttachmentAccessRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkItemAttachmentAccessResponse
+   */
+  async getWorkItemAttachmentAccessWithOptions(request: $_model.GetWorkItemAttachmentAccessRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkItemAttachmentAccessResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachmentId)) {
+      query["attachmentId"] = request.attachmentId;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      query["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      query["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkItemAttachmentAccess",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getWorkItemAttachmentAccess`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkItemAttachmentAccessResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkItemAttachmentAccessResponse({}));
+  }
+
+  /**
+   * GetWorkItemAttachmentAccess
+   * 
+   * @remarks
+   * 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+   * 
+   * @param request - GetWorkItemAttachmentAccessRequest
+   * @returns GetWorkItemAttachmentAccessResponse
+   */
+  async getWorkItemAttachmentAccess(request: $_model.GetWorkItemAttachmentAccessRequest): Promise<$_model.GetWorkItemAttachmentAccessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkItemAttachmentAccessWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询工作流实例详情
+   * 
+   * @remarks
+   * 以当前成员和工作项可见性读取实例。
+   * 
+   * @param request - GetWorkflowInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowInstanceResponse
+   */
+  async getWorkflowInstanceWithOptions(request: $_model.GetWorkflowInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkflowInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflowInstance",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getWorkflowInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkflowInstanceResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkflowInstanceResponse({}));
+  }
+
+  /**
+   * 查询工作流实例详情
+   * 
+   * @remarks
+   * 以当前成员和工作项可见性读取实例。
+   * 
+   * @param request - GetWorkflowInstanceRequest
+   * @returns GetWorkflowInstanceResponse
+   */
+  async getWorkflowInstance(request: $_model.GetWorkflowInstanceRequest): Promise<$_model.GetWorkflowInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkflowInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * GetWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员读取协作空间工作流模板当前配置
+   * 
+   * @param request - GetWorkflowTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowTemplateResponse
+   */
+  async getWorkflowTemplateWithOptions(request: $_model.GetWorkflowTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkflowTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflowTemplate",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getWorkflowTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkflowTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkflowTemplateResponse({}));
+  }
+
+  /**
+   * GetWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员读取协作空间工作流模板当前配置
+   * 
+   * @param request - GetWorkflowTemplateRequest
+   * @returns GetWorkflowTemplateResponse
+   */
+  async getWorkflowTemplate(request: $_model.GetWorkflowTemplateRequest): Promise<$_model.GetWorkflowTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkflowTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Grants authorization to authorized users or user groups to use a digital human.
    * 
    * @remarks
@@ -5989,6 +7891,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.grantAgentUsersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * ImportWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+   * 
+   * @param tmpReq - ImportWorkflowTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportWorkflowTemplateResponse
+   */
+  async importWorkflowTemplateWithOptions(tmpReq: $_model.ImportWorkflowTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ImportWorkflowTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ImportWorkflowTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.template)) {
+      request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "template", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.templateShrink)) {
+      body["template"] = request.templateShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportWorkflowTemplate",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/importWorkflowTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportWorkflowTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ImportWorkflowTemplateResponse({}));
+  }
+
+  /**
+   * ImportWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+   * 
+   * @param request - ImportWorkflowTemplateRequest
+   * @returns ImportWorkflowTemplateResponse
+   */
+  async importWorkflowTemplate(request: $_model.ImportWorkflowTemplateRequest): Promise<$_model.ImportWorkflowTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.importWorkflowTemplateWithOptions(request, headers, runtime);
   }
 
   /**
@@ -6364,6 +8333,192 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAliDingMinutesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询应用内全部原始资源授权
+   * 
+   * @remarks
+   * APP/MANAGE 授权后按安全应用前缀分页。
+   * 
+   * @param tmpReq - ListAppResourcePermissionRecordsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppResourcePermissionRecordsResponse
+   */
+  async listAppResourcePermissionRecordsWithOptions(tmpReq: $_model.ListAppResourcePermissionRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppResourcePermissionRecordsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAppResourcePermissionRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "permissions", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.granteeId)) {
+      body["granteeId"] = request.granteeId;
+    }
+
+    if (!$dara.isNull(request.granteeTenantId)) {
+      body["granteeTenantId"] = request.granteeTenantId;
+    }
+
+    if (!$dara.isNull(request.granteeType)) {
+      body["granteeType"] = request.granteeType;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.permissionsShrink)) {
+      body["permissions"] = request.permissionsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceKeyPrefix)) {
+      body["resourceKeyPrefix"] = request.resourceKeyPrefix;
+    }
+
+    if (!$dara.isNull(request.resourceTenantId)) {
+      body["resourceTenantId"] = request.resourceTenantId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppResourcePermissionRecords",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listAppResourcePermissionRecords`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppResourcePermissionRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListAppResourcePermissionRecordsResponse({}));
+  }
+
+  /**
+   * 查询应用内全部原始资源授权
+   * 
+   * @remarks
+   * APP/MANAGE 授权后按安全应用前缀分页。
+   * 
+   * @param request - ListAppResourcePermissionRecordsRequest
+   * @returns ListAppResourcePermissionRecordsResponse
+   */
+  async listAppResourcePermissionRecords(request: $_model.ListAppResourcePermissionRecordsRequest): Promise<$_model.ListAppResourcePermissionRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAppResourcePermissionRecordsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询用户应用内有效资源权限
+   * 
+   * @remarks
+   * 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+   * 
+   * @param tmpReq - ListAppResourceUserPermissionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppResourceUserPermissionsResponse
+   */
+  async listAppResourceUserPermissionsWithOptions(tmpReq: $_model.ListAppResourceUserPermissionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppResourceUserPermissionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAppResourceUserPermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "permissions", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.permissionsShrink)) {
+      body["permissions"] = request.permissionsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceKeyPrefix)) {
+      body["resourceKeyPrefix"] = request.resourceKeyPrefix;
+    }
+
+    if (!$dara.isNull(request.resourceTenantId)) {
+      body["resourceTenantId"] = request.resourceTenantId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.targetUserId)) {
+      body["targetUserId"] = request.targetUserId;
+    }
+
+    if (!$dara.isNull(request.targetUserTenantId)) {
+      body["targetUserTenantId"] = request.targetUserTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppResourceUserPermissions",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listAppResourceUserPermissions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppResourceUserPermissionsResponse>(await this.callApi(params, req, runtime), new $_model.ListAppResourceUserPermissionsResponse({}));
+  }
+
+  /**
+   * 查询用户应用内有效资源权限
+   * 
+   * @remarks
+   * 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+   * 
+   * @param request - ListAppResourceUserPermissionsRequest
+   * @returns ListAppResourceUserPermissionsResponse
+   */
+  async listAppResourceUserPermissions(request: $_model.ListAppResourceUserPermissionsRequest): Promise<$_model.ListAppResourceUserPermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAppResourceUserPermissionsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7123,6 +9278,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListInstanceNodes
+   * 
+   * @remarks
+   * 查询实例节点列表
+   * 
+   * @param request - ListInstanceNodesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceNodesResponse
+   */
+  async listInstanceNodesWithOptions(request: $_model.ListInstanceNodesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceNodesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceNodes",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listInstanceNodes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceNodesResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceNodesResponse({}));
+  }
+
+  /**
+   * ListInstanceNodes
+   * 
+   * @remarks
+   * 查询实例节点列表
+   * 
+   * @param request - ListInstanceNodesRequest
+   * @returns ListInstanceNodesResponse
+   */
+  async listInstanceNodes(request: $_model.ListInstanceNodesRequest): Promise<$_model.ListInstanceNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceNodesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
    * 
    * @remarks
@@ -7281,19 +9497,33 @@ export default class Client extends OpenApi {
    * - Results are sorted by update time in descending order by default.
    * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
    * 
-   * @param request - ListOutputFilesRequest
+   * @param tmpReq - ListOutputFilesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListOutputFilesResponse
    */
-  async listOutputFilesWithOptions(request: $_model.ListOutputFilesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOutputFilesResponse> {
-    request.validate();
+  async listOutputFilesWithOptions(tmpReq: $_model.ListOutputFilesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOutputFilesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListOutputFilesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.tenantId)) {
       query["tenantId"] = request.tenantId;
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizId)) {
+      body["bizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
     if (!$dara.isNull(request.itemType)) {
       body["itemType"] = request.itemType;
     }
@@ -7314,8 +9544,16 @@ export default class Client extends OpenApi {
       body["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
     if (!$dara.isNull(request.sharedOnly)) {
       body["sharedOnly"] = request.sharedOnly;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7823,6 +10061,121 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListTodos
+   * 
+   * @remarks
+   * 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+   * 
+   * @param tmpReq - ListTodosRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTodosResponse
+   */
+  async listTodosWithOptions(tmpReq: $_model.ListTodosRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTodosResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListTodosShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.priorities)) {
+      request.prioritiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.priorities, "priorities", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.readStatus)) {
+      request.readStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.readStatus, "readStatus", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sourceTypes)) {
+      request.sourceTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceTypes, "sourceTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "statuses", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.prioritiesShrink)) {
+      body["priorities"] = request.prioritiesShrink;
+    }
+
+    if (!$dara.isNull(request.readStatusShrink)) {
+      body["readStatus"] = request.readStatusShrink;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["sortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sourceTypesShrink)) {
+      body["sourceTypes"] = request.sourceTypesShrink;
+    }
+
+    if (!$dara.isNull(request.statusesShrink)) {
+      body["statuses"] = request.statusesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTodos",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listTodos`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTodosResponse>(await this.callApi(params, req, runtime), new $_model.ListTodosResponse({}));
+  }
+
+  /**
+   * ListTodos
+   * 
+   * @remarks
+   * 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+   * 
+   * @param request - ListTodosRequest
+   * @returns ListTodosResponse
+   */
+  async listTodos(request: $_model.ListTodosRequest): Promise<$_model.ListTodosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTodosWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Returns the multi-level user group tree for the current tenant.
    * 
    * @remarks
@@ -8298,6 +10651,407 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListWorkItemArtifacts
+   * 
+   * @remarks
+   * 有效成员列出有权访问工作项的全部历史产物
+   * 
+   * @param request - ListWorkItemArtifactsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkItemArtifactsResponse
+   */
+  async listWorkItemArtifactsWithOptions(request: $_model.ListWorkItemArtifactsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkItemArtifactsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkItemArtifacts",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listWorkItemArtifacts`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkItemArtifactsResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkItemArtifactsResponse({}));
+  }
+
+  /**
+   * ListWorkItemArtifacts
+   * 
+   * @remarks
+   * 有效成员列出有权访问工作项的全部历史产物
+   * 
+   * @param request - ListWorkItemArtifactsRequest
+   * @returns ListWorkItemArtifactsResponse
+   */
+  async listWorkItemArtifacts(request: $_model.ListWorkItemArtifactsRequest): Promise<$_model.ListWorkItemArtifactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkItemArtifactsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * ListWorkItems
+   * 
+   * @remarks
+   * 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+   * 
+   * @param tmpReq - ListWorkItemsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkItemsResponse
+   */
+  async listWorkItemsWithOptions(tmpReq: $_model.ListWorkItemsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkItemsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListWorkItemsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.businessStatuses)) {
+      request.businessStatusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessStatuses, "businessStatuses", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.itemTypes)) {
+      request.itemTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itemTypes, "itemTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.priorities)) {
+      request.prioritiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.priorities, "priorities", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessStatusesShrink)) {
+      body["businessStatuses"] = request.businessStatusesShrink;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.itemTypesShrink)) {
+      body["itemTypes"] = request.itemTypesShrink;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.prioritiesShrink)) {
+      body["priorities"] = request.prioritiesShrink;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      body["scope"] = request.scope;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkItems",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listWorkItems`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkItemsResponse({}));
+  }
+
+  /**
+   * ListWorkItems
+   * 
+   * @remarks
+   * 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+   * 
+   * @param request - ListWorkItemsRequest
+   * @returns ListWorkItemsResponse
+   */
+  async listWorkItems(request: $_model.ListWorkItemsRequest): Promise<$_model.ListWorkItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkItemsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分页筛选工作流实例
+   * 
+   * @remarks
+   * 复用详情投影，避免工作项列表与实例状态混用。
+   * 
+   * @param request - ListWorkflowInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowInstancesResponse
+   */
+  async listWorkflowInstancesWithOptions(request: $_model.ListWorkflowInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkflowInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessId)) {
+      body["businessId"] = request.businessId;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.initiator)) {
+      body["initiator"] = request.initiator;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["sortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      body["sortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkflowInstances",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listWorkflowInstances`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkflowInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkflowInstancesResponse({}));
+  }
+
+  /**
+   * 分页筛选工作流实例
+   * 
+   * @remarks
+   * 复用详情投影，避免工作项列表与实例状态混用。
+   * 
+   * @param request - ListWorkflowInstancesRequest
+   * @returns ListWorkflowInstancesResponse
+   */
+  async listWorkflowInstances(request: $_model.ListWorkflowInstancesRequest): Promise<$_model.ListWorkflowInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkflowInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * ListWorkflowTemplates
+   * 
+   * @remarks
+   * 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+   * 
+   * @param request - ListWorkflowTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowTemplatesResponse
+   */
+  async listWorkflowTemplatesWithOptions(request: $_model.ListWorkflowTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkflowTemplatesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkflowTemplates",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listWorkflowTemplates`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkflowTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkflowTemplatesResponse({}));
+  }
+
+  /**
+   * ListWorkflowTemplates
+   * 
+   * @remarks
+   * 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+   * 
+   * @param request - ListWorkflowTemplatesRequest
+   * @returns ListWorkflowTemplatesResponse
+   */
+  async listWorkflowTemplates(request: $_model.ListWorkflowTemplatesRequest): Promise<$_model.ListWorkflowTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkflowTemplatesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * MarkTodosRead
+   * 
+   * @remarks
+   * 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+   * 
+   * @param tmpReq - MarkTodosReadRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MarkTodosReadResponse
+   */
+  async markTodosReadWithOptions(tmpReq: $_model.MarkTodosReadRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.MarkTodosReadResponse> {
+    tmpReq.validate();
+    let request = new $_model.MarkTodosReadShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.todoIds)) {
+      request.todoIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.todoIds, "todoIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.markAllRead)) {
+      body["markAllRead"] = request.markAllRead;
+    }
+
+    if (!$dara.isNull(request.todoIdsShrink)) {
+      body["todoIds"] = request.todoIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MarkTodosRead",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/markTodosRead`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MarkTodosReadResponse>(await this.callApi(params, req, runtime), new $_model.MarkTodosReadResponse({}));
+  }
+
+  /**
+   * MarkTodosRead
+   * 
+   * @remarks
+   * 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+   * 
+   * @param request - MarkTodosReadRequest
+   * @returns MarkTodosReadResponse
+   */
+  async markTodosRead(request: $_model.MarkTodosReadRequest): Promise<$_model.MarkTodosReadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.markTodosReadWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Moves a resource within a collaboration space.
    * 
    * @remarks
@@ -8595,6 +11349,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.offlineAnnouncementWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * PauseWorkItem
+   * 
+   * @remarks
+   * 有效成员暂停工作项绑定的整个 Workflow
+   * 
+   * @param request - PauseWorkItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseWorkItemResponse
+   */
+  async pauseWorkItemWithOptions(request: $_model.PauseWorkItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PauseWorkItemResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PauseWorkItem",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/pauseWorkItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PauseWorkItemResponse>(await this.callApi(params, req, runtime), new $_model.PauseWorkItemResponse({}));
+  }
+
+  /**
+   * PauseWorkItem
+   * 
+   * @remarks
+   * 有效成员暂停工作项绑定的整个 Workflow
+   * 
+   * @param request - PauseWorkItemRequest
+   * @returns PauseWorkItemResponse
+   */
+  async pauseWorkItem(request: $_model.PauseWorkItemRequest): Promise<$_model.PauseWorkItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.pauseWorkItemWithOptions(request, headers, runtime);
   }
 
   /**
@@ -9019,6 +11834,113 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * QueryWorkItemFeed
+   * 
+   * @remarks
+   * 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+   * 
+   * @param tmpReq - QueryWorkItemFeedRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryWorkItemFeedResponse
+   */
+  async queryWorkItemFeedWithOptions(tmpReq: $_model.QueryWorkItemFeedRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryWorkItemFeedResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryWorkItemFeedShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.businessStatuses)) {
+      request.businessStatusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessStatuses, "businessStatuses", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.itemTypes)) {
+      request.itemTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itemTypes, "itemTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.priorities)) {
+      request.prioritiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.priorities, "priorities", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessStatusesShrink)) {
+      body["businessStatuses"] = request.businessStatusesShrink;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.cursor)) {
+      body["cursor"] = request.cursor;
+    }
+
+    if (!$dara.isNull(request.itemTypesShrink)) {
+      body["itemTypes"] = request.itemTypesShrink;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.prioritiesShrink)) {
+      body["priorities"] = request.prioritiesShrink;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      body["scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.sourceTaskId)) {
+      body["sourceTaskId"] = request.sourceTaskId;
+    }
+
+    if (!$dara.isNull(request.view)) {
+      body["view"] = request.view;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryWorkItemFeed",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/queryWorkItemFeed`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryWorkItemFeedResponse>(await this.callApi(params, req, runtime), new $_model.QueryWorkItemFeedResponse({}));
+  }
+
+  /**
+   * QueryWorkItemFeed
+   * 
+   * @remarks
+   * 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+   * 
+   * @param request - QueryWorkItemFeedRequest
+   * @returns QueryWorkItemFeedResponse
+   */
+  async queryWorkItemFeed(request: $_model.QueryWorkItemFeedRequest): Promise<$_model.QueryWorkItemFeedResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryWorkItemFeedWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Generates next-step recommendations for a session.
    * 
    * @remarks
@@ -9097,6 +12019,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.recommendNextActionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量注册应用内资源权限
+   * 
+   * @remarks
+   * 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+   * 
+   * @param tmpReq - RegisterAppResourcePermissionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterAppResourcePermissionsResponse
+   */
+  async registerAppResourcePermissionsWithOptions(tmpReq: $_model.RegisterAppResourcePermissionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterAppResourcePermissionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.RegisterAppResourcePermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.items)) {
+      request.itemsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.items, "items", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.itemsShrink)) {
+      body["items"] = request.itemsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceTenantId)) {
+      body["resourceTenantId"] = request.resourceTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RegisterAppResourcePermissions",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/registerAppResourcePermissions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RegisterAppResourcePermissionsResponse>(await this.callApi(params, req, runtime), new $_model.RegisterAppResourcePermissionsResponse({}));
+  }
+
+  /**
+   * 批量注册应用内资源权限
+   * 
+   * @remarks
+   * 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+   * 
+   * @param request - RegisterAppResourcePermissionsRequest
+   * @returns RegisterAppResourcePermissionsResponse
+   */
+  async registerAppResourcePermissions(request: $_model.RegisterAppResourcePermissionsRequest): Promise<$_model.RegisterAppResourcePermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.registerAppResourcePermissionsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -9694,6 +12683,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 覆盖或清空手动记忆
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - ReplaceManualMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReplaceManualMemoryResponse
+   */
+  async replaceManualMemoryWithOptions(request: $_model.ReplaceManualMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ReplaceManualMemoryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["groupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerType)) {
+      body["ownerType"] = request.ownerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReplaceManualMemory",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/replaceManualMemory`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReplaceManualMemoryResponse>(await this.callApi(params, req, runtime), new $_model.ReplaceManualMemoryResponse({}));
+  }
+
+  /**
+   * 覆盖或清空手动记忆
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - ReplaceManualMemoryRequest
+   * @returns ReplaceManualMemoryResponse
+   */
+  async replaceManualMemory(request: $_model.ReplaceManualMemoryRequest): Promise<$_model.ReplaceManualMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.replaceManualMemoryWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Replaces all object binding information under a specified data source.
    * 
    * @remarks
@@ -9854,6 +12908,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * RerunNodeAI
+   * 
+   * @remarks
+   * 重跑失败的工作流节点
+   * 
+   * @param request - RerunNodeAIRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RerunNodeAIResponse
+   */
+  async rerunNodeAIWithOptions(request: $_model.RerunNodeAIRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RerunNodeAIResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["nodeId"] = request.nodeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RerunNodeAI",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/rerunNodeAI`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RerunNodeAIResponse>(await this.callApi(params, req, runtime), new $_model.RerunNodeAIResponse({}));
+  }
+
+  /**
+   * RerunNodeAI
+   * 
+   * @remarks
+   * 重跑失败的工作流节点
+   * 
+   * @param request - RerunNodeAIRequest
+   * @returns RerunNodeAIResponse
+   */
+  async rerunNodeAI(request: $_model.RerunNodeAIRequest): Promise<$_model.RerunNodeAIResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.rerunNodeAIWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Resets the password of a user.
    * 
    * @remarks
@@ -10001,6 +13120,197 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resetTokenWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * ResolveWorkItemArtifactAccess
+   * 
+   * @remarks
+   * 有效成员解析工作项产物短期签名下载地址
+   * 
+   * @param request - ResolveWorkItemArtifactAccessRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResolveWorkItemArtifactAccessResponse
+   */
+  async resolveWorkItemArtifactAccessWithOptions(request: $_model.ResolveWorkItemArtifactAccessRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResolveWorkItemArtifactAccessResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.artifactId)) {
+      body["artifactId"] = request.artifactId;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResolveWorkItemArtifactAccess",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/resolveWorkItemArtifactAccess`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResolveWorkItemArtifactAccessResponse>(await this.callApi(params, req, runtime), new $_model.ResolveWorkItemArtifactAccessResponse({}));
+  }
+
+  /**
+   * ResolveWorkItemArtifactAccess
+   * 
+   * @remarks
+   * 有效成员解析工作项产物短期签名下载地址
+   * 
+   * @param request - ResolveWorkItemArtifactAccessRequest
+   * @returns ResolveWorkItemArtifactAccessResponse
+   */
+  async resolveWorkItemArtifactAccess(request: $_model.ResolveWorkItemArtifactAccessRequest): Promise<$_model.ResolveWorkItemArtifactAccessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resolveWorkItemArtifactAccessWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * ResolveWorkItemAttachmentAccess
+   * 
+   * @remarks
+   * 有效成员解析工作项输入附件短期预览地址
+   * 
+   * @param request - ResolveWorkItemAttachmentAccessRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResolveWorkItemAttachmentAccessResponse
+   */
+  async resolveWorkItemAttachmentAccessWithOptions(request: $_model.ResolveWorkItemAttachmentAccessRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResolveWorkItemAttachmentAccessResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachmentId)) {
+      body["attachmentId"] = request.attachmentId;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResolveWorkItemAttachmentAccess",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/resolveWorkItemAttachmentAccess`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResolveWorkItemAttachmentAccessResponse>(await this.callApi(params, req, runtime), new $_model.ResolveWorkItemAttachmentAccessResponse({}));
+  }
+
+  /**
+   * ResolveWorkItemAttachmentAccess
+   * 
+   * @remarks
+   * 有效成员解析工作项输入附件短期预览地址
+   * 
+   * @param request - ResolveWorkItemAttachmentAccessRequest
+   * @returns ResolveWorkItemAttachmentAccessResponse
+   */
+  async resolveWorkItemAttachmentAccess(request: $_model.ResolveWorkItemAttachmentAccessRequest): Promise<$_model.ResolveWorkItemAttachmentAccessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resolveWorkItemAttachmentAccessWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * ResumeWorkItem
+   * 
+   * @remarks
+   * 有效成员从当前 Plan 暂停点恢复工作项
+   * 
+   * @param request - ResumeWorkItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeWorkItemResponse
+   */
+  async resumeWorkItemWithOptions(request: $_model.ResumeWorkItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeWorkItemResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeWorkItem",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/resumeWorkItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeWorkItemResponse>(await this.callApi(params, req, runtime), new $_model.ResumeWorkItemResponse({}));
+  }
+
+  /**
+   * ResumeWorkItem
+   * 
+   * @remarks
+   * 有效成员从当前 Plan 暂停点恢复工作项
+   * 
+   * @param request - ResumeWorkItemRequest
+   * @returns ResumeWorkItemResponse
+   */
+  async resumeWorkItem(request: $_model.ResumeWorkItemRequest): Promise<$_model.ResumeWorkItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resumeWorkItemWithOptions(request, headers, runtime);
   }
 
   /**
@@ -10862,6 +14172,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ScheduleWorkItem
+   * 
+   * @remarks
+   * 有效成员幂等排产工作项并物化固定 Plan
+   * 
+   * @param request - ScheduleWorkItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ScheduleWorkItemResponse
+   */
+  async scheduleWorkItemWithOptions(request: $_model.ScheduleWorkItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ScheduleWorkItemResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.idempotencyKey)) {
+      body["idempotencyKey"] = request.idempotencyKey;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ScheduleWorkItem",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/scheduleWorkItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ScheduleWorkItemResponse>(await this.callApi(params, req, runtime), new $_model.ScheduleWorkItemResponse({}));
+  }
+
+  /**
+   * ScheduleWorkItem
+   * 
+   * @remarks
+   * 有效成员幂等排产工作项并物化固定 Plan
+   * 
+   * @param request - ScheduleWorkItemRequest
+   * @returns ScheduleWorkItemResponse
+   */
+  async scheduleWorkItem(request: $_model.ScheduleWorkItemRequest): Promise<$_model.ScheduleWorkItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.scheduleWorkItemWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Winnexo 轻量工作台搜索阿里钉群聊。
    * 
    * @remarks
@@ -10937,10 +14312,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a session message asynchronously.
+   * Asynchronously sends a session message.
    * 
    * @remarks
-   * Sends a session message asynchronously.
+   * Asynchronously sends a session message.
    * 
    * @param tmpReq - SendAsyncChatMessageRequest
    * @param headers - map
@@ -11037,10 +14412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a session message asynchronously.
+   * Asynchronously sends a session message.
    * 
    * @remarks
-   * Sends a session message asynchronously.
+   * Asynchronously sends a session message.
    * 
    * @param request - SendAsyncChatMessageRequest
    * @returns SendAsyncChatMessageResponse
@@ -11299,6 +14674,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * SetWorkItemPinned
+   * 
+   * @remarks
+   * 有效成员设置工作项个人置顶
+   * 
+   * @param request - SetWorkItemPinnedRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetWorkItemPinnedResponse
+   */
+  async setWorkItemPinnedWithOptions(request: $_model.SetWorkItemPinnedRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SetWorkItemPinnedResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.pinned)) {
+      body["pinned"] = request.pinned;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetWorkItemPinned",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/setWorkItemPinned`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetWorkItemPinnedResponse>(await this.callApi(params, req, runtime), new $_model.SetWorkItemPinnedResponse({}));
+  }
+
+  /**
+   * SetWorkItemPinned
+   * 
+   * @remarks
+   * 有效成员设置工作项个人置顶
+   * 
+   * @param request - SetWorkItemPinnedRequest
+   * @returns SetWorkItemPinnedResponse
+   */
+  async setWorkItemPinned(request: $_model.SetWorkItemPinnedRequest): Promise<$_model.SetWorkItemPinnedResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.setWorkItemPinnedWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Stops conversation generation.
    * 
    * @param request - StopChatMessageRequest
@@ -11457,6 +14897,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * SubmitTodo
+   * 
+   * @remarks
+   * 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+   * 
+   * @param tmpReq - SubmitTodoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTodoResponse
+   */
+  async submitTodoWithOptions(tmpReq: $_model.SubmitTodoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitTodoResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitTodoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.answers)) {
+      request.answersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.answers, "answers", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.answersShrink)) {
+      body["answers"] = request.answersShrink;
+    }
+
+    if (!$dara.isNull(request.todoId)) {
+      body["todoId"] = request.todoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitTodo",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/submitTodo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitTodoResponse>(await this.callApi(params, req, runtime), new $_model.SubmitTodoResponse({}));
+  }
+
+  /**
+   * SubmitTodo
+   * 
+   * @remarks
+   * 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+   * 
+   * @param request - SubmitTodoRequest
+   * @returns SubmitTodoResponse
+   */
+  async submitTodo(request: $_model.SubmitTodoRequest): Promise<$_model.SubmitTodoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitTodoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Pushes organizational structure synchronization.
    * 
    * @remarks
@@ -11557,6 +15064,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.syncOrgStructureWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * TerminateInstance
+   * 
+   * @remarks
+   * 终止当前工作流实例
+   * 
+   * @param request - TerminateInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TerminateInstanceResponse
+   */
+  async terminateInstanceWithOptions(request: $_model.TerminateInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TerminateInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      body["reason"] = request.reason;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TerminateInstance",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/terminateInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TerminateInstanceResponse>(await this.callApi(params, req, runtime), new $_model.TerminateInstanceResponse({}));
+  }
+
+  /**
+   * TerminateInstance
+   * 
+   * @remarks
+   * 终止当前工作流实例
+   * 
+   * @param request - TerminateInstanceRequest
+   * @returns TerminateInstanceResponse
+   */
+  async terminateInstance(request: $_model.TerminateInstanceRequest): Promise<$_model.TerminateInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.terminateInstanceWithOptions(request, headers, runtime);
   }
 
   /**
@@ -11827,6 +15399,77 @@ export default class Client extends OpenApi {
 
     let transcribeChatVoiceResp = await this.transcribeChatVoiceWithOptions(transcribeChatVoiceReq, headers, runtime);
     return transcribeChatVoiceResp;
+  }
+
+  /**
+   * TransferTodo
+   * 
+   * @remarks
+   * 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+   * 
+   * @param tmpReq - TransferTodoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferTodoResponse
+   */
+  async transferTodoWithOptions(tmpReq: $_model.TransferTodoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TransferTodoResponse> {
+    tmpReq.validate();
+    let request = new $_model.TransferTodoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.targetUserIds)) {
+      request.targetUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetUserIds, "targetUserIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.targetUserIdsShrink)) {
+      body["targetUserIds"] = request.targetUserIdsShrink;
+    }
+
+    if (!$dara.isNull(request.todoId)) {
+      body["todoId"] = request.todoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TransferTodo",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/transferTodo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TransferTodoResponse>(await this.callApi(params, req, runtime), new $_model.TransferTodoResponse({}));
+  }
+
+  /**
+   * TransferTodo
+   * 
+   * @remarks
+   * 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+   * 
+   * @param request - TransferTodoRequest
+   * @returns TransferTodoResponse
+   */
+  async transferTodo(request: $_model.TransferTodoRequest): Promise<$_model.TransferTodoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.transferTodoWithOptions(request, headers, runtime);
   }
 
   /**
@@ -12501,6 +16144,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新自动记忆拾取开关
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - UpdateMemoryAutoExtractionSwitchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryAutoExtractionSwitchResponse
+   */
+  async updateMemoryAutoExtractionSwitchWithOptions(request: $_model.UpdateMemoryAutoExtractionSwitchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemoryAutoExtractionSwitchResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clearExisting)) {
+      body["clearExisting"] = request.clearExisting;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["groupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerType)) {
+      body["ownerType"] = request.ownerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMemoryAutoExtractionSwitch",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/updateMemoryAutoExtractionSwitch`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMemoryAutoExtractionSwitchResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMemoryAutoExtractionSwitchResponse({}));
+  }
+
+  /**
+   * 更新自动记忆拾取开关
+   * 
+   * @remarks
+   * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+   * 
+   * @param request - UpdateMemoryAutoExtractionSwitchRequest
+   * @returns UpdateMemoryAutoExtractionSwitchResponse
+   */
+  async updateMemoryAutoExtractionSwitch(request: $_model.UpdateMemoryAutoExtractionSwitchRequest): Promise<$_model.UpdateMemoryAutoExtractionSwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemoryAutoExtractionSwitchWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Updates a scheduled task.
    * 
    * @remarks
@@ -13032,6 +16744,192 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateUserInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * UpdateWorkItem
+   * 
+   * @remarks
+   * 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+   * 
+   * @param tmpReq - UpdateWorkItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkItemResponse
+   */
+  async updateWorkItemWithOptions(tmpReq: $_model.UpdateWorkItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkItemResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateWorkItemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attachments)) {
+      request.attachmentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attachments, "attachments", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.collaboratorUserIds)) {
+      request.collaboratorUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.collaboratorUserIds, "collaboratorUserIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.workflowTemplateIds)) {
+      request.workflowTemplateIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowTemplateIds, "workflowTemplateIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceptanceCriteria)) {
+      body["acceptanceCriteria"] = request.acceptanceCriteria;
+    }
+
+    if (!$dara.isNull(request.attachmentsShrink)) {
+      body["attachments"] = request.attachmentsShrink;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.collaboratorUserIdsShrink)) {
+      body["collaboratorUserIds"] = request.collaboratorUserIdsShrink;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["conversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["expectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.ownerUserId)) {
+      body["ownerUserId"] = request.ownerUserId;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    if (!$dara.isNull(request.workflowTemplateIdsShrink)) {
+      body["workflowTemplateIds"] = request.workflowTemplateIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkItem",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/updateWorkItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkItemResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkItemResponse({}));
+  }
+
+  /**
+   * UpdateWorkItem
+   * 
+   * @remarks
+   * 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+   * 
+   * @param request - UpdateWorkItemRequest
+   * @returns UpdateWorkItemResponse
+   */
+  async updateWorkItem(request: $_model.UpdateWorkItemRequest): Promise<$_model.UpdateWorkItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkItemWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * UpdateWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员整体覆盖更新工作流模板；最后一次保存生效
+   * 
+   * @param tmpReq - UpdateWorkflowTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkflowTemplateResponse
+   */
+  async updateWorkflowTemplateWithOptions(tmpReq: $_model.UpdateWorkflowTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkflowTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateWorkflowTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.definition)) {
+      request.definitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.definition, "definition", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.definitionShrink)) {
+      body["definition"] = request.definitionShrink;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkflowTemplate",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/updateWorkflowTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkflowTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkflowTemplateResponse({}));
+  }
+
+  /**
+   * UpdateWorkflowTemplate
+   * 
+   * @remarks
+   * 有效成员整体覆盖更新工作流模板；最后一次保存生效
+   * 
+   * @param request - UpdateWorkflowTemplateRequest
+   * @returns UpdateWorkflowTemplateResponse
+   */
+  async updateWorkflowTemplate(request: $_model.UpdateWorkflowTemplateRequest): Promise<$_model.UpdateWorkflowTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkflowTemplateWithOptions(request, headers, runtime);
   }
 
   /**

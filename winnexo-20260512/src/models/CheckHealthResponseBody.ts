@@ -29,7 +29,7 @@ export class CheckHealthResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The name of the currently effective digital employee. This value is empty if not configured.
+   * The name of the currently effective digital employee. This field is empty if not configured.
    * 
    * @example
    * pcitc-magent
@@ -37,7 +37,7 @@ export class CheckHealthResponseBody extends $dara.Model {
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * ok

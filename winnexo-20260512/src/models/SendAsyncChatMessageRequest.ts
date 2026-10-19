@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendAsyncChatMessageRequestFiles extends $dara.Model {
   /**
    * @remarks
-   * The file ID returned by uploadChatFile.
+   * The file ID, which is returned by the uploadChatFile operation.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class SendAsyncChatMessageRequestTaskExecution extends $dara.Model {
   executionId?: string;
   /**
    * @remarks
-   * The digital employee name.
+   * The name of the digital employee.
    * 
    * @example
    * string_value
@@ -115,7 +115,7 @@ export class SendAsyncChatMessageRequestTaskExecution extends $dara.Model {
   taskUnderstand?: string;
   /**
    * @remarks
-   * The tenant ID to which the task belongs.
+   * The ID of the tenant to which the task belongs.
    * 
    * @example
    * 10000
@@ -123,7 +123,7 @@ export class SendAsyncChatMessageRequestTaskExecution extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The user ID to which the task belongs.
+   * The ID of the user to which the task belongs.
    * 
    * @example
    * exampleUserId
@@ -174,7 +174,7 @@ export class SendAsyncChatMessageRequestTaskExecution extends $dara.Model {
 export class SendAsyncChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * The message body from the user.
+   * The body of the user message.
    * 
    * This parameter is required.
    * 
@@ -192,7 +192,7 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The list of digital employee names. A single string is also accepted for backward compatibility with the legacy format.
+   * The list of digital employee names. For compatibility with the legacy format, a single string can also be passed.
    * 
    * @example
    * string_value
@@ -200,7 +200,7 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
   digitalEmployeeName?: string[];
   /**
    * @remarks
-   * Specifies whether to enable direct connection mode. If set to true, the regular scenario routing is skipped and the direct conversation scenario is entered.
+   * Specifies whether to enable direct connection mode. If set to true, regular scenario routing is skipped and the direct conversation scenario is used.
    * 
    * @example
    * false
@@ -208,7 +208,7 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable web search. Default value: False. In task execution scenarios where taskExecution is specified, the task configuration takes precedence.
+   * Specifies whether to enable web search. Default value: false. In the task execution scenario where taskExecution is passed, the task configuration prevails.
    * 
    * @example
    * false
@@ -216,12 +216,12 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
   enableWebSearch?: boolean;
   /**
    * @remarks
-   * The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
+   * The list of file references. Each item is an object, and the fileId parameter is required. The fileId is returned by the uploadChatFile operation.
    */
   files?: SendAsyncChatMessageRequestFiles[];
   /**
    * @remarks
-   * The abstract model tier. Valid values: quick, standard, and flagship. If not specified, new sessions use standard, and existing sessions retain their current tier.
+   * The abstract model tier. Valid values: quick, standard, and flagship. If not specified, standard is used for new sessions, and the current tier is retained for existing sessions.
    * 
    * @example
    * quick
@@ -229,7 +229,7 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Specifies whether to reuse the most recent session of the digital employee when sessionId is not specified. This is designed for CLI scenarios. Default value: false, which creates a new session.
+   * Specifies whether to reuse the most recent session under the digital employee when sessionId is not specified. This is typically used in CLI scenarios. Default value: false, which means a new session is created.
    * 
    * @example
    * false
@@ -253,7 +253,7 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
   stream?: boolean;
   /**
    * @remarks
-   * The task execution metadata returned by executeScheduledTask. If specified, the request is processed through the task execution pipeline.
+   * The task execution metadata returned by the executeScheduledTask operation. If passed, the request is processed through the task execution pipeline.
    */
   taskExecution?: SendAsyncChatMessageRequestTaskExecution;
   /**
@@ -266,13 +266,7 @@ export class SendAsyncChatMessageRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The session work mode. Valid values:
-   * 
-   * - ask: Quick Q&A. Tools, skills, and connectors are trimmed, and a single-turn direct answer is returned.
-   * - work: Deep work. This is the default value.
-   * - direct: Direct connection mode at the request level. No sandbox is started and no context pollution occurs. This is equivalent to setting directChat to true.
-   * 
-   * The ask and work modes are session-level settings. The mode is fixed when a session is created. By default, follow-up messages in the same session inherit the session mode. If an explicit value conflicts with the session mode, a parameter error is returned. To switch modes, create a new session or fork the existing one. In multi-digital-employee or task execution scenarios, specifying ask causes the work mode to take effect. If directChat is set to true, this parameter is ignored.
+   * The session work mode. Valid values: ask (quick Q&A, which trims tools, skills, and connectors for single-turn direct answers), work (deep work, default), and direct (direct connection mode at the request level, which does not start a sandbox and prevents context pollution, equivalent to directChat=true). The ask and work modes are session-level. The mode is fixed when a new session is created and inherited by default in subsequent chats. If the explicitly passed value is inconsistent with the session mode, a parameter error is returned. To switch modes, create a new session or fork the current one. If ask is passed in multi-digital-employee or task execution scenarios, it takes effect as work. This parameter is ignored when directChat is set to true.
    * 
    * @example
    * work
