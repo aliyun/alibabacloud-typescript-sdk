@@ -13,7 +13,7 @@ export class CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups extends $dara.
   allocateUnit?: string;
   /**
    * @remarks
-   * The name of the worker group.
+   * The worker group name.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups extends $dara.
   workerDiskCapacity?: string;
   /**
    * @remarks
-   * The node specifications of the worker node.
+   * The worker node specifications.
    * 
    * @example
    * xlarge
@@ -53,7 +53,7 @@ export class CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups extends $dara.
   workerSpecName?: string;
   /**
    * @remarks
-   * The resource type of the worker node.
+   * The worker node resource type.
    * 
    * @example
    * CPU
@@ -107,7 +107,7 @@ export class CreateEmbodiedAIPlatformRequestRayConfig extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The node specifications of the head node.
+   * The head node specifications.
    * 
    * @example
    * xlarge
@@ -199,7 +199,7 @@ export class CreateEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs extends $dara
 export class CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfig extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the image repository.
+   * The image repository instance ID.
    * 
    * @example
    * cri-***
@@ -207,12 +207,12 @@ export class CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfi
   instanceId?: string;
   /**
    * @remarks
-   * The list of namespaces.
+   * The namespace list.
    */
   namespaces?: string[];
   /**
    * @remarks
-   * The address of the image repository instance.
+   * The image repository instance address.
    * 
    * @example
    * example-vpc.example-region.cr.aliyuncs.com
@@ -284,7 +284,7 @@ export class CreateEmbodiedAIPlatformRequestRayTrainConfig extends $dara.Model {
   cpuAcu?: number;
   /**
    * @remarks
-   * The list of GPU model specifications to purchase.
+   * The list of GPU model types to purchase.
    */
   gpuSpecs?: CreateEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs[];
   /**
@@ -336,7 +336,7 @@ export class CreateEmbodiedAIPlatformRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ontology count.
+   * The device count.
    * 
    * @example
    * 3
@@ -377,7 +377,7 @@ export class CreateEmbodiedAIPlatformRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The webserver specification of the platform.
+   * The Webserver specification of the platform.
    * 
    * @example
    * large

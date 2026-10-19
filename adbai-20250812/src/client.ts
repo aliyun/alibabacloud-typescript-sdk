@@ -172,10 +172,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB multimodal knowledge base.
+   * Creates an AnalyticDB for MySQL multimodal knowledge base.
    * 
    * @remarks
-   * Creates an AnalyticDB multimodal knowledge base.
+   * Creates an AnalyticDB for MySQL multimodal knowledge base.
    * 
    * @param request - CreateMultiModelKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -194,6 +194,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dbClusterAcu)) {
       query["DbClusterAcu"] = request.dbClusterAcu;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!$dara.isNull(request.lakeStorageBucketName)) {
@@ -242,10 +246,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB multimodal knowledge base.
+   * Creates an AnalyticDB for MySQL multimodal knowledge base.
    * 
    * @remarks
-   * Creates an AnalyticDB multimodal knowledge base.
+   * Creates an AnalyticDB for MySQL multimodal knowledge base.
    * 
    * @param request - CreateMultiModelKnowledgeBaseRequest
    * @returns CreateMultiModelKnowledgeBaseResponse
@@ -412,10 +416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multi-turn conversations for instance kernel diagnostics.
+   * Retrieves multi-turn conversations for instance kernel diagnostics.
    * 
    * @remarks
-   * Queries multi-turn conversations for instance kernel diagnostics.
+   * Retrieves multi-turn conversations for instance kernel diagnostics.
    * 
    * @param request - DescribeChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -476,10 +480,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multi-turn conversations for instance kernel diagnostics.
+   * Retrieves multi-turn conversations for instance kernel diagnostics.
    * 
    * @remarks
-   * Queries multi-turn conversations for instance kernel diagnostics.
+   * Retrieves multi-turn conversations for instance kernel diagnostics.
    * 
    * @param request - DescribeChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -526,10 +530,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multi-turn conversations for instance kernel diagnostics.
+   * Retrieves multi-turn conversations for instance kernel diagnostics.
    * 
    * @remarks
-   * Queries multi-turn conversations for instance kernel diagnostics.
+   * Retrieves multi-turn conversations for instance kernel diagnostics.
    * 
    * @param request - DescribeChatMessageRequest
    * @returns DescribeChatMessageResponse
@@ -674,7 +678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource usage information of an embodied intelligence platform.
+   * Queries the resource usage information of the Embodied platform.
    * 
    * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -721,7 +725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource usage information of an embodied intelligence platform.
+   * Queries the resource usage information of the Embodied platform.
    * 
    * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
    * @returns GetEmbodiedAIPlatformResourceUsageInfoResponse
@@ -842,7 +846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the specifications of an embodied intelligence platform.
+   * Modifies the specifications of the embodied AI platform.
    * 
    * @param tmpReq - ModifyEmbodiedAIPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -907,7 +911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the specifications of an embodied intelligence platform.
+   * Modifies the specifications of the embodied AI platform.
    * 
    * @param request - ModifyEmbodiedAIPlatformRequest
    * @returns ModifyEmbodiedAIPlatformResponse

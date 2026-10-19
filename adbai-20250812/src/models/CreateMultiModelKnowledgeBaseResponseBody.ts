@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMultiModelKnowledgeBaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the created AnalyticDB for MySQL cluster.
+   * 
+   * @example
+   * amv-***
+   */
   dbClusterId?: string;
+  /**
+   * @remarks
+   * The name of the created multimodal knowledge engine service.
+   * 
+   * @example
+   * mmkb-***
+   */
   mmkbName?: string;
   /**
    * @remarks

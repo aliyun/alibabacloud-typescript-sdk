@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -13,11 +13,18 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The total number of devices.
+   * 
+   * @example
+   * 3
+   */
   deviceCount?: string;
   /**
    * @remarks
-   * The name of the embodied intelligence multimodal data platform.
-   * > The name can contain lowercase letters, digits, and underscores (_). It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
+   * The name of the embodied AI multimodal data platform.
+   * > The name must be 1 to 16 characters in length and can contain lowercase letters, digits, and underscores (_). It must start with a letter and end with a letter or digit.
    * 
    * This parameter is required.
    * 
@@ -27,9 +34,13 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
   platformName?: string;
   /**
    * @remarks
-   * The Ray specification information of the platform.
+   * The Ray specifications of the platform.
    */
   rayConfigShrink?: string;
+  /**
+   * @remarks
+   * The configuration of development and training resources.
+   */
   rayTrainConfigShrink?: string;
   /**
    * @remarks

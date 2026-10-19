@@ -37,7 +37,7 @@ export class ModifyEmbodiedAIPlatformRequestRayConfigWorkerGroups extends $dara.
   minWorkerQuantity?: number;
   /**
    * @remarks
-   * The disk size of the worker node.
+   * The disk capacity of the worker node.
    * 
    * @example
    * 100G
@@ -97,7 +97,7 @@ export class ModifyEmbodiedAIPlatformRequestRayConfig extends $dara.Model {
    * @remarks
    * The type of the Ray cluster. Valid values:
    * 
-   * - BASIC: basic type, which does not support high availability.
+   * - BASIC: basic type, non-high-availability.
    * 
    * - HIGH_AVAILABILITY: high-availability type.
    * 
@@ -115,7 +115,7 @@ export class ModifyEmbodiedAIPlatformRequestRayConfig extends $dara.Model {
   headSpec?: string;
   /**
    * @remarks
-   * The configuration information of Ray worker groups.
+   * The configuration of the Ray worker groups.
    */
   workerGroups?: ModifyEmbodiedAIPlatformRequestRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {
@@ -148,16 +148,25 @@ export class ModifyEmbodiedAIPlatformRequestRayConfig extends $dara.Model {
 
 export class ModifyEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs extends $dara.Model {
   /**
+   * @remarks
+   * The allocation unit.
+   * 
    * @example
    * "1"
    */
   allocateUnit?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 1
    */
   count?: number;
   /**
+   * @remarks
+   * The GPU model.
+   * 
    * @example
    * ADB.MLTensor.2
    */
@@ -189,12 +198,22 @@ export class ModifyEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs extends $dara
 
 export class ModifyEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfig extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the image repository.
+   * 
    * @example
    * i-8vb32jdd306b50rodza7
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of namespaces.
+   */
   namespaces?: string[];
   /**
+   * @remarks
+   * The address of the image repository instance.
+   * 
    * @example
    * example-vpc.example-region.cr.aliyuncs.com
    */
@@ -228,6 +247,10 @@ export class ModifyEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfi
 }
 
 export class ModifyEmbodiedAIPlatformRequestRayTrainConfigTerminalConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the image repository.
+   */
   acrConfig?: ModifyEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfig;
   static names(): { [key: string]: string } {
     return {
@@ -255,11 +278,22 @@ export class ModifyEmbodiedAIPlatformRequestRayTrainConfigTerminalConfig extends
 
 export class ModifyEmbodiedAIPlatformRequestRayTrainConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU ACUs.
+   * 
    * @example
    * 10
    */
   cpuAcu?: number;
+  /**
+   * @remarks
+   * The list of GPU types to purchase.
+   */
   gpuSpecs?: ModifyEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs[];
+  /**
+   * @remarks
+   * The configuration of the development machine.
+   */
   terminalConfig?: ModifyEmbodiedAIPlatformRequestRayTrainConfigTerminalConfig;
   static names(): { [key: string]: string } {
     return {
@@ -295,7 +329,7 @@ export class ModifyEmbodiedAIPlatformRequestRayTrainConfig extends $dara.Model {
 export class ModifyEmbodiedAIPlatformRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -303,11 +337,18 @@ export class ModifyEmbodiedAIPlatformRequest extends $dara.Model {
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The total number of devices.
+   * 
+   * @example
+   * 3
+   */
   deviceCount?: string;
   /**
    * @remarks
-   * The name of the embodied intelligence multimodal data platform.
-   * > The name can contain lowercase letters, digits, and underscores (_). It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
+   * The name of the embodied AI multimodal data platform.
+   * > The name must be 1 to 16 characters in length and can contain lowercase letters, digits, and underscores (_). It must start with a letter and end with a letter or digit.
    * 
    * This parameter is required.
    * 
@@ -317,9 +358,13 @@ export class ModifyEmbodiedAIPlatformRequest extends $dara.Model {
   platformName?: string;
   /**
    * @remarks
-   * The Ray specification information of the platform.
+   * The Ray specifications of the platform.
    */
   rayConfig?: ModifyEmbodiedAIPlatformRequestRayConfig;
+  /**
+   * @remarks
+   * The configuration of development and training resources.
+   */
   rayTrainConfig?: ModifyEmbodiedAIPlatformRequestRayTrainConfig;
   /**
    * @remarks

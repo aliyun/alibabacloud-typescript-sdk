@@ -15,7 +15,7 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ontology count.
+   * The device count.
    * 
    * @example
    * 3
@@ -56,7 +56,7 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The webserver specification of the platform.
+   * The Webserver specification of the platform.
    * 
    * @example
    * large

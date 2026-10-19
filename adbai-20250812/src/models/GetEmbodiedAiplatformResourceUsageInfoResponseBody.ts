@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The number of ACUs for the EAP web server.
+   * 
+   * @example
+   * 0
+   */
   eapWebserverACUCount?: number;
+  /**
+   * @remarks
+   * The number of ACUs for the Ray head node.
+   * 
+   * @example
+   * 0
+   */
   rayHeadACUCount?: number;
+  /**
+   * @remarks
+   * The number of ACUs for the Ray worker node.
+   * 
+   * @example
+   * 0
+   */
   rayWorkerACUCount?: number;
+  /**
+   * @remarks
+   * The total number of ACUs.
+   * 
+   * @example
+   * 0
+   */
   totalACUCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,7 +81,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails extend
   gpuModel?: string;
   /**
    * @remarks
-   * The number of GPUs of this model currently in use.
+   * The current number of GPUs in use for this model.
    * 
    * @example
    * 1
@@ -87,7 +115,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails extend
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic extends $dara.Model {
   /**
    * @remarks
-   * The upstream bandwidth traffic over the public network. Unit: bytes.
+   * The inbound Internet traffic, in bytes.
    * 
    * @example
    * 0
@@ -95,7 +123,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic extend
   totalBytesIn?: number;
   /**
    * @remarks
-   * The downstream bandwidth traffic over the public network. Unit: bytes.
+   * The outbound Internet traffic, in bytes.
    * 
    * @example
    * 0
@@ -127,7 +155,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic extend
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageNas extends $dara.Model {
   /**
    * @remarks
-   * The NAS standard storage usage. Unit: bytes.
+   * The NAS standard storage usage, in bytes.
    * 
    * @example
    * 0
@@ -157,7 +185,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageNas e
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageOss extends $dara.Model {
   /**
    * @remarks
-   * The OSS standard storage usage. Unit: bytes.
+   * The OSS standard storage usage, in bytes.
    * 
    * @example
    * 0
@@ -225,15 +253,19 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage exte
 }
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of ACUs for each component of the Embodied platform.
+   */
   acuDetails?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails;
   /**
    * @remarks
-   * The GPU usage details.
+   * The GPU usage.
    */
   gpuDetails?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails[];
   /**
    * @remarks
-   * The maximum number of embodiments that can be registered.
+   * The maximum number of registered devices.
    * 
    * @example
    * 3
@@ -241,7 +273,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends $dara.Mo
   maxRegisteredDevices?: number;
   /**
    * @remarks
-   * The number of registered embodiments.
+   * The number of registered devices.
    * 
    * @example
    * 1

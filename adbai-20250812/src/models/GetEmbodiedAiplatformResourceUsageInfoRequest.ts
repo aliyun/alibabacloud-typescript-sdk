@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEmbodiedAIPlatformResourceUsageInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range for querying network resource usage. Format: yyyy-MM-ddTHH:mmZ.
+   * The end time of the time range to query network resource usage. Format: yyyy-MM-ddTHH:mmZ.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -25,7 +25,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the embodied intelligence platform.
+   * The name of the Embodied platform.
    * 
    * @example
    * platform1
@@ -45,7 +45,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start of the time range for querying network resource usage. Format: yyyy-MM-ddTHH:mmZ.
+   * The start time of the time range to query network resource usage. Format: yyyy-MM-ddTHH:mmZ.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChatMessageResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data API operation that is called.
+   * The ID of the invoked data API.
    * 
    * @example
    * call_e0e9ee423c7e4ba88d058fd6
@@ -13,7 +13,7 @@ export class DescribeChatMessageResponseBodyContentData extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The name of the data API operation that is called.
+   * The name of the invoked data API.
    * 
    * @example
    * describeScalingRecommendation
@@ -21,7 +21,7 @@ export class DescribeChatMessageResponseBodyContentData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output of the data API operation that is called.
+   * The output of the invoked data API.
    * 
    * @example
    * [{"type": "text", "text": "Skill not found: instance_health_inspection"}]
@@ -175,7 +175,7 @@ export class DescribeChatMessageResponseBodyContent extends $dara.Model {
 export class DescribeChatMessageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The parameters of the data API operation that is called.
+   * The parameters of the invoked data API.
    * 
    * @example
    * {"instanceName": "amv-bp1b9y9xhvpzm9p0", "pageNumber": 1, "pageSize": 10}
@@ -183,7 +183,7 @@ export class DescribeChatMessageResponseBodyData extends $dara.Model {
   arguments?: string;
   /**
    * @remarks
-   * The ID of the data API operation that is called.
+   * The ID of the invoked data API.
    * 
    * @example
    * call_1891f1689bc44ab292aadff3
@@ -191,7 +191,7 @@ export class DescribeChatMessageResponseBodyData extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The name of the data API operation that is called.
+   * The name of the invoked data API.
    * 
    * @example
    * describeScalingRecommendation
@@ -199,7 +199,7 @@ export class DescribeChatMessageResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output of the data API operation that is called.
+   * The output of the invoked data API.
    * 
    * @example
    * [{"type": "text", "text": "Skill not found: instance_health_inspection"}]
@@ -256,7 +256,7 @@ export class DescribeChatMessageResponseBody extends $dara.Model {
   content?: DescribeChatMessageResponseBodyContent[];
   /**
    * @remarks
-   * The creation time.
+   * The creation time, in ISO 8601 format and UTC.
    * 
    * @example
    * 2026-03-18T02:01:56Z

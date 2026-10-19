@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * The question statement submitted by the user.
+   * The question asked by the user.
    * 
    * This parameter is required.
    * 
    * @example
-   * How to set reasonable annual plan goals?
+   * How to set reasonable annual planning goals?
    */
   query?: string;
   /**
